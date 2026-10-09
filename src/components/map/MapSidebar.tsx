@@ -416,25 +416,50 @@ export function MapSidebar({
             }}
             aria-expanded={directoryOpen}
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              aria-hidden="true"
-            >
-              <line x1="8" y1="6" x2="21" y2="6" />
-              <line x1="8" y1="12" x2="21" y2="12" />
-              <line x1="8" y1="18" x2="21" y2="18" />
-              <line x1="3" y1="6" x2="3.01" y2="6" />
-              <line x1="3" y1="12" x2="3.01" y2="12" />
-              <line x1="3" y1="18" x2="3.01" y2="18" />
-            </svg>
-            {t('tableButton')}
+            {/* A system search field in spotlight mode — a grey well with a
+                magnifier, because what it opens is a search — and the list
+                glyph in table mode, where what it opens is a list. The class
+                name stays: a dozen specs find the front door by it. */}
+            {directoryMode === 'spotlight' ? (
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <line x1="20" y1="20" x2="16" y2="16" />
+              </svg>
+            ) : (
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
+              >
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <line x1="3" y1="6" x2="3.01" y2="6" />
+                <line x1="3" y1="12" x2="3.01" y2="12" />
+                <line x1="3" y1="18" x2="3.01" y2="18" />
+              </svg>
+            )}
+            <span className="list-toggle-label">{t('tableButton')}</span>
             {hasActiveFilter && (
               <span className="filter-active-dot" aria-label={t('ariaFiltersActive')} />
+            )}
+            {directoryMode === 'spotlight' && !isMobile && (
+              <span className="palette-kbd palette-trigger-shortcut" aria-hidden="true">
+                {isMac ? '⌘K' : 'Ctrl K'}
+              </span>
             )}
           </button>
         </div>

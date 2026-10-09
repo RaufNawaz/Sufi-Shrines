@@ -168,7 +168,7 @@ export const UI_TEXT_UR: UiStrings = {
   loadingShrine: 'مزار کی تفصیلات لوڈ ہو رہی ہیں...',
   noSelection: 'ابھی کوئی مزار منتخب نہیں ہوا۔ تفصیل کے لیے مارکر پر کلک کریں۔',
   exploreTitle: 'مزارات دریافت کریں',
-  exploreHint: 'مزارات کی مکمل فہرست دیکھنے کے لیے اوپر والا بٹن استعمال کریں۔',
+  exploreHint: 'کوئی مزار ڈھونڈنے یا سب کی فہرست دیکھنے کے لیے اوپر تلاش استعمال کریں۔',
   tableButton: 'تلاش',
   settings: 'ترتیبات',
   directoryModeLabel: 'تلاش کا بٹن کھولے',

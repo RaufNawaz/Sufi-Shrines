@@ -23,7 +23,7 @@ const UI_TEXT_EN = {
   loadingShrine: 'Loading shrine details...',
   noSelection: 'No shrine selected yet. Click a marker to view details.',
   exploreTitle: 'Explore the Shrines',
-  exploreHint: 'Use the list button above to browse all shrines.',
+  exploreHint: 'Use Search above to find a shrine, or to browse them all.',
   tableButton: 'Search',
   settings: 'Settings',
   directoryModeLabel: 'Search button opens',

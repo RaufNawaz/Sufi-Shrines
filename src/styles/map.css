@@ -315,6 +315,22 @@
   letter-spacing: normal;
 }
 
+/* The wordmark wraps rather than ellipsising. "Mapping the Shrines of
+   Pakistan" needs ~250px and the brand row gives it ~150 beside the gear, the
+   theme toggle and the language pill, at every width — it read "Mapping the
+   S…" on a 1440px screen; the Urdu name, beside a fourth control on desktop,
+   read "صوفی …". An archive's name cut off mid-word is the first thing a
+   reader sees, so it takes a second line instead. */
+.sidebar-header .sidebar-title {
+  white-space: normal;
+  text-overflow: clip;
+  line-height: 1.2;
+}
+
+[dir='rtl'] .sidebar-header .sidebar-title {
+  line-height: var(--leading-urdu-heading);
+}
+
 /* At 390px the brand row holds the title, the theme toggle and the language
    segment; the Urdu title is the widest of the three and the only one that can
    give. A notch smaller here means it fits whole rather than being clipped to
@@ -1490,6 +1506,30 @@
   border-color: var(--color-primary);
   background: var(--color-primary);
   color: var(--color-text-inverse);
+}
+
+/* The Apple pass (9 October 2026): the front door is a system search field —
+   the grey well `.palette-trigger` already is, no border, the label in the
+   placeholder tone — rather than a bordered button with a list glyph. The
+   active state stays filled: in table mode it says the list is open. */
+.list-toggle-btn {
+  min-height: 40px;
+  border-color: transparent;
+  border-radius: 12px;
+  background: var(--color-bg-alt);
+  font-weight: 400;
+  font-size: var(--text-base);
+}
+
+.list-toggle-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+}
+
+.list-toggle-label {
+  flex: 1;
+  min-width: 0;
 }
 
 /* Shrine list thumbnail slot — always renders, fallback when no image */
