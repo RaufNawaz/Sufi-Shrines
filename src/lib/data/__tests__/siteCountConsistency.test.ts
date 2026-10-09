@@ -122,7 +122,7 @@ const BIBLIOGRAPHY_CLAIMS: {
   {
     file: 'docs/TODO.md',
     label: 'citations in total',
-    pattern: /168 of 169 now carry one, (\d+) citations/,
+    pattern: /\d+ of \d+ now carry one, (\d+) citations/,
     actual: (c) => c.bibliography.items,
   },
   {

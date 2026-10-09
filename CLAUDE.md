@@ -190,15 +190,19 @@ authored **inline** inside `Description` or in **dedicated columns** (`History`,
 
 ## Do not break these
 
-**Fifteen directories under `public/photos/` carry live photo URLs.** Renaming any of them
+**Seventeen directories under `public/photos/` carry live photo URLs.** Renaming any of them
 breaks published images:
 
 ```
 abul-faiz-qalander-ali-suharwardi · abul-muali-qadri · bibi-pak-daman · data-darbar
 ganj-e-inayat-sarkar · ghazi-ilm-din-shaheed · khawaja-feroz-ud-din-gharib-nawaz
-madho-lal-hussain · malik-ahmad-ayaz · mazar-e-iqbal · peer-makki
-shah-inayat-qadri-shattari · shah-jamal · tahir-bandagi-qadri · wasif-ali-wasif
+madho-lal-hussain · malik-ahmad-ayaz · mazar-e-iqbal · mian-qurban-ali-shah · peer-makki
+shah-gohar-peer · shah-inayat-qadri-shattari · shah-jamal · tahir-bandagi-qadri
+wasif-ali-wasif
 ```
+
+*Fifteen until 8 October 2026, when the import made Shah Gohar Peer's and Mian Qurban Ali Shah's
+rows shippable and their two directories, on disk since before their rows, went live.*
 
 *This said **eight** until 30 August 2026 — a count with no date on it, in the section a
 careful agent reads precisely so as not to do this. The seven it omitted serve **67 of the
@@ -317,8 +321,8 @@ outside citations/URLs/coordinates/`<bdi>`.
 ## Standing findings
 
 - ~~**49 of 167 entries (29%) have no bibliography at all.**~~ **Closed — re-measured
-  21 August 2026; count corrected 24 August.** 168 of 169 entries now carry a bibliography,
-  **533** citations in total (544 until the counting rule was fixed — one regex matched twice
+  21 August 2026; count corrected 24 August; re-measured 8 October.** 170 of 171 entries now carry a bibliography,
+  **538** citations in total (544 until the counting rule was fixed — one regex matched twice
   inside any citation ending in a URL, and nine do), **103** of
   them citing three or more sources. Exactly one entry cites nothing (Sant Baba Asudaram
   Darbar). *That 103 read 107 until 30 August 2026, when this sentence's four numbers were
@@ -333,7 +337,7 @@ outside citations/URLs/coordinates/`<bdi>`.
   `buildCoverage()` in `src/lib/data/coverage.ts`, tested against the shipped snapshot.
   (They computed on `/coverage` until 24 August 2026, when `/coverage` and `/report` were
   merged into `/about`; both remain as redirects into it.)
-- Coverage is ~32% of Punjab Auqaf's Punjab register alone (169 vs 534). *Measured 21 August
+- Coverage is ~32% of Punjab Auqaf's Punjab register alone (171 vs 534; 169 until the 8 October 2026 import). *Measured 21 August
   2026* for the 169; the 534 is an external figure from the register, not computed here.
 - **51 of 169 entries carry no photograph at all**, and 242 image fields are populated across
   the other 118. *Measured 21 August 2026 from `src/data/shrines-fallback.json`.* Also on

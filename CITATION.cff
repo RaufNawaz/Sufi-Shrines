@@ -5,7 +5,7 @@ message: >-
 type: dataset
 title: 'Mapping the Shrines of Pakistan'
 abstract: >-
-  A bilingual (English/Urdu), schema-validated, open dataset of 169 sacred
+  A bilingual (English/Urdu), schema-validated, open dataset of 171 sacred
   sites across Pakistan. Covers Muslim Sufi shrines (dargahs, mazars), Hindu
   temples (mandirs), Sikh gurdwaras, Nanakpanthi/Udasi darbars, Jain temples
   and secular memorials, with structured provenance tracking,

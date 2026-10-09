@@ -78,9 +78,17 @@
       "type": "string",
       "description": "The built form of the site, as a short term. Qualifying prose belongs in `site_type_note`."
     },
+    "site_type_note": {
+      "type": "string",
+      "description": "Prose about the built form that `site_type` qualifies. `site_type` holds a short term; any longer description of the structure belongs here. Added to the sheet 8 October 2026."
+    },
     "status": {
       "type": "string",
       "description": "Whether the site is in use: Active, Occasional, Heritage, Ruin or Destroyed. Qualifying prose belongs in `status_note`."
+    },
+    "status_note": {
+      "type": "string",
+      "description": "Prose qualifying `status` (for example, how a site is in use, or what constrains it). `status` holds one of the five schema values; the sentence that used to sit in it lives here. Added to the sheet 8 October 2026."
     },
     "support_level": {
       "type": "string",
@@ -114,6 +122,10 @@
     "silsila": {
       "type": "string",
       "description": "The Sufi order or spiritual lineage of the site’s figure, as the archive’s source states it — including where the source answers with descent or personal affiliation rather than with an order."
+    },
+    "silsila_note": {
+      "type": "string",
+      "description": "Prose qualifying `silsila`: the lineage as a source states it, where the short value would lose a qualification. Added to the sheet 8 October 2026."
     },
     "year_built": {
       "type": "string",

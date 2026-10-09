@@ -80,14 +80,8 @@ export const SURVEYED_SUPPORT_LEVEL = 'Field-verified';
  * Not an allowlist for failures — these rows are absent, not wrong.
  */
 export const NOT_IN_DATASET = new Map([
-  [
-    'darbar-hazrat-shah-gohar-peer',
-    'no coordinates in the sheet; buildShrine() drops unplaceable rows (the 169-vs-171 gap)',
-  ],
-  [
-    'darbar-mian-qurban-ali-shah',
-    'no coordinates in the sheet; buildShrine() drops unplaceable rows (the 169-vs-171 gap)',
-  ],
+  // Empty since 8 October 2026: the import gave darbar-hazrat-shah-gohar-peer and
+  // darbar-mian-qurban-ali-shah placeable rows, and both now ship (171 of 171).
 ]);
 
 /**
@@ -97,21 +91,9 @@ export const NOT_IN_DATASET = new Map([
  * this gate fails instead — see the header.
  */
 export const KNOWN = new Map([
-  [
-    'shah-jamal',
-    'Measured 5 September 2026. Survey content is in the entry, unattributed. Fixed by ' +
-      'data/patch_field_survey_orphans_2026-09-05.csv, awaiting import (RULE 3: agents do not ' +
-      'write to the sheet). Delete this line once the import has landed.',
-  ],
-  [
-    'peer-makki',
-    'Measured 5 September 2026. Same patch, and the one of the three whose content gap was ' +
-      'real as well. Delete this line once the import has landed.',
-  ],
-  [
-    'shrine-of-mauj-darya-bukhari',
-    'Measured 5 September 2026. Same patch. Delete this line once the import has landed.',
-  ],
+  // Empty since 8 October 2026: data/import_2026-10-08.csv carried
+  // patch_field_survey_orphans_2026-09-05.csv, which fixed shah-jamal, peer-makki
+  // and shrine-of-mauj-darya-bukhari.
 ]);
 
 /** Live responses from the hand-written map, deduped to one entry per shrine. */

@@ -99,19 +99,18 @@ describe('what counts as a failure', () => {
 });
 
 describe('against the shipped data', () => {
-  it('still finds exactly the three rows the allowlist records', () => {
+  it('finds exactly the rows the allowlist records', () => {
     const surveyed = readSurveyedShrines(mapText);
     const { failures, absent } = findFailures(rows, surveyed);
     expect(failures.map((f) => f.id).sort()).toEqual([...KNOWN.keys()].sort());
     expect(absent.sort()).toEqual([...NOT_IN_DATASET.keys()].sort());
   });
 
-  it('finds sixteen surveyed shrines already carrying their provenance', () => {
+  it('finds every surveyed shrine carrying its provenance', () => {
     const surveyed = readSurveyedShrines(mapText);
     const { failures, absent } = findFailures(rows, surveyed);
-    expect(surveyed.size - failures.length - absent.length).toBe(14);
-    // 19 live responses − 3 failing − 2 not shipped. The other two of the
-    // sixteen that pass in the sheet are the unshippable rows, which cannot be
-    // counted here because they are not in the dataset at all.
+    // 19 live responses, none failing, none unshipped — since the 8 October 2026
+    // import. It read 14 (19 − 3 failing − 2 not shipped) until then.
+    expect(surveyed.size - failures.length - absent.length).toBe(19);
   });
 });

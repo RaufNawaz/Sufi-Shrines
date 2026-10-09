@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-05T19:39:22.673Z",
+  "generated": "2026-10-09T00:39:41.449Z",
   "sources": [
     {
       "id": "source:387e8ef241bd",
@@ -214,6 +214,12 @@
       "placeholder": true
     },
     {
+      "id": "source:7721249a9999",
+      "type": "source",
+      "slug": "7721249a9999",
+      "name": "Shrines Project field survey, Darbar Hazrat Shah Gohar Peer (surveyor: Saifullah), 14 July"
+    },
+    {
       "id": "source:14a5d76f3b66",
       "type": "source",
       "slug": "14a5d76f3b66",
@@ -224,6 +230,12 @@
       "type": "source",
       "slug": "a4718caf798d",
       "name": "Shrines Project field survey, Darbar Malik Ahmad Ayaz (surveyor: Saifullah), 29 July 2026."
+    },
+    {
+      "id": "source:b6c539818b08",
+      "type": "source",
+      "slug": "b6c539818b08",
+      "name": "Shrines Project field survey, Darbar Mian Qurban Ali Shah (surveyor: Saifullah), 14 July 2026."
     },
     {
       "id": "source:fc53973f1847",
@@ -2495,6 +2507,12 @@
       "name": "\"'Armed attack' on Girhor Sharif custodian stirs sectarian unrest,\" *Dawn*, 10 June 2015."
     },
     {
+      "id": "source:10cd7af4b4f8",
+      "type": "source",
+      "slug": "10cd7af4b4f8",
+      "name": "Shrines Project field survey, Darbar Meera Mauj Darya Bukhari responses (surveyor: Saifullah), 2026."
+    },
+    {
       "id": "source:81a654b12f83",
       "type": "source",
       "slug": "81a654b12f83",
@@ -2523,6 +2541,12 @@
       "type": "source",
       "slug": "153ef8ead35f",
       "name": "Shrines Project field survey, Mian Mir responses (surveyor: Muhammad Rizwan), 2026."
+    },
+    {
+      "id": "source:4cc279fae823",
+      "type": "source",
+      "slug": "4cc279fae823",
+      "name": "Shrines Project field survey, Darbar Sufi Aziz-ud-Din Peer Makki Sarkar responses (surveyor: Saifullah), 2026."
     },
     {
       "id": "source:b9de6ea1885d",
@@ -2586,6 +2610,12 @@
       "type": "source",
       "slug": "45f6b03645fb",
       "name": "Shrines Project field survey, Shrine of Shah Inayat Qadiri responses (surveyor: Saifullah), 2026."
+    },
+    {
+      "id": "source:fc2886b08603",
+      "type": "source",
+      "slug": "fc2886b08603",
+      "name": "Shrines Project field survey, Darbar Shah Jamal responses (surveyor: Saifullah), 2026."
     },
     {
       "id": "source:2b62dfcf5581",
@@ -3133,6 +3163,14 @@
       "method": "rule"
     },
     {
+      "id": "attested_in:darbar-hazrat-shah-gohar-peer:source:7721249a9999",
+      "type": "attested_in",
+      "subject": "darbar-hazrat-shah-gohar-peer",
+      "object": "source:7721249a9999",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
       "id": "attested_in:darbar-hazrat-tahir-bandagi-qadri:source:14a5d76f3b66",
       "type": "attested_in",
       "subject": "darbar-hazrat-tahir-bandagi-qadri",
@@ -3145,6 +3183,14 @@
       "type": "attested_in",
       "subject": "darbar-malik-ahmad-ayaz",
       "object": "source:a4718caf798d",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "attested_in:darbar-mian-qurban-ali-shah:source:b6c539818b08",
+      "type": "attested_in",
+      "subject": "darbar-mian-qurban-ali-shah",
+      "object": "source:b6c539818b08",
       "confidence": 1,
       "method": "rule"
     },
@@ -6493,6 +6539,14 @@
       "method": "rule"
     },
     {
+      "id": "attested_in:shrine-of-mauj-darya-bukhari:source:10cd7af4b4f8",
+      "type": "attested_in",
+      "subject": "shrine-of-mauj-darya-bukhari",
+      "object": "source:10cd7af4b4f8",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
       "id": "attested_in:shrine-of-mian-mir:source:81a654b12f83",
       "type": "attested_in",
       "subject": "shrine-of-mian-mir",
@@ -6553,6 +6607,14 @@
       "type": "attested_in",
       "subject": "shrine-of-peer-makki",
       "object": "source:5dd4770b6161",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "attested_in:shrine-of-peer-makki:source:4cc279fae823",
+      "type": "attested_in",
+      "subject": "shrine-of-peer-makki",
+      "object": "source:4cc279fae823",
       "confidence": 1,
       "method": "rule"
     },
@@ -6689,6 +6751,14 @@
       "type": "attested_in",
       "subject": "shrine-of-shah-jamal",
       "object": "source:78d2023e84a3",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "attested_in:shrine-of-shah-jamal:source:fc2886b08603",
+      "type": "attested_in",
+      "subject": "shrine-of-shah-jamal",
+      "object": "source:fc2886b08603",
       "confidence": 1,
       "method": "rule"
     },

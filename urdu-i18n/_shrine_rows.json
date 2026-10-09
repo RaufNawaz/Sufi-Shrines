@@ -64,7 +64,7 @@
   },
   {
     "name": "Darbar Abul Muali Qadri",
-    "location": "Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is \"right near his shrine.\" No province, district, address or coordinates given in the survey. Pin is Mochi Gate's own coordinate (an approximate landmark, not the shrine's exact position) — ask Saifullah for a precise pin when possible.",
+    "location": "Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is \"right near his shrine.\" No province, district, address or coordinates given in the survey. Pin is Mochi Gate's own coordinate (an approximate landmark, not the shrine's exact position).",
     "category": "",
     "founded": "1024 AH (as given in the form; not a construction date)",
     "saint": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"
@@ -98,6 +98,13 @@
     "saint": "Khawaja Shah Muhammad Sulaiman Taunsvi"
   },
   {
+    "name": "Darbar Hazrat Shah Gohar Peer",
+    "location": "Lahore (no locality, address or coordinates recorded in the survey).",
+    "category": "",
+    "founded": "Unknown",
+    "saint": "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer"
+  },
+  {
     "name": "Darbar Hazrat Tahir Bandagi Qadri",
     "location": "Miani Sahib Graveyard, Lahore. Per the field survey, this shrine is the oldest seat within Miani Sahib Graveyard — the graveyard grew up around it over the centuries, not the reverse. The survey gives no street address, no coordinates, and no position within the graveyard's roughly 475 kanals beyond \"alongside the mosque\" that Hazrat Tahir Bandagi built.",
     "category": "",
@@ -106,10 +113,17 @@
   },
   {
     "name": "Darbar Malik Ahmad Ayaz",
-    "location": "Shah Alam Market; the survey places the mazar near Darbar Ali Hajveri Ganj Bakhsh (Data Darbar). No city, district, tehsil or province is stated anywhere in the survey for the shrine itself. Pin reuses Data Darbar's own coordinate, since the survey ties this shrine's location directly to it — an approximate landmark, not the shrine's exact position. Ask Saifullah for a precise pin when possible.",
+    "location": "Shah Alam Market; the survey places the mazar near Darbar Ali Hajveri Ganj Bakhsh (Data Darbar). No city, district, tehsil or province is stated anywhere in the survey for the shrine itself. Pin reuses Data Darbar's own coordinate, since the survey ties this shrine's location directly to it — an approximate landmark, not the shrine's exact position.",
     "category": "",
     "founded": "1041 (as given: \"8 August 1041\")",
     "saint": "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore"
+  },
+  {
+    "name": "Darbar Mian Qurban Ali Shah",
+    "location": "Mint Stop, Lahore (as given in the survey; no province, street address or coordinates are recorded).",
+    "category": "",
+    "founded": "1416 AH (c. 1995–96 CE) — see note; not verified as a construction date",
+    "saint": "Hazrat Mian Qurban Ali Shah Sarkar"
   },
   {
     "name": "Darbar Sakhi Shah Chan Charagh",
@@ -1131,7 +1145,7 @@
     "location": "Mohalla Bukhari, Uch Sharif, Punjab",
     "category": "Muslim Shrine",
     "founded": "1291",
-    "saint": "Jalaluddin Surkh-Posh Bukhari"
+    "saint": "Bibi Jawindi"
   },
   {
     "name": "Tomb of Qutbuddin Aibak",

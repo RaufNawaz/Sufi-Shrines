@@ -72,8 +72,8 @@ const noteTable = (): Record<string, unknown> =>
  */
 export const EXPECTED_NON_ROUTE_KEYS = new Set([
   '_readme',
-  'darbar-hazrat-shah-gohar-peer',
-  'darbar-mian-qurban-ali-shah',
+  // darbar-hazrat-shah-gohar-peer and darbar-mian-qurban-ali-shah left this
+  // list on 8 October 2026: the import fixed their rows and both now ship.
 ]);
 
 describe('source-note keys', () => {

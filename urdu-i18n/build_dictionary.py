@@ -442,8 +442,14 @@ SHRINE_NAMES = {
      "دربار حضرت خواجہ فیروز الدین غریب نواز چشتی نظامی",
  "Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)":
      "دربار حضرت خواجہ شاہ محمد سلیمان تونسوی (رحمۃ اللہ علیہ)",
+ # Added 8 October 2026, when the import made both rows ship. Neither is new
+ # Urdu: Shah Gohar Peer's is the opening of its own Urdu article
+ # (urdu-content.json), and Mian Qurban Ali Shah's takes "میاں قربان علی شاہ"
+ # verbatim from the figure's seed entry, prefixed دربار as above.
+ "Darbar Hazrat Shah Gohar Peer": "دربار حضرت شاہ گوہر پیر",
  "Darbar Hazrat Tahir Bandagi Qadri": "دربار حضرت طاہر بندگی قادری",
  "Darbar Malik Ahmad Ayaz": "دربار ملک احمد ایاز",
+ "Darbar Mian Qurban Ali Shah": "دربار میاں قربان علی شاہ",
  "Darbar Sakhi Shah Chan Charagh": "دربار سخی شاہ چن چراغ",
  "Darbar Wasif Ali Wasif": "دربار واصف علی واصف",
  "Dargah / Roza Sufi Shah Inayat Shaheed": "درگاہ / روضہ صوفی شاہ عنایت شہید",

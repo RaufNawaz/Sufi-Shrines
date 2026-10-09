@@ -234,12 +234,14 @@ describe('coverage against the shipped dataset', () => {
 
     // Buckets are disjoint and total.
     expect(day + month + season + undated + none).toBe(rows.length);
+    // 169 -> 171 on 8 October 2026: the two darbars the import made shippable
+    // add one day-dated urs and one undated cell.
     expect({ rows: rows.length, day, month, season, undated, none }).toEqual({
-      rows: 169,
-      day: 22,
+      rows: 171,
+      day: 23,
       month: 10,
       season: 6,
-      undated: 100,
+      undated: 101,
       none: 31,
     });
   });

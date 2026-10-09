@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-09-05T19:39:22.673Z",
+  "generated": "2026-10-09T00:39:41.449Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -221,6 +221,21 @@
       "biographySource": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
     },
     {
+      "id": "saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
+      "type": "saint",
+      "slug": "hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
+      "name": "Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer",
+      "altNames": [
+        "Syed Ali Gohar"
+      ],
+      "shrines": [
+        "darbar-hazrat-shah-gohar-peer"
+      ],
+      "figureType": "Sufi saint / *pīr*; Syed, of the *sādāt* of Uch Sharif",
+      "born": "11 Rabīʿ al-Sānī 729 AH, Uch Sharif",
+      "died": "21 Ramzan 825 AH"
+    },
+    {
       "id": "saint:hazrat-tahir-bandagi-qadri",
       "type": "saint",
       "slug": "hazrat-tahir-bandagi-qadri",
@@ -262,6 +277,28 @@
       "datePrecision": "exact-date",
       "biographyReviewed": false,
       "biographySource": "data/shrines.csv#darbar-malik-ahmad-ayaz"
+    },
+    {
+      "id": "saint:hazrat-mian-qurban-ali-shah-sarkar",
+      "type": "saint",
+      "slug": "hazrat-mian-qurban-ali-shah-sarkar",
+      "name": "Hazrat Mian Qurban Ali Shah Sarkar",
+      "altNames": [
+        "Qurban Ali"
+      ],
+      "shrines": [
+        "darbar-mian-qurban-ali-shah"
+      ],
+      "figureType": "Sufi saint and preacher; *pīr* with a line of disciples and a *gaddi*",
+      "born": "1341 AH (c. 1922–23 CE by calendar conversion), Malerkotla, India",
+      "died": "25 Rabīʿ al-Thānī; year not stated in the survey (possibly 1416 AH — see year_built_note)",
+      "datePrecision": "exact-date",
+      "titles": [
+        "Mian",
+        "Sarkar"
+      ],
+      "biographyReviewed": false,
+      "biographySource": "entries/entry_mian_qurban_ali_shah.md"
     },
     {
       "id": "saint:syed-sakhi-shah-chan-charagh",
@@ -1047,7 +1084,7 @@
       ],
       "figureType": "Sufi saint",
       "born": "1680",
-      "died": "1757",
+      "died": "1758",
       "datePrecision": "circa",
       "biographyReviewed": false,
       "biographySource": "data/shrines.csv#mazar-of-bulleh-shah"
@@ -1834,7 +1871,7 @@
       ],
       "figureType": "Sufi saint",
       "born": "1173",
-      "died": "1266",
+      "died": "1265",
       "datePrecision": "circa",
       "titles": [
         "Ganjshakar (\"the Treasure of Sugar\")",
@@ -3302,27 +3339,6 @@
       "reviewed": false
     },
     {
-      "id": "saint:mian-qurban-ali-shah",
-      "type": "saint",
-      "slug": "mian-qurban-ali-shah",
-      "name": "Hazrat Mian Qurban Ali Shah Sarkar",
-      "altNames": [
-        "Qurban Ali"
-      ],
-      "shrines": [],
-      "lineageOnly": true,
-      "reviewed": false,
-      "born": "1341 AH (c. 1922–23 CE by calendar conversion)",
-      "died": "25 Rabīʿ al-Thānī; year not stated in the survey",
-      "datePrecision": "exact-date",
-      "titles": [
-        "Mian",
-        "Sarkar"
-      ],
-      "biographyReviewed": false,
-      "biographySource": "entries/entry_mian_qurban_ali_shah.md"
-    },
-    {
       "id": "saint:hazrat-mian-fazal-deen",
       "type": "saint",
       "slug": "hazrat-mian-fazal-deen",
@@ -4132,7 +4148,7 @@
       "name": "district",
       "city": "Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is \"right near his shrine.\" No province",
       "district": "district",
-      "province": "not the shrine's exact position) — ask Saifullah for a precise pin when possible.",
+      "province": "not the shrine's exact position).",
       "country": "Pakistan"
     },
     {
@@ -4176,6 +4192,16 @@
       "country": "Pakistan"
     },
     {
+      "id": "place:address-or-coordinates-recorded-in-the-survey",
+      "type": "place",
+      "slug": "address-or-coordinates-recorded-in-the-survey",
+      "name": "address or coordinates recorded in the survey).",
+      "city": "Lahore (no locality",
+      "district": "address or coordinates recorded in the survey).",
+      "province": "address or coordinates recorded in the survey).",
+      "country": "Pakistan"
+    },
+    {
       "id": "place:lahore-per-the-field-survey",
       "type": "place",
       "slug": "lahore-per-the-field-survey",
@@ -4183,6 +4209,16 @@
       "city": "Miani Sahib Graveyard",
       "district": "Lahore. Per the field survey",
       "province": "and no position within the graveyard's roughly 475 kanals beyond \"alongside the mosque\" that Hazrat Tahir Bandagi built.",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:lahore-as-given-in-the-survey-no-province",
+      "type": "place",
+      "slug": "lahore-as-given-in-the-survey-no-province",
+      "name": "Lahore (as given in the survey; no province",
+      "city": "Mint Stop",
+      "district": "Lahore (as given in the survey; no province",
+      "province": "street address or coordinates are recorded).",
       "country": "Pakistan"
     },
     {
@@ -5082,6 +5118,15 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-darbar-hazrat-shah-gohar-peer",
+      "type": "event",
+      "slug": "urs-darbar-hazrat-shah-gohar-peer",
+      "name": "Urs of Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer at Darbar Hazrat Shah Gohar Peer",
+      "eventType": "urs",
+      "shrineSlug": "darbar-hazrat-shah-gohar-peer",
+      "saintSlug": "hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer"
+    },
+    {
       "id": "event:urs-darbar-hazrat-tahir-bandagi-qadri",
       "type": "event",
       "slug": "urs-darbar-hazrat-tahir-bandagi-qadri",
@@ -5101,6 +5146,15 @@
       "shrineSlug": "darbar-malik-ahmad-ayaz",
       "saintSlug": "malik-ahmad-ayaz",
       "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darbar-mian-qurban-ali-shah",
+      "type": "event",
+      "slug": "urs-darbar-mian-qurban-ali-shah",
+      "name": "Urs of Hazrat Mian Qurban Ali Shah Sarkar at Darbar Mian Qurban Ali Shah",
+      "eventType": "urs",
+      "shrineSlug": "darbar-mian-qurban-ali-shah",
+      "saintSlug": "hazrat-mian-qurban-ali-shah-sarkar"
     },
     {
       "id": "event:urs-darbar-sakhi-shah-chan-charagh",
@@ -6363,10 +6417,10 @@
       "id": "event:urs-tomb-of-javindi-bibi",
       "type": "event",
       "slug": "urs-tomb-of-javindi-bibi",
-      "name": "Urs of Jalaluddin Surkh-Posh Bukhari at Tomb of Javindi Bibi",
+      "name": "Urs of Bibi Jawindi at Tomb of Javindi Bibi",
       "eventType": "urs",
       "shrineSlug": "tomb-of-javindi-bibi",
-      "saintSlug": "jalaluddin-surkh-posh-bukhari",
+      "saintSlug": "bibi-jawindi",
       "frequency": "annual"
     },
     {
@@ -6553,6 +6607,13 @@
     },
     {
       "type": "buried_at",
+      "subject": "saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
+      "object": "darbar-hazrat-shah-gohar-peer",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "type": "buried_at",
       "subject": "saint:hazrat-tahir-bandagi-qadri",
       "object": "darbar-hazrat-tahir-bandagi-qadri",
       "confidence": 1,
@@ -6562,6 +6623,13 @@
       "type": "buried_at",
       "subject": "saint:malik-ahmad-ayaz",
       "object": "darbar-malik-ahmad-ayaz",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "type": "buried_at",
+      "subject": "saint:hazrat-mian-qurban-ali-shah-sarkar",
+      "object": "darbar-mian-qurban-ali-shah",
       "confidence": 1,
       "method": "rule"
     },
@@ -7728,6 +7796,13 @@
     },
     {
       "type": "located_in",
+      "subject": "darbar-hazrat-shah-gohar-peer",
+      "object": "place:address-or-coordinates-recorded-in-the-survey",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "darbar-hazrat-tahir-bandagi-qadri",
       "object": "place:lahore-per-the-field-survey",
       "confidence": 0.95,
@@ -7737,6 +7812,13 @@
       "type": "located_in",
       "subject": "darbar-malik-ahmad-ayaz",
       "object": "place:district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "darbar-mian-qurban-ali-shah",
+      "object": "place:lahore-as-given-in-the-survey-no-province",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8817,6 +8899,7 @@
       "object": "order:junaidi",
       "confidence": 0.9,
       "method": "human",
+      "asRecorded": "Junaidi (Ahl-e-Sunnat)",
       "source": "data/shrines.csv#shrine-of-peer-makki",
       "note": "The entry's own prose: he \"remained for some thirty-six years as a teacher of both the exoteric sciences of Islamic law and the esoteric path of the Junaidi Sufi lineage, tracing back to the classical Baghdad master Junayd\". His silsila cell was empty when this edge was seeded; data/patch_field_survey_orphans_2026-09-05.csv sets it to \"Junaidi (Ahl-e-Sunnat)\", which ORDER_CELL_PATTERNS.junaidi matches, so the cell will corroborate the seed rather than contradict it once the patch is imported."
     },
@@ -9445,7 +9528,7 @@
     },
     {
       "type": "kin_of",
-      "subject": "saint:mian-qurban-ali-shah",
+      "subject": "saint:hazrat-mian-qurban-ali-shah-sarkar",
       "object": "saint:hazrat-mian-fazal-deen",
       "confidence": 0.9,
       "method": "human",
@@ -10628,7 +10711,7 @@
     },
     {
       "type": "disciple_of",
-      "subject": "saint:mian-qurban-ali-shah",
+      "subject": "saint:hazrat-mian-qurban-ali-shah-sarkar",
       "object": "saint:hazrat-mian-fazal-deen",
       "confidence": 0.7,
       "method": "machine-extracted",
@@ -10639,7 +10722,7 @@
     {
       "type": "successor_of",
       "subject": "saint:haji-tufail",
-      "object": "saint:mian-qurban-ali-shah",
+      "object": "saint:hazrat-mian-qurban-ali-shah-sarkar",
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
@@ -11461,6 +11544,13 @@
     },
     {
       "type": "commemorated_by",
+      "subject": "saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
+      "object": "event:urs-darbar-hazrat-shah-gohar-peer",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "type": "commemorated_by",
       "subject": "saint:hazrat-tahir-bandagi-qadri",
       "object": "event:urs-darbar-hazrat-tahir-bandagi-qadri",
       "confidence": 0.9,
@@ -11470,6 +11560,13 @@
       "type": "commemorated_by",
       "subject": "saint:malik-ahmad-ayaz",
       "object": "event:urs-darbar-malik-ahmad-ayaz",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "type": "commemorated_by",
+      "subject": "saint:hazrat-mian-qurban-ali-shah-sarkar",
+      "object": "event:urs-darbar-mian-qurban-ali-shah",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -12385,7 +12482,7 @@
     },
     {
       "type": "commemorated_by",
-      "subject": "saint:jalaluddin-surkh-posh-bukhari",
+      "subject": "saint:bibi-jawindi",
       "object": "event:urs-tomb-of-javindi-bibi",
       "confidence": 0.9,
       "method": "rule"
@@ -12427,13 +12524,13 @@
     }
   ],
   "stats": {
-    "saints": 244,
+    "saints": 245,
     "orders": 10,
-    "places": 94,
-    "events": 149,
-    "sources": 464,
-    "relations": 727,
-    "ambiguousMerges": 67
+    "places": 96,
+    "events": 151,
+    "sources": 469,
+    "relations": 733,
+    "ambiguousMerges": 68
   },
   "retiredSlugs": {
     "bhagwan-valmik": "valmiki",
@@ -12454,6 +12551,7 @@
     "jhulelal-daryalal": "jhulelal",
     "lava-son-of-rama-and-sita": "lava",
     "malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore": "malik-ahmad-ayaz",
+    "mian-qurban-ali-shah": "hazrat-mian-qurban-ali-shah-sarkar",
     "shah-abul-muali-qadri": "hazrat-syed-muhammad-khair-ul-deen"
   },
   "kinNotes": [

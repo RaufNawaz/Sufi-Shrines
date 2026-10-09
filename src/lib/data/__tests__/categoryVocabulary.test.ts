@@ -91,13 +91,12 @@ const shippedRows = (): Row[] =>
  *
  * `pipeline/validate_shrines.py` records finding `'Islam' x2` and
  * `'Sufi shrine (Islam)' x1` live on 18 August 2026; two of those three have
- * since been corrected in the sheet. This is the last one.
+ * since been corrected in the sheet, and the third went in with the 8 October
+ * 2026 import.
  */
 export const KNOWN_OFF_VOCABULARY = new Map<string, string>([
-  [
-    'Darbar Abul Muali Qadri',
-    '"Islam" — a tradition, not a site category. Fixed by data/patch_schema_hygiene_2026-08-27.csv, which sets category=Muslim Shrine. Awaiting import (RULE 3: agents do not write to the sheet). The same patch carries this row\'s status prose.',
-  ],
+  // Empty since the 8 October 2026 import (data/import_2026-10-08.csv) set the
+  // last stray, Darbar Abul Muali Qadri, from 'Islam' to 'Muslim Shrine'.
 ]);
 
 describe('the category vocabulary', () => {
