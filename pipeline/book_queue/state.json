@@ -191,10 +191,6 @@
       "integrated_into": [],
       "log": [
         {
-          "t": "2026-09-22T22:51:26Z",
-          "msg": "lease 411-420 released"
-        },
-        {
           "t": "2026-09-22T22:56:24Z",
           "msg": "lease 361-370 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
@@ -346,6 +342,10 @@
         {
           "t": "2026-10-03T19:10:15Z",
           "msg": "folio range 855-873 marked contested: 2026-10-03 §9.249: offset steps from PDF-2 (854→852) to PDF-1 (858,859,862,865-867,869-871,873) with 863→863, 864→864 (=PDF) and 868→866 (PDF-2); 855-860 is a new section (Jahangir's tomb) in a different, clearer hand, possibly inserted; not settled"
+        },
+        {
+          "t": "2026-10-09T05:32:14Z",
+          "msg": "chunked into 79 chunks of ~5000 words"
         }
       ],
       "scan_images": {
@@ -469,7 +469,8 @@
           "reason": "2026-10-03 §9.249: offset steps from PDF-2 (854→852) to PDF-1 (858,859,862,865-867,869-871,873) with 863→863, 864→864 (=PDF) and 868→866 (PDF-2); 855-860 is a new section (Jahangir's tomb) in a different, clearer hand, possibly inserted; not settled",
           "recorded": "2026-10-03T19:10:15Z"
         }
-      ]
+      ],
+      "chunks": 79
     },
     "tareekh_lahore": {
       "status": "summarized",
@@ -683,16 +684,12 @@
       },
       "route_used": "vision",
       "render_scale": 1568,
-      "pages_done": "1-488",
+      "pages_done": "1-496",
       "leases": {},
       "assembled_file": null,
       "takeaways_file": null,
       "integrated_into": [],
       "log": [
-        {
-          "t": "2026-10-04T00:24:07Z",
-          "msg": "lease 387-392 taken (worker w5) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
-        },
         {
           "t": "2026-10-04T00:24:07Z",
           "msg": "lease 393-398 taken (worker w6) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
@@ -848,6 +845,10 @@
         {
           "t": "2026-10-09T00:22:53Z",
           "msg": "lease 481-488 taken (worker coord-s01RHNcjX5) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — scheduled firing 9 Oct 00:22Z"
+        },
+        {
+          "t": "2026-10-09T05:56:21Z",
+          "msg": "lease 489-496 taken (worker coord-s014TnzBCe) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — §9.273 transcription firing"
         }
       ],
       "scan_images": {
@@ -3633,5 +3634,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-10-09T01:35:49Z"
+  "updated": "2026-10-09T06:05:13Z"
 }
