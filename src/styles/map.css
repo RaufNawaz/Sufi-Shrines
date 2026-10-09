@@ -323,6 +323,15 @@
   [dir='rtl'] .sidebar-title {
     font-size: var(--text-sm);
   }
+
+  /* Even a notch smaller, the wordmark still lost to the header's fourth
+     control: measured 9 October 2026, "صوفی مزارات" needs 80px and was given 45,
+     so the Urdu reader's first sight of the archive was "صو…". The numerals
+     switch is the one control here that is also in the gear menu one tap away,
+     so it is the one that gives way on a phone. */
+  .sidebar-actions .numerals-toggle {
+    display: none;
+  }
 }
 
 .sidebar-actions {
@@ -378,6 +387,11 @@
   font-size: var(--text-sm);
   font-weight: 600;
   font-family: var(--font-sans);
+}
+
+/* ۱۲۳ in the sans fell back to a light system Naskh beside Nastaliq. */
+[dir='rtl'] .numerals-toggle {
+  font-family: var(--font-urdu);
 }
 
 /* Sidebar toggle button (shown on map) */
@@ -1912,6 +1926,10 @@
    every control, so the segment reads in Nastaliq like everything around it. */
 [dir='rtl'] .lang-seg[lang='ur'] {
   font-family: var(--font-urdu);
+  /* At 0.8rem Nastaliq read at about half the visual size of the bold "EN"
+     beside it — the first control an Urdu reader meets. */
+  font-size: var(--text-sm);
+  line-height: 1;
 }
 
 /*

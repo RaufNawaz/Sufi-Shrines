@@ -171,10 +171,13 @@
 }
 
 /* In RTL the chevron points the other way, and it is a *rotation* that has to
-   change: `border-inline-end` already flips, so without this the two borders
-   would meet on the wrong corner and the arrow would point up-left. */
+   change: `border-inline-end` already flips, so the stroke is the top and LEFT
+   edges, whose corner points up-left; −45° turns that to point left. This said
+   −135° until 9 October 2026, which turns the same corner to point straight
+   down — every Urdu inset row read as a disclosure "expand" glyph.
+   `rtlChevron.test.ts` holds every logical-border chevron to −45°. */
 [dir='rtl'] .inset-row-chevron {
-  transform: rotate(-135deg);
+  transform: rotate(-45deg);
 }
 
 /* A header above the card, in the platform's idiom: small, upper-case,

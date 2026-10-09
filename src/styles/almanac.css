@@ -320,7 +320,7 @@
 }
 
 [dir='rtl'] .almanac-entry::after {
-  transform: translateY(-50%) rotate(-135deg);
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 @media (max-width: 639.98px) {
@@ -538,7 +538,7 @@
 }
 
 [dir='rtl'] .almanac-season-card-chevron {
-  transform: rotate(-135deg);
+  transform: rotate(-45deg);
 }
 
 /* The season as a chip in its own colour. Never allowed to shrink — "late

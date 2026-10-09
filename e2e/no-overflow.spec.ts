@@ -271,3 +271,27 @@ for (const viewport of VIEWPORTS) {
     });
   }
 }
+
+/**
+ * The wordmark is shown whole, in both languages, at every width.
+ *
+ * The sweep above cannot see this: the title is `overflow: hidden` with an
+ * ellipsis, so a clipped wordmark never extends past anything — it just reads
+ * "صو…". Measured 9 October 2026 at 390px in Urdu: 80px of title given 45,
+ * because the header's fourth control (the numerals switch) took the room.
+ */
+for (const viewport of VIEWPORTS) {
+  for (const lang of ['ur', 'en'] as const) {
+    test(`[${viewport.name}/${lang}] the sidebar wordmark is not truncated`, async ({ page }) => {
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await page.goto(lang === 'ur' ? '/?lang=ur' : '/');
+      const title = page.locator('.sidebar-title');
+      await title.waitFor();
+      await settle(page);
+      const [scroll, client] = await title.evaluate((el) => [el.scrollWidth, el.clientWidth]);
+      expect(scroll, `the wordmark is clipped to ${client}px of ${scroll}px`).toBeLessThanOrEqual(
+        client + 1,
+      );
+    });
+  }
+}
