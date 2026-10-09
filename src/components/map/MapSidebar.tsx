@@ -289,6 +289,16 @@ export function MapSidebar({
     );
     return [['__all__', sorted]] as [string, Shrine[]][];
   }, [filtered, lang, search, localizeName]);
+  /* The row that holds the list's one tab stop: the row last focused, if it
+     is still listed; otherwise the selected shrine; otherwise the first row. */
+  const [focusedRowId, setFocusedRowId] = useState<number | null>(null);
+  const listedIds = grouped.flatMap(([, rows]) => rows.map((row) => row.id));
+  const rovingId =
+    focusedRowId !== null && listedIds.includes(focusedRowId)
+      ? focusedRowId
+      : selectedId != null && listedIds.includes(selectedId)
+        ? selectedId
+        : (listedIds[0] ?? null);
 
   const selectedShrine = useMemo(
     () => (selectedId !== null ? shrines.find((s) => s.id === selectedId) : null),
@@ -660,7 +670,34 @@ export function MapSidebar({
                 both the valid structure and the honest one, and
                 `aria-selected` replaces the `aria-pressed` that could not be
                 there. */
-            <div className="shrine-list-panel" role="listbox" aria-label={t('ariaShrineList')}>
+            /* Roving focus (9 October 2026): one tab stop for the whole list,
+               and the arrow keys, Home and End move between rows — the
+               listbox pattern. It was a listbox of 171 separate tab stops with
+               no arrow keys at all: a listbox in name only. */
+            <div
+              className="shrine-list-panel"
+              role="listbox"
+              aria-label={t('ariaShrineList')}
+              onKeyDown={(event) => {
+                const keys = ['ArrowDown', 'ArrowUp', 'Home', 'End'];
+                if (!keys.includes(event.key)) return;
+                const options = [
+                  ...event.currentTarget.querySelectorAll<HTMLElement>('[role="option"]'),
+                ];
+                if (options.length === 0) return;
+                const at = options.indexOf(document.activeElement as HTMLElement);
+                const next =
+                  event.key === 'Home'
+                    ? 0
+                    : event.key === 'End'
+                      ? options.length - 1
+                      : event.key === 'ArrowDown'
+                        ? Math.min(at + 1, options.length - 1)
+                        : Math.max(at - 1, 0);
+                event.preventDefault();
+                options[next].focus();
+              }}
+            >
               {filtered.length === 0 && !loading && (
                 <div className="shrine-list-empty-state">
                   <svg
@@ -709,6 +746,8 @@ export function MapSidebar({
                           setShowList(false);
                         }}
                         aria-selected={shrine.id === selectedId}
+                        tabIndex={shrine.id === rovingId ? 0 : -1}
+                        onFocus={() => setFocusedRowId(shrine.id)}
                       >
                         <div
                           className={`shrine-list-thumb-slot${shrine.imageUrl ? '' : ` shrine-list-thumb-slot--empty shrine-list-thumb-slot--${catKey}`}`}

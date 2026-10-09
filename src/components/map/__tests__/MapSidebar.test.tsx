@@ -406,3 +406,30 @@ describe('MapSidebar — search result ordering', () => {
     }
   });
 });
+
+describe('the shrine table is a listbox with one tab stop', () => {
+  /* Until 9 October 2026 every row was its own tab stop and no arrow key did
+     anything: a listbox in name only. */
+  it('keeps exactly one row in the tab order, and moves it with the arrow keys', () => {
+    renderSidebar({
+      shrines: ['Alpha', 'Beta', 'Gamma'].map((Name, i) =>
+        buildShrine(makeShrineRow({ Name }), i)!,
+      ),
+    });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    const rows = () => [...document.querySelectorAll<HTMLElement>('[role="option"]')];
+    expect(rows().filter((row) => row.tabIndex === 0)).toHaveLength(1);
+
+    rows()[0].focus();
+    fireEvent.keyDown(rows()[0], { key: 'ArrowDown' });
+    expect(document.activeElement).toBe(rows()[1]);
+    expect(rows()[1].tabIndex).toBe(0);
+    expect(rows()[0].tabIndex).toBe(-1);
+
+    fireEvent.keyDown(rows()[1], { key: 'End' });
+    expect(document.activeElement).toBe(rows()[rows().length - 1]);
+    fireEvent.keyDown(document.activeElement!, { key: 'Home' });
+    expect(document.activeElement).toBe(rows()[0]);
+  });
+});
