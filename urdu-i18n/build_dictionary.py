@@ -1272,6 +1272,18 @@ FOUNDED = {
 # here stays in English and is counted as declared debt by
 # e2e/urdu-no-leak.spec.ts, which is the honest way round — a wrong Urdu
 # observance would be worse than a visibly untranslated one.
+# Prose figure-type cells — a `figure_type` that is a description rather than one
+# of the vocabulary labels in src/lib/data/figureType.ts. SaintPage shows the cell
+# as recorded and looks it up here in the Urdu view. The two below arrived with
+# the 8 October 2026 import; drafted by Claude on 9 October 2026, UNREVIEWED
+# (HANDOVER §9.271). Cells not listed here render declared (`data-latin`).
+FIGURE_TYPES = {
+ "Sufi saint / *pīr*; Syed, of the *sādāt* of Uch Sharif":
+     "صوفی بزرگ / *پیر*؛ سید، اوچ شریف کے *سادات* میں سے",
+ "Sufi saint and preacher; *pīr* with a line of disciples and a *gaddi*":
+     "صوفی بزرگ اور مبلغ؛ *پیر*، مریدوں کے سلسلے اور *گدی* کے ساتھ",
+}
+
 OBSERVANCES = {
     # ── ʿurs and Sufi programme ──────────────────────────────────────────────
     "Annual urs": "سالانہ عرس",
@@ -1457,6 +1469,7 @@ def build(rows, glossary):
     seed.update(SILSILAS)
     seed.update(FOUNDED)
     seed.update(OBSERVANCES)
+    seed.update(FIGURE_TYPES)
     # Place tokens were in the *structured* dictionary but not the flat runtime
     # seed, so `translateToUrdu('Lahore')` missed even though the dictionary has
     # had لاہور all along — only whole location strings ("…, Lahore, Punjab,
@@ -1541,6 +1554,7 @@ def build(rows, glossary):
         "saints": SAINTS,
         "silsilas": SILSILAS,
         "foundedPhrases": FOUNDED,
+        "figureTypePhrases": FIGURE_TYPES,
         "observances": OBSERVANCES,
         "locations": locations_map,
         "sufiGlossary": glossary,

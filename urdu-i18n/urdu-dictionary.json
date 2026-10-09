@@ -18,7 +18,7 @@
       "locations": 152,
       "sufiGlossary": 49,
       "derivedBareNames": 139,
-      "flatSeedEntries": 1246
+      "flatSeedEntries": 1248
     }
   },
   "categories": {
@@ -937,6 +937,10 @@
     "c. 1661 (mausoleum, built by his son); saint traditionally born 1575 CE, died 1653": "تقریباً 1661 (مقبرہ، اُن کے صاحبزادے نے بنوایا)؛ بزرگ کی روایتی پیدائش 1575ء، وفات 1653",
     "c. 1849 (mid-19th century)": "تقریباً 1849 (وسط انیسویں صدی)",
     "traditionally said to be about 1,500 years old (Sewa dynasty, pre-Islamic era); exact date unknown": "روایتاً تقریباً 1,500 سال پرانا کہا جاتا ہے (سیوا خاندان، قبل از اسلام دور)؛ متعین تاریخ نامعلوم"
+  },
+  "figureTypePhrases": {
+    "Sufi saint / *pīr*; Syed, of the *sādāt* of Uch Sharif": "صوفی بزرگ / *پیر*؛ سید، اوچ شریف کے *سادات* میں سے",
+    "Sufi saint and preacher; *pīr* with a line of disciples and a *gaddi*": "صوفی بزرگ اور مبلغ؛ *پیر*، مریدوں کے سلسلے اور *گدی* کے ساتھ"
   },
   "observances": {
     "Annual urs": "سالانہ عرس",

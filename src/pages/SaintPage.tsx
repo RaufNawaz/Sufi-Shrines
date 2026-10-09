@@ -489,8 +489,21 @@ export default function SaintPage() {
           <bdi data-latin>{displayName}</bdi>
         </h1>
 
+        {/* A prose figure type — the cell as recorded, not a vocabulary label.
+            Localized through the dictionary in the Urdu view (FIGURE_TYPES in
+            urdu-i18n/build_dictionary.py), and where the dictionary has no
+            Urdu, declared `data-latin` rather than passed as translated text.
+            Found on 9 October 2026: Shah Gohar Peer gained a shrine with the
+            import, and his cell printed in English on his Urdu page. */}
         {isProseFigureType(saint.figureType) && (
-          <p className="entity-figure-as-recorded">{saint.figureType}</p>
+          <p className="entity-figure-as-recorded">
+            {(() => {
+              const raw = saint.figureType ?? '';
+              const urdu = isRtl ? translateToUrdu(raw) : raw;
+              const translated = isRtl && urdu !== raw && !/[A-Za-z]/.test(urdu);
+              return translated ? urdu : <bdi data-latin>{raw}</bdi>;
+            })()}
+          </p>
         )}
 
         {/* Honorifics, verbatim from the sources. These carry a lot of what a
