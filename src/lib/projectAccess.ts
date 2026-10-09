@@ -9,9 +9,19 @@
  */
 const STORAGE_KEY = 'shrines_team_access';
 
+function accessParam(): string | null {
+  if (typeof window === 'undefined') return null;
+  return new URLSearchParams(window.location.search).get('team');
+}
+
 function hasAccessParam(): boolean {
-  if (typeof window === 'undefined') return false;
-  return new URLSearchParams(window.location.search).get('team') === '1';
+  return accessParam() === '1';
+}
+
+/** `?team=0` — the way back. Added 9 October 2026 because switching the team
+ * view off meant clearing localStorage by hand. */
+function hasClearParam(): boolean {
+  return accessParam() === '0';
 }
 
 /** Call once on app load (see App.tsx): promotes a `?team=1` visit into a
@@ -26,11 +36,18 @@ export function persistAccessParamIfPresent(): void {
       // localStorage unavailable (private browsing etc.) — the param still
       // works for this page view via hasProjectAccess() below.
     }
+  } else if (hasClearParam()) {
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // nothing persisted to clear
+    }
   }
 }
 
 export function hasProjectAccess(): boolean {
   if (hasAccessParam()) return true;
+  if (hasClearParam()) return false;
   if (typeof window === 'undefined') return false;
   try {
     return window.localStorage.getItem(STORAGE_KEY) === '1';
