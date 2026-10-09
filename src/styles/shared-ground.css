@@ -31,25 +31,34 @@
    A <dl>, because each one is a number and its meaning — and the number is the
    term, not the description, which is why the value is the <dt>. */
 .sg-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4) var(--space-8);
-  margin-block: var(--space-6) var(--space-3);
-  padding-block-end: var(--space-5);
-  border-block-end: var(--hairline) solid var(--color-border-light);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--space-3);
+  margin-block: var(--space-6) var(--space-5);
 }
 
 .sg-stat {
-  flex: 1 1 12ch;
-  min-inline-size: 12ch;
+  /* A stat tile (the 9 October 2026 Apple pass): the figure large, the
+     caption small, on its own card. */
+  min-inline-size: 0;
+  padding: var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .sg-stat-value {
   font-size: var(--text-3xl);
   font-weight: 600;
-  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  line-height: 1;
   color: var(--color-text);
   font-variant-numeric: tabular-nums;
+}
+[dir='rtl'] .sg-stat-value {
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
 }
 
 .sg-stat-label {
@@ -104,12 +113,12 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--space-2) var(--space-4);
-  padding-block: var(--space-3);
-  border-block-start: var(--hairline) solid var(--color-border-light);
-}
-
-.sg-meeting:last-child {
-  border-block-end: var(--hairline) solid var(--color-border-light);
+  padding: var(--space-3) var(--space-4);
+  margin-block-end: var(--space-2);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 14px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .sg-meeting-pair {
@@ -151,12 +160,12 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--space-2) var(--space-4);
-  padding-block: var(--space-3);
-  border-block-start: var(--hairline) solid var(--color-border-light);
-}
-
-.crossing:last-child {
-  border-block-end: var(--hairline) solid var(--color-border-light);
+  padding: var(--space-3) var(--space-4);
+  margin-block-end: var(--space-2);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 14px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Fixed inline-size so the distances form a column the eye can run down; the

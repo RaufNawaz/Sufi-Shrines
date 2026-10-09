@@ -63,7 +63,22 @@
 }
 
 .chronology-band {
-  margin-block-end: 1.25rem;
+  /* A card per tradition (the 9 October 2026 Apple pass): the lane, its
+     count and span, and the places under it, framed together. */
+  margin-block-end: var(--space-4);
+  /* No inline padding on the card itself: the lane must start where the
+     scale above starts, or a bar can no longer be read against a gridline.
+     The heading and the list carry the inset instead. */
+  padding-block: var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+.chronology-band-heading,
+.chronology-band-list,
+.chronology-lane-empty {
+  padding-inline: var(--space-5);
 }
 
 .chronology-band-heading {
@@ -72,13 +87,17 @@
   justify-content: space-between;
   gap: 1rem;
   margin-block-end: 0.35rem;
-  font-size: 0.95rem;
+  font-size: var(--text-lg);
   font-weight: 600;
+  letter-spacing: -0.01em;
+}
+[dir='rtl'] .chronology-band-heading {
+  letter-spacing: normal;
 }
 
 .chronology-band-count {
-  font-size: 0.8rem;
-  font-weight: 400;
+  font-size: var(--text-sm);
+  font-weight: 500;
   color: var(--color-text-muted);
   font-variant-numeric: tabular-nums;
 }

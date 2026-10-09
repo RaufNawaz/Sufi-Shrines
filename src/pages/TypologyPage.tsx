@@ -54,7 +54,7 @@ function GroupHeading({ group, label }: { group: SiteTypeGroup; label: string })
 
 export default function TypologyPage() {
   const { shrines, offline, sourceTimestamp } = useShrineData();
-  const { lang, t, localizeField } = useLang();
+  const { lang, t, localizeField, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
   useDocumentTitle(`${t('typologyTitle')} — ${t('siteTitle')}`);
@@ -115,7 +115,10 @@ export default function TypologyPage() {
           <ul>
             {groups.map((g) => (
               <li key={g.anchor}>
-                <a href={`#${g.anchor}`}>{groupLabel(g)}</a>
+                <a href={`#${g.anchor}`}>
+                  {groupLabel(g)}
+                  <span className="typology-jump-count">{fmtNum(g.shrines.length)}</span>
+                </a>
               </li>
             ))}
           </ul>
