@@ -606,9 +606,6 @@ export default function MapPage() {
       )}
 
       <MapSidebar
-        sharedGroundLens={sharedGroundLens}
-        onSharedGroundLensChange={setSharedGroundLens}
-        crossingCount={crossTradition.length}
         shrines={shrines}
         selectedId={selectedId}
         loading={loading}
@@ -658,6 +655,8 @@ export default function MapPage() {
           activeTour={activeTour}
           activeTourStop={tourStopIdx}
           crossTradition={crossTradition}
+          sharedGroundLens={sharedGroundLens}
+          onSharedGroundLensChange={setSharedGroundLens}
         />
       </main>
 

@@ -43,9 +43,6 @@ function renderSidebar(
       onSelect={noop}
       onRetry={noop}
       isOpen={true}
-      sharedGroundLens={false}
-      onSharedGroundLensChange={() => {}}
-      crossingCount={0}
       activeCategories={[]}
       onCategoriesChange={noop}
       verifiedOnly={false}

@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   MapContainer,
   ZoomControl,
@@ -8,6 +9,7 @@ import {
   useMapEvents,
 } from 'react-leaflet';
 import L from 'leaflet';
+import { Link } from 'react-router-dom';
 import type { Shrine } from '../../types/shrine';
 import type { Tour } from '../../lib/tours/tours';
 import { DEFAULT_CENTER, DEFAULT_ZOOM, SIDEBAR_WIDTH } from '../../lib/data/constants';
@@ -142,6 +144,10 @@ interface Props {
    * result.
    */
   crossTradition: CrossTraditionAdjacency[];
+  /** The shared-ground lens, and the map's own control for it (bottom-right,
+   *  above reset and zoom). `crossTradition` above is what it draws. */
+  sharedGroundLens: boolean;
+  onSharedGroundLensChange: (on: boolean) => void;
 }
 
 /** How many failed MapTiler tiles before giving up on it for the session.
@@ -361,6 +367,88 @@ function OpeningView({
   return null;
 }
 
+/* The shared-ground lens as a map control — bottom-right, above reset and
+   zoom, the corner map applications keep their layer switches in.
+
+   It sat at the top of the sidebar's detail panel until 8 October 2026: a
+   full-width row between the Search button and the welcome card, which on a
+   phone was most of what the collapsed sheet showed. Rauf asked for it to go
+   somewhere else. It is a lens on the map, so it lives on the map — a Leaflet
+   control whose container React renders into, so the label, the count and the
+   Urdu come from the same strings as everything else. `.lens-section`,
+   `.lens-toggle` and `.lens-toggle-count` keep their names: e2e/shared-ground
+   .spec.ts finds the control by them, from both the sidebar era and this one. */
+function SharedGroundLensControl({
+  active,
+  onChange,
+  count,
+  tourActive,
+}: {
+  active: boolean;
+  onChange: (on: boolean) => void;
+  count: number;
+  tourActive: boolean;
+}) {
+  const map = useMap();
+  const { t, fmtNum } = useLang();
+  const [container, setContainer] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- @types/leaflet doesn't type Control.extend()
+    const LensCtrl = (L.Control as any).extend({
+      options: { position: 'bottomright' },
+      onAdd() {
+        const el = L.DomUtil.create('div', 'lens-section');
+        // A press on the control must not also be a click on the map.
+        L.DomEvent.disableClickPropagation(el);
+        L.DomEvent.disableScrollPropagation(el);
+        return el;
+      },
+    });
+    const ctrl = new LensCtrl();
+    ctrl.addTo(map);
+    setContainer(ctrl.getContainer() as HTMLElement);
+    return () => {
+      setContainer(null);
+      ctrl.remove();
+    };
+  }, [map]);
+
+  /* A tour owns the map's emphasis (`lensActive` above stands the lens down),
+     so the control steps aside with it rather than offering a switch that
+     would do nothing. */
+  useEffect(() => {
+    if (container) container.hidden = tourActive;
+  }, [container, tourActive]);
+
+  if (!container) return null;
+  return createPortal(
+    <>
+      <button
+        type="button"
+        className={`lens-toggle${active ? ' active' : ''}`}
+        onClick={() => onChange(!active)}
+        aria-pressed={active}
+        title={t('sharedGroundLensNote')}
+      >
+        <span className="lens-toggle-label">{t('sharedGroundHeading')}</span>
+        {/* The count appears only once the lens is on, because until then
+            nothing has counted: the sweep is gated in MapPage. A placeholder
+            would be a number the archive has not computed. */}
+        {active && <span className="lens-toggle-count">{fmtNum(count)}</span>}
+      </button>
+      {/* Only while the lens is on: "40" is exactly the moment a reader wants
+          to see which forty. */}
+      {active && (
+        <p className="lens-link">
+          <Link to="/shared-ground">{t('sharedGroundFromShrine')}</Link>
+        </p>
+      )}
+    </>,
+    container,
+  );
+}
+
 // Reset-view Leaflet control (bottom-right, above zoom)
 function ResetViewControl({
   onSelect,
@@ -490,6 +578,8 @@ export function ShrineMap({
   activeTour,
   activeTourStop,
   crossTradition,
+  sharedGroundLens,
+  onSharedGroundLensChange,
 }: Props) {
   const { theme } = useTheme();
   const { lang, t } = useLang();
@@ -532,6 +622,12 @@ export function ShrineMap({
         shrines={shrines}
       />
       <MapClickDeselect onSelect={onSelect} />
+      <SharedGroundLensControl
+        active={sharedGroundLens}
+        onChange={onSharedGroundLensChange}
+        count={crossTradition.length}
+        tourActive={activeTour !== null}
+      />
 
       <LayersControlTitle title={t('mapLayers')} />
       {/* topright: bottomleft sat on top of the mobile bottom sheet's brand row

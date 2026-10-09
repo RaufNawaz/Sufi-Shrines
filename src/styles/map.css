@@ -2139,33 +2139,45 @@
  * the lines are styled to survive being short (round caps, a weight that reads
  * as a mark when the length collapses) rather than to be the main event.
  */
-/* Its own padding: it used to sit inside a `.filter-section`, which supplied
-   the inline gutter, and it does not any more. The detail panel's children set
-   their own. */
+/* The lens control — bottom-right on the map, above reset and zoom
+   (ShrineMap's SharedGroundLensControl). It was a full-width row at the top
+   of the sidebar's detail panel until 8 October 2026. A pill on the map's own
+   surface, the same material as the zoom bar, so it reads as a map control
+   and not as a stray button. `.lens-section` is the Leaflet control's
+   container. */
 .lens-section {
-  padding: var(--space-3) var(--space-4);
-  border-block-end: var(--hairline) solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
 }
 
 .lens-toggle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  inline-size: 100%;
   min-block-size: 44px;
-  padding: var(--space-2) var(--space-3);
+  padding: 0 var(--space-4);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: none;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
   color: var(--color-text);
+  box-shadow: var(--shadow-md);
+  font-family: inherit;
   font-size: var(--text-sm);
   font-weight: 600;
-  text-align: start;
+  line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
 }
 
 .lens-toggle:hover {
   border-color: var(--color-primary);
+}
+
+.lens-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* Cobalt is interactive-only, and an engaged lens is the clearest case of it.
@@ -2178,7 +2190,7 @@
 }
 
 .lens-toggle-label {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
 }
 
 .lens-toggle-count {
@@ -2187,16 +2199,21 @@
   opacity: 0.85;
 }
 
-.lens-note {
-  margin: var(--space-2) 0 0;
+/* "Which forty?" — a second pill under the first, only while the lens is on. */
+.lens-link {
+  margin: 0;
   font-size: var(--text-xs);
-  line-height: var(--leading-normal);
-  color: var(--color-text-muted);
 }
 
-.lens-link {
-  margin: var(--space-2) 0 0;
-  font-size: var(--text-xs);
+.lens-link a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 32px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-md);
 }
 
 /* The link between two sites of different traditions. Deliberately not the
@@ -2224,14 +2241,12 @@
 }
 
 [dir='rtl'] .lens-toggle,
-[dir='rtl'] .lens-note,
 [dir='rtl'] .lens-link {
   font-family: var(--font-urdu);
   line-height: var(--leading-urdu-ui);
 }
 
 /* Nastaliq is unreadable at --text-xs; the two smallest here step up. */
-[dir='rtl'] .lens-note,
 [dir='rtl'] .lens-link,
 [dir='rtl'] .lens-toggle-count {
   font-size: var(--text-sm);
