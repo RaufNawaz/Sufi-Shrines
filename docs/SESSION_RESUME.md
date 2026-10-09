@@ -34,6 +34,18 @@ the reason the rest is credible.
 
 ---
 
+## 9 October 2026 — the Apple pass has begun: calendar, almanac, chrome (read HANDOVER §9.272)
+
+Rauf's standing direction since this night: **the whole site should read as a professional-grade,
+minimalist Apple product.** What that means here and the page-by-page plan:
+[`planning/APPLE_PASS_2026-10-09.md`](planning/APPLE_PASS_2026-10-09.md). Shipped: the Urs
+Calendar as a compact card + agenda, the whole `/almanac` page, cool neutrals in both themes,
+sans display titles and section headings, pill buttons, the welcome card's destinations as an
+inset list. **Next session: `/graph`, `/typology`, `/chronology`, `/shared-ground`, then
+`/about`, the sidebar and settings** — convene a lean council with the briefs in the plan.
+
+---
+
 ## 8 October 2026, late — the Mac is in line with Windows; four UI changes; Urdu drafts; deploy
 
 **Read HANDOVER §9.271.** `cloud-ocr-queue` now carries everything: the Windows merge, the

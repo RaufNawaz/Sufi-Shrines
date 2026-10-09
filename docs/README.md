@@ -168,3 +168,4 @@ Prompts written for Claude Code or other agents (RULE 0: they live here, not in 
 
 Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu dictionary +
 content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provenance, exports).
+- [planning/APPLE_PASS_2026-10-09.md](planning/APPLE_PASS_2026-10-09.md) — the Apple pass: what "professional-grade minimalist" means in this codebase, what shipped on 9 October 2026, and the page-by-page plan for the explorer pages.
