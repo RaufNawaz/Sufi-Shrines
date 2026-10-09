@@ -815,7 +815,7 @@
     {
       "subjectSlug": "shah-gohar-peer",
       "subjectName": "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer",
-      "subjectIsNew": true,
+      "subjectIsNew": false,
       "relation": "disciple_of",
       "objectSlug": "syed-ul-hassan-kabeer",
       "objectName": "Syed Ul Hassan Kabeer",
@@ -828,7 +828,7 @@
     {
       "subjectSlug": "shah-gohar-peer",
       "subjectName": "Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer",
-      "subjectIsNew": true,
+      "subjectIsNew": false,
       "relation": "successor_of",
       "objectSlug": "syed-ul-hassan-kabeer",
       "objectName": "Syed Ul Hassan Kabeer",
