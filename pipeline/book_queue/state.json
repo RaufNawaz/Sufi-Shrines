@@ -684,16 +684,12 @@
       },
       "route_used": "vision",
       "render_scale": 1568,
-      "pages_done": "1-496",
+      "pages_done": "1-504",
       "leases": {},
       "assembled_file": null,
       "takeaways_file": null,
       "integrated_into": [],
       "log": [
-        {
-          "t": "2026-10-04T00:24:07Z",
-          "msg": "lease 393-398 taken (worker w6) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
-        },
         {
           "t": "2026-10-04T00:24:07Z",
           "msg": "lease 399-404 taken (worker w7) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
@@ -849,6 +845,10 @@
         {
           "t": "2026-10-09T05:56:21Z",
           "msg": "lease 489-496 taken (worker coord-s014TnzBCe) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — §9.273 transcription firing"
+        },
+        {
+          "t": "2026-10-09T16:23:01Z",
+          "msg": "lease 497-504 taken (worker coord-s01Jo3ir8) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         }
       ],
       "scan_images": {
@@ -3634,5 +3634,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-10-09T06:05:13Z"
+  "updated": "2026-10-09T16:38:48Z"
 }
