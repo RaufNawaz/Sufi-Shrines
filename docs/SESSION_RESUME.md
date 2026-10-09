@@ -57,7 +57,7 @@ Never build or commit in the `G:` Drive copy from Windows; it is the Mac's own f
 - The Mac folder's book-queue commits `0772743` and `d9bcf05` (26 September to 8 October runs, the
   integration stage) had not been pushed. They are now merged into `cloud-ocr-queue` and pushed.
 
-**Merged on the Mac, 9 October 2026:** `post-import-2026-10-08` (`8bfa4f7`, `80b9dba`), reconciling
+**Merged on the Mac, late on 8 October 2026:** `post-import-2026-10-08` (`8bfa4f7`, `80b9dba`), reconciling
 the repo to 171 sites (counts, regenerated fixtures, social card, KG, schemas, the photo list in
 CLAUDE.md, emptied "patch imported" allowlists). Full record: HANDOVER §9.270 (written on Windows
 as §9.268; renumbered on merge because the Mac's scheduled run had already taken 9.268). Merged

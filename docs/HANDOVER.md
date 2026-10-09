@@ -19478,7 +19478,7 @@ Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by
 
 **Next transcription firing:** `khulasat_ut_tawarikh` 481-610 (re-render bands). Still owed from §9.262: p0446's year, 435-440, 411-416. **Next notes firing:** still no queued notes work (§9.267) → it transcribes. Nothing committed to git; Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…268.md` plus earlier lists.
 
-### 9.269 — 9 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF 481-488 transcribed (→ 488/610)
+### 9.269 — 8 October 2026 (late, 00:20Z 9 Oct): Stage = transcription. `khulasat_ut_tawarikh` PDF 481-488 transcribed (→ 488/610)
 
 **Stage: transcription.** Scheduled firing (fired ~00:20Z 9 Oct), session_01RHNcjX5EZcn54d1fe37xu3. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim, no khulasat lease (state.json updated 23:50Z by §9.268's `queue.py check`). **Step 2:** last §9 by sort = 9.268 (transcription); last project doc = 84 (= §9.268's record), no newer pending HANDOVER section. The notes stage has no queued work (§9.267), so this firing transcribed either way.
 
@@ -19502,7 +19502,7 @@ Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by
 
 ### 9.270 — 8 October 2026: the import landed, 169 → 171, and what it left that only a person can write
 
-*Written on the Windows PC as §9.268 and renumbered to §9.270 when the Mac merged `post-import-2026-10-08` on 9 October 2026: the Mac's scheduled run had already taken 9.268 (khulasat 473-480) and 9.269 followed it. Commit `80b9dba` names it by the old number.*
+*Written on the Windows PC as §9.268 and renumbered to §9.270 when the Mac merged `post-import-2026-10-08` late on 8 October 2026: the Mac's scheduled run had already taken 9.268 (khulasat 473-480) and 9.269 followed it. Commit `80b9dba` names it by the old number.*
 
 *Numbered 268 because the Mac's working copy holds uncommitted staging files `docs/_APPEND_238.md`–`_APPEND_267.md`; 238–267 are taken even though they are not in git yet.*
 
