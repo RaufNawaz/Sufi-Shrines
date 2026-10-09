@@ -164,6 +164,7 @@ Prompts written for Claude Code or other agents (RULE 0: they live here, not in 
 | [`prompts/pipeline_prompts.md`](prompts/pipeline_prompts.md)     | Generation-pipeline prompt specification             |
 | [`prompts/PROMPT_media_pipeline.md`](prompts/PROMPT_media_pipeline.md) | Generalising the image pipeline to all shrines |
 | [`prompts/BOOK_QUEUE_TASK.md`](prompts/BOOK_QUEUE_TASK.md) | The scheduled book-queue task's prompt — transcription and notes for the cloud OCR queue |
+| [`prompts/INTEGRATION_BRIEF.md`](prompts/INTEGRATION_BRIEF.md) | Integration stage brief: replaces the notes branch of the book-queue routine |
 
 Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu dictionary +
 content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provenance, exports).

@@ -34,6 +34,58 @@ the reason the rest is credible.
 
 ---
 
+## 8 October 2026 — the import landed, the site deployed, and what is waiting on Rauf
+
+**Read this first if you are resuming, on either machine.** Since 8 October Rauf works from the
+MacBook and a Windows PC; they sync through GitHub. On Windows the repo is
+`C:\Users\g16\Desktop\Shrines Project` (setup and gotchas: [`WINDOWS_SETUP.md`](WINDOWS_SETUP.md)).
+Never build or commit in the `G:` Drive copy from Windows; it is the Mac's own folder.
+
+**Done on 8 October:**
+
+- **Sheet imported** by Rauf: `data/import_2026-10-08.csv` (the never-imported 10 September set
+  plus the 23 September rulings: Bulleh Shah `figure_died` 1758, Baba Farid 1265, Hinglaj Mata's
+  `id`). Verified afterwards: the live sheet is 171 × 47 and matches the file cell for cell.
+- **Deployed** `794c355` to `1.7`. spiritualsitespakistan.com and GitHub Pages were both serving it
+  (Mehr Nastaliq present) about four minutes after the push. The domain follows `1.7`.
+- **Two darbars are now public for the first time:** Darbar Hazrat Shah Gohar Peer and Darbar Mian
+  Qurban Ali Shah. Their malformed categories used to make the site drop them. **Their Urdu pages
+  show English** until the items below are written.
+- `0fba8f1`: five checks that were themselves wrong, found during reconciliation (schema rejected
+  unmapped rows, the `--reconcile` writer's indent, a UTC date stamp, CRLF in
+  `measure_image_shapes.py`, a wrong command name). `cloud-ocr-queue` is green.
+- The Mac folder's book-queue commits `0772743` and `d9bcf05` (26 September to 8 October runs, the
+  integration stage) had not been pushed. They are now merged into `cloud-ocr-queue` and pushed.
+
+**Waiting on a side branch, `post-import-2026-10-08`** (`8bfa4f7`, `80b9dba`): reconciling the repo
+to 171 sites (counts, regenerated fixtures, social card, KG, schemas, the photo list in CLAUDE.md,
+emptied "patch imported" allowlists). Full record: HANDOVER §9.268, which exists on that branch only.
+**Merge it into `cloud-ocr-queue` once the items below are done.** On the Mac, commit or stash
+local edits to `docs/HANDOVER.md` and the KG files before checking it out; both sides touch them.
+
+**Asked in the chat on 8 October; no answer yet (RULE 5: this is the record, not the asking):**
+
+1. **Urdu, five pieces:** both darbars' observance (`Events`) cells; two strings in
+   `urdu-i18n/build_dictionary.py` (Shah Gohar Peer's Location, Mian Qurban Ali Shah's founded
+   note); a full Urdu article for Mian Qurban Ali Shah; Peer Makki's Urdu article, now 0.46× its
+   English after the field-survey additions; English and Urdu reader-facing source notes for Mauj
+   Darya Bukhari, Peer Makki and Shah Jamal. *Question: should Claude draft these, marked
+   unreviewed, or will Rauf or a translator write them?*
+2. **Shah Gohar Peer appears twice in the KG:** `shah-gohar-peer` and
+   `hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer` share the altName "Syed Ali
+   Gohar" and the dates 729 AH to 825 AH. The merge decides the public URL. *Recommended: keep
+   `shah-gohar-peer`.*
+3. **Forty Descriptions:** `entries/web-research-2026-09/` holds sourced research on 40 thin
+   entries, none of it in the live sheet. *Question: draft them as a separate CSV for review, with
+   the Urdu articles flagged as needing a matching revision?*
+
+**Also open, smaller:** README's "35 of the 169 sites are in or around Lahore" is now stale (both
+new darbars are in Lahore) and nothing computes it. The draft to Adil
+([`ADIL_UPDATE_2026-10-08.md`](ADIL_UPDATE_2026-10-08.md)) should gain one line about the two new
+darbars before it is sent.
+
+---
+
 ## 14 September 2026 — the entry page's two optional sections come off, behind switches
 
 **Read this first if you are resuming.** Rauf: *"there is english overflowing here and then also,
