@@ -72,6 +72,18 @@ const UI_TEXT_EN = {
   settingsMotionHelp:
     'The archive fades sections in as they arrive and animates the lineage diagrams. If your device already asks for reduced motion, the archive follows it.',
   settingsMotionSystem: 'Follow my device',
+  settingsLookLabel: 'Look',
+  settingsLookHelp:
+    'The archive was redesigned on 9 October 2026 after the way Apple sets a page: cool neutrals, one typeface, pill controls. The classic look is the warm, serif design it replaced. The layout is the same under both.',
+  settingsLookModern: 'Current',
+  settingsLookClassic: 'Classic',
+  settingsTeamSection: 'Project team',
+  settingsTeamLabel: 'Team view',
+  settingsTeamHelp:
+    'The public reads a clean page; the team reads every qualification — the measured self-account on About, the precision notes on dates, the sources panel, the review desk. This switch appears only in a browser that has followed the team link.',
+  settingsTeamToggle: 'Show the team view',
+  turnOnTeamView: 'Turn on the team view',
+  turnOffTeamView: 'Turn off the team view',
   settingsMotionReduced: 'Reduce motion',
   settingsThemeLabel: 'Theme',
   settingsThemeHelp: 'Until you choose here, the archive follows your device.',
@@ -543,6 +555,14 @@ const UI_TEXT_EN = {
 
   // ── Urs Almanac (DESIGN_VISION.md F1) ──────────────────────────────────
   welcomeExploreMore: 'Elsewhere in the archive',
+  /* One line under each destination in the welcome card's list (9 October
+     2026): what is there, not what it is called. */
+  welcomeDestAlmanac: 'When the shrines gather',
+  welcomeDestGraph: 'Lineages, orders and the figures behind the shrines',
+  welcomeDestTypology: 'Every site by the form it takes',
+  welcomeDestChronology: 'Every dated place, century by century',
+  welcomeDestSharedGround: 'Sites that stand beside another tradition',
+  welcomeDestAbout: 'Method, coverage and how to cite',
   /* Shown on the two entries with no Urdu article, above the English one they
      fall back to. Says the thing rather than letting the reader discover it. */
   articleUrduMissing:

@@ -1152,7 +1152,7 @@
   padding: var(--space-10) var(--space-6);
   gap: var(--space-4);
   color: var(--color-text-secondary);
-  background: linear-gradient(160deg, var(--color-primary-bg) 0%, var(--color-bg-surface) 100%);
+  background: transparent;
   border-radius: var(--radius-xl);
   margin: var(--space-3) 0;
 }
@@ -2111,14 +2111,53 @@
   box-shadow: var(--shadow-sm);
 }
 
-.welcome-card-list .inset-row-label {
+/* A system list's rows: an icon tile, the name over one line of what is
+   there, a quiet chevron. 56px tall, because two lines of text need it. */
+.welcome-card-list .inset-row--link > a {
+  flex-wrap: nowrap;
+  gap: var(--space-3);
+  min-height: 56px;
+  padding-inline: var(--space-3) var(--space-4);
+}
+
+/* One line each; a description that does not fit ellipsises rather than
+   pushing the tile onto a line of its own. */
+.welcome-card-list .inset-row-title,
+.welcome-card-list .inset-row-sub {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.welcome-card-list .inset-row-title {
   font-weight: 500;
+  font-size: var(--text-base);
+  letter-spacing: -0.005em;
+}
+
+.welcome-card-list .inset-row-chevron {
+  border-color: var(--color-border);
+}
+
+/* The tile is the interactive colour with the theme's inverse on it
+   (themeFlippingGrounds.test.ts), rounded like an app icon. */
+.welcome-dest-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
 }
 
 .welcome-card-links-heading {
   margin: 0;
   font-size: var(--text-xs);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -2129,8 +2168,9 @@
   text-transform: none;
 }
 
-[dir='rtl'] .welcome-card-list .inset-row-label {
+[dir='rtl'] .welcome-card-list .inset-row-title {
   font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
 }
 
 /* ── The shared-ground lens ───────────────────────────────────────────────── */
