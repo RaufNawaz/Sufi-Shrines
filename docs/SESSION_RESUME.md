@@ -34,6 +34,24 @@ the reason the rest is credible.
 
 ---
 
+## 8 October 2026, late — the Mac is in line with Windows; four UI changes; Urdu drafts; deploy
+
+**Read HANDOVER §9.271.** `cloud-ocr-queue` now carries everything: the Windows merge, the
+reconciliation branch (`post-import-2026-10-08`, merged at `3b9392d`), the Mac's scheduled runs
+(renames `cb746ab`, khulasat 481-488 `3af2103`), the Urdu drafts that turned the deploy gates
+green (four cells in `0ef0d76`, Peer Makki's survey section after it; **all unreviewed**), and four UI changes Rauf asked for in the chat: the
+shared-ground lens is a map control; the palette has tradition chips and grouped browse mode;
+"Not on the timeline" is team-only on `/chronology`; the Urs Calendar grid follows Google
+Calendar's conventions. `1.7` was fast-forwarded and pushed at the end of the session (see the
+last commits for the exact ref).
+
+**Open, asked in the chat on 8 October (late):** review or replace the four Urdu drafts; the
+two questions below still unanswered from the Windows session (Shah Gohar Peer's KG duplicate,
+the forty Descriptions); whether the chronology counts line and the almanac's "day not recorded"
+strip should also go behind the gate.
+
+---
+
 ## 8 October 2026 — the import landed, the site deployed, and what is waiting on Rauf
 
 **Read this first if you are resuming, on either machine.** Since 8 October Rauf works from the
