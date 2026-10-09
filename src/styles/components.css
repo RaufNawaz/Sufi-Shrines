@@ -206,18 +206,22 @@
   margin-block-end: var(--space-6);
 }
 
+/* The almanac's stat tile (`.almanac-coverage-item`): a white card with a
+   hairline and a soft shadow, the numeral in the interface face at display
+   weight — the Apple pass's "large numerals with small captions". */
 .coverage-stat {
   padding: var(--space-4);
-  border-radius: var(--radius-md);
+  border-radius: 16px;
   background-color: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
+  border: var(--hairline) solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .coverage-stat-value {
-  font-family: var(--font-serif);
   font-size: var(--text-3xl);
-  font-weight: 700;
-  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
   color: var(--color-text);
   font-variant-numeric: tabular-nums;
 }
@@ -624,14 +628,43 @@
   margin: 0;
 }
 
-/* A citation is meant to be copied, so it is set as a block of monospaced text
-   with its own copy control rather than as running prose. */
+/* On a phone the term column took ~45% of the width and squeezed the typeface
+   credit to six lines; the term goes over its value instead. */
+@media (max-width: 640px) {
+  .about-licence {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .about-licence dd {
+    margin-block-end: var(--space-3);
+  }
+}
+
+/* A citation is meant to be copied, so it is a card with its own copy pill at
+   the label row's trailing end rather than running prose. Set in the interface
+   face: the monospace it used to carry was Courier, which read as a terminal
+   printout and broke URLs mid-path on a phone. */
 .about-citation {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: var(--space-3);
   margin-block-end: var(--space-4);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  border-radius: 16px;
   background-color: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
+  border: var(--hairline) solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-citation .about-copy-btn {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.about-citation .about-citation-text {
+  grid-column: 1 / -1;
 }
 
 .about-citation-label {
@@ -640,34 +673,37 @@
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-muted);
-  margin-block-end: var(--space-2);
+}
+
+/* The book list sat directly against the last fact line above it. */
+.coverage-works {
+  margin-block-start: var(--space-5);
 }
 
 .about-citation-text {
-  margin: 0 0 var(--space-2) !important;
-  font-family: var(--font-mono);
+  margin: var(--space-2) 0 0 !important;
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
   color: var(--color-text) !important;
   overflow-wrap: anywhere;
 }
 
-.about-copy-btn {
-  min-height: 36px;
-  padding-inline: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background-color: var(--color-bg-alt);
-  color: var(--color-text-secondary);
-  font-family: inherit;
-  font-size: var(--text-xs);
-  cursor: pointer;
-  transition: color var(--duration-fast) var(--easing);
+/* A citation and the typeface credit are Latin runs. Inside the Urdu page they
+   would inherit Nastaliq's leading (roughly twice the Latin line) and read as
+   double-spaced; they take the interface face and its own leading instead. */
+[dir='rtl'] .about-section .about-citation-text,
+[dir='rtl'] .about-licence-latin {
+  font-family: var(--font-sans);
+  line-height: var(--leading-normal);
 }
 
-.about-copy-btn:hover,
-.about-copy-btn:focus-visible {
-  color: var(--color-primary);
+.about-licence-latin {
+  display: block;
+}
+
+/* The copy control is the site's pill (`.action-btn`); this only places it. */
+.about-copy-btn {
+  justify-self: end;
 }
 
 .about-note {
@@ -917,7 +953,8 @@
    grew a list of citing entries and the three columns started clipping the
    counts. Both classes now, which beats the primitive on specificity rather
    than on import order. */
-.inset-list.coverage-rests-list {
+.inset-list.coverage-rests-list,
+.coverage-works .inset-list {
   grid-template-columns: 1fr;
   margin-block-end: var(--space-4);
 }
@@ -1234,7 +1271,8 @@
 /* The count is the row's fixed column and the citation is the elastic one. It
    was the other way round by default, so "25 entries" arrived as "2." once the
    citing entries widened the label beside it. */
-.coverage-rests-list .inset-row-note {
+.coverage-rests-list .inset-row-note,
+.coverage-works .inset-row-note {
   flex-shrink: 0;
   white-space: nowrap;
   align-self: start;
@@ -1630,7 +1668,8 @@
     .welcome-card-title,
     .inset-row-title,
     .order-compare-num,
-    .chronology-band-heading
+    .chronology-band-heading,
+    .coverage-stat-value
   ) {
   letter-spacing: normal;
 }

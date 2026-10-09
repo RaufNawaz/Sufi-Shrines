@@ -98,7 +98,7 @@ function Citable({ label, text }: { label: string; text: string }) {
       <p className="about-citation-text" lang="en" dir="ltr" data-latin>
         {text}
       </p>
-      <button type="button" className="about-copy-btn" onClick={copy}>
+      <button type="button" className="action-btn about-copy-btn" onClick={copy}>
         {copied ? t('aboutCopyDone') : t('aboutCopy')}
       </button>
     </div>
@@ -423,17 +423,22 @@ export default function AboutPage() {
                 opposite concern. */}
             <dt>{t('aboutLicenceTypeface')}</dt>
             <dd>
-              <bdi data-latin>
-                Mehr Nastaliq Web — Nasrullah Mehr and Zeeshan Nasar, CSaLT, Information Technology
-                University of the Punjab, Lahore
-              </bdi>{' '}
-              <a
-                href="https://creativecommons.org/licenses/by/4.0/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <bdi data-latin>(CC BY 4.0)</bdi>
-              </a>
+              {/* One LTR run for the credit and its licence together: as two
+                  isolates side by side in an RTL row, the licence link was
+                  reordered into the middle of the sentence. */}
+              <span className="about-licence-latin" lang="en" dir="ltr">
+                <bdi data-latin>
+                  Mehr Nastaliq Web — Nasrullah Mehr and Zeeshan Nasar, CSaLT, Information
+                  Technology University of the Punjab, Lahore
+                </bdi>{' '}
+                <a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <bdi data-latin>(CC BY 4.0)</bdi>
+                </a>
+              </span>
             </dd>
           </dl>
           {/* The ODbL prescribes this wording; it is quoted, not paraphrased. */}
