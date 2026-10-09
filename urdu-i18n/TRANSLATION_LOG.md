@@ -195,3 +195,11 @@ Each shrine's Urdu article lives in `urdu-i18n/content/<slug>.md` (native Urdu, 
 
 These need a sourced English description first (see `TODO.md` §1–§2); some are duplicates/renames to resolve before writing.
 
+## Drafted by Claude, unreviewed — 8 October 2026
+
+- `shrine-of-peer-makki` — the section "The Life, as the Survey Narrates It" (four paragraphs), the
+  1958 Auqaf clause and the field-survey bibliography line, translated from the English the
+  field survey added. The Urdu had fallen to 0.46× its English and `urdu_content_qa.py` held the
+  deploy red. Translation of recorded content, not new content; needs a reviewer's eye
+  (HANDOVER §9.271).
+
