@@ -42,8 +42,13 @@ reconciliation branch (`post-import-2026-10-08`, merged at `3b9392d`), the Mac's
 green (four cells in `0ef0d76`, Peer Makki's survey section after it; **all unreviewed**), and four UI changes Rauf asked for in the chat: the
 shared-ground lens is a map control; the palette has tradition chips and grouped browse mode;
 "Not on the timeline" is team-only on `/chronology`; the Urs Calendar grid follows Google
-Calendar's conventions. `1.7` was fast-forwarded and pushed at the end of the session (see the
-last commits for the exact ref).
+Calendar's conventions. `1.7` and `cloud-ocr-queue` were pushed at `48aa07a`; the deploy
+succeeded. CI's full e2e job then failed on six tests, three of them tonight's and three stale;
+all six are fixed in the commits after `48aa07a` (HANDOVER §9.271, last paragraph), and the
+session closed with those pushed too.
+
+**Switching views:** `?team=1` on any URL turns the team view on and persists it in the browser;
+`?team=0` turns it off again (added 9 October 2026). A private window is always the public view.
 
 **Open, asked in the chat on 8 October (late):** review or replace the five Urdu drafts; Shah
 Gohar Peer's KG duplicate was resolved under the recommended assumption (keep `shah-gohar-peer`,
