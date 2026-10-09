@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test';
-import { test, expect } from './fixtures';
+import { test, expect, SHRINE_COUNT } from './fixtures';
 /* The Urdu table is a lazily-loaded chunk in the app, so `UI_TEXT.ur` is
    `UiStrings | undefined` there. A spec asserting the Urdu view's copy wants the
    table itself; a static import in a test does not reach the bundle. */
@@ -56,7 +56,9 @@ test.describe('command palette', () => {
     // "N of 169 sites" — the denominator is the point: a bare count hides how
     // much a query excluded.
     await expect(page.locator('.palette-status')).not.toHaveText(before ?? '');
-    await expect(page.locator('.palette-status')).toContainText('169');
+    // The archive's size, from the fixture — this read a literal 169 until the
+    // 8 October 2026 import made it 171.
+    await expect(page.locator('.palette-status')).toContainText(String(SHRINE_COUNT));
   });
 
   test('the keyboard drives it: down moves, Enter opens the shrine', async ({ page }) => {

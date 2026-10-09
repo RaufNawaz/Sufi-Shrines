@@ -56,11 +56,19 @@ const snapshot = JSON.parse(
 export const SHRINE_COUNT: number = snapshot.rows.length;
 
 /** How many of those carry coordinates, and therefore how many markers the
- * map must draw. Differs from SHRINE_COUNT by exactly the unmapped row the
- * fixture generator manufactures — which is the point: when the two were
- * equal, nothing in the suite could tell a map drawing every marker from a
- * map drawing none. */
-export const MAPPED_SHRINE_COUNT: number = SHRINE_COUNT - 1;
+ * map must draw: the snapshot's rows with a Latitude, less the one row the
+ * fixture generator strips of its coordinates on purpose — which is the point:
+ * when mapped and total were equal, nothing in the suite could tell a map
+ * drawing every marker from a map drawing none.
+ *
+ * Counted, not `SHRINE_COUNT - 1`: that arithmetic assumed the generator's row
+ * was the only unmapped one, and the 8 October 2026 import shipped two rows the
+ * survey could not place (Shah Gohar Peer, Mian Qurban Ali Shah). Three specs
+ * then expected 170 markers of 168 drawn, for a map that was drawing every
+ * marker it had. */
+export const MAPPED_SHRINE_COUNT: number =
+  (snapshot.rows as { Latitude?: string }[]).filter((row) => String(row.Latitude ?? '').trim())
+    .length - 1;
 
 /** The bundled tour data, typed with the app's own Tour model. tours.ts
  * itself can't be imported here (same JSON-import restriction as above). */

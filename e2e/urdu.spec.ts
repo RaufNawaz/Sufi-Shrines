@@ -72,7 +72,9 @@ test.describe('Urdu (?lang=ur) journey', () => {
   });
 
   test('the State of the Archive reads fully in Urdu', async ({ page }) => {
-    // Its sections live on /about now; the ledger below is what was /report.
+    // Its sections live on /about now; the ledger below is what was /report —
+    // and team-only since 11 September 2026 (CLAUDE.md, public and team view).
+    await page.addInitScript(() => window.localStorage.setItem('shrines_team_access', '1'));
     await page.goto('/about?lang=ur');
     const title = page.locator('h1.entity-title');
     await expect(title).toHaveText(UI_TEXT_UR.aboutTitle);
@@ -94,7 +96,24 @@ test.describe('Urdu (?lang=ur) journey', () => {
     for (const heading of await page.locator('.typology-group-heading').allTextContents()) {
       expect(heading, `heading "${heading}" must carry no Latin`).not.toMatch(/[A-Za-z]/);
     }
-    await expect(page.locator('.typology-group-prose bdi[lang="en"]')).toHaveCount(2);
+    // Asserted as the invariant, not as a count: this line said `toHaveCount(2)`
+    // until 8 October 2026, when the import left the prose groups with no Latin
+    // run at all and the number went stale the way a quoted finding does.
+    const outsideBdi = await page.locator('.typology-group-prose').evaluateAll((groups) =>
+      groups.flatMap((group) => {
+        const found: string[] = [];
+        const walker = document.createTreeWalker(group, NodeFilter.SHOW_TEXT);
+        let node: Node | null;
+        while ((node = walker.nextNode())) {
+          const text = (node.textContent || '').trim();
+          if (!/[A-Za-z]/.test(text)) continue;
+          if ((node.parentElement as Element | null)?.closest('bdi[lang="en"]')) continue;
+          found.push(text.slice(0, 60));
+        }
+        return found;
+      }),
+    );
+    expect(outsideBdi, 'Latin in a prose group outside <bdi lang="en">').toEqual([]);
   });
 
   test('the infobox names each tradition honestly: دیوتا for a deity, سلسلہ translated', async ({

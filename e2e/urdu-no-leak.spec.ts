@@ -242,7 +242,13 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   data/patch_data_hygiene_2026-08-21.csv is imported.
  */
 const BUDGET: Record<string, number> = {
-  map: 7,
+  /* 7 → 8 on 8 October 2026: the import made Darbar Mian Qurban Ali Shah public,
+     and its Location is a survey sentence ("Mint Stop, Lahore (as given in the
+     survey; …)"), prose the token map rightly leaves as recorded. Measured with
+     the walker below: the eighth declared run is that cell, `undeclared` empty.
+     (Shah Gohar Peer's Location, which arrived the same day, is translated
+     whole — LOCATION_PHRASES in build_dictionary.py — so it does not count.) */
+  map: 8,
   // 2 → 10, raised 23 Aug 2026 when the two branches merged. Deliberately, and
   // this is what each of the eight is:
   //   · 3 Auqaf mosque names and one city (NearbyMosques) — the women's-prayer
@@ -384,7 +390,10 @@ const BUDGET: Record<string, number> = {
      number went up**, because the guard counts text nodes and italics split
      them. Worth knowing before reading any budget in this file as a quantity of
      English: it is a count of nodes. See HANDOVER §9.129. */
-  graph: 28,
+  /* 28 → 30 on 8 October 2026: the two darbars the import made public bring
+     their lineage notes to the graph's evidence drawer, declared as recorded.
+     Measured, `undeclared` empty. */
+  graph: 30,
   /* 39 → 34, 26 August 2026. Not a translation: the calendar became the route's
      default view, so `/almanac?lang=ur` now settles on one month's cards rather
      than all thirteen month listings, and five of the recorded `Events` strings
