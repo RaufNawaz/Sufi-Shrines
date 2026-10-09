@@ -114,19 +114,21 @@
     font-family: var(--font-urdu);
     /* Nastaliq needs the height; at 10px its descenders collide with the
        baseline and the word turns to a smear. 12px with room below it — the
-       first attempt clipped the tail of تقویم against the bottom of the bar. */
-    font-size: 12px;
+       first attempt clipped the tail of تقویم against the bottom of the bar.
+       13px since 9 October 2026 (the council's Urdu seat: at 12px آرکائیو and
+       تقویم read as smudges), with two more points taken from the icon. */
+    font-size: 13px;
     line-height: 1.45;
     letter-spacing: normal;
   }
 
-  /* Two points of icon paid to the type. Nastaliq's ascenders and descenders
+  /* Four points of icon paid to the type. Nastaliq's ascenders and descenders
      need more vertical room than a Latin label of the same nominal size, and the
      bar's height is fixed by the platform convention rather than by the script
      inside it. */
   [dir='rtl'] .tabbar-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   [dir='rtl'] .tabbar-link {
