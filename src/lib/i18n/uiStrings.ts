@@ -76,6 +76,8 @@ const UI_TEXT_EN = {
   networkUndated: 'undated',
   graphOpenOrder: 'Open the order',
   lineageShowSource: 'Source',
+  lineageTeacherLabel: 'Teacher',
+  lineageDisciplesCount: (n: number) => (n === 1 ? '1 disciple' : `${n} disciples`),
   lineageHideSource: 'Hide source',
   settingsLookHelp:
     'The archive was redesigned on 9 October 2026 after the way Apple sets a page: cool neutrals, one typeface, pill controls. The classic look is the warm, serif design it replaced. The layout is the same under both.',
@@ -1268,6 +1270,7 @@ export function tFn(lang: Lang, key: 'saintBiographyFrom', entry: string): strin
 export function tFn(lang: Lang, key: 'almanacMorePlaces', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarPlaced', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarDayCount', n: number): string;
+export function tFn(lang: Lang, key: 'lineageDisciplesCount', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarMore', n: number): string;
 export function tFn(lang: Lang, key: 'almanacShowList', n: number): string;
 export function tFn(lang: Lang, key: 'orderSpan', from: string, to: string): string;
@@ -1357,6 +1360,7 @@ export function tFn(
   lang: Lang,
   key:
     | 'resultCount'
+    | 'lineageDisciplesCount'
     | 'chronologySpan'
     | 'settingsSavedCount'
     | 'settingsSavedImported'

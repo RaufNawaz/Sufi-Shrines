@@ -3186,3 +3186,114 @@
   stroke-width: 4px;
   stroke-linejoin: round;
 }
+
+/* ── Lineage as a tree: a card per teacher, the disciples under them ───────── */
+.graph-lineage-group {
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  margin-block-end: var(--space-3);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+.graph-lineage-teacher {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  padding-block-end: var(--space-3);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+.graph-lineage-teacher-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+[dir='rtl'] .graph-lineage-teacher-label {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  letter-spacing: normal;
+  text-transform: none;
+}
+.graph-lineage-teacher-name {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.graph-lineage-teacher-name:hover,
+.graph-lineage-teacher-name:focus-visible {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+[dir='rtl'] .graph-lineage-teacher-name {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-ui);
+}
+.graph-lineage-teacher-count {
+  margin-inline-start: auto;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+[dir='rtl'] .graph-lineage-teacher-count {
+  font-family: var(--font-urdu);
+}
+.graph-lineage-disciples {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.graph-lineage-disciple {
+  padding-block: var(--space-2);
+}
+.graph-lineage-disciple + .graph-lineage-disciple {
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+.graph-lineage-disciple .graph-lineage-edge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.graph-lineage-disciple .graph-lineage-edge > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+.graph-lineage-disciple .graph-lineage-edge > a:hover,
+.graph-lineage-disciple .graph-lineage-edge > a:focus-visible {
+  background: var(--color-primary-pale);
+  color: var(--color-primary);
+}
+.graph-lineage-disciple .graph-lineage-relation {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  background: none;
+  padding: 0;
+}
+.graph-lineage-disciple .graph-lineage-quote {
+  margin: var(--space-2) 0 var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  border-radius: 12px;
+  background: var(--color-bg-alt);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}

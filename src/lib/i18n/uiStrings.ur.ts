@@ -76,6 +76,8 @@ export const UI_TEXT_UR: UiStrings = {
   networkUndated: 'بلا تاریخ',
   graphOpenOrder: 'طریقے کا صفحہ کھولیں',
   lineageShowSource: 'ماخذ',
+  lineageTeacherLabel: 'مرشد',
+  lineageDisciplesCount: (n: number) => (n === 1 ? '۱ مرید' : `${n} مرید`),
   lineageHideSource: 'ماخذ چھپائیں',
   settingsLookHelp:
     'آرکائیو کو ۹ اکتوبر ۲۰۲۶ کو اُس طرز پر نئے سرے سے ترتیب دیا گیا جس طرح ایپل صفحہ سجاتا ہے: ٹھنڈے غیر جانبدار رنگ، ایک ہی خط، گول کنٹرول۔ کلاسیکی انداز وہ گرم، سیریف ڈیزائن ہے جس کی جگہ اِس نے لی۔ دونوں میں ترتیب ایک جیسی ہے۔',

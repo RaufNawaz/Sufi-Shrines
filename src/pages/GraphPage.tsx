@@ -192,6 +192,28 @@ export default function GraphPage() {
     );
   }, [lineageEdges, lineageScope, activeOrder, orderMemberSlugs]);
 
+  /* The links grouped by teacher (the edge's object), most disciples first,
+     then by name — the shape of a silsila rather than a flat list of pairs. */
+  const lineageGroups = useMemo(() => {
+    const byTeacher = new Map<
+      string,
+      { teacher: (typeof scopedLineageEdges)[number]['object']; edges: typeof scopedLineageEdges }
+    >();
+    for (const edge of scopedLineageEdges) {
+      const entry = byTeacher.get(edge.object.slug);
+      if (entry) entry.edges.push(edge);
+      else byTeacher.set(edge.object.slug, { teacher: edge.object, edges: [edge] });
+    }
+    return [...byTeacher.values()].sort(
+      (a, b) =>
+        b.edges.length - a.edges.length ||
+        localizeFigureName(a.teacher, lang).localeCompare(
+          localizeFigureName(b.teacher, lang),
+          lang,
+        ),
+    );
+  }, [scopedLineageEdges, lang]);
+
   /* Edges with neither endpoint in any recorded order. Computed over every order
      rather than the active one — this is a fact about the dataset, not about the
      current selection, so it must not change as the reader clicks. */
@@ -519,209 +541,242 @@ export default function GraphPage() {
                 — inventing an Urdu name for a figure would break RULE 2 — so the
                 element declares the debt instead of hiding it. Each name is
                 <bdi>-wrapped for bidi isolation, which is a separate need. */}
+            {/* A tree, not a row per link (9 October 2026, Rauf: "there must be
+                some better way of doing this"): one card per teacher, the
+                disciples listed under them, most disciples first — which is
+                the shape of a silsila. The quotation that is each link's
+                evidence opens on a Source button for the public; the team,
+                who read every qualification, see it open, with its citation. */}
             <ul className="graph-lineage-list" data-latin>
-              {scopedLineageEdges.map((edge) => {
-                const key = `${edge.subject.slug}-${edge.relation}-${edge.object.slug}`;
-                const open = openSources.has(key);
-                return (
-                  <li key={key} className="graph-lineage-item">
-                    <div className="graph-lineage-edge">
-                      <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
-                        <bdi>{fmtNum(localizeFigureName(edge.subject, lang))}</bdi>
-                      </Link>
-                      <span className="graph-lineage-relation">
-                        {t(
-                          edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel',
-                        )}
-                      </span>
-                      <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
-                        <bdi>{fmtNum(localizeFigureName(edge.object, lang))}</bdi>
-                      </Link>
-                      {/* An edge nobody has read yet says so. The archive's claim is
-                        honesty about provenance, so a lineage drawn from
-                        machine-extracted prose must not look like a reviewed one. */}
-                      {teamView && !edge.reviewed && (
-                        <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
-                          {t('lineageUnreviewed')}
-                        </span>
-                      )}
-                      {edge.quote && (
-                        <button
-                          type="button"
-                          className={`graph-lineage-source-btn${open ? ' active' : ''}`}
-                          aria-expanded={open}
-                          aria-controls={`lineage-source-${key}`}
-                          onClick={() => toggleSource(key)}
-                        >
-                          {open ? t('lineageHideSource') : t('lineageShowSource')}
-                        </button>
-                      )}
-                    </div>
-                    {edge.quote && open && (
-                      /* The source's own words and the file they came from. Latin
-                       on purpose in either language: this is the evidence for
-                       an unreviewed edge, and an archive whose claim is
-                       provenance must leave the reader an exact search string
-                       (CLAUDE.md i18n rule 7). `lang`/`dir` so an English
-                       sentence inside an RTL page keeps its punctuation, and
-                       `data-latin` so the no-leak guard reads it as
-                       deliberate rather than untranslated. */
-                      <blockquote
-                        id={`lineage-source-${key}`}
-                        className="graph-lineage-quote reveal-rise"
-                        lang="en"
-                        dir="ltr"
-                        data-latin
-                      >
-                        {renderInlineBold(edge.quote)}
-                        {teamView && edge.source && (
-                          <cite className="graph-lineage-cite">{edge.source}</cite>
-                        )}
-                      </blockquote>
-                    )}
-                  </li>
-                );
-              })}
+              {lineageGroups.map((group) => (
+                <li key={group.teacher.slug} className="graph-lineage-group">
+                  <div className="graph-lineage-teacher">
+                    <span className="graph-lineage-teacher-label">{t('lineageTeacherLabel')}</span>
+                    <Link
+                      to={`/saint/${group.teacher.slug}`}
+                      className="graph-lineage-teacher-name"
+                      lang={isRtl ? 'ur' : undefined}
+                    >
+                      <bdi>{fmtNum(localizeFigureName(group.teacher, lang))}</bdi>
+                    </Link>
+                    <span className="graph-lineage-teacher-count">
+                      {fmtNum(tFn(lang, 'lineageDisciplesCount', group.edges.length))}
+                    </span>
+                  </div>
+                  <ul className="graph-lineage-disciples">
+                    {group.edges.map((edge) => {
+                      const key = `${edge.subject.slug}-${edge.relation}-${edge.object.slug}`;
+                      const open = teamView || openSources.has(key);
+                      return (
+                        <li key={key} className="graph-lineage-disciple">
+                          <div className="graph-lineage-edge">
+                            <Link
+                              to={`/saint/${edge.subject.slug}`}
+                              lang={isRtl ? 'ur' : undefined}
+                            >
+                              <bdi>{fmtNum(localizeFigureName(edge.subject, lang))}</bdi>
+                            </Link>
+                            <span className="graph-lineage-relation">
+                              {t(
+                                edge.relation === 'successor_of'
+                                  ? 'successorOfLabel'
+                                  : 'discipleOfLabel',
+                              )}
+                            </span>
+                            {teamView && !edge.reviewed && (
+                              <span
+                                className="lineage-unreviewed"
+                                title={t('lineageUnreviewedHelp')}
+                              >
+                                {t('lineageUnreviewed')}
+                              </span>
+                            )}
+                            {edge.quote && !teamView && (
+                              <button
+                                type="button"
+                                className={`graph-lineage-source-btn${open ? ' active' : ''}`}
+                                aria-expanded={open}
+                                aria-controls={`lineage-source-${key}`}
+                                onClick={() => toggleSource(key)}
+                              >
+                                {open ? t('lineageHideSource') : t('lineageShowSource')}
+                              </button>
+                            )}
+                          </div>
+                          {edge.quote && open && (
+                            <blockquote
+                              id={`lineage-source-${key}`}
+                              className="graph-lineage-quote reveal-rise"
+                              lang="en"
+                              dir="ltr"
+                              data-latin
+                            >
+                              {renderInlineBold(edge.quote)}
+                              {teamView && edge.source && (
+                                <cite className="graph-lineage-cite">{edge.source}</cite>
+                              )}
+                            </blockquote>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              ))}
             </ul>
           </section>
         )}
 
-        <section className="graph-page-section">
-          <h2 className="section-heading">{t('graphExplorerAllFigures')}</h2>
-          <p className="graph-figures-note">{t('graphExplorerFiguresNote')}</p>
+        {/* Team view only since 9 October 2026 (Rauf): the full figure index
+            and the lineage-only names are working apparatus — the public reads
+            the orders, the network and the lineage, the team reads the lists
+            (CLAUDE.md, "Public view and team view"). Nothing is removed from
+            the data or the figure pages themselves. */}
+        {teamView && (
+          <section className="graph-page-section">
+            <h2 className="section-heading">{t('graphExplorerAllFigures')}</h2>
+            <p className="graph-figures-note">{t('graphExplorerFiguresNote')}</p>
 
-          {/* 136 names under seven headings is a list you scroll past, not one
+            {/* 136 names under seven headings is a list you scroll past, not one
               you find anything in. Client-side because the whole set is already
               in memory — no worker, no debounce, no spinner. */}
-          <div className="graph-figure-filter">
-            <label className="graph-figure-filter-label" htmlFor="figure-filter">
-              {t('graphFigureFilterLabel')}
-            </label>
-            <div className="graph-figure-filter-row">
-              <input
-                id="figure-filter"
-                type="search"
-                className="graph-figure-filter-input"
-                value={figureQuery}
-                onChange={(e) => setFigureQuery(e.target.value)}
-                placeholder={t('graphFigureFilterPlaceholder')}
-                autoComplete="off"
-              />
-              {figureQuery && (
-                <button
-                  type="button"
-                  className="graph-figure-filter-clear"
-                  onClick={() => setFigureQuery('')}
-                >
-                  {t('graphFigureFilterClear')}
-                </button>
-              )}
-            </div>
-            {/* The archive's temporal shape, as a filter.
+            <div className="graph-figure-filter">
+              <label className="graph-figure-filter-label" htmlFor="figure-filter">
+                {t('graphFigureFilterLabel')}
+              </label>
+              <div className="graph-figure-filter-row">
+                <input
+                  id="figure-filter"
+                  type="search"
+                  className="graph-figure-filter-input"
+                  value={figureQuery}
+                  onChange={(e) => setFigureQuery(e.target.value)}
+                  placeholder={t('graphFigureFilterPlaceholder')}
+                  autoComplete="off"
+                />
+                {figureQuery && (
+                  <button
+                    type="button"
+                    className="graph-figure-filter-clear"
+                    onClick={() => setFigureQuery('')}
+                  >
+                    {t('graphFigureFilterClear')}
+                  </button>
+                )}
+              </div>
+              {/* The archive's temporal shape, as a filter.
                 A reader could search by name and by tradition and not by *when* —
                 on an archive spanning the 8th to the 21st century, that is the
                 axis its material is actually organised along. The undated chip
                 is not a leftover: at 63 of 136 it is the largest group here, and
                 the honest thing is to let a reader see it and open it. */}
-            <div className="graph-century-filter">
-              <span className="graph-century-filter-label" id="century-filter-label">
-                {t('graphCenturyFilterLabel')}
-              </span>
-              <div
-                className="filter-chips graph-century-chips"
-                role="group"
-                aria-labelledby="century-filter-label"
-              >
-                <button
-                  type="button"
-                  className={`filter-chip${centuryFilter === null ? ' active' : ''}`}
-                  aria-pressed={centuryFilter === null}
-                  onClick={() => setCenturyFilter(null)}
+              <div className="graph-century-filter">
+                <span className="graph-century-filter-label" id="century-filter-label">
+                  {t('graphCenturyFilterLabel')}
+                </span>
+                <div
+                  className="filter-chips graph-century-chips"
+                  role="group"
+                  aria-labelledby="century-filter-label"
                 >
-                  {t('graphCenturyAll')}
-                </button>
-                {centuryCounts.centuries.map(([century, count]) => (
-                  <button
-                    key={century}
-                    type="button"
-                    className={`filter-chip${centuryFilter === century ? ' active' : ''}`}
-                    aria-pressed={centuryFilter === century}
-                    onClick={() => setCenturyFilter(centuryFilter === century ? null : century)}
-                  >
-                    {fmtNum(CENTURY_ORDINAL[lang](century))}
-                    <span className="filter-chip-count">{fmtNum(count)}</span>
-                  </button>
-                ))}
-                {centuryCounts.undated > 0 && (
                   <button
                     type="button"
-                    className={`filter-chip${centuryFilter === 'undated' ? ' active' : ''}`}
-                    aria-pressed={centuryFilter === 'undated'}
-                    title={t('graphCenturyUndatedHelp')}
-                    onClick={() => setCenturyFilter(centuryFilter === 'undated' ? null : 'undated')}
+                    className={`filter-chip${centuryFilter === null ? ' active' : ''}`}
+                    aria-pressed={centuryFilter === null}
+                    onClick={() => setCenturyFilter(null)}
                   >
-                    {t('graphCenturyUndated')}
-                    <span className="filter-chip-count">{fmtNum(centuryCounts.undated)}</span>
+                    {t('graphCenturyAll')}
                   </button>
-                )}
+                  {centuryCounts.centuries.map(([century, count]) => (
+                    <button
+                      key={century}
+                      type="button"
+                      className={`filter-chip${centuryFilter === century ? ' active' : ''}`}
+                      aria-pressed={centuryFilter === century}
+                      onClick={() => setCenturyFilter(centuryFilter === century ? null : century)}
+                    >
+                      {fmtNum(CENTURY_ORDINAL[lang](century))}
+                      <span className="filter-chip-count">{fmtNum(count)}</span>
+                    </button>
+                  ))}
+                  {centuryCounts.undated > 0 && (
+                    <button
+                      type="button"
+                      className={`filter-chip${centuryFilter === 'undated' ? ' active' : ''}`}
+                      aria-pressed={centuryFilter === 'undated'}
+                      title={t('graphCenturyUndatedHelp')}
+                      onClick={() =>
+                        setCenturyFilter(centuryFilter === 'undated' ? null : 'undated')
+                      }
+                    >
+                      {t('graphCenturyUndated')}
+                      <span className="filter-chip-count">{fmtNum(centuryCounts.undated)}</span>
+                    </button>
+                  )}
+                </div>
+                <p className="graph-figures-note graph-century-note">{t('graphCenturyNote')}</p>
               </div>
-              <p className="graph-figures-note graph-century-note">{t('graphCenturyNote')}</p>
+
+              {/* aria-live so a screen-reader user hears the result count change
+                without having to go looking for it. */}
+              <p className="graph-figure-filter-count" role="status" aria-live="polite">
+                {fmtNum(
+                  tFn(
+                    lang,
+                    'graphFigureFilterCount',
+                    matchingFigures.length,
+                    archiveFigures.length,
+                  ),
+                )}
+              </p>
             </div>
 
-            {/* aria-live so a screen-reader user hears the result count change
-                without having to go looking for it. */}
-            <p className="graph-figure-filter-count" role="status" aria-live="polite">
-              {fmtNum(
-                tFn(lang, 'graphFigureFilterCount', matchingFigures.length, archiveFigures.length),
-              )}
-            </p>
-          </div>
+            {matchingFigures.length === 0 && (
+              <p className="graph-figure-filter-empty">{t('graphFigureFilterEmpty')}</p>
+            )}
 
-          {matchingFigures.length === 0 && (
-            <p className="graph-figure-filter-empty">{t('graphFigureFilterEmpty')}</p>
-          )}
-
-          {groupedFigures.map(({ group, figures }) => (
-            <div key={group} className="graph-figure-group">
-              <h3 className="graph-figure-group-heading">
-                {figureGroupLabel(group, lang)}
-                <span className="graph-figure-group-count">{fmtNum(figures.length)}</span>
-              </h3>
-              {/* One grouped list per figure type. 196 bare links in a grid read
+            {groupedFigures.map(({ group, figures }) => (
+              <div key={group} className="graph-figure-group">
+                <h3 className="graph-figure-group-heading">
+                  {figureGroupLabel(group, lang)}
+                  <span className="graph-figure-group-count">{fmtNum(figures.length)}</span>
+                </h3>
+                {/* One grouped list per figure type. 196 bare links in a grid read
                   as undifferentiated blue text on a phone; the row is the unit
                   now, and the row is the tap target. */}
-              <ul className="graph-saints-list inset-list">
-                {figures.map((saint, i) => (
-                  <li
-                    key={saint.slug}
-                    className="inset-row inset-row--link reveal-rise"
-                    style={{ '--stagger-index': i } as React.CSSProperties}
-                  >
-                    <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      <span className="inset-row-label">
-                        <bdi>{fmtNum(localizeFigureName(saint, lang))}</bdi>
-                      </span>
-                      {/* A figure_type that is a sentence rather than a category is
+                <ul className="graph-saints-list inset-list">
+                  {figures.map((saint, i) => (
+                    <li
+                      key={saint.slug}
+                      className="inset-row inset-row--link reveal-rise"
+                      style={{ '--stagger-index': i } as React.CSSProperties}
+                    >
+                      <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
+                        <span className="inset-row-label">
+                          <bdi>{fmtNum(localizeFigureName(saint, lang))}</bdi>
+                        </span>
+                        {/* A figure_type that is a sentence rather than a category is
                           content, not a defect (RULE 2) — show it as recorded
                           instead of filing it under a label it may contradict. */}
-                      {isProseFigureType(saint.figureType) && (
-                        <span className="graph-figure-as-recorded inset-row-note" data-latin>
-                          <bdi>{saint.figureType}</bdi>
-                        </span>
-                      )}
-                      <span className="inset-row-chevron" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
+                        {isProseFigureType(saint.figureType) && (
+                          <span className="graph-figure-as-recorded inset-row-note" data-latin>
+                            <bdi>{saint.figureType}</bdi>
+                          </span>
+                        )}
+                        <span className="inset-row-chevron" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+        )}
 
         {/* The other 60. A section of their own, below the archive's own
             figures and plainly labelled, so it adds a way in without touching a
             single count. */}
-        {lineageOnlyFigures.length > 0 && (
+        {teamView && lineageOnlyFigures.length > 0 && (
           <section className="graph-page-section">
             <h2 className="section-heading">
               {t('graphLineageOnlyHeading')}{' '}

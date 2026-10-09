@@ -227,12 +227,14 @@ measurements and the "if it recurs" probe in `docs/FRONTEND_NOTES.md` §6. Never
 ## Public view and team view
 
 Since 11 September 2026 the site has two shapes behind one soft gate, `hasProjectAccess()` in
-`src/lib/projectAccess.ts` (`?team=1` once, persisted; `?team=0` switches it back off — added
+`src/lib/projectAccess.ts` (`?team=1` once, persisted; `?team=0` switches it back off, and a
+browser that has ever followed the link gets a **Team view** switch on `/settings` — both added
 9 October 2026). **The public reads a clean page; the team reads every qualification.** Team-only
 today: the measured self-account on `/about` (eighteen sections and the contents nav, the places
 index among them), the founded row's precision qualifier and `year_built_note`, every
-"approximate" pill on Hijri projections, `SourcesProvenance`, `/review`, and since 8 October 2026
-"Not on the timeline" on `/chronology`. The data is untouched —
+"approximate" pill on Hijri projections, `SourcesProvenance`, `/review`, since 8 October 2026
+"Not on the timeline" on `/chronology`, and since 9 October the figure index and the lineage-only
+list on `/graph`. The data is untouched —
 RULE 2 still holds in the sheet and in the team view; the gate decides only what a visitor is
 shown. Tests that need the team view set `localStorage` `shrines_team_access` = `'1'`; a
 `<Navigate>` redirect drops `?team=1`. Full list in `docs/HANDOVER.md` §9.183.

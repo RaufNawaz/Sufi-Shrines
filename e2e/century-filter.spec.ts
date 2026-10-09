@@ -20,6 +20,8 @@ import { settle } from './fixtures';
  */
 test.describe('the century filter', () => {
   test.beforeEach(async ({ page }) => {
+    /* The figure index is team-only since 9 October 2026. */
+    await page.addInitScript(() => window.localStorage.setItem('shrines_team_access', '1'));
     await page.goto('/graph');
     await page.locator('h1.entity-title').first().waitFor();
     await settle(page);

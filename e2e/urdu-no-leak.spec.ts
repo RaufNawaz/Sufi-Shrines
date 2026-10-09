@@ -390,10 +390,12 @@ const BUDGET: Record<string, number> = {
      number went up**, because the guard counts text nodes and italics split
      them. Worth knowing before reading any budget in this file as a quantity of
      English: it is a count of nodes. See HANDOVER §9.129. */
-  /* 28 → 30 on 8 October 2026: the two darbars the import made public bring
-     their lineage notes to the graph's evidence drawer, declared as recorded.
-     Measured, `undeclared` empty. */
-  graph: 30,
+  /* 30 → 1 on 9 October 2026, lowered as the rule above says: the figure index
+     and the lineage-only list, which carried every declared run on this route,
+     are team-only now, and the lineage quotations open on demand. What is left
+     on the public page is the language toggle. (28 → 30 on 8 October was the two
+     darbars' lineage notes.) Measured, `undeclared` empty. */
+  graph: 1,
   /* 39 → 34, 26 August 2026. Not a translation: the calendar became the route's
      default view, so `/almanac?lang=ur` now settles on one month's cards rather
      than all thirteen month listings, and five of the recorded `Events` strings
