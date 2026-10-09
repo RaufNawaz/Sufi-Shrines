@@ -256,6 +256,14 @@ const SPECIAL_URDU_PHRASES: Record<string, string> = {
     'بیساکھی (جتھوں کی سب سے بڑی زیارت)؛ ساکا پنجہ صاحب کی یادگاری تقریب',
   'Visited year-round by Muslim and Hindu pilgrims; no fixed urs recorded':
     'مسلم اور ہندو زائرین سال بھر آتے ہیں؛ کوئی مقررہ عرس درج نہیں',
+  /* The two darbars that became public with the 8 October 2026 import. Drafted
+     by Claude on 8 October 2026 from the recorded English cells, UNREVIEWED
+     (HANDOVER §9.271) — the question of who writes them was open when the
+     deploy needed these gates green. Review and correct in place. */
+  '*ʿUrs*, 19–21 Ramzan, with a fair; weekly Thursday *mehfil* with *langar*, *naʿt*, *qawwālī* and lamps; five daily prayers and Friday prayer at the adjoining mosque':
+    '*عرس*، 19 سے 21 رمضان، میلے کے ساتھ؛ ہفتہ وار جمعرات کو *محفل* جس میں *لنگر*، *نعت*، *قوالی* اور چراغاں؛ ملحقہ مسجد میں پانچ وقت کی نماز اور نمازِ جمعہ',
+  '*ʿurs* on 24, 25 and 26 Rabīʿ al-Thānī (dhol, changing of the chadar, *ghusl*, *langar*); weekly Thursday public gathering with *dhikr*, *naʿt* and *langar*; five daily prayers in the courtyard mosque; large door open Thursday, Friday and Sunday':
+    '*عرس* 24، 25 اور 26 ربیع الثانی کو (ڈھول، چادر کی تبدیلی، *غسل*، *لنگر*)؛ ہفتہ وار جمعرات کو عوامی اجتماع جس میں *ذکر*، *نعت* اور *لنگر*؛ صحن کی مسجد میں پانچ وقت کی نماز؛ بڑا دروازہ جمعرات، جمعہ اور اتوار کو کھلا رہتا ہے',
 };
 
 const WORD_URDU_MAP: Record<string, string> = {

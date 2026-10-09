@@ -1079,6 +1079,10 @@ SILSILAS = {
 #    handled at render time by the Eastern-numeral converter)
 # ─────────────────────────────────────────────────────────────────────────────
 FOUNDED = {
+ # Darbar Mian Qurban Ali Shah's founded cell, public since the 8 October 2026
+ # import. Drafted by Claude on 8 October 2026, UNREVIEWED (HANDOVER §9.271).
+ "1416 AH (c. 1995–96 CE) — see note; not verified as a construction date":
+     "1416ھ (تقریباً 1995–96ء) — نوٹ دیکھیے؛ تعمیر کی تاریخ کے طور پر تصدیق شدہ نہیں",
  "11th Century": "11ویں صدی",
  "13th Century": "13ویں صدی",
  "16th Century": "16ویں صدی",
@@ -1358,9 +1362,22 @@ def is_prose_location(loc):
     return bool(re.search(r"[.;](?:\s|$)", loc)) and len(loc.split()) > 12
 
 
+# A whole Location cell that is neither an address nor a paragraph: too short
+# for `is_prose_location` and too sentence-like to split on its commas, so the
+# token map saw two "unknown tokens" that are halves of one sentence. Looked up
+# whole, before the split. The Urdu was drafted by Claude on 8 October 2026,
+# UNREVIEWED (HANDOVER §9.271).
+LOCATION_PHRASES = {
+ "Lahore (no locality, address or coordinates recorded in the survey).":
+     "لاہور (سروے میں نہ کوئی محلہ درج ہے، نہ پتہ، نہ جغرافیائی محلِ وقوع)۔",
+}
+
+
 def translate_location(loc):
     # normalise the one row that already contains an Arabic comma
     loc = loc.replace("،", ",")
+    if loc in LOCATION_PHRASES:
+        return LOCATION_PHRASES[loc], []
     if is_prose_location(loc):
         # Left in English; the UI wraps it in <bdi> so the RTL page renders it
         # correctly. Translating it belongs to the article-content pipeline,

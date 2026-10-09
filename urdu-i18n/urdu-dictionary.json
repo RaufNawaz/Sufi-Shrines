@@ -13,12 +13,12 @@
       "shrineNames": 171,
       "saints": 284,
       "silsilas": 14,
-      "foundedPhrases": 116,
+      "foundedPhrases": 117,
       "observances": 33,
       "locations": 152,
       "sufiGlossary": 49,
       "derivedBareNames": 139,
-      "flatSeedEntries": 1243
+      "flatSeedEntries": 1244
     }
   },
   "categories": {
@@ -818,6 +818,7 @@
     "Chishti Nizamia Qadria": "چشتی نظامیہ قادریہ"
   },
   "foundedPhrases": {
+    "1416 AH (c. 1995–96 CE) — see note; not verified as a construction date": "1416ھ (تقریباً 1995–96ء) — نوٹ دیکھیے؛ تعمیر کی تاریخ کے طور پر تصدیق شدہ نہیں",
     "11th Century": "11ویں صدی",
     "13th Century": "13ویں صدی",
     "16th Century": "16ویں صدی",
@@ -1034,7 +1035,7 @@
     "Kartarpur, Shakargarh Tehsil, Narowal District, Punjab, Pakistan": "کرتارپور، تحصیل شکرگڑھ، ضلع نارووال، پنجاب، پاکستان",
     "Kennedy Market area, Larkana, Larkana District, Sindh, Pakistan": "کینیڈی مارکیٹ کا علاقہ، لاڑکانہ، لاڑکانہ ضلع، سندھ، پاکستان",
     "Lahoot Lamakan valley, Khuzdar District, Balochistan, Pakistan": "لاہوت لامکان وادی، ضلع خضدار، بلوچستان، پاکستان",
-    "Lahore (no locality, address or coordinates recorded in the survey).": "Lahore (no locality، address or coordinates recorded in the survey).",
+    "Lahore (no locality, address or coordinates recorded in the survey).": "لاہور (سروے میں نہ کوئی محلہ درج ہے، نہ پتہ، نہ جغرافیائی محلِ وقوع)۔",
     "Lahore Fort (near Alamgiri Gate), Lahore, Punjab, Pakistan": "قلعہ لاہور (عالمگیری دروازہ کے قریب)، لاہور، پنجاب، پاکستان",
     "Lahore, Punjab": "لاہور، پنجاب",
     "Lahore, Punjab, Pakistan": "لاہور، پنجاب، پاکستان",
