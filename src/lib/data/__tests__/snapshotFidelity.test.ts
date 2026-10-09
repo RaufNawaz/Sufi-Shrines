@@ -13,7 +13,7 @@
  * anything weaker.
  *
  * When this fails after a legitimate `npm run data:build`, the fix is
- * `npm run data:snapshot` — a new dated file, not an edit to the old one. Old
+ * `npm run data:restore-point` — a new dated file, not an edit to the old one. Old
  * snapshots are history; only the newest is asserted to match.
  */
 import { describe, it, expect } from 'vitest';
@@ -43,7 +43,7 @@ describeIf('the newest sheet snapshot still matches the data', () => {
   const back = parsed.data.filter((r) => Object.values(r).some((v) => String(v ?? '').trim()));
 
   it(`${newest} has the same number of rows`, () => {
-    expect(back.length, 'run `npm run data:snapshot` to write a fresh dated snapshot').toBe(
+    expect(back.length, 'run `npm run data:restore-point` to write a fresh dated snapshot').toBe(
       rows.length,
     );
   });
@@ -65,7 +65,7 @@ describeIf('the newest sheet snapshot still matches the data', () => {
     expect(
       diffs.slice(0, 10),
       `${diffs.length} field(s) differ. If the dataset was legitimately rebuilt, run ` +
-        '`npm run data:snapshot` for a new dated file rather than editing the old one — an ' +
+        '`npm run data:restore-point` for a new dated file rather than editing the old one — an ' +
         'old snapshot is history, not a claim about today.',
     ).toEqual([]);
   });

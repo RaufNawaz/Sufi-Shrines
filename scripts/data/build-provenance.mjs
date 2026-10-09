@@ -99,7 +99,15 @@ provenance.shrines.sort((a, b) => a.shrineSlug.localeCompare(b.shrineSlug));
 // keeps both the honesty and the idempotence (a re-run over an unchanged
 // dataset still produces no git diff).
 if (created > 0 || added > 0) {
-  provenance.updated = new Date().toISOString().slice(0, 10);
+  // The local calendar date, as datedClaims.test.ts reads it. toISOString() is
+  // UTC, so an evening run in Lahore or Boston stamped tomorrow and failed that
+  // test (8 October 2026, stamped with the next day's date).
+  const now = new Date();
+  provenance.updated = [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, '0'),
+    String(now.getDate()).padStart(2, '0'),
+  ].join('-');
 }
 
 writeFileSync(PROVENANCE_JSON, JSON.stringify(provenance, null, 2) + '\n');

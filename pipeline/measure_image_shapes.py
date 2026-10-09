@@ -277,7 +277,9 @@ def main() -> int:
 
     if args.tsv:
         out = Path(args.tsv)
-        with out.open("w", encoding="utf-8") as handle:
+        # newline="\n": on Windows text mode writes CRLF, and build-image-shapes.mjs
+        # splits on "\n" — every header then ends in "\r" and it reads 0 shapes.
+        with out.open("w", encoding="utf-8", newline="\n") as handle:
             # The URL is the join key the front end needs, not the slug: a
             # reserved box keyed on a URL self-invalidates the moment the sheet
             # points that field somewhere else, where one keyed on a slug would
@@ -295,7 +297,7 @@ def main() -> int:
         # no reserved box, so a *newly added* image with no shape is a gate
         # failure rather than a silent loss of the box.
         out = Path(args.unmeasurable_tsv)
-        with out.open("w", encoding="utf-8") as handle:
+        with out.open("w", encoding="utf-8", newline="\n") as handle:
             handle.write("slug\tfield\tstatus\turl\n")
             for slug, field, why in failed:
                 status, _, url = why.partition("  ")

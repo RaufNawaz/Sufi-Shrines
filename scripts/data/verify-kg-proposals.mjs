@@ -707,9 +707,15 @@ if (proseCount) notes.push(`order prose: ${proseCount} passage(s)`);
 for (const n of notes) console.log(`[verify-kg-proposals] ${n}`);
 
 if (RECONCILE) {
-  if (lineageDoc) writeFileSync(LINEAGE, `${JSON.stringify(lineageDoc, null, 1)}\n`);
-  if (orderDoc) writeFileSync(ORDERS, `${JSON.stringify(orderDoc, null, 1)}\n`);
-  if (dateDoc) writeFileSync(DATES, `${JSON.stringify(dateDoc, null, 1)}\n`);
+  // Keep each file's own indent: the three are not written alike (lineage is
+  // 2-space, dates 1-space), and a fixed indent turned a three-flag reconcile on
+  // 8 October 2026 into a 3,668-line rewrite of the lineage file.
+  const indentOf = (path) => /^\{\n( +)"/.exec(readFileSync(path, 'utf8'))?.[1].length ?? 1;
+  const write = (path, doc) =>
+    writeFileSync(path, `${JSON.stringify(doc, null, indentOf(path))}\n`);
+  if (lineageDoc) write(LINEAGE, lineageDoc);
+  if (orderDoc) write(ORDERS, orderDoc);
+  if (dateDoc) write(DATES, dateDoc);
   if (reconciled.length) {
     console.log(`[verify-kg-proposals] reconciled ${reconciled.length} derived isNew flag(s):`);
     reconciled.forEach((r) => console.log(`  · ${r}`));

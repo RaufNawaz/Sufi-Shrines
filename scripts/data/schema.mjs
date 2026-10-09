@@ -56,12 +56,18 @@ export const BBOX = { latMin: 20, latMax: 42, lngMin: 55, lngMax: 82 };
 
 const optionalString = z.string();
 
+// Empty is allowed: a named row with no coordinates is kept as an unmapped page
+// (22 Aug 2026 ruling — build-dataset.mjs isValidRow, shrineModel.ts). This
+// check required them anyway, which nothing noticed until 8 October 2026, when
+// the import made the first two unmapped rows ship. Half a pair is still
+// refused (ShrineRowSchema's refine below), and a present value is still
+// range-checked: a wrong coordinate is corruption, an absent one is honesty.
 const coordinateString = (label, min, max) =>
   z
     .string()
-    .min(1, `${label} is required`)
     .refine(
       (v) => {
+        if (!v.trim()) return true;
         const n = parseFloat(v);
         return isFinite(n);
       },
@@ -69,6 +75,7 @@ const coordinateString = (label, min, max) =>
     )
     .refine(
       (v) => {
+        if (!v.trim()) return true;
         const n = parseFloat(v);
         return n >= min && n <= max;
       },
@@ -107,6 +114,9 @@ export const ShrineRowSchema = z.object({
   'Image 2 Credit': z.string().optional(),
   Events: optionalString,
   Description: optionalString,
+}).refine((r) => !r.Latitude.trim() === !r.Longitude.trim(), {
+  message: 'Latitude and Longitude must both be present or both be empty (unmapped)',
+  path: ['Latitude'],
 });
 
 // ── validate a single row ─────────────────────────────────────────────────
