@@ -2,6 +2,7 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { useLang, type Numerals } from '../../lib/i18n/LanguageContext';
+import { useTheme } from '../../lib/i18n/ThemeContext';
 import { usesEasternNumerals } from '../../lib/i18n/languages';
 import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 import type { CalendarPreference } from '../../lib/calendarPreference';
@@ -154,6 +155,7 @@ function SettingsPanel({
      provider these two preferences do not otherwise need. */
   const [textSize, setTextSize] = useState<TextSize>(readTextSize);
   const [motion, setMotion] = useState<MotionPreference>(readMotionPreference);
+  const { theme, toggleTheme } = useTheme();
 
   const chooseMotion = (next: MotionPreference) => {
     setMotion(next);
@@ -219,6 +221,21 @@ function SettingsPanel({
             labelledBy="msettings-reading-size"
           />
         </div>
+
+        {/* Here as well as in the header: on a phone the header's moon button is
+            hidden to give the scrolled title room, so this is where it went. */}
+        <SettingRow<'light' | 'dark'>
+          name="theme"
+          label={t('settingsThemeLabel')}
+          value={theme}
+          options={[
+            { value: 'light', label: t('settingsThemeLight') },
+            { value: 'dark', label: t('settingsThemeDark') },
+          ]}
+          onChoose={(next) => {
+            if (next !== theme) toggleTheme();
+          }}
+        />
 
         <SettingRow<MotionPreference>
           name="motion"

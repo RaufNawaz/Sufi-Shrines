@@ -216,8 +216,12 @@ export function EntityPageHeader({ title }: { title?: string }) {
             an article from a search engine — which is how most arrive — had to
             scroll past the whole article to change the reading size. */}
         <SettingsMenu />
-        <DarkModeToggle />
-        <LanguageToggle />
+        {/* On a phone the theme lives in the gear's Appearance section and the
+            language pill shows only the language you can switch *to*: five
+            controls left the scrolled title about forty pixels, so every
+            page's title read "Data …" or "صو…". */}
+        <DarkModeToggle className="page-header-theme" />
+        <LanguageToggle className="page-header-lang" />
       </div>
     </header>
   );

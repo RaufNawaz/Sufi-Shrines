@@ -1619,7 +1619,9 @@
 /* Scroll to top */
 .scroll-to-top {
   position: fixed;
-  bottom: calc(var(--space-6) + var(--safe-bottom));
+  /* Above the tab bar on a phone: it sat on the Archive tab and took its taps.
+     `--tabbar-height` already includes the safe area where the bar exists. */
+  bottom: calc(var(--space-6) + max(var(--tabbar-height), var(--safe-bottom)));
   inset-inline-end: calc(var(--space-6) + var(--safe-right));
   width: 44px;
   height: 44px;
@@ -2582,6 +2584,31 @@
     width: 20px;
     height: 20px;
   }
+
+  /* The theme is in the gear's Appearance section on a phone. */
+  .shrine-page-header .page-header-theme {
+    display: none;
+  }
+
+  /* One button, naming the language you would switch to — the pill held both
+     names and spent 116px saying which one you are already reading. */
+  .page-header-lang .lang-seg.active {
+    display: none;
+  }
+
+  .page-header-lang .lang-seg:first-child {
+    border-inline-end: none;
+  }
+
+  .shrine-page-header-actions {
+    gap: 0;
+  }
+}
+
+/* The back link's article margin (it sits above a hero elsewhere) pushed the
+   chevron 12px above every other control in the bar. */
+.shrine-page-header .back-link {
+  margin-bottom: 0;
 }
 
 /* Where else the archive uses a source. Beside the citation, not under it: it
