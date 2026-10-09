@@ -728,22 +728,27 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* The grid itself follows the month view every reader already knows from
+   Google Calendar (8 October 2026, Rauf): hairlines rather than a frame, the
+   weekday row quiet, the day number centred at the top of its square with
+   today as a filled disc, no shading on the neighbouring months' days, and
+   each recorded observance a solid bar in its tradition's colour. */
 .almanac-calendar-grid {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  border: 1px solid var(--color-border);
+  border: var(--hairline) solid var(--color-border-light);
 }
 
 .almanac-calendar-grid th {
   padding-block: var(--space-2);
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   text-align: center;
-  border-block-end: 1px solid var(--color-border);
+  border-block-end: var(--hairline) solid var(--color-border-light);
 }
 
 [dir='rtl'] .almanac-calendar-grid th {
@@ -778,10 +783,12 @@
   border: var(--hairline) solid var(--color-border-light);
 }
 
-/* Padding cells belong to the neighbouring month. Quieter ground rather than
-   an invisible cell, so the month's own shape reads. */
+/* Padding cells belong to the neighbouring month. The number goes quiet and
+   the ground stays the page's: a shaded block of six or seven squares read as
+   a second element on the page, and the month's shape is carried well enough
+   by the day numbers alone (Google Calendar does exactly this). */
 .almanac-calendar-cell--outside {
-  background: var(--color-bg-alt);
+  background: none;
 }
 
 .almanac-calendar-cell--outside .almanac-cal-daynum {
@@ -792,23 +799,43 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: max(6rem, calc(2rem + var(--lanes) * var(--lane-h) + 1.75rem));
+  min-height: max(7.5rem, calc(2.25rem + var(--lanes) * var(--lane-h) + 1.75rem));
   padding-block-end: var(--space-1);
 }
 
 .almanac-cal-daynum {
   display: flex;
   align-items: center;
-  min-height: 1.75rem;
-  padding: 3px var(--space-1) 0;
-  font-size: var(--text-sm);
+  justify-content: center;
+  gap: 0.3em;
+  min-height: 2.25rem;
+  padding: 4px 0 0;
+  font-size: var(--text-xs);
   font-variant-numeric: tabular-nums;
   line-height: 1;
   color: var(--color-text-secondary);
 }
 
+/* The number sits in a round slot the size of the today-disc, so a day
+   becoming today changes its colour and nothing about the row's geometry. */
+.almanac-cal-daynum-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding-inline: 0.3rem;
+  border-radius: var(--radius-full);
+}
+
+/* The first of a month carries the month's name beside the 1, so a row that
+   straddles two months reads without counting back. Desktop only — a phone's
+   square is 50px wide. */
+.almanac-cal-daymonth {
+  font-size: var(--text-xs);
+}
+
 .almanac-calendar-cell--marked .almanac-cal-daynum {
-  font-weight: 600;
   color: var(--color-text);
 }
 
@@ -817,20 +844,16 @@
    reader, so it is never colour alone. `--color-on-accent`, not white: the
    accent is a light gold in both themes (themeFlippingGrounds.test.ts). */
 .almanac-cal-daynum-today {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.6rem;
-  height: 1.6rem;
-  padding-inline: 0.3rem;
-  border-radius: var(--radius-full);
   background: var(--color-accent);
   color: var(--color-on-accent);
   font-weight: 700;
 }
 
+/* No ring on today's square: the disc on the number is the mark, and a second
+   mark on the same fact was the busiest thing in the grid. `aria-current` on
+   the cell still says it to a screen reader. */
 .almanac-calendar-cell--today {
-  box-shadow: inset 0 0 0 1px var(--color-accent);
+  box-shadow: none;
 }
 
 .almanac-cal-lanes {
@@ -839,9 +862,13 @@
 }
 
 /* One bar. Drawn once, in the cell its window starts in this week, and
-   `--span` cells wide. The category's pale ground and its solid colour on the
-   leading edge — the map legend, carried over — with the page's own text
-   colour on top, which is what keeps it legible in both themes. */
+   `--span` cells wide. Solid, in the tradition's colour, with the foreground
+   the token that flips with the theme: the category colours are deep in the
+   light theme and pale in the dark one, so `--color-text-inverse` is white on
+   the first and near-black on the second (themeFlippingGrounds.test.ts).
+   Measured at the weakest pair, Hindu amber on white: 5.0:1. Until 8 October
+   2026 the bar was the category's pale ground with a solid leading edge; the
+   pale ground survives on the projected bars below. */
 .almanac-cal-chip {
   /* `--lane` and `--span` are written inline per bar by AlmanacCalendar.tsx;
      the edge and ground come from the category modifier below. */
@@ -858,22 +885,21 @@
   width: calc(var(--span) * 100% - var(--inset-start) - var(--inset-end));
   height: calc(var(--lane-h) - 4px);
   min-width: 0;
-  padding-inline: var(--space-2) var(--space-1);
-  border: 1px solid transparent;
-  border-inline-start: 3px solid var(--chip-edge);
-  border-radius: var(--radius-sm);
-  background: var(--chip-ground);
-  color: var(--color-text);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--chip-edge);
+  border-radius: 4px;
+  background: var(--chip-edge);
+  color: var(--color-text-inverse);
   font: inherit;
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 500;
   text-align: start;
   cursor: pointer;
 }
 
 .almanac-cal-chip:hover,
 .almanac-cal-chip[aria-expanded='true'] {
-  box-shadow: inset 0 0 0 1px var(--chip-edge);
+  filter: brightness(0.92);
 }
 
 .almanac-cal-chip:focus-visible {
@@ -926,28 +952,37 @@
   --chip-ground: var(--color-bg-alt);
 }
 
-/* A Hijri projection is a forecast, and the bar says so without a word: a
-   dashed outline where a Gregorian date's is solid. The caveat under the grid
-   (`.almanac-cal-caveat`) carries the same dash as its key. */
+/* A Hijri projection is a forecast, and the bar says so without a word: the
+   pale ground and a dashed outline, the page's own text on top, where a
+   recorded date is a solid fill — Google Calendar's own convention for an
+   event not yet confirmed. The caveat under the grid (`.almanac-cal-caveat`)
+   carries the same dash as its key. */
 .almanac-cal-chip--approximate {
+  background: var(--chip-ground);
+  color: var(--color-text);
   border-style: dashed;
-  border-color: var(--chip-edge);
-  border-inline-start-style: solid;
+}
+
+.almanac-cal-chip--approximate:hover,
+.almanac-cal-chip--approximate[aria-expanded='true'] {
+  filter: none;
+  box-shadow: inset 0 0 0 1px var(--chip-edge);
 }
 
 /* A bar continuing from the previous week (or month) starts square and flush,
-   with the thin edge rather than the thick one — one observance, not two. */
+   with no edge of its own — one observance, not two. */
 .almanac-cal-chip--from {
   --inset-start: 0px;
   border-start-start-radius: 0;
   border-end-start-radius: 0;
-  border-inline-start-width: 1px;
+  border-inline-start: 0;
 }
 
 .almanac-cal-chip--to {
   --inset-end: 0px;
   border-start-end-radius: 0;
   border-end-end-radius: 0;
+  border-inline-end: 0;
 }
 
 /* Bars past the third lane fold into this. It is a control — it opens the
@@ -960,10 +995,10 @@
   border: 0;
   border-radius: var(--radius-sm);
   background: none;
-  color: var(--color-primary);
+  color: var(--color-text-secondary);
   font: inherit;
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -1252,6 +1287,10 @@
     padding: var(--space-1) 0 0;
     min-height: 1.5rem;
     pointer-events: none;
+  }
+
+  .almanac-cal-daymonth {
+    display: none;
   }
 
   .almanac-cal-daybtn {

@@ -250,9 +250,24 @@ export function AlmanacCalendar({
                     >
                       <div className="almanac-cal-cell">
                         <span className="almanac-cal-daynum">
-                          <span className={cell.isToday ? 'almanac-cal-daynum-today' : undefined}>
+                          <span
+                            className={`almanac-cal-daynum-n${
+                              cell.isToday ? ' almanac-cal-daynum-today' : ''
+                            }`}
+                          >
                             {fmtNum(cell.day)}
                           </span>
+                          {/* The first of any month names the month, so a row
+                              that straddles two reads without counting back.
+                              UTC, like `isoOf` above: the cell dates are UTC
+                              midnights, and in Boston `getMonth()` on one is
+                              the evening before — it printed "1 September"
+                              over October 1 until measured. */}
+                          {cell.day === 1 && (
+                            <span className="almanac-cal-daymonth">
+                              {gregorianMonthName(cell.date.getUTCMonth() + 1, lang)}
+                            </span>
+                          )}
                         </span>
                         {cell.inMonth && marked ? (
                           <>
