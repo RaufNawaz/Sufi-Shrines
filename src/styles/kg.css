@@ -3188,7 +3188,10 @@
 }
 
 /* ── Lineage as a tree: a card per teacher, the disciples under them ───────── */
-.graph-lineage-group {
+.graph-lineage-list .graph-lineage-group {
+  /* Block, whatever the list's older rule gives its items: the teacher row
+     sits above the disciples, never beside them. */
+  display: block;
   padding: var(--space-4) var(--space-4) var(--space-3);
   margin-block-end: var(--space-3);
   border: var(--hairline) solid var(--color-border-light);
@@ -3217,15 +3220,15 @@
   letter-spacing: normal;
   text-transform: none;
 }
-.graph-lineage-teacher-name {
+.graph-lineage-list .graph-lineage-teacher-name {
   font-size: var(--text-lg);
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-text);
   text-decoration: none;
 }
-.graph-lineage-teacher-name:hover,
-.graph-lineage-teacher-name:focus-visible {
+.graph-lineage-list .graph-lineage-teacher-name:hover,
+.graph-lineage-list .graph-lineage-teacher-name:focus-visible {
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -3245,8 +3248,9 @@
   font-family: var(--font-urdu);
 }
 .graph-lineage-disciples {
+  display: block;
   list-style: none;
-  margin: 0;
+  margin: var(--space-1) 0 0;
   padding: 0;
 }
 .graph-lineage-disciple {

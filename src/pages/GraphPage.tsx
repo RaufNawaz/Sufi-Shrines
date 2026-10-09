@@ -195,23 +195,34 @@ export default function GraphPage() {
   /* The links grouped by teacher (the edge's object), most disciples first,
      then by name — the shape of a silsila rather than a flat list of pairs. */
   const lineageGroups = useMemo(() => {
-    const byTeacher = new Map<
-      string,
-      { teacher: (typeof scopedLineageEdges)[number]['object']; edges: typeof scopedLineageEdges }
-    >();
+    type Edge = (typeof scopedLineageEdges)[number];
+    const byTeacher = new Map<string, { teacher: Edge['object']; edges: Edge[] }>();
     for (const edge of scopedLineageEdges) {
       const entry = byTeacher.get(edge.object.slug);
       if (entry) entry.edges.push(edge);
       else byTeacher.set(edge.object.slug, { teacher: edge.object, edges: [edge] });
     }
-    return [...byTeacher.values()].sort(
-      (a, b) =>
-        b.edges.length - a.edges.length ||
-        localizeFigureName(a.teacher, lang).localeCompare(
-          localizeFigureName(b.teacher, lang),
-          lang,
-        ),
-    );
+    /* One row per disciple: where the record holds two relations for the same
+       pair — disciple of, and successor of — the row carries both labels and
+       both quotations, rather than appearing twice. */
+    return [...byTeacher.values()]
+      .map((group) => {
+        const rows = new Map<string, { subject: Edge['subject']; edges: Edge[] }>();
+        for (const edge of group.edges) {
+          const row = rows.get(edge.subject.slug);
+          if (row) row.edges.push(edge);
+          else rows.set(edge.subject.slug, { subject: edge.subject, edges: [edge] });
+        }
+        return { teacher: group.teacher, rows: [...rows.values()] };
+      })
+      .sort(
+        (a, b) =>
+          b.rows.length - a.rows.length ||
+          localizeFigureName(a.teacher, lang).localeCompare(
+            localizeFigureName(b.teacher, lang),
+            lang,
+          ),
+      );
   }, [scopedLineageEdges, lang]);
 
   /* Edges with neither endpoint in any recorded order. Computed over every order
@@ -560,30 +571,30 @@ export default function GraphPage() {
                       <bdi>{fmtNum(localizeFigureName(group.teacher, lang))}</bdi>
                     </Link>
                     <span className="graph-lineage-teacher-count">
-                      {fmtNum(tFn(lang, 'lineageDisciplesCount', group.edges.length))}
+                      {fmtNum(tFn(lang, 'lineageDisciplesCount', group.rows.length))}
                     </span>
                   </div>
                   <ul className="graph-lineage-disciples">
-                    {group.edges.map((edge) => {
-                      const key = `${edge.subject.slug}-${edge.relation}-${edge.object.slug}`;
+                    {group.rows.map((row) => {
+                      const key = `${row.subject.slug}-${group.teacher.slug}`;
+                      const quoted = row.edges.filter((edge) => edge.quote);
                       const open = teamView || openSources.has(key);
                       return (
                         <li key={key} className="graph-lineage-disciple">
                           <div className="graph-lineage-edge">
-                            <Link
-                              to={`/saint/${edge.subject.slug}`}
-                              lang={isRtl ? 'ur' : undefined}
-                            >
-                              <bdi>{fmtNum(localizeFigureName(edge.subject, lang))}</bdi>
+                            <Link to={`/saint/${row.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
+                              <bdi>{fmtNum(localizeFigureName(row.subject, lang))}</bdi>
                             </Link>
-                            <span className="graph-lineage-relation">
-                              {t(
-                                edge.relation === 'successor_of'
-                                  ? 'successorOfLabel'
-                                  : 'discipleOfLabel',
-                              )}
-                            </span>
-                            {teamView && !edge.reviewed && (
+                            {row.edges.map((edge) => (
+                              <span key={edge.relation} className="graph-lineage-relation">
+                                {t(
+                                  edge.relation === 'successor_of'
+                                    ? 'successorOfLabel'
+                                    : 'discipleOfLabel',
+                                )}
+                              </span>
+                            ))}
+                            {teamView && row.edges.some((edge) => !edge.reviewed) && (
                               <span
                                 className="lineage-unreviewed"
                                 title={t('lineageUnreviewedHelp')}
@@ -591,7 +602,7 @@ export default function GraphPage() {
                                 {t('lineageUnreviewed')}
                               </span>
                             )}
-                            {edge.quote && !teamView && (
+                            {quoted.length > 0 && !teamView && (
                               <button
                                 type="button"
                                 className={`graph-lineage-source-btn${open ? ' active' : ''}`}
@@ -603,19 +614,23 @@ export default function GraphPage() {
                               </button>
                             )}
                           </div>
-                          {edge.quote && open && (
-                            <blockquote
-                              id={`lineage-source-${key}`}
-                              className="graph-lineage-quote reveal-rise"
-                              lang="en"
-                              dir="ltr"
-                              data-latin
-                            >
-                              {renderInlineBold(edge.quote)}
-                              {teamView && edge.source && (
-                                <cite className="graph-lineage-cite">{edge.source}</cite>
-                              )}
-                            </blockquote>
+                          {quoted.length > 0 && open && (
+                            <div id={`lineage-source-${key}`}>
+                              {quoted.map((edge) => (
+                                <blockquote
+                                  key={edge.relation}
+                                  className="graph-lineage-quote reveal-rise"
+                                  lang="en"
+                                  dir="ltr"
+                                  data-latin
+                                >
+                                  {renderInlineBold(edge.quote as string)}
+                                  {teamView && edge.source && (
+                                    <cite className="graph-lineage-cite">{edge.source}</cite>
+                                  )}
+                                </blockquote>
+                              ))}
+                            </div>
                           )}
                         </li>
                       );
