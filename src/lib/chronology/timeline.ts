@@ -201,3 +201,33 @@ export function buildChronology(
     undated: { total: undatedShrines.length, byReason, shrines: undatedShrines },
   };
 }
+
+/**
+ * Stack a band's marks into rows so no two overlap.
+ *
+ * Drawn on a single line, the Muslim band's 55 marks merged into one smear:
+ * two century-wide outlines over a circa band are indistinguishable from one
+ * long bar, which is a false statement about the data. Greedy interval
+ * packing — each mark takes the first row whose last mark ended more than `gap`
+ * years before it begins — keeps every mark visible at its true width. Entries
+ * must be sorted by `from`, as `buildChronology` returns them.
+ *
+ * Returns each entry's row index, and the number of rows used.
+ */
+export function packRows(
+  entries: readonly TimelineEntry[],
+  gap: number,
+): { rows: number[]; depth: number } {
+  const ends: number[] = [];
+  const rows = entries.map(({ placement }) => {
+    let row = ends.findIndex((end) => end + gap < placement.from);
+    if (row === -1) {
+      row = ends.length;
+      ends.push(placement.to);
+    } else {
+      ends[row] = placement.to;
+    }
+    return row;
+  });
+  return { rows, depth: ends.length };
+}

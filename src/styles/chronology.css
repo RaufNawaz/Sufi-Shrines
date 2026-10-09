@@ -12,6 +12,14 @@
  *    HANDOVER §9.48). Bars share one token; no per-tradition palette exists to
  *    go wrong in the dark theme.
  *
+ * The Apple pass (9 October 2026) reshaped the page around those two rules
+ * rather than against them: stat tiles for the counts, one chart card in which
+ * every lane shares one scale and one set of century gridlines, marks packed
+ * into rows so no two overlap (`packRows`), the places as inset lists behind a
+ * tradition filter, and the reading guide as a callout. Every size is a token,
+ * so the reading slider reaches the whole page — this file carried seven
+ * literal font sizes before, the largest single entry in readingScale.test.ts.
+ *
  * Positioning is entirely logical (`inset-inline-start`, `inline-size`), which
  * means the timeline runs right-to-left in Urdu without a second code path —
  * the direction Urdu readers expect time to flow.
@@ -23,107 +31,146 @@
 }
 
 .chronology-counts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
-  margin-block: 0.75rem 1.5rem;
-  font-variant-numeric: tabular-nums;
-  color: var(--color-text-muted);
+  margin-block: var(--space-5) var(--space-6);
+}
+
+/* ── The chart card ─────────────────────────────────────────────────────── */
+
+.chronology-chart {
+  margin-block-end: var(--space-6);
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* The scale, the gridlines and every lane live in this one box, so a lane
+   starts exactly where the scale starts and a bar can be read against a
+   gridline. */
+.chronology-plot {
+  position: relative;
 }
 
 .chronology-scale {
   position: relative;
   block-size: 1.5rem;
-  border-block-end: var(--hairline) solid var(--color-border-light);
-  margin-block-end: 0.25rem;
+  margin-block-end: var(--space-2);
 }
 
 .chronology-tick {
   position: absolute;
   inset-block: 0;
   border-inline-start: var(--hairline) solid var(--color-border-light);
-  padding-inline-start: 0.25rem;
-  font-size: 0.75rem;
+  padding-inline-start: var(--space-1);
+  font-size: var(--text-xs);
   color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
 /* The final century's label, flush with the end of the axis. Anchored like the
    others it starts at 100% and its digits run past the edge — 22px at 390px,
-   which pushes the document 6px wide and makes the page rock. The axis ends
-   where that century ends, so flush is also what the span above already says.
-   Mirrors `.order-timeline-tick--end`. */
+   which pushes the document 6px wide and makes the page rock. Mirrors
+   `.order-timeline-tick--end`. */
 .chronology-tick--end {
   inset-inline-start: auto;
   inset-inline-end: 0;
-  /* No leading gap: the border-inline-start that separates the other ticks
-     would sit inside the axis rather than on a gridline. */
   padding-inline-start: 0;
   border-inline-start: none;
 }
 
-.chronology-band {
-  /* A card per tradition (the 9 October 2026 Apple pass): the lane, its
-     count and span, and the places under it, framed together. */
-  margin-block-end: var(--space-4);
-  /* No inline padding on the card itself: the lane must start where the
-     scale above starts, or a bar can no longer be read against a gridline.
-     The heading and the list carry the inset instead. */
-  padding-block: var(--space-4);
-  border: var(--hairline) solid var(--color-border-light);
-  border-radius: 16px;
-  background: var(--color-bg-surface);
-  box-shadow: var(--shadow-sm);
-}
-.chronology-band-heading,
-.chronology-band-list,
-.chronology-lane-empty {
-  padding-inline: var(--space-5);
+.chronology-rows {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-block: var(--space-1) var(--space-2);
 }
 
-.chronology-band-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-block-end: 0.35rem;
-  font-size: var(--text-lg);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+.chronology-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
-[dir='rtl'] .chronology-band-heading {
-  letter-spacing: normal;
+
+.chronology-gridline {
+  position: absolute;
+  inset-block: 0;
+  border-inline-start: var(--hairline) solid var(--color-border-light);
+}
+
+.chronology-band {
+  position: relative;
+}
+
+.chronology-band-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 var(--space-3);
+}
+
+/* The tradition's name is a button: it shows that tradition's places. */
+.chronology-band-name {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text);
+  font: inherit;
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chronology-band-name:hover {
+  color: var(--color-primary);
+}
+
+.chronology-band-name:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .chronology-band-count {
   font-size: var(--text-sm);
-  font-weight: 500;
   color: var(--color-text-muted);
   font-variant-numeric: tabular-nums;
 }
 
-/* The lane. Its hairline rules are the century gridlines continued down the
-   page, so a bar can be read against the scale without a ruler. */
-.chronology-lane {
-  position: relative;
-  min-block-size: 2.25rem;
-  padding-block: 0.25rem;
-  border-block-end: var(--hairline) solid var(--color-border-light);
+.chronology-dot {
+  flex: none;
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-mark);
 }
 
-.chronology-lane-empty {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  padding-block: 0.4rem;
+/* A tradition not chosen in the filter keeps its row and its label, and only
+   its marks recede — dimming the text would fail contrast for nothing. */
+.chronology-band.is-dimmed .chronology-lane {
+  opacity: 0.2;
+}
+
+.chronology-lane {
+  position: relative;
+  min-block-size: 10px;
+  transition: opacity var(--duration-fast) var(--easing);
 }
 
 .chronology-mark {
   position: absolute;
-  block-size: 0.65rem;
+  box-sizing: border-box;
+  block-size: 7px;
   min-inline-size: 2px;
-  border-radius: 1px;
+  border-radius: 2px;
   background: var(--color-mark);
-  text-decoration: none;
 }
 
 /* A century-wide mark is mostly unknown, so it reads as lighter and outlined
@@ -134,22 +181,53 @@
   border: var(--hairline) solid var(--color-mark);
 }
 
-/*
- * Each band's marks in that band's tradition colour.
- *
- * All 120 dated sites were painted in `--color-primary` — the colour that means
- * *interactive* everywhere else on this site, on marks that are links to a
- * shrine but read as a data series, in a chart whose six bands are the six
- * traditions. So the page that plots the archive across the centuries said
- * nothing about which tradition a mark belonged to, and said "clickable" in a
- * colour the reader has been taught elsewhere to read that way.
- *
- * The bands are `CATEGORY_LABELS[band.key]`, so the colours already exist and
- * are already the ones the map draws each pin in. One custom property per band,
- * which the three mark rules above then read — rather than six copies of each
- * rule.
- */
-.chronology-band {
+.chronology-mark--circa {
+  opacity: 0.75;
+}
+
+.chronology-mark.is-hot {
+  outline: 2px solid var(--color-text);
+  outline-offset: 1px;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* The label a pointer gets over a mark. A convenience, never the only way to a
+   fact: every mark's name, span and precision are in the list below. */
+.chronology-tooltip {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-inline-size: 18rem;
+  padding: var(--space-2) var(--space-3);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-md);
+  color: var(--color-text);
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - var(--space-2)));
+}
+
+.chronology-tooltip-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.chronology-tooltip-date {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Each tradition's colour, for its marks and its dot. These are the colours
+   the map draws each pin in. Tradition is still never colour alone: every row
+   is named, and every list is headed. */
+.chronology-band,
+.chronology-places-group,
+.chronology-filter-pill {
   --color-mark: var(--color-text-secondary);
 }
 
@@ -172,92 +250,241 @@
   --color-mark: var(--color-cat-secular);
 }
 
-.chronology-mark--circa {
-  opacity: 0.75;
-}
-
-.chronology-band-list {
-  columns: 2 18rem;
-  gap: 1.5rem;
-  padding: 0;
-  margin-block: 0.6rem 0;
-  list-style: none;
-}
-
-.chronology-band-list li {
-  break-inside: avoid;
-  margin-block-end: 0.25rem;
-  font-size: 0.9rem;
-}
-
-.chronology-band-list-date {
-  color: var(--color-text-muted);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.chronology-legend {
-  margin-block: 2rem 1rem;
-  padding-block-start: 1rem;
+/* The key: shapes, in the neutral ink, because they stand for kinds of date
+   rather than for a tradition. */
+.chronology-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: var(--space-3) 0 0;
+  padding-block-start: var(--space-3);
   border-block-start: var(--hairline) solid var(--color-border-light);
 }
 
-.chronology-legend dl {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.4rem 1rem;
+.chronology-key > div {
+  display: flex;
   align-items: center;
-  margin: 0;
-  max-inline-size: 52ch;
+  gap: var(--space-2);
 }
 
-.chronology-legend dt {
-  inline-size: 6rem;
+.chronology-key dt {
+  display: flex;
+  align-items: center;
 }
 
-.chronology-legend dd {
+.chronology-key dd {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--color-text-secondary);
 }
 
-/* The legend's swatches. These stand for *kinds of mark* — exact date, century,
-   circa — not for a tradition, so they take the neutral ink rather than any
-   band's colour; the bands carry the colour and the legend explains the shape. */
 .chronology-swatch {
   display: block;
-  block-size: 0.65rem;
+  box-sizing: border-box;
+  block-size: 7px;
+  border-radius: 2px;
   background: var(--color-text-secondary);
-  border-radius: 1px;
+}
+
+.chronology-swatch--exact {
+  inline-size: 2px;
+}
+
+.chronology-swatch--circa {
+  inline-size: 1.5rem;
+  opacity: 0.75;
 }
 
 .chronology-swatch--century {
+  inline-size: 2.5rem;
   background: transparent;
   border: var(--hairline) solid var(--color-text-secondary);
 }
 
-.chronology-swatch--circa {
-  opacity: 0.75;
+/* ── How to read a bar: a callout with an icon disc ──────────────────────── */
+
+.chronology-note {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  margin-block-end: var(--space-8);
+  padding: var(--space-5);
+  border-radius: 16px;
+  background: var(--color-primary-bg);
 }
 
+.chronology-note-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 36px;
+  block-size: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.chronology-note-body {
+  min-inline-size: 0;
+}
+
+.chronology-note-heading {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-secondary);
+}
+
+.chronology-note-body p {
+  margin: 0 0 var(--space-2);
+  max-inline-size: 62ch;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.chronology-note-body p:last-child {
+  margin-block-end: 0;
+}
+
+/* ── Places by tradition ────────────────────────────────────────────────── */
+
+.chronology-places {
+  margin-block-end: var(--space-8);
+}
+
+/* A row of pills that scrolls sideways on a phone rather than wrapping into a
+   paragraph of buttons. */
+.chronology-filter {
+  display: flex;
+  gap: var(--space-2);
+  margin-block: var(--space-3) var(--space-5);
+  padding-block: var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chronology-filter::-webkit-scrollbar {
+  display: none;
+}
+
+/* Where there is room, the pills wrap and nothing hides off the edge. */
+@media (min-width: 641px) {
+  .chronology-filter {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+.chronology-filter-pill {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: 36px;
+  padding-inline: var(--space-4);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing);
+}
+
+.chronology-filter-pill:hover {
+  color: var(--color-text);
+}
+
+.chronology-filter-pill[aria-pressed='true'] {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.chronology-filter-pill:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .chronology-filter-pill {
+    min-block-size: 44px;
+  }
+}
+
+.chronology-filter-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+}
+
+.chronology-places-group {
+  margin-block-end: var(--space-6);
+}
+
+.chronology-places-group .inset-list-header {
+  align-items: center;
+}
+
+/* One column: the rows are in date order, and a grid that flowed them across
+   columns would read 700, 1000, 748 to an eye going left to right. */
+.inset-list.chronology-band-list {
+  grid-template-columns: 1fr;
+}
+
+.chronology-band-list li[hidden] {
+  display: none;
+}
+
+.chronology-band-list-date {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.chronology-precision {
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+.chronology-more {
+  margin-block-start: var(--space-3);
+}
+
+/* ── Not on the timeline (team view) ─────────────────────────────────────── */
+
 .chronology-undated {
-  margin-block-start: 2rem;
-  padding-block-start: 1rem;
-  border-block-start: var(--hairline) solid var(--color-border-light);
+  margin-block-start: var(--space-8);
 }
 
 .chronology-undated-reasons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
-  margin-block: 0.5rem 1rem;
+  gap: var(--space-1) var(--space-5);
+  margin-block: var(--space-2) var(--space-4);
   color: var(--color-text-muted);
   font-variant-numeric: tabular-nums;
 }
 
 .chronology-undated-list {
   columns: 2 16rem;
-  gap: 1.5rem;
+  gap: var(--space-6);
   padding: 0;
   margin: 0;
   list-style: none;
@@ -265,15 +492,38 @@
 
 .chronology-undated-list li {
   break-inside: avoid;
-  margin-block-end: 0.3rem;
-  font-size: 0.9rem;
+  margin-block-end: var(--space-1);
+  font-size: var(--text-sm);
 }
 
+/* ── Urdu ───────────────────────────────────────────────────────────────── */
+
+[dir='rtl'] .chronology-band-name,
+[dir='rtl'] .chronology-filter-pill,
+[dir='rtl'] .chronology-tooltip-name,
+[dir='rtl'] .chronology-key dd,
+[dir='rtl'] .chronology-precision,
+[dir='rtl'] .chronology-note-body p {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
+
+[dir='rtl'] .chronology-note-heading {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* ── A phone ────────────────────────────────────────────────────────────── */
+
 @media (max-width: 640px) {
-  .chronology-legend dl {
-    grid-template-columns: 1fr;
+  .chronology-chart {
+    padding-inline: var(--space-4);
   }
-  .chronology-legend dt {
-    inline-size: 100%;
+
+  /* Thirteen century labels do not fit 340px; every other one keeps its line
+     and drops its digits. */
+  .chronology-tick--minor {
+    font-size: 0;
   }
 }

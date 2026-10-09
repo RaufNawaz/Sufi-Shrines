@@ -166,15 +166,15 @@ describe('the reading scale', () => {
      * disk and this test records the count per file so the debt cannot grow in
      * silence — it is not a claim that any of them is right. Two are certainly
      * right (the 16px root, which exists to stop iOS zooming a focused input,
-     * and the 9pt print rule); `chronology.css`'s seven are certainly wrong and
-     * are a whole page of chrome that does not respond to the slider.
+     * and the 9pt print rule). `chronology.css` carried seven — a whole page of
+     * chrome the slider could not move — until the 9 October 2026 redesign took
+     * it to none.
      *
      * Lowering a number here is the good direction and needs no permission.
      * Raising one means a reader somewhere cannot resize something: say why in
      * the entry, the way the bundle budgets do. */
     const LITERAL = /font-size:\s*[0-9.]+(?:rem|px|pt)/g;
     const BUDGET: Record<string, number> = {
-      'chronology.css': 7, // a page of unscaled chrome — the largest single debt
       'tours.css': 5,
       'palette.css': 3,
       'global.css': 3, // the 16px root and the 9pt print rule are two of these

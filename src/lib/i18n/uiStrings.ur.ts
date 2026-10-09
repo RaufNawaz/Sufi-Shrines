@@ -984,6 +984,10 @@ export const UI_TEXT_UR: UiStrings = {
   chronologyQualified: 'درج تاریخ مشروط ہے',
   chronologyEmptyBand: 'کوئی مؤرخ مقام نہیں',
   chronologySpan: (from: string, to: string) => `${from}–${to}`,
+  chronologySpanLabel: 'لکیر کا دورانیہ',
+  chronologyPlacesHeading: 'روایت کے لحاظ سے مقامات',
+  chronologyFilterLabel: 'ایک روایت دکھائیں',
+  chronologyShowFewer: 'کم دکھائیں',
   eventYearLabel: 'تقریب کا سال',
   contributePrompt:
     'ہم اس مقام کے بارے میں بہت کم جانتے ہیں۔ اگر آپ اسے جانتے ہیں تو ہم آپ سے سننا چاہیں گے۔',

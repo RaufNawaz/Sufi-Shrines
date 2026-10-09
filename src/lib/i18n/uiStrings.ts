@@ -1089,6 +1089,10 @@ const UI_TEXT_EN = {
   chronologyQualified: 'the recorded date is qualified',
   chronologyEmptyBand: 'no dated places',
   chronologySpan: (from: string, to: string) => `${from}–${to}`,
+  chronologySpanLabel: 'the span drawn',
+  chronologyPlacesHeading: 'Places by tradition',
+  chronologyFilterLabel: 'Show one tradition',
+  chronologyShowFewer: 'Show fewer',
   eventYearLabel: 'Event year',
   contributePrompt:
     'We know little about this site. If you know it, we would like to hear from you.',

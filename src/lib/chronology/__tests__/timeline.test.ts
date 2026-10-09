@@ -5,6 +5,7 @@ import {
   centurySpan,
   buildChronology,
   CIRCA_BAND_YEARS,
+  packRows,
 } from '../timeline';
 import { buildShrines } from '../../data/shrineModel';
 import snapshot from '../../../data/shrines-fallback.json';
@@ -144,6 +145,45 @@ describe('buildChronology over the shipped snapshot', () => {
     const plotted = new Set(chronology.bands.flatMap((b) => b.entries.map((e) => e.shrine.slug)));
     for (const shrine of chronology.undated.shrines) {
       expect(plotted.has(shrine.slug), `${shrine.name} is both undated and plotted`).toBe(false);
+    }
+  });
+});
+
+describe('packRows — every mark visible at its true width', () => {
+  const chronology = buildChronology(shrines);
+
+  it('never puts two overlapping marks in the same row', () => {
+    const gap = 5;
+    for (const band of chronology.bands) {
+      const { rows, depth } = packRows(band.entries, gap);
+      expect(rows).toHaveLength(band.entries.length);
+      for (let r = 0; r < depth; r++) {
+        const inRow = band.entries.filter((_, i) => rows[i] === r);
+        for (let i = 1; i < inRow.length; i++) {
+          expect(
+            inRow[i - 1].placement.to + gap,
+            `${inRow[i - 1].shrine.name} overlaps ${inRow[i].shrine.name}`,
+          ).toBeLessThan(inRow[i].placement.from);
+        }
+      }
+    }
+  });
+
+  it('uses no more rows than the deepest overlap needs', () => {
+    /* Greedy packing of intervals sorted by start is optimal, so the depth is
+       the band's maximum overlap — a bound worth holding, because a packing
+       that wasted rows would make the chart taller for no information. */
+    const gap = 0;
+    for (const band of chronology.bands) {
+      const { depth } = packRows(band.entries, gap);
+      let deepest = 0;
+      for (const { placement } of band.entries) {
+        const at = band.entries.filter(
+          (e) => e.placement.from <= placement.from && e.placement.to >= placement.from,
+        ).length;
+        deepest = Math.max(deepest, at);
+      }
+      expect(depth).toBeLessThanOrEqual(Math.max(deepest, band.entries.length ? 1 : 0));
     }
   });
 });
