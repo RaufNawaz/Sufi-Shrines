@@ -34,6 +34,20 @@ the reason the rest is credible.
 
 ---
 
+## 9 October 2026, afternoon — the Apple pass continued; /chronology rebuilt (read HANDOVER §9.277)
+
+Settings as iOS inset groups, `/about` tiles and citation cards, the tour panel at 44px, RTL
+chevrons fixed (with `rtlChevron.test.ts`), the Urdu wordmark whole on a phone, and
+`/chronology` rebuilt around a packed-lane chart. **The e2e suite has not been run over any
+of it** — Rauf was at the machine and the tour specs speak aloud (`speechSynthesis` ignores
+`--mute-audio`). First thing next session on an idle machine: `rm -rf dist && npm run
+build:e2e`, then the full `npm run e2e`.
+**Next:** the council's remaining items — the front-door Search as a search well, the palette's
+keyboard affordances on a phone, the table-mode list's listbox semantics, Urdu tab-bar labels,
+the team half of `/about`, and the phone header's collapsed title (asked in the chat).
+
+---
+
 ## 9 October 2026 — the Apple pass: calendar, almanac, chrome, the explorer pages, `/graph` rebuilt (read HANDOVER §9.274–9.275)
 
 Rauf's standing direction since this night: **the whole site should read as a professional-grade,

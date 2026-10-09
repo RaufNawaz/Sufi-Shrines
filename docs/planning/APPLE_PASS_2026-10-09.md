@@ -59,6 +59,13 @@ changes how these read, not what they say — CLAUDE.md RULE 2 is not a style.
   quotation behind a Source button for the public and open for the team; the two figure lists
   team-only. HANDOVER §9.274–9.275.
 
+- 9 October, afternoon (HANDOVER §9.277): a lean council (information design, native
+  controls, Urdu parity) and its consensus — `/settings` as inset groups with segmented
+  controls and switches; `/about`'s tiles and citation cards; the tour panel as a card with
+  44px controls; RTL chevrons that pointed down; the Urdu wordmark; and **`/chronology`
+  rebuilt** (item 3 below, done): stat tiles, one chart card with packed lanes and a hover
+  label, the places as inset lists behind a tradition filter, the reading guide as a callout.
+
 ## Next — page by page, in the order they are reached from the welcome card
 
 Each item is a council-sized piece of work: convene a lean council (three seats, one lens each:
@@ -73,17 +80,17 @@ rule, and implement the consensus findings.
 2. **Atlas of Built Forms (`/typology`).** Group headings as sans with the count as a numeral;
    the related-cards as proper photo cards (image, name, place, a tradition dot), masonry-free
    grid; prose-form groups as callouts; a sticky segmented filter by tradition at the top.
-3. **The Archive in Time (`/chronology`).** Keep the honest bars (width = uncertainty), but
+3. **The Archive in Time (`/chronology`) — rebuilt 9 October, see above.** Keep the honest bars (width = uncertainty), but
    frame each tradition's lane as a card with its count and span as numerals; the scale as a quiet
    ruler; the per-tradition lists as inset rows with the precision as a chip; "How to read a bar"
    as a callout with the three swatches.
 4. **Shared Ground (`/shared-ground`).** Pairs as cards: two names, the distance as a numeral,
    the traditions as two dots joined by a hairline; the map lens link as a pill; counts as tiles.
-5. **About (`/about`).** The measured self-account as stat tiles and inset lists; the ledger as a
+5. **About (`/about`) — public half done 9 October; the team half's three number grammars remain.** The measured self-account as stat tiles and inset lists; the ledger as a
    card list; the citation block as a card with a copy pill.
 6. **The map sidebar and palette.** Already close; align the search trigger, the list rows and
    the filters drawer with the inset idiom; the tour panel as a card.
-7. **Settings.** Inset groups with switches, the iOS shape.
+7. **Settings — done 9 October.** Inset groups with switches, the iOS shape.
 8. **The shrine entry.** Out of scope by Rauf's instruction except where the shared rules above
    already reach it (section headings, buttons, palette). Its serif title and prose stay.
 
