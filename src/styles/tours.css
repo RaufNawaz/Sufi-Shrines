@@ -799,6 +799,129 @@
   display: none;
 }
 
+/* ── The tour panel in the Apple idiom (9 October 2026) ─────────────────────
+   Measured at 390px before this: share and print 26×26, "End tour" 79×22, the
+   narration button 30×30, Previous / Next 34 tall — every control on the panel
+   under the 44px floor this project holds itself to, on the screen where it is
+   tapped rather than clicked. Now: the panel is a card, its icon actions are
+   grey circles, "End tour" a quiet pill, and Previous / Next full pills with
+   Next filled. 36px where a pointer is fine, 44px where a finger is. */
+.tour-panel {
+  margin: var(--space-3);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.tour-share-btn {
+  inline-size: 36px;
+  block-size: 36px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+}
+
+.tour-share-btn:hover {
+  border-color: transparent;
+  color: var(--color-primary);
+}
+
+.tour-exit-btn {
+  min-block-size: 36px;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.tour-step-badge {
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+/* The stop's name in the interface face: the serif is the shrine entry's, where
+   the archive is read; the tour panel is a control surface. */
+.tour-stop-name {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: var(--leading-tight);
+}
+
+[dir='rtl'] .tour-stop-name {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
+}
+
+/* Focused on each stop so a screen reader announces it (useFocusHeadingOnMount);
+   the ring that came with it boxed the name like a text field. tabindex="-1",
+   so nothing keyboard-reachable is lost — kg.css does the same for
+   `.entity-title`. */
+.tour-stop-name:focus,
+.tour-stop-name:focus-visible {
+  outline: none;
+}
+
+.tour-stop-image {
+  border-radius: var(--radius-lg);
+}
+
+.tour-audio-btn {
+  inline-size: 44px;
+  block-size: 44px;
+  border: 0;
+  background: var(--color-primary-pale);
+}
+
+.tour-audio-btn:hover {
+  border-color: transparent;
+  background: var(--color-bg-alt);
+}
+
+.tour-nav-btn {
+  min-block-size: 44px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+}
+
+.tour-nav-btn:not(:disabled):hover {
+  background: var(--color-border-light);
+}
+
+/* Restated after the rule above, which would otherwise take Next's fill. */
+.tour-nav-btn--next {
+  background: var(--color-primary);
+}
+
+.tour-nav-btn--next:not(:disabled):hover {
+  background: var(--color-primary-dark);
+}
+
+[dir='rtl'] .tour-step-badge {
+  line-height: 1.4;
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  .tour-share-btn {
+    inline-size: 44px;
+    block-size: 44px;
+  }
+
+  .tour-exit-btn {
+    min-block-size: 44px;
+  }
+}
+
 @media print {
   /* Scoped with :has — the un-scoped `body * { visibility: hidden }` version
      applied on EVERY page, so any page without an active tour printed blank
