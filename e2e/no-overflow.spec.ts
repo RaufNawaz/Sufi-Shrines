@@ -99,9 +99,8 @@ const EXEMPT_SELECTORS = [
      `scrollWidth` assertion above this list still runs on the almanac and
      still catches a real overflow. Exempted at the three boxes the bar passes
      through, and nowhere else on the page. */
-  '.almanac-calendar-cell',
-  '.almanac-cal-cell',
-  '.almanac-cal-lanes',
+  /* Nothing here since 9 October 2026: the bars went with the calendar's
+     redesign, and a day is a 44px disc inside its own cell. */
 ];
 
 interface Offender {

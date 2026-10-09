@@ -740,7 +740,7 @@ export const UI_TEXT_UR: UiStrings = {
   almanacCalendarClose: 'بند کریں',
   /* مسودہ — کسی روانی رکھنے والے نے نہیں دیکھا۔ */
   almanacProjectedCaveat:
-    'نقطوں والی تاریخیں ہجری تقویم سے تخمینی طور پر نکالی گئی ہیں۔ عرس مقامی رویتِ ہلال سے شروع ہوتا ہے، اِس لیے دن دکھائی گئی تاریخ سے ایک دو دن آگے پیچھے ہو سکتا ہے۔',
+    'خالی نقطہ ہجری تقویم سے تخمینی طور پر نکالی گئی تاریخ کی نشانی ہے۔ عرس مقامی رویتِ ہلال سے شروع ہوتا ہے، اِس لیے دن دکھائی گئی تاریخ سے ایک دو دن آگے پیچھے ہو سکتا ہے۔',
   almanacShowList: (n: number) => `تمام ${n} دکھائیں`,
   /* تقریب / تقاریب — the broken plural, which Urdu does mark even though it
      has no -s. A bare "۱ تقاریب" reads as a typo to a native eye. */
@@ -749,6 +749,8 @@ export const UI_TEXT_UR: UiStrings = {
   almanacCalendarDayCount: (n: number) => (n === 1 ? '۱ تقریب' : `${n} تقاریب`),
   almanacCalendarShowMonth: 'پورا مہینہ دکھائیں',
   almanacCalendarNoDays: 'اِس مہینے کسی تقریب کا دن درج نہیں۔',
+  almanacCalendarDayEmpty: 'اِس دن کوئی تقریب درج نہیں۔',
+  almanacFilterByName: 'نام سے چھانٹیں',
   almanacCalendarUnplacedHeading: 'اِس مہینے میں، دن درج نہیں',
   almanacCalendarUnplacedNote:
     'آرکائیو اِن کا مہینہ درج کرتا ہے، دن نہیں، اِس لیے یہ جدول پر نہیں بلکہ اُس کے ساتھ دی گئی ہیں۔ ہجری مہینہ دو عیسوی مہینوں پر پھیلتا ہے، اِسی لیے ایک تقریب دونوں کے نیچے آ سکتی ہے۔',

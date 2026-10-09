@@ -837,7 +837,7 @@ const UI_TEXT_EN = {
      "approximate" pill is withheld (11 September 2026). The dashed bar is
      its key. */
   almanacProjectedCaveat:
-    'Dashed dates are projected from the Hijri calendar. An ʿurs begins on the local moon sighting, so the day can fall one or two days either side of what is shown.',
+    'A hollow dot marks a date projected from the Hijri calendar. An ʿurs begins on the local moon sighting, so the day can fall one or two days either side of what is shown.',
   almanacShowList: (n: number) => `Show all ${n}`,
   almanacCalendarPlaced: (n: number) =>
     n === 1
@@ -846,6 +846,8 @@ const UI_TEXT_EN = {
   almanacCalendarDayCount: (n: number) => (n === 1 ? '1 observance' : `${n} observances`),
   almanacCalendarShowMonth: 'Show the whole month',
   almanacCalendarNoDays: 'No observance falls on a recorded day this month.',
+  almanacCalendarDayEmpty: 'No observance is recorded on this day.',
+  almanacFilterByName: 'Filter by name',
   almanacCalendarUnplacedHeading: 'This month, day not recorded',
   almanacCalendarUnplacedNote:
     'The archive records the month for these and no day, so they sit beside the grid rather than on it. A Hijri month straddles two Gregorian ones, which is why one can appear under both.',

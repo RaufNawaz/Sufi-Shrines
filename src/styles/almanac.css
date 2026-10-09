@@ -38,65 +38,109 @@
 }
 
 /* ── Coverage ─────────────────────────────────────────────────────────────
-   Five counts and their denominator. This block opened the page until 26
-   August 2026, on the argument that a reader should know the denominator
-   before reading the dates; the calendar has that position now, and what the
-   argument reduces to up there is one line (`.almanac-calendar-denominator`).
-   The full breakdown stayed exactly as it was, one scroll down: the numbers
-   are still computed from the shipped data on every load, so the block cannot
-   go stale, and the two largest of the five are still gaps rather than
-   holdings. */
+   Five counts and their denominator, computed from the shipped data on every
+   load so the block cannot go stale. Since 9 October 2026 (Rauf's Apple pass):
+   one proportion bar in the five colours, then five stat tiles with the
+   figures large and the captions small, each counting up as it scrolls in
+   (`useCountUp`). The two largest are still gaps rather than holdings; the
+   design changes how they are read, not what they say. */
 .almanac-coverage {
-  padding-block: var(--space-4);
-  margin-bottom: var(--space-6);
-  border-block: var(--hairline) solid var(--color-border-light);
+  margin-block: var(--space-6) var(--space-8);
 }
 
-/* One row, since 11 September 2026. The five tiles were a third of a screen
-   for five numbers; the denominator sentence leads and the breakdown follows
-   it on one wrapping line, each count still on its own coloured rule. */
 .almanac-coverage .almanac-section-heading {
   margin-block: 0 var(--space-2);
   font-size: var(--text-base);
 }
 
+.almanac-coverage-total {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+[dir='rtl'] .almanac-coverage-total {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
+}
+
+.almanac-coverage-bar {
+  display: flex;
+  gap: 2px;
+  height: 10px;
+  margin-block-end: var(--space-4);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.almanac-coverage-bar-slice {
+  --slice: var(--color-border);
+  flex-basis: 0;
+  min-width: 2px;
+  background: var(--slice);
+}
+
 .almanac-coverage-list {
   list-style: none;
-  margin: var(--space-3) 0 0;
+  margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-5);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: var(--space-3);
 }
 
 .almanac-coverage-item {
+  --slice: var(--color-border);
   display: flex;
-  align-items: baseline;
-  gap: var(--space-2);
-  padding-inline-start: var(--space-2);
-  border-inline-start: 3px solid var(--color-border);
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
 }
 
-.almanac-coverage-item--day {
-  border-inline-start-color: var(--color-primary);
+/* The tile's colour is a short rule across its top, the same one its slice
+   of the bar carries. */
+.almanac-coverage-item::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 3px;
+  margin-block-end: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--slice);
 }
-.almanac-coverage-item--month {
-  border-inline-start-color: var(--color-secondary);
+
+.almanac-coverage-item--day,
+.almanac-coverage-bar-slice--day {
+  --slice: var(--color-primary);
 }
-.almanac-coverage-item--season {
-  border-inline-start-color: var(--color-accent);
+.almanac-coverage-item--month,
+.almanac-coverage-bar-slice--month {
+  --slice: var(--color-secondary);
 }
-.almanac-coverage-item--undated {
-  border-inline-start-color: var(--color-rubric);
+.almanac-coverage-item--season,
+.almanac-coverage-bar-slice--season {
+  --slice: var(--color-accent);
 }
-.almanac-coverage-item--none {
-  border-inline-start-color: var(--color-border);
+.almanac-coverage-item--undated,
+.almanac-coverage-bar-slice--undated {
+  --slice: var(--color-rubric);
+}
+.almanac-coverage-item--none,
+.almanac-coverage-bar-slice--none {
+  --slice: var(--color-border);
 }
 
 .almanac-coverage-count {
-  font-size: var(--text-base);
-  font-weight: 700;
-  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
   color: var(--color-text);
@@ -104,29 +148,49 @@
 
 [dir='rtl'] .almanac-coverage-count {
   font-family: var(--font-urdu);
-  line-height: var(--leading-urdu);
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
 }
 
 .almanac-coverage-label {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: var(--leading-snug);
 }
 
-.almanac-coverage-total {
-  margin: 0;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text);
+[dir='rtl'] .almanac-coverage-label {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
 }
 
-/* ── The approximation notice ────────────────────────────────────────────── */
+/* ── The approximation notice ──────────────────────────────────────────────
+   A callout with a moon beside it, the way a system "Tip" reads: tinted,
+   rounded, no rule down its edge. */
 .almanac-note {
-  border-inline-start: 3px solid var(--color-rubric);
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-5);
+  border-radius: 16px;
   background: var(--color-rubric-pale);
-  padding: var(--space-4) var(--space-5);
-  border-radius: var(--radius-md);
   margin-bottom: var(--space-6);
+}
+
+.almanac-note-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-rubric);
+  box-shadow: var(--shadow-sm);
+}
+
+.almanac-note-body {
+  min-width: 0;
 }
 
 .almanac-note-heading {
@@ -199,12 +263,11 @@
 }
 
 .almanac-month-heading {
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
-  color: var(--color-primary);
+  font-family: inherit;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
   margin: var(--space-6) 0 var(--space-2);
 }
 
@@ -228,17 +291,47 @@
   /* Deep links from shrine pages (/almanac#<slug>) land here — keep the
      anchored card clear of the viewport edge. */
   scroll-margin-top: var(--space-8);
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(10rem, 13rem) 1fr;
+  grid-template-columns: minmax(9rem, 12rem) 1fr;
   gap: var(--space-4);
-  padding: var(--space-4) 0;
+  padding: var(--space-4) var(--space-8) var(--space-4) var(--space-2);
   border-block-end: var(--hairline) solid var(--color-border-light);
+  border-radius: 12px;
+  transition: background-color var(--duration-fast) var(--easing);
+}
+
+/* A row is a thing to open: it lights on hover and carries a chevron at its
+   trailing edge, the way a list row does in every Apple surface. */
+.almanac-entry:hover {
+  background: var(--color-bg-alt);
+}
+
+.almanac-entry::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--space-4);
+  width: 0.5em;
+  height: 0.5em;
+  border-inline-end: 1.5px solid var(--color-text-muted);
+  border-block-start: 1.5px solid var(--color-text-muted);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+[dir='rtl'] .almanac-entry::after {
+  transform: translateY(-50%) rotate(-135deg);
 }
 
 @media (max-width: 639.98px) {
   .almanac-entry {
     grid-template-columns: 1fr;
     gap: var(--space-2);
+    padding-inline: var(--space-2);
+  }
+
+  .almanac-entry::after {
+    display: none;
   }
 }
 
@@ -250,9 +343,10 @@
 }
 
 .almanac-entry-date-main {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
   line-height: var(--leading-snug);
 }
 
@@ -276,11 +370,26 @@
 }
 
 .almanac-entry-name {
-  font-family: var(--font-serif);
+  font-family: inherit;
   font-size: var(--text-base);
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   margin: 0 0 var(--space-1);
   line-height: var(--leading-snug);
+}
+
+/* The name is the row's title, in the text colour — the row itself is the
+   affordance (hover, chevron), not an underline on a line that may be Urdu. */
+.almanac-entry-name a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.almanac-entry-name a:hover,
+.almanac-entry-name a:focus-visible {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 [dir='rtl'] .almanac-entry-name {
@@ -325,14 +434,21 @@
 }
 
 .almanac-entry-source-label {
-  color: var(--color-text-secondary);
-  font-weight: 600;
+  color: var(--color-text-muted);
+  font-weight: 400;
 }
 
 /* The figure whose death anniversary this is — a route into the lineage and
    order views from the calendar. */
 .almanac-entry-figure a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-pale);
   color: var(--color-primary);
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -351,45 +467,173 @@
 }
 
 /* ── Plain lists (seasonal, undated) ─────────────────────────────────────── */
-/* Layout and separators come from `.inset-list` in list.css — the last of the
-   three list idioms this archive had for the same thing. What stays is the
-   column width: an undated row carries a name and the recorded observance under
-   it, and 79 of them read better in wider columns. */
+/* The undated list keeps `.inset-list` from list.css; its rows carry a name
+   and the recorded observance under it, and 101 of them read better in wider
+   columns. */
 .almanac-list--plain {
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }
 
-/* The season, on the leading edge, before the name. Never allowed to shrink —
-   "late winter" ellipsised to "late w…" is worse than a narrower name. */
-.almanac-season-tag {
-  flex-shrink: 0;
+/* The season-only sites as cards (9 October 2026): a grid on a desk, a rail
+   that snaps card by card on a phone. */
+.almanac-season-grid {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--space-3);
 }
 
+.almanac-season-card {
+  min-width: 0;
+}
+
+.almanac-season-card-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 64px;
+  padding: var(--space-3) var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  transition:
+    transform var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing);
+}
+
+.almanac-season-card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.almanac-season-card-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.almanac-season-card-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 600;
+  line-height: var(--leading-snug);
+}
+
+[dir='rtl'] .almanac-season-card-name {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
+
+.almanac-season-card-chevron {
+  flex-shrink: 0;
+  width: 0.5em;
+  height: 0.5em;
+  border-inline-end: 1.5px solid var(--color-text-muted);
+  border-block-start: 1.5px solid var(--color-text-muted);
+  transform: rotate(45deg);
+}
+
+[dir='rtl'] .almanac-season-card-chevron {
+  transform: rotate(-135deg);
+}
+
+/* The season as a chip in its own colour. Never allowed to shrink — "late
+   winter" ellipsised to "late w…" is worse than a narrower name. */
 .almanac-season-tag {
+  --season: var(--color-accent-text);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--season) 14%, transparent);
+  color: var(--season);
   font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-  color: var(--color-accent-text);
+}
+
+.almanac-season-tag--spring {
+  --season: var(--color-cat-muslim);
+}
+.almanac-season-tag--summer {
+  --season: var(--color-accent-text);
+}
+.almanac-season-tag--autumn {
+  --season: var(--color-rubric);
+}
+.almanac-season-tag--winter {
+  --season: var(--color-cat-jain);
 }
 
 [dir='rtl'] .almanac-season-tag {
   text-transform: none;
   letter-spacing: normal;
+  font-family: var(--font-urdu);
 }
 
+@media (max-width: 640px) {
+  .almanac-season-grid {
+    display: flex;
+    gap: var(--space-3);
+    padding-block-end: var(--space-2);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+  }
+
+  .almanac-season-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .almanac-season-card {
+    flex: 0 0 78vw;
+    scroll-snap-align: start;
+  }
+}
+
+/* "Know one of these dates?" — the same callout shape as the notice, in the
+   interface's own tint, with a pencil beside it. */
 .almanac-contribute {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
   margin-block-start: var(--space-5);
-  padding: var(--space-4) var(--space-5);
+  padding: var(--space-5);
+  border-radius: 16px;
   background: var(--color-primary-bg);
-  border: 1px solid var(--color-primary-pale);
-  border-radius: var(--radius-md);
+}
+
+.almanac-contribute-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.almanac-contribute p {
+  margin: 0;
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
 }
 
-[dir='rtl'] .almanac-contribute {
+[dir='rtl'] .almanac-contribute p {
   line-height: var(--leading-urdu);
 }
 
@@ -492,6 +736,39 @@
 
 .almanac-view-toggle {
   margin-block: 0;
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+}
+
+/* A segmented control: the chosen view is a white pill that slides between
+   the options — the switch every Apple surface uses for two or three views. */
+.almanac-view-toggle .filter-chip {
+  min-height: 32px;
+  padding-block: 0;
+  padding-inline: var(--space-4);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing);
+}
+
+.almanac-view-toggle .filter-chip:hover:not(.active) {
+  color: var(--color-text);
+  background: transparent;
+}
+
+.almanac-view-toggle .filter-chip.active {
+  background: var(--color-bg-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ── The two facets ───────────────────────────────────────────────────────
@@ -594,66 +871,121 @@
 }
 
 /* ── The month grid ────────────────────────────────────────────────────────
-   Google Calendar's shape, since 11 September 2026: a toolbar (Today, ‹ ›, the
-   month), a full-width seven-column table, day numbers in the top-start corner,
-   today's in a filled accent circle, and every observance a coloured bar across
-   the days it covers. What is drawn is decided in `almanacCalendar.ts` — a bar
-   is one *recorded* window, in lanes so overlapping bars stack — and what is
-   refused (month-only observances, seasons) is refused there too.
-
-   Bars are absolutely positioned inside the cell they *start* in and extend
-   `--span` cells to the inline-end, which works because the table is
-   `table-layout: fixed`: every column is the same width, so N × 100% of one
-   cell is N cells. The row reserves `--lanes` of height so every cell in a week
-   lines up; `--lane-h` is the lane pitch, taller in Urdu because Nastaliq
-   needs the ascent. */
+   Redesigned 9 October 2026 (Rauf): a compact calendar card beside an agenda,
+   the shape Apple's Calendar and date pickers use — the month as a grid of
+   numbers in a rounded card, no cell borders, today in the accent, the chosen
+   day a filled disc, small dots under a day for what gathers on it, and the
+   day's (or the month's) observances listed beside the card. The Google-style
+   bars that spanned days went with it: a dot per covered day says the same
+   thing, and the card in the agenda prints the window. What is placed and
+   what is refused is unchanged — `almanacCalendar.ts` still owns that rule. */
 
 .almanac-calendar {
-  --lane-h: 24px;
   position: relative;
   margin-block-start: var(--space-2);
 }
 
-[dir='rtl'] .almanac-calendar {
-  --lane-h: 30px;
+/* The page's own controls — view switch, .ics, filters — on one row above
+   the card, at its trailing end. The month navigation lives in the card. */
+.almanac-cal-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-block-end: var(--space-3);
 }
 
-.almanac-cal-toolbar {
+.almanac-cal-toolbar-end {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: var(--space-2);
+}
+
+/* The count of active filters, on the Filters control itself. */
+.almanac-facet-badge {
+  margin-inline-start: var(--space-1);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Card and agenda side by side where there is room; the card keeps a
+   date-picker's width rather than stretching, because a month of numbers
+   reads at 26rem and not at 70. */
+.almanac-cal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .almanac-cal-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ── The card ───────────────────────────────────────────────────────────── */
+
+.almanac-cal-card {
+  padding: var(--space-5);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 20px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.almanac-cal-head {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: var(--space-2) var(--space-4);
+  gap: var(--space-3);
   margin-block-end: var(--space-3);
+}
+
+/* The month's name in the interface face, semibold and a touch tight — the
+   card is an instrument, and its title reads as a label rather than as one of
+   the page's serif headings. */
+.almanac-cal-title {
+  margin: 0;
+  font-family: inherit;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+}
+
+[dir='rtl'] .almanac-cal-title {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
 }
 
 .almanac-cal-nav {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-1);
 }
 
 .almanac-cal-today {
-  min-height: 44px;
+  min-height: 32px;
   padding-inline: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-surface);
-  color: var(--color-text);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
   font: inherit;
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition:
-    color var(--duration-fast) var(--easing),
-    border-color var(--duration-fast) var(--easing);
+  transition: background-color var(--duration-fast) var(--easing);
 }
 
-.almanac-cal-today:hover,
-.almanac-cal-today:focus-visible {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+.almanac-cal-today:hover:not([disabled]) {
+  background: var(--color-primary-pale);
+}
+
+[dir='rtl'] .almanac-cal-today {
+  font-family: var(--font-urdu);
 }
 
 /* Disabled controls keep their width, so the month name does not slide
@@ -668,8 +1000,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border: 0;
   border-radius: var(--radius-full);
   background: transparent;
@@ -699,45 +1031,13 @@
   transform: scaleX(-1);
 }
 
-.almanac-cal-title {
-  margin: 0;
-  margin-inline-start: var(--space-2);
-  font-family: var(--font-serif);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  line-height: var(--leading-snug);
-  color: var(--color-text);
-}
+/* ── The grid ───────────────────────────────────────────────────────────── */
 
-[dir='rtl'] .almanac-cal-title {
-  font-family: var(--font-urdu);
-  line-height: var(--leading-urdu-heading);
-}
-
-.almanac-cal-toolbar-end {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-/* The count of active filters, on the Filters control itself. */
-.almanac-facet-badge {
-  margin-inline-start: var(--space-1);
-  font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
-}
-
-/* The grid itself follows the month view every reader already knows from
-   Google Calendar (8 October 2026, Rauf): hairlines rather than a frame, the
-   weekday row quiet, the day number centred at the top of its square with
-   today as a filled disc, no shading on the neighbouring months' days, and
-   each recorded observance a solid bar in its tradition's colour. */
 .almanac-calendar-grid {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   table-layout: fixed;
-  border: var(--hairline) solid var(--color-border-light);
 }
 
 .almanac-calendar-grid th {
@@ -748,7 +1048,6 @@
   text-transform: uppercase;
   color: var(--color-text-muted);
   text-align: center;
-  border-block-end: var(--hairline) solid var(--color-border-light);
 }
 
 [dir='rtl'] .almanac-calendar-grid th {
@@ -759,9 +1058,8 @@
   padding-inline: 0;
 }
 
-/* Seven columns in 400px is ~52px each, and جمعرات at text-sm needs 55: the
-   header overflowed its cell by 3px in the Urdu phone view (e2e/no-overflow).
-   The weekday names have no Urdu abbreviations, so the header steps down one
+/* Seven columns in 340px is ~48px each, and جمعرات at text-sm needs 55: the
+   weekday names have no Urdu abbreviations, so the header steps down one
    size on a phone — the one place Nastaliq is allowed below text-sm, and only
    for a single word in a heading row. */
 @media (max-width: 640px) {
@@ -771,269 +1069,124 @@
   }
 }
 
-/* `--lanes` is written inline on each <tr> by AlmanacCalendar.tsx from
-   `layoutWeek`; this is the value a row has before React does. */
-.almanac-calendar-grid tr {
-  --lanes: 0;
-}
-
+/* No borders: the square is the disc the number sits in, and the row is the
+   rhythm. */
 .almanac-calendar-cell {
-  padding: 0;
-  vertical-align: top;
-  border: var(--hairline) solid var(--color-border-light);
+  padding: 2px 0;
+  border: 0;
+  text-align: center;
+  vertical-align: middle;
 }
 
-/* Padding cells belong to the neighbouring month. The number goes quiet and
-   the ground stays the page's: a shaded block of six or seven squares read as
-   a second element on the page, and the month's shape is carried well enough
-   by the day numbers alone (Google Calendar does exactly this). */
-.almanac-calendar-cell--outside {
-  background: none;
-}
-
-.almanac-calendar-cell--outside .almanac-cal-daynum {
-  color: var(--color-text-muted);
-}
-
-.almanac-cal-cell {
-  position: relative;
-  display: flex;
+/* The day. A 44px disc at every width — the archive's touch-target floor —
+   carrying the number and, under it, the dots. */
+.almanac-cal-day {
+  display: inline-flex;
   flex-direction: column;
-  min-height: max(7.5rem, calc(2.25rem + var(--lanes) * var(--lane-h) + 1.75rem));
-  padding-block-end: var(--space-1);
-}
-
-.almanac-cal-daynum {
-  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3em;
-  min-height: 2.25rem;
-  padding: 4px 0 0;
-  font-size: var(--text-xs);
+  gap: 3px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--color-text);
+  font: inherit;
+  font-size: var(--text-sm);
   font-variant-numeric: tabular-nums;
   line-height: 1;
-  color: var(--color-text-secondary);
-}
-
-/* The number sits in a round slot the size of the today-disc, so a day
-   becoming today changes its colour and nothing about the row's geometry. */
-.almanac-cal-daynum-n {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.5rem;
-  height: 1.5rem;
-  padding-inline: 0.3rem;
-  border-radius: var(--radius-full);
-}
-
-/* The first of a month carries the month's name beside the 1, so a row that
-   straddles two months reads without counting back. Desktop only — a phone's
-   square is 50px wide. */
-.almanac-cal-daymonth {
-  font-size: var(--text-xs);
-}
-
-.almanac-calendar-cell--marked .almanac-cal-daynum {
-  color: var(--color-text);
-}
-
-/* Today. A filled circle on the number, the convention every calendar app
-   shares — and `aria-current="date"` on the cell says the same to a screen
-   reader, so it is never colour alone. `--color-on-accent`, not white: the
-   accent is a light gold in both themes (themeFlippingGrounds.test.ts). */
-.almanac-cal-daynum-today {
-  background: var(--color-accent);
-  color: var(--color-on-accent);
-  font-weight: 700;
-}
-
-/* No ring on today's square: the disc on the number is the mark, and a second
-   mark on the same fact was the busiest thing in the grid. `aria-current` on
-   the cell still says it to a screen reader. */
-.almanac-calendar-cell--today {
-  box-shadow: none;
-}
-
-.almanac-cal-lanes {
-  position: relative;
-  height: calc(var(--lanes) * var(--lane-h));
-}
-
-/* One bar. Drawn once, in the cell its window starts in this week, and
-   `--span` cells wide. Solid, in the tradition's colour, with the foreground
-   the token that flips with the theme: the category colours are deep in the
-   light theme and pale in the dark one, so `--color-text-inverse` is white on
-   the first and near-black on the second (themeFlippingGrounds.test.ts).
-   Measured at the weakest pair, Hindu amber on white: 5.0:1. Until 8 October
-   2026 the bar was the category's pale ground with a solid leading edge; the
-   pale ground survives on the projected bars below. */
-.almanac-cal-chip {
-  /* `--lane` and `--span` are written inline per bar by AlmanacCalendar.tsx;
-     the edge and ground come from the category modifier below. */
-  --lane: 0;
-  --span: 1;
-  --inset-start: 2px;
-  --inset-end: 2px;
-  position: absolute;
-  top: calc(var(--lane) * var(--lane-h) + 2px);
-  inset-inline-start: var(--inset-start);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  width: calc(var(--span) * 100% - var(--inset-start) - var(--inset-end));
-  height: calc(var(--lane-h) - 4px);
-  min-width: 0;
-  padding-inline: var(--space-2);
-  border: 1px solid var(--chip-edge);
-  border-radius: 4px;
-  background: var(--chip-edge);
-  color: var(--color-text-inverse);
-  font: inherit;
-  font-size: var(--text-xs);
-  font-weight: 500;
-  text-align: start;
   cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing);
 }
 
-.almanac-cal-chip:hover,
-.almanac-cal-chip[aria-expanded='true'] {
-  filter: brightness(0.92);
-}
-
-.almanac-cal-chip:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 1px;
-  z-index: 2;
-}
-
-.almanac-cal-chip-name {
-  display: block;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  line-height: 1.2;
-}
-
-[dir='rtl'] .almanac-cal-chip-name {
-  font-family: var(--font-urdu);
-  font-size: var(--text-sm);
-  line-height: 1.7;
-}
-
-.almanac-cal-chip--muslim {
-  --chip-edge: var(--color-cat-muslim);
-  --chip-ground: var(--color-cat-muslim-pale);
-}
-.almanac-cal-chip--hindu {
-  --chip-edge: var(--color-cat-hindu);
-  --chip-ground: var(--color-cat-hindu-pale);
-}
-.almanac-cal-chip--sikh {
-  --chip-edge: var(--color-cat-sikh);
-  --chip-ground: var(--color-cat-sikh-pale);
-}
-.almanac-cal-chip--nanakpanthi {
-  --chip-edge: var(--color-cat-nanakpanthi);
-  --chip-ground: var(--color-cat-nanakpanthi-pale);
-}
-.almanac-cal-chip--jain {
-  --chip-edge: var(--color-cat-jain);
-  --chip-ground: var(--color-cat-jain-pale);
-}
-.almanac-cal-chip--secular {
-  --chip-edge: var(--color-cat-secular);
-  --chip-ground: var(--color-cat-secular-pale);
-}
-.almanac-cal-chip--default {
-  --chip-edge: var(--color-text-muted);
-  --chip-ground: var(--color-bg-alt);
-}
-
-/* A Hijri projection is a forecast, and the bar says so without a word: the
-   pale ground and a dashed outline, the page's own text on top, where a
-   recorded date is a solid fill — Google Calendar's own convention for an
-   event not yet confirmed. The caveat under the grid (`.almanac-cal-caveat`)
-   carries the same dash as its key. */
-.almanac-cal-chip--approximate {
-  background: var(--chip-ground);
-  color: var(--color-text);
-  border-style: dashed;
-}
-
-.almanac-cal-chip--approximate:hover,
-.almanac-cal-chip--approximate[aria-expanded='true'] {
-  filter: none;
-  box-shadow: inset 0 0 0 1px var(--chip-edge);
-}
-
-/* A bar continuing from the previous week (or month) starts square and flush,
-   with no edge of its own — one observance, not two. */
-.almanac-cal-chip--from {
-  --inset-start: 0px;
-  border-start-start-radius: 0;
-  border-end-start-radius: 0;
-  border-inline-start: 0;
-}
-
-.almanac-cal-chip--to {
-  --inset-end: 0px;
-  border-start-end-radius: 0;
-  border-end-end-radius: 0;
-  border-inline-end: 0;
-}
-
-/* Bars past the third lane fold into this. It is a control — it opens the
-   day's full list — and is coloured as one. */
-.almanac-cal-more {
-  align-self: flex-start;
-  margin: 2px 2px 0;
-  min-height: 24px;
-  padding: 0 var(--space-1);
-  border: 0;
-  border-radius: var(--radius-sm);
-  background: none;
-  color: var(--color-text-secondary);
-  font: inherit;
-  font-size: var(--text-xs);
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.almanac-cal-more:hover {
+button.almanac-cal-day:hover {
   background: var(--color-bg-alt);
 }
 
-.almanac-cal-more:focus-visible {
+.almanac-cal-day:focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 
-/* The phone's control: the whole day. Hidden on a desktop, where the chips are
-   the controls — `display: none` takes it out of the accessibility tree too, so
-   no day ever has two. */
-.almanac-cal-daybtn {
-  display: none;
+/* A day with something on it carries its number a shade heavier, so the
+   dotted days read at a glance before the dots do. */
+.almanac-calendar-cell--marked .almanac-cal-daynum {
+  font-weight: 600;
+}
+
+.almanac-calendar-cell--outside {
+  color: var(--color-text-muted);
+}
+
+/* The neighbouring month's days: present, quiet, inert. Muted, not faded —
+   the first draft halved their opacity the way date pickers do, and axe
+   measured 2.09:1; the muted token is the quietest grey that still clears AA. */
+.almanac-cal-day--outside {
+  color: var(--color-text-muted);
+  cursor: default;
+}
+
+.almanac-cal-daynum {
+  display: block;
+}
+
+/* Today: the number in the accent with a thin ring, the convention every
+   calendar app shares — and `aria-current="date"` on the cell says the same to
+   a screen reader, so it is never colour alone. Not the cobalt: cobalt is
+   interactive-only here, and today is a fact. */
+.almanac-calendar-cell--today .almanac-cal-day {
+  box-shadow: inset 0 0 0 1.5px var(--color-accent);
+}
+
+.almanac-calendar-cell--today .almanac-cal-daynum {
+  color: var(--color-accent-text);
+  font-weight: 700;
+}
+
+/* The chosen day: a filled disc. Cobalt, because choosing is the one thing
+   the reader does here; the foreground is the token that flips with the
+   theme (themeFlippingGrounds.test.ts), and the dots go white with it. */
+/* Both the rested and the hovered state, at a specificity above the hover
+   rule: the pointer is still over the disc the instant it is chosen, and the
+   first draft painted the hover grey over the cobalt. */
+.almanac-calendar-cell--selected button.almanac-cal-day,
+.almanac-calendar-cell--selected button.almanac-cal-day:hover {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: none;
+}
+
+.almanac-calendar-cell--selected .almanac-cal-daynum {
+  color: inherit;
+  font-weight: 700;
+}
+
+.almanac-calendar-cell--selected .almanac-cal-dot {
+  --dot: var(--color-text-inverse);
 }
 
 .almanac-cal-dots {
   display: flex;
   gap: 3px;
-  justify-content: center;
+  height: 5px;
 }
 
 .almanac-cal-dot {
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   border-radius: var(--radius-full);
   background: var(--dot);
 }
 
+/* A Hijri projection is a forecast: a hollow dot where a recorded date's is
+   filled. The caveat under the card carries the same hollow dot as its key. */
 .almanac-cal-dot--approximate {
   background: transparent;
-  border: 1.5px dashed var(--dot);
+  box-shadow: inset 0 0 0 1.5px var(--dot);
 }
 
 .almanac-cal-dot--muslim {
@@ -1058,17 +1211,13 @@
   --dot: var(--color-text-muted);
 }
 
-.almanac-calendar-cell--selected {
-  box-shadow: inset 0 0 0 2px var(--color-primary);
-}
-
-/* The moon-sighting caveat, once, with the dashed swatch as its key. The team
+/* The moon-sighting caveat, once, with the hollow dot as its key. The team
    view prints a pill on each projected date instead (ObservanceCard). */
 .almanac-cal-caveat {
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
-  margin: var(--space-3) 0 0;
+  margin: var(--space-4) 0 0;
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   line-height: var(--leading-normal);
@@ -1078,10 +1227,10 @@
   content: '';
   flex-shrink: 0;
   display: inline-block;
-  width: 1.4em;
-  height: 0.7em;
-  border: 1px dashed var(--color-text-muted);
-  border-radius: 2px;
+  width: 0.6em;
+  height: 0.6em;
+  border: 1.5px solid var(--color-text-muted);
+  border-radius: var(--radius-full);
   transform: translateY(0.05em);
 }
 
@@ -1091,100 +1240,51 @@
   line-height: var(--leading-urdu);
 }
 
-/* ── The popover a chip opens ─────────────────────────────────────────── */
-.almanac-pop {
-  /* Written inline by ObservancePopover.tsx from the chip's rect. */
-  --pop-top: 0px;
-  --pop-left: 0px;
-  position: absolute;
-  top: var(--pop-top);
-  left: var(--pop-left);
-  z-index: var(--z-modal);
-  width: min(22rem, 100%);
-  padding: var(--space-2) var(--space-4) var(--space-2);
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+/* ── The agenda ─────────────────────────────────────────────────────────── */
+
+.almanac-cal-agenda {
+  min-width: 0;
 }
 
-.almanac-pop-head {
+/* The agenda's cards: date, name, figure — tighter than the year listing. */
+.almanac-entry--compact {
+  padding-block: var(--space-3);
+}
+
+.almanac-cal-agenda-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  margin-block-end: var(--space-2);
+  padding-block-end: var(--space-3);
+  border-block-end: var(--hairline) solid var(--color-border-light);
 }
 
-.almanac-pop-title {
+.almanac-cal-agenda-title {
   margin: 0;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: var(--leading-snug);
 }
 
-[dir='rtl'] .almanac-pop-title {
+[dir='rtl'] .almanac-cal-agenda-title {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
+}
+
+.almanac-cal-agenda-count {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .almanac-cal-agenda-count {
   font-family: var(--font-urdu);
   line-height: var(--leading-urdu-ui);
-}
-
-.almanac-pop-close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-inline-end: calc(-1 * var(--space-2));
-  border: 0;
-  border-radius: var(--radius-full);
-  background: transparent;
-  color: var(--color-text-secondary);
-  cursor: pointer;
-}
-
-.almanac-pop-close:hover {
-  background: var(--color-bg-alt);
-  color: var(--color-text);
-}
-
-.almanac-pop-close:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: -2px;
-}
-
-/* The card, stacked rather than in its register columns — 22rem has no room
-   for a 13rem date column. */
-.almanac-pop-list .almanac-entry {
-  grid-template-columns: 1fr;
-  gap: var(--space-2);
-  padding-block: var(--space-2);
-  border-block-end: 0;
-}
-
-.almanac-pop-list .almanac-entry + .almanac-entry {
-  border-block-start: var(--hairline) solid var(--color-border-light);
-}
-
-/* The phone's day list, under the grid. */
-.almanac-cal-day-list {
-  margin-block-start: var(--space-3);
-}
-
-.almanac-calendar-selection {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
-  margin-block: var(--space-2);
-}
-
-.almanac-calendar-selection-label {
-  margin: 0;
-  font-size: var(--text-sm);
-  font-weight: 600;
-}
-
-[dir='rtl'] .almanac-calendar-selection-label {
-  font-family: var(--font-urdu);
 }
 
 .almanac-calendar-unplaced {
@@ -1204,16 +1304,34 @@
   line-height: var(--leading-urdu-heading);
 }
 
-/* ── The undated list, behind a disclosure ───────────────────────────── */
+/* ── The undated list, behind a disclosure ─────────────────────────────
+   The summary is a card row — count, caret — and the list opens inside the
+   same card, with a field to narrow it. */
+.almanac-undated {
+  margin-block-start: var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
 .almanac-undated-summary {
   display: flex;
   align-items: center;
-  min-height: 44px;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 56px;
+  padding-inline: var(--space-4);
   list-style: none;
   color: var(--color-primary);
   font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
+}
+
+.almanac-undated-summary:hover {
+  background: var(--color-bg-alt);
 }
 
 .almanac-undated-summary::-webkit-details-marker {
@@ -1225,8 +1343,8 @@
 .almanac-undated-summary::after {
   content: '';
   display: inline-block;
-  inline-size: 0.4em;
-  block-size: 0.4em;
+  inline-size: 0.5em;
+  block-size: 0.5em;
   margin-inline-start: var(--space-2);
   border-inline-end: 1.5px solid currentcolor;
   border-block-end: 1.5px solid currentcolor;
@@ -1240,12 +1358,44 @@
 
 .almanac-undated-summary:focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  outline-offset: -2px;
+}
+
+.almanac-undated-filter {
+  display: block;
+  width: calc(100% - 2 * var(--space-4));
+  margin: var(--space-2) var(--space-4) var(--space-3);
+  min-height: 40px;
+  padding-inline: var(--space-3);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 10px;
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  font: inherit;
+  font-size: max(16px, var(--text-sm));
+}
+
+.almanac-undated-filter:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.almanac-undated-filter::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+[dir='rtl'] .almanac-undated-filter {
+  font-family: var(--font-urdu);
 }
 
 .almanac-undated > .inset-list {
-  margin-block-start: var(--space-2);
+  margin: 0;
+  padding-inline: var(--space-2);
+  padding-block-end: var(--space-2);
+}
+
+.almanac-undated > .almanac-empty {
+  padding: 0 var(--space-4) var(--space-4);
 }
 
 [dir='rtl'] .almanac-undated-summary {
@@ -1253,77 +1403,23 @@
 }
 
 /* ── Phone ───────────────────────────────────────────────────────────────
-   Seven columns in 400px is ~55px a cell. A name cannot live there, so the
-   bars go, the day becomes a button, and category dots say who gathers; the
-   day's records list beneath the grid. The popover, were it to open at this
-   width, becomes a bottom sheet — with the three touch declarations
-   `touchScroll.test.ts` requires of every internally scrolling region. */
+   The card goes edge to edge inside the page gutter and the agenda stacks
+   under it. Seven 44px discs are 308px, inside a 390px screen's 334px. */
 @media (max-width: 640px) {
   .almanac-cal-toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .almanac-cal-nav {
     justify-content: flex-start;
   }
 
+  .almanac-cal-card {
+    padding: var(--space-4) var(--space-3);
+    border-radius: 16px;
+  }
+
   .almanac-cal-title {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
   }
 
-  .almanac-cal-lanes,
-  .almanac-cal-more {
-    display: none;
-  }
-
-  .almanac-cal-cell {
-    min-height: 3.5rem;
-    padding-block-end: 0;
-  }
-
-  .almanac-cal-daynum {
-    justify-content: center;
-    padding: var(--space-1) 0 0;
-    min-height: 1.5rem;
-    pointer-events: none;
-  }
-
-  .almanac-cal-daymonth {
-    display: none;
-  }
-
-  .almanac-cal-daybtn {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
+  .almanac-cal-agenda-head {
     align-items: center;
-    justify-content: flex-end;
-    padding-block-end: 6px;
-    border: 0;
-    background: none;
-    cursor: pointer;
-  }
-
-  .almanac-cal-daybtn:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: -2px;
-  }
-
-  .almanac-pop {
-    position: fixed;
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: auto;
-    max-height: 70vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-    touch-action: pan-y;
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    padding-block-end: calc(var(--space-4) + env(safe-area-inset-bottom));
   }
 }

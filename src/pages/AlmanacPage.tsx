@@ -12,6 +12,7 @@ import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { localizeObservance } from '../lib/i18n/localizeObservance';
 import { ObservanceCard } from '../components/almanac/ObservanceCard';
 import { AlmanacCalendar } from '../components/almanac/AlmanacCalendar';
+import { CoverageTiles } from '../components/almanac/CoverageTiles';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
 import { buildIcs } from '../lib/data/almanacIcs';
 import { downloadIcsFile } from '../lib/data/icsDownload';
@@ -138,6 +139,8 @@ export default function AlmanacPage() {
    * or the reader is looking at a partial archive with no visible reason. */
   const [filtersOpen, setFiltersOpen] = React.useState(false);
   const [allPlacesShown, setAllPlacesShown] = React.useState(false);
+  /* The undated list's type-to-narrow field (9 October 2026). */
+  const [undatedQuery, setUndatedQuery] = React.useState('');
   /* A place chosen from the expanded row must stay visible when the row is
      collapsed again, or the reader loses the control that undoes their own
      filter. */
@@ -265,6 +268,14 @@ export default function AlmanacPage() {
   /* Nothing to show yet: the first paint before the sheet has answered. Coverage
      and the caveat still render — they are true of the archive rather than of
      the fetch. */
+  const undatedShown = useMemo(() => {
+    const q = undatedQuery.trim().toLowerCase();
+    if (!q) return almanac.undated;
+    return almanac.undated.filter((entry) =>
+      localizeShrineName(entry.shrine, lang).toLowerCase().includes(q),
+    );
+  }, [almanac.undated, undatedQuery, lang]);
+
   const hasEntries = !(loading && almanac.dated.length === 0);
 
   return (
@@ -597,10 +608,17 @@ export default function AlmanacPage() {
             dates the reader has just looked at, which is where a caveat is
             read. */}
         <aside className="almanac-note" aria-labelledby="almanac-honesty-heading">
-          <h2 id="almanac-honesty-heading" className="almanac-note-heading">
-            {t('almanacHonestyHeading')}
-          </h2>
-          <p>{t('almanacApproximateNote')}</p>
+          <span className="almanac-note-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+            </svg>
+          </span>
+          <div className="almanac-note-body">
+            <h2 id="almanac-honesty-heading" className="almanac-note-heading">
+              {t('almanacHonestyHeading')}
+            </h2>
+            <p>{t('almanacApproximateNote')}</p>
+          </div>
         </aside>
 
         {/* ── The honest accounting ────────────────────────────────────────
@@ -621,22 +639,7 @@ export default function AlmanacPage() {
               ),
             )}
           </p>
-          <ul className="almanac-coverage-list">
-            {(
-              [
-                ['dayPrecision', 'almanacCoverageDayPrecision', 'day'],
-                ['monthPrecision', 'almanacCoverageMonthPrecision', 'month'],
-                ['seasonal', 'almanacCoverageSeasonal', 'season'],
-                ['undated', 'almanacCoverageUndated', 'undated'],
-                ['noObservance', 'almanacCoverageNone', 'none'],
-              ] as const
-            ).map(([key, labelKey, variant]) => (
-              <li key={key} className={`almanac-coverage-item almanac-coverage-item--${variant}`}>
-                <span className="almanac-coverage-count">{fmtNum(counts[key])}</span>
-                <span className="almanac-coverage-label">{t(labelKey)}</span>
-              </li>
-            ))}
-          </ul>
+          <CoverageTiles counts={counts} />
         </section>
 
         {hasEntries && (
@@ -647,17 +650,22 @@ export default function AlmanacPage() {
                   {t('almanacSeasonalHeading')}
                 </h2>
                 <p className="almanac-hint">{t('almanacSeasonalNote')}</p>
-                <ul className="almanac-list almanac-list--plain inset-list">
+                {/* A card per site, the season as a tinted chip: a grid on a
+                    desk, a rail that snaps card by card on a phone. */}
+                <ul className="almanac-season-grid">
                   {almanac.seasonal.map((entry, i) => (
-                    <li key={`${entry.shrine.slug}-${i}`} className="inset-row inset-row--link">
-                      <Link to={`/shrine/${entry.shrine.slug}`}>
-                        <span className="almanac-season-tag">
+                    <li key={`${entry.shrine.slug}-${i}`} className="almanac-season-card">
+                      <Link
+                        to={`/shrine/${entry.shrine.slug}`}
+                        className="almanac-season-card-link"
+                      >
+                        <span className={`almanac-season-tag almanac-season-tag--${entry.season}`}>
                           {t(SEASON_LABEL_KEYS[entry.season])}
                         </span>
-                        <span className="inset-row-label">
+                        <span className="almanac-season-card-name">
                           <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
                         </span>
-                        <span className="inset-row-chevron" />
+                        <span className="almanac-season-card-chevron" aria-hidden="true" />
                       </Link>
                     </li>
                   ))}
@@ -681,10 +689,25 @@ export default function AlmanacPage() {
                 <p className="almanac-hint">{t('almanacUndatedNote')}</p>
                 <details className="almanac-undated">
                   <summary className="almanac-undated-summary">
-                    {fmtNum(tFn(lang, 'almanacShowList', almanac.undated.length))}
+                    <span>{fmtNum(tFn(lang, 'almanacShowList', almanac.undated.length))}</span>
                   </summary>
+                  {/* Type to narrow: 101 names is two screens, and the reader
+                      who opens this is usually looking for one of them. */}
+                  <input
+                    type="search"
+                    className="almanac-undated-filter"
+                    placeholder={t('almanacFilterByName')}
+                    aria-label={t('almanacFilterByName')}
+                    value={undatedQuery}
+                    onChange={(event) => setUndatedQuery(event.target.value)}
+                    autoComplete="off"
+                    spellCheck={false}
+                  />
+                  {undatedShown.length === 0 ? (
+                    <p className="almanac-empty">{t('noMatches')}</p>
+                  ) : null}
                   <ul className="almanac-list almanac-list--plain almanac-list--undated inset-list">
-                    {almanac.undated.map((entry) => (
+                    {undatedShown.map((entry) => (
                       <li key={entry.shrine.slug} className="inset-row inset-row--link">
                         <Link to={`/shrine/${entry.shrine.slug}`}>
                           <span className="inset-row-label inset-row-label--stacked">
@@ -709,7 +732,24 @@ export default function AlmanacPage() {
                     ))}
                   </ul>
                 </details>
-                <p className="almanac-contribute">{t('almanacContribute')}</p>
+                <aside className="almanac-contribute">
+                  <span className="almanac-contribute-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 20h9" />
+                      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />
+                    </svg>
+                  </span>
+                  <p>{t('almanacContribute')}</p>
+                </aside>
               </section>
             )}
           </>

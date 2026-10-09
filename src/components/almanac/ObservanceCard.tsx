@@ -24,6 +24,7 @@ export function ObservanceCard({
   anchorId,
   index = 0,
   showApproximateFlag = true,
+  compact = false,
 }: {
   entry: AlmanacEntry;
   lang: Lang;
@@ -32,6 +33,10 @@ export function ObservanceCard({
   anchorId?: string | undefined;
   /** Position in its list, for the entrance stagger. */
   index?: number;
+  /** The calendar's agenda: date, name and figure, no Location line — the
+   *  shrine page is one click away, and a survey's paragraph of qualification
+   *  is not what a day's list is for. */
+  compact?: boolean;
   /** The per-card "approximate" pill. Off in the public view (11 September
    *  2026, project head): the calendar prints the moon-sighting caveat once,
    *  under the grid, instead of on every projected date. The flag still
@@ -59,7 +64,7 @@ export function ObservanceCard({
 
   return (
     <li
-      className="almanac-entry reveal-rise"
+      className={`almanac-entry reveal-rise${compact ? ' almanac-entry--compact' : ''}`}
       id={anchorId}
       style={{ '--stagger-index': index } as React.CSSProperties}
     >
@@ -86,7 +91,7 @@ export function ObservanceCard({
             <bdi>{localizeShrineName(shrine, lang)}</bdi>
           </Link>
         </h3>
-        {location ? (
+        {location && !compact ? (
           /* The CSS clamps this to two lines because several field-survey rows
              carry a paragraph of qualification in the Location column rather
              than a place name. `title` is what makes the clamped remainder
