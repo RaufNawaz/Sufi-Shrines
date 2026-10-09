@@ -6,7 +6,7 @@ that these instructions are versioned, diffable, and editable by any session wit
 scheduled task (CLAUDE.md RULE 0 — prompts written for agents live in `docs/prompts/`).
 
 **Editing this file changes what every future firing does.** Keep it accurate and keep it dated.
-Last substantive change: 8 October 2026 (§9.268: khulasat 473-480 transcribed, 480/610; next transcription = 481-610; the request limit blanked >200 image reads and every blind draft needed 5-15 word corrections on re-read — the §9.264 re-read is mandatory). Before that, same day (§9.267: province-section clean-up FINISHED — boivin quote check clean, boivin A/B halves de-duplicated (3 merges), sorley/hadeeqat/tareekh_lahore had no A/B duplicates; the notes stage has NO queued work, so a notes-turn firing transcribes instead; next transcription unchanged = khulasat 473-610). Before that, same day (§9.266: khulasat 465-472 transcribed, 472/610; next transcription = 473-610; next notes unchanged from §9.265). Before that, same day (§9.265 — sorley province-section quotations re-flagged, 51 edits; next notes = de-duplicate the merged A/B province halves of sorley, boivin, hadeeqat, tareekh_lahore, then transcribe; next transcription unchanged = khulasat 465-610). Before that: 7 October 2026 (§9.264 — khulasat 459-464 transcribed, 464/610; next transcription = 465-610; after any `[media removed]` streak the COORDINATOR's own drafts are blind too — re-read before commit). Before that, same day (§9.263 — province sweep FINISHED 29/29; khulasat 458/610 after §9.262's pages were restored from the project). Before that, same day (§9.259 — PROVINCE SWEEP batch 2 done on sorley, boivin, schaflechner, abbas, kasmani: 15 of 29 swept; next notes = the nine remaining English books, and tell workers NO silent repair inside quotations — sorley had ~60). Before that, same day (§9.258 — khulasat 441-448 transcribed, 448/610; a dead 5 Oct firing left 435-440 unrecorded; the request limit now hits the COORDINATOR too, so verify each page against an image still in view; next transcription = re-read 441/442/446/447, then 449-610). Before that: 5 October 2026 (§9.257 — PROVINCE SWEEP batch 1 done on 5 books; brief `pipeline/book_queue/PROVINCE_SWEEP_BRIEF.md`; next notes = the next 5-6 books of the sweep). Before that, same day (§9.256 — khulasat 429-434 done, 434/610; subagent image workers unreliable even singly). Before that: 4 October 2026 (§9.255 — Pass 2 on nizami_revised_translation DONE, 29 books summarized, every transcribed book consolidated; next notes = the PROVINCE SWEEP over the older takeaways). Before that, same day (§9.254 — khulasat 417-428 transcribed, 428/610, 405-416 folios verified; CONCURRENCY CUT TO ONE image worker at a time — two hit the request limit 2/2 at 19 images a page; next transcription = khulasat 429-610). Before that, same day (§9.253 — nizami_revised_translation FULLY NOTED 13/13; next notes = Pass 2 on it, then the province sweep; an unrecorded transcription firing wrote khulasat 405-416 at 07:17Z — next transcription verifies those, then 417-610). Before that, same day (§9.252 — khalid_in_search_of_shiva SUMMARIZED; next notes = Pass 1 on nizami_revised_translation). Before that, same day (§9.251 — khulasat 363-404 transcribed, book at 404/610; next transcription = khulasat 405-610; CONCURRENCY CUT TO TWO image workers — five hit the request limit 5/5). Before that: 3 October 2026 (§9.250 — khalid_in_search_of_shiva fully noted 9/9; next notes = Pass 2 on it). Before that, same day (§9.249 — tahqiqat_chishti 811-873 transcribed, BOOK DONE 873/873; next transcription = khulasat 363-610; "media removed" measured as a request limit — at most FIVE concurrent image workers). Before that, same day (§9.248 — Pass 2 on khalid_a_white_trail DONE, 27 summarized; next notes = Pass 1 on khalid_in_search_of_shiva). Before that, same day (§9.247 — tahqiqat 751-810 transcribed, book at 810/873; next transcription = tahqiqat 811-873, which finishes it). Before that: 29 September 2026 (§9.246 — khalid_a_white_trail fully noted 13/13; next notes firing = Pass 2 on it). Before that, same day (§9.245 — khulasat 17-48 done; next transcription = tahqiqat 751-780). Before that, same day (§9.243 — walking_with_nanak summarized; province sweep queued). Also §9.242 — three rulings: provinces (c), orthography as printed, khulasat 17-48 via split render first).
+Last substantive change: 8 October 2026 (Integration stage merged in from `docs/prompts/INTEGRATION_BRIEF.md`: the notes turn of the alternation now runs integration, transcription is unchanged, and the notes stage's book selection is removed). Before that, same day (§9.268: khulasat 473-480 transcribed, 480/610; next transcription = 481-610; the request limit blanked >200 image reads and every blind draft needed 5-15 word corrections on re-read — the §9.264 re-read is mandatory). Before that, same day (§9.267: province-section clean-up FINISHED — boivin quote check clean, boivin A/B halves de-duplicated (3 merges), sorley/hadeeqat/tareekh_lahore had no A/B duplicates; the notes stage has NO queued work, so a notes-turn firing transcribes instead; next transcription unchanged = khulasat 473-610). Before that, same day (§9.266: khulasat 465-472 transcribed, 472/610; next transcription = 473-610; next notes unchanged from §9.265). Before that, same day (§9.265 — sorley province-section quotations re-flagged, 51 edits; next notes = de-duplicate the merged A/B province halves of sorley, boivin, hadeeqat, tareekh_lahore, then transcribe; next transcription unchanged = khulasat 465-610). Before that: 7 October 2026 (§9.264 — khulasat 459-464 transcribed, 464/610; next transcription = 465-610; after any `[media removed]` streak the COORDINATOR's own drafts are blind too — re-read before commit). Before that, same day (§9.263 — province sweep FINISHED 29/29; khulasat 458/610 after §9.262's pages were restored from the project). Before that, same day (§9.259 — PROVINCE SWEEP batch 2 done on sorley, boivin, schaflechner, abbas, kasmani: 15 of 29 swept; next notes = the nine remaining English books, and tell workers NO silent repair inside quotations — sorley had ~60). Before that, same day (§9.258 — khulasat 441-448 transcribed, 448/610; a dead 5 Oct firing left 435-440 unrecorded; the request limit now hits the COORDINATOR too, so verify each page against an image still in view; next transcription = re-read 441/442/446/447, then 449-610). Before that: 5 October 2026 (§9.257 — PROVINCE SWEEP batch 1 done on 5 books; brief `pipeline/book_queue/PROVINCE_SWEEP_BRIEF.md`; next notes = the next 5-6 books of the sweep). Before that, same day (§9.256 — khulasat 429-434 done, 434/610; subagent image workers unreliable even singly). Before that: 4 October 2026 (§9.255 — Pass 2 on nizami_revised_translation DONE, 29 books summarized, every transcribed book consolidated; next notes = the PROVINCE SWEEP over the older takeaways). Before that, same day (§9.254 — khulasat 417-428 transcribed, 428/610, 405-416 folios verified; CONCURRENCY CUT TO ONE image worker at a time — two hit the request limit 2/2 at 19 images a page; next transcription = khulasat 429-610). Before that, same day (§9.253 — nizami_revised_translation FULLY NOTED 13/13; next notes = Pass 2 on it, then the province sweep; an unrecorded transcription firing wrote khulasat 405-416 at 07:17Z — next transcription verifies those, then 417-610). Before that, same day (§9.252 — khalid_in_search_of_shiva SUMMARIZED; next notes = Pass 1 on nizami_revised_translation). Before that, same day (§9.251 — khulasat 363-404 transcribed, book at 404/610; next transcription = khulasat 405-610; CONCURRENCY CUT TO TWO image workers — five hit the request limit 5/5). Before that: 3 October 2026 (§9.250 — khalid_in_search_of_shiva fully noted 9/9; next notes = Pass 2 on it). Before that, same day (§9.249 — tahqiqat_chishti 811-873 transcribed, BOOK DONE 873/873; next transcription = khulasat 363-610; "media removed" measured as a request limit — at most FIVE concurrent image workers). Before that, same day (§9.248 — Pass 2 on khalid_a_white_trail DONE, 27 summarized; next notes = Pass 1 on khalid_in_search_of_shiva). Before that, same day (§9.247 — tahqiqat 751-810 transcribed, book at 810/873; next transcription = tahqiqat 811-873, which finishes it). Before that: 29 September 2026 (§9.246 — khalid_a_white_trail fully noted 13/13; next notes firing = Pass 2 on it). Before that, same day (§9.245 — khulasat 17-48 done; next transcription = tahqiqat 751-780). Before that, same day (§9.243 — walking_with_nanak summarized; province sweep queued). Also §9.242 — three rulings: provinces (c), orthography as printed, khulasat 17-48 via split render first).
 Before that: 27 September 2026 (§9.241 — walking_with_nanak fully noted, Pass 2 on it is next).
 Before that: 26 September 2026 (§9.239 — schimmel_mystical_dimensions_of_islam is
 CONSOLIDATED, 24 of 24 books, so the notes stage is back to PASS 1 on the five remaining books; the
@@ -87,11 +87,12 @@ takes `render_bands.py --scale 4400`.
 
 **Transcription now just runs, in priority order, taking the next free range.** See STAGE A.
 
-**PASS 2 IS FINISHED — 24 of 24 books** (§9.233, extended by §9.239 on 26 September 2026, which
-consolidated `schimmel_mystical_dimensions_of_islam`). The "consolidate before noting a new book"
-instruction is **spent**, and so is "the next notes firing does Pass 2 on schimmel". The notes
-stage's work is now **Pass-1 notes on the five unnoted books**, in the priority order listed under
-STAGE B.
+**THE NOTES TURN NOW RUNS THE INTEGRATION STAGE** (Rauf, 8 October 2026; brief kept verbatim at
+`docs/prompts/INTEGRATION_BRIEF.md`). Steps 1 and 2 above are unchanged: wherever they say this firing
+does notes or Pass 2, run **Integration stage** below instead, **except that notes come before
+integration** (Rauf, 8 October 2026): if any book is `transcribed` and not yet `summarized`, the notes
+turn runs STAGE B on it first. Integration claims its book with `notes_claim.py`, so a live
+integration claim is a live notes claim for step 1. Transcription firings carry on exactly as before.
 
 ## STAGE A — TRANSCRIPTION (run this on a transcription firing; see the alternation rule above)
 
@@ -191,7 +192,130 @@ unidentified circular Latin-capital stamp on p0014.
 Transcription concurrency is protected by `queue.py`'s own page leases (`lease` / `release` /
 `sweep-leases`, three-hour expiry). Use them so the bookkeeping is honest.
 
+## Integration stage (run this on the firing that used to do notes; see the alternation rule above)
+
+**Added 8 October 2026 from Rauf's brief, kept verbatim at `docs/prompts/INTEGRATION_BRIEF.md`.**
+Steps 1 and 2 of the alternation (sibling check, then the last HANDOVER §9 entry) are unchanged: a
+firing that would have done notes or Pass 2 now does integration. Transcription firings carry on
+exactly as before. Every rule, gotcha and hold elsewhere in this file still applies. Where the brief
+below meets an older rule, the older rule wins; those places are listed at the end of this section,
+followed by Rauf's rulings of 8 October 2026, which also govern this stage.
+
+**NOTES BEFORE INTEGRATION** (Rauf, 8 October 2026). Before step 1 below, run `queue.py status`. If
+any book is `transcribed` and not yet `summarized` (skipped books excepted), this firing does STAGE B
+on the first such book in `queue.py next` order: Pass 1 on its missing chunks, then Pass 2 once it is
+fully noted. Integrate only when no such book is waiting. On 8 October 2026 that book is
+`tahqiqat_chishti` (873/873 transcribed, no notes), and `khulasat_ut_tawarikh` joins it when its
+transcription finishes.
+
+### Scope for now: shrine entries only
+
+The job for now is to build `shrine_entries/` into the full cited record for every shrine the books
+touch. **Do not draft or propose any `Description` cell text.** How descriptions get rebuilt from the
+entries (extended or rewritten) is still undecided, so that step waits for Rauf's ruling.
+
+### Standing rules (unchanged, restated so a fresh session cannot miss them)
+
+- **RULE 2.** A fact enters a shrine entry only with its book slug and folio (`[slug, p. N]`). Sources
+  that disagree are written up as disagreeing, side by side, and are never reconciled. `[OCR?]` and
+  `[illegible]` markers are carried through unchanged.
+- **RULE 3.** The Google Sheet is never written. Every change to the sheet goes out as a CSV patch in
+  `data/review/` for Rauf to import.
+- **RULE 4.** Any count you report must come from a script that reads the files, never from worker
+  prose.
+- **RULE 5.** A scheduled run cannot ask in chat, so any item that needs a decision is **skipped**, not
+  guessed at, and listed under "Needs Rauf" in the run record.
+
+### One firing = one book
+
+1. Run `queue.py status` and pick the first book that is `summarized` and not `integrated`, in
+   `queue.py next` order. Claim it with `notes_claim.py` before you touch anything. Do not take a
+   book that someone else holds.
+2. Back up every `shrine_entries/*.md` you might touch, byte for byte, into gitignored
+   `out/integration/` before you edit anything.
+3. For each shrine id that heads bullets in the book's takeaways file:
+   - The id must exist in `shrine_index.tsv`. If it doesn't, skip the bullet and record it.
+   - Append a section to that shrine's existing entry, titled `## From <Author, Short title>`. Keep
+     the takeaways' groups (Saint; Shrine / Darbar; Practices & Events; Legends & Miracles;
+     Significance; Other). Never rewrite what is already in an entry.
+   - If the shrine has no entry file yet, create `shrine_entries/<id>.md`. Open it with a section
+     `## Current site description (as of <date>)` holding the row's `Description` cell exactly as it
+     appears in `src/data/shrines-fallback.json`, untouched and marked as not yet checked against
+     sources. Then append the book section under it. That way a rebuilt description later can
+     start from what readers see now and lose nothing.
+   - Leave out any bullet marked `not attached`, or tied to a cross-cutting rather than a shrine
+     heading. Count these and record them.
+4. **Sheet-cell proposals.** A structured field (dates, silsila, custodian, `year_built`, …) is
+   proposed only under Rauf's ruling of 23 September: two or more books must agree against the
+   archive, and no third book may give a different value. Write single-cell rows to
+   `data/review/PATCH_integration_<slug>_<date>.csv` as `id,column,current,proposed,sources`.
+   Prose goes into the entry, never into a sheet cell.
+5. Check your own work by script before you release the book: `check_note_ids.py` exit 0; every
+   folio cited in the new sections must appear in the takeaways file (containment check); every
+   entry must stay diff-identical outside its appended section. Then run
+   `queue.py mark <slug> integrated --file <comma separated ids>` and release with `--session`.
+6. Write the run record as the next project doc and the next HANDOVER §9 section, in the usual
+   format. Do not commit. That is Rauf's step.
+
+### Held items: skip these and list them every time they come up
+
+- `langer-makhdoom` shrine identity; whether `shah-chiragh` conflates two men.
+- The two Shah Inayats (`shrine-of-shah-inayat-qadiri` and `dargah-roza-sufi-shah-inayat-shaheed`).
+- `shrine-of-pir-mangho` and Bava Gor; "Shams" in Shackle and Rafat; Waris Shah's Jalal/Jahanian split.
+- Bulleh Shah's death year (1757 vs 1758 vs 1754), until Rauf rules on it.
+- Any id that is absent from `src/data/shrines-fallback.json` (Hinglaj, until its id cell is
+  imported): write the entry section, but propose no cells for it.
+
+### The final database (only once every summarized book is integrated)
+
+The first integration firing that finds no book left to integrate builds the consolidated import
+instead of integrating:
+
+1. Extend `pipeline/build_consolidated_import.py` so it also reads every `data/review/PATCH_*.csv`
+   not yet applied (Hinglaj id, figure_died, all `PATCH_integration_*`), and so it refuses held items
+   and stale patches. INV-11 still applies.
+   Descriptions are **not** part of this import until Rauf rules on them (see Scope).
+2. Build against a **live fetch** of the sheet to `data/import_<date>.csv` plus `.INSTRUCTIONS.md`.
+   The instructions say which rows and cells change, which patches were excluded and why, and give
+   the import settings (Replace current sheet, comma, conversion OFF).
+3. Verify with a second instrument: `validate_shrines.py` and `npm run data:validate`, with before
+   and after counts.
+4. Stop there. Do not import, do not push, and do not touch `1.7`.
+
+### Where the brief meets an older rule, the older rule wins
+
+- **§9 first line.** The alternation's rule allows only `Stage: transcription` or `Stage: notes`, and
+  step 2 reads that line. An integration firing is the notes turn, so it writes `Stage: notes` and may
+  add `(integration)` after it. It never writes a bare `Stage: integration`.
+- **Citations.** RULE 2 above asks for `[slug, p. N]` with a folio. The older rules stand: a fact keeps
+  the page reference the takeaways give it, `(p. N, folio M)` or `(p. N, folio not stated)`, and
+  `folio not stated` is a valid reference, not a reason to leave the fact out; no index or endnote
+  locator ever becomes a `(p. N)`; no folio on a scribal lithograph is cited from a single reading,
+  and a folio that `queue.py folio-guard` reports as contested stays contested.
+
+### Rulings of 8 October 2026 (Rauf, in chat)
+
+- **Province material goes into every entry in that province.** Step 3 above takes only bullets headed
+  by shrine ids, and province bullets carry none, so take them separately: each bullet under the
+  book's `## Province-level material` / `### province: <key>` is appended to the entry of every row
+  that `shrine_index.tsv` tags with that `province`, inside the book's `## From <Author, Short title>`
+  section, keeping its stated period and page reference unchanged. Ruling (c)'s timeline discipline
+  still governs, and its Pass 2 line "Do not copy them under each row" still governs the takeaways
+  files themselves; it does not apply to shrine entries.
+- **Entries are keyed by id.** A new entry is `shrine_entries/<id>.md`. The existing title-named entries
+  (for example `Bulleh Shah (Kasur).md`) are to be renamed to `<id>.md` in a separate change, because
+  `scripts/data/build-content-provenance.mjs` names those files and `data/provenance.json` is built
+  from it. Until that change lands, an id whose shrine already has a title-named entry is skipped and
+  listed under "Needs Rauf"; never create a second entry for the same shrine.
+- **Notes before integration**: see the paragraph at the top of this section.
+
 ## STAGE B — NOTES AND PASS 2 (run this on a notes firing; Pass 2 first)
+
+**The notes turn comes here only when a book is waiting for notes** (8 October 2026): a book that is
+`transcribed` and not yet `summarized` gets Pass 1, then Pass 2, before any integration; otherwise the
+notes turn runs the Integration stage above. This section's old book selection has been removed. Its
+claim rules, mapping rulings, batch shape and the carried-over rules below still govern this work and
+integration's claim.
 
 **CLAIM THE BOOK BEFORE YOU NOTE IT. FIRST THING AFTER READING.** On 20 September two firings of this
 task noted the same six chunks in parallel and one set was overwritten seventeen minutes after being
@@ -208,48 +332,23 @@ claimed. Claims last 90 minutes and are renewable. A claim file is rewritten, ne
 **`release` REQUIRES `--session <id>`**: without it, it identifies the caller by pid, declines, and
 still exits 0 (§9.221). Always pass `--session` and always confirm with `status` afterwards.
 
-NOTES QUEUE — **PASS 2 ON SCHIMMEL IS DONE (§9.239, 26 Sep). That instruction is SPENT.**
-`entries/book_takeaways/schimmel_mystical_dimensions_of_islam.md` is 3,916 lines / 507,414 bytes,
-`check_note_ids.py` exit 0 with 99 archive ids, marked `summarized` — **24 of 24 books consolidated,
-18 fully noted, 5 unnoted.** §9.233's three-workers-split-by-OUTPUT-section shape held unmodified at
-the corpus's largest book; `pipeline/book_queue/pass2_hedges.py` is now committed and is the first
-thing to run after `pass2_extract.py` on any future Pass 2.
+### Rules carried over from the retired notes queue (book selection removed 8 October 2026)
 
-**UPDATE 8 Oct 2026 (§9.267): the A/B de-duplication is DONE on all four books (boivin 3 merges; sorley, hadeeqat, tareekh_lahore none needed) and boivin's quote check found 0 repairs. THE NOTES STAGE HAS NO QUEUED WORK: a firing whose turn is notes TRANSCRIBES instead (khulasat 473-610), and says so in its §9 first line, until Rauf queues new notes work. The §9.265 line below is SPENT.**
-(SPENT:) **UPDATE 8 Oct 2026 (§9.265): the sorley re-flag is DONE (51 quotations/labels now carry printed form + `[text-layer?]`; 2 misquotes corrected). THE NEXT NOTES FIRING de-duplicates the merged A/B province halves (sorley, boivin, hadeeqat, tareekh_lahore) — a judgement prune, keep every distinct page ref; run the §9.265 quote check on boivin first. Then transcribe.**
-**UPDATE 7 Oct 2026 (§9.263): THE PROVINCE SWEEP IS FINISHED — all 29 summarized books carry `## Province-level material` (batch 4 = eaton + hadeeqat, tareekh_lahore, tazkirah, sawaneh). Every line about the sweep below is SPENT. The notes stage has no queued book: the next notes firing re-flags sorley's ~60 silently repaired quotations with `[text-layer?]` (method §9.259), then de-duplicates the merged A/B province halves (sorley, boivin, hadeeqat, tareekh_lahore). If that is done too, the firing transcribes instead.** **Transcription (§9.262/§9.263): khulasat is at 458/610 — next is 459-610 (re-render bands), then re-read p0446's year, 435-440 and 411-416. A pending HANDOVER section in the project means: restore its pages first, verify md5s on the Mac, append it, THEN `queue.py check`.**
-**UPDATE 7 Oct 2026 (§9.259): PROVINCE SWEEP batch 2 DONE — sorley_shah_abdul_latif_of_bhit, boivin_hindu_sufis_south_asia (both split across two workers by chunk range and merged mechanically, NOT de-duplicated), schaflechner_hinglaj_devi, abbas_female_voice_sufi_ritual, kasmani_queer_companions. 15 of 29 summarized books have the section. THE NEXT NOTES FIRING SWEEPS THE NINE REMAINING ENGLISH BOOKS** (ernst_lawrence, kugle, madho_lal, qureshi, rafat, rozehnal, shackle_bulleh_shah, waris_shah, werbner_basu — all light, 13-125 hits; two waves of ≤6 or pair the lightest), plus eaton after `queue.py chunk`; the four Urdu vision books last. **Add to every worker prompt: no silent repair inside a quotation — printed form, then `[text-layer?] [reading]`** (sorley: ~60 quotes had text-layer noise silently cleaned; the letters-only containment check in §9.259 finds them). **`device_stage_files` refuses a tarball freshly written by `tar czf` as "hardlinked (nlink > 1)" — `cat a > b` and stage b.** The §9.257 line below is SPENT except its notes on eaton and the Urdu books.
-**UPDATE 5 Oct 2026 (§9.257): PROVINCE SWEEP batch 1 DONE — shackle_risalo, schimmel_as_through_a_veil, schimmel_pain_and_grace, rizvi_history_of_sufism_india_1, schimmel_mystical_dimensions_of_islam now carry `## Province-level material` (spliced before `## Cross-cutting material`). 10 of 29 summarized books have it. THE NEXT NOTES FIRING SWEEPS THE NEXT 5-6 BOOKS with `pipeline/book_queue/PROVINCE_SWEEP_BRIEF.md` unchanged: one text-only worker per book, staged as ONE tarball; sorley_shah_abdul_latif_of_bhit (~1,000 hits) gets two workers by chunk range; boivin (~530) next; Urdu vision books last (`سند` is also "chain of transmission"); eaton has NO chunks on disk — `queue.py chunk` first. Find unswept books with `grep -L '^## Province-level material' entries/book_takeaways/*.md`. Commit big files to the Mac in batches of ≤3 — a 12-file commit timed out at 190 s on a flapping bridge.**
-**UPDATE 4 Oct 2026 (§9.255): Pass 2 on `nizami_revised_translation` is DONE (summarized, 29 books; nothing transcribed is left unconsolidated). THE NEXT NOTES FIRING DOES THE PROVINCE SWEEP over the older takeaways (ruling (c); one Grep-the-chunks worker per book, template = §9.243 worker D). On any text_layer Pass 2, measure silent OCR repairs inside quotations against the chunk source first (§9.255). The paragraph below is SPENT.**
-(SPENT:) **UPDATE 4 Oct 2026 (§9.253): `nizami_revised_translation` is FULLY NOTED, 13/13. THE NEXT NOTES FIRING DOES PASS 2 ON IT** (brief: `pipeline/book_queue/NIZAMI_CHAHAR_MAQALA_WORKER_BRIEF.md` + §9.253; one worker, 147 KB; only two archive joins — Ayaz and the Lahore group; quote OCR-damaged words as printed), **then the province sweep. The paragraph below is SPENT.**
-(SPENT:) **UPDATE 4 Oct 2026 (§9.252): Pass 2 on `khalid_in_search_of_shiva` is DONE (summarized, 28 books). THE NEXT NOTES FIRING DOES PASS 1 ON `nizami_revised_translation` (13 chunks, ruling (c) from the start), then the province sweep. The paragraph below is SPENT.**
-(SPENT:) **UPDATE 3 Oct 2026 (§9.250): `khalid_in_search_of_shiva` is FULLY NOTED, 9/9. THE NEXT NOTES FIRING DOES PASS 2 ON IT** (brief: §9.250 + `pipeline/book_queue/KHALID_SHIVA_WORKER_BRIEF.md`; one worker suffices, 205 KB of notes), then Pass 1 on `nizami_revised_translation`, then the province sweep. **A claim that expired with no §9 section is a dead sibling — look for its brief in `pipeline/book_queue/` before re-measuring** (§9.250). The next paragraph is SPENT.
-(SPENT:) **UPDATE 3 Oct 2026 (§9.248): Pass 2 on `khalid_a_white_trail` is DONE (summarized, 27 books). THE NEXT NOTES FIRING DOES PASS 1 ON `khalid_in_search_of_shiva` (9 chunks, ruling (c) from the start), then `nizami_revised_translation`, then the province sweep. The paragraph below is SPENT.**
-(SPENT:) **UPDATE 29 Sep 2026 (§9.246): `khalid_a_white_trail` is FULLY NOTED, 13/13 (ruling (c) from the
-start, 28 province bullets). THE NEXT NOTES FIRING DOES PASS 2 ON IT** — brief in §9.246 (no printed
-folios, `(p. N, folio not stated)` throughout; informant names may be pseudonyms per p. 15; heavy
-35-id Lahore group; person rule applied widely, weigh the bare wall-picture mentions; judgement
-mappings listed there). Source is 353 KB, one worker suffices. Then Pass 1 on
-`khalid_in_search_of_shiva` → `nizami_revised_translation`, then the province sweep.
-(SPENT, done §9.246:) **UPDATE 29 Sep 2026 (§9.244 addendum): `dhillon_janamsakhis` is SUMMARIZED (26 of 42). THE NEXT
-NOTES FIRING DOES PASS 1 ON `khalid_a_white_trail`, with ruling (c) from the start.** ~~dhillon Pass 2 next~~ (brief in §9.244: no folio rule — cite only folios read on the page; apply the 7
-Nankana rows to Talwandi in chunks 001–005 per p. 175; Saidpur stays unmapped). Then Pass 1 resumes
-at `khalid_a_white_trail`.
-**UPDATE 29 Sep 2026 (§9.243): Pass 2 on `khalid_walking_with_nanak` is DONE (25 summarized). The
-notes stage is now: Pass 1 on `dhillon_janamsakhis` → `khalid_a_white_trail` → `khalid_in_search_of_shiva`
-→ `nizami_revised_translation`, WITH ruling (c) province bullets from the start; THEN a province
-sweep over the 24 older takeaways (one Grep-the-chunks worker per book, template = §9.243 worker D).**
-~~UPDATE 27 Sep 2026 (§9.241): `khalid_walking_with_nanak` is FULLY NOTED, 14/14. THE NEXT NOTES
-FIRING DOES PASS 2 ON IT~~ (brief: §9.241 — folio −18 / plate insert PDF 165–172 / −26; the
-sikhbookclub.com stamp; Saidpur = Eminabad; the same-name-different-site traps; Talwandi mapped
-inconsistently across chunks). After that, Pass 1 resumes at `dhillon_janamsakhis`.
+Each item is quoted from the queue line it sat in; only that line's choice of the next book is gone.
 
-~~Nothing is consolidatable again until one of the five below is fully noted, so the notes stage is
-PASS 1 from here.~~ Pass 1 on: 120 `khalid_walking_with_nanak` (324 pp, 14 chunks) → 121 `dhillon_janamsakhis`
-(271, 9) → 122 `khalid_a_white_trail` (236, 13) → 123 `khalid_in_search_of_shiva` (21, 9) →
-210 `nizami_revised_translation` (208, 13). **Three of the five are Sikh-subject books**, so the
-many-row person rule (Guru Nanak heads 18 rows) and the province-join question will govern them
-heavily.
+- (§9.239) §9.233's three-workers-split-by-OUTPUT-section shape held unmodified at the corpus's largest book; `pipeline/book_queue/pass2_hedges.py` is now committed and is the first thing to run after `pass2_extract.py` on any future Pass 2.
+- (§9.265, de-duplicating merged A/B province halves) a judgement prune, keep every distinct page ref
+- (§9.263) A pending HANDOVER section in the project means: restore its pages first, verify md5s on the Mac, append it, THEN `queue.py check`.
+- (SPENT, transcription pointer superseded by STAGE A's §9.268 line, carried verbatim:) **Transcription (§9.262/§9.263): khulasat is at 458/610 — next is 459-610 (re-render bands), then re-read p0446's year, 435-440 and 411-416.**
+- (§9.259) **Add to every worker prompt: no silent repair inside a quotation — printed form, then `[text-layer?] [reading]`** (sorley: ~60 quotes had text-layer noise silently cleaned; the letters-only containment check in §9.259 finds them).
+- (§9.259) **`device_stage_files` refuses a tarball freshly written by `tar czf` as "hardlinked (nlink > 1)" — `cat a > b` and stage b.**
+- (§9.257) `## Province-level material` (spliced before `## Cross-cutting material`). Sweep method: one text-only worker per book, staged as ONE tarball; Urdu vision books last (`سند` is also "chain of transmission"); eaton has NO chunks on disk — `queue.py chunk` first. Find unswept books with `grep -L '^## Province-level material' entries/book_takeaways/*.md`. **Commit big files to the Mac in batches of ≤3 — a 12-file commit timed out at 190 s on a flapping bridge.**
+- (§9.255) one Grep-the-chunks worker per book, template = §9.243 worker D. On any text_layer Pass 2, measure silent OCR repairs inside quotations against the chunk source first (§9.255).
+- (§9.253, nizami_revised_translation Pass 2) brief: `pipeline/book_queue/NIZAMI_CHAHAR_MAQALA_WORKER_BRIEF.md` + §9.253; one worker, 147 KB; only two archive joins — Ayaz and the Lahore group; quote OCR-damaged words as printed
+- (§9.250) **A claim that expired with no §9 section is a dead sibling — look for its brief in `pipeline/book_queue/` before re-measuring** (§9.250). khalid_in_search_of_shiva brief: §9.250 + `pipeline/book_queue/KHALID_SHIVA_WORKER_BRIEF.md`; one worker suffices, 205 KB of notes.
+- (§9.246, khalid_a_white_trail) no printed folios, `(p. N, folio not stated)` throughout; informant names may be pseudonyms per p. 15; heavy 35-id Lahore group; person rule applied widely, weigh the bare wall-picture mentions; judgement mappings listed there
+- (§9.244, dhillon_janamsakhis) no folio rule — cite only folios read on the page; apply the 7 Nankana rows to Talwandi in chunks 001–005 per p. 175; Saidpur stays unmapped
+- (§9.241, khalid_walking_with_nanak) folio −18 / plate insert PDF 165–172 / −26; the sikhbookclub.com stamp; Saidpur = Eminabad; the same-name-different-site traps; Talwandi mapped inconsistently across chunks
 
 **`schimmel_mystical_dimensions_of_islam` — FULLY NOTED. Its complete measured brief is committed at `pipeline/book_queue/SCHIMMEL_MDI_WORKER_BRIEF.md` (structure, folio rule, all 31 sigla, damage table + 11 corrections). Read that file, not this paragraph, before any Pass 2 work. Summary (§9.235, corrected §9.237):** Route
 `text_layer`, zero pre-existing flags, so every flag is the notes worker's own. **`folio = PDF − 31`
