@@ -1,8 +1,10 @@
 {
-  "claimed_at": "2026-10-09T06:48:39Z",
-  "expires_at": "2026-10-09T08:18:39Z",
-  "note": "60/79 notes, Pass 1 continuing [renewing own claim; previous holder session_0121nDCdXGyAgjXuSB88Aakr]",
-  "session": "session_0121nDCdXGyAgjXuSB88Aakr",
+  "claimed_at": "2026-10-09T14:24:01Z",
+  "expires_at": "2026-10-09T15:54:01Z",
+  "note": "24/79 notes; Pass 1 025+ [taking over a released or expired claim; previous holder session_0121nDCdXGyAgjXuSB88Aakr]",
+  "released_at": "2026-10-09T14:37:49Z",
+  "released_by": "session_01HtdV4y7cFrdmaPDyPyLoVv",
+  "session": "session_01HtdV4y7cFrdmaPDyPyLoVv",
   "slug": "tahqiqat_chishti",
-  "status": "active"
+  "status": "released"
 }
