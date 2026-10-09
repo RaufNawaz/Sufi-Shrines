@@ -840,7 +840,7 @@
     {
       "subjectSlug": "mian-qurban-ali-shah",
       "subjectName": "Hazrat Mian Qurban Ali Shah Sarkar",
-      "subjectIsNew": true,
+      "subjectIsNew": false,
       "relation": "disciple_of",
       "objectSlug": "hazrat-mian-fazal-deen",
       "objectName": "Hazrat Mian Fazal Deen",
@@ -857,7 +857,7 @@
       "relation": "successor_of",
       "objectSlug": "mian-qurban-ali-shah",
       "objectName": "Hazrat Mian Qurban Ali Shah Sarkar",
-      "objectIsNew": true,
+      "objectIsNew": false,
       "confidence": 0.7,
       "source": "entries/survey_mian_qurban_ali_shah.md",
       "quote": "he passed on his spiritual seat (gaddi) to his successor disciple, Haji Tufail, after whose demise his sons hold the position",

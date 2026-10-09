@@ -1,6 +1,6 @@
 # Sufi Shrines of Pakistan
 
-An interactive, bilingual (English / Urdu) map and citable open dataset of **169 sacred
+An interactive, bilingual (English / Urdu) map and citable open dataset of **171 sacred
 sites across Pakistan** — Muslim Sufi shrines, Hindu temples, Sikh gurdwaras,
 Nanakpanthi/Udasi darbars, Jain temples and secular memorials — by Adil Ahsan and Rauf Nawaz.
 Browse shrine histories, architecture, rituals, guided pilgrimage tours, a saints/orders
@@ -84,7 +84,7 @@ npm run data:build
 git add data/ src/data/shrines-fallback.json && git commit -m "data: refresh dataset"
 ```
 
-The dataset (169 rows) ships as a schema-validated Frictionless Data Package with
+The dataset (171 rows) ships as a schema-validated Frictionless Data Package with
 field-level provenance — see `docs/DATA_DICTIONARY.md` for the column reference and
 `docs/DATA_RELEASE.md` for producing a DOI-ready release (Zenodo / Harvard Dataverse).
 Cite via [`CITATION.cff`](CITATION.cff). Data is licensed

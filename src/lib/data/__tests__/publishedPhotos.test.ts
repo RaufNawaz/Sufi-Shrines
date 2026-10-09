@@ -128,7 +128,9 @@ describe('self-hosted photographs', () => {
       'madho-lal-hussain',
       'malik-ahmad-ayaz',
       'mazar-e-iqbal',
+      'mian-qurban-ali-shah',
       'peer-makki',
+      'shah-gohar-peer',
       'shah-inayat-qadri-shattari',
       'shah-jamal',
       'tahir-bandagi-qadri',
@@ -169,20 +171,16 @@ describe('self-hosted photographs', () => {
       claudeMd,
     );
     expect(stated, 'the count sentence was reworded').not.toBeNull();
-    expect(stated![1]).toBe('Fifteen');
+    expect(stated![1]).toBe('Seventeen');
   });
 
-  it('reports a photo directory no row points at', () => {
-    /* Not a failure — the two here belong to the two shrines that are drafted,
-       live in the sheet and absent from the 169-row snapshot, so their pictures
-       arrived before their rows did. It corroborates the unpublished-entry gap
-       from a direction nothing else looks from, and it should shrink to zero
-       when `npm run data:build` runs. */
+  it('has no photo directory that no row points at', () => {
+    /* Until 8 October 2026 this pinned two: mian-qurban-ali-shah and
+       shah-gohar-peer, whose pictures arrived before their rows could ship. The
+       import fixed both rows, so an unreferenced directory is now a real finding
+       — a picture with no entry, or an entry pointing somewhere else. */
     const onDisk = readdirSync(PHOTOS_DIR).filter((d) => statSync(join(PHOTOS_DIR, d)).isDirectory());
     const inUse = new Set(directoriesInUse());
-    expect(onDisk.filter((d) => !inUse.has(d)).sort()).toEqual([
-      'mian-qurban-ali-shah',
-      'shah-gohar-peer',
-    ]);
+    expect(onDisk.filter((d) => !inUse.has(d)).sort()).toEqual([]);
   });
 });

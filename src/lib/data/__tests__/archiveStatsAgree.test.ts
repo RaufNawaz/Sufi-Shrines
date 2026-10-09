@@ -83,14 +83,13 @@ describe('the two archive-statistics builders agree', () => {
     );
   });
 
-  it('on the tradition counts, for every category both of them name', () => {
-    /* Not key-for-key: `buildCoverage` works in the schema's closed vocabulary
-       and files anything else as unrecorded, while `buildArchiveReport` reports
-       the sheet's raw category strings — which is how the stray "Islam" row
-       shows up as its own line on /report and inside `unrecorded` on /coverage.
-       That is a real difference in what each page is for, so the assertion is
-       the one that must hold either way: a tradition both of them recognise
-       must carry the same count. */
+  it('on the tradition counts, key for key', () => {
+    /* Until 8 October 2026 this compared only the categories both builders
+       named, because the sheet carried stray raw strings ("Islam") that
+       `buildArchiveReport` listed as their own line and `buildCoverage` filed
+       as unrecorded. The 8 October import moved the last of them into the
+       schema, so the deliberate difference is gone and the two must now agree
+       on every tradition, with no category outside the six. */
     const byLabel = new Map(report.categories.map((c) => [c.label.toLowerCase(), c.count]));
     const SCHEMA_LABELS: Record<string, string> = {
       muslim: 'muslim shrine',
@@ -100,34 +99,16 @@ describe('the two archive-statistics builders agree', () => {
       jain: 'jain temple',
       secular: 'secular / memorial',
     };
+    const schema = new Set(Object.values(SCHEMA_LABELS));
+    expect(
+      report.categories.map((c) => c.label).filter((l) => !schema.has(l.toLowerCase())),
+      'a raw category outside the six has reappeared in the sheet',
+    ).toEqual([]);
     for (const [key, label] of Object.entries(SCHEMA_LABELS)) {
-      const fromReport = byLabel.get(label);
-      if (fromReport === undefined) continue;
       expect(
         coverage.tradition.counts[key as keyof typeof coverage.tradition.counts],
         `tradition: ${label}`,
-      ).toBe(fromReport);
+      ).toBe(byLabel.get(label) ?? 0);
     }
-  });
-
-  it('still finds the stray category that makes the two pages differ', () => {
-    /* The difference above is only defensible while it is deliberate. When the
-       sheet's "Islam" row is finally imported as "Muslim Shrine" — the patch is
-       already written, data/patch_data_hygiene_2026-08-21.csv — this fails, and
-       the right response is to delete this test and tighten the one above to a
-       key-for-key equality. */
-    const schema = new Set([
-      'muslim shrine',
-      'hindu temple',
-      'sikh gurdwara',
-      'nanakpanthi / udasi darbar',
-      'jain temple',
-      'secular / memorial',
-    ]);
-    const stray = report.categories.filter((c) => !schema.has(c.label.toLowerCase()));
-    expect(
-      stray.map((c) => c.label),
-      'no stray category left — tighten the tradition assertion to an equality and delete this test',
-    ).not.toEqual([]);
   });
 });

@@ -109,14 +109,8 @@ const FACETS = [
  * patch is imported.
  */
 export const KNOWN_PROSE_IN_A_CODE_COLUMN = new Map<string, string>([
-  [
-    'Darbar Abul Muali Qadri::status',
-    '"Active; in use daily, construction ongoing". Fixed by data/patch_schema_hygiene_2026-08-27.csv, which sets status=Active and moves the clause to status_note verbatim. Awaiting import (RULE 3).',
-  ],
-  [
-    'Darbar Malik Ahmad Ayaz::status',
-    '"Active; physically constrained. Reported as occupying a small area reduced by losses in the Sikh era…". Same patch, same treatment — the sentence is real information about the site and is kept whole.',
-  ],
+  // Empty since the 8 October 2026 import moved both status sentences into
+  // status_note and left `Active` behind.
 ]);
 
 describe('closed facet vocabularies', () => {
@@ -175,16 +169,18 @@ describe('closed facet vocabularies', () => {
     ).toEqual([]);
   });
 
-  it('still counts two active sites that /about reports as unrecorded', () => {
-    // The consequence, pinned as a number so that importing the patch visibly
-    // moves it. 128 render as Active; the archive holds 130.
+  it('counts every active site as active, now that no status is prose', () => {
+    // The consequence, pinned as a number so that the next change visibly moves
+    // it. Until the 8 October 2026 import, 128 rendered as Active and 2 more were
+    // prose that /about counted as unrecorded; the import fixed those 2 and
+    // shipped two new Active darbars, so 132 and 0.
     const rows = shippedRows();
     const active = rows.filter((r) => siteStatusKey(String(r.status ?? '')) === 'active').length;
     const proseActive = rows.filter((r) => {
       const raw = String(r.status ?? '').trim();
       return raw !== '' && siteStatusKey(raw) === null && /^active\b/i.test(raw);
     }).length;
-    expect(active).toBe(128);
-    expect(proseActive).toBe(2);
+    expect(active).toBe(132);
+    expect(proseActive).toBe(0);
   });
 });

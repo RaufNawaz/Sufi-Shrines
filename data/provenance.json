@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated": "2026-08-30",
+  "updated": "2026-07-12",
   "shrines": [
     {
       "shrineSlug": "allo-mahar",
@@ -169,6 +169,11 @@
           "method": "human",
           "contentTier": "sheet-original",
           "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
+        },
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         }
       }
     },
@@ -269,6 +274,22 @@
       }
     },
     {
+      "shrineSlug": "darbar-hazrat-shah-gohar-peer",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        },
+        "Description": {
+          "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",
+          "method": "human",
+          "contentTier": "sheet-original",
+          "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
+        }
+      }
+    },
+    {
       "shrineSlug": "darbar-hazrat-tahir-bandagi-qadri",
       "fields": {
         "Description Urdu": {
@@ -286,6 +307,22 @@
     },
     {
       "shrineSlug": "darbar-malik-ahmad-ayaz",
+      "fields": {
+        "Description": {
+          "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",
+          "method": "human",
+          "contentTier": "sheet-original",
+          "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
+        },
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "darbar-mian-qurban-ali-shah",
       "fields": {
         "Description": {
           "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",

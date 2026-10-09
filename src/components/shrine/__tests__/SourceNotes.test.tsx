@@ -12,7 +12,21 @@ import type { ShrineRow } from '../../../types/shrine';
 const table = sourceNotes as unknown as Record<string, Array<{ en: string; ur: string }> | string>;
 
 describe('source-notes content contract', () => {
-  it('covers every shrine with an internal QA note, plus the two unmapped survey rows', () => {
+  /*
+   * Rows whose qa_note arrived with the 8 October 2026 import
+   * (patch_field_survey_orphans_2026-09-05) and whose reader-facing note, in
+   * English and Urdu, has not been drafted yet. Drafting is editorial work from
+   * the qa_note's evidence, not something a test fix may write (RULE 2). When a
+   * note lands, the assertion below fails until its line is deleted here.
+   * Recorded in docs/HANDOVER.md §9.
+   */
+  const AWAITING_DRAFTED_NOTE = [
+    'shrine-of-mauj-darya-bukhari',
+    'shrine-of-peer-makki',
+    'shrine-of-shah-jamal',
+  ];
+
+  it('covers every shrine with an internal QA note, except the ones awaiting a drafted note', () => {
     /*
      * The expectation is built from the route slug, not from `row.id`.
      *
@@ -25,8 +39,8 @@ describe('source-notes content contract', () => {
      * so the slug is the only side that can disagree with it.
      *
      * See `src/lib/data/__tests__/sourceNoteKeys.test.ts` for the same
-     * invariant asserted against `buildSlugs`, and for why the two survey rows
-     * below are still exceptions.
+     * invariant asserted against `buildSlugs`. (The two unshipped survey rows
+     * it used to except both ship since the 8 October 2026 import.)
      */
     /* Keyed on Name, because `Shrine.id` is the row index rather than the
        sheet's `id` column — the same distinction that made a shared
@@ -37,13 +51,17 @@ describe('source-notes content contract', () => {
     const expected = shrineSnapshot.rows
       .filter((row) => row.qa_note?.trim())
       .map((row) => slugByName.get(row.Name) ?? row.id)
-      .concat(['darbar-mian-qurban-ali-shah', 'darbar-hazrat-shah-gohar-peer'])
+      .filter((slug) => !AWAITING_DRAFTED_NOTE.includes(slug))
       .sort();
     const actual = Object.keys(table)
       .filter((slug) => !slug.startsWith('_'))
       .sort();
 
     expect(actual).toEqual(expected);
+    expect(
+      AWAITING_DRAFTED_NOTE.filter((slug) => slug in table),
+      'a note has been drafted — delete its slug from AWAITING_DRAFTED_NOTE',
+    ).toEqual([]);
   });
 
   it('the slug index names exactly the entries that have notes', () => {

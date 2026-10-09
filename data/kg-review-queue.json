@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-05T19:39:22.673Z",
+  "generated": "2026-10-09T00:39:41.449Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -652,17 +652,17 @@
       "evidence": "21491b45"
     },
     {
-      "id": "disciple_of:saint:mian-qurban-ali-shah:saint:hazrat-mian-fazal-deen",
+      "id": "disciple_of:saint:hazrat-mian-qurban-ali-shah-sarkar:saint:hazrat-mian-fazal-deen",
       "kind": "disciple_of",
       "subject": "Hazrat Mian Qurban Ali Shah Sarkar",
-      "subjectSlug": "mian-qurban-ali-shah",
+      "subjectSlug": "hazrat-mian-qurban-ali-shah-sarkar",
       "object": "Hazrat Mian Fazal Deen",
       "quote": "His father bestowed his knowledge and spiritual skill upon him and told him to spend his life preaching the religion of Islam.",
       "source": "entries/survey_mian_qurban_ali_shah.md",
       "evidence": "84ae74a0"
     },
     {
-      "id": "successor_of:saint:haji-tufail:saint:mian-qurban-ali-shah",
+      "id": "successor_of:saint:haji-tufail:saint:hazrat-mian-qurban-ali-shah-sarkar",
       "kind": "successor_of",
       "subject": "Haji Tufail",
       "subjectSlug": "haji-tufail",
@@ -1492,6 +1492,21 @@
       "evidence": "96def618"
     },
     {
+      "id": "biography:hazrat-mian-qurban-ali-shah-sarkar",
+      "kind": "biography",
+      "subject": "Hazrat Mian Qurban Ali Shah Sarkar",
+      "subjectSlug": "hazrat-mian-qurban-ali-shah-sarkar",
+      "object": "",
+      "born": "1341 AH (c. 1922–23 CE by calendar conversion), Malerkotla, India",
+      "died": "25 Rabīʿ al-Thānī; year not stated in the survey (possibly 1416 AH — see year_built_note)",
+      "titles": [
+        "Mian",
+        "Sarkar"
+      ],
+      "source": "entries/entry_mian_qurban_ali_shah.md",
+      "evidence": "36707f32"
+    },
+    {
       "id": "biography:syed-sakhi-shah-chan-charagh",
       "kind": "biography",
       "subject": "Syed Sakhi Shah Chan Charagh",
@@ -1817,9 +1832,9 @@
       "subjectSlug": "bulleh-shah",
       "object": "",
       "born": "1680",
-      "died": "1757",
+      "died": "1758",
       "source": "data/shrines.csv#mazar-of-bulleh-shah",
-      "evidence": "da7084fe"
+      "evidence": "653b58c5"
     },
     {
       "id": "biography:khwaja-ghulam-farid",
@@ -2212,14 +2227,14 @@
       "subjectSlug": "fariduddin-ganjshakar",
       "object": "",
       "born": "1173",
-      "died": "1266",
+      "died": "1265",
       "titles": [
         "Ganjshakar (\"the Treasure of Sugar\")",
         "Baba Farid",
         "qutb of the Chishti order"
       ],
       "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar",
-      "evidence": "d36046b1"
+      "evidence": "9e139c91"
     },
     {
       "id": "biography:ganj-e-inayat-sarkar",

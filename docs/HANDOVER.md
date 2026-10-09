@@ -17,8 +17,8 @@ Live at **`raufnawaz.github.io/Sufi-Shrines/`**.
 
 Each site has a location, a prose description, provenance metadata, and where available
 photographs taken by our own enumerators. The archive's distinguishing claim is not coverage —
-Punjab Auqaf alone administers **534** shrines against our **169** (*count as of 21 August
-2026*) — but *honesty about provenance*: a visitor should be able to tell a field-verified entry
+Punjab Auqaf alone administers **534** shrines against our **171** (*count as of 8 October
+2026; 169 from 21 August until the 8 October import made two more rows shippable*) — but *honesty about provenance*: a visitor should be able to tell a field-verified entry
 from one compiled off the web. `/coverage` computes that comparison, and everything behind it,
 from the shipped data on every page load, so the reader is never relying on a number in a
 document.
@@ -19499,3 +19499,33 @@ Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by
 **For a human:** the two era counts — p0484 `4836 سال` since Yudhishthira's accession and p0487 `4835 سال` since the war "to the writing of this copy" (spelled out, clearly printed; they disagree by one, as printed); p0487's army arithmetic (`بست و یک هزار و سه صد و هفتاد` elephants etc.; several leading words lost to the crop); p0483's `شانزده سال` / `سه سال`. Every Sanskrit name is `[OCR?]` or as printed. p0487 needs a better scan of its right margin if one exists.
 
 **Next transcription firing:** `khulasat_ut_tawarikh` 489-610 (re-render bands). Still owed: p0446's year, 435-440, 411-416. **Next notes firing:** `docs/prompts/BOOK_QUEUE_TASK.md` was rewritten at 00:31Z while this firing was running (Integration stage merged in from `docs/prompts/INTEGRATION_BRIEF.md`; this firing started under the previous text, whose notes turn transcribed). Under the new text the next firing's turn is the notes turn, which now runs the **Integration stage** (notes first if any book is `transcribed` but not `summarized` — `queue.py status` at 00:22Z showed `tahqiqat_chishti` as `transcribed` (873/873), so check that first). This firing did not start integration. Nothing committed to git; Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_269.md` plus earlier lists.
+
+### 9.270 — 8 October 2026: the import landed, 169 → 171, and what it left that only a person can write
+
+*Written on the Windows PC as §9.268 and renumbered to §9.270 when the Mac merged `post-import-2026-10-08` on 9 October 2026: the Mac's scheduled run had already taken 9.268 (khulasat 473-480) and 9.269 followed it. Commit `80b9dba` names it by the old number.*
+
+*Numbered 268 because the Mac's working copy holds uncommitted staging files `docs/_APPEND_238.md`–`_APPEND_267.md`; 238–267 are taken even though they are not in git yet.*
+
+Rauf imported `data/import_2026-10-08.csv` into the sheet (verified: 171 × 47, zero cells differing from the file). `npm run data:build` then shipped **171** rows, not 169: Darbar Hazrat Shah Gohar Peer and Darbar Mian Qurban Ali Shah, the two drafted darbars that had sat in the sheet unshipped, now build. Both are **unmapped** — no coordinates in the sheet or the survey — and ship as pages under the 22 August ruling.
+
+**Reconciled mechanically** (each a generator or a check that said exactly what to do): e2e fixture, social card (171), image shapes (19 new photographs measured), KG and JSON-LD/RDF exports, `provenance.json`, a post-import restore point `data/snapshot_2026-10-08_post-import.csv`, `urdu-i18n/_shrine_rows.json`, the Urdu seeds, the figure-identity worksheet (13 verdicts carried), three `isNew` flags via `verify-kg-proposals --reconcile`. Every "the patch has been imported — delete these lines" allowlist was emptied: `categoryVocabulary`, `facetVocabularies`, `sourceNoteKeys`, `validate-survey-provenance` (both maps), `validate-publication-safety`, and the obsolete Javindi override in `kg-seeds.json` (`saintFigureByShrine`; the cell now names her, as check 8 required). Counts updated in README, CITATION.cff, CLAUDE.md, HANDOVER §1, TODO: 171 sites, 170 with a bibliography, 538 citations. Seventeen protected photo directories (was fifteen). The three new note columns are described in both published schemas.
+
+**Checks that were wrong, fixed rather than obeyed (RULE 4):**
+- `scripts/data/schema.mjs` required coordinates, contradicting the 22 August ruling that `build-dataset.mjs` and `shrineModel.ts` both implement. Nothing noticed because no unmapped row had shipped. Now empty is allowed, half a pair is refused, a present value is still range-checked.
+- `verify-kg-proposals.mjs --reconcile` rewrote every file at 1-space indent; `kg-lineage-proposals.json` is 2-space, so a three-flag change became a 3,668-line diff. It now keeps each file's indent.
+- `build-provenance.mjs` stamped the UTC date, which after 8 pm in Boston is tomorrow and fails `datedClaims.test.ts`. Now the local date.
+- `pipeline/measure_image_shapes.py` wrote CRLF on Windows and `build-image-shapes.mjs` then read **zero** shapes while reporting success. Now `newline="
+"`.
+- `snapshotFidelity.test.ts` told the reader to run `npm run data:snapshot`, which is an alias for `data:build` and writes no snapshot. It now names `npm run data:restore-point`.
+- One quote in `kg-seeds.json` (Shah Jamal, kinAdjudicated) re-quoted verbatim: the source sentence now starts with a capital.
+
+**Open — needs Rauf, and none of it may be filled by an agent (RULE 2):**
+1. **Urdu for the two darbars' observance cells** (`Events`): "*ʿUrs*, 19–21 Ramzan, with a fair; weekly Thursday *mehfil* with *langar*, *naʿt*, *qawwālī* and lamps; five daily prayers and Friday prayer at the adjoining mosque" and "*ʿurs* on 24, 25 and 26 Rabīʿ al-Thānī (dhol, changing of the chadar, …)". `observanceWholeCell.test.ts` fails until they are in `SPECIAL_URDU_PHRASES` or the segment seed.
+2. **Two Urdu strings in `urdu-i18n/build_dictionary.py`**: the Location "Lahore (no locality, address or coordinates recorded in the survey)." and the founded value "1416 AH (c. 1995–96 CE) — see note; not verified as a construction date".
+3. **An Urdu article for Darbar Mian Qurban Ali Shah** (`src/data/urdu-content.json` has none). Until it exists `build-provenance` has nothing to record and `validate.mjs` fails "no provenance entry at all".
+4. **Peer Makki's Urdu article is 0.46× its English** (3,354 vs 7,243 prose characters): the English took the field-survey material, the Urdu did not. `urdu_content_qa.py`'s under-coverage budget is 0.
+5. **A merge ruling for Shah Gohar Peer.** Two figure nodes, `hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer` (built from the row's cell) and `shah-gohar-peer` (a lineage-only node seeded from the survey before the row shipped), both carry altName "Syed Ali Gohar" and the same dates, 11 Rabīʿ al-Sānī 729 AH – 21 Ramzan 825 AH. `validate-kg-identity` refuses until it is merged or recorded as two people. The evidence for one person is the sheet's own cell ("…, known as Shah Gohar Peer"); the decision is which slug is the published URL.
+6. **Reader-facing source notes for three rows** whose `qa_note` arrived with the import: `shrine-of-mauj-darya-bukhari`, `shrine-of-peer-makki`, `shrine-of-shah-jamal`. Listed in `AWAITING_DRAFTED_NOTE` in `SourceNotes.test.tsx`, which fails again when a note lands so the line is deleted.
+
+**Not re-measured:** README's "35 of the 169 sites are in or around Lahore" (`/place` line). Both new darbars are in Lahore, so it is probably 37 of 171, but nothing computes it and it was left rather than guessed.
+

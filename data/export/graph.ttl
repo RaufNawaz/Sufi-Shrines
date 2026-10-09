@@ -206,6 +206,14 @@ saint:khawaja-shah-muhammad-sulaiman-taunsvi
   sufi:successorOf saint:khwaja-noor-muhammad-maharvi ;
   .
 
+saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer
+  a schema:Person ;
+  schema:name "Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer"@en ;
+  schema:alternateName "Syed Ali Gohar"@en ;
+  schema:birthDate "11 Rabīʿ al-Sānī 729 AH, Uch Sharif" ;
+  schema:deathDate "21 Ramzan 825 AH" ;
+  .
+
 saint:hazrat-tahir-bandagi-qadri
   a schema:Person ;
   schema:name "Hazrat Tahir Bandagi Qadri"@en ;
@@ -227,6 +235,16 @@ saint:malik-ahmad-ayaz
   schema:alternateName "Malik Ayaz"@en ;
   schema:birthDate "Not given. The only early date is \"educated in Georgia in 993 AD\" (Q9)." ;
   schema:deathDate "8 August 1041, as given in the account; calendar era unstated" ;
+  .
+
+saint:hazrat-mian-qurban-ali-shah-sarkar
+  a schema:Person ;
+  schema:name "Hazrat Mian Qurban Ali Shah Sarkar"@en ;
+  schema:alternateName "Qurban Ali"@en ;
+  schema:birthDate "1341 AH (c. 1922–23 CE by calendar conversion), Malerkotla, India" ;
+  schema:deathDate "25 Rabīʿ al-Thānī; year not stated in the survey (possibly 1416 AH — see year_built_note)" ;
+  sufi:discipleOf saint:hazrat-mian-fazal-deen ;
+  schema:parent saint:hazrat-mian-fazal-deen ;
   .
 
 saint:syed-sakhi-shah-chan-charagh
@@ -574,7 +592,7 @@ saint:bulleh-shah
   schema:alternateName "Abdullah Shah Qadri"@en ;
   schema:alternateName "Sayyid Abdullah Shah Qadiri"@en ;
   schema:birthDate "1680" ;
-  schema:deathDate "1757" ;
+  schema:deathDate "1758" ;
   schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:shah-inayat-qadiri ;
   .
@@ -909,7 +927,7 @@ saint:fariduddin-ganjshakar
   schema:alternateName "Baba Farid"@en ;
   schema:alternateName "Farid"@en ;
   schema:birthDate "1173" ;
-  schema:deathDate "1266" ;
+  schema:deathDate "1265" ;
   schema:memberOf order_:chishtiyya ;
   sufi:discipleOf saint:khwaja-qutbuddin-bakhtiar-kaki ;
   sufi:successorOf saint:khwaja-qutbuddin-bakhtiar-kaki ;
@@ -1590,16 +1608,6 @@ saint:syed-ul-hassan-kabeer
   schema:name "Syed Ul Hassan Kabeer"@en ;
   .
 
-saint:mian-qurban-ali-shah
-  a schema:Person ;
-  schema:name "Hazrat Mian Qurban Ali Shah Sarkar"@en ;
-  schema:alternateName "Qurban Ali"@en ;
-  schema:birthDate "1341 AH (c. 1922–23 CE by calendar conversion)" ;
-  schema:deathDate "25 Rabīʿ al-Thānī; year not stated in the survey" ;
-  sufi:discipleOf saint:hazrat-mian-fazal-deen ;
-  schema:parent saint:hazrat-mian-fazal-deen ;
-  .
-
 saint:hazrat-mian-fazal-deen
   a schema:Person ;
   schema:name "Hazrat Mian Fazal Deen"@en ;
@@ -1608,7 +1616,7 @@ saint:hazrat-mian-fazal-deen
 saint:haji-tufail
   a schema:Person ;
   schema:name "Haji Tufail"@en ;
-  sufi:successorOf saint:mian-qurban-ali-shah ;
+  sufi:successorOf saint:hazrat-mian-qurban-ali-shah-sarkar ;
   .
 
 saint:guru-amar-das
@@ -2047,7 +2055,7 @@ place:district
   schema:address [
     a schema:PostalAddress ;
     schema:addressLocality "district"@en ;
-    schema:addressRegion   "not the shrine's exact position) — ask Saifullah for a precise pin when possible."@en ;
+    schema:addressRegion   "not the shrine's exact position)."@en ;
     schema:addressCountry  "PK"^^xsd:string
   ] ;
   .
@@ -2096,6 +2104,17 @@ place:taunsa-sharif
   ] ;
   .
 
+place:address-or-coordinates-recorded-in-the-survey
+  a schema:Place ;
+  schema:name "address or coordinates recorded in the survey)."@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "address or coordinates recorded in the survey)."@en ;
+    schema:addressRegion   "address or coordinates recorded in the survey)."@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
 place:lahore-per-the-field-survey
   a schema:Place ;
   schema:name "Lahore. Per the field survey"@en ;
@@ -2103,6 +2122,17 @@ place:lahore-per-the-field-survey
     a schema:PostalAddress ;
     schema:addressLocality "Lahore. Per the field survey"@en ;
     schema:addressRegion   "and no position within the graveyard's roughly 475 kanals beyond \"alongside the mosque\" that Hazrat Tahir Bandagi built."@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:lahore-as-given-in-the-survey-no-province
+  a schema:Place ;
+  schema:name "Lahore (as given in the survey; no province"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore (as given in the survey; no province"@en ;
+    schema:addressRegion   "street address or coordinates are recorded)."@en ;
     schema:addressCountry  "PK"^^xsd:string
   ] ;
   .
@@ -3083,6 +3113,13 @@ event_:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra
   ] ;
   .
 
+event_:urs-darbar-hazrat-shah-gohar-peer
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer at Darbar Hazrat Shah Gohar Peer"@en ;
+  schema:location shrine:darbar-hazrat-shah-gohar-peer ;
+  schema:about saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer ;
+  .
+
 event_:urs-darbar-hazrat-tahir-bandagi-qadri
   a schema:Event, sufi:UrsEvent ;
   schema:name "Urs of Hazrat Tahir Bandagi Qadri at Darbar Hazrat Tahir Bandagi Qadri"@en ;
@@ -3104,6 +3141,13 @@ event_:urs-darbar-malik-ahmad-ayaz
     a schema:Schedule ;
     schema:repeatFrequency "P1Y"^^xsd:string
   ] ;
+  .
+
+event_:urs-darbar-mian-qurban-ali-shah
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Hazrat Mian Qurban Ali Shah Sarkar at Darbar Mian Qurban Ali Shah"@en ;
+  schema:location shrine:darbar-mian-qurban-ali-shah ;
+  schema:about saint:hazrat-mian-qurban-ali-shah-sarkar ;
   .
 
 event_:urs-darbar-sakhi-shah-chan-charagh
@@ -4324,9 +4368,9 @@ event_:urs-tomb-of-bahaal-halim-uch-sharif
 
 event_:urs-tomb-of-javindi-bibi
   a schema:Event, sufi:UrsEvent ;
-  schema:name "Urs of Jalaluddin Surkh-Posh Bukhari at Tomb of Javindi Bibi"@en ;
+  schema:name "Urs of Bibi Jawindi at Tomb of Javindi Bibi"@en ;
   schema:location shrine:tomb-of-javindi-bibi ;
-  schema:about saint:jalaluddin-surkh-posh-bukhari ;
+  schema:about saint:bibi-jawindi ;
   schema:eventSchedule [
     a schema:Schedule ;
     schema:repeatFrequency "P1Y"^^xsd:string
@@ -4547,6 +4591,11 @@ source_:ab5850648bb4
   schema:name "General established histories of the Chishti revival in nineteenth-century Punjab."@en ;
   .
 
+source_:7721249a9999
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Hazrat Shah Gohar Peer (surveyor: Saifullah), 14 July"@en ;
+  .
+
 source_:14a5d76f3b66
   a schema:CreativeWork ;
   schema:name "Shrines Project field survey, Darbar Hazrat Tahir Bandagi Qadri Naqshbandi Mujaddidi responses (surveyor: Saifullah), 2026."@en ;
@@ -4555,6 +4604,11 @@ source_:14a5d76f3b66
 source_:a4718caf798d
   a schema:CreativeWork ;
   schema:name "Shrines Project field survey, Darbar Malik Ahmad Ayaz (surveyor: Saifullah), 29 July 2026."@en ;
+  .
+
+source_:b6c539818b08
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Mian Qurban Ali Shah (surveyor: Saifullah), 14 July 2026."@en ;
   .
 
 source_:fc53973f1847
@@ -6417,6 +6471,11 @@ source_:0ca5e19759ca
   schema:name "\"'Armed attack' on Girhor Sharif custodian stirs sectarian unrest,\" *Dawn*, 10 June 2015."@en ;
   .
 
+source_:10cd7af4b4f8
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Meera Mauj Darya Bukhari responses (surveyor: Saifullah), 2026."@en ;
+  .
+
 source_:81a654b12f83
   a schema:CreativeWork ;
   schema:name "Gyani Brahma Singh ‘Brahma’, *Hazrat Mian Mir and the Sufi Tradition* (Patiala: Publication Bureau, Punjabi University, 1994)."@en ;
@@ -6440,6 +6499,11 @@ source_:a1490099f004
 source_:153ef8ead35f
   a schema:CreativeWork ;
   schema:name "Shrines Project field survey, Mian Mir responses (surveyor: Muhammad Rizwan), 2026."@en ;
+  .
+
+source_:4cc279fae823
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Sufi Aziz-ud-Din Peer Makki Sarkar responses (surveyor: Saifullah), 2026."@en ;
   .
 
 source_:b9de6ea1885d
@@ -6490,6 +6554,11 @@ source_:97ad4b876617
 source_:45f6b03645fb
   a schema:CreativeWork ;
   schema:name "Shrines Project field survey, Shrine of Shah Inayat Qadiri responses (surveyor: Saifullah), 2026."@en ;
+  .
+
+source_:fc2886b08603
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Shah Jamal responses (surveyor: Saifullah), 2026."@en ;
   .
 
 source_:2b62dfcf5581
@@ -7144,7 +7213,7 @@ A general compendium of Pakistani Sufi saints, consulted independently of the fi
   schema:address [
     a schema:PostalAddress ;
     schema:addressLocality "Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is \"right near his shrine.\" No province"@en ;
-    schema:addressRegion   "not the shrine's exact position) — ask Saifullah for a precise pin when possible."@en ;
+    schema:addressRegion   "not the shrine's exact position)."@en ;
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:district ;
@@ -7341,6 +7410,102 @@ Khwaja Muhammad Sulaiman Taunsvi stands among the principal architects of the Ch
   schema:citation source_:ab5850648bb4 ;
   .
 
+shrine:darbar-hazrat-shah-gohar-peer
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Darbar Hazrat Shah Gohar Peer"@en ;
+  schema:description """## Overview
+Darbar Hazrat Shah Gohar Peer is a Muslim shrine in Lahore, built over the grave of the
+figure the survey names as Hazrat Sufi Peer Syed Gohar Ali Shah, known to devotees as Shah
+Gohar Peer. The survey's answer on sect or *silsila* (Sufi order or lineage) reads "Ahl e
+Sunnat - Ismaili Sadaat Uch Shareef", with a *shajra e nasab* (genealogy) traced to Hazrat
+Imam Hussain. A mosque named after the saint stands directly in front of it, and a
+residential area and graveyard surround the site. The surveyor records that its dome is
+the largest of any shrine in Lahore, and that he is the only member of his family whose
+shrine is in Lahore, the rest lying at Uch Sharif.
+
+## The Saint
+According to the account given to the surveyor, Shah Gohar Peer — given name Syed Ali
+Gohar — was born on 11 Rabīʿ al-Sānī 729 AH at Uch Sharif. His father, Syed Ul Hassan
+Kabeer, is described as a pious Sufi and a scholar of *dīn* (religion) whose disciples
+included Shia, Sunni and people of other sects. He took his education and all his
+spiritual knowledge from his father, and the oath of allegiance at his hand; seeing his
+rising spirituality, his father bestowed *khilāfat* (the mantle of spiritual succession)
+upon him and sent him out to bring non-Muslims into Islam. The family occupation, the
+account says, was inviting people to Islam, and he was known by the title "Kuffar Shikan"
+— the destroyer of disbelief.
+
+He is said to have preached first in Kashmir. Travelling towards Uch Sharif he arranged a
+stay at a place in Lahore the survey says is today known as Mahmood Booti, but within days
+changed his mind and camped permanently at the site of the present shrine. The account
+presents him as a solitude-loving worshipper, absorbed in *dhikr* (remembrance of God) and
+possessed of *bāṭin* (esoteric) knowledge, outwardly a beautiful dervish, who did not
+display his spiritual standing and moved constantly between locations; other saints
+accompanied his mission from the beginning. He died, the survey states, on 21 Ramzan 825
+AH, and a very large gathering assembled, including people from Uch Sharif. The account
+holds that a grand shrine was then built for him, attributed in one place to the King and
+in another to Sultan Mahmud Ghaznavi, and known ever since for its grandeur and antiquity
+(see the note below on that attribution).
+
+## Miracles and Legends
+Devotees relate that he was seen riding a lion and a snake, and it is by the lion and the
+snake that he is still popularly known. Tradition holds that a canal at his camp site
+dried up, or closed of its own accord, once he arrived. It is said that he would be seen
+in one place and at the same moment far away. In another story he went to Delhi, had a
+vision of Hazrat Ali Murtaza and carried the sacred footprints back on a snake; one is
+said to have remained there and one to have been brought to Uch Sharif, where it is still
+visited. Pressed with questions about such wonders, the account says, he adopted a
+*Qalandarī* bearing so that people would take him for one lost in ecstasy. Emperors and
+maharajas, the survey says, came to him for blessings, and Mughal emperors praised his
+miracles.
+
+Tradition also holds that he planted a tree with his own hands — named in one place as a
+Sukh Chain (Pongamia) and in another as a banyan (*bor*) — on which writing formed by its
+own branches is still visible, and that it yielded sugar long after his passing, as the
+tree planted by his father at Uch Sharif is said to have given milk. Strikingly, the
+surveyor records that according to books compiled about the saint, the graves immediately
+adjacent to his own are those of the lion and the snake he rode. Devotees say that a
+visitor need not state a request, and that prayers offered through his intercession
+(*wasīla*) are still answered.
+
+## The Shrine and its Devotions
+Visitors come daily, but Thursday draws the larger crowd, when *mehfils* (devotional
+gatherings) are held, *langar* (free communal food) is distributed, *naʿt* is recited,
+*qawwālī* is performed and lamps are lit. The annual *ʿurs* (death anniversary observance)
+falls on 19, 20 and 21 Ramzan, when a fair is held and very large numbers gather. The
+surveyor estimates 800 to 1,200 visitors daily, 2,000 to 2,500 on Thursdays and 100,000 to
+150,000 pilgrims at the *ʿurs*. The mosque facing the shrine, built in 1983 and named for
+the saint, hosts the five daily prayers and Friday congregational prayer; *niyāz* (food
+offerings) is distributed in the surrounding streets.
+
+## Condition and Custodianship
+The Auqaf Department assumed responsibility for the site in 1972 and is recorded as its
+current custodian. The surveyor reports plainly that the shrine is gradually deteriorating
+for lack of proper care, that the Auqaf Department is not carrying out its maintenance
+properly, and that such arrangements as are made are made by local people and pilgrims who
+love the saint. The survey also notes that Shah Gohar Peer wrote no book himself, there
+being no such custom in his time, though later saints and people who had seen him are said
+to have written about him; none is named, and none was available.
+
+## Bibliography
+- Shrines Project field survey, Darbar Hazrat Shah Gohar Peer (surveyor: Saifullah), 14 July
+2026."""@en ;
+  schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-01.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "NaN"^^xsd:decimal ;
+    schema:longitude "NaN"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore (no locality"@en ;
+    schema:addressRegion   "address or coordinates recorded in the survey)."@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:address-or-coordinates-recorded-in-the-survey ;
+  schema:about saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer ;
+  schema:citation source_:7721249a9999 ;
+  .
+
 shrine:darbar-hazrat-tahir-bandagi-qadri
   a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
   schema:name "Darbar Hazrat Tahir Bandagi Qadri"@en ;
@@ -7455,12 +7620,60 @@ The shrine is under the supervision of the Department of Auqaf (Government Mehka
   schema:address [
     a schema:PostalAddress ;
     schema:addressLocality "Shah Alam Market; the survey places the mazar near Darbar Ali Hajveri Ganj Bakhsh (Data Darbar). No city"@en ;
-    schema:addressRegion   "not the shrine's exact position. Ask Saifullah for a precise pin when possible."@en ;
+    schema:addressRegion   "not the shrine's exact position."@en ;
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:district ;
   schema:about saint:malik-ahmad-ayaz ;
   schema:citation source_:a4718caf798d ;
+  .
+
+shrine:darbar-mian-qurban-ali-shah
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Darbar Mian Qurban Ali Shah"@en ;
+  schema:description """## Overview
+Darbar Mian Qurban Ali Shah is a Muslim shrine at Mint Stop, Lahore, dedicated to Hazrat Mian Qurban Ali Shah Sarkar. The survey records the site's affiliation as Naqshbandī Mujaddidī, within Ahl-e Sunnat; this is the only *silsila* (Sufi order, and the lineage of spiritual transmission within it) information the source gives. A mosque named after the saint stands in the same courtyard as the tomb. The site has been in the charge of the government Auqaf (religious endowments) Department since 2005.
+
+## The figure, as the tradition relates him
+The account given to the surveyor states that Hazrat Qurban Ali Shah was born in 1341 AH in Malerkotla, India, that his given name was Qurban Ali, and that people later came to call him Mian Qurban Ali Shah in recognition of his learning. His father is named as Hazrat Mian Fazal Deen, described in the survey as a great religious scholar who held thousands of disciples in a relationship of *pīrī-murīdī* (spiritual mentorship) and who taught his son the whole of his education before instructing him to devote his life to preaching. Devotees relate that virtuous people and Sufis were repeatedly born into this family, and that its members kept the call of Islam alive throughout their lives.
+
+The survey relates that he left his ancestral home in youth at his father's command, never returned, and preached along the way until he reached the Mint Stop area of Lahore, which he made his final abode. Tradition holds that people were drawn to his camp of their own accord; that he arranged food, drink and lodging for all who came, young and old alike; that thousands took *baiʿat* (the oath of allegiance to a spiritual guide) at his hand, often with their entire families; and that neither he nor his family ever compelled anyone's conversion, people entering Islam instead out of regard for his learning and character. The account states that among those he brought into Islam were a large number of people it names as "Marzaiyas (Ahmadis/Qadianis)". Devotees relate that he served people by day and spent his nights in *dhikr* (remembrance of God), and that although his bearing was that of a simple dervish he did not disclose his spiritual station. According to the survey he passed on the *gaddi* (spiritual seat) in the last part of his life, died on 25 Rabīʿ al-Thānī, and was buried at his camp.
+
+## Reputation and *karāmāt*
+The survey reports that those seeking a cure for illness, the unemployed seeking work, and people caught in difficulty and worry would present themselves to him, that he would pray to God on their behalf, and that those prayers were granted without delay. Devotees still come to pray through his *waseela* (intercession) and say they do not return empty-handed. Those who met him in life are described as knowing his spiritual manifestations at first hand; others entered his allegiance on the testimony of their elders. His devotees hold that, having left the world while engaged in preaching, his standing is no less than a martyr's, and that martyrs remain alive.
+
+## The site and its buildings
+The survey states that his camp itself became his shrine: after his death a shrine was raised over the burial place, and a mosque was built in his name alongside it. Beneath the tomb is a basement, closed to the general public, which the survey identifies as the room where he kept his nightly *dhikr*; it has been left in its original condition and is said to remain exactly as he left it. His special disciple is buried beside him. The Auqaf Department took responsibility for the shrine and mosque in 2005, but most maintenance and decoration is still carried out by devotees themselves. The shrine was reconstructed again in 2022. No graveyard is reported at the site.
+
+## Regular observances
+The five daily prayers are offered in the courtyard mosque. On Thursday, Friday and Sunday the large door of the shrine is kept open; on the remaining days the small door is open, and worshippers and pilgrims come throughout. Every Thursday there is a public gathering with *dhikr*, *naʿt* (devotional verse in praise of the Prophet) recitation and *langar* (free communal food); the survey says a set number of people attend but does not give that number. No *qawwālī* is reported at the site.
+
+## *ʿUrs*
+The annual *ʿurs* (death-anniversary observance) is held on 24, 25 and 26 Rabīʿ al-Thānī. It includes drumming (dhol), the changing of the chadar over the grave, ritual washing (*ghusl*) and *langar*.
+
+## Attendance and custodianship
+Daily attendance is put at 500 to 600 people, and at the annual *ʿurs* at some 50,000 to 60,000 pilgrims. Residents of the neighbourhood around the shrine pay their respects there each morning before going to work. The custodian of record is the government Auqaf Department. The survey separately reports that the saint's successor in the *gaddi* was Haji Tufail, and that after Haji Tufail's death his sons hold the position of managing the site.
+
+## Writings
+The survey reports that a disciple published a discourse on the saint's life a short while ago, that it became widely popular, and that readers subsequently entered the saint's allegiance in greater numbers. No title is given and no copy was supplied to the surveyor.
+
+## Bibliography
+- Shrines Project field survey, Darbar Mian Qurban Ali Shah (surveyor: Saifullah), 14 July 2026."""@en ;
+  schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-01.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "NaN"^^xsd:decimal ;
+    schema:longitude "NaN"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Mint Stop"@en ;
+    schema:addressRegion   "street address or coordinates are recorded)."@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:lahore-as-given-in-the-survey-no-province ;
+  schema:about saint:hazrat-mian-qurban-ali-shah-sarkar ;
+  schema:citation source_:b6c539818b08 ;
   .
 
 shrine:darbar-sakhi-shah-chan-charagh
@@ -12865,19 +13078,20 @@ A general compendium of Pakistani Sufi saints independently confirms his real na
 shrine:shrine-of-mauj-darya-bukhari
   a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
   schema:name "Shrine of Mauj Darya Bukhari"@en ;
-  schema:description """Tucked away on Edward Road near the old Customs House in Anarkali, the octagonal tomb of Hazrat Meeran Muhammad Shah Bukhari — popularly called "Mauj Darya," or "Wave of the River" — commemorates a saint born in 1533 in Uch Sharif, the son of Safi-ud-Din Bukhari of the Sadaat of that town, a descendant of Jalaluddin Surkh-Posh Bukhari whose genealogy is traced through Syed Jalal-ud-Din Jahaniyan Jahangasht, and an adherent of the Suhrawardi silsila founded by Bahauddin Zakariya of Multan. He became a hafiz-e-Quran in his youth and, according to popular tradition, earned his epithet by miraculously diverting the flood-prone River Ravi away from Lahore; he is remembered, too, as a missionary presence who drew many Hindus and Sikhs to Islam.
+  schema:description """Tucked away on Edward Road near the old Customs House in Anarkali, the octagonal tomb of Hazrat Meeran Muhammad Shah Bukhari — popularly called "Mauj Darya," or "Wave of the River" — commemorates a saint born in 1533 in Uch Sharif, the son of Safi-ud-Din Bukhari of the Sadaat of that town, a descendant of Jalaluddin Surkh-Posh Bukhari whose genealogy is traced through Syed Jalal-ud-Din Jahaniyan Jahangasht, and an adherent of the Suhrawardi silsila founded by Bahauddin Zakariya of Multan. He became a hafiz-e-Quran in his youth and, according to popular tradition, earned his epithet by miraculously diverting the flood-prone River Ravi away from Lahore. The 2026 field survey derives the same title differently: he was called Mouj Darya, it says, for his open-handed generosity and for the state of spiritual ecstasy (*mouj*) in which his prayers were held to be answered at once. Both derivations stand here as they were given. He is remembered, too, as a missionary presence who drew many Hindus and Sikhs to Islam.
 
 Above all he is remembered as a spiritual confidant of the Mughal emperor Akbar. The shrine's tradition relates that the emperor was foretold — through the saint's father — of a windstorm and a lit lamp that would mark the saint's presence at the fort of Chittor; when both signs appeared and the Rajput army surrendered, Akbar became his disciple. Alam Faqri's *Tazkirah Awliya-e-Pakistan* preserves an independent, extended telling of this same episode — giving the saint's given name as Miran Muhammad Shah, tracing his descent from Makhdoom Jahaniyan Jahangasht and his origins in Uch Sharif, and recounting at length how his prayer and intercession were credited with securing the fort's surrender to Akbar — corroborating, from a separate hagiographical compendium, the tradition already recorded at the shrine. Legend credits him with distributing to the poor a substantial reward Akbar granted him near Batala, and it is said that on the saint's arrival in Lahore the emperor gifted the land on which he settled; his darasgah — the seat of learning where he now lies buried — is said still to hold land documents bearing Akbar's own signature. He died in 1604, the date traditionally taken as the founding of the shrine.
 
-He married twice. His first wife, Syedna Bibi Fatima Sani — remembered as "Bibi Killah," and popularly as Mai Fatima — bore him two sons and rests in a separate shrine facing his own, near the historic Jain Mandir; a second wife bore a third son, of whom tradition tells that he could take the form of a lion. The saint lies in a small graveyard in the company of his family, his spiritual successors and gaddi nasheen, and his cook, Allahu Samad — himself the subject of one of the shrine's most striking tales, in which the saint, to answer sceptics, had his cook sit unharmed in a burning cauldron. Other wonders are recounted of him: a cauldron of rice he blessed during a shortage that fed the people for nearly seven days; brackish irrigation water over which he prayed for local landowners, which turned sweet; and a tree planted in his lifetime — "the blessed tree" — said never to have needed cutting. His langar, devotees say, has continued under his descendants to this day.
+He married twice. His first wife, Syedna Bibi Fatima Sani — remembered as "Bibi Killah," and popularly as Mai Fatima — bore him two sons and rests in a separate shrine facing his own, near the historic Jain Mandir; a second wife bore a third son, of whom tradition tells that he could take the form of a lion. The saint lies in a small graveyard in the company of his family, his spiritual successors and gaddi nasheen, and his cook, Allahu Samad — himself the subject of one of the shrine's most striking tales, in which the saint, to answer sceptics, had his cook sit unharmed in a burning cauldron. Other wonders are recounted of him: a cauldron of rice he blessed during a shortage that fed the people for nearly seven days; brackish irrigation water over which he prayed for local landowners, which turned sweet; and a tree planted in his lifetime — "the blessed tree" — said never to have needed cutting. His langar, devotees say, has continued under his descendants to this day. The survey adds that books about him written by Muslim, Hindu and Sikh authors alike are widely read.
 
 Architecturally the tomb is unusual among Lahore's shrines for its octagonal plan, with a low dome, corner towers at each of its eight angles, and a mixture of recessed blind arches and plain panelled facades — a style thought to echo Multani funerary tradition. The shrine gained unwelcome national attention in 2018 when construction of the Orange Line Metro Train's underground Anarkali station demolished its mosque, langar khana and courtyard, with tunnelling reported to pass close to the saint's grave in apparent violation of heritage buffer-zone regulations — an episode that became a flashpoint in Lahore's debates over balancing infrastructure development against protection of religious heritage. Yet devotees hold that for all the government construction pressing around it, nothing has ever tarnished the shrine's beauty.
 
-The shrine remains one of scores of Lahore shrines administered by the Punjab Auqaf and Religious Affairs Department (Mehkama Auqaf), and continues to draw a devoted following. Daily devotion includes the recitation of the Fatiha, the lighting of diyas, the making of vows (mannat) and the presentation of niyaz, and the gatherings of Thursday night (Jummay Raat) remain the busiest of the week. The annual urs is held on the 17th to the 19th of Rabi-ul-Awal, with a Mela Chiraagha (festival of lights), the ceremonial washing (gusal) of the tomb and the changing of its chadar, and langar throughout; some 2,200 to 2,500 visitors are recorded on an ordinary day, rising to between 225,000 and 300,000 across the urs.
+The shrine remains one of scores of Lahore shrines administered by the Punjab Auqaf and Religious Affairs Department (Mehkama Auqaf), and continues to draw a devoted following. Its upkeep, the survey relates, ran down a long line before that — from the emperor Akbar through the rulers who followed him and Maharaja Ranjit Singh, and through the saint's own descendants — before the department took it on. Daily devotion includes the recitation of the Fatiha, the lighting of diyas, the making of vows (mannat) and the presentation of niyaz, and the gatherings of Thursday night (Jummay Raat) remain the busiest of the week. The annual urs is held on the 17th to the 19th of Rabi-ul-Awal, with a Mela Chiraagha (festival of lights), the ceremonial washing (gusal) of the tomb and the changing of its chadar, and langar throughout; some 2,200 to 2,500 visitors are recorded on an ordinary day, rising to between 225,000 and 300,000 across the urs.
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan."""@en ;
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+- Shrines Project field survey, Darbar Meera Mauj Darya Bukhari responses (surveyor: Saifullah), 2026."""@en ;
   schema:image <https://commons.wikimedia.org/wiki/Special:FilePath/Shrine_of_Mauj_Darya,_Lahore.JPG> ;
   schema:geo [
     a schema:GeoCoordinates ;
@@ -12893,6 +13107,7 @@ The shrine remains one of scores of Lahore shrines administered by the Punjab Au
   schema:containedInPlace place:anarkali ;
   schema:about saint:hazrat-meeran-muhammad-shah-bukhari ;
   schema:citation source_:78d2023e84a3 ;
+  schema:citation source_:10cd7af4b4f8 ;
   .
 
 shrine:shrine-of-mian-mir
@@ -13058,11 +13273,24 @@ shrine:shrine-of-peer-makki
 
 A well-loved anecdote recalls that during Sultan Muhammad Ghori's 1178 siege of Lahore, the besieged governor Khusro Malik sought Peer Makki's prayers, and the saint assured him of six further years of safety. Devotional custom in Lahore holds that pilgrims should pay their respects at Peer Makki's tomb before proceeding to Data Darbar, honouring him as a spiritual forerunner in the same sacred locale — although the popular claim that he personally tutored Data Ganj Bakhsh sits awkwardly with the conventional dating of Ali Hujwiri's death around 1072, a century before Peer Makki's own arrival, and should be understood as devotional tradition rather than strict chronology. A tradition recorded at the shrine itself runs the other way about: when Ali Hujwiri was ordered to migrate to Lahore, he is said to have objected that "Peer Makki is present there, who is enough for Lahore" — only to arrive and find Peer Makki's funeral already underway. Like the tutoring claim, the story fits loosely with the dates, but it carries the shrine's essential teaching: that Lahore has never been without a saint of Allah.
 
-The shrine complex includes an adjoining mosque, the Hazrat Pir Makki Masjid, and is formally administered, like Data Darbar itself, by the Punjab Auqaf and Religious Affairs Department; its tradition is Syed and Ahl-e-Sunnat. Despite its proximity to one of Pakistan's most visited shrines, Peer Makki's own tomb receives markedly fewer pilgrims — some 3,500 to 4,000 on an ordinary day — giving it a more intimate, contemplative atmosphere, though Thursday-night gatherings draw larger crowds, and the narrow street and surrounding Peer Makki Bazaar can make access difficult. The annual urs, held on the 9th to the 11th of Rabi-ul-Awal, fills the quarter with gatherings and dhikr, drums and dhamal, qawwali, the ritual bathing of the shrine and the distribution of offerings, and draws on the order of 400,000 to 500,000 devotees. Many writers — including, it is said at the shrine, authors from the Hindu and Christian communities — have written books about the saint that are still read with interest today.
+The shrine complex includes an adjoining mosque, the Hazrat Pir Makki Masjid, and is formally administered, like Data Darbar itself, by the Punjab Auqaf and Religious Affairs Department, which the field survey says took charge of the shrine in 1958; its tradition is Syed and Ahl-e-Sunnat. Despite its proximity to one of Pakistan's most visited shrines, Peer Makki's own tomb receives markedly fewer pilgrims — some 3,500 to 4,000 on an ordinary day — giving it a more intimate, contemplative atmosphere, though Thursday-night gatherings draw larger crowds, and the narrow street and surrounding Peer Makki Bazaar can make access difficult. The annual urs, held on the 9th to the 11th of Rabi-ul-Awal, fills the quarter with gatherings and dhikr, drums and dhamal, qawwali, the ritual bathing of the shrine and the distribution of offerings, and draws on the order of 400,000 to 500,000 devotees. Many writers — including, it is said at the shrine, authors from the Hindu and Christian communities — have written books about the saint that are still read with interest today.
+
+## The Life, as the Survey Narrates It
+
+The 2026 field survey gives a fuller life than this entry has carried, and it is set out here in the account's own terms.
+
+His father, Hazrat Peer Syed Abdullah, was himself a saint and a scholar who taught in Baghdad, and Peer Makki had his first education from him — memorising the Qur'an, then learning what the survey calls the knowledge of the soul and of the sect, seated in the same row as everyone else in his father's circle. Having taken the outward sciences as far as they went, he judged that he must go looking for the hidden knowledge, and in 562 AH, at thirty, he left Baghdad for Mecca. He spent twelve years there, hearing the pleas of those who came to him, helping them, keeping his nights in the Haram in the remembrance of God, and — the account says — receiving the blessing of the Prophet many times. He began to know what was to come, and did not show it.
+
+The migration to India, in this telling, was not his own idea. Worshipping in the Haram, he received the Prophet's command to go to Hind, where the people had fallen into associating partners with God, and to bring them back to the Sunna and to the oneness of God. He did not wish to leave the House of God, but the command was the command: he made his last Hajj, took some companions with him, and turned first to Baghdad, to tell his family and to say the Fatiha at his father's grave, before setting out. Two roads led to India, one through the dry desert and one by sea; the journey was long and dangerous and there was little to eat or drink, but he preached along the way, and people were moved enough to join his caravan. Something close to a year later he reached India and gave thanks. He came to Lahore in 575 AH and settled in the mosque that today carries his name beside his shrine, leading the prayers, teaching the Qur'an, and calling people away from polytheism.
+
+The survey then narrates the political part of his life at length. Lahore was held by Khusrau Malik — whom the account calls the last of Mahmud of Ghazni's line, and the son of King Khusrau — and describes as pleasure-seeking and unjust; Muhammad Shahab-ud-Din Ghori was advancing on the city, having already taken Multan and Sialkot. When Khusrau Malik came to ask how long his rule would last, the saint told him plainly that it would end soon, that what God has written must come, and that he should turn to God and deal justly with his people. When Ghori's army arrived, the people and the king both ran to him; he told them to be patient and to repent, and said the danger would pass and return in six years. Ghori withdrew, and the saint's name went round the city — but the people soon returned to their old habits, and exactly six years later Ghori came again. Again the saint promised a respite, and said it was the last; again the army turned back, and this time people called him a liar, saying the old man only ever said such things and that Ghori left out of fear. When Ghori finally took Lahore, Khusrau Malik's men were killed or went over to him, and the king himself was taken prisoner and later killed. Ghori, the account says, came to the saint's door and told him he had known he was there, and that everything he had said had been true.
+
+He preached in Lahore for thirty-six years after that, and died in 612 AH; the quarter took his name from him, as the title Makki had come from his years in Mecca. Kings maintained the shrine after him and added to its beauty, and the survey states that the Auqaf Department took responsibility for it in 1958.
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 1 (Lahore) — compendium of the saints of Pakistan."""@en ;
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 1 (Lahore) — compendium of the saints of Pakistan.
+- Shrines Project field survey, Darbar Sufi Aziz-ud-Din Peer Makki Sarkar responses (surveyor: Saifullah), 2026."""@en ;
   schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/peer-makki/peer-makki-01.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
@@ -13078,6 +13306,7 @@ The shrine complex includes an adjoining mosque, the Hazrat Pir Makki Masjid, an
   schema:containedInPlace place:lahore ;
   schema:about saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini ;
   schema:citation source_:5dd4770b6161 ;
+  schema:citation source_:4cc279fae823 ;
   .
 
 shrine:shrine-of-pir-baba-syed-ali-tirmizi
@@ -13402,19 +13631,20 @@ His shrine, with its adjoining mosque, remains an active site of pilgrimage. The
 shrine:shrine-of-shah-jamal
   a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
   schema:name "Shrine of Shah Jamal"@en ;
-  schema:description """The shrine of Baba Shah Jamal, in the locality that now bears his name adjoining Ichhra and opposite Forman Christian College, commemorates Syed Shah Jamal, a Sufi of Hussaini Syed descent who traced his lineage to Jalaluddin Surkh-Posh Bukhari of Uch Sharif. He belonged jointly to the Qadiriyya, Suhrawardiyya and Chishtiyya orders — a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi — and lived in Lahore during the reign of the Mughal emperor Akbar, whose syncretic Din-i-Ilahi he is remembered for having resisted, working instead to draw people back towards orthodox Islamic practice. Born, by the shrine's account, in 1587, he is generally held to have died in the later seventeenth century, though sources differ on the precise year: 1649 and 1671 both appear, the shrine's own tradition holding to 1671 and commemorating his death on the 4th of Rabi-ul-Sani. A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, independently places his shrine on Achhra Road facing west, in Shah Jamal Colony, Lahore — consistent with this entry's own location — and traces his Suhrawardi lineage specifically to Bahauddin Zakariya of Multan.
+  schema:description """The shrine of Baba Shah Jamal, in the locality that now bears his name adjoining Ichhra and opposite Forman Christian College, commemorates Syed Shah Jamal, a Sufi of Hussaini Syed descent who traced his lineage to Jalaluddin Surkh-Posh Bukhari of Uch Sharif. The 2026 field survey names his father as Syed Ahmad Shah — the name this archive's entry for his brother, Baba Shah Kamal, gives independently — and adds that the family moved from Kashmir to Sialkot and from Sialkot to Lahore, where both brothers were born and where both are counted among the saints. It also accounts for his coming to Ichhra: he arrived to see Shah Kamal, whose shrine still stands close to his own, and pitched his camp a short distance from his brother's house. He belonged jointly to the Qadiriyya, Suhrawardiyya and Chishtiyya orders — a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi — and lived in Lahore during the reign of the Mughal emperor Akbar, whose syncretic Din-i-Ilahi he is remembered for having resisted, working instead to draw people back towards orthodox Islamic practice. Devotees, the survey records, know him for his open-handedness as *Sakhi Sarwar* — a title that in the Punjab more usually belongs to Sultan Sakhi Sarwar of Dera Ghazi Khan, whose shrine this archive also holds; it is set down here as the survey gave it, and not as an identification of the two. Born, by the shrine's account, in 1587, he is generally held to have died in the later seventeenth century, though sources differ on the precise year: 1649 and 1671 both appear, the shrine's own tradition holding to 1671 and commemorating his death on the 4th of Rabi-ul-Sani. A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, independently places his shrine on Achhra Road facing west, in Shah Jamal Colony, Lahore — consistent with this entry's own location — and traces his Suhrawardi lineage specifically to Bahauddin Zakariya of Multan.
 
 The site itself, tradition says, was built and named "Damdama" by Shah Jamal in his own lifetime, and it was one of several stations of his austerities: besides his Damdama cell he kept chillas (forty-day retreats) at Sheikhupura, Shah Rehman, Shahdara Lahore and Chanpatpur in India. His death is remembered as inseparable from his devotions: emerging from a chilla, he died as the roof of his cell collapsed, and as people laboured to free him a voice from within is said to have commanded that he not be pulled out, but that his grave be raised over that very spot — which was done.
 
-Legends gather thickly around the Damdama. The best known tells of a princess — Akbar's sister — who, annoyed that the tall tower overlooked her palace, demanded he lower it; the saint performed dhamal on its top floor, and storey after storey sank into the earth until only two remained, whereupon he predicted that her palace would not outlast his — fulfilled, it is said, when Sikh forces later destroyed it. Another tells of a cheating Hindu businessman to whom the saint gave a cantaloupe to feed his wife; twin sons followed, one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple — and the saint is also said to have saved that family by calling them outside moments before their roof collapsed.
+Legends gather thickly around the Damdama. The best known tells of a princess — Akbar's sister — who, annoyed that the tall tower overlooked her palace, demanded he lower it; the saint performed dhamal on its top floor, and storey after storey sank into the earth until only two remained, whereupon he predicted that her palace would not outlast his — fulfilled, it is said, when Sikh forces later destroyed it. Another tells of a cheating Hindu businessman to whom the saint gave a cantaloupe to feed his wife; twin sons followed, one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple — and the saint is also said to have saved that family by calling them outside moments before their roof collapsed. The survey adds that Sheikh Fakhr-ud-Din stayed in the saint's service all his life and that his grave lies inside the shrine.
 
 Today the shrine is best known not for quiet contemplation but for its exuberant Thursday-night dhamal, when devotees, students, musicians and curious visitors gather from dusk until the early hours as dhol drummers — most famously the late Pappu Sain, whose successors continue the tradition — drive crowds into rhythmic, trance-like dancing, alongside qawwali, langar and the lighting of lamps. This weekly spectacle has made Shah Jamal one of the most written-about expressions of popular Sufi devotional culture in Punjab, and the crowds are considerable: on the order of 10,000 to 15,000 visitors a day, rising to 200,000-250,000 for the annual urs, held on the 3rd to the 5th of Rabi-ul-Sani with the ritual washing (gusal) of the tomb, the offering of the chadar, and drumming and dhamal.
 
-The tomb itself is enclosed within a mosque of relatively modern construction, single-domed with four minarets, reflecting rebuilding rather than preserved Mughal fabric; an adjoining graveyard lies beside it. The shrine — of the Suhrawardi line and the Ahl-e-Sunnat tradition — has been in the care of the government's Auqaf Department since 1960, while the current sajjada nashin, a descendant of the saint, continues to hold Khatam Khawajgan ceremonies. The site illustrates the continuing vitality of shrine-centred devotional practice in Lahore, and its shadows as well: the city's homeless rely on the shrine's langar and offerings, even as questions over noise, crowding and drug use in the vicinity — a real safety concern for pilgrims — have periodically drawn official scrutiny.
+The tomb itself is enclosed within a mosque of relatively modern construction, single-domed with four minarets, reflecting rebuilding rather than preserved Mughal fabric; an adjoining graveyard lies beside it. The shrine — of the Suhrawardi line and the Ahl-e-Sunnat tradition — has been in the care of the government's Auqaf Department since 1960; before that, the survey relates, its upkeep and adornment fell first to Shah Jamal himself, who oversaw the building in his own lifetime, and afterwards to the kings, maharajas and devotees who came after him. The current sajjada nashin, a descendant of the saint, continues to hold Khatam Khawajgan ceremonies. The site illustrates the continuing vitality of shrine-centred devotional practice in Lahore, and its shadows as well: the city's homeless rely on the shrine's langar and offerings, even as questions over noise, crowding and drug use in the vicinity — a real safety concern for pilgrims — have periodically drawn official scrutiny.
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan."""@en ;
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+- Shrines Project field survey, Darbar Shah Jamal responses (surveyor: Saifullah), 2026."""@en ;
   schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/shah-jamal/shah-jamal-01.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
@@ -13430,6 +13660,7 @@ The tomb itself is enclosed within a mosque of relatively modern construction, s
   schema:containedInPlace place:lahore ;
   schema:about saint:syed-shah-jamal-uddin-naqvi-bukhari ;
   schema:citation source_:78d2023e84a3 ;
+  schema:citation source_:fc2886b08603 ;
   .
 
 shrine:shrine-of-shah-rukn-e-alam

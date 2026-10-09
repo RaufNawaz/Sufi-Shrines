@@ -180,34 +180,32 @@ describe('compositeFigureCellIsShown — the sheet keeps its own wording', () =>
   }
 });
 
-describe('a cell that names somebody else', () => {
-  /* Tomb of Javindi Bibi's `Sufi Saint` cell reads "Jalaluddin Surkh-Posh
-     Bukhari" — byte-identical to the cell on his own shrine, a different
-     monument. `saintFigureByShrine` points the graph at Bibi Jawindi.
+describe('a cell that used to name somebody else', () => {
+  /* Until 8 October 2026 Tomb of Javindi Bibi's `Sufi Saint` cell read
+     "Jalaluddin Surkh-Posh Bukhari" — byte-identical to the cell on his own
+     shrine, a different monument — and a `saintFigureByShrine` override in
+     kg-seeds.json pointed the graph at Bibi Jawindi instead. That half-fix once
+     put a man's name over a link to a woman's page, because ShrinePage labelled
+     the link from the raw cell.
 
-     This is the regression test for the half-fix: correcting the graph and
-     leaving ShrinePage to label the link from the raw cell put a man's name over
-     a link to a woman's page. That is worse than the error it replaced — before,
-     the name and the link agreed and were both wrong; after, they disagreed and
-     only a reader who clicked found out. */
+     The 8 October import corrected the cell (patch_javindi_bibi_figure_2026-08-28)
+     and the override was deleted, as validate-kg-identity check 8 required. What
+     must stay true is that the cell, the graph and the label all name her. */
   const SLUG = 'tomb-of-javindi-bibi';
 
-  it('links the figure the graph records, not the one the cell names', () => {
+  it('links the figure the graph records', () => {
     expect(figureSlugsForShrine(SLUG)).toEqual(['bibi-jawindi']);
   });
 
-  it('labels the link with that figure, so the name and the href agree', () => {
-    const shown = figureLabelsForShrine(SLUG);
-    expect(shown).toEqual([{ slug: 'bibi-jawindi', name: 'Bibi Jawindi' }]);
-    /* The point of the row: the label must NOT be the cell. If this ever passes
-       by the two becoming equal, the sheet was patched and the override in
-       kg-seeds.json should be deleted — validate-kg-identity check 8 says so. */
+  it('labels the link from the cell, because the cell now names her', () => {
+    /* No label override any more: kg-shrine-figure-labels.json lists only rows
+       whose cell is not the label, and ShrinePage falls back to the cell. */
+    expect(figureLabelsForShrine(SLUG)).toEqual([]);
     const recorded = String(
       snapshot.rows.find((r) => String(r.Name ?? '') === 'Tomb of Javindi Bibi')?.['Sufi Saint'] ??
         '',
     );
-    expect(recorded).toBe('Jalaluddin Surkh-Posh Bukhari');
-    expect(shown[0]!.name).not.toBe(recorded);
+    expect(recorded).toBe('Bibi Jawindi');
   });
 
   it('names her in Urdu, like every other figure a reader can reach', async () => {

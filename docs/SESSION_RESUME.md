@@ -57,11 +57,14 @@ Never build or commit in the `G:` Drive copy from Windows; it is the Mac's own f
 - The Mac folder's book-queue commits `0772743` and `d9bcf05` (26 September to 8 October runs, the
   integration stage) had not been pushed. They are now merged into `cloud-ocr-queue` and pushed.
 
-**Waiting on a side branch, `post-import-2026-10-08`** (`8bfa4f7`, `80b9dba`): reconciling the repo
-to 171 sites (counts, regenerated fixtures, social card, KG, schemas, the photo list in CLAUDE.md,
-emptied "patch imported" allowlists). Full record: HANDOVER §9.268, which exists on that branch only.
-**Merge it into `cloud-ocr-queue` once the items below are done.** On the Mac, commit or stash
-local edits to `docs/HANDOVER.md` and the KG files before checking it out; both sides touch them.
+**Merged on the Mac, 9 October 2026:** `post-import-2026-10-08` (`8bfa4f7`, `80b9dba`), reconciling
+the repo to 171 sites (counts, regenerated fixtures, social card, KG, schemas, the photo list in
+CLAUDE.md, emptied "patch imported" allowlists). Full record: HANDOVER §9.270 (written on Windows
+as §9.268; renumbered on merge because the Mac's scheduled run had already taken 9.268). Merged
+with it: the Mac's two uncommitted scheduled runs, the 37 `shrine_entries/` renames to `<id>.md`
+(`cb746ab`) and khulasat 481-488, §9.269 (`3af2103`). `data/provenance.json` was regenerated after
+the merge, which gave the two new darbars their content-provenance entries; the KG rebuild changed
+nothing but timestamps and was discarded. Local `1.7` fast-forwarded to `origin/1.7` (`794c355`).
 
 **Asked in the chat on 8 October; no answer yet (RULE 5: this is the record, not the asking):**
 

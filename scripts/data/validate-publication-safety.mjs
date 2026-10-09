@@ -119,8 +119,7 @@ if (!rows.length) {
  * way of accepting a finding.
  */
 const PENDING_SHEET_FIX = new Map([
-  ['Darbar Abul Muali Qadri', 'Location'],
-  ['Darbar Malik Ahmad Ayaz', 'Location'],
+  // Empty since the 8 October 2026 import applied the patch to both rows.
 ]);
 
 const findings = [];
