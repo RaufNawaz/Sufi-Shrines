@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-09-23T04:36:05Z",
-  "expires_at": "2026-09-23T06:06:05Z",
-  "note": "Pass 2 consolidation",
-  "released_at": "2026-09-23T05:17:25Z",
-  "released_by": "session_013HHqmQkcccDiAaBAP84HJe",
-  "session": "session_013HHqmQkcccDiAaBAP84HJe",
+  "claimed_at": "2026-10-07T16:24:26Z",
+  "expires_at": "2026-10-07T17:54:26Z",
+  "note": "province sweep batch 3 [taking over a released or expired claim; previous holder session_013HHqmQkcccDiAaBAP84HJe]",
+  "released_at": "2026-10-07T16:49:53Z",
+  "released_by": "session_01AbusxzPjF4TPvKK49PS99s",
+  "session": "session_01AbusxzPjF4TPvKK49PS99s",
   "slug": "waris_shah_hir_ranjha",
   "status": "released"
 }

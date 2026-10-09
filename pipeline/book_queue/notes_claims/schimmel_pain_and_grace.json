@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-09-23T06:24:58Z",
-  "expires_at": "2026-09-23T07:54:58Z",
-  "note": "Pass 2 consolidation",
-  "released_at": "2026-09-23T06:59:23Z",
-  "released_by": "session_01DGto8DD1mf8JVV2AzN3rKp",
-  "session": "session_01DGto8DD1mf8JVV2AzN3rKp",
+  "claimed_at": "2026-10-05T13:49:31Z",
+  "expires_at": "2026-10-05T15:19:31Z",
+  "note": "province sweep (ruling c), \u00a79.257 [taking over a released or expired claim; previous holder session_01DGto8DD1mf8JVV2AzN3rKp]",
+  "released_at": "2026-10-05T14:10:36Z",
+  "released_by": "session_013fu7ixkPpX9Xs8e4t9PjcS",
+  "session": "session_013fu7ixkPpX9Xs8e4t9PjcS",
   "slug": "schimmel_pain_and_grace",
   "status": "released"
 }

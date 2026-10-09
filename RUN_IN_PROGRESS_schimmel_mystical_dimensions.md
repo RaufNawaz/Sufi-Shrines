@@ -1,19 +1,16 @@
-# RUN COMPLETE — notes stage
+# RUN COMPLETE — schimmel_mystical_dimensions_of_islam PASS 2
 
-Stage: notes (Pass 1)
-Book: schimmel_mystical_dimensions_of_islam (prio 119, 543 pp, 29 chunks)
-Session: session_01AHPez3Uqt4xLhYFRdV7hMQ
-Claimed: 2026-09-24T12:46:44Z   Finished: 2026-09-24T13:56Z
+Session `session_01NLVG7SDAwbBpH2QA4QKRav`, 2026-09-26T21:08Z–22:0xZ. Stage: **notes (Pass 2)**.
 
-STATUS: COMPLETE
+Claimed 21:08:18Z via `notes_claim.py`, before the protocol or a single extract was read.
 
-12 of 29 chunks noted: 001-006, 019, 020-024. 616,916 bytes.
-Written to BOTH entries/book_takeaways/schimmel_mystical_dimensions_of_islam/
-and out/ocr/schimmel_mystical_dimensions_of_islam/chunks/ — 24/24 md5-identical.
-check_note_ids.py exit 0 · folio-guard exit 0 · notes-status 12 present / 17 missing.
-HANDOVER §9.235 appended (16777 -> 16992 lines).
-Run record: shrines/47_Cloud_OCR_Run_2026-09-24_schimmel_mystical_dimensions_PASS1.md
+Consolidated 29 chunk notes (1,371,157 B) into
+`entries/book_takeaways/schimmel_mystical_dimensions_of_islam.md` — **3,916 lines / 507,414 B**,
+md5 `3af6f708ca2636d965b085e086912a2d`, identical in the container and on the Mac.
+`check_note_ids.py` exit 0 (99 distinct archive ids at a bullet head, 0 backticked near-misses);
+`folio-guard` exit 0. Marked `summarized`. `Reviewed: no.` is in the header.
 
-STILL MISSING: chunks 007-018 and 025-029.
-LEFTOVER TO DELETE BY HAND: docs/_APPEND_9235.md (unlink is blocked on this mount).
-NOT COMMITTED TO GIT — `git add -A && git commit` is Rauf's.
+Three workers split by OUTPUT section (§9.233's proved shape), one message, none touched the bridge.
+
+**A sibling transcription firing (`01LNbBNL6krhzMT1YcFy6oaL`) was live on tahqiqat_chishti 481-540
+throughout.** Its leases were verified intact after this run's `queue.py mark`.

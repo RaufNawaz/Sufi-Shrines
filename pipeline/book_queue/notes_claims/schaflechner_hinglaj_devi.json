@@ -1,8 +1,10 @@
 {
-  "claimed_at": "2026-09-23T11:39:32Z",
-  "expires_at": "2026-09-23T13:09:32Z",
-  "note": "Pass 2 wave 4 \u2014 assembling and writing back [renewing own claim; previous holder session_01FrYV2YkwVWReuKExH3A6T6]",
-  "session": "session_01FrYV2YkwVWReuKExH3A6T6",
+  "claimed_at": "2026-10-07T03:32:05Z",
+  "expires_at": "2026-10-07T05:02:05Z",
+  "note": "province sweep (ruling c) batch 2, \u00a79.259 [taking over a released or expired claim; previous holder session_01FrYV2YkwVWReuKExH3A6T6]",
+  "released_at": "2026-10-07T03:46:29Z",
+  "released_by": "session_01MxFeh8Mfq3monHHT1ERpWe",
+  "session": "session_01MxFeh8Mfq3monHHT1ERpWe",
   "slug": "schaflechner_hinglaj_devi",
-  "status": "active"
+  "status": "released"
 }

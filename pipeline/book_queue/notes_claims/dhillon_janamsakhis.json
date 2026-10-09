@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-09-29T20:00:51Z",
+  "expires_at": "2026-09-29T21:30:51Z",
+  "note": "PASS 2 (interactive) [renewing own claim; previous holder session_012pf4pkZbJfu7V69aqUgksB]",
+  "released_at": "2026-09-29T20:06:52Z",
+  "released_by": "session_012pf4pkZbJfu7V69aqUgksB",
+  "session": "session_012pf4pkZbJfu7V69aqUgksB",
+  "slug": "dhillon_janamsakhis",
+  "status": "released"
+}

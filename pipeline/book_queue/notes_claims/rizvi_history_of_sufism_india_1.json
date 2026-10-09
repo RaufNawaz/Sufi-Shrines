@@ -1,8 +1,10 @@
 {
-  "claimed_at": "2026-09-23T11:39:32Z",
-  "expires_at": "2026-09-23T13:09:32Z",
-  "note": "Pass 2 wave 4 \u2014 assembling and writing back [renewing own claim; previous holder session_01FrYV2YkwVWReuKExH3A6T6]",
-  "session": "session_01FrYV2YkwVWReuKExH3A6T6",
+  "claimed_at": "2026-10-05T13:49:31Z",
+  "expires_at": "2026-10-05T15:19:31Z",
+  "note": "province sweep (ruling c), \u00a79.257 [taking over a released or expired claim; previous holder session_01FrYV2YkwVWReuKExH3A6T6]",
+  "released_at": "2026-10-05T14:10:36Z",
+  "released_by": "session_013fu7ixkPpX9Xs8e4t9PjcS",
+  "session": "session_013fu7ixkPpX9Xs8e4t9PjcS",
   "slug": "rizvi_history_of_sufism_india_1",
-  "status": "active"
+  "status": "released"
 }

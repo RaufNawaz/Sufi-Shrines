@@ -1,8 +1,10 @@
 {
-  "claimed_at": "2026-09-22T04:06:47Z",
-  "expires_at": "2026-09-22T05:36:47Z",
-  "note": "0/16 notes [taking over a released or expired claim; previous holder session_017QDj8KLJg3TTwtvKhfJ8Yb]",
-  "session": "session_011N2JGS5DptQ3Yycakpsf7k",
+  "claimed_at": "2026-10-05T13:49:31Z",
+  "expires_at": "2026-10-05T15:19:31Z",
+  "note": "province sweep (ruling c), \u00a79.257 [taking over a released or expired claim; previous holder session_011N2JGS5DptQ3Yycakpsf7k]",
+  "released_at": "2026-10-05T14:10:36Z",
+  "released_by": "session_013fu7ixkPpX9Xs8e4t9PjcS",
+  "session": "session_013fu7ixkPpX9Xs8e4t9PjcS",
   "slug": "schimmel_as_through_a_veil",
-  "status": "active"
+  "status": "released"
 }

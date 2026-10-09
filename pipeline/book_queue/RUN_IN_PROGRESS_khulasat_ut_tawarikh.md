@@ -33,3 +33,5 @@ deviation over pp. 49-362. So 363 -> 226 and 410 -> 179, and **the hundreds digi
 §9.222 found the hundreds digit wrong on fourteen of sixty-six pages. Workers are briefed to
 calibrate the hundreds glyph against the folio's own units digit in the same image, and every
 folio in this batch is verified by the coordinator against the `_ft` crop.
+
+finished: superseded — this 22 Sep run produced no pages; 363-404 were transcribed 4 Oct 2026, §9.251.

@@ -219,6 +219,14 @@ here rather than resolved, because the decision is Rauf's (CLAUDE.md RULE 5).
 - **Scope caveat:** the site is in the Deccan, and the archive's 169 rows are all in Pakistan. Whether
   it is within scope at all is a question for Rauf.
 
+## Province-level material
+
+*Swept from the raw chunk (`chunk_001`, the vision-route Urdu transcription, pp. 1–16) under ruling (c), searching the Urdu forms پنجاب، سندھ، سند، بلوچستان، سرحد، کشمیر، صوبہ/صوبه and the adjectives پنجابی، سندھی، بلوچستانی، کشمیری. Folio = printed page number where the transcription records one. Every bullet is province-level: weigh accordingly.*
+
+This book contains no province-level material for any Pakistani province: it does not name پنجاب، سندھ، بلوچستان، the Frontier Province or کشمیر anywhere, and its only region-level word is دکن, the Deccan, which is outside Pakistan and not a province key.
+
+*Sweep notes:* Hit counts in `chunk_001`: پنجاب 0; پنجابی 0; سندھ 0; سندھی 0; bare سند 0 as a word — the single سند string is inside "پسند" ("محبت مادری نے اس بات کو پسند کیا", p. 6, folio 6); بلوچستان 0; سرحد 0; کشمیر 0; کشمیری 0; صوبہ/صوبه 0. Region word not swept: "دکن" (pp. 1, 5, 7, 8, 16 — e.g. "ورنگل (دکن)", "بغداد سے دکن میں تشریف لائے"), outside Pakistan, no row. Town-level only, excluded: the nisba "ملتانی" for the Qazi of موضع عرس — "قاضی صاحبؒ ملتانی ہیں یا شامی اس میں مورخین کا اختلاف ہے", with محبوب ذو المنن giving "ملتانی" and حیاتِ معشوقیہ "شامی" (p. 9, folio 9; p. 10, folio not stated); this is a person's nisba from one town, and the book leaves it disputed. No digits or names flagged in this sweep.
+
 ## Cross-cutting material
 
 - **The compiler's method, in his own words.** Sources: "اس مختصر و جامع سوانح مبارک کا ماخذ محبوب ذو
