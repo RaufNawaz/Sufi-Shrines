@@ -180,6 +180,7 @@ export const UI_TEXT_UR: UiStrings = {
   /* ── Command palette (⌘K search) — drafts, not reviewed by a fluent
        speaker ─────────────────────────────────────────────────────────────── */
   paletteTitle: 'آرکائیو میں تلاش',
+  paletteCancel: 'منسوخ',
   paletteOpen: 'تلاش اور چھانٹ',
   filtersLabel: 'چھانٹ',
   paletteHintMove: 'حرکت کے لیے',

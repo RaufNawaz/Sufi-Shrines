@@ -24,7 +24,7 @@ import { ShrinePreview } from './ShrinePreview';
 import { ZiyaratPrintPack } from './ZiyaratPrintPack';
 import { buildSharedListUrl } from '../../lib/sharedList';
 import { useShareLink } from '../../hooks/useShareLink';
-import { dirAttr, usesEasternNumerals } from '../../lib/i18n/languages';
+import { dirAttr, isRtlLang, usesEasternNumerals } from '../../lib/i18n/languages';
 import { CommandPalette } from './CommandPalette';
 import { ShrineFilters } from './ShrineFilters';
 import { SettingsMenu } from '../ui/SettingsMenu';
@@ -456,7 +456,9 @@ export function MapSidebar({
             {hasActiveFilter && (
               <span className="filter-active-dot" aria-label={t('ariaFiltersActive')} />
             )}
-            {directoryMode === 'spotlight' && !isMobile && (
+            {/* English view only: a key name is Latin, and a keyboard
+                convenience is not worth an entry in the Urdu leak budget. */}
+            {directoryMode === 'spotlight' && !isMobile && !isRtlLang(lang) && (
               <span className="palette-kbd palette-trigger-shortcut" aria-hidden="true">
                 {isMac ? '⌘K' : 'Ctrl K'}
               </span>

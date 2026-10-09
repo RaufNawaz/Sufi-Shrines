@@ -169,6 +169,7 @@ const UI_TEXT_EN = {
   settingsMosquesToggle: 'Show nearby mosques on an entry',
   /* ── Command palette (⌘K search) ─────────────────────────────────────── */
   paletteTitle: 'Search the archive',
+  paletteCancel: 'Cancel',
   paletteOpen: 'Search and filter',
   filtersLabel: 'Filters',
   paletteHintMove: 'to move',

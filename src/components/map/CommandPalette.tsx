@@ -11,6 +11,8 @@ import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { ShrineFilters, type ShrineFiltersProps } from './ShrineFilters';
 
 import { isRtlLang } from '../../lib/i18n/languages';
+import { publicLocation } from '../../lib/data/publicLocation';
+import { hasProjectAccess } from '../../lib/projectAccess';
 /**
  * Search the archive from the middle of the screen.
  *
@@ -72,6 +74,7 @@ export function CommandPalette({
   categoryCounts,
 }: CommandPaletteProps) {
   const { lang, t, fmtNum } = useLang();
+  const teamView = hasProjectAccess();
   const isRtl = isRtlLang(lang);
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -346,8 +349,13 @@ export function CommandPalette({
             onClick={onClose}
             aria-label={t('paletteClose')}
           >
-            <span className="palette-kbd" aria-hidden="true">
+            {/* The key on a keyboard; the word on a touch screen, where there
+                is no Escape to press — the iOS search idiom. */}
+            <span className="palette-kbd palette-close-key" aria-hidden="true">
               esc
+            </span>
+            <span className="palette-close-word" aria-hidden="true">
+              {t('paletteCancel')}
             </span>
           </button>
         </div>
@@ -473,12 +481,18 @@ export function CommandPalette({
                             <bdi>{name}</bdi>
                           </span>
                           {shrine.location && (
-                            /* The Location column as recorded — English on many
-                               rows, hence data-latin (RULE 2, and the no-leak
-                               guard counts it as declared debt rather than a
-                               silent leak). */
+                            /* The Location column — as recorded for the team, a
+                               place name for the public (`publicLocation`, the
+                               rule /place's rows follow): a row is a place, not
+                               the survey paragraph some cells hold. English on
+                               many rows, hence data-latin (RULE 2, and the
+                               no-leak guard counts it as declared debt). */
                             <span className="palette-result-meta" data-latin>
-                              <bdi>{shrine.location}</bdi>
+                              <bdi>
+                                {teamView
+                                  ? shrine.location
+                                  : publicLocation(shrine.location, shrine, lang)}
+                              </bdi>
                             </span>
                           )}
                         </span>

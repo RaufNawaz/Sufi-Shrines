@@ -818,3 +818,135 @@
 .archive-search-dot--day {
   background-color: var(--color-accent);
 }
+
+/* ── The Apple pass (9 October 2026, afternoon) ──────────────────────────────
+   Rauf, on a screenshot of this panel: "this needs to be made more apple grade
+   as well". What changed, and why each:
+
+   - A solid sheet rather than glass. The sticky tradition heading had to carry
+     its own blur to keep rows from reading through it, and a second layer of
+     the same translucent material over the first painted a lighter band across
+     the panel. On a solid sheet the heading is the sheet.
+   - The tradition chips are one scrolling row of borderless grey pills at every
+     width, the chosen one cobalt — two wrapped rows of outlined pills took a
+     fifth of the panel from the results.
+   - The chosen row is a tinted rounded fill rather than a 3px leading bar;
+     hover stays grey, so the keyboard's "here" still survives a hover elsewhere.
+   - Under a tradition heading the row's own tradition dot repeats the heading,
+     so it goes; in a flat search result it stays, as the only mark of tradition.
+   - On a touch screen the keyboard hints go, and Escape becomes the word
+     Cancel. */
+.palette,
+.palette-group {
+  background: var(--color-bg-surface);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.palette-cats {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-block-end: 0;
+  padding-block: var(--space-1) var(--space-3);
+}
+
+.palette-cats::-webkit-scrollbar {
+  display: none;
+}
+
+.palette-cats .palette-cat {
+  flex: none;
+  border: 0;
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.palette-cats .palette-cat:hover {
+  color: var(--color-text);
+}
+
+.palette-cats .palette-cat.active {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.palette-cat-count {
+  opacity: 1;
+  color: inherit;
+}
+
+.palette-filters-btn {
+  border-color: transparent;
+}
+
+.palette-result {
+  border-radius: 10px;
+}
+
+.palette-result.active {
+  background: var(--color-primary-bg);
+  box-shadow: none;
+}
+
+[dir='rtl'] .palette-result.active {
+  box-shadow: none;
+}
+
+.palette-result:hover:not(.active) {
+  background: var(--color-bg-alt);
+}
+
+.palette-result-img,
+.palette-result-placeholder {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+}
+
+.palette-group ~ .palette-result .palette-result-dot {
+  display: none;
+}
+
+.palette-group {
+  padding-inline: var(--space-3);
+}
+
+.palette-footer {
+  background: none;
+}
+
+.palette-close-word {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .palette-footer {
+    display: none;
+  }
+
+  .palette-close-key {
+    display: none;
+  }
+
+  .palette-close-word {
+    display: inline;
+    color: var(--color-primary);
+    font-size: var(--text-base);
+  }
+
+  .palette-close {
+    min-height: 44px;
+    padding-inline: var(--space-2);
+  }
+
+  .palette-cats .palette-cat,
+  .palette-filters-btn {
+    min-height: 44px;
+  }
+}
+
+[dir='rtl'] .palette-close-word {
+  font-family: var(--font-urdu);
+}
