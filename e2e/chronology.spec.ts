@@ -16,6 +16,9 @@ const EASTERN = /[۰-۹]/;
 
 test.describe('the chronology', () => {
   test('plots the archive and counts what it cannot plot', async ({ page }) => {
+    /* "Not on the timeline" moved behind the team gate on 8 October 2026; the
+       public page keeps the counts and the timeline, the team keeps the list. */
+    await page.addInitScript(() => window.localStorage.setItem('shrines_team_access', '1'));
     await page.goto('/chronology');
     await page.locator('h1.entity-title').waitFor();
     await page.locator('.chronology-mark').first().waitFor();

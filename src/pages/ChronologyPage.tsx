@@ -12,6 +12,7 @@ import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { isRtlLang } from '../lib/i18n/languages';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
+import { hasProjectAccess } from '../lib/projectAccess';
 import { YEAR_PRECISION_LABEL_KEYS } from '../lib/data/yearPrecision';
 import {
   buildChronology,
@@ -225,30 +226,38 @@ export default function ChronologyPage() {
               <p className="chronology-lede">{t('chronologyRangeNote')}</p>
             </section>
 
-            <section className="chronology-undated" aria-labelledby="chronology-undated-heading">
-              <h2 className="section-heading" id="chronology-undated-heading">
-                {t('chronologyUndatedHeading')}
-              </h2>
-              <p className="chronology-lede">{t('chronologyUndatedIntro')}</p>
-              <p className="chronology-undated-reasons">
-                <span>
-                  {fmtNum(chronology.undated.byReason['no-year'])} · {t('chronologyNoYear')}
-                </span>
-                <span>
-                  {fmtNum(chronology.undated.byReason.unknown)} · {t('chronologyUnknownYear')}
-                </span>
-                <span>
-                  {fmtNum(chronology.undated.byReason.qualified)} · {t('chronologyQualified')}
-                </span>
-              </p>
-              <ul className="chronology-undated-list">
-                {chronology.undated.shrines.map((shrine) => (
-                  <li key={shrine.slug}>
-                    <Link to={`/shrine/${shrine.slug}`}>{localizeShrineName(shrine, lang)}</Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
+            {/* Team view only since 8 October 2026 (Rauf): the public reads the
+                timeline, and the account of what is not on it stays with the
+                team, like the self-accounts on /about (CLAUDE.md, "Public view
+                and team view"). The data is untouched: the counts above still
+                say how many places have no bar, and every undated place keeps
+                its entry. */}
+            {hasProjectAccess() && (
+              <section className="chronology-undated" aria-labelledby="chronology-undated-heading">
+                <h2 className="section-heading" id="chronology-undated-heading">
+                  {t('chronologyUndatedHeading')}
+                </h2>
+                <p className="chronology-lede">{t('chronologyUndatedIntro')}</p>
+                <p className="chronology-undated-reasons">
+                  <span>
+                    {fmtNum(chronology.undated.byReason['no-year'])} · {t('chronologyNoYear')}
+                  </span>
+                  <span>
+                    {fmtNum(chronology.undated.byReason.unknown)} · {t('chronologyUnknownYear')}
+                  </span>
+                  <span>
+                    {fmtNum(chronology.undated.byReason.qualified)} · {t('chronologyQualified')}
+                  </span>
+                </p>
+                <ul className="chronology-undated-list">
+                  {chronology.undated.shrines.map((shrine) => (
+                    <li key={shrine.slug}>
+                      <Link to={`/shrine/${shrine.slug}`}>{localizeShrineName(shrine, lang)}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </>
         ) : null}
 
