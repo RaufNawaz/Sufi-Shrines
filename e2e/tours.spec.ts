@@ -196,7 +196,9 @@ test.describe('Guided tours on the map — Phase 3 (shareable & resumable)', () 
     // the sync effect only runs once shrine data has loaded.
     await expect(page).toHaveURL(new RegExp(`tour=${TEMPLES.id}`));
 
-    await page.getByRole('button', { name: UI_TEXT.en.share }).click();
+    // Exact: the shared-ground lens is a map control since 8 October 2026 and
+    // its accessible name, "Shared ground", contains this one.
+    await page.getByRole('button', { name: UI_TEXT.en.share, exact: true }).click();
     const copied = await page.evaluate(() => navigator.clipboard.readText());
     expect(copied).toContain(`tour=${TEMPLES.id}`);
   });

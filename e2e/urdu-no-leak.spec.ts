@@ -439,7 +439,14 @@ const BUDGET: Record<string, number> = {
      an untranslated sentence. (The order pages got the other answer to that
      same question on the same day: there the passage IS the page's account, so
      it is quoted from the Urdu article instead. HANDOVER §9.128.) */
-  'saint:lineage-only': 12,
+  /* 12 → 13, 9 October 2026. The merge that made him one figure (HANDOVER
+     §9.271) moved the sheet's honorific, "Hazrat Sufi Peer Syed Gohar Ali
+     Shah", into his altNames, where it is declared as a recorded name. The
+     thirteen, measured with the walker below: the language toggle, two titles,
+     his birthplace twice, three recorded names, three lineage quotations and
+     the BibTeX block; `undeclared` empty. His prose figure type is not among
+     them — it is translated now (FIGURE_TYPES). */
+  'saint:lineage-only': 13,
   /* 102 → 6 on 12 September 2026. The public /about is six sections; the
      ninety-odd runs were the team-only coverage and source ledgers, which
      now render behind `?team=1` and are not on the page this measures.
@@ -551,6 +558,10 @@ const ROUTES = [
      is a citable location, which i18n rule 7 puts on the same footing as a
      bibliography entry, and it must stay declared rather than paraphrased. */
   {
+    /* Lineage-only when this route was chosen; a sheet figure since the
+       8 October 2026 import gave him a shrine, and his prose `figure_type`
+       cell is what a saint page shows "as recorded" — the shape this route now
+       exercises. Kept, name and all, so the budget's history reads. */
     name: 'saint:lineage-only',
     path: '/saint/shah-gohar-peer?lang=ur',
     ready: 'h1.entity-title',

@@ -23,6 +23,9 @@ const LAHORE_MIN_SITES = 20;
 
 test.describe('places', () => {
   test('the places index links to a place page', async ({ page }) => {
+    // The index is part of /about's measured self-account, team-only since
+    // 11 September 2026 (CLAUDE.md, public and team view).
+    await page.addInitScript(() => window.localStorage.setItem('shrines_team_access', '1'));
     await page.goto('/about');
     await page.locator('h1.entity-title').waitFor();
 
@@ -89,6 +92,7 @@ test.describe('places', () => {
   });
 
   test('[ur] the place page and the route to it are Urdu', async ({ page }) => {
+    await page.addInitScript(() => window.localStorage.setItem('shrines_team_access', '1'));
     await page.goto('/about?lang=ur');
     await page.locator('h1.entity-title').waitFor();
 

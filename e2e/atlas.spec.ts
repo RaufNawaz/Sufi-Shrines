@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, SHRINE_COUNT } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 
 // The Atlas of Built Forms (/typology, blue-sky N7) and the infobox row that
@@ -16,9 +16,11 @@ test.describe('Atlas of Built Forms', () => {
     await expect(first).toContainText('Temple');
     await expect(first.locator('.typology-group-count')).toContainText('38');
 
-    // The two survey-prose forms are kept as prose, not forced into the
-    // vocabulary; the one blank row gets an explicit "not recorded" group.
-    await expect(page.locator('.typology-group-prose')).toHaveCount(2);
+    // A survey-prose form, where one exists, is kept as prose and not forced
+    // into the vocabulary; the one blank row gets an explicit "not recorded"
+    // group. The prose count is not asserted: it read 2 until the 8 October
+    // 2026 import left the fixture with none, and a count is a claim that
+    // goes stale.
     await expect(
       page.locator('.typology-group-heading', { hasText: UI_TEXT.en.typologyNotRecorded }),
     ).toHaveCount(1);
@@ -26,7 +28,7 @@ test.describe('Atlas of Built Forms', () => {
     // Every shrine lands somewhere: the group counts sum to the dataset.
     const counts = await page.locator('.typology-group-count').allTextContents();
     const total = counts.reduce((n, c) => n + Number(c.replace(/\D/g, '')), 0);
-    expect(total).toBe(169);
+    expect(total).toBe(SHRINE_COUNT);
   });
 
   test('a card navigates to the shrine page', async ({ page }) => {

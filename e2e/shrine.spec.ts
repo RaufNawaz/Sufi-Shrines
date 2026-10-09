@@ -189,9 +189,11 @@ test.describe('A site held by two figures reaches both of them', () => {
     await expect(figureLink).toContainText('Bibi Jawindi');
     await expect(figureLink).not.toContainText('Jalaluddin');
 
-    /* The sheet's own wording still has to be on the page somewhere (RULE 2),
-       and the infobox is where it lives. */
-    await expect(page.locator('.shrine-infobox')).toContainText('Jalaluddin Surkh-Posh Bukhari');
+    /* The infobox used to be asserted to carry "Jalaluddin Surkh-Posh Bukhari"
+       — the sheet's own wording, which RULE 2 keeps on the page. The 8 October
+       2026 import corrected the cell to name Bibi Jawindi herself (HANDOVER
+       §9.270), so the sheet no longer says it anywhere, and the guard above —
+       one link, to her page, labelled with her name — is what remains. */
   });
 
   test('an ordinary single-figure row still renders exactly one link', async ({ page }) => {

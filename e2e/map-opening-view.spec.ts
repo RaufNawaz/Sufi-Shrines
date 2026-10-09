@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test';
-import { test, expect, MAPPED_SHRINE_COUNT } from './fixtures';
+import { test, expect, MAPPED_SHRINE_COUNT, settle } from './fixtures';
 
 /**
  * On a phone, the map must open showing the archive — not a third of it.
@@ -129,6 +129,11 @@ test.describe('the opening view fits the archive on a phone', () => {
     await expect(page.locator('.leaflet-marker-icon[aria-pressed="true"]')).toHaveCount(1, {
       timeout: 15_000,
     });
+    /* Measured after the camera has settled, not mid-flight. The count sat at
+       exactly half the mapped archive — 84 of 168 since the 8 October 2026
+       import, 84 of 170 before it — which is the flyTo caught part-way, and
+       the threshold below is "fewer than half". */
+    await settle(page);
 
     const onScreen = await page.evaluate(() => {
       const vw = window.innerWidth;
