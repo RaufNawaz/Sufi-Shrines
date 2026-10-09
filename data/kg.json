@@ -9023,7 +9023,7 @@
       "object": "saint:shah-inayat-qadiri",
       "confidence": 0.95,
       "method": "human",
-      "source": "shrine_entries/Bulleh Shah (Kasur).md",
+      "source": "shrine_entries/mazar-of-bulleh-shah.md",
       "quote": "became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line"
     },
     {
@@ -9032,7 +9032,7 @@
       "object": "saint:muhammad-shamsuddin-sialvi",
       "confidence": 0.95,
       "method": "human",
-      "source": "shrine_entries/Golra Sharif (Pir Meher Ali Shah).md",
+      "source": "shrine_entries/golra-sharif.md",
       "quote": "he was initiated in the Chishti order, taking spiritual allegiance in the line of Khwaja Shamsuddin Sialvi of Sial Sharif"
     },
     {
@@ -9041,7 +9041,7 @@
       "object": "saint:pir-sher-muhammad",
       "confidence": 0.7,
       "method": "human",
-      "source": "shrine_entries/Abul Faiz Qalandari.md",
+      "source": "shrine_entries/abul-faiz-qalander-ali-suharwardi.md",
       "quote": "He also received knowledge from Pir Mian Sher Muhammad of Sharaqpur"
     },
     {
@@ -9050,7 +9050,7 @@
       "object": "saint:pir-meher-ali-shah",
       "confidence": 0.7,
       "method": "human",
-      "source": "shrine_entries/Abul Faiz Qalandari.md",
+      "source": "shrine_entries/abul-faiz-qalander-ali-suharwardi.md",
       "quote": "and drew great light from Hazrat Pir Meher Ali Shah of Golra Sharif"
     },
     {
@@ -9059,7 +9059,7 @@
       "object": "saint:bahauddin-zakariya",
       "confidence": 0.95,
       "method": "human",
-      "source": "shrine_entries/Shah Rukn-e-Alam (Multan).md",
+      "source": "shrine_entries/shrine-of-shah-rukn-e-alam.md",
       "quote": "was the grandson and spiritual heir of Bahauddin Zakariya"
     },
     {
@@ -9068,7 +9068,7 @@
       "object": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
       "confidence": 0.7,
       "method": "human",
-      "source": "shrine_entries/Sial Sharif (Shamsuddin Sialvi).md",
+      "source": "shrine_entries/sial-sharif.md",
       "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi, rising to be among the foremost Chishti shaykhs of his age"
     },
     {

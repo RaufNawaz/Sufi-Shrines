@@ -45,7 +45,7 @@
       "confidence": 0.95,
       "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
       "quote": "he is remembered as a disciple of the Sufi master Bahlol (Bahlol Daryai) and as a devoted frequenter of the shrine of Data Ganj Bakhsh",
-      "notes": "shrine_entries/Madho Lal Hussain.md adds an editorial note: \"His pir is given as Bahlol (Bahlol Daryai) in the Shafqat Tanvir Mirza study; confirm spelling.\""
+      "notes": "shrine_entries/madho-lal-hussain.md adds an editorial note: \"His pir is given as Bahlol (Bahlol Daryai) in the Shafqat Tanvir Mirza study; confirm spelling.\""
     },
     {
       "subjectSlug": "mian-mir",
@@ -238,7 +238,7 @@
       "confidence": 0.95,
       "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
       "quote": "travelling to Baghdad to enter the discipleship of Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi, the great systematiser of the Suhrawardi order",
-      "notes": "Also in shrine_entries/Bahauddin Zakariya (Multan).md, same wording."
+      "notes": "Also in shrine_entries/shrine-of-bahauddin-zakariya.md, same wording."
     },
     {
       "subjectSlug": "bahauddin-zakariya",
@@ -276,7 +276,7 @@
       "confidence": 0.95,
       "source": "entries/web-research-2026-08/tomb-of-bahaal-halim-uch-sharif.md",
       "quote": "the first is said to have been built for Baha' al-Halim by his pupil, the Suharwardiya Sufi saint Jahaniyan Jahangasht (1307-1383 AD)",
-      "notes": "Quoted in the research file from the UNESCO tentative-list nomination for the Uch monuments. The published corpus row (tomb-of-bahaal-halim-uch-sharif) says only that the tomb was \"raised in his honour by\" Jahangasht and omits \"his pupil\" — so this relation is currently in the research file but not in the live description. shrine_entries/Bibi Jawindi (Uch Sharif).md separately calls Baha al-Halim \"a teacher of the line\". Connects two shrines in the archive."
+      "notes": "Quoted in the research file from the UNESCO tentative-list nomination for the Uch monuments. The published corpus row (tomb-of-bahaal-halim-uch-sharif) says only that the tomb was \"raised in his honour by\" Jahangasht and omits \"his pupil\" — so this relation is currently in the research file but not in the live description. shrine_entries/tomb-of-javindi-bibi.md separately calls Baha al-Halim \"a teacher of the line\". Connects two shrines in the archive."
     },
     {
       "subjectSlug": "fariduddin-ganjshakar",
@@ -580,7 +580,7 @@
       "confidence": 0.95,
       "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi",
       "quote": "took the oath of allegiance (bai‘at) at his hand, becoming counted among his special pupils",
-      "notes": "The object is named in the same sentence: \"He presented himself before Ala Hazrat Ahmad Raza Khan of Bareilly\". Also in shrine_entries/Abul Faiz Qalandari.md and its field-survey note (\"bai'at with Ahmad Raza Khan\")."
+      "notes": "The object is named in the same sentence: \"He presented himself before Ala Hazrat Ahmad Raza Khan of Bareilly\". Also in shrine_entries/abul-faiz-qalander-ali-suharwardi.md and its field-survey note (\"bai'at with Ahmad Raza Khan\")."
     },
     {
       "subjectSlug": "abul-faiz-qalander-ali-suharwardi",

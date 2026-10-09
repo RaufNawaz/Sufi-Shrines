@@ -1262,12 +1262,12 @@
   },
   {
    "candidate": "chishtiyya for rahman-baba (already in existing-saint-orders.json)",
-   "reason": "Unsupported by these sources: neither the rahman-baba-mausoleum-rehman-baba-shrine row nor shrine_entries/Rahman Baba (Peshawar).md contains any order name. Reported, not altered.",
+   "reason": "Unsupported by these sources: neither the rahman-baba-mausoleum-rehman-baba-shrine row nor shrine_entries/rahman-baba-mausoleum-rehman-baba-shrine.md contains any order name. Reported, not altered.",
    "source": "data/shrines.csv#rahman-baba-mausoleum-rehman-baba-shrine"
   },
   {
    "candidate": "qadiriyya for sachal-sarmast (already in existing-saint-orders.json)",
-   "reason": "Unsupported by these sources: the shrine-of-sachal-sarmast row contains no order name (his initiation is given as by his uncle Khwaja Abdul Haq), and shrine_entries/Sachal Sarmast (Daraza, Khairpur).md has none either. Reported, not altered.",
+   "reason": "Unsupported by these sources: the shrine-of-sachal-sarmast row contains no order name (his initiation is given as by his uncle Khwaja Abdul Haq), and shrine_entries/shrine-of-sachal-sarmast.md has none either. Reported, not altered.",
    "source": "data/shrines.csv#shrine-of-sachal-sarmast"
   },
   {

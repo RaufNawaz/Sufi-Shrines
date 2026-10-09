@@ -7,51 +7,51 @@ English translation where the saint was a poet.
 
 ## Tier 1 — from dedicated OCR'd books + your field survey (the fullest, ~2,000–3,900 words)
 
-- Mazar-e-Iqbal.md (Allama Iqbal — tomb; incl. 8 couplets)
-- Mian Mir.md
-- Bibi Pak Daman (Lahore).md
-- Madho Lal Hussain.md (Shah Hussain — with Punjabi kafis)
-- Data Darbar.md (Data Ganj Bakhsh / Ali Hujwiri)
-- Abul Faiz Qalandari.md
-- Ganj-e-Inayat Sarkar.md
+- mazar-e-iqbal.md (Allama Iqbal — tomb; incl. 8 couplets)
+- shrine-of-mian-mir.md
+- bibi-pak-daman.md
+- madho-lal-hussain.md (Shah Hussain — with Punjabi kafis)
+- data-darbar.md (Data Ganj Bakhsh / Ali Hujwiri)
+- abul-faiz-qalander-ali-suharwardi.md
+- ganj-e-inayat-sarkar.md
 
 ## Tier 2 — from the Tazkirah Awliya-e-Pakistan compendium + established history (~380–980 words)
 
 Punjab (Chishti/Qadiri/Suhrawardi + poet-saints):
 
-- Baba Farid (Pakpattan).md (verse)
-- Bahauddin Zakariya (Multan).md
-- Shah Rukn-e-Alam (Multan).md
-- Shah Shams Sabzwari (Multan).md
-- Shah Yusuf Gardez (Multan).md
-- Syed Musa Pak (Multan).md
-- Bulleh Shah (Kasur).md (verse)
-- Waris Shah (Jandiala Sher Khan).md (verse)
-- Sultan Bahu (Garh Maharaja).md (verse)
-- Khwaja Ghulam Farid (Mithankot).md (verse)
-- Golra Sharif (Pir Meher Ali Shah).md
-- Sharaqpur (Pir Sher Muhammad).md
-- Taunsa Sharif (Sulaiman Taunsvi).md
-- Sial Sharif (Shamsuddin Sialvi).md
-- Sakhi Sarwar (Dera Ghazi Khan).md
-- Daud Bandagi Kirmani (Shergarh).md
-- Noushah Ganj Bakhsh (Ranmal Sharif).md
+- shrine-of-fariduddin-ganjshakar.md (verse)
+- shrine-of-bahauddin-zakariya.md
+- shrine-of-shah-rukn-e-alam.md
+- shrine-of-shah-shams-ud-din-sabzwari.md
+- shrine-of-shah-yusaf-gardez.md
+- shrine-of-syed-musa-pak.md
+- mazar-of-bulleh-shah.md (verse)
+- mausoleum-of-waris-shah.md (verse)
+- garh-maharaja-shorkot.md (verse)
+- mithankot-kot-mithan.md (verse)
+- golra-sharif.md
+- shrine-of-pir-sher-muhammad.md
+- darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.md
+- sial-sharif.md
+- sakhi-sarwar.md
+- shergarh.md
+- ranmal-sharif.md
   Uch Sharif:
-- Jalaluddin Surkh-Posh Bukhari (Uch Sharif).md
-- Makhdoom Jahaniyan Jahangasht (Uch Sharif).md
-- Bibi Jawindi (Uch Sharif).md
+- shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.md
+- shrine-of-makhdoom-jahaniyan-jahangasht.md
+- tomb-of-javindi-bibi.md
   Sindh:
-- Lal Shahbaz Qalandar (Sehwan).md (verse) — serves BOTH sheet rows: "Lal Shahbaz Qalandar" (Jamshoro) & "Sehwan Sharif"
-- Shah Abdul Latif Bhittai (Bhit Shah).md (verse)
-- Sachal Sarmast (Daraza, Khairpur).md
-- Sufi Shah Inayat Shaheed (Jhok Sharif).md
-- Abdullah Shah Ghazi (Karachi).md
-- Pir Mangho (Karachi).md
-- Qalandar Baba Auliya (Karachi).md (modern; post-dates the compendium)
+- lal-shahbaz-qalandar.md (verse) — serves BOTH sheet rows: "Lal Shahbaz Qalandar" (Jamshoro) & "Sehwan Sharif"
+- bhit-bhit-shah.md (verse)
+- shrine-of-sachal-sarmast.md
+- dargah-roza-sufi-shah-inayat-shaheed.md
+- shrine-of-abdullah-shah-ghazi.md
+- shrine-of-pir-mangho.md
+- shrine-of-qalandar-baba-auliya.md (modern; post-dates the compendium)
   Balochistan / KP / Islamabad:
-- Shah Noorani (Balochistan).md
-- Rahman Baba (Peshawar).md (Pashto poet)
-- Bari Imam (Islamabad).md
+- shah-noorani-shrine-syed-bilawal-shah-noorani.md
+- rahman-baba-mausoleum-rehman-baba-shrine.md (Pashto poet)
+- bari-imam.md
 
 ## NOT written — need dedicated/local sources (11 Muslim-shrine rows)
 

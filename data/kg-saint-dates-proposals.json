@@ -357,7 +357,7 @@
     {
      "field": "died",
      "value": "d. 1072–77, \"the standard scholarly ranges; keep as approximate\"",
-     "heldBy": "the entry’s own editorial note in shrine_entries/Data Darbar.md",
+     "heldBy": "the entry’s own editorial note in shrine_entries/data-darbar.md",
      "quote": "Dates for Hujwiri (b. c. 1009; d. 1072–77) and the arrival (c. 1039) are the standard scholarly ranges; keep as"
     }
    ],
@@ -2210,7 +2210,7 @@
     {
      "field": "born",
      "value": "b. 1538, d. 1599 given as 945–1008 AH",
-     "heldBy": "the entry’s own editorial note in shrine_entries/Madho Lal Hussain.md, which also flags the survey’s \"1600/1800 Hijri\" as garbled",
+     "heldBy": "the entry’s own editorial note in shrine_entries/madho-lal-hussain.md, which also flags the survey’s \"1600/1800 Hijri\" as garbled",
      "quote": "Dates: b. 1538, d. 1599 (945–1008 AH) are standard and match your sheet. Madho Lal outlived him and was buried beside him (mid-17th century). The survey's \"1600/1800 Hijri\" are garbled"
     }
    ],

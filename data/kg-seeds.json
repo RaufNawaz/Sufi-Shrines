@@ -384,7 +384,7 @@
       "relation": "disciple_of",
       "objectSlug": "shah-inayat-qadiri",
       "confidence": 0.95,
-      "source": "shrine_entries/Bulleh Shah (Kasur).md",
+      "source": "shrine_entries/mazar-of-bulleh-shah.md",
       "quote": "became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line"
     },
     {
@@ -392,25 +392,25 @@
       "relation": "disciple_of",
       "objectSlug": "muhammad-shamsuddin-sialvi",
       "confidence": 0.95,
-      "source": "shrine_entries/Golra Sharif (Pir Meher Ali Shah).md",
+      "source": "shrine_entries/golra-sharif.md",
       "quote": "he was initiated in the Chishti order, taking spiritual allegiance in the line of Khwaja Shamsuddin Sialvi of Sial Sharif",
-      "notes": "Corroborated independently in shrine_entries/Sial Sharif (Shamsuddin Sialvi).md."
+      "notes": "Corroborated independently in shrine_entries/sial-sharif.md."
     },
     {
       "subjectSlug": "abul-faiz-qalander-ali-suharwardi",
       "relation": "disciple_of",
       "objectSlug": "pir-sher-muhammad",
       "confidence": 0.7,
-      "source": "shrine_entries/Abul Faiz Qalandari.md",
+      "source": "shrine_entries/abul-faiz-qalander-ali-suharwardi.md",
       "quote": "He also received knowledge from Pir Mian Sher Muhammad of Sharaqpur",
-      "notes": "Corroborated independently in shrine_entries/Sharaqpur (Pir Sher Muhammad).md. Confidence lowered — worded as receiving \"knowledge from\" rather than a formal bai'at."
+      "notes": "Corroborated independently in shrine_entries/shrine-of-pir-sher-muhammad.md. Confidence lowered — worded as receiving \"knowledge from\" rather than a formal bai'at."
     },
     {
       "subjectSlug": "abul-faiz-qalander-ali-suharwardi",
       "relation": "disciple_of",
       "objectSlug": "pir-meher-ali-shah",
       "confidence": 0.7,
-      "source": "shrine_entries/Abul Faiz Qalandari.md",
+      "source": "shrine_entries/abul-faiz-qalander-ali-suharwardi.md",
       "quote": "and drew great light from Hazrat Pir Meher Ali Shah of Golra Sharif",
       "notes": "Confidence lowered — figurative \"drew great light from\" phrasing rather than a stated formal discipleship."
     },
@@ -419,7 +419,7 @@
       "relation": "successor_of",
       "objectSlug": "bahauddin-zakariya",
       "confidence": 0.95,
-      "source": "shrine_entries/Shah Rukn-e-Alam (Multan).md",
+      "source": "shrine_entries/shrine-of-shah-rukn-e-alam.md",
       "quote": "was the grandson and spiritual heir of Bahauddin Zakariya"
     },
     {
@@ -427,7 +427,7 @@
       "relation": "disciple_of",
       "objectSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
       "confidence": 0.7,
-      "source": "shrine_entries/Sial Sharif (Shamsuddin Sialvi).md",
+      "source": "shrine_entries/sial-sharif.md",
       "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi, rising to be among the foremost Chishti shaykhs of his age",
       "notes": "Confidence lowered — states initiation \"within the line of\" rather than a direct personal teacher-disciple claim."
     },
