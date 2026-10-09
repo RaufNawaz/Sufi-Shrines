@@ -31,6 +31,13 @@ import {
   type MotionPreference,
 } from '../lib/motionPreference';
 import type { CalendarPreference } from '../lib/calendarPreference';
+import {
+  applyLookPreference,
+  readLookPreference,
+  writeLookPreference,
+  type LookPreference,
+} from '../lib/lookPreference';
+import { hasProjectAccess, isTeamKnown, setProjectAccess } from '../lib/projectAccess';
 import type { DistanceUnits } from '../lib/unitsPreference';
 import {
   buildSavedListFile,
@@ -139,6 +146,9 @@ export default function SettingsPage() {
   const [mosquesSection, setMosquesSection] = useState<boolean>(readNearbyMosquesSection);
   const [textSize, setTextSize] = useState<TextSize>(readTextSize);
   const [motion, setMotion] = useState<MotionPreference>(readMotionPreference);
+  const [look, setLook] = useState<LookPreference>(readLookPreference);
+  const [teamView, setTeamView] = useState<boolean>(hasProjectAccess);
+  const teamKnown = isTeamKnown();
   const saved = useSavedShrines();
   const fileInputRef = useRef<HTMLInputElement>(null);
   /* One line of feedback under the buttons, because an import that silently
@@ -156,6 +166,15 @@ export default function SettingsPage() {
     setMotion(next);
     writeMotionPreference(next);
     applyMotionPreference(next, document.documentElement);
+  };
+  const chooseLook = (next: LookPreference) => {
+    setLook(next);
+    writeLookPreference(next);
+    applyLookPreference(next, document.documentElement);
+  };
+  const chooseTeamView = (on: boolean) => {
+    setTeamView(on);
+    setProjectAccess(on);
   };
 
   const exportSavedList = () => {
@@ -344,6 +363,23 @@ export default function SettingsPage() {
             />
           </SettingsGroup>
 
+          <SettingsGroup legend={t('settingsLookLabel')} help={t('settingsLookHelp')}>
+            <SettingsRadio<LookPreference>
+              name="look"
+              value="modern"
+              current={look}
+              label={t('settingsLookModern')}
+              onChoose={chooseLook}
+            />
+            <SettingsRadio<LookPreference>
+              name="look"
+              value="classic"
+              current={look}
+              label={t('settingsLookClassic')}
+              onChoose={chooseLook}
+            />
+          </SettingsGroup>
+
           <SettingsGroup legend={t('settingsThemeLabel')} help={t('settingsThemeHelp')}>
             <SettingsRadio<Theme>
               name="theme"
@@ -492,6 +528,25 @@ export default function SettingsPage() {
             </label>
           </SettingsGroup>
         </section>
+
+        {teamKnown && (
+          <section className="settings-section" aria-labelledby="settings-team">
+            <h2 id="settings-team" className="settings-section-heading">
+              {t('settingsTeamSection')}
+            </h2>
+            <SettingsGroup legend={t('settingsTeamLabel')} help={t('settingsTeamHelp')}>
+              <label className="settings-option">
+                <input
+                  type="checkbox"
+                  checked={teamView}
+                  onChange={(event) => chooseTeamView(event.target.checked)}
+                  aria-label={teamView ? t('turnOffTeamView') : t('turnOnTeamView')}
+                />
+                <span className="settings-option-label">{t('settingsTeamToggle')}</span>
+              </label>
+            </SettingsGroup>
+          </section>
+        )}
 
         <section className="settings-section" aria-labelledby="settings-saved">
           <h2 id="settings-saved" className="settings-section-heading">

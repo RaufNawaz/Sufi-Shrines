@@ -27,6 +27,7 @@ import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
 import { applyTextSize, readTextSize } from './lib/textSizePreference';
 import { applyMotionPreference, readMotionPreference } from './lib/motionPreference';
+import { applyLookPreference, readLookPreference } from './lib/lookPreference';
 import { detectInitialLang } from './lib/i18n/detectLang';
 import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
 import { ensureUrduContentForLang } from './lib/data/urduContentOverride';
@@ -54,6 +55,7 @@ applyTextSize(readTextSize(), document.documentElement);
 /* And the motion preference, for the same reason again: an animation that is
    switched off after it has started is an animation the reader saw. */
 applyMotionPreference(readMotionPreference(), document.documentElement);
+applyLookPreference(readLookPreference(), document.documentElement);
 
 initTelemetry();
 

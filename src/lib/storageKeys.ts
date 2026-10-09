@@ -31,6 +31,10 @@ export const TOUR_PROGRESS_STORAGE_KEY = 'shrines_tour_progress';
  * See motionPreference.ts for why there is no 'full'. */
 export const MOTION_STORAGE_KEY = 'shrines_motion';
 
+/** The look: 'classic' for the warm serif design the 9 October 2026 Apple pass
+ *  replaced; absent for the current one (lookPreference.ts). */
+export const LOOK_STORAGE_KEY = 'shrines_look';
+
 /** Distance units ('km' | 'mi'). See unitsPreference.ts. */
 export const UNITS_STORAGE_KEY = 'shrines_units';
 

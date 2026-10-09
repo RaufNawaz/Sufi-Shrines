@@ -1560,3 +1560,75 @@
   display: block;
   margin-bottom: var(--space-1);
 }
+
+/* ── The classic look: typography and controls ──────────────────────────────
+   Under `/settings` → Look → Classic, the serif titles and headings and the
+   bordered buttons the 9 October 2026 pass replaced. The structure is the
+   same; only the dress. */
+[data-look='classic'] .entity-title,
+[data-look='classic'] .section-heading,
+[data-look='classic'] .article-section-heading,
+[data-look='classic'] .about-section-heading,
+[data-look='classic'] .coverage-section-heading,
+[data-look='classic'] .almanac-section-heading,
+[data-look='classic'] .typology-group-heading,
+[data-look='classic'] .kg-section-heading,
+[data-look='classic'] .sg-section-heading,
+[data-look='classic'] .almanac-cal-title,
+[data-look='classic'] .almanac-cal-agenda-title,
+[data-look='classic'] .almanac-entry-name,
+[data-look='classic'] .almanac-month-heading,
+[data-look='classic'] .welcome-card-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+
+[data-look='classic'][dir='rtl'] .entity-title,
+[data-look='classic'] [dir='rtl'] .entity-title,
+[data-look='classic'] [dir='rtl'] .section-heading,
+[data-look='classic'] [dir='rtl'] .almanac-cal-title,
+[data-look='classic'] [dir='rtl'] .almanac-entry-name {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+}
+
+[data-look='classic'] .action-btn {
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+[data-look='classic'] .action-btn:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+[data-look='classic'] .action-btn--active {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+/* Negative tracking is for Latin display type. Nastaliq's glyphs join, and
+   e2e/typography.spec.ts holds every Urdu text node to `letter-spacing:
+   normal` — the 9 October 2026 pass set literal tracking on these, so they
+   collapse here the way `--tracking-tighter` collapses through its token. */
+[dir='rtl']
+  :is(
+    .section-heading,
+    .article-section-heading,
+    .about-section-heading,
+    .coverage-section-heading,
+    .almanac-section-heading,
+    .typology-group-heading,
+    .kg-section-heading,
+    .sg-section-heading,
+    .almanac-entry-name,
+    .almanac-month-heading,
+    .almanac-coverage-total,
+    .related-card-name,
+    .welcome-card-title,
+    .inset-row-title
+  ) {
+  letter-spacing: normal;
+}

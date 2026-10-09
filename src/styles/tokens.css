@@ -629,3 +629,38 @@
     --duration-slow: 0ms;
   }
 }
+
+/* ── The classic look ────────────────────────────────────────────────────────
+   `/settings` → Look → Classic (lookPreference.ts). The warm palette the
+   9 October 2026 Apple pass replaced, kept so the change is reversible from
+   the page itself. Both themes. Typography and controls follow in
+   components.css under the same attribute. */
+:root[data-look='classic'] {
+  --color-bg: #fbfbfa;
+  --color-bg-alt: #f2f2f0;
+  --color-bg-overlay: rgba(251, 251, 250, 0.95);
+  --glass-border: rgba(196, 196, 192, 0.7);
+  --glass-edge: rgba(60, 60, 58, 0.28);
+  --color-border: #d2d2ce;
+  --color-border-light: #e6e6e3;
+  --color-text: #141414;
+  --shadow-sm: 0 1px 3px rgba(26, 12, 8, 0.08), 0 1px 2px rgba(26, 12, 8, 0.06);
+  --shadow-md: 0 4px 12px rgba(26, 12, 8, 0.1), 0 2px 4px rgba(26, 12, 8, 0.06);
+  --shadow-lg: 0 8px 24px rgba(26, 12, 8, 0.12), 0 4px 8px rgba(26, 12, 8, 0.08);
+  --shadow-xl: 0 16px 40px rgba(26, 12, 8, 0.15), 0 6px 12px rgba(26, 12, 8, 0.1);
+}
+
+[data-theme='dark'][data-look='classic'] {
+  --color-bg: #151413;
+  --color-bg-alt: #1d1c1b;
+  --color-bg-surface: #262523;
+  --color-bg-overlay: rgba(21, 20, 19, 0.96);
+  --glass-bg: rgba(38, 37, 35, 0.86);
+  --glass-border: rgba(64, 62, 60, 0.8);
+  --glass-bg-strong: rgba(30, 29, 28, 0.95);
+  --color-border: #3a3936;
+  --color-border-light: #2c2b29;
+  --color-text: #f1f1ee;
+  --color-text-secondary: #c3c2bd;
+  --color-text-muted: #a5a49f;
+}

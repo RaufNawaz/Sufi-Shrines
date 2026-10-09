@@ -8,6 +8,11 @@
  * `?team=1` link (or who sets the flag directly) sees it.
  */
 const STORAGE_KEY = 'shrines_team_access';
+/** Set the first time a browser follows a `?team=1` link and never cleared:
+ *  it is what makes the team-view switch appear on /settings (9 October 2026,
+ *  Rauf asked where the switch was). The switch is not offered to a browser
+ *  that has never had the link — the gate is soft, but it is still a gate. */
+const KNOWN_KEY = 'shrines_team_known';
 
 function accessParam(): string | null {
   if (typeof window === 'undefined') return null;
@@ -32,6 +37,7 @@ export function persistAccessParamIfPresent(): void {
   if (hasAccessParam()) {
     try {
       window.localStorage.setItem(STORAGE_KEY, '1');
+      window.localStorage.setItem(KNOWN_KEY, '1');
     } catch {
       // localStorage unavailable (private browsing etc.) — the param still
       // works for this page view via hasProjectAccess() below.
@@ -53,5 +59,31 @@ export function hasProjectAccess(): boolean {
     return window.localStorage.getItem(STORAGE_KEY) === '1';
   } catch {
     return false;
+  }
+}
+
+/** Whether this browser has ever followed the team link — the condition for
+ *  showing the switch on /settings. */
+export function isTeamKnown(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return window.localStorage.getItem(KNOWN_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+/** The switch on /settings: on persists the flag, off clears it. */
+export function setProjectAccess(on: boolean): void {
+  if (typeof window === 'undefined') return;
+  try {
+    if (on) {
+      window.localStorage.setItem(STORAGE_KEY, '1');
+      window.localStorage.setItem(KNOWN_KEY, '1');
+    } else {
+      window.localStorage.removeItem(STORAGE_KEY);
+    }
+  } catch {
+    // nothing to persist to
   }
 }
