@@ -3547,3 +3547,148 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+/* ── The Atlas as a mosaic (9 October 2026, afternoon) ──────────────────────
+   The jump pills became tiles sized by their count — the largest forms take
+   two columns — each with the count as a numeral and the traditions it spans
+   as a bar; each group shows six cards and opens to the rest. The page was
+   18,000 px of cards; the composition was nowhere on it. */
+.typology-jump .typology-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: var(--space-3);
+}
+
+/* Uniform tiles, largest first. Two-column tiles for the largest forms were
+   tried and dropped: filling the holes they left needs \`grid-auto-flow:
+   dense\`, which reorders tiles against their focus order (WCAG 2.4.3). The
+   numerals carry the size. */
+.typology-tile-item {
+  display: flex;
+}
+
+.typology-jump .typology-tile {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-1);
+  block-size: 100%;
+  min-block-size: 6.5rem;
+  padding: var(--space-4);
+  border-radius: 16px;
+}
+
+.typology-tile-count {
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+.typology-tile-label {
+  flex: 1 1 auto;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .typology-tile-count {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+}
+
+[dir='rtl'] .typology-tile-label {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
+
+@media (max-width: 480px) {
+  .typology-jump .typology-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* The tradition bar, on a tile and under a group heading. */
+.typology-mix {
+  display: flex;
+  overflow: hidden;
+  block-size: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+}
+
+.typology-mix-slice {
+  display: block;
+  block-size: 100%;
+}
+
+.typology-mix-slice--muslim,
+.typology-mix-word--muslim {
+  --color-mix: var(--color-cat-muslim);
+}
+.typology-mix-slice--hindu,
+.typology-mix-word--hindu {
+  --color-mix: var(--color-cat-hindu);
+}
+.typology-mix-slice--sikh,
+.typology-mix-word--sikh {
+  --color-mix: var(--color-cat-sikh);
+}
+.typology-mix-slice--nanakpanthi,
+.typology-mix-word--nanakpanthi {
+  --color-mix: var(--color-cat-nanakpanthi);
+}
+.typology-mix-slice--jain,
+.typology-mix-word--jain {
+  --color-mix: var(--color-cat-jain);
+}
+.typology-mix-slice--secular,
+.typology-mix-word--secular {
+  --color-mix: var(--color-cat-secular);
+}
+
+.typology-mix-slice {
+  background: var(--color-mix);
+}
+
+.typology-mix-legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-inline-size: 40rem;
+  margin: 0 0 var(--space-3);
+}
+
+.typology-mix-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.typology-mix-word {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.typology-mix-dot {
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-mix);
+}
+
+[dir='rtl'] .typology-mix-words {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
+
+.typology-more {
+  margin-block-start: var(--space-4);
+}
