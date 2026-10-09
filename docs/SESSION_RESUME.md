@@ -45,10 +45,11 @@ shared-ground lens is a map control; the palette has tradition chips and grouped
 Calendar's conventions. `1.7` was fast-forwarded and pushed at the end of the session (see the
 last commits for the exact ref).
 
-**Open, asked in the chat on 8 October (late):** review or replace the four Urdu drafts; the
-two questions below still unanswered from the Windows session (Shah Gohar Peer's KG duplicate,
-the forty Descriptions); whether the chronology counts line and the almanac's "day not recorded"
-strip should also go behind the gate.
+**Open, asked in the chat on 8 October (late):** review or replace the five Urdu drafts; Shah
+Gohar Peer's KG duplicate was resolved under the recommended assumption (keep `shah-gohar-peer`,
+one `saintMergeVariants` line — say if the page title should carry the full honorific); the forty
+Descriptions, still unanswered from the Windows session; whether the chronology counts line and
+the almanac's "day not recorded" strip should also go behind the gate.
 
 ---
 
