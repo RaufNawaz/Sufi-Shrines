@@ -77,7 +77,9 @@ test.describe('Nastaliq metrics (?lang=ur)', () => {
 
   test('saint page: entity-type kicker has no letter-spacing', async ({ page }) => {
     await page.goto('/graph?lang=ur');
-    const firstSaintLink = page.locator('.graph-saints-list a').first();
+    // "Figures in this archive" is team-only since 9 October 2026; the lineage
+    // tree is public, and every disciple chip in it links to a saint page.
+    const firstSaintLink = page.locator('.graph-lineage-disciple a').first();
     await expect(firstSaintLink).toBeVisible();
     await firstSaintLink.click();
 
