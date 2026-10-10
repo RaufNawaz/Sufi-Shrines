@@ -1,76 +1,76 @@
 {
- "_comment": "Per-line decisions for build_new_rows.py on hadeeqat_ul_aulia, 10 October 2026 (HANDOVER 9.286). Keys are line numbers in entries/book_takeaways/hadeeqat_ul_aulia.md. 'exclude' lines become no row and are listed in the patch instructions; 'pair' lines all stay rows and are all flagged, never merged.",
- "exclude": {
-  "3524": "held: entangled with the shrine-of-baba-shah-chiragh identity question (Doubt I3, a held item)",
-  "3534": "held: Chiragh Shah, the same held question (Doubt I3)",
-  "3575": "already an archive row: the editor equates Aziz al-Din Makki with peer-makki (Doubt B21), whose entry carries this material",
-  "3592": "already an archive row by the notes' own tentative identification with darbar-malik-ahmad-ayaz (contradiction 12), whose entry carries it",
-  "3630": "not a grave or shrine: the relic collections",
-  "3644": "no name: the subject of entry no. 106 is unnamed in the transcription"
- },
- "pair": [
-  [
-   [
-    3527,
-    3572
-   ],
-   "may be one person: two Ismail Muhaddiths of Lahore"
-  ],
-  [
-   [
-    3587,
-    3588
-   ],
-   "may be one person: two Muhammad Taqis of the Mufti family"
-  ],
-  [
-   [
-    3665,
-    3667
-   ],
-   "may be one person: two Muhammad Muqim Muhkam al-Dins of the Hujra family"
-  ],
-  [
-   [
-    3523,
-    3672,
-    3675
-   ],
-   "the notes keep these Ghulam Muhyi al-Dins distinct (Doubt I16): do not merge"
-  ]
- ],
- "figures": {
-  "_comment": "For build_book_figures.py. 'alsoNamedRegions': regions whose '- Also named:' list is about saints and is taken; the others are left out and reported. 'skipItems': bold runs inside a taken list that are not a figure, or not a saint. 'joins': a book figure that IS a figure the graph already holds (checked by hand against the graph's own record, 10 Oct 2026). 'hasRow': a figure listed without a place that has a [PK] line elsewhere in the same file, so it already became a proposed row and is dropped here.",
-  "alsoNamedRegions": [
-   "Kashmir",
-   "Delhi"
-  ],
-  "skipItems": {
-   "Rishis at folio 171": "an index note, not a name",
-   "Gangaram Pandit Dehlvi": "a darbar official, not a saint",
-   "Naqshbandi chain": "a chain, not a figure",
-   "Chishti chain": "a chain, not a figure",
-   "the unnamed tail of entry no. 106": "no name"
+  "_comment": "Per-line decisions for build_new_rows.py on hadeeqat_ul_aulia, 10 October 2026 (HANDOVER 9.286). Keys are line numbers in entries/book_takeaways/hadeeqat_ul_aulia.md. 'exclude' lines become no row and are listed in the patch instructions; 'pair' lines all stay rows and are all flagged, never merged.",
+  "exclude": {
+    "3524": "held: entangled with the shrine-of-baba-shah-chiragh identity question (Doubt I3, a held item)",
+    "3534": "held: Chiragh Shah, the same held question (Doubt I3)",
+    "3575": "already an archive row: the editor equates Aziz al-Din Makki with peer-makki (Doubt B21), whose entry carries this material",
+    "3592": "already an archive row by the notes' own tentative identification with darbar-malik-ahmad-ayaz (contradiction 12), whose entry carries it",
+    "3630": "not a grave or shrine: the relic collections",
+    "3644": "no name: the subject of entry no. 106 is unnamed in the transcription"
   },
-  "joins": {
-   "shah-bahlul-daryai": "bahlol-daryai",
-   "shaikh-khizr-sistani": "shaikh-siyustani",
-   "shaikh-daud-kirmani": "daud-bandagi-kirmani",
-   "khwaja-qutb-al-din-bakhtiar-kaki-aushi-dehlvi": "khwaja-qutbuddin-bakhtiar-kaki",
-   "shaikh-abdul-qadir-jilani-ghaus-al-azam": "sheikh-abdul-qadir-gilani"
+  "pair": [
+    [
+      [
+        3527,
+        3572
+      ],
+      "may be one person: two Ismail Muhaddiths of Lahore"
+    ],
+    [
+      [
+        3587,
+        3588
+      ],
+      "may be one person: two Muhammad Taqis of the Mufti family"
+    ],
+    [
+      [
+        3665,
+        3667
+      ],
+      "may be one person: two Muhammad Muqim Muhkam al-Dins of the Hujra family"
+    ],
+    [
+      [
+        3523,
+        3672,
+        3675
+      ],
+      "the notes keep these Ghulam Muhyi al-Dins distinct (Doubt I16): do not merge"
+    ]
+  ],
+  "figures": {
+    "_comment": "For build_book_figures.py. 'alsoNamedRegions': regions whose '- Also named:' list is about saints and is taken; the others are left out and reported. 'skipItems': bold runs inside a taken list that are not a figure, or not a saint. 'joins': a book figure that IS a figure the graph already holds (checked by hand against the graph's own record, 10 Oct 2026). 'hasRow': a figure listed without a place that has a [PK] line elsewhere in the same file, so it already became a proposed row and is dropped here.",
+    "alsoNamedRegions": [
+      "Kashmir",
+      "Delhi"
+    ],
+    "skipItems": {
+      "Rishis at folio 171": "an index note, not a name",
+      "Gangaram Pandit Dehlvi": "a darbar official, not a saint",
+      "Naqshbandi chain": "a chain, not a figure",
+      "Chishti chain": "a chain, not a figure",
+      "the unnamed tail of entry no. 106": "no name"
+    },
+    "joins": {
+      "shah-bahlul-daryai": "bahlol-daryai",
+      "shaikh-khizr-sistani": "shaikh-siyustani",
+      "shaikh-daud-kirmani": "daud-bandagi-kirmani",
+      "khwaja-qutb-al-din-bakhtiar-kaki-aushi-dehlvi": "khwaja-qutbuddin-bakhtiar-kaki",
+      "shaikh-abdul-qadir-jilani-ghaus-al-azam": "sheikh-abdul-qadir-gilani"
+    },
+    "_comment_notJoined": "Checked and NOT joined: Shaikh Nasir al-Din Mahmud 'Chiragh-e Dehli' is not the graph's syed-nasiruddin-mahmud (a Bukhari ancestor of Ghazi Baba, kg-seeds familyRelations).",
+    "hasRow": {
+      "shaikh-abd-al-hakim-sialkoti": "shaikh-abd-al-hakim-sialkoti",
+      "sayyid-abu-turab-shah-gada": "sayyid-abu-turab-known-as-shah-gada-husaini-shattari-lahori",
+      "mian-mongar-majzub-lahori": "mian-mongar-majzub-lahori",
+      "bahle-shah-majzub-lahori": "bahle-shah-majzub-lahori",
+      "jali-shah-majzub-lahori": "jali-shah-majzub-lahori",
+      "mai-bhagi-lahori": "mai-bhagi-lahori",
+      "sohan-majzub-ajodhani-pakpattani": "sohan-majzub-ajodhani-pakpattani",
+      "pir-ghazi-az-ghaib": "pir-ghazi-known-as-pir-az-ghaib",
+      "mazar-marg-naini": "mazar-marg-naini"
+    }
   },
-  "_comment_notJoined": "Checked and NOT joined: Shaikh Nasir al-Din Mahmud 'Chiragh-e Dehli' is not the graph's syed-nasiruddin-mahmud (a Bukhari ancestor of Ghazi Baba, kg-seeds familyRelations).",
-  "hasRow": {
-   "shaikh-abd-al-hakim-sialkoti": "shaikh-abd-al-hakim-sialkoti",
-   "sayyid-abu-turab-shah-gada": "sayyid-abu-turab-known-as-shah-gada-husaini-shattari-lahori",
-   "mian-mongar-majzub-lahori": "mian-mongar-majzub-lahori",
-   "bahle-shah-majzub-lahori": "bahle-shah-majzub-lahori",
-   "jali-shah-majzub-lahori": "jali-shah-majzub-lahori",
-   "mai-bhagi-lahori": "mai-bhagi-lahori",
-   "sohan-majzub-ajodhani-pakpattani": "sohan-majzub-ajodhani-pakpattani",
-   "pir-ghazi-az-ghaib": "pir-ghazi-known-as-pir-az-ghaib",
-   "mazar-marg-naini": "mazar-marg-naini"
-  }
- },
- "_released_2026-10-10": "Lines 3524 and 3534 were excluded as held with the Shah Chiragh question. Rauf lifted the holds on 10 Oct 2026 (HANDOVER 9.313): 3534 became row mazar-chiragh-shah and 3524 joined Tarikh-e Lahore's shaikh-abd-al-razzaq-makki-nila-gumbad, both via build_tagged_rows.py --only-lines with pipeline/book_queue/figure_tags/hadeeqat_ul_aulia.tsv. The exclude entries are kept as the record of the first run."
+  "_released_2026-10-10": "Lines 3524 and 3534 were excluded as held with the Shah Chiragh question. Rauf lifted the holds on 10 Oct 2026 (HANDOVER 9.313): 3534 became row mazar-chiragh-shah and 3524 joined Tarikh-e Lahore's shaikh-abd-al-razzaq-makki-nila-gumbad, both via build_tagged_rows.py --only-lines with pipeline/book_queue/figure_tags/hadeeqat_ul_aulia.tsv. The exclude entries are kept as the record of the first run."
 }
