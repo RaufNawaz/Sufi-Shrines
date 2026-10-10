@@ -259,10 +259,19 @@ function scannedFiles(): string[] {
   return out;
 }
 
-/** Midnight today, UTC. A date equal to today is not in the future. */
+/**
+ * Midnight today, UTC. A date equal to today is not in the future.
+ *
+ * "Today" is the later of the local calendar date and the UTC one. The scheduled
+ * book-queue worker writes UTC dates, so at 23:50 EDT on 9 October its "10 October"
+ * is correct — and this function, built from the local date alone, failed verify on
+ * it (10 October 2026). The local date stays in the max for a machine east of UTC.
+ */
 function todayUtc(): Date {
   const now = new Date();
-  return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  const local = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const utc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  return new Date(Math.max(local, utc));
 }
 
 function futureDatesIn(text: string, rel: string, today: Date): Hit[] {
