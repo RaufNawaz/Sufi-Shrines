@@ -36,9 +36,11 @@ CURATED: dict[str, dict] = {
     # ── Urdu primary sources that feed shrine entries ──────────────────────────
     "sawaneh_shah_jamal": dict(match="Sawaneh Mubarak Hazrat Syed Shah Jamal", group="urdu_shrine", language="arabic",
         route="vision", priority=10, short_title="Sawaneh Mubarak Hazrat Syed Shah Jamal ul Bahr",
-        author="(biography, author to confirm from title page)", year=None,
-        target_shrines=["shah-jamal"],
-        notes="Biography of Shah Jamal of Ichhra. Smallest Urdu book; pilot candidate (modern print)."),
+        author="Muhammad Ali Khan Mujaddidi Naqshbandi (compiler, p. 1)", year=None,
+        target_shrines=[],
+        notes="Hagiography of Syed Shah Jamal al-Bahr 'Mashuq Rabbani' of Mauza Urs, Warangal (Deccan); NOT the Ichhra "
+              "Shah Jamal. Remapped from ['shah-jamal'] to [] by Rauf, 10 Oct 2026 (HANDOVER 9.284); Deccan dargahs ruled "
+              "out of scope the same day. No print year in the book; preface dated 7 Rajab 1384 AH (p. 2)."),
     "hadeeqat_ul_aulia": dict(match="HADEEQAT-UL-AULIA", group="urdu_shrine", language="arabic",
         route="vision", priority=20, short_title="Hadiqat al Awliya",
         author="Mufti Ghulam Sarwar Lahori (to confirm)", year="1875 original; edition to confirm",

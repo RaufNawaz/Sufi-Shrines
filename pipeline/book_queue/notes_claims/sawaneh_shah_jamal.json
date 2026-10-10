@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-07T21:26:52Z",
-  "expires_at": "2026-10-07T22:56:52Z",
-  "note": "province sweep batch 4",
-  "released_at": "2026-10-07T21:39:44Z",
-  "released_by": "session_01EGhXLG47WVB4DYq3GkZ6QN",
-  "session": "session_01EGhXLG47WVB4DYq3GkZ6QN",
+  "claimed_at": "2026-10-10T02:26:59Z",
+  "expires_at": "2026-10-10T03:56:59Z",
+  "note": "integration [taking over a released or expired claim; previous holder session_01EGhXLG47WVB4DYq3GkZ6QN]",
+  "released_at": "2026-10-10T02:27:39Z",
+  "released_by": "session_012SJUNFY7rEj7nKDkvsDj7z",
+  "session": "session_012SJUNFY7rEj7nKDkvsDj7z",
   "slug": "sawaneh_shah_jamal",
   "status": "released"
 }

@@ -12,7 +12,7 @@
     {
       "slug": "sawaneh_shah_jamal",
       "short_title": "Sawaneh Mubarak Hazrat Syed Shah Jamal ul Bahr",
-      "author": "(biography, author to confirm from title page)",
+      "author": "Muhammad Ali Khan Mujaddidi Naqshbandi (compiler, p. 1)",
       "year": null,
       "group": "urdu_shrine",
       "language": "arabic",
@@ -23,10 +23,8 @@
       "uploader": "Saifullah Imtiaz",
       "bytes": 2274011,
       "duplicates": [],
-      "target_shrines": [
-        "shah-jamal"
-      ],
-      "notes": "Biography of Shah Jamal of Ichhra. Smallest Urdu book; pilot candidate (modern print)."
+      "target_shrines": [],
+      "notes": "Hagiography of Syed Shah Jamal al-Bahr 'Mashuq Rabbani' of Mauza Urs, Warangal (Deccan); NOT the Ichhra Shah Jamal. Remapped from ['shah-jamal'] to [] by Rauf, 10 Oct 2026 (HANDOVER 9.284); Deccan dargahs ruled out of scope the same day. No print year in the book; preface dated 7 Rajab 1384 AH (p. 2)."
     },
     {
       "slug": "hadeeqat_ul_aulia",

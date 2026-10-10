@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-09T14:24:01Z",
-  "expires_at": "2026-10-09T15:54:01Z",
-  "note": "24/79 notes; Pass 1 025+ [taking over a released or expired claim; previous holder session_0121nDCdXGyAgjXuSB88Aakr]",
-  "released_at": "2026-10-09T14:37:49Z",
-  "released_by": "session_01HtdV4y7cFrdmaPDyPyLoVv",
-  "session": "session_01HtdV4y7cFrdmaPDyPyLoVv",
+  "claimed_at": "2026-10-09T19:09:54Z",
+  "expires_at": "2026-10-09T20:39:54Z",
+  "note": "Pass 2 wave 1 done (7 section files), B2 running [renewing own claim; previous holder session_01FTAepxtGSXhyEnCRDgp59w]",
+  "released_at": "2026-10-09T19:20:04Z",
+  "released_by": "session_01FTAepxtGSXhyEnCRDgp59w",
+  "session": "session_01FTAepxtGSXhyEnCRDgp59w",
   "slug": "tahqiqat_chishti",
   "status": "released"
 }

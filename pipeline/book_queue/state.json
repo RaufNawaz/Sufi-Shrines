@@ -3,7 +3,7 @@
   "created": "2026-09-14T16:07:35Z",
   "books": {
     "sawaneh_shah_jamal": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 10,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -52,6 +52,14 @@
         {
           "t": "2026-10-07T21:27:11Z",
           "msg": "chunked into 1 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-10-10T02:27:32Z",
+          "msg": "marked integrated: 0 sections appended, 0 entries touched, 0 cell proposals: the takeaways' only id head (shah-jamal) is the manifest's misfiling, every bullet under it reads 'nothing may be carried into this row'; the book's actual site (Mauza Urs, Warangal, Deccan) has no row. Province material: none. Needs Rauf: misfiling + Deccan scope (re-integrate if ruled in). §9.283"
+        },
+        {
+          "t": "2026-10-10T02:30:47Z",
+          "msg": "marked integrated: RULED by Rauf 10 Oct 2026: manifest mapping corrected (target_shrines ['shah-jamal'] -> [] in build_manifest.py, manifest.json regenerated); Deccan dargahs are OUT of scope. Integration with zero sections is therefore final. §9.284"
         }
       ],
       "scan_images": {
@@ -164,7 +172,7 @@
       }
     },
     "tahqiqat_chishti": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 30,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -187,13 +195,9 @@
       "pages_done": "1-873",
       "leases": {},
       "assembled_file": "out/ocr/tahqiqat_chishti/p001-end_2026-10-03_1910_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/tahqiqat_chishti.md",
       "integrated_into": [],
       "log": [
-        {
-          "t": "2026-09-22T22:56:24Z",
-          "msg": "lease 361-370 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
         {
           "t": "2026-09-22T22:56:24Z",
           "msg": "lease 371-380 taken (worker w2) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
@@ -346,6 +350,10 @@
         {
           "t": "2026-10-09T05:32:14Z",
           "msg": "chunked into 79 chunks of ~5000 words"
+        },
+        {
+          "t": "2026-10-09T19:19:47Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -684,16 +692,12 @@
       },
       "route_used": "vision",
       "render_scale": 1568,
-      "pages_done": "1-504",
+      "pages_done": "1-512",
       "leases": {},
       "assembled_file": null,
       "takeaways_file": null,
       "integrated_into": [],
       "log": [
-        {
-          "t": "2026-10-04T00:24:07Z",
-          "msg": "lease 399-404 taken (worker w7) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
-        },
         {
           "t": "2026-10-04T00:24:07Z",
           "msg": "lease 405-410 taken (worker w8) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
@@ -849,6 +853,10 @@
         {
           "t": "2026-10-09T16:23:01Z",
           "msg": "lease 497-504 taken (worker coord-s01Jo3ir8) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-09T23:33:08Z",
+          "msg": "lease 505-512 taken (worker coord-s01WaSZ3f) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         }
       ],
       "scan_images": {
@@ -3634,5 +3642,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-10-09T16:38:48Z"
+  "updated": "2026-10-10T02:30:47Z"
 }

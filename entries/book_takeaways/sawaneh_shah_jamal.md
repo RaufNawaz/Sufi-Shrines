@@ -27,6 +27,11 @@ Jamal of Ichhra" is **not** supported by the text.
 
 ## Shrines in the archive this book informs
 
+> **RULED by Rauf, 10 October 2026 (HANDOVER §9.284):** the manifest's mapping to `shah-jamal` is
+> corrected to none (`build_manifest.py`, `manifest.json`), and **Deccan dargahs are not part of the
+> archive**. The "pending Rauf" questions below and under Doubts are answered: nothing from this book
+> enters any entry or cell.
+
 **None.** The chunk notes for the whole book (pp. 1–16) place no fact in any of the 169 archive rows,
 and the queue's mapping of this book to `shah-jamal` does not hold on the text. This is recorded
 here rather than resolved, because the decision is Rauf's (CLAUDE.md RULE 5).
