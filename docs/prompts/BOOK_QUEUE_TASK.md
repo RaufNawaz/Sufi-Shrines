@@ -326,9 +326,27 @@ instead of integrating:
   locator ever becomes a `(p. N)`; no folio on a scribal lithograph is cited from a single reading,
   and a folio that `queue.py folio-guard` reports as contested stays contested.
 
+### Rulings of 10 October 2026 (Rauf, in chat; HANDOVER §9.286). These amend the 8 October ones below.
+
+- **Province bullets go into EXISTING entries only.** Every entry that already exists for a row
+  `shrine_index.tsv` tags with the province takes the book's province bullets, inside the book's
+  `## From …` section. Never create an entry just to hold province material.
+- **Sites the book documents that the archive lacks become NEW ROWS: one row per grave or shrine.**
+  Take them from the takeaways' `## Figures and sites not in the archive`, only lines marked `[PK]`
+  (Deccan and every other non-Pakistan site stay out, §9.284). Coordinates are left BLANK; research
+  agents will fill them later. The rows go out as a CSV patch in `data/review/` (RULE 3), and each new
+  row also gets a `shrine_entries/<id>.md` holding the book's line verbatim.
+- **Saints with no site in Pakistan go to the saints-and-orders layer** (the KG behind `/graph` and
+  `/saint/:slug`), not to the sheet.
+- **A contested attachment is attached as the book's claim.** Where the takeaways disagree with
+  themselves about whether material belongs to a row (`shrine-of-baba-shah-kamal`: a section calling
+  the index's "brother of Shah Jamal Lahori" a lead, against Doubt I1's "must stay unmapped"), attach
+  it with the doubt beside it and the framing "this book claims …". Present the information as it is.
+
 ### Rulings of 8 October 2026 (Rauf, in chat)
 
-- **Province material goes into every entry in that province.** Step 3 above takes only bullets headed
+- **Province material goes into every entry in that province** (narrowed on 10 October to
+  entries that already exist; see above). Step 3 above takes only bullets headed
   by shrine ids, and province bullets carry none, so take them separately: each bullet under the
   book's `## Province-level material` / `### province: <key>` is appended to the entry of every row
   that `shrine_index.tsv` tags with that `province`, inside the book's `## From <Author, Short title>`

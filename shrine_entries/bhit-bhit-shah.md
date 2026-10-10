@@ -54,3 +54,9 @@ and **bhit-bhit-shah** (p. 322, folio 310)". **The index line being weighed agai
 is not preserved in the fragment.** The same bullet continues with "عبد الکریم حافظ | ۲۰۹" beside
 "عبد الکریم لاہوری | ۸۷ ، ۹۱ ، ۹۲ ، ۱۷۶" and "عبد الکریم مجددی لاہوری | ۱۴۵", **none with a place
 tying it to** the next two rows named (p. 322).
+
+### Province-level material: sindh
+
+*The book's `sindh` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "سند", in "حاکم سند"; refers to: the time after Sayyid Muhammad Ghaus Uchi settled at Uch. The text gives no year, and the editor's footnote on the same page dates his entry into Uch "۸۸۷ھ" after Ali Asghar Gilani; author's text (1875)): "بعد سکونت اوچ کے سلطان حسین میرزا، حاکم سند اور سلطان سکندر لودھی بادشاہ ہند حضرت کے مرید ہوئے". Here "سند" is the region with its ruler, not the "chain of transmission" sense (p. 40, folio 28).

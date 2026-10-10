@@ -130,14 +130,93 @@ def strip_blank_edges(ls):
     return ls
 
 
+def province_mode(a):
+    """Append `### province: <key>` bullets to every existing entry the index tags with <key>.
+
+    Inside the book's `## From …` section: if the entry already has that section it must be the
+    LAST `## ` section of the file (so appending at the end stays inside it), otherwise the
+    section heading and intro are written first. Refuses on a second run, on any line not
+    verbatim in the takeaways, and on a broken byte prefix -- same guarantees as the id mode.
+    """
+    src_rel = f'entries/book_takeaways/{a.slug}.md'
+    lines = open(os.path.join(REPO, src_rel), encoding='utf-8').read().split('\n')
+    try:
+        st = lines.index(f'### province: {a.province}')
+    except ValueError:
+        print(f'REFUSED -- no `### province: {a.province}` in {src_rel}'); return 2
+    en = st + 1
+    while en < len(lines) and not lines[en].startswith(('### ', '## ')):
+        en += 1
+    body = strip_blank_edges(lines[st + 1:en])
+    n_bullets = sum(1 for l in body if l.startswith('- '))
+    skip = {s for s in a.skip.split(',') if s}
+    with open(INDEX, encoding='utf-8') as fh:
+        hdr = fh.readline().rstrip('\n').split('\t')
+        tagged = [r[hdr.index('id')] for r in (l.rstrip('\n').split('\t') for l in fh if l.strip())
+                  if len(r) > hdr.index('province') and r[hdr.index('province')] == a.province]
+    heading = f'## From {a.title}'
+    sub = f'### Province-level material: {a.province}'
+    intro = (f'*Integrated {a.date} from `{src_rel}` (reviewed: no). Every line below the heading is '
+             f'copied verbatim from that file; nothing was added or reworded. Page references are as '
+             f'the takeaways give them.*')
+    pnote = (f"*The book's `{a.province}` bullets, copied into every existing entry in the province "
+             f'(Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*')
+    backup = os.path.join(REPO, 'out/integration', a.slug, f'before_province_{a.province}')
+    done, held, missing = [], [], 0
+    for rid in tagged:
+        path = os.path.join(ENTRIES, f'{rid}.md')
+        if not os.path.exists(path):
+            missing += 1; continue
+        if rid in skip:
+            held.append(rid); continue
+        if a.only and rid not in a.only.split(','):
+            continue
+        old = open(path, encoding='utf-8').read()
+        ol = old.split('\n')
+        if sub in ol:
+            print(f'REFUSED -- {rid}.md already has "{sub}"'); return 3
+        if heading in ol:
+            last_h2 = max(i for i, l in enumerate(ol) if l.startswith('## '))
+            if ol[last_h2] != heading:
+                print(f'REFUSED -- {rid}.md: the book section is not the last section'); return 4
+            add = ['', sub, '', pnote, ''] + body
+        else:
+            add = ['', heading, '', intro, '', sub, '', pnote, ''] + body
+        new = old.rstrip('\n') + '\n' + '\n'.join(add) + '\n'
+        if not new.startswith(old.rstrip('\n')):
+            print(f'REFUSED -- {rid}: prefix'); return 5
+        if not a.dry_run:
+            os.makedirs(backup, exist_ok=True)
+            shutil.copy2(path, os.path.join(backup, f'{rid}.md'))
+            open(path, 'w', encoding='utf-8').write(new)
+        done.append(rid)
+    print(f'{"DRY RUN -- " if a.dry_run else ""}{a.slug} province {a.province}: {n_bullets} bullet(s) '
+          f'into {len(done)} existing entr(ies); {missing} tagged row(s) have no entry (not created, '
+          f'ruling of 10 Oct); held: {",".join(held) or "none"}')
+    print('province entries:', ','.join(done))
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('slug')
     ap.add_argument('--title', required=True)
     ap.add_argument('--date', required=True)
     ap.add_argument('--skip', default='')
+    ap.add_argument('--only', default='', help='integrate only these ids (comma separated)')
+    ap.add_argument('--claim-note', default='',
+                    help='one extra italic line under the intro, for an attachment Rauf ruled to carry '
+                         'as the book\'s claim (10 Oct 2026: shrine-of-baba-shah-kamal)')
+    ap.add_argument('--province', default='',
+                    help='instead of id sections, append the book\'s `### province: <key>` bullets to '
+                         'every EXISTING entry tagged with that province (ruling of 10 Oct 2026)')
+    ap.add_argument('--doubt-also', default='',
+                    help='ID:ITEM[,ID:ITEM] -- also attach the Doubts item numbered ITEM (e.g. I1) to ID, for '
+                         'an item that names the id only in its body')
     ap.add_argument('--dry-run', action='store_true')
     a = ap.parse_args()
+    if a.province:
+        return province_mode(a)
 
     src_rel = f'entries/book_takeaways/{a.slug}.md'
     with open(os.path.join(REPO, src_rel), encoding='utf-8') as fh:
@@ -154,6 +233,16 @@ def main():
                 f'references are as the takeaways give them.*',
                 '### Doubts the notes raise on this row', ''}
     intro = sorted(scaffold - {heading, '### Doubts the notes raise on this row', ''})[0]
+    only = {s for s in a.only.split(',') if s}
+    for pair in filter(None, a.doubt_also.split(',')):
+        did, item = pair.split(':')
+        n = next(i for i, l in enumerate(src_lines) if l.startswith(f'**{item}. '))
+        e = n + 1
+        while e < len(src_lines) and src_lines[e].strip() and not src_lines[e].startswith(('#', '- ')):
+            e += 1
+        doubts.setdefault(did, []).insert(0, src_lines[n:e])
+    if a.claim_note:
+        scaffold.add(f'*{a.claim_note}*')
 
     plan, skipped, errors, dropped_total, seen = [], [], [], 0, set()
     for bid, at, body in blocks(src_lines):
@@ -164,12 +253,14 @@ def main():
             errors.append(f'line {at + 1}: id {bid!r} heads two blocks; merge them in the takeaways first')
             continue
         seen.add(bid)
-        if bid in skip:
-            skipped.append(bid)
+        if bid in skip or (only and bid not in only):
+            if bid in skip:
+                skipped.append(bid)
             continue
         body, dropped = drop_not_attached(body)
         dropped_total += dropped
-        section = [heading, '', intro, ''] + strip_blank_edges(body)
+        section = [heading, '', intro, ''] + ([f'*{a.claim_note}*', ''] if a.claim_note else []) \
+            + strip_blank_edges(body)
         if bid in doubts:
             section += ['', '### Doubts the notes raise on this row', '']
             for item in doubts[bid]:

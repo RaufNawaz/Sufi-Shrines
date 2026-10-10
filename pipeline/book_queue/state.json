@@ -147,7 +147,8 @@
         "ganj-e-inayat-sarkar",
         "kalat-kali-temple",
         "shah-yousuf",
-        "wadpagga-sharif"
+        "wadpagga-sharif",
+        "shrine-of-baba-shah-kamal"
       ],
       "log": [
         {
@@ -201,6 +202,10 @@
         {
           "t": "2026-10-10T03:57:57Z",
           "msg": "marked integrated: HANDOVER 9.285: 48 id sections by integrate_book.py (24 appended, 24 entries created), 62 Doubts items carried with them, 1 not-attached bullet left out. SKIPPED (held or self-contradicted): shrine-of-shah-inayat-qadiri, shrine-of-baba-shah-chiragh, mazar-of-bulleh-shah, shrine-of-baba-shah-kamal. PROVINCE MATERIAL NOT YET APPLIED (punjab ~25 bullets, sindh 1) pending Rauf on whether rows with no entry get one; do NOT re-integrate this book, run only the province step once ruled. No cell proposals."
+        },
+        {
+          "t": "2026-10-10T14:20:48Z",
+          "msg": "marked integrated: HANDOVER 9.286, Rauf's rulings of 10 Oct: shrine-of-baba-shah-kamal attached as the book's claim with Doubt I1; province bullets applied to existing entries only (punjab 26 bullets into 45 entries, sindh 1 into 8; mazar-of-bulleh-shah held). New rows for [PK] sites and source-only saints follow."
         }
       ],
       "scan_images": {
@@ -3695,5 +3700,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-10-10T03:57:57Z"
+  "updated": "2026-10-10T14:20:48Z"
 }

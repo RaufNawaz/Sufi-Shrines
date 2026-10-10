@@ -32,3 +32,13 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~470-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "8th century (traditional)"; Sufi Saint "Abdullah Shah Ghazi"; Events "Annual urs; Thursday qawwali & dhamal".
 Poetry: none quoted. The saint's history is largely traditional/legendary — flag the 8th-century dating and Hasani descent as tradition; the 2010 bombing is well documented.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: sindh
+
+*The book's `sindh` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "سند", in "حاکم سند"; refers to: the time after Sayyid Muhammad Ghaus Uchi settled at Uch. The text gives no year, and the editor's footnote on the same page dates his entry into Uch "۸۸۷ھ" after Ali Asghar Gilani; author's text (1875)): "بعد سکونت اوچ کے سلطان حسین میرزا، حاکم سند اور سلطان سکندر لودھی بادشاہ ہند حضرت کے مرید ہوئے". Here "سند" is the region with its ruler, not the "chain of transmission" sense (p. 40, folio 28).

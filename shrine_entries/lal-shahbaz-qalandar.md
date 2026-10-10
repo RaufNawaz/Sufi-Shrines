@@ -50,3 +50,13 @@ Length: ~740-word Description (compendium/knowledge-based; no dedicated OCR book
 IMPORTANT: your sheet has TWO rows for this saint — "Lal Shahbaz Qalandar" (Jamshoro) and "Sehwan Sharif" (Sehwan). They are the same shrine; use this entry for both, or merge the rows.
 Suggested columns: Founded/Opened "13th century (d. c. 1274)"; Sufi Saint "Lal Shahbaz Qalandar (Syed Usman Marwandi)"; Events "Annual urs (Sha'ban); nightly/Thursday dhamal, qawwali & langar".
 Poetry: the Persian couplet and Dama Dam refrain are given in standard wording — confirm orthography. Verify dates (c.1177–1274) and the 2017 bombing detail (widely reported; ~80+ killed).
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: sindh
+
+*The book's `sindh` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "سند", in "حاکم سند"; refers to: the time after Sayyid Muhammad Ghaus Uchi settled at Uch. The text gives no year, and the editor's footnote on the same page dates his entry into Uch "۸۸۷ھ" after Ali Asghar Gilani; author's text (1875)): "بعد سکونت اوچ کے سلطان حسین میرزا، حاکم سند اور سلطان سکندر لودھی بادشاہ ہند حضرت کے مرید ہوئے". Here "سند" is the region with its ruler, not the "chain of transmission" sense (p. 40, folio 28).

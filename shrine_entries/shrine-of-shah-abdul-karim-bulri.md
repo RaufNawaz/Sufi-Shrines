@@ -23,3 +23,9 @@ Doubts fragment: the three "عبد الکریم" index lines above are "**none w
 <!-- 13 archive rows, 260 findings, from consolidation/shrines_group_2.csv. -->
 <!-- Page references are PDF page indices; folio = the printed page number (folio = PDF index − 12 through the body). -->
 <!-- Two voices are distinguished throughout: **author** = Mufti Ghulam Sarwar Lahori's 1875 text; **editor** = the annotator's حاشیہ and apparatus in this edition. Contradictions between them are recorded, never reconciled. -->
+
+### Province-level material: sindh
+
+*The book's `sindh` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "سند", in "حاکم سند"; refers to: the time after Sayyid Muhammad Ghaus Uchi settled at Uch. The text gives no year, and the editor's footnote on the same page dates his entry into Uch "۸۸۷ھ" after Ali Asghar Gilani; author's text (1875)): "بعد سکونت اوچ کے سلطان حسین میرزا، حاکم سند اور سلطان سکندر لودھی بادشاہ ہند حضرت کے مرید ہوئے". Here "سند" is the region with its ruler, not the "chain of transmission" sense (p. 40, folio 28).
