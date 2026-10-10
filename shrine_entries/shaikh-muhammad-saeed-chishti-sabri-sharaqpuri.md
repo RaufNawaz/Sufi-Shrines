@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3670: the book's "Figures and sites not in the archive", under Satghara, Hujra, Jarwa, Chunian, Sharaqpur and the Bari Doab. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Shaikh Muhammad Saeed Chishti Sabri Sharaqpuri / شیخ محمد سعید شرقپوری** — entry no. 74; died "باقوال صحیح", by correct reports, in the year **1214 AH**; **mazar in Sharaqpur**; resided at "قصبہ شرقپور متعلقہ ضلع لاہور"; "چونکہ یہ بزرگ قوم کے **خوجہ** تھے۔ پہلے اپنے ہم قوم خوجوں کے ساتھ محنت مزدوری سے گذارہ کرتے تھے" — a **Khoja** who lived by manual labour with his fellow Khojas until divine longing seized him; an eight-link chain given by name through Shah Murad Multani, Shaikh جیوی [OCR?] Shah Gujrati, Shaikh Zakariya, Shaikh Haji Qutb, Shaikh Dargahi Lahori and Haji Abu Said Hanafi Gangohi to Shaikh Nizam al-Din Balkhi; a grain-cart miracle. **Sharaqpur holds an archive row for a different saint — see Doubts.** (pp. 121–122, folios 109–110)

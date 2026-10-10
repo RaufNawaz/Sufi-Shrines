@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3683: the book's "Figures and sites not in the archive", under Gujrat, Gujranwala, Wazirabad and Sialkot. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Pir Muhammad Sachiar Naushahi / پیر محمد سچیار نوشاہی** — entry no. 36; died "in the year one thousand one hundred and fifty-two", **1152** — **editor: "پیر محمد سچیار نوشاہیؒ کا سال وفات ۱۱۲۰ھ صحیح ہے اور مفتی صاحب نے ۱۱۵۲ھ غلط لکھا ہے"**, 1120 AH correct and 1152 wrong, with birth **۱۰۱۳ھ [OCR?]**; true khalifa of Nausha Ganj Bakhsh, who came to him as a child, titled "Sachiar" for having no equal in truth; settled at **mauza Nausherah**, said in the text to be **six miles** east of Gujrat and by the editor **۱۴ [OCR?] miles**; so given to wajd and sama that "لوگوں کو حضرت کے مر جانے کا شبہہ ہو جاتا تھا". (pp. 76–77, folios 74–75)

@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3642: the book's "Figures and sites not in the archive", under Multan. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Shaikh Ahmad Mashuq-e Ilahi / شیخ احمد معشوق الٰہی** — entry no. 104; died "in the year **723 [OCR?]**"; **mazar in Multan**; khalifa of Sadr al-Din Arif; his father **Mir Qandhari** "شہر قندھار میں دکان سوداگری کرتا" and turned him out with some capital, so he came from Qandahar to Multan and set up a trading shop, was seen in the street, summoned to the **khanqah**, given the Shaikh's own "پس ماندہ شربت", and that hour "دکان کا سامان … غربا و فقرا میں تقسیم کر دیا"; a confrontation with the ulama recorded; his ecstasy was cited in Nizam al-Din Auliya's assemblies (*Fawaid al-Fawad* 436, 439). **Also has no archive row.** (pp. 163–164, folios 151–152; p. 349)

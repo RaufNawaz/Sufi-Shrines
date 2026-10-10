@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3618: the book's "Figures and sites not in the archive", under Lahore / Lahore's undated shrines, martyrs and unattributed sites. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Mazar Shahid Ganj, Mohalla Sadhwan / مزار شہید گنج، محلہ سادھواں** — entry no. ۲۱۱; date (not stated); "اگرچہ قبر ایک ہے، مگر ہزاروں شہید دفنائے ہوئے ہیں" — one grave over thousands of martyrs; per *Tuhfat al-Wasilin*, when the Ghaznavid sultanate held the Punjab and Lahore was its capital, Raja Anangpal son of Raja Jaipal besieged the city for **six months** with no relief from Ghazni, and after it fell "بقدر دو ہزار نعش کے مسلمان اس جگہ پر دفنائے گئے" — some two thousand bodies; mosques pulled down and temples re-founded until the Ghazni army returned. **Name coincidence with two archive gurdwaras — see Doubts.** (p. 264, folio 252)

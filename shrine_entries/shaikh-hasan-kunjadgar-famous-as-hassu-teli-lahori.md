@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3567: the book's "Figures and sites not in the archive", under Lahore / Suhrawardi, Qureshi and the Mufti family of Kotli Muftian. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Shaikh Hasan Kunjadgar, famous as Hassu Teli Lahori / حسو تیلی** — entry no. 119; died "سنہ ایک ہزار بارہ", 1012 — **editor: 3 Shawwal 1011 AH at Lahore, aged 120**; a **grain seller** told by Shah Jamal Lahori "کم تولنا چھوڑ دو", who grew rich and then gave it all away; editor (from Surat Singh's 1054 AH tazkira): of **Makiwal on the bank of the Chenab**, father Shaikh چندو [OCR?], mother میلی [OCR?]; Abd al-Rahim Khan-e Khanan asked his prayer for the conquest of Thatta; in famine Akbar asked him to pray for rain and the prayer proved effective; appendix row 36 → Abbott Road near the زچہ بچہ hospital. (pp. 180–181, folios 178–179 as printed; pp. 289, 305)

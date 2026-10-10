@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3571: the book's "Figures and sites not in the archive", under Lahore / Suhrawardi, Qureshi and the Mufti family of Kotli Muftian. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Shaikh Karam Shah Qureshi Harithi ہنکاری [OCR?]** — entry no. 128; **martyred by bandits near Shahjahanpur** "سال ایک ہزار دو سو میں", the year 1200, with "۱۲۰۱ھ اس کا سال وفات ہے" in the same sentence — two years, see Doubts; Suhrawardi, seven steps to Abd al-Jalil Chuhar Lahori; first lived in Lahore, then went to **Lucknow** when "غارت گر ملا [OCR?] قوم سکھ" set the plunder of the Punjab going — the only displacement of a Lahore shrine family by the Sikh period in the book; three sons Sikandar Shah, Shah Murad and **Qalandar Shah** (d. **1228**), whose son **Shaikh Ghulam Muhyi al-Din Qureshi** died **1279**. (p. 190, folio 188 as printed)

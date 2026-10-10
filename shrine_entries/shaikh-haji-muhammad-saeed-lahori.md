@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3520: the book's "Figures and sites not in the archive", under Lahore / Qadiri and Gilani. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Shaikh Haji Muhammad Saeed Lahori / شیخ حاجی محمد سعید** — entry no. 147; died 1166 AH in the text, **1162 AH in the editor's contemporary source**; "مزار گوہر بار لاہور میں روبرو نیلا گنبد پشت بازار انار کلی ہے" — opposite the Nila Gumbad behind Anarkali bazaar, the most precise Lahore address in the book; Qadiri khilafat from Sayyid Mahmud b. Sayyid Ali Husaini Kurdawi with bai'at at Medina, Shattari chain to Shah Muhammad Ghaus Gwaliari, **Naqshbandi ijazat from Hafiz Sa'd Allah Mujaddidi** — three orders in one man; his madrasa hosted Shah Wali Allah in 1143 AH; malfuzat *Qiran al-Sa'dain* by Akhund Muhammad Rafi Peshawari; the editor's own monograph on him was in press 1974; appendix row 55 → Bank Square. (pp. 212–215, folios 200–203; pp. 290, 293, 295)

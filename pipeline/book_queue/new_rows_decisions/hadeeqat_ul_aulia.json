@@ -1,0 +1,17 @@
+{
+  "_comment": "Per-line decisions for build_new_rows.py on hadeeqat_ul_aulia, 10 October 2026 (HANDOVER 9.286). Keys are line numbers in entries/book_takeaways/hadeeqat_ul_aulia.md. 'exclude' lines become no row and are listed in the patch instructions; 'pair' lines all stay rows and are all flagged, never merged.",
+  "exclude": {
+    "3524": "held: entangled with the shrine-of-baba-shah-chiragh identity question (Doubt I3, a held item)",
+    "3534": "held: Chiragh Shah, the same held question (Doubt I3)",
+    "3575": "already an archive row: the editor equates Aziz al-Din Makki with peer-makki (Doubt B21), whose entry carries this material",
+    "3592": "already an archive row by the notes' own tentative identification with darbar-malik-ahmad-ayaz (contradiction 12), whose entry carries it",
+    "3630": "not a grave or shrine: the relic collections",
+    "3644": "no name: the subject of entry no. 106 is unnamed in the transcription"
+  },
+  "pair": [
+    [[3527, 3572], "may be one person: two Ismail Muhaddiths of Lahore"],
+    [[3587, 3588], "may be one person: two Muhammad Taqis of the Mufti family"],
+    [[3665, 3667], "may be one person: two Muhammad Muqim Muhkam al-Dins of the Hujra family"],
+    [[3523, 3672, 3675], "the notes keep these Ghulam Muhyi al-Dins distinct (Doubt I16): do not merge"]
+  ]
+}

@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3557: the book's "Figures and sites not in the archive", under Lahore / Naqshbandi and Mujaddidi. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Sayyid Munawwar Ali Shah Naqshbandi Suhrawardi Lahori / سید منوّر علی شاہ** — entry no. 163; died 1264 AH; tomb **inside Shaikh Tahir Lahori's chahar-diwari**; his bai'at chain runs to his father Mir Abd al-Razzaq ← Mir Abd al-Rahim ← Mir Sadr al-Din ← Mir Haidar ← **Baba Nasib al-Din Ghazi** ← **Baba Daud Khaki** ← **Shaikh Hamza Kashmiri** ← **Shaikh Jamal al-Din Bukhari** — the Kashmir Suhrawardi succession carried into nineteenth-century Lahore, though "رغبت حضرت کی سلسلہ نقشبندیہ کی طرف زیادہ تھی" and he had his murids practise in the Naqshbandi manner; two of his murids, **Sayyid Hasan Shah Bukhari and his son Sayyid Ahmad Shah**, were "لاہور میں موجود ہیں" as the author wrote; appendix row 61. (pp. 230–231, folios 218–219; p. 290)

@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3572: the book's "Figures and sites not in the archive", under Lahore / Suhrawardi, Qureshi and the Mufti family of Kotli Muftian. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Shaikh Muhammad Ismail Muhaddith wa Mufassir Lahori / شیخ محمد اسماعیل محدث** — entry no. 129; died **448 AH**, chronogram "متاب"; "مزار شہر لاہور کے جنوب کی طرف ہے"; of the great **Bukhari** sayyids, settled in Lahore in the time of Sultan Masud Ghaznavi; *Tuhfat al-Wasilin* makes him **the first of the callers to Islam to come to Lahore**, through whom "دین اسلام … پنجاب میں شائع ہوا" — a claim of Islamic priority against Data Ganj Bakhsh, who arrives seventeen years later on the book's own figures; **the editor demolishes all of this**; appendix row 43 → Hall Road. (p. 191, folio 189 as printed; p. 289)

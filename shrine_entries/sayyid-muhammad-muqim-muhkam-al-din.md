@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3667: the book's "Figures and sites not in the archive", under Satghara, Hujra, Jarwa, Chunian, Sharaqpur and the Bari Doab. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Sayyid Muhammad Muqim Muhkam al-Din b. Shah Abul Muali b. Sayyid Muhammad Nur b. Sayyid Bahawal Sher Gilani Jarwi** — entry no. 23; death given as "سال ایک ہزار پچپن ہجری", **1055**, with "مزار پر انوار بمقام **جرہ** زیارت گاہ خلق اللہ ہے" — **the editor prefers 9 Shawwal 1050 AH** from the near-contemporary *Tazkira-e Muqimi* (ms p. 23); murid and khalifa of Sayyid Jamal Allah Hayat al-Mir Zinda Pir; his *Durr al-Ajaib* on marifat and tariqat published "سجادہ نشینان جروہ", by the **sajjada nashins of Jarwa**; Maulana Abdul Hakim Sialkoti came to him over passages of the *Fusus al-Hikam*. **This entry's father is a different Shah Abul Muali — see Doubts.** (p. 64, folio 52)

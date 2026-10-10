@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3685: the book's "Figures and sites not in the archive", under Gujrat, Gujranwala, Wazirabad and Sialkot. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Shaikh Ghulam Husain of Walian Wali / شیخ غلام حسین والیاں والی** — entry no. 41; died **1260 AH**; editor locates the mazar at **Walian Wali, district Gujranwala**, on Sayyid Sharafat Naushahi's own communications, and gives his descent b. Bahram Khan b. Zar Bakhsh b. Rasida, of the **قوم تور [OCR?] alias داوال [OCR?]**; "آخری زمانے میں اگر ان کو قطب وقت لکھا جائے تو بجا ہے"; his son **Shaikh Qaisar Shah** benefited many after him — **editor: "اصل نام کبیر شاہ تھا۔ سال وفات ۱۲۸۱ھ"**, real name Kabir Shah, d. 1281 AH, born through the prayer of **Sayyid Ilahi Bakhsh Naushahi Sahnpalvi (d. 1253 AH)**. (p. 83, folio 71 as printed)

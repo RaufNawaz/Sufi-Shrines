@@ -1,0 +1,5 @@
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3708: the book's "Figures and sites not in the archive", under Bahawalpur, Maharan and the south. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- [PK] **Shaikh Muhkam al-Din Sahib al-Sair Uwaisi b. Hafiz Muhammad Arif / محکم الدین صاحب السیر** — entry no. 151; died **5 Rabi al-Thani 1197 AH**; mazar at **کوٹ لجنت [OCR?] adjoining Bahawalpur** — **editor: "خاندانی روایت کے مطابق … سال وفات ۶ ربیع الآخر [OCR?] ۱۱۸۸ھ [OCR?] ہے"**, by family tradition 6 Rabi al-Akhir 1188 AH; real nephew, murid and khalifa of Abd al-Khaliq; "اخیر زمانہ میں یہ بزرگ اپنے وقت کے **قطب** تھے"; **nine perfect khalifas** — Hafiz Qamar al-Din, Muhammad Salim Qureshi, Shah Abu al-Fath, Khwaja Sulaiman, Muhammad Anwar Multani, Allah Dad, Diwan Muhammad Ghaus, Dost Muhammad, Hafiz Abd al-Karim; his Persian *Talqin-e Ludanni* printed at the Abu al-Alai press, Agra; one cited source, Ahmad Din's *Chahar Bagh*, is **in Saraiki**. (pp. 220–221, folios 208–209)
