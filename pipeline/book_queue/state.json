@@ -230,7 +230,7 @@
       }
     },
     "tahqiqat_chishti": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 30,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -254,16 +254,48 @@
       "leases": {},
       "assembled_file": "out/ocr/tahqiqat_chishti/p001-end_2026-10-03_1910_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/tahqiqat_chishti.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "samadhi-of-maharaja-ranjit-singh",
+        "madho-lal-hussain",
+        "data-darbar",
+        "shrine-of-mian-mir",
+        "sakhi-sarwar",
+        "bibi-pak-daman",
+        "shrine-of-mauj-darya-bukhari",
+        "darbar-abul-muali-qadri",
+        "shrine-of-fariduddin-ganjshakar",
+        "shah-jamal",
+        "tahir-bandagi-qadri",
+        "ranmal-sharif",
+        "peer-makki",
+        "shrine-of-miran-hussain-zanjani-zanjani-sahib",
+        "ram-mandir-saidpur-ram-kund-mandir",
+        "gurdwara-guru-ram-das-ji",
+        "gurdwara-dash-mesh-pita",
+        "shrine-of-baba-shah-kamal",
+        "tomb-of-qutbuddin-aibak",
+        "shrine-of-bahauddin-zakariya",
+        "gurdwara-chhevin-patshahi-mozang",
+        "gurdwara-shaheed-ganj-singh-singhnian",
+        "shergarh",
+        "gurdwara-dera-sahib",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "darbar-malik-ahmad-ayaz",
+        "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a",
+        "mazar-of-bulleh-shah",
+        "shrine-of-imam-ali-ul-haq",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "shrine-of-shah-rukn-e-alam",
+        "purana-bhalwal",
+        "loh-temple-lava-temple",
+        "shri-panchmukhi-hanuman-mandir-karachi",
+        "shrine-of-shah-shams-ud-din-sabzwari",
+        "kalka-cave-temple-asthan-of-kalka-devi",
+        "mausoleum-of-waris-shah",
+        "shrine-of-hazrat-shah-daula-daryai",
+        "shrine-of-pir-sher-muhammad"
+      ],
       "log": [
-        {
-          "t": "2026-09-22T22:56:24Z",
-          "msg": "lease 371-380 taken (worker w2) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
-        {
-          "t": "2026-09-22T22:56:24Z",
-          "msg": "lease 381-390 taken (worker w3) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
         {
           "t": "2026-09-22T22:56:24Z",
           "msg": "lease 391-400 taken (worker w4) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
@@ -412,6 +444,14 @@
         {
           "t": "2026-10-09T19:19:47Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T16:45:29Z",
+          "msg": "marked integrated: HANDOVER 9.288 (scheduled, session_01RKMTAc2TCPsGnFQ6oerd4P): integrate_book.py id sections for 39 ids (32 appended, 7 created; held skipped: shrine-of-baba-shah-chiragh, langer-makhdoom, shrine-of-shah-inayat-qadiri) + province punjab 18 bullets into 49 existing entries, sindh 1 into 9 (held: dargah-roza-sufi-shah-inayat-shaheed, shrine-of-pir-mangho). NOT YET DONE: the 10 Oct new-rows/book-figures steps (takeaways carry no [PK] lines, so build_new_rows.py has nothing to read: the Figures section must be tagged first); the 20 place-/person-level groups (Lahore 35 rows etc.) are not applied by integrate_book.py, pending Rauf. Do not re-run id or province mode on this book."
+        },
+        {
+          "t": "2026-10-10T16:58:11Z",
+          "msg": "marked integrated: HANDOVER 9.289: Rauf ruled yes, place-/person-level groups go into existing entries. integrate_book.py --groups applied: 20 groups, 50 copies into 40 existing entries (75 listed ids have no entry, none created; held skipped). Groups step DONE for this book; only the [PK]-tagging/new-rows step is still owed."
         }
       ],
       "scan_images": {
@@ -539,7 +579,7 @@
       "chunks": 79
     },
     "tareekh_lahore": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 40,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -563,7 +603,34 @@
       "leases": {},
       "assembled_file": "out/ocr/tareekh_lahore/p001-end_2026-09-16_0129_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/tareekh_lahore.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "data-darbar",
+        "shrine-of-mian-mir",
+        "samadhi-of-maharaja-ranjit-singh",
+        "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+        "shrine-of-mauj-darya-bukhari",
+        "darbar-abul-muali-qadri",
+        "madho-lal-hussain",
+        "bibi-pak-daman",
+        "tahir-bandagi-qadri",
+        "gurdwara-dera-sahib",
+        "gurdwara-shaheed-bhai-taru-singh",
+        "gurdwara-guru-ram-das-ji",
+        "gurdwara-chhevin-patshahi-mozang",
+        "shrine-of-baba-shah-kamal",
+        "shrine-of-miran-hussain-zanjani-zanjani-sahib",
+        "darbar-malik-ahmad-ayaz",
+        "tomb-of-qutbuddin-aibak",
+        "shah-jamal",
+        "ranmal-sharif",
+        "loh-temple-lava-temple",
+        "shrine-of-bahauddin-zakariya",
+        "mazar-of-bulleh-shah",
+        "shergarh",
+        "shrine-of-fariduddin-ganjshakar",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "peer-makki"
+      ],
       "log": [
         {
           "t": "2026-09-14T16:57:36Z",
@@ -624,6 +691,14 @@
         {
           "t": "2026-09-16T22:06:23Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T18:25:22Z",
+          "msg": "marked integrated"
+        },
+        {
+          "t": "2026-10-10T18:25:29Z",
+          "msg": "marked integrated: HANDOVER 9.290, session_018MEC39WXYZaZATQGaNdiix: 26 id sections (24 appended, 2 created; 5 contested ids attached as the book's claim with --claim-note), punjab 36 bullets -> 51 entries, sindh 1 -> 9; held skipped: shrine-of-baba-shah-chiragh, langer-makhdoom, shrine-of-shah-inayat-qadiri; no groups in this book; OWED: new-rows/book-figures step (no [PK] lines)"
         }
       ],
       "scan_images": {
@@ -750,16 +825,12 @@
       },
       "route_used": "vision",
       "render_scale": 1568,
-      "pages_done": "1-520",
+      "pages_done": "1-528",
       "leases": {},
       "assembled_file": null,
       "takeaways_file": null,
       "integrated_into": [],
       "log": [
-        {
-          "t": "2026-10-04T00:24:07Z",
-          "msg": "lease 411-416 taken (worker w9) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
-        },
         {
           "t": "2026-10-04T00:24:07Z",
           "msg": "lease 417-422 taken (worker w10) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
@@ -915,6 +986,10 @@
         {
           "t": "2026-10-10T14:23:29Z",
           "msg": "lease 513-520 taken (worker coord-s01AcaPU9) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-10T18:22:50Z",
+          "msg": "lease 521-528 taken (worker coord-s01SW8kPn) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — scheduled firing session_01SW8kPnttxuAQZyuVt9Vcvi"
         }
       ],
       "scan_images": {
@@ -3700,5 +3775,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-10-10T14:40:29Z"
+  "updated": "2026-10-10T18:35:37Z"
 }

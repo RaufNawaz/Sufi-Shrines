@@ -37,3 +37,15 @@ Independent confirmation of the temple's antiquity comes from the colonial-era *
 
 - `kalat-kali-temple` — Qalat appears only as the residence of "حاجی احمد ساکن قلات"; the row is a
   Hindu temple there and "wholly unrelated" (p. 156, folio 144; chunk 014).
+
+## From Maulvi Nur Ahmad Chishti, Tahqiqat-e Chishti
+
+*Integrated 10 October 2026 from `entries/book_takeaways/tahqiqat_chishti.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Person-level material: Kali Devi
+
+*The book's material headed "Kali Devi (person-level: 3 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the person, not about this shrine alone.*
+
+*Person-level attachment: the goddess named ("کالی دیوی"), chunk 049 only. `kali-bari-mandir` also stands in the Peshawar set.*
+
+- Named once in a garbled sentence on the births linked to Gorakh Nath and Shiv ji: "… دوسرا پہر وہ حاکم کالی دیوی سے مہرا ہی شوجی سے پیدا ہو ہی ہیں …"; what is said about her cannot be made out (p. 545).

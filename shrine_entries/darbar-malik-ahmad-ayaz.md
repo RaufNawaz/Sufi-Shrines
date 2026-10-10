@@ -119,3 +119,37 @@ with the editor offering Ayaz as commander of the cantonment on Latif's own page
   unmatched" (p. 289, folio 277; chunk 027). And **the persons index does not name Malik Ayaz at
   all** as transcribed — the م section runs "ملا شاہ بدخشی" straight into "ملکو بی بی", where he would
   fall (p. 330, folio 318; chunk 031).
+
+## From Maulvi Nur Ahmad Chishti, Tahqiqat-e Chishti
+
+*Integrated 10 October 2026 from `entries/book_takeaways/tahqiqat_chishti.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+- Mapping Doubts (Pass 1): **inconsistent between chunks — for Rauf:** mapped in chunks 001 (ToC, person rule), 073 (bare "ایاز" at Somnath) and 079 (a figure of speech); not mapped in 014 (Mahmud named, Ayaz not), 064 ("خواجہ ایاز[OCR?]" of the Eidgah bazaar under Jahangir, p. 709), 066 (Khwaja Ayaz / "محمد ایاز" in Shah Jahan's reign, pp. 727–728), 074 (Mahmud, not Ayaz) and 075 ("خواجہ ایاز [OCR?]", Nur Jahan's father, pp. 826–827). "دروازہ شاہ عالمی" (p. 562) is not used. The row has no province.
+- **Shrine / Darbar**
+  - ToC "۷۲۵[OCR?] | حال مسجد خواجہ ایاز" (p. 6).
+- **Saint**
+  - At Somnath the amirs advised taking the rajas' crores; "جب ایاز سے پوچہا", breaking the idol was better, renown among Muslim kings, God would give more; the sultan broke it with his own hand (p. 805).
+  - "مہاراجہ کلان اسکو اپنا ایاز خیال کرکے [illegible] فرزند کہا کرتی تہی" (of Raja Hira Singh) (p. 868).
+
+## From Kanhaiya Lal, Tarikh-e Lahore
+
+*Integrated 10 October 2026 from `entries/book_takeaways/tareekh_lahore.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**The shrine itself rests on a contents locator only; everything else here is the figure's city history, and the archive row's Shah Alam Market mazar is not mentioned anywhere.**
+
+- **Saint / figure.** The book writes "ملک ایاز" at all four occurrences (pp. 17, 18, 21, 23; folios 12, 13, 16, 18), flagged at the first — "ملک ایاز[OCR?]" (p. 17, folio 12) — and **never writes "احمد"**. After Mahmud Ghaznavi's sack "چند سال یہ شہر غیر آباد رہا آخر جب ملک ایاز[OCR?] پنجاب کے انتظام کے لئے نامور ہوا تو اُس نے شہر کو دوبارہ آباد کرنا چاہا" (p. 17, folio 12). The resettlement was licensed, not private: "جب ملک ایاز بادشاہ کے حکم سے پنجاب کا حاکم بنا تو اُس نے اس شہر کی آبادی پر توجہ کی اور **فرمان اجازت سلطان سے حاصل کیا**" — became **hakim of Punjab by the king's order** and **obtained a farman of permission from the Sultan** (p. 23, folio 18). **Nothing about his person, death, burial or darbar** anywhere in the range (p. 23, folio 18; and see p. 61, folio 61 for the doubts on "بیرون دروازہ شاہ عالمی" at p. 65, folio 68). **No date is given for his governorship anywhere.**
+- **Shrine / Darbar — the locator, and the book's own classification.** "مزار ملک ایاز" at printed page ۱۶۰[OCR?] (p. 3, folio 2), inside the **inside-the-city** Islamic qism that the contents begin with "مسجد بادشاہی" at printed page ۱۴۱ — so **by the book's own classification this mazar is inside the city**, unlike the shrines listed from ۲۳۶ onward (p. 3, folio 2). A separate "مسجد خواجہ ایاز[OCR?]" stands at printed page ۲۸۱, **a second Ayaz building not to be merged with the mazar** (p. 4, folio 3).
+- **Significance.** His resettlement is the book's periodising event and the frame into which Hujwiri arrives: "اس سرگرمی سے شہر بسایا کہ چند سال میں وہ ویرانہ علما و فضلا کا معدن بن گیا" — he settled the city with such zeal that in a few years that wilderness became a mine of ulama and the learned (p. 23, folio 18). The city's settlement began from the mohalla "جسکو لاہوری منڈی کہتے ہیں" and "سب سے اول یہی دروازہ تعمیر ہوا جسکا نام لاہوری دروازہ رکھا گیا" (p. 17, folio 12). **Mori Darwaza is his victory monument**: Mahmud had breached the walls at that spot, and "ایاز نے جب بہر شہر کو آباد کیا تو فتح کی یادگار کے طور اس جگہ دروازہ قائم کر دیا" (p. 18, folio 13). Bhati Darwaza dates from his settlement too, the Bhat qaum settling inside it "بعد آبادی ایاز کے" (p. 18, folio 13). And "ملک ایاز کی آبادی کے بعد بھی یہ شہر کبھی ترقی اور کبھی تنزل کی حالت میں رہا" (p. 21, folio 16).
+
+### Doubts the notes raise on this row
+
+15. **darbar-malik-ahmad-ayaz — refused in three ranges, and the archive's "احمد" is absent from the
+    book.** Mahmud Ghaznavi is named **without any companion, officer or governor** at p. 43 (folio 46), so
+    nothing there supports a row whose figure is Mahmud's slave, minister and governor of Lahore. "ملک
+    ایاز[OCR?]" is flagged at its first occurrence (p. 17, folio 12) and the archive's "احمد" is **absent
+    from this book at all four occurrences** (pp. 17, 18, 21, 23; folios 12, 13, 16, 18); the contents put
+    "مزار ملک ایاز" at ۱۶۰[OCR?] out of sequence (pp. 2–5). "بیرون دروازہ شاہ عالمی" is a locality only,
+    not this row in Shah Alam Market (p. 65, folio 68). And **"خواجہ ایاز / خواجہ محمد ایاز" must not be
+    read into it**: the book's Ayaz is a Shah Jahan-era noble in the **buildings department under Ali
+    Mardan Khan** (p. 278, folio 281) and the **mir-e-imarat of Shalamar Bagh** (p. 279, folio 282). **No
+    match made.**

@@ -43,3 +43,23 @@ Poetry: none quoted. VERIFY birth year/place (1898, Khurja) and the biographical
 *The book's `sindh` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
 
 - (book's word: "سند", in "حاکم سند"; refers to: the time after Sayyid Muhammad Ghaus Uchi settled at Uch. The text gives no year, and the editor's footnote on the same page dates his entry into Uch "۸۸۷ھ" after Ali Asghar Gilani; author's text (1875)): "بعد سکونت اوچ کے سلطان حسین میرزا، حاکم سند اور سلطان سکندر لودھی بادشاہ ہند حضرت کے مرید ہوئے". Here "سند" is the region with its ruler, not the "chain of transmission" sense (p. 40, folio 28).
+
+## From Maulvi Nur Ahmad Chishti, Tahqiqat-e Chishti
+
+*Integrated 10 October 2026 from `entries/book_takeaways/tahqiqat_chishti.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: sindh
+
+*The book's `sindh` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- **Arab conquest to Sabuktigin** (book's word: "سندہ" / "ملک سندہ"; period: the early caliphate up to Walid, with dates as printed): Arab trade had begun "گجرات اور سندہ مین", and Abu al-As[OCR?] was sent to attack Sindh (p. 802); Uthman attacked the lands along "سندہ کی دریا", and Ali "سندہ کا کچہہ ملک فتح کیا", given up after his death (p. 802); under Walid, "سن سات سو پانچ [OCR?] سے الی سن سات سو پندرہ [OCR?] عیسوی ملک سندہ فتح کرکے", the Arabs reached the Ganges (pp. 802–803); in Sabuktigin's time, according to "تاریخ فرشتہ", the Muslims knew no route into India except "[illegible] راستہ سندہ" (p. 804). Pass 1: the book uses "سندہ" for both the river and the country; only clear country uses went into this bullet, river uses and "غرب رویہ سندہ" (p. 805) were left out as ambiguous.
+
+## From Kanhaiya Lal, Tarikh-e Lahore
+
+*Integrated 10 October 2026 from `entries/book_takeaways/tareekh_lahore.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: sindh
+
+*The book's `sindh` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "سندہ"; refers to: after "سلطان شہاب الدین غوری" gave Delhi to Qutb al-Din Aibak, and Yalduz's career to his drowning, dates not stated; book's historical prose): Taj al-Din Yalduz is "بادشاہ کیچ مکران و سندہ و ملتان" (p. 24, folio 19); Shihab al-Din gave him "حکومت کیچ و مکران و سوران و سندہ کی وسیع سلطنت" (p. 25, folio 20). His end at the fort of Sukkur (p. 26, folio 29) is a town statement and is not carried here.

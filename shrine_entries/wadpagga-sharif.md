@@ -34,3 +34,16 @@ Wadpagga Sharif is a characteristic example of the smaller sacred places that st
 - "فتح شاہ بن موج دریا بخاری | ۱۷۰" — a **Lahore** Bukhari named Fath Shah, son of Mauj Darya —
   against **wadpagga-sharif**'s Fateh Muhammad Bukhari of **Peshawar** (p. 325, folio 313). Recorded
   in the source chunk under Doubts, as a name collision. **Do not merge.**
+
+## From Maulvi Nur Ahmad Chishti, Tahqiqat-e Chishti
+
+*Integrated 10 October 2026 from `entries/book_takeaways/tahqiqat_chishti.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Peshawar
+
+*The book's material headed "Peshawar (place-level: 10 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+*Place-level attachment (ruling (a)): the book's "پشاور", chunks 014 and 073. `gorakhnath-goraknath-temple` also stands in the Gorakh Nath set and `kali-bari-mandir` in the Kali Devi set.*
+
+- Peshawar was conquered by Ranjit Singh ("بوقت فتح پشاور"), mentioned only as the occasion on which a Qur'an was sent from there to the shrine (p. 169).
+- In "ماہ اگست" Sultan Mahmud, "بہ جمعیت دس ہزار سوار پشاور مین آکر راجہ جیپال سے مقابل ہوا", and imprisoned Raja Jaipal (p. 805).

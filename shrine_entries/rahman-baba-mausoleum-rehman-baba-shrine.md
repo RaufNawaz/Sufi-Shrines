@@ -41,3 +41,16 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~540-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "early 18th century (d. c. 1711)"; Sufi Saint "Rahman Baba (Abdur Rahman Mohmand)"; Events "Annual urs; mushaira & rabab music".
 Poetry: I gave the famous "sow flowers" verse in ENGLISH ONLY — the Pashto original should be added by a Pashto reader (I did not want to risk garbled Pashto script on a public page). Verify dates (c.1653–1711) and the 2009 bombing/rebuilding detail.
+
+## From Maulvi Nur Ahmad Chishti, Tahqiqat-e Chishti
+
+*Integrated 10 October 2026 from `entries/book_takeaways/tahqiqat_chishti.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Peshawar
+
+*The book's material headed "Peshawar (place-level: 10 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+*Place-level attachment (ruling (a)): the book's "پشاور", chunks 014 and 073. `gorakhnath-goraknath-temple` also stands in the Gorakh Nath set and `kali-bari-mandir` in the Kali Devi set.*
+
+- Peshawar was conquered by Ranjit Singh ("بوقت فتح پشاور"), mentioned only as the occasion on which a Qur'an was sent from there to the shrine (p. 169).
+- In "ماہ اگست" Sultan Mahmud, "بہ جمعیت دس ہزار سوار پشاور مین آکر راجہ جیپال سے مقابل ہوا", and imprisoned Raja Jaipal (p. 805).
