@@ -1,0 +1,5 @@
+## From Kanhaiya Lal, Tarikh-e Lahore
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/tareekh_lahore.md` (reviewed: no), line 817: the book's "Figures and sites not in the archive", under Muslim shrines, khanqahs and saints' tombs. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- **The Chisht family graves at میدان زرین خان[OCR?]** — pakka enclosure with mosque, garden and pakka graves of **Muhammad Siddiq (d. 8 Zil-Hajj 990 AH)**, **Muhammad Salim (d. 23 Zil-Hajj 1030 AH)**, **Muhammad Abdul Khaliq (d. 16 Zil-Hajj 1035, no era)**, **Fazil Khurd** and **Fazil Kalan**, learned faqirs of abstinence, none of the three dates flagged; succession to **Khizr Shah**, who reached 101 years and died "۷ ذی الحج سنہ ۱۲۴۶[OCR?] ہجری", then to **Rukn-ud-Din**, who died a few years ago; family **Sabiriya Chishtiya**, silsila connecting with **Shah Sarwani** (pp. 303–304, folios 306–307); contents "مقابر میدان زین خان[OCR?] ۳۰۶" (pp. 3–4, folios 2–3), the name flagged in both partials.

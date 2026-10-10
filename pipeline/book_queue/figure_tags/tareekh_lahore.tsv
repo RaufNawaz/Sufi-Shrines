@@ -1,0 +1,234 @@
+# Tags for entries/book_takeaways/tareekh_lahore.md, "## Figures and sites not in the archive" (lines 754-1017).
+# Read by build_new_rows.py --tags. One line per `- **` item of the section, every item tagged exactly once.
+# kind: row (a proposed new sheet row) | join (the line belongs to an existing entry: archive id or proposed row) | figure | skip
+# target: for join, the id(s) joined; for row, the id(s) it may be the same as (flagged, never merged)
+# name: the tagger's transliteration of the bold head (the Urdu stays in _name_ur, as printed)
+# silsila: only when the line itself gives the person's own order (the stem must appear in the line)
+# Rulings: Rauf 10 Oct 2026 (one row per grave or shrine; plus temples and samadhs, Sikh/Udasi/Jain sites,
+# rulers' tombs and graveyards, mosques; a site the book records as demolished still gets a row, status blank).
+# Tagged 10 Oct 2026 in an interactive session (HANDOVER 9.313). Reviewed: no.
+#location	Lahore
+line	kind	target	name	category	site_type	silsila	note
+760	join	pir-zaki					same gate-guard martyr at the Zaki/Makki gate as Hadiqat's Pir Zaki
+761	row	sharaf-shah-lahori	Shah Sharf (mohalla outside Bhati Gate)	Muslim Shrine	Dargah/Mazar		the takeaways keep three Shah Sharf lines apart (761-763); line 762 joins Hadiqat's Sharaf Shah
+762	join	sharaf-shah-lahori					son and murid of Muhammad Fazil Qadiri, whose old mosque survives only in traces: Hadiqat's Sharaf Shah exactly
+763	row	sharaf-shah-lahori	Shah Sharaf (enclosure at Khwaja Muhammad Saeed's)	Muslim Shrine	Dargah/Mazar		the line itself says "may be either of the two above; not resolved"
+764	join	shah-dargahi-qadri					Qadiri faqir Shah Dargahi, as in Hadiqat
+765	row		Shah Badr al-Din Gilani	Muslim Shrine	Mausoleum/Memorial		
+766	row		Sayyid Badr al-Din Shah Alam (Sabz Gumbad)	Muslim Shrine	Mausoleum/Memorial		the line marks it a name-trap with line 765
+767	row	shaikh-haji-muhammad-saeed-lahori	Haji Muhammad Saeed (Dola Wari)	Muslim Shrine	Dargah/Mazar		the line says possibly the same site as Khwaja Muhammad Saeed (line 768)
+768	join	shaikh-haji-muhammad-saeed-lahori					facing the Nila Gumbad, Qadiri: Hadiqat places its Haji Muhammad Saeed "روبرو نیلا گنبد"
+769	join	shaikh-abdullah-shah-baloch-lahori-qadri					Abdullah Shah Baloch of Mozang, Qadiri, as in Hadiqat
+770	join	shaikh-muhammad-ismail-lahori-famous-as-mian-kalan-also-mian-wada					Shaikh Muhammad Ismail known as Mian Wadda, as in Hadiqat
+771	row		Sayyids of Mohalla Syed Sar	Muslim Shrine	Dargah/Mazar		
+772	row		Gulabi Shah	Muslim Shrine	Dargah/Mazar		named only as a landmark
+773	row		Taja	Muslim Shrine	Dargah/Mazar		a grave inside Taj Pura; no further detail
+774	join	khwaja-khawand-mahmud-lahori-famous-as-hazrat-ishan-naqshbandi					Khwaja Khawand Mahmud known as Hazrat Ishan, Naqshbandi, as in Hadiqat
+775	row	shah-raza-qadri-shattari-lahori	Shah Zia Qadiri	Muslim Shrine	Khanqah		both lines make him the pir of Shah Inayat, but the names differ (ضیا / رضا) and so do the years (1126 / 1118)
+776	join	shaikh-sayyid-abu-ishaq-gazruni-famous-as-miran-badshah-lahori					Sayyid Ishaq Gazruni known as Miran Badshah, as in Hadiqat
+777	join	hafiz-ghulam-muhammad-known-as-imam-gamun					Imam Ghulam Muhammad known as Imam Gamun, as in Hadiqat
+778	join	sayyid-suf-lahori					the tomb in the Wazir Khan mosque's chowk, said to be Sayyid Ishaq's brother: Hadiqat's Sayyid Suf
+779	join	sayyid-sar-buland					Sayyid Sar Buland north of the Wazir Khan mosque, as in Hadiqat
+780	join	pir-balkhi					Pir Balkhi, as in Hadiqat
+781	join	sayyid-mahmud-huzuri-lahori,sayyid-jan-muhammad-huzuri					one enclosure, the two Huzuri Sayyid tombs Hadiqat gives as two rows
+782	join	shaikh-hasan-kunjadgar-famous-as-hassu-teli-lahori					Hassu Teli, murid of Shah Jamal, as in Hadiqat
+783	join	pir-siraj-al-din-known-as-pir-siraji					from Bukhara under Muhammad Tughlaq, refused the qaziship and closed his teaching: Hadiqat's Pir Siraji
+784	join	pir-bhola-lahori					Pir Bahola / Bhola, majzub, as in Hadiqat
+785	join	sayyid-shah-bilawal					Sayyid Shah Bilawal Qadiri, as in Hadiqat
+786	join	sayyid-jhulan-shah-famous-as-ghore-shah-lahori					Sayyid Jhulan Shah known as Ghore Shah, as in Hadiqat
+787	join	shaikh-musa-ahangar-lahori					Shaikh Musa Ahangar, d. 925, as in Hadiqat
+788	join	shaikh-abd-al-jalil-qutb-al-alam-chuhar-bandagi-qureshi-harithi-hakari-lahori					Shaikh Abd al-Jalil Chauthar / Chuhar Bandagi, as in Hadiqat
+789	row	shaikh-nur-ahmad-famous-as-nur-husain-qadiri	Rasul Shahi faqirs and Nur Husain	Muslim Shrine	Khanqah		Hadiqat's Nur Husain Qadiri has a khalifa Rasul Shah; this line makes the Rasul Shahis a Suhrawardi branch
+790	join	shah-muhammad-ghaus-gilani-qadri-lahori					Shah Muhammad Ghaus Qadiri, d. 1152, as in Hadiqat
+791	join	shah-rahmat-allah-qureshi-multani-then-lahori					Shah Rahmat Allah Qureshi, as in Hadiqat
+792	join	shaikh-hamid-qari-suhrawardi					Shaikh Hamid Qari, Suhrawardi, as in Hadiqat
+793	join	shah-shams-al-din-qadri-lahori					Shah Shams al-Din Qadiri Lahori, as in Hadiqat
+794	join	shaikh-muhtaram					Shaikh Muhtaram Naqshbandi, as in Hadiqat
+795	row		Mian Jan Muhammad	Muslim Shrine	Dargah/Mazar		the line marks it a name-trap with the Kashmiri Bazaar Maulvi Jan Muhammad
+796	join	shaikh-mahmud-shah-naqshbandi-mujaddidi-lahori					Shaikh Mahmud Shah Naqshbandi Mujaddidi, as in Hadiqat (years differ: 1283 / 1280)
+797	row		Miskin Shah Amri (Mir Inayat Allah)	Muslim Shrine	Mausoleum/Memorial		
+798	row	peer-makki	Sayyid Abd al-Wahhab Qadiri	Muslim Shrine	Dargah/Mazar	Qadiri	the takeaways deliberately do not map him to Peer Makki (see their Doubts); kept as a row
+799	join	sain-qutb-shah-lahori					Sain Qutb Shah Qadiri, d. 1290, as in Hadiqat
+800	join	shaikh-fath-shah-shattari-lahori					Fath Shah, Shattari, as in Hadiqat (years differ: 1155 / 1150)
+801	join	sayyid-abu-turab-known-as-shah-gada-husaini-shattari-lahori					Shah Abu Turab known as Shah Gada, as in Hadiqat
+802	join	shaikh-abu-ishaq-qadri-lahori					Shah Abu Ishaq Qadiri, as in Hadiqat
+803	join	faqir-taj-shah-majzub-lahori					Taj Shah / Taje Shah majzub, as in Hadiqat
+804	row		Shaikh Abd al-Razzaq Makki (Nila Gumbad)	Muslim Shrine	Mausoleum/Memorial		
+805	row	shaikh-muhammad-ashraf-lahori	Shaikh Ashraf	Muslim Shrine	Mausoleum/Memorial		Hadiqat's Shaikh Muhammad Ashraf is also a famed Lahore scholar; nothing else ties them
+806	row	pir-zuhdi-lahori	Mirza Hadi / Muhammad Muslim (Pir Zaidi)	Muslim Shrine	Dargah/Mazar	Naqshbandi	Pir Zaidi[OCR?] here, Pir Zuhdi (Wajih al-Din) in Hadiqat; both Naqshbandi Mujaddidi
+807	row		Maulvi Jami Lahori	Muslim Shrine	Dargah/Mazar		
+808	row	shaikh-muhammad-arif-chishti-sabri-lahori	Shaikh Arif Chishti	Muslim Shrine	Dargah/Mazar		years differ: 1064 here, 1071 in Hadiqat
+809	join	mastan-shah-lahori-majzub					Mastan Shah, majzub of the Sikh era, as in Hadiqat
+810	skip						a Chiragh Shah: held with the Shah Chiragh question (as in Hadiqat's exclusions)
+811	join	pir-hadi-rahnuma					three graves, Pir Hadi and Muhsin Shah among them, descendants of Shams al-Din Tabrizi: Hadiqat's Pir Hadi Rahnuma
+812	join	shaikh-muhammad-ismail-muhaddith-wa-mufassir-lahori					came to Lahore under the Ghaznavids and spread Islam: Hadiqat's Shaikh Muhammad Ismail Muhaddith
+813	join	shaikh-sadi-mujaddidi-lahori					Shaikh Sadi Balkhari, Naqshbandi Mujaddidi, as in Hadiqat
+814	join	sayyid-yaqub-addressed-as-sadr-e-diwan-zanjani-lahori					Shah Yaqub Zanjani known as Sadr Diwan, as in Hadiqat
+815	row		Imambara and Gami Shah	Muslim Shrine	Imambargah		
+816	join	shah-zia-al-din-shirwani					Sarwani / Shirwani, murid of Shams al-Din Turk Panipati, north of Mozang: Hadiqat's Shah Zia al-Din Shirwani (this line names him Rukn al-Din)
+817	row	shaikh-muhammad-siddiq-chishti-sabri-lahori,shaikh-muhammad-salim-chishti-sabri-lahori,shaikh-abd-al-khaliq-lahori-chishti-sabri	Chishti family graves, Maidan Zarin Khan	Muslim Shrine	Graveyard		the same three names as three Hadiqat rows, with different years
+818	join	shah-naushahi					Shah Kanhah / Kanthah, Naushahi, as in Hadiqat
+819	join	fazl-shah-majzub-naushahi					Fazl Shah majzub, Naushahi, as in Hadiqat
+820	row		Shah Rustam Ghazi	Muslim Shrine	Dargah/Mazar		
+821	skip						a Chiragh Shah: held with the Shah Chiragh question (as in Hadiqat's exclusions)
+822	row		Abu al-Khair	Muslim Shrine	Dargah/Mazar		
+823	row		Madrasa Garhi Shahu (Khair Garh)	Muslim Shrine	Madrasa		
+824	row		Khanqah Kahhote Shah	Muslim Shrine	Khanqah		named only as a landmark
+825	row		Takiya Baba Farid Ganjshakar (Lahore)	Muslim Shrine	Takiya		named only as a landmark; a Lahore takiya, not the Pakpattan shrine
+826	skip						named only as an enclosure wall; may be the archive's tahir-bandagi-qadri, not asserted, so not a row
+827	row		Old tomb under Government House	Muslim Shrine	Mausoleum/Memorial		the line says it may be line 765's tomb, not asserted
+831	row		Begumpura graveyard	Muslim Shrine	Graveyard		Zakariya Khan's grave is also given in line 832's complex
+832	row		Nawab Zakariya Khan's graveyard complex, Mughalpura	Muslim Shrine	Graveyard		Zakariya Khan's grave is also given in line 831's graveyard
+833	row		Miani graveyard and Panj Pir Dher	Muslim Shrine	Graveyard		
+834	join	the-takiya-ambli-wala-enclosure					the Takiya Anbli Wala graves, as in Hadiqat
+838	row		Badshahi Masjid	Muslim Shrine	Mosque		
+839	row		Masjid Masti Darwaza (Maryam Zamani)	Muslim Shrine	Mosque		
+840	row		Masjid Khurd Nawab Wazir Khan	Muslim Shrine	Mosque		
+841	row		Taksali Wali Masjid	Muslim Shrine	Mosque		
+842	row		Unchi Masjid, Bhati Darwaza	Muslim Shrine	Mosque		
+843	row		Sunehri Masjid (Masjid Tilai), Kashmiri Bazaar	Muslim Shrine	Mosque		
+844	row		Masjid Bazar Bi	Muslim Shrine	Mosque		
+845	row		Masjid Pari Mahal	Muslim Shrine	Mosque		
+846	row		Past Masjid / Nichi Masjid	Muslim Shrine	Mosque		
+847	row		Masjid Muhammad Salih Kambo, Mochi Darwaza	Muslim Shrine	Mosque		the line on 867 says possibly the same founder
+848	row		Masjid Chiniyan Wali	Muslim Shrine	Mosque		
+849	row		Masjid Wazir Khan	Muslim Shrine	Mosque		
+850	row		Unnamed mosque of the Dilawar Khan land case	Muslim Shrine	Mosque		unnamed in the book
+851	row		Masjid Mohalla Takiya Sadhuwan	Muslim Shrine	Mosque		
+852	row		Mosque of Zabita Khan and Mirza Muhammad (Mirza Mota)	Muslim Shrine	Mosque		
+853	row		Mosque of Sayyid Amir Shah	Muslim Shrine	Mosque		
+854	row		Sufi Wali Masjid	Muslim Shrine	Mosque		
+855	row		Kotwali mosque of Mian Nura (Nur Muhammad)	Muslim Shrine	Mosque		
+856	row		Mian Nura's second mosque, Kashmiri Bazaar	Muslim Shrine	Mosque		
+857	row		Masjid Phulian Wali	Muslim Shrine	Mosque		
+858	row		Masjid Shaikh Nawab Imam al-Din Khan	Muslim Shrine	Mosque		
+859	row		Masjid Hafiz Chabuk Sawar	Muslim Shrine	Mosque		
+860	row		Masjid Moran Tawaif	Muslim Shrine	Mosque		
+861	row		Masjid Bukan Khan	Muslim Shrine	Mosque		
+862	row		Masjid Imam Shah Wali	Muslim Shrine	Mosque		
+863	row		Masjid Mulla Majid, Mohalla Chehl Bibian	Muslim Shrine	Mosque		
+864	row		Masjid Dai Anga	Muslim Shrine	Mosque		
+865	row		Masjid Dai Ladu	Muslim Shrine	Mosque		
+866	row		Masjid Naqiban	Muslim Shrine	Mosque		named in a list, no detail
+867	row		Masjid Muhammad Salih Sindhi	Muslim Shrine	Mosque		the line says possibly the same founder as line 847
+868	row		Masjid Mian Muhammad Sultan Thekedar	Muslim Shrine	Mosque		the line keeps it distinct from his travellers' mosque (line 870)
+869	row		Masjid Khwaja Ayaz	Muslim Shrine	Mosque		
+870	row		Travellers' mosque of Muhammad Sultan Thekedar	Muslim Shrine	Mosque		
+871	row		Half-demolished mosque near Sarai Muhammad Sultan	Muslim Shrine	Mosque		unnamed in the book
+872	row		Mosque at the Garhi Shahu compound	Muslim Shrine	Mosque		unnamed in the book
+873	row		Moti Masjid, Lahore Fort	Muslim Shrine	Mosque		
+877	row		Shivala north of Masjid Wazir Khan	Hindu Temple	Temple		
+878	row		Shivala Raja Dina Nath	Hindu Temple	Temple		
+879	row		Shivala Bakhshi Bhagat Ram	Hindu Temple	Temple		
+880	row		Thakurdwara Raja Teja Singh	Hindu Temple	Temple		
+881	row		Shivala Gulab Rai Jamadar	Hindu Temple	Temple		
+882	row		Unnamed temple with fourteen shops	Hindu Temple	Temple		unnamed in the book
+883	row		Hanuman Mandir, Moti Bazaar	Hindu Temple	Temple		
+884	row		Shivala Tarpolia Wala	Hindu Temple	Temple		
+885	row		Thakurdwara Baikunth Das	Hindu Temple	Temple		
+886	row		Shivala Diwan Shankar Das	Hindu Temple	Temple		
+887	row		Shivala Raghunath Misr	Hindu Temple	Temple		
+888	row		Thakurdwara Bakho Misr	Hindu Temple	Temple		
+889	row		Mandir Banke Bihari	Hindu Temple	Temple		
+890	row		Thakurdwara attached to Mandir Banke Bihari	Hindu Temple	Temple		unnamed in the book
+891	row		Thakurdwara of the Kankhal image	Hindu Temple	Temple		unnamed in the book
+892	row		Vaishno Devi Mandir, Mohalla Talwara	Hindu Temple	Temple		
+893	row		Shivala Wilbagh / Dilbagh Rai	Hindu Temple	Temple		
+894	row		Shivala Thibi Wala	Hindu Temple	Temple		
+895	row		Thakurdwara Chor Mor Wala	Hindu Temple	Temple		
+896	row	tag:918	Bhadr Kali (in-city)	Hindu Temple	Temple		the line relates it to the Niaz Beg Bhadr Kali (line 918)
+897	row		Thakurdwara Jwala Dai	Hindu Temple	Temple		
+898	row		Ram Dwara, Mohalla Wachhowali	Hindu Temple	Temple		
+899	row		Bhairon ji ka Asthan, Mohalla Wachhowali	Hindu Temple	Temple		
+900	row		Mandir Bawa Mehr Das (four mandirs)	Hindu Temple	Complex		
+901	row		Shivala Pandit Radha Kishan	Hindu Temple	Temple		
+902	row		Kali Devi Mandir	Hindu Temple	Temple		
+903	row		Thakurdwara Pandit Radha Kishan	Hindu Temple	Temple		
+904	row		Chaubara Chhajju Bhagat	Hindu Temple	Complex		the line describes one cult on two sites; one row
+905	row		Neighbourhood thakurdwara on a confectioners' shop site	Hindu Temple	Temple		unnamed in the book
+906	row		Sadhu Chuhra's well and shivala	Hindu Temple	Temple		
+907	row		Asthan Sitla Mata (outside the wall)	Hindu Temple	Temple		
+908	row		Mandir Sitla Devi (inside the city)	Hindu Temple	Temple		
+909	row		Thakurdwara Bawa Mangal Das	Hindu Temple	Complex		
+910	row		Thakurdwara Rani Lachhmi	Hindu Temple	Temple		
+911	row		Thakurdwara Bhori Sarkar	Hindu Temple	Temple		
+912	row		Thakurdwara Rani Jindan	Hindu Temple	Temple		
+913	row		Shivala near Chah Badhu Wala	Hindu Temple	Temple		
+914	row		Shivala and Devi Dwara Ganga Parbat	Hindu Temple	Temple		
+915	row		Marghat, the Hindu cremation ground	Hindu Temple	Cremation ground		
+916	row		Shivala Lala Nihal Chand	Hindu Temple	Temple		the line keeps it distinct from his five-mandir thakurdwara (line 921)
+917	row		Shivala Diwan Ratan Chand, with tank and sarai	Hindu Temple	Complex		
+918	row	tag:896	Mandir Bhadr Kali, Niaz Beg	Hindu Temple	Temple		
+919	row		Mandir Than Bhairon, Ichhra	Hindu Temple	Temple		
+920	row		Thakurdwara and Shivala Sant Shah and Devi Dyal	Hindu Temple	Temple		
+921	row		Thakurdwara Lala Nihal Chand (five mandirs)	Hindu Temple	Complex		
+922	row		Thakurdwara Makho Shah	Hindu Temple	Temple		
+923	row		Devi Dwara Rajo and Dharman	Hindu Temple	Temple		
+924	row		Gyan Mandir and Shivala Ishri Prashad Kayath	Hindu Temple	Temple		
+925	row		Shivala and Thakurdwara outside Mori Gate	Hindu Temple	Temple		unnamed in the book
+926	row		Thakurdwara Bawa Dehona Das	Hindu Temple	Temple		
+927	row		Thakurdwara and Shivala Lala Jasna Dibar and Jangam	Hindu Temple	Temple		
+928	row		Thakurdwara Lala Mahin Lal	Hindu Temple	Temple		
+929	row		Shivala Lala Chhote Lal	Hindu Temple	Temple		
+930	row		Thakurdwara Pandit Aukat Nath	Hindu Temple	Temple		
+931	row		Thakurdwara Chhojhi Mal Khatri	Hindu Temple	Temple		
+932	row		Thakurdwara Atar Singh Subedar	Hindu Temple	Temple		
+933	row		Shivala Dharm Chand Wala	Hindu Temple	Temple		
+934	row		Thakurdwara Rai Singh Risaldar	Hindu Temple	Temple		
+935	row		Mata Mandir of Kucha Bal Nath	Hindu Temple	Temple		
+936	row		Shivala Sukh Dyal Sud	Hindu Temple	Temple		
+937	row		Thakurdwara Lala Bhagwan Das	Hindu Temple	Temple		
+941	row		Tali Sahib (Baba Sri Chand)	Nanakpanthi / Udasi Darbar	Temple		
+942	row		Samadh Bawa Jhingar Shah Suthra	Nanakpanthi / Udasi Darbar	Samadhi		
+943	row		Samadh Bhai Vasti Ram	Sikh Gurdwara	Samadhi		
+944	row		Samadh Haqiqat Rai	Hindu Temple	Samadhi		
+945	row		Dharamsala of Baba Khuda Singh	Sikh Gurdwara	Dharamsala		
+946	row		Kuka dharamsala, Moti Bazaar	Sikh Gurdwara	Dharamsala		
+947	row		Dharamsala Bhai Goma Singh	Sikh Gurdwara	Dharamsala		
+948	row		Multani Dharamsala	Hindu Temple	Dharamsala		a Bhairon than and Nath samadhs; Hindu Temple is the tagger's category
+949	row		Samadh Bhai Rupa	Sikh Gurdwara	Samadhi		the line does not state his tradition; the category follows the section heading
+950	row		Shivala and samadh of Shiv Gar Sanyasi	Hindu Temple	Samadhi		
+951	row		Samadh Dariya Gar Sanyasi	Hindu Temple	Samadhi		
+952	row		Samadh Raja Teja Singh	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+953	row		Samadh Ram Singh, son of Jamadar Khushhal Singh	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+954	row		Samadh Jamadar Khushhal Singh	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+955	row		Samadh Raja Udham Singh	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+956	row		Samadh Raja Suchet Singh	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+957	row		Samadh Sardar Jawahar Singh	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+958	row		Samadh Maharaja Sher Singh	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+959	row	samadhi-of-maharaja-ranjit-singh	Samadh Maharaja Kharak Singh and Kunwar Nau Nihal Singh	Secular / Memorial	Samadhi		on the western edge of Ranjit Singh's chabutra: beside the archive row, not the same site
+960	row		Samadh Rani Raj Kaur (Rani Nakain)	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+961	row		Samadh Rani Chand Kaur	Secular / Memorial	Samadhi		category follows the archive's Samadhi of Maharaja Ranjit Singh
+962	row		Samadh Raja Dhian Singh	Secular / Memorial	Samadhi		named within the collective haveli entry
+966	skip						Brahmo Samaj: no archive category fits (not covered by the 10 Oct ruling; reported)
+967	skip						a church: no archive category fits (not covered by the 10 Oct ruling; reported)
+968	skip						a church: no archive category fits (not covered by the 10 Oct ruling; reported)
+969	skip						a church: no archive category fits (not covered by the 10 Oct ruling; reported)
+973	row		Rani Gul Begum	Secular / Memorial	Mausoleum/Memorial		her enclosure is the second in the Miani graveyard (line 833)
+974	row		Tomb of Ali Mardan Khan	Secular / Memorial	Mausoleum/Memorial		
+975	row		Tomb of Bahadur Khan	Secular / Memorial	Mausoleum/Memorial		
+976	row		Tombs of Makhduma Begum and Nawab Abu al-Hasan Khan	Secular / Memorial	Mausoleum/Memorial		the line describes two tombs, the husband's quarried away; one row
+977	row		Tomb of Nawab Nusrat Khan	Secular / Memorial	Mausoleum/Memorial		
+978	row		Sarvwala Maqbara (Sharaf al-Nisa Begum)	Secular / Memorial	Mausoleum/Memorial		
+979	row		Tomb of Jani Khan (Nizam al-Daula)	Secular / Memorial	Mausoleum/Memorial		
+980	row		Tomb of Prince Parvez	Secular / Memorial	Mausoleum/Memorial		
+981	row		Tomb of Nawab Mian Khan	Secular / Memorial	Mausoleum/Memorial		
+982	row		Safed Gumbad / Laka Gumbad (Yahya Khan)	Secular / Memorial	Mausoleum/Memorial		
+983	row		Tomb of Zeb al-Nisa Begum	Secular / Memorial	Mausoleum/Memorial		
+984	row		The foundress's tomb at Naya Kot	Secular / Memorial	Mausoleum/Memorial		unnamed in the book
+985	row		Tomb of Muhammad Salih and Shaikh Inayat Allah Kambo	Secular / Memorial	Mausoleum/Memorial		
+986	row		Tomb of Jahangir	Secular / Memorial	Mausoleum/Memorial		
+987	row		Tomb of Asaf Jah	Secular / Memorial	Mausoleum/Memorial		
+988	row		Tomb of Nur Jahan	Secular / Memorial	Mausoleum/Memorial		
+992	skip						secular: the book's notes say none of this group is a shrine candidate
+993	skip						secular: the book's notes say none of this group is a shrine candidate (its Moti Masjid is line 873)
+994	skip						secular: the book's notes say none of this group is a shrine candidate
+995	skip						secular: the book's notes say none of this group is a shrine candidate
+996	skip						secular: the book's notes say none of this group is a shrine candidate
+997	skip						secular: the book's notes say none of this group is a shrine candidate
+1003	skip						a contents-list line only, not matched to a described site; Hadiqat has a Sayyid Mitha row
+1004	skip						a contents-list line only, not matched to a described site
+1005	skip						a contents-list line only; Mian Mir is an archive row whose attachment this book contests
+1006	skip						a contents-list line only, not matched to a described site
+1007	skip						a contents-list line only, not matched to a described site
+1008	skip						a contents-list line only, not matched to a described site

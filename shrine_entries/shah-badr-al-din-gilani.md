@@ -1,0 +1,5 @@
+## From Kanhaiya Lal, Tarikh-e Lahore
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/tareekh_lahore.md` (reviewed: no), line 765: the book's "Figures and sites not in the archive", under Muslim shrines, khanqahs and saints' tombs. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- **شاہ بدر الدین گیلانی / مقبرہ سید بدال دین[OCR?] گیلانی** — "عابد زاہد و صاحب کرامت"; settled the mohalla south of Shah Dargahi's and "اپنے ہم قوم شریف سید لوگ اسمیں آباد کئے"; inhabited from the Akbari era to the end of the Chughtai sultanate; his mosque a powder magazine, then a brick-mine (pp. 82–84, folios 85–87); tomb built in the Shah Jahan era, nisba **گیلانی** only, d. ۱۰۷۲[OCR?] ہجری, children raised the dome, site became **Government House** (pp. 394–396, folios 401–403); the Gilani mohalla and grand mosque west of it, their ruin cross-referenced by the book to "پہلے حصہ کتاب ہذا" (p. 395, folio 402) — that cross-reference is why the two partials' figures are treated as one; also the **کشتی والہ گنبد**, the same dome once wrestlers made an akhara beside it (p. 395, folio 402).

@@ -3,3 +3,9 @@
 *New row proposed 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no), line 3520: the book's "Figures and sites not in the archive", under Lahore / Qadiri and Gilani. The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
 
 - [PK] **Shaikh Haji Muhammad Saeed Lahori / شیخ حاجی محمد سعید** — entry no. 147; died 1166 AH in the text, **1162 AH in the editor's contemporary source**; "مزار گوہر بار لاہور میں روبرو نیلا گنبد پشت بازار انار کلی ہے" — opposite the Nila Gumbad behind Anarkali bazaar, the most precise Lahore address in the book; Qadiri khilafat from Sayyid Mahmud b. Sayyid Ali Husaini Kurdawi with bai'at at Medina, Shattari chain to Shah Muhammad Ghaus Gwaliari, **Naqshbandi ijazat from Hafiz Sa'd Allah Mujaddidi** — three orders in one man; his madrasa hosted Shah Wali Allah in 1143 AH; malfuzat *Qiran al-Sa'dain* by Akhund Muhammad Rafi Peshawari; the editor's own monograph on him was in press 1974; appendix row 55 → Bank Square. (pp. 212–215, folios 200–203; pp. 290, 293, 295)
+
+## From Kanhaiya Lal, Tarikh-e Lahore
+
+*Joined 10 October 2026 from `entries/book_takeaways/tareekh_lahore.md` (reviewed: no), line 768: the book's "Figures and sites not in the archive". facing the Nila Gumbad, Qadiri: Hadiqat places its Haji Muhammad Saeed "روبرو نیلا گنبد". The line below is copied verbatim.*
+
+- **خواجہ محمد سعید لاہوری** — pakka enclosure east of and facing the **Nila Gumbad**, a kotha for a faqir at the gate; graves of himself, **Haji Ibad-ullah** and **Abdul Rahman**, his grandsons; **Qadiriya**, "صاحب کرامت و خوارق"; long in **Kabul**, **Ahmad Shah Durrani** his great devotee; d. "۱۱۸۵ [OCR?]", chronogram "شیخ وصل سعید"; tomb and mosque demolished for Ranjit Singh's gates and moat, the stone sent to Amritsar (pp. 287–288, folios 290–291); contents "مزار خواجہ محمد سعید ۲۹۰" (pp. 3–4, folios 2–3).

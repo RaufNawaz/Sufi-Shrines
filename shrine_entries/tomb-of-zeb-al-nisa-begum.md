@@ -1,0 +1,5 @@
+## From Kanhaiya Lal, Tarikh-e Lahore
+
+*New row proposed 10 October 2026 from `entries/book_takeaways/tareekh_lahore.md` (reviewed: no), line 983: the book's "Figures and sites not in the archive", under Tombs of rulers, nobles and their households (no cult recorded — weak candidates). The line below is copied verbatim; nothing was added or reworded. Coordinates not yet known.*
+
+- **زیب النسا بیگم / مخفی** — called **Aurangzeb's sister**; **Chauburji** is her garden gate, three of its four minarets standing; her garden counted **second[OCR?] to Shalamar**, its roads of red stone and its rauza marble from bottom to top; d. "سنہ ۱۰۸۰ ہجری" in the prose and "۱۰۹۰[OCR?]" in the chronogram; her tomb's stone taken for a marble baradari, the graves' place now "ایک مٹی کا تودہ", zamindars' houses built over its platform (pp. 309–312, folios 312–315; pp. 361–362, folios 368–369). She also built Shah Rustam Ghazi's tomb (p. 312, folio 315) and had Abul Khair teach by her order (pp. 362–363, folios 369–370).

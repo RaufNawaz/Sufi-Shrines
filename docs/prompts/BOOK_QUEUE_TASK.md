@@ -377,9 +377,34 @@ instead of integrating:
   schaflechner, werbner_basu, abbas, qureshi, rozehnal and schimmel_mdi as they stand: extend it for each, never hand-copy. Books with groups: tahqiqat (20, done),
   dhillon (11), khalid_a_white_trail (19), khalid_in_search_of_shiva (15), khalid_walking_with_nanak (24),
   nizami (1) — check each one's heading format against the script's regex before running it.
-- **The new-rows step needs `- [PK] **Name / اردو** — …` lines, and only hadeeqat has them** (§9.288). On any
-  other book, `build_new_rows.py` finds nothing until the book's `## Figures and sites not in the archive` is
-  tagged in that format; that tagging is its own job (with a brief), not part of an integration firing.
+- **Which kinds of site become rows** (Rauf, 10 October 2026, §9.313): graves and shrines, and also
+  Hindu temples and samadhs, Sikh, Udasi and Jain sites, rulers' tombs and graveyards, and mosques (a
+  mosque row is `Muslim Shrine` / `Mosque`: the sheet has no mosque category). A site the book records
+  as already demolished still gets a row, `status` blank. Left out, with the reason in the tag file:
+  secular and British-era sites, and Brahmo and Christian foundations (no archive category fits).
+- **Every book but hadeeqat: the new-rows step goes through a TAG FILE** (§9.313). `build_new_rows.py`
+  reads only `- [PK]` lines, and only hadeeqat has them. Never rewrite the takeaways to fit it. Instead:
+  1. Write `pipeline/book_queue/figure_tags/<slug>.tsv` (`tareekh_lahore.tsv` is the worked example
+     and documents the columns): one row per `- **` item line of `## Figures and sites not in the
+     archive`, by line number, kind `row` / `join` / `figure` / `skip`. For a `row`, give your
+     transliteration of the head as `name`, and give `category` (one of the six) and `site_type` from the
+     item's own heading and words. Give `silsila` only where the line names the person's OWN order, and
+     only for a site in Pakistan; a site outside Pakistan is `figure` or `skip`. Set `#location` only
+     where every row is in one city; otherwise split the file per city or leave it blank.
+  2. Before tagging a Muslim burial `row`, look for it among the proposed rows of earlier books
+     (`data/review/PATCH_new_rows_*.csv`) and the archive (`src/data/shrines-fallback.json`). Use
+     `join` only where the lines agree on what identifies the burial: the master, the address, the
+     companions. A name alone is not enough; such a line stays a `row`, with the other id in `target`
+     ("may be the same as", flagged, never merged). Put the basis of every join in `note`.
+  3. `build_tagged_rows.py <slug> --title "<the title integrate_book used>" --date … --stamp … --dry-run`.
+     It refuses on an untagged item, a category outside the six, a silsila not on the line, an
+     unresolved target or a colliding id. Fix the TAGS, never the check. Then run it for real, and run
+     a second instrument (verbatim + byte prefix against `out/integration/<slug>/before_tags/`).
+  4. Write `data/review/PATCH_new_rows_<slug>_<stamp>.md` (Tareekh's is the model) and the run record.
+  Tagging is a notes-turn job. When no `summarized` book is left to integrate, a notes firing tags the
+  next integrated book with a Figures section and no `PATCH_new_rows_<slug>_*.csv`. Claim that book
+  first. `figure` tags are not yet read by `build_book_figures.py`: extend it, with a test, the first
+  time a book needs them (Tareekh had none).
 - **A contested attachment is attached as the book's claim.** Where the takeaways disagree with
   themselves about whether material belongs to a row (`shrine-of-baba-shah-kamal`: a section calling
   the index's "brother of Shah Jamal Lahori" a lead, against Doubt I1's "must stay unmapped"), attach

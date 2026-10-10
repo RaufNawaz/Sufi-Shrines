@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-10T18:23:06Z",
-  "expires_at": "2026-10-10T19:53:06Z",
-  "note": "integration [taking over a released or expired claim; previous holder session_01EBtKoj6YZMeo7AWf1ENk6H]",
-  "released_at": "2026-10-10T18:25:29Z",
-  "released_by": "session_018MEC39WXYZaZATQGaNdiix",
-  "session": "session_018MEC39WXYZaZATQGaNdiix",
+  "claimed_at": "2026-10-10T21:29:14Z",
+  "expires_at": "2026-10-10T23:29:14Z",
+  "note": "new rows from tagged Figures section (Rauf, 10 Oct site-kind ruling); interactive session [taking over a released or expired claim; previous holder session_018MEC39WXYZaZATQGaNdiix]",
+  "released_at": "2026-10-10T21:32:48Z",
+  "released_by": "local-claude-code-2026-10-10",
+  "session": "local-claude-code-2026-10-10",
   "slug": "tareekh_lahore",
   "status": "released"
 }
