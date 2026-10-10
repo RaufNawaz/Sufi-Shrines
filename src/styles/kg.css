@@ -3700,3 +3700,50 @@
 .typology-more {
   margin-block-start: var(--space-4);
 }
+
+/* ── Named in the books (team view, 10 October 2026) ──────────────────────────
+   Saints the transcribed books document with no site in Pakistan. One row per
+   figure; the book's own lines open under it on demand, because they are the
+   evidence and run to a paragraph each. */
+.graph-book-figures-list .graph-book-figure {
+  display: block;
+  padding: 0;
+}
+.graph-book-figure-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-3) var(--space-4);
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.graph-book-figure-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+.graph-book-figure-detail {
+  padding: 0 var(--space-4) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.graph-book-figure-text {
+  margin-block: 0 var(--space-3);
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+.graph-book-figure-source {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+/* One column: a record opens to a paragraph, and in a two-column grid that left
+   its neighbour standing beside an empty half-row. */
+.graph-book-figures-list {
+  grid-template-columns: 1fr;
+}

@@ -40,8 +40,10 @@ import { centurySpan, figureCentury } from '../lib/data/figureDates';
 import { CENTURY_ORDINAL } from '../lib/data/era';
 import type { Lang } from '../types/shrine';
 
-import { isRtlLang } from '../lib/i18n/languages';
+import { isRtlLang, usesLatinScript } from '../lib/i18n/languages';
 import { hasProjectAccess } from '../lib/projectAccess';
+import { BOOK_FIGURE_REGIONS_UR, BOOK_FIGURE_WORKS, loadBookFigures } from '../lib/bookFigures';
+import type { BookFigure } from '../lib/bookFigures';
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
  * saints as a network (reusing the same NetworkGraph used on SaintPage),
@@ -135,8 +137,32 @@ export default function GraphPage() {
   const [lineageQuery, setLineageQuery] = useState('');
   const [showAllTeachers, setShowAllTeachers] = useState(false);
   /* Which figure index is open as a sheet, if either. */
-  const [figureSheet, setFigureSheet] = useState<'archive' | 'lineage' | null>(null);
+  const [figureSheet, setFigureSheet] = useState<'archive' | 'lineage' | 'books' | null>(null);
   const closeFigureSheet = React.useCallback(() => setFigureSheet(null), []);
+  /* Saints the books document who have no site in Pakistan (Rauf, 10 October
+     2026: team view until reviewed). Loaded on demand and only for the team,
+     as its own chunk: they are not KG nodes, so the public page, its counts,
+     search and sitemap never see an unreviewed transcription. */
+  const [bookFigures, setBookFigures] = useState<BookFigure[] | null>(null);
+  React.useEffect(() => {
+    if (!teamView) return;
+    let live = true;
+    loadBookFigures().then(
+      (figures) => live && setBookFigures(figures),
+      () => live && setBookFigures([]),
+    );
+    return () => {
+      live = false;
+    };
+  }, [teamView]);
+  const [openBookFigure, setOpenBookFigure] = useState<string | null>(null);
+  const sortedBookFigures = useMemo(() => {
+    if (!bookFigures) return [];
+    const collator = new Intl.Collator(lang);
+    // eslint-disable-next-line no-restricted-syntax -- `nameUr` is the book's own Urdu, an Urdu-only datum
+    const label = (f: BookFigure) => (lang === 'ur' && f.nameUr ? f.nameUr : f.name);
+    return [...bookFigures].sort((a, b) => collator.compare(label(a), label(b)));
+  }, [bookFigures, lang]);
 
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
   /* Pictures for the diagram's nodes; fetched on demand, re-renders on arrival. */
@@ -873,6 +899,38 @@ export default function GraphPage() {
                   </button>
                 </li>
               )}
+              {sortedBookFigures.length > 0 && (
+                <li className="inset-row graph-launch-item">
+                  <button
+                    type="button"
+                    className="graph-launch-row graph-book-figures-launch"
+                    aria-haspopup="dialog"
+                    onClick={() => setFigureSheet('books')}
+                  >
+                    <span className="graph-launch-icon graph-launch-icon--quiet" aria-hidden="true">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" />
+                        <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5z" />
+                      </svg>
+                    </span>
+                    <span className="inset-row-label inset-row-label--stacked">
+                      <span className="inset-row-title">{t('graphBookFiguresHeading')}</span>
+                      <span className="inset-row-sub">{t('graphLaunchBookFiguresSub')}</span>
+                    </span>
+                    <span className="graph-launch-count">{fmtNum(sortedBookFigures.length)}</span>
+                    <span className="inset-row-chevron" />
+                  </button>
+                </li>
+              )}
             </ul>
           </section>
         )}
@@ -1069,6 +1127,89 @@ export default function GraphPage() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </Sheet>
+        )}
+        {teamView && sortedBookFigures.length > 0 && (
+          <Sheet
+            open={figureSheet === 'books'}
+            title={t('graphBookFiguresHeading')}
+            onClose={closeFigureSheet}
+            className="graph-figures-sheet"
+          >
+            <p className="graph-figures-note">{t('graphBookFiguresNote')}</p>
+            <ul className="graph-book-figures-list inset-list">
+              {sortedBookFigures.map((f) => {
+                const key = `${f.work}:${f.slug}`;
+                const open = openBookFigure === key;
+                const work = BOOK_FIGURE_WORKS[f.work];
+                return (
+                  <li key={key} className="inset-row graph-book-figure">
+                    <button
+                      type="button"
+                      className="graph-book-figure-toggle"
+                      aria-expanded={open}
+                      onClick={() => setOpenBookFigure(open ? null : key)}
+                    >
+                      {/* The Urdu name is the book's own; where the notes give
+                          none, the name comes back as recorded (RULE 2 forbids
+                          transliterating it), declared for the no-leak guard. */}
+                      {/* eslint-disable-next-line no-restricted-syntax -- `nameUr` is the book's own Urdu, an Urdu-only datum */}
+                      {lang === 'ur' && f.nameUr ? (
+                        <span className="inset-row-label">{f.nameUr}</span>
+                      ) : (
+                        <span className="inset-row-label" data-latin>
+                          <bdi>{f.name}</bdi>
+                        </span>
+                      )}
+                      {/* The death clause is the notes' English, so it heads the
+                          row only where the page is in a Latin script; in Urdu
+                          it is read inside the record, under the book's line. */}
+                      {usesLatinScript(lang) ? (
+                        <span className="inset-row-note">
+                          {/* isolates any Urdu the clause quotes, which otherwise
+                              reorders inside an English line */}
+                          {renderInlineBold([f.died, f.region].filter(Boolean).join(' · '))}
+                        </span>
+                      ) : BOOK_FIGURE_REGIONS_UR[f.region] ? (
+                        <span className="inset-row-note">{BOOK_FIGURE_REGIONS_UR[f.region]}</span>
+                      ) : (
+                        <span className="inset-row-note" data-latin>
+                          <bdi>{f.region}</bdi>
+                        </span>
+                      )}
+                    </button>
+                    {open && (
+                      <div className="graph-book-figure-detail">
+                        {f.joinsSaint && (
+                          <p>
+                            <Link to={`/saint/${f.joinsSaint}`}>
+                              {t('graphBookFiguresInGraph')}
+                            </Link>
+                          </p>
+                        )}
+                        {f.records.map((r) => (
+                          <p key={r.line} className="graph-book-figure-text" data-latin>
+                            <bdi>{renderInlineBold(r.text.replace(/^- /, ''))}</bdi>
+                          </p>
+                        ))}
+                        <p className="graph-book-figure-source">
+                          {work && !usesLatinScript(lang) ? (
+                            work.ur
+                          ) : (
+                            <bdi data-latin>{work?.en ?? f.work}</bdi>
+                          )}
+                          {' · '}
+                          <bdi data-latin>
+                            entries/book_takeaways/{f.work}.md:
+                            {f.records.map((r) => r.line).join(', ')}
+                          </bdi>
+                        </p>
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </Sheet>
         )}

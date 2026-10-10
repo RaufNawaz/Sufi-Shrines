@@ -33,7 +33,8 @@
    "entryNo": "",
    "region": "Lahore",
    "line": 3635,
-   "text": "**Shah Bahlul Daryai**, pir of Shah Husain, named with that attribute where entry no. 10 has only \"Shaikh Bahlul Qadri\" (p. 54)"
+   "text": "**Shah Bahlul Daryai**, pir of Shah Husain, named with that attribute where entry no. 10 has only \"Shaikh Bahlul Qadri\" (p. 54)",
+   "joinsSaint": "bahlol-daryai"
   },
   {
    "kind": "named",
@@ -55,7 +56,8 @@
    "entryNo": "",
    "region": "Lahore",
    "line": 3635,
-   "text": "**Shaikh Khizr Sistani**, Mian Mir's pir (p. 60)"
+   "text": "**Shaikh Khizr Sistani**, Mian Mir's pir (p. 60)",
+   "joinsSaint": "shaikh-siyustani"
   },
   {
    "kind": "named",
@@ -392,7 +394,7 @@
    "slug": "baba-daud-khaki-kashmiri-suhrawardi",
    "name": "Baba Daud Khaki Kashmiri Suhrawardi",
    "nameUr": "بابا داؤد خاکی",
-   "died": "died 994 AH and \"شہر سری نگر میں مدفون ہوئے\" — buried in Srinagar",
+   "died": "died 994 AH",
    "entryNo": "117",
    "region": "Kashmir",
    "line": 3722,
@@ -414,7 +416,7 @@
    "slug": "khwaja-muin-al-din-naqshbandi-son-of-khwaja-khawand-mahmud-lahori",
    "name": "Khwaja Muin al-Din Naqshbandi, son of Khwaja Khawand Mahmud Lahori",
    "nameUr": "خواجہ معین الدین",
-   "died": "died \"بقول صاحب تواریخ\" 2 Muharram 1085 AH — no grave stated",
+   "died": "died \"بقول صاحب تواریخ\" 2 Muharram 1085 AH",
    "entryNo": "87",
    "region": "Kashmir",
    "line": 3724,
@@ -557,11 +559,12 @@
    "slug": "khwaja-qutb-al-din-bakhtiar-kaki-aushi-dehlvi",
    "name": "Khwaja Qutb al-Din Bakhtiar Kaki Aushi Dehlvi",
    "nameUr": "خواجہ قطب الدین بختیار کاکی",
-   "died": "died 14 Rabi al-Awwal ۶۳۴ [OCR?] AH, in the very midst of a sama assembly — editor: 14 Rabi al-Awwal 633 AH (*Akhbar al-Akhyar* 25)",
+   "died": "died 14 Rabi al-Awwal ۶۳۴ [OCR?] AH, in the very midst of a sama assembly",
    "entryNo": "42",
    "region": "Delhi",
    "line": 3737,
-   "text": "- **Khwaja Qutb al-Din Bakhtiar Kaki Aushi Dehlvi / خواجہ قطب الدین بختیار کاکی** — entry no. 42 (contents: printed p. 73); died **14 Rabi al-Awwal ۶۳۴ [OCR?] AH**, **in the very midst of a sama assembly** — **editor: 14 Rabi al-Awwal 633 AH** (*Akhbar al-Akhyar* 25); of the sadat of **Aush**, a qasba in Transoxiana which the editor places in **Farghana, south-east of Andijan**; genealogy to Imam Jafar Sadiq; his father died in his childhood and \"والدہ ماجدہ نے ان کو پڑھایا اور تربیت کی\"; his pir \"ان کو دہلی کو مامور کیا\"; editor: he met Khwaja Muin al-Din and received the khirqa in the mosque of Imam Abu al-Laith Samarqandi **in Baghdad** (*Sair al-Auliya* 48); seven sources listed. (pp. 16–19, 85–86, folios 73–74)"
+   "text": "- **Khwaja Qutb al-Din Bakhtiar Kaki Aushi Dehlvi / خواجہ قطب الدین بختیار کاکی** — entry no. 42 (contents: printed p. 73); died **14 Rabi al-Awwal ۶۳۴ [OCR?] AH**, **in the very midst of a sama assembly** — **editor: 14 Rabi al-Awwal 633 AH** (*Akhbar al-Akhyar* 25); of the sadat of **Aush**, a qasba in Transoxiana which the editor places in **Farghana, south-east of Andijan**; genealogy to Imam Jafar Sadiq; his father died in his childhood and \"والدہ ماجدہ نے ان کو پڑھایا اور تربیت کی\"; his pir \"ان کو دہلی کو مامور کیا\"; editor: he met Khwaja Muin al-Din and received the khirqa in the mosque of Imam Abu al-Laith Samarqandi **in Baghdad** (*Sair al-Auliya* 48); seven sources listed. (pp. 16–19, 85–86, folios 73–74)",
+   "joinsSaint": "khwaja-qutbuddin-bakhtiar-kaki"
   },
   {
    "kind": "entry",
@@ -601,7 +604,7 @@
    "slug": "shaikh-sayyid-haji-abd-al-wahhab-bukhari-dehlvi",
    "name": "Shaikh Sayyid Haji Abd al-Wahhab Bukhari Dehlvi",
    "nameUr": "سید حاجی عبدالوہاب بخاری",
-   "died": "died 932 AH, \"اور شیخ حاجی مادہ تاریخ ہے\" — the chronogram of the year",
+   "died": "died 932 AH",
    "entryNo": "114",
    "region": "Delhi",
    "line": 3741,
@@ -667,7 +670,7 @@
    "slug": "shah-abu-said-mujaddidi-dehlvi",
    "name": "Shah Abu Said Mujaddidi Dehlvi",
    "nameUr": "شاہ ابوسعید مجددی",
-   "died": "died at Tonk on the day of Eid, a Tuesday, \"سنہ ایک ہزار دو سو پچاس\", 1250, aged fifty-five, on his way home from the Hajj (the editor dates the journey 1249 AH), and \"شاہ عبد الغنی حضرت کے صاحبزادے ان کی نعش کو دہلی میں لائے اور شاہ غلام علیؒ و مرزا جان جاناں کے مزار کی قربت میں دفن کیا\"",
+   "died": "",
    "entryNo": "95",
    "region": "Delhi",
    "line": 3747,
@@ -678,7 +681,7 @@
    "slug": "shaikh-abd-al-haq-muhaddith-dehlvi",
    "name": "Shaikh Abd al-Haq Muhaddith Dehlvi",
    "nameUr": "شیخ عبدالحق محدث دہلوی",
-   "died": "died 1051 AH in the text, mazar in Delhi — the editor corrects the year and locates and dates the tomb at the Hauz-e Shamsi, built by Nawab Mahabat Khan",
+   "died": "died 1051 AH in the text, mazar in Delhi",
    "entryNo": "141",
    "region": "Delhi",
    "line": 3748,
@@ -755,7 +758,7 @@
    "slug": "bibi-sara",
    "name": "Bibi Sara",
    "nameUr": "بی بی سارہ",
-   "died": "died \"سنہ چھ سو اڑتیس ہجری\", 638 AH — editor: \"اخبار الاخیار (۲۷۶) میں بی بی سارہ کا سال وفات مرقوم نہیں ہے\", the source the author is using gives no year",
+   "died": "died \"سنہ چھ سو اڑتیس ہجری\", 638 AH",
    "entryNo": "192",
    "region": "Delhi",
    "line": 3755,
@@ -810,7 +813,7 @@
    "slug": "shaikh-hasan-lodla-majzub",
    "name": "Shaikh Hasan Lodla Majzub",
    "nameUr": "شیخ حسن لودلہ مجذوب",
-   "died": "died \"سال نو سو چونسٹھ\", 964, \"اور قبر دہلی میں ہے\" — editor, in Persian: \"قبر او در بازار دہلی نزدیک روضہ خواص خان است\", near the rauza of Khawas Khan, a client of Sher Shah put to death by Salim Shah b. Sher Shah in 958",
+   "died": "died \"سال نو سو چونسٹھ\", 964",
    "entryNo": "175",
    "region": "Delhi",
    "line": 3760,
@@ -821,7 +824,7 @@
    "slug": "shaikh-muhammad-abid-naqshbandi-mujaddidi-named-by-the-editor-shaikh-muhammad-abid-hanafi-naqshbandi-sunami",
    "name": "Shaikh Muhammad Abid Naqshbandi Mujaddidi, named by the editor Shaikh Muhammad Abid Hanafi Naqshbandi Sunami",
    "nameUr": "شیخ محمد عابد سنامی",
-   "died": "died 18 Ramadan 1160 AH \"القدس [OCR?]\" — the editor reports a rival year in the footnote, and in the appendix settles it: Shah Ghulam Ali gives 1160 AH, \"جو مفتی صاحب کے عین مطابق ہے اس لئے فقیر محمد جہلمی کا مندرجہ سنہ ۱۱۶۶ھ درست نہیں ہے\"",
+   "died": "died 18 Ramadan 1160 AH \"القدس [OCR?]\"",
    "entryNo": "92",
    "region": "Delhi",
    "line": 3761,
@@ -920,7 +923,7 @@
    "slug": "shaikh-abd-al-ahad",
    "name": "Shaikh Abd al-Ahad b. Shaikh Muhammad Saeed b. the Mujaddid",
    "nameUr": "شیخ عبدالاحد وحدت",
-   "died": "died 1142 AH [OCR?] — the editor renames him and moves the year sixteen years",
+   "died": "died 1142 AH [OCR?]",
    "entryNo": "91",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3771,
@@ -1031,7 +1034,7 @@
    "slug": "khwaja-ala-al-din-ali-ahmad-sabir-kaliyari",
    "name": "Khwaja Ala al-Din Ali Ahmad Sabir Kaliyari",
    "nameUr": "صابر کلیری",
-   "died": "died \"in the year six hundred and ninety\", 690, in the state of sama",
+   "died": "died \"in the year six hundred",
    "entryNo": "44",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3781,
@@ -1097,7 +1100,7 @@
    "slug": "shaikh-abu-said-chishti-sabri-gangohi",
    "name": "Shaikh Abu Said Chishti Sabri Gangohi",
    "nameUr": "شیخ ابوسعید گنگوہی",
-   "died": "died \"in the year one thousand and forty-nine[OCR?]\", 1049",
+   "died": "died \"in the year one thousand",
    "entryNo": "56",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3787,
@@ -1108,7 +1111,7 @@
    "slug": "shaikh-muhammad-sadiq",
    "name": "Shaikh Muhammad Sadiq b. Fath Allah Gangohi Hanafi Chishti Sabri",
    "nameUr": "شیخ محمد صادق گنگوہی",
-   "died": "died \"اٹھارہویں محرم ۱۰۵۸ھ\", 18 Muharram 1058 AH — disputed at length by the editor",
+   "died": "died \"اٹھارہویں محرم ۱۰۵۸ھ\", 18 Muharram 1058 AH",
    "entryNo": "57",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3788,
@@ -1119,7 +1122,7 @@
    "slug": "shaikh-muhammad-daud",
    "name": "Shaikh Muhammad Daud b. Shaikh Muhammad Sadiq Gangohi",
    "nameUr": "شیخ محمد داؤد",
-   "died": "died 5 Ramadan 1095 — the editor moves his death year twenty-two years",
+   "died": "died 5 Ramadan 1095",
    "entryNo": "61",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3789,
@@ -1130,7 +1133,7 @@
    "slug": "shah-abu-al-maali-chishti-sabri-anbethvi",
    "name": "Shah Abu al-Maali Chishti Sabri (Anbethvi)",
    "nameUr": "شاہ ابوالمعالی چشتی انبیٹھوی [OCR?]",
-   "died": "died \"in the year one thousand one hundred and sixteen\", ۱۱۱۶ھ",
+   "died": "died \"in the year one thousand one hundred",
    "entryNo": "62",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3790,
@@ -1152,7 +1155,7 @@
    "slug": "sayyid-muhammad-saeed-called-miran-shah-bhikha-chishti-sabri",
    "name": "Sayyid Muhammad Saeed, called Miran Shah Bhikha Chishti Sabri",
    "nameUr": "میراں سید بھیکہ چشتی",
-   "died": "died 5 Ramadan al-Mubarak 1131 AH, aged eighty-four — the appendix's *Nuzhat al-Salikin* gives 4 Ramazan 1131 AH / 1719 CE, aged 85",
+   "died": "died 5 Ramadan al-Mubarak 1131 AH, aged eighty-four",
    "entryNo": "65",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3792,
@@ -1174,7 +1177,7 @@
    "slug": "shaikh-abd-al-rashid-jalandhari-chishti",
    "name": "Shaikh Abd al-Rashid Jalandhari Chishti",
    "nameUr": "شیخ عبدالرشید جالندھری",
-   "died": "died the first (غرہ) of Rabi al-Awwal, Friday, in the year one thousand one hundred and twenty-one",
+   "died": "died the first (غرہ) of Rabi al-Awwal, Friday, in the year one thousand one hundred",
    "entryNo": "63",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3794,
@@ -1295,7 +1298,7 @@
    "slug": "shah-qamees",
    "name": "Shah Qamees b. Sayyid Abi al-Hayat Gilani Sadhauri",
    "nameUr": "شاہ قمیص سادھوری",
-   "died": "died 3 Zi Qada, \"the year nine hundred and ninety-two\"",
+   "died": "died 3 Zi Qada",
    "entryNo": "14",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3805,
@@ -1306,7 +1309,7 @@
    "slug": "miran-sayyid-ghulam-famous-as-shah-sahib",
    "name": "Miran Sayyid Ghulam, famous as Shah Sahib",
    "nameUr": "میراں سید غلام المشہور شاہ صاحب",
-   "died": "died 1278 AH and \"اپنے مقام سکونت میں دفن ہوا\" — buried in his own place of residence",
+   "died": "died 1278 AH",
    "entryNo": "168",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3806,
@@ -1383,7 +1386,7 @@
    "slug": "sayyid-shah-abdullah-majzub-naushahi",
    "name": "Sayyid Shah Abdullah Majzub Naushahi",
    "nameUr": "سید شاہ عبداللہ مجذوب نوشاہی",
-   "died": "died \"۱۱۳۱ھ ایک ہزار ایک سو اکتیس ہجری\" — editor: 1092 AH",
+   "died": "died \"۱۱۳۱ھ ایک ہزار ایک سو اکتیس ہجری\"",
    "entryNo": "182",
    "region": "Sirhind, Panipat, Thanesar, Kaithal and Gangoh",
    "line": 3813,
@@ -1530,7 +1533,8 @@
    "entryNo": "",
    "region": "The Hijaz, Arabia and the west",
    "line": 3827,
-   "text": "- **Shaikh Abdul Qadir Jilani, Ghaus al-Azam / حضرت غوث الاعظم** — the Qadiri chapter's founder; spiritual chain given from Imam Ali b. Musa Raza through Maruf Karkhi, Sari Saqti, Junaid Baghdadi, Abu Bakr Shibli, Abdul Wahid Tamimi, Abul Faraj Tartusi, Abul Hasan Qureshi Hakari and Abu Said Mubarak Makhzumi to him; both genealogies set out in full, \"صحیح الطرفین حسنی و حسینی\"; **madhhab Hanbali**; karamat \"as many as the stars in the sky\"; \"called Jili and Jilani from **Jilan**, where he lived\"; a *Bahjat al-Asrar* on him printed Egypt 1304 AH. (pp. 39–40, folios 27–28; p. 296)"
+   "text": "- **Shaikh Abdul Qadir Jilani, Ghaus al-Azam / حضرت غوث الاعظم** — the Qadiri chapter's founder; spiritual chain given from Imam Ali b. Musa Raza through Maruf Karkhi, Sari Saqti, Junaid Baghdadi, Abu Bakr Shibli, Abdul Wahid Tamimi, Abul Faraj Tartusi, Abul Hasan Qureshi Hakari and Abu Said Mubarak Makhzumi to him; both genealogies set out in full, \"صحیح الطرفین حسنی و حسینی\"; **madhhab Hanbali**; karamat \"as many as the stars in the sky\"; \"called Jili and Jilani from **Jilan**, where he lived\"; a *Bahjat al-Asrar* on him printed Egypt 1304 AH. (pp. 39–40, folios 27–28; p. 296)",
+   "joinsSaint": "sheikh-abdul-qadir-gilani"
   },
   {
    "kind": "entry",
@@ -1597,6 +1601,7 @@
    "region": "The Hijaz, Arabia and the west",
    "line": 3833,
    "text": "- Chain-links named from outside India, useful for `silsila` fields rather than as rows: **Shaikh Khizr Sistani**, Mian Mir's pir (p. 60)",
+   "joinsSaint": "shaikh-siyustani",
    "repeatOf": 3635
   },
   {
@@ -1608,7 +1613,8 @@
    "entryNo": "",
    "region": "The Hijaz, Arabia and the west",
    "line": 3833,
-   "text": "**Shaikh Daud Kirmani** and his teacher **Maulana Ismail Lahori** (pp. 48–49)"
+   "text": "**Shaikh Daud Kirmani** and his teacher **Maulana Ismail Lahori** (pp. 48–49)",
+   "joinsSaint": "daud-bandagi-kirmani"
   },
   {
    "kind": "named",
@@ -1653,28 +1659,6 @@
    "region": "The Hijaz, Arabia and the west",
    "line": 3833,
    "text": "**Khwaja Uwais Qarni**, from whose spirit the Uwaisiya took its faiz, one of whose teeth is among the Lahore Fort relics (pp. 219, 259)"
-  },
-  {
-   "kind": "named",
-   "slug": "naqshbandi-chain",
-   "name": "Naqshbandi chain",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "The Hijaz, Arabia and the west",
-   "line": 3833,
-   "text": "the twenty-two-name **Naqshbandi chain** printed as the chapter's frame, opening \"اول امام اس خاندان عالی شان کے حضرت **ابوبکر صدیق** رضی اللہ عنہ ہیں\", against the Chishti and Qadiri chains' descent from Ali (p. 127)"
-  },
-  {
-   "kind": "named",
-   "slug": "chishti-chain",
-   "name": "Chishti chain",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "The Hijaz, Arabia and the west",
-   "line": 3833,
-   "text": "the **Chishti chain** from Hasan Basri, \"اور یہ سلسلہ ہند اور پنجاب میں حضرت **خواجہ معین الدین حسن سجزی** سے شائع ہوا\", whose nisba the editor insists is **Sajzi**, \"نہ کہ سنجری\" (pp. 84–85)"
   },
   {
    "kind": "named",
@@ -1758,28 +1742,6 @@
   },
   {
    "kind": "named",
-   "slug": "shaikh-abd-al-hakim-sialkoti",
-   "name": "Shaikh Abd al-Hakim Sialkoti",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Shaikh Abd al-Hakim Sialkoti** (no. 142, d. 1068 AH)"
-  },
-  {
-   "kind": "named",
-   "slug": "sayyid-abu-turab-shah-gada",
-   "name": "Sayyid Abu Turab \"Shah Gada\"",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Sayyid Abu Turab \"Shah Gada\"** (no. 144, d. 14 Shawwal 1071 AH)"
-  },
-  {
-   "kind": "named",
    "slug": "maulvi-ghulam-rasul-fazil-lahori",
    "name": "Maulvi Ghulam Rasul Fazil Lahori",
    "nameUr": "",
@@ -1804,17 +1766,6 @@
   },
   {
    "kind": "named",
-   "slug": "mian-mongar-majzub-lahori",
-   "name": "Mian Mongar Majzub Lahori",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Mian Mongar Majzub Lahori** (no. 177, d. ۹۷۵ھ [OCR?])"
-  },
-  {
-   "kind": "named",
    "slug": "shaikh-abu-al-ghaith-bukhari-majzub",
    "name": "Shaikh Abu al-Ghaith Bukhari Majzub",
    "nameUr": "",
@@ -1827,39 +1778,6 @@
   },
   {
    "kind": "named",
-   "slug": "bahle-shah-majzub-lahori",
-   "name": "Bahle [OCR?] Shah Majzub Lahori",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Bahle [OCR?] Shah Majzub Lahori** (no. 190, d. 1265)"
-  },
-  {
-   "kind": "named",
-   "slug": "jali-shah-majzub-lahori",
-   "name": "Jali Shah Majzub Lahori",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Jali Shah Majzub Lahori** (concordance row ۷۲, both columns blank)"
-  },
-  {
-   "kind": "named",
-   "slug": "mai-bhagi-lahori",
-   "name": "Mai Bhagi Lahori",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Mai Bhagi Lahori** (no. 201, d. 1264; concordance: \"اب نشان مٹ چکا ہے\")"
-  },
-  {
-   "kind": "named",
    "slug": "mian-saranga-majzub-hansvi",
    "name": "Mian Saranga Majzub Hansvi",
    "nameUr": "",
@@ -1869,17 +1787,6 @@
    "line": 3839,
    "text": "**Mian Saranga Majzub Hansvi** (no. 171, d. 646)",
    "repeatOf": 3811
-  },
-  {
-   "kind": "named",
-   "slug": "sohan-majzub-ajodhani-pakpattani",
-   "name": "Sohan Majzub Ajodhani Pakpattani",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Sohan Majzub Ajodhani Pakpattani** (no. 172, d. 728 AH)"
   },
   {
    "kind": "named",
@@ -1942,28 +1849,6 @@
   },
   {
    "kind": "named",
-   "slug": "pir-ghazi-az-ghaib",
-   "name": "Pir Ghazi \"az Ghaib\"",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Pir Ghazi \"az Ghaib\"** (no. ۲۲۷, name and date both unknown)"
-  },
-  {
-   "kind": "named",
-   "slug": "mazar-marg-naini",
-   "name": "Mazar Marg Naini",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**Mazar Marg Naini** (no. ۲۳۹, location and date unknown)"
-  },
-  {
-   "kind": "named",
    "slug": "shaikh-nizam-al-din-aurangabadi",
    "name": "Shaikh Nizam al-Din Aurangabadi",
    "nameUr": "",
@@ -1985,17 +1870,6 @@
    "line": 3839,
    "text": "**Shaikh Adam Banuri**'s year, which the same entry gives twice (1054 and 1052 AH)",
    "repeatOf": 3635
-  },
-  {
-   "kind": "named",
-   "slug": "the-unnamed-tail-of-entry-no-106",
-   "name": "the unnamed tail of entry no. 106",
-   "nameUr": "",
-   "died": "",
-   "entryNo": "",
-   "region": "Place not stated",
-   "line": 3839,
-   "text": "**the unnamed tail of entry no. 106**, whose Multan mazar and 737 AH date cannot yet be attached to a name."
   }
  ]
 }

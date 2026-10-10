@@ -265,7 +265,7 @@ const BUDGETS_KB = {
      and reaches it through a dynamic import, so ShrinePage pays nothing for it.
      A static import there would have cost 17 KB against 3 KB of headroom.
      If this route ever jumps by ~420 KB, something pulled in src/lib/kg.ts. */
-  'src/pages/TraditionPage.tsx': 340, // measured 335 on 14 Sep 2026 — see the PlacePage note
+  'src/pages/TraditionPage.tsx': 348, // measured 341 on 10 Oct 2026 (335 on 14 Sep) — see the note above PlacePage
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two
@@ -304,7 +304,15 @@ const BUDGETS_KB = {
      AlmanacPage and TraditionPage at exactly 355/355 and 335/335 — passing
      today and set up to misattribute tomorrow — so both are given the same
      slack here. */
-  'src/pages/PlacePage.tsx': 352, // measured 347 on 14 Sep 2026 — shared-table effect, see below
+  /* 10 October 2026: Place, Tradition and Review each measured 1 KB over (353/352,
+     341/340, 290/289). The cause is the four English strings of /graph's team-only
+     "Named in the books" sheet: `uiStrings.ts` is in every route's eager closure,
+     so interface copy lands everywhere, which is the shared-table effect the
+     PlacePage note describes. The book figures themselves are a lazy 96 KB chunk
+     and in no number here. Re-based at measurement + 7 KB, this file's rule. Not
+     raised, and at or near zero slack before this change: ShrinePage 534/534,
+     AlmanacPage 360/360, index.html 272/272. */
+  'src/pages/PlacePage.tsx': 360, // measured 353 on 10 Oct 2026 (347 on 14 Sep) — shared-table effect, see below
   // Added 23 Aug 2026 when the two branches merged: this route was built on the
   // other line, so this table had never seen it.
   /* 310 → 317, 29 August 2026, with PlacePage on the same day and for the same
@@ -329,7 +337,7 @@ const BUDGETS_KB = {
      string will never reach, and the person who added it reasonably concludes
      the failure is theirs. That false attribution cost two sessions time on a
      shared tree today. Headroom is deliberate; see SettingsPage below. */
-  'src/pages/ReviewPage.tsx': 289, // measured 277 on 29 Aug 2026 — see the kinship note above
+  'src/pages/ReviewPage.tsx': 297, // measured 290 on 10 Oct 2026 (277 on 29 Aug) — see the note above PlacePage
   /* The settings page, added 27 Aug 2026. 269 KB is the app shell plus a page
      of native form controls, which is why it sits beside NotFoundPage and
      ReviewPage rather than with the routes that carry an index.

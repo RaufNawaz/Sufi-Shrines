@@ -40,14 +40,36 @@
     ]
   ],
   "figures": {
-    "_comment": "For build_book_figures.py. 'alsoNamedRegions': regions whose '- Also named:' list is about saints and is taken; the others are left out and reported. 'skipItems': bold runs inside a taken list that are not a figure, or not a saint.",
+    "_comment": "For build_book_figures.py. 'alsoNamedRegions': regions whose '- Also named:' list is about saints and is taken; the others are left out and reported. 'skipItems': bold runs inside a taken list that are not a figure, or not a saint. 'joins': a book figure that IS a figure the graph already holds (checked by hand against the graph's own record, 10 Oct 2026). 'hasRow': a figure listed without a place that has a [PK] line elsewhere in the same file, so it already became a proposed row and is dropped here.",
     "alsoNamedRegions": [
       "Kashmir",
       "Delhi"
     ],
     "skipItems": {
       "Rishis at folio 171": "an index note, not a name",
-      "Gangaram Pandit Dehlvi": "a darbar official, not a saint"
+      "Gangaram Pandit Dehlvi": "a darbar official, not a saint",
+      "Naqshbandi chain": "a chain, not a figure",
+      "Chishti chain": "a chain, not a figure",
+      "the unnamed tail of entry no. 106": "no name"
+    },
+    "joins": {
+      "shah-bahlul-daryai": "bahlol-daryai",
+      "shaikh-khizr-sistani": "shaikh-siyustani",
+      "shaikh-daud-kirmani": "daud-bandagi-kirmani",
+      "khwaja-qutb-al-din-bakhtiar-kaki-aushi-dehlvi": "khwaja-qutbuddin-bakhtiar-kaki",
+      "shaikh-abdul-qadir-jilani-ghaus-al-azam": "sheikh-abdul-qadir-gilani"
+    },
+    "_comment_notJoined": "Checked and NOT joined: Shaikh Nasir al-Din Mahmud 'Chiragh-e Dehli' is not the graph's syed-nasiruddin-mahmud (a Bukhari ancestor of Ghazi Baba, kg-seeds familyRelations).",
+    "hasRow": {
+      "shaikh-abd-al-hakim-sialkoti": "shaikh-abd-al-hakim-sialkoti",
+      "sayyid-abu-turab-shah-gada": "sayyid-abu-turab-known-as-shah-gada-husaini-shattari-lahori",
+      "mian-mongar-majzub-lahori": "mian-mongar-majzub-lahori",
+      "bahle-shah-majzub-lahori": "bahle-shah-majzub-lahori",
+      "jali-shah-majzub-lahori": "jali-shah-majzub-lahori",
+      "mai-bhagi-lahori": "mai-bhagi-lahori",
+      "sohan-majzub-ajodhani-pakpattani": "sohan-majzub-ajodhani-pakpattani",
+      "pir-ghazi-az-ghaib": "pir-ghazi-known-as-pir-az-ghaib",
+      "mazar-marg-naini": "mazar-marg-naini"
     }
   }
 }

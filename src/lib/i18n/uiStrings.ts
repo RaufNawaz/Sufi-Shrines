@@ -524,6 +524,11 @@ const UI_TEXT_EN = {
   graphLineageOnlyHeading: 'Named in a lineage, not documented here',
   graphLaunchArchiveSub: 'Search by name, title or century',
   graphLaunchLineageSub: 'Teachers and disciples the sources name',
+  graphBookFiguresHeading: 'Named in the books, no site in Pakistan',
+  graphLaunchBookFiguresSub: 'Saints the transcribed books document, unreviewed',
+  graphBookFiguresNote:
+    'Saints the archive\u2019s transcribed books document who have no grave or shrine in Pakistan \u2014 buried in Delhi, Kashmir, the Hijaz or elsewhere, or not buried anywhere the book records. Each line is the book\u2019s notes word for word, from a transcription nobody has yet checked against the page. Team view only until it has been: they are not in the graph\u2019s counts, its search or its pages.',
+  graphBookFiguresInGraph: 'The same figure in the graph',
   sheetDone: 'Done',
   graphLineageOnlyNote:
     'Teachers and masters whose names appear in another figure\u2019s recorded chain of transmission, and who have no site in this archive. They are not counted among its entries \u2014 they are here so a chain does not stop at the first master who happens to have no shrine in Pakistan. Until now the only way to reach one was to already be walking the chain that names it.',

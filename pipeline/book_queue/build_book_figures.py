@@ -56,8 +56,13 @@ def main():
             rest = m.group(2)
             dm = re.search(r'(?:^|; )((?:died|d\.|killed) [^;]+)', rest.lstrip(' —'))
             em = re.search(r'entry no\. ([0-9۰-۹]+)', rest)
+            died = ''
+            if dm:   # the clause as printed, cut where the line moves on to burial, quotation or citation
+                died = re.split(r' \(p+\. | and | — |, "|; ', dm.group(1).replace('**', ''))[0].rstrip(' .,')
+                if not re.search(r'[0-9۰-۹]|thousand|hundred', died):
+                    died = ''
             figs.append(dict(kind='entry', slug=slugify(en_name.split(' b. ')[0]), name=en_name.strip(),
-                             nameUr=ur.strip(), died=dm.group(1).replace('**', '') if dm else '',
+                             nameUr=ur.strip(), died=died,
                              entryNo=em.group(1) if em else '', region=region, line=n + 1, text=l))
             continue
         # a list item paragraph: the framing sentence may be on this line or the line before
@@ -75,6 +80,12 @@ def main():
             else:
                 left_out.append((n + 1, region, l[:90]))
         pending = l if l.strip() else pending
+    joins, has_row = dec.get('joins', {}), dec.get('hasRow', {})
+    dropped = [(f['line'], f['slug'], has_row[f['slug']]) for f in figs if f['slug'] in has_row]
+    figs = [f for f in figs if f['slug'] not in has_row]
+    for f in figs:
+        if f['slug'] in joins:
+            f['joinsSaint'] = joins[f['slug']]
     # the same figure can be listed twice in one book (a numbered entry and a passing mention):
     # keep both records, mark the repeat, never merge here
     seen = {}
@@ -94,6 +105,9 @@ def main():
     print(f'{"DRY RUN -- " if a.dry_run else ""}{len(figs)} figure record(s): {k["entry"]} entries, '
           f'{k["named"]} named in saint lists; {sum(1 for f in figs if "repeatOf" in f)} repeats; '
           f'{len({f["slug"] for f in figs})} distinct slugs')
+    print(f'  joined to a figure the graph holds: {sum(1 for f in figs if "joinsSaint" in f)} record(s)')
+    for ln, sl, rid in dropped:
+        print(f'  dropped line {ln}: {sl} -- already a proposed row ({rid})')
     for ln, nm, why in skipped:
         print(f'  skipped item line {ln}: {nm} -- {why}')
     for ln, reg, txt in left_out:

@@ -56,6 +56,8 @@ const UNSTYLED_BY_DESIGN: Record<string, string> = {
   'graph-figures-launch':
     'test hook — the launcher row is styled by .graph-launch-row; e2e opens the figure sheet by this name',
   'graph-lineage-only-launch': 'test hook — the second launcher row, styled by .graph-launch-row',
+  'graph-book-figures-launch':
+    'test hook — the team-only third launcher row, styled by .graph-launch-row',
   'shared-ground': 'scope hook — the section is styled through .article-section',
   'nearby-mosques': 'scope hook — .nearby-mosques-source/-list carry the styling',
   'source-notes': 'scope hook — .source-notes-intro/-list carry the styling',
