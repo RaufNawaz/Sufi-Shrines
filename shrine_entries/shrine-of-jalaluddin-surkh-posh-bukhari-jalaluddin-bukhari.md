@@ -194,3 +194,157 @@ explicit line for "سرخ بخاری اوچی" (pp. 315, 318; folios 303, 306; c
 - (book's word: "خطہ پنجاب", "تمام اضلاع" of "پنجاب"; refers to: the author's present, British period; author's present): the Central Jail Lahore "ایک عام جیل تمام خطہ پنجاب کے قیدیوں کے واسطے بنایا گیا ہے"; "ہر ایک ضلع کے مقام پر ڈسٹرکٹ جیل" hold short-term prisoners, "مگر بڑی میعاد کے قیدی ہر ایک ضلع سے یہاں بہیج دیے [OCR?] جاتے" (p. 410, folio 417); of the women's prison: "اس بندی خانے میں پنجاب کے تمام اضلاع کی قیدی عورتیں آتی ہیں", built "سنہ ۱۸۶۸ء [OCR?]" under the author's supervision (p. 409, folio 416).
 - (book's word: "عجائبات خطہ پنجاب", "ریاستوں پنجاب", "صنعت کاری پنجاب"; refers to: "سنہ ۱۸۶۴ء" and "جنوری سنہ ۱۸۸۲[OCR?]ء" — as printed; author's present): the Lahore museum building was put up "جب سرکار نے پہلے پہل عجائبات خطہ پنجاب کی نمایش نشو [OCR?] کی تہی", to which "بڑی بڑی ریاستوں پنجاب کے بیرون [OCR?] سرداروں جاگیرداروں" sent jewels, textiles, arms and manufactures (p. 402, folio 409); in January 1882 "جلسہ نمایش عجائبات صنعت کاری پنجاب" was held in the School of Art building under "مسٹر کپننگ[OCR?] صاحب بہادر پرنسپل مدرسہ صنعت کاری" (p. 387, folio 394).
 - (book's word: "پنجاب"; refers to: "عہد شاہ جہان بادشاہ" — as the book states; book's historical prose, entry for the Garhi Shahu madrasa of Abul Khair): Abul Khair came from Baghdad touring countries, and "پنجاب کی آب و ہوا اسکو پسند آئی تو لاہور میں قیام پذیر ہوا" — a thin statement about the region's climate, kept only because it is about the region and not the city (pp. 362–363, folios 369–370).
+
+## From Zahur ul-Hasan Sharib, Tazkirah Awliya-e Pak o Hind
+
+*Integrated 10 October 2026 from `entries/book_takeaways/tazkirah_awliya_pak_o_hind.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+Named only as the grandfather of باب 22's subject (p. 133, folio 129). The chunk note that maps him
+writes the id as `shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari`; a second chunk note in
+this range writes it `shrine-of-jalaluddin-surkh-posh-bukhari` (p. 116, folio 112 context). **Both forms
+are recorded; a human should settle which string the index carries.**
+
+**Saint**
+
+- **Migration, pir and settlement, in one sentence**: "آپ کے دادا شیخ جلال الدین سرخ بخاری اپنے وطن
+  بخارا سے ہجرت کر کے ملتان آئے۔ حضرت بہاء الدین زکریا رحمۃ اللہ علیہ کے مرید ہوئے اور ان ہی سے خرقہ
+  خلافت پایا' اپنے پیرو مرشد کے حکم سے اوچہ میں سکونت اختیار کی" — he migrated from **بخارا** to
+  **ملتان**, became Baha al-Din Zakariya's murid and received the khirqa of khilafat from him, and
+  **took up residence at اوچہ by his pir's order** (p. 133, folio 129). **The residence at Uch is what
+  matches the row's "Uch Sharif", and it is presented as an instruction from Multan.**
+- **Three sons, named and ranked**: "ان کے تین لڑکے تھے' سب سے بڑے لڑکے کا نام سید احمد کبیر ہے۔ دوسرے
+  لڑکے کا نام سید بہاء الدین ہے۔ ان کے سب سے چھوٹے لڑکے سید صدر الدین المعروف بہ محمد غوث ہیں" —
+  **سید احمد کبیر** (eldest), **سید بہاء الدین**, and **سید صدر الدین المعروف بہ محمد غوث** (youngest)
+  (p. 133, folio 129).
+- **Death year: (not stated). Birth: (not stated). Silsila: (not stated)** — the chunk names no order for
+  him; the Suhrawardi affiliation it does name belongs to his grandson's bai'at from his son (p. 135,
+  folio 131). **The row's "1291" and "Suhrawardi" are neither confirmed nor contradicted** (p. 133,
+  folio 129).
+
+**Shrine / Darbar**
+
+- **Mazar, urs, custodianship, endowment: (not stated).** He appears only as the family's founder at Uch
+  (p. 133, folio 129).
+
+**Significance**
+
+- **The book prints his name without "پوش"** — "شیخ جلال الدین سرخ بخاری" where the row has "Jalaluddin
+  Surkh-Posh Bukhari" (p. 133, folio 129). The mapping rests on Bukhara → Multan → **اوچہ** by his pir's
+  order, plus the name.
+- A bare "**شیخ جلال**" later in the range (p. 182, folio 178) could be this figure or Jalal al-Din Kabir
+  al-Auliya of Panipat; the notes leave it unresolved (see Doubts).
+
+### Doubts the notes raise on this row
+
+- **D6. حضرت سید جلال الدین سرخ بخاری is left unmapped.** He appears as a name in Bahauddin Zakariya's
+  khalifa list, with **no place, no date, no shrine** (p. 52, folio 48, حاشیہ 16), and at Multan receiving
+  the khirqa of khilafat after the hail karamat, again with **no shrine town, no death year and no
+  silsila** (pp. 53–54, folios 49–50). The archive row
+  **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (Uch Sharif, d. 1291, Suhrawardi) is the obvious
+  resemblance, and the Suhrawardi link through Bahauddin Zakariya is consistent with it, **but a
+  khalifa-list name is not a match**. "اوچہ" does occur in the range (p. 61, folio 57) but only as a place
+  Sultan Nasir al-Din travelled to in باب 8, with no connection to him. **Treat as a candidate, not a
+  match.**
+
+- **D23. حضرت شیخ جلال الدین محمد کبیر الاولیاء could be read into either of two Uch rows.**
+  **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (Uch Sharif, d. 1291) or
+  **shrine-of-makhdoom-jahaniyan-jahangasht** (Uch Sharif, Sayyid Jalaluddin, d. 1384). **The range gives
+  him no location, no date, no silsila and no shrine — nothing but the name and the relationship** as
+  khalifa (p. 94, folio 90). **Leave unmapped.** The contents-list entry for the same name, "باب ۲۱ حضرت
+  شیخ جلال الدین محمد کبیر الاولیاء ۱۲۳" (p. 15), adds nothing.
+
+- **D27. "باب ۲۲ حضرت سید جلال الدین بخاری ۱۲۹" (p. 15) could be either of two archive rows at Uch
+  Sharif** — **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (d. 1291) or
+  **shrine-of-makhdoom-jahaniyan-jahangasht** (Sayyid Jalaluddin, d. 1384), whose archive names share both
+  "Sayyid Jalaluddin" and "Bukhari". **Do not pick one.**
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "پنجاب"; refers to: the reign of "شہنشاہ اکبر", the date printed "بروز شنبہ بتاریخ 2 محرم 980ھ"; quoted source — the sentence carries حاشیہ 5 of باب 49, "انوار العارفین (فارسی) صفحہ 367", p. 245, folio 241): in باب 49, on حضرت شیخ جلال الدین تھانیسری, under the heading "اکبر کی باریابی": "شہنشاہ اکبر بروز شنبہ بتاریخ 2 محرم 980ھ کو مزار حکیم کی بغاوت کو فرد کرنے کی غرض سے پنجاب جاتے ہوئے تھانیسر میں رکا" — Punjab is the destination of an imperial campaign against a revolt; the stop, and the shaikh's خانقاہ, are at تھانیسر, which is not said to be in پنجاب. "مزار حکیم" and "فرد" are printed so and carry no flag; the sense calls for a person's name and a verb of suppressing, so check the page image before quoting (p. 243, folio 239).
+
+## From Christopher Shackle, Risalo of Shah Abdul Latif
+
+*Integrated 10 October 2026 from `entries/book_takeaways/shackle_risalo_shah_abdul_latif.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Panjab"; refers to: period not stated in the note itself — it is keyed to the p. 13 sentence beginning "Only with the British conquest of Sindh in 1843"; the book does not bound its "Panjab"; translator's note to the introduction): "Because Sindh was administered from Bombay rather than Calcutta, Urdu was not installed as the immediate successor of Persian, as happened in Panjab" (p. 25, folio not stated).
+
+## From H. T. Sorley, Shah Abdul Latif of Bhit
+
+*Integrated 10 October 2026 from `entries/book_takeaways/sorley_shah_abdul_latif_of_bhit.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Punjab"; refers to: "between 1748 and l75I" [text-layer?] [1751]; quoted source: Sir Alfred Lyall, *History of India*): Ahmad Shah of the Abdali Afghans, after Nadir Shah's assassination, rode east "to capture Afghanistan and from that base he seized the whole of the Punjab between 1748 and l75I" [text-layer?] [1751] (p. 17, folio 8).
+- (book's word: "the Punjab rivers"; refers to: the centuries before "the mid­eighteenth century", when the north-west barriers were "for ever closed by the growth of the kingdom of Afghanistan ... and the rise of the S ikhs" [text-layer?] [Sikhs]; book's historical prose): invaders by-passed Sind: "the wandering hordes which poured over the frontier barriers of the nor th-west [text-layer?] [north-west] ... passed rapidly to the more prom ising [text-layer?] [promising] fields of the Punjab rive rs [text-layer?] [rivers] and the Ganget ic [text-layer?] [Gangetic] plain in their assaults on t he pen insular land of Hindustan" (p. 22, folio 13).
+- (book's word: "the plains of the Punj ab" [text-layer?] [Punjab], "the Punjab"; refers to: 1758 and 1760; book's historical prose): when the Company re-entered Sind in 1758 "Afghans, Sikhs and Marathas were at each other's throats in the plains of the Punj ab" [text-layer?] [Punjab] (p. 46, folio 37); in 1760 "The Afghan and Maratha armies were threatening each other in the Punjab" (p. 70, folio 61).
+- (book's word: "the Punjab"; refers to: the seventeenth and eighteenth centuries, the period of the chapter; book's historical prose reporting Sarkar, *Moghul Administration* (Second Series)): "Sarkar has also remarked that, with the Punjab, Sind was the home of the leather industry" (p. 107, folio 98).
+- (book's word: "the Punj ab" [text-layer?] [Punjab]; refers to: "the seventeenth century"; book's historical prose): against the rule that Moghul public money went to tombs and palaces rather than public works, "J:tere [text-layer?] [There] is, however, an exception to this generalization in the seventeenth century canal enterprise in the Punj ab [text-layer?] [Punjab] and improvements carried out on the old · Delhi Jumna canal"; the book does not say where in the Punjab (p. 122, folio 113).
+- (book's word: "the Punjab", "Punjab"; refers to: "1 756-8" and "1 758" as printed (years split by a space [text-layer?]), in the column "Events in Indian History"; chronological appendix): "Sikhs rise in the Punjab" (p. 201, folio 192); "Marathas occupy Punjab" (p. 202, folio 193). The book does not bound "the Punjab" here.
+- (book's word: "the Punjab", "a Punjab tale"; refers to: period not stated, before the Risalo's composition; author's argument): "The story of Suhini and Mehar is a Punjab tale which has found a home in Sind and it must have come into Sind through the immigration from the Punjab of those Hindu races which form an important element in the population, as has been made clear in the Census of India volume for 1931 relating to the Bombay Presidency" (p. 270, folio 261); of the Risalo's stories, "one of therii frorn t4e Punj a.9" [text-layer?] [one of them from the Punjab] (p. 271, folio 262). Punjab figures only as the source of a migration and a tale; the statement is chiefly about Sind's population.
+
+## From Annemarie Schimmel, Pain and Grace
+
+*Integrated 10 October 2026 from `entries/book_takeaways/schimmel_pain_and_grace.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Sind and the Panjab", "the Panjab"; refers to: the conquests "first by Nadir Shah and then by Ahmad Shah Durrani", and "the days of Fariduddin Shakarganj, the Chishti saint of Pakpattan (d. 1265)" — as printed; book's historical prose): "The countries which were conquered first by Nadir Shah and then by Ahmad Shah Durrani, Sind and the Panjab, could likewise boast of a rich literary heritage. In the Panjab, popular mystical poetry may have emerged as early as in the days of Fariduddin Shakarganj"; "Numerous folk songs and ballads existed but were never committed to writing" (p. 16, folio 12).
+- (book's word: "the province"; refers to: "the late 17th and the 18th century" — as printed; book's historical prose): "The golden age of Muslim Panjabi poetry is the late 17th and the 18th century, e.g., the time when the province was invaded one time after the other by Mahrattas, Sikhs, and, in between, by the liberating Muslim armies" (p. 17, folio 13).
+- (book's word: "a Panjabi"; refers to: "even today", present day of writing; author's argument): of Warith Shah's *Hir Ranjha* (composed "around 1794"): "even today a Panjabi will be deeply touched when this moving story is sung" (p. 17, folio 13).
+- (book's word: "the Panjab"; refers to: Nadir Shah's invasion, "before he reached Delhi in 1739" — as printed; book's historical prose): Nadir Shah "first conquered Sind and the Panjab before he reached Delhi in 1739"; Ahmad Shah Abdali's influence "on the scene in Sind is not as important as it was in the northern areas of present day Pakistan" (p. 30, folio not stated).
+- (book's word: "the Panjab"; refers to: "1750" and after, the reign of Ahmad Shah of Delhi, to "1754" — as printed; book's historical prose): as the Mughal empire "had broken into pieces", "Sikh threatened the Panjab"; "Nadir Shah's successor, Ahmad Shah Durrani, invaded the Panjab several times, coming from his native Afghanistan" (p. 50, folio 48).
+- (book's word: "Panjabi", "rural provinces"; refers to: Shah Abdul Latif's lifetime and "later" poets, period otherwise not stated; author's argument): similarities with "Panjabi mystical folk poetry, which reached its apex with Bullhe Shah during exactly the same period" are "conspicuous"; Siraiki "forms the transition to Panjabi; thus, the imagery of both, or rather all three, linguistic areas is very closely related, as is to be expected from the inhabitants of predominatly [OCR?] [predominantly] rural provinces" (p. 154, folio 154).
+- (book's word: "both Sind and the Panjab"; refers to: period not stated; author's argument): "Sohni is one of the favorite folk tales in both Sind and the Panjab" (p. 156, folio 156).
+- (book's word: "the poetry of Sind and the Panjab"; refers to: period not stated; author's argument): "A topic which is not rarely found in the poetry of Sind and the Panjab is the spinning of cotton, one of the most important occupations of women"; the Kapa'iti [printed "Kdpd ?it?" [OCR?]] melodies are "traditional folk melodies sung by the womenfolk while spinning" (p. 160, folio 160).
+- (book's word: "the Panjab", "Panjabi contemporaries"; refers to: Shah Abdul Latif's lifetime (the book dates him "1689-1752"); author's argument): Latif "stands before us as the representative of that type of the rural mystical tradition in which his contemporaries in the Panjab and, to a certain extent, in the Pashto speaking areas were rooted"; "Shah Abdul Latif, as did his Panjabi contemporaries and his successors in Sind, accepted the Hindus who were striving on the way to perfection as true pilgrims in the eternal Light" (p. 267, folio 267).
+
+## From Christopher Shackle, Bulleh Shah: Sufi Lyrics
+
+*Integrated 10 October 2026 from `entries/book_takeaways/shackle_bulleh_shah_sufi_lyrics.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Panjab"; refers to: Bullhe Shah's lifetime — the book gives "Bullhe Shah (d. 1758)"; book's historical prose): "He lived at a time of great social upheaval in Panjab,1 as the central authority of the declining Mughal empire came under increasing challenge from armed rebellion by the Sikhs and from local notables establishing their auton-omy" [text-layer?] [autonomy]; the "1" fused to "Panjab," is an endnote marker (note 1: "See further Nijjar 1972, Alam 1986."), not a figure; "these unsettled conditions are occasionally re­flected [text-layer?] [reflected] in the poetry" (p. 8, folio vii).
+- (book's word: "eigh­teenth-century Panjab" [text-layer?] [eighteenth-century Panjab]; refers to: "early eigh­teenth-century" [text-layer?] [eighteenth-century], as the book states; author's argument): "Bullhe Shah’s critique of the social upheavals in early eigh­teenth-century [text-layer?] [eighteenth-century] Panjab, which is so interesting to many modern readers, represents only a very small, if vividly expressed, part of his poetry" (p. 15, folio xiv).
+- (book's word: "Panjab", "Panjabi society"; refers to: the time of kāfī 34, "The twelfth century of the Hijri era", which the note says "corresponds to the eighteenth century C.E. (1100 A.H. = 1688 C.E.)" — digits as printed; editor's note): the kāfī's allusive verses "appear to refer to a separation of Bullhe Shah from Shah Inayat due to the troubled conditions then prevailing in Panjab"; the note compares kāfī 4 "for the allusions to the disturbed state of contemporary Panjabi society" (pp. 165–166, folios 140–141).
+- (book's word: "Panjab"; refers to: the poet's own time, "The twelfth century" as the verse puts it — see the previous bullet for the note's reading; translation of the poet's verse, kāfī 34 — FLAG: verse register, kept because it characterises the region): "The twelfth century4 has come with gaping mouth. The door of doom and torment has opened, and Panjab is in a bad state. It has been struck by fear of the pit of hell." (the "4" fused to "century" is an endnote marker) (p. 52, folio 27).
+- (book's word: "Panjab"; refers to: period not stated in the note; editor's note on kāfī 143, n. 35): a verse is "Taken to be an allusion to the Sikhs, whose guerilla horsemen ultimately destroyed the Mughal authority in Panjab" (p. 193, folio 168).
+- (book's word: "eighteenth-century Panjab"; refers to: the eighteenth century, as the book states; editor's note on kāfī 86, n. 3): "The Ranghars were a tribe of Muslim Rajputs who achieved prominence in eighteenth-century Panjab, and who were proverbial for their arrogance" (p. 179, folio 154).
+- (book's word: "Panjab"; refers to: "the Mughal period and beyond", following "The Muslim conquest of northern India" — no date given; book's historical prose): "The Muslim conquest of northern India extended this Persianate cultural world to Panjab, where Persian remained the dominant literary language of the ruling elite through the Mughal period and beyond. A strong Sufi presence was rapidly established with the arrival of charismatic fig­ures [text-layer?] [figures] associated with the main Sufi orders" (p. 11, folio x).
+- (book's word: "Panjab"; refers to: the Sufi poets "who lived at different times", and their collection "only in the late nineteenth century"; book's historical prose): "the lyrics of Bullhe Shah and the other Sufi poets, who lived at different times and in different areas of Panjab, were never systematically preserved by an or­ga­nized [text-layer?] [organized] faith community, and they were for the most part rec­orded [text-layer?] [recorded] and assembled in printed collections only in the late nineteenth century" (pp. 9–10, folios viii–ix).
+- (book's word: "Panjab"; refers to: "the British conquest of Panjab in the 1840s" and after, as the book states; book's historical prose): "Only with the British conquest of Panjab in the 1840s did the literary culture of the Sufi tradition come to be overlaid by new patterns of modernity"; Persian "was quite rapidly replaced as the language of education, administra-tion [text-layer?] [administration], and elite literature by Urdu and Eng­lish [text-layer?] [English]"; "Publishers in Lahore" brought the older Sufi poetry "into the new print culture" (pp. 11–12, folios x–xi).
+- (book's word: "Panjab"; refers to: "twentieth-century" understandings and "the new middle class of the colonial period", as the book states; book's historical prose): "In Panjab the formulation of nationalist un­der­stand­ings [text-layer?] [understandings] was no simple pro­cess [text-layer?] [process], given the complexities created by the simultaneous currency of three closely related languages, Urdu, Hindi, and Panjabi, whose differences were exploited to sharpen the rival cultural identities of Muslims, Hindus, and Sikhs, respectively" (p. 12, folio xi).
+- (book's word: "western Panjab"; refers to: the setting of the Hir–Ranjha legend, period not stated; book's prose on the poet's legendary material — the book itself marks the unit as "western"): "The greatest of these local legends is the story of Hir and Ranjha, which is set in the world of the Jat pastoral tribes of western Panjab" (p. 20, folio xix).
+
+## From Taufiq Rafat, Bulleh Shah: A Selection
+
+*Integrated 10 October 2026 from `entries/book_takeaways/rafat_bulleh_shah_selection.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Punjab"; refers to: Bulleh Shah's lifetime, "a time of great upheaval. The Mughal Empire was breaking up" — as the Translator's Note states it; Translator's Note, Taufiq Rafat): "the Punjab was being persistently rent by petty chiefs and marauders"; "The full bitterness of Bulleh Shah’s ‘Punjab has gone to the dogs’ will only come through against this backdrop" (p. 16, folio xvi).
+- (book's word: "the Punjab"; refers to: Bulleh Shah's adult life, from Aurangzeb's death "in 1707" (margin heading "End of Mughal rule 1707.") — as the book states; book's historical prose, Introduction): Bulleh Shah's "depressive outlook was in no small measure produced by the political situation in the Punjab"; he was "deeply bruised" by the upheavals "taking place in the Punjab and was depressed by the sufferings of the common man"; "After Aurangzeb, the halcyon days that the Punjab had enjoyed quickly came to an end. Already badly defended, the North-Western region of the empire became increasingly subject to foreign" invasions "and inner centrifugal quarrels" (p. 26, folio 6).
+- (book's word: "the Punjab", "the region", "the Pun-jabi of today"; refers to: from "The period of Muhammad Shah" (accession "in 1719" as printed) "into the 19th century", with a claim about the present day; author's argument, Introduction): that period "coincided with the beginning of the misfortunes of the Punjab. The decay of Mughal administration gave rise to small local tyrannies which lasted into the 19th century and formed the character of the" inhabitants "of the region"; the crisis of character in the Punjabi of today "is traceable to this period of duress in the history of his land" (pp. 26–27, folios 6–7; the sentence carries note 4 — see the Janus bullet below).
+- (book's word: "the Punjab"; refers to: after "The invasion of Nadir Shah in 1738" and Abdali's invasions "in 1748 and then a third in 1752," — as printed; book's historical prose, Introduction): "Marauding Sikh bands formed themselves into robber baronies and imposed their own system of extortion on the Punjab farmer"; Abdali's "treatment of the Punjab weakened the government in Lahore and delivered the various doabs into the hands of the Sikh" confederacy "called the misis" [text-layer?] [misls]; Bulleh Shah "was fated to see a second invasion of the Punjab by Ahmad Shah Abdali in 1748 and then a third in 1752," (p. 27, folio 7).
+- (book's word: "the Punjab"; refers to: "1758", the year of Bulleh Shah's death, as printed; book's historical prose, Introduction): "As Bulleh Shah lay dying in 1758 at the age of 78, the rape of the Punjab was proceeding apace" (p. 28, folio 8).
+- (book's word: "the Punjab", "the province"; refers to: "In the years to come" after Aurangzeb's period, with Banda Bairagi "(1670-1716)", Abdul Samad Khan, Zakriya Khan, Nadir Shah and "Shahidganj in 1746" — as printed; book's historical prose, Introduction): "In the years to come, when plunder became routine in the Punjab, Bulleh Shah had no choice of factions. The Sikh marauders under Banda Bairagi (1670-1716) were to lay waste the whole of the province excluding Lahore and Qasur, imposing bone-crushing taxation .on [text-layer?] [on] the common peasant for the raising of armies on both sides" (pp. 42–43, folios 22–23).
+- (book's word: "the Punjab"; refers to: period not stated — the passage runs from "The ancient cities of the Indus" to the present; author's argument, Introduction): "In terms of written sources, the Punjab and indeed the whole of the Indus basin, has always" seemed "a wasteland to scholars" (pp. 46–47, folios 26–27).
+- (book's word: "the Punjab"; refers to: period not stated — said of the survival of Baba Farid's and Shah Husain's poetry through Sikh collectors, the latter "in the 1940’s"; author's argument, Introduction): "A lack of intellectual tradition among the Muslims of the Punjab accounts for this phillistine [text-layer?] [philistine] indifference to the classics. Bulleh Shah was treated no differently" (p. 47, folio 27).
+- (book's word: "the Punjab"; refers to: after Dr. Nazeer Ahmad's selection "In 1976", i.e. the present of the Introduction; author's argument, Introduction): "After this the Punjab awaits a proper" scholarly "assessment of its greatest poet, a tryst that may never take place given the regional antecedents in the realm of letters" (p. 49, folio 29).
+- (book's word: "Punjabi literature in Pakistan", "the Punjabis"; refers to: the present of the Introduction, date not stated in the passage; author's argument, Introduction — language-centred, kept because it states a condition of the Punjabis in Pakistan in general): "Punjabi literature in Pakistan is in a state of neglect. The language has become a purely spoken medium and the Punjabis are no longer able to" decipher "it in the written form" (p. 50, folio 30).
+- (book's word: "the Punjab", "Punjabi"; refers to: "Viewpoint weekly (July 23, 1981)", present day; quoted source — the columnist "Janus", "‘Are you a Punjabi?’", a satirical questionnaire "in which ‘c’ stands for the Punjabi response", which Notes on the Introduction note 4 says "has accurately enumerated the ingredients of this lapse from character"): item (5), "You have lived in the Punjab all your life, but suddenly you come to know that your ancestors had come here from Central Asia", with the "Punjabi response" "(c) What the hell! I am a Bokhari and superior to all the low stock inhabiting the Punjab"; item (10), "All regional ‘languages [text-layer?] [languages] in Pakistan are taught in schools except Punjabi. All regional languages in Pakistan possess dictionaries except Punjabi"; item (11), "All regional personalities are moulded by a deep love of their idiom. A Sindhi will read Sindhi poetry and can tell you who is the greatest living Sindhi poet; so will the Pathan and the Baluch, Except [text-layer?] [Baluch. Except], of course, the Punjabi" (p. 236, folio 216; pp. 237–238, folios 217–218).
+- (book's word: "Punjab"; refers to: period as the verse gives it, "This century"; translation of the poet's verse — the poem "COME SEE ME ONCE IN A WHILE"; flagged: a verse line, kept only because it says something about the region and the Translator's Note (p. 16) reads it as political): "Now hell has opened its bogs. / Punjab has gone to the dogs. / This hell is the nethermost hell." … "This century cramps our style." (p. 149, folio 129).

@@ -728,7 +728,7 @@
       "chunks": 32
     },
     "tazkirah_awliya_pak_o_hind": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 50,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -752,7 +752,21 @@
       "leases": {},
       "assembled_file": "out/ocr/tazkirah_awliya_pak_o_hind/p001-end_2026-09-15_1322_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/tazkirah_awliya_pak_o_hind.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-bahauddin-zakariya",
+        "shrine-of-fariduddin-ganjshakar",
+        "data-darbar",
+        "shrine-of-shah-rukn-e-alam",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "garh-maharaja-shorkot",
+        "madho-lal-hussain",
+        "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a",
+        "darbar-abul-muali-qadri",
+        "shrine-of-mian-mir",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "shergarh",
+        "mithankot-kot-mithan"
+      ],
       "log": [
         {
           "t": "2026-09-14T16:57:36Z",
@@ -781,6 +795,10 @@
         {
           "t": "2026-09-17T04:48:07Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T19:11:28Z",
+          "msg": "marked integrated: HANDOVER 9.292, session_018MEC39WXYZaZATQGaNdiix: 13 id sections appended (Farid and Mian Mir with --claim-note), 10 D-item doubts attached by --doubt-also; punjab 1 bullet -> 50 entries, sindh 1 -> 9; held skipped: mazar-of-bulleh-shah (book gives 1171h vs row 1757: the held death year), shrine-of-shah-inayat-qadiri; no groups; OWED: Bulleh Shah id section once the death-year hold lifts; new-rows step (no [PK] lines)"
         }
       ],
       "scan_images": {
@@ -805,7 +823,7 @@
       "chunks": 20
     },
     "khulasat_ut_tawarikh": {
-      "status": "transcribing",
+      "status": "transcribed",
       "priority": 190,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -825,60 +843,12 @@
       },
       "route_used": "vision",
       "render_scale": 1568,
-      "pages_done": "1-528",
+      "pages_done": "1-610",
       "leases": {},
-      "assembled_file": null,
+      "assembled_file": "out/ocr/khulasat_ut_tawarikh/p001-end_2026-10-10_2100_transcribed.txt",
       "takeaways_file": null,
       "integrated_into": [],
       "log": [
-        {
-          "t": "2026-10-04T00:24:07Z",
-          "msg": "lease 417-422 taken (worker w10) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
-        },
-        {
-          "t": "2026-10-04T01:42:29Z",
-          "msg": "lease 405-410 released"
-        },
-        {
-          "t": "2026-10-04T01:42:29Z",
-          "msg": "lease 411-416 released"
-        },
-        {
-          "t": "2026-10-04T01:42:29Z",
-          "msg": "lease 417-422 released"
-        },
-        {
-          "t": "2026-10-04T06:09:21Z",
-          "msg": "lease 405-410 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
-        {
-          "t": "2026-10-04T06:09:21Z",
-          "msg": "lease 411-416 taken (worker w2) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
-        {
-          "t": "2026-10-04T06:09:21Z",
-          "msg": "lease 417-422 taken (worker w3) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
-        {
-          "t": "2026-10-04T06:09:21Z",
-          "msg": "lease 423-428 taken (worker w4) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
-        {
-          "t": "2026-10-04T06:09:21Z",
-          "msg": "lease 429-434 taken (worker w5) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
-        {
-          "t": "2026-10-04T06:09:21Z",
-          "msg": "lease 435-440 taken (worker w6) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
-        },
-        {
-          "t": "2026-10-04T20:09:44Z",
-          "msg": "lease 417-422 expired (worker w3)"
-        },
-        {
-          "t": "2026-10-04T20:09:44Z",
-          "msg": "lease 423-428 expired (worker w4)"
-        },
         {
           "t": "2026-10-04T20:09:44Z",
           "msg": "lease 429-434 expired (worker w5)"
@@ -990,6 +960,54 @@
         {
           "t": "2026-10-10T18:22:50Z",
           "msg": "lease 521-528 taken (worker coord-s01SW8kPn) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — scheduled firing session_01SW8kPnttxuAQZyuVt9Vcvi"
+        },
+        {
+          "t": "2026-10-10T19:12:01Z",
+          "msg": "lease 529-536 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-10T19:28:31Z",
+          "msg": "lease 537-544 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-10T19:43:32Z",
+          "msg": "lease 545-552 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-10T19:51:01Z",
+          "msg": "lease 553-560 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-10T19:58:18Z",
+          "msg": "lease 561-568 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-10T20:05:38Z",
+          "msg": "lease 569-576 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-10T20:12:35Z",
+          "msg": "lease 577-584 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+        },
+        {
+          "t": "2026-10-10T20:24:05Z",
+          "msg": "lease 585-592 taken (worker coord-s019wbrLD) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — scheduled firing session_019wbrLDCsUMz42WJsCD2pMe; sibling session_018MEC39 live (state updated 20:22:44Z), took the next free range"
+        },
+        {
+          "t": "2026-10-10T20:37:48Z",
+          "msg": "lease 593-600 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_018MEC39 batch after §9.308"
+        },
+        {
+          "t": "2026-10-10T20:53:42Z",
+          "msg": "lease 601-610 taken (worker coord-s018MEC39) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_018MEC39 final batch after §9.311"
+        },
+        {
+          "t": "2026-10-10T21:00:00Z",
+          "msg": "assembled p001-end_2026-10-10_2100_transcribed.txt"
+        },
+        {
+          "t": "2026-10-10T21:02:01Z",
+          "msg": "chunked into 48 chunks of ~5000 words"
         }
       ],
       "scan_images": {
@@ -1436,7 +1454,8 @@
         "355": "472"
       },
       "folio_flagged": 1,
-      "folio_partial": "10-15"
+      "folio_partial": "10-15",
+      "chunks": 48
     },
     "wasif_qatra_qatra_qulzam": {
       "status": "skipped",
@@ -1711,7 +1730,7 @@
       "source_stamp": "Third party digitisation: IqbalCyberLibrary.net watermark (\"All rights reserved\", (c)2002-2006) and a www.Nayaab.Net internet edition imprint (انٹرنیٹ ایڈیشن دوم سال 2006). Observed by workers on wasif_qatra_qatra_qulzam p0034/p0005 on 15 Sep 2026; the other three Wasif scans are from the same uploader and likely the same source. No edition or publisher of record, so cite the book with this caveat."
     },
     "shackle_risalo_shah_abdul_latif": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 100,
       "group": "english",
       "route_planned": "text_probe",
@@ -1735,7 +1754,11 @@
       "leases": {},
       "assembled_file": "out/ocr/shackle_risalo_shah_abdul_latif/p001-end_2026-09-14_1707_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/shackle_risalo_shah_abdul_latif.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "bhit-bhit-shah",
+        "shrine-of-shah-abdul-karim-bulri",
+        "shrine-of-sachal-sarmast"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:07Z",
@@ -1760,6 +1783,10 @@
         {
           "t": "2026-09-17T10:14:49Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T19:28:09Z",
+          "msg": "marked integrated: HANDOVER 9.294, session_018MEC39WXYZaZATQGaNdiix: 3 id sections (Sachal Sarmast with --claim-note), Doubts 2/22 and item-2 bullets attached by --doubt-also (new ID:LN form); punjab 1 bullet -> 50 entries, sindh 15 -> 9; held skipped: mazar-of-bulleh-shah (d. 1758 vs 1757), dargah-roza-sufi-shah-inayat-shaheed; OWED: those two once ruled; new-rows step (no [PK] lines)"
         }
       ],
       "scan_images": {
@@ -1775,7 +1802,7 @@
       "chunks": 10
     },
     "sorley_shah_abdul_latif_of_bhit": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 101,
       "group": "english",
       "route_planned": "text_probe",
@@ -1799,7 +1826,14 @@
       "leases": {},
       "assembled_file": "out/ocr/sorley_shah_abdul_latif_of_bhit/p001-end_2026-09-14_1708_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/sorley_shah_abdul_latif_of_bhit.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "bhit-bhit-shah",
+        "lal-shahbaz-qalandar",
+        "shrine-of-shah-abdul-karim-bulri",
+        "shrine-of-sachal-sarmast",
+        "shrine-at-odero-lal-udero-lal-teerath-asthan",
+        "shrine-of-makhdoom-nooh-hala"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:07Z",
@@ -1824,6 +1858,10 @@
         {
           "t": "2026-09-24T03:34:50Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T19:43:10Z",
+          "msg": "marked integrated: HANDOVER 9.296, session_018MEC39WXYZaZATQGaNdiix: 6 id sections (4 appended, 2 created: odero-lal with --claim-note, makhdoom-nooh-hala); shrine-of-mian-mir NOT attached (its section is a must-not-merge flag: the book's Mian Mir Mahomed is the Kalhora prince); 6 Doubts attached by --doubt-also ID:LN; punjab 7 -> 50 entries, sindh 74 -> 11, balochistan 4 -> 2; no groups; OWED: new-rows step"
         }
       ],
       "scan_images": {
@@ -1839,7 +1877,7 @@
       "chunks": 24
     },
     "schimmel_pain_and_grace": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 102,
       "group": "english",
       "route_planned": "text_probe",
@@ -1863,7 +1901,24 @@
       "leases": {},
       "assembled_file": "out/ocr/schimmel_pain_and_grace/p001-end_2026-09-14_2309_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/schimmel_pain_and_grace.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "bhit-bhit-shah",
+        "shrine-of-shah-abdul-karim-bulri",
+        "shrine-of-makhdoom-abdul-rahim-girhori",
+        "shaktipeeth-shri-hinglaj-mata-mandir",
+        "shrine-of-sachal-sarmast",
+        "dargah-of-khwaja-muhammad-zaman-luari-sharif",
+        "garh-maharaja-shorkot",
+        "shrine-of-bahauddin-zakariya",
+        "data-darbar",
+        "shrine-of-fariduddin-ganjshakar",
+        "lal-shahbaz-qalandar",
+        "mausoleum-of-waris-shah",
+        "mazar-e-iqbal",
+        "shrine-of-makhdoom-nooh-hala",
+        "shrine-at-odero-lal-udero-lal-teerath-asthan",
+        "darbar-malik-ahmad-ayaz"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:07Z",
@@ -1888,6 +1943,10 @@
         {
           "t": "2026-09-23T06:57:32Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T19:50:39Z",
+          "msg": "marked integrated: HANDOVER 9.298, session_018MEC39WXYZaZATQGaNdiix: 16 id sections (13 appended, 3 created); 25 Doubts attachments by --doubt-also ID:LN incl. single table rows (new); punjab 9 -> 50, sindh 26 -> 13, balochistan 1 -> 3; held skipped: mazar-of-bulleh-shah (d. 1752 vs 1757), dargah-roza-sufi-shah-inayat-shaheed; no groups; OWED: those two once ruled; new-rows step"
         }
       ],
       "scan_images": {
@@ -1903,7 +1962,7 @@
       "chunks": 16
     },
     "shackle_bulleh_shah_sufi_lyrics": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 103,
       "group": "english",
       "route_planned": "text_probe",
@@ -1927,7 +1986,19 @@
       "leases": {},
       "assembled_file": "out/ocr/shackle_bulleh_shah_sufi_lyrics/p001-end_2026-09-14_1708_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/shackle_bulleh_shah_sufi_lyrics.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-bahauddin-zakariya",
+        "tilla-jogian",
+        "gorakhnath-goraknath-temple",
+        "madho-lal-hussain",
+        "mausoleum-of-waris-shah",
+        "shrine-of-fariduddin-ganjshakar",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "lal-shahbaz-qalandar",
+        "garh-maharaja-shorkot",
+        "ram-mandir-saidpur-ram-kund-mandir",
+        "shri-panchmukhi-hanuman-mandir-karachi"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:07Z",
@@ -1952,6 +2023,10 @@
         {
           "t": "2026-09-23T05:17:17Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T19:57:57Z",
+          "msg": "marked integrated: HANDOVER 9.300, session_018MEC39WXYZaZATQGaNdiix: 11 id sections (9 appended, 2 created); 8 Doubts by --doubt-also ID:LN; punjab 11 -> 51; HELD and skipped: mazar-of-bulleh-shah (the book's main row; its block gives 1758 / A.H. 1171 / 1680?-1758? against 1757), shrine-of-shah-inayat-qadiri (the book's pir identification is the live trap); OWED: those two sections once ruled; new-rows step"
         }
       ],
       "scan_images": {
@@ -1967,7 +2042,7 @@
       "chunks": 7
     },
     "rafat_bulleh_shah_selection": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 104,
       "group": "english",
       "route_planned": "text_probe",
@@ -1991,7 +2066,20 @@
       "leases": {},
       "assembled_file": "out/ocr/rafat_bulleh_shah_selection/p001-end_2026-09-14_2309_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/rafat_bulleh_shah_selection.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-mian-mir",
+        "madho-lal-hussain",
+        "shrine-of-fariduddin-ganjshakar",
+        "shrine-of-sachal-sarmast",
+        "shrine-of-bahauddin-zakariya",
+        "mausoleum-of-waris-shah",
+        "garh-maharaja-shorkot",
+        "mithankot-kot-mithan",
+        "mazar-e-iqbal",
+        "gurdwara-dash-mesh-pita",
+        "ram-mandir-saidpur-ram-kund-mandir",
+        "shri-panchmukhi-hanuman-mandir-karachi"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:08Z",
@@ -2016,6 +2104,10 @@
         {
           "t": "2026-09-23T05:17:17Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T20:05:19Z",
+          "msg": "marked integrated: HANDOVER 9.302, session_018MEC39WXYZaZATQGaNdiix: 12 id sections appended; 17 Doubts attachments by --doubt-also ID:LN; HELD and skipped: mazar-of-bulleh-shah (the book's main row; 1758 five times vs 1757), shrine-of-shah-inayat-qadiri; OWED: those sections once ruled; new-rows step"
         }
       ],
       "scan_images": {
@@ -2031,7 +2123,7 @@
       "chunks": 4
     },
     "waris_shah_hir_ranjha": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 105,
       "group": "english",
       "route_planned": "text_probe",
@@ -2055,7 +2147,15 @@
       "leases": {},
       "assembled_file": "out/ocr/waris_shah_hir_ranjha/p001-end_2026-09-14_1708_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/waris_shah_hir_ranjha.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "mausoleum-of-waris-shah",
+        "shrine-of-fariduddin-ganjshakar",
+        "tilla-jogian",
+        "shrine-of-bahauddin-zakariya",
+        "lal-shahbaz-qalandar",
+        "gurdwara-dash-mesh-pita",
+        "ram-mandir-saidpur-ram-kund-mandir"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:08Z",
@@ -2080,6 +2180,10 @@
         {
           "t": "2026-09-23T05:17:17Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T20:12:16Z",
+          "msg": "marked integrated: HANDOVER 9.304, session_018MEC39WXYZaZATQGaNdiix: 7 id sections appended; 10 Doubts by --doubt-also ID:LN; HELD and skipped (id and province): shrine-of-makhdoom-jahaniyan-jahangasht and shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari (Waris Shah's Jalal/Jahanian split, a standing hold), plus Bulleh Shah and the Shah Inayats; OWED: the two Uch sections once ruled; new-rows step"
         }
       ],
       "scan_images": {
@@ -2090,7 +2194,7 @@
       "chunks": 7
     },
     "madho_lal_hussein_verses_lowly_fakir": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 106,
       "group": "english",
       "route_planned": "text_probe",
@@ -2114,7 +2218,11 @@
       "leases": {},
       "assembled_file": "out/ocr/madho_lal_hussein_verses_lowly_fakir/p001-end_2026-09-14_1708_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/madho_lal_hussein_verses_lowly_fakir.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "madho-lal-hussain",
+        "garh-maharaja-shorkot",
+        "tomb-of-qutbuddin-aibak"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:08Z",
@@ -2139,6 +2247,10 @@
         {
           "t": "2026-09-23T05:17:17Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T20:28:24Z",
+          "msg": "marked integrated: §9.306: 3 id sections; 8 bullet-shape groups (35 copies, 33 entries); punjab 4→49, sindh 1→13; held Bulleh Shah, Uch pair, Kali x3, chandragup"
         }
       ],
       "scan_images": {
@@ -2154,7 +2266,7 @@
       "chunks": 3
     },
     "kugle_sufis_and_saints_bodies": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 107,
       "group": "english",
       "route_planned": "text_probe",
@@ -2178,7 +2290,13 @@
       "leases": {},
       "assembled_file": "out/ocr/kugle_sufis_and_saints_bodies/p001-end_2026-09-14_1708_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/kugle_sufis_and_saints_bodies.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "madho-lal-hussain",
+        "shrine-of-fariduddin-ganjshakar",
+        "data-darbar",
+        "shah-jamal",
+        "shrine-of-mian-mir"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:08Z",
@@ -2203,6 +2321,10 @@
         {
           "t": "2026-09-23T06:57:32Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T20:32:31Z",
+          "msg": "marked integrated: §9.307: 5 id sections, 21 doubts by ID:LN; 9 bullet-shape groups (33 copies, 33 entries); punjab 3→49, sindh 2→13; Hyderabad row held"
         }
       ],
       "scan_images": {
@@ -2218,7 +2340,7 @@
       "chunks": 22
     },
     "eaton_essays_islam_indian_history": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 108,
       "group": "english",
       "route_planned": "text_probe",
@@ -2242,7 +2364,13 @@
       "leases": {},
       "assembled_file": "out/ocr/eaton_essays_islam_indian_history/p001-end_2026-09-14_1708_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/eaton_essays_islam_indian_history.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-fariduddin-ganjshakar",
+        "shrine-of-bahauddin-zakariya",
+        "samadhi-of-maharaja-ranjit-singh",
+        "golra-sharif",
+        "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:22Z",
@@ -2271,6 +2399,10 @@
         {
           "t": "2026-10-07T21:27:11Z",
           "msg": "chunked into 20 chunks of ~6000 words"
+        },
+        {
+          "t": "2026-10-10T20:36:34Z",
+          "msg": "marked integrated: §9.308: 5 id sections (--deep-blocks for Farid), 8 refused/held; punjab 18→49, sindh 6→13, balochistan 2→3; no groups"
         }
       ],
       "scan_images": {
@@ -2286,7 +2418,7 @@
       "chunks": 20
     },
     "ernst_lawrence_sufi_martyrs_of_love": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 109,
       "group": "english",
       "route_planned": "text_probe",
@@ -2310,7 +2442,18 @@
       "leases": {},
       "assembled_file": "out/ocr/ernst_lawrence_sufi_martyrs_of_love/p001-end_2026-09-14_1708_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/ernst_lawrence_sufi_martyrs_of_love.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-fariduddin-ganjshakar",
+        "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a",
+        "data-darbar",
+        "golra-sharif",
+        "mazar-e-iqbal",
+        "mithankot-kot-mithan",
+        "shrine-of-bahauddin-zakariya",
+        "shrine-of-hafiz-muhammad-jamal-multani",
+        "shrine-of-mian-mir",
+        "sial-sharif"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:24Z",
@@ -2335,6 +2478,10 @@
         {
           "t": "2026-09-23T06:57:32Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-10T20:52:33Z",
+          "msg": "marked integrated: §9.311: 10 id sections, 19 doubts by ID:LN; 12 inline place groups (47 copies); punjab 8→49; Uch pair held"
         }
       ],
       "scan_images": {
@@ -3775,5 +3922,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-10-10T18:35:37Z"
+  "updated": "2026-10-10T21:02:01Z"
 }

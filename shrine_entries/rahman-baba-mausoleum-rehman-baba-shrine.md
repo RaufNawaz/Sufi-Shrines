@@ -54,3 +54,13 @@ Poetry: I gave the famous "sow flowers" verse in ENGLISH ONLY — the Pashto ori
 
 - Peshawar was conquered by Ranjit Singh ("بوقت فتح پشاور"), mentioned only as the occasion on which a Qur'an was sent from there to the shrine (p. 169).
 - In "ماہ اگست" Sultan Mahmud, "بہ جمعیت دس ہزار سوار پشاور مین آکر راجہ جیپال سے مقابل ہوا", and imprisoned Raja Jaipal (p. 805).
+
+## From Carl W. Ernst and Bruce B. Lawrence, Sufi Martyrs of Love
+
+*Integrated 10 October 2026 from `entries/book_takeaways/ernst_lawrence_sufi_martyrs_of_love.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Peshawar
+
+*The book's place-level material on "Peshawar" (10 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **dargah-pir-ratan-nath-jee**, **gorakhnath-goraknath-temple**, **gurdwara-bhai-beba-singh**, **gurdwara-bhai-joga-singh**, **kali-bari-mandir**, **panj-tirath**, **rahman-baba-mausoleum-rehman-baba-shrine**, **shrine-of-akhund-darweza-baba**, **shrine-of-mian-umar-baba-chamkani**, **wadpagga-sharif** (the book's "Peshawar"): **Peshawar is one of four cities where a twentieth-century Chishti worked as a journalist** — Zauqi Shah's newspaper work at Peshawar, Lahore, Hyderabad-Sind and Karachi (p. 139, folio 126). **This is the book's only Peshawar mention: it says nothing else about the city.**

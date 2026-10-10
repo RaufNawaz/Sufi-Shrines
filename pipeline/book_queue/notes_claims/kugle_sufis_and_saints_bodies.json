@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-07T16:24:26Z",
-  "expires_at": "2026-10-07T17:54:26Z",
-  "note": "province sweep batch 3 [taking over a released or expired claim; previous holder session_01DGto8DD1mf8JVV2AzN3rKp]",
-  "released_at": "2026-10-07T16:49:53Z",
-  "released_by": "session_01AbusxzPjF4TPvKK49PS99s",
-  "session": "session_01AbusxzPjF4TPvKK49PS99s",
+  "claimed_at": "2026-10-10T20:29:23Z",
+  "expires_at": "2026-10-10T21:59:23Z",
+  "note": "integration [taking over a released or expired claim; previous holder session_01AbusxzPjF4TPvKK49PS99s]",
+  "released_at": "2026-10-10T20:32:31Z",
+  "released_by": "session_018MEC39WXYZaZATQGaNdiix",
+  "session": "session_018MEC39WXYZaZATQGaNdiix",
   "slug": "kugle_sufis_and_saints_bodies",
   "status": "released"
 }

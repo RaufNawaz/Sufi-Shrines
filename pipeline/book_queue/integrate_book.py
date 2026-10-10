@@ -55,8 +55,16 @@ def load_ids():
         return {ln.rstrip('\n').split('\t')[col] for ln in fh if ln.strip()}
 
 
-def blocks(lines):
-    """Yield (id, start, body_lines) for every `### <id> — name` block."""
+def blocks(lines, deep=False):
+    """Yield (id, start, body_lines) for every `### <id> — name` block.
+
+    Default: a block ends at the next `##`-anything heading (so also at `####`) or `---` rule.
+    deep=True (`--deep-blocks`, HANDOVER 9.308, eaton): a block may hold `####` subsections and `---`
+    rules and ends at the next `#`/`##`/`###` heading, or at a `---` rule not followed by a `####` heading; trailing blank
+    and `---` lines are dropped.
+    main() refuses to run without the flag when the two readings of a book differ, so no book's
+    blocks change silently.
+    """
     i = 0
     while i < len(lines):
         m = HEAD_RE.match(lines[i])
@@ -64,9 +72,21 @@ def blocks(lines):
             i += 1
             continue
         j = i + 1
-        while j < len(lines) and not re.match(r'^(##|---\s*$)', lines[j]):
-            j += 1
-        yield m.group(1), i, lines[i + 1:j]
+        if deep:
+            while j < len(lines) and not re.match(r'^#{1,3} ', lines[j]):
+                if re.match(r'^---\s*$', lines[j]):   # a rule ends the block unless a #### subsection follows it
+                    k = next((k for k in range(j + 1, len(lines)) if lines[k].strip()), len(lines))
+                    if k == len(lines) or not lines[k].startswith('#### '):
+                        break
+                j += 1
+            body = lines[i + 1:j]
+            while body and (not body[-1].strip() or re.match(r'^---\s*$', body[-1])):
+                body.pop()
+        else:
+            while j < len(lines) and not re.match(r'^(##|---\s*$)', lines[j]):
+                j += 1
+            body = lines[i + 1:j]
+        yield m.group(1), i, body
         i = j
 
 
@@ -253,7 +273,114 @@ def group_blocks(lines):
             raise SystemExit(f'REFUSED -- group "{m.group(1)}" (line {i + 1}): heading says '
                              f'{m.group(3)} rows, found {len(ids)} ids on {len(idl)} id line(s)')
         body = strip_blank_edges([b for k, b in enumerate(body) if k not in idl])
-        yield m.group(1), m.group(2), int(m.group(3)), ids, body
+        yield m.group(1), m.group(2), int(m.group(3)), ids, body, 'heading'
+
+
+GROUP_SECTION_RE = re.compile(r'^#{2,4} (?:Rows attached at (?:place|person) level|(?:Place|Person)[- ]level)')
+GROUP_HEAD_RE = re.compile(r'^- ((?:\*\*[a-z0-9][a-z0-9-]*[a-z0-9]\*\*(?:, )?)+)(?: (\((?:[^()]|\([^()]*\))*\)):(.*))?\s*$')
+GROUP_LABEL_RE = re.compile(r'^\*\*([^*].*?)\*\*\s*$')   # a bold-only label line between bullets (ernst, 9.311)
+GROUP_PAREN_RE = re.compile(r'^\s+(\((?:[^()]|\([^()]*\))*\)):')
+
+
+def _kind_of(text):
+    pl = bool(re.search(r'place[- ]level', text, re.I))
+    pe = bool(re.search(r'person[- ]level', text, re.I))
+    return 'place' if pl and not pe else ('person' if pe and not pl else None)
+
+
+def _bullet_group_items(lines):
+    """The bullet shapes of place-/person-level groups (HANDOVER 9.306 for madho_lal_hussein, generalised
+    9.307 for kugle and the English books after it).
+
+    A group region starts at a heading (##-####, before `## Doubts`) that begins "Rows attached at
+    place/person level" or "Place-level" / "Person-level" / "Place level" / "Person level", and ends at
+    the next heading that does not itself begin that way. Inside it every top-level bullet must be a
+    group head: a line made only of `**id**, **id**, …`, optionally followed on the same line by
+    ` (the book's "X" …):` (madho shape); otherwise the next, indented line must open with that
+    parenthesis (kugle shape). The head line is the join key and is not copied; the indented lines
+    under it are the material, copied verbatim. Name: the double-quoted words of the parenthesis,
+    joined by " / " (else its first backticked token, up to a comma). Kind: from the nearest region
+    heading when it names only one of place/person, else "principal figure" (person) / "in the city"
+    (place) in the parenthesis. When the parenthesis states a count ("all N", "both", "the one row")
+    the ids must number it. Anything that does not fit is REFUSED, never guessed.
+    """
+    end = next((i for i, l in enumerate(lines) if l.startswith('## Doubts')), len(lines))
+    kind_ctx, label, i = None, None, 0
+    while i < end:
+        l = lines[i]
+        if re.match(r'^(#{1,4} |---\s*$)', l):
+            kind_ctx = (_kind_of(l) or 'either') if GROUP_SECTION_RE.match(l) and not GROUP_LOOSE_RE.match(l) else None
+            label = None
+            i += 1
+            continue
+        if kind_ctx is not None and GROUP_LABEL_RE.match(l):
+            label = GROUP_LABEL_RE.match(l).group(1)
+            i += 1
+            continue
+        if kind_ctx is None or not l.startswith('- '):
+            i += 1
+            continue
+        m = GROUP_HEAD_RE.match(l)
+        if not m:
+            raise SystemExit(f'REFUSED -- line {i + 1} is a bullet in a place-/person-level region but its '
+                             f'head is not a line of bold ids: {l[:120]}')
+        j = i + 1
+        while j < end and not lines[j].startswith('- ') and not re.match(r'^(#{1,4} |---\s*$)', lines[j]) \
+                and not GROUP_LABEL_RE.match(lines[j]):
+            if lines[j].strip() and not lines[j].startswith(' '):
+                raise SystemExit(f'REFUSED -- line {j + 1}: an unindented line inside the bullet group at line {i + 1}')
+            j += 1
+        paren = m.group(2)
+        if paren is None:
+            pm = GROUP_PAREN_RE.match(lines[i + 1]) if i + 1 < j else None
+            if not pm:
+                raise SystemExit(f'REFUSED -- line {i + 2}: the group at line {i + 1} has no "(the book\'s …):" line')
+            paren = pm.group(1)
+        ids = TICK_BOLD_RE.findall(m.group(1))
+        inline = bool(m.group(3) and m.group(3).strip())
+        if inline:
+            # ernst shape (9.311): the material shares the head line, so the WHOLE bullet is copied verbatim
+            # (ids included); the group is the bold label above it, e.g. "**Lahore (35 rows).**"
+            counts = re.findall(r'\((\d+) rows?\)', label or '')
+            body = strip_blank_edges(lines[i:j])
+            kind = kind_ctx if kind_ctx != 'either' else None
+            if len(counts) == 1:
+                name, n = re.sub(r'\s*\(\d+ rows?\).*$', '', label).strip(), int(counts[0])
+            else:
+                name, n = ' / '.join(re.findall(r'"([^"]+)"', paren)), None
+            if not name or kind is None:
+                raise SystemExit(f'REFUSED -- line {i + 1}: cannot read the group name or kind of an inline bullet group')
+            if len(set(ids)) != len(ids) or (n is not None and len(ids) != n):
+                raise SystemExit(f'REFUSED -- inline bullet group at line {i + 1}: label says {n} rows, lists {len(ids)} ids')
+            yield name, kind, len(ids), ids, body, 'inline'
+            i = j
+            continue
+        names = re.findall(r'"([^"]+)"', paren)
+        if not names:
+            names = [b.split(',')[0] for b in re.findall(r'`([^`]+)`', paren)[:1]]
+        kind = kind_ctx if kind_ctx != 'either' else \
+            ('person' if 'principal figure' in paren else ('place' if re.search(r'\bin the city\b', paren) else None))
+        mn = re.search(r'\ball (\d+)\b', paren)
+        n = int(mn.group(1)) if mn else (2 if re.search(r'\bboth\b', paren) else (1 if re.search(r'\bthe one row\b', paren) else None))
+        if not names or kind is None:
+            raise SystemExit(f'REFUSED -- line {i + 1}: cannot read the group name or kind from: {paren[:160]}')
+        if len(set(ids)) != len(ids) or (n is not None and len(ids) != n):
+            raise SystemExit(f'REFUSED -- bullet group at line {i + 1}: says {n} rows, lists {len(ids)} ids')
+        body = strip_blank_edges(lines[i + 1:j])
+        yield ' / '.join(names), kind, len(ids), ids, body, 'bullet'
+        i = j
+
+
+def bullet_group_blocks(lines):
+    """Bullet-shape groups, with consecutive inline bullets of one group (same name, kind and ids) merged into
+    one group whose body is their lines in order (ernst, HANDOVER 9.311)."""
+    out = []
+    for g in _bullet_group_items(lines):
+        if out and g[5] == 'inline' and out[-1][5] == 'inline' and out[-1][:4] == g[:4]:
+            out[-1] = out[-1][:4] + (out[-1][4] + g[4], 'inline')
+        else:
+            out.append(g)
+    yield from out
 
 
 TICK_BOLD_RE = re.compile(r'\*\*([a-z0-9][a-z0-9-]*[a-z0-9])\*\*')
@@ -274,7 +401,7 @@ def groups_mode(a):
     lines = open(os.path.join(REPO, src_rel), encoding='utf-8').read().split('\n')
     src_set = set(lines)
     known = load_ids()
-    groups = list(group_blocks(lines))
+    groups = list(group_blocks(lines)) + list(bullet_group_blocks(lines))
     if not groups:
         print(f'REFUSED -- no place-/person-level groups in {src_rel}'); return 2
     skip = {s for s in a.skip.split(',') if s}
@@ -283,15 +410,20 @@ def groups_mode(a):
              f'copied verbatim from that file; nothing was added or reworded. Page references are as '
              f'the takeaways give them.*')
     adds, held, missing, scaf = {}, set(), 0, {heading, intro}
-    for name, kind, n, ids, body in groups:
+    for name, kind, n, ids, body, shape in groups:
         bad = [i for i in ids if i not in known]
         if bad:
             print(f'REFUSED -- group "{name}": ids not in shrine_index.tsv: {",".join(bad)}'); return 2
         sub = f'### {kind.capitalize()}-level material: {name}'
         what = 'the place in general' if kind == 'place' else 'the person'
-        note = (f'*The book\'s material headed "{name} ({kind}-level: {n} rows)", copied into every '
-                f'existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about '
-                f'{what}, not about this shrine alone.*')
+        if shape == 'heading':
+            note = (f'*The book\'s material headed "{name} ({kind}-level: {n} rows)", copied into every '
+                    f'existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about '
+                    f'{what}, not about this shrine alone.*')
+        else:
+            note = (f'*The book\'s {kind}-level material on "{name}" ({n} rows), from its list of rows attached '
+                    f'at place or person level, copied into every existing entry that list names (ruling (a); '
+                    f'Rauf, 10 October 2026). It is about {what}, not about this shrine alone.*')
         scaf |= {sub, note}
         for b in body:
             if b.strip() and b not in src_set:
@@ -336,9 +468,9 @@ def groups_mode(a):
     print(f'{"DRY RUN -- " if a.dry_run else ""}{a.slug} groups: {len(groups)} group(s); '
           f'{links} group-to-entry copies into {done} existing entr(ies); {missing} listed id(s) have no '
           f'entry (not created, ruling of 10 Oct); held: {",".join(sorted(held)) or "none"}')
-    for name, kind, n, ids, body in groups:
+    for name, kind, n, ids, body, shape in groups:
         got = [i for i in ids if i in adds and any(s.endswith(': ' + name) for s, _ in adds[i])]
-        print(f'  {name} ({kind}, {n} rows): {len(got)} entr(ies), {sum(1 for b in body if b.startswith("- "))} bullet(s)')
+        print(f'  {name} ({kind}, {n} rows): {len(got)} entr(ies), {sum(1 for b in body if b.lstrip().startswith("- ") and len(b) - len(b.lstrip()) <= 2)} bullet(s)')
     print('group entries:', ','.join(sorted(adds)))
     return 0
 
@@ -357,11 +489,14 @@ def main():
                     help='instead of id sections, append the book\'s `### province: <key>` bullets to '
                          'every EXISTING entry tagged with that province (ruling of 10 Oct 2026)')
     ap.add_argument('--doubt-also', default='',
-                    help='ID:ITEM[,ID:ITEM] -- also attach the Doubts item numbered ITEM (e.g. I1) to ID, for '
+                    help='ID:ITEM[,ID:ITEM] -- also attach the Doubts item numbered ITEM (e.g. I1), or the item starting on line N of the takeaways (ID:LN, 9.294), to ID, for '
                          'an item that names the id only in its body')
     ap.add_argument('--groups', action='store_true',
                     help='instead of id sections, append each `### <Name> (place-level|person-level: N rows)` '
                          'block to every EXISTING entry it lists (ruling of 10 Oct 2026, HANDOVER 9.289)')
+    ap.add_argument('--deep-blocks', action='store_true',
+                    help='let an id block hold #### subsections and --- rules, ending at the next ##/### '
+                         'heading (9.308, eaton); required when that reading differs from the default')
     ap.add_argument('--dry-run', action='store_true')
     a = ap.parse_args()
     if a.province:
@@ -387,9 +522,23 @@ def main():
     only = {s for s in a.only.split(',') if s}
     for pair in filter(None, a.doubt_also.split(',')):
         did, item = pair.split(':')
-        n = next(i for i, l in enumerate(src_lines) if l.startswith((f'**{item}. ', f'- **{item}. ')))
+        if re.fullmatch(r'L\d+', item):   # ID:L1937 -- the Doubts item that starts on that line (9.294)
+            n = int(item[1:]) - 1
+            start = next(i for i, l in enumerate(src_lines) if l.startswith('## Doubts'))
+            if n <= start or not src_lines[n].strip() or src_lines[n].startswith(' '):
+                sys.exit(f'--doubt-also {pair}: line {n + 1} does not start an item inside ## Doubts')
+        else:
+            n = next(i for i, l in enumerate(src_lines) if l.startswith((f'**{item}. ', f'- **{item}. ')))
+        if src_lines[n].startswith('|'):   # one table row, with its header and rule lines (9.298)
+            t = n
+            while t > 0 and src_lines[t - 1].startswith('|'):
+                t -= 1
+            if n < t + 2 or not set(src_lines[t + 1].replace('|', '').strip()) <= set('-: '):
+                sys.exit(f'--doubt-also {pair}: line {n + 1} is not a body row of a table with a header')
+            doubts.setdefault(did, []).insert(0, [src_lines[t], src_lines[t + 1], src_lines[n]])
+            continue
         e = n + 1
-        if src_lines[n].startswith('- '):   # list-item form: indented continuation lines (9.292)
+        if src_lines[n].startswith('- ') or re.match(r'\d+\. ', src_lines[n]):   # list-item form: indented continuation (9.292)
             while e < len(src_lines) and src_lines[e].startswith(' ') and src_lines[e].strip():
                 e += 1
         else:
@@ -400,7 +549,14 @@ def main():
         scaffold.add(f'*{a.claim_note}*')
 
     plan, skipped, errors, dropped_total, seen = [], [], [], 0, set()
-    for bid, at, body in blocks(src_lines):
+    shallow = {b: body for b, _, body in blocks(src_lines)}
+    deep = {b: body for b, _, body in blocks(src_lines, deep=True)}
+    differ = sorted(b for b in shallow if strip_blank_edges(shallow[b]) != strip_blank_edges(deep.get(b, [])))
+    if differ and not a.deep_blocks:
+        print(f'REFUSED -- {len(differ)} id block(s) hold #### subsections or --- rules and would be cut short '
+              f'by the default reader: {",".join(differ)}. Read them, then rerun with --deep-blocks.')
+        return 7
+    for bid, at, body in blocks(src_lines, deep=a.deep_blocks):
         if bid not in ids:
             errors.append(f'line {at + 1}: id {bid!r} not in shrine_index.tsv')
             continue

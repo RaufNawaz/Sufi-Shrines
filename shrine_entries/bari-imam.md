@@ -111,3 +111,26 @@ the Pothohar meeting, not on any statement in the text" (pp. 45–46, folios 33�
 bibliography confirms the shape of that evidence and no more: item ۲۰۶ "حیات بری امام" is certain but
 undated ("س۔ن"), and item ۲۲۱ "شاہ لطیف بری" is **a probable, not a stated, match** (p. 303, folio 291;
 chunk 028). The whole re-dating rests on one Persian risala cited three ways — see C6.
+
+## From Scott Kugle, Sufis and Saints' Bodies
+
+*Integrated 10 October 2026 from `entries/book_takeaways/kugle_sufis_and_saints_bodies.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Islamabad
+
+*The book's place-level material on "Islamabad" (4 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+  (the book's "Islamabad"): **named once, as a place of publication** — "Mirza, Shafqat
+  `Tanwlr[text-layer?]` [Tanwir]. Shah Hussayn. Islamabad: Lok Wirsa Isha'at Ghar, 1989." (p.
+  340, folio 319). Four archive rows take this at place level. **The evidence is an imprint and
+  nothing more; see Doubts.**
+
+## From Carl W. Ernst and Bruce B. Lawrence, Sufi Martyrs of Love
+
+*Integrated 10 October 2026 from `entries/book_takeaways/ernst_lawrence_sufi_martyrs_of_love.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Islamabad
+
+*The book's place-level material on "Islamabad" (4 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **bari-imam**, **golra-sharif**, **gurdwara-sahib-saidpur-guru-nanak-dev-ji**, **ram-mandir-saidpur-ram-kund-mandir** (the book's "Islamabad"): **Islamabad is the seat of a Persian-studies research centre whose imprints and manuscripts the book cites** — `Islamabad: Markaz-i Tahqiqat-i Farsi-i Iran u Pakistan, 1398/1978` (p. 234, folio 224) and `also citing Islamabad MS` (p. 235, folio 225).

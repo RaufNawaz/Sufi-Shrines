@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-08T21:40:45Z",
-  "expires_at": "2026-10-08T23:10:45Z",
-  "note": "province A/B de-dup (\u00a79.267) [taking over a released or expired claim; previous holder session_01GP17Y4mSDVifLaBvWNZ23L]",
-  "released_at": "2026-10-08T21:41:56Z",
-  "released_by": "session_01EBtKoj6YZMeo7AWf1ENk6H",
-  "session": "session_01EBtKoj6YZMeo7AWf1ENk6H",
+  "claimed_at": "2026-10-10T19:42:19Z",
+  "expires_at": "2026-10-10T21:12:19Z",
+  "note": "integration [taking over a released or expired claim; previous holder session_01EBtKoj6YZMeo7AWf1ENk6H]",
+  "released_at": "2026-10-10T19:43:10Z",
+  "released_by": "session_018MEC39WXYZaZATQGaNdiix",
+  "session": "session_018MEC39WXYZaZATQGaNdiix",
   "slug": "sorley_shah_abdul_latif_of_bhit",
   "status": "released"
 }

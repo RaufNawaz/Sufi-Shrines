@@ -153,3 +153,38 @@ with the editor offering Ayaz as commander of the cantonment on Latif's own page
     read into it**: the book's Ayaz is a Shah Jahan-era noble in the **buildings department under Ali
     Mardan Khan** (p. 278, folio 281) and the **mir-e-imarat of Shalamar Bagh** (p. 279, folio 282). **No
     match made.**
+
+## From Annemarie Schimmel, Pain and Grace
+
+*Integrated 10 October 2026 from `entries/book_takeaways/schimmel_pain_and_grace.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**Mapped under the 18 September person rule** (an archive row's principal figure takes the row's id
+even where the book names them only as a literary reference). **The book attaches no tomb, burial
+place, office or shrine to Ayaz, and does not call him governor of anywhere** — all **(not stated)**.
+See Doubts.
+
+- **Saint / figure** — **A literary topos only.** "the warrior king and conqueror of Northwest India,
+  Mahmud of Ghazna, was completely enchanted by the obedience and loving veneration of his Turkish
+  officer Ayaz so that he became 'the slave of his slave'" (p. 175, folio 175), with the Persian theme
+  "Shah i gada, 'King and Beggar'" and a note that "niyaz" is "often used in the Mahmud Ayaz story for
+  the sake of its fitting rhyme" (p. 175, folio 175). **"his Turkish officer" is the only office the
+  book gives him, and the archive row's "slave of Mahmud Ghaznavi, minister, and governor of Lahore"
+  goes beyond it.**
+
+### Doubts the notes raise on this row
+
+- **Single-row person attachments under the 18 September ruling, where the book names the figure only
+  as an author or a literary reference.** `mazar-e-iqbal` (named four times, always as a thinker);
+  `mazar-of-bulleh-shah` (a poet and a legend, no place ever); `garh-maharaja-shorkot` (a poet and
+  two death years); `mausoleum-of-waris-shah` (an author and a poem); `data-darbar` at pp. 201 and
+  203 (an author only — though p. 8 gives him a tomb and a living cult, so that row is independently
+  safe); `shrine-of-sachal-sarmast` (every mention is about his poetry); `darbar-malik-ahmad-ayaz`.
+  **All are mapped under the ruling. If the archive later prefers shrine-relevant mentions only,
+  these are the bullets to strike, and `mazar-e-iqbal` and `darbar-malik-ahmad-ayaz` are the two
+  weakest.**
+
+- **`darbar-malik-ahmad-ayaz` is the newest and the most arguable of these.** The book names "his
+  Turkish officer Ayaz" inside the Mahmud-and-Ayaz literary topos (p. 175, folio 175) and **attaches
+  no tomb, burial place, office or city to him at all**; the archive row's principal figure is
+  described as "slave of Mahmud Ghaznavi, minister, and governor of Lahore". **The identification is
+  from the Mahmud connection alone. A human should confirm or strike it.**

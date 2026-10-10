@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-05T13:49:31Z",
-  "expires_at": "2026-10-05T15:19:31Z",
-  "note": "province sweep (ruling c), \u00a79.257",
-  "released_at": "2026-10-05T14:10:36Z",
-  "released_by": "session_013fu7ixkPpX9Xs8e4t9PjcS",
-  "session": "session_013fu7ixkPpX9Xs8e4t9PjcS",
+  "claimed_at": "2026-10-10T19:27:04Z",
+  "expires_at": "2026-10-10T20:57:04Z",
+  "note": "integration [taking over a released or expired claim; previous holder session_013fu7ixkPpX9Xs8e4t9PjcS]",
+  "released_at": "2026-10-10T19:28:09Z",
+  "released_by": "session_018MEC39WXYZaZATQGaNdiix",
+  "session": "session_018MEC39WXYZaZATQGaNdiix",
   "slug": "shackle_risalo_shah_abdul_latif",
   "status": "released"
 }
