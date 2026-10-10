@@ -9,9 +9,45 @@
     "3644": "no name: the subject of entry no. 106 is unnamed in the transcription"
   },
   "pair": [
-    [[3527, 3572], "may be one person: two Ismail Muhaddiths of Lahore"],
-    [[3587, 3588], "may be one person: two Muhammad Taqis of the Mufti family"],
-    [[3665, 3667], "may be one person: two Muhammad Muqim Muhkam al-Dins of the Hujra family"],
-    [[3523, 3672, 3675], "the notes keep these Ghulam Muhyi al-Dins distinct (Doubt I16): do not merge"]
-  ]
+    [
+      [
+        3527,
+        3572
+      ],
+      "may be one person: two Ismail Muhaddiths of Lahore"
+    ],
+    [
+      [
+        3587,
+        3588
+      ],
+      "may be one person: two Muhammad Taqis of the Mufti family"
+    ],
+    [
+      [
+        3665,
+        3667
+      ],
+      "may be one person: two Muhammad Muqim Muhkam al-Dins of the Hujra family"
+    ],
+    [
+      [
+        3523,
+        3672,
+        3675
+      ],
+      "the notes keep these Ghulam Muhyi al-Dins distinct (Doubt I16): do not merge"
+    ]
+  ],
+  "figures": {
+    "_comment": "For build_book_figures.py. 'alsoNamedRegions': regions whose '- Also named:' list is about saints and is taken; the others are left out and reported. 'skipItems': bold runs inside a taken list that are not a figure, or not a saint.",
+    "alsoNamedRegions": [
+      "Kashmir",
+      "Delhi"
+    ],
+    "skipItems": {
+      "Rishis at folio 171": "an index note, not a name",
+      "Gangaram Pandit Dehlvi": "a darbar official, not a saint"
+    }
+  }
 }
