@@ -1245,9 +1245,13 @@
     box-shadow var(--duration-fast);
 }
 
-.gallery-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+/* Hover only where a pointer can hover: iOS keeps `:hover` on the last tapped
+   element, so a tapped card stayed lifted and a tapped pin stayed enlarged. */
+@media (hover: hover) {
+  .gallery-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
 }
 
 /*
@@ -1501,9 +1505,13 @@
     transform var(--duration-fast);
 }
 
-.related-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+/* Hover only where a pointer can hover: iOS keeps `:hover` on the last tapped
+   element, so a tapped card stayed lifted and a tapped pin stayed enlarged. */
+@media (hover: hover) {
+  .related-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
 }
 
 /* .related-card-img / .related-card-img-placeholder live in components.css
@@ -1548,6 +1556,12 @@
   .shrine-page-header {
     padding: var(--space-3) var(--space-4);
     padding-top: calc(var(--space-3) + var(--safe-top));
+    /* Solid on a phone. A full-width blur over a scrolling article is
+       re-composited on every frame in iOS Safari, and this bar is on screen
+       for the whole read; the tab bar keeps the one glass layer. */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--color-bg-surface);
   }
 }
 
@@ -1691,11 +1705,20 @@
   position: fixed;
   top: 0;
   inset-inline-start: 0;
+  inline-size: 100%;
   height: 3px;
   background: var(--color-primary);
   z-index: calc(var(--z-header) + 1);
-  transition: width 80ms linear;
+  /* Filled by `scaleX()` from ReadingProgressBar — composited, so a scroll
+     never lays the page out. Grows from the inline start in both directions. */
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
   pointer-events: none;
+}
+
+[dir='rtl'] .reading-progress-bar {
+  transform-origin: right center;
 }
 
 @media (prefers-reduced-motion: reduce) {

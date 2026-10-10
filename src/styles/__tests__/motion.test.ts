@@ -204,7 +204,16 @@ describe('motion accessibility', () => {
      * cannot see this: there is no `@keyframes` involved.
      */
     const declaring = SHEETS.filter(({ css }) => /scroll-behavior\s*:\s*smooth/.test(strip(css)));
-    expect(declaring.length, 'nothing declares smooth scrolling any more').toBeGreaterThan(0);
+    /* Since 9 October 2026 nothing may: smooth scrolling on <html> animated
+       every route change's reset to the top and every back-button
+       restoration (global.css). If a sheet brings it back for one scroller,
+       it must still switch it off under reduced motion — the loop below. */
+    expect(
+      declaring.filter(({ css }) =>
+        /(?:^|[\s,}])(?:html|:root)\s*\{[^}]*scroll-behavior\s*:\s*smooth/.test(strip(css)),
+      ),
+      'smooth scrolling on <html> animates every route change',
+    ).toEqual([]);
 
     for (const { file, css } of declaring) {
       const reduced = reduceBlocks(strip(css));

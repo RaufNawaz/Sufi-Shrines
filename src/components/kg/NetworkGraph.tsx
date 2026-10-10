@@ -3,6 +3,12 @@ import { Link, useHref, useNavigate } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { thumbnailUrl } from '../../lib/images/thumbnail';
 
+/** Whether the primary pointer can hover — false on touch screens. */
+const canHover = () =>
+  typeof window === 'undefined' || !window.matchMedia
+    ? true
+    : window.matchMedia('(hover: hover)').matches;
+
 export type NodeType = 'saint' | 'order' | 'shrine' | 'teacher' | 'disciple';
 
 export interface GraphNode {
@@ -304,7 +310,13 @@ export function NetworkGraph({ center, connected, legend }: Props) {
                 } as React.CSSProperties
               }
               onClick={(e) => onNodeClick(e, node.href)}
-              onMouseEnter={() => setPreviewId(node.id)}
+              /* Only where something can hover. iOS fires mouseover on a tap,
+                 and a handler that reveals content makes WebKit hold back the
+                 click — so on a phone the first tap showed the preview and only
+                 the second opened the page (mobile council, 9 October 2026). */
+              onMouseEnter={() => {
+                if (canHover()) setPreviewId(node.id);
+              }}
               onMouseLeave={clearPreview}
               onFocus={() => setPreviewId(node.id)}
               onBlur={clearPreview}

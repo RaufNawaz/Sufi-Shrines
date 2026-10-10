@@ -453,8 +453,12 @@
     opacity var(--duration-fast) var(--easing);
 }
 
-.sg-strip-dot:hover {
-  transform: scale(1.35);
+/* Hover only where a pointer can hover: iOS keeps `:hover` on the last tapped
+   element, so a tapped card stayed lifted and a tapped pin stayed enlarged. */
+@media (hover: hover) {
+  .sg-strip-dot:hover {
+    transform: scale(1.35);
+  }
 }
 
 .sg-strip-dot.is-dim {

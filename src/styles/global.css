@@ -264,7 +264,13 @@
 
 html {
   font-size: 16px; /* Never go below 16px — prevents iOS auto-zoom on focus */
-  scroll-behavior: smooth;
+  /* No `scroll-behavior: smooth` here (removed 9 October 2026). Set on <html>
+     it animated every *programmatic* scroll too: a route change's reset to the
+     top streamed the whole new article past for ~1.5 s, and the browser's own
+     back-button restoration slid down from 0 to where the reader had been —
+     measured on a phone profile, and the "clunky scrolling" a reader reported.
+     The in-page jumps that want motion ask for it themselves
+     (`scrollIntoView({ behavior: 'smooth' })`). */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -295,6 +301,10 @@ a,
 button,
 [role='button'] {
   -webkit-tap-highlight-color: transparent;
+  /* No double-tap-to-zoom on a control: two quick taps on "next month" are
+     two steps, not a zoom, and a tap is not held back waiting to see whether a
+     second one follows. Pinch-zoom is unaffected. */
+  touch-action: manipulation;
 }
 
 /* Every link has a colour, including the ones nobody styled.

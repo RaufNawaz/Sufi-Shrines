@@ -1602,9 +1602,13 @@
     box-shadow var(--duration-fast) var(--easing),
     transform var(--duration-fast) var(--easing);
 }
-.typology-jump a:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
+/* Hover only where a pointer can hover: iOS keeps `:hover` on the last tapped
+   element, so a tapped card stayed lifted and a tapped pin stayed enlarged. */
+@media (hover: hover) {
+  .typology-jump a:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
 }
 .typology-jump a:focus-visible {
   outline: 2px solid var(--color-primary);
@@ -3007,9 +3011,13 @@
     transform var(--duration-fast) var(--easing),
     box-shadow var(--duration-fast) var(--easing);
 }
-.order-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+/* Hover only where a pointer can hover: iOS keeps `:hover` on the last tapped
+   element, so a tapped card stayed lifted and a tapped pin stayed enlarged. */
+@media (hover: hover) {
+  .order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
 }
 .order-card:focus-visible {
   outline: 2px solid var(--color-primary);

@@ -68,10 +68,18 @@
     border-color var(--duration-fast) var(--easing);
 }
 
-.hover-lift:hover,
+/* Hover only where a pointer can hover: iOS keeps `:hover` on the last tapped
+   element, so a tapped card stayed lifted and a tapped pin stayed enlarged. */
 .hover-lift:focus-visible {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 /* A pressed card should feel pressed, not stuck mid-lift. */
