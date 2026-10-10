@@ -122,3 +122,176 @@ Verify before publishing:
 - His pir is given as Bahlol (Bahlol Daryai) in the Shafqat Tanvir Mirza study; confirm spelling.
 - Mela Chiraghan is traditionally a spring festival (late March) linked to the Shalimar Gardens; your survey also gives Shawwal 9–11 (a lunar reckoning). Confirm the dating convention you want to publish.
 - Transliterated name "Dehan/Dihan Bahar Khan" — verify.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains — and the structural problem it raises.** The archive holds one row. **The book
+holds two saints, in two separately numbered entries, with two appendix rows and two index lines**,
+and never uses the compound name "Madho Lal Hussain" except inside an index parenthesis and in the
+title of the editor's own encyclopaedia article. That shape is set out first below, because the
+row's shape is the thing in question. The row also gains: Shah Husain's Malamati affiliation and the
+reason for "Lal"; his weaver family and Hindu great-grandfather; a quantified following; a named
+Persian composition; the editor's argued rejection of the book's death year; Madho's Brahmin
+parentage at Shahdara, his conversion, his tenure as *mujawir* at Husain's grave, and his burial
+inside his shaikh's enclosure — which is the book's only warrant for a joint shrine — together with
+the editor's doubt of Madho's very historicity.
+
+**The two-saint structure, as the book prints it**
+- **Shaikh Husain**: "شیخ حسین لاہوری", entry **no. 17**, printed p. 42 (contents, p. 15, folio 3);
+  entry at pp. 54–57, folios 42–45, headed "شیخ حسین المشہور بہ لال حسین لاہوری". Born
+  "سال نوسو پینتالیس" = **945**, died **1008 AH** in Shah Akbar's reign (pp. 55–56, folios 43–44).
+- **Shaikh Madho**: "شیخ مادھو لاہوری", entry **no. 24**, printed p. 52 (contents, p. 15, folio 3);
+  entry at pp. 64–65, folios 52–53. Born "نوسو تراسی" with ۹۸۳ in the margin, died
+  "ایک ہزار چھپن" with ۱۰۵۶ in the margin, age "تہتر" with ۷۳ in the margin (p. 65, folio 53); the
+  editor sharpens the death to **22 Zi al-Hijja 1056 AH / 1646 CE** (Haqiqat al-Fuqara p. 165)
+  (p. 65, folio 53, حاشیہ 2).
+- **Two appendix rows** (p. 287, folio 275): row 5, "شیخ حسین المشہور بہ لال حسین لاہوری | لاہور |
+  مادھو لال حسین سٹریٹ باغبانپورہ"; row 11, "شیخ مادھو قدس سرہ العزیز | | مادھو لال حسین سٹریٹ
+  باغبانپورہ" — Madho gets a row of his own, with the honorific "قدس سرہ العزیز" and the title
+  "شیخ", and the book's address column for him is **blank** where Husain's reads simply "لاہور".
+  Both present locations are the one named street in Baghbanpura.
+- **Two index lines.** "حسین لاہوری شاہ (مادھو لال حسین) | ۴۲ ، ۴۵ ، ۵۲" (p. 317, folio 305); est.
+  pp. 54, 57, 64. And "مادھو میاں شیخ | ۴۳ ، ۵۲ ، ۵۳" (p. 327, folio 315); est. pp. 55, 64, 65.
+  Madho's own line carries **no epithet tying him to Shah Husain and no gloss**; of his three
+  folios one (52) is shared with Shah Husain and two (43, 53) are not. The compound "مادھو لال"
+  appears only inside the parenthesis of Shah Husain's line.
+- **The book's own link between them** is a footnote in Husain's entry — "رجوع کنید بہ احوال مادھو
+  کتاب ہذا", see Madho's account in this book (p. 55, folio 43, حاشیہ 1) — and the naming of
+  "پہلے دیوان حضرت کے معشوق و محبوب شیخ مادھو", the first Diwan being Shaikh Madho, the Hazrat's
+  beloved (p. 55, folio 43). The contents list alone did not supply it (chunk 001), and chunk 026's
+  two mentions of the saint carry **no "مادھو" and no "شاہ حسین"** at all (pp. 271, 273).
+- Two later chunks confirm both readings without resolving them: chunk 029 asked whether the book
+  treats Madho separately, seeing only the index parenthesis; chunk 030 answered that it does, from
+  the separate "مادھو میاں شیخ" line (p. 327, folio 315).
+
+**Saint — Shaikh Husain (Lal Husain), entry no. 17**
+- **Why "Lal"**: "طریق ان کا ملامتیہ تھا۔ پوشاک سرخ رکھتے تھے۔ اس لیے لال حسین مشہور ہوئے" — his path
+  was *Malamati*; he wore red dress, and so became famous as Lal Husain (p. 54, folio 42). The
+  editor glosses Malamatiyya as the name of a silsila of free-spirited sufis (p. 54, folio 42,
+  حاشیہ 3).
+- Khalifa of Shaikh Bahlul Daryai; famous as a man of *hal*, *jazb*, longing, taste, *wajd* and
+  *sama* (p. 54, folio 42). The pir is also given **indirectly** elsewhere: Shaikh Musa Khokhar's
+  fayz came from Shaikh Bahlol Daryai and "شیخ لال حسین لاہوری بسبب پیر بھائی ہونے کے ان کا کمال ادب
+  کرتے تھے", Lal Husain showed him the utmost respect because they were pir-brothers (p. 273,
+  folio 261) — so Bahlol Daryai is made his pir by implication there rather than by assertion.
+- **Family origin**: his grandfather, (کلجس رائے) [OCR?], was a Hindu who accepted Islam in the time
+  of Firoz Shah Tughlaq; his son Usman was a religious man who earned lawful sustenance
+  "جولاہوں کے کام سے", by the work of weavers; Shaikh Husain was born in his house (p. 54, folio 42).
+- **Childhood initiation, with a rival account.** Author: at the age of seven, reading the Quran with
+  a learned man named Abu Bakr, Shaikh Bahlul happened to pass through that mosque and his glance so
+  fell on Husain that he became a perfect *wali* while still a child (p. 54, folio 42). Editor:
+  *Haqiqat al-Fuqara* instead has him become the pupil of Hafiz Abu Bakr **at the age of ten, in
+  955 AH** (p. 54, folio 42, حاشیہ 4).
+- **His turn to the Malamati path**, from *Haqiqat al-Fuqara* 58–64: at first an orthodox Muslim, he
+  was reading Tafsir-e Madarik with his teacher Shaikh Saad Allah Lahori (d. 999 AH / 1590 CE) when
+  the teacher explained "وما الحیوٰۃ الدنیا الا لہو ولعب" and Shah Husain understood the world to be
+  mere play; he told his teacher "مجھے حال درکار ہے قال نہیں" — I need *hal*, not *qal* — abandoned
+  the student's life and took to the Malamati way. The editor adds that Saad Allah himself often
+  voiced the Malamati school, quoting Nizam al-Din Ahmad on him: "بروش ملامتیہ سلوک می نمود"
+  (Tabaqat-e Akbari, Lucknow, 391) (p. 56, folio 44, حاشیہ 1).
+- **Repentance at the end of life**: it is a fact that in his last years he repented of all acts
+  contrary to the shariah, became regular in fasting and prayer, and died in that state (Abdullah
+  Khweshgi Qasuri, *Maarij al-Wilayat*, ms folio 519b) (p. 56, folio 44, حاشیہ 1).
+- **Death year — three readings, and the editor rejects the book's.** Author: death **1008 AH**, in
+  Shah Akbar's reign (pp. 55–56, folios 43–44), followed by a chronogram quatrain ending
+  "سال ترحیل شمع عشق حسین" with **"۹۴۵ھ [OCR?]" printed beside it** (p. 56, folio 44) — the same
+  numeral the text gives for his **birth**. Editor, reaching a verdict by argument: all the local
+  histories give 1008 AH / 1599 CE, of which *Haqiqat al-Fuqara* (1041 AH) is the oldest;
+  *Miftah al-Arifin*, composed seven years later in 1048 AH, gives **1013 AH**, which makes the
+  *Haqiqat al-Fuqara* figure doubtful; but the contemporary historian Badayuni recorded that while
+  composing *Najat al-Rashid* in 999 AH / 1590 CE "I learnt at Lahore that Shah Husain, hearing the
+  song of a sweet-voiced woman singer, became beside himself and fell from the roof of a house and
+  died" (Najat al-Rashid p. 320). Preferring the contemporary to the later tazkira-writers:
+  "تحقیق کا حاصل یہ ہے کہ شاہ حسین کا صحیح سال وفات ۹۹۹ھ ہے نہ کہ ۱۰۰۸ھ" — the correct death year is
+  **999 AH, not 1008 AH** (p. 55, folio 43, حاشیہ 2).
+- **Scale of his following, quantified**, quoted from *Haqiqat al-Fuqara*: nine thousand perfected
+  servants and "ایک لاکھ پچپن ہزار" — one hundred and fifty-five thousand murids — of whom sixteen
+  became famed khalifas, four titled Gharib, four Diwan, four Khaki and four Bilawal, with the
+  burial place of each given: the Gharibs at Ratti Mittha next to Wazirabad, at لنگرہی [OCR?] in
+  Wazirabad district, at جیلا پور [OCR?] in the Deccan, and beside Shah Husain's own grave; the
+  Diwans — the first being Shaikh Madho — with Diwan Gorakh and Allah Diwan buried at Lahore and
+  Diwan Bakhshi at Bijapur in the Deccan; the Khakis (Maula Bakhsh Khaki and Khaki Shah at Lahore,
+  Khaki Shah at Wazirabad, Haidar Khaki in the Deccan); and the Bilawals (Shah Rang Bilawal, Budhu
+  Bilawal and Shah Mast Bilawal at Lahore, Shah Bilawal in the Deccan) (p. 55, folio 43).
+- **A named khalifa and a second-generation murid.** Entry ۲۳۰: Haji Jamiat's "بیعت بخدمت شاہ رنگ
+  [OCR?] بلاول حضرت لال حسین لاہوری کے خلیفہ کی خدمت میں تھی" — his allegiance was to Shah
+  Rang[OCR?] Bilawal, khalifa of Hazrat Lal Husain Lahori (p. 271, folio 259): a transmission line
+  out of Shah Husain that the row can cite.
+- **His writings**: two works have so far come to light — *Kafian* in Punjabi and *Risala-e Tahniyat*
+  in Persian prose, presenting the problems of tasawwuf in an easy manner; the full text, edited and
+  introduced by Muhammad Iqbal Mujaddidi, was printed in Majalla Maarif, Azamgarh, August 1970 and
+  again in Sahifa, Lahore, July 1972 (p. 56, folio 44). Nine further sources are listed (pp. 56–57,
+  folios 44–45), including Dara Shikoh's *Hasanat al-Arifin* pp. 18, 74, and the editor's own
+  article "مادھو لال حسین" in the Urdu Daira-e Maarif-e Islamia of Punjab University. The
+  bibliography repeats both: item ۲۲۲ "محمد اقبال مجددی : مادھو لال حسین مقالہ مشمولہ اردو دائرہ
+  المعارف اسلامیہ دانش گاہ پنجاب لاہور" (p. 303, folio 291) and item ۱۰۳ "شاہ حسین لاہوری :
+  تحقیقت[OCR?]۔ مرتبہ محمد اقبال مجددی مشمولہ مجلہ صحیفہ لاہور جولائی ۱۹۷۲ء" (p. 297, folio 285,
+  title flagged); the editor's article list adds "۴- شاہ حسین لاہوری کی ایک غیر مطبوعہ فارسی تصنیف
+  تہنیت۔ معارف اگست ۱۹۷۰ء" — an **unpublished Persian work titled "تہنیت"** known to him in
+  manuscript, *Ma'arif*, August 1970 (p. 307, folio 295).
+
+**Saint — Shaikh Madho, entry no. 24**
+- Of Shaikh Husain Lahori's khalifas, "اپنے پیر روشن ضمیر کے محبوب و مطلوب تھے" — he was his pir's
+  beloved and desired one (p. 64, folio 52).
+- **Origin**: "قصبہ شاہدرہ میں ان کے باپ ماں بہ قوم کے برہمن تھے رہتے تھے" — his father and mother,
+  Brahmins by caste, lived in **qasba Shahdara** (p. 64, folio 52).
+- **Conversion**: "حضرت حسین ان کے حسن و جمال پر بدل و جان عاشق ہو گئے اور بجذب محبت اپنی طرف کھینچا"
+  — Hazrat Husain fell in love with his beauty with heart and soul and drew him by the attraction of
+  love; so Madho too came to him with sincere devotion "اور مشرف بہ اسلام ہوئے", and was honoured
+  with Islam, and through training became a perfect wali (pp. 64–65, folios 52–53). Separately
+  sourced by the editor: "میاں مادھو نے اسلام قبول کر لیا تھا" (Haqiqat al-Fuqara p. 82) (p. 65,
+  folio 53, حاشیہ 1).
+- **He became the shrine's mujawir**: "جب حسین رح نے وفات پائی۔ ان کے مزار پر مجاور رہے" — when
+  Husain died he remained a *mujawir* at his mazar (p. 65, folio 53).
+- **The joint shrine's one textual warrant**: the editor's footnote, sharpening the death to 22 Zi
+  al-Hijja 1056 AH / 1646 CE, adds "اور اپنے شیخ کے احاطہ میں دفن ہوا" — **and he was buried within
+  his shaikh's enclosure** (p. 65, folio 53, حاشیہ 2). That single clause is the book's warrant for
+  the archive's joint shrine, and it is the **editor's**, not the author's.
+- **The editor doubts Madho's very historicity** (chunk 005, entry no. 24, pp. 64–65). The argument
+  itself sits under that chunk's *Arguments and interpretations* heading and is **not carried in this
+  CSV** — read it on the page before the row is rewritten.
+
+**Shrine / Darbar**
+- Shah Husain's "مزار گوہر بار لاہور میں ہے", his mazar is in Lahore (pp. 55–56, folios 43–44). No
+  quarter is named in the entry; the street address comes only from the appendix
+  (مادھو لال حسین سٹریٹ باغبانپورہ, p. 287, folio 275).
+- Chunk 026 records **nothing on the shrine, the Mela Chiraghan, Madho, or the death year**, and the
+  Malamati affiliation is not stated there (pp. 271, 273).
+- The place index's "شالامار باغ | ۱۲۲" (p. 334, folio 322) → PDF p. 134 names **the garden only**,
+  and its co-indexed names — "محمد سعید نقشبندی لاہوری | ۱۲۲", "محمد یعقوب مجددی | ۱۲۲",
+  "محمد ہاشم کشمی | … ۱۲۲ …", "محمد تقی سرہندی | ۱۲۲" (pp. 328–329) — make it a Mujaddidi page,
+  **not obviously the saint's**. Do not read a Mela Chiraghan location out of it.
+
+**Legends & Miracles**
+- **Shrine practice recorded in a footnote**: Shaikh Muhammad Tahir Lahori (d. 1040 AH), an extremely
+  shariah-bound khalifa of the Mujaddid Alf-e Sani, is quoted as saying "اگر مجھے علمائے ظاہر کے
+  طعنوں کا خدشہ نہ ہوتا تو میں اکثر شیخ حسین کے مزار پر جا کر استمداد کرتا" — "If I did not fear the
+  taunts of the exoteric ulama, I would often go to Shaikh Husain's mazar and seek help"
+  (Akhbar al-Auliya, ms folio 57ab). The editor takes this both as confirmation of the repentance
+  and as "بین ثبوت", clear proof, that Shah Husain was an orthodox Muslim whose *wilayat* was
+  accepted (p. 56, folio 44, حاشیہ 1).
+
+**Significance**
+- **The editor of this edition is himself a published authority on the saint** (pp. 303, 307), and
+  the colophon gives his post as "لیکچرر تاریخ شاہ حسین کالج لاہور" — lecturer in history at **Shah
+  Husain College, Lahore** (p. 306, folio 294): a Lahore institution bearing the saint's name, which
+  the chunk does not connect to the shrine.
+- Folio 52, shared between the two saints, also carries "عبد الحکیم سیالکوٹی | ۵۲ ، ۱۹۶",
+  "محمد بخش میاں | ۳۵ ، ۵۲", "ظہیر الدین احمد | ۴۶ ، ۵۲ ، ۹۲" (pp. 320–327) — leads only.
+
+### Doubts the notes raise on this row
+
+**B14. `madho-lal-hussain` — three death years, a fourth numeral in the wrong place, and the joint
+burial never stated.** Shah Husain: text **1008 AH**; *Miftah al-Arifin* **1013 AH**; editor concludes
+**999 AH** (p. 55, folio 43 and حاشیہ 2). The chronogram quatrain closing the entry is printed with
+"**۹۴۵ھ [OCR?]**" beside it (p. 56, folio 44) — the year the text gives for his **birth**; it must not
+be read as a death date. Age at first instruction: seven in the text, ten in 955 AH per
+*Haqiqat al-Fuqara* (p. 54, folio 42 and حاشیہ 4) (chunk 004). Madho: birth 983, death 1056, age 73 —
+internally consistent, but against the editor's 999 for Shah Husain it leaves Madho as mujawir for 57
+years, and everything about Madho rests on *Haqiqat al-Fuqara*, **the book the editor elsewhere calls
+careless and uncritical** (chunk 005). **The book names شیخ مادھو as the first of Shah Husain's four
+Diwan khalifas and his "معشوق و محبوب" and the editor's article is titled "مادھو لال حسین"
+(pp. 55, 57; folios 43, 45), but no chunk states that the two are buried together or that a single
+shrine holds them.** Confirm at Madho's own entry, printed p. 52.

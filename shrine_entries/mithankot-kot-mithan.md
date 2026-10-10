@@ -43,3 +43,23 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~560-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "19th century (d. 1901)"; Sufi Saint "Khwaja Ghulam Farid"; Events "Annual urs; kafi-singing & qawwali".
 Poetry: the Seraiki line is given from memory — have a Seraiki reader confirm the script before publishing. Verify dates (1845–1901).
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains.** The town appearing as **a place of Chishti teaching a century before the archive's saint**, with the teacher identified and dated by the editor. **Nothing about the shrine at Kot Mithan and nothing about Khwaja Ghulam Farid**; chunk 011's Doubts limit how far this may be used.
+
+- Within **entry no. 78** (p. 123, folio 111): Sulaiman Taunsvi "**ابتدائے حال میں قصبہ کوٹ مٹھن میں قاضی محمد عاقل کی خدمت میں حاضر ہو کر علم ظاہری حاصل کیا**" — in his early days he attended Qazi Muhammad Aqil at **qasba Kot Mithan** and acquired the outward sciences (p. 123, folio 111).
+- **The editor identifies the teacher**: Khwaja Muhammad Aqil was of the **Faruqi** family, his father Muhammad Sharif, his family title **Koreja**, and he **died 14 Rajab 1229 AH** (p. 120, folio 108, حاشیہ 4).
+- **Locator.** "**مٹھن کوٹ | ۱۱۱**" (p. 336, folio 324) → PDF p. 123 — **the same folio as Taunsa**, and as "ڈیرہ غازی خان | ۱۱۱" (p. 334), "مانکپور | ۱۱۰ ، ۱۱۱" (p. 336), "امروہہ | ۱۱۱" (p. 333), "گرگو چھی [OCR?] | ۱۱۱" (p. 335), "نور محمد مہاروی | ۱۰۷ ، ۱۰۸ ، ۱۱۱" (p. 332) and "محمد عاقل قاضی | ۱۰۸ ، ۱۱۱" (p. 328). **One page names Taunsa, Mithankot and Dera Ghazi Khan together on a Chishti-indexed stretch.**
+
+### Doubts the notes raise on this row
+
+**I10. `mithankot-kot-mithan` — the town, not the shrine; and a different Ghulam Farid.**
+"قصبہ کوٹ مٹھن" appears once, as where Qazi Muhammad Aqil taught Sulaiman Taunsvi before 1184–1205 AH;
+**the book says nothing about a shrine there, nothing about Khwaja Ghulam Farid, and does not spell the
+name in a way that excludes another Kot Mithan** (p. 123, folio 111; chunk 011). Separately,
+"مولوی غلام فرید لاہوری" died **1216 AH** and is buried in the **Miani graveyard, Lahore** — the row's
+Khwaja Ghulam Farid is of Mithankot, d. 1901, Chishti: a different man by a century, a province and an
+order (p. 222, folio 210; chunk 021).

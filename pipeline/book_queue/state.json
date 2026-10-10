@@ -75,7 +75,7 @@
       "chunks": 1
     },
     "hadeeqat_ul_aulia": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 20,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -99,7 +99,56 @@
       "leases": {},
       "assembled_file": "out/ocr/hadeeqat_ul_aulia/p001-end_2026-09-15_1126_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/hadeeqat_ul_aulia.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-bahauddin-zakariya",
+        "tahir-bandagi-qadri",
+        "darbar-abul-muali-qadri",
+        "shrine-of-miran-hussain-zanjani-zanjani-sahib",
+        "bari-imam",
+        "shrine-of-imam-ali-ul-haq",
+        "gurdwara-chhevin-patshahi-mozang",
+        "khawaja-feroz-ud-din-gharib-nawaz",
+        "bhit-bhit-shah",
+        "shrine-of-shah-abdul-karim-bulri",
+        "bibi-pak-daman",
+        "data-darbar",
+        "garh-maharaja-shorkot",
+        "shrine-of-shah-rukn-e-alam",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "shrine-of-hazrat-shah-daula-daryai",
+        "shrine-of-shah-yusaf-gardez",
+        "mithankot-kot-mithan",
+        "gurdwara-panja-sahib",
+        "mausoleum-of-waris-shah",
+        "loh-temple-lava-temple",
+        "sial-sharif",
+        "shrine-of-mian-mir",
+        "madho-lal-hussain",
+        "shrine-of-mauj-darya-bukhari",
+        "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a",
+        "shergarh",
+        "shrine-of-syed-musa-pak",
+        "darbar-malik-ahmad-ayaz",
+        "shrine-of-hafiz-muhammad-jamal-multani",
+        "shrine-of-pir-sher-muhammad",
+        "ghazi-ilm-din-shaheed",
+        "gurdwara-shaheed-ganj-singh-singhnian",
+        "prahladpuri-temple",
+        "tomb-of-javindi-bibi",
+        "shrine-of-fariduddin-ganjshakar",
+        "ranmal-sharif",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "samadhi-of-maharaja-ranjit-singh",
+        "sakhi-sarwar",
+        "shah-jamal",
+        "peer-makki",
+        "purana-bhalwal",
+        "shrine-of-mian-umar-baba-chamkani",
+        "ganj-e-inayat-sarkar",
+        "kalat-kali-temple",
+        "shah-yousuf",
+        "wadpagga-sharif"
+      ],
       "log": [
         {
           "t": "2026-09-14T16:57:36Z",
@@ -148,6 +197,10 @@
         {
           "t": "2026-10-07T21:27:11Z",
           "msg": "chunked into 32 chunks of ~4000 words"
+        },
+        {
+          "t": "2026-10-10T03:57:57Z",
+          "msg": "marked integrated: HANDOVER 9.285: 48 id sections by integrate_book.py (24 appended, 24 entries created), 62 Doubts items carried with them, 1 not-attached bullet left out. SKIPPED (held or self-contradicted): shrine-of-shah-inayat-qadiri, shrine-of-baba-shah-chiragh, mazar-of-bulleh-shah, shrine-of-baba-shah-kamal. PROVINCE MATERIAL NOT YET APPLIED (punjab ~25 bullets, sindh 1) pending Rauf on whether rows with no entry get one; do NOT re-integrate this book, run only the province step once ruled. No cell proposals."
         }
       ],
       "scan_images": {
@@ -3642,5 +3695,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-10-10T02:30:47Z"
+  "updated": "2026-10-10T03:57:57Z"
 }

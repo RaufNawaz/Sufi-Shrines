@@ -1,0 +1,33 @@
+## Current site description (as of 10 October 2026)
+
+*The row's `Description` cell exactly as it appears in `src/data/shrines-fallback.json` on 10 October 2026, untouched. Not yet checked against sources.*
+
+## Overview
+
+A shrine locally known as Darbar Hazrat Shah Yousuf stands in the Shah Yousaf locality of Shahpur tehsil, Sargodha District, Punjab — a modest, little-documented Sufi shrine that should not be confused with the far more famous shrine of Shah Yusuf Gardezi in Multan, a twelfth-century saint of an entirely different lineage and city, some 150 kilometres to the south. The Shahpur shrine is officially recognised in its own right: it appears on the notified-shrines list maintained by the Punjab Auqaf and Religious Affairs Department under its Sargodha zone, alongside other local dargahs of the district.
+
+## A Locally Rooted, Thinly Documented Figure
+
+Beyond its official listing, and the place-name it has given to its own locality — a government secondary school in the area is registered as "GHS Shah Yousaf, Shahpur" — almost nothing about the saint's life, lineage, or era survives in accessible written sources. The fifteenth-century founding date sometimes attached to the site could not be corroborated in gazetteers or published local histories and should be treated as provisional pending a district gazetteer or Auqaf departmental record. Notably, the neighbouring town of Shahpur itself is documented to take its own name from a different, later Sufi figure — Syed Shams Shah Shirazi, said to have arrived around 1606 and to have converted the formerly Hindu-majority settlement then known as Rampur — so the naming of this shrine rests on local memory rather than a firm documentary trail distinct from that town history.
+
+## Distinguishing from Shah Yusuf Gardezi
+
+Because the honorific "Shah Yousuf/Yusuf" recurs among Punjabi Sufi figures, this Shahpur shrine is easily conflated with the much larger, better-documented shrine of Shah Yusuf Gardezi in Multan, a twelfth-century saint of the Gardezi Sayyid lineage. The two are unrelated: different centuries, different cities, and no source treats them as the same figure. This entry describes only the local Shahpur site.
+
+## Present State
+
+Practically nothing has been published on the shrine's current physical form, custodianship, or the rites practised there. What can be said with confidence is that it remains an active, Auqaf-administered site of local pilgrimage in the Sargodha countryside.
+
+## Bibliography
+
+- Punjab Auqaf & Religious Affairs Department, list of notified shrines, Sargodha zone.
+- District school directories, Sargodha (locality confirmation: "GHS Shah Yousaf, Shahpur").
+- Local histories of Shahpur town, for contrast with its separately documented founding figure, Syed Shams Shah Shirazi.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains:** one place-index locator, unqualified.
+
+- "شاہ پور | ۱۰۹" (p. 334, folio 322) → PDF p. 121 — **a Shahpur, unqualified**.

@@ -83,3 +83,26 @@ Verify before publishing:
 - The Kashmir birth-village name was not legible in the scan ("Kalisaah"?) — confirm.
 - Spellings/identities: "Karman Wali Sarkar / Pir Syed Ismail Shah Bukhari", "Ghulam Ali Okarvi", "Tahir Alauddin Qadri Gilani", "Sahibzada Muhammad Umar Naqshbandi".
 - Dates: b. 18 Nov 1937, d. 2011 (age 74); mosque 1969, shrine 2011 — per the survey.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains:** the book's own definition of a label the archive attaches to this row — **not
+a claim about the shrine.**
+
+**Significance**
+- The Mujaddidi silsila is traced as **Qadiri** through Shah Sikandar Kaithali and Shah Kamal
+  Kaithali; **Chishti** through the subject's own father Shaikh Abd al-Ahad, and he with Shaikh Rukn
+  al-Din, and he with **Abd al-Quddus Gangohi**; and **Suhrawardi** also through Shaikh al-Ahad from
+  Shaikh Rukn al-Din Gangohi. Then the definition: "چونکہ اس سلسلہ میں چار سلسلوں کا فیض ہے۔ اس واسطے
+  اس کو سلسلہ مجددیہ کہتے ہیں" — since this silsila carries the faiz of four silsilas, it is called
+  the **Mujaddidiya** silsila (p. 129, folio 117).
+- **This is a doctrinal definition, not a claim about either this shrine or mohra-sharif-khanqah, and
+  must be cited as such.**
+
+### Doubts the notes raise on this row
+
+- `ganj-e-inayat-sarkar` and `mohra-sharif-khanqah` — do not attach Khawand Mahmud (Lahore, 1052 AH)
+  "on the strength of the shared Naqshbandi label — those rows' figures died in 2011 and are unnamed
+  here" (chunk 012).

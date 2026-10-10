@@ -32,3 +32,34 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~390-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "early 12th century"; Sufi Saint "Shah Yusuf Gardez"; Events "Annual urs".
 Poetry: none quoted. VERIFY the dates (arrival c.1088; d. early 12th c.) — these are traditional and vary by source.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains.** The shrine's **Multan location in the book's own words**; a **fabric claim usable whether or not the miracle is credited** — a passage deliberately left in the grave's ta'wiz by the saint's testamentary instruction; **"thousands" of murids in the author's present**; and a **named descendant in the colonial darbar with a printed death year, ۱۲۹۲ھ**, which is also the only place in the chunk that dates the author's own writing. **The book gives the saint no personal name: the archive's "Yusuf" is (not stated) here.**
+
+**Saint**
+- **Entry no. ۲۴۲**, "حضرت شاہ گردیز ملتانی" (p. 276, folio 264). "ملتان کے بزرگوں میں سے یہ بزرگ صاحب تصرفات ظاہری و باطنی و مدارج صوری و معنوی **قطب زمانہ فرد یگانہ فیاض کامل شیخ مکمل** تھے" (p. 276, folio 264). **Death year: (not stated).**
+
+**Shrine / Darbar**
+- "حضرت کا قیام **مدت مدید تک ملتان** میں رہا اور **وہاں ہی حضرت کا مزار** ہے" (p. 276, folio 264).
+- **A named ritual architecture.** The hands of the handshake miracle emerged "**اس راستے سے جو حسب الوصیت قبر کے تعویذ میں رکھا گیا تھا**" — by the passage that had been left in the grave's *ta'wiz* **in accordance with his will** (p. 276, folio 264). **Urs, sajjada nashin and buildings: (not stated).**
+
+**Practices & Events**
+- **Living descendants, honoured, and one dated death.** "اس خاندان کے مرید لوگ **اب تک ہزاروں موجود ہیں** اور حضرت کی اولاد بھی **صاحب عزت و حرمت ملتان میں رہتی ہے**۔ چنانچہ ایک شخص **مراد شاہ نام جو سرکار انگریز کے دربار میں بڑا معزز تھا**۔ **اس سال ۱۲۹۲ھ میں فوت ہوا ہے**" (p. 276, folio 264). A statement about the shrine's **active constituency** rather than its past, and "اس سال" dates the author's writing.
+
+**Legends & Miracles**
+- **The handshake miracle and its end** (p. 276, folio 264), filed under Legends in chunk 026; the mechanism is the ta'wiz passage above.
+
+**Significance**
+- **Locator, tentative and not assigned.** "**گردیز شاہی ملتانی | ۲۶۴**" (p. 326, folio 314); est. p. 276. Both the Gardez name and the Multan nisba match the archive row, but **no personal name is given**, and folio 264 lies inside the post-entry run chunk 029 read as Lahore pirs (folios 232–270), where it placed "ڈہل [OCR?] مجذوب | ۲۶۴". Chunk 030 leaves it **not assigned**.
+
+### Doubts the notes raise on this row
+
+**I23. `shrine-of-shah-yusaf-gardez` — the book prints no given name.** Entry ۲۴۲ calls him only
+"**حضرت شاہ گردیز ملتانی**"; the placement "rests on the nisba and the city, not on a name the chunk
+prints", and the row's death year (1150) is (not stated) here (p. 276, folio 264; chunk 026). The index
+has "**گردیز شاہی ملتانی | ۲۶۴**" — epithet and city, **no personal name** — and folio 264 falls in
+the post-entry Lahore run rather than the Multan block at 146–172 (p. 326, folio 314; chunk 030).
+**Not assigned.** Evidence: folio 264 (est. p. 276).

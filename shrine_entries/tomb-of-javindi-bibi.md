@@ -33,3 +33,18 @@ Length: ~470-word Description (compendium/knowledge-based; no dedicated OCR book
 NOTE: your sheet lists the saint for this row as "Jalaluddin Surkh-Posh Bukhari" — Bibi Jawindi was a descendant of that line; the tomb itself is hers. Consider setting Sufi Saint to "Bibi Jawindi (Bukhari sayyid line)".
 Suggested columns: Founded/Opened "Tomb c. 1493"; Events "visited as part of the Uch Sharif shrines / heritage site".
 Poetry: none (a woman saint/monument, no attributed verse). Verify the c.1493 date, the builder "Dilshad", and the flood-collapse tradition; note the UNESCO Tentative List status.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains: an index locator for Uch and an inference to be checked.**
+"اوچ | ۲۸ ، ۲۹ ، ۳۱ ، ۳۲ ، ۳۳ ، ۳۶ ، ۱۵۷ ، ۱۶۰ ، ۱۶۱ ، ۱۶۹" (p. 333, folio 321) → PDF pp. 40–48 and
+169–181. Folios 27–36 also carry "محمد حلبی اوچی گیلانی سید | ۳۰", "محمد غوث سید اوچی | ۲۷ ، ۳۳ ،
+۵۶", "مسعود سید | ۲۸ ، ۳۰ ، ۳۷", "نور الدین ابی الحسن | ۲۷ ، ۲۸", "موسیٰ ثانی | ۲۷",
+"موسیٰ ثالث | ۲۷", "معروف کرخی | ۲۷" (pp. 328–331), and the places "جیلان | ۲۷",
+"بغداد | ۲۸ ، ۳۰ ، ۱۸۹", "حلب | ۲۸", "عراق | ۲۸", "خراسان | ۲۸", "روم | ۲۸", "مصر | ۲۷ ، ۲۸ ، ۱۳۴",
+"ہلاکو خان | ۲۸" (pp. 332–336) — **the early Uch pages appear to hold a Gilani/Bukhari genealogy
+running from Jilan and Baghdad to Uch**. That is an inference from co-indexing, not a statement in
+the index, and is **to be checked at PDF pp. 39–48**. Javindi Bibi herself is not named anywhere in
+this material.

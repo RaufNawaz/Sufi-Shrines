@@ -32,3 +32,30 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~420-word Description (compendium/knowledge-based; no dedicated OCR book or field survey — thinner sourcing).
 Suggested columns: Founded/Opened "late 19th–early 20th century (d. 1928)"; Sufi Saint "Pir Sher Muhammad Sharaqpuri"; Events "Annual urs; naat & qawwali".
 Poetry: none quoted. VERIFY dates (c.1865–1928) and biographical specifics against a dedicated Sharaqpur source before publishing — my details here are general.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains.** Only that **Sharaqpur is in this book**, at two places, with no saint named.
+Nothing about the shrine or its figure.
+
+- Place index: "شرقپور | ۱۰۹ ، ۱۴۴" (p. 334, folio 322) → PDF pp. 121, 156. On folio 109 also
+  "محمد سعید صابری شرقپوری | ۱۰۹" (p. 328, folio 316) — **a different Sharaqpuri**, Sabiri not the
+  row's figure. On folio 144 also "مکان شریف | ۱۴۴", "راولپنڈی | ۱۳۸ ، ۱۴۴", "پشاور | … ۱۴۴",
+  "گورداسپور | ۱۴۴", "رنڑہ شترہ [OCR?] (گرد اسپور) | ۱۴۴" (pp. 333–336) and "محمد الدین | ۱۴۴",
+  "محمد زمان | ۱۴۴" (p. 328).
+- Two bibliography items attach modern Sharaqpur to the book's apparatus: item ۴۳,
+  "لعلی، لعل بیگ : ثمرات القدس (لبعد ۱۰۱۷ھ) مملوکہ مولانا نصرت نوشاہی شرقپور پاکستان" (p. 294,
+  folio 282) — a manuscript held at Sharaqpur — and item ۲۱۲,
+  "محمد ابراہیم قصوری : خزینۂ معرفت شرقپور (س۔ن)" (p. 303, folio 291), undated.
+
+### Doubts the notes raise on this row
+
+**I9. `shrine-of-pir-sher-muhammad` — same qasba, different man, 114 years apart.** Entry no. 74's
+**Shaikh Muhammad Saeed Chishti Sabri Sharaqpuri**, d. 1214 AH, mazar in Sharaqpur, is not the row's
+Mian Pir Sher Muhammad Sharaqpuri (d. 1928, Qadiri): different silsila, 114 years apart. **Do not map**
+(pp. 121–122, folios 109–110; chunk 011). Sharaqpur recurs without the row's saint ever appearing — as
+the home of Maulana Nusrat Naushahi, owner of a *Thamarat al-Quds* manuscript (chunk 008), and as the
+imprint of *Khazina-e Marifat*, from which **no shrine press may be inferred** (p. 156, folio 144;
+chunk 014).

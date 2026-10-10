@@ -43,3 +43,11 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~660-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "18th century (d. c. 1798)"; Sufi Saint "Waris Shah"; Events "Annual urs; Heer-singing & qawwali".
 Poetry: the Heer opening is given in standard wording — confirm Shahmukhi orthography. Verify dates (c.1722–1798) and the Malka Hans tradition.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains.** One place-index locator for the district town only; **nothing about Waris Shah or the mausoleum**.
+
+- "**شیخو پورہ | ۵۰ ، ۲۱۰**" (p. 334, folio 322) → PDF pp. 62, 222 — **district town only**.

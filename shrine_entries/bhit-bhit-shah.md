@@ -43,3 +43,14 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~700-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "18th century (d. 1752)"; Sufi Saint "Shah Abdul Latif Bhittai"; Events "Annual urs (Safar); nightly Shah jo Raag singing".
 Poetry: the Sindhi line is given from memory — SINDHI ORTHOGRAPHY IS EASY TO MISRENDER, so please have a Sindhi reader confirm/replace it before publishing (or I can drop it). Verify dates (1689–1752).
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains: nothing.** The only appearance of this id is a fragment of chunk 030's
+Doubts list of index names that could be an archive row but are not tied to one: "… **bari-imam**
+and **bhit-bhit-shah** (p. 322, folio 310)". **The index line being weighed against these two rows
+is not preserved in the fragment.** The same bullet continues with "عبد الکریم حافظ | ۲۰۹" beside
+"عبد الکریم لاہوری | ۸۷ ، ۹۱ ، ۹۲ ، ۱۷۶" and "عبد الکریم مجددی لاہوری | ۱۴۵", **none with a place
+tying it to** the next two rows named (p. 322).

@@ -32,3 +32,21 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~410-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "19th century (d. 1883)"; Sufi Saint "Khwaja Muhammad Shamsuddin Sialvi"; Events "Annual urs; qawwali & langar".
 Poetry: none quoted. VERIFY dates (1799–1883) and the Taunsvi→Sialvi→Golra Chishti chain against a dedicated source.
+
+## From Mufti Ghulam Sarwar Lahori, Hadiqat al-Awliya
+
+*Integrated 10 October 2026 from `entries/book_takeaways/hadeeqat_ul_aulia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**What the row gains.** Nothing substantive — the row appears only inside a chunk-level list of **archive rows for which the index offers no matching name**, and that negative result is the finding.
+
+- Chunk 030's Doubts group this row with **shrine-of-shah-shams-ud-din-sabzwari** against the index run at **p. 320**; **no fact about Sial Sharif or its saint is carried**. The same note lists the parallel non-matches: three Qalandar Shahs and no Marwandi against lal-shahbaz-qalandar and shamsabad (p. 326); two Qutb al-Dins and no Aibak against tomb-of-qutbuddin-aibak (p. 326); "محمد باقر شرقپوری | ۱۰۹" — a Sharaqpur figure, but not the Mian Sher Muhammad of shrine-of-pir-sher-muhammad (p. 327); "لدھی شاہ لاہوری | ۲۰ ، ۲۱۷" against shrine-of-lakhi-shah-saddar (p. 326); and "عبد الرحیم ضیاء حیدر آبادی | ۲۱۴" against a row the finding does not finish naming.
+
+*Consolidated (Pass 2) from `shrines_group_3.csv` — 13 archive rows, 260 chunk-note findings.
+Page references are PDF page indices; folio is the printed page number (folio = PDF index − 12
+through the body). Two voices are distinguished throughout: **the author** = Mufti Ghulam Sarwar
+Lahori, 1875; **the editor** = محمد اقبال مجددی, in the footnotes (حاشیہ), the appendix table and the
+indices of this edition. Where they disagree both readings are recorded and neither is preferred.
+Reviewed: no.*
+
+*This file replaces an earlier `part_shrines_3.md` written from a truncated input; nothing in that
+version was carried over, and the group's shrine assignment has changed.*
