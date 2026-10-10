@@ -34,6 +34,18 @@ the reason the rest is credible.
 
 ---
 
+## 9 October 2026, evening — the phone pass (read HANDOVER §9.281)
+
+Phone header fixed (theme into the gear, one language button, title whole); Shared Ground's
+strip is interactive (distance bands, search, linked rows and dots); a three-seat mobile council
+on Adil's "clunky" — route changes no longer stream the page past, the progress bar no longer
+lays out per scroll, a marker tap no longer closes its own sheet, Data Darbar can be tapped
+open, Urdu basemap labels are shaped (RTL plugin), sticky iOS hover gone.
+**Next:** the map sheet's `height` animation → `transform`; the sheet header over a preview on
+phones; Leaflet attribution as a compact control on phones; the tour specs on an idle machine.
+
+---
+
 ## 9 October 2026, later afternoon — the explorer pages drawn; sheets; the council queue closed (read HANDOVER §9.279)
 
 The lineage accordion, the figure indexes as sheets (`components/ui/Sheet.tsx`), Shared Ground
@@ -41,7 +53,7 @@ as a ring and a distance strip, the Atlas as a mosaic, the palette, `/about`'s f
 the Urdu tab bar, the shrine table's listbox semantics. Every changed page's browser specs are
 green against a fresh build; **the tour specs have still not run** (they speak aloud).
 **Next:** run the whole e2e suite on an unattended machine (`rm -rf dist && npm run build:e2e &&
-npm run e2e`); the phone header's collapsed title once Rauf answers; the remaining pages the
+npm run e2e`); the remaining pages the
 plan names — the order and saint pages' lists, the welcome card — in the same idiom.
 
 ---
@@ -56,7 +68,7 @@ of it** — Rauf was at the machine and the tour specs speak aloud (`speechSynth
 build:e2e`, then the full `npm run e2e`.
 **Next:** the council's remaining items — the front-door Search as a search well, the palette's
 keyboard affordances on a phone, the table-mode list's listbox semantics, Urdu tab-bar labels,
-the team half of `/about`, and the phone header's collapsed title (asked in the chat).
+the team half of `/about`.
 
 ---
 
