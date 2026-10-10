@@ -51,6 +51,11 @@ eval/
 # reports are generated audit trails. Prettier reflowing any of them would
 # produce a large, meaningless diff over text nobody asked it to touch.
 entries/
+# shrine_entries/ for the same reason, and one more (10 October 2026): the integration stage
+# copies takeaways lines and each row's Description cell into these files VERBATIM, and
+# integrate_book.py checks that containment. Prettier rewrote `*x*` to `_x_` and added blank
+# lines inside the copied text — 48 files red, and "fixing" them would have broken the copy.
+shrine_entries/
 docs/
 pipeline/reports/
 pipeline/legacy-exports/
