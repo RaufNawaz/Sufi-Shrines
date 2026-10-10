@@ -146,6 +146,7 @@ least `transcribed`. **Outstanding, re-measured 24 September 2026 from `queue.py
 - **DONE 29 Sep 2026 (§9.245) — khulasat 17-48 transcribed, 32/32, book at 362/610. THIS BULLET IS SPENT.**
   **UPDATE 4 Oct 2026 (§9.254): 405-416 VERIFIED (folios, duplicates; seam check not done) and 417-428 DONE (428/610). THE NEXT TRANSCRIPTION BATCH IS `khulasat_ut_tawarikh` 429-610, ONE image worker at a time, run sequentially. The §9.253 line below is SPENT.**
   (SPENT:) **UPDATE 4 Oct 2026 (§9.253): khulasat 405-416 were written at 07:17Z by a firing that left NO record. Before taking 417, verify 405-416 (folios = 589 − PDF on all 12, duplicate sweep, band-seam check per §9.251); then 417-610.**
+  **UPDATE 10 Oct 2026 (§9.287): khulasat is at 520/610 (513-520: the six rivers, the Salt Range, Gujrat and Shah Daula, Sialkot and Imam Ali al-Haqq, Batala, Achal, Baba Nanak and the Guru succession). THE NEXT TRANSCRIPTION BATCH IS `khulasat_ut_tawarikh` 521-610 (re-render bands). The request limit blanked ~100 image reads at the start again; every page was re-read half by half before commit. Still owed: p0446's year, 435-440, 411-416. The §9.273 line below and the §9.282 pointer are SPENT.**
   **UPDATE 9 Oct 2026 (§9.273): khulasat is at 496/610 (489-496: the dice game, the exile, Kurukshetra, the first days of the war). THE NEXT TRANSCRIPTION BATCH IS `khulasat_ut_tawarikh` 497-610 (re-render bands). The request limit blanked the first ~70 image reads; the five pages drafted then were re-read band by band before commit. p0490 is right-cropped like p0487. Still owed: p0446's year, 435-440, 411-416. The §9.269 line below is SPENT.**
   **UPDATE 9 Oct 2026 (§9.269): khulasat is at 488/610 (481-488: Vyasa, Yudhishthira's reign, the Ashvamedha, the war's aftermath). THE NEXT TRANSCRIPTION BATCH IS `khulasat_ut_tawarikh` 489-610 (re-render bands). The request limit again blanked the first ~60 image reads; the five pages drafted then were re-read band by band before commit. Still owed: p0446's year, 435-440, 411-416. The §9.268 line below is SPENT.**
   **UPDATE 8 Oct 2026 (§9.268): khulasat is at 480/610 (473-480 are the Parikshit / Takshaka story, the Pandava reign totals on p0478 and the four yugas on p0480). THE NEXT TRANSCRIPTION BATCH IS `khulasat_ut_tawarikh` 481-610 (re-render bands). The request limit blanked more than 200 consecutive image reads this run; all 8 pages were drafted blind, then re-read band by band once images displayed, and the re-read corrected 5-15 words on EVERY page — never commit a page drafted during a `[media removed]` streak without that re-read. Still owed: p0446's year, 435-440, 411-416. The §9.266 line below is SPENT.**
@@ -338,6 +339,22 @@ instead of integrating:
   row also gets a `shrine_entries/<id>.md` holding the book's line verbatim.
 - **Saints with no site in Pakistan go to the saints-and-orders layer** (the KG behind `/graph` and
   `/saint/:slug`), not to the sheet.
+- **How a firing applies these, per book, after `integrate_book.py`** (all scripted on 10 October;
+  each refuses rather than guesses, and each takes its per-line judgements from
+  `pipeline/book_queue/new_rows_decisions/<slug>.json`, which you write and which is the record):
+  1. `integrate_book.py <slug> … --province <key> --skip <held ids>` once per province the book has.
+  2. `build_new_rows.py <slug> --title … --date … --stamp <YYYY-MM-DD> --dry-run`, then READ every
+     proposed Name against `src/data/shrines-fallback.json`: a line that is an archive row already, a
+     held identity, not a grave or shrine, or unnamed goes under `exclude` with its reason; lines that
+     may be one person go under `pair` (kept apart, flagged, never merged). Then run it for real.
+     Hadiqat's file is the worked example (6 excluded, 4 pairs).
+  3. `build_book_figures.py <slug>`, after setting `figures.alsoNamedRegions`, `skipItems`, `joins`
+     (only a join you have checked against the graph's own record, `data/kg.json` and
+     `data/kg-seeds.json`: Hadiqat's "Chiragh-e Dehli" looked like `syed-nasiruddin-mahmud` and is
+     not him) and `hasRow` (figures that already became rows in step 2).
+  4. Add the book's title to `BOOK_FIGURE_WORKS` and any new region heading to
+     `BOOK_FIGURE_REGIONS_UR` in `src/lib/bookFigures.ts`; `bookFigures.test.ts` fails until you do.
+  5. Run the whole `npm run verify`. Report every exclusion, pair and join in the run record.
 - **A contested attachment is attached as the book's claim.** Where the takeaways disagree with
   themselves about whether material belongs to a row (`shrine-of-baba-shah-kamal`: a section calling
   the index's "brother of Shah Jamal Lahori" a lead, against Doubt I1's "must stay unmapped"), attach
