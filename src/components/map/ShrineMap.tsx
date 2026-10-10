@@ -561,6 +561,24 @@ function MapController({
       // RTL: shift center east (add x) because sidebar is on the right
       const adjustedPt = targetPt.add(L.point(isRTL ? offsetPx : -offsetPx, 0));
       flyTarget = map.unproject(adjustedPt, targetZoom);
+    } else if (!isDesktop && sidebarOpen) {
+      /* On a phone the open sheet covers most of the map, and the selected
+         marker was centred on the container — behind the sheet, so the reader
+         tapped a shrine and lost sight of it. Centre it in the strip that stays
+         visible instead. The sheet is still growing when this runs, so its
+         open height comes from the stylesheet's own rule (map.css,
+         `.sidebar:not(.collapsed)`: min(76dvh, 100dvh − 80px)), measured from
+         the sheet's bottom edge, which does not move. */
+      const sheet = document.querySelector('.sidebar');
+      if (sheet) {
+        const vh = window.innerHeight;
+        const openHeight = Math.min(vh * 0.76, vh - 80);
+        const mapRect = map.getContainer().getBoundingClientRect();
+        const sheetTop = sheet.getBoundingClientRect().bottom - openHeight;
+        const covered = Math.max(0, Math.min(mapRect.height - 60, mapRect.bottom - sheetTop));
+        const targetPt = map.project([shrine.latLng.lat, shrine.latLng.lng], targetZoom);
+        flyTarget = map.unproject(targetPt.add(L.point(0, covered / 2)), targetZoom);
+      }
     }
 
     flyToOrSetView(map, flyTarget, targetZoom);

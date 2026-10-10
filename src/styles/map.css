@@ -262,6 +262,14 @@
   padding-top: calc(var(--space-3) + var(--safe-top));
 }
 
+/* The phone's sheet rises from the bottom and never reaches the notch, so the
+   notch's inset there only pushed Search out of the 184px peek on an iPhone. */
+@media (max-width: 768px) {
+  .sidebar-header {
+    padding-top: var(--space-3);
+  }
+}
+
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .sidebar-header {
     background: var(--glass-bg);
@@ -704,11 +712,15 @@
   border-color: var(--color-cat-secular);
 }
 
-.shrine-dot:hover {
-  transform: scale(1.35);
-  box-shadow:
-    0 3px 10px rgba(0, 0, 0, 0.35),
-    0 0 0 0.5px rgba(0, 0, 0, 0.12);
+/* Hover only where a pointer can hover: iOS keeps `:hover` on the last tapped
+   element, so a tapped card stayed lifted and a tapped pin stayed enlarged. */
+@media (hover: hover) {
+  .shrine-dot:hover {
+    transform: scale(1.35);
+    box-shadow:
+      0 3px 10px rgba(0, 0, 0, 0.35),
+      0 0 0 0.5px rgba(0, 0, 0, 0.12);
+  }
 }
 
 /* Keyboard focus — round ring (outline would render square) */

@@ -117,6 +117,14 @@ export function MapSidebar({
      the field and ShrineFilters too, and each surface remembers its own
      disclosure rather than fighting the other's. */
   const searchRef = useRef<HTMLInputElement>(null);
+  /* The detail pane starts at its top whenever what it shows changes — a new
+     shrine, a tour begun, the next stop. It kept the last scroll position, so
+     starting a tour opened mid-panel with the stop's name under the header
+     (mobile council, 9 October 2026). */
+  const detailRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (detailRef.current) detailRef.current.scrollTop = 0;
+  }, [selectedId, activeTour?.id, activeTourStop]);
   const [filtersExpanded, setFiltersExpanded] = useState(false);
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
 
@@ -798,7 +806,7 @@ export function MapSidebar({
         </>
       ) : (
         /* Detail view */
-        <div className="sidebar-detail">
+        <div className="sidebar-detail" ref={detailRef}>
           {/* The shared-ground lens lived here until 8 October 2026 — a full
               row above the welcome card, most of a phone's collapsed sheet.
               It is a map control now: ShrineMap's SharedGroundLensControl. */}

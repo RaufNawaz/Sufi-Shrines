@@ -44,3 +44,22 @@ export function flyToOrSetView(map: L.Map, target: L.LatLngExpression, zoom: num
     map.flyTo(target, zoom, { duration: FLIGHT_DURATION_S, easeLinearity: 0.25 });
   }
 }
+
+/**
+ * How many pixels at the bottom of the map the phone's bottom sheet covers.
+ *
+ * The map runs full-height under the sheet, so a flight that centres a marker
+ * on the *container* parks it at the sheet's top edge — under the attribution
+ * strip, where the next tap opens leaflet.com instead (mobile council,
+ * 9 October 2026). Measured rather than read from `--sheet-peek-height`,
+ * because the sheet is taller when open. Zero on desktop, where the sidebar
+ * sits beside the map and ShrineMap offsets for it sideways.
+ */
+export function sheetObscuredBottom(map: L.Map): number {
+  if (typeof window === 'undefined' || window.innerWidth > 768) return 0;
+  const sheet = document.querySelector('.sidebar');
+  if (!sheet) return 0;
+  const mapRect = map.getContainer().getBoundingClientRect();
+  const sheetRect = sheet.getBoundingClientRect();
+  return Math.max(0, Math.min(mapRect.height, mapRect.bottom - sheetRect.top));
+}

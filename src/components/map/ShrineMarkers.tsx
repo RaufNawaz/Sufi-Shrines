@@ -8,7 +8,7 @@ import { tFn } from '../../lib/i18n/uiStrings';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { categoryKey } from '../../lib/data/categoryKey';
 import { fanPositions, pileAround, type FanPoint } from '../../lib/map/spiderfy';
-import { FLIGHT_DURATION_S } from './mapMotion';
+import { FLIGHT_DURATION_S, sheetObscuredBottom } from './mapMotion';
 
 /**
  * How close two pin centres have to be before a reader sees one shape.
@@ -367,11 +367,24 @@ export function ShrineMarkers({
          here is a tap on a marker standing alone: select it. */
       if (map.getZoom() >= AUTO_FAN_ZOOM) return false;
 
-      const pile = pileAround(layerPositions(), targetId, PILE_RADIUS);
+      const positions = layerPositions();
+      const pile = pileAround(positions, targetId, PILE_RADIUS);
       if (pile.length < 2) return false;
+      /* Fit what is under the finger, not the whole transitive pile. On a
+         phone's opening view the chain joins most of the archive into one
+         blob, so fitting it went nowhere and every tap fell back to a small
+         step; the dots within a pile-radius of the tap always fit deeper, and
+         stay on screen together so the reader can see the one they meant. */
+      const origin = positions.get(targetId);
+      const local = origin
+        ? pile.filter((member) => {
+            const point = positions.get(member);
+            return point && Math.hypot(point.x - origin.x, point.y - origin.y) <= PILE_RADIUS;
+          })
+        : pile;
 
       const points: L.LatLng[] = [];
-      for (const member of pile) {
+      for (const member of local.length >= 2 ? local : pile) {
         const marker = markerMapRef.current.get(member);
         if (marker) points.push(marker.getLatLng());
       }
@@ -390,6 +403,9 @@ export function ShrineMarkers({
          and the descent stays anchored on it rather than on the blob's
          centroid, which for a country-wide chain is a field in mid-Punjab. */
       const padding = L.point(64, 64) as L.Point;
+      /* On a phone the sheet covers the bottom of the map; fit and centre in
+         what is left, or the tapped pile lands under the sheet's edge. */
+      const covered = sheetObscuredBottom(map);
       const bounds = L.latLngBounds(points);
       /* `padding.add(padding)`, because that is what `fitBounds` itself does:
          its `padding` option is shorthand for paddingTopLeft AND
@@ -399,7 +415,7 @@ export function ShrineMarkers({
          the real fit went nowhere — 128 of 390 px is a third of the screen —
          and every tap on the phone's opening view was a dead one. */
       const fitZoom = Math.min(
-        map.getBoundsZoom(bounds, false, padding.add(padding)),
+        map.getBoundsZoom(bounds, false, padding.add(padding).add(L.point(0, covered))),
         AUTO_FAN_ZOOM,
       );
       const current = map.getZoom();
@@ -409,14 +425,24 @@ export function ShrineMarkers({
          here — the flight is what tells the reader the tap was heard — but
          never against their stated preference. */
       if (fitZoom > current) {
-        const options = { padding, maxZoom: AUTO_FAN_ZOOM };
+        const options = {
+          paddingTopLeft: padding,
+          paddingBottomRight: padding.add(L.point(0, covered)),
+          maxZoom: AUTO_FAN_ZOOM,
+        };
         if (reduced) map.fitBounds(bounds, { ...options, animate: false });
         else
           map.flyToBounds(bounds, { ...options, duration: FLIGHT_DURATION_S, easeLinearity: 0.25 });
       } else {
         const target = Math.min(current + 2, AUTO_FAN_ZOOM);
-        if (reduced) map.setView(tapped, target);
-        else map.flyTo(tapped, target, { duration: FLIGHT_DURATION_S, easeLinearity: 0.25 });
+        /* Centre the tapped marker in the visible strip above the sheet: the
+           view's centre sits half the covered height *below* the marker. */
+        const centre = map.unproject(
+          map.project(tapped, target).add(L.point(0, covered / 2)),
+          target,
+        );
+        if (reduced) map.setView(centre, target);
+        else map.flyTo(centre, target, { duration: FLIGHT_DURATION_S, easeLinearity: 0.25 });
       }
       return true;
     },
@@ -497,14 +523,35 @@ export function ShrineMarkers({
 
       marker.on('click', (e: L.LeafletMouseEvent) => {
         L.DomEvent.stopPropagation(e);
+        /* The marker whose *dot* is nearest the finger, not whichever 44px hit
+           square happens to be on top. Where pins overlap, a neighbour's
+           invisible square covered the dot the reader aimed at, and on a phone
+           Data Darbar could not be tapped at all — seven taps each landed on a
+           neighbour (mobile council, 9 October 2026). */
+        let id = shrine.id;
+        const original = e.originalEvent as MouseEvent | undefined;
+        if (original && typeof original.clientX === 'number') {
+          const tap = map.mouseEventToLayerPoint(original);
+          let best = Infinity;
+          for (const [otherId, other] of markerMapRef.current) {
+            const point = map.latLngToLayerPoint(other.getLatLng());
+            const distance = Math.hypot(point.x - tap.x, point.y - tap.y);
+            if (distance < best) {
+              best = distance;
+              id = otherId;
+            }
+          }
+          if (best > 30) id = shrine.id;
+        }
         /* A tap on a pile flies the map toward it; a tap on anything fanned or
            standing alone selects it. The fanned clause matters: without it a
            fanned marker would read as piled with its own neighbours and spend
            the tap on a flight to where the reader already is. */
-        const inFan = fanRef.current?.ids.has(shrine.id) ?? false;
-        if (!inFan && zoomIntoPileRef.current(shrine.id)) return;
-        const live = shrinesByIdRef.current.get(shrine.id) ?? shrine;
-        onSelectRef.current(shrine.id === selectedIdRef.current ? null : live);
+        const inFan = fanRef.current?.ids.has(id) ?? false;
+        if (!inFan && zoomIntoPileRef.current(id)) return;
+        const live = shrinesByIdRef.current.get(id) ?? (id === shrine.id ? shrine : undefined);
+        if (!live) return;
+        onSelectRef.current(id === selectedIdRef.current ? null : live);
       });
 
       marker.on('add', () => {

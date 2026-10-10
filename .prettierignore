@@ -80,3 +80,4 @@ tools/utrnet
 # turned `format:check` red on 8 October 2026 with no site code involved.
 pipeline/book_queue/
 /RUN_IN_PROGRESS_*.md
+public/vendor/

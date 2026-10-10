@@ -644,7 +644,25 @@ export default function MapPage() {
         id="main-content"
         tabIndex={-1}
         aria-label={t('ariaInteractiveMap')}
-        onClick={isMobile && sidebarOpen ? handleSidebarClose : undefined}
+        onClick={
+          isMobile && sidebarOpen
+            ? (event) => {
+                /* Empty map only. A marker's Leaflet `stopPropagation` stops
+                   Leaflet's event, not the DOM click, so a tap on a pin opened
+                   the sheet and this closed it again a frame later — on a
+                   phone, tapping a shrine appeared to do nothing (mobile
+                   council, 9 October 2026). Controls are not empty map either. */
+                const target = event.target as Element | null;
+                if (
+                  target?.closest(
+                    '.leaflet-marker-icon, .leaflet-control, .leaflet-popup, .leaflet-control-container',
+                  )
+                )
+                  return;
+                handleSidebarClose();
+              }
+            : undefined
+        }
       >
         <ShrineMap
           shrines={mapShrines}

@@ -85,7 +85,13 @@ export default defineConfig(({ command }) => {
            * runtime rule below, so an Urdu reader who has read one page still
            * has both offline. An English reader now really does ship neither.
            */
-          globIgnores: ['**/urdu-content-*.js', '**/urdu-seed-*.js'],
+          // The basemap's RTL label plugin too: lazy-loaded by MapLibre only
+          // when a tile carries Arabic-script text, so not every reader's cost.
+          globIgnores: [
+            '**/urdu-content-*.js',
+            '**/urdu-seed-*.js',
+            '**/vendor/mapbox-gl-rtl-text-*.js',
+          ],
           // The navigation fallback must resolve to a URL that exists in the
           // precache manifest, which is served under `base` — a hardcoded
           // '/index.html' breaks offline navigation on the /Sufi-Shrines/

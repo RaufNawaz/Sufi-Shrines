@@ -54,6 +54,22 @@ import type { Lang } from '../../types/shrine';
 // The Leaflet plugin reads maplibregl off the global rather than importing it.
 (window as unknown as { maplibregl: typeof maplibregl }).maplibregl = maplibregl;
 
+/* Arabic-script labels need shaping and bidi, which MapLibre leaves to this
+   plugin: without it every Urdu place name on the basemap was drawn
+   letter-reversed and unjoined — شاہدرہ ٹاؤن as "نؤاٹ ہردہاش" (mobile council,
+   9 October 2026). Lazy, so it is fetched only once a tile actually carries
+   right-to-left text, and self-hosted rather than from a CDN: vendored at
+   public/vendor/ (@mapbox/mapbox-gl-rtl-text 0.3.0, BSD-2-Clause; its package
+   "exports" refuses a deep import of the built file). Once per page: a second
+   call throws. */
+if (maplibregl.getRTLTextPluginStatus() === 'unavailable') {
+  maplibregl
+    .setRTLTextPlugin(`${import.meta.env.BASE_URL}vendor/mapbox-gl-rtl-text-0.3.0.js`, true)
+    .catch((error: unknown) => {
+      if (import.meta.env.DEV) console.warn('[map] RTL text plugin failed:', error);
+    });
+}
+
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
 
 const MAPTILER_ATTRIBUTION =

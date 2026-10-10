@@ -136,7 +136,12 @@ const BUDGETS_KB = {
      tradition chips and grouped browse mode, and the shared-ground lens
      control moved from the sidebar into ShrineMap. Slack kept, per the note
      above about a budget set at the measurement. */
-  'src/pages/MapPage.tsx': 618, // measured 613 on 8 Oct 2026 (560 on 26 Aug)
+  /* 618 → 626 on 9 October 2026: measured 620 after the mobile council's
+     map fixes — the nearest-dot tap pick, flights that clear the bottom sheet,
+     the RTL label plugin's registration (the plugin itself is a lazy public/
+     file, not in this count), the sheet's scroll reset and the gear menu's
+     theme row. Slack kept, as above. */
+  'src/pages/MapPage.tsx': 626, // measured 620 on 9 Oct 2026 (613 on 8 Oct)
   /* 520 → 526 on 29 Aug 2026, and raised rather than left at exactly the
      measurement for a specific reason: the route hit **520 against a 520
      budget**, which is not a pass, it is a landmine. The next person to add a
