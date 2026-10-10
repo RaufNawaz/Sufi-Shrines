@@ -44,7 +44,7 @@ ORDER_STEMS = {'Qadiri': 'Qadir', 'Chishti': 'Chisht', 'Naqshbandi': 'Naqshband'
 # one of a graveyard's many dead is not the row's figure
 DIED_SITE_TYPES = {'Dargah/Mazar', 'Mausoleum/Memorial', 'Samadhi', 'Khanqah', 'Tomb-shrine'}
 COLS = ['line', 'kind', 'target', 'name', 'category', 'site_type', 'silsila', 'note']
-HEAD_RE = re.compile(r'^- \*\*(.+?)\*\*')
+HEAD_RE = re.compile(r'^- (?:\[PK\] )?\*\*(.+?)\*\*')
 # the line's own death clause: d. "…" (as quoted) or d. <number…> up to the next clause
 DIED_RE = re.compile(r'\bd\. (?:\*\*)?(?:"([^"]+)"|([0-9۰-۹][^;(]*?))(?:\*\*)?(?=;|,| \(| aged|$)')
 
@@ -76,18 +76,25 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('slug'); ap.add_argument('--title', required=True)
     ap.add_argument('--date', required=True); ap.add_argument('--stamp', required=True)
+    ap.add_argument('--only-lines', default='',
+                    help='process only these item lines (comma separated), adding to an existing patch: for '
+                         'lines held earlier and released later (9.313). The tag file need not be exhaustive.')
     ap.add_argument('--dry-run', action='store_true')
     a = ap.parse_args()
+    only = {int(x) for x in a.only_lines.split(',') if x}
     src_rel = f'entries/book_takeaways/{a.slug}.md'
     L = open(os.path.join(REPO, src_rel), encoding='utf-8').read().split('\n')
     st = L.index('## Figures and sites not in the archive')
     en = next(i for i in range(st + 1, len(L)) if L[i].startswith('## '))
     items = {n + 1 for n in range(st, en) if HEAD_RE.match(L[n])}
     meta, tags = read_tags(os.path.join(REPO, 'pipeline/book_queue/figure_tags', f'{a.slug}.tsv'))
+    if only:
+        items &= only
+        tags = [t for t in tags if t['line'] in only]
     archive = {r['id'] for r in json.load(open(FALLBACK, encoding='utf-8'))['rows']}
     proposed = {}
     for p in glob.glob(os.path.join(REPO, 'data/review/PATCH_new_rows_*.csv')):
-        if f'PATCH_new_rows_{a.slug}_' in p:
+        if f'PATCH_new_rows_{a.slug}_' in p and not only:
             continue
         for r in csv.DictReader(open(p, encoding='utf-8')):
             proposed[r['id']] = os.path.basename(p)
@@ -184,6 +191,14 @@ def main():
 
     cols = header + ['_name_ur', '_entry_no', '_region', '_group', '_takeaways_line', '_review']
     patch = os.path.join(REPO, 'data/review', f'PATCH_new_rows_{a.slug}_{a.stamp}.csv')
+    existing_rows = []
+    if only and os.path.exists(patch):   # --only-lines adds to the book's patch, never rewrites a row
+        existing_rows = list(csv.DictReader(open(patch, encoding='utf-8')))
+        if existing_rows and list(existing_rows[0].keys()) != cols:
+            print('REFUSED -- the existing patch has other columns'); return 2
+        clash = {r['id'] for r in existing_rows} & {r['id'] for r, _ in rows}
+        if clash:
+            print('REFUSED -- already in the patch:', *sorted(clash)); return 2
     if not a.dry_run:
         bdir = os.path.join(REPO, 'out/integration', a.slug, 'before_tags')
         os.makedirs(bdir, exist_ok=True)
@@ -191,6 +206,8 @@ def main():
             shutil.copy2(os.path.join(REPO, 'shrine_entries', f'{tid}.md'), bdir)
         with open(patch, 'w', encoding='utf-8', newline='') as fh:
             w = csv.DictWriter(fh, fieldnames=cols); w.writeheader()
+            for row in existing_rows:
+                w.writerow(row)
             for row, _ in rows:
                 w.writerow(row)
         for row, l in rows:

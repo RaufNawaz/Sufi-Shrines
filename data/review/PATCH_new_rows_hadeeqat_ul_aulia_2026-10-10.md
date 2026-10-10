@@ -1,6 +1,6 @@
 # New rows from *Hadiqat al-Awliya*, 10 October 2026
 
-**152 proposed rows**, one per grave or shrine, built by `pipeline/book_queue/build_new_rows.py`
+**153 proposed rows** (152 on the first run; one added on 10 October when the Shah Chiragh hold was lifted, §9.313), one per grave or shrine, built by `pipeline/book_queue/build_new_rows.py`
 from the takeaways' "Figures and sites not in the archive", the lines marked `[PK]` (a burial place in
 present-day Pakistan). Ruled by Rauf on 10 October 2026 (HANDOVER §9.286). **Do not import this file
 on its own.** Under the scope ruling of 8 October, it goes into the consolidated import, which is built
@@ -24,8 +24,8 @@ Location: Lahore 104, (blank) 18, Uch 7, Multan 6, Peshawar 5, Chunian 2, Wazira
 
 ## Lines that did not become rows (6, recorded in `pipeline/book_queue/new_rows_decisions/hadeeqat_ul_aulia.json`)
 
-- line 3524: held: entangled with the shrine-of-baba-shah-chiragh identity question (Doubt I3, a held item)
-- line 3534: held: Chiragh Shah, the same held question (Doubt I3)
+- line 3524 (**released 10 Oct, §9.313**: joined to Tarikh-e Lahore's `shaikh-abd-al-razzaq-makki-nila-gumbad`): held: entangled with the shrine-of-baba-shah-chiragh identity question (Doubt I3, a held item)
+- line 3534 (**released 10 Oct, §9.313**: now row `mazar-chiragh-shah`, flagged against the archive's Shah Chiragh): held: Chiragh Shah, the same held question (Doubt I3)
 - line 3575: already an archive row: the editor equates Aziz al-Din Makki with peer-makki (Doubt B21), whose entry carries this material
 - line 3592: already an archive row by the notes' own tentative identification with darbar-malik-ahmad-ayaz (contradiction 12), whose entry carries it
 - line 3630: not a grave or shrine: the relic collections

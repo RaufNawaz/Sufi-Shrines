@@ -1,0 +1,7 @@
+# Tags for entries/book_takeaways/hadeeqat_ul_aulia.md, used only with build_tagged_rows.py --only-lines.
+# Hadiqat's rows came from its [PK] lines (build_new_rows.py, new_rows_decisions/hadeeqat_ul_aulia.json). Two lines
+# excluded there as held with the Shah Chiragh question were released when Rauf lifted the holds (10 Oct 2026, HANDOVER 9.313).
+#location	Lahore
+line	kind	target	name	category	site_type	silsila	note
+3524	join	shaikh-abd-al-razzaq-makki-nila-gumbad					the Nila Gumbad tomb in Anarkali bazaar, murid of Mauj Darya: Tarikh-e Lahore line 804's Shaikh Abd al-Razzaq Makki (which may be the archive's Shah Chiragh: the Shah Chiragh question, now attached as a claim)
+3534	row	shrine-of-baba-shah-chiragh	Mazar Chiragh Shah	Muslim Shrine	Dargah/Mazar	Qadiri	Sayyid Ali Gilani from the Deccan and his janishin Chiragh Shah: one of the candidates in the Shah Chiragh question (Doubt I3)

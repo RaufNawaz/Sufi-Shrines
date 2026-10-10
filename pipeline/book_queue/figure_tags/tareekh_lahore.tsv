@@ -53,13 +53,13 @@ line	kind	target	name	category	site_type	silsila	note
 801	join	sayyid-abu-turab-known-as-shah-gada-husaini-shattari-lahori					Shah Abu Turab known as Shah Gada, as in Hadiqat
 802	join	shaikh-abu-ishaq-qadri-lahori					Shah Abu Ishaq Qadiri, as in Hadiqat
 803	join	faqir-taj-shah-majzub-lahori					Taj Shah / Taje Shah majzub, as in Hadiqat
-804	row		Shaikh Abd al-Razzaq Makki (Nila Gumbad)	Muslim Shrine	Mausoleum/Memorial		
+804	row	shrine-of-baba-shah-chiragh	Shaikh Abd al-Razzaq Makki (Nila Gumbad)	Muslim Shrine	Mausoleum/Memorial		Hadiqat line 3524 joins this row; may be the archive's Shah Chiragh (the Shah Chiragh question, attached as a claim, 10 Oct)
 805	row	shaikh-muhammad-ashraf-lahori	Shaikh Ashraf	Muslim Shrine	Mausoleum/Memorial		Hadiqat's Shaikh Muhammad Ashraf is also a famed Lahore scholar; nothing else ties them
 806	row	pir-zuhdi-lahori	Mirza Hadi / Muhammad Muslim (Pir Zaidi)	Muslim Shrine	Dargah/Mazar	Naqshbandi	Pir Zaidi[OCR?] here, Pir Zuhdi (Wajih al-Din) in Hadiqat; both Naqshbandi Mujaddidi
 807	row		Maulvi Jami Lahori	Muslim Shrine	Dargah/Mazar		
 808	row	shaikh-muhammad-arif-chishti-sabri-lahori	Shaikh Arif Chishti	Muslim Shrine	Dargah/Mazar		years differ: 1064 here, 1071 in Hadiqat
 809	join	mastan-shah-lahori-majzub					Mastan Shah, majzub of the Sikh era, as in Hadiqat
-810	skip						a Chiragh Shah: held with the Shah Chiragh question (as in Hadiqat's exclusions)
+810	row	shrine-of-baba-shah-chiragh	Sayyid Chiragh Shah Hakim	Muslim Shrine	Dargah/Mazar		alive at the time of writing: the enclosure and his family graves, not his own grave; held with the Shah Chiragh question until Rauf lifted the holds (10 Oct, 9.313)
 811	join	pir-hadi-rahnuma					three graves, Pir Hadi and Muhsin Shah among them, descendants of Shams al-Din Tabrizi: Hadiqat's Pir Hadi Rahnuma
 812	join	shaikh-muhammad-ismail-muhaddith-wa-mufassir-lahori					came to Lahore under the Ghaznavids and spread Islam: Hadiqat's Shaikh Muhammad Ismail Muhaddith
 813	join	shaikh-sadi-mujaddidi-lahori					Shaikh Sadi Balkhari, Naqshbandi Mujaddidi, as in Hadiqat
@@ -70,7 +70,7 @@ line	kind	target	name	category	site_type	silsila	note
 818	join	shah-naushahi					Shah Kanhah / Kanthah, Naushahi, as in Hadiqat
 819	join	fazl-shah-majzub-naushahi					Fazl Shah majzub, Naushahi, as in Hadiqat
 820	row		Shah Rustam Ghazi	Muslim Shrine	Dargah/Mazar		
-821	skip						a Chiragh Shah: held with the Shah Chiragh question (as in Hadiqat's exclusions)
+821	join	mazar-chiragh-shah					Sayyid Ali Gilani from the Deccan and his janishin Chiragh Shah: Hadiqat line 3534 (row mazar-chiragh-shah); held with the Shah Chiragh question until Rauf lifted the holds (10 Oct, 9.313)
 822	row		Abu al-Khair	Muslim Shrine	Dargah/Mazar		
 823	row		Madrasa Garhi Shahu (Khair Garh)	Muslim Shrine	Madrasa		
 824	row		Khanqah Kahhote Shah	Muslim Shrine	Khanqah		named only as a landmark

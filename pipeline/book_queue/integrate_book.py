@@ -207,7 +207,8 @@ def province_mode(a):
              f'the takeaways give them.*')
     pnote = (f"*The book's `{a.province}` bullets, copied into every existing entry in the province "
              f'(Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*')
-    backup = os.path.join(REPO, 'out/integration', a.slug, f'before_province_{a.province}')
+    backup = os.path.join(REPO, 'out/integration', a.slug,
+                          f'before_province_{a.province}' + ('_held' if getattr(a, 'into_existing', False) else ''))
     done, held, missing = [], [], 0
     for rid in tagged:
         path = os.path.join(ENTRIES, f'{rid}.md')
@@ -222,18 +223,36 @@ def province_mode(a):
         # Only THIS book's section counts: every book writes the same `### Province-level
         # material: <key>` subheading, so an earlier book's copy is not a double append
         # (fixed 10 Oct 2026, §9.288, when tahqiqat_chishti followed hadeeqat_ul_aulia).
-        if heading in ol and sub in ol[ol.index(heading):]:
+        # bounded to the section (9.313): with --into-existing a later book's section can follow
+        _h = ol.index(heading) if heading in ol else 0
+        _e = next((i for i in range(_h + 1, len(ol)) if ol[i].startswith('## ')), len(ol))
+        if heading in ol and sub in ol[_h:_e]:
             print(f'REFUSED -- {rid}.md already has "{sub}" in this book\'s section'); return 3
         if heading in ol:
             last_h2 = max(i for i, l in enumerate(ol) if l.startswith('## '))
-            if ol[last_h2] != heading:
+            if ol[last_h2] != heading and not getattr(a, 'into_existing', False):
                 print(f'REFUSED -- {rid}.md: the book section is not the last section'); return 4
             add = ['', sub, '', pnote, ''] + body
         else:
             add = ['', heading, '', intro, '', sub, '', pnote, ''] + body
-        new = old.rstrip('\n') + '\n' + '\n'.join(add) + '\n'
-        if not new.startswith(old.rstrip('\n')):
-            print(f'REFUSED -- {rid}: prefix'); return 5
+        if heading in ol and ol[last_h2] != heading:
+            # --into-existing (9.313): close the book's section with the bullets; removing exactly
+            # the inserted lines must give back the old entry
+            ol = old.rstrip('\n').split('\n')
+            if ol.count(heading) != 1:
+                print(f'REFUSED -- {rid}.md: this book\'s section is not single'); return 3
+            h = ol.index(heading)
+            end = next(i for i in range(h + 1, len(ol)) if ol[i].startswith('## '))
+            while not ol[end - 1].strip():
+                end -= 1
+            nl = ol[:end] + add + [''] + ol[end:]
+            if nl[:end] + nl[end + len(add) + 1:] != ol:
+                print(f'REFUSED -- {rid}: insertion check failed'); return 5
+            new = '\n'.join(nl) + '\n'
+        else:
+            new = old.rstrip('\n') + '\n' + '\n'.join(add) + '\n'
+            if not new.startswith(old.rstrip('\n')):
+                print(f'REFUSED -- {rid}: prefix'); return 5
         if not a.dry_run:
             os.makedirs(backup, exist_ok=True)
             shutil.copy2(path, os.path.join(backup, f'{rid}.md'))
@@ -497,6 +516,11 @@ def main():
     ap.add_argument('--deep-blocks', action='store_true',
                     help='let an id block hold #### subsections and --- rules, ending at the next ##/### '
                          'heading (9.308, eaton); required when that reading differs from the default')
+    ap.add_argument('--into-existing', action='store_true',
+                    help='where an entry already has this book\'s `## From …` section (from the province or '
+                         'groups step), put the id block at the END of that section instead of refusing; the '
+                         'old entry must be exactly the new one with the inserted lines removed (9.313: lifting '
+                         'the holds, Rauf 10 Oct 2026). Use with --only')
     ap.add_argument('--dry-run', action='store_true')
     a = ap.parse_args()
     if a.province:
@@ -587,15 +611,40 @@ def main():
         print('REFUSED -- nothing written:', *errors, sep='\n  ')
         return 2
 
-    backup = os.path.join(REPO, 'out/integration', a.slug, 'before')
+    backup = os.path.join(REPO, 'out/integration', a.slug, 'before_held' if a.into_existing else 'before')
     created, appended = [], []
     for bid, section, dropped in plan:
         path = os.path.join(ENTRIES, f'{bid}.md')
         if os.path.exists(path):
             old = open(path, encoding='utf-8').read()
-            if heading in old.split('\n'):
+            ol = old.rstrip('\n').split('\n')
+            if heading in ol and not a.into_existing:
                 print(f'REFUSED -- {bid}.md already has "{heading}"; nothing written')
                 return 3
+            if heading in ol:
+                if ol.count(heading) != 1:
+                    print(f'REFUSED -- {bid}.md: this book\'s section is not single'); return 3
+                h = ol.index(heading)
+                end = next((i for i in range(h + 1, len(ol)) if ol[i].startswith('## ')), len(ol))
+                already = set(ol[h:end])
+                dup = [l for l in section if l.strip() and l not in scaffold and len(l) > 40 and l in already]
+                if dup:
+                    print(f'REFUSED -- {bid}.md: this book\'s section already holds the block ({dup[0][:60]!r})'); return 3
+                while end > h + 1 and not ol[end - 1].strip():
+                    end -= 1
+                ins = [''] + section[1:]   # the block without its `## From …` line, closing the section
+                nl = ol[:end] + ins + ([''] if end < len(ol) else []) + ol[end:]
+                # the invariant: removing exactly the inserted lines gives back the old entry
+                if nl[:end] + nl[end + len(ins) + (1 if end < len(ol) else 0):] != ol:
+                    print(f'REFUSED -- {bid}: insertion check failed'); return 5
+                new = '\n'.join(nl) + '\n'
+                appended.append(bid)
+                if not a.dry_run:
+                    held = os.path.join(REPO, 'out/integration', a.slug, 'before_held')
+                    os.makedirs(held, exist_ok=True)
+                    shutil.copy2(path, os.path.join(held, f'{bid}.md'))
+                    open(path, 'w', encoding='utf-8').write(new)
+                continue
             new = old.rstrip('\n') + '\n\n' + '\n'.join(section) + '\n'
             appended.append(bid)
         else:
