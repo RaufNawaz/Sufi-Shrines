@@ -145,7 +145,10 @@ const BUDGETS_KB = {
      the RTL label plugin's registration (the plugin itself is a lazy public/
      file, not in this count), the sheet's scroll reset and the gear menu's
      theme row. Slack kept, as above. */
-  'src/pages/MapPage.tsx': 626, // measured 620 on 9 Oct 2026 (613 on 8 Oct)
+  /* 626 → 620 on 15 October 2026: CommandPalette (with its preview pane and
+     filters) is lazy now, fetched when the browser is idle, and the route
+     measured 616. If this grows by ~10 KB the palette went static again. */
+  'src/pages/MapPage.tsx': 620, // measured 616 on 15 Oct 2026
   /* 520 → 526 on 29 Aug 2026, and raised rather than left at exactly the
      measurement for a specific reason: the route hit **520 against a 520
      budget**, which is not a pass, it is a landmine. The next person to add a

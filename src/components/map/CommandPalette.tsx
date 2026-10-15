@@ -262,7 +262,7 @@ export function CommandPalette({
   useEffect(() => {
     // By index, not by child position: group headings share the list now.
     const row = listRef.current?.querySelector<HTMLElement>(`[data-index="${activeIndex}"]`);
-    row?.scrollIntoView({ block: 'nearest' });
+    row?.scrollIntoView?.({ block: 'nearest' });
   }, [activeIndex]);
 
   if (!open) return null;

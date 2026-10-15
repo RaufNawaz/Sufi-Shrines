@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { lazy, Suspense, useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
@@ -25,7 +25,14 @@ import { ZiyaratPrintPack } from './ZiyaratPrintPack';
 import { buildSharedListUrl } from '../../lib/sharedList';
 import { useShareLink } from '../../hooks/useShareLink';
 import { dirAttr, isRtlLang, usesEasternNumerals } from '../../lib/i18n/languages';
-import { CommandPalette } from './CommandPalette';
+/* Lazy, and fetched when the browser is first idle (15 October 2026): the
+   palette, its preview pane and its filters are UI that exists only once a
+   reader opens search, so they left the map's critical path. The idle fetch
+   means the first ⌘K normally finds the module already in. */
+const loadCommandPalette = () => import('./CommandPalette');
+const CommandPalette = lazy(() =>
+  loadCommandPalette().then((m) => ({ default: m.CommandPalette })),
+);
 import { ShrineFilters } from './ShrineFilters';
 import { SettingsMenu } from '../ui/SettingsMenu';
 import { readDirectoryMode, type DirectoryMode } from '../../lib/directoryPreference';
@@ -111,6 +118,12 @@ export function MapSidebar({
   const [searchRaw, setSearchRaw] = useState('');
   const [showList, setShowList] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
+  useEffect(() => {
+    const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 1500));
+    const cancel = window.cancelIdleCallback ?? window.clearTimeout;
+    const id = idle(() => void loadCommandPalette());
+    return () => cancel(id);
+  }, []);
   const [directoryMode, setDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
   /* The sidebar's own field and disclosure. Both moved into the overlay on
      the branch that added it; they are back here because the sidebar renders
@@ -892,42 +905,46 @@ export function MapSidebar({
           MapPage) because this component owns the query and the derived result
           list; it portals to document.body, so the 184px sheet it lives inside
           on a phone does not clip it. */}
-      <CommandPalette
-        open={paletteOpen}
-        onClose={() => setPaletteOpen(false)}
-        query={searchRaw}
-        onQueryChange={setSearchRaw}
-        results={filtered}
-        total={shrines.length}
-        categoryCounts={categoryCounts}
-        onSelect={(shrine) => onSelect(shrine)}
-        activeFilterCount={activeFilterCount}
-        onClearFilters={clearAllFilters}
-        filters={{
-          shrines,
-          activeCategories,
-          onCategoriesChange,
-          verifiedOnly,
-          onVerifiedOnlyChange,
-          activeRegion,
-          onRegionChange,
-          eraMin,
-          eraMax,
-          onEraChange,
-          hasMoreFiltersActive,
-          savedSlugs,
-          savedOnly,
-          onSavedOnlyChange,
-          listLinkCopied,
-          onShareList: () =>
-            copyListLink(
-              buildSharedListUrl(
-                savedSlugs,
-                `${window.location.origin}${window.location.pathname}`,
-              ),
-            ),
-        }}
-      />
+      {paletteOpen && (
+        <Suspense fallback={null}>
+          <CommandPalette
+            open={paletteOpen}
+            onClose={() => setPaletteOpen(false)}
+            query={searchRaw}
+            onQueryChange={setSearchRaw}
+            results={filtered}
+            total={shrines.length}
+            categoryCounts={categoryCounts}
+            onSelect={(shrine) => onSelect(shrine)}
+            activeFilterCount={activeFilterCount}
+            onClearFilters={clearAllFilters}
+            filters={{
+              shrines,
+              activeCategories,
+              onCategoriesChange,
+              verifiedOnly,
+              onVerifiedOnlyChange,
+              activeRegion,
+              onRegionChange,
+              eraMin,
+              eraMax,
+              onEraChange,
+              hasMoreFiltersActive,
+              savedSlugs,
+              savedOnly,
+              onSavedOnlyChange,
+              listLinkCopied,
+              onShareList: () =>
+                copyListLink(
+                  buildSharedListUrl(
+                    savedSlugs,
+                    `${window.location.origin}${window.location.pathname}`,
+                  ),
+                ),
+            }}
+          />
+        </Suspense>
+      )}
     </aside>
   );
 }

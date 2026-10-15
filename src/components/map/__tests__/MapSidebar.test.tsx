@@ -72,10 +72,11 @@ function renderSidebar(
 }
 
 describe('MapSidebar — directory preference', () => {
-  it('opens Spotlight search from the Search button by default', () => {
+  it('opens Spotlight search from the Search button by default', async () => {
     renderSidebar({}, null);
 
     fireEvent.click(document.querySelector('.list-toggle-btn')!);
+    await settlePalette();
 
     expect(document.querySelector('.palette')).toBeInTheDocument();
     expect(document.querySelector('.shrine-list-panel')).not.toBeInTheDocument();
@@ -145,22 +146,30 @@ describe('MapSidebar — directory preference', () => {
  * to walk the two extra clicks a reader now walks. That is the point of moving
  * the JSX rather than rewriting it.
  */
-function openFilters() {
-  fireEvent.click(document.querySelector('.list-toggle-btn')!);
-  fireEvent.click(document.querySelector('.palette-trigger')!);
+async function openFilters() {
+  await openPalette();
   fireEvent.click(document.querySelector('.palette-filters-btn')!);
 }
 
-/** Opens the palette without its filters drawer — for search itself. */
-function openPalette() {
+/** Opens the palette without its filters drawer — for search itself. The
+ *  palette is lazy-loaded (MapSidebar.tsx), so opening it takes one async
+ *  turn: awaiting the module inside `act` lets the lazy boundary resolve. */
+async function openPalette() {
   fireEvent.click(document.querySelector('.list-toggle-btn')!);
   fireEvent.click(document.querySelector('.palette-trigger')!);
+  await settlePalette();
+}
+
+async function settlePalette() {
+  await act(async () => {
+    await import('../CommandPalette');
+  });
 }
 
 describe('MapSidebar — More filters disclosure', () => {
-  it('hides the era slider and provenance chips by default, revealing them via the toggle', () => {
+  it('hides the era slider and provenance chips by default, revealing them via the toggle', async () => {
     renderSidebar();
-    openFilters();
+    await openFilters();
 
     expect(document.querySelector('.time-slider')).not.toBeInTheDocument();
     expect(document.querySelector('[aria-label="Filter by provenance"]')).not.toBeInTheDocument();
@@ -171,9 +180,9 @@ describe('MapSidebar — More filters disclosure', () => {
     expect(document.querySelector('[aria-label="Filter by provenance"]')).toBeInTheDocument();
   });
 
-  it('shows the active-filter dot on the collapsed toggle when a hidden filter is set', () => {
+  it('shows the active-filter dot on the collapsed toggle when a hidden filter is set', async () => {
     renderSidebar({ verifiedOnly: true });
-    openFilters();
+    await openFilters();
 
     const toggle = document.querySelector('.more-filters-toggle')!;
     expect(toggle.querySelector('.filter-active-dot')).toBeInTheDocument();
@@ -181,9 +190,9 @@ describe('MapSidebar — More filters disclosure', () => {
     expect(document.querySelector('.time-slider')).not.toBeInTheDocument();
   });
 
-  it('shows no active-filter dot on the toggle when no hidden filter is set', () => {
+  it('shows no active-filter dot on the toggle when no hidden filter is set', async () => {
     renderSidebar();
-    openFilters();
+    await openFilters();
 
     const toggle = document.querySelector('.more-filters-toggle')!;
     expect(toggle.querySelector('.filter-active-dot')).not.toBeInTheDocument();
@@ -230,9 +239,9 @@ describe('MapSidebar — six-category filters', () => {
       .trim();
   }
 
-  it('renders a chip for each of the six categories, driven by the `category` column', () => {
+  it('renders a chip for each of the six categories, driven by the `category` column', async () => {
     renderSidebar({ shrines: makeSixCategoryShrines() });
-    openFilters();
+    await openFilters();
 
     const labels = chipButtons().map((b) => chipLabel(b));
     expect(labels).toEqual([
@@ -246,14 +255,14 @@ describe('MapSidebar — six-category filters', () => {
     ]);
   });
 
-  it('toggles categories additively, keeping canonical order', () => {
+  it('toggles categories additively, keeping canonical order', async () => {
     const onCategoriesChange = vi.fn();
     renderSidebar({
       shrines: makeSixCategoryShrines(),
       activeCategories: ['jain'],
       onCategoriesChange,
     });
-    openFilters();
+    await openFilters();
 
     // Adding Muslim to an existing Jain selection accumulates both.
     fireEvent.click(chipButtons().find((b) => chipLabel(b) === 'Muslim Shrine')!);
@@ -264,9 +273,9 @@ describe('MapSidebar — six-category filters', () => {
     expect(onCategoriesChange).toHaveBeenLastCalledWith([]);
   });
 
-  it('defaults to all-on: with no selection every category is listed and "All" is active', () => {
+  it('defaults to all-on: with no selection every category is listed and "All" is active', async () => {
     renderSidebar({ shrines: makeSixCategoryShrines() });
-    openFilters();
+    await openFilters();
 
     const allChip = chipButtons().find((b) => chipLabel(b) === 'All')!;
     expect(allChip.getAttribute('aria-pressed')).toBe('true');
@@ -332,7 +341,7 @@ describe('MapSidebar — six-category filters', () => {
 });
 
 describe('MapSidebar — provenance (support-level) filter (More filters)', () => {
-  it('keeps the verified-only toggle inside the More filters disclosure and filters to Field-verified', () => {
+  it('keeps the verified-only toggle inside the More filters disclosure and filters to Field-verified', async () => {
     const onVerifiedOnlyChange = vi.fn();
     renderSidebar({
       shrines: [
@@ -341,9 +350,7 @@ describe('MapSidebar — provenance (support-level) filter (More filters)', () =
       ],
       onVerifiedOnlyChange,
     });
-    fireEvent.click(document.querySelector('.list-toggle-btn')!);
-    fireEvent.click(document.querySelector('.palette-trigger')!);
-    fireEvent.click(document.querySelector('.palette-filters-btn')!);
+    await openFilters();
 
     // Collapsed by default — no top-level clutter.
     expect(document.querySelector('[aria-label="Filter by provenance"]')).not.toBeInTheDocument();
@@ -391,7 +398,7 @@ describe('MapSidebar — search result ordering', () => {
       // `.search-input` is the palette's field now; it carries that class
       // precisely so selectors like this one still describe the archive's
       // search box.
-      openPalette();
+      await openPalette();
       fireEvent.change(document.querySelector('.search-input')!, { target: { value: 'match' } });
 
       await act(async () => {
