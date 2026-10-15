@@ -2943,3 +2943,21 @@
     font-variant-numeric: tabular-nums;
   }
 }
+
+/* Phone fact panel: label and value on one line, the iOS grouped-row form.
+   Stacked, each row was 70–158px and the panel 618–985px, so the first
+   paragraph of an entry began 1.7 to 2.5 screens down (council, 15 October
+   2026: data-darbar's prose at y=1448 in English, y=1826 in Urdu). Side by
+   side the label keeps a fixed track and the value wraps beside it. A value
+   that is prose (a qualified date, a status note) still wraps in its own
+   column rather than under the label. */
+@media (max-width: 640px) {
+  .infobox-row,
+  [dir='rtl'] .infobox-row {
+    display: grid;
+    grid-template-columns: minmax(5.5rem, 32%) 1fr;
+    column-gap: var(--space-3);
+    align-items: baseline;
+    padding-block: var(--space-2);
+  }
+}
