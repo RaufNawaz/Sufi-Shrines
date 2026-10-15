@@ -66,8 +66,12 @@
 /* Map page layout */
 .map-root {
   display: flex;
-  height: 100dvh; /* iOS dynamic viewport height */
-  height: 100vh; /* fallback */
+  /* Fallback first, then the dynamic unit, so the dynamic unit wins where it
+     exists. The other order (until 15 Oct 2026) let `100vh` always win: on iOS
+     Safari the map ran under the toolbar, and fitBounds centred markers over
+     ~80px the reader could not see. */
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   position: relative;
 }
@@ -159,8 +163,22 @@
       0 -1px 0 var(--color-border-light);
     transform: none !important;
     transition: height var(--duration-base) var(--easing);
-    padding-bottom: var(--safe-bottom);
+    /* The home-indicator inset, unless the tab bar beneath already covers it
+       (`--tabbar-height` includes `--safe-bottom` under 640px): reserving it
+       twice left ~34px of the 184px peek empty on a notched iPhone. */
+    padding-bottom: max(0px, calc(var(--safe-bottom) - var(--tabbar-height)));
     overflow: hidden;
+  }
+
+  /* While a finger drags the sheet (MapSidebar), the height is the finger's:
+     no transition to lag behind it. The handle and the header row are the
+     grab areas, so the browser must not claim their vertical pans. */
+  .sidebar.sidebar--dragging {
+    transition: none;
+  }
+  .sidebar-sheet-handle,
+  .sidebar > .sidebar-header {
+    touch-action: none;
   }
 
   /* Expanded state (sidebar without .collapsed class) */

@@ -141,32 +141,102 @@ export function MapSidebar({
   const [filtersExpanded, setFiltersExpanded] = useState(false);
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
 
-  /* Touch swipe tracking for the mobile bottom sheet */
-  const touchStartY = useRef<number | null>(null);
-  const touchStartTime = useRef<number>(0);
+  /* The phone sheet follows the finger.
+   *
+   * It used to judge a flick once, at touchend: measured on 15 October 2026,
+   * the sheet sat still at 184px through a 300px drag and then jumped to 505px
+   * when the finger lifted, and only the 44px handle could be grabbed. Now the
+   * handle *and* the header row drag it, the height tracks the finger with no
+   * transition and no React state per frame, and on release it settles on peek
+   * or full — by direction when the release is a flick, by the nearer height
+   * when it is not. A touch that moves under 8px is still a tap, so the header's
+   * buttons keep working. */
+  const asideRef = useRef<HTMLElement>(null);
+  const isOpenRef = useRef(isOpen);
+  const onToggleRef = useRef(onToggle);
+  useEffect(() => {
+    isOpenRef.current = isOpen;
+    onToggleRef.current = onToggle;
+  }, [isOpen, onToggle]);
 
-  const handleSheetTouchStart = useCallback((e: React.TouchEvent) => {
-    touchStartY.current = e.touches[0].clientY;
-    touchStartTime.current = Date.now();
-  }, []);
+  useEffect(() => {
+    const aside = asideRef.current;
+    if (!isMobile || !aside) return undefined;
+    let drag: {
+      startY: number;
+      startH: number;
+      minH: number;
+      maxH: number;
+      lastY: number;
+      lastT: number;
+      velocity: number;
+      moved: boolean;
+    } | null = null;
 
-  const handleSheetTouchEnd = useCallback(
-    (e: React.TouchEvent) => {
-      if (touchStartY.current === null) return;
-      const deltaY = e.changedTouches[0].clientY - touchStartY.current;
-      const deltaTime = Math.max(1, Date.now() - touchStartTime.current);
-      const velocityY = deltaY / deltaTime;
-
-      touchStartY.current = null;
-      const flicked = isOpen ? deltaY > 35 || velocityY > 0.35 : deltaY < -35 || velocityY < -0.35;
-      if (!flicked || !onToggle) return;
-      /* A short flick can also produce a synthetic click, and the handle's
-         onClick toggles too: without this one gesture opened and closed it. */
-      e.preventDefault();
-      onToggle();
-    },
-    [isOpen, onToggle],
-  );
+    const onStart = (e: TouchEvent) => {
+      const target = e.target as Element | null;
+      if (e.touches.length !== 1 || !target?.closest('.sidebar-sheet-handle, .sidebar-header'))
+        return;
+      const y = e.touches[0].clientY;
+      const peek =
+        parseFloat(getComputedStyle(aside).getPropertyValue('--sheet-peek-height')) || 184;
+      drag = {
+        startY: y,
+        startH: aside.getBoundingClientRect().height,
+        minH: peek,
+        maxH: Math.min(window.innerHeight * 0.76, window.innerHeight - 80),
+        lastY: y,
+        lastT: e.timeStamp,
+        velocity: 0,
+        moved: false,
+      };
+    };
+    const onMove = (e: TouchEvent) => {
+      if (!drag) return;
+      const y = e.touches[0].clientY;
+      if (!drag.moved && Math.abs(y - drag.startY) < 8) return;
+      if (!drag.moved) {
+        drag.moved = true;
+        aside.classList.add('sidebar--dragging');
+      }
+      const dt = Math.max(1, e.timeStamp - drag.lastT);
+      drag.velocity = (y - drag.lastY) / dt;
+      drag.lastY = y;
+      drag.lastT = e.timeStamp;
+      const h = Math.min(drag.maxH, Math.max(drag.minH, drag.startH - (y - drag.startY)));
+      aside.style.height = `${h}px`;
+      if (e.cancelable) e.preventDefault();
+    };
+    const onEnd = (e: TouchEvent) => {
+      if (!drag) return;
+      const { moved, velocity, minH, maxH } = drag;
+      drag = null;
+      if (!moved) return;
+      /* A drag also produces a synthetic click on whatever it started on —
+         without this, dragging the handle toggled the sheet a second time. */
+      if (e.cancelable) e.preventDefault();
+      const h = aside.getBoundingClientRect().height;
+      const open = Math.abs(velocity) > 0.35 ? velocity < 0 : h - minH > (maxH - minH) / 2;
+      if (open !== isOpenRef.current) onToggleRef.current?.();
+      /* Hand the height back to the stylesheet with its transition on, so the
+         sheet settles from where the finger left it. */
+      aside.classList.remove('sidebar--dragging');
+      void aside.offsetHeight;
+      aside.style.height = '';
+    };
+    aside.addEventListener('touchstart', onStart, { passive: true });
+    aside.addEventListener('touchmove', onMove, { passive: false });
+    aside.addEventListener('touchend', onEnd);
+    aside.addEventListener('touchcancel', onEnd);
+    return () => {
+      aside.removeEventListener('touchstart', onStart);
+      aside.removeEventListener('touchmove', onMove);
+      aside.removeEventListener('touchend', onEnd);
+      aside.removeEventListener('touchcancel', onEnd);
+      aside.classList.remove('sidebar--dragging');
+      aside.style.height = '';
+    };
+  }, [isMobile]);
 
   const hasEraFilter = eraMin !== ERA_MIN || eraMax !== ERA_MAX;
   const hasActiveFilter = Boolean(
@@ -373,6 +443,7 @@ export function MapSidebar({
 
   return (
     <aside
+      ref={asideRef}
       className={`sidebar${isOpen ? '' : ' collapsed'}`}
       id="sidebar"
       aria-label={t('ariaShrineBrowser')}
@@ -382,8 +453,6 @@ export function MapSidebar({
         <button
           className="sidebar-sheet-handle"
           onClick={onToggle}
-          onTouchStart={handleSheetTouchStart}
-          onTouchEnd={handleSheetTouchEnd}
           /* Was a hardcoded English 'Collapse sheet' / 'Expand sheet'. The
              Urdu accessible-name sweep never saw it: that suite runs at a
              desktop viewport, and this control only exists under 768px. */
