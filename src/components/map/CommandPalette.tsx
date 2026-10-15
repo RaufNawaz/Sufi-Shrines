@@ -8,6 +8,7 @@ import { CATEGORY_LABELS, CATEGORY_ORDER, categoryKey } from '../../lib/data/cat
 import type { CategoryKey } from '../../lib/data/categoryKey';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
+import { useBackToClose } from '../../hooks/useBackToClose';
 import { ShrineFilters, type ShrineFiltersProps } from './ShrineFilters';
 import { PalettePreview } from './PalettePreview';
 import { usePointerSheen } from '../../hooks/usePointerSheen';
@@ -112,6 +113,8 @@ export function CommandPalette({
       onCloseNow();
     }, CLOSE_MS);
   }, [onCloseNow]);
+  // Back leaves the way Done does — with the fade — not by leaving the page.
+  useBackToClose(open, onClose);
   useEffect(
     () => () => {
       if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);

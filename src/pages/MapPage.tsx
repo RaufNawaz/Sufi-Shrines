@@ -22,6 +22,7 @@ import { recordTourStop, recordTourCompleted } from '../lib/tours/tourProgress';
 import { readToursEnabled, writeToursEnabled } from '../lib/toursPreference';
 import { parseSharedList, importSharedList } from '../lib/sharedList';
 import { buildSharedGroundOverview } from '../lib/data/sharedGround';
+import { isOnOverlayEntry, isOverlayHistoryPop } from '../lib/nav/overlayHistory';
 
 /** Drop the one-shot ?list= param after the reader acts on the banner. */
 function clearListParam(): void {
@@ -357,7 +358,11 @@ export default function MapPage() {
       else params.delete('selected');
     }
     const qs = params.toString();
-    window.history.pushState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
+    /* A choice made from the palette lands while the palette's own history
+       entry is current; replace it rather than stack a dead back step. */
+    const url = `${window.location.pathname}${qs ? `?${qs}` : ''}`;
+    if (isOnOverlayEntry()) window.history.replaceState(null, '', url);
+    else window.history.pushState(null, '', url);
 
     if (activeTourId) recordTourStop(activeTourId, tourStopIdx);
   }, [activeTourId, tourStopIdx, selectedId, shrines]);
@@ -365,6 +370,8 @@ export default function MapPage() {
   // Handle back/forward browser navigation — re-apply tour/selected state from URL
   useEffect(() => {
     const handler = () => {
+      // Back closing a sheet or palette is not a navigation (overlayHistory.ts).
+      if (isOverlayHistoryPop()) return;
       const { tourId, stopIdx } = getTourParams();
       if (tourId) {
         const tour = TOURS.find((tr) => tr.id === tourId);

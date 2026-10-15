@@ -4,6 +4,7 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
 import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
+import { useBackToClose } from '../../hooks/useBackToClose';
 
 const SWIPE_THRESHOLD_PX = 50;
 
@@ -58,6 +59,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
+  useBackToClose(true, onClose);
 
   /*
    * One clamped step, used by the buttons, the arrow keys and the swipe.

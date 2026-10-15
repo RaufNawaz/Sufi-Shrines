@@ -2,6 +2,7 @@ import React, { useEffect, useId, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { dirAttr, isRtlLang } from '../../lib/i18n/languages';
+import { useBackToClose } from '../../hooks/useBackToClose';
 
 /**
  * A sheet: a page laid over the current one for a scoped task, in the shape
@@ -19,7 +20,7 @@ import { dirAttr, isRtlLang } from '../../lib/i18n/languages';
  * - focus moves in on open, Tab cycles inside, and focus returns to whatever
  *   opened it on close;
  * - the page behind does not scroll while it is open;
- * - Escape closes it.
+ * - Escape closes it, and so does the back gesture (`useBackToClose`).
  */
 export function Sheet({
   open,
@@ -40,6 +41,7 @@ export function Sheet({
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
+  useBackToClose(open, onClose);
 
   useEffect(() => {
     if (!open) return undefined;

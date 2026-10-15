@@ -19,6 +19,8 @@ import { localizeObservance } from '../../lib/i18n/localizeObservance';
 import { getFieldValue } from '../../lib/data/fieldAliasing';
 import { useSavedShrines } from '../../lib/savedShrines';
 import type { Shrine } from '../../types/shrine';
+import { useBackToClose } from '../../hooks/useBackToClose';
+import { isOnOverlayEntry } from '../../lib/nav/overlayHistory';
 
 /**
  * Search, from anywhere in the archive.
@@ -85,6 +87,7 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   const navigate = useNavigate();
+  useBackToClose(true, onClose);
   const { shrines } = useShrineData();
 
   const [query, setQuery] = useState('');
@@ -354,7 +357,9 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
   const commit = useCallback(
     (row: Row | undefined) => {
       if (!row) return;
-      navigate(row.to);
+      /* Replace the entry this overlay pushed, so back from the destination
+         returns to the page the search was opened on in one step. */
+      navigate(row.to, { replace: isOnOverlayEntry() });
       onClose();
     },
     [navigate, onClose],
