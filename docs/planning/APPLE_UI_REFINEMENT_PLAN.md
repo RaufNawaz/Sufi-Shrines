@@ -101,4 +101,6 @@ Antigravity drafted this plan and the first four files, then ran out of quota mi
 
 **Performance.** ShrinePage eager JS 535 → 408 KB (the team-only `SourcesProvenance` had been carrying a 127 KB JSON to every reader). The bundle-budget script was found to skip routes whose manifest key changes, and now fails instead. Lead paragraphs in the preview card and the palette preview render their `*italics*` instead of printing the asterisks.
 
+**Clean-up and performance, later the same day.** `palette.css` was folded from three overriding layers into one rule per selector, verified by diffing the computed style of every palette element in ten states before and after. The layering had broken three things, now fixed: phone tap targets had dropped to 30–32px, the phone panel was capped at 451px, and reduced motion did not stop the panel's entrance or the rows' stagger. The palette itself is lazy-loaded with an idle-time fetch, taking the map route's eager JS from 626 to 616 KB.
+
 **Not done from this plan:** Phase 2 (Quick-Look peek cards) and the recent-searches part of Phase 3. Both are open; neither was asked for again during the session.
