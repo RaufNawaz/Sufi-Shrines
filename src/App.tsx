@@ -14,26 +14,29 @@ import { ReaderPreferencesProvider } from './lib/preferences/ReaderPreferencesCo
 import { ArchiveSearchProvider } from './components/search/ArchiveSearchProvider';
 import { UpdateToast } from './components/ui/UpdateToast';
 import { TabBar } from './components/nav/TabBar';
+import { ROUTE_MODULES } from './lib/nav/routeModules';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
 import { persistAccessParamIfPresent } from './lib/projectAccess';
 import { stripUrPrefix } from './lib/i18n/urlLangPrefix';
 
 persistAccessParamIfPresent();
 
-const MapPage = lazy(() => import('./pages/MapPage'));
+/* The five tab destinations load through ROUTE_MODULES, the same importers
+   TabLink prefetches on intent (15 October 2026). */
+const MapPage = lazy(ROUTE_MODULES['/']);
 const ShrinePage = lazy(() => import('./pages/ShrinePage'));
 const SaintPage = lazy(() => import('./pages/SaintPage'));
 const OrderPage = lazy(() => import('./pages/OrderPage'));
-const GraphPage = lazy(() => import('./pages/GraphPage'));
-const AlmanacPage = lazy(() => import('./pages/AlmanacPage'));
+const GraphPage = lazy(ROUTE_MODULES['/graph']);
+const AlmanacPage = lazy(ROUTE_MODULES['/almanac']);
 /* Team-only, unlisted, and prerendered like every other route because GitHub
    Pages serves files rather than routes. See docs/planning/REVIEW_DESK_2026-08-24.md. */
 const ReviewPage = lazy(() => import('./pages/ReviewPage'));
-const TypologyPage = lazy(() => import('./pages/TypologyPage'));
+const TypologyPage = lazy(ROUTE_MODULES['/typology']);
 const ChronologyPage = lazy(() => import('./pages/ChronologyPage'));
 const SharedGroundPage = lazy(() => import('./pages/SharedGroundPage'));
 const TraditionPage = lazy(() => import('./pages/TraditionPage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
+const AboutPage = lazy(ROUTE_MODULES['/about']);
 const PlacePage = lazy(() => import('./pages/PlacePage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));

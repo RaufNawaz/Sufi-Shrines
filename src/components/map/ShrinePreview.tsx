@@ -15,6 +15,7 @@ import { siteStatusKey, SITE_STATUS_LABEL_KEYS } from '../../lib/data/siteStatus
 import { TOURS, localizeTourTitle } from '../../lib/tours/tours';
 import { t as translate } from '../../lib/i18n/uiStrings';
 import { ShrineGlyph } from '../ui/ShrineGlyph';
+import { InlineEmphasis } from '../ui/InlineEmphasis';
 import { InfoLevelBadge } from '../ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useShareLink } from '../../hooks/useShareLink';
@@ -168,7 +169,11 @@ export function ShrinePreview({
           {shrine.statusNote && <bdi>{shrine.statusNote}</bdi>}
         </div>
       )}
-      {leadText && <p className="preview-description">{leadText}</p>}
+      {leadText && (
+        <p className="preview-description">
+          <InlineEmphasis text={leadText} />
+        </p>
+      )}
       {relatedTour && (
         <div className="preview-related-tour">
           <span>

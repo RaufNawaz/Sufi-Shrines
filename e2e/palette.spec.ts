@@ -135,6 +135,9 @@ test.describe('command palette', () => {
       UI_TEXT_UR.searchPlaceholder,
     );
     await expect(page.locator('.palette-filters-label')).toHaveText(UI_TEXT_UR.filtersLabel);
+    // The panel opens as a bar (15 October 2026); the hints arrive with the
+    // list, so ask for one.
+    await page.locator('.search-input').fill('داتا');
     // Eastern numerals reach the status line like every other number site.
     await expect(page.locator('.palette-status')).toHaveText(/[۰-۹]/);
     await expect(page.locator('.palette-hint').first()).toContainText(UI_TEXT_UR.paletteHintMove);

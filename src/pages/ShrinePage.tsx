@@ -12,6 +12,18 @@ import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
 import { placesForShrine } from '../lib/data/places';
 
+/* Lazy: a phone-only control, and importing it (with the Sheet it opens)
+   eagerly put ShrinePage 4 KB over its bundle budget (15 October 2026). */
+const MobileContents = React.lazy(() =>
+  import('../components/shrine/MobileContents').then((m) => ({ default: m.MobileContents })),
+);
+/* Lazy: team view only (`hasProjectAccess`), so a public reader never renders
+   it and should not download it. */
+const SourcesProvenance = React.lazy(() =>
+  import('../components/shrine/SourcesProvenance').then((m) => ({
+    default: m.SourcesProvenance,
+  })),
+);
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { ShrineInfobox } from '../components/shrine/ShrineInfobox';
 import { ShrineArticle } from '../components/shrine/ShrineArticle';
@@ -21,7 +33,6 @@ import { useArticleContent } from '../components/shrine/useArticleContent';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
 import { SharedGround } from '../components/shrine/SharedGround';
-import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { SourceNotes } from '../components/shrine/SourceNotes';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
@@ -517,7 +528,11 @@ function ShrineContent({
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
           <SourceNotes slug={shrine.slug} />
-          {hasProjectAccess() && <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />}
+          {hasProjectAccess() && (
+            <React.Suspense fallback={null}>
+              <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />
+            </React.Suspense>
+          )}
           {/* Quiet contribution prompt — only on pages we know little about */}
           {isLowInfo && (
             <aside className="contribute-note">
@@ -544,6 +559,12 @@ function ShrineContent({
           {articleReady && <ShrineInfobox shrine={shrine} />}
         </aside>
       </div>
+
+      {proseReady && navItems.length >= 2 && (
+        <React.Suspense fallback={null}>
+          <MobileContents items={navItems} />
+        </React.Suspense>
+      )}
 
       {/* One footer. The sweep that put a footer on the ten pages missing one
           (a1f2585) appended a bare `<SiteFooter />` here without noticing this

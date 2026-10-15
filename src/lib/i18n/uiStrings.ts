@@ -174,6 +174,8 @@ const UI_TEXT_EN = {
   filtersLabel: 'Filters',
   paletteHintMove: 'to move',
   paletteHintOpen: 'to open',
+  paletteReadEntry: 'Read the entry',
+  paletteShowOnMap: 'Show on map',
   ariaOpenPalette: 'Search and filter the archive',
   paletteClose: 'Close search',
   /* The archive-wide palette's sites group. Its own key rather than

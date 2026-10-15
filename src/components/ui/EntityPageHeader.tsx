@@ -1,6 +1,9 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { TABS, activeTabId } from '../../lib/nav/tabs';
+import { TabLink } from '../nav/TabLink';
+import { usePointerSheen } from '../../hooks/usePointerSheen';
 import { useArchiveSearch } from '../search/ArchiveSearchProvider';
 import { DarkModeToggle } from './DarkModeToggle';
 import { LanguageToggle } from './LanguageToggle';
@@ -71,7 +74,11 @@ let lastMeasuredHeaderHeight: number | null = null;
 export function EntityPageHeader({ title }: { title?: string }) {
   const { t } = useLang();
   const search = useArchiveSearch();
+  const location = useLocation();
+  const currentTab = activeTabId(location.pathname);
   const [collapsed, setCollapsed] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  usePointerSheen(navRef, !collapsed);
   const headerRef = useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = useState(FALLBACK_HEADER_HEIGHT);
 
@@ -173,7 +180,7 @@ export function EntityPageHeader({ title }: { title?: string }) {
         </svg>
         {t('backToMap')}
       </Link>
-      {collapsed && title && (
+      {collapsed && title ? (
         /* `aria-hidden`, and not for tidiness: this is the `<h1>` said twice.
            A screen reader has already announced the page's heading, and a
            second copy appearing on scroll is noise a sighted reader never
@@ -182,6 +189,22 @@ export function EntityPageHeader({ title }: { title?: string }) {
         <span className="page-header-title" aria-hidden="true" data-latin>
           <bdi>{title}</bdi>
         </span>
+      ) : (
+        <nav ref={navRef} className="page-header-nav sheen" aria-label={t('tabBarLabel')}>
+          {TABS.map((tab) => {
+            const isCurrent = currentTab === tab.id;
+            return (
+              <TabLink
+                key={tab.id}
+                to={tab.path}
+                className={`page-header-nav-link${isCurrent ? ' page-header-nav-link--current' : ''}`}
+                current={isCurrent}
+              >
+                {t(tab.labelKey)}
+              </TabLink>
+            );
+          })}
+        </nav>
       )}
       <div className="shrine-page-header-actions">
         {/* Guarded on `available` even though every page that renders this

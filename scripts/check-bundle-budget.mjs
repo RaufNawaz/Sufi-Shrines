@@ -21,7 +21,7 @@
  * Budgets are current measurement plus headroom, not aspirations. Raising one
  * should be a deliberate line in a diff with a reason next to it.
  */
-import { readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -131,7 +131,11 @@ const BUDGETS_KB = {
      goes red for a change made anywhere. Third and last of the zero-headroom
      entries (SettingsPage and ReviewPage were the others); the whole table now
      carries slack on purpose. */
-  'index.html': 272, // measured 265 on 31 Aug 2026 (246 on 26 Aug)
+  /* +2 KB on 15 Oct 2026, on the shell and so on every route: TabLink (the tab
+     bar's links now prefetch their page module on intent and arrive by View
+     Transition — lib/nav/routeModules.ts, lib/nav/viewTransition.ts). Measured
+     273 for the shell, 362 Almanac, 286 NotFound; each set to measurement + 2. */
+  'index.html': 275, // measured 273 on 15 Oct 2026 (265 on 31 Aug)
   /* 611 → 618 on 8 October 2026: measured 613 after the palette grew its
      tradition chips and grouped browse mode, and the shared-ground lens
      control moved from the sidebar into ShrineMap. Slack kept, per the note
@@ -158,7 +162,11 @@ const BUDGETS_KB = {
      Six kilobytes of headroom, deliberately modest. This is still the tightest
      route on the board, and the next feature that needs room here should look
      at what the page imports before raising this line again. */
-  'src/pages/ShrinePage.tsx': 534, // measured 520 on 29 Aug 2026
+  /* 534 → 415 on 15 October 2026. SourcesProvenance is team view only, and its
+     static import carried `data/provenance.json` (127 KB) to every public
+     reader of every entry; it is a lazy import now and the route measured 408.
+     If this jumps by ~127 KB, that import went static again. */
+  'src/pages/ShrinePage.tsx': 415, // measured 408 on 15 Oct 2026 (535 before)
   /* Raised 675 → 680 on 30 August 2026 and **put back the same morning**, which
      is the useful half of the story.
 
@@ -200,7 +208,7 @@ const BUDGETS_KB = {
      other page, and `UI_TEXT.en` should split the way `UI_TEXT.ur` already
      lazily does. That is a design change, not a budget edit, which is why it is
      written here rather than done at the same time as the feature. */
-  'src/pages/AlmanacPage.tsx': 360, // measured 355 on 14 Sep 2026 — see the PlacePage note
+  'src/pages/AlmanacPage.tsx': 364, // measured 362 on 15 Oct 2026 (355 on 14 Sep) — see the index.html note
   /* 29 Aug 2026, and it is the shared-table effect the Almanac note above
      describes, arriving exactly as predicted: kinship added ~25 English UI
      strings, the English table is eager on every route, and the three routes
@@ -228,7 +236,7 @@ const BUDGETS_KB = {
      split, not to keep moving numbers. Nobody should do that tonight; it is
      written down so the fourth raise prompts the change instead of a fourth
      comment. */
-  'src/pages/NotFoundPage.tsx': 285, // measured 276 on 30 Aug 2026
+  'src/pages/NotFoundPage.tsx': 288, // measured 286 on 15 Oct 2026 (276 on 30 Aug) — see the index.html note
   /* Track C, new on 28 Aug 2026. It carries the shell, the shrine snapshot and
      its own ~4 KB of timeline code — no graph, no provenance, no places index.
      If this jumps by ~170 KB something pulled provenance.json in; by ~420 KB,
@@ -437,15 +445,34 @@ const rows = [];
  * dynamic imports are data chunks (`src/data/urdu-content.json`) — deliberately
  * lazy, and not a route anyone navigates to.
  */
+/* A route is usually keyed by its source path. Not always: when a lazy chunk
+   statically imports something Rollup hoisted *into* a page's chunk, the page
+   is keyed by its chunk file (`_ShrinePage-<hash>.js`) instead. On 15 October
+   2026 lazy-loading the team-only SourcesProvenance did exactly that, and
+   ShrinePage — the tightest route on the board — silently vanished from this
+   table while the check printed OK. So routes are found by `name` as well, and
+   a budgeted route that is not measured is a failure, not a missing row. */
+const pageKeyOf = (key) => {
+  if (key.startsWith('src/pages/')) return key;
+  const entry = manifest[key];
+  const page = entry?.isDynamicEntry && entry.name ? `src/pages/${entry.name}.tsx` : null;
+  return page && existsSync(join(ROOT, page)) ? page : null;
+};
 const routes = [
-  entryKey,
-  ...(manifest[entryKey].dynamicImports ?? []).filter(
-    (key) => manifest[key] && key.startsWith('src/pages/'),
-  ),
+  [entryKey, entryKey],
+  ...(manifest[entryKey].dynamicImports ?? [])
+    .filter((key) => manifest[key])
+    .map((key) => [key, pageKeyOf(key)])
+    .filter(([, page]) => page),
 ];
+for (const page of Object.keys(BUDGETS_KB)) {
+  if (!routes.some(([, p]) => p === page)) {
+    failures.push(`${page}: has a budget but was not found in the build, so it was not measured`);
+  }
+}
 
-for (const key of routes) {
-  const files = new Set([...shellFiles, ...filesOf(staticClosure(key))]);
+for (const [manifestKey, key] of routes) {
+  const files = new Set([...shellFiles, ...filesOf(staticClosure(manifestKey))]);
   const bytes = [...files].reduce((sum, f) => sum + sizeOf(f), 0);
   const kb = Math.round(bytes / 1024);
   const budget = BUDGETS_KB[key];

@@ -185,6 +185,8 @@ export const UI_TEXT_UR: UiStrings = {
   filtersLabel: 'چھانٹ',
   paletteHintMove: 'حرکت کے لیے',
   paletteHintOpen: 'کھولنے کے لیے',
+  paletteReadEntry: 'اندراج پڑھیں',
+  paletteShowOnMap: 'نقشے پر دکھائیں',
   ariaOpenPalette: 'آرکائیو میں تلاش اور چھانٹ',
   paletteClose: 'تلاش بند کریں',
   searchGroupDays: 'ایام',

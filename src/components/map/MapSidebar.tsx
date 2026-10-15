@@ -128,6 +128,33 @@ export function MapSidebar({
   const [filtersExpanded, setFiltersExpanded] = useState(false);
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
 
+  /* Touch swipe tracking for the mobile bottom sheet */
+  const touchStartY = useRef<number | null>(null);
+  const touchStartTime = useRef<number>(0);
+
+  const handleSheetTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+    touchStartTime.current = Date.now();
+  }, []);
+
+  const handleSheetTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      if (touchStartY.current === null) return;
+      const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+      const deltaTime = Math.max(1, Date.now() - touchStartTime.current);
+      const velocityY = deltaY / deltaTime;
+
+      touchStartY.current = null;
+      const flicked = isOpen ? deltaY > 35 || velocityY > 0.35 : deltaY < -35 || velocityY < -0.35;
+      if (!flicked || !onToggle) return;
+      /* A short flick can also produce a synthetic click, and the handle's
+         onClick toggles too: without this one gesture opened and closed it. */
+      e.preventDefault();
+      onToggle();
+    },
+    [isOpen, onToggle],
+  );
+
   const hasEraFilter = eraMin !== ERA_MIN || eraMax !== ERA_MAX;
   const hasActiveFilter = Boolean(
     activeCategories.length || activeRegion || hasEraFilter || verifiedOnly || savedOnly,
@@ -342,6 +369,8 @@ export function MapSidebar({
         <button
           className="sidebar-sheet-handle"
           onClick={onToggle}
+          onTouchStart={handleSheetTouchStart}
+          onTouchEnd={handleSheetTouchEnd}
           /* Was a hardcoded English 'Collapse sheet' / 'Expand sheet'. The
              Urdu accessible-name sweep never saw it: that suite runs at a
              desktop viewport, and this control only exists under 768px. */

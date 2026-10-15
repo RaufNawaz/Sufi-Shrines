@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { TabLink } from './TabLink';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { isRtlLang } from '../../lib/i18n/languages';
 import { TABS, activeTabId } from '../../lib/nav/tabs';
@@ -78,14 +79,10 @@ export function TabBar() {
           const current = active === tab.id;
           return (
             <li key={tab.id} className="tabbar-item">
-              <Link
+              <TabLink
                 to={tab.path}
                 className={`tabbar-link${current ? ' tabbar-link--current' : ''}`}
-                /* `page`, not `true`: this is the page the reader is on, and
-                   that distinction is what a screen reader announces. Absent
-                   entirely on a route no tab owns — claiming the map is current
-                   on a 404 is a lie read out loud. */
-                aria-current={current ? 'page' : undefined}
+                current={current}
               >
                 <svg
                   className="tabbar-icon"
@@ -102,7 +99,7 @@ export function TabBar() {
                   {ICONS[tab.id]}
                 </svg>
                 <span className="tabbar-label">{t(tab.labelKey)}</span>
-              </Link>
+              </TabLink>
             </li>
           );
         })}

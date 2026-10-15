@@ -287,3 +287,68 @@
 :root[data-motion='reduced'] .network-edge--animated {
   stroke-dasharray: none;
 }
+
+/* ── Glass rim light (usePointerSheen) ───────────────────────────────────────
+   A radial highlight at the pointer, masked to a one-pixel rim: the edge of
+   the pane nearest the pointer catches the light. The mask is the standard
+   border trick — the padding box minus the content box — so it costs one
+   composited layer and no layout. Invisible until the hook marks the element
+   lit, so touch screens and reduced motion (where the hook does nothing) never
+   see it. 15 October 2026. */
+.sheen {
+  position: relative;
+}
+
+.sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--sheen-x, 50%) var(--sheen-y, 0),
+    var(--sheen-color),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--easing);
+}
+
+.sheen.sheen--lit::after {
+  opacity: 1;
+}
+
+/* ── View transitions (lib/nav/viewTransition.ts) ────────────────────────────
+   The page content crossfades; the tab bar and the page header are named so
+   they are captured on their own and hold still — the native tab switch. The
+   names are applied only while a transition runs (`html.vt-nav`), because a
+   `view-transition-name` on a live element makes it a stacking context, and
+   the header's popovers and the tab bar's fixed position should not change
+   meaning the rest of the time. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 200ms;
+  animation-timing-function: var(--easing);
+}
+
+html.vt-nav .tabbar {
+  view-transition-name: tabbar;
+}
+
+html.vt-nav .shrine-page-header {
+  view-transition-name: page-header;
+}
+
+::view-transition-group(tabbar),
+::view-transition-group(page-header) {
+  animation-duration: 200ms;
+}

@@ -9,6 +9,8 @@ import type { CategoryKey } from '../../lib/data/categoryKey';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { ShrineFilters, type ShrineFiltersProps } from './ShrineFilters';
+import { PalettePreview } from './PalettePreview';
+import { usePointerSheen } from '../../hooks/usePointerSheen';
 
 import { isRtlLang } from '../../lib/i18n/languages';
 import { publicLocation } from '../../lib/data/publicLocation';
@@ -60,9 +62,14 @@ export interface CommandPaletteProps {
   categoryCounts: Partial<Record<CategoryKey, number>>;
 }
 
+/** How long the closing fade runs before the overlay unmounts. Short, the way
+ *  Spotlight leaves: the reader has already decided, and the map behind is
+ *  what they want to see. Matches `palette-out` in palette.css. */
+const CLOSE_MS = 140;
+
 export function CommandPalette({
   open,
-  onClose,
+  onClose: onCloseNow,
   query,
   onQueryChange,
   results,
@@ -84,6 +91,33 @@ export function CommandPalette({
   const [moreFiltersOpen, setMoreFiltersOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const listId = useId();
+  usePointerSheen(panelRef, open);
+
+  /* Spotlight leaves as it arrives — a quick fade and settle — instead of
+     vanishing. The overlay stays mounted for CLOSE_MS with `--closing` on it,
+     then the caller's `onClose` unmounts it. Skipped under reduced motion,
+     where there is no animation to wait for. */
+  const [closing, setClosing] = useState(false);
+  const closeTimer = useRef<number | null>(null);
+  const onClose = useCallback(() => {
+    if (closeTimer.current !== null) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      onCloseNow();
+      return;
+    }
+    setClosing(true);
+    closeTimer.current = window.setTimeout(() => {
+      closeTimer.current = null;
+      setClosing(false);
+      onCloseNow();
+    }, CLOSE_MS);
+  }, [onCloseNow]);
+  useEffect(
+    () => () => {
+      if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
+    },
+    [],
+  );
 
   /* Browse mode — no query — is grouped by tradition and uncapped; a query is
      ranked and capped at MAX_RESULTS. Asked for on 8 October 2026 (Rauf): the
@@ -109,9 +143,22 @@ export function CommandPalette({
     const order: CategoryKey[] = [...CATEGORY_ORDER, 'default'];
     return order.filter((key) => byKey.has(key)).map((key) => ({ key, rows: byKey.get(key)! }));
   }, [browsing, results]);
+  /* Spotlight opens as a bar (Rauf, 15 October 2026: "initially a spotlight
+     is just a bar and there are filters and then you type and you start seeing
+     more stuff"). With no query and no filter there is nothing to show yet —
+     the field and the tradition chips are the whole panel. Typing, or choosing
+     a tradition or a filter, is the reader asking for a list, and the panel
+     grows to hold it. This supersedes the 8 October browse list *on open*; the
+     grouping itself is unchanged and still what a chosen tradition shows. */
+  const expanded = !browsing || activeFilterCount > 0 || filters.activeCategories.length > 0;
   const visible = useMemo(
-    () => (groups ? groups.flatMap((group) => group.rows) : results.slice(0, MAX_RESULTS)),
-    [groups, results],
+    () =>
+      !expanded
+        ? []
+        : groups
+          ? groups.flatMap((group) => group.rows)
+          : results.slice(0, MAX_RESULTS),
+    [expanded, groups, results],
   );
 
   /* The tradition chips under the field. Additive, like the chips they replace
@@ -222,7 +269,7 @@ export function CommandPalette({
 
   return createPortal(
     <div
-      className="palette-backdrop"
+      className={`palette-backdrop${closing ? ' palette-backdrop--closing' : ''}`}
       /* Mousedown rather than click: a click that *starts* on a result row and
          ends on the backdrop (a sloppy tap on a phone) would otherwise dismiss
          the overlay instead of opening the shrine. */
@@ -231,7 +278,7 @@ export function CommandPalette({
       }}
     >
       <div
-        className="palette"
+        className={`palette sheen${expanded ? ' palette--expanded' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-label={t('paletteTitle')}
@@ -393,6 +440,41 @@ export function CommandPalette({
           </div>
         )}
 
+        {/* The bar is not empty (Rauf, 15 October 2026: "in all there should be
+            the showing of categories with their numbers below as well, this
+            looks too empty"). Before anything is asked, the panel says what the
+            archive holds — each tradition, its count, and its share of the
+            whole — and each row is the way into that tradition's list. */}
+        {!expanded && chipCategories.length > 1 && (
+          <ul className="palette-overview" aria-label={t('ariaFilterByCategory')}>
+            {chipCategories.map((key) => {
+              const n = categoryCounts[key] ?? 0;
+              return (
+                <li key={key}>
+                  <button
+                    type="button"
+                    className="palette-overview-row"
+                    onClick={() => toggleCategory(key)}
+                  >
+                    <span
+                      className={`palette-result-dot palette-result-dot--${key}`}
+                      aria-hidden="true"
+                    />
+                    <span className="palette-overview-label">{CATEGORY_LABELS[key][lang]}</span>
+                    <span className="palette-overview-bar" aria-hidden="true">
+                      <span
+                        className={`palette-overview-fill palette-result-dot--${key}`}
+                        style={{ inlineSize: `${allCount ? (n / allCount) * 100 : 0}%` }}
+                      />
+                    </span>
+                    <span className="palette-overview-count">{fmtNum(n)}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+
         {showFilters && (
           <div className="palette-filters" id={`${listId}-filters`}>
             <ShrineFilters
@@ -422,110 +504,127 @@ export function CommandPalette({
             : ''}
         </div>
 
-        {visible.length === 0 ? (
-          <p className="palette-empty">{t('noMatches')}</p>
-        ) : (
-          <ul className="palette-results" id={listId} role="listbox" ref={listRef}>
-            {(() => {
-              const sections = groups ?? [{ key: null as CategoryKey | null, rows: visible }];
-              /* A heading per tradition only when there is more than one to
+        {expanded && (
+          <div className="palette-body">
+            {visible.length === 0 ? (
+              <p className="palette-empty">{t('noMatches')}</p>
+            ) : (
+              <ul className="palette-results" id={listId} role="listbox" ref={listRef}>
+                {(() => {
+                  const sections = groups ?? [{ key: null as CategoryKey | null, rows: visible }];
+                  /* A heading per tradition only when there is more than one to
                  tell apart; a list narrowed to one chip is just that list. */
-              const showHeadings = sections.length > 1;
-              let index = -1;
-              return sections.map((section) => (
-                <React.Fragment key={section.key ?? '__all__'}>
-                  {showHeadings && section.key && (
-                    /* `aria-hidden` and outside the option list, as
+                  const showHeadings = sections.length > 1;
+                  let index = -1;
+                  return sections.map((section) => (
+                    <React.Fragment key={section.key ?? '__all__'}>
+                      {showHeadings && section.key && (
+                        /* `aria-hidden` and outside the option list, as
                        ArchiveSearch does it: a listbox may contain only
                        options, and the row's own dot and the chips above
                        already say the tradition. */
-                    <li className="archive-search-group palette-group" aria-hidden="true">
-                      <span className={`palette-result-dot palette-result-dot--${section.key}`} />
-                      {section.key === 'default' ? (
-                        <bdi>{section.rows[0]?.category ?? ''}</bdi>
-                      ) : (
-                        CATEGORY_LABELS[section.key][lang]
+                        <li className="archive-search-group palette-group" aria-hidden="true">
+                          <span
+                            className={`palette-result-dot palette-result-dot--${section.key}`}
+                          />
+                          {section.key === 'default' ? (
+                            <bdi>{section.rows[0]?.category ?? ''}</bdi>
+                          ) : (
+                            CATEGORY_LABELS[section.key][lang]
+                          )}
+                          <span className="palette-group-count">{fmtNum(section.rows.length)}</span>
+                        </li>
                       )}
-                      <span className="palette-group-count">{fmtNum(section.rows.length)}</span>
-                    </li>
-                  )}
-                  {section.rows.map((shrine) => {
-                    index += 1;
-                    const i = index;
-                    const name = localizeShrineName(shrine, lang);
-                    return (
-                      <li
-                        key={shrine.id}
-                        id={`${listId}-option-${i}`}
-                        data-index={i}
-                        role="option"
-                        aria-selected={i === activeIndex}
-                        className={`palette-result${i === activeIndex ? ' active' : ''}${
-                          i >= 24 ? ' palette-result--still' : ''
-                        }`}
-                        style={{ '--stagger-index': Math.min(i, 12) } as React.CSSProperties}
-                        onMouseEnter={() => setActiveIndex(i)}
-                        onClick={() => commit(shrine)}
-                      >
-                        <ShrineImage
-                          src={shrine.imageUrl}
-                          alt=""
-                          category={shrine.category}
-                          className="palette-result-img"
-                          placeholderClassName="palette-result-placeholder"
-                          loading="lazy"
-                          width={IMAGE_WIDTH.marker}
-                        />
-                        <span className="palette-result-body">
-                          <span className="palette-result-name">
-                            <bdi>{name}</bdi>
-                          </span>
-                          {shrine.location && (
-                            /* The Location column — as recorded for the team, a
+                      {section.rows.map((shrine) => {
+                        index += 1;
+                        const i = index;
+                        const name = localizeShrineName(shrine, lang);
+                        return (
+                          <li
+                            key={shrine.id}
+                            id={`${listId}-option-${i}`}
+                            data-index={i}
+                            role="option"
+                            aria-selected={i === activeIndex}
+                            className={`palette-result${i === activeIndex ? ' active' : ''}${
+                              i >= 24 ? ' palette-result--still' : ''
+                            }`}
+                            style={{ '--stagger-index': Math.min(i, 12) } as React.CSSProperties}
+                            onMouseEnter={() => setActiveIndex(i)}
+                            onClick={() => commit(shrine)}
+                          >
+                            <ShrineImage
+                              src={shrine.imageUrl}
+                              alt=""
+                              category={shrine.category}
+                              className="palette-result-img"
+                              placeholderClassName="palette-result-placeholder"
+                              loading="lazy"
+                              width={IMAGE_WIDTH.marker}
+                            />
+                            <span className="palette-result-body">
+                              <span className="palette-result-name">
+                                <bdi>{name}</bdi>
+                              </span>
+                              {shrine.location && (
+                                /* The Location column — as recorded for the team, a
                                place name for the public (`publicLocation`, the
                                rule /place's rows follow): a row is a place, not
                                the survey paragraph some cells hold. English on
                                many rows, hence data-latin (RULE 2, and the
                                no-leak guard counts it as declared debt). */
-                            <span className="palette-result-meta" data-latin>
-                              <bdi>
-                                {teamView
-                                  ? shrine.location
-                                  : publicLocation(shrine.location, shrine, lang)}
-                              </bdi>
+                                <span className="palette-result-meta" data-latin>
+                                  <bdi>
+                                    {teamView
+                                      ? shrine.location
+                                      : publicLocation(shrine.location, shrine, lang)}
+                                  </bdi>
+                                </span>
+                              )}
                             </span>
-                          )}
-                        </span>
-                        <span
-                          className={`palette-result-dot palette-result-dot--${categoryKey(shrine.category)}`}
-                          aria-hidden="true"
-                        />
-                      </li>
-                    );
-                  })}
-                </React.Fragment>
-              ));
-            })()}
-          </ul>
+                            <span
+                              className={`palette-result-dot palette-result-dot--${categoryKey(shrine.category)}`}
+                              aria-hidden="true"
+                            />
+                          </li>
+                        );
+                      })}
+                    </React.Fragment>
+                  ));
+                })()}
+              </ul>
+            )}
+            {visible[activeIndex] && (
+              <aside className="palette-preview">
+                <PalettePreview
+                  key={visible[activeIndex].id}
+                  shrine={visible[activeIndex]}
+                  onShow={() => commit(visible[activeIndex])}
+                />
+              </aside>
+            )}
+          </div>
         )}
 
-        <div className="palette-footer">
-          <span className="palette-hint">
-            <span className="palette-kbd" aria-hidden="true">
-              ↑
+        {expanded && (
+          <div className="palette-footer">
+            <span className="palette-hint">
+              <span className="palette-kbd" aria-hidden="true">
+                ↑
+              </span>
+              <span className="palette-kbd" aria-hidden="true">
+                ↓
+              </span>
+              {t('paletteHintMove')}
             </span>
-            <span className="palette-kbd" aria-hidden="true">
-              ↓
+            <span className="palette-hint">
+              <span className="palette-kbd" aria-hidden="true">
+                ↵
+              </span>
+              {t('paletteHintOpen')}
             </span>
-            {t('paletteHintMove')}
-          </span>
-          <span className="palette-hint">
-            <span className="palette-kbd" aria-hidden="true">
-              ↵
-            </span>
-            {t('paletteHintOpen')}
-          </span>
-        </div>
+          </div>
+        )}
       </div>
     </div>,
     document.body,

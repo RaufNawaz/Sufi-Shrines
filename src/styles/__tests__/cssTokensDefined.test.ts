@@ -34,6 +34,8 @@ const STYLES = join(__dirname, '..');
  */
 const SET_AT_RUNTIME: Record<string, string> = {
   '--stagger-index': 'per-item index, set inline by list components (see motion.css)',
+  '--sheen-x': 'pointer position over a glass pane, written by usePointerSheen.ts',
+  '--sheen-y': 'pointer position over a glass pane, written by usePointerSheen.ts',
   /* The order page's century strip. Every position on it is computed by
      `src/lib/data/figureTimeline.ts` and written inline by `OrderPage.tsx`,
      which is the point: a percentage that a stylesheet could declare would be a
