@@ -525,5 +525,9 @@
      and drops its digits. */
   .chronology-tick--minor {
     font-size: 0;
+    /* …and its hairline: a century is ~24px here and a label ~30px, so the
+       next century's line ran through the last digit of each kept label
+       ("110|0"). The lanes' own gridlines still mark every century. */
+    border-inline-start-color: transparent;
   }
 }

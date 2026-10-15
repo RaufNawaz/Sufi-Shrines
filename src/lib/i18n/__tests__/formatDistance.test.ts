@@ -82,8 +82,16 @@ describe('formatDistance', () => {
     it('says "< 1" where zero would be a lie', () => {
       /* A site 400 m away is not zero away, and rounding says it is. */
       expect(formatDistance(0.4, 'km', 'en', plain, { style: 'away', below: 'lessThanOne' })).toBe(
-        '< 1 km away',
+        '<\u00a01 km away',
       );
+    });
+
+    it('never lets a line break part "<" from its "1"', () => {
+      /* Measured in the Urdu related-shrines card: "<" ended one line and
+         "۱ کلومیٹر دور" began the next. */
+      expect(
+        formatDistance(0.4, 'km', 'en', plain, { style: 'away', below: 'lessThanOne' }),
+      ).not.toMatch(/< 1/);
     });
 
     it('rounds normally when the call site asks for nothing special', () => {

@@ -1714,3 +1714,52 @@
   ) {
   letter-spacing: normal;
 }
+
+/* Phone: the stat tiles become one inset group, a row per count — caption at
+   the start, figure at the end, a hairline between. As cards in a 2-column
+   grid they stood 317px on /chronology and 450px on /shared-ground (with an
+   empty cell), and pushed the chart or the list itself below the fold (council,
+   15 October 2026). Same markup, same figures; only the arrangement changes.
+   `.sg-stats` is the same pattern on /shared-ground and takes the same rule,
+   one step more specific because shared-ground.css loads after this file. */
+@media (max-width: 640px) {
+  .coverage-stat-grid,
+  dl.sg-stats {
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-radius: 12px;
+    background-color: var(--color-bg-surface);
+    border: var(--hairline) solid var(--color-border-light);
+    overflow: hidden;
+  }
+
+  .coverage-stat,
+  .sg-stats .sg-stat {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-4);
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .coverage-stat + .coverage-stat,
+  .sg-stats .sg-stat + .sg-stat {
+    border-block-start: var(--hairline) solid var(--color-border-light);
+  }
+
+  .coverage-stat-value,
+  .sg-stats .sg-stat-value {
+    flex: none;
+    font-size: var(--text-xl);
+  }
+
+  .coverage-stat-label,
+  .sg-stats .sg-stat-label {
+    margin: 0;
+  }
+}

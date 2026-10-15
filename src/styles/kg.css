@@ -591,6 +591,13 @@
   margin-top: var(--space-8);
 }
 
+/* The layout already opens with its own --space-8; the first section adding
+   another left ~65px of blank between the opening lines and the first
+   heading. */
+.entity-article-layout > div > .kg-section:first-child {
+  margin-top: 0;
+}
+
 /* Shared spec in components.css. This one drew a 2px border — four device
    pixels against the archive's one — until 30 August 2026. */
 .kg-section-heading {

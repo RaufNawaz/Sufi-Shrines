@@ -79,7 +79,7 @@ export function formatDistance(
         : tFn(lang, 'distanceAwayMetres', metres);
     }
     if (below === 'lessThanOne') {
-      return unitPhrase(style, units, lang, fmtNum('< 1'));
+      return unitPhrase(style, units, lang, fmtNum('<\u00a01'));
     }
     // 'decimal', and the miles fallback for 'metres'.
     return unitPhrase(style, units, lang, fmtNum(String(Math.round(value * 10) / 10)));
