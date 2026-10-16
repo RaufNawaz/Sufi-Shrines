@@ -52,3 +52,18 @@ definition of done) before pushing.
 - ~~**The entity fact box at the foot of saint and order pages on phones**~~ — asked in the chat;
   **Rauf, 15 October 2026: "yes remove it on the phone".** Done in `cfdfef5`, keeping the
   Wikidata link, which appears nowhere else on a saint page.
+
+## Continued, 15–16 October (Rauf: "keep working … an iterative process"; then "the zooming in and exploring the map is very clunky on the phone")
+
+All written with no test, build or browser runs (laptop on battery), so **all unverified**:
+
+| Commit | Change |
+|---|---|
+| `500df8b` | "Show my location" map control: a dot, an accuracy disc, a flight to it |
+| `1ee5e02`, `b39ef96` | Entry pages' chunks start loading on touch/hover/focus of any in-app link and of archive-search rows |
+| `dde73fc` | Map feel: `zoomSnap` 0 on touch (0.25 with a mouse) so a pinch no longer jumps to a whole level on release; `wheelPxPerZoomLevel` 120; `inertiaDeceleration` 2200; markers on their own compositor layers; GL basemap drawn 25% beyond the screen; Leaflet's zoom easing replaced (easing only — its 250ms timer and the plugin's `transitionend` wait depend on the duration) |
+| `ccbadd0` | Every in-app link crossfades in a View Transition, chunk awaited first |
+
+What to check on a real phone, in order of risk: link clicks still navigate everywhere
+(`ccbadd0` intercepts them at the document), e2e specs that click links, pinch/flick/double-tap on
+the map, the raster fallback at fractional zoom, and the location control granted and denied.
