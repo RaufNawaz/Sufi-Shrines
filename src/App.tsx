@@ -22,6 +22,7 @@ import {
   routerPathForHref,
 } from './lib/nav/routeModules';
 import { withViewTransition } from './lib/nav/viewTransition';
+import { isOnOverlayEntry } from './lib/nav/overlayHistory';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
 import { persistAccessParamIfPresent } from './lib/projectAccess';
 import { stripUrPrefix } from './lib/i18n/urlLangPrefix';
@@ -106,12 +107,27 @@ function PageFallback() {
    pointer rests on it), so the chunk is arriving before the tap completes —
    what `TabLink` does for the five tabs, for every in-app link at once. One
    delegated listener rather than a handler on each card, row and chip. */
+/* The URL a link element points at. An SVG <a> (the /graph network's nodes)
+   has an `href` that is an SVGAnimatedString, not a string — reading it as
+   one resolved "[object SVGAnimatedString]" against the current page. */
+function linkHref(link: Element): string | null {
+  if (link instanceof HTMLAnchorElement) return link.href;
+  const raw = link.getAttribute('href') ?? link.getAttribute('xlink:href');
+  if (!raw) return null;
+  try {
+    return new URL(raw, window.location.href).href;
+  } catch {
+    return null;
+  }
+}
+
 function LinkPrefetcher() {
   useEffect(() => {
     const base = import.meta.env.BASE_URL;
     const onIntent = (event: Event) => {
       const link = (event.target as Element | null)?.closest?.('a[href]');
-      if (link) preloadForHref((link as HTMLAnchorElement).href, base);
+      const href = link ? linkHref(link) : null;
+      if (href) void preloadForHref(href, base);
     };
     document.addEventListener('touchstart', onIntent, { passive: true, capture: true });
     document.addEventListener('pointerover', onIntent, { passive: true, capture: true });
@@ -148,10 +164,10 @@ function LinkTransitions() {
       ) {
         return;
       }
-      const link = (event.target as Element | null)?.closest?.(
-        'a[href]',
-      ) as HTMLAnchorElement | null;
-      if (!link || link.hasAttribute('download')) return;
+      /* HTML links only: the SVG ones (the /graph network) run their own
+         navigation in NetworkGraph's click handler. */
+      const link = (event.target as Element | null)?.closest?.('a[href]');
+      if (!(link instanceof HTMLAnchorElement) || link.hasAttribute('download')) return;
       if (link.target && link.target !== '_self') return;
       const to = routerPathForHref(link.href, base);
       if (!to) return;
@@ -159,7 +175,12 @@ function LinkTransitions() {
       if (url.pathname === window.location.pathname && url.search === window.location.search)
         return;
       event.preventDefault();
-      void preloadForHref(link.href, base).then(() => withViewTransition(() => navigate(to)));
+      /* Followed from inside an open sheet or palette: replace the entry that
+         overlay pushed, so back from the destination is one step, not two. */
+      const replace = isOnOverlayEntry();
+      void preloadForHref(link.href, base).then(() =>
+        withViewTransition(() => navigate(to, { replace })),
+      );
     };
     /* Capture, so this runs before React Router's own handler on <Link>,
        which then sees `defaultPrevented` and stands down. */
