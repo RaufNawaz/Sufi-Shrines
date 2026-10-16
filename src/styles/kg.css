@@ -3783,3 +3783,25 @@
 .graph-book-figures-list {
   grid-template-columns: 1fr;
 }
+
+/* A phone: the fact box drops to the foot of the page, after everything it
+   repeats — on /order/chishtiyya every row restates the opening lines (Arabic
+   name, founding, members, branches), on a saint page the other names, dates
+   and orders. Hidden there (Rauf, 15 October 2026), except what appears
+   nowhere else: the Wikidata link stays, as a plain line before "Cite". */
+@media (max-width: 639.98px) {
+  .entity-infobox:not(:has(.entity-infobox-row--external)) {
+    display: none;
+  }
+
+  .entity-infobox:has(.entity-infobox-row--external) {
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .entity-infobox:has(.entity-infobox-row--external) .entity-infobox-title,
+  .entity-infobox-row:not(.entity-infobox-row--external) {
+    display: none;
+  }
+}

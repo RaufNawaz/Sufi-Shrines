@@ -1152,7 +1152,7 @@ export default function SaintPage() {
                 </div>
               )}
               {saint.wikidataQid && (
-                <div className="entity-infobox-row">
+                <div className="entity-infobox-row entity-infobox-row--external">
                   <span className="entity-infobox-label">Wikidata</span>
                   <span className="entity-infobox-value">
                     <a
