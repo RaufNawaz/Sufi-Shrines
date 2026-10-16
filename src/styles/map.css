@@ -2386,3 +2386,34 @@
 [dir='rtl'] .lens-toggle-count {
   font-size: var(--text-sm);
 }
+
+/* "Where am I?" — the reader's position. The system's blue-dot idiom in the
+   archive's one interactive colour: a filled dot with a surface-coloured ring, and a
+   faint disc for the reported accuracy. CSS rather than Leaflet's path
+   options so it follows the theme. */
+.map-you-are-here {
+  fill: var(--color-primary);
+  fill-opacity: 1;
+  stroke: var(--color-bg-surface);
+  stroke-width: 3;
+}
+
+.map-you-are-here-halo {
+  fill: var(--color-primary);
+  fill-opacity: 0.12;
+  stroke: var(--color-primary);
+  stroke-opacity: 0.35;
+  stroke-width: 1;
+}
+
+.locate-btn[aria-busy='true'] svg {
+  opacity: 0.4;
+}
+
+.locate-btn--on {
+  color: var(--color-primary) !important;
+}
+
+.locate-btn--failed {
+  color: var(--color-text-muted) !important;
+}

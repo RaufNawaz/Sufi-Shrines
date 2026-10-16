@@ -512,6 +512,112 @@ function ResetViewControl({
   return null;
 }
 
+/* "Where am I?" (bottom-right, with zoom and reset). A visitor at a shrine
+   with the map open had no way to see themselves on it; Near me in the
+   palette sorts the list, this puts a dot on the map and flies to it.
+   Location is asked for only on the press, kept on this page only, and never
+   stored or sent. A second press re-centres; the dot stays until the page
+   is left. */
+function LocateControl({ label, failLabel }: { label: string; failLabel: string }) {
+  const map = useMap();
+  const labelsRef = useRef({ label, failLabel });
+  labelsRef.current = { label, failLabel };
+  const btnRef = useRef<HTMLAnchorElement | null>(null);
+
+  /* A language switch renames the control in place rather than rebuilding it,
+     which would drop the reader's dot from the map. */
+  useEffect(() => {
+    const btn = btnRef.current;
+    if (!btn) return;
+    const text = btn.classList.contains('locate-btn--failed') ? failLabel : label;
+    btn.title = text;
+    btn.setAttribute('aria-label', text);
+  }, [label, failLabel]);
+
+  useEffect(() => {
+    let dot: L.CircleMarker | null = null;
+    let halo: L.Circle | null = null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- @types/leaflet doesn't type Control.extend()
+    const LocateCtrl = (L.Control as any).extend({
+      options: { position: 'bottomright' },
+      onAdd() {
+        const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+        const btn = L.DomUtil.create('a', 'reset-view-btn locate-btn', container);
+        btnRef.current = btn;
+        btn.href = '#';
+        btn.title = labelsRef.current.label;
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-label', labelsRef.current.label);
+        btn.innerHTML =
+          '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>';
+
+        const fail = () => {
+          btn.removeAttribute('aria-busy');
+          btn.classList.add('locate-btn--failed');
+          btn.title = labelsRef.current.failLabel;
+          btn.setAttribute('aria-label', labelsRef.current.failLabel);
+        };
+
+        L.DomEvent.on(btn, 'click', (e: Event) => {
+          L.DomEvent.stopPropagation(e);
+          L.DomEvent.preventDefault(e);
+          if (!navigator.geolocation) {
+            fail();
+            return;
+          }
+          btn.setAttribute('aria-busy', 'true');
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              btn.removeAttribute('aria-busy');
+              btn.classList.remove('locate-btn--failed');
+              btn.classList.add('locate-btn--on');
+              btn.title = labelsRef.current.label;
+              btn.setAttribute('aria-label', labelsRef.current.label);
+              const here = L.latLng(pos.coords.latitude, pos.coords.longitude);
+              const accuracy = Math.min(pos.coords.accuracy || 0, 5000);
+              if (!halo) {
+                halo = L.circle(here, {
+                  radius: accuracy,
+                  className: 'map-you-are-here-halo',
+                  interactive: false,
+                }).addTo(map);
+              } else {
+                halo.setLatLng(here).setRadius(accuracy);
+              }
+              if (!dot) {
+                dot = L.circleMarker(here, {
+                  radius: 7,
+                  className: 'map-you-are-here',
+                  interactive: false,
+                }).addTo(map);
+              } else {
+                dot.setLatLng(here);
+              }
+              const zoom = Math.max(map.getZoom(), 12);
+              const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              if (reduced) map.setView(here, zoom, { animate: false });
+              else map.flyTo(here, zoom, { duration: FLIGHT_DURATION_S });
+            },
+            fail,
+            { timeout: 10000, maximumAge: 60000, enableHighAccuracy: true },
+          );
+        });
+        return container;
+      },
+    });
+
+    const ctrl = new LocateCtrl();
+    ctrl.addTo(map);
+    return () => {
+      ctrl.remove();
+      dot?.remove();
+      halo?.remove();
+    };
+  }, [map]);
+
+  return null;
+}
+
 // Handles invalidateSize and sidebar-aware flyTo
 function MapController({
   shrines,
@@ -639,6 +745,7 @@ export function ShrineMap({
         label={t('mapResetViewLabel')}
         shrines={shrines}
       />
+      <LocateControl label={t('mapLocateMe')} failLabel={t('locationUnavailable')} />
       <MapClickDeselect onSelect={onSelect} />
       <SharedGroundLensControl
         active={sharedGroundLens}
