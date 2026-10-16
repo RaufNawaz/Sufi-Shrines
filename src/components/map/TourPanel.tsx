@@ -9,6 +9,7 @@ import { resolveTourStops } from '../../lib/tours/tourRoute';
 import { legDistancesKm } from '../../lib/tours/tourGeo';
 import { useTourAudio } from '../../lib/tours/useTourAudio';
 import { useAutoplay } from '../../lib/tours/useAutoplay';
+import { useWakeLock } from '../../hooks/useWakeLock';
 import { getFieldValue, getUrduFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ARTICLE_SECTION_DEFINITIONS } from '../../lib/data/constants';
@@ -173,6 +174,8 @@ export function TourPanel({
   const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const [autoplayOn, setAutoplayOn] = useState(false);
   const [autoplayPaused, setAutoplayPaused] = useState(false);
+  /* The screen stays on while the tour is moving by itself or speaking. */
+  useWakeLock((autoplayOn && !autoplayPaused) || audio.state === 'playing');
 
   return (
     <div className="tour-panel" aria-label={t(lang, 'guidedTourAriaLabel')}>
