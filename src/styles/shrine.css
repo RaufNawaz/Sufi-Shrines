@@ -1318,8 +1318,13 @@
      palette's (HANDOVER §9.102), on the surface whose entire job is showing a
      photograph whole. */
   height: 100dvh;
-  background: rgba(0, 0, 0, 0.92);
+  /* `--lightbox-dim` falls from 1 as a pull-down lifts the photograph away
+     (useLightboxGestures), so the page shows through before it closes. */
+  background: rgba(0, 0, 0, calc(0.92 * var(--lightbox-dim, 1)));
   z-index: var(--z-lightbox);
+  /* The gestures are the lightbox's own: without this a pinch zoomed the whole
+     page, overlay and buttons included, instead of the photograph. */
+  touch-action: none;
   display: flex;
   align-items: center;
   justify-content: center;

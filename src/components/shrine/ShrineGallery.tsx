@@ -5,8 +5,7 @@ import { tFn } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
 import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { useBackToClose } from '../../hooks/useBackToClose';
-
-const SWIPE_THRESHOLD_PX = 50;
+import { useLightboxGestures } from './useLightboxGestures';
 
 /**
  * Gallery photographs the browser could not load.
@@ -58,7 +57,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
   const [idx, setIdx] = useState(initialIndex);
   const closeRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const touchStartX = useRef<number | null>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
   useBackToClose(true, onClose);
 
   /*
@@ -163,19 +162,17 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       });
   }, [idx, items]);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-    const delta = e.changedTouches[0].clientX - touchStartX.current;
-    touchStartX.current = null;
-    if (Math.abs(delta) < SWIPE_THRESHOLD_PX) return;
-    const swipedToNext = isRTL ? delta > 0 : delta < 0;
-    if (swipedToNext) goNext();
-    else goPrev();
-  };
+  const { suppressClick } = useLightboxGestures({
+    overlayRef,
+    imgRef,
+    isRTL,
+    canPrev: idx > 0,
+    canNext: idx < items.length - 1,
+    onPrev: goPrev,
+    onNext: goNext,
+    onClose,
+    resetKey: idx,
+  });
 
   const item = items[idx];
 
@@ -184,10 +181,8 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       ref={overlayRef}
       className="lightbox-overlay"
       onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
+        if (e.target === e.currentTarget && !suppressClick()) onClose();
       }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
       role="dialog"
       aria-modal="true"
       aria-label={t('gallery')}
@@ -227,6 +222,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       )}
 
       <img
+        ref={imgRef}
         key={item.index}
         src={thumbnailUrl(item.imageUrl, IMAGE_WIDTH.hero)}
         /* Was `Gallery image ${idx + 1}` — an English literal in the Urdu view.
