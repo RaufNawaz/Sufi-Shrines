@@ -2978,3 +2978,13 @@
     transform: translateY(-100%);
   }
 }
+
+/* Phone: the page ends clear of the floating row (the Contents pill and the
+   scroll-to-top button, 44px on a --space-6 baseline above the tab bar). At
+   the foot of a page they sat over its last lines — "Cite this entry" on every
+   entity page (council, 15 October 2026). */
+@media (max-width: 640px) {
+  .site-footer {
+    padding-bottom: calc(var(--space-6) + 44px + var(--space-6));
+  }
+}
