@@ -104,3 +104,8 @@ Antigravity drafted this plan and the first four files, then ran out of quota mi
 **Clean-up and performance, later the same day.** `palette.css` was folded from three overriding layers into one rule per selector, verified by diffing the computed style of every palette element in ten states before and after. The layering had broken three things, now fixed: phone tap targets had dropped to 30–32px, the phone panel was capped at 451px, and reduced motion did not stop the panel's entrance or the rows' stagger. The palette itself is lazy-loaded with an idle-time fetch, taking the map route's eager JS from 626 to 616 KB.
 
 **Not done from this plan:** Phase 2 (Quick-Look peek cards) and the recent-searches part of Phase 3. Both are open; neither was asked for again during the session.
+
+**Later, same day — the phone council.** Recent searches (Phase 3) shipped as "Recently viewed"
+in the archive search's empty state. Quick-Look (Phase 2) is still open, now with a touch
+design sketched in [`PHONE_COUNCIL_2026-10-15.md`](PHONE_COUNCIL_2026-10-15.md), which also
+records the other sixteen phone changes and which of them are not yet verified.
