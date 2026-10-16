@@ -141,3 +141,10 @@ urdu-i18n/review/
 # one edit on one machine, not shared history. Added 18 September 2026 with the script, so that a
 # repair to the queue's own state is always revertible without the backup entering the repo.
 pipeline/book_queue/state.json.bak-*
+
+# GIS research layer (docs/GIS_FOUNDATION.md). The GeoPackage is a 14 MB build output and the
+# boundaries and raw sources are downloads; all are rebuilt by the scripts in pipeline/gis/, which
+# are committed. Ruled by Rauf 15 October 2026: gitignore the build, commit what builds it.
+pipeline/gis/*.gpkg
+pipeline/gis/boundaries/
+pipeline/gis/sources/

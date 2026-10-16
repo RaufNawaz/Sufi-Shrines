@@ -407,6 +407,7 @@ Full detail, plus a list of previously-confident-but-wrong diagnoses, in `docs/H
 docs/          plans, roadmaps, handover, proposals, briefs
 docs/prompts/  prompts written for agents
 pipeline/      python scripts, termbase.tsv, photo_manifest.tsv
+pipeline/gis/  research GeoPackage: sites × admin boundaries × H3 grid × Census 2023 (docs/GIS_FOUNDATION.md)
 data/          CSV snapshots and import patches
 entries/       drafted entries and field survey transcriptions
 media-source/  raw downloaded media (gitignored, kept for backup)
@@ -505,6 +506,8 @@ Commit in coherent units with a scope prefix (`data:`, `media:`, `feat:`, `docs:
 - `docs/planning/URDU_IMPLEMENTATION_PLAN.md` — full phased Urdu plan.
 - `urdu-i18n/README.md` — dictionary files, coverage, regeneration.
 - `docs/planning/PROJECT_VISION.md` — blue-sky roadmap.
+- `docs/GIS_FOUNDATION.md` — the spatial research layer (`pipeline/gis/`, added 15 October 2026).
+  Not read by the website. Built from `data/shrines.csv`, so rebuild it after `npm run data:build`.
 - `docs/planning/SHARED_GROUND_VISION.md` — the current phase: 37% of sites stand within 800 m
   of another, and **40** of those pairings cross a tradition, over 42 sites, with all six
   traditions represented (*re-measured 29 August 2026; this line said "eight places" for nine
