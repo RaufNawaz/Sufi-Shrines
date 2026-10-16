@@ -3625,9 +3625,33 @@
   line-height: var(--leading-urdu-ui);
 }
 
-@media (max-width: 480px) {
+/* A phone: one swipeable shelf instead of a wall. As a two-column grid the
+   eleven tiles stood 684px (909px in Urdu) between the intro and the first
+   group, so the atlas opened on its index and never on a site (council,
+   15 October 2026). One row, scroll-snapped, bleeding to the screen edges so
+   the next tile peeks in and says there is more; DOM order and focus order
+   are unchanged, and logical properties carry it into RTL. */
+@media (max-width: 640px) {
   .typology-jump .typology-tiles {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 8.5rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--space-4);
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--space-4));
+    padding-inline: var(--space-4);
+    padding-block-end: var(--space-1);
+  }
+
+  .typology-jump .typology-tiles::-webkit-scrollbar {
+    display: none;
+  }
+
+  .typology-tile-item {
+    scroll-snap-align: start;
   }
 }
 
