@@ -6,6 +6,7 @@ import {
   Navigate,
   useSearchParams,
   useLocation,
+  useNavigate,
 } from 'react-router-dom';
 
 import { LanguageProvider, useLang } from './lib/i18n/LanguageContext';
@@ -14,7 +15,13 @@ import { ReaderPreferencesProvider } from './lib/preferences/ReaderPreferencesCo
 import { ArchiveSearchProvider } from './components/search/ArchiveSearchProvider';
 import { UpdateToast } from './components/ui/UpdateToast';
 import { TabBar } from './components/nav/TabBar';
-import { ROUTE_MODULES, SEGMENT_MODULES, preloadForHref } from './lib/nav/routeModules';
+import {
+  ROUTE_MODULES,
+  SEGMENT_MODULES,
+  preloadForHref,
+  routerPathForHref,
+} from './lib/nav/routeModules';
+import { withViewTransition } from './lib/nav/viewTransition';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
 import { persistAccessParamIfPresent } from './lib/projectAccess';
 import { stripUrPrefix } from './lib/i18n/urlLangPrefix';
@@ -118,6 +125,50 @@ function LinkPrefetcher() {
   return null;
 }
 
+/* Every in-app link crossfades, the way the tabs have since 15 October 2026:
+   the page's chunk is awaited first (so the transition captures the page and
+   not the Suspense spinner), then the navigation runs inside a View
+   Transition while the header and tab bar hold still (motion.css). Plain
+   navigation where the API is missing or motion is off — `withViewTransition`
+   decides. Leaves alone: modified and non-primary clicks, other targets,
+   downloads, other origins, files that are not pages, links whose own handler
+   already took the click, and a jump within the page (same path, a hash). */
+function LinkTransitions() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const base = import.meta.env.BASE_URL;
+    const onClick = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+      const link = (event.target as Element | null)?.closest?.(
+        'a[href]',
+      ) as HTMLAnchorElement | null;
+      if (!link || link.hasAttribute('download')) return;
+      if (link.target && link.target !== '_self') return;
+      const to = routerPathForHref(link.href, base);
+      if (!to) return;
+      const url = new URL(link.href);
+      if (url.pathname === window.location.pathname && url.search === window.location.search)
+        return;
+      event.preventDefault();
+      void preloadForHref(link.href, base).then(() => withViewTransition(() => navigate(to)));
+    };
+    /* Capture, so this runs before React Router's own handler on <Link>,
+       which then sees `defaultPrevented` and stands down. */
+    document.addEventListener('click', onClick, { capture: true });
+    return () => document.removeEventListener('click', onClick, { capture: true });
+  }, [navigate]);
+  return null;
+}
+
 function RouteAnnouncer() {
   const location = useLocation();
   useRecordRecentEntries();
@@ -193,6 +244,7 @@ export default function App() {
               <SkipLinks />
               <RouteAnnouncer />
               <LinkPrefetcher />
+              <LinkTransitions />
               {/* Top-level navigation, phone only (hidden by CSS above 640px).
               Outside the Suspense boundary on purpose: the bar is the one thing
               on screen while a lazily-loaded page is still arriving, and a

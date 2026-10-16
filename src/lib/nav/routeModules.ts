@@ -70,17 +70,55 @@ export function moduleKeyForHref(href: string, base: string): string | null {
   return segment in SEGMENT_MODULES ? segment : null;
 }
 
-/** Start (once) loading the page a link leads to. */
-export function preloadForHref(href: string, base: string): void {
+/** Start (once) loading the page a link leads to; resolves when it is in
+ *  (at once for a link that is not to one of these pages). */
+export function preloadForHref(href: string, base: string): Promise<unknown> {
   const key = moduleKeyForHref(href, base);
-  if (!key) return;
-  if (key in ROUTE_MODULES) {
-    void preloadRoute(key);
-    return;
+  if (!key) return Promise.resolve();
+  if (key in ROUTE_MODULES) return preloadRoute(key);
+  let pending = started.get(key);
+  if (!pending) {
+    pending = SEGMENT_MODULES[key as keyof typeof SEGMENT_MODULES]().catch(() => {
+      started.delete(key);
+    });
+    started.set(key, pending);
   }
-  if (started.has(key)) return;
-  const pending = SEGMENT_MODULES[key as keyof typeof SEGMENT_MODULES]().catch(() => {
-    started.delete(key);
-  });
-  started.set(key, pending);
+  return pending;
+}
+
+/** First path segments the router owns (with or without the `/ur` prefix). A
+ *  same-origin link outside these — a dataset download, a vendored file — is
+ *  a file, not a page, and must be left to the browser. */
+const APP_SEGMENTS = new Set([
+  '',
+  ...Object.keys(SEGMENT_MODULES),
+  'graph',
+  'almanac',
+  'typology',
+  'about',
+  'review',
+  'coverage',
+  'report',
+]);
+
+/** The router location (`/shrine/x?y#z`, basename removed) an in-app link
+ *  points at, or null when it is not a page of this app. */
+export function routerPathForHref(href: string, base: string): string | null {
+  let url: URL;
+  try {
+    url = new URL(href, window.location.href);
+  } catch {
+    return null;
+  }
+  if (url.origin !== window.location.origin) return null;
+  const trimmedBase = base.replace(/\/$/, '');
+  let path = url.pathname;
+  if (trimmedBase) {
+    if (!path.startsWith(trimmedBase)) return null;
+    path = path.slice(trimmedBase.length) || '/';
+  }
+  const segments = path.split('/');
+  const first = segments[1] === 'ur' ? (segments[2] ?? '') : (segments[1] ?? '');
+  if (!APP_SEGMENTS.has(first)) return null;
+  return `${path}${url.search}${url.hash}`;
 }
