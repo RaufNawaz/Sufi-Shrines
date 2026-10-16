@@ -32,12 +32,13 @@ every finding against the code before reporting. No seat edited files.
 | `a8124b3` | Page ends clear of the floating pill and scroll-to-top button (2) | the button sat over "Cite this entry" |
 | `47f8775` | "Near me" in the map's Spotlight: nearest first, distance per row (3) | geolocation was used only to pick a tour |
 | `932c198` | Install offer on /settings; one-time "Ready to use offline" notice (3) | standalone manifest and precache existed; nobody was told |
+| `e949d97` | Atlas form tiles as one swipeable shelf on phones (2) | the 11 tiles stood 684px (909 UR) before the first group |
 
 **Verification caveat.** From `47f8775` onward Rauf asked for no test runs (laptop heat, low
 battery). `47f8775` was checked in the browser but its unit tests were not re-run after the
 "Near me" chip moved out of the tradition group (the first version failed `MapSidebar.test.tsx`
-for exactly that reason, which the move answers). `932c198` was not typechecked, tested or opened
-at all. Run `npm run verify` and `npm run build:e2e && npm run e2e` (the Urdu strings make e2e the
+for exactly that reason, which the move answers). `932c198` and `e949d97` were not typechecked, tested or
+opened at all. Run `npm run verify` and `npm run build:e2e && npm run e2e` (the Urdu strings make e2e the
 definition of done) before pushing.
 
 ## Not done
@@ -48,9 +49,6 @@ definition of done) before pushing.
   and "Show on map". `useBackToClose` now gives it back-to-dismiss for free.
 - **A third, half-height snap for the map sheet** (seat 1, #1). The sheet follows the finger
   and settles on peek or full; a middle stop needs `isOpen` widened to a three-state in MapPage.
-- **Typology's 11-tile grid** is 684px (909 in Urdu) before the first group on a phone
-  (seat 2, #3); the stat-list treatment was applied to `/chronology`, `/shared-ground` and
-  `/about` only.
 - **The entity fact box at the foot of saint and order pages on phones** (seat 2, #4): seat 2
   measured that every row repeats the opening lines and proposed hiding it under 640px. That
   hides content, so it was asked in the chat rather than done.
