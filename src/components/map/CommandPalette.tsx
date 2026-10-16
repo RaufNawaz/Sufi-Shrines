@@ -16,6 +16,10 @@ import { usePointerSheen } from '../../hooks/usePointerSheen';
 import { isRtlLang } from '../../lib/i18n/languages';
 import { publicLocation } from '../../lib/data/publicLocation';
 import { hasProjectAccess } from '../../lib/projectAccess';
+import { haversineKm } from '../../lib/data/shrineModel';
+import type { LatLng } from '../../types/shrine';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 /**
  * Search the archive from the middle of the screen.
  *
@@ -93,6 +97,34 @@ export function CommandPalette({
   const [activeIndex, setActiveIndex] = useState(0);
   const listId = useId();
   usePointerSheen(panelRef, open);
+  const { units } = useReaderPreferences();
+
+  /* "Near me": the list sorted by distance from the reader, nearest first,
+   * each row saying how far. A visitor standing in Lahore asking what is near
+   * had to pan the map (council, 15 October 2026). Location is asked for only
+   * when the chip is pressed, never on open, held for this palette session
+   * only, and never stored or sent anywhere. */
+  const [here, setHere] = useState<LatLng | null>(null);
+  const [geo, setGeo] = useState<'idle' | 'loading' | 'unavailable'>('idle');
+  const toggleNearMe = useCallback(() => {
+    if (here) {
+      setHere(null);
+      return;
+    }
+    if (!navigator.geolocation) {
+      setGeo('unavailable');
+      return;
+    }
+    setGeo('loading');
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setHere({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setGeo('idle');
+      },
+      () => setGeo('unavailable'),
+      { timeout: 10000, maximumAge: 300000 },
+    );
+  }, [here]);
 
   /* Spotlight leaves as it arrives — a quick fade and settle — instead of
      vanishing. The overlay stays mounted for CLOSE_MS with `--closing` on it,
@@ -133,7 +165,7 @@ export function CommandPalette({
      forty of 171 are all one group. Rows past the first two dozen skip the
      entrance animation (`.palette-result--still`), which is what the cap was
      protecting. */
-  const browsing = !query.trim();
+  const browsing = !query.trim() && !here;
   const groups = useMemo(() => {
     if (!browsing) return null;
     const byKey = new Map<CategoryKey, Shrine[]>();
@@ -154,14 +186,29 @@ export function CommandPalette({
      grows to hold it. This supersedes the 8 October browse list *on open*; the
      grouping itself is unchanged and still what a chosen tradition shows. */
   const expanded = !browsing || activeFilterCount > 0 || filters.activeCategories.length > 0;
+  /* Distance from the reader for every mapped site in the list, when asked. A
+     site the archive has no coordinates for has no distance and is left out of
+     a sort by distance rather than placed at either end of it. */
+  const distances = useMemo(() => {
+    if (!here) return null;
+    const km = new Map<Shrine['id'], number>();
+    for (const shrine of results)
+      if (shrine.latLng) km.set(shrine.id, haversineKm(here, shrine.latLng));
+    return km;
+  }, [here, results]);
   const visible = useMemo(
     () =>
       !expanded
         ? []
-        : groups
-          ? groups.flatMap((group) => group.rows)
-          : results.slice(0, MAX_RESULTS),
-    [expanded, groups, results],
+        : distances
+          ? results
+              .filter((shrine) => distances.has(shrine.id))
+              .sort((a, b) => distances.get(a.id)! - distances.get(b.id)!)
+              .slice(0, MAX_RESULTS)
+          : groups
+            ? groups.flatMap((group) => group.rows)
+            : results.slice(0, MAX_RESULTS),
+    [expanded, distances, groups, results],
   );
 
   /* The tradition chips under the field. Additive, like the chips they replace
@@ -411,35 +458,62 @@ export function CommandPalette({
         </div>
 
         {chipCategories.length > 1 && (
-          <div className="palette-cats" role="group" aria-label={t('ariaFilterByCategory')}>
+          <div className="palette-cats">
+            {/* Beside the traditions, not among them: it sorts, it does not
+                filter by tradition. */}
             <button
               type="button"
-              className={`filter-chip palette-cat${activeCategories.length === 0 ? ' active' : ''}`}
-              aria-pressed={activeCategories.length === 0}
-              onClick={() => onCategoriesChange([])}
+              className={`filter-chip palette-cat palette-near${here ? ' active' : ''}`}
+              aria-pressed={here !== null}
+              aria-busy={geo === 'loading'}
+              onClick={toggleNearMe}
             >
-              {t('filterAll')}
-              <span className="palette-cat-count">{fmtNum(allCount)}</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              </svg>
+              {t('nearMe')}
             </button>
-            {chipCategories.map((key) => {
-              const on = activeCategories.includes(key);
-              return (
-                <button
-                  key={key}
-                  type="button"
-                  className={`filter-chip palette-cat${on ? ' active' : ''}`}
-                  aria-pressed={on}
-                  onClick={() => toggleCategory(key)}
-                >
-                  <span
-                    className={`palette-result-dot palette-result-dot--${key}`}
-                    aria-hidden="true"
-                  />
-                  {CATEGORY_LABELS[key][lang]}
-                  <span className="palette-cat-count">{fmtNum(categoryCounts[key] ?? 0)}</span>
-                </button>
-              );
-            })}
+            <div className="palette-cats-group" role="group" aria-label={t('ariaFilterByCategory')}>
+              <button
+                type="button"
+                className={`filter-chip palette-cat${activeCategories.length === 0 ? ' active' : ''}`}
+                aria-pressed={activeCategories.length === 0}
+                onClick={() => onCategoriesChange([])}
+              >
+                {t('filterAll')}
+                <span className="palette-cat-count">{fmtNum(allCount)}</span>
+              </button>
+
+              {chipCategories.map((key) => {
+                const on = activeCategories.includes(key);
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    className={`filter-chip palette-cat${on ? ' active' : ''}`}
+                    aria-pressed={on}
+                    onClick={() => toggleCategory(key)}
+                  >
+                    <span
+                      className={`palette-result-dot palette-result-dot--${key}`}
+                      aria-hidden="true"
+                    />
+                    {CATEGORY_LABELS[key][lang]}
+                    <span className="palette-cat-count">{fmtNum(categoryCounts[key] ?? 0)}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         )}
 
@@ -501,8 +575,15 @@ export function CommandPalette({
             instead would have been a different falsehood: the reader would be
             told 40 sites match when 44 do. */}
         <div className="palette-status" aria-live="polite" aria-atomic="true">
+          {geo === 'unavailable'
+            ? `${t('locationUnavailable')} · `
+            : distances
+              ? `${t('sortedByDistance')} · `
+              : ''}
           {fmtNum(tFn(lang, 'paletteResultCount', results.length, total))}
-          {visible.length < results.length
+          {/* Only once there is a list: the closed bar renders none, and said
+              "showing first 0". */}
+          {expanded && visible.length < results.length
             ? ` · ${fmtNum(tFn(lang, 'paletteShowingFirst', visible.length))}`
             : ''}
         </div>
@@ -569,6 +650,14 @@ export function CommandPalette({
                               <span className="palette-result-name">
                                 <bdi>{name}</bdi>
                               </span>
+                              {distances?.has(shrine.id) && (
+                                <span className="palette-result-meta palette-result-distance">
+                                  {formatDistance(distances.get(shrine.id)!, units, lang, fmtNum, {
+                                    style: 'away',
+                                    below: 'lessThanOne',
+                                  })}
+                                </span>
+                              )}
                               {shrine.location && (
                                 /* The Location column — as recorded for the team, a
                                place name for the public (`publicLocation`, the

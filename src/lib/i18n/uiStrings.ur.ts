@@ -298,6 +298,7 @@ export const UI_TEXT_UR: UiStrings = {
   saintGapBiography: 'مقام کے اپنے اندراج کے سوا کوئی سوانحی تحریر نہیں۔',
   activeFiltersCount: (n: number) => `${n} فلٹرز فعال`,
   nearMe: 'میرے قریب',
+  sortedByDistance: 'قریب ترین پہلے',
   switchToUrdu: 'اردو',
   switchToEnglish: 'English',
   darkMode: 'ڈارک موڈ',

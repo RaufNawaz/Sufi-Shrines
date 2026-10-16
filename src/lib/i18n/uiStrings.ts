@@ -319,6 +319,7 @@ const UI_TEXT_EN = {
   saintGapBiography: 'No biographical prose beyond the site’s own entry.',
   activeFiltersCount: (n: number) => `${n} filter${n === 1 ? '' : 's'} active`,
   nearMe: 'Near Me',
+  sortedByDistance: 'Nearest first',
   switchToUrdu: 'اردو',
   switchToEnglish: 'English',
   darkMode: 'Dark mode',

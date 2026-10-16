@@ -1157,3 +1157,11 @@
 [dir='rtl'] .archive-search-clear {
   font-family: var(--font-urdu);
 }
+
+/* The tradition chips as one group inside the scrolling chip row, after the
+   "Near me" chip, which sorts and so is not one of them. */
+.palette-cats-group {
+  display: flex;
+  flex: none;
+  gap: var(--space-2);
+}
