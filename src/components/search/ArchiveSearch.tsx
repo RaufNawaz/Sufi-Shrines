@@ -22,6 +22,7 @@ import type { Shrine } from '../../types/shrine';
 import { useBackToClose } from '../../hooks/useBackToClose';
 import { clearRecent, useRecentEntries } from '../../lib/recentEntries';
 import { isOnOverlayEntry } from '../../lib/nav/overlayHistory';
+import { preloadForHref } from '../../lib/nav/routeModules';
 
 /**
  * Search, from anywhere in the archive.
@@ -595,6 +596,9 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
                   aria-selected={i === activeIndex}
                   className={`palette-result${i === activeIndex ? ' active' : ''}`}
                   onMouseEnter={() => setActiveIndex(i)}
+                  /* Rows are options, not links, so App's link prefetcher
+                     cannot see them: start the page's chunk on touch here. */
+                  onPointerDown={() => preloadForHref(row.to, import.meta.env.BASE_URL)}
                   onClick={() => commit(row)}
                 >
                   <span
