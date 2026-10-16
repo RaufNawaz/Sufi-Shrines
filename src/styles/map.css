@@ -2417,3 +2417,24 @@
 .locate-btn--failed {
   color: var(--color-text-muted) !important;
 }
+
+/* ── Motion under the finger (15 October 2026) ─────────────────────────────
+   Every zoom frame — a pinch, a flight to a pin — moves all ~170 markers, and
+   with the marker pane painted as one surface each frame repainted every
+   shadow, gradient and photograph on it. Promoting each marker to its own
+   compositor layer makes those moves transform-only: ~170 small layers of at
+   most 30px, a few MB of GPU memory, against a repaint per frame. */
+.leaflet-marker-pane .leaflet-marker-icon {
+  will-change: transform;
+}
+
+/* Leaflet's animated zoom (a double tap, the +/− buttons) eases on
+   cubic-bezier(0, 0, 0.25, 1) over 250ms, which starts at full speed and
+   stops with a visible jolt. The archive's own ease-out decelerates the way
+   the rest of the interface does. The easing only: Leaflet ends the zoom on
+   its own 250ms timer and the GL basemap waits for this transition's end, so
+   the duration must stay Leaflet's — a zero duration would never fire
+   `transitionend` and leave the basemap scaled. */
+.leaflet-zoom-anim .leaflet-zoom-animated {
+  transition-timing-function: var(--easing);
+}

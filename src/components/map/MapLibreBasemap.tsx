@@ -200,6 +200,10 @@ export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
         // (maptiler_planet and an attribution-only pseudo-source) carrying
         // the same credit, so the control renders it twice.
         attributionControl: { customAttribution: MAPTILER_ATTRIBUTION },
+        /* How far beyond the screen the basemap is drawn. The plugin's 10% left
+           a fast flick on a phone running into blank edges until the next
+           redraw; 25% keeps a flick inside drawn map. */
+        padding: 0.25,
       }) as GlLayer;
 
       layer.addTo(map);

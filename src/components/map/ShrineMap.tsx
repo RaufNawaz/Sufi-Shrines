@@ -618,6 +618,28 @@ function LocateControl({ label, failLabel }: { label: string; failLabel: string 
   return null;
 }
 
+/* How the map moves under a finger (Rauf, 15 October 2026: "zooming in and
+ * exploring the map is very clunky on the phone").
+ *
+ * - **zoomSnap.** Leaflet's default of 1 rounds every pinch to a whole zoom
+ *   level on release, so the map jumped — up to 41% in scale — the moment the
+ *   fingers lifted. The basemap is vector and renders any zoom crisply, so on
+ *   a touch screen the pinch now ends where the fingers left it. With a mouse
+ *   it snaps to quarter levels, which keeps the wheel from drifting.
+ * - **wheelPxPerZoomLevel.** 60 by default: one notch of a wheel or one
+ *   trackpad flick jumped a full level. 120 makes it a glide.
+ * - **inertiaDeceleration.** 3400 px/s² by default stops a flick short and
+ *   abruptly; 2200 lets it coast the way a phone's own scroll does.
+ */
+const COARSE_POINTER =
+  typeof window !== 'undefined' && (window.matchMedia?.('(pointer: coarse)').matches ?? false);
+const MAP_FEEL = {
+  zoomSnap: COARSE_POINTER ? 0 : 0.25,
+  zoomDelta: 1,
+  wheelPxPerZoomLevel: 120,
+  inertiaDeceleration: 2200,
+} as const;
+
 // Handles invalidateSize and sidebar-aware flyTo
 function MapController({
   shrines,
@@ -724,7 +746,7 @@ export function ShrineMap({
   );
 
   return (
-    <MapContainer center={DEFAULT_CENTER} zoom={DEFAULT_ZOOM} zoomControl={false}>
+    <MapContainer center={DEFAULT_CENTER} zoom={DEFAULT_ZOOM} zoomControl={false} {...MAP_FEEL}>
       <DefaultBasemap isDark={isDark} lang={lang} />
       <MapController
         shrines={shrines}
