@@ -57,3 +57,8 @@ export const SAVED_SHRINES_STORAGE_KEY = 'shrines_saved';
  * able to lose the other to a parse failure. See shrineSectionPreferences.ts. */
 export const SHARED_GROUND_SECTION_STORAGE_KEY = 'shrines_section_shared_ground';
 export const NEARBY_MOSQUES_SECTION_STORAGE_KEY = 'shrines_section_mosques';
+
+/** The entries this reader opened most recently, newest first (JSON array of
+ * `{kind, slug}`). Shown by the archive search before anything is typed. See
+ * recentEntries.ts — never leaves the device. */
+export const RECENT_ENTRIES_STORAGE_KEY = 'shrines_recent';

@@ -1181,6 +1181,9 @@ const UI_TEXT_EN = {
   /* The search group heading. Plural, unlike `traditionKicker`, which labels
      one page. */
   searchGroupTraditions: 'Traditions',
+  recentlyViewed: 'Recently viewed',
+  clearRecent: 'Clear',
+  ariaClearRecent: 'Clear recently viewed',
   traditionKicker: 'Tradition',
   traditionSiteCount: (n: number) => `${n} site${n === 1 ? '' : 's'}`,
   traditionDefinitionHeading: 'What the archive says',

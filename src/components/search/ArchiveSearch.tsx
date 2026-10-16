@@ -20,6 +20,7 @@ import { getFieldValue } from '../../lib/data/fieldAliasing';
 import { useSavedShrines } from '../../lib/savedShrines';
 import type { Shrine } from '../../types/shrine';
 import { useBackToClose } from '../../hooks/useBackToClose';
+import { clearRecent, useRecentEntries } from '../../lib/recentEntries';
 import { isOnOverlayEntry } from '../../lib/nav/overlayHistory';
 
 /**
@@ -65,6 +66,9 @@ type Row = {
   tone?: string | undefined;
   /** Shrine rows only: this site is on the reader's own list. */
   saved?: boolean | undefined;
+  /** Set on the rows shown before anything is typed, which group under one
+   *  heading whatever their kind. */
+  recent?: true | undefined;
 };
 
 /** The matched run, marked. `highlightSegments` returns the whole string
@@ -210,9 +214,63 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
     [places, dictGen],
   );
 
+  const recent = useRecentEntries();
+
   const rows = useMemo<Row[]>(() => {
     const q = debounced.trim();
-    if (!q) return [];
+    if (!q) {
+      /* Before anything is typed: where the reader has just been. Each entry is
+         resolved against the data, so a slug that no longer exists (or a figure
+         whose index has not arrived yet) is simply not shown. */
+      const ROUTE = { figure: 'saint', order: 'order', tradition: 'tradition' } as const;
+      return recent.flatMap((entry): Row[] => {
+        if (entry.kind === 'shrine') {
+          const shrine = shrines.find((s) => s.slug === entry.slug);
+          if (!shrine) return [];
+          return [
+            {
+              kind: 'shrine',
+              key: `recent:shrine:${shrine.slug}`,
+              name: localizeShrineName(shrine, lang),
+              meta: shrine.location ? localizeRecordedName(shrine.location, lang) : undefined,
+              to: `/shrine/${shrine.slug}`,
+              tone: categoryKey(shrine.category),
+              saved: saved.has(shrine.slug),
+              recent: true,
+            },
+          ];
+        }
+        if (entry.kind === 'place') {
+          const place = places.find((p) => p.slug === entry.slug);
+          if (!place) return [];
+          return [
+            {
+              kind: 'place',
+              key: `recent:place:${place.slug}`,
+              name: localizeRecordedName(place.name, lang),
+              meta: fmtNum(tFn(lang, 'placeSiteCount', place.shrines.length)),
+              to: `/place/${place.slug}`,
+              recent: true,
+            },
+          ];
+        }
+        const kind = entry.kind;
+        const entity = entities.find((e) => e.type === kind && e.slug === entry.slug);
+        if (!entity) return [];
+        return [
+          {
+            kind,
+            key: `recent:${kind}:${entity.slug}`,
+            name:
+              kind === 'figure'
+                ? localizeFigureName(entity, lang)
+                : localizeOrderName(entity, lang),
+            to: `/${ROUTE[kind]}/${entity.slug}`,
+            recent: true,
+          },
+        ];
+      });
+    }
 
     const shrineRows: Row[] = (ids ?? [])
       .slice(0, PER_GROUP.shrine)
@@ -316,6 +374,8 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
     t,
     fmtNum,
     saved,
+    recent,
+    entities,
   ]);
 
   /* Whether the listbox is on screen — the one fact `aria-expanded` and
@@ -324,7 +384,9 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
 
   /* Group headings are rendered from the row list rather than stored on it, so
      the keyboard walks one flat array and cannot land on a heading. */
-  const headingFor = (kind: Row['kind']): string =>
+  const headingFor = (row: Row): string =>
+    row.recent ? t('recentlyViewed') : headingForKind(row.kind);
+  const headingForKind = (kind: Row['kind']): string =>
     kind === 'shrine'
       ? t('searchGroupSites')
       : kind === 'figure'
@@ -518,12 +580,12 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
           >
             {rows.map((row, i) => (
               <React.Fragment key={row.key}>
-                {(i === 0 || rows[i - 1].kind !== row.kind) && (
+                {(i === 0 || (!row.recent && rows[i - 1].kind !== row.kind)) && (
                   /* `aria-hidden` and outside the option list: a listbox may
                      contain only options, and a screen reader gets the kind from
                      each option's own label instead. */
                   <li className="archive-search-group" aria-hidden="true">
-                    {headingFor(row.kind)}
+                    {headingFor(row)}
                   </li>
                 )}
                 <li
@@ -581,6 +643,23 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
           </ul>
         ) : (
           debounced.trim() !== '' && <p className="palette-empty">{t('noMatches')}</p>
+        )}
+
+        {/* Outside the listbox: a listbox holds options and nothing else. */}
+        {debounced.trim() === '' && hasResults && (
+          <div className="archive-search-recent-actions">
+            <button
+              type="button"
+              className="archive-search-clear"
+              onClick={() => {
+                clearRecent();
+                inputRef.current?.focus();
+              }}
+              aria-label={t('ariaClearRecent')}
+            >
+              {t('clearRecent')}
+            </button>
+          </div>
         )}
 
         <div className="palette-footer">

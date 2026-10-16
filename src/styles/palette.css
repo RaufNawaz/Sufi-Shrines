@@ -1129,3 +1129,31 @@
     animation: none;
   }
 }
+
+/* "Clear" under the recently viewed list: a quiet text action, cobalt because
+   it is interactive, at the full 44px target on a phone. */
+.archive-search-recent-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-inline: var(--space-3);
+}
+
+.archive-search-clear {
+  min-block-size: 44px;
+  padding-inline: var(--space-3);
+  border: 0;
+  background: none;
+  color: var(--color-primary);
+  font: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+}
+
+.archive-search-clear:hover {
+  background: var(--color-border-light);
+}
+
+[dir='rtl'] .archive-search-clear {
+  font-family: var(--font-urdu);
+}

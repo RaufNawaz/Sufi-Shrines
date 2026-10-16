@@ -18,6 +18,7 @@ import { ROUTE_MODULES } from './lib/nav/routeModules';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
 import { persistAccessParamIfPresent } from './lib/projectAccess';
 import { stripUrPrefix } from './lib/i18n/urlLangPrefix';
+import { useRecordRecentEntries } from './lib/recentEntries';
 
 persistAccessParamIfPresent();
 
@@ -96,6 +97,7 @@ function PageFallback() {
 
 function RouteAnnouncer() {
   const location = useLocation();
+  useRecordRecentEntries();
   const isFirst = useRef(true);
 
   useEffect(() => {

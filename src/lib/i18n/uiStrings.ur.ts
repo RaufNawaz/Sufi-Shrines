@@ -1056,6 +1056,9 @@ export const UI_TEXT_UR: UiStrings = {
 
   /* ── روایت کے صفحات (/tradition/:slug) ────────────────────────────── */
   searchGroupTraditions: 'روایات',
+  recentlyViewed: 'حال ہی میں دیکھے گئے',
+  clearRecent: 'صاف کریں',
+  ariaClearRecent: 'حال ہی میں دیکھے گئے صاف کریں',
   traditionKicker: 'روایت',
   traditionSiteCount: (n: number) => `${n} مقامات`,
   traditionDefinitionHeading: 'آرکائیو کیا کہتا ہے',
