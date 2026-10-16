@@ -14,7 +14,7 @@ import { ReaderPreferencesProvider } from './lib/preferences/ReaderPreferencesCo
 import { ArchiveSearchProvider } from './components/search/ArchiveSearchProvider';
 import { UpdateToast } from './components/ui/UpdateToast';
 import { TabBar } from './components/nav/TabBar';
-import { ROUTE_MODULES } from './lib/nav/routeModules';
+import { ROUTE_MODULES, SEGMENT_MODULES, preloadForHref } from './lib/nav/routeModules';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
 import { persistAccessParamIfPresent } from './lib/projectAccess';
 import { stripUrPrefix } from './lib/i18n/urlLangPrefix';
@@ -25,21 +25,21 @@ persistAccessParamIfPresent();
 /* The five tab destinations load through ROUTE_MODULES, the same importers
    TabLink prefetches on intent (15 October 2026). */
 const MapPage = lazy(ROUTE_MODULES['/']);
-const ShrinePage = lazy(() => import('./pages/ShrinePage'));
-const SaintPage = lazy(() => import('./pages/SaintPage'));
-const OrderPage = lazy(() => import('./pages/OrderPage'));
+const ShrinePage = lazy(SEGMENT_MODULES.shrine);
+const SaintPage = lazy(SEGMENT_MODULES.saint);
+const OrderPage = lazy(SEGMENT_MODULES.order);
 const GraphPage = lazy(ROUTE_MODULES['/graph']);
 const AlmanacPage = lazy(ROUTE_MODULES['/almanac']);
 /* Team-only, unlisted, and prerendered like every other route because GitHub
    Pages serves files rather than routes. See docs/planning/REVIEW_DESK_2026-08-24.md. */
 const ReviewPage = lazy(() => import('./pages/ReviewPage'));
 const TypologyPage = lazy(ROUTE_MODULES['/typology']);
-const ChronologyPage = lazy(() => import('./pages/ChronologyPage'));
-const SharedGroundPage = lazy(() => import('./pages/SharedGroundPage'));
-const TraditionPage = lazy(() => import('./pages/TraditionPage'));
+const ChronologyPage = lazy(SEGMENT_MODULES.chronology);
+const SharedGroundPage = lazy(SEGMENT_MODULES['shared-ground']);
+const TraditionPage = lazy(SEGMENT_MODULES.tradition);
 const AboutPage = lazy(ROUTE_MODULES['/about']);
-const PlacePage = lazy(() => import('./pages/PlacePage'));
-const SettingsPage = lazy(() => import('./pages/SettingsPage'));
+const PlacePage = lazy(SEGMENT_MODULES.place);
+const SettingsPage = lazy(SEGMENT_MODULES.settings);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function LegacyRedirect() {
@@ -93,6 +93,29 @@ function PageFallback() {
       <span className="spinner spinner--lg" />
     </div>
   );
+}
+
+/* Entry pages start loading the moment a finger lands on a link to one (or a
+   pointer rests on it), so the chunk is arriving before the tap completes —
+   what `TabLink` does for the five tabs, for every in-app link at once. One
+   delegated listener rather than a handler on each card, row and chip. */
+function LinkPrefetcher() {
+  useEffect(() => {
+    const base = import.meta.env.BASE_URL;
+    const onIntent = (event: Event) => {
+      const link = (event.target as Element | null)?.closest?.('a[href]');
+      if (link) preloadForHref((link as HTMLAnchorElement).href, base);
+    };
+    document.addEventListener('touchstart', onIntent, { passive: true, capture: true });
+    document.addEventListener('pointerover', onIntent, { passive: true, capture: true });
+    document.addEventListener('focusin', onIntent, { capture: true });
+    return () => {
+      document.removeEventListener('touchstart', onIntent, { capture: true });
+      document.removeEventListener('pointerover', onIntent, { capture: true });
+      document.removeEventListener('focusin', onIntent, { capture: true });
+    };
+  }, []);
+  return null;
 }
 
 function RouteAnnouncer() {
@@ -169,6 +192,7 @@ export default function App() {
             <ArchiveSearchProvider>
               <SkipLinks />
               <RouteAnnouncer />
+              <LinkPrefetcher />
               {/* Top-level navigation, phone only (hidden by CSS above 640px).
               Outside the Suspense boundary on purpose: the bar is the one thing
               on screen while a lazily-loaded page is still arriving, and a
