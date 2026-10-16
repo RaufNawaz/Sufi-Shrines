@@ -1,0 +1,9 @@
+check,measured,reference,result,note
+features inside Pakistan's boundary file,2717 of 2722,>= 98%,pass,
+matcher precision on hand-labelled pairs,30 / 31 = 97%,>= 95%,pass,FALSE MATCH Nila Gumbad  Sheikh Abdul Razzaq -> Shrine of Baba Shah Chiragh
+matcher recall on hand-labelled pairs,30 / 33 = 91%,>= 70%,pass,"MISSED Gurdwara in Saidpur, Islamabad -> Gurdwara Sahib Saidpur (Guru Nanak Dev Ji); MISSED Ziarat Pir Mehr Ali Shah -> Golra Sharif; MISSED Data Darbar -> Data Darbar"
+osm: median offset from archive sites it shares (unshared pins only),21 m over 62 sites (p90 374 m),"recorded, not thresholded",pass,"The archive's own pins have errors too (22 placeholders); this bounds the pair, not the source alone."
+wikidata: median offset from archive sites it shares (unshared pins only),19 m over 42 sites (p90 578 m),"recorded, not thresholded",pass,"The archive's own pins have errors too (22 placeholders); this bounds the pair, not the source alone."
+geonames: median offset from archive sites it shares (unshared pins only),148 m over 27 sites (p90 1082 m),"recorded, not thresholded",pass,"The archive's own pins have errors too (22 placeholders); this bounds the pair, not the source alone."
+places not in the archive (deduplicated across sources),2525,leads for a human; none enters the sheet unread (RULE 2),pass,
+archive sites an open source places > 300 m from the archive's pin,16 sites (5 already in the 30 Aug coordinate review),listed in archive_coordinate_disagreements.csv for a human,pass,

@@ -1,0 +1,37 @@
+indicator,definition,source_key,publisher,licence
+pop_kontur_2023,"Population, Kontur 2023 (modelled)",kontur,Kontur via HDX,CC BY 4.0
+rwi_popw,"Relative Wealth Index, population-weighted mean (relative within country; 0 is the country's average tile, higher is wealthier)",rwi,"Meta Data for Good (Chi et al. 2022, PNAS) via HDX",CC BY-NC 4.0
+rwi_cell_share,Share of population whose cell has an RWI tile within 2.5 km,rwi,"Meta Data for Good (Chi et al. 2022, PNAS) via HDX",CC BY-NC 4.0
+ntl_2023_popw,"Night-light brightness where people live, 2023, DN 0-63",ntl_2023,"Li, Zhou, Zhao and Zhao (2020), Scientific Data, figshare 9828827 v10",CC BY 4.0
+ntl_2013_popw,"Same, 2013",ntl_2013,"Li, Zhou, Zhao and Zhao (2020), Scientific Data, figshare 9828827 v10",CC BY 4.0
+ntl_change_13_23,"Change in population-weighted night lights, 2013 to 2023, DN",ntl_2023,"Li, Zhou, Zhao and Zhao (2020), Scientific Data, figshare 9828827 v10",CC BY 4.0
+share_pop_lit_at_night,"Share of population in a cell with any detectable night light, 2023",ntl_2023,"Li, Zhou, Zhao and Zhao (2020), Scientific Data, figshare 9828827 v10",CC BY 4.0
+travel_city_min_popw,"Travel time to the nearest city of 50,000+, minutes, population-weighted, 2015",travel_city,"Weiss et al. (2018), Nature, via Malaria Atlas Project",CC BY 4.0
+share_pop_within_60min_city,"Share of population within 60 minutes of a city of 50,000+",travel_city,"Weiss et al. (2018), Nature, via Malaria Atlas Project",CC BY 4.0
+travel_health_min_popw,"Motorized travel time to the nearest health facility, minutes, population-weighted, 2020",travel_health,"Weiss et al. (2020), Nature Medicine, via Malaria Atlas Project",CC BY 4.0
+share_pop_within_30min_health,Share of population within 30 motorized minutes of a health facility,travel_health,"Weiss et al. (2020), Nature Medicine, via Malaria Atlas Project",CC BY 4.0
+rural_access_index,"Rural Access Index: share of rural population within 2 km of an all-season road (HeiGIT, OSM roads)",heigit,HeiGIT risk assessment indicators via HDX,CC BY-SA 4.0
+osm_education_count,Education facilities mapped in OpenStreetMap. NOT a count of schools: OSM holds ~3% of the official total,heigit,HeiGIT risk assessment indicators via HDX,CC BY-SA 4.0
+osm_hospitals_count,Hospitals mapped in OpenStreetMap (completeness unverified),heigit,HeiGIT risk assessment indicators via HDX,CC BY-SA 4.0
+osm_primary_healthcare_count,Primary health care facilities mapped in OpenStreetMap (completeness unverified),heigit,HeiGIT risk assessment indicators via HDX,CC BY-SA 4.0
+share_access_education_5km,Share of population within 5 km of an OSM-mapped education facility. Inherits OSM's gaps,heigit,HeiGIT risk assessment indicators via HDX,CC BY-SA 4.0
+share_access_hospitals_1h,Share of population within 1 hour of an OSM-mapped hospital. Inherits OSM's gaps,heigit,HeiGIT risk assessment indicators via HDX,CC BY-SA 4.0
+share_access_primary_healthcare_1h,Share of population within 1 hour of OSM-mapped primary care. Inherits OSM's gaps,heigit,HeiGIT risk assessment indicators via HDX,CC BY-SA 4.0
+dhs_under5_mortality,"Under-five mortality per 1,000 live births, 10 years before PDHS 2017-18",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_infant_mortality,"Infant mortality per 1,000, PDHS 2017-18",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_stunted,"Children under 5 stunted, %, PDHS 2017-18",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_wasted,"Children under 5 wasted, %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_underweight,"Children under 5 underweight, %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_fully_vaccinated,"Children 12-23 months fully vaccinated (8 basic antigens), %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_facility_delivery,"Births delivered in a health facility, %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_women_literate,"Women 15-49 who are literate, %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_women_secondary_plus,"Women 15-49 with secondary or higher education, %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_hh_electricity,"Households with electricity, %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_tfr,Total fertility rate,dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_modern_contraception,"Married women using a modern method, %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+dhs_partner_violence,"Ever-married women who experienced physical or sexual violence by husband, %",dhs_quickstats,The DHS Program (PDHS 2017-18) via HDX,"DHS terms of use (free, cite)"
+mpi,"Multidimensional Poverty Index (OPHI), 2017-18",ophi_mpi,OPHI Global MPI (from PDHS 2017-18) via HDX,CC0
+mpi_headcount,"MPI poor, % of population",ophi_mpi,OPHI Global MPI (from PDHS 2017-18) via HDX,CC0
+mpi_intensity,"Average deprivation share among the poor, %",ophi_mpi,OPHI Global MPI (from PDHS 2017-18) via HDX,CC0
+mpi_vulnerable,"Vulnerable to poverty, %",ophi_mpi,OPHI Global MPI (from PDHS 2017-18) via HDX,CC0
+mpi_severe,"In severe poverty, %",ophi_mpi,OPHI Global MPI (from PDHS 2017-18) via HDX,CC0

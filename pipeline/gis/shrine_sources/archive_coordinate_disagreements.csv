@@ -1,0 +1,23 @@
+archive_site_id,archive_name,archive_lat,archive_lon,archive_pin_shared,archive_pin_in_coordinate_review,source,name,lat,lon,archive_dist_m,url
+chandragup-baba-chandragup,Chandragup (Baba Chandragup),25.4453,65.8656,0,0,osm,Chandragup,25.4477764,65.8680944,371.4,https://www.openstreetmap.org/node/4081039771
+darbar-abul-muali-qadri,Darbar Abul Muali Qadri,31.5772,74.32155,0,0,osm,Shrine of Shah Abu al Mali,31.5699765,74.3259599,904.5,https://www.openstreetmap.org/way/611963337
+darbar-abul-muali-qadri,Darbar Abul Muali Qadri,31.5772,74.32155,0,0,osm,Tomb of Shah Abu al Mali,31.5698833,74.3260857,919.3,https://www.openstreetmap.org/way/611963338
+ghazi-ilm-din-shaheed,Darbar Ghazi Ilm Din Shaheed,31.5498,74.317,1,1,osm,Shrine of Ilm-ud-Din,31.552534,74.3085449,858.0,https://www.openstreetmap.org/way/611906754
+tahir-bandagi-qadri,Darbar Hazrat Tahir Bandagi Qadri,31.5498,74.317,1,1,osm,Shrine of Hazrat Tahir Bandagi,31.5491965,74.3084483,814.1,https://www.openstreetmap.org/way/1078951946
+darbar-malik-ahmad-ayaz,Darbar Malik Ahmad Ayaz,31.57803,74.307,1,1,osm,Tomb of Malik Ayaz,31.5824204,74.3184799,1192.4,https://www.openstreetmap.org/node/8395172968
+darbar-sakhi-shah-chan-charagh,Darbar Sakhi Shah Chan Charagh,33.6153,73.0574,0,0,osm,Shah Chan Chiraagh Shrine & Mosque,33.618376,73.0592227,380.5,https://www.openstreetmap.org/node/4744127624
+dargah-pir-ratan-nath-jee,Dargah Pir Ratan Nath Jee,34.011583,71.578861,0,0,wikidata,Dargah Pir Ratan Nath Jee,34.01666667,71.58333333,698.4,https://www.wikidata.org/wiki/Q24952161
+lal-shahbaz-qalandar,Lal Shahbaz Qalandar,26.42669,67.87132,0,0,osm,Lal Shahbaz Qalandar Shrine,26.4284165,67.8626643,884.8,https://www.openstreetmap.org/relation/12152063
+prahladpuri-temple,Prahladpuri Temple,30.200361,71.476833,0,0,wikidata,"Prahladpuri Temple, Multan",30.19777778,71.46972222,742.1,https://www.wikidata.org/wiki/Q7237726
+samadhi-of-maharaja-ranjit-singh,Samadhi of Maharaja Ranjit Singh,31.5847,74.3161,0,0,osm,Samadhi of Ranjit Singh,31.5892863,74.3112871,684.0,https://www.openstreetmap.org/way/105841052
+samadhi-of-maharaja-ranjit-singh,Samadhi of Maharaja Ranjit Singh,31.5847,74.3161,0,0,wikidata,Samadhi of Ranjit Singh,31.5893,74.3113,684.4,https://www.wikidata.org/wiki/Q3383698
+shaktipeeth-shri-hinglaj-mata-mandir,Shaktipeeth Shri Hinglaj Mata Mandir,25.514672,65.518726,0,0,wikidata,Hinglaj Mata,25.51388889,65.51527778,357.3,https://www.wikidata.org/wiki/Q2722882
+shaktipeeth-shri-hinglaj-mata-mandir,Shaktipeeth Shri Hinglaj Mata Mandir,25.514672,65.518726,0,0,osm,Hinglaj Mata Mandir,25.5127112,65.5154577,393.6,https://www.openstreetmap.org/node/4081039770
+bibi-pak-daman,Shrine of Bibi Pak Daman,31.564283,74.339948,0,0,wikidata,Bibi Pak Daman,31.569166666,74.341666666,565.7,https://www.wikidata.org/wiki/Q4903032
+shrine-of-hafiz-muhammad-jamal-multani,Shrine of Hafiz Muhammad Jamal Multani,30.1993,71.4702,0,0,osm,Tomb of Hafiz Jamal Multani,30.1953919,71.4853063,1517.6,https://www.openstreetmap.org/way/900538810
+shrine-of-hafiz-muhammad-jamal-multani,Shrine of Hafiz Muhammad Jamal Multani,30.1993,71.4702,0,0,osm,Shrine Complex of Hafiz Jamal Multani,30.1953264,71.4853976,1528.1,https://www.openstreetmap.org/way/900538809
+shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi,Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi),30.214,71.453,0,0,osm,Tomb of Shah Ali Akbar,30.2178881,71.438049,1502.4,https://www.openstreetmap.org/way/900538792
+shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi,Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi),30.214,71.453,0,0,osm,Shrine Complex of Shah Ali Akbar,30.2178423,71.4380304,1502.7,https://www.openstreetmap.org/way/900538796
+shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi,Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi),30.214,71.453,0,0,wikidata,tomb of Shah Ali Akbar,30.21777778,71.43777778,1524.0,https://www.wikidata.org/wiki/Q6794057
+tomb-of-baha-al-halim-uch-sharif,Tomb of Baha'al-Halim (Uch Sharif),29.238,71.064,1,1,wikidata,tomb of Baha'al-Halim,29.240555555,71.052222222,1179.3,https://www.wikidata.org/wiki/Q18210989
+tomb-of-javindi-bibi,Tomb of Javindi Bibi,29.238,71.064,1,1,wikidata,tomb of Bibi Jawindi,29.240916666,71.0525,1163.6,https://www.wikidata.org/wiki/Q7818612

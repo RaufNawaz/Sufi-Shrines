@@ -1,0 +1,8 @@
+SELECT ?item ?itemLabel ?urLabel ?class ?classLabel ?coord ?countryLabel WHERE {
+  BIND(wd:Q843 AS ?country)
+  ?item wdt:P17 ?country ; wdt:P625 ?coord ; wdt:P31 ?class .
+  ?class rdfs:label ?classLabel . FILTER(LANG(?classLabel) = "en")
+  FILTER(REGEX(?classLabel, "shrine|tomb|mausoleum|dargah|darbar|temple|gurdwara|samadhi|mandir|khanqah|sufi|ziyarat|imambargah|cenotaph", "i"))
+  OPTIONAL { ?item rdfs:label ?urLabel . FILTER(LANG(?urLabel) = "ur") }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}

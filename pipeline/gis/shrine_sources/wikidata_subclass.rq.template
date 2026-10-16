@@ -1,0 +1,10 @@
+# ROOTS is filled by fetch_shrine_sources.sh from the classes wikidata_classes.rq returns, minus
+# any whose label is not a site kind this archive covers. It is never typed from memory.
+SELECT DISTINCT ?item ?itemLabel ?urLabel ?class ?classLabel ?coord ?osm WHERE {
+  VALUES ?root { ROOTS }
+  ?item wdt:P31 ?class . ?class wdt:P279* ?root .
+  ?item wdt:P17 wd:Q843 ; wdt:P625 ?coord .
+  OPTIONAL { ?item rdfs:label ?urLabel . FILTER(LANG(?urLabel) = "ur") }
+  OPTIONAL { ?item wdt:P11693 ?osm }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}

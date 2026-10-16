@@ -1,0 +1,4 @@
+source,features,archive_sites_found,of_archive,median_offset_m,p90_offset_m,field_verified_found,median_offset_field_verified_m,share_coords_le_2_decimals
+osm,773,62,169,21.0,374.0,11,118.0,0.0
+wikidata,93,42,169,19.0,578.0,3,0.0,5.4
+geonames,1856,27,169,148.0,1082.0,4,241.0,0.8
