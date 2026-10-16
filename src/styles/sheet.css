@@ -116,6 +116,17 @@
   font-family: var(--font-urdu);
 }
 
+/* Leaving: the entrance run backwards, held at its end until the sheet
+   unmounts (Sheet.tsx waits one --duration-base). */
+.sheet-backdrop--closing {
+  animation: sheet-fade var(--duration-base) var(--easing) reverse forwards;
+  pointer-events: none;
+}
+
+.sheet--closing {
+  animation: sheet-in var(--duration-base) var(--easing) reverse forwards;
+}
+
 @keyframes sheet-fade {
   from {
     opacity: 0;
@@ -150,6 +161,16 @@
     border-radius: 16px 16px 0 0;
     padding-block-end: var(--safe-bottom);
     animation: sheet-rise var(--duration-base) var(--easing-spring) backwards;
+  }
+
+  .sheet--closing {
+    animation: sheet-rise var(--duration-base) var(--easing) reverse forwards;
+  }
+
+  /* The grabber and the header are the handle a finger pulls down. */
+  .sheet-grabber,
+  .sheet-header {
+    touch-action: none;
   }
 
   .sheet-grabber {

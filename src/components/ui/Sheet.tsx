@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useRef } from 'react';
+import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { dirAttr, isRtlLang } from '../../lib/i18n/languages';
@@ -20,8 +20,24 @@ import { useBackToClose } from '../../hooks/useBackToClose';
  * - focus moves in on open, Tab cycles inside, and focus returns to whatever
  *   opened it on close;
  * - the page behind does not scroll while it is open;
- * - Escape closes it, and so does the back gesture (`useBackToClose`).
+ * - Escape closes it, and so does the back gesture (`useBackToClose`);
+ * - it leaves as it arrived — sinking on a phone, settling on a wide screen —
+ *   instead of vanishing in one frame, and on a phone the grabber and header
+ *   pull it down: it follows the finger and closes past a threshold or on a
+ *   flick (council, 15 October 2026: the grabber was drawn and did nothing).
+ *   A caller that sets `open` false itself still closes it at once.
  */
+
+/** The motion token, read live: it is 0ms under reduced motion (tokens.css),
+ *  and then a close is immediate. */
+function durationBaseMs(): number {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue('--duration-base');
+  const ms = parseFloat(raw);
+  return Number.isFinite(ms) ? ms : 0;
+}
+
+const DISMISS_PX = 120;
+const FLICK_SPEED = 0.45;
 export function Sheet({
   open,
   title,
@@ -41,7 +57,96 @@ export function Sheet({
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
-  useBackToClose(open, onClose);
+  /* 'animate': the exit keyframes run; 'dragged': the finger already moved the
+     panel, so only the scrim fades while the panel finishes its slide. */
+  const [closing, setClosing] = useState<null | 'animate' | 'dragged'>(null);
+  const closeTimer = useRef<number | null>(null);
+
+  const requestClose = useCallback(
+    (how: 'animate' | 'dragged' = 'animate') => {
+      if (closeTimer.current !== null) return;
+      const ms = durationBaseMs();
+      if (ms <= 0) {
+        onClose();
+        return;
+      }
+      setClosing(how);
+      closeTimer.current = window.setTimeout(() => {
+        closeTimer.current = null;
+        setClosing(null);
+        onClose();
+      }, ms);
+    },
+    [onClose],
+  );
+  useEffect(() => {
+    if (open) return;
+    if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
+    closeTimer.current = null;
+    setClosing(null);
+  }, [open]);
+  useEffect(
+    () => () => {
+      if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
+    },
+    [],
+  );
+  useBackToClose(open, requestClose);
+
+  /* Pull-down on a phone. Native listeners so the move can be cancelled, and the
+     transform written to the panel directly — no React state per frame. */
+  useEffect(() => {
+    const panel = panelRef.current;
+    if (!open || !panel) return undefined;
+    let drag: { y0: number; lastY: number; lastT: number; v: number; moved: boolean } | null = null;
+    const onStart = (e: TouchEvent) => {
+      if (e.touches.length !== 1) return;
+      if (!window.matchMedia?.('(max-width: 640px)').matches) return;
+      const target = e.target as Element | null;
+      if (!target?.closest('.sheet-grabber, .sheet-header') || target.closest('button')) return;
+      const y = e.touches[0].clientY;
+      drag = { y0: y, lastY: y, lastT: e.timeStamp, v: 0, moved: false };
+    };
+    const onMove = (e: TouchEvent) => {
+      if (!drag) return;
+      const y = e.touches[0].clientY;
+      const dy = Math.max(0, y - drag.y0);
+      if (!drag.moved && dy < 6) return;
+      drag.moved = true;
+      drag.v = (y - drag.lastY) / Math.max(1, e.timeStamp - drag.lastT);
+      drag.lastY = y;
+      drag.lastT = e.timeStamp;
+      panel.style.transition = 'none';
+      panel.style.animation = 'none';
+      panel.style.transform = `translateY(${dy}px)`;
+      if (e.cancelable) e.preventDefault();
+    };
+    const onEnd = (e: TouchEvent) => {
+      if (!drag) return;
+      const { moved, v, y0 } = drag;
+      drag = null;
+      if (!moved) return;
+      const dy = (e.changedTouches[0]?.clientY ?? y0) - y0;
+      const ms = durationBaseMs();
+      panel.style.transition = `transform ${ms}ms var(--easing)`;
+      if (dy > DISMISS_PX || v > FLICK_SPEED) {
+        panel.style.transform = 'translateY(100%)';
+        requestClose('dragged');
+      } else {
+        panel.style.transform = '';
+      }
+    };
+    panel.addEventListener('touchstart', onStart, { passive: true });
+    panel.addEventListener('touchmove', onMove, { passive: false });
+    panel.addEventListener('touchend', onEnd);
+    panel.addEventListener('touchcancel', onEnd);
+    return () => {
+      panel.removeEventListener('touchstart', onStart);
+      panel.removeEventListener('touchmove', onMove);
+      panel.removeEventListener('touchend', onEnd);
+      panel.removeEventListener('touchcancel', onEnd);
+    };
+  }, [open, requestClose]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -63,7 +168,7 @@ export function Sheet({
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         event.stopPropagation();
-        onClose();
+        requestClose();
         return;
       }
       if (event.key !== 'Tab' || !panel) return;
@@ -89,20 +194,20 @@ export function Sheet({
       document.body.style.overflow = overflow;
       returnFocusRef.current?.focus?.({ preventScroll: true });
     };
-  }, [open, onClose]);
+  }, [open, requestClose]);
 
   if (!open) return null;
 
   return createPortal(
     <div
-      className="sheet-backdrop"
+      className={`sheet-backdrop${closing ? ' sheet-backdrop--closing' : ''}`}
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) onClose();
+        if (event.target === event.currentTarget) requestClose();
       }}
     >
       <div
         ref={panelRef}
-        className={`sheet${className ? ` ${className}` : ''}`}
+        className={`sheet${closing === 'animate' ? ' sheet--closing' : ''}${className ? ` ${className}` : ''}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
@@ -118,7 +223,7 @@ export function Sheet({
             </h2>
             {subtitle && <p className="sheet-subtitle">{subtitle}</p>}
           </div>
-          <button type="button" className="sheet-done" onClick={onClose}>
+          <button type="button" className="sheet-done" onClick={() => requestClose()}>
             {t('sheetDone')}
           </button>
         </header>
