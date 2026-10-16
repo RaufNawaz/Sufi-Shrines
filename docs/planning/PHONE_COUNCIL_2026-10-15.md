@@ -49,6 +49,6 @@ definition of done) before pushing.
   and "Show on map". `useBackToClose` now gives it back-to-dismiss for free.
 - **A third, half-height snap for the map sheet** (seat 1, #1). The sheet follows the finger
   and settles on peek or full; a middle stop needs `isOpen` widened to a three-state in MapPage.
-- **The entity fact box at the foot of saint and order pages on phones** (seat 2, #4): seat 2
-  measured that every row repeats the opening lines and proposed hiding it under 640px. That
-  hides content, so it was asked in the chat rather than done.
+- ~~**The entity fact box at the foot of saint and order pages on phones**~~ — asked in the chat;
+  **Rauf, 15 October 2026: "yes remove it on the phone".** Done in `cfdfef5`, keeping the
+  Wikidata link, which appears nowhere else on a saint page.
