@@ -63,6 +63,7 @@ All written with no test, build or browser runs (laptop on battery), so **all un
 | `1ee5e02`, `b39ef96` | Entry pages' chunks start loading on touch/hover/focus of any in-app link and of archive-search rows |
 | `dde73fc` | Map feel: `zoomSnap` 0 on touch (0.25 with a mouse) so a pinch no longer jumps to a whole level on release; `wheelPxPerZoomLevel` 120; `inertiaDeceleration` 2200; markers on their own compositor layers; GL basemap drawn 25% beyond the screen; Leaflet's zoom easing replaced (easing only — its 250ms timer and the plugin's `transitionend` wait depend on the duration) |
 | `ccbadd0` | Every in-app link crossfades in a View Transition, chunk awaited first |
+| `bf23814` | Dragging the map on a phone lowers the open sheet to its peek (not during a tour); the phone camera now flies only on a new selection, not on every sheet open/close |
 
 What to check on a real phone, in order of risk: link clicks still navigate everywhere
 (`ccbadd0` intercepts them at the document), e2e specs that click links, pinch/flick/double-tap on
