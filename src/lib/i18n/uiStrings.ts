@@ -687,6 +687,14 @@ const UI_TEXT_EN = {
      controllerchange event, and the e2e config blocks service workers to
      keep the CSV intercept hermetic. */
   swUpdateAvailable: 'A new version is available',
+  offlineReady: 'Ready to use offline',
+  settingsInstallSection: 'Offline',
+  settingsInstallLabel: 'Install the archive',
+  settingsInstallHelp:
+    'Installed, the archive opens like an app and works without a connection — at a shrine with no signal, for instance.',
+  settingsInstallButton: 'Install',
+  settingsInstallIos: 'In Safari, tap Share, then “Add to Home Screen”.',
+  settingsInstallDone: 'Installed. The archive works offline on this device.',
   /* Leaflet writes its own control titles ("Zoom in", "Layers") and sets
      aria-label from them, so they have to be passed in rather than styled
      away. The reset-view control is ours. */

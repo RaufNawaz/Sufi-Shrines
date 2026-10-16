@@ -25,6 +25,9 @@ import './styles/chronology.css';
 import './styles/shared-ground.css';
 import './styles/tabbar.css';
 import { initTelemetry } from './lib/telemetry';
+/* For its side effect: `beforeinstallprompt` fires once, early, and is lost
+   if nothing is listening yet (installPrompt.ts). */
+import './lib/installPrompt';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
 import { applyTextSize, readTextSize } from './lib/textSizePreference';
 import { applyMotionPreference, readMotionPreference } from './lib/motionPreference';

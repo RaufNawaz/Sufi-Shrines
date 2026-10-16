@@ -47,6 +47,7 @@ import {
   useSavedShrines,
 } from '../lib/savedShrines';
 import type { Lang, Theme } from '../types/shrine';
+import { promptInstall, useInstallState } from '../lib/installPrompt';
 
 /**
  * The archive's settings, on a page rather than in a popover on one route.
@@ -136,6 +137,7 @@ function SettingsRadio<T extends string>({
 
 export default function SettingsPage() {
   const { lang, setLang, numerals, setNumerals, t, fmtNum } = useLang();
+  const installState = useInstallState();
   /* Through `fmtNum` and `tFn` rather than interpolated into a template here:
      the count is a number (i18n rule 5, Eastern numerals in Urdu) and the
      phrase around it belongs to whichever language is being read. */
@@ -673,6 +675,33 @@ export default function SettingsPage() {
             </SettingsGroup>
           </div>
         </section>
+
+        {installState !== 'unavailable' && (
+          <section className="settings-section" aria-labelledby="settings-install">
+            <h2 id="settings-install" className="settings-section-heading">
+              {t('settingsInstallSection')}
+            </h2>
+            <div className="settings-card">
+              <SettingsGroup legend={t('settingsInstallLabel')} help={t('settingsInstallHelp')}>
+                {installState === 'installed' ? (
+                  <p className="settings-saved-count">{t('settingsInstallDone')}</p>
+                ) : installState === 'ios' ? (
+                  <p className="settings-saved-count">{t('settingsInstallIos')}</p>
+                ) : (
+                  <div className="settings-actions">
+                    <button
+                      type="button"
+                      className="action-btn"
+                      onClick={() => void promptInstall()}
+                    >
+                      {t('settingsInstallButton')}
+                    </button>
+                  </div>
+                )}
+              </SettingsGroup>
+            </div>
+          </section>
+        )}
 
         <SiteFooter />
       </article>

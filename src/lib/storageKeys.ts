@@ -62,3 +62,7 @@ export const NEARBY_MOSQUES_SECTION_STORAGE_KEY = 'shrines_section_mosques';
  * `{kind, slug}`). Shown by the archive search before anything is typed. See
  * recentEntries.ts — never leaves the device. */
 export const RECENT_ENTRIES_STORAGE_KEY = 'shrines_recent';
+
+/** '1' once the reader has been told the archive is ready offline (the first
+ * service-worker install). See UpdateToast.tsx. */
+export const OFFLINE_READY_SEEN_STORAGE_KEY = 'shrines_offline_ready_seen';
