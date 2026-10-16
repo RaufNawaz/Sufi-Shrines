@@ -49,6 +49,7 @@ const SET_AT_RUNTIME: Record<string, string> = {
      measures with a ResizeObserver and writes on the document element, so a
      sticky offset can be right on a phone as well as a desktop. */
   '--page-header-height': 'measured header height, published by EntityPageHeader.tsx',
+  '--page-header-shown': '0 while the phone header has scrolled away, set by EntityPageHeader.tsx',
   '--timeline-at': 'axis position of a mark, set inline by OrderPage.tsx',
   '--timeline-to': 'axis position of a bar’s end, set inline by OrderPage.tsx',
   '--timeline-century-width':

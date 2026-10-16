@@ -283,7 +283,12 @@
    is the fallback for the frame before the measurement lands. */
 .order-timeline-scale {
   position: sticky;
-  inset-block-start: var(--page-header-height, var(--header-height));
+  /* Times `--page-header-shown` (0 while the phone header has stepped aside),
+     so the scale rides up with it instead of leaving a header-sized gap. */
+  inset-block-start: calc(
+    var(--page-header-height, var(--header-height)) * var(--page-header-shown, 1)
+  );
+  transition: inset-block-start var(--duration-base) var(--easing);
   z-index: 1;
   margin-block-end: var(--space-1);
   padding-block: var(--space-1);

@@ -142,6 +142,50 @@ export function EntityPageHeader({ title }: { title?: string }) {
     };
   }, []);
 
+  /* On a phone the bar steps aside while the reader reads down, and comes back
+   * on any scroll up — Safari's own toolbar behaviour. Held still, it kept 69px
+   * of a 664px screen for the whole read; with the tab bar and the Contents
+   * pill that was 24% of the screen in fixed chrome (council, 15 October 2026).
+   * Never in the first 120px, never while focus is inside it (a keyboard user
+   * must not lose the control they are on), and never when motion is off,
+   * where a bar that jumps away is worse than one that stays. Sticky things
+   * below it follow through `--page-header-shown`. */
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    const phone = window.matchMedia?.('(max-width: 640px)');
+    if (!phone) return undefined;
+    let lastY = window.scrollY;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const y = window.scrollY;
+      const dy = y - lastY;
+      lastY = y;
+      const motionOff =
+        parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue('--duration-base'),
+        ) === 0;
+      const focusInside = headerRef.current?.contains(document.activeElement) ?? false;
+      if (!phone.matches || motionOff || focusInside || y < 120) setHidden(false);
+      else if (dy > 6) setHidden(true);
+      else if (dy < -6) setHidden(false);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+  useEffect(() => {
+    document.documentElement.style.setProperty('--page-header-shown', hidden ? '0' : '1');
+    return () => {
+      document.documentElement.style.removeProperty('--page-header-shown');
+    };
+  }, [hidden]);
+
   useEffect(() => {
     if (!title) return;
     /* The page's own heading, found rather than passed: the header renders
@@ -163,7 +207,11 @@ export function EntityPageHeader({ title }: { title?: string }) {
   }, [title, headerHeight]);
 
   return (
-    <header ref={headerRef} className="shrine-page-header no-print">
+    <header
+      ref={headerRef}
+      className={`shrine-page-header no-print${hidden ? ' shrine-page-header--hidden' : ''}`}
+      onFocus={() => setHidden(false)}
+    >
       <Link to="/" className="back-link" aria-label={t('backToMap')}>
         <svg
           width="16"
