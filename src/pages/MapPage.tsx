@@ -429,6 +429,14 @@ export default function MapPage() {
     if (!isMobile) selectShrine(null);
   }, [isMobile, selectShrine]);
 
+  /* On a phone, dragging the map lowers an open sheet to its peek so the map
+     being moved is the map being seen (Apple Maps does the same). Not during a
+     tour: its panel holds the controls the walk is driven by. The selection is
+     kept — the peek and a tap on the handle bring it back. */
+  const handleUserPan = useCallback(() => {
+    if (isMobile && activeTourId === null) setSidebarOpen(false);
+  }, [isMobile, activeTourId]);
+
   const handleSidebarToggle = useCallback(() => {
     setSidebarOpen((v) => !v);
   }, []);
@@ -682,6 +690,7 @@ export default function MapPage() {
           crossTradition={crossTradition}
           sharedGroundLens={sharedGroundLens}
           onSharedGroundLensChange={setSharedGroundLens}
+          onUserPan={handleUserPan}
         />
       </main>
 

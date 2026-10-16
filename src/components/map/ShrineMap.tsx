@@ -148,6 +148,8 @@ interface Props {
    *  above reset and zoom). `crossTradition` above is what it draws. */
   sharedGroundLens: boolean;
   onSharedGroundLensChange: (on: boolean) => void;
+  /** The reader started dragging the map (see MapController). */
+  onUserPan?: () => void;
 }
 
 /** How many failed MapTiler tiles before giving up on it for the session.
@@ -647,14 +649,30 @@ function MapController({
   sidebarOpen,
   isRTL,
   tourActive,
+  onUserPan,
 }: {
   shrines: Shrine[];
   selectedId: number | null;
   sidebarOpen: boolean;
   isRTL: boolean;
   tourActive: boolean;
+  onUserPan?: (() => void) | undefined;
 }) {
   const map = useMap();
+
+  /* A drag by the reader's own finger (Leaflet fires `dragstart` for pointer
+     drags only, never for flyTo or fitBounds), reported up so the phone sheet
+     can step down out of the way — the Maps idiom. */
+  const onUserPanRef = useRef(onUserPan);
+  onUserPanRef.current = onUserPan;
+  useEffect(() => {
+    const onDrag = () => onUserPanRef.current?.();
+    map.on('dragstart', onDrag);
+    return () => {
+      map.off('dragstart', onDrag);
+    };
+  }, [map]);
+  const lastFlownIdRef = useRef<number | null>(null);
 
   // Fix gray tiles on resize
   useEffect(() => {
@@ -672,12 +690,23 @@ function MapController({
   // start, flyTo per stop), so this and TourRoute don't fight over the viewport.
   useEffect(() => {
     if (tourActive) return;
-    if (selectedId === null) return;
+    if (selectedId === null) {
+      lastFlownIdRef.current = null;
+      return;
+    }
     const shrine = shrines.find((s) => s.id === selectedId);
     if (!shrine?.latLng) return; // unmapped selection: nothing to fly to
 
-    const targetZoom = Math.max(map.getZoom(), 13);
     const isDesktop = window.innerWidth > 768;
+    /* On a phone, fly only when the *selection* changes. The sheet opening or
+       closing over the same shrine used to re-fly to it too — which, now that
+       a drag of the map lowers the sheet, would snatch the map back from the
+       finger that had just moved it. */
+    const sameShrine = lastFlownIdRef.current === selectedId;
+    lastFlownIdRef.current = selectedId;
+    if (!isDesktop && sameShrine) return;
+
+    const targetZoom = Math.max(map.getZoom(), 13);
 
     let flyTarget: L.LatLng | L.LatLngTuple = [shrine.latLng.lat, shrine.latLng.lng];
 
@@ -726,6 +755,7 @@ export function ShrineMap({
   crossTradition,
   sharedGroundLens,
   onSharedGroundLensChange,
+  onUserPan,
 }: Props) {
   const { theme } = useTheme();
   const { lang, t } = useLang();
@@ -754,6 +784,7 @@ export function ShrineMap({
         sidebarOpen={sidebarOpen}
         isRTL={isRTL}
         tourActive={activeTour !== null}
+        onUserPan={onUserPan}
       />
       <ZoomControl
         position="bottomright"
