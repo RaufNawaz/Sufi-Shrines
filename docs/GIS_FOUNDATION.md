@@ -146,7 +146,7 @@ Checked in Chromium on 16 Oct 2026: every unit draws, all four lead toggles work
 errors, no sideways scroll at 390 px. The file is 3.1 MB and committed, so it opens from any
 clone; rebuild it after any layer changes. It carries no team-only column.
 
-**Since 17 Oct 2026 it reads the atlas** (below): 236 indicators in 17 themes, the menu and labels
+**Since 17 Oct 2026 it reads the atlas** (below): 243 indicators in 18 themes, the menu and labels
 from `atlas/indicator_catalog.tsv`. The data is embedded gzipped and base64-encoded and inflated
 in the page by `pako` (a third CDN script), so 7.1 MB of JSON ships as a 2.4 MB file. Two things
 that would each cost an hour: **`JSON.parse` rejects `NaN`**, which the old JS-literal embedding
@@ -154,7 +154,7 @@ accepted, so the builder turns every NaN into null and dumps with `allow_nan=Fal
 move the page script into a `type="text/plain"` block** to run it later — Prettier formats that as
 prose and re-wraps the code. Zero-inflated indicators (flood exposure, conflict deaths) get a
 "zero" class of their own, or their septiles collapse to three faint classes. Re-checked in
-Chromium on 17 Oct 2026: all 236 indicators at all 460 indicator-unit pairs draw with data, no
+Chromium on 17 Oct 2026: all 243 indicators at all 467 indicator-unit pairs draw with data, no
 console errors, no sideways scroll at 390 px.
 
 ## Welfare layers (added 16 October 2026)
@@ -214,16 +214,16 @@ tracked in `welfare/`.
 
 The aim: every measured welfare outcome for people in Pakistan that is openly available, on one
 frame. **`atlas_district`, `atlas_tehsil`, `atlas_province` and `atlas_grid_h3_r6`** in the
-GeoPackage hold every indicator as a column (329 at district), so ArcGIS or QGIS opens one layer
-and needs no joins; `atlas_codebook` (306 indicators) gives each one's definition, publisher,
+GeoPackage hold every indicator as a column (336 at district), so ArcGIS or QGIS opens one layer
+and needs no joins; `atlas_codebook` (313 indicators) gives each one's definition, publisher,
 licence, year and the units it reaches. Flat copies are tracked in `pipeline/gis/atlas/`.
 `build_atlas.py` refuses a column that arrives from two sources, an indicator with no
 definition, and any change to the archive's site counts.
 
 **`atlas_sites`** (layer and `atlas/atlas_sites.csv`) is the table the shrine-exposure analysis
-starts from: each of the 169 archive sites with all 233 catalog indicators for the place it stands
+starts from: each of the 169 archive sites with all 240 catalog indicators for the place it stands
 in. Each indicator is taken at the finest unit that reaches nearly all sites — hexagon for the
-satellite and modelled layers (56), district for most surveys (146), province for DHS's region figures (28) — and that unit is the codebook's `site_unit`, so no column mixes units. Census
+satellite and modelled layers (56), district for most surveys (153), province for DHS's region figures (28) — and that unit is the codebook's `site_unit`, so no column mixes units. Census
 tehsil values reach only the 77 cleanly matched districts, so for sites they fall back to district.
 Only the sites layer's public columns are carried; the build fails if a team-only one appears.
 
@@ -233,7 +233,7 @@ What was added, by builder. Each writes its own checks file; every number below 
 |---|---|---|---|
 | `outcomes/build_census_extended.py` | Census 2023 tables 4, 6, 13A, 20-26 | child-woman ratio (fertility proxy), dependency ratio, under-5 sex ratio, girls / boys 15-19 ever married, youth literacy by sex, kacha / pakka housing, jhuggis, homelessness, no kitchen, no washroom, women home-owners, age heaping | district (all 23); tehsil (11) |
 | `welfare/build_extended_layers.py` | DHS modelled surfaces (17), MAP, Kummu GDP, UCDP, Ookla, UNOSAT, IPC | stunting, vaccination, ANC, facility births, contraception, unmet need, literacy by sex, water, open defecation, bed nets, tobacco; malaria (Pv, Pf) 2024; walking time to care; GDP per capita 2023 and growth; conflict deaths 2015-24; mobile / fixed internet speed and use; share living in the 2022 and 2010 flood extents; IPC phase 3+ | hexagon, tehsil, district, province (IPC district only) |
-| `outcomes/build_pslm_district.py` | PSLM 2019-20 microdata (PBS) | literacy, net enrolment, out of school, women's and men's mobile ownership and internet use, full immunisation, child diarrhoea, ORS, prenatal care, skilled birth attendance, facility births, postnatal care, women's work, handwashing with soap, drainage, waste collection, LHW visits, FIES food insecurity, ownership of agricultural land and of cattle | district (129) |
+| `outcomes/build_pslm_district.py` | PSLM 2019-20 microdata (PBS) | literacy, net enrolment, out of school, women's and men's mobile ownership and internet use, full immunisation, child diarrhoea, ORS, prenatal care, skilled birth attendance, facility births, postnatal care, women's work, handwashing with soap, drainage, waste collection, LHW visits, FIES food insecurity, ownership of agricultural land and of cattle, remittances received, users' satisfaction with BHUs, hospitals, primary schools and the police, distance to a BHU | district (129) |
 | `outcomes/build_mpi_district.py` | Planning Commission / UNDP / OPHI 2016 | district MPI, headcount and intensity, six rounds 2004/05-2014/15 | district (124) |
 | `outcomes/build_pslm_2015.py` | PSLM 2014-15 microdata (PBS) | the same literacy, schooling, immunisation, diarrhoea, maternal-care and LHW indicators for 2014-15, and the change to 2019-20 | district (122; change for 107) |
 | `outcomes/build_nns_district.py` | National Nutrition Survey 2018, Vol. 2 | stunting, wasting, underweight, overweight, clinical anaemia, child disability, iodized salt, women's underweight and obesity, marriage before 18 and 15, **E. coli and arsenic tested in household drinking water**, FIES, social-protection coverage | district (146, incl. AJK, GB, ex-FATA) |

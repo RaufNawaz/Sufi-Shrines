@@ -225,6 +225,26 @@ def indicators():
     cat = g_[g_.itc == 4].drop_duplicates("hhcode").join(hhw, on="hhcode", how="inner")
     cat["cattle"] = (cat.sgaq01 == 1).astype(float).where(cat.sgaq01.notna())
     out["pslm_hh_own_cattle"] = wmean(cat, "cattle")
+    # Remittances (section E, amounts received in the last year by any member): any domestic or any
+    # foreign remittance into the household.
+    rm = rd("sece", ["hhcode", "seaq23", "seaq24"]).groupby("hhcode")[["seaq23", "seaq24"]].max()
+    rm = rm.join(hhw, how="inner")
+    rm["foreign"] = (rm.seaq24.fillna(0) > 0).astype(float)
+    rm["domestic"] = (rm.seaq23.fillna(0) > 0).astype(float)
+    out["pslm_hh_foreign_remittance"] = wmean(rm, "foreign")
+    out["pslm_hh_domestic_remittance"] = wmean(rm, "domestic")
+
+    # Public services (section L, one row per household per service): satisfaction among households that
+    # use the service (slq1 2-4, slq3 1 satisfied / 2 not), and distance to a Basic Health Unit (slq5
+    # band 5 is more than 5 km).
+    sv = rd("secl", ["hhcode", "facilities", "slq1", "slq3", "slq5"]).join(hhw, on="hhcode", how="inner")
+    for code, name in [(1, "bhu"), (3, "hospital"), (6, "primary_school"), (11, "police")]:
+        u = sv[(sv.facilities == code) & sv.slq1.isin([2, 3, 4]) & sv.slq3.isin([1, 2])].copy()
+        u["sat"] = (u.slq3 == 1).astype(float)
+        out[f"pslm_satisfied_{name}"] = wmean(u, "sat")
+    b = sv[(sv.facilities == 1) & sv.slq5.isin([1, 2, 3, 4, 5])].copy()
+    b["far"] = (b.slq5 == 5).astype(float)
+    out["pslm_bhu_over_5km"] = wmean(b, "far")
     n["households"] = hhw.groupby("district").size()
     return pd.DataFrame(out), pd.DataFrame(n)
 
@@ -354,6 +374,13 @@ CODEBOOK = {
     "pslm_hh_own_agri_land": "Households in which a member owns agricultural land, %",
     "pslm_rural_hh_own_agri_land": "Rural households in which a member owns agricultural land, % (its complement is rural landlessness)",
     "pslm_hh_own_cattle": "Households owning buffaloes or cows, %",
+    "pslm_hh_foreign_remittance": "Households where a member received remittances from abroad in the last year, %",
+    "pslm_hh_domestic_remittance": "Households where a member received remittances from within Pakistan in the last year, %",
+    "pslm_satisfied_bhu": "Households using a Basic Health Unit that are satisfied with its quality, %",
+    "pslm_satisfied_hospital": "Households using a health clinic or hospital that are satisfied with its quality, %",
+    "pslm_satisfied_primary_school": "Households using a primary school that are satisfied with its quality, %",
+    "pslm_satisfied_police": "Households that used the police and are satisfied with the service, %",
+    "pslm_bhu_over_5km": "Households for whom the nearest Basic Health Unit is more than 5 km away, %, as reported. Agrees only moderately with modelled travel time and facility-file distance (rho 0.37-0.45)",
     "pslm_fies_mod_sev": "Moderate or severe food insecurity, % of households (FIES, FAO method), as published by PBS in Table 9.1 of the PSLM 2019-20 report",
     "pslm_fies_mod_sev_moe": "Margin of error of the above, points (PBS Table 9.1)",
     "pslm_fies_severe": "Severe food insecurity, % of households (FIES), PBS Table 9.1",
@@ -435,6 +462,19 @@ def main():
     check("PSLM 2019-20 FIES vs IPC phase 3+ (2021-2026 analyses), districts the IPC covers", "convergent",
           f"rho = {r:+.2f}, n = {len(x)}", "sign +, rho >= 0.3", r >= 0.3, hard=False,
           note="Two measures four to six years apart, either side of the 2022 floods; reported, not reconciled")
+
+    # The surveyed distance to a BHU against three independent access measures. On 17 Oct 2026 it agreed
+    # only moderately with all three (rho 0.37-0.45): a coarse self-reported band, not a misread file
+    # (the module's other answers read as PBS publishes). Recorded as warnings and stated in the definition.
+    others = {"welfare/welfare_health_district.csv": "km_to_gov_primary_popw",
+              "welfare/welfare_ext_district.csv": "walk_health_min_popw",
+              "welfare/welfare_district.csv": "travel_health_min_popw"}
+    for f_, col in others.items():
+        if (HERE.parent / f_).exists():
+            x = m[["pslm_bhu_over_5km"]].join(pd.read_csv(HERE.parent / f_).set_index("district_code")[[col]], how="inner").dropna()
+            r = x.iloc[:, 0].rank().corr(x.iloc[:, 1].rank())
+            check(f"households > 5 km from a BHU (PSLM) vs {col}", "convergent", f"rho = {r:+.2f}, n = {len(x)}",
+                  "sign +, rho >= 0.4", r >= 0.4, hard=False, note="Moderate agreement; stated in the definition")
 
     g = dist[["district_code", "district_name", "province_code", "geometry"]].merge(
         out.drop(columns=["district"]), on="district_code", how="inner")

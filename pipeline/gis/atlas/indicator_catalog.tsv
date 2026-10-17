@@ -16,6 +16,8 @@ ipc_phase3plus	Food insecurity, IPC phase 3+ (%)	Wealth and poverty	0	latest
 pslm_rural_hh_own_agri_land	Rural households owning agricultural land (%)	Wealth and poverty	1	2019-20
 pslm_hh_own_agri_land	Households owning agricultural land (%)	Wealth and poverty	1	2019-20
 pslm_hh_own_cattle	Households owning cattle or buffalo (%)	Wealth and poverty	1	2019-20
+pslm_hh_foreign_remittance	Households receiving remittances from abroad (%)	Wealth and poverty		2019-20
+pslm_hh_domestic_remittance	Households receiving remittances from within Pakistan (%)	Wealth and poverty		2019-20
 literacy	Literacy, 10+ (%)	Education	1	2023
 literacy_female	Female literacy, 10+ (%)	Education	1	2023
 literacy_female_rural	Rural female literacy, 10+ (%)	Education	1	2023
@@ -98,6 +100,7 @@ share_pop_within_30min_health	Within 30 min of health care (%)	Access and connec
 walk_health_min_popw	Minutes to health care on foot	Access and connectivity	0	2020
 share_pop_within_60min_walk_health	Within an hour's walk of health care (%)	Access and connectivity	1	2020
 km_to_gov_primary_popw	Km to government primary care (BHU/RHC)	Access and connectivity	0	2017
+pslm_bhu_over_5km	Households > 5 km from a BHU (%, reported)	Access and connectivity	0	2019-20
 share_pop_within_5km_gov_primary	Within 5 km of government primary care (%)	Access and connectivity	1	2017
 km_to_hq_hospital_popw	Km to a tehsil/district HQ hospital	Access and connectivity	0	2017
 gov_primary_per_100k	Government primary facilities per 100,000	Access and connectivity	1	2017
@@ -129,6 +132,11 @@ share_hindu_all	Hindu population (%)	Population and identity		2023
 share_christian	Christian population (%)	Population and identity		2023
 share_ahmadi	Ahmadi population (%)	Population and identity		2023
 share_sikh	Sikh population (%)	Population and identity		2023
+pslm_satisfied_bhu	Users satisfied with their Basic Health Unit (%)	Public services	1	2019-20
+pslm_satisfied_hospital	Users satisfied with their hospital or clinic (%)	Public services	1	2019-20
+pslm_satisfied_primary_school	Users satisfied with their primary school (%)	Public services	1	2019-20
+pslm_satisfied_police	Users satisfied with the police (%)	Public services	1	2019-20
+undp_health_satisfaction_2015	Households satisfied with their health facility (%, UNDP)	Public services	1	2015
 rural_access_index	Rural Access Index (OSM roads)	OSM-based (read the caveat)	1	2023
 share_access_hospitals_1h	Within 1 h of an OSM hospital (%)	OSM-based (read the caveat)	1	2023
 share_access_primary_healthcare_1h	Within 1 h of OSM primary care (%)	OSM-based (read the caveat)	1	2023
@@ -144,7 +152,6 @@ mpi_headcount_2005	District MPI poor (%), 2004/05	Wealth and poverty	0	2004-05
 mpi_headcount_change_05_15	Change in MPI poor, 2004/05 to 2014/15 (points)	Wealth and poverty	0	2004-2015
 undp_hdi_2015	District Human Development Index (UNDP)	Wealth and poverty	1	2015
 undp_hdi_change_05_15	Change in district HDI, 2005-2015	Change over time	1	2005-2015
-undp_health_satisfaction_2015	Households satisfied with their health facility (%)	Health and nutrition	1	2015
 undp_mean_schooling_2015	Mean years of schooling (UNDP)	Education	1	2015
 undp_expected_schooling_2015	Expected years of schooling (UNDP)	Education	1	2015
 pslm_fies_mod_sev	Food insecurity, moderate or severe (%, FIES)	Wealth and poverty	0	2019-20

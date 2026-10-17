@@ -17,3 +17,6 @@ pslm_own_mobile_women (2019-20) vs census 2023 literacy_female,convergent,"rho =
 pslm_hh_own_agri_land (2019-20) vs census 2023 urban_share,convergent,"rho = -0.54, n = 129","sign -, |rho| >= 0.4",pass,
 pslm_fies_mod_sev vs census 2023 literacy,convergent,"rho = -0.45, n = 129","sign -, |rho| >= 0.4",pass,
 "PSLM 2019-20 FIES vs IPC phase 3+ (2021-2026 analyses), districts the IPC covers",convergent,"rho = -0.01, n = 76","sign +, rho >= 0.3",warn,"Two measures four to six years apart, either side of the 2022 floods; reported, not reconciled"
+households > 5 km from a BHU (PSLM) vs km_to_gov_primary_popw,convergent,"rho = +0.37, n = 129","sign +, rho >= 0.4",warn,Moderate agreement; stated in the definition
+households > 5 km from a BHU (PSLM) vs walk_health_min_popw,convergent,"rho = +0.45, n = 129","sign +, rho >= 0.4",pass,Moderate agreement; stated in the definition
+households > 5 km from a BHU (PSLM) vs travel_health_min_popw,convergent,"rho = +0.45, n = 129","sign +, rho >= 0.4",pass,Moderate agreement; stated in the definition
