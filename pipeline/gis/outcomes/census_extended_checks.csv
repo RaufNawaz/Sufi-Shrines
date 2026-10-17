@@ -1,0 +1,17 @@
+check,kind,measured,reference,result,note
+Table 4 districts found in the boundary file,integrity,135 of 135,all,pass,
+Table 4 single years sum to its ALL AGES row,integrity,max gap 0 persons,<= 0.1% of the smallest district,pass,
+Table 4 total vs Table 1 total,integrity,"240,458,089","241,227,004 (Table 1)",pass,Table 4 is short of Table 1 almost everywhere; ratios are unaffected
+districts where Table 4 and Table 1 populations differ by > 2%,integrity,KOLAI PALAS KOHISTAN -15.5%; QUETTA -12.5%; KOHISTAN UPPER -11.5%; KOHISTAN LOWER -10.8%; ISLAMABAD -3.4%; RAJANPUR -2.4%; TANDO MUHAMMAD KHAN +60.0%,none,warn,"Published tables disagree; recorded in census_table4_vs_table1.csv, not corrected"
+Table 6 districts found in the boundary file,integrity,135 of 135,all,pass,
+districts with extended outcomes vs step one,integrity,135,135 (outcomes_district),pass,
+tehsils with extended outcomes vs step one,integrity,299,299 (outcomes_tehsil),pass,
+"youth (15-24) literacy vs 10+ literacy, districts",convergent,"rho = +0.98, n = 135",rho >= 0.8,pass,
+youth literacy at least the 10+ rate,convergent,99% of districts,>= 90%,pass,
+child_woman_ratio vs literacy_female,convergent,"rho = -0.80, n = 135","sign -, |rho| >= 0.3",pass,
+child_woman_ratio vs girls_15_19_ever_married,convergent,"rho = +0.72, n = 135","sign +, |rho| >= 0.3",pass,
+girls_15_19_ever_married vs literacy_female,convergent,"rho = -0.80, n = 135","sign -, |rho| >= 0.3",pass,
+housing_kacha vs flush_toilet,convergent,"rho = -0.90, n = 135","sign -, |rho| >= 0.3",pass,
+housing_kacha vs electricity,convergent,"rho = -0.88, n = 135","sign -, |rho| >= 0.3",pass,
+"child-woman ratio 2023 vs DHS 2017-18 TFR, provinces",external,"rho = +0.82, n = 5 (PK2 932/4.0, PK4 411/3.0, PK5 674/4.0, PK6 596/3.4, PK7 688/3.6)",rho >= 0.7,pass,
+national sex ratio under 5,external,105.7 boys per 100 girls,103-110 (biological norm ~105; higher where girls are missing or under-counted),pass,
