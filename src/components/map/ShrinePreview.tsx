@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import type { Shrine, Lang } from '../../types/shrine';
@@ -23,6 +24,10 @@ import { useSavedShrines, toggleSaved } from '../../lib/savedShrines';
 import { useUrduArticles } from '../../hooks/useUrduArticlesReady';
 import { langAttr } from '../../lib/i18n/languages';
 import { publicLocation } from '../../lib/data/publicLocation';
+import { useShrineData } from '../../hooks/useShrineData';
+import { findSharedGround } from '../../lib/data/sharedGround';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 interface ShrinePreviewProps {
   shrine: Shrine;
@@ -48,6 +53,22 @@ export function ShrinePreview({
     : null;
 
   const name = localizeShrineName(shrine, lang);
+
+  /* What stands within walking distance (800 m) — the question the map's
+     shared-ground lens could not answer for one site: it lights every
+     cross-tradition pair archive-wide, and the answer for this site lived far
+     down its entry page (map council, 17 October 2026). The three nearest,
+     with distances in the reader's units. */
+  const { shrines: allShrines } = useShrineData();
+  const { units } = useReaderPreferences();
+  const nearby = useMemo(
+    () =>
+      findSharedGround(shrine, allShrines)
+        .neighbours.slice()
+        .sort((a, b) => a.distanceM - b.distanceM)
+        .slice(0, 3),
+    [shrine, allShrines],
+  );
 
   /* A place, not a paragraph. Several field-survey rows carry the survey's
      whole account of where the site is in the Location column — Darbar Malik
@@ -258,6 +279,39 @@ export function ShrinePreview({
           </span>
         </button>
       </div>
+      {nearby.length > 0 && (
+        <div className="preview-nearby">
+          <p className="preview-nearby-heading">{t('sharedGroundHeading')}</p>
+          <ul className="preview-nearby-list">
+            {nearby.map((n) => (
+              <li key={n.shrine.slug}>
+                <Link to={`/shrine/${n.shrine.slug}`} className="preview-nearby-link">
+                  <span
+                    className={`palette-result-dot palette-result-dot--${n.tradition}`}
+                    aria-hidden="true"
+                  />
+                  <bdi className="preview-nearby-name">{localizeShrineName(n.shrine, lang)}</bdi>
+                  {/* A shared pin is not a distance: these two rows carry one coordinate
+                      because one was placed by the other's, so "0 m away" would
+                      claim a nearness the record does not (the entry page says
+                      the same). */}
+                  <span
+                    className="preview-nearby-distance"
+                    {...(n.samePin ? { title: t('sharedGroundSamePinHelp') } : {})}
+                  >
+                    {n.samePin
+                      ? t('sharedGroundSamePin')
+                      : formatDistance(n.distanceM / 1000, units, lang as Lang, fmtNum, {
+                          style: 'away',
+                          below: 'metres',
+                        })}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       {leadText && (
         <p className="preview-description">
           <InlineEmphasis text={leadText} />
