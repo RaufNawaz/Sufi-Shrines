@@ -26,8 +26,10 @@ walk_health_min sampled for populated cells,integrity,99.94% of people,>= 99%,pa
 Kummu Pakistan admin-2 units,integrity,32,32 (GADM divisions),pass,
 GDP per capita found for populated cells,integrity,99.88% of people,>= 97%,pass,Cells on the Line of Control and the coast can fall between GADM and OCHA outlines
 "GDP per capita 2023, population-weighted national mean vs Kummu's national figure",external,"6,004","6,037 (tabulated_adm0)",pass,Kummu downscales with their own population grid; Kontur 2023 weights differ
-Ookla mobile tiles inside Pakistan,integrity,"59,434 tiles, 583,157 tests","> 1,000 tiles",pass,
-Ookla fixed tiles inside Pakistan,integrity,"69,300 tiles, 2,061,970 tests","> 1,000 tiles",pass,
+"Ookla mobile tiles inside Pakistan, 2025-04-01",integrity,"59,434 tiles, 583,157 tests","> 1,000 tiles",pass,
+"Ookla fixed tiles inside Pakistan, 2025-04-01",integrity,"69,300 tiles, 2,061,970 tests","> 1,000 tiles",pass,
+"Ookla mobile tiles inside Pakistan, 2020-04-01",integrity,"34,530 tiles, 300,786 tests","> 1,000 tiles",pass,
+"Ookla fixed tiles inside Pakistan, 2020-04-01",integrity,"19,738 tiles, 487,065 tests","> 1,000 tiles",pass,
 UCDP deaths 2015-2024 located to district precision or better,integrity,"94.6% of 9,933 deaths",>= 80%,pass,
 people inside the 2022 flood extent (Kontur 2023),external,32.9 M,"UNOSAT's own 27.9 M exposed, 1-31 Aug 2022 (population exposure XLSX): same order",pass,"Different snapshot (Jul-Aug cumulative), population base and cell-centre rule"
 IPC areas matched to a district by name,integrity,125 of 126; unmatched ['Usta muhammad'],>= 90%,pass,

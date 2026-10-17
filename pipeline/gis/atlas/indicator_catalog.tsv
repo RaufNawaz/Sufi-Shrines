@@ -105,6 +105,9 @@ fixed_download_mbps	Fixed broadband speed, Mbps (Speedtest)	Access and connectiv
 mobile_devices_per_1000	Devices testing mobile data per 1,000	Access and connectivity	1	2025 Q2
 fixed_devices_per_1000	Devices testing home broadband per 1,000	Access and connectivity	1	2025 Q2
 share_pop_near_mobile_test	Near a tile with mobile-data use (%)	Access and connectivity	1	2025 Q2
+mobile_devices_per_1000_2020	Devices testing mobile data per 1,000 (2020)	Access and connectivity	1	2020 Q2
+fixed_devices_per_1000_2020	Devices testing home broadband per 1,000 (2020)	Access and connectivity	1	2020 Q2
+mobile_download_mbps_2020	Mobile download speed, Mbps (2020)	Access and connectivity	1	2020 Q2
 pm25_2021_popw	Fine-particle air pollution, PM2.5 (ug/m3)	Environment	0	2021
 share_pop_pm25_above_35_2021	Living above WHO's least strict PM2.5 target, 35 ug/m3 (%)	Environment	0	2021
 share_pop_pm25_above_who_2021	Living above WHO's PM2.5 guideline, 5 ug/m3 (%)	Environment	0	2021
@@ -112,6 +115,7 @@ share_pop_flooded_2022	Living inside the 2022 flood extent (%)	Shocks and securi
 share_pop_flooded_2010	Living inside the 2010 flood extent (%)	Shocks and security	0	2010
 conflict_deaths_per_100k	Conflict deaths per 100,000, 2015-24	Shocks and security	0	2015-2024
 conflict_civilian_deaths_per_100k	Civilian conflict deaths per 100,000, 2015-24	Shocks and security	0	2015-2024
+conflict_onesided_deaths_per_100k	Deaths in violence against civilians per 100,000, 2015-24	Shocks and security	0	2015-2024
 conflict_events	Conflict events, 2015-24	Shocks and security	0	2015-2024
 pop2023	Population (census)	Population and identity		2023
 pop_kontur_2023	Population (Kontur, modelled)	Population and identity		2023

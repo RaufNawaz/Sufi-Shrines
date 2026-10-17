@@ -30,7 +30,7 @@ def targets(r):
         u = r["url"] + ",".join(DHS_IDS)
         return [(u, SRC / r["path"]), (u.replace("breakdown=subnational", "breakdown=national"),
                                        SRC / r["path"].replace(".json", "_national.json"))]
-    if r["key"] == "ookla":
+    if r["key"] in ("ookla", "ookla_2020"):
         return [(r["url"], SRC / r["path"]), (r["url"].replace("mobile", "fixed"), SRC / r["path"].replace("mobile", "fixed"))]
     if r["key"] == "census_pakpc2023":
         return []

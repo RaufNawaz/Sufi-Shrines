@@ -265,8 +265,11 @@ def add_gdp(k):
 
 
 # ------------------------------------------------------------------------- Ookla
-def ookla_tiles(kind):
-    t = pq.read_table(SRC / f"ookla/2025-04-01_performance_{kind}_tiles.parquet",
+OOKLA = [("2025-04-01", ""), ("2020-04-01", "_2020")]     # (quarter file, column suffix); latest first
+
+
+def ookla_tiles(kind, quarter):
+    t = pq.read_table(SRC / f"ookla/{quarter}_performance_{kind}_tiles.parquet",
                       columns=["tile_x", "tile_y", "avg_d_kbps", "avg_u_kbps", "avg_lat_ms", "tests", "devices"],
                       filters=[("tile_x", ">=", PK_BBOX[0]), ("tile_x", "<=", PK_BBOX[2]),
                                ("tile_y", ">=", PK_BBOX[1]), ("tile_y", "<=", PK_BBOX[3])]).to_pandas()
@@ -282,24 +285,25 @@ def place_points(df, lon, lat, teh):
 
 
 def ookla(k, teh):
-    print("Ookla Speedtest open data, Q2 2025")
+    print("Ookla Speedtest open data, Q2 2025 and Q2 2020")
     out = {}
     xy = gpd.GeoSeries(gpd.points_from_xy(k.lon, k.lat), crs=4326).to_crs(bw.PK_LAEA)
     kxy = np.c_[xy.x, xy.y]
-    for kind in ["mobile", "fixed"]:
-        t = place_points(ookla_tiles(kind), "tile_x", "tile_y", teh)
-        t["mbps_x_tests"] = t.avg_d_kbps / 1000 * t.tests
-        check(f"Ookla {kind} tiles inside Pakistan", "integrity", f"{len(t):,} tiles, {t.tests.sum():,} tests",
-              "> 1,000 tiles", len(t) > 1000)
-        for by in UNITS:
-            g = t.groupby(by)[["mbps_x_tests", "tests", "devices"]].sum()
-            out[(by, f"{kind}_download_mbps")] = g.mbps_x_tests / g.tests
-            out[(by, f"{kind}_tests")] = g.tests
-            out[(by, f"{kind}_devices")] = g.devices
-        if kind == "mobile":
-            txy = gpd.GeoSeries(gpd.points_from_xy(t.tile_x, t.tile_y), crs=4326).to_crs(bw.PK_LAEA)
-            d, _ = cKDTree(np.c_[txy.x, txy.y]).query(kxy, k=1, distance_upper_bound=1000)
-            k["near_mobile_test"] = np.isfinite(d).astype(float)
+    for quarter, suf in OOKLA:
+        for kind in ["mobile", "fixed"]:
+            t = place_points(ookla_tiles(kind, quarter), "tile_x", "tile_y", teh)
+            t["mbps_x_tests"] = t.avg_d_kbps / 1000 * t.tests
+            check(f"Ookla {kind} tiles inside Pakistan, {quarter}", "integrity", f"{len(t):,} tiles, {t.tests.sum():,} tests",
+                  "> 1,000 tiles", len(t) > 1000)
+            for by in UNITS:
+                g = t.groupby(by)[["mbps_x_tests", "tests", "devices"]].sum()
+                out[(by, f"{kind}_download_mbps{suf}")] = g.mbps_x_tests / g.tests
+                out[(by, f"{kind}_tests{suf}")] = g.tests
+                out[(by, f"{kind}_devices{suf}")] = g.devices
+            if kind == "mobile" and not suf:
+                txy = gpd.GeoSeries(gpd.points_from_xy(t.tile_x, t.tile_y), crs=4326).to_crs(bw.PK_LAEA)
+                d, _ = cKDTree(np.c_[txy.x, txy.y]).query(kxy, k=1, distance_upper_bound=1000)
+                k["near_mobile_test"] = np.isfinite(d).astype(float)
     CODEBOOK["mobile_download_mbps"] = ("Average mobile download speed in Speedtest results, Mbps, Q2 2025, weighted by "
                                         "tests. Measures where people test, which skews to smartphone users", "ookla")
     CODEBOOK["fixed_download_mbps"] = ("Average fixed-broadband download speed in Speedtest results, Mbps, Q2 2025, "
@@ -310,6 +314,10 @@ def ookla(k, teh):
                                           "people: a home-broadband proxy", "ookla")
     CODEBOOK["share_pop_near_mobile_test"] = ("Share of population within 1 km of a ~600 m tile with at least one mobile "
                                               "Speedtest in Q2 2025: a floor on mobile-data use reaching people", "ookla")
+    CODEBOOK["mobile_download_mbps_2020"] = ("Average mobile download speed in Speedtest results, Mbps, Q2 2020", "ookla")
+    CODEBOOK["fixed_download_mbps_2020"] = ("Average fixed-broadband download speed in Speedtest results, Mbps, Q2 2020", "ookla")
+    CODEBOOK["mobile_devices_per_1000_2020"] = ("Devices running a mobile Speedtest in Q2 2020 per 1,000 people (Kontur 2023)", "ookla")
+    CODEBOOK["fixed_devices_per_1000_2020"] = ("Devices running a fixed-broadband Speedtest in Q2 2020 per 1,000 people (Kontur 2023)", "ookla")
     return out
 
 
@@ -332,11 +340,14 @@ def ucdp(teh):
         out[(by, "conflict_events")] = x.size()
         out[(by, "conflict_deaths")] = x.best.sum()
         out[(by, "conflict_civilian_deaths")] = x.deaths_civilians.sum()
+        out[(by, "conflict_onesided_deaths")] = x.apply(lambda g: g.best[g.type_of_violence == 3].sum())
     CODEBOOK["conflict_deaths_per_100k"] = ("Deaths in organised violence 2015-2024 (UCDP GED 25.1 best estimate) per "
                                             "100,000 residents. Hexagon and tehsil use events located within 25 km; "
                                             "district adds district-located events; province adds province-located", "ucdp")
     CODEBOOK["conflict_civilian_deaths_per_100k"] = ("Civilian deaths in organised violence 2015-2024 per 100,000", "ucdp")
     CODEBOOK["conflict_events"] = ("Organised-violence events 2015-2024 (UCDP GED 25.1), count", "ucdp")
+    CODEBOOK["conflict_onesided_deaths_per_100k"] = ("Deaths in one-sided violence (organised armed groups or the state "
+                                                     "against civilians; UCDP type 3), 2015-2024, per 100,000", "ucdp")
     return out
 
 
@@ -421,16 +432,18 @@ def aggregate(k, by, counts):
     for (b, name), s in counts.items():
         if b == by:
             g[name] = s.reindex(g.index)
-    for name in ["conflict_events", "conflict_deaths", "conflict_civilian_deaths", "mobile_tests", "fixed_tests",
-                 "mobile_devices", "fixed_devices"]:
+    counts_ = ["conflict_events", "conflict_deaths", "conflict_civilian_deaths", "conflict_onesided_deaths"] + \
+        [f"{t}_{w}{suf}" for _, suf in OOKLA for t in ["mobile", "fixed"] for w in ["tests", "devices"]]
+    for name in counts_:
         if name in g:
             g[name] = g[name].fillna(0)
     g["conflict_deaths_per_100k"] = 1e5 * g.conflict_deaths / pop
     g["conflict_civilian_deaths_per_100k"] = 1e5 * g.conflict_civilian_deaths / pop
-    g["mobile_devices_per_1000"] = 1000 * g.mobile_devices / pop
-    g["fixed_devices_per_1000"] = 1000 * g.fixed_devices / pop
-    g = g.drop(columns=["conflict_deaths", "conflict_civilian_deaths", "mobile_tests", "fixed_tests",
-                        "mobile_devices", "fixed_devices"], errors="ignore")
+    g["conflict_onesided_deaths_per_100k"] = 1e5 * g.conflict_onesided_deaths / pop
+    for _, suf in OOKLA:
+        for t in ["mobile", "fixed"]:
+            g[f"{t}_devices_per_1000{suf}"] = 1000 * g[f"{t}_devices{suf}"] / pop
+    g = g.drop(columns=[c for c in counts_ if c != "conflict_events"], errors="ignore")
     return g.round(4)
 
 
