@@ -97,6 +97,9 @@ fixed_download_mbps	Fixed broadband speed, Mbps (Speedtest)	Access and connectiv
 mobile_devices_per_1000	Devices testing mobile data per 1,000	Access and connectivity	1	2025 Q2
 fixed_devices_per_1000	Devices testing home broadband per 1,000	Access and connectivity	1	2025 Q2
 share_pop_near_mobile_test	Near a tile with mobile-data use (%)	Access and connectivity	1	2025 Q2
+pm25_2021_popw	Fine-particle air pollution, PM2.5 (ug/m3)	Environment	0	2021
+share_pop_pm25_above_35_2021	Living above WHO's least strict PM2.5 target, 35 ug/m3 (%)	Environment	0	2021
+share_pop_pm25_above_who_2021	Living above WHO's PM2.5 guideline, 5 ug/m3 (%)	Environment	0	2021
 share_pop_flooded_2022	Living inside the 2022 flood extent (%)	Shocks and security	0	2022
 share_pop_flooded_2010	Living inside the 2010 flood extent (%)	Shocks and security	0	2010
 conflict_deaths_per_100k	Conflict deaths per 100,000, 2015-24	Shocks and security	0	2015-2024
