@@ -506,6 +506,41 @@
   }
 }
 
+/* `display: flex` on a <summary> drops its disclosure marker, so "Cite this
+   entry" read as a label rather than something that opens (reading council,
+   17 October 2026). A caret that turns, as the source notes and source rows
+   have. */
+.cite-entry-summary {
+  list-style: none;
+  gap: var(--space-2);
+}
+
+.cite-entry-summary::-webkit-details-marker {
+  display: none;
+}
+
+.cite-entry-summary::after {
+  content: '';
+  inline-size: 0.45rem;
+  block-size: 0.45rem;
+  border-block-end: 1.5px solid currentcolor;
+  border-inline-end: 1.5px solid currentcolor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+[dir='rtl'] .cite-entry-summary::after {
+  transform: rotate(-45deg) translateY(-2px);
+}
+
+.cite-entry[open] > .cite-entry-summary::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+
+[dir='rtl'] .cite-entry[open] > .cite-entry-summary::after {
+  transform: rotate(-225deg) translateY(-2px);
+}
+
 .cite-block {
   margin-top: var(--space-4);
 }
@@ -2924,7 +2959,10 @@
   display: none;
 }
 
-@media (max-width: 639.98px) {
+/* Phones always; 640–1339px once the static contents list has scrolled away
+   (`--floating`, MobileContents.tsx). From 1340px the rail is sticky and is
+   the navigation. */
+@media (max-width: 1339.98px) {
   .mobile-sections-btn {
     display: inline-flex;
     align-items: center;
@@ -3233,4 +3271,25 @@
   .source-notes-summary::after {
     display: none !important;
   }
+}
+
+@media (min-width: 640px) and (max-width: 1339.98px) {
+  .mobile-sections-btn:not(.mobile-sections-btn--floating) {
+    display: none;
+  }
+}
+
+/* The section's name, which can be long: it gives way with an ellipsis rather
+   than growing the pill across the article. */
+.mobile-sections-label {
+  max-inline-size: min(60vw, 22rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Where the reader is, in the sheet. */
+.mobile-toc-current .mobile-toc-item-btn {
+  font-weight: 700;
+  color: var(--color-primary);
 }
