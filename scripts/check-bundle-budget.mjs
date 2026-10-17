@@ -161,7 +161,7 @@ const BUDGETS_KB = {
      bar's links now prefetch their page module on intent and arrive by View
      Transition — lib/nav/routeModules.ts, lib/nav/viewTransition.ts). Measured
      273 for the shell, 362 Almanac, 286 NotFound; each set to measurement + 2. */
-  'index.html': 290, // measured 287 on 17 Oct 2026 (round 5 strings)
+  'index.html': 294, // measured 291 on 17 Oct 2026, council round 7
   /* 611 → 618 on 8 October 2026: measured 613 after the palette grew its
      tradition chips and grouped browse mode, and the shared-ground lens
      control moved from the sidebar into ShrineMap. Slack kept, per the note
@@ -174,7 +174,7 @@ const BUDGETS_KB = {
   /* 626 → 620 on 15 October 2026: CommandPalette (with its preview pane and
      filters) is lazy now, fetched when the browser is idle, and the route
      measured 616. If this grows by ~10 KB the palette went static again. */
-  'src/pages/MapPage.tsx': 644, // measured 641 on 17 Oct 2026 (round 5 strings)
+  'src/pages/MapPage.tsx': 649, // measured 646 on 17 Oct 2026, council round 7
   /* 520 → 526 on 29 Aug 2026, and raised rather than left at exactly the
      measurement for a specific reason: the route hit **520 against a 520
      budget**, which is not a pass, it is a landmine. The next person to add a
@@ -195,7 +195,7 @@ const BUDGETS_KB = {
      static import carried `data/provenance.json` (127 KB) to every public
      reader of every entry; it is a lazy import now and the route measured 408.
      If this jumps by ~127 KB, that import went static again. */
-  'src/pages/ShrinePage.tsx': 437, // measured 434 on 17 Oct 2026, after council round 5
+  'src/pages/ShrinePage.tsx': 445, // measured 442 on 17 Oct 2026, council round 7
   /* Raised 675 → 680 on 30 August 2026 and **put back the same morning**, which
      is the useful half of the story.
 
@@ -214,8 +214,8 @@ const BUDGETS_KB = {
 
      The structural point is still open and is worth more than either number:
      `/saint/:slug` downloads the whole graph to render one figure. */
-  'src/pages/SaintPage.tsx': 699, // measured 696 on 17 Oct 2026, round 5: traditions row, capped days
-  'src/pages/OrderPage.tsx': 682, // measured 679 on 17 Oct 2026, after the Urdu council's RecordedRun
+  'src/pages/SaintPage.tsx': 703, // measured 700 on 17 Oct 2026, council round 7
+  'src/pages/OrderPage.tsx': 687, // measured 684 on 17 Oct 2026, council round 7
   'src/pages/GraphPage.tsx': 628, // measured 625 on 17 Oct 2026, round 5: ?order= and #lineage
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
      UI strings, and the English string table is eager on every route, so the
@@ -237,7 +237,7 @@ const BUDGETS_KB = {
      other page, and `UI_TEXT.en` should split the way `UI_TEXT.ur` already
      lazily does. That is a design change, not a budget edit, which is why it is
      written here rather than done at the same time as the feature. */
-  'src/pages/AlmanacPage.tsx': 382, // measured 379 on 17 Oct 2026 (round 5 strings)
+  'src/pages/AlmanacPage.tsx': 387, // measured 384 on 17 Oct 2026, council round 7
   /* 29 Aug 2026, and it is the shared-table effect the Almanac note above
      describes, arriving exactly as predicted: kinship added ~25 English UI
      strings, the English table is eager on every route, and the three routes
@@ -265,7 +265,7 @@ const BUDGETS_KB = {
      split, not to keep moving numbers. Nobody should do that tonight; it is
      written down so the fourth raise prompts the change instead of a fourth
      comment. */
-  'src/pages/NotFoundPage.tsx': 305, // measured 302 on 17 Oct 2026 (round 5 strings)
+  'src/pages/NotFoundPage.tsx': 309, // measured 306 on 17 Oct 2026, council round 7
   /* Track C, new on 28 Aug 2026. It carries the shell, the shrine snapshot and
      its own ~4 KB of timeline code — no graph, no provenance, no places index.
      If this jumps by ~170 KB something pulled provenance.json in; by ~420 KB,
@@ -284,7 +284,7 @@ const BUDGETS_KB = {
   /* +4 KB on 9 Oct 2026: the page rebuilt (HANDOVER §9.277) — a chart card with
      packed lanes and a hover label, a tradition filter, and inset lists with
      disclosure. All of it is page code; no new import. */
-  'src/pages/ChronologyPage.tsx': 345, // measured 342 on 17 Oct 2026, with per-article Urdu loading
+  'src/pages/ChronologyPage.tsx': 350, // measured 347 on 17 Oct 2026, council round 7
   /* Track A's archive-wide half, new on 29 Aug 2026. Carries the shell, the
      shrine snapshot and `sharedGround.ts` — no graph, no provenance, no places
      index, and no map: the page is a list of pairs, and every distance on it is
@@ -294,7 +294,7 @@ const BUDGETS_KB = {
      would mean a link to the map turned into an embedded one. */
   /* +5 KB on 9 Oct 2026: the meetings ring and the crossings' distance strip
      (HANDOVER §9.279) — page code, no new import. */
-  'src/pages/SharedGroundPage.tsx': 349, // measured 346 on 17 Oct 2026 (round 5 strings)
+  'src/pages/SharedGroundPage.tsx': 353, // measured 350 on 17 Oct 2026, council round 7
   /* The tradition pages, new on 29 Aug 2026. Sibling of the order pages and it
      loads much the same things, minus the graph. Its own data lives in
      `data/kg-traditions.json` (17 KB as a chunk) and is *not* here by accident:
@@ -302,7 +302,7 @@ const BUDGETS_KB = {
      and reaches it through a dynamic import, so ShrinePage pays nothing for it.
      A static import there would have cost 17 KB against 3 KB of headroom.
      If this route ever jumps by ~420 KB, something pulled in src/lib/kg.ts. */
-  'src/pages/TraditionPage.tsx': 365, // measured 362 on 17 Oct 2026; the figures list loads the graph through import()
+  'src/pages/TraditionPage.tsx': 369, // measured 366 on 17 Oct 2026, council round 7
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two
@@ -320,7 +320,7 @@ const BUDGETS_KB = {
      `sourceIndex.ts` is on every shrine page and this is not. */
   /* +1 KB on 9 Oct 2026: the citation cards and the Latin-run span (HANDOVER
      §9.277) — markup only. */
-  'src/pages/AboutPage.tsx': 376, // measured 373 on 17 Oct 2026, with per-article Urdu loading
+  'src/pages/AboutPage.tsx': 382, // measured 379 on 17 Oct 2026, council round 7
   /* 292 → 312 on 26 Aug 2026 when the place page gained its figures and
      observances (A3). The first draft of that feature measured **608 KB**: the
      join was `getSaintsForShrine`, and `src/lib/kg.ts` statically imports the
@@ -349,7 +349,7 @@ const BUDGETS_KB = {
      and in no number here. Re-based at measurement + 7 KB, this file's rule. Not
      raised, and at or near zero slack before this change: ShrinePage 534/534,
      AlmanacPage 360/360, index.html 272/272. */
-  'src/pages/PlacePage.tsx': 378, // measured 375 on 17 Oct 2026, round 5: grouped sites; orders load through import()
+  'src/pages/PlacePage.tsx': 382, // measured 379 on 17 Oct 2026, council round 7
   // Added 23 Aug 2026 when the two branches merged: this route was built on the
   // other line, so this table had never seen it.
   /* 310 → 317, 29 August 2026, with PlacePage on the same day and for the same
@@ -363,7 +363,7 @@ const BUDGETS_KB = {
      headroom fail first regardless of what changed. */
   /* +2 KB on 9 Oct 2026: the tile mosaic and the per-form tradition bars
      (HANDOVER §9.279) — page code, no new import. */
-  'src/pages/TypologyPage.tsx': 346, // measured 343 on 17 Oct 2026, with per-article Urdu loading
+  'src/pages/TypologyPage.tsx': 352, // measured 349 on 17 Oct 2026, council round 7
   /* The review desk. 257 KB measured 26 Aug 2026 — essentially the app shell and
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`
      inside the route, so a public reader never downloads a page they cannot
@@ -399,7 +399,7 @@ const BUDGETS_KB = {
      sites by name, which needs the rows, so this page now loads the same data
      layer (useShrineData) every entry page does. A reader reaches Settings from
      another page, so the chunk is almost always cached by then. */
-  'src/pages/SettingsPage.tsx': 348, // measured 345 on 17 Oct 2026
+  'src/pages/SettingsPage.tsx': 352, // measured 349 on 17 Oct 2026, council round 7
 };
 
 /**

@@ -20,6 +20,34 @@ function detectLang(): Lang {
 
 interface Props {
   children: React.ReactNode;
+  /** The current path: a new one clears the error, so the tab bar still
+   *  works after one page fails (loading council, 17 October 2026). */
+  resetKey?: string;
+}
+
+/** A route's code could not be fetched — after a deploy, the previous build's
+ *  chunks are gone from the server and from the service worker's cache. */
+export function isChunkLoadError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error ?? '');
+  return /dynamically imported module|Importing a module script failed|error loading dynamically|ChunkLoadError/i.test(
+    message,
+  );
+}
+
+const RELOADED_KEY = 'shrines_chunk_reload';
+
+/** Reload once to fetch the current build; a second failure on the same path
+ *  shows the card instead of looping. */
+export function reloadOnceForChunkError(): boolean {
+  try {
+    const path = window.location.pathname;
+    if (sessionStorage.getItem(RELOADED_KEY) === path) return false;
+    sessionStorage.setItem(RELOADED_KEY, path);
+  } catch {
+    return false;
+  }
+  window.location.reload();
+  return true;
 }
 
 interface State {
@@ -39,6 +67,15 @@ export class AppErrorBoundary extends React.Component<Props, State> {
 
   override componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
     if (import.meta.env.DEV) console.error('[app] render error:', error, errorInfo);
+    /* A page whose code is from a build no longer served: the reader did
+       nothing wrong, and a reload fetches the current one. */
+    if (isChunkLoadError(error)) reloadOnceForChunkError();
+  }
+
+  override componentDidUpdate(prevProps: Props): void {
+    if (this.state.hasError && prevProps.resetKey !== this.props.resetKey) {
+      this.setState({ hasError: false });
+    }
   }
 
   override render(): React.ReactNode {

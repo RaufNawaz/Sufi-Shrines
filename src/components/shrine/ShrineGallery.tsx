@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { photoSource } from '../../lib/images/photoSource';
+import { isPortrait } from '../../lib/images/imageShape';
 import type { GalleryItem } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
@@ -44,17 +46,43 @@ const deadImageUrls = new Set<string>();
 interface Props {
   items: GalleryItem[];
   category?: string;
+  /** The site's name in the reader's language, for the labels: the dialog
+   *  was "Gallery" and each photo "Photo 3 of 9", with nothing saying what
+   *  they showed (imagery council, 17 October 2026). */
+  siteName?: string;
 }
 
 interface LightboxProps {
   items: GalleryItem[];
   initialIndex: number;
   onClose: () => void;
+  siteName?: string;
 }
 
-function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
+/** Fired by the page's hero to open the lightbox on that photograph. */
+export const OPEN_PHOTO_EVENT = 'shrine:open-photo';
+
+function Lightbox({ items, initialIndex, onClose, siteName }: LightboxProps) {
   const { t, lang, isRTL, fmtNum } = useLang();
   const [idx, setIdx] = useState(initialIndex);
+  /* Which photographs have their large rendition in the cache. Until one has,
+     the lightbox shows the tile's own rendition, which is already loaded: a
+     Commons photo opened to a dimmed, empty overlay for five seconds on a slow
+     connection, because the tile and the lightbox asked for different URLs. */
+  const [largeReady, setLargeReady] = useState<Set<string>>(() => new Set());
+  useEffect(() => {
+    const url = items[idx]?.imageUrl;
+    if (!url || largeReady.has(url)) return;
+    const large = new window.Image();
+    let cancelled = false;
+    large.onload = () => {
+      if (!cancelled) setLargeReady((ready) => new Set(ready).add(url));
+    };
+    large.src = thumbnailUrl(url, IMAGE_WIDTH.hero);
+    return () => {
+      cancelled = true;
+    };
+  }, [idx, items, largeReady]);
   const closeRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -175,6 +203,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
   });
 
   const item = items[idx];
+  const source = photoSource(item.imageUrl);
 
   return (
     <div
@@ -185,7 +214,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       }}
       role="dialog"
       aria-modal="true"
-      aria-label={t('gallery')}
+      aria-label={siteName ? tFn(lang, 'galleryOfSite', siteName) : t('gallery')}
     >
       {items.length > 1 && (
         <div className="lightbox-counter">
@@ -224,7 +253,10 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       <img
         ref={imgRef}
         key={item.index}
-        src={thumbnailUrl(item.imageUrl, IMAGE_WIDTH.hero)}
+        src={thumbnailUrl(
+          item.imageUrl,
+          largeReady.has(item.imageUrl) ? IMAGE_WIDTH.hero : IMAGE_WIDTH.gallery,
+        )}
         /* Was `Gallery image ${idx + 1}` — an English literal in the Urdu view.
            The accessible-name guard could not see it: the lightbox only exists
            after a click, and that sweep scans the page as loaded. Same blind
@@ -233,16 +265,31 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
            `photoOf` rather than a composed label: when the archive records no
            caption, the honest description of the image *is* its position, and
            "Photo 1 of 2" / "تصویر ۱ از ۲" says that in a sentence. */
-        alt={item.caption || fmtNum(tFn(lang, 'photoOf', idx + 1, items.length))}
+        alt={
+          item.caption ||
+          fmtNum(
+            siteName
+              ? tFn(lang, 'photoOfSite', siteName, idx + 1, items.length)
+              : tFn(lang, 'photoOf', idx + 1, items.length),
+          )
+        }
         className="lightbox-img"
       />
 
-      {(item.caption || item.credit) && (
+      {(item.caption || item.credit || source) && (
         <div className="lightbox-caption">
           {item.caption && <p>{item.caption}</p>}
           {item.credit && (
             <p className="lightbox-credit">
               {t('photoCredit')}: <bdi>{item.credit}</bdi>
+            </p>
+          )}
+          {source && (
+            <p className="lightbox-credit">
+              {t('photoSourceLabel')}:{' '}
+              <a href={source.href} target="_blank" rel="noopener noreferrer" lang="en" data-latin>
+                {source.label}
+              </a>
             </p>
           )}
         </div>
@@ -296,7 +343,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
   );
 }
 
-export function ShrineGallery({ items, category = '' }: Props) {
+export function ShrineGallery({ items, category = '', siteName }: Props) {
   const { t, lang, fmtNum } = useLang();
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   /* Bumped when an image fails, purely to re-render. The set is the state; this
@@ -325,6 +372,19 @@ export function ShrineGallery({ items, category = '' }: Props) {
   }, []);
   void deadSeen;
 
+  /* The hero opens the lightbox on its own photograph: it was the only
+     picture on the page that could not be opened, and for a portrait the
+     only whole view was nine screens down. */
+  useEffect(() => {
+    const onOpen = (event: Event) => {
+      const url = (event as CustomEvent<string>).detail;
+      const at = shown.findIndex((item) => item.imageUrl === url);
+      setLightboxIdx(at >= 0 ? at : 0);
+    };
+    window.addEventListener(OPEN_PHOTO_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_PHOTO_EVENT, onOpen);
+  }, [shown]);
+
   /* Both the "no photograph" case and the "no photograph we can fetch" case. */
   if (shown.length === 0) return null;
 
@@ -337,7 +397,7 @@ export function ShrineGallery({ items, category = '' }: Props) {
         {shown.map((item, i) => (
           <button
             key={item.index}
-            className="gallery-item"
+            className={`gallery-item${isPortrait(item.imageUrl) ? ' gallery-item--portrait' : ''}`}
             role="listitem"
             onClick={() => setLightboxIdx(i)}
             /* `fmtNum` around the whole string, the same treatment the
@@ -345,7 +405,12 @@ export function ShrineGallery({ items, category = '' }: Props) {
                the index is interpolated into the label, so without it an Urdu
                reader is told "تصویر 1" in Western digits. */
             aria-label={
-              item.caption || fmtNum(tFn(lang, 'galleryImageLabel', i + 1, t('imageExpand')))
+              item.caption ||
+              fmtNum(
+                siteName
+                  ? tFn(lang, 'photoOfSite', siteName, i + 1, shown.length)
+                  : tFn(lang, 'galleryImageLabel', i + 1, t('imageExpand')),
+              )
             }
           >
             <ShrineImage
@@ -376,7 +441,12 @@ export function ShrineGallery({ items, category = '' }: Props) {
            handing the lightbox the unfiltered one opens a different photograph
            than the tile the reader pressed as soon as anything is filtered —
            and the whole point of the filtering is that something is. */
-        <Lightbox items={shown} initialIndex={lightboxIdx} onClose={() => setLightboxIdx(null)} />
+        <Lightbox
+          items={shown}
+          initialIndex={lightboxIdx}
+          onClose={() => setLightboxIdx(null)}
+          {...(siteName ? { siteName } : {})}
+        />
       )}
     </section>
   );

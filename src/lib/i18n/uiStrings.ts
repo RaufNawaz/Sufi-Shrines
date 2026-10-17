@@ -268,6 +268,12 @@ const UI_TEXT_EN = {
   errorLoadingData: 'Failed to load shrine data.',
   offlineDataBanner:
     'You’re offline. This is the archive as last saved on this device; it will update when you reconnect.',
+  liveUnreachable:
+    'The live archive could not be reached, so this is a saved copy. Recent corrections may not be shown.',
+  liveUnreachableSaved: (date: string) =>
+    `The live archive could not be reached. This is the copy saved on this device on ${date}.`,
+  liveUnreachablePublished: (date: string) =>
+    `The live archive could not be reached. This is the copy published with the site on ${date}.`,
   offlineDataBannerDated: (date: string) =>
     `You’re offline. This is the archive as saved on this device on ${date}; it will update when you reconnect.`,
   retry: 'Try Again',
@@ -629,6 +635,10 @@ const UI_TEXT_EN = {
   almanacMorePlaces: (n: number) => `${n} more`,
   almanacFewerPlaces: 'Fewer',
   almanacFilterEmpty: 'No site in the archive matches these filters.',
+  almanacFilterUndated: (n: number) =>
+    n === 1
+      ? 'The 1 site these filters match has no observance recorded to a day, so nothing can be placed on the calendar. What is recorded is listed below.'
+      : `None of the ${n} sites these filters match has an observance recorded to a day, so nothing can be placed on the calendar. What is recorded is listed below.`,
   almanacUpcoming: 'Coming up',
   almanacNext12Months: 'The next twelve months',
   almanacApproximate: 'approximate',
@@ -1252,6 +1262,12 @@ const UI_TEXT_EN = {
   stopOf: (current: number, total: number) => `Stop ${current} of ${total}`,
   nextIn: (seconds: number) => `Next in ${seconds}s`,
   photoOf: (current: number, total: number) => `Photo ${current} of ${total}`,
+  photoOfSite: (site: string, current: number, total: number) =>
+    `${site} — photo ${current} of ${total}`,
+  galleryOfSite: (site: string) => `Photographs of ${site}`,
+  photoSourceLabel: 'Source',
+  notFoundSearch: (q: string) => `Search the archive for “${q}”`,
+  heroOpenPhoto: 'Open the photograph',
 
   /* ── Shared ground, archive-wide (/shared-ground) ──────────────────────
      The per-site section on a shrine page answers "who else is here"; this page
@@ -1544,6 +1560,18 @@ export function tFn(
 ): string;
 export function tFn(lang: Lang, key: 'tourStartAtStop', stop: string): string;
 export function tFn(lang: Lang, key: 'paletteSearchArchive', q: string): string;
+export function tFn(
+  lang: Lang,
+  key: 'photoOfSite',
+  site: string,
+  current: number,
+  total: number,
+): string;
+export function tFn(lang: Lang, key: 'galleryOfSite', site: string): string;
+export function tFn(lang: Lang, key: 'liveUnreachableSaved', date: string): string;
+export function tFn(lang: Lang, key: 'liveUnreachablePublished', date: string): string;
+export function tFn(lang: Lang, key: 'notFoundSearch', q: string): string;
+export function tFn(lang: Lang, key: 'almanacFilterUndated', n: number): string;
 export function tFn(lang: Lang, key: 'settingsSavedImported', n: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayKm', value: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayMetres', value: string): string;
@@ -1585,6 +1613,12 @@ export function tFn(
     | 'tourNearestStop'
     | 'tourStartAtStop'
     | 'paletteSearchArchive'
+    | 'photoOfSite'
+    | 'galleryOfSite'
+    | 'liveUnreachableSaved'
+    | 'liveUnreachablePublished'
+    | 'notFoundSearch'
+    | 'almanacFilterUndated'
     | 'settingsSavedImported'
     | 'distanceAwayKm'
     | 'distanceAwayMetres'

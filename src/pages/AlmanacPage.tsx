@@ -520,9 +520,16 @@ export default function AlmanacPage() {
               /* Every section below hides when empty, so a filter matching
                  nothing would leave a heading, two controls and a blank page.
                  Said out loud instead. */
+              /* Sites match but none records a day: twelve blank months with
+                 the reason below the grid (loading council, 17 October 2026).
+                 Said above it instead. */
               const empty =
                 filtersActive && filteredShrines.length === 0 ? (
                   <p className="almanac-empty">{t('almanacFilterEmpty')}</p>
+                ) : filtersActive && almanac.dated.length === 0 ? (
+                  <p className="almanac-empty">
+                    {fmtNum(tFn(lang, 'almanacFilterUndated', filteredShrines.length))}
+                  </p>
                 ) : null;
 
               if (view === 'calendar') {

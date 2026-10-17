@@ -29,6 +29,7 @@ import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import { hasProjectAccess } from '../lib/projectAccess';
 import { publicLocation } from '../lib/data/publicLocation';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
+import { NotFoundSearch } from '../components/ui/NotFoundSearch';
 /**
  * One place, and what the archive records in it.
  *
@@ -461,6 +462,7 @@ export default function PlacePage() {
           <>
             <h1 className="entity-title">{t('placesTitle')}</h1>
             <p className="coverage-intro">{t('placeNotFound')}</p>
+            <NotFoundSearch />
           </>
         )}
         <SiteFooter />

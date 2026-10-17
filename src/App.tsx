@@ -97,6 +97,13 @@ function UrPrefixNormalizer({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+/** The app's error boundary, reset by navigation: one page that failed no
+ *  longer holds every other page behind its error card. */
+function RouteErrorBoundary({ children }: { children: React.ReactNode }) {
+  const { pathname } = useLocation();
+  return <AppErrorBoundary resetKey={pathname}>{children}</AppErrorBoundary>;
+}
+
 function PageFallback() {
   return (
     <div className="page-fallback">
@@ -282,7 +289,7 @@ export default function App() {
               on screen while a lazily-loaded page is still arriving, and a
               navigation that disappears during navigation is worse than none. */}
               <TabBar />
-              <AppErrorBoundary>
+              <RouteErrorBoundary>
                 <Suspense fallback={<PageFallback />}>
                   <Routes>
                     <Route path="/" element={<MapPage />} />
@@ -463,7 +470,7 @@ export default function App() {
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </Suspense>
-              </AppErrorBoundary>
+              </RouteErrorBoundary>
               <UpdateToast />
             </ArchiveSearchProvider>
           </BrowserRouter>

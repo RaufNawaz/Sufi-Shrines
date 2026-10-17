@@ -14,6 +14,28 @@
   text-align: center;
 }
 
+/* "Try again" inside the banner: a text button, with an invisible 44px box so
+   the slim strip does not have to grow to hold a target. */
+.offline-data-retry {
+  all: unset;
+  position: relative;
+  color: var(--color-primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.offline-data-retry::after {
+  content: '';
+  position: absolute;
+  inset-block: calc((44px - 100%) / -2);
+  inset-inline: 0;
+}
+
+.offline-data-retry:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 .offline-data-banner--overlay {
   position: absolute;
   inset-inline: 0;
@@ -1752,6 +1774,10 @@
   justify-content: center;
 }
 
+.preview-card-hero--portrait {
+  object-position: center 30%;
+}
+
 .preview-card-hero-icon {
   width: 32px;
   height: 32px;
@@ -1813,6 +1839,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.leaflet-control-attribution a {
+  /* Leaflet's stock teal is 3.8:1 on the dark overlay; axe never sees it
+     because the a11y sweep excludes the map container. */
+  color: var(--color-primary);
 }
 
 [dir='rtl'] .leaflet-control-attribution {
@@ -2131,7 +2163,7 @@
    action or an active filter. The inset ring in the track's colour makes the
    pill without padding the track, so each half stays a 44px target. */
 .lang-seg.active {
-  background: var(--color-bg-surface);
+  background: var(--color-segment-thumb);
   color: var(--color-text);
   border-radius: var(--radius-full);
   box-shadow:

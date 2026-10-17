@@ -62,6 +62,9 @@ import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 import { useUrduArticle } from '../hooks/useUrduArticlesReady';
 import { pinIsApproximate } from '../lib/data/approximatePin';
+import { isPortrait } from '../lib/images/imageShape';
+import { photoSource } from '../lib/images/photoSource';
+import { OPEN_PHOTO_EVENT } from '../components/shrine/ShrineGallery';
 function SkeletonPage() {
   return (
     <div className="shrine-loading">
@@ -146,6 +149,8 @@ function ShrineContent({
   const headingRef = useFocusHeadingOnMount();
 
   const name = localizeShrineName(shrine, lang);
+  /* Where the hero came from, when it is not the project's own. */
+  const heroSource = photoSource(shrine.imageUrl);
 
   const primaryFigure = primaryFigureSlug(shrine.slug);
   /* Non-empty only where the raw `Sufi Saint` cell is not a usable label: the
@@ -529,19 +534,59 @@ function ShrineContent({
           visible beside the photo as soon as the page opens. */}
       <div className="shrine-article-layout">
         {/* Hero — always rendered (image or branded placeholder) */}
-        <div className="shrine-hero">
-          <ShrineImage
-            src={shrine.imageUrl}
-            alt={name}
-            category={shrine.category}
-            className="shrine-hero-img"
-            placeholderClassName="shrine-hero-placeholder"
-            loading="eager"
-            width={IMAGE_WIDTH.hero}
-          />
+        <div
+          className={`shrine-hero${isPortrait(shrine.imageUrl) ? ' shrine-hero--portrait' : ''}`}
+        >
+          {/* The photograph opens in the lightbox, whole: a portrait hero is
+              cropped to a band here (16 of 115), and the only whole view was
+              the gallery, nine screens down (imagery council, 17 October 2026). */}
+          {shrine.imageUrl ? (
+            <button
+              type="button"
+              className="shrine-hero-open"
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent(OPEN_PHOTO_EVENT, { detail: shrine.imageUrl }))
+              }
+              aria-label={`${t('heroOpenPhoto')}: ${name}`}
+            >
+              <ShrineImage
+                src={shrine.imageUrl}
+                alt={name}
+                category={shrine.category}
+                className="shrine-hero-img"
+                placeholderClassName="shrine-hero-placeholder"
+                loading="eager"
+                width={IMAGE_WIDTH.hero}
+              />
+            </button>
+          ) : (
+            <ShrineImage
+              src={shrine.imageUrl}
+              alt={name}
+              category={shrine.category}
+              className="shrine-hero-img"
+              placeholderClassName="shrine-hero-placeholder"
+              loading="eager"
+              width={IMAGE_WIDTH.hero}
+            />
+          )}
           {shrine.imageUrl && shrine.imageCredit && (
             <p className="shrine-hero-credit">
               {t('photoCredit')}: <bdi>{shrine.imageCredit}</bdi>
+            </p>
+          )}
+          {heroSource && (
+            <p className="shrine-hero-credit">
+              {t('photoSourceLabel')}:{' '}
+              <a
+                href={heroSource.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                lang="en"
+                data-latin
+              >
+                {heroSource.label}
+              </a>
             </p>
           )}
         </div>
@@ -686,7 +731,9 @@ const FOUNDED_SUMMARY_MAX = 40;
 
 export default function ShrinePage() {
   const { slug } = useParams<{ slug: string }>();
-  const { shrines, loading, error, offline, sourceTimestamp, source } = useShrineData();
+  const { shrines, loading, error, offline, sourceTimestamp, source } = useShrineData({
+    acceptIndex: true,
+  });
   /*
    * The slim map index has no `Description`, so a shrine found in it is a real
    * row that is silent about the article — and an article page rendered from

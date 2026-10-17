@@ -262,6 +262,12 @@ export const UI_TEXT_UR: UiStrings = {
   errorLoadingData: 'ڈیٹا لوڈ نہیں ہوا۔',
   offlineDataBanner:
     'آپ آف لائن ہیں۔ یہ آرکائیو ویسا ہے جیسا اس آلے پر آخری بار محفوظ ہوا تھا؛ دوبارہ جڑنے پر تازہ ہو جائے گا۔',
+  liveUnreachable:
+    'آرکائیو کا تازہ ترین نسخہ نہیں مل سکا، اس لیے یہ محفوظ نسخہ ہے۔ حالیہ درستیاں شاید اس میں شامل نہ ہوں۔',
+  liveUnreachableSaved: (date: string) =>
+    `آرکائیو کا تازہ ترین نسخہ نہیں مل سکا۔ یہ وہ نسخہ ہے جو ${date} کو اس آلے پر محفوظ ہوا تھا۔`,
+  liveUnreachablePublished: (date: string) =>
+    `آرکائیو کا تازہ ترین نسخہ نہیں مل سکا۔ یہ وہ نسخہ ہے جو ${date} کو ویب سائٹ کے ساتھ شائع ہوا تھا۔`,
   offlineDataBannerDated: (date: string) =>
     `آپ آف لائن ہیں۔ یہ آرکائیو ویسا ہے جیسا ${date} کو اس آلے پر محفوظ ہوا تھا؛ دوبارہ جڑنے پر تازہ ہو جائے گا۔`,
   retry: 'دوبارہ کوشش کریں',
@@ -583,6 +589,10 @@ export const UI_TEXT_UR: UiStrings = {
   almanacMorePlaces: (n: number) => `${n} مزید`,
   almanacFewerPlaces: 'کم دکھائیں',
   almanacFilterEmpty: 'اِن شرائط پر آرکائیو کا کوئی مقام پورا نہیں اترتا۔',
+  almanacFilterUndated: (n: number) =>
+    n === 1
+      ? 'اِن شرائط پر پورا اترنے والے ایک مقام کی کسی تقریب کا دن درج نہیں، اس لیے تقویم پر کچھ نہیں رکھا جا سکتا۔ جو درج ہے وہ نیچے دیا گیا ہے۔'
+      : `اِن شرائط پر پورا اترنے والے ${n} مقامات میں سے کسی کی تقریب کا دن درج نہیں، اس لیے تقویم پر کچھ نہیں رکھا جا سکتا۔ جو درج ہے وہ نیچے دیا گیا ہے۔`,
   almanacUpcoming: 'آنے والے',
   almanacNext12Months: 'آئندہ بارہ مہینے',
   almanacApproximate: 'تخمینی',
@@ -1156,6 +1166,12 @@ export const UI_TEXT_UR: UiStrings = {
   stopOf: (current: number, total: number) => `${current} / ${total}`,
   nextIn: (seconds: number) => `اگلا مقام ${seconds} سیکنڈ میں`,
   photoOf: (current: number, total: number) => `تصویر ${current} از ${total}`,
+  photoOfSite: (site: string, current: number, total: number) =>
+    `${site} — تصویر ${current} از ${total}`,
+  galleryOfSite: (site: string) => `${site} کی تصاویر`,
+  photoSourceLabel: 'ماخذ',
+  notFoundSearch: (q: string) => `آرکائیو میں «${q}» تلاش کریں`,
+  heroOpenPhoto: 'تصویر کھولیں',
 
   /* ── مشترکہ زمین، پورے آرکائیو میں (/shared-ground) ───────────── */
   sharedGroundPageTitle: 'مشترکہ زمین',

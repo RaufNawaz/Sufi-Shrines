@@ -32,7 +32,11 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  background: var(--color-border-light);
+  /* The surface, not the separator colour: the rows paint their own
+     separators now (below), and a grey container showed through every empty
+     cell of a part-filled last row as a slab (theme council, 17 October
+     2026). */
+  background: var(--color-bg-surface);
   border: var(--hairline) solid var(--color-border-light);
   border-radius: var(--radius-lg);
   /* So the rows' square corners are clipped by the container's round ones. */

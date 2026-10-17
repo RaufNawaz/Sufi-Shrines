@@ -24,6 +24,7 @@ import { readToursEnabled, writeToursEnabled } from '../lib/toursPreference';
 import { parseSharedList, importSharedList } from '../lib/sharedList';
 import { buildSharedGroundOverview } from '../lib/data/sharedGround';
 import { isOnOverlayEntry, isOverlayHistoryPop } from '../lib/nav/overlayHistory';
+import { useBackToClose } from '../hooks/useBackToClose';
 import { publicLocation } from '../lib/data/publicLocation';
 import { RecordedRun } from '../components/ui/RecordedRun';
 
@@ -172,7 +173,9 @@ function setFiltersInURL(filters: FilterState): void {
 const SELECTION_ENTRY = '__mapSelection';
 
 export default function MapPage() {
-  const { shrines, loading, error, offline, sourceTimestamp, refresh } = useShrineData();
+  const { shrines, loading, error, offline, sourceTimestamp, refresh } = useShrineData({
+    acceptIndex: true,
+  });
   const { t, isRTL, lang, localizeField } = useLang();
   const directoryOrder = useMemo(
     () =>
@@ -198,6 +201,15 @@ export default function MapPage() {
   const [sharedGroundLens, setSharedGroundLens] = useState(getLensFromURL);
   const [toursEnabled, setToursEnabled] = useState(readToursEnabled);
   const [activeTourId, setActiveTourId] = useState<string | null>(null);
+  /* On a phone the raised sheet is a step of history, like every other sheet,
+     palette and the lightbox: Back folds it to its peek before it leaves the
+     page. Pulling it up and pressing Back used to leave the map entirely
+     (phone council, 17 October 2026). Only for the browse state — a selected
+     site is its own step (the URL effect below), and a tour has its own. */
+  useBackToClose(
+    isMobile && !isEmbed && sidebarOpen && selectedId === null && activeTourId === null,
+    () => setSidebarOpen(false),
+  );
   const [tourStopIdx, setTourStopIdx] = useState(0);
   const initializedRef = useRef(false);
   const selectedIdRef = useRef<number | null>(null);
@@ -490,7 +502,10 @@ export default function MapPage() {
   const handleSelect = useCallback(
     (shrine: Shrine | null) => {
       selectShrine(shrine);
-      if (shrine && isMobile) setSidebarOpen(true);
+      /* Closing a site on a phone folds the sheet in the same update. Left
+         raised, the browse sheet's own Back step registered in the same
+         commit as the selection's pop, and Back reopened the site. */
+      if (isMobile) setSidebarOpen(shrine !== null);
     },
     [isMobile, selectShrine],
   );

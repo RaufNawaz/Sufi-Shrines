@@ -177,7 +177,7 @@ export function ArchiveSearch({
     [],
   );
   useBackToClose(true, onClose);
-  const { shrines } = useShrineData();
+  const { shrines } = useShrineData({ acceptIndex: true });
 
   const [query, setQuery] = useState(initialQuery);
   const debounced = useDebounce(query, 120);

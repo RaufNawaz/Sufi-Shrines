@@ -108,7 +108,7 @@ function GroupHeading({ group, label }: { group: SiteTypeGroup; label: string })
 }
 
 export default function TypologyPage() {
-  const { shrines, offline, sourceTimestamp } = useShrineData();
+  const { shrines, loading, offline, sourceTimestamp } = useShrineData();
   const { lang, t, localizeField, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
@@ -182,6 +182,9 @@ export default function TypologyPage() {
             Each tile is a link to its group below, with the count as a large
             numeral and the traditions it spans as a bar. (Was a row of pills,
             9 October 2026: "do similar ones for the other pages".) */}
+        {loading && shrines.length === 0 && (
+          <p className="coverage-loading page-loading-reserve">{t('loading')}</p>
+        )}
         <nav className="typology-jump" aria-label={t('typologyTitle')}>
           <ul className="typology-tiles">
             {groups.map((g) => (

@@ -333,7 +333,31 @@ function adoptCsvResult(fresh: Shrine[]): Shrine[] {
   return current;
 }
 
-export function useShrineData(): ShrineDataState {
+/** How long a reader with nothing cached waits for the live sheet before the
+ *  copy published with the site is shown instead. */
+const SHEET_DEADLINE_MS = 10_000;
+const SHEET_TIMED_OUT = Symbol('sheet timed out');
+
+/** Where the rows on screen came from, for the banner that dates them. */
+export function currentDataSource(): Source | null {
+  return sharedSource;
+}
+
+export interface ShrineDataOptions {
+  /**
+   * Take the slim index's rows while the sheet is still on its way. Only a
+   * caller that reads nothing but the index's ten fields should: the map, an
+   * entry's masthead, search, the saved list. Everything else is handed no
+   * rows and `loading` until the full record arrives — the opposite default
+   * was six public pages stating "0 cited sources", "171 not dated", "Built
+   * form not recorded" for the seconds the sheet took, and for ever when it
+   * stalled (loading council, 17 October 2026).
+   */
+  acceptIndex?: boolean;
+}
+
+export function useShrineData(options: ShrineDataOptions = {}): ShrineDataState {
+  const acceptIndex = options.acceptIndex === true;
   const [shrines, setShrines] = useState<Shrine[]>(() => sharedShrines ?? []);
   const [loading, setLoading] = useState(sharedShrines === null);
   const [error, setError] = useState<string | null>(null);
@@ -425,7 +449,30 @@ export function useShrineData(): ShrineDataState {
     }
 
     try {
-      const fresh = await nextCsv();
+      /* A deadline, so a stalled connection gets an answer. The request did
+         not fail, it simply never finished, and the copy the archive ships
+         with sat unused while pages said "Loading…" for as long as the reader
+         waited (loading council, 17 October 2026). After SHEET_DEADLINE_MS the
+         saved copy is shown, dated; the live sheet is still adopted, silently,
+         if it arrives. */
+      const live = nextCsv();
+      const first = await Promise.race([
+        live,
+        new Promise<typeof SHEET_TIMED_OUT>((resolve) =>
+          window.setTimeout(() => resolve(SHEET_TIMED_OUT), SHEET_DEADLINE_MS),
+        ),
+      ]);
+      if (first === SHEET_TIMED_OUT) {
+        live
+          .then((fresh) => {
+            if (token === refreshRef.current) applyCsv(fresh);
+          })
+          .catch(() => {
+            /* Still unreachable: the saved copy and its banner stand. */
+          });
+        throw new Error('The live sheet did not answer in time.');
+      }
+      const fresh = first;
       csvLanded = true;
       if (token !== refreshRef.current) return;
       applyCsv(fresh);
@@ -504,5 +551,11 @@ export function useShrineData(): ShrineDataState {
     return () => window.removeEventListener('online', onOnline);
   }, [offline, load]);
 
+  if (source === 'index' && !acceptIndex) {
+    return { shrines: NO_ROWS, loading: true, error, source, sourceTimestamp, offline, refresh };
+  }
   return { shrines, loading, error, source, sourceTimestamp, offline, refresh };
 }
+
+/** One empty array, so a consumer's memo does not recompute every render. */
+const NO_ROWS: Shrine[] = [];

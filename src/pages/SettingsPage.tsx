@@ -169,7 +169,7 @@ export default function SettingsPage() {
   const [teamView, setTeamView] = useState<boolean>(hasProjectAccess);
   const teamKnown = isTeamKnown();
   const saved = useSavedShrines();
-  const { shrines: allShrines, offline, sourceTimestamp } = useShrineData();
+  const { shrines: allShrines, offline, sourceTimestamp } = useShrineData({ acceptIndex: true });
   /* The saved slugs as rows, in the order they were saved; a slug the data no
      longer has is left out rather than shown as a bare id. */
   const savedShrines = useMemo(() => {

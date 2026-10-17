@@ -126,7 +126,10 @@ export default function OrderPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum, localizeField } = useLang();
   const headingRef = useFocusHeadingOnMount();
-  const { shrines, offline, sourceTimestamp } = useShrineData();
+  /* Index rows for names and photographs at once; days wait for the full
+     record (see SaintPage). */
+  const { shrines, offline, sourceTimestamp, source } = useShrineData({ acceptIndex: true });
+  const rowsComplete = source !== 'index';
   /* Public vs team view (HANDOVER §9.183). Team-only on this page: the
      `unreviewed` count in the header and chip on each member, the note that a
      description was written for this site, and the raw Location cell under
@@ -224,7 +227,7 @@ export default function OrderPage() {
    * whose cell says "Annual urs" and nothing more shows no date at all rather
    * than a guessed one — which is roughly two thirds of them. */
   const observances = useMemo(() => {
-    if (!slug) return [];
+    if (!slug || !rowsComplete) return [];
     const rows: RecordedObservanceRow[] = getOrderObservances(slug).map((row) => {
       // A shrine the graph knows and the sheet has since dropped reads as
       // "date not recorded" — correct, and the same fallback the member list's
@@ -245,7 +248,7 @@ export default function OrderPage() {
     });
     const collator = new Intl.Collator(lang, { sensitivity: 'base' });
     return rows.sort((a, b) => collator.compare(a.figure?.name ?? '', b.figure?.name ?? ''));
-  }, [slug, shrineBySlug, shrineNames, lang]);
+  }, [slug, shrineBySlug, shrineNames, lang, rowsComplete]);
 
   /* The sites this order is present at, and the places those sites stand in.
    *

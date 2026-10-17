@@ -27,7 +27,9 @@ export function LocationMap({ latLng, name, approximate = false }: Props) {
   const { share, copy, copied } = useShareLink({ copiedMs: 2000 });
 
   const coords = formatLatLng(latLng.lat, latLng.lng);
-  const embedSrc = `https://maps.google.com/maps?q=${latLng.lat},${latLng.lng}&z=15&output=embed`;
+  /* `hl`: the map's own labels in the reader's language; the Urdu edition was
+     handed an English-labelled map. */
+  const embedSrc = `https://maps.google.com/maps?q=${latLng.lat},${latLng.lng}&z=15&hl=${lang}&output=embed`;
 
   return (
     <section

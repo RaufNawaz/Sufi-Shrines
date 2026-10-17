@@ -40,3 +40,9 @@ export function imageShape(url: string | null | undefined): ImageShape | null {
   if (!(width > 0) || !(height > 0)) return null;
   return { width, height };
 }
+
+/** Taller than wide by more than a sliver: a photograph a landscape box crops. */
+export function isPortrait(url: string | null | undefined): boolean {
+  const shape = imageShape(url);
+  return !!shape && shape.height > shape.width * 1.05;
+}

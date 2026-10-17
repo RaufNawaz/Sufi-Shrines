@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
+import { currentDataSource } from '../../hooks/useShrineData';
 import type { Lang } from '../../lib/i18n/languages';
 
 /** Day-month-year in each language's own order and month names. */
@@ -55,9 +56,39 @@ export function OfflineDataBanner({ offline, sourceTimestamp, variant = 'inline'
       )
     : null;
 
+  /* Offline only when the browser says so. A sheet that failed or stalled for
+     a reader who is online was announced as "You're offline… saved on this
+     device… will update when you reconnect", none of which was true — the
+     copy shown was the one published with the site, and reconnecting never
+     happens to someone who never disconnected (loading council, 17 October
+     2026). Then: which copy it is, its date, and a way to try again. */
+  const reallyOffline = typeof navigator !== 'undefined' && navigator.onLine === false;
+  const source = currentDataSource();
+  const message = reallyOffline
+    ? dateLabel
+      ? tFn(lang, 'offlineDataBannerDated', dateLabel)
+      : t('offlineDataBanner')
+    : dateLabel
+      ? source === 'snapshot'
+        ? tFn(lang, 'liveUnreachablePublished', dateLabel)
+        : tFn(lang, 'liveUnreachableSaved', dateLabel)
+      : t('liveUnreachable');
+
   return (
     <div className={`offline-data-banner offline-data-banner--${variant}`} role="status">
-      {dateLabel ? tFn(lang, 'offlineDataBannerDated', dateLabel) : t('offlineDataBanner')}
+      {message}
+      {!reallyOffline && (
+        <>
+          {' '}
+          <button
+            type="button"
+            className="offline-data-retry"
+            onClick={() => window.location.reload()}
+          >
+            {t('retry')}
+          </button>
+        </>
+      )}
     </div>
   );
 }

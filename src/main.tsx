@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { reloadOnceForChunkError } from './components/ui/AppErrorBoundary';
 // Vendor CSS first — app styles must load after it to win the cascade by source order.
 import 'leaflet/dist/leaflet.css';
 import './styles/tokens.css';
@@ -146,6 +147,13 @@ if (shrineSlug && initialLang === 'ur') {
  * depend on that having worked, only the speed does.
  */
 void loadUiStrings(initialLang).then(() => {
+  /* Vite's own signal that a preloaded chunk failed — the previous deploy's
+   files are gone. Reload once for the current build rather than leave the
+   reader on a broken page (loading council, 17 October 2026). */
+  window.addEventListener('vite:preloadError', (event) => {
+    if (reloadOnceForChunkError()) event.preventDefault();
+  });
+
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
       <App />

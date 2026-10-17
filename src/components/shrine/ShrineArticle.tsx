@@ -3,6 +3,7 @@ import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { useReveal } from '../../lib/useReveal';
 import { ShrineGallery } from './ShrineGallery';
+import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { anchorSlug, useArticleContent } from './useArticleContent';
 import { localizeHeading } from '../../lib/data/headingLabels';
 import { renderInlineBold } from './inlineFormat';
@@ -205,7 +206,11 @@ export function ShrineArticle({ shrine }: Props) {
           <p className="article-no-sources">{t('articleNoSources')}</p>
         )}
 
-      <ShrineGallery items={shrine.gallery} category={shrine.category} />
+      <ShrineGallery
+        items={shrine.gallery}
+        category={shrine.category}
+        siteName={localizeShrineName(shrine, lang)}
+      />
     </div>
   );
 }

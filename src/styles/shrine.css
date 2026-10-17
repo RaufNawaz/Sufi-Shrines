@@ -65,6 +65,31 @@
   display: block;
 }
 
+/* The hero is a button onto the lightbox. */
+.shrine-hero-open {
+  all: unset;
+  display: block;
+  inline-size: 100%;
+  cursor: zoom-in;
+}
+
+.shrine-hero-open:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* A portrait photograph whole, on the hero's ground, rather than a band out
+   of its middle: the dome's finial, the temple's spire (imagery council,
+   17 October 2026). Width follows the height cap, so the width/height
+   attributes still reserve the box before the image arrives. */
+.shrine-hero--portrait .shrine-hero-img {
+  inline-size: auto;
+  max-inline-size: 100%;
+  max-block-size: min(70vh, 640px);
+  margin-inline: auto;
+  object-fit: contain;
+}
+
 .shrine-hero-credit {
   position: absolute;
   bottom: var(--space-2);
@@ -1378,6 +1403,13 @@
   display: block;
 }
 
+/* A portrait tile takes two rows at a portrait ratio, so a minaret is not
+   cut to its middle 43%. */
+.gallery-item--portrait {
+  grid-row: span 2;
+  aspect-ratio: 3/4;
+}
+
 .gallery-caption {
   position: absolute;
   bottom: 0;
@@ -1554,6 +1586,14 @@
 
 [dir='rtl'] .location-section {
   margin-block: var(--space-10);
+}
+
+/* Google's embed ignores the page's theme, and in dark it was a near-white
+   568×280 block in the middle of every entry (theme council, 17 October 2026).
+   Inverted and turned back round the hue circle it reads as a dark street map
+   with the pin still red; the satellite thumbnail inverts too, the one cost. */
+[data-theme='dark'] .location-map-embed {
+  filter: invert(0.9) hue-rotate(180deg) saturate(0.8);
 }
 
 .location-map-embed {
@@ -2821,7 +2861,7 @@
   }
 
   .page-header-nav-link--current {
-    background-color: var(--color-bg-surface);
+    background-color: var(--color-segment-thumb);
     color: var(--color-text);
     font-weight: 600;
     box-shadow:

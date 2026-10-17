@@ -53,3 +53,19 @@ test('a site chosen from the search palette stays chosen', async ({ page }) => {
   await expect(page).toHaveURL(/selected=data-darbar/);
   await expect(page.locator('.sheet-selected-name')).toContainText('Data Darbar');
 });
+
+test('Back folds a raised sheet before it leaves the map', async ({ page }) => {
+  await page.goto('/about');
+  await page.goto('/');
+  const sheet = page.locator('.sidebar');
+  const peekTop = (await sheet.boundingBox())!.y;
+  await page.locator('.sidebar-sheet-handle').click();
+  await expect.poll(async () => (await sheet.boundingBox())!.y).toBeLessThan(peekTop - 100);
+
+  await page.goBack();
+  await expect(page).not.toHaveURL(/\/about$/);
+  await expect.poll(async () => (await sheet.boundingBox())!.y).toBeGreaterThan(peekTop - 5);
+
+  await page.goBack();
+  await expect(page).toHaveURL(/\/about$/);
+});

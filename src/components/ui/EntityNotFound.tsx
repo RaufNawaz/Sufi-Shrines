@@ -4,6 +4,7 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { EntityPageHeader } from './EntityPageHeader';
 import { SiteFooter } from './SiteFooter';
+import { NotFoundSearch } from './NotFoundSearch';
 
 /**
  * What an entity route says when the slug names nothing.
@@ -44,6 +45,7 @@ export function EntityNotFound() {
       <main id="main-content" className="entity-not-found">
         <h1 className="entity-title">{t('pageNotFoundTitle')}</h1>
         <p className="coverage-intro">{t('pageNotFoundMessage')}</p>
+        <NotFoundSearch />
         <p className="coverage-intro">
           <Link to="/">{t('backToMap')}</Link>
         </p>

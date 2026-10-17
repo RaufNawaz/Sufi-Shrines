@@ -105,7 +105,12 @@ export default function SaintPage() {
         );
   const { calendar } = useReaderPreferences();
   const headingRef = useFocusHeadingOnMount();
-  const { shrines, offline, sourceTimestamp } = useShrineData();
+  /* The index rows carry names and photographs, which the site cards need at
+     once; they carry no Events, so what is said about days waits for the
+     full record — it read "date not recorded" for a day the sheet records
+     (loading council, 17 October 2026). */
+  const { shrines, offline, sourceTimestamp, source } = useShrineData({ acceptIndex: true });
+  const rowsComplete = source !== 'index';
 
   const saint = useMemo(() => (slug ? getSaintBySlug(slug) : undefined), [slug]);
   const figureBucket = useMemo(() => figureGroup(saint?.figureType), [saint?.figureType]);
@@ -179,11 +184,11 @@ export default function SaintPage() {
    * Hijri projection.
    */
   const nextUrs = useMemo(() => {
-    if (!saint) return null;
+    if (!saint || !rowsComplete) return null;
     const own = shrines.filter((shrine) => saint.shrines.includes(shrine.slug));
     if (own.length === 0) return null;
     return buildAlmanac(own, today).dated[0] ?? null;
-  }, [saint, shrines, today]);
+  }, [saint, shrines, today, rowsComplete]);
 
   /* The next ʿurs, formatted through the shared pair-formatter so this line,
      the almanac's card and the shrine page's panel all agree about which date
@@ -220,7 +225,7 @@ export default function SaintPage() {
    * component as the order pages (RecordedObservanceList), so the two surfaces
    * cannot drift on how they say "date not recorded". */
   const observances = useMemo<RecordedObservanceRow[]>(() => {
-    if (!slug) return [];
+    if (!slug || !rowsComplete) return [];
     return getSaintObservances(slug).map((event) => {
       const shrineSlug = event.shrineSlug;
       const shrine = shrineSlug ? shrineRecords.get(shrineSlug) : undefined;
@@ -238,7 +243,7 @@ export default function SaintPage() {
         ...readRecordedObservances(shrine),
       };
     });
-  }, [slug, shrineRecords, shrineMap, lang]);
+  }, [slug, shrineRecords, shrineMap, lang, rowsComplete]);
 
   /* The entry's own account of this figure's life.
    *

@@ -779,7 +779,7 @@
 }
 
 .almanac-view-toggle .filter-chip.active {
-  background: var(--color-bg-surface);
+  background: var(--color-segment-thumb);
   color: var(--color-text);
   box-shadow: var(--shadow-sm);
 }

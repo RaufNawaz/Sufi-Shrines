@@ -4,6 +4,7 @@ import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
+import { NotFoundSearch } from '../components/ui/NotFoundSearch';
 import { useShrineData } from '../hooks/useShrineData';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
@@ -396,6 +397,7 @@ export default function SourcePage() {
           <>
             <h1 className="entity-title">{t('sourcesTitle')}</h1>
             <p className="coverage-intro">{t('sourceNotFound')}</p>
+            <NotFoundSearch />
           </>
         )}
         <SiteFooter />

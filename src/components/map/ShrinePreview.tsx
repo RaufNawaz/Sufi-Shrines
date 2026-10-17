@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import type { Shrine, Lang } from '../../types/shrine';
+import { ShrineImage } from '../ui/ShrineImage';
+import { isPortrait } from '../../lib/images/imageShape';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
@@ -9,13 +11,12 @@ import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
 import { categoryDisplayLabel } from '../../lib/data/categoryKey';
 import { figureTypeDisplayLabel } from '../../lib/data/figureType';
-import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
+import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { infoLevelKey } from '../../lib/data/infoLevel';
 import { supportLevelKey } from '../../lib/data/supportLevel';
 import { siteStatusKey, SITE_STATUS_LABEL_KEYS } from '../../lib/data/siteStatus';
 import { TOURS, localizeTourTitle } from '../../lib/tours/tours';
 import { t as translate } from '../../lib/i18n/uiStrings';
-import { ShrineGlyph } from '../ui/ShrineGlyph';
 import { InlineEmphasis } from '../ui/InlineEmphasis';
 import { InfoLevelBadge } from '../ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../ui/SupportLevelBadge';
@@ -59,7 +60,7 @@ export function ShrinePreview({
      cross-tradition pair archive-wide, and the answer for this site lived far
      down its entry page (map council, 17 October 2026). The three nearest,
      with distances in the reader's units. */
-  const { shrines: allShrines } = useShrineData();
+  const { shrines: allShrines } = useShrineData({ acceptIndex: true });
   const { units } = useReaderPreferences();
   const nearby = useMemo(
     () =>
@@ -133,22 +134,19 @@ export function ShrinePreview({
 
   return (
     <div className="preview-card reveal-rise">
-      {shrine.imageUrl ? (
-        <img
-          src={thumbnailUrl(shrine.imageUrl, IMAGE_WIDTH.preview)}
-          alt={name}
-          className="preview-card-hero"
-          loading="lazy"
-          decoding="async"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
-        />
-      ) : (
-        <div className="preview-card-hero-placeholder" aria-hidden="true">
-          <ShrineGlyph className="preview-card-hero-icon" />
-        </div>
-      )}
+      {/* Through ShrineImage, so a photograph that fails to load looks like
+          one the archive does not have, instead of vanishing and pulling the
+          card up (imagery council, 17 October 2026). A portrait is framed
+          from its upper third, where a dome or spire is, not its middle. */}
+      <ShrineImage
+        src={shrine.imageUrl}
+        alt={name}
+        category={shrine.category}
+        className={`preview-card-hero${isPortrait(shrine.imageUrl) ? ' preview-card-hero--portrait' : ''}`}
+        placeholderClassName="preview-card-hero-placeholder"
+        loading="lazy"
+        width={IMAGE_WIDTH.preview}
+      />
       <h2 className="preview-title">
         <Link to={`/shrine/${shrine.slug}`} lang={langAttr(lang as Lang)}>
           {name}
