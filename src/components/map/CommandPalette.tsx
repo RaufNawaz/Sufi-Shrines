@@ -20,6 +20,7 @@ import { haversineKm } from '../../lib/data/shrineModel';
 import type { LatLng } from '../../types/shrine';
 import { formatDistance } from '../../lib/i18n/formatDistance';
 import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
+import { prefersReducedMotion } from '../../lib/motionPreference';
 /**
  * Search the archive from the middle of the screen.
  *
@@ -134,7 +135,7 @@ export function CommandPalette({
   const closeTimer = useRef<number | null>(null);
   const onClose = useCallback(() => {
     if (closeTimer.current !== null) return;
-    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+    if (prefersReducedMotion()) {
       onCloseNow();
       return;
     }

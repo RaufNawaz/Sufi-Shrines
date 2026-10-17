@@ -300,7 +300,7 @@ function KindsBar({
 }
 
 export default function SourcesPage() {
-  const { shrines, offline, sourceTimestamp, loading } = useShrineData();
+  const { shrines, offline, sourceTimestamp, loading, source, error } = useShrineData();
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
@@ -426,7 +426,11 @@ export default function SourcesPage() {
           {t('sourcesJumpSearch')}
         </button>
 
-        {loading && shrines.length === 0 ? (
+        {/* The slim index paints first and carries no bibliographies, so the
+            page counted "0 citations" for ~300ms and then rebuilt itself under
+            the reader (CLS 0.14, motion council, 17 Oct 2026). Every number
+            here needs the full rows: wait for them. */}
+        {(loading && shrines.length === 0) || (source === 'index' && !error) ? (
           <p className="coverage-loading page-loading-reserve">{t('loading')}</p>
         ) : (
           <>

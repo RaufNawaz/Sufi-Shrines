@@ -326,7 +326,7 @@ function SourceContent({ work, library, lang }: { work: ShelfWork; library: Libr
 
 export default function SourcePage() {
   const { slug } = useParams<{ slug: string }>();
-  const { shrines, loading, offline, sourceTimestamp } = useShrineData();
+  const { shrines, loading, offline, sourceTimestamp, source, error } = useShrineData();
   const { lang, t } = useLang();
   const isRtl = isRtlLang(lang);
 
@@ -365,7 +365,10 @@ export default function SourcePage() {
 
         <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
-        {loading && shrines.length === 0 && !work?.book ? (
+        {/* Not from the slim index: it holds no bibliographies, so a read book
+            would say "no published entry cites this book yet" until the sheet
+            arrived — a false sentence, however brief. */}
+        {(loading && shrines.length === 0) || (source === 'index' && !error) ? (
           <p className="coverage-loading page-loading-reserve">{t('loading')}</p>
         ) : work ? (
           <SourceContent work={work} library={library} lang={lang} />

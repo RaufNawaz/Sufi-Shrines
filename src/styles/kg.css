@@ -3806,3 +3806,9 @@
     display: none;
   }
 }
+
+/* Brought into view after an order card is tapped on a phone: land below the
+   sticky header, not under it. */
+.graph-order-focus {
+  scroll-margin-block-start: calc(var(--header-height) + var(--space-2));
+}

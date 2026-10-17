@@ -72,3 +72,19 @@ export function applyMotionPreference(motion: MotionPreference, root: HTMLElemen
   if (motion === 'reduced') root.setAttribute('data-motion', 'reduced');
   else root.removeAttribute('data-motion');
 }
+
+/**
+ * Whether to move things, asked once, everywhere.
+ *
+ * True for the operating system's reduced-motion setting *or* the archive's own
+ * switch on /settings (`data-motion="reduced"` on <html>). Until 17 October
+ * 2026 every animation started from script asked only the operating system, so
+ * a reader who turned motion off here still had the map fly under them on
+ * every tap and every page crossfade — the two largest movements on the site.
+ * Only the CSS respected the switch (motion council).
+ */
+export function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return false;
+  if (document.documentElement.getAttribute('data-motion') === 'reduced') return true;
+  return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+}

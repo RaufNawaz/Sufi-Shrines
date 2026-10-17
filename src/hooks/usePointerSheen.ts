@@ -1,4 +1,5 @@
 import { useEffect, type RefObject } from 'react';
+import { prefersReducedMotion } from '../lib/motionPreference';
 
 /**
  * The rim light of a glass surface, following the pointer.
@@ -19,7 +20,7 @@ export function usePointerSheen(ref: RefObject<HTMLElement>, enabled = true): vo
     const el = ref.current;
     if (!el || !enabled) return undefined;
     const fine = window.matchMedia?.('(hover: hover) and (pointer: fine)').matches;
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const reduce = prefersReducedMotion();
     if (!fine || reduce) return undefined;
 
     let frame = 0;

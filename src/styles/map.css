@@ -410,9 +410,14 @@
   flex-shrink: 0;
 }
 
-.icon-btn:hover {
-  background: var(--color-bg-alt);
-  color: var(--color-text);
+/* Hover only where there is a pointer that hovers: on a touch screen
+   :hover sticks after a tap, and the control stayed highlighted (motion
+   council, 17 October 2026). Keyboard focus has :focus-visible. */
+@media (hover: hover) {
+  .icon-btn:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+  }
 }
 
 .icon-btn:active {
@@ -1051,10 +1056,15 @@
   font-family: inherit;
 }
 
-.filter-chip:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: var(--color-primary-pale);
+/* Hover only where there is a pointer that hovers: on a touch screen
+   :hover sticks after a tap, and the control stayed highlighted (motion
+   council, 17 October 2026). Keyboard focus has :focus-visible. */
+@media (hover: hover) {
+  .filter-chip:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-primary-pale);
+  }
 }
 
 .filter-chip.active {
@@ -2052,9 +2062,14 @@
   color: var(--color-text-inverse);
 }
 
-.lang-seg:not(.active):hover {
-  background: var(--color-primary-pale);
-  color: var(--color-primary);
+/* Hover only where there is a pointer that hovers: on a touch screen
+   :hover sticks after a tap, and the control stayed highlighted (motion
+   council, 17 October 2026). Keyboard focus has :focus-visible. */
+@media (hover: hover) {
+  .lang-seg:not(.active):hover {
+    background: var(--color-primary-pale);
+    color: var(--color-primary);
+  }
 }
 
 /* ── Touch targets ≥44px on mobile ───────────────────────────────────────── */

@@ -44,6 +44,7 @@ import { isRtlLang, usesLatinScript } from '../lib/i18n/languages';
 import { hasProjectAccess } from '../lib/projectAccess';
 import { BOOK_FIGURE_REGIONS_UR, BOOK_FIGURE_WORKS, loadBookFigures } from '../lib/bookFigures';
 import type { BookFigure } from '../lib/bookFigures';
+import { prefersReducedMotion } from '../lib/motionPreference';
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
  * saints as a network (reusing the same NetworkGraph used on SaintPage),
@@ -515,7 +516,21 @@ export default function GraphPage() {
                   type="button"
                   className={`order-card${active ? ' order-card--active' : ''}`}
                   aria-pressed={active}
-                  onClick={() => setActiveOrderSlug(row.order.slug)}
+                  onClick={() => {
+                    setActiveOrderSlug(row.order.slug);
+                    /* On a phone the network this card redraws starts ~550px
+                       below the screen, so the tap seemed to change only a
+                       border (motion council, 17 October 2026). Bring it into
+                       view once it has rendered. */
+                    if (window.matchMedia('(max-width: 640px)').matches) {
+                      window.requestAnimationFrame(() =>
+                        document.querySelector('.graph-order-focus')?.scrollIntoView({
+                          behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+                          block: 'start',
+                        }),
+                      );
+                    }
+                  }}
                 >
                   <span className="order-card-name">{localizeOrderName(row.order, lang)}</span>
                   <span className="order-card-figures">

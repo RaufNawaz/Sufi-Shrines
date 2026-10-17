@@ -352,3 +352,15 @@ html.vt-nav .shrine-page-header {
 ::view-transition-group(page-header) {
   animation-duration: 200ms;
 }
+
+/* The archive's own reduce-motion switch reaches the page crossfade too. The
+   reset above (`:root[data-motion='reduced'] *`) cannot match a view
+   transition's pseudo-elements, so with motion switched off here every tab tap
+   still faded (motion council, 17 October 2026). The script side asks
+   prefersReducedMotion() and skips the transition; this covers one already
+   under way. */
+:root[data-motion='reduced']::view-transition-group(*),
+:root[data-motion='reduced']::view-transition-old(*),
+:root[data-motion='reduced']::view-transition-new(*) {
+  animation: none !important;
+}

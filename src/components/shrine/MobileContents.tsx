@@ -3,6 +3,7 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { localizeProseDigits } from '../../lib/i18n/numerals';
 import { Sheet } from '../ui/Sheet';
 import type { ArticleNavItem } from './useArticleContent';
+import { prefersReducedMotion } from '../../lib/motionPreference';
 
 /**
  * The article's contents on a phone: a floating pill that opens a sheet of
@@ -25,7 +26,7 @@ export function MobileContents({ items }: { items: ArticleNavItem[] }) {
     if (open || !target.current) return;
     const el = document.getElementById(target.current);
     target.current = null;
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const reduce = prefersReducedMotion();
     el?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   }, [open]);
 

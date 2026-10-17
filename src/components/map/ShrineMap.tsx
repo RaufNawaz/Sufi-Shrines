@@ -49,6 +49,7 @@ const MapLibreBasemap = React.lazy(() =>
   import('./MapLibreBasemap').then((m) => ({ default: m.MapLibreBasemap })),
 );
 import type { Lang } from '../../types/shrine';
+import { prefersReducedMotion } from '../../lib/motionPreference';
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
 
@@ -498,7 +499,7 @@ function ResetViewControl({
           L.DomEvent.stopPropagation(e);
           L.DomEvent.preventDefault(e);
           onSelect(null);
-          const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const reduced = prefersReducedMotion();
           /* The same computation as the opening view, deliberately: a reset
              that returned to a view the map never opened at would be a second
              answer to "where does this map start". */
@@ -607,7 +608,7 @@ function LocateControl({ label, failLabel }: { label: string; failLabel: string 
                 dot.setLatLng(here);
               }
               const zoom = Math.max(map.getZoom(), 12);
-              const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              const reduced = prefersReducedMotion();
               if (reduced) map.setView(here, zoom, { animate: false });
               else map.flyTo(here, zoom, { duration: FLIGHT_DURATION_S });
             },

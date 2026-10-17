@@ -9,6 +9,7 @@ import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { categoryKey } from '../../lib/data/categoryKey';
 import { fanPositions, pileAround, type FanPoint } from '../../lib/map/spiderfy';
 import { FLIGHT_DURATION_S, sheetObscuredBottom } from './mapMotion';
+import { prefersReducedMotion } from '../../lib/motionPreference';
 
 /**
  * How close two pin centres have to be before a reader sees one shape.
@@ -419,7 +420,7 @@ export function ShrineMarkers({
         AUTO_FAN_ZOOM,
       );
       const current = map.getZoom();
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reduced = prefersReducedMotion();
 
       /* The same contract as mapMotion's flyToOrSetView: motion is the point
          here — the flight is what tells the reader the tap was heard — but

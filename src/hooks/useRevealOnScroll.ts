@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { prefersReducedMotion } from '../lib/motionPreference';
 
 /**
  * Reveal a page's sections as they scroll into view.
@@ -38,7 +39,7 @@ export function useRevealOnScroll<T extends HTMLElement = HTMLElement>(
     const root = containerRef.current;
     if (!root) return;
     if (typeof IntersectionObserver === 'undefined') return;
-    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    if (prefersReducedMotion()) return;
 
     const targets = Array.from(root.querySelectorAll<HTMLElement>(selector));
     if (targets.length === 0) return;

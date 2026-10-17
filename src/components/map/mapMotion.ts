@@ -1,4 +1,5 @@
 import type L from 'leaflet';
+import { prefersReducedMotion } from '../../lib/motionPreference';
 
 /**
  * How long a map flight takes, in seconds — the one place it is written.
@@ -37,7 +38,7 @@ export const FLIGHT_DURATION_S = 0.9;
 
 /** Fly the map to a target, or jump instantly under prefers-reduced-motion. */
 export function flyToOrSetView(map: L.Map, target: L.LatLngExpression, zoom: number): void {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduced = prefersReducedMotion();
   if (reduced) {
     map.setView(target, zoom);
   } else {

@@ -52,7 +52,7 @@ const VIEW_LABEL_KEYS = {
 } as const satisfies Record<AlmanacView, string>;
 
 export default function AlmanacPage() {
-  const { shrines, loading, offline, sourceTimestamp } = useShrineData();
+  const { shrines, loading, offline, sourceTimestamp, source, error } = useShrineData();
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
@@ -277,7 +277,9 @@ export default function AlmanacPage() {
     );
   }, [almanac.undated, undatedQuery, lang]);
 
-  const hasEntries = !(loading && almanac.dated.length === 0);
+  /* Not from the slim index, which carries no observances: the calendar drew
+     from it and then grew under the reader when the sheet landed. */
+  const hasEntries = !(loading && almanac.dated.length === 0) && (source !== 'index' || Boolean(error));
 
   return (
     <div className="page-enter entity-page-wrapper">

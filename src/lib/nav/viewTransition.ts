@@ -1,4 +1,5 @@
 import { flushSync } from 'react-dom';
+import { prefersReducedMotion } from '../motionPreference';
 
 type ViewTransitionDocument = Document & {
   startViewTransition?: (update: () => void) => unknown;
@@ -16,7 +17,7 @@ type ViewTransitionDocument = Document & {
  */
 export function withViewTransition(update: () => void): void {
   const doc = document as ViewTransitionDocument;
-  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const reduce = prefersReducedMotion();
   if (!doc.startViewTransition || reduce) {
     update();
     return;

@@ -6,6 +6,7 @@ import type { Shrine } from '../../types/shrine';
 import { resolveTourStops, computeBounds } from '../../lib/tours/tourRoute';
 import { SIDEBAR_WIDTH } from '../../lib/data/constants';
 import { flyToOrSetView } from './mapMotion';
+import { prefersReducedMotion } from '../../lib/motionPreference';
 
 interface Props {
   tour: Tour;
@@ -77,7 +78,7 @@ export function TourRoute({ tour, stopIdx, shrines, sidebarOpen, isRTL }: Props)
 
     const bounds = computeBounds(points.map((p) => p.shrine.latLng));
     if (bounds) {
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reduced = prefersReducedMotion();
       const isDesktop = window.innerWidth > 768;
       const basePad: [number, number] = [40, 40];
       const padSidebarSide: [number, number] =

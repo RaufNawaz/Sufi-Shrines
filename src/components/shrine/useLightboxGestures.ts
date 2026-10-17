@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { prefersReducedMotion } from '../../lib/motionPreference';
 
 /** How far a horizontal drag must travel to change photograph. */
 const SWIPE_PX = 50;
@@ -66,7 +67,7 @@ export function useLightboxGestures({
   useEffect(() => {
     const overlay = overlayRef.current;
     if (!overlay) return undefined;
-    const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    const reduced = () => prefersReducedMotion();
 
     const pointers = new Map<number, { x: number; y: number }>();
     let mode: 'idle' | 'pending' | 'x' | 'y' | 'pan' | 'pinch' = 'idle';

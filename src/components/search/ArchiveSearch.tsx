@@ -23,6 +23,7 @@ import { useBackToClose } from '../../hooks/useBackToClose';
 import { clearRecent, useRecentEntries } from '../../lib/recentEntries';
 import { isOnOverlayEntry } from '../../lib/nav/overlayHistory';
 import { preloadForHref } from '../../lib/nav/routeModules';
+import { prefersReducedMotion } from '../../lib/motionPreference';
 
 /**
  * Search, from anywhere in the archive.
@@ -88,10 +89,37 @@ function Highlighted({ text, query }: { text: string; query: string }) {
   );
 }
 
-export function ArchiveSearch({ onClose }: { onClose: () => void }) {
+/** The map palette's closing fade, so the two searches leave alike. */
+const CLOSE_MS = 140;
+
+export function ArchiveSearch({ onClose: onCloseNow }: { onClose: () => void }) {
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   const navigate = useNavigate();
+  /* The header search vanished on Escape or Done while the map's palette —
+     the same component styling — faded out (motion council, 17 October 2026).
+     Same mechanism as CommandPalette: stay mounted with `--closing` for
+     CLOSE_MS, then unmount; nothing to wait for under reduced motion. */
+  const [closing, setClosing] = useState(false);
+  const closeTimer = useRef<number | null>(null);
+  const onClose = useCallback(() => {
+    if (closeTimer.current !== null) return;
+    if (prefersReducedMotion()) {
+      onCloseNow();
+      return;
+    }
+    setClosing(true);
+    closeTimer.current = window.setTimeout(() => {
+      closeTimer.current = null;
+      onCloseNow();
+    }, CLOSE_MS);
+  }, [onCloseNow]);
+  useEffect(
+    () => () => {
+      if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
+    },
+    [],
+  );
   useBackToClose(true, onClose);
   const { shrines } = useShrineData();
 
@@ -423,9 +451,10 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
       /* Replace the entry this overlay pushed, so back from the destination
          returns to the page the search was opened on in one step. */
       navigate(row.to, { replace: isOnOverlayEntry() });
-      onClose();
+      /* At once: the page crossfade is this exit. */
+      onCloseNow();
     },
-    [navigate, onClose],
+    [navigate, onCloseNow],
   );
 
   const onKeyDown = useCallback(
@@ -476,7 +505,7 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
 
   return createPortal(
     <div
-      className="palette-backdrop"
+      className={`palette-backdrop${closing ? ' palette-backdrop--closing' : ''}`}
       /* Mousedown, not click: a drag that starts on a row and ends on the
          backdrop would otherwise dismiss instead of opening. */
       onMouseDown={(event) => {

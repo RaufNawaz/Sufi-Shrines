@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { prefersReducedMotion } from './motionPreference';
 
 /**
  * Scroll-reveal for editorial sections: the element rises in the first time
@@ -20,7 +21,7 @@ export function useReveal<T extends HTMLElement>() {
     const el = ref.current;
     if (!el) return;
     if (typeof IntersectionObserver === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (prefersReducedMotion()) return;
 
     el.classList.add('reveal-pending');
 
