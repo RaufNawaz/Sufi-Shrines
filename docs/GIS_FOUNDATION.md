@@ -137,6 +137,7 @@ $PY pipeline/gis/outcomes/build_mpi_district.py
 $PY pipeline/gis/outcomes/build_pslm_2015.py        # after build_pslm_district.py
 $PY pipeline/gis/outcomes/build_nns_district.py     # needs pdftotext (poppler)
 $PY pipeline/gis/outcomes/build_mics_district.py    # needs the NNS and census-extension CSVs
+$PY pipeline/gis/outcomes/build_wb_poverty_district.py  # needs the district MPI CSV
 $PY pipeline/gis/atlas/build_atlas.py               # last of the layer builders
 $PY pipeline/gis/viewer/build_viewer.py             # writes viewer/index.html from the atlas
 ```
@@ -159,7 +160,7 @@ Checked in Chromium on 16 Oct 2026: every unit draws, all four lead toggles work
 errors, no sideways scroll at 390 px. The file is 3.1 MB and committed, so it opens from any
 clone; rebuild it after any layer changes. It carries no team-only column.
 
-**Since 17 Oct 2026 it reads the atlas** (below): 198 indicators in 16 themes, the menu and labels
+**Since 17 Oct 2026 it reads the atlas** (below): 201 indicators in 16 themes, the menu and labels
 from `atlas/indicator_catalog.tsv`. The data is embedded gzipped and base64-encoded and inflated
 in the page by `pako` (a third CDN script), so 7.1 MB of JSON ships as a 2.4 MB file. Two things
 that would each cost an hour: **`JSON.parse` rejects `NaN`**, which the old JS-literal embedding
@@ -167,7 +168,7 @@ accepted, so the builder turns every NaN into null and dumps with `allow_nan=Fal
 move the page script into a `type="text/plain"` block** to run it later — Prettier formats that as
 prose and re-wraps the code. Zero-inflated indicators (flood exposure, conflict deaths) get a
 "zero" class of their own, or their septiles collapse to three faint classes. Re-checked in
-Chromium on 17 Oct 2026: all 198 indicators at all 377 indicator-unit pairs draw with data, no
+Chromium on 17 Oct 2026: all 201 indicators at all 380 indicator-unit pairs draw with data, no
 console errors, no sideways scroll at 390 px.
 
 ## Welfare layers (added 16 October 2026)
@@ -227,11 +228,19 @@ tracked in `welfare/`.
 
 The aim: every measured welfare outcome for people in Pakistan that is openly available, on one
 frame. **`atlas_district`, `atlas_tehsil`, `atlas_province` and `atlas_grid_h3_r6`** in the
-GeoPackage hold every indicator as a column (291 at district), so ArcGIS or QGIS opens one layer
-and needs no joins; `atlas_codebook` (255 indicators) gives each one's definition, publisher,
+GeoPackage hold every indicator as a column (299 at district), so ArcGIS or QGIS opens one layer
+and needs no joins; `atlas_codebook` (261 indicators) gives each one's definition, publisher,
 licence, year and the units it reaches. Flat copies are tracked in `pipeline/gis/atlas/`.
 `build_atlas.py` refuses a column that arrives from two sources, an indicator with no
 definition, and any change to the archive's site counts.
+
+**`atlas_sites`** (layer and `atlas/atlas_sites.csv`) is the table the shrine-exposure analysis
+starts from: each of the 169 archive sites with all 198 catalog indicators for the place it stands
+in. Each indicator is taken at the finest unit that reaches nearly all sites — hexagon for the
+satellite and modelled layers (42), district for most surveys (138), province for DHS's region
+figures (16) — and that unit is the codebook's `site_unit`, so no column mixes units. Census
+tehsil values reach only the 77 cleanly matched districts, so for sites they fall back to district.
+Only the sites layer's public columns are carried; the build fails if a team-only one appears.
 
 What was added, by builder. Each writes its own checks file; every number below is from them.
 
@@ -243,6 +252,7 @@ What was added, by builder. Each writes its own checks file; every number below 
 | `outcomes/build_mpi_district.py` | Planning Commission / UNDP / OPHI 2016 | district MPI, headcount and intensity, six rounds 2004/05-2014/15 | district (124) |
 | `outcomes/build_pslm_2015.py` | PSLM 2014-15 microdata (PBS) | the same literacy, schooling, immunisation, diarrhoea, maternal-care and LHW indicators for 2014-15, and the change to 2019-20 | district (122; change for 107) |
 | `outcomes/build_nns_district.py` | National Nutrition Survey 2018, Vol. 2 | stunting, wasting, underweight, overweight, clinical anaemia, child disability, iodized salt, women's underweight and obesity, marriage before 18 and 15, **E. coli and arsenic tested in household drinking water**, FIES, social-protection coverage | district (146, incl. AJK, GB, ex-FATA) |
+| `outcomes/build_wb_poverty_district.py` | World Bank, *Pakistan Poverty Map 2019-2020* (PRWP 11012), Annex 1 | **monetary poverty rate (with SE)**, poverty gap, number of poor, consumption per adult equivalent | district (129) |
 | `outcomes/build_mics_district.py` | Provincial MICS 6, sampling-error appendices | **under-five, infant and neonatal mortality and TFR (with standard errors)**, foundational reading and numeracy, birth registration, violent discipline, child labour, child marriage, feeling safe, discrimination, life satisfaction, and more | district (65: Punjab, Sindh) |
 
 **Verification.** Census extension 15 pass + 1 warning; wave two 73 pass + 5 warnings; PSLM 15 +
@@ -269,6 +279,9 @@ What was added, by builder. Each writes its own checks file; every number below 
 - MICS: Punjab prints district TFR and under-five mortality twice (Vol. II tables, Vol. III
   sampling-error tables) and the two readings agree for every district. TFR tracks the census
   child-woman ratio (ρ 0.78); MICS and NNS child marriage agree (0.76).
+- World Bank poverty map: every district's number of poor equals rate × population; the
+  population-weighted district rates reproduce the paper's province rates to two decimals. The
+  poverty rate tracks the 2014/15 district MPI (ρ 0.79) and the RWI (−0.67).
 - GDP per capita lands within 1% of Kummu's national figure (6,004 against 6,037).
 - A fast raster sampler replaced rasterio's per-point `sample()` (15 minutes → seconds) only after
   it returned identical values on 5,000 cells.
@@ -309,6 +322,11 @@ What was added, by builder. Each writes its own checks file; every number below 
 - **MICS under-five mortality falls with female literacy within each province** (Punjab ρ −0.56,
   Sindh −0.44) **but not pooled** (−0.06): Punjab's district median is 72 per 1,000, Sindh's 42,
   a level gap between two surveys a year apart. Compare districts within a province.
+- **The World Bank poverty map's annex is its national-level model**, not the province models
+  its Table 6 also reports: the district rows reproduce the national model's province rates (KP
+  30.04, Punjab 16.56, Sindh 26.17, Balochistan 38.73) exactly and miss the province models'
+  (29.03, 16.21, 25.75, 42.50). The annex prints **Multan's mean consumption as 35,473 PKR** against
+  a 5,140 median — kept as printed, flagged by a check.
 - pdfplumber took over ten minutes on a 380-page report; `pdftotext -layout` (poppler, installed)
   takes seconds and keeps table columns aligned. Both NNS and MICS are read that way.
 
