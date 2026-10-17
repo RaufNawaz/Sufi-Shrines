@@ -194,6 +194,14 @@ export function ShrineArticle({ shrine }: Props) {
         </section>
       )}
 
+      {/* An entry that cites nothing used simply end, and a reader could not
+          tell "no sources" from "sources further down" (epistemic council,
+          17 October 2026). One entry, today. */}
+      {!inlineSections.some((s) => SOURCES_HEADING_ALIASES.has(s.heading.trim().toLowerCase())) &&
+        !uniqueColumnSections.some((s) => s.id === 'sources') && (
+          <p className="article-no-sources">{t('articleNoSources')}</p>
+        )}
+
       <ShrineGallery items={shrine.gallery} category={shrine.category} />
     </div>
   );

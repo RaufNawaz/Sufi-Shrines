@@ -758,9 +758,16 @@ body.lang-rtl {
 /* SW update toast */
 .sw-update-toast {
   position: fixed;
-  bottom: calc(var(--space-6) + var(--safe-bottom));
-  left: 50%;
-  transform: translateX(-50%);
+  /* Centred by margins, not by transform: the fade-in animation animates
+     `transform` and its last frame wiped the translateX(-50%), so the toast
+     started at the middle of the screen and, in Urdu at a large reading size,
+     ran 130px off it. Above the tab bar on a phone (settings council,
+     17 October 2026). */
+  bottom: calc(var(--space-6) + max(var(--tabbar-height), var(--safe-bottom)));
+  inset-inline: var(--space-4);
+  margin-inline: auto;
+  inline-size: fit-content;
+  max-inline-size: calc(100vw - 2 * var(--space-4));
   z-index: var(--z-toast);
   display: flex;
   align-items: center;
@@ -770,7 +777,6 @@ body.lang-rtl {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-xl);
-  white-space: nowrap;
   animation: page-fade-in var(--duration-base) var(--easing) both;
 }
 
@@ -802,6 +808,11 @@ body.lang-rtl {
 .sw-update-dismiss {
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* 44px, as every control: it was 22. */
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  margin-block: calc(-1 * var(--space-2));
   background: none;
   border: none;
   color: var(--color-text-muted);

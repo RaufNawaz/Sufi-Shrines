@@ -17,13 +17,32 @@ import { isUrPrefixedPath } from './urlLangPrefix';
  * `setLang` writes both the query parameter and localStorage, so calling this
  * again after a runtime switch returns the new language.
  */
+/**
+ * A language chosen by the link a reader arrived on, remembered when they have
+ * never chosen one themselves. An Urdu reader who came by a shared
+ * `?lang=ur` link and never touched the switch got English on their next
+ * visit — and on a home-screen start — since phones in Pakistan are rarely set
+ * to Urdu (settings council, 17 October 2026). A choice made with the switch
+ * is stored by `setLang` and always wins over this.
+ */
+function rememberIfUnset(lang: Lang): Lang {
+  try {
+    if (localStorage.getItem(LANGUAGE_STORAGE_KEY) === null) {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+    }
+  } catch {
+    // Storage may be unavailable; the link still sets this visit's language.
+  }
+  return lang;
+}
+
 export function detectInitialLang(): Lang {
   const param = new URLSearchParams(window.location.search).get('lang');
-  if (param === 'en' || param === 'ur') return param;
+  if (param === 'en' || param === 'ur') return rememberIfUnset(param);
   // A /ur/* prerendered route (see urlLangPrefix.ts) is as explicit a signal
   // as ?lang=ur — checked before localStorage so a shared /ur/shrine/<slug>
   // link never flashes the wrong language before App.tsx's normalizer runs.
-  if (isUrPrefixedPath(window.location.pathname)) return 'ur';
+  if (isUrPrefixedPath(window.location.pathname)) return rememberIfUnset('ur');
   const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
   if (stored === 'en' || stored === 'ur') return stored;
   if (navigator.language?.toLowerCase().startsWith('ur')) return 'ur';

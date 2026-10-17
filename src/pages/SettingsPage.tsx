@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
@@ -48,6 +48,12 @@ import {
 } from '../lib/savedShrines';
 import type { Lang, Theme } from '../types/shrine';
 import { promptInstall, useInstallState } from '../lib/installPrompt';
+import { useShrineData } from '../hooks/useShrineData';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
+import { useShareLink } from '../hooks/useShareLink';
+import { buildSharedListUrl } from '../lib/sharedList';
+import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import type { Shrine } from '../types/shrine';
 
 /**
  * The archive's settings, on a page rather than in a popover on one route.
@@ -163,6 +169,14 @@ export default function SettingsPage() {
   const [teamView, setTeamView] = useState<boolean>(hasProjectAccess);
   const teamKnown = isTeamKnown();
   const saved = useSavedShrines();
+  const { shrines: allShrines, offline, sourceTimestamp } = useShrineData();
+  /* The saved slugs as rows, in the order they were saved; a slug the data no
+     longer has is left out rather than shown as a bare id. */
+  const savedShrines = useMemo(() => {
+    const bySlug = new Map(allShrines.map((s) => [s.slug, s]));
+    return saved.map((slug) => bySlug.get(slug)).filter((s): s is Shrine => Boolean(s));
+  }, [allShrines, saved]);
+  const { copy: copyListLink, copied: listLinkCopied } = useShareLink();
   const fileInputRef = useRef<HTMLInputElement>(null);
   /* One line of feedback under the buttons, because an import that silently
      succeeds is indistinguishable from one that silently failed. `role="status"`
@@ -627,8 +641,50 @@ export default function SettingsPage() {
               note={t('settingsSavedMergeNote')}
             >
               <p className="settings-saved-count">
-                {saved.length === 0 ? t('settingsSavedEmpty') : savedCountLabel(saved.length)}
+                {saved.length === 0
+                  ? t('settingsSavedEmpty')
+                  : savedCountLabel(allShrines.length > 0 ? savedShrines.length : saved.length)}
               </p>
+              {/* The list itself, which a returning reader comes here for. It was
+                  a count; the names, and the way to see or share them, were
+                  behind "More filters" on the map (settings council,
+                  17 October 2026). */}
+              {savedShrines.length > 0 && (
+                <>
+                  <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
+                  <ul className="inset-list settings-saved-list">
+                    {savedShrines.map((s) => (
+                      <li key={s.slug} className="inset-row inset-row--link">
+                        <Link to={`/shrine/${s.slug}`}>
+                          <span className="inset-row-label">
+                            <bdi>{localizeShrineName(s, lang)}</bdi>
+                          </span>
+                          <span className="inset-row-chevron" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="settings-actions">
+                    <Link to="/?saved=1" className="action-btn">
+                      {t('settingsSavedShowMap')}
+                    </Link>
+                    <button
+                      type="button"
+                      className="action-btn"
+                      onClick={() =>
+                        void copyListLink(
+                          buildSharedListUrl(
+                            saved,
+                            new URL(import.meta.env.BASE_URL, window.location.origin).toString(),
+                          ),
+                        )
+                      }
+                    >
+                      {listLinkCopied ? t('copied') : t('settingsSavedCopyLink')}
+                    </button>
+                  </div>
+                </>
+              )}
               <div className="settings-actions">
                 <button
                   type="button"

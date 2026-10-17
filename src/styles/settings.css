@@ -348,6 +348,10 @@
   border: 0;
 }
 
+.settings-saved-list {
+  margin-block: var(--space-2) var(--space-3);
+}
+
 .settings-saved-message {
   margin: var(--space-3) 0 0;
   font-size: var(--text-sm);

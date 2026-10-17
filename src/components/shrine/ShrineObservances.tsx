@@ -91,6 +91,13 @@ export function ShrineObservances({ shrine }: Props) {
           </span>
         )}
       </p>
+      {/* The public reads projected dates without the per-date pill, and the
+          calendar page's caveat explaining them was a page away — so this
+          panel printed "14 March" for a day nobody can know in advance
+          (epistemic council, 17 October 2026). The team sees the pills. */}
+      {!showFlags && (dates.leadIsProjection || dates.secondaryIsProjection) && (
+        <p className="shrine-observances-caveat">{t('obsProjectedCaveat')}</p>
+      )}
       <div className="shrine-observances-actions">
         <button type="button" className="action-btn" onClick={downloadShrineIcs}>
           {t('almanacDownloadIcs')}

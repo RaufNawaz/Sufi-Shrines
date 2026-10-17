@@ -7,6 +7,8 @@ import { formatLatLng } from '../../lib/map/formatCoordinates';
 interface Props {
   latLng: LatLng;
   name: string;
+  /** The entry's own notes say the pin is not the exact position. */
+  approximate?: boolean;
 }
 
 /** Maps URL for a coordinate — `directions` picks the directions endpoint
@@ -20,7 +22,7 @@ function buildMapsUrl(lat: number, lng: number, directions = false): string {
     : `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 }
 
-export function LocationMap({ latLng, name }: Props) {
+export function LocationMap({ latLng, name, approximate = false }: Props) {
   const { t, lang } = useLang();
   const { share, copy, copied } = useShareLink({ copiedMs: 2000 });
 
@@ -46,6 +48,11 @@ export function LocationMap({ latLng, name }: Props) {
         aria-label={tFn(lang, 'ariaExternalMapShowing', name)}
       />
 
+      {/* Above "Get directions": the entry's own notes say this pin is not the
+          site, and the public page hides those notes (publicLocation), so the
+          map offered directions to a guessed point as if it were the door
+          (epistemic council, 17 October 2026). */}
+      {approximate && <p className="location-approximate">{t('locationApproximate')}</p>}
       <div className="location-actions">
         <a
           href={buildMapsUrl(latLng.lat, latLng.lng, true)}

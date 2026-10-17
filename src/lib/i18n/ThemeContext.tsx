@@ -4,6 +4,7 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useS
 import type { Theme } from '../../types/shrine';
 import { THEME_STORAGE_KEY } from '../storageKeys';
 import { withViewTransition } from '../nav/viewTransition';
+import { syncThemeColor } from '../themeColor';
 
 function detectInitialTheme(): Theme {
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
@@ -45,6 +46,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    syncThemeColor();
   }, [theme]);
 
   // Until the reader chooses explicitly, track live device-theme changes

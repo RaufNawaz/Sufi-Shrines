@@ -161,7 +161,7 @@ const BUDGETS_KB = {
      bar's links now prefetch their page module on intent and arrive by View
      Transition — lib/nav/routeModules.ts, lib/nav/viewTransition.ts). Measured
      273 for the shell, 362 Almanac, 286 NotFound; each set to measurement + 2. */
-  'index.html': 287, // measured 284 on 17 Oct 2026
+  'index.html': 290, // measured 287 on 17 Oct 2026 (round 5 strings)
   /* 611 → 618 on 8 October 2026: measured 613 after the palette grew its
      tradition chips and grouped browse mode, and the shared-ground lens
      control moved from the sidebar into ShrineMap. Slack kept, per the note
@@ -195,7 +195,7 @@ const BUDGETS_KB = {
      static import carried `data/provenance.json` (127 KB) to every public
      reader of every entry; it is a lazy import now and the route measured 408.
      If this jumps by ~127 KB, that import went static again. */
-  'src/pages/ShrinePage.tsx': 433, // measured 430 on 17 Oct 2026, after the council rounds
+  'src/pages/ShrinePage.tsx': 437, // measured 434 on 17 Oct 2026, after council round 5
   /* Raised 675 → 680 on 30 August 2026 and **put back the same morning**, which
      is the useful half of the story.
 
@@ -237,7 +237,7 @@ const BUDGETS_KB = {
      other page, and `UI_TEXT.en` should split the way `UI_TEXT.ur` already
      lazily does. That is a design change, not a budget edit, which is why it is
      written here rather than done at the same time as the feature. */
-  'src/pages/AlmanacPage.tsx': 377, // measured 374 on 17 Oct 2026
+  'src/pages/AlmanacPage.tsx': 382, // measured 379 on 17 Oct 2026 (round 5 strings)
   /* 29 Aug 2026, and it is the shared-table effect the Almanac note above
      describes, arriving exactly as predicted: kinship added ~25 English UI
      strings, the English table is eager on every route, and the three routes
@@ -265,7 +265,7 @@ const BUDGETS_KB = {
      split, not to keep moving numbers. Nobody should do that tonight; it is
      written down so the fourth raise prompts the change instead of a fourth
      comment. */
-  'src/pages/NotFoundPage.tsx': 301, // measured 298 on 17 Oct 2026
+  'src/pages/NotFoundPage.tsx': 305, // measured 302 on 17 Oct 2026 (round 5 strings)
   /* Track C, new on 28 Aug 2026. It carries the shell, the shrine snapshot and
      its own ~4 KB of timeline code — no graph, no provenance, no places index.
      If this jumps by ~170 KB something pulled provenance.json in; by ~420 KB,
@@ -294,7 +294,7 @@ const BUDGETS_KB = {
      would mean a link to the map turned into an embedded one. */
   /* +5 KB on 9 Oct 2026: the meetings ring and the crossings' distance strip
      (HANDOVER §9.279) — page code, no new import. */
-  'src/pages/SharedGroundPage.tsx': 344, // measured 341 on 17 Oct 2026
+  'src/pages/SharedGroundPage.tsx': 349, // measured 346 on 17 Oct 2026 (round 5 strings)
   /* The tradition pages, new on 29 Aug 2026. Sibling of the order pages and it
      loads much the same things, minus the graph. Its own data lives in
      `data/kg-traditions.json` (17 KB as a chunk) and is *not* here by accident:
@@ -302,7 +302,7 @@ const BUDGETS_KB = {
      and reaches it through a dynamic import, so ShrinePage pays nothing for it.
      A static import there would have cost 17 KB against 3 KB of headroom.
      If this route ever jumps by ~420 KB, something pulled in src/lib/kg.ts. */
-  'src/pages/TraditionPage.tsx': 358, // measured 355 on 17 Oct 2026
+  'src/pages/TraditionPage.tsx': 363, // measured 360 on 17 Oct 2026 (round 5 strings)
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two
@@ -374,7 +374,7 @@ const BUDGETS_KB = {
      string will never reach, and the person who added it reasonably concludes
      the failure is theirs. That false attribution cost two sessions time on a
      shared tree today. Headroom is deliberate; see SettingsPage below. */
-  'src/pages/ReviewPage.tsx': 307, // measured 304 on 17 Oct 2026
+  'src/pages/ReviewPage.tsx': 311, // measured 308 on 17 Oct 2026 (round 5 strings)
   /* The settings page, added 27 Aug 2026. 269 KB is the app shell plus a page
      of native form controls, which is why it sits beside NotFoundPage and
      ReviewPage rather than with the routes that carry an index.
@@ -395,7 +395,11 @@ const BUDGETS_KB = {
      way. The 291 is deliberate slack, not a measurement. */
   /* +1 KB on 9 Oct 2026: settings as inset groups (segmented controls,
      switches) — markup only, no new import. */
-  'src/pages/SettingsPage.tsx': 314, // measured 311 on 17 Oct 2026
+  /* +34 KB on 17 Oct 2026, deliberately: the saved-sites group lists the
+     sites by name, which needs the rows, so this page now loads the same data
+     layer (useShrineData) every entry page does. A reader reaches Settings from
+     another page, so the chunk is almost always cached by then. */
+  'src/pages/SettingsPage.tsx': 348, // measured 345 on 17 Oct 2026
 };
 
 /**

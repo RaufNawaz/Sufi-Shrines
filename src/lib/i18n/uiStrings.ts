@@ -86,8 +86,8 @@ const UI_TEXT_EN = {
     `Not in this order — ${n} ${n === 1 ? 'link' : 'links'} among all recorded lineages. Show ${n === 1 ? 'it' : 'them'}`,
   lineageTeacherPage: 'Open the teacher’s page',
   settingsLookHelp:
-    'The archive was redesigned on 9 October 2026 after the way Apple sets a page: cool neutrals, one typeface, pill controls. The classic look is the warm, serif design it replaced. The layout is the same under both.',
-  settingsLookModern: 'Current',
+    'Modern sets every page in cool greys and one sans-serif typeface, with rounded controls. Classic is the archive’s earlier design: warm whites and serif type. The layout and every word are the same in both.',
+  settingsLookModern: 'Modern',
   settingsLookClassic: 'Classic',
   settingsTeamSection: 'Project team',
   settingsTeamLabel: 'Team view',
@@ -115,8 +115,10 @@ const UI_TEXT_EN = {
   settingsSavedHelp:
     'The sites you have starred are kept in this browser and nowhere else. Nothing is uploaded, which also means nothing is backed up — export the list to keep it, or to move it to another device.',
   settingsSavedCount: (n: string) => `${n} saved`,
-  settingsSavedEmpty: 'Nothing saved yet. The star on a shrine page adds it here.',
+  settingsSavedEmpty: 'Nothing saved yet. The Save button on a site’s page adds it here.',
   settingsSavedExport: 'Export the list',
+  settingsSavedShowMap: 'Show them on the map',
+  settingsSavedCopyLink: 'Copy a link to this list',
   settingsSavedImport: 'Import a list',
   settingsSavedClear: 'Clear the list',
   settingsSavedClearConfirm: 'Clear every saved site? This cannot be undone.',
@@ -218,6 +220,9 @@ const UI_TEXT_EN = {
   descriptionUrduLabel: 'Urdu translation',
   details: 'Details',
   locationMap: 'Location Map',
+  articleNoSources: 'No sources are cited for this entry yet.',
+  locationApproximate:
+    'This pin is approximate: the entry records that it is not the site’s exact position. Ask locally before relying on directions.',
   getDirections: 'Get Directions',
   relatedShrines: 'Related Shrines',
   sharedGroundHeading: 'Shared ground',
@@ -261,7 +266,10 @@ const UI_TEXT_EN = {
   imageLoadFailed: 'Image failed to load.',
   notFound: 'Shrine not found.',
   errorLoadingData: 'Failed to load shrine data.',
-  offlineDataBanner: 'Showing cached data from',
+  offlineDataBanner:
+    'You’re offline. This is the archive as last saved on this device; it will update when you reconnect.',
+  offlineDataBannerDated: (date: string) =>
+    `You’re offline. This is the archive as saved on this device on ${date}; it will update when you reconnect.`,
   retry: 'Try Again',
   appErrorMessage: 'Something went wrong. Please reload the page.',
   appErrorReload: 'Reload',
@@ -976,6 +984,8 @@ const UI_TEXT_EN = {
   citeSupportLevel: 'Support level',
   obsHeading: 'Urs & observances',
   obsViewAlmanac: 'See it in the Urs Calendar',
+  obsProjectedCaveat:
+    'Projected from the Hijri calendar. An ʿurs begins on the local moon sighting, so the day can fall one or two days either side.',
   fieldSiteType: 'Built form',
   locationNotRecorded: 'Location not recorded — this entry is not on the map yet.',
   srcNotesHeading: 'Where the source contradicts itself',
@@ -1495,6 +1505,7 @@ export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, tota
    variable in a different place in Urdu, and a component that concatenates the
    pieces itself decides that placement in English. */
 export function tFn(lang: Lang, key: 'settingsSavedCount', n: string): string;
+export function tFn(lang: Lang, key: 'offlineDataBannerDated', date: string): string;
 export function tFn(lang: Lang, key: 'settingsSavedImported', n: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayKm', value: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayMetres', value: string): string;
@@ -1530,6 +1541,7 @@ export function tFn(
     | 'lineageDisciplesCount'
     | 'chronologySpan'
     | 'settingsSavedCount'
+    | 'offlineDataBannerDated'
     | 'settingsSavedImported'
     | 'distanceAwayKm'
     | 'distanceAwayMetres'

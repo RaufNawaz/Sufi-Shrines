@@ -1,3 +1,4 @@
+import { syncThemeColor } from './themeColor';
 import { LOOK_STORAGE_KEY } from './storageKeys';
 
 /**
@@ -37,4 +38,5 @@ export function writeLookPreference(look: LookPreference): void {
 export function applyLookPreference(look: LookPreference, root: HTMLElement): void {
   if (look === 'classic') root.setAttribute('data-look', 'classic');
   else root.removeAttribute('data-look');
+  syncThemeColor();
 }

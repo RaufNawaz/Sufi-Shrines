@@ -493,5 +493,16 @@ export function useShrineData(): ShrineDataState {
 
   const refresh = useCallback(() => load(true), [load]);
 
+  /* Offline is a state the reader leaves, usually without doing anything: the
+     train comes out of the tunnel. The banner used to stay up — and the data
+     stay old — until the page was reloaded by hand (settings council,
+     17 October 2026). Coming back online fetches again. */
+  useEffect(() => {
+    if (!offline) return;
+    const onOnline = () => void load(true);
+    window.addEventListener('online', onOnline);
+    return () => window.removeEventListener('online', onOnline);
+  }, [offline, load]);
+
   return { shrines, loading, error, source, sourceTimestamp, offline, refresh };
 }

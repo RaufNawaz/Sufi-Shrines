@@ -1,5 +1,10 @@
 import React from 'react';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { tFn } from '../../lib/i18n/uiStrings';
+import type { Lang } from '../../lib/i18n/languages';
+
+/** Day-month-year in each language's own order and month names. */
+const DATE_LOCALE: Record<Lang, string> = { en: 'en-GB', ur: 'ur-PK' };
 
 interface Props {
   offline: boolean;
@@ -34,20 +39,25 @@ interface Props {
  * of what they are looking at, and that is as true of one entry as of the map.
  */
 export function OfflineDataBanner({ offline, sourceTimestamp, variant = 'inline' }: Props) {
-  const { t, fmtNum } = useLang();
+  const { lang, t, fmtNum } = useLang();
   if (!offline) return null;
 
-  const dateLabel = sourceTimestamp ? new Date(sourceTimestamp).toISOString().slice(0, 10) : null;
+  /* A date in the reader's own words. It was an ISO string ("2026-10-12"),
+     which in the Urdu view read as three numbers joined by dashes. */
+  const dateLabel = sourceTimestamp
+    ? fmtNum(
+        new Intl.DateTimeFormat(DATE_LOCALE[lang], {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+          numberingSystem: 'latn',
+        }).format(new Date(sourceTimestamp)),
+      )
+    : null;
 
   return (
     <div className={`offline-data-banner offline-data-banner--${variant}`} role="status">
-      {t('offlineDataBanner')}
-      {dateLabel && (
-        <>
-          {' '}
-          <bdi>{fmtNum(dateLabel)}</bdi>
-        </>
-      )}
+      {dateLabel ? tFn(lang, 'offlineDataBannerDated', dateLabel) : t('offlineDataBanner')}
     </div>
   );
 }

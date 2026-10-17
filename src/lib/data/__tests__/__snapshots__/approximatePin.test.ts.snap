@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`pinIsApproximate > flags exactly the entries whose notes say so in the shipped data 1`] = `
+[
+  "darbar-abul-muali-qadri",
+  "darbar-ghazi-ilm-din-shaheed",
+  "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+  "darbar-hazrat-tahir-bandagi-qadri",
+  "darbar-malik-ahmad-ayaz",
+]
+`;

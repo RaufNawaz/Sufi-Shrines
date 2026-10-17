@@ -61,6 +61,7 @@ import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLe
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 import { useUrduArticle } from '../hooks/useUrduArticlesReady';
+import { pinIsApproximate } from '../lib/data/approximatePin';
 function SkeletonPage() {
   return (
     <div className="shrine-loading">
@@ -168,12 +169,29 @@ function ShrineContent({
      (popular tradition) — see note; second tradition…") left to the facts box,
      which carries it whole. Pulling a bare number out of it here would drop
      exactly the qualification the archive keeps. */
+  /* …but only when the year is recorded as exact. 80 of the 122 bare-year
+     `year_built` values carry a precision of circa, century, range or
+     uncertain, and a bare "1072" under the title reads as settled where the
+     legacy column says "11th Century" — the wording that carries the
+     precision (epistemic council, 17 October 2026, catching the first version
+     of this change). For those the summary keeps the legacy value, and says
+     nothing where there is none; the facts box below is unchanged. */
   const yearBuilt = String(shrine.yearBuilt ?? '').trim();
-  const founded = yearBuilt
-    ? yearBuilt.length <= FOUNDED_SUMMARY_MAX
-      ? yearBuilt
-      : ''
-    : resolveFoundedDate(shrine.raw, lang);
+  const yearIsExact = shrine.yearBuiltPrecision.trim().toLowerCase() === 'exact';
+  const legacyFounded = resolveFoundedDate(shrine.raw, lang);
+  const yearIsBare = /^\d{1,4}$/.test(yearBuilt);
+  const founded = !yearBuilt
+    ? legacyFounded
+    : yearIsExact
+      ? yearBuilt.length <= FOUNDED_SUMMARY_MAX
+        ? yearBuilt
+        : ''
+      : yearIsBare
+        ? legacyFounded
+        : /* A qualified phrase ("681 CE / c. 63 AH (popular tradition) — see
+             note…") is left to the facts box, which carries it whole; the
+             legacy bare "681" would drop the qualification. */
+          '';
 
   const statusKey = siteStatusKey(shrine.status);
   const statusLabel =
@@ -557,7 +575,11 @@ function ShrineContent({
               1.2 s of the Urdu article's wait (performance council). */}
           {proseReady &&
             (shrine.latLng ? (
-              <LocationMap latLng={shrine.latLng} name={name} />
+              <LocationMap
+                latLng={shrine.latLng}
+                name={name}
+                approximate={pinIsApproximate(shrine)}
+              />
             ) : (
               <p className="location-not-recorded">{t('locationNotRecorded')}</p>
             ))}

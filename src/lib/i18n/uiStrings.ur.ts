@@ -85,8 +85,8 @@ export const UI_TEXT_UR: UiStrings = {
     `اس سلسلے میں نہیں — تمام درج سلسلوں میں ${n} روابط ملے۔ دکھائیں`,
   lineageTeacherPage: 'مرشد کا صفحہ کھولیں',
   settingsLookHelp:
-    'آرکائیو کو ۹ اکتوبر ۲۰۲۶ کو اُس طرز پر نئے سرے سے ترتیب دیا گیا جس طرح ایپل صفحہ سجاتا ہے: ٹھنڈے غیر جانبدار رنگ، ایک ہی خط، گول کنٹرول۔ کلاسیکی انداز وہ گرم، سیریف ڈیزائن ہے جس کی جگہ اِس نے لی۔ دونوں میں ترتیب ایک جیسی ہے۔',
-  settingsLookModern: 'موجودہ',
+    'جدید انداز میں ہر صفحہ ٹھنڈے سرمئی رنگوں اور گول کنٹرولوں کے ساتھ آتا ہے۔ کلاسیکی انداز آرکائیو کا پہلا ڈیزائن ہے: گرم سفید رنگ اور انگریزی میں سیریف حروف۔ دونوں میں ترتیب اور ہر لفظ ایک جیسا ہے۔',
+  settingsLookModern: 'جدید',
   settingsLookClassic: 'کلاسیکی',
   settingsTeamSection: 'پراجیکٹ ٹیم',
   settingsTeamLabel: 'ٹیم کا منظر',
@@ -105,8 +105,12 @@ export const UI_TEXT_UR: UiStrings = {
   settingsSavedHelp:
     'جن مقامات کو آپ نے نشان زد کیا ہے وہ صرف اسی براؤزر میں محفوظ ہیں، کہیں اور نہیں۔ کچھ اپ لوڈ نہیں ہوتا، اور اسی لیے کسی اور جگہ محفوظ بھی نہیں رہتا — فہرست کو باہر محفوظ کر لیں یا کسی دوسرے آلے پر منتقل کر لیں۔',
   settingsSavedCount: (n: string) => `${n} محفوظ`,
-  settingsSavedEmpty: 'ابھی کچھ محفوظ نہیں۔ کسی مزار کے صفحے پر ستارہ دبانے سے وہ یہاں آ جاتا ہے۔',
-  settingsSavedExport: 'فہرست محفوظ کریں',
+  settingsSavedEmpty:
+    'ابھی کچھ محفوظ نہیں۔ کسی مقام کے صفحے پر «محفوظ کریں» دبانے سے وہ یہاں آ جاتا ہے۔',
+  /* Not «محفوظ کریں», which is the Save button's own verb (settings council). */
+  settingsSavedExport: 'فہرست فائل میں برآمد کریں',
+  settingsSavedShowMap: 'نقشے پر دکھائیں',
+  settingsSavedCopyLink: 'اس فہرست کا لنک کاپی کریں',
   settingsSavedImport: 'فہرست درآمد کریں',
   settingsSavedClear: 'فہرست خالی کریں',
   settingsSavedClearConfirm: 'تمام محفوظ مقامات مٹا دیے جائیں؟ یہ واپس نہیں ہو سکتا۔',
@@ -226,6 +230,9 @@ export const UI_TEXT_UR: UiStrings = {
   descriptionUrduLabel: 'اردو ترجمہ',
   details: 'تفصیلات',
   locationMap: 'موقع کا نقشہ',
+  articleNoSources: 'اِس اندراج کے لیے ابھی کوئی حوالہ درج نہیں۔',
+  locationApproximate:
+    'یہ نشان تخمینی ہے: اندراج کے مطابق یہ مقام کی ٹھیک جگہ نہیں۔ راستہ دیکھنے سے پہلے مقامی لوگوں سے پوچھ لیں۔',
   getDirections: 'راستہ حاصل کریں',
   relatedShrines: 'متعلقہ مزارات',
   sharedGroundHeading: 'مشترکہ زمین',
@@ -253,7 +260,10 @@ export const UI_TEXT_UR: UiStrings = {
   imageLoadFailed: 'تصویر لوڈ نہیں ہوئی۔',
   notFound: 'مزار نہیں ملا۔',
   errorLoadingData: 'ڈیٹا لوڈ نہیں ہوا۔',
-  offlineDataBanner: 'محفوظ شدہ ڈیٹا دکھایا جا رہا ہے، تاریخ:',
+  offlineDataBanner:
+    'آپ آف لائن ہیں۔ یہ آرکائیو ویسا ہے جیسا اس آلے پر آخری بار محفوظ ہوا تھا؛ دوبارہ جڑنے پر تازہ ہو جائے گا۔',
+  offlineDataBannerDated: (date: string) =>
+    `آپ آف لائن ہیں۔ یہ آرکائیو ویسا ہے جیسا ${date} کو اس آلے پر محفوظ ہوا تھا؛ دوبارہ جڑنے پر تازہ ہو جائے گا۔`,
   retry: 'دوبارہ کوشش کریں',
   appErrorMessage: 'کچھ غلط ہو گیا۔ براہ کرم صفحہ دوبارہ لوڈ کریں۔',
   appErrorReload: 'دوبارہ لوڈ کریں',
@@ -880,6 +890,8 @@ export const UI_TEXT_UR: UiStrings = {
   citeSupportLevel: 'تصدیق کا درجہ',
   obsHeading: 'عرس اور تقریبات',
   obsViewAlmanac: 'عرس تقویم میں دیکھیں',
+  obsProjectedCaveat:
+    'یہ تاریخ ہجری تقویم سے تخمینی طور پر نکالی گئی ہے۔ عرس مقامی رویتِ ہلال سے شروع ہوتا ہے، اِس لیے دن ایک دو دن آگے پیچھے ہو سکتا ہے۔',
   fieldSiteType: 'تعمیری صورت',
   locationNotRecorded: 'محلِ وقوع درج نہیں — یہ اندراج ابھی نقشے پر نہیں ہے۔',
   srcNotesHeading: 'جہاں ماخذ خود اپنے بیان سے ٹکراتا ہے',

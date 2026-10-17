@@ -1,6 +1,7 @@
 import type { Shrine } from '../../types/shrine';
 import { bibliographyItems } from './bibliography';
 import { getFieldValue } from './fieldAliasing';
+import { pinIsApproximate } from './approximatePin';
 import { supportLevelKey, type SupportLevelKey } from './supportLevel';
 import { infoLevelKey, type InfoLevelKey } from './infoLevel';
 import { categoryKey, type CategoryKey } from './categoryKey';
@@ -87,13 +88,6 @@ function citationCount(shrine: Shrine): number {
   return bibliographyItems(getFieldValue(shrine.raw, 'Sources'), getFieldValue(shrine.raw, 'Description')).length;
 }
 
-/**
- * Phrases with which the archive flags its own coordinates as approximate. Read
- * from the entry's own prose because that is where the survey records it — these
- * are sentences a fieldworker wrote, not a column anyone thought to add.
- */
-const APPROXIMATE_PIN =
-  /approximate|not the (?:shrine|grave)'s exact position|no coordinates|precise pin/i;
 
 function photoCount(shrine: Shrine): number {
   let n = 0;
@@ -167,15 +161,7 @@ export function buildCoverage(shrines: readonly Shrine[]): CoverageReport {
       hedged: shrines.filter((s) => getFieldValue(s.raw, 'year_built_note').trim()).length,
     },
     location: {
-      approximatePin: shrines.filter((s) =>
-        APPROXIMATE_PIN.test(
-          [
-            getFieldValue(s.raw, 'Location'),
-            getFieldValue(s.raw, 'year_built_note'),
-            getFieldValue(s.raw, 'status_note'),
-          ].join(' '),
-        ),
-      ).length,
+      approximatePin: shrines.filter(pinIsApproximate).length,
     },
     observances: {
       withText: shrines.filter((s) => getFieldValue(s.raw, 'Events').trim()).length,
