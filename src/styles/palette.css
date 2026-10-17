@@ -322,6 +322,25 @@
   font-weight: 500;
 }
 
+/* "Near me" sorts; the chips after it filter by tradition. Set apart by a gap
+   and a hairline so a reader does not take it for a seventh tradition, and in
+   the interactive colour because it is the one chip that does something other
+   than narrow the list (it asks for the reader's location). */
+.palette-cats .palette-near {
+  position: relative;
+  margin-inline-end: var(--space-3);
+  color: var(--color-primary);
+}
+
+.palette-cats .palette-near::after {
+  content: '';
+  position: absolute;
+  inset-block: 6px;
+  inset-inline-end: calc(-1 * var(--space-2) - 0.5px);
+  inline-size: 1px;
+  background: var(--color-border);
+}
+
 .palette-cats .palette-cat:hover {
   color: var(--color-text);
 }
@@ -603,6 +622,15 @@
      `plaintext` lays each string out in its own direction. */
   unicode-bidi: plaintext;
   text-align: start;
+}
+
+/* Once a reader has asked what is near, the distance is the answer they came
+   for: it reads first, in the row's secondary ink and tabular figures so a
+   column of distances lines up, and the location below it stays muted. */
+.palette-result-distance {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .palette-result-dot {

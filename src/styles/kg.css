@@ -3628,9 +3628,15 @@
 /* A phone: one swipeable shelf instead of a wall. As a two-column grid the
    eleven tiles stood 684px (909px in Urdu) between the intro and the first
    group, so the atlas opened on its index and never on a site (council,
-   15 October 2026). One row, scroll-snapped, bleeding to the screen edges so
-   the next tile peeks in and says there is more; DOM order and focus order
-   are unchanged, and logical properties carry it into RTL. */
+   15 October 2026). One row, scroll-snapped, and the next tile peeks in to
+   say there is more; DOM order and focus order are unchanged, and logical
+   properties carry it into RTL.
+
+   It bled to the screen edges too, by negative inline margins, until 17
+   October 2026: that made the nav's content wider than the nav, and
+   no-overflow.spec.ts failed on /typology in both languages from the day it
+   landed. The peek never needed the bleed — at 8.5rem a 358px column shows two
+   and a half tiles. */
 @media (max-width: 640px) {
   .typology-jump .typology-tiles {
     grid-template-columns: none;
@@ -3639,10 +3645,7 @@
     overflow-x: auto;
     overscroll-behavior-inline: contain;
     scroll-snap-type: inline mandatory;
-    scroll-padding-inline: var(--space-4);
     scrollbar-width: none;
-    margin-inline: calc(-1 * var(--space-4));
-    padding-inline: var(--space-4);
     padding-block-end: var(--space-1);
   }
 
