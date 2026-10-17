@@ -266,7 +266,8 @@
 .almanac-section-heading,
 .typology-group-heading,
 .kg-section-heading,
-.sg-section-heading {
+.sg-section-heading,
+.sources-section-heading {
   /* The interface face, semibold and a touch tight, since 9 October 2026 —
      the Apple pass: one sans across chrome, lists and headings, the serif
      kept for the shrine entry's own title and its prose. */

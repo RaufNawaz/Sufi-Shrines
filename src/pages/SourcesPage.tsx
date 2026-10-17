@@ -398,7 +398,7 @@ export default function SourcesPage() {
         <h1 ref={headingRef} className="entity-title">
           {t('sourcesTitle')}
         </h1>
-        <p className="typology-intro">{t('sourcesIntro')}</p>
+        <p className="coverage-intro">{t('sourcesIntro')}</p>
         {/* The list's search sits below the shelf and the reading desk — on a
             phone, three screens down — and the header's search icon finds
             shrines, not sources. One tap to the field. */}

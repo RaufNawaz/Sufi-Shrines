@@ -51,14 +51,13 @@
 }
 
 .sources-section-heading {
+  /* Size, weight, ink and the hairline come from the shared section-heading
+     rule (components.css); this only lays out the count beside the title. */
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--space-2) var(--space-3);
-  margin: 0 0 var(--space-1);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-3);
 }
 
 .sources-section-count {
@@ -610,7 +609,6 @@ details[open] > .sources-row-summary::after {
   min-block-size: 32px;
   padding-inline: var(--space-3);
   font-size: var(--text-sm);
-  color: var(--color-text-secondary);
 }
 
 .sources-row-actions {

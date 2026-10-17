@@ -1988,7 +1988,7 @@
 .lang-toggle-segment {
   display: inline-flex;
   align-items: center;
-  border: 1.5px solid var(--color-border);
+  border: 0;
   border-radius: var(--radius-full);
   overflow: hidden;
   background: var(--color-bg-alt);
@@ -2081,9 +2081,19 @@
   border-inline-end: 1px solid var(--color-border);
 }
 
+/* The selected language as every other segmented control on the site shows a
+   choice: a white pill on the grey track. It was a cobalt fill with white text
+   inside a border — on /settings 300px from the same choice drawn the other
+   way (design-system council, 17 October 2026) — and cobalt fill is for an
+   action or an active filter. The inset ring in the track's colour makes the
+   pill without padding the track, so each half stays a 44px target. */
 .lang-seg.active {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
+  background: var(--color-bg-surface);
+  color: var(--color-text);
+  border-radius: var(--radius-full);
+  box-shadow:
+    inset 0 0 0 3px var(--color-bg-alt),
+    var(--shadow-sm);
 }
 
 /* Hover only where there is a pointer that hovers: on a touch screen
