@@ -1,0 +1,16 @@
+check,kind,measured,reference,result,note
+Punjab MICS 2017-18: district sampling-error tables read,integrity,36 districts,every district the survey was designed for,pass,
+Sindh MICS 2018-19: district sampling-error tables read,integrity,29 districts,every district the survey was designed for,pass,
+Khyber Pakhtunkhwa MICS 2019 report present,integrity,absent,sources/mics/kp_mics_2019_sfr.pdf,warn,mics.unicef.org refuses scripted downloads; save the Survey Findings Report there by hand
+Balochistan MICS 2019-20 report present,integrity,absent,sources/mics/balochistan_mics_2019_20_sfr.pdf,warn,mics.unicef.org refuses scripted downloads; save the Survey Findings Report there by hand
+MICS districts placed in OCHA districts,integrity,65 of 65,all,pass,
+one MICS district per OCHA district,integrity,none shared,none shared,pass,
+every kept MICS indicator found,integrity,all,all,pass,
+Punjab mics_tfr: Volume III SE tables vs Volume II district table,integrity,34 of 34 equal,all 36 equal to the printed rounding,pass,
+Punjab mics_under5_mortality: Volume III SE tables vs Volume II district table,integrity,36 of 36 equal,all 36 equal to the printed rounding,pass,
+"mics_tfr vs child_woman_ratio, districts",convergent,"rho = +0.78, n = 65","sign +, |rho| >= 0.4",pass,
+"mics_married_before_18 vs nns_married_before_18, districts",convergent,"rho = +0.76, n = 65","sign +, |rho| >= 0.4",pass,
+"mics_reading_skills vs youth_literacy_15_24, districts",convergent,"rho = +0.89, n = 65","sign +, |rho| >= 0.4",pass,
+"mics_birth_registration vs literacy_female, districts",convergent,"rho = +0.84, n = 65","sign +, |rho| >= 0.4",pass,
+"Punjab MICS 2017-18: under-five mortality vs census female literacy, within the province",convergent,"rho = -0.56, n = 36; median U5MR 72","sign -, |rho| >= 0.3",pass,
+"Sindh MICS 2018-19: under-five mortality vs census female literacy, within the province",convergent,"rho = -0.44, n = 29; median U5MR 42","sign -, |rho| >= 0.3",pass,

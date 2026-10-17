@@ -30,7 +30,7 @@ IND = {r.key: (r.label, r.theme, {"1": True, "0": False}.get(r.higher_is_better)
        for r in CATALOG.itertuples()}
 SHRINE_Y = ["n_site", "n_mus", "n_mus_pre1857", "sites_per_million", "sites_per_1000km2"]
 CHECK_FILES = ["welfare/checks.csv", "welfare/checks_extended.csv", "outcomes/census_extended_checks.csv",
-               "outcomes/pslm_checks.csv", "outcomes/pslm15_checks.csv", "outcomes/nns_checks.csv",
+               "outcomes/pslm_checks.csv", "outcomes/pslm15_checks.csv", "outcomes/nns_checks.csv", "outcomes/mics_checks.csv",
                "outcomes/mpi_checks.csv",
                "atlas/checks.csv", "shrine_sources/checks.csv"]
 SEQ_RE = re.compile(r"^(n_|pop|sites_)")

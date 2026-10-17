@@ -177,3 +177,23 @@ nns_arsenic_over_50ppb	Arsenic above 50 ppb in drinking water (%, tested)	Water 
 nns_food_secure	Food secure (%, NNS FIES)	Wealth and poverty	1	2018
 nns_food_insecure_severe	Severely food insecure (%, NNS FIES)	Wealth and poverty	0	2018
 nns_social_protection	Households on a government social-protection scheme (%)	Wealth and poverty	1	2018
+mics_under5_mortality	Under-5 mortality per 1,000 (MICS; see its SE)	Health and nutrition	0	2017-19
+mics_infant_mortality	Infant mortality per 1,000 (MICS)	Health and nutrition	0	2017-19
+mics_neonatal_mortality	Neonatal mortality per 1,000 (MICS)	Health and nutrition	0	2017-19
+mics_ecdi	Children developmentally on track (%, MICS)	Health and nutrition	1	2017-19
+mics_tfr	Total fertility rate (MICS)	Fertility and family	0	2017-19
+mics_adolescent_birth_rate	Births per 1,000 women 15-19 (MICS)	Fertility and family	0	2017-19
+mics_contraceptive_prevalence	Contraceptive prevalence (%, MICS)	Fertility and family	1	2017-19
+mics_reading_skills	Children 7-14 with foundational reading (%)	Education	1	2017-19
+mics_numeracy_skills	Children 7-14 with foundational numeracy (%)	Education	1	2017-19
+mics_early_learning	Organised learning before primary (%)	Education	1	2017-19
+mics_birth_registration	Births registered, under 5 (%)	Child protection	1	2017-19
+mics_violent_discipline	Children 1-14 violently disciplined (%)	Child protection	0	2017-19
+mics_child_labour	Children 5-17 in child labour (%)	Child protection	0	2017-19
+mics_married_before_18	Women 20-24 married before 18 (%, MICS)	Child protection	0	2017-19
+mics_feel_safe_women	Women who feel safe walking alone after dark (%)	Women and gender	1	2017-19
+mics_discrimination_women	Women who felt discriminated against (%)	Women and gender	0	2017-19
+mics_life_satisfaction_women	Life satisfaction, women 15-24 (0-10)	Wellbeing	1	2017-19
+mics_life_satisfaction_men	Life satisfaction, men 15-24 (0-10)	Wellbeing	1	2017-19
+mics_safely_managed_water	Safely managed drinking water (%, MICS)	Water and sanitation	1	2017-19
+mics_social_transfers	Covered by social transfers (%, MICS)	Wealth and poverty	1	2017-19

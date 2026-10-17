@@ -10,6 +10,7 @@ Run last, after every layer builder (see docs/GIS_FOUNDATION.md, "Full run order
   welfare, wave 2  welfare_ext_grid / _tehsil / _district / _province     (build_extended_layers.py)
   surveys          outcomes_pslm_district (build_pslm_district.py), outcomes_pslm15_district
                    (build_pslm_2015.py), outcomes_nns_district (build_nns_district.py),
+                   outcomes_mics_district (build_mics_district.py),
                    outcomes_mpi_district (build_mpi_district.py)
 
 Writes atlas_grid_h3_r6, atlas_tehsil, atlas_district, atlas_province and atlas_codebook into the
@@ -44,7 +45,7 @@ ARCHIVE = ["n_site", "n_mus", "n_mus_pre1857", "n_field_verified", "dist_km_mus"
 AUX = {"census_pop_matched_to_tehsils", "n_census_units", "heigit_pop", "ntl_2013_popw", "note", "ipc_analysis",
        "mus_per_1000km2", "sites_per_1000km2", "osm_education_count", "osm_hospitals_count",
        "osm_primary_healthcare_count", "rural_pop_perc", "dependency_ratio", "rwi_cell_share",
-       "immunisation_children", "households", "pslm_name", "pslm_parent", "mpi_district_2015_name", "mpi_parent", "pslm15_name", "pslm15_parent", "nns_name", "nns_parent"}
+       "immunisation_children", "households", "pslm_name", "pslm_parent", "mpi_district_2015_name", "mpi_parent", "pslm15_name", "pslm15_parent", "nns_name", "nns_parent", "mics_district", "mics_survey"}
 AUX_PREFIX = ("mpi_20", "mpi_h_20",     # the district MPI's full six-round series, defined in its codebook
               "nns_small_n_")           # NNS small-sample flags, one per indicator
 
@@ -100,7 +101,8 @@ def main():
     c1 = {"tehsil": L("outcomes_tehsil"), "district": L("outcomes_district")}
     c2 = {"tehsil": L("outcomes_ext_tehsil"), "district": L("outcomes_ext_district")}
     surveys = [("PSLM 2019-20", L("outcomes_pslm_district")), ("PSLM 2014-15", L("outcomes_pslm15_district")),
-               ("NNS 2018", L("outcomes_nns_district")), ("district MPI", L("outcomes_mpi_district"))]
+               ("NNS 2018", L("outcomes_nns_district")), ("MICS 6", L("outcomes_mics_district")),
+               ("district MPI", L("outcomes_mpi_district"))]
     for d in (c1["tehsil"], c1["district"]):     # step one copies the old shrine columns; the welfare base has them
         d.drop(columns=[c for c in ["n_mus", "n_mus_pre1857", "mus_per_1000km2"] if c in d], inplace=True)
 
@@ -142,6 +144,8 @@ def main():
         .assign(publisher="Pakistan Bureau of Statistics, PSLM 2014-15", licence="PBS", wave="survey"),
         pd.read_csv(GIS / "outcomes/outcomes_nns_codebook.csv").rename(columns={"census_table": "source_key"})
         .assign(publisher="Government of Pakistan and UNICEF, National Nutrition Survey 2018", licence="Government of Pakistan / UNICEF publication", wave="survey"),
+        pd.read_csv(GIS / "outcomes/outcomes_mics_codebook.csv").rename(columns={"census_table": "source_key"})
+        .assign(publisher="Provincial Bureaus of Statistics and UNICEF, MICS 6 (Punjab 2017-18, Sindh 2018-19)", licence="Government of Pakistan provinces / UNICEF publication", wave="survey"),
         pd.read_csv(GIS / "outcomes/outcomes_mpi_codebook.csv").rename(columns={"census_table": "source_key"})
         .assign(publisher="Ministry of Planning, Development and Reform, UNDP and OPHI (2016)", licence="Government of Pakistan publication", wave="survey"),
         pd.DataFrame([{"indicator": k, "definition": v[0], "source_key": v[1], "wave": "derived",

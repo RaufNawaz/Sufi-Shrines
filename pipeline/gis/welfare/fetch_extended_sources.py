@@ -33,6 +33,8 @@ def targets(r):
         return [(r["url"], SRC / r["path"]), (r["url"].replace("mobile", "fixed"), SRC / r["path"].replace("mobile", "fixed"))]
     if r["key"] == "census_pakpc2023":
         return []
+    if not r["url"].startswith("http"):     # saved by hand (the host refuses scripts): hash it if present
+        return [(r["url"], SRC / r["path"])] if (SRC / r["path"]).exists() else []
     return [(r["url"], SRC / r["path"])]
 
 
