@@ -1,8 +1,8 @@
-province_code,province_name,pm25_2021_popw,share_pop_pm25_above_who_2021,share_pop_pm25_above_35_2021
-PK1,Azad Kashmir,21.383,100.0,9.336
-PK2,Balochistan,26.505,100.0,9.213
-PK3,Gilgit Baltistan,24.618,100.0,0.264
-PK4,Islamabad,34.802,100.0,46.618
-PK5,Khyber Pakhtunkhwa,25.327,100.0,6.629
-PK6,Punjab,57.28,100.0,96.088
-PK7,Sindh,44.002,100.0,96.884
+province_code,province_name,pm25_2021_popw,pm25_2011_popw,share_pop_pm25_above_who_2021,share_pop_pm25_above_35_2021,pm25_change_11_21
+PK1,Azad Kashmir,21.383,22.538,100.0,9.336,-1.155
+PK2,Balochistan,26.505,28.359,100.0,9.213,-1.853
+PK3,Gilgit Baltistan,24.618,28.842,100.0,0.264,-4.224
+PK4,Islamabad,34.802,38.951,100.0,46.618,-4.149
+PK5,Khyber Pakhtunkhwa,25.327,27.19,100.0,6.629,-1.863
+PK6,Punjab,57.28,65.294,100.0,96.088,-8.015
+PK7,Sindh,44.002,51.092,100.0,96.884,-7.089

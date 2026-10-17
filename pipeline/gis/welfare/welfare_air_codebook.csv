@@ -1,4 +1,6 @@
 indicator,definition,source_key,publisher,licence
 pm25_2021_popw,"Annual mean PM2.5 where people live, ug/m3, 2021 (population-weighted; LGHAP v2 1 km)",lghap,"Bai et al. (2024), LGHAP v2, Earth System Science Data; Zenodo 14280025",CC BY 4.0
+pm25_2011_popw,"Annual mean PM2.5 where people live, ug/m3, 2011 (population-weighted; LGHAP v2 1 km)",lghap,"Bai et al. (2024), LGHAP v2, Earth System Science Data; Zenodo 14280025",CC BY 4.0
 share_pop_pm25_above_who_2021,"Residents in a 1 km cell above WHO's 2021 annual PM2.5 guideline (5 ug/m3), %, 2021",lghap,"Bai et al. (2024), LGHAP v2, Earth System Science Data; Zenodo 14280025",CC BY 4.0
 share_pop_pm25_above_35_2021,"Residents in a 1 km cell above WHO's first interim target (35 ug/m3, its least strict level), %, 2021",lghap,"Bai et al. (2024), LGHAP v2, Earth System Science Data; Zenodo 14280025",CC BY 4.0
+pm25_change_11_21,"Change in population-weighted PM2.5, 2011 to 2021, ug/m3",lghap,"Bai et al. (2024), LGHAP v2, Earth System Science Data; Zenodo 14280025",CC BY 4.0

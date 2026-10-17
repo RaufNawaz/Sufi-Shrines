@@ -3,4 +3,8 @@ LGHAP.Global_PM25.M001.Y2021.zip MD5 vs Zenodo's,integrity,c3b3f7362d99d6e1a30d1
 2021: monthly grids,integrity,12,12,pass,
 2021: annual PM2.5 at four cities (orientation),integrity,"Lahore 90, Gilgit 15, Karachi 39, Quetta 26",Lahore > Gilgit and Lahore > Quetta,pass,A swapped or flipped axis would put mountain air in Lahore
 2021: PM2.5 found for populated cells,integrity,99.98% of people,>= 99%,pass,
+LGHAP.Global_PM25.M001.Y2011.zip MD5 vs Zenodo's,integrity,6a3d1e7164f402d94663bd7f87dadc3e,6a3d1e7164f402d94663bd7f87dadc3e,pass,
+2011: monthly grids,integrity,12,12,pass,
+2011: annual PM2.5 at four cities (orientation),integrity,"Lahore 104, Gilgit 17, Karachi 46, Quetta 25",Lahore > Gilgit and Lahore > Quetta,pass,A swapped or flipped axis would put mountain air in Lahore
+2011: PM2.5 found for populated cells,integrity,99.98% of people,>= 99%,pass,
 district PM2.5 2021 vs night lights 2023,convergent,"rho = +0.58, n = 160","sign + (pollution concentrates where activity does), rho >= 0.3",pass,

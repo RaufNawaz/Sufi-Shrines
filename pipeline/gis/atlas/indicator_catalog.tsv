@@ -8,10 +8,10 @@ gdp_pc_growth_13_23	GDP per capita growth, %/yr 2013-23 (division)	Wealth and po
 ntl_2023_popw	Night lights where people live	Wealth and poverty	1	2023
 ntl_change_13_23	Change in night lights, 2013-2023	Wealth and poverty	1	2013-2023
 share_pop_lit_at_night	People in a lit cell (%)	Wealth and poverty	1	2023
-mpi	Multidimensional Poverty Index	Wealth and poverty	0	2017-18
-mpi_headcount	MPI poor (%)	Wealth and poverty	0	2017-18
-mpi_severe	In severe multidimensional poverty (%)	Wealth and poverty	0	2017-18
-mpi_vulnerable	Vulnerable to poverty (%)	Wealth and poverty	0	2017-18
+mpi	Multidimensional Poverty Index (OPHI, province)	Wealth and poverty	0	2017-18
+mpi_headcount	MPI poor (%, OPHI, province)	Wealth and poverty	0	2017-18
+mpi_severe	In severe multidimensional poverty (%, OPHI, province)	Wealth and poverty	0	2017-18
+mpi_vulnerable	Vulnerable to poverty (%, OPHI, province)	Wealth and poverty	0	2017-18
 ipc_phase3plus	Food insecurity, IPC phase 3+ (%)	Wealth and poverty	0	latest
 pslm_rural_hh_own_agri_land	Rural households owning agricultural land (%)	Wealth and poverty	1	2019-20
 pslm_hh_own_agri_land	Households owning agricultural land (%)	Wealth and poverty	1	2019-20
@@ -28,7 +28,7 @@ out_of_school_5_16_female	Girls out of school, 5-16 (%, approx.)	Education	0	202
 never_attended_school	Never attended school, 5+ (%)	Education	0	2023
 dhsms_women_literate	Women 15-49 literate (%, DHS surface)	Education	1	2017-18
 dhsms_men_literate	Men 15-49 literate (%, DHS surface)	Education	1	2017-18
-dhs_women_secondary_plus	Women with secondary+ education (%)	Education	1	2017-18
+dhs_women_secondary_plus	Women with secondary+ education (%, DHS region)	Education	1	2017-18
 dhsms_stunted	Children stunted (%, DHS surface)	Health and nutrition	0	2017-18
 dhsms_vacc_all_basic	All 8 basic vaccinations (%, DHS surface)	Health and nutrition	1	2017-18
 dhsms_vacc_dpt3	DPT3 vaccinated (%, DHS surface)	Health and nutrition	1	2017-18
@@ -42,21 +42,21 @@ malaria_pf_per_1000	Malaria, P. falciparum cases per 1,000	Health and nutrition	
 dhsms_itn_access	Access to a treated bed net (%, DHS surface)	Health and nutrition	1	2017-18
 dhsms_men_smoke	Men who smoke (%, DHS surface)	Health and nutrition	0	2017-18
 disability	Population with a disability (%)	Health and nutrition	0	2023
-dhs_under5_mortality	Under-5 mortality per 1,000	Health and nutrition	0	2017-18
-dhs_infant_mortality	Infant mortality per 1,000	Health and nutrition	0	2017-18
-dhs_stunted	Children stunted (%)	Health and nutrition	0	2017-18
-dhs_wasted	Children wasted (%)	Health and nutrition	0	2017-18
-dhs_underweight	Children underweight (%)	Health and nutrition	0	2017-18
-dhs_fully_vaccinated	Fully vaccinated (%)	Health and nutrition	1	2017-18
-dhs_facility_delivery	Births in a facility (%)	Health and nutrition	1	2017-18
+dhs_under5_mortality	Under-5 mortality per 1,000 (DHS region)	Health and nutrition	0	2017-18
+dhs_infant_mortality	Infant mortality per 1,000 (DHS region)	Health and nutrition	0	2017-18
+dhs_stunted	Children stunted (%, DHS region)	Health and nutrition	0	2017-18
+dhs_wasted	Children wasted (%, DHS region)	Health and nutrition	0	2017-18
+dhs_underweight	Children underweight (%, DHS region)	Health and nutrition	0	2017-18
+dhs_fully_vaccinated	Fully vaccinated (%, DHS region)	Health and nutrition	1	2017-18
+dhs_facility_delivery	Births in a facility (%, DHS region)	Health and nutrition	1	2017-18
 child_woman_ratio	Children 0-4 per 1,000 women 15-49	Fertility and family	0	2023
 child_woman_ratio_rural	Child-woman ratio, rural	Fertility and family	0	2023
 child_woman_ratio_urban	Child-woman ratio, urban	Fertility and family	0	2023
-dhs_tfr	Total fertility rate	Fertility and family	0	2017-18
+dhs_tfr	Total fertility rate (DHS region)	Fertility and family	0	2017-18
 dhsms_modern_contraception	Modern contraception, married women (%, DHS surface)	Fertility and family	1	2017-18
 dhsms_unmet_need_fp	Unmet need for family planning (%, DHS surface)	Fertility and family	0	2017-18
 dhsms_demand_satisfied_modern	Family-planning demand met by modern methods (%, DHS surface)	Fertility and family	1	2017-18
-dhs_modern_contraception	Modern contraception, married women (%)	Fertility and family	1	2017-18
+dhs_modern_contraception	Modern contraception, married women (%, DHS region)	Fertility and family	1	2017-18
 share_under5	Population under 5 (%)	Fertility and family		2023
 share_under15	Population under 15 (%)	Fertility and family		2023
 dependency_ratio_census	Dependency ratio (0-14 and 65+ per 100 aged 15-64)	Fertility and family	0	2023
@@ -67,7 +67,7 @@ boys_15_19_ever_married	Boys 15-19 ever married (%)	Women and gender	0	2023
 women_20_24_ever_married	Women 20-24 ever married (%)	Women and gender		2023
 sex_ratio_under5	Boys per 100 girls, under 5	Women and gender		2023
 home_owner_female	Owned homes with a woman owner (%)	Women and gender	1	2023
-dhs_partner_violence	Partner violence, ever-married women (%)	Women and gender	0	2017-18
+dhs_partner_violence	Partner violence, ever-married women (%, DHS region)	Women and gender	0	2017-18
 improved_water	Improved drinking water (%)	Water and sanitation	1	2023
 piped_water	Tap water (%)	Water and sanitation	1	2023
 water_inside_home	Water source inside the home (%)	Water and sanitation	1	2023
@@ -88,7 +88,7 @@ homeless_per_100k	Homeless per 100,000	Housing and energy	0	2023
 one_room_home	Living in one room (%)	Housing and energy	0	2023
 no_kitchen	No kitchen (%)	Housing and energy	0	2023
 home_owned	Owning their home (%)	Housing and energy		2023
-dhs_hh_electricity	Households with electricity (%)	Housing and energy	1	2017-18
+dhs_hh_electricity	Households with electricity (%, DHS region)	Housing and energy	1	2017-18
 travel_city_min_popw	Minutes to a city of 50k+	Access and connectivity	0	2015
 share_pop_within_60min_city	Within 60 min of a city (%)	Access and connectivity	1	2015
 main_road_density_popw	Main-road density around residents (m per km2)	Access and connectivity	1	~2018
@@ -113,6 +113,7 @@ mobile_download_mbps_2020	Mobile download speed, Mbps (2020)	Access and connecti
 pm25_2021_popw	Fine-particle air pollution, PM2.5 (ug/m3)	Environment	0	2021
 share_pop_pm25_above_35_2021	Living above WHO's least strict PM2.5 target, 35 ug/m3 (%)	Environment	0	2021
 share_pop_pm25_above_who_2021	Living above WHO's PM2.5 guideline, 5 ug/m3 (%)	Environment	0	2021
+pm25_change_11_21	Change in PM2.5 where people live, 2011-2021 (ug/m3)	Environment	0	2011-2021
 share_pop_flooded_2022	Living inside the 2022 flood extent (%)	Shocks and security	0	2022
 share_pop_flooded_2010	Living inside the 2010 flood extent (%)	Shocks and security	0	2010
 conflict_deaths_per_100k	Conflict deaths per 100,000, 2015-24	Shocks and security	0	2015-2024
@@ -134,9 +135,9 @@ share_access_primary_healthcare_1h	Within 1 h of OSM primary care (%)	OSM-based 
 share_access_education_5km	Within 5 km of an OSM school (%)	OSM-based (read the caveat)	1	2023
 age_heaping_whipple	Age heaping (Whipple index; 100 = none)	Data quality		2023
 rwi_cell_share	Share of people with an RWI tile nearby (%)	Data quality		2021
-n_site	Archive sites (all traditions)	Archive
-n_mus	Archive Muslim shrines	Archive
-sites_per_million	Archive sites per million people	Archive
+n_site	Archive sites (all traditions)	Archive		
+n_mus	Archive Muslim shrines	Archive		
+sites_per_million	Archive sites per million people	Archive		
 mpi_district_2015	District MPI, 2014/15	Wealth and poverty	0	2014-15
 mpi_headcount_2015	District MPI poor (%), 2014/15	Wealth and poverty	0	2014-15
 mpi_headcount_2005	District MPI poor (%), 2004/05	Wealth and poverty	0	2004-05
@@ -218,18 +219,18 @@ mics_child_labour	Children 5-17 in child labour (%)	Child protection	0	2017-19
 mics_married_before_18	Women 20-24 married before 18 (%, MICS)	Child protection	0	2017-19
 mics_feel_safe_women	Women who feel safe walking alone after dark (%)	Women and gender	1	2017-19
 mics_discrimination_women	Women who felt discriminated against (%)	Women and gender	0	2017-19
-dhs_women_justify_wife_beating	Women who say wife-beating can be justified (%)	Women and gender	0	2017-18
-dhs_men_justify_wife_beating	Men who say wife-beating can be justified (%)	Women and gender	0	2017-18
-dhs_women_say_all_decisions	Married women with a say in all household decisions (%)	Women and gender	1	2017-18
-dhs_husband_3plus_controlling	Women whose husband shows 3+ controlling behaviours (%)	Women and gender	0	2017-18
-dhs_women_physical_violence_ever	Women who experienced physical violence since 15 (%)	Women and gender	0	2017-18
-dhs_partner_violence_12m	Partner violence in the last 12 months (%)	Women and gender	0	2017-18
-dhs_violence_never_told	Survivors who never sought help or told anyone (%)	Women and gender	0	2017-18
-dhs_women_own_house	Women who own a house (%)	Women and gender	1	2017-18
-dhs_women_bank_account	Women with a bank account (%)	Women and gender	1	2017-18
-dhs_women_decide_own_earnings	Women who decide how their earnings are used (%)	Women and gender	1	2017-18
-dhs_women_health_insurance	Women with health insurance (%)	Women and gender	1	2017-18
-dhs_women_no_media	Women with no weekly media access (%)	Women and gender	0	2017-18
+dhs_women_justify_wife_beating	Women who say wife-beating can be justified (%, DHS region)	Women and gender	0	2017-18
+dhs_men_justify_wife_beating	Men who say wife-beating can be justified (%, DHS region)	Women and gender	0	2017-18
+dhs_women_say_all_decisions	Married women with a say in all household decisions (%, DHS region)	Women and gender	1	2017-18
+dhs_husband_3plus_controlling	Women whose husband shows 3+ controlling behaviours (%, DHS region)	Women and gender	0	2017-18
+dhs_women_physical_violence_ever	Women who experienced physical violence since 15 (%, DHS region)	Women and gender	0	2017-18
+dhs_partner_violence_12m	Partner violence in the last 12 months (%, DHS region)	Women and gender	0	2017-18
+dhs_violence_never_told	Survivors who never sought help or told anyone (%, DHS region)	Women and gender	0	2017-18
+dhs_women_own_house	Women who own a house (%, DHS region)	Women and gender	1	2017-18
+dhs_women_bank_account	Women with a bank account (%, DHS region)	Women and gender	1	2017-18
+dhs_women_decide_own_earnings	Women who decide how their earnings are used (%, DHS region)	Women and gender	1	2017-18
+dhs_women_health_insurance	Women with health insurance (%, DHS region)	Women and gender	1	2017-18
+dhs_women_no_media	Women with no weekly media access (%, DHS region)	Women and gender	0	2017-18
 mics_life_satisfaction_women	Life satisfaction, women 15-24 (0-10)	Wellbeing	1	2017-19
 mics_life_satisfaction_men	Life satisfaction, men 15-24 (0-10)	Wellbeing	1	2017-19
 mics_safely_managed_water	Safely managed drinking water (%, MICS)	Water and sanitation	1	2017-19
