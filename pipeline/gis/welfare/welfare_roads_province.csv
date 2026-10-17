@@ -1,0 +1,8 @@
+province_code,province_name,road_density_popw,main_road_density_popw
+PK1,Azad Kashmir,749.8,260.4
+PK2,Balochistan,156.8,71.1
+PK3,Gilgit Baltistan,297.9,119.5
+PK4,Islamabad,2286.1,389.3
+PK5,Khyber Pakhtunkhwa,415.8,207.2
+PK6,Punjab,723.7,264.0
+PK7,Sindh,1876.0,342.1

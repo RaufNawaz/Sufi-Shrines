@@ -1,0 +1,161 @@
+district_code,district_name,road_density_popw,main_road_density_popw
+PK101,Bagh,1036.4,435.7
+PK102,Bhimber,325.4,95.4
+PK103,Jhelum Valley,1021.5,312.8
+PK104,Haveli,815.6,302.4
+PK105,Kotli,424.0,128.9
+PK106,Mirpur,474.0,283.2
+PK107,Muzaffarabad,1244.0,311.8
+PK108,Neelum,641.4,103.7
+PK109,Poonch,1028.3,407.7
+PK110,Sudhnoti,403.5,222.6
+PK201,Awaran,109.1,53.5
+PK202,Barkhan,115.0,52.4
+PK203,Chagai,123.9,43.3
+PK204,Dera Bugti,60.4,8.2
+PK205,Gwadar,125.4,57.3
+PK206,Harnai,103.9,9.0
+PK207,Jaffarabad,101.0,34.4
+PK208,Jhal Magsi,108.8,0.7
+PK209,Kachhi,130.0,36.9
+PK210,Kalat,146.8,50.4
+PK211,Kech,126.3,88.3
+PK212,Kharan,105.5,47.1
+PK213,Khuzdar,130.5,83.5
+PK214,Killa Abdullah,209.2,72.4
+PK215,Killa Saifullah,97.3,58.7
+PK216,Kohlu,95.8,63.9
+PK217,Lasbela,181.9,100.0
+PK218,Lehri,106.3,6.0
+PK219,Loralai,128.6,105.1
+PK220,Mastung,131.2,69.2
+PK221,Musakhel,86.0,15.2
+PK222,Nasirabad,76.7,41.5
+PK223,Nushki,160.0,76.6
+PK224,Panjgur,238.5,74.6
+PK225,Pishin,136.4,51.7
+PK226,Quetta,332.9,161.6
+PK227,Sherani,100.3,52.8
+PK228,Sibi,228.7,100.1
+PK229,Sohbatpur,33.6,22.6
+PK230,Washuk,135.3,40.5
+PK231,Zhob,180.9,40.3
+PK232,Ziarat,104.0,80.0
+PK233,Shaheed Sikandarabad,158.6,92.4
+PK234,Duki,82.0,64.9
+PK235,Chaman,225.8,84.1
+PK301,Astore,349.2,105.3
+PK302,Diamir,291.4,119.8
+PK303,Ghanche,300.8,75.8
+PK304,Ghizer,286.1,140.9
+PK305,Gilgit,363.7,238.9
+PK306,Hunza,309.7,194.3
+PK307,Skardu,388.6,202.9
+PK308,Nagar,320.3,169.2
+PK309,Kharmang,230.5,0.3
+PK310,Shigar,238.5,5.2
+PK311,Darel,183.5,3.9
+PK312,Tangir,192.0,1.8
+PK313,Gupis-Yasin,212.4,47.6
+PK314,Rondu,200.8,133.6
+PK401,Islamabad,2286.1,389.3
+PK501,Abbottabad,766.7,175.9
+PK502,Bajaur,51.9,51.6
+PK503,Bannu,156.4,156.4
+PK504,Batagram,839.4,152.1
+PK505,Buner,643.4,228.2
+PK506,Charsadda,457.0,380.0
+PK507,Chitral Lower,166.4,135.3
+PK508,Chitral Upper,166.1,66.8
+PK509,D. I. Khan,164.3,141.8
+PK510,Hangu,132.4,51.2
+PK511,Haripur,974.8,376.4
+PK512,Karak,118.9,92.2
+PK513,Khyber,115.5,63.6
+PK514,Kohat,153.1,119.4
+PK515,Kohistan Lower,453.5,121.2
+PK516,Kohistan Upper,224.8,80.1
+PK517,Kolai Palas Kohistan,363.2,95.3
+PK518,Kurram,98.7,28.2
+PK519,Lakki Marwat,129.3,105.3
+PK520,Lower Dir,138.2,122.8
+PK521,Malakand,249.9,234.5
+PK522,Mansehra,1026.5,256.9
+PK523,Mardan,476.2,444.5
+PK524,Mohmand,90.5,49.4
+PK525,North Waziristan,103.9,55.9
+PK526,Nowshera,398.7,311.2
+PK527,Orakzai,6.7,5.4
+PK528,Peshawar,585.6,339.9
+PK529,Shangla,934.6,93.3
+PK530,South Waziristan,98.1,54.6
+PK531,Swabi,237.5,198.8
+PK532,Swat,590.2,181.1
+PK533,Tank,145.6,141.7
+PK534,Tor Ghar,1188.8,112.8
+PK535,Upper Dir,127.2,93.9
+PK601,Attock,144.1,138.5
+PK602,Bahawalnagar,132.5,93.8
+PK603,Bahawalpur,176.2,138.5
+PK604,Bhakkar,131.4,127.8
+PK605,Chakwal,124.2,114.6
+PK606,Chiniot,183.3,160.2
+PK607,Dera Ghazi Khan,145.2,136.2
+PK608,Faisalabad,3200.4,573.6
+PK609,Gujranwala,265.9,262.9
+PK610,Gujrat,158.4,144.5
+PK611,Hafizabad,159.0,144.5
+PK612,Jhang,159.5,148.6
+PK613,Jhelum,181.0,169.2
+PK614,Kasur,176.0,110.3
+PK615,Khanewal,116.2,108.1
+PK616,Khushab,156.5,145.0
+PK617,Lahore,3305.5,927.4
+PK618,Leiah,156.6,153.7
+PK619,Lodhran,159.2,132.5
+PK620,Mandi Bahauddin,120.2,113.7
+PK621,Mianwali,135.1,124.9
+PK622,Multan,729.2,424.4
+PK623,Muzaffargarh,143.8,135.2
+PK624,Nankana Sahib,168.9,107.2
+PK625,Narowal,242.5,226.1
+PK626,Okara,172.1,138.5
+PK627,Pakpattan,129.1,111.5
+PK628,Rahim Yar Khan,138.1,121.4
+PK629,Rajanpur,127.6,110.4
+PK630,Rawalpindi,1105.6,293.6
+PK631,Sahiwal,176.2,154.0
+PK632,Sargodha,158.8,142.9
+PK633,Sheikhupura,219.3,179.0
+PK634,Sialkot,252.6,248.5
+PK635,Toba Tek Singh,164.5,127.0
+PK636,Vehari,131.9,118.5
+PK701,Badin,108.6,93.0
+PK702,Central Karachi,5480.5,847.3
+PK703,Dadu,166.5,111.6
+PK704,East Karachi,5596.7,791.8
+PK705,Ghotki,178.3,89.8
+PK706,Hyderabad,6554.7,1030.7
+PK707,Jacobabad,154.0,126.0
+PK708,Jamshoro,585.7,207.0
+PK709,Kambar Shahdad Kot,173.6,140.7
+PK710,Kashmore,156.9,121.0
+PK711,Khairpur,127.8,82.3
+PK712,Korangi Karachi,4906.4,447.5
+PK713,Larkana,210.2,158.9
+PK714,Malir Karachi,1555.9,248.4
+PK715,Matiari,152.8,118.2
+PK716,Mirpur Khas,134.9,101.3
+PK717,Naushahro Feroze,90.4,81.0
+PK718,Sanghar,137.6,92.4
+PK719,Shaheed Benazir Abad,156.3,113.5
+PK720,Shikarpur,252.0,225.1
+PK721,South Karachi,5487.6,926.7
+PK722,Sujawal,114.9,84.3
+PK723,Sukkur,500.8,223.9
+PK724,Tando Allahyar,191.1,127.1
+PK725,Tando Muhammad Khan,122.9,54.9
+PK726,Tharparkar,110.1,29.5
+PK727,Thatta,141.1,92.0
+PK728,Umer Kot,111.2,79.8
+PK729,West Karachi,2662.0,570.9

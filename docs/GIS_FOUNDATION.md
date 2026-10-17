@@ -121,30 +121,12 @@ version the foundation was built with). Use it for everything.
 
 ### Full run order
 
-```bash
-PY=~/.venvs/gis312/bin/python
-$PY pipeline/gis/build_foundation.py ...            # as above
-$PY pipeline/gis/outcomes/build_census_outcomes.py ...
-$PY pipeline/gis/welfare/fetch_sources.py           # ~200 MB into pipeline/gis/sources/, hashed
-$PY pipeline/gis/welfare/build_welfare_layers.py    # exits non-zero if any hard check fails
-pipeline/gis/shrine_sources/fetch_shrine_sources.sh # OSM, Wikidata, GeoNames; non-zero if any failed
-$PY pipeline/gis/shrine_sources/build_external_sites.py
-$PY pipeline/gis/welfare/fetch_extended_sources.py  # ~1.3 GB more (Ookla is most of it), hashed
-$PY pipeline/gis/outcomes/build_census_extended.py --census pipeline/gis/sources/census_pakpc2023/PakPC2023/data
-$PY pipeline/gis/welfare/build_extended_layers.py   # ~10 min; reads welfare_district, so after wave one
-$PY pipeline/gis/welfare/build_air_quality.py       # needs netCDF4 (pip); ~1 GB of LGHAP zips
-$PY pipeline/gis/welfare/build_health_facilities.py
-$PY pipeline/gis/welfare/build_dhs_regions.py       # after build_nns_district.py (its check)
-$PY pipeline/gis/outcomes/build_pslm_district.py    # needs welfare_ext_district.csv (the IPC check)
-$PY pipeline/gis/outcomes/build_mpi_district.py
-$PY pipeline/gis/outcomes/build_pslm_2015.py        # after build_pslm_district.py
-$PY pipeline/gis/outcomes/build_nns_district.py     # needs pdftotext (poppler)
-$PY pipeline/gis/outcomes/build_mics_district.py    # needs the NNS and census-extension CSVs
-$PY pipeline/gis/outcomes/build_wb_poverty_district.py  # needs the district MPI CSV
-$PY pipeline/gis/outcomes/build_undp_hdi_district.py    # needs the district MPI CSV
-$PY pipeline/gis/atlas/build_atlas.py               # last of the layer builders
-$PY pipeline/gis/viewer/build_viewer.py             # writes viewer/index.html from the atlas
-```
+**`pipeline/gis/rebuild.sh`** runs every builder in dependency order and stops at the first one
+whose hard checks fail (`--full` also rebuilds the foundation, census outcomes, wave one and the
+shrine leads first). The script is the order; this note does not repeat it. Each builder's
+docstring says what it reads. The census step takes
+`--census pipeline/gis/sources/census_pakpc2023/PakPC2023/data` (a clone of PakPC2023, fetched by
+`welfare/fetch_extended_sources.py`).
 
 Every builder writes into the one GeoPackage. **Do not run two at once**: they are SQLite
 writers on the same file.
@@ -164,7 +146,7 @@ Checked in Chromium on 16 Oct 2026: every unit draws, all four lead toggles work
 errors, no sideways scroll at 390 px. The file is 3.1 MB and committed, so it opens from any
 clone; rebuild it after any layer changes. It carries no team-only column.
 
-**Since 17 Oct 2026 it reads the atlas** (below): 233 indicators in 17 themes, the menu and labels
+**Since 17 Oct 2026 it reads the atlas** (below): 235 indicators in 17 themes, the menu and labels
 from `atlas/indicator_catalog.tsv`. The data is embedded gzipped and base64-encoded and inflated
 in the page by `pako` (a third CDN script), so 7.1 MB of JSON ships as a 2.4 MB file. Two things
 that would each cost an hour: **`JSON.parse` rejects `NaN`**, which the old JS-literal embedding
@@ -172,7 +154,7 @@ accepted, so the builder turns every NaN into null and dumps with `allow_nan=Fal
 move the page script into a `type="text/plain"` block** to run it later — Prettier formats that as
 prose and re-wraps the code. Zero-inflated indicators (flood exposure, conflict deaths) get a
 "zero" class of their own, or their septiles collapse to three faint classes. Re-checked in
-Chromium on 17 Oct 2026: all 233 indicators at all 448 indicator-unit pairs draw with data, no
+Chromium on 17 Oct 2026: all 235 indicators at all 456 indicator-unit pairs draw with data, no
 console errors, no sideways scroll at 390 px.
 
 ## Welfare layers (added 16 October 2026)
@@ -232,16 +214,16 @@ tracked in `welfare/`.
 
 The aim: every measured welfare outcome for people in Pakistan that is openly available, on one
 frame. **`atlas_district`, `atlas_tehsil`, `atlas_province` and `atlas_grid_h3_r6`** in the
-GeoPackage hold every indicator as a column (325 at district), so ArcGIS or QGIS opens one layer
-and needs no joins; `atlas_codebook` (302 indicators) gives each one's definition, publisher,
+GeoPackage hold every indicator as a column (327 at district), so ArcGIS or QGIS opens one layer
+and needs no joins; `atlas_codebook` (304 indicators) gives each one's definition, publisher,
 licence, year and the units it reaches. Flat copies are tracked in `pipeline/gis/atlas/`.
 `build_atlas.py` refuses a column that arrives from two sources, an indicator with no
 definition, and any change to the archive's site counts.
 
 **`atlas_sites`** (layer and `atlas/atlas_sites.csv`) is the table the shrine-exposure analysis
-starts from: each of the 169 archive sites with all 230 catalog indicators for the place it stands
+starts from: each of the 169 archive sites with all 232 catalog indicators for the place it stands
 in. Each indicator is taken at the finest unit that reaches nearly all sites — hexagon for the
-satellite and modelled layers (53), district for most surveys (146), province for DHS's region figures (28) — and that unit is the codebook's `site_unit`, so no column mixes units. Census
+satellite and modelled layers (55), district for most surveys (146), province for DHS's region figures (28) — and that unit is the codebook's `site_unit`, so no column mixes units. Census
 tehsil values reach only the 77 cleanly matched districts, so for sites they fall back to district.
 Only the sites layer's public columns are carried; the build fails if a team-only one appears.
 
@@ -257,6 +239,7 @@ What was added, by builder. Each writes its own checks file; every number below 
 | `outcomes/build_nns_district.py` | National Nutrition Survey 2018, Vol. 2 | stunting, wasting, underweight, overweight, clinical anaemia, child disability, iodized salt, women's underweight and obesity, marriage before 18 and 15, **E. coli and arsenic tested in household drinking water**, FIES, social-protection coverage | district (146, incl. AJK, GB, ex-FATA) |
 | `welfare/build_dhs_regions.py` | DHS Program API, PDHS 2017-18 | women's agency and safety by region: attitudes to wife-beating (women, men), say in household decisions, controlling husbands, physical and partner violence and whether help was sought, house ownership, bank accounts, control of earnings, health insurance, media access, marriage by 18, neonatal mortality | province (and FATA as a data row) |
 | `welfare/build_health_facilities.py` | Government and private health facilities with coordinates (Alhasan Systems' 2017 compilation, CC0 on HDX) | distance to government primary care (BHU/RHC…) and to an HQ hospital, share within 5 km / 25 km, facilities per 100,000 | hexagon, tehsil, district, province |
+| `welfare/build_roads.py` | GRIP4 road density (Meijer et al. 2018, PBL), 5 arc-minute | main-road and all-road density around residents | hexagon, tehsil, district, province |
 | `welfare/build_air_quality.py` | LGHAP v2 (Bai et al. 2024), 1 km monthly PM2.5 | annual PM2.5 where people live; share above WHO's guideline (5) and its least strict interim target (35 µg/m³) | hexagon, tehsil, district, province |
 | `outcomes/build_wb_poverty_district.py` | World Bank, *Pakistan Poverty Map 2019-2020* (PRWP 11012), Annex 1 | **monetary poverty rate (with SE)**, poverty gap, number of poor, consumption per adult equivalent | district (129) |
 | `outcomes/build_undp_hdi_district.py` | UNDP Pakistan, *NHDR 2017*, district HDI volume, Tables 1-2 | district HDI 2005-2015 and its 2015 components (immunisation, satisfaction with health facilities, expected and mean schooling, living standard) | district (122) |
@@ -353,6 +336,9 @@ Choose among these deliberately and say which.
   the 676 the Pakistan Economic Survey 2017-18 counts for 2017), so distance to care is an upper
   bound where a facility is missing; every definition says so. It still tracks MAP's modelled
   travel time to care (ρ 0.64). National population-weighted distance: 4.5 km.
+- **All-road density measures mapping effort, main-road density measures access.** In GRIP4 the
+  first tracks travel time to a city only weakly (ρ −0.32), the second strongly (−0.66). Both are
+  in the atlas; the definitions say which to read.
 - **PSLM's land area and owner's sex are not usable as published**: the owner codes carry no
   labels, and the file's acre conversion is inconsistent (an 11-acre plot converts to 38; the
   maximum is 240,000 acres). Only whether a household owns land is used.

@@ -91,6 +91,8 @@ home_owned	Owning their home (%)	Housing and energy		2023
 dhs_hh_electricity	Households with electricity (%)	Housing and energy	1	2017-18
 travel_city_min_popw	Minutes to a city of 50k+	Access and connectivity	0	2015
 share_pop_within_60min_city	Within 60 min of a city (%)	Access and connectivity	1	2015
+main_road_density_popw	Main-road density around residents (m per km2)	Access and connectivity	1	~2018
+road_density_popw	All-road density around residents (m per km2; mapping-dependent)	Access and connectivity	1	~2018
 travel_health_min_popw	Minutes to health care (motorized)	Access and connectivity	0	2020
 share_pop_within_30min_health	Within 30 min of health care (%)	Access and connectivity	1	2020
 walk_health_min_popw	Minutes to health care on foot	Access and connectivity	0	2020

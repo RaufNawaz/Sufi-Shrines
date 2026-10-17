@@ -30,6 +30,9 @@ def targets(r):
         u = r["url"] + ",".join(DHS_IDS)
         return [(u, SRC / r["path"]), (u.replace("breakdown=subnational", "breakdown=national"),
                                        SRC / r["path"].replace(".json", "_national.json"))]
+    if r["key"] == "grip4":
+        return [(r["url"] + f"GRIP4_density_{n}.zip", SRC / r["path"] / f"GRIP4_density_{n}.zip")
+                for n in ["total", "tp1", "tp2", "tp3", "tp4", "tp5"]]
     if r["key"] in ("ookla", "ookla_2020"):
         return [(r["url"], SRC / r["path"]), (r["url"].replace("mobile", "fixed"), SRC / r["path"].replace("mobile", "fixed"))]
     if r["key"] == "census_pakpc2023":
@@ -81,6 +84,10 @@ def main(a):
             zipfile.ZipFile(z).extractall(d)
 
     # Tracked (unlike sources/), so a fresh clone can check its downloads against these bytes.
+    for n in ["total", "tp1", "tp2", "tp3", "tp4", "tp5"]:
+        z = SRC / f"grip4/GRIP4_density_{n}.zip"
+        if z.exists() and not any((SRC / f"grip4/{n}").glob("*.asc")):
+            zipfile.ZipFile(z).extractall(SRC / f"grip4/{n}")
     rar = SRC / "health_facilities/Pakistan_Health_Facilities.rar"
     if rar.exists() and not (SRC / "health_facilities/x/Pakistan_Health_Facilities.shp").exists():
         (SRC / "health_facilities/x").mkdir(parents=True, exist_ok=True)
