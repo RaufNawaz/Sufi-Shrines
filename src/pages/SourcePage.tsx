@@ -115,6 +115,12 @@ function SourceContent({ work, library, lang }: { work: ShelfWork; library: Libr
           <dt>{t('sourceFactEntries')}</dt>
           <dd>{fmtNum(work.entries.length)}</dd>
         </div>
+        {work.citations.length > 1 && (
+          <div className="source-fact">
+            <dt>{t('sourceFactLines')}</dt>
+            <dd>{fmtNum(work.citations.length)}</dd>
+          </div>
+        )}
         {year && (
           <div className="source-fact">
             <dt>{t('sourceFactYear')}</dt>

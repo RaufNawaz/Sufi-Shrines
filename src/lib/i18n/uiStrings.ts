@@ -1028,6 +1028,7 @@ const UI_TEXT_EN = {
   sourceFactYear: 'Year',
   sourceFactPages: 'Pages read',
   sourceFactEntries: 'Entries citing it',
+  sourceFactLines: 'Ways it is cited',
   sourcePlacesHeading: 'Places',
   sourceEntriesHeading: 'Entries that rest on it',
   sourceMapHeading: 'Where its sites are',

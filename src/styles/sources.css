@@ -880,6 +880,16 @@ details[open] > .sources-row-summary::after {
   color: var(--color-primary);
 }
 
+/* A place with no page of its own (one site in the whole archive) is a label,
+   not a control: no ground and no border, so it cannot be mistaken for the
+   linked chips beside it and tapped to no effect. */
+.source-place:not(.source-place--link) {
+  border-color: transparent;
+  background: transparent;
+  padding-inline: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
 @media (hover: hover) {
   .source-place--link:hover {
     background: var(--color-primary-bg);

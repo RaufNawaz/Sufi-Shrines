@@ -927,6 +927,7 @@ export const UI_TEXT_UR: UiStrings = {
   sourceFactYear: 'سال',
   sourceFactPages: 'پڑھے گئے صفحات',
   sourceFactEntries: 'حوالہ دینے والے اندراج',
+  sourceFactLines: 'حوالے کی صورتیں',
   sourcePlacesHeading: 'مقامات',
   sourceEntriesHeading: 'اس پر قائم اندراج',
   sourceMapHeading: 'اس کے مقامات کہاں ہیں',
