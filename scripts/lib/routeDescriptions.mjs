@@ -40,7 +40,7 @@ export const ROUTE_DESCRIPTIONS = {
   almanac: {
     key: 'almanacIntro',
     en: 'When the shrines gather. An ʿurs is the death anniversary of a saint, kept as a festival of union — and for most of these places it is the one day of the year the whole community returns.',
-    ur: 'جب مزارات پر اجتماع ہوتا ہے۔ عرس بزرگ کے وصال کا دن ہے، جو وصل کے جشن کے طور پر منایا جاتا ہے — اور ان میں سے اکثر مقامات کے لیے یہی سال کا وہ دن ہے جب پورا حلقہ لوٹ کر آتا ہے۔',
+    ur: 'مزارات پر اجتماع کے دن۔ عرس بزرگ کے وصال کا دن ہے، جو وصل کے جشن کے طور پر منایا جاتا ہے — اور ان میں سے اکثر مقامات کے لیے یہی سال کا وہ دن ہے جب پورا حلقہ لوٹ کر آتا ہے۔',
   },
   graph: {
     key: 'graphExplorerIntro',

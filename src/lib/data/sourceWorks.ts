@@ -30,6 +30,8 @@ import shipped from '../../data/source-works.json';
 export interface SourceWork {
   slug: string;
   title: string;
+  /** The title in Urdu, where the archive's own Urdu articles name the work. */
+  titleUr?: string;
   author?: string;
   /** Distinctive lowercased substring of a citation that names this work. */
   match: string;

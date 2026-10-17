@@ -279,7 +279,8 @@ export default function AlmanacPage() {
 
   /* Not from the slim index, which carries no observances: the calendar drew
      from it and then grew under the reader when the sheet landed. */
-  const hasEntries = !(loading && almanac.dated.length === 0) && (source !== 'index' || Boolean(error));
+  const hasEntries =
+    !(loading && almanac.dated.length === 0) && (source !== 'index' || Boolean(error));
 
   return (
     <div className="page-enter entity-page-wrapper">

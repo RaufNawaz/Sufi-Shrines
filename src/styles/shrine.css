@@ -269,8 +269,15 @@
 /* The trust pair, kept together on the wrap (see ShrinePage.tsx). */
 .shrine-summary-trust {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-2) var(--space-4);
+}
+
+/* A badge is one label; with the explanation button as a third item the row
+   broke each into two lines on an Urdu phone (Urdu council, 17 Oct 2026). */
+.shrine-summary-trust .shrine-summary-badge {
+  white-space: nowrap;
 }
 
 .shrine-summary-badge {
@@ -1861,8 +1868,15 @@
 }
 
 .shrine-breadcrumb li:not(:last-child)::after {
-  content: '›';
+  /* A drawn chevron, not a character: see the RTL rule below. */
+  content: '';
+  display: inline-block;
+  inline-size: 0.38em;
+  block-size: 0.38em;
   margin-inline: var(--space-2);
+  border-block-start: 1.5px solid currentcolor;
+  border-inline-end: 1.5px solid currentcolor;
+  transform: rotate(45deg);
   color: var(--color-text-muted);
   opacity: 0.6;
 }
@@ -1871,8 +1885,13 @@
    the page you are on. '›' is bidi-mirrored in principle, but it rendered
    unmirrored here — pointing back at the parent on every page with a
    breadcrumb (Urdu council, 17 October 2026, checked in the render). */
+/* RTL: the same chevron turned to point left, toward the page you are on.
+   A character could not do this reliably: '›' rendered unmirrored in the
+   Urdu trail, and '‹' flipped again beside a Latin last crumb or when isolated
+   (Urdu council, 17 October 2026, checked in the render each time). Drawn
+   borders have no bidi behaviour at all. */
 [dir='rtl'] .shrine-breadcrumb li:not(:last-child)::after {
-  content: '‹';
+  transform: rotate(-45deg);
 }
 
 .shrine-breadcrumb a {
@@ -3206,8 +3225,14 @@
    the wordmark keeps only its glyph: with its name it squeezed the title to
    64px, "Da…" (reading council, 17 October 2026). */
 @media (max-width: 640px) {
+  /* Visually hidden, not removed: it is the link's accessible name. */
   .header-wordmark--compact .header-wordmark-name {
-    display: none;
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 

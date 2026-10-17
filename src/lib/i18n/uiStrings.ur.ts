@@ -322,7 +322,9 @@ export const UI_TEXT_UR: UiStrings = {
   spiritualLineage: 'روحانی سلسلہ',
   orderSpan: (from: string, to: string) => `${from} تا ${to} صدی`,
   orderSpanOne: (century: string) => `${century} صدی`,
-  orderUndated: (n: number) => `${n} بلا تاریخ`,
+  /* "For n, no date is recorded": a qualifier straight after a number, with no
+     noun, read "۱ بلا تاریخ" (Urdu council, 17 October 2026). */
+  orderUndated: (n: number) => `${n} کی تاریخ درج نہیں`,
   orderUndatedHelp:
     'وہ شخصیات جنہیں ریکارڈ صرف ہجری سن میں رکھتا ہے، یا کسی سن میں نہیں۔ اُن کے لیے مدت شمار نہیں کی جاتی \u2014 یہاں ہجری سن کو تبدیل کرنا اِس آرکائیو کی طرف سے تاریخ گھڑنا ہوگا۔',
   orderTimelineHeading: 'یہ شخصیات کب زندہ تھیں',
@@ -549,7 +551,8 @@ export const UI_TEXT_UR: UiStrings = {
 
   // ── عرس تقویم ──────────────────────────────────────────────────────────
   welcomeExploreMore: 'آرکائیو میں مزید',
-  welcomeDestAlmanac: 'جب مزارات پر اجتماع ہوتا ہے',
+  /* A noun phrase: a clause opening on جب cannot stand alone (Urdu council). */
+  welcomeDestAlmanac: 'مزارات پر اجتماع کے دن',
   welcomeDestGraph: 'سلسلے، طریقے اور مزارات کے پیچھے کی شخصیات',
   welcomeDestTypology: 'ہر مقام، اُس کی تعمیری صورت کے لحاظ سے',
   welcomeDestChronology: 'ہر تاریخ شدہ مقام، صدی بہ صدی',
@@ -560,7 +563,7 @@ export const UI_TEXT_UR: UiStrings = {
     'اِس اندراج کا اردو متن ابھی نہیں لکھا گیا۔ نیچے دیا گیا مضمون انگریزی میں ہے — روکنے کے بجائے جوں کا توں دکھایا گیا ہے۔',
   almanacTitle: 'عرس تقویم',
   almanacIntro:
-    'جب مزارات پر اجتماع ہوتا ہے۔ عرس بزرگ کے وصال کا دن ہے، جو وصل کے جشن کے طور پر منایا جاتا ہے — اور ان میں سے اکثر مقامات کے لیے یہی سال کا وہ دن ہے جب پورا حلقہ لوٹ کر آتا ہے۔',
+    'مزارات پر اجتماع کے دن۔ عرس بزرگ کے وصال کا دن ہے، جو وصل کے جشن کے طور پر منایا جاتا ہے — اور ان میں سے اکثر مقامات کے لیے یہی سال کا وہ دن ہے جب پورا حلقہ لوٹ کر آتا ہے۔',
   almanacHonestyHeading: 'یہ تقویم کیا بتا سکتی ہے اور کیا نہیں',
   almanacApproximateNote:
     'ہجری تاریخوں کے ساتھ عیسوی تاریخ تخمینی طور پر دی گئی ہے۔ عرس کا آغاز مقامی رویتِ ہلال پر ہوتا ہے، اس لیے اصل دن ایک دو دن آگے پیچھے ہو سکتا ہے۔ سفر سے پہلے مزار سے تصدیق کر لیں۔',
@@ -611,7 +614,9 @@ export const UI_TEXT_UR: UiStrings = {
   placeNotFound: 'اِس نام کا کوئی مقام درج نہیں۔',
   placesIntro:
     'آرکائیو کہاں ہے — ہر اندراج کے مقام کے خانے سے گنا گیا۔ ایک مزار شہر اور اُس کے ضلع، دونوں کے تحت آ سکتا ہے، کیونکہ وہ دونوں میں ہے۔',
-  placeSiteCount: (n: number) => `${n} مزارات`,
+  /* مقام/مقامات, not مزارات: places hold temples and gurdwaras too, and "۱"
+     takes the singular (Urdu council, 17 October 2026). */
+  placeSiteCount: (n: number) => (n === 1 ? `${n} مقام` : `${n} مقامات`),
   placeSpan: (from: number, to: number) => `${from}ء–${to}ء`,
   placesUnplaced: (n: number) => `${n} مزارات کا ایسا مقام درج ہے جسے یہ آرکائیو پہچان نہیں سکتا۔`,
   /* ── Accessible names ─────────────────────────────────────────────────
@@ -1065,8 +1070,11 @@ export const UI_TEXT_UR: UiStrings = {
   infoLevelModerate: 'جزوی طور پر دستاویز شدہ',
   infoLevelLow: 'محدود معلومات',
   trustExplainButton: 'ان کا کیا مطلب ہے؟',
+  /* Rewritten 17 October 2026 (Urdu council): both read "یہ نشان بتاتا ہے…"
+     beside two badges, "دستاویز کیا" is a calque of "documented", and "ہرگز"
+     read as defensive. Each now follows its badge's own label on the page. */
   infoLevelTooltip:
-    'یہ نشان بتاتا ہے کہ ہم نے اس مقام کو اب تک کس حد تک دستاویز کیا ہے۔ اس کا تعلق صرف ہمارے ریکارڈ سے ہے — مقام کی اہمیت سے ہرگز نہیں۔',
+    'ہم اب تک اس مقام کے بارے میں کتنا کچھ درج کر پائے ہیں۔ یہ صرف ہمارے ریکارڈ کا حال ہے، مقام کی اہمیت کا پیمانہ نہیں۔',
   infoLevelFilterLabel: 'معلومات کی سطح',
   provenanceFilterLabel: 'ماخذ',
   supportLevelFieldVerified: 'میدانی دستاویز شدہ',
@@ -1074,7 +1082,7 @@ export const UI_TEXT_UR: UiStrings = {
   supportLevelSourceSeeded: 'متنی دستاویز شدہ',
   supportLevelWebCompiled: 'ویب سے مرتب شدہ',
   supportLevelTooltip:
-    'یہ نشان بتاتا ہے کہ اس اندراج کی معلومات کیسے حاصل کی گئیں — میدانی سروے، حوالہ شدہ ماخذ، یا ویب سے مرتب کردہ۔ اس کا تعلق صرف ہمارے تحقیقی عمل سے ہے — مقام کی اہمیت سے ہرگز نہیں۔',
+    'اس اندراج کی معلومات کہاں سے آئیں — میدانی سروے، کسی کتاب یا متن کا حوالہ، یا ویب۔ یہ صرف ہمارے تحقیقی طریقے کا بیان ہے، مقام کی اہمیت کا پیمانہ نہیں۔',
   verifiedOnlyFilter: 'صرف میدانی دستاویز شدہ',
   statusActive: 'فعال',
   statusOccasional: 'صرف تہواروں پر',
@@ -1172,7 +1180,7 @@ export const UI_TEXT_UR: UiStrings = {
   clearRecent: 'صاف کریں',
   ariaClearRecent: 'حال ہی میں دیکھے گئے صاف کریں',
   traditionKicker: 'روایت',
-  traditionSiteCount: (n: number) => `${n} مقامات`,
+  traditionSiteCount: (n: number) => (n === 1 ? `${n} مقام` : `${n} مقامات`),
   traditionDefinitionHeading: 'آرکائیو کیا کہتا ہے',
   traditionFromEntry: 'ماخذ اندراج:',
   traditionSitesHeading: 'اس روایت میں درج مقامات',

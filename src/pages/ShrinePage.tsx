@@ -40,7 +40,7 @@ import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { getFieldValue } from '../lib/data/fieldAliasing';
 import { metaDescription } from '../lib/data/articleParsing';
 import { categoryDisplayLabel } from '../lib/data/categoryKey';
-import { infoLevelKey } from '../lib/data/infoLevel';
+import { infoLevelKey, INFO_LEVEL_LABEL_KEYS } from '../lib/data/infoLevel';
 import { siteStatusKey, SITE_STATUS_LABEL_KEYS } from '../lib/data/siteStatus';
 import { CONTACT_EMAIL, correctionIssueUrl } from '../lib/data/constants';
 import { InfoLevelBadge } from '../components/ui/InfoLevelBadge';
@@ -178,7 +178,8 @@ function ShrineContent({
   const statusKey = siteStatusKey(shrine.status);
   const statusLabel =
     statusKey && statusKey !== 'active' ? t(SITE_STATUS_LABEL_KEYS[statusKey]) : '';
-  const isLowInfo = infoLevelKey(shrine.infoLevel) === 'low';
+  const infoKey = infoLevelKey(shrine.infoLevel);
+  const isLowInfo = infoKey === 'low';
 
   useDocumentTitle(`${name} — ${t('siteTitle')}`);
 
@@ -391,8 +392,18 @@ function ShrineContent({
       </div>
       {trustExplained && (
         <div id="trust-explain" className="trust-explain">
-          {shrine.infoLevel && <p>{t('infoLevelTooltip')}</p>}
-          {shrine.supportLevel && <p>{t('supportLevelTooltip')}</p>}
+          {/* Each led by its badge's own label, so the two can be told apart. */}
+          {infoKey && (
+            <p>
+              <strong>{t(INFO_LEVEL_LABEL_KEYS[infoKey])}</strong> — {t('infoLevelTooltip')}
+            </p>
+          )}
+          {supportKey && (
+            <p>
+              <strong>{t(SUPPORT_LEVEL_LABEL_KEYS[supportKey])}</strong> —{' '}
+              {t('supportLevelTooltip')}
+            </p>
+          )}
         </div>
       )}
 

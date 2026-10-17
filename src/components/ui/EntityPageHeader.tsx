@@ -263,7 +263,9 @@ export function EntityPageHeader({ title }: { title?: string }) {
         <Link
           to="/"
           className={`header-wordmark${collapsed && title ? ' header-wordmark--compact' : ''}`}
-          aria-label={t('backToMap')}
+          /* Named by its visible text (the archive's name), not "Back to map":
+             a spoken name must contain the visible label (WCAG 2.5.3). When
+             only the glyph shows, the name stays in the hidden span's text. */
         >
           <svg
             className="header-wordmark-glyph"

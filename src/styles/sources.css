@@ -1065,3 +1065,18 @@ details[open] > .sources-row-summary::after {
   font-weight: 700;
   pointer-events: none;
 }
+
+/* The romanized title under an Urdu one: the search string, quiet. */
+.source-title-latin {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.source-title-latin bdi {
+  display: block;
+  direction: ltr;
+  text-align: right;
+  font-family: var(--font-sans);
+  line-height: 1.4;
+}

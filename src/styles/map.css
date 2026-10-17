@@ -2635,3 +2635,13 @@
 [dir='rtl'] .welcome-card-credit {
   font-size: var(--text-sm);
 }
+
+/* Nastaliq runs longer than the English and the destination descriptions were
+   cut mid-word on one line — six of seven in Urdu against one in English
+   (Urdu council, 17 October 2026). Two lines in RTL before an ellipsis. */
+[dir='rtl'] .welcome-card-list .inset-row-sub {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+}

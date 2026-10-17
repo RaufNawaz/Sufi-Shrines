@@ -5,6 +5,7 @@ import { buildBibtex, buildPlainCitation, type CiteKind } from '../../lib/cite';
 import { localIsoDate } from '../../lib/data/citation';
 import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../../lib/data/supportLevel';
 import { useShareLink } from '../../hooks/useShareLink';
+import { RecordedRun } from '../ui/RecordedRun';
 
 interface Props {
   /** Which entity family this page belongs to — namespaces the BibTeX key. */
@@ -50,7 +51,7 @@ function CiteBlock({
     <div className="cite-block">
       <div className="cite-block-head">
         <span className="cite-block-label">
-          <bdi lang="en" data-latin>{label}</bdi>
+          <RecordedRun text={label} />
         </span>
         <button type="button" className="cite-copy-btn" onClick={() => void copy(text)}>
           {copied ? t('copied') : t('citeCopy')}
@@ -58,13 +59,17 @@ function CiteBlock({
       </div>
       {machine ? (
         <pre className="cite-text cite-text--machine" dir="ltr">
-          <bdi lang="en" data-latin>{text}</bdi>
+          <bdi lang="en" data-latin>
+            {text}
+          </bdi>
         </pre>
       ) : (
         <pre className="cite-text cite-text--prose">
           {/* A URL is a URL in any language; Latin outside one is declared. */}
           {/[A-Za-z]/.test(text.replace(/https?:\/\/\S+/g, '')) ? (
-            <bdi lang="en" data-latin>{text}</bdi>
+            <bdi lang="en" data-latin>
+              {text}
+            </bdi>
           ) : (
             <bdi>{text}</bdi>
           )}

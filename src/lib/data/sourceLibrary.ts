@@ -80,6 +80,8 @@ export interface LibrarySource extends IndexedSource {
 export interface ShelfWork {
   slug: string;
   title: string;
+  /** Urdu title, only where the archive's own Urdu articles give one. */
+  titleUr?: string;
   author?: string;
   year?: string;
   /** The citation lines that name it, verbatim. */
@@ -154,6 +156,7 @@ export function buildLibrary(shrines: readonly Shrine[]): Library {
     shelf.set(work.slug, {
       slug: work.slug,
       title: work.title,
+      ...(work.titleUr ? { titleUr: work.titleUr } : {}),
       ...(work.author ? { author: work.author } : {}),
       citations: [],
       entries: [],

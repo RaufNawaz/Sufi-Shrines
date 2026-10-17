@@ -1812,7 +1812,10 @@
 
 /* The atlas's two views, at the top of both pages. Reuses the almanac's
    segmented control; this only places it. */
-.atlas-switch {
+.almanac-view-toggle.atlas-switch {
+  /* Doubled class: .almanac-view-toggle (almanac.css, loaded later) zeroes its
+     margin, which left the switch flush on the heading — Nastaliq ascenders
+     touched it (Urdu council, 17 October 2026). */
   display: inline-flex;
   margin-block: var(--space-2) var(--space-4);
 }

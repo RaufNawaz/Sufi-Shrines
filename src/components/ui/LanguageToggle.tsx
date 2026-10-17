@@ -16,7 +16,9 @@ export function LanguageToggle({ className }: { className?: string }) {
         aria-pressed={lang === 'en'}
         lang="en"
       >
-        <bdi lang="en" data-latin>EN</bdi>
+        <bdi lang="en" data-latin>
+          EN
+        </bdi>
       </button>
       <button
         // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this segment *is* the Urdu one; its label is اردو

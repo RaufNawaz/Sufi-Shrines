@@ -223,7 +223,8 @@ export default function GraphPage() {
       href: `/saint/${s.slug}`,
       century: figureCentury(s),
       ...(figureCentury(s) !== null
-        ? { centuryLabel: centuryLabel(figureCentury(s) as number, lang) }
+        ? /* fmtNum: the network's century key read "13ویں" in Western digits. */
+          { centuryLabel: fmtNum(centuryLabel(figureCentury(s) as number, lang)) }
         : {}),
       ...(picture
         ? { imageUrl: picture.url, imageOf: localizeRecordedName(picture.shrineName, lang) }

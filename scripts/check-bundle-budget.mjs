@@ -215,7 +215,7 @@ const BUDGETS_KB = {
      The structural point is still open and is worth more than either number:
      `/saint/:slug` downloads the whole graph to render one figure. */
   'src/pages/SaintPage.tsx': 694, // measured 691 on 17 Oct 2026, with per-article Urdu loading
-  'src/pages/OrderPage.tsx': 678, // measured 675 on 17 Oct 2026
+  'src/pages/OrderPage.tsx': 682, // measured 679 on 17 Oct 2026, after the Urdu council's RecordedRun
   'src/pages/GraphPage.tsx': 623, // measured 620 on 17 Oct 2026, after the council rounds
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
      UI strings, and the English string table is eager on every route, so the

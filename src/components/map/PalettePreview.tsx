@@ -13,6 +13,7 @@ import { useUrduArticles } from '../../hooks/useUrduArticlesReady';
 import { langAttr } from '../../lib/i18n/languages';
 import { ShrineImage } from '../ui/ShrineImage';
 import { InlineEmphasis } from '../ui/InlineEmphasis';
+import { RecordedRun } from '../ui/RecordedRun';
 
 /**
  * The palette's preview pane — what Spotlight shows beside the highlighted
@@ -71,7 +72,7 @@ export function PalettePreview({ shrine, onShow }: { shrine: Shrine; onShow: () 
       </h3>
       {(location || founded) && (
         <p className="palette-preview-meta">
-          {location && <bdi lang="en" data-latin>{location}</bdi>}
+          {location && <RecordedRun text={location} />}
           {location && founded && ' · '}
           {founded && fmtNum(founded)}
         </p>
@@ -79,7 +80,7 @@ export function PalettePreview({ shrine, onShow }: { shrine: Shrine; onShow: () 
       {saint && (
         <p className="palette-preview-figure">
           <span className="palette-preview-label">{figureLabel}</span>
-          <bdi lang="en" data-latin>{saint}</bdi>
+          <RecordedRun text={saint} />
         </p>
       )}
       {lead && (

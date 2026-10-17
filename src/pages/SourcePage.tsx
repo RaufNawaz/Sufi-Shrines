@@ -101,11 +101,27 @@ function SourceContent({ work, library, lang }: { work: ShelfWork; library: Libr
         {t('sourceKicker')}
         {book && <span className="source-read-badge">{t('sourceReadBadge')}</span>}
       </p>
-      <h1 ref={headingRef} className="entity-title source-title">
-        <bdi lang="en" data-latin>
-          {work.title}
-        </bdi>
-      </h1>
+      {/* In Urdu, the Urdu title where the archive's own Urdu articles name the
+          work (the Tazkirah, 34 times) — with the romanized title kept beneath
+          it as the search string (Urdu council, 17 October 2026). */}
+      {isRtlLang(lang) && work.titleUr ? (
+        <>
+          <h1 ref={headingRef} className="entity-title source-title">
+            {work.titleUr}
+          </h1>
+          <p className="source-title-latin">
+            <bdi lang="en" data-latin>
+              {work.title}
+            </bdi>
+          </p>
+        </>
+      ) : (
+        <h1 ref={headingRef} className="entity-title source-title">
+          <bdi lang="en" data-latin>
+            {work.title}
+          </bdi>
+        </h1>
+      )}
       {work.author && (
         <p className="source-author">
           <bdi lang="en" data-latin>
@@ -355,9 +371,13 @@ export default function SourcePage() {
             </li>
             {work && (
               <li aria-current="page">
-                <bdi lang="en" data-latin>
-                  {work.title.split(':')[0]}
-                </bdi>
+                {isRtl && work.titleUr ? (
+                  work.titleUr
+                ) : (
+                  <bdi lang="en" data-latin>
+                    {work.title.split(':')[0]}
+                  </bdi>
+                )}
               </li>
             )}
           </ol>

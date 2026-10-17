@@ -4,6 +4,7 @@ import type { Lang, Shrine } from '../types/shrine';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import { isRtlLang } from '../lib/i18n/languages';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { ShrineMap } from '../components/map/ShrineMap';
@@ -24,6 +25,7 @@ import { parseSharedList, importSharedList } from '../lib/sharedList';
 import { buildSharedGroundOverview } from '../lib/data/sharedGround';
 import { isOnOverlayEntry, isOverlayHistoryPop } from '../lib/nav/overlayHistory';
 import { publicLocation } from '../lib/data/publicLocation';
+import { RecordedRun } from '../components/ui/RecordedRun';
 
 /** Drop the one-shot ?list= param after the reader acts on the banner. */
 function clearListParam(): void {
@@ -168,6 +170,15 @@ function setFiltersInURL(filters: FilterState): void {
 export default function MapPage() {
   const { shrines, loading, error, offline, sourceTimestamp, refresh } = useShrineData();
   const { t, isRTL, lang, localizeField } = useLang();
+  const directoryOrder = useMemo(
+    () =>
+      isRtlLang(lang)
+        ? [...shrines].sort((a, b) =>
+            localizeShrineName(a, lang).localeCompare(localizeShrineName(b, lang), 'ur'),
+          )
+        : shrines,
+    [shrines, lang],
+  );
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [isEmbed] = useState(isEmbedMode);
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -555,7 +566,10 @@ export default function MapPage() {
         aria-label={t('shrineDirectoryLabel')}
       >
         <ol>
-          {shrines.map((s) => {
+          {/* In the reader's alphabet: data order is the English names', so in
+              Urdu "داتا دربار" came after "دریا لال" and a reader jumping by
+              first letter found nothing where it should be. */}
+          {directoryOrder.map((s) => {
             /* The place name, not the survey cell — the same rule as every
                visible list; a screen reader walking this landmark heard 171
                raw notes. */
@@ -594,10 +608,7 @@ export default function MapPage() {
                   {location ? (
                     <>
                       {' '}
-                      —{' '}
-                      <bdi lang="en" data-latin>
-                        {location}
-                      </bdi>
+                      — <RecordedRun text={location} />
                     </>
                   ) : (
                     ''
