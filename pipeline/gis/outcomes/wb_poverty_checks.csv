@@ -1,0 +1,13 @@
+check,kind,measured,reference,result,note
+district rows read from Annex 1,integrity,"126 ({'Punjab': 37, 'KP': 32, 'Sindh': 29, 'Balochistan': 28})","126, as the paper states",pass,
+"number of poor = rate x population, every district",integrity,126 of 126,all within 0.5% of population,pass,
+"poverty gap below the poverty rate, every district",integrity,126 of 126,all,pass,
+KP: population-weighted district rates vs the paper's province rate,external,30.04%,"30.04% (Table 6, national-level model)",pass,
+Punjab: population-weighted district rates vs the paper's province rate,external,16.56%,"16.56% (Table 6, national-level model)",pass,
+Sindh: population-weighted district rates vs the paper's province rate,external,26.17%,"26.17% (Table 6, national-level model)",pass,
+Balochistan: population-weighted district rates vs the paper's province rate,external,38.73%,"38.73% (Table 6, national-level model)",pass,
+"mean consumption plausible (below 3x the median, above the mean of the poor)",integrity,"Multan 35,473 PKR","all (median 5,140 PKR)",warn,"Printed so in the paper's annex; kept as printed, not corrected (RULE 2)"
+annex districts placed in OCHA districts,integrity,126 of 126,all,pass,
+one annex district per OCHA district,integrity,none shared,none shared,pass,
+"wb_poverty_rate vs mpi_headcount_2015, districts",convergent,"rho = +0.78, n = 118","sign +, |rho| >= 0.5",pass,
+"wb_poverty_rate vs rwi_popw, districts",convergent,"rho = -0.66, n = 129","sign -, |rho| >= 0.5",pass,

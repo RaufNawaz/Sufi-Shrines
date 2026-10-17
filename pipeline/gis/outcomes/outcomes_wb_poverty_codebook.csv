@@ -1,0 +1,7 @@
+indicator,definition,census_table,source
+wb_poverty_rate,"Population below the national poverty line, %, 2019-20 (small-area estimate: the paper's national-level HIES 2018-19 model applied to PSLM 2019-20)",Annex 1,"World Bank (2024), Pakistan Poverty Map 2019-2020, Policy Research Working Paper 11012, Annex 1"
+wb_poverty_rate_se,"Standard error of the poverty rate, points (square root of the published MSE)",Annex 1,"World Bank (2024), Pakistan Poverty Map 2019-2020, Policy Research Working Paper 11012, Annex 1"
+wb_poverty_gap,"Poverty gap index, %: the average shortfall below the poverty line as a share of it",Annex 1,"World Bank (2024), Pakistan Poverty Map 2019-2020, Policy Research Working Paper 11012, Annex 1"
+wb_poor_headcount,Number of people below the poverty line,Annex 1,"World Bank (2024), Pakistan Poverty Map 2019-2020, Policy Research Working Paper 11012, Annex 1"
+wb_consumption_pae,"Mean monthly consumption per adult equivalent, PKR, 2019-20 (as printed; Multan's value is flagged)",Annex 1,"World Bank (2024), Pakistan Poverty Map 2019-2020, Policy Research Working Paper 11012, Annex 1"
+wb_consumption_pae_poor,"Mean monthly consumption per adult equivalent of the poor, PKR",Annex 1,"World Bank (2024), Pakistan Poverty Map 2019-2020, Policy Research Working Paper 11012, Annex 1"

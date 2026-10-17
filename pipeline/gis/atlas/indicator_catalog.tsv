@@ -1,4 +1,7 @@
 key	label	theme	higher_is_better	year
+wb_poverty_rate	Poverty rate, national line (%, World Bank 2019-20)	Wealth and poverty	0	2019-20
+wb_poverty_gap	Poverty gap (%, World Bank 2019-20)	Wealth and poverty	0	2019-20
+wb_consumption_pae	Monthly consumption per adult equivalent (PKR)	Wealth and poverty	1	2019-20
 rwi_popw	Relative Wealth Index (Meta)	Wealth and poverty	1	2021
 gdp_pc_2023_popw	GDP per capita, PPP $ (division)	Wealth and poverty	1	2023
 gdp_pc_growth_13_23	GDP per capita growth, %/yr 2013-23 (division)	Wealth and poverty	1	2013-2023
