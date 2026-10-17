@@ -1190,10 +1190,18 @@
 /* Both the rested and the hovered state, at a specificity above the hover
    rule: the pointer is still over the disc the instant it is chosen, and the
    first draft painted the hover grey over the cobalt. */
-.almanac-calendar-cell--selected button.almanac-cal-day,
+.almanac-calendar-cell--selected button.almanac-cal-day {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: none;
+}
+
 /* Hover only where there is a pointer that hovers: on a touch screen
    :hover sticks after a tap, and the control stayed highlighted (motion
-   council, 17 October 2026). Keyboard focus has :focus-visible. */
+   council, 17 October 2026). Keyboard focus has :focus-visible. The rested
+   state above was once the first half of this rule's selector list, and the
+   sweep that moved the hover half left it dangling before the @media, which
+   dropped the chosen day's disc altogether. */
 @media (hover: hover) {
   .almanac-calendar-cell--selected button.almanac-cal-day:hover {
     background: var(--color-primary);
