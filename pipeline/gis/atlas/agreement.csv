@@ -1,0 +1,29 @@
+concept,a,b,n_districts,spearman,median_abs_diff,mean_a,mean_b
+stunting,dhsms_stunted,nns_stunted,146,0.43,6.0,43.5,43.3
+stunting,dhsms_stunted,mics_stunted,65,0.7,4.8,40.0,40.7
+stunting,nns_stunted,mics_stunted,65,0.84,5.0,41.1,40.7
+child marriage,girls_15_19_ever_married,nns_married_before_18,127,0.69,,19.7,22.9
+child marriage,girls_15_19_ever_married,mics_married_before_18,65,0.87,,14.9,20.7
+child marriage,nns_married_before_18,mics_married_before_18,65,0.76,3.9,18.4,20.7
+full or basic immunisation,dhsms_vacc_all_basic,pslm_fully_immunised,129,0.53,,55.9,73.1
+measles vaccination,dhsms_vacc_measles,mics_measles,65,0.71,7.3,71.2,73.9
+literacy (10+),literacy,pslm_literacy,129,0.92,3.4,51.0,51.4
+women's literacy,literacy_female,pslm_literacy_female,129,0.94,4.7,41.1,36.7
+women's literacy,literacy_female,dhsms_women_literate,135,0.77,,40.5,33.0
+women's literacy,pslm_literacy_female,dhsms_women_literate,129,0.77,,36.7,34.0
+poverty,wb_poverty_rate,mpi_headcount_2015,118,0.78,,28.3,52.0
+poverty,wb_poverty_rate,rwi_popw,129,-0.66,,29.6,0.1
+poverty,mpi_headcount_2015,rwi_popw,122,-0.81,,53.0,0.1
+food insecurity,pslm_fies_mod_sev,nns_food_insecure_severe,122,0.33,,17.9,22.7
+food insecurity,pslm_fies_mod_sev,ipc_phase3plus,76,-0.01,,19.9,22.8
+food insecurity,nns_food_insecure_severe,ipc_phase3plus,78,0.16,,28.0,23.2
+skilled birth attendance,pslm_skilled_birth_attendance,mics_skilled_birth_attendance,65,0.54,8.3,70.1,79.1
+facility births,pslm_facility_delivery,dhsms_facility_delivery,129,0.69,10.1,62.8,62.8
+fertility,mics_tfr,child_woman_ratio,65,0.78,,3.9,664.6
+electricity,electricity,ntl_2023_popw,135,0.76,,70.6,15.7
+water,improved_water,dhsms_improved_water,135,0.84,6.8,82.4,95.4
+water,improved_water,mics_basic_water,65,0.82,,94.4,92.5
+water,dhsms_improved_water,mics_basic_water,65,0.45,,98.7,92.5
+open defecation / no toilet,no_toilet,dhsms_open_defecation,134,0.55,,19.2,8.4
+women's mobile ownership,pslm_own_mobile_women,mics_mobile_women,65,0.84,10.8,21.8,31.6
+social protection,nns_social_protection,mics_social_transfers,64,-0.16,33.4,8.0,40.5

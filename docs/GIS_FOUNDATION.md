@@ -288,6 +288,15 @@ What was added, by builder. Each writes its own checks file; every number below 
 - A fast raster sampler replaced rasterio's per-point `sample()` (15 minutes → seconds) only after
   it returned identical values on 5,000 cells.
 
+**How far the sources agree** (`atlas/agreement.csv`, rebuilt with the atlas): where several
+sources measure one concept, each pair is compared across districts. Agreement is strong for
+literacy (census and PSLM, ρ 0.92; women 0.94), water (census and DHS 0.84), fertility (MICS TFR
+and the census child-woman ratio 0.78) and stunting between NNS and MICS (0.84; the DHS surface
+less so, 0.43 with NNS). It is **weak to absent for food insecurity** — PSLM's FIES, the NNS's FIES
+and the IPC's phase 3+ rank districts differently (ρ −0.01 to 0.33) — and the NNS's "social
+protection" and MICS's "social transfers" are different measures (means 8% and 40%, ρ −0.16).
+Choose among these deliberately and say which.
+
 **Findings that would each cost an hour to rediscover:**
 
 - **The DHS Program's "men who do not smoke" surface (AHTOBCMNON) is byte-identical to "men who
