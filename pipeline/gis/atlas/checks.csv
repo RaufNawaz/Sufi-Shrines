@@ -10,3 +10,4 @@ every catalog indicator present in some unit,all,all,pass
 every indicator column has a definition,all,all,pass
 site table carries no team-only column,none,none,pass
 "site table: every archive site, every catalog indicator a unit","169 sites, 209 indicators",169 sites,pass
+docs/GIS_FOUNDATION.md states the atlas's current counts,all equal,all equal,pass

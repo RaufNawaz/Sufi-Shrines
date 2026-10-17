@@ -278,6 +278,22 @@ def main():
           f"{len(sites)} sites", len(st) == len(sites) and len(site_unit) == (cat.theme != "Archive").sum())
     cb["site_unit"] = cb.indicator.map(site_unit).fillna("")
 
+    # The note's counts are held equal to the build, so they cannot go stale silently (RULE 4; the
+    # same idea as publishedPhotos.test.ts holding CLAUDE.md's photo list to the data).
+    import re as _re
+    doc = (GIS.parent.parent / "docs/GIS_FOUNDATION.md").read_text()
+    want = {"atlas_codebook indicators": (r"`atlas_codebook` \((\d+) indicators\)", len(cb)),
+            "columns at district": (r"\((\d+) at district\)", out["district"].shape[1] - 1),
+            "site-table indicators": (r"archive sites with all (\d+) catalog indicators", len(site_unit)),
+            "site indicators at hexagon": (r"modelled layers \((\d+)\)", sum(v == "hex" for v in site_unit.values())),
+            "site indicators at district": (r"district for most surveys \((\d+)\)", sum(v == "district" for v in site_unit.values()))}
+    stale = []
+    for what, (pat, n) in want.items():
+        m = _re.search(pat, doc.replace("\n", " "))
+        if not m or int(m.group(1)) != n:
+            stale.append(f"{what}: note says {m.group(1) if m else '(missing)'}, build has {n}")
+    check("docs/GIS_FOUNDATION.md states the atlas's current counts", "; ".join(stale) or "all equal", "all equal", not stale)
+
     print("writing")
     for u, g in out.items():
         layer = "atlas_grid_h3_r6" if u == "grid" else f"atlas_{u}"

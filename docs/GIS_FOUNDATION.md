@@ -230,7 +230,7 @@ tracked in `welfare/`.
 
 The aim: every measured welfare outcome for people in Pakistan that is openly available, on one
 frame. **`atlas_district`, `atlas_tehsil`, `atlas_province` and `atlas_grid_h3_r6`** in the
-GeoPackage hold every indicator as a column (311 at district), so ArcGIS or QGIS opens one layer
+GeoPackage hold every indicator as a column (310 at district), so ArcGIS or QGIS opens one layer
 and needs no joins; `atlas_codebook` (273 indicators) gives each one's definition, publisher,
 licence, year and the units it reaches. Flat copies are tracked in `pipeline/gis/atlas/`.
 `build_atlas.py` refuses a column that arrives from two sources, an indicator with no
