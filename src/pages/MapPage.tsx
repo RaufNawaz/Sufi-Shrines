@@ -428,17 +428,33 @@ export default function MapPage() {
          it goes to the search, the control a reader closing a site most likely
          wants next, and one that stays visible in the collapsed sheet. */
       const fromPanel = (document.activeElement as HTMLElement | null)?.closest('.sidebar');
+      /* On a laptop the sidebar is a panel, not a sheet, and Escape closes the
+         innermost thing: a selected site first, keeping the panel — it used to
+         collapse the whole sidebar at once, so focus sent to Search landed on
+         a hidden button. Only with nothing selected does Escape fold the
+         panel away, and focus goes to the button that brings it back. */
+      if (!isMobile && selectedId !== null) {
+        selectShrine(null);
+        if (fromPanel) {
+          window.requestAnimationFrame(() =>
+            document.querySelector<HTMLElement>('#map-search')?.focus(),
+          );
+        }
+        return;
+      }
       if (sidebarOpen) setSidebarOpen(false);
       selectShrine(null);
       if (fromPanel) {
         window.requestAnimationFrame(() =>
-          document.querySelector<HTMLElement>('#map-search')?.focus(),
+          document
+            .querySelector<HTMLElement>(isMobile ? '#map-search' : '.sidebar-toggle')
+            ?.focus(),
         );
       }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [sidebarOpen, selectShrine]);
+  }, [sidebarOpen, selectShrine, isMobile, selectedId]);
 
   const handleSelect = useCallback(
     (shrine: Shrine | null) => {

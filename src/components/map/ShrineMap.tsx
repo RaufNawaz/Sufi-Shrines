@@ -377,6 +377,9 @@ function OpeningView({
 }) {
   const map = useMap();
   const fitted = useRef(false);
+  /* The set on screen, by ids — not by array, which changes identity when the
+     slim index gives way to the sheet with the same sites. */
+  const shownIds = useRef<string | null>(null);
 
   useEffect(() => {
     if (fitted.current || tourActive || selectedId !== null) return;
@@ -384,6 +387,33 @@ function OpeningView({
     if (!view) return;
     fitted.current = true;
     map.fitBounds(view.bounds, { ...view.options, animate: false });
+  }, [map, shrines, selectedId, tourActive]);
+
+  /* A filter that leaves the sites somewhere the reader is not looking now
+     brings them into view. It never did: the fit ran once, so choosing "Jain"
+     while looking at Punjab changed nothing visible (map council, 17 October
+     2026). Only when the set changes, only when some of it is off screen, and
+     never over a tour or a selected site, which own the camera. */
+  useEffect(() => {
+    const ids = shrines
+      .filter((s) => s.latLng)
+      .map((s) => s.id)
+      .sort((a, b) => a - b)
+      .join(',');
+    const previous = shownIds.current;
+    shownIds.current = ids;
+    if (previous === null || previous === ids || !ids) return;
+    if (tourActive || selectedId !== null) return;
+    const points = shrines.filter((s) => s.latLng).map((s) => s.latLng!);
+    const bounds = L.latLngBounds(points.map((p) => [p.lat, p.lng] as [number, number]));
+    if (map.getBounds().contains(bounds)) return;
+    const narrow = fittedOpeningView(shrines);
+    const reduced = prefersReducedMotion();
+    map.fitBounds(bounds, {
+      ...(narrow ? narrow.options : { padding: [40, 40] as [number, number] }),
+      maxZoom: 11,
+      animate: !reduced,
+    });
   }, [map, shrines, selectedId, tourActive]);
 
   return null;
