@@ -134,6 +134,9 @@ $PY pipeline/gis/outcomes/build_census_extended.py --census pipeline/gis/sources
 $PY pipeline/gis/welfare/build_extended_layers.py   # ~10 min; reads welfare_district, so after wave one
 $PY pipeline/gis/outcomes/build_pslm_district.py    # needs welfare_ext_district.csv (the IPC check)
 $PY pipeline/gis/outcomes/build_mpi_district.py
+$PY pipeline/gis/outcomes/build_pslm_2015.py        # after build_pslm_district.py
+$PY pipeline/gis/outcomes/build_nns_district.py     # needs pdftotext (poppler)
+$PY pipeline/gis/outcomes/build_mics_district.py    # needs the NNS and census-extension CSVs
 $PY pipeline/gis/atlas/build_atlas.py               # last of the layer builders
 $PY pipeline/gis/viewer/build_viewer.py             # writes viewer/index.html from the atlas
 ```
@@ -156,7 +159,7 @@ Checked in Chromium on 16 Oct 2026: every unit draws, all four lead toggles work
 errors, no sideways scroll at 390 px. The file is 3.1 MB and committed, so it opens from any
 clone; rebuild it after any layer changes. It carries no team-only column.
 
-**Since 17 Oct 2026 it reads the atlas** (below): 150 indicators in 13 themes, the menu and labels
+**Since 17 Oct 2026 it reads the atlas** (below): 198 indicators in 16 themes, the menu and labels
 from `atlas/indicator_catalog.tsv`. The data is embedded gzipped and base64-encoded and inflated
 in the page by `pako` (a third CDN script), so 7.1 MB of JSON ships as a 2.4 MB file. Two things
 that would each cost an hour: **`JSON.parse` rejects `NaN`**, which the old JS-literal embedding
@@ -164,7 +167,7 @@ accepted, so the builder turns every NaN into null and dumps with `allow_nan=Fal
 move the page script into a `type="text/plain"` block** to run it later — Prettier formats that as
 prose and re-wraps the code. Zero-inflated indicators (flood exposure, conflict deaths) get a
 "zero" class of their own, or their septiles collapse to three faint classes. Re-checked in
-Chromium on 17 Oct 2026: all 150 indicators at all 329 indicator-unit pairs draw with data, no
+Chromium on 17 Oct 2026: all 198 indicators at all 377 indicator-unit pairs draw with data, no
 console errors, no sideways scroll at 390 px.
 
 ## Welfare layers (added 16 October 2026)
@@ -224,8 +227,8 @@ tracked in `welfare/`.
 
 The aim: every measured welfare outcome for people in Pakistan that is openly available, on one
 frame. **`atlas_district`, `atlas_tehsil`, `atlas_province` and `atlas_grid_h3_r6`** in the
-GeoPackage hold every indicator as a column (195 at district), so ArcGIS or QGIS opens one layer
-and needs no joins; `atlas_codebook` (178 indicators) gives each one's definition, publisher,
+GeoPackage hold every indicator as a column (291 at district), so ArcGIS or QGIS opens one layer
+and needs no joins; `atlas_codebook` (255 indicators) gives each one's definition, publisher,
 licence, year and the units it reaches. Flat copies are tracked in `pipeline/gis/atlas/`.
 `build_atlas.py` refuses a column that arrives from two sources, an indicator with no
 definition, and any change to the archive's site counts.
@@ -238,6 +241,9 @@ What was added, by builder. Each writes its own checks file; every number below 
 | `welfare/build_extended_layers.py` | DHS modelled surfaces (17), MAP, Kummu GDP, UCDP, Ookla, UNOSAT, IPC | stunting, vaccination, ANC, facility births, contraception, unmet need, literacy by sex, water, open defecation, bed nets, tobacco; malaria (Pv, Pf) 2024; walking time to care; GDP per capita 2023 and growth; conflict deaths 2015-24; mobile / fixed internet speed and use; share living in the 2022 and 2010 flood extents; IPC phase 3+ | hexagon, tehsil, district, province (IPC district only) |
 | `outcomes/build_pslm_district.py` | PSLM 2019-20 microdata (PBS) | literacy, net enrolment, out of school, women's and men's mobile ownership and internet use, full immunisation, child diarrhoea, ORS, prenatal care, skilled birth attendance, facility births, postnatal care, women's work, handwashing with soap, drainage, waste collection, LHW visits, FIES food insecurity | district (129) |
 | `outcomes/build_mpi_district.py` | Planning Commission / UNDP / OPHI 2016 | district MPI, headcount and intensity, six rounds 2004/05-2014/15 | district (124) |
+| `outcomes/build_pslm_2015.py` | PSLM 2014-15 microdata (PBS) | the same literacy, schooling, immunisation, diarrhoea, maternal-care and LHW indicators for 2014-15, and the change to 2019-20 | district (122; change for 107) |
+| `outcomes/build_nns_district.py` | National Nutrition Survey 2018, Vol. 2 | stunting, wasting, underweight, overweight, clinical anaemia, child disability, iodized salt, women's underweight and obesity, marriage before 18 and 15, **E. coli and arsenic tested in household drinking water**, FIES, social-protection coverage | district (146, incl. AJK, GB, ex-FATA) |
+| `outcomes/build_mics_district.py` | Provincial MICS 6, sampling-error appendices | **under-five, infant and neonatal mortality and TFR (with standard errors)**, foundational reading and numeracy, birth registration, violent discipline, child labour, child marriage, feeling safe, discrimination, life satisfaction, and more | district (65: Punjab, Sindh) |
 
 **Verification.** Census extension 15 pass + 1 warning; wave two 73 pass + 5 warnings; PSLM 15 +
 2; district MPI 8 of 8; atlas 9 of 9. Highlights:
@@ -256,6 +262,13 @@ What was added, by builder. Each writes its own checks file; every number below 
 - Flood exposure: 32.9 M residents inside the July-August 2022 extent, against UNOSAT's own
   27.9 M for August alone; by district the two agree at ρ 0.95.
 - District MPI: all 652 district-rounds satisfy MPI = headcount × intensity; national 0.197.
+- PSLM 2014-15 reproduces PBS's own 2014-15 figures, which the 2019-20 report prints in its
+  "14-15" column: literacy median gap 0.22 points (102 districts), immunisation 0.27, diarrhoea 0.25.
+- NNS 2018: the national TOTAL rows of Volume 2 match the Key Findings Report for stunting 40.2,
+  wasting 17.7, underweight 28.9, overweight 9.5 and food security 63.1.
+- MICS: Punjab prints district TFR and under-five mortality twice (Vol. II tables, Vol. III
+  sampling-error tables) and the two readings agree for every district. TFR tracks the census
+  child-woman ratio (ρ 0.78); MICS and NNS child marriage agree (0.76).
 - GDP per capita lands within 1% of Kummu's national figure (6,004 against 6,037).
 - A fast raster sampler replaced rasterio's per-point `sample()` (15 minutes → seconds) only after
   it returned identical values on 5,000 cells.
@@ -284,18 +297,33 @@ What was added, by builder. Each writes its own checks file; every number below 
   level, and the table does not say so. Left out.
 - MAP's malaria rasters have no-data cells where 1.9% of people live (Karachi's edges, the
   Makran coast, parts of Thal). Left empty, never filled with zero.
+- **The PSLM 2014-15 file labels the vaccination code that 2019-20 leaves bare**: 4 is "polio
+  campaign". The PBS microdata page names its 2014-15 Stata file `Data-in-stata.zip`, and
+  `data-in-stata-2.zip` is 2013-14 — read the headings on https://www.pbs.gov.pk/pslm-3/, not
+  the file names.
+- **NNS 2018 never surveyed Mansehra, Abbottabad, Haripur, Diamir or the two Waziristans**:
+  no-objection certificates were refused (Vol. 1 §2.2.8). Its two publications disagree on
+  E. coli in drinking water (Vol. 2 31.3%, Key Findings 36.0%) and child disability (14.0% vs
+  12.7%); both figures are in the checks, neither corrected. Values in parentheses rest on 25-49
+  cases and are kept with a flag (`nns_small_n_*`) — most of the arsenic tests.
+- **MICS under-five mortality falls with female literacy within each province** (Punjab ρ −0.56,
+  Sindh −0.44) **but not pooled** (−0.06): Punjab's district median is 72 per 1,000, Sindh's 42,
+  a level gap between two surveys a year apart. Compare districts within a province.
+- pdfplumber took over ten minutes on a 380-page report; `pdftotext -layout` (poppler, installed)
+  takes seconds and keeps table columns aligned. Both NNS and MICS are read that way.
 
 **Not reached, and why** (so the next attempt does not start from zero):
 
 - Satellite PM2.5 (ACAG V6.GL.02) sits behind Box and NASA Earthdata logins; IHME's gridded
   child mortality, growth failure and WASH estimates behind a GHDx login; SEDAC's relative
   deprivation and infant mortality grids behind Earthdata. All would add real outcomes.
-- National Nutrition Survey 2018 (district stunting, wasting, anaemia for every district,
-  including AJK and Gilgit-Baltistan) is published as a PDF report; not yet extracted.
-- PSLM 2014-15 district microdata appears to be on the same PBS page (`data-in-stata-*.zip`,
-  years unlabelled); with it, 2014-15 → 2019-20 change by district would follow.
-- AJK and Gilgit-Baltistan are outside the census tables, PSLM and the MPI annex; their values
-  come only from the satellite and modelled layers and DHS's region figures.
+- **The Khyber Pakhtunkhwa 2019 and Balochistan 2019-20 MICS reports** are published only at
+  mics.unicef.org, which answers scripts with 403. Saved by hand as
+  `pipeline/gis/sources/mics/kp_mics_2019_sfr.pdf` and `balochistan_mics_2019_20_sfr.pdf` (URLs in
+  `welfare/sources_extended.tsv`), `build_mics_district.py` reads them with no change, and MICS
+  then covers all four provinces.
+- AJK and Gilgit-Baltistan are outside the census tables, PSLM, MICS and the MPI annex; for them
+  the atlas has the satellite and modelled layers, DHS's region figures and the NNS 2018.
 
 ## Other shrine databases (added 16 October 2026)
 
