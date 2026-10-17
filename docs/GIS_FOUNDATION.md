@@ -114,22 +114,32 @@ layers, so **always run `build_census_outcomes.py` after it**. The outcome CSVs 
 `outcomes/` are not written by either script; they were exported by hand and must be re-exported
 after a rebuild. `pipeline/gis/boundaries/` is a downloaded copy and should not be committed.
 
-**`pyreadr` does not build on this Mac's system Python 3.9** (16 Oct 2026), so the census step
-cannot be re-run here yet; everything else installs (`geopandas h3 scipy rasterstats rasterio
-openpyxl pdfplumber`). Use a newer Python for the census step.
+**`pyreadr` does not build on this Mac's system Python 3.9** (16 Oct 2026). Since 17 Oct 2026
+there is a second environment on Homebrew's Python 3.12, `~/.venvs/gis312`, where it does, with
+the whole stack (`pyreadr geopandas h3 rasterio scipy pyarrow pdfplumber openpyxl`; h3 4.5.0, the
+version the foundation was built with). Use it for everything.
 
 ### Full run order
 
 ```bash
-PY=~/.venvs/gis/bin/python
+PY=~/.venvs/gis312/bin/python
 $PY pipeline/gis/build_foundation.py ...            # as above
 $PY pipeline/gis/outcomes/build_census_outcomes.py ...
 $PY pipeline/gis/welfare/fetch_sources.py           # ~200 MB into pipeline/gis/sources/, hashed
 $PY pipeline/gis/welfare/build_welfare_layers.py    # exits non-zero if any hard check fails
 pipeline/gis/shrine_sources/fetch_shrine_sources.sh # OSM, Wikidata, GeoNames; non-zero if any failed
 $PY pipeline/gis/shrine_sources/build_external_sites.py
-$PY pipeline/gis/viewer/build_viewer.py             # writes viewer/index.html
+$PY pipeline/gis/welfare/fetch_extended_sources.py  # ~1.3 GB more (Ookla is most of it), hashed
+$PY pipeline/gis/outcomes/build_census_extended.py --census pipeline/gis/sources/census_pakpc2023/PakPC2023/data
+$PY pipeline/gis/welfare/build_extended_layers.py   # ~10 min; reads welfare_district, so after wave one
+$PY pipeline/gis/outcomes/build_pslm_district.py    # needs welfare_ext_district.csv (the IPC check)
+$PY pipeline/gis/outcomes/build_mpi_district.py
+$PY pipeline/gis/atlas/build_atlas.py               # last of the layer builders
+$PY pipeline/gis/viewer/build_viewer.py             # writes viewer/index.html from the atlas
 ```
+
+Every builder writes into the one GeoPackage. **Do not run two at once**: they are SQLite
+writers on the same file.
 
 ## The viewer
 
@@ -145,6 +155,17 @@ every verification check.
 Checked in Chromium on 16 Oct 2026: every unit draws, all four lead toggles work, no console
 errors, no sideways scroll at 390 px. The file is 3.1 MB and committed, so it opens from any
 clone; rebuild it after any layer changes. It carries no team-only column.
+
+**Since 17 Oct 2026 it reads the atlas** (below): 150 indicators in 13 themes, the menu and labels
+from `atlas/indicator_catalog.tsv`. The data is embedded gzipped and base64-encoded and inflated
+in the page by `pako` (a third CDN script), so 7.1 MB of JSON ships as a 2.4 MB file. Two things
+that would each cost an hour: **`JSON.parse` rejects `NaN`**, which the old JS-literal embedding
+accepted, so the builder turns every NaN into null and dumps with `allow_nan=False`; and **do not
+move the page script into a `type="text/plain"` block** to run it later — Prettier formats that as
+prose and re-wraps the code. Zero-inflated indicators (flood exposure, conflict deaths) get a
+"zero" class of their own, or their septiles collapse to three faint classes. Re-checked in
+Chromium on 17 Oct 2026: all 150 indicators at all 329 indicator-unit pairs draw with data, no
+console errors, no sideways scroll at 390 px.
 
 ## Welfare layers (added 16 October 2026)
 
@@ -198,6 +219,83 @@ tracked in `welfare/`.
   is the highest. Reported as the data says, flagged in the layer's `note`.
 - Census tehsil outcomes exist only for 77 districts (the clean matches); the satellite measures
   exist for all 577 tehsils.
+
+## The atlas and the second wave (added 17 October 2026)
+
+The aim: every measured welfare outcome for people in Pakistan that is openly available, on one
+frame. **`atlas_district`, `atlas_tehsil`, `atlas_province` and `atlas_grid_h3_r6`** in the
+GeoPackage hold every indicator as a column (195 at district), so ArcGIS or QGIS opens one layer
+and needs no joins; `atlas_codebook` (178 indicators) gives each one's definition, publisher,
+licence, year and the units it reaches. Flat copies are tracked in `pipeline/gis/atlas/`.
+`build_atlas.py` refuses a column that arrives from two sources, an indicator with no
+definition, and any change to the archive's site counts.
+
+What was added, by builder. Each writes its own checks file; every number below is from them.
+
+| Builder | Source | Indicators | Reaches |
+|---|---|---|---|
+| `outcomes/build_census_extended.py` | Census 2023 tables 4, 6, 13A, 20-26 | child-woman ratio (fertility proxy), dependency ratio, under-5 sex ratio, girls / boys 15-19 ever married, youth literacy by sex, kacha / pakka housing, jhuggis, homelessness, no kitchen, no washroom, women home-owners, age heaping | district (all 23); tehsil (11) |
+| `welfare/build_extended_layers.py` | DHS modelled surfaces (17), MAP, Kummu GDP, UCDP, Ookla, UNOSAT, IPC | stunting, vaccination, ANC, facility births, contraception, unmet need, literacy by sex, water, open defecation, bed nets, tobacco; malaria (Pv, Pf) 2024; walking time to care; GDP per capita 2023 and growth; conflict deaths 2015-24; mobile / fixed internet speed and use; share living in the 2022 and 2010 flood extents; IPC phase 3+ | hexagon, tehsil, district, province (IPC district only) |
+| `outcomes/build_pslm_district.py` | PSLM 2019-20 microdata (PBS) | literacy, net enrolment, out of school, women's and men's mobile ownership and internet use, full immunisation, child diarrhoea, ORS, prenatal care, skilled birth attendance, facility births, postnatal care, women's work, handwashing with soap, drainage, waste collection, LHW visits, FIES food insecurity | district (129) |
+| `outcomes/build_mpi_district.py` | Planning Commission / UNDP / OPHI 2016 | district MPI, headcount and intensity, six rounds 2004/05-2014/15 | district (124) |
+
+**Verification.** Census extension 15 pass + 1 warning; wave two 73 pass + 5 warnings; PSLM 15 +
+2; district MPI 8 of 8; atlas 9 of 9. Highlights:
+
+- **The PSLM computation reproduces PBS's own published district tables** from the same survey:
+  literacy 10+ (Table 2.14a, 116 districts, median gap 0.20 points), full immunisation (Table
+  4.3C, 113, 0.26) and child diarrhoea (Table 4.6, 117, 0.22) — every district within 2.5 points
+  of a table rounded to whole numbers, rank correlation 1.00. Food insecurity is PBS's own
+  calibrated FIES prevalence (Table 9.1, with margins of error); the raw score computed from the
+  microdata ranks districts the same way (ρ 0.91).
+- DHS surfaces: population-weighted national means within 5 points of the DHS headline for 15 of
+  17 (DPT1 −6.5, card seen +5.8); province rankings agree at ρ ≥ 0.6 for 12 of the 15 that DHS
+  reports by province, not for stunting (0.43), modern contraception (0.43) or tobacco (0.09).
+  Each carries the DHS Program's own out-of-sample correlation in its definition, from 0.52
+  (tobacco) to 0.97 (open defecation); `welfare/dhs_surfaces_validation.csv` has all of it.
+- Flood exposure: 32.9 M residents inside the July-August 2022 extent, against UNOSAT's own
+  27.9 M for August alone; by district the two agree at ρ 0.95.
+- District MPI: all 652 district-rounds satisfy MPI = headcount × intensity; national 0.197.
+- GDP per capita lands within 1% of Kummu's national figure (6,004 against 6,037).
+- A fast raster sampler replaced rasterio's per-point `sample()` (15 minutes → seconds) only after
+  it returned identical values on 5,000 cells.
+
+**Findings that would each cost an hour to rediscover:**
+
+- **The DHS Program's "men who do not smoke" surface (AHTOBCMNON) is byte-identical to "men who
+  smoke any tobacco" (AHTOBCMANY)**, packaged eight months apart. Its national mean came out 25.2
+  against the survey's 77.3. Not used; the build refuses identical surfaces from now on.
+- **PSLM 2019-20's polio items carry an unlabelled code 4** (probably a campaign dose). PBS
+  counts it as received; without it full immunisation is 7.5 points short of PBS's table.
+- **Census Table 4 (ages) and Table 1 disagree on seven districts' populations**: Tando Muhammad
+  Khan +60%, Kolai-Palas Kohistan −15.5%, Quetta −12.5%, the other two Kohistans −11%,
+  Islamabad −3.4%, Rajanpur −2.4% (`outcomes/census_table4_vs_table1.csv`). Ratios from Table 4
+  are internally consistent; the totals are reported, not corrected.
+- **The PSLM report's tables come in three layouts** (name then numbers; numbers on the line
+  above the name; and the same with rank after the name), and all-urban Karachi rows print the
+  rural block as two zeros. `parse_table()` handles all of them; a naive parser reads the rank
+  as the total.
+- **Chagai, Jhal Magsi, Musakhel, Panjgur and Zhob have district labels in the PSLM 2019-20
+  microdata but no households.** They stay empty.
+- PSLM's FIES (2019-20) and the IPC's phase 3+ (2021-2026 analyses) do not rank the same
+  districts alike (ρ −0.01 over 76). Different years either side of the 2022 floods and a
+  different method; reported as a finding, not reconciled.
+- Census "Primary Completed" by age averages 6% among 15-24: it is primary as the *highest*
+  level, and the table does not say so. Left out.
+- MAP's malaria rasters have no-data cells where 1.9% of people live (Karachi's edges, the
+  Makran coast, parts of Thal). Left empty, never filled with zero.
+
+**Not reached, and why** (so the next attempt does not start from zero):
+
+- Satellite PM2.5 (ACAG V6.GL.02) sits behind Box and NASA Earthdata logins; IHME's gridded
+  child mortality, growth failure and WASH estimates behind a GHDx login; SEDAC's relative
+  deprivation and infant mortality grids behind Earthdata. All would add real outcomes.
+- National Nutrition Survey 2018 (district stunting, wasting, anaemia for every district,
+  including AJK and Gilgit-Baltistan) is published as a PDF report; not yet extracted.
+- PSLM 2014-15 district microdata appears to be on the same PBS page (`data-in-stata-*.zip`,
+  years unlabelled); with it, 2014-15 → 2019-20 change by district would follow.
+- AJK and Gilgit-Baltistan are outside the census tables, PSLM and the MPI annex; their values
+  come only from the satellite and modelled layers and DHS's region figures.
 
 ## Other shrine databases (added 16 October 2026)
 
@@ -256,6 +354,12 @@ Welfare and shrine sources: RWI **CC BY-NC 4.0** (non-commercial); night lights,
 times, Kontur, GeoNames CC BY 4.0; HeiGIT CC BY-SA 4.0; OPHI and Wikidata CC0; DHS under its
 free terms of use (cite); **OpenStreetMap ODbL 1.0**, so `external_sites.csv` and anything
 derived from its OSM rows must stay ODbL with attribution if distributed.
+
+Second wave (17 Oct 2026): DHS modelled surfaces under DHS's terms (cite); MAP, Kummu, UCDP CC BY
+4.0; **Ookla CC BY-NC-SA 4.0** (non-commercial, share-alike — like RWI, it limits how the atlas
+can be released); UNOSAT CC BY-SA; IPC CC0; PSLM and the census are PBS publications; the
+district MPI is a Government of Pakistan report. Every source's licence and URL is in
+`welfare/sources_extended.tsv`, every file's hash in `welfare/fetched_extended.tsv`.
 
 ## Open questions
 

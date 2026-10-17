@@ -75,7 +75,7 @@ def main(a):
 
     # Tracked (unlike sources/), so a fresh clone can check its downloads against these bytes.
     with open(HERE / "fetched_extended.tsv", "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(out[0]), delimiter="\t")
+        w = csv.DictWriter(f, fieldnames=list(out[0]), delimiter="\t", lineterminator="\n")
         w.writeheader()
         w.writerows(out)
     print(f"{len(out)} files hashed into welfare/fetched_extended.tsv")
