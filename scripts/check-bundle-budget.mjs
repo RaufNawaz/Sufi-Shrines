@@ -174,7 +174,7 @@ const BUDGETS_KB = {
   /* 626 → 620 on 15 October 2026: CommandPalette (with its preview pane and
      filters) is lazy now, fetched when the browser is idle, and the route
      measured 616. If this grows by ~10 KB the palette went static again. */
-  'src/pages/MapPage.tsx': 635, // measured 632 on 17 Oct 2026
+  'src/pages/MapPage.tsx': 640, // measured 637 on 17 Oct 2026, with the filter summary, in-view tab stops and the era note
   /* 520 → 526 on 29 Aug 2026, and raised rather than left at exactly the
      measurement for a specific reason: the route hit **520 against a 520
      budget**, which is not a pass, it is a landmine. The next person to add a
@@ -349,7 +349,7 @@ const BUDGETS_KB = {
      and in no number here. Re-based at measurement + 7 KB, this file's rule. Not
      raised, and at or near zero slack before this change: ShrinePage 534/534,
      AlmanacPage 360/360, index.html 272/272. */
-  'src/pages/PlacePage.tsx': 370, // measured 367 on 17 Oct 2026
+  'src/pages/PlacePage.tsx': 374, // measured 371 on 17 Oct 2026, with the map council strings
   // Added 23 Aug 2026 when the two branches merged: this route was built on the
   // other line, so this table had never seen it.
   /* 310 → 317, 29 August 2026, with PlacePage on the same day and for the same

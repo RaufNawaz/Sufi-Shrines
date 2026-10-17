@@ -475,6 +475,25 @@ export function ShrineMarkers({
     };
   }, [map]);
 
+  /* Tab walks what the reader can see: after every move, markers inside the
+     view are tab stops and the rest are not (still reachable by search and the
+     screen-reader directory). With all 169 in the tab order, in name order, a
+     keyboard reader was marched across sites they could not see. */
+  React.useEffect(() => {
+    const syncTabStops = () => {
+      const bounds = map.getBounds();
+      for (const marker of markerMapRef.current.values()) {
+        marker
+          .getElement()
+          ?.setAttribute('tabindex', bounds.contains(marker.getLatLng()) ? '0' : '-1');
+      }
+    };
+    map.on('moveend', syncTabStops);
+    return () => {
+      map.off('moveend', syncTabStops);
+    };
+  }, [map]);
+
   // Build layer group + all markers once when shrines/lang/tour state changes.
   // While a tour is active, its stop shrines are skipped — TourRoute renders
   // their numbered marker instead — and every other shrine is dimmed.
@@ -502,6 +521,12 @@ export function ShrineMarkers({
         title: localName,
         alt: localName,
         zIndexOffset: isSelected ? 1000 : 0,
+        /* Leaflet 1.9 pans a focused marker into view by default, so a
+           keyboard reader tabbing past markers threw the map across the
+           country in alphabetical order (map council, 17 October 2026). Only
+           the markers in view are in the tab order now (below), so there is
+           nothing to pan to. */
+        autoPanOnFocus: false,
       });
 
       marker.bindTooltip(escapeHtml(localName), {
@@ -558,7 +583,7 @@ export function ShrineMarkers({
       marker.on('add', () => {
         const el = marker.getElement();
         if (!el) return;
-        el.setAttribute('tabindex', '0');
+        el.setAttribute('tabindex', map.getBounds().contains(marker.getLatLng()) ? '0' : '-1');
         el.setAttribute('role', 'button');
         el.setAttribute('aria-label', localName);
         el.setAttribute('aria-pressed', String(shrine.id === selectedIdRef.current));

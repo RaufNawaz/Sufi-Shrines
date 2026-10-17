@@ -269,6 +269,7 @@ const UI_TEXT_EN = {
   resultCount: (n: number) => `${n} shrine${n === 1 ? '' : 's'}`,
   /* "12 of 169" — the count *and* the denominator, because a bare "12" hides
      how much of the archive a query just excluded. */
+  filterNoMatch: 'No sites match these filters',
   paletteResultCount: (shown: number, total: number) =>
     shown === total ? `${total} sites` : `${shown} of ${total} sites`,
   /* The archive-wide search counts more than sites — figures, orders, places
@@ -1158,6 +1159,9 @@ const UI_TEXT_EN = {
   selectLanguage: 'Select language',
   resetEraFilterAriaLabel: 'Reset era filter',
   resetButton: 'Reset',
+  eraUndatedHidden: (n: number) =>
+    `${n} undated ${n === 1 ? 'site is' : 'sites are'} left out while an era is set`,
+  regionNotRecorded: 'Province not recorded',
   allErasLabel: 'All eras',
   earliestCenturyLabel: 'Earliest century',
   latestCenturyLabel: 'Latest century',
@@ -1513,6 +1517,7 @@ export function tFn(lang: Lang, key: 'sourcesReadingCount', books: number, pages
 export function tFn(lang: Lang, key: 'sourcesShowAllBooks', n: number): string;
 export function tFn(lang: Lang, key: 'sourcesNoMatchKind', n: number): string;
 export function tFn(lang: Lang, key: 'lineageMatchesElsewhere', n: number): string;
+export function tFn(lang: Lang, key: 'eraUndatedHidden', n: number): string;
 export function tFn(lang: Lang, key: 'placeSpan', from: number, to: number): string;
 export function tFn(lang: Lang, key: 'placesUnplaced', n: number): string;
 export function tFn(lang: Lang, key: 'ariaMapShowing', name: string): string;
@@ -1596,6 +1601,7 @@ export function tFn(
     | 'sourcesShowAllBooks'
     | 'sourcesNoMatchKind'
     | 'lineageMatchesElsewhere'
+    | 'eraUndatedHidden'
     | 'placeSpan'
     | 'placesUnplaced'
     | 'ariaMapShowing'

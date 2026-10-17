@@ -289,6 +289,39 @@ export function MapSidebar({
   // Worker-based fuzzy search — falls back to "show all" until the index is ready
   const { ids: searchIds } = useSearch(shrines, search);
   const savedSlugs = useSavedShrines();
+
+  /* How many sites the filters (not the search) leave — the map's own count. */
+  const filterMatchCount = useMemo(
+    () =>
+      hasActiveFilter
+        ? filterShrines(
+            shrines,
+            {
+              categories: activeCategories,
+              verifiedOnly,
+              savedOnly,
+              region: activeRegion,
+              eraMin,
+              eraMax,
+            },
+            { savedSlugs, sharedSlugs, hasEraFilter },
+          ).length
+        : shrines.length,
+    [
+      hasActiveFilter,
+      shrines,
+      activeCategories,
+      verifiedOnly,
+      savedOnly,
+      activeRegion,
+      eraMin,
+      eraMax,
+      savedSlugs,
+      sharedSlugs,
+      hasEraFilter,
+    ],
+  );
+
   const savedShrineObjects = useMemo(
     () => shrines.filter((s) => savedSlugs.includes(s.slug)),
     [shrines, savedSlugs],
@@ -585,9 +618,18 @@ export function MapSidebar({
               </svg>
             )}
             <span className="list-toggle-label">{t('tableButton')}</span>
-            {hasActiveFilter && (
-              <span className="filter-active-dot" aria-label={t('ariaFiltersActive')} />
-            )}
+            {/* On a phone the collapsed sheet ends just below this button, so the
+                summary bar under it would be hidden: the count goes in the
+                button, in place of the unlabelled dot it had. Clear is one tap
+                away inside. */}
+            {hasActiveFilter &&
+              (isMobile ? (
+                <span className="list-toggle-filter-count">
+                  {fmtNum(tFn(lang, 'paletteResultCount', filterMatchCount, shrines.length))}
+                </span>
+              ) : (
+                <span className="filter-active-dot" aria-label={t('ariaFiltersActive')} />
+              ))}
             {/* English view only: a key name is Latin, and a keyboard
                 convenience is not worth an entry in the Urdu leak budget. */}
             {directoryMode === 'spotlight' && !isMobile && !isRtlLang(lang) && (
@@ -596,6 +638,23 @@ export function MapSidebar({
               </span>
             )}
           </button>
+          {/* What the map is showing, said where the reader looks. A filtered
+              view — a shared ?category=hindu&region=Sindh link, or an empty
+              one — showed the full welcome card and a 6px dot on Search; the
+              count and Clear lived only inside the palette (map council,
+              17 October 2026). In the collapsed sheet on a phone too. */}
+          {hasActiveFilter && directoryMode === 'spotlight' && !directoryOpen && !isMobile && (
+            <div className="filter-summary-bar filter-summary-bar--spotlight" role="status">
+              <span className="filter-summary-count">
+                {filterMatchCount === 0
+                  ? t('filterNoMatch')
+                  : fmtNum(tFn(lang, 'paletteResultCount', filterMatchCount, shrines.length))}
+              </span>
+              <button type="button" className="filter-summary-clear" onClick={clearAllFilters}>
+                {t('clearFilters')}
+              </button>
+            </div>
+          )}
         </div>
       )}
       {/* Status bar */}

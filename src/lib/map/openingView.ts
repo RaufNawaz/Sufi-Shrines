@@ -114,12 +114,16 @@ export function sheetPeekHeight(read: (name: string) => string): number {
  * map is the viewport minus the sheet, and fitting to the viewport is what put
  * a third of the archive underneath it.
  */
-export function fitPadding(sheetHeight: number): {
+export function fitPadding(
+  sheetHeight: number,
+  /** Width of the map controls down the right edge, which sites must clear. */
+  rightInset = 0,
+): {
   paddingTopLeft: [number, number];
   paddingBottomRight: [number, number];
 } {
   return {
     paddingTopLeft: [FIT_MARGIN, FIT_MARGIN],
-    paddingBottomRight: [FIT_MARGIN, sheetHeight + FIT_MARGIN],
+    paddingBottomRight: [FIT_MARGIN + rightInset, sheetHeight + FIT_MARGIN],
   };
 }

@@ -262,6 +262,7 @@ export const UI_TEXT_UR: UiStrings = {
   /* "X میں سے Y" — the total comes first in Urdu. Built in the English order
        it would read "169 out of 12", which is a false number, not clumsy
        phrasing (the same trap as almanacCoverageTotal). */
+  filterNoMatch: 'ان فلٹرز سے کوئی مقام نہیں ملتا',
   paletteResultCount: (shown: number, total: number) =>
     shown === total ? `${total} مقامات` : `${total} میں سے ${shown} مقامات`,
   /* Draft, not reviewed by a fluent speaker — same standing as the rest of this
@@ -1062,6 +1063,8 @@ export const UI_TEXT_UR: UiStrings = {
   selectLanguage: 'زبان منتخب کریں',
   resetEraFilterAriaLabel: 'دور فلٹر ہٹائیں',
   resetButton: 'ہٹائیں',
+  eraUndatedHidden: (n: number) => `دور منتخب ہونے تک ${n} بغیر تاریخ والے مقامات شامل نہیں`,
+  regionNotRecorded: 'صوبہ درج نہیں',
   allErasLabel: 'تمام ادوار',
   earliestCenturyLabel: 'شروع کی صدی',
   latestCenturyLabel: 'آخری صدی',

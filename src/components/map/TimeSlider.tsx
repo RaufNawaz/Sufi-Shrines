@@ -1,6 +1,6 @@
 import React, { useCallback, useId } from 'react';
 import { ERA_MIN, ERA_MAX, CENTURY_LABEL } from '../../lib/data/era';
-import { t } from '../../lib/i18n/uiStrings';
+import { t, tFn } from '../../lib/i18n/uiStrings';
 import type { Lang } from '../../types/shrine';
 
 interface Props {
@@ -8,9 +8,17 @@ interface Props {
   onChange: (range: [number, number]) => void;
   lang?: Lang;
   fmtNum?: (n: number | string) => string;
+  /** Sites with no readable date, which any era range leaves out. */
+  undatedCount?: number;
 }
 
-export function TimeSlider({ value, onChange, lang = 'en', fmtNum = (n) => String(n) }: Props) {
+export function TimeSlider({
+  value,
+  onChange,
+  lang = 'en',
+  fmtNum = (n) => String(n),
+  undatedCount = 0,
+}: Props) {
   const minId = useId();
   const maxId = useId();
   const [selMin, selMax] = value;
@@ -54,6 +62,13 @@ export function TimeSlider({ value, onChange, lang = 'en', fmtNum = (n) => Strin
       <div className="time-slider-range-label" aria-live="polite">
         {isDefault ? t(lang, 'allErasLabel') : `${century(selMin)} – ${century(selMax)}`}
       </div>
+      {/* Said, not silent: an era range is a claim about when a place was
+          built, so an undated site cannot meet it and is left out — even at
+          the widest range, which read as "every century" and showed 147 of 171
+          (map council, 17 October 2026). */}
+      {!isDefault && undatedCount > 0 && (
+        <p className="time-slider-note">{fmtNum(tFn(lang, 'eraUndatedHidden', undatedCount))}</p>
+      )}
 
       <div className="time-slider-inputs">
         <label htmlFor={minId} className="sr-only">

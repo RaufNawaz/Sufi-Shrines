@@ -144,8 +144,9 @@ function getFiltersFromURL(): FilterState {
     verifiedOnly: p.get('info') === 'verified',
     savedOnly: p.get('saved') === '1',
     region: p.get('region') || '',
-    eraMin: parseInt(p.get('eraMin') || '', 10) || ERA_MIN,
-    eraMax: parseInt(p.get('eraMax') || '', 10) || ERA_MAX,
+    /* Clamped: ?eraMin=1 was accepted below the slider's own floor. */
+    eraMin: Math.min(ERA_MAX, Math.max(ERA_MIN, parseInt(p.get('eraMin') || '', 10) || ERA_MIN)),
+    eraMax: Math.min(ERA_MAX, Math.max(ERA_MIN, parseInt(p.get('eraMax') || '', 10) || ERA_MAX)),
   };
 }
 

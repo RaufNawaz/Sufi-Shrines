@@ -1,4 +1,8 @@
 import React, { useCallback, useMemo } from 'react';
+import { parseEra } from '../../lib/data/era';
+
+/** The region `extractRegion` gives a Location naming only the country. */
+const COUNTRY_ONLY = 'Pakistan';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 
@@ -82,7 +86,10 @@ export function ShrineFilters({
 
   const regions = useMemo(() => {
     const regs = new Set(shrines.map((s) => s.region).filter(Boolean));
-    return Array.from(regs).sort();
+    /* The country-only value last: it is not a region beside the provinces. */
+    return Array.from(regs).sort(
+      (a, b) => Number(a === COUNTRY_ONLY) - Number(b === COUNTRY_ONLY) || a.localeCompare(b),
+    );
   }, [shrines]);
 
   // Additive toggle — selecting chips accumulates categories (kept in
@@ -96,6 +103,12 @@ export function ShrineFilters({
       );
     },
     [activeCategories, onCategoriesChange],
+  );
+
+  /* The same test the era filter applies (shrineFilters.ts). */
+  const undatedCount = useMemo(
+    () => shrines.filter((s) => !s.founded || !parseEra(s.founded)).length,
+    [shrines],
   );
 
   const setFiltersExpanded = (fn: (v: boolean) => boolean) =>
@@ -158,7 +171,11 @@ export function ShrineFilters({
                 onClick={() => onRegionChange(activeRegion === reg ? '' : reg)}
                 aria-pressed={activeRegion === reg}
               >
-                {localizeRecordedName(reg, lang)}
+                {/* "Pakistan" beside the provinces returned the sites whose
+                    Location names the country and no province — said as that,
+                    not as a region (map council, 17 October 2026). The value
+                    is untouched; this is its label. */}
+                {reg === COUNTRY_ONLY ? t('regionNotRecorded') : localizeRecordedName(reg, lang)}
               </button>
             ))}
           </div>
@@ -239,7 +256,13 @@ export function ShrineFilters({
           )}
 
           {/* Time-slider by founding era */}
-          <TimeSlider value={[eraMin, eraMax]} onChange={onEraChange} lang={lang} fmtNum={fmtNum} />
+          <TimeSlider
+            value={[eraMin, eraMax]}
+            onChange={onEraChange}
+            lang={lang}
+            fmtNum={fmtNum}
+            undatedCount={undatedCount}
+          />
 
           {/* Provenance (support_level) — show only field-verified sites.
               Describes how the info was gathered, never a site's importance. */}

@@ -344,7 +344,15 @@ function fittedOpeningView(shrines: Shrine[]) {
     tabbar && getComputedStyle(tabbar).display !== 'none'
       ? tabbar.getBoundingClientRect().height
       : 0;
-  return { bounds: L.latLngBounds(corners), options: fitPadding(sheet + tabbarHeight) };
+  /* And the controls down the right edge (layers, shared-ground lens, home,
+     location, zoom): a filtered view opened with Sindh temples under the lens
+     pill and the home button (map council, 17 October 2026). */
+  const rightControls = document.querySelector('.leaflet-bottom.leaflet-right');
+  const rightInset = rightControls ? rightControls.getBoundingClientRect().width : 0;
+  return {
+    bounds: L.latLngBounds(corners),
+    options: fitPadding(sheet + tabbarHeight, rightInset),
+  };
 }
 
 /**
