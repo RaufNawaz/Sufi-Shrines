@@ -16,6 +16,7 @@ import { tFn } from '../lib/i18n/uiStrings';
 
 import { isRtlLang } from '../lib/i18n/languages';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
+import { AtlasSwitch } from '../components/ui/AtlasSwitch';
 /**
  * The typology atlas (blue-sky item N7): the archive browsed by built form —
  * what actually stands at each site — using the survey's own `site_type`
@@ -162,6 +163,8 @@ export default function TypologyPage() {
             <li aria-current="page">{t('typologyTitle')}</li>
           </ol>
         </nav>
+
+        <AtlasSwitch current="form" />
 
         {/* The date of what the reader is looking at. Self-hides unless a live
 

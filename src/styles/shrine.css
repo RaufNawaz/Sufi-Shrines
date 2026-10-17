@@ -3123,3 +3123,52 @@
   font-family: var(--font-urdu);
   line-height: var(--leading-urdu-ui);
 }
+
+/* The archive's name in the page header, for a reader who arrived from outside
+   (EntityPageHeader). Visible on a phone too, unlike the back link's text. */
+.header-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: 44px;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header-wordmark-glyph {
+  flex: none;
+  color: var(--color-primary);
+}
+
+[dir='rtl'] .header-wordmark {
+  font-family: var(--font-urdu);
+}
+
+.header-wordmark:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.header-wordmark:active {
+  opacity: 1;
+  color: var(--color-text-secondary);
+}
+
+/* The name may be long in Urdu; it gives way before the header's controls. */
+.header-wordmark-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* On a phone, once the page's own title has taken over the header on scroll,
+   the wordmark keeps only its glyph: with its name it squeezed the title to
+   64px, "Da…" (reading council, 17 October 2026). */
+@media (max-width: 640px) {
+  .header-wordmark--compact .header-wordmark-name {
+    display: none;
+  }
+}

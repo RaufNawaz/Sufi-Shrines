@@ -2,6 +2,7 @@ import React from 'react';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
 import type { Distribution } from '../../lib/data/coverage';
+import { Link } from 'react-router-dom';
 
 /**
  * The archive's self-description, as reusable parts.
@@ -88,13 +89,23 @@ export function Fact({
   );
 }
 
-export function Stat({ value, label }: { value: number; label: string }) {
+export function Stat({ value, label, to }: { value: number; label: string; to?: string }) {
   const { fmtNum } = useLang();
-  return (
-    <div className="coverage-stat">
+  const body = (
+    <>
       <div className="coverage-stat-value">{fmtNum(value)}</div>
       <div className="coverage-stat-label">{label}</div>
-    </div>
+    </>
+  );
+  /* A count that leads to what it counts. /about's tiles said "171 sites" and
+     "538 cited sources" and went nowhere — the page explaining the archive sent
+     no one into it (first-visit council, 17 October 2026). */
+  return to ? (
+    <Link to={to} className="coverage-stat coverage-stat--link">
+      {body}
+    </Link>
+  ) : (
+    <div className="coverage-stat">{body}</div>
   );
 }
 

@@ -227,32 +227,57 @@ export function EntityPageHeader({ title }: { title?: string }) {
       className={`shrine-page-header no-print${hidden ? ' shrine-page-header--hidden' : ''}`}
       onFocus={() => setHidden(false)}
     >
-      <Link
-        to="/"
-        className="back-link"
-        aria-label={backLabel}
-        {...(canGoBack ? { 'data-own-navigation': '' } : {})}
-        onClick={(e) => {
-          if (!canGoBack || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-          e.preventDefault();
-          withViewTransition(() => navigate(-1));
-        }}
-      >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
+      {canGoBack ? (
+        <Link
+          to="/"
+          className="back-link"
+          aria-label={backLabel}
+          {...(canGoBack ? { 'data-own-navigation': '' } : {})}
+          onClick={(e) => {
+            if (!canGoBack || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+            e.preventDefault();
+            withViewTransition(() => navigate(-1));
+          }}
         >
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-        {backLabel}
-      </Link>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          {backLabel}
+        </Link>
+      ) : (
+        /* Arrived from outside — a search result, a shared link — with nothing
+           in the app behind: the header names the archive, as the map's sheet
+           does, and takes the reader to it. On a deep link the site's name was
+           otherwise only in the footer, screens down (first-visit council,
+           17 October 2026). */
+        <Link
+          to="/"
+          className={`header-wordmark${collapsed && title ? ' header-wordmark--compact' : ''}`}
+          aria-label={t('backToMap')}
+        >
+          <svg
+            className="header-wordmark-glyph"
+            width="20"
+            height="20"
+            viewBox="0 0 64 64"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z" />
+          </svg>
+          <span className="header-wordmark-name">{t('title')}</span>
+        </Link>
+      )}
       {collapsed && title ? (
         /* `aria-hidden`, and not for tidiness: this is the `<h1>` said twice.
            A screen reader has already announced the page's heading, and a

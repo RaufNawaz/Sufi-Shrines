@@ -139,11 +139,15 @@ const BUDGETS_KB = {
         is eager by design; the Urdu one is its own chunk), a sixth tab icon, the
         welcome card's sixth destination. The shell went 279 → 284.
 
+     Later the same night the council rounds added ~1 KB more of interface
+     strings (the map key, trust explanation, atlas switch, wordmark), taking
+     four routes 1 KB over; those four were re-measured and set to +3.
+
      The two new pages: the index does not load the country outline (DotMap.tsx
      is its own module for exactly that), the book page does. Each budget is the
      17 October measurement + 3. */
-  'src/pages/SourcesPage.tsx': 367, // measured 364 on 17 Oct 2026
-  'src/pages/SourcePage.tsx': 375, // measured 372 on 17 Oct 2026
+  'src/pages/SourcesPage.tsx': 371, // measured 368 on 17 Oct 2026, after the council rounds
+  'src/pages/SourcePage.tsx': 379, // measured 376 on 17 Oct 2026, after the council rounds
   /* 265 → 272 on 30 August 2026. Measured 265 against a 265 budget, which this
      file's own header calls a landmine rather than a pass — and index.html is
      the worst place to leave one, because every route's shell is in it, so it
@@ -188,7 +192,7 @@ const BUDGETS_KB = {
      static import carried `data/provenance.json` (127 KB) to every public
      reader of every entry; it is a lazy import now and the route measured 408.
      If this jumps by ~127 KB, that import went static again. */
-  'src/pages/ShrinePage.tsx': 429, // measured 426 on 17 Oct 2026
+  'src/pages/ShrinePage.tsx': 433, // measured 430 on 17 Oct 2026, after the council rounds
   /* Raised 675 → 680 on 30 August 2026 and **put back the same morning**, which
      is the useful half of the story.
 
@@ -209,7 +213,7 @@ const BUDGETS_KB = {
      `/saint/:slug` downloads the whole graph to render one figure. */
   'src/pages/SaintPage.tsx': 690, // measured 687 on 17 Oct 2026
   'src/pages/OrderPage.tsx': 678, // measured 675 on 17 Oct 2026
-  'src/pages/GraphPage.tsx': 619, // measured 616 on 17 Oct 2026
+  'src/pages/GraphPage.tsx': 623, // measured 620 on 17 Oct 2026, after the council rounds
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
      UI strings, and the English string table is eager on every route, so the
      whole table moves together. Almanac was simply the one with the least

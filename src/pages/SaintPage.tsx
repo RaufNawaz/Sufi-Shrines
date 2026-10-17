@@ -457,6 +457,11 @@ export default function SaintPage() {
             <li>
               <Link to="/">{t('mapBreadcrumb')}</Link>
             </li>
+            {/* The owning tab, so the trail agrees with the lit tab (first-visit
+                council, 17 October 2026). */}
+            <li>
+              <Link to="/graph">{t('tabExplore')}</Link>
+            </li>
             <li className="shrine-breadcrumb-current" aria-current="page">
               {/* A figure the Urdu dictionary does not carry comes back as the
                   name the source recorded (RULE 2 — never transliterate

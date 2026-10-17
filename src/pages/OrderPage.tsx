@@ -332,6 +332,11 @@ export default function OrderPage() {
             <li>
               <Link to="/">{t('mapBreadcrumb')}</Link>
             </li>
+            {/* The owning tab, so the trail agrees with the lit tab (first-visit
+                council, 17 October 2026). */}
+            <li>
+              <Link to="/graph">{t('tabExplore')}</Link>
+            </li>
             <li className="shrine-breadcrumb-current" aria-current="page">
               {orderName}
             </li>

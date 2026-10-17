@@ -287,10 +287,18 @@ export default function AboutPage() {
               <h2 className="about-section-heading">{t('aboutStateHeading')}</h2>
               {teamView && <p className="about-note">{t('aboutStateNote')}</p>}
               <div className="coverage-stat-grid">
-                <Stat value={coverage.total} label={t('aboutStateSites')} />
-                <Stat value={coverage.bibliography.items} label={t('aboutStateSources')} />
+                <Stat value={coverage.total} label={t('aboutStateSites')} to="/" />
+                <Stat
+                  value={coverage.bibliography.items}
+                  label={t('aboutStateSources')}
+                  to="/sources"
+                />
                 <Stat value={coverage.photos.items} label={t('aboutStatePhotos')} />
-                <Stat value={traditionsCovered(coverage)} label={t('aboutStateTraditions')} />
+                <Stat
+                  value={traditionsCovered(coverage)}
+                  label={t('aboutStateTraditions')}
+                  to="/graph"
+                />
               </div>
               {/* What that total is a share of. The denominator is one province's
                   register and an external figure, not something this archive

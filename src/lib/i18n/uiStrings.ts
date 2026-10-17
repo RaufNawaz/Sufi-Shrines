@@ -21,8 +21,9 @@ const UI_TEXT_EN = {
     'An interactive map of shrines, temples, gurdwaras and darbars across Pakistan. Explore histories, architecture, rituals, and visitor information in English and Urdu.',
   loading: 'Loading data...',
   loadingShrine: 'Loading shrine details...',
-  noSelection: 'No shrine selected yet. Click a marker to view details.',
-  exploreTitle: 'Explore the Shrines',
+  noSelection: 'Select a marker on the map to read about a site.',
+  exploreTitle: 'Explore the archive',
+  welcomeAboutLink: 'About this archive',
   exploreHint: 'Use Search above to find a shrine, or to browse them all.',
   tableButton: 'Search',
   settings: 'Settings',
@@ -370,6 +371,9 @@ const UI_TEXT_EN = {
   orderTimelineUnplacedLabel: 'Not on the axis',
   orderTimelineContradictoryHelp:
     'The two years recorded for this figure cannot both be true \u2014 the birth comes after the death. The archive shows neither on the axis rather than choosing one or quietly reversing them.',
+  graphTraditionsHeading: 'The other traditions',
+  graphTraditionsNote:
+    'The silsilas above are the Sufi half of the archive. These are the other traditions its sites belong to, each with its own page.',
   orderCompareHeading: 'The silsilas at a glance',
   orderCompareNote:
     'Every figure, century span and place below is counted from the graph on load, so this table cannot go stale the way a sentence can. Each row is what the archive holds, not what the order is.',
@@ -1065,6 +1069,9 @@ const UI_TEXT_EN = {
   sourceLangEnglish: 'English',
   sourceLangSindhi: 'Sindhi',
   sourceLangPunjabi: 'Punjabi',
+  atlasSwitchLabel: 'View the atlas',
+  atlasByForm: 'By built form',
+  atlasByCentury: 'By century',
   typologyTitle: 'Atlas of Built Forms',
   typologyIntro:
     'Every place in the archive, grouped by what actually stands there — khanqah, gurdwara, cave shrine. The labels are the survey’s own vocabulary; where the survey described a form in prose, the prose is kept as it was written.',

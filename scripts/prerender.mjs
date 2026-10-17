@@ -1143,7 +1143,7 @@ const STATIC_PAGES = [
   },
   {
     path: '/about',
-    titleEn: 'About This Archive',
+    titleEn: 'About this archive',
     titleUr: 'اِس آرکائیو کے بارے میں',
     descEn:
       'A public, bilingual record of sacred sites across Pakistan — its licence (code MIT, data ODbL-1.0), how to cite it, and how to report a correction.',
@@ -1241,7 +1241,7 @@ console.log(`[prerender] ✓ ${staticCount} static pages (+ /ur mirrors)`);
 const APP_ROUTES = [
   {
     path: 'almanac',
-    titleEn: `The Urs Almanac — ${SITE_TITLE}`,
+    titleEn: `Urs Calendar — ${SITE_TITLE}`,
     titleUr: `عرس تقویم — ${SITE_TITLE_UR}`,
     sitemap: { changefreq: 'weekly', priority: '0.8' },
   },

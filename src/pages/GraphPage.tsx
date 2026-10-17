@@ -130,6 +130,31 @@ export default function GraphPage() {
      archive documents are in it. */
   const [centuryFilter, setCenturyFilter] = useState<number | 'undated' | null>(null);
   const [lineageScope, setLineageScope] = useState<'order' | 'all'>('order');
+  /* The other traditions' pages, loaded lazily (the tradition layer is kept
+     out of eager bundles on purpose — see ShrineInfobox). The Figures tab owns
+     /tradition/ and linked to none of the eight: they were reachable only from
+     the infobox row of about eighteen shrines (first-visit council, 17 October
+     2026). */
+  const [otherTraditions, setOtherTraditions] = useState<
+    { slug: string; name: string; nameUr: string; members: number }[]
+  >([]);
+  React.useEffect(() => {
+    let live = true;
+    void import('../lib/data/traditions').then((m) => {
+      if (!live) return;
+      setOtherTraditions(
+        m.TRADITIONS.map((tr) => ({
+          slug: tr.slug,
+          name: tr.name,
+          nameUr: tr.nameUr,
+          members: m.getTraditionMembers(tr.slug).length,
+        })),
+      );
+    });
+    return () => {
+      live = false;
+    };
+  }, []);
   /* The lineage accordion: which teachers are open, whether the first (open on
      arrival) has been closed, the type-to-narrow query, and whether the list
      shows past its first eight teachers. */
@@ -577,6 +602,33 @@ export default function GraphPage() {
             })}
           </div>
         </section>
+
+        {otherTraditions.length > 0 && (
+          <section className="graph-page-section" aria-labelledby="graph-traditions-heading">
+            <h2 id="graph-traditions-heading" className="section-heading">
+              {t('graphTraditionsHeading')}
+            </h2>
+            <p className="graph-figures-note">{t('graphTraditionsNote')}</p>
+            <ul className="inset-list">
+              {otherTraditions.map((tr) => (
+                <li key={tr.slug} className="inset-row inset-row--link">
+                  <Link to={`/tradition/${tr.slug}`}>
+                    <span className="inset-row-label">
+                      {/* The layer's own Urdu name, never a dictionary guess. */}
+                      {isRtl ? tr.nameUr : tr.name}
+                    </span>
+                    {tr.members > 0 && (
+                      <span className="inset-row-note">
+                        {fmtNum(tFn(lang, 'traditionSiteCount', tr.members))}
+                      </span>
+                    )}
+                    <span className="inset-row-chevron" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {centerNode && activeOrder && (
           <section className="graph-page-section graph-order-focus">
