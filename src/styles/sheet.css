@@ -87,8 +87,10 @@
   cursor: pointer;
 }
 
-.sheet-done:hover {
-  color: var(--color-primary-dark);
+@media (hover: hover) {
+  .sheet-done:hover {
+    color: var(--color-primary-dark);
+  }
 }
 
 .sheet-done:focus-visible {

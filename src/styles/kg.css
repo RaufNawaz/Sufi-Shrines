@@ -2960,9 +2960,11 @@
   font-weight: 500;
   text-decoration: none;
 }
-.network-link > a:hover {
-  box-shadow: var(--shadow-md);
-  color: var(--color-primary);
+@media (hover: hover) {
+  .network-link > a:hover {
+    box-shadow: var(--shadow-md);
+    color: var(--color-primary);
+  }
 }
 .network-link-dot {
   width: 8px;
@@ -3262,8 +3264,10 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.graph-lineage-teacher:hover {
-  background: var(--color-primary-bg);
+@media (hover: hover) {
+  .graph-lineage-teacher:hover {
+    background: var(--color-primary-bg);
+  }
 }
 .graph-lineage-teacher:active {
   background: var(--press-tint);
@@ -3450,8 +3454,10 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.graph-launch-row:hover {
-  background: var(--color-primary-bg);
+@media (hover: hover) {
+  .graph-launch-row:hover {
+    background: var(--color-primary-bg);
+  }
 }
 .graph-launch-row:active {
   background: var(--press-tint);

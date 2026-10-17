@@ -240,8 +240,10 @@
   opacity: 1;
 }
 
-.sidebar-sheet-handle:hover .sheet-handle-pill {
-  background: var(--color-text-muted);
+@media (hover: hover) {
+  .sidebar-sheet-handle:hover .sheet-handle-pill {
+    background: var(--color-text-muted);
+  }
 }
 
 /* Pressed: the grabber darkens, the strip does not move.
@@ -463,9 +465,11 @@
     box-shadow var(--duration-fast);
 }
 
-.sidebar-toggle:hover {
-  background: var(--color-primary-bg);
-  box-shadow: var(--shadow-lg);
+@media (hover: hover) {
+  .sidebar-toggle:hover {
+    background: var(--color-primary-bg);
+    box-shadow: var(--shadow-lg);
+  }
 }
 
 /* sidebar-toggle is conditionally rendered in JSX — no @media override needed */
@@ -900,9 +904,11 @@
     background var(--duration-fast);
 }
 
-.search-clear:hover {
-  color: var(--color-text);
-  background: var(--color-bg-alt);
+@media (hover: hover) {
+  .search-clear:hover {
+    color: var(--color-text);
+    background: var(--color-bg-alt);
+  }
 }
 
 /* Filter section: wraps label + chips row for region/saint filters */
@@ -1152,8 +1158,10 @@
   border-inline-start: 3px solid transparent;
 }
 
-.shrine-list-item:hover {
-  background: var(--color-primary-bg);
+@media (hover: hover) {
+  .shrine-list-item:hover {
+    background: var(--color-primary-bg);
+  }
 }
 
 .shrine-list-item.selected {
@@ -1321,9 +1329,11 @@
     color var(--duration-fast);
 }
 
-.retry-btn:hover {
-  background: var(--color-error);
-  color: var(--color-text-inverse);
+@media (hover: hover) {
+  .retry-btn:hover {
+    background: var(--color-error);
+    color: var(--color-text-inverse);
+  }
 }
 
 /* Preview card in sidebar — hero image styles live on .preview-card-hero below */
@@ -1466,9 +1476,11 @@
   transition: background-color var(--duration-fast);
 }
 
-.preview-view-link:hover {
-  background: var(--color-primary-dark);
-  color: var(--color-text-inverse);
+@media (hover: hover) {
+  .preview-view-link:hover {
+    background: var(--color-primary-dark);
+    color: var(--color-text-inverse);
+  }
 }
 
 .preview-view-link:active {
@@ -1504,9 +1516,11 @@
   flex-shrink: 0;
 }
 
-.preview-copy-link:hover {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .preview-copy-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
 }
 
 .preview-copy-link.copied {
@@ -1556,10 +1570,12 @@
   font-family: inherit;
 }
 
-.list-toggle-btn:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: var(--color-primary-pale);
+@media (hover: hover) {
+  .list-toggle-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-primary-pale);
+  }
 }
 
 .list-toggle-btn.active {
@@ -1581,10 +1597,12 @@
   font-size: var(--text-base);
 }
 
-.list-toggle-btn:hover {
-  border-color: var(--color-primary);
-  background: var(--color-bg-alt);
-  color: var(--color-text-secondary);
+@media (hover: hover) {
+  .list-toggle-btn:hover {
+    border-color: var(--color-primary);
+    background: var(--color-bg-alt);
+    color: var(--color-text-secondary);
+  }
 }
 
 .list-toggle-label {
@@ -1676,10 +1694,12 @@
   font-family: inherit;
 }
 
-.shrine-list-empty-clear:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: var(--color-primary-pale);
+@media (hover: hover) {
+  .shrine-list-empty-clear:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-primary-pale);
+  }
 }
 
 /* Preview card — polished hero image */
@@ -1800,10 +1820,12 @@
   }
 }
 
-.leaflet-bar a:hover {
-  /* !important needed to out-rank the base rule's !important above */
-  background: var(--color-primary-bg) !important;
-  color: var(--color-primary) !important;
+@media (hover: hover) {
+  .leaflet-bar a:hover {
+    /* !important needed to out-rank the base rule's !important above */
+    background: var(--color-primary-bg) !important;
+    color: var(--color-primary) !important;
+  }
 }
 
 .leaflet-bar a.leaflet-disabled {
@@ -1857,8 +1879,10 @@
   mask-size: contain;
 }
 
-.leaflet-control-layers-toggle:hover::after {
-  background-color: var(--color-text);
+@media (hover: hover) {
+  .leaflet-control-layers-toggle:hover::after {
+    background-color: var(--color-text);
+  }
 }
 
 .leaflet-control-layers-expanded {
@@ -2175,8 +2199,10 @@
   text-decoration: underline;
 }
 
-.time-slider-reset:hover {
-  color: var(--color-primary-dark);
+@media (hover: hover) {
+  .time-slider-reset:hover {
+    color: var(--color-primary-dark);
+  }
 }
 
 .time-slider-range-label {
@@ -2341,8 +2367,10 @@
   cursor: pointer;
 }
 
-.lens-toggle:hover {
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .lens-toggle:hover {
+    border-color: var(--color-primary);
+  }
 }
 
 .lens-toggle:focus-visible {

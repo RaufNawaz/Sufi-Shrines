@@ -192,10 +192,12 @@
   cursor: pointer;
 }
 
-.palette-clear:hover,
-.palette-close:hover {
-  background: var(--color-bg-alt);
-  color: var(--color-text);
+@media (hover: hover) {
+  .palette-clear:hover,
+  .palette-close:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+  }
 }
 
 /* The key on a keyboard; the word on a touch screen (see the end of the
@@ -228,10 +230,12 @@
     color var(--duration-fast);
 }
 
-.palette-filters-btn:hover {
-  border-color: var(--color-primary);
-  background: var(--color-bg-alt);
-  color: var(--color-text);
+@media (hover: hover) {
+  .palette-filters-btn:hover {
+    border-color: var(--color-primary);
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+  }
 }
 
 .palette-filters-btn.active {
@@ -341,8 +345,10 @@
   background: var(--color-border);
 }
 
-.palette-cats .palette-cat:hover {
-  color: var(--color-text);
+@media (hover: hover) {
+  .palette-cats .palette-cat:hover {
+    color: var(--color-text);
+  }
 }
 
 .palette-cats .palette-cat.active {
@@ -472,9 +478,11 @@
   cursor: pointer;
 }
 
-.palette-filters-clear:hover {
-  border-color: var(--color-primary);
-  color: var(--color-text);
+@media (hover: hover) {
+  .palette-filters-clear:hover {
+    border-color: var(--color-primary);
+    color: var(--color-text);
+  }
 }
 
 /* ── Results ──────────────────────────────────────────────────────────────── */
@@ -560,8 +568,10 @@
   animation: none;
 }
 
-.palette-result:hover:not(.active) {
-  background: var(--color-bg-alt);
+@media (hover: hover) {
+  .palette-result:hover:not(.active) {
+    background: var(--color-bg-alt);
+  }
 }
 
 /* The system selection: solid cobalt, inverse text. Inverse on the primary
@@ -1178,8 +1188,10 @@
   border-radius: var(--radius-md);
 }
 
-.archive-search-clear:hover {
-  background: var(--color-border-light);
+@media (hover: hover) {
+  .archive-search-clear:hover {
+    background: var(--color-border-light);
+  }
 }
 
 [dir='rtl'] .archive-search-clear {

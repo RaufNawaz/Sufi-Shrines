@@ -1470,9 +1470,11 @@
   border-inline-start: 1px solid var(--color-border);
 }
 
-.msettings-seg-option:hover:not(.active) {
-  background: var(--color-primary-pale);
-  color: var(--color-primary);
+@media (hover: hover) {
+  .msettings-seg-option:hover:not(.active) {
+    background: var(--color-primary-pale);
+    color: var(--color-primary);
+  }
 }
 
 /* `--color-text-inverse` on `--color-primary`, never a hardcoded foreground:
@@ -1678,9 +1680,11 @@
   color: var(--color-text-secondary);
 }
 
-[data-look='classic'] .action-btn:hover {
-  background: var(--color-bg-alt);
-  color: var(--color-text);
+@media (hover: hover) {
+  [data-look='classic'] .action-btn:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+  }
 }
 
 [data-look='classic'] .action-btn--active {

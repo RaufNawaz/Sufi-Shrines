@@ -308,8 +308,10 @@
 
 /* A row is a thing to open: it lights on hover and carries a chevron at its
    trailing edge, the way a list row does in every Apple surface. */
-.almanac-entry:hover {
-  background: var(--color-bg-alt);
+@media (hover: hover) {
+  .almanac-entry:hover {
+    background: var(--color-bg-alt);
+  }
 }
 
 .almanac-entry::after {
@@ -769,9 +771,11 @@
     box-shadow var(--duration-fast) var(--easing);
 }
 
-.almanac-view-toggle .filter-chip:hover:not(.active) {
-  color: var(--color-text);
-  background: transparent;
+@media (hover: hover) {
+  .almanac-view-toggle .filter-chip:hover:not(.active) {
+    color: var(--color-text);
+    background: transparent;
+  }
 }
 
 .almanac-view-toggle .filter-chip.active {
@@ -1003,8 +1007,10 @@
   transition: background-color var(--duration-fast) var(--easing);
 }
 
-.almanac-cal-today:hover:not([disabled]) {
-  background: var(--color-primary-pale);
+@media (hover: hover) {
+  .almanac-cal-today:hover:not([disabled]) {
+    background: var(--color-primary-pale);
+  }
 }
 
 [dir='rtl'] .almanac-cal-today {
@@ -1366,8 +1372,10 @@
   cursor: pointer;
 }
 
-.almanac-undated-summary:hover {
-  background: var(--color-bg-alt);
+@media (hover: hover) {
+  .almanac-undated-summary:hover {
+    background: var(--color-bg-alt);
+  }
 }
 
 .almanac-undated-summary::-webkit-details-marker {

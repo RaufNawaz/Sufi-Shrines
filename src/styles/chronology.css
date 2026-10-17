@@ -128,8 +128,10 @@
   cursor: pointer;
 }
 
-.chronology-band-name:hover {
-  color: var(--color-primary);
+@media (hover: hover) {
+  .chronology-band-name:hover {
+    color: var(--color-primary);
+  }
 }
 
 .chronology-band-name:focus-visible {
@@ -401,8 +403,10 @@
     color var(--duration-fast) var(--easing);
 }
 
-.chronology-filter-pill:hover {
-  color: var(--color-text);
+@media (hover: hover) {
+  .chronology-filter-pill:hover {
+    color: var(--color-text);
+  }
 }
 
 .chronology-filter-pill[aria-pressed='true'] {

@@ -743,8 +743,10 @@ body.lang-rtl {
   background: var(--color-border);
   border-radius: var(--radius-full);
 }
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+@media (hover: hover) {
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
 }
 
 /* Selection */
@@ -791,8 +793,10 @@ body.lang-rtl {
   font-family: inherit;
 }
 
-.sw-update-reload:hover {
-  background: var(--color-primary-dark);
+@media (hover: hover) {
+  .sw-update-reload:hover {
+    background: var(--color-primary-dark);
+  }
 }
 
 .sw-update-dismiss {
@@ -809,9 +813,11 @@ body.lang-rtl {
     background var(--duration-fast);
 }
 
-.sw-update-dismiss:hover {
-  color: var(--color-text);
-  background: var(--color-bg-alt);
+@media (hover: hover) {
+  .sw-update-dismiss:hover {
+    color: var(--color-text);
+    background: var(--color-bg-alt);
+  }
 }
 
 /* Print */

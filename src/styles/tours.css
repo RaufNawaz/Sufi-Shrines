@@ -156,9 +156,11 @@
     color var(--duration-fast);
 }
 
-.tour-filter-toggle:hover {
-  border-color: var(--color-primary);
-  color: var(--color-text);
+@media (hover: hover) {
+  .tour-filter-toggle:hover {
+    border-color: var(--color-primary);
+    color: var(--color-text);
+  }
 }
 
 .tour-filter-toggle.active {
@@ -261,9 +263,11 @@
     border-color var(--duration-fast);
 }
 
-.tour-card:hover {
-  background: var(--color-primary-pale);
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .tour-card:hover {
+    background: var(--color-primary-pale);
+    border-color: var(--color-primary);
+  }
 }
 
 .tour-card-title {
@@ -325,9 +329,11 @@
     background var(--duration-fast);
 }
 
-.tour-exit-btn:hover {
-  background: var(--color-bg-alt);
-  color: var(--color-text);
+@media (hover: hover) {
+  .tour-exit-btn:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+  }
 }
 
 .tour-stop-name {
@@ -401,8 +407,10 @@
   cursor: not-allowed;
 }
 
-.tour-nav-btn:not(:disabled):hover {
-  background: var(--color-bg-alt);
+@media (hover: hover) {
+  .tour-nav-btn:not(:disabled):hover {
+    background: var(--color-bg-alt);
+  }
 }
 
 .tour-nav-btn--next {
@@ -411,10 +419,12 @@
   color: var(--color-text-inverse);
 }
 
-.tour-nav-btn--next:not(:disabled):hover {
-  background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  color: var(--color-text-inverse);
+@media (hover: hover) {
+  .tour-nav-btn--next:not(:disabled):hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-text-inverse);
+  }
 }
 
 /* Previous/Next chevrons are mirror images of each other, so flipping both
@@ -470,9 +480,11 @@
     background var(--duration-fast);
 }
 
-.tour-back-btn:hover {
-  background: var(--color-bg-alt);
-  color: var(--color-text);
+@media (hover: hover) {
+  .tour-back-btn:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+  }
 }
 
 [dir='rtl'] .tour-back-btn svg {
@@ -556,9 +568,11 @@
     background var(--duration-fast);
 }
 
-.tour-share-btn:hover {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .tour-share-btn:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
 }
 
 .tour-share-btn.copied {
@@ -626,9 +640,11 @@
   border-radius: var(--radius-sm);
 }
 
-.tour-resume-dismiss:hover {
-  background: rgba(0, 0, 0, 0.06);
-  color: var(--color-text);
+@media (hover: hover) {
+  .tour-resume-dismiss:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--color-text);
+  }
 }
 
 /* Progress badges on TourList cards */
@@ -674,9 +690,11 @@
     border-color var(--duration-fast);
 }
 
-.tour-audio-btn:hover {
-  background: var(--color-primary-pale);
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .tour-audio-btn:hover {
+    background: var(--color-primary-pale);
+    border-color: var(--color-primary);
+  }
 }
 
 /* Autoplay / slideshow controls */
@@ -706,9 +724,11 @@
   cursor: pointer;
 }
 
-.tour-autoplay-pause:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+@media (hover: hover) {
+  .tour-autoplay-pause:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
 }
 
 /* Near-me */
@@ -725,9 +745,11 @@
   cursor: pointer;
 }
 
-.tour-near-me-btn:hover {
-  border-color: var(--color-primary);
-  background: var(--color-primary-pale);
+@media (hover: hover) {
+  .tour-near-me-btn:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-pale);
+  }
 }
 
 .tour-near-me-btn:disabled {
@@ -788,9 +810,11 @@
     border-color var(--duration-fast);
 }
 
-.tour-related-card:hover {
-  background: var(--color-primary-pale);
-  border-color: var(--color-primary);
+@media (hover: hover) {
+  .tour-related-card:hover {
+    background: var(--color-primary-pale);
+    border-color: var(--color-primary);
+  }
 }
 
 /* Printable itinerary — hidden on screen, shown via the print stylesheet */
@@ -823,9 +847,11 @@
   color: var(--color-text-secondary);
 }
 
-.tour-share-btn:hover {
-  border-color: transparent;
-  color: var(--color-primary);
+@media (hover: hover) {
+  .tour-share-btn:hover {
+    border-color: transparent;
+    color: var(--color-primary);
+  }
 }
 
 .tour-exit-btn {
@@ -882,9 +908,11 @@
   background: var(--color-primary-pale);
 }
 
-.tour-audio-btn:hover {
-  border-color: transparent;
-  background: var(--color-bg-alt);
+@media (hover: hover) {
+  .tour-audio-btn:hover {
+    border-color: transparent;
+    background: var(--color-bg-alt);
+  }
 }
 
 .tour-nav-btn {
@@ -894,8 +922,10 @@
   background: var(--color-bg-alt);
 }
 
-.tour-nav-btn:not(:disabled):hover {
-  background: var(--color-border-light);
+@media (hover: hover) {
+  .tour-nav-btn:not(:disabled):hover {
+    background: var(--color-border-light);
+  }
 }
 
 /* Restated after the rule above, which would otherwise take Next's fill. */
@@ -903,8 +933,10 @@
   background: var(--color-primary);
 }
 
-.tour-nav-btn--next:not(:disabled):hover {
-  background: var(--color-primary-dark);
+@media (hover: hover) {
+  .tour-nav-btn--next:not(:disabled):hover {
+    background: var(--color-primary-dark);
+  }
 }
 
 [dir='rtl'] .tour-step-badge {

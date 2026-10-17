@@ -219,8 +219,10 @@
   }
 }
 
-.settings-segmented .settings-option:hover {
-  color: var(--color-text);
+@media (hover: hover) {
+  .settings-segmented .settings-option:hover {
+    color: var(--color-text);
+  }
 }
 
 .settings-segmented .settings-option:has(input:checked) {

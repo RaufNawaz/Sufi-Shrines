@@ -76,8 +76,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.inset-row--link > a:hover {
-  background: var(--color-primary-bg);
+@media (hover: hover) {
+  .inset-row--link > a:hover {
+    background: var(--color-primary-bg);
+  }
 }
 
 /* Pressed, and a tint rather than opacity: axe folds an ancestor's opacity into

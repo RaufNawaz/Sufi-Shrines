@@ -782,8 +782,10 @@ details[open] > .sources-row-summary::after {
   transition: r var(--duration-fast) var(--easing);
 }
 
-.source-map-dot:hover {
-  r: 3.2;
+@media (hover: hover) {
+  .source-map-dot:hover {
+    r: 3.2;
+  }
 }
 
 .source-map-dot--muslim,
