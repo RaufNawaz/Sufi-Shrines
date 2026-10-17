@@ -501,7 +501,8 @@
                 `<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="3" fill="${p[1] > 0 ? '#e4572e' : '#6baed6'}" fill-opacity=".6"><title>${p[2]}: ${fmt(p[0])}, ${fmt(p[1])}</title></circle>`,
             )
             .join('') +
-          `<text x="${m.l}" y="${H - 8}">${fmt(x0)}</text><text x="${W - m.r}" y="${H - 8}" text-anchor="end">${fmt(x1)}</text><text x="${W / 2}" y="${H - 8}" text-anchor="middle">${i.label}</text>` +
+          // Axis values on one line, the axis title on the next: on one line they overprinted.
+          `<text x="${m.l}" y="${H - 15}">${fmt(x0)}</text><text x="${W - m.r}" y="${H - 15}" text-anchor="end">${fmt(x1)}</text><text x="${W / 2}" y="${H - 2}" text-anchor="middle">${i.label}</text>` +
           `<text x="4" y="${m.t + 8}">${fmt(y1)}</text><text x="4" y="${H - m.b}">0</text>` +
           (unit === 'hex'
             ? `<text x="${W - m.r}" y="${m.t + 8}" text-anchor="end">every hexagon with a site; 1 in 15 without</text>`
