@@ -981,6 +981,96 @@ const traditionSlugs = [];
   console.log(`[prerender] ✓ ${traditionSlugs.length} tradition pages (+ /ur mirrors)`);
 }
 
+// ── source pages ──────────────────────────────────────────────────────────
+/*
+ * One file per book on the shelf, so a link to /source/<slug> that someone
+ * shares resolves on GitHub Pages (which serves files, not routes). The set is
+ * the union the app builds in src/lib/data/sourceLibrary.ts: every declared
+ * work in source-works.json, plus every book read in full that is not already
+ * one of them. A book page needs no sheet data to exist, so the list is built
+ * from the two shipped files alone.
+ */
+const sourceSlugs = [];
+{
+  const works = JSON.parse(
+    readFileSync(join(ROOT, 'src', 'data', 'source-works.json'), 'utf8'),
+  ).works;
+  const books = JSON.parse(
+    readFileSync(join(ROOT, 'src', 'data', 'reading-library.json'), 'utf8'),
+  ).books;
+  const shelf = new Map();
+  for (const w of works) shelf.set(w.slug, { slug: w.slug, title: w.title, author: w.author });
+  for (const b of books) {
+    const slug = b.workSlug ?? b.slug;
+    const existing = shelf.get(slug);
+    shelf.set(slug, {
+      slug,
+      title: existing?.title ?? b.title,
+      author: existing?.author ?? b.author,
+    });
+  }
+
+  for (const work of shelf.values()) {
+    const canonicalUrl = SITE_URL ? `${SITE_URL}/source/${work.slug}` : '';
+    const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/source/${work.slug}` : '';
+    const byline = work.author ? ` by ${work.author}` : '';
+    const desc = escHtml(
+      `${work.title}${byline}: the entries in ${SITE_TITLE} that cite it, where those sites are, and where to look for a copy.`,
+    );
+    const descUr = escHtml(
+      `${work.title}: اس ماخذ کا حوالہ دینے والے اندراج، ان کے مقامات، اور نسخہ تلاش کرنے کے روابط۔`,
+    );
+
+    const page = (description, lang, canonical) => {
+      const title = work.title.split(':')[0];
+      let out = baseHtml
+        .replace(
+          /<title>[^<]*<\/title>/,
+          `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : SITE_TITLE}</title>`,
+        )
+        .replace(
+          /<meta\s+name="description"[^>]*>/i,
+          `<meta name="description" content="${description}" />`,
+        )
+        .replace(
+          /<meta\s+property="og:title"[^>]*>/i,
+          `<meta property="og:title" content="${escHtml(title)}" />`,
+        )
+        .replace(
+          /<meta\s+property="og:description"[^>]*>/i,
+          `<meta property="og:description" content="${description}" />`,
+        );
+      if (lang === 'ur') out = out.replace(/<html[^>]*>/, '<html lang="ur" dir="rtl">');
+      out = replaceHreflang(out, canonicalUrl, urCanonicalUrl);
+      const extras = [
+        canonical ? `  <link rel="canonical" href="${escHtml(canonical)}" />` : '',
+        canonical ? `  <meta property="og:url" content="${escHtml(canonical)}" />` : '',
+        /* Book, with its title and author as the archive records them — the
+           citation's own words, no catalogue data added. */
+        `  <script type="application/ld+json">${JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Book',
+          '@id': canonical || `${KG_BASE}source/${work.slug}`,
+          name: work.title,
+          ...(work.author ? { author: work.author } : {}),
+        })}</script>`,
+      ]
+        .filter(Boolean)
+        .join('\n');
+      return out.replace('</head>', `${extras}\n</head>`);
+    };
+
+    const outDir = join(distDir, 'source', work.slug);
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(join(outDir, 'index.html'), page(desc, 'en', canonicalUrl), 'utf8');
+    const urOutDir = join(distDir, 'ur', 'source', work.slug);
+    mkdirSync(urOutDir, { recursive: true });
+    writeFileSync(join(urOutDir, 'index.html'), page(descUr, 'ur', urCanonicalUrl), 'utf8');
+    sourceSlugs.push(`/source/${work.slug}`);
+  }
+  console.log(`[prerender] ✓ ${sourceSlugs.length} source pages (+ /ur mirrors)`);
+}
+
 // Emits both the English and Urdu <url> entries for a page, each annotated
 // with hreflang alternates pointing at both — the standard bidirectional
 // sitemap+hreflang pattern (see https://developers.google.com/search/docs
@@ -1183,6 +1273,12 @@ const APP_ROUTES = [
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   {
+    path: 'sources',
+    titleEn: `Sources — ${SITE_TITLE}`,
+    titleUr: `ماخذ — ${SITE_TITLE_UR}`,
+    sitemap: { changefreq: 'weekly', priority: '0.7' },
+  },
+  {
     path: 'typology',
     titleEn: `Atlas of Built Forms — ${SITE_TITLE}`,
     titleUr: `تعمیری صورتوں کا اٹلس — ${SITE_TITLE_UR}`,
@@ -1244,6 +1340,9 @@ if (SITE_URL) {
     ),
     ...traditionSlugs.map((t) =>
       sitemapUrlPair(`${SITE_URL}${t.path}`, `${SITE_URL}/ur${t.path}`, 'monthly', '0.6'),
+    ),
+    ...sourceSlugs.map((p) =>
+      sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.5'),
     ),
     // The four static pages. They were absent from the sitemap for the same
     // reason they were absent from dist: nothing enumerated them.

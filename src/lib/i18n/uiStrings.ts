@@ -193,6 +193,7 @@ const UI_TEXT_EN = {
   tabExplore: 'Figures',
   tabAlmanac: 'Calendar',
   tabAtlas: 'Atlas',
+  tabSources: 'Sources',
   tabAbout: 'Archive',
   tabBarLabel: 'Archive sections',
   share: 'Share',
@@ -585,6 +586,7 @@ const UI_TEXT_EN = {
   welcomeDestTypology: 'Every site by the form it takes',
   welcomeDestChronology: 'Every dated place, century by century',
   welcomeDestSharedGround: 'Sites that stand beside another tradition',
+  welcomeDestSources: 'Every book and record it cites',
   welcomeDestAbout: 'Method, coverage and how to cite',
   /* Shown on the two entries with no Urdu article, above the English one they
      fall back to. Says the thing rather than letting the reader discover it. */
@@ -974,6 +976,80 @@ const UI_TEXT_EN = {
   mosquesOwn: 'recorded as this shrine’s mosque',
   mosquesNotRecorded: 'not recorded',
   fieldSilsila: 'Silsila (order)',
+  /* ── /sources and /source/:slug — the archive's library ── */
+  sourcesTitle: 'Sources',
+  sourcesIntro:
+    'Every book, article, record and report this archive cites, in one place. Open any of them to see which entries rest on it, where those places are, what is read beside it, and where to look for a copy.',
+  sourcesStatShelf: 'works on the shelf',
+  sourcesStatRead: 'books read in full',
+  sourcesStatLines: 'distinct sources',
+  sourcesStatCitations: 'citations',
+  sourcesShelfHeading: 'The shelf',
+  sourcesShelfNote:
+    'The works the archive cites most, however many ways each is written down. The thicker the spine, the more entries rest on it.',
+  sourcesReadingHeading: 'Read in full for the archive',
+  sourcesReadingNote:
+    'Books the project has read cover to cover, in Urdu, Persian and English. What they say is checked before it enters an entry, so most are not cited yet; each one lists its entries here as soon as one cites it.',
+  sourcesReadingCited: 'Cited',
+  sourcesReadingInReview: 'In review',
+  sourcesKindsHeading: 'What kind of sources',
+  sourcesKindsNote:
+    'Sorted by the form of each citation, not by checking the work itself, so a line can sit in the wrong pile. The citation is always shown exactly as recorded.',
+  sourcesAllHeading: 'Every source cited',
+  sourcesSearchLabel: 'Search the sources',
+  sourcesSearchPlaceholder: 'Title, author, newspaper…',
+  sourcesFilterAll: 'All',
+  sourcesSortLabel: 'Order',
+  sourcesSortCited: 'Most cited',
+  sourcesSortAlpha: 'A–Z',
+  sourcesReadingCount: (books: number, pages: number) =>
+    `${books} books · ${pages.toLocaleString('en-US')} pages`,
+  sourcesShowAllBooks: (n: number) => `Show all ${n} books`,
+  sourcesShowFewer: 'Show fewer',
+  sourcesShowMore: 'Show more',
+  sourcesNoMatch: 'No source matches that search.',
+  sourcesOpenWork: 'About this work',
+  sourcesOpenLink: 'Open the source',
+  sourcesShowing: (shown: number, total: number) => `Showing ${shown} of ${total}`,
+  sourceTypeBook: 'Books',
+  sourceTypeArticle: 'Articles & entries',
+  sourceTypePress: 'Press',
+  sourceTypeRecord: 'Records & gazetteers',
+  sourceTypeWeb: 'Websites',
+  sourceTypeTradition: 'Scripture & tradition',
+  sourceTypeField: 'Field survey',
+  sourceTypeGeneral: 'General references',
+  sourceKicker: 'Source',
+  sourceReadBadge: 'Read in full for the archive',
+  sourceNotYetCited:
+    'No published entry cites this book yet. What it says is still being checked against the archive’s entries.',
+  sourceFactWritten: 'Written in',
+  sourceFactRead: 'Read in',
+  sourceFactYear: 'Year',
+  sourceFactPages: 'Pages read',
+  sourceFactEntries: 'Entries citing it',
+  sourcePlacesHeading: 'Places',
+  sourceEntriesHeading: 'Entries that rest on it',
+  sourceMapHeading: 'Where its sites are',
+  sourceMapNote: 'Each dot is a site whose entry cites this work.',
+  sourceTraditionsHeading: 'Traditions',
+  sourceCitationsHeading: 'How the archive cites it',
+  sourceCitationsNote: 'Each line exactly as the entries record it.',
+  sourceCoCitedHeading: 'Read alongside it',
+  sourceCoCitedNote: 'What the same entries also cite.',
+  sourceFindHeading: 'Find a copy',
+  sourceFindNote:
+    'These are searches, not holdings: the archive does not know which library has a copy.',
+  sourceFindWorldcat: 'WorldCat — libraries',
+  sourceFindGoogleBooks: 'Google Books',
+  sourceFindInternetArchive: 'Internet Archive',
+  sourceFindOpenLibrary: 'Open Library',
+  sourceNotFound: 'The archive has no source at this address.',
+  sourceLangUrdu: 'Urdu',
+  sourceLangPersian: 'Persian',
+  sourceLangEnglish: 'English',
+  sourceLangSindhi: 'Sindhi',
+  sourceLangPunjabi: 'Punjabi',
   typologyTitle: 'Atlas of Built Forms',
   typologyIntro:
     'Every place in the archive, grouped by what actually stands there — khanqah, gurdwara, cave shrine. The labels are the survey’s own vocabulary; where the survey described a form in prose, the prose is kept as it was written.',
@@ -1406,6 +1482,9 @@ export function tFn(lang: Lang, key: 'archiveResultCount', n: number): string;
 export function tFn(lang: Lang, key: 'paletteShowingFirst', n: number): string;
 export function tFn(lang: Lang, key: 'tourCount', n: number): string;
 export function tFn(lang: Lang, key: 'placeSiteCount', n: number): string;
+export function tFn(lang: Lang, key: 'sourcesShowing', shown: number, total: number): string;
+export function tFn(lang: Lang, key: 'sourcesReadingCount', books: number, pages: number): string;
+export function tFn(lang: Lang, key: 'sourcesShowAllBooks', n: number): string;
 export function tFn(lang: Lang, key: 'placeSpan', from: number, to: number): string;
 export function tFn(lang: Lang, key: 'placesUnplaced', n: number): string;
 export function tFn(lang: Lang, key: 'ariaMapShowing', name: string): string;
@@ -1484,6 +1563,9 @@ export function tFn(
     | 'paletteShowingFirst'
     | 'tourCount'
     | 'placeSiteCount'
+    | 'sourcesShowing'
+    | 'sourcesReadingCount'
+    | 'sourcesShowAllBooks'
     | 'placeSpan'
     | 'placesUnplaced'
     | 'ariaMapShowing'

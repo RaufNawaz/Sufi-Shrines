@@ -121,6 +121,27 @@ test.describe('Accessibility (axe-core)', () => {
     expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
   });
 
+  /* The library tab (17 October 2026): a shelf of spine links, a disclosure
+     list of 469 citations, and a source page with an SVG dot map whose dots
+     are pointer-only (the entries list carries the same links). */
+  for (const route of ['/sources', '/source/historical-sikh-shrines-in-pakistan']) {
+    test(`${route} has no critical violations`, async ({ page }) => {
+      await page.goto(route);
+      await page.locator('h1.entity-title').first().waitFor();
+      await settle(page);
+
+      const results = await new AxeBuilder({ page })
+        .exclude(EXCLUDE_SELECTORS)
+        .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
+        .analyze();
+
+      const criticalOrSerious = results.violations.filter(
+        (v) => v.impact === 'critical' || v.impact === 'serious',
+      );
+      expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+    });
+  }
+
   test('chronology page has no critical violations', async ({ page }) => {
     /* Track C. Its marks are 120 absolutely-positioned links whose only visible
        content is their width, so every one of them depends on `aria-label` for
@@ -345,6 +366,8 @@ const DARK_ROUTES = [
   '/almanac',
   '/graph',
   '/typology',
+  '/sources',
+  '/source/historical-sikh-shrines-in-pakistan',
   '/chronology',
   '/shared-ground',
   '/tradition/nanakpanthi',

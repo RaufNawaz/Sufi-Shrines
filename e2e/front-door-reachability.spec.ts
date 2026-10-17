@@ -46,6 +46,7 @@ const DESTINATIONS = [
   '/typology',
   '/chronology',
   '/shared-ground',
+  '/sources',
   '/about',
 ] as const;
 

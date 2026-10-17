@@ -42,6 +42,8 @@ const AlmanacPage = lazy(ROUTE_MODULES['/almanac']);
    Pages serves files rather than routes. See docs/planning/REVIEW_DESK_2026-08-24.md. */
 const ReviewPage = lazy(() => import('./pages/ReviewPage'));
 const TypologyPage = lazy(ROUTE_MODULES['/typology']);
+const SourcesPage = lazy(ROUTE_MODULES['/sources']);
+const SourcePage = lazy(SEGMENT_MODULES.source);
 const ChronologyPage = lazy(SEGMENT_MODULES.chronology);
 const SharedGroundPage = lazy(SEGMENT_MODULES['shared-ground']);
 const TraditionPage = lazy(SEGMENT_MODULES.tradition);
@@ -290,6 +292,8 @@ export default function App() {
                     <Route path="/report" element={<Navigate to="/about#site-status" replace />} />
                     <Route path="/review" element={<ReviewPage />} />
                     <Route path="/typology" element={<TypologyPage />} />
+                    <Route path="/sources" element={<SourcesPage />} />
+                    <Route path="/source/:slug" element={<SourcePage />} />
                     <Route path="/chronology" element={<ChronologyPage />} />
                     <Route path="/shared-ground" element={<SharedGroundPage />} />
                     <Route path="/tradition/:slug" element={<TraditionPage />} />
@@ -381,6 +385,22 @@ export default function App() {
                       element={
                         <UrPrefixNormalizer>
                           <SharedGroundPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/sources"
+                      element={
+                        <UrPrefixNormalizer>
+                          <SourcesPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/source/:slug"
+                      element={
+                        <UrPrefixNormalizer>
+                          <SourcePage />
                         </UrPrefixNormalizer>
                       }
                     />

@@ -67,6 +67,10 @@ const ROUTES = [
   { name: 'typology', path: '/typology', ready: 'h1.entity-title' },
   { name: 'shared-ground', path: '/shared-ground', ready: 'h1.entity-title' },
   { name: 'tradition', path: '/tradition/nanakpanthi', ready: 'h1.entity-title' },
+  /* The shelf scrolls sideways inside its own container on a phone; the page
+     must not. */
+  { name: 'sources', path: '/sources', ready: 'h1.entity-title' },
+  { name: 'source', path: '/source/tazkirah-awliya-e-pakistan', ready: 'h1.entity-title' },
 ] as const;
 
 /**

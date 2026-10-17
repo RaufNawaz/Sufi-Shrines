@@ -21,8 +21,13 @@ import { TABS, activeTabId } from '../tabs';
 import { UI_TEXT } from '../../i18n/uiStrings';
 
 describe('the tab table', () => {
-  it('is five tabs, which is what fits on a phone', () => {
-    expect(TABS).toHaveLength(5);
+  /* Five until 17 October 2026, when Sources became the sixth at Rauf's
+     request (see the note on its entry in tabs.ts). Six is the ceiling: at
+     320px each tab is 53px, and a seventh would take them under the 44px
+     target. A seventh destination needs a different design, not this number
+     raised again. */
+  it('is six tabs, which is the most that fits on a phone', () => {
+    expect(TABS).toHaveLength(6);
   });
 
   it('has a label in both languages for every tab', () => {
@@ -52,12 +57,15 @@ describe('which tab owns a route', () => {
     expect(activeTabId('/graph')).toBe('explore');
     expect(activeTabId('/almanac')).toBe('almanac');
     expect(activeTabId('/typology')).toBe('atlas');
+    expect(activeTabId('/sources')).toBe('sources');
     expect(activeTabId('/about')).toBe('about');
   });
 
   it('gives a detail page the index that leads to it', () => {
     expect(activeTabId('/shrine/data-darbar')).toBe('map');
     expect(activeTabId('/place/lahore')).toBe('map');
+    expect(activeTabId('/source/hinglaj-devi')).toBe('sources');
+    expect(activeTabId('/ur/source/hinglaj-devi')).toBe('sources');
     expect(activeTabId('/saint/data-ganj-bakhsh')).toBe('explore');
     expect(activeTabId('/order/chishtiyya')).toBe('explore');
     expect(activeTabId('/coverage')).toBe('about');

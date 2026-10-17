@@ -12,6 +12,7 @@ export const ROUTE_MODULES = {
   '/graph': () => import('../../pages/GraphPage'),
   '/almanac': () => import('../../pages/AlmanacPage'),
   '/typology': () => import('../../pages/TypologyPage'),
+  '/sources': () => import('../../pages/SourcesPage'),
   '/about': () => import('../../pages/AboutPage'),
 } as const;
 
@@ -46,6 +47,7 @@ export const SEGMENT_MODULES = {
   order: () => import('../../pages/OrderPage'),
   place: () => import('../../pages/PlacePage'),
   tradition: () => import('../../pages/TraditionPage'),
+  source: () => import('../../pages/SourcePage'),
   chronology: () => import('../../pages/ChronologyPage'),
   'shared-ground': () => import('../../pages/SharedGroundPage'),
   settings: () => import('../../pages/SettingsPage'),
@@ -95,6 +97,7 @@ const APP_SEGMENTS = new Set([
   'graph',
   'almanac',
   'typology',
+  'sources',
   'about',
   'review',
   'coverage',

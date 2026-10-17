@@ -28,6 +28,13 @@ const ROUTES = [
   { name: 'explore', path: '/graph', ready: 'h1.entity-title', tab: 'Figures' },
   { name: 'almanac', path: '/almanac', ready: 'h1', tab: 'Calendar' },
   { name: 'atlas', path: '/typology', ready: 'h1', tab: 'Atlas' },
+  { name: 'sources', path: '/sources', ready: 'h1.entity-title', tab: 'Sources' },
+  {
+    name: 'source',
+    path: '/source/tazkirah-awliya-e-pakistan',
+    ready: 'h1.entity-title',
+    tab: 'Sources',
+  },
   { name: 'about', path: '/about', ready: 'h1.entity-title', tab: 'Archive' },
   { name: 'shrine', path: '/shrine/data-darbar', ready: 'h1.shrine-title', tab: 'Map' },
   { name: 'saint', path: '/saint/data-ganj-bakhsh', ready: 'h1.entity-title', tab: 'Figures' },
@@ -55,7 +62,7 @@ test.describe('on a phone', () => {
     await page.locator('h1.entity-title').first().waitFor();
     const links = page.locator('.tabbar-link');
     const count = await links.count();
-    expect(count).toBe(5);
+    expect(count).toBe(6);
     for (let i = 0; i < count; i++) {
       const box = await links.nth(i).boundingBox();
       expect(box, `tab ${i} has no box`).toBeTruthy();
@@ -128,7 +135,7 @@ test.describe('on a phone', () => {
     await page.goto('/graph?lang=ur');
     await page.locator('h1.entity-title').first().waitFor();
     const labels = await page.locator('.tabbar-label').allInnerTexts();
-    expect(labels).toHaveLength(5);
+    expect(labels).toHaveLength(6);
     for (const label of labels) expect(label).not.toMatch(/[A-Za-z]/);
   });
 
@@ -154,7 +161,7 @@ test.describe('on a laptop', () => {
        what this asserts: the element has no box at all. */
     await expect(page.locator('.tabbar')).toBeHidden();
     expect(await page.locator('.tabbar').boundingBox()).toBeNull();
-    await expect(page.locator('.tabbar-link')).toHaveCount(5);
+    await expect(page.locator('.tabbar-link')).toHaveCount(6);
     for (const link of await page.locator('.tabbar-link').all()) {
       await expect(link).toBeHidden();
     }

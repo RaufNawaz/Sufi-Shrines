@@ -34,6 +34,8 @@ const STYLES = join(__dirname, '..');
  */
 const SET_AT_RUNTIME: Record<string, string> = {
   '--stagger-index': 'per-item index, set inline by list components (see motion.css)',
+  '--spine-w': 'a shelf spine’s width by entries cited, written inline by SourcesPage.tsx',
+  '--spine-h': 'a shelf spine’s height, varied per book from its slug by SourcesPage.tsx',
   '--sheen-x': 'pointer position over a glass pane, written by usePointerSheen.ts',
   '--sheen-y': 'pointer position over a glass pane, written by usePointerSheen.ts',
   '--lightbox-dim': 'scrim opacity during a pull-down, written by useLightboxGestures.ts',

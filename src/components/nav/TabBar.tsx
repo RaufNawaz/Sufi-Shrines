@@ -53,6 +53,14 @@ const ICONS: Record<string, React.ReactNode> = {
       <path d="M9.5 20v-6h5v6" />
     </>
   ),
+  /* An open book: two pages from a spine, the one silhouette that reads as
+     "sources" at 24px without a label. */
+  sources: (
+    <>
+      <path d="M12 6.5C10.2 5 7.6 4.5 3.5 4.8v13.4c4.1-.3 6.7.2 8.5 1.8 1.8-1.6 4.4-2.1 8.5-1.8V4.8C16.4 4.5 13.8 5 12 6.5z" />
+      <path d="M12 6.5V20" />
+    </>
+  ),
   about: (
     <>
       <circle cx="12" cy="12" r="8.5" />

@@ -55,6 +55,13 @@ const DESTINATIONS: readonly {
     icon: 'M14 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0M20 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0',
   },
   {
+    to: '/sources',
+    title: 'sourcesTitle',
+    sub: 'welcomeDestSources',
+    /* an open book */
+    icon: 'M12 6.5C10.2 5 7.6 4.5 3.5 4.8v13.4c4.1-.3 6.7.2 8.5 1.8 1.8-1.6 4.4-2.1 8.5-1.8V4.8C16.4 4.5 13.8 5 12 6.5zM12 6.5V20',
+  },
+  {
     to: '/about',
     title: 'aboutTitle',
     sub: 'welcomeDestAbout',

@@ -34,8 +34,12 @@ function stripLeadingListMarker(line: string): string {
  * the 533 citations exactly as they were. A note reading "cited by this entry
  * alone" under five lines in six would be noise, and the interesting half —
  * that a source is *shared* — would be buried in it. Where the note is absent,
- * the full index on `/about` still lists the source; the link is a shortcut to
- * a question worth asking, not the only way in.
+ * the full index on `/sources` still lists the source; the link is a shortcut
+ * to a question worth asking, not the only way in.
+ *
+ * It pointed at `/about#source-…` until 17 October 2026 — a section that
+ * renders for the team view only, so every public reader who followed it
+ * landed on a page without the row it named.
  */
 function SourceReach({ citation }: { citation: string }) {
   const { lang, fmtNum } = useLang();
@@ -48,7 +52,7 @@ function SourceReach({ citation }: { citation: string }) {
 
   if (!entry || entry.shrines.length <= 1) return null;
   return (
-    <Link className="article-source-reach" to={`/about#${sourceAnchorId(entry.name)}`}>
+    <Link className="article-source-reach" to={`/sources#${sourceAnchorId(entry.name)}`}>
       {fmtNum(tFn(lang, 'sourceAlsoCitedBy', entry.shrines.length - 1))}
     </Link>
   );

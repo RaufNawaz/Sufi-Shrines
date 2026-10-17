@@ -53,6 +53,8 @@ const REPO = join(SRC, '..');
  */
 const UNSTYLED_BY_DESIGN: Record<string, string> = {
   'about-page': 'scope hook — the page is styled entirely through .entity-page',
+  'sources-page': 'scope hook — the library index is styled through .entity-page and .sources-*',
+  'source-page': 'scope hook — one source’s page is styled through .entity-page and .source-*',
   'graph-figures-launch':
     'test hook — the launcher row is styled by .graph-launch-row; e2e opens the figure sheet by this name',
   'graph-lineage-only-launch': 'test hook — the second launcher row, styled by .graph-launch-row',

@@ -20,6 +20,8 @@ import { test, expect } from './fixtures';
  */
 const ROUTES = [
   '/typology',
+  '/sources',
+  '/source/historical-sikh-shrines-in-pakistan',
   '/chronology',
   '/about',
   '/almanac',

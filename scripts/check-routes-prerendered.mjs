@@ -87,6 +87,11 @@ const SPOT_CHECKS = [
   // rather than an empty graph, and would not show up in any other check.
   'tradition/nath',
   'ur/tradition/nath',
+  // The library's book pages: one declared work and one book read in full, the
+  // two halves of the union the loop builds.
+  'source/tazkirah-awliya-e-pakistan',
+  'source/hadiqat-al-awliya',
+  'ur/source/hadiqat-al-awliya',
 ];
 for (const rel of SPOT_CHECKS) {
   if (!existsSync(join(DIST, rel, 'index.html'))) {

@@ -9,19 +9,21 @@ import type { UI_TEXT } from '../i18n/uiStrings';
  * surfaces were effectively unreachable for a reader who did not already know
  * they existed. The map is the front door and it opened onto one room.
  *
- * Five, deliberately: a tab bar stops being legible past five on a phone, and
- * every tab here is an index over the whole archive rather than one entry.
+ * Five, deliberately, until a sixth was asked for (see the `sources` entry):
+ * a tab bar stops being legible past five or six on a phone, and every tab
+ * here is an index over the whole archive rather than one entry.
  * `/coverage` and `/report` are not among them because they are no longer
  * pages: both are sections of `/about`, and both routes redirect into it. They
  * stay in `owns` so the Archive tab is already lit during the redirect rather
  * than flashing five unselected tabs on the way through.
  *
  * The order is the reading order of the archive: where things are, who they were,
- * when people gather, what was built, and what the whole thing claims.
+ * when people gather, what was built, what it rests on, and what the whole
+ * thing claims.
  */
 export interface TabDefinition {
   /** Stable id, used for the icon and as a React key. */
-  id: 'map' | 'explore' | 'almanac' | 'atlas' | 'about';
+  id: 'map' | 'explore' | 'almanac' | 'atlas' | 'sources' | 'about';
   path: string;
   labelKey: keyof (typeof UI_TEXT)['en'];
   /**
@@ -58,6 +60,15 @@ export const TABS: readonly TabDefinition[] = [
      not one to settle by adding a sixth item to a five-item bar at midnight; it
      is recorded in docs/planning/TRACK_C_CHRONOLOGY.md instead. */
   { id: 'atlas', path: '/typology', labelKey: 'tabAtlas', owns: ['/chronology'] },
+  /* The sixth tab, added 17 October 2026 at Rauf's request, against this
+     file's own "five, deliberately". The case for it: what the archive rests on
+     is the question its whole claim to provenance invites, and until then the
+     only cross-entry view of its sources was a team-only section of /about —
+     a public reader could follow a shrine page's "also cited by 3 other
+     entries" link and land on nothing. Six still fits: at 320px each tab is
+     53px, above the 44px target, and the labels are one short word in both
+     languages. `/source/` belongs here as `/saint/` belongs to the explorer. */
+  { id: 'sources', path: '/sources', labelKey: 'tabSources', owns: ['/source/'] },
   /* `/settings` sits here for the same reason `/coverage` and `/report` do: it
      is a page *about* the archive rather than a part of its content, it is
      linked from the footer beside "About this archive", and a reader who opens
