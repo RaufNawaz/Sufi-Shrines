@@ -562,11 +562,14 @@ export default function SaintPage() {
           {precision && (
             /* Beside the dates, not in a footnote. `title` carries the longer
                explanation the way the other qualifying chips on this page do. */
+            /* "Dates: range", in the row's own Label: value form. It was a bare
+               lowercase amber "range" after the death year, its meaning only in
+               a tooltip a phone cannot show (typography council, 17 Oct 2026). */
             <span
               className="entity-meta-item entity-date-precision"
               title={t('figurePrecisionHelp')}
             >
-              {t(precision.labelKey)}
+              {t('figurePrecisionLabel')}: {t(precision.labelKey)}
             </span>
           )}
           {saint.lineageOnly && (

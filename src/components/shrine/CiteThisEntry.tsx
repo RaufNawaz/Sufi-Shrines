@@ -27,7 +27,23 @@ interface Props {
 /** One citation format: label, the text itself, and a copy button. The
  * citation strings sit inside <bdi> so the Latin of a URL or a BibTeX entry
  * neither breaks RTL layout nor trips the no-English-leak guard. */
-function CiteBlock({ label, text }: { label: string; text: string }) {
+/**
+ * One copyable citation. `machine` is BibTeX: Latin by definition, monospace,
+ * and left to right even inside the Urdu page. The plain citation is prose in
+ * the reader's language — set in the reading face, and declared Latin only
+ * where it is (an Urdu citation set in monospace came out as disjoined letters
+ * in fixed cells, and was declared Latin to the leak guard besides; Urdu
+ * council, 17 October 2026).
+ */
+function CiteBlock({
+  label,
+  text,
+  machine = false,
+}: {
+  label: string;
+  text: string;
+  machine?: boolean;
+}) {
   const { t } = useLang();
   const { copy, copied } = useShareLink();
   return (
@@ -40,9 +56,20 @@ function CiteBlock({ label, text }: { label: string; text: string }) {
           {copied ? t('copied') : t('citeCopy')}
         </button>
       </div>
-      <pre className="cite-text">
-        <bdi data-latin>{text}</bdi>
-      </pre>
+      {machine ? (
+        <pre className="cite-text cite-text--machine" dir="ltr">
+          <bdi data-latin>{text}</bdi>
+        </pre>
+      ) : (
+        <pre className="cite-text cite-text--prose">
+          {/* A URL is a URL in any language; Latin outside one is declared. */}
+          {/[A-Za-z]/.test(text.replace(/https?:\/\/\S+/g, '')) ? (
+            <bdi data-latin>{text}</bdi>
+          ) : (
+            <bdi>{text}</bdi>
+          )}
+        </pre>
+      )}
     </div>
   );
 }
@@ -97,7 +124,7 @@ export function CiteThisEntry({ kind, slug, englishName, localizedName, supportL
     <details className="cite-entry">
       <summary className="cite-entry-summary">{t('citeTitle')}</summary>
       <CiteBlock label={t('citeTextLabel')} text={plain} />
-      <CiteBlock label="BibTeX" text={bibtex} />
+      <CiteBlock label="BibTeX" text={bibtex} machine />
     </details>
   );
 }

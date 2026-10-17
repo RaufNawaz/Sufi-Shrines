@@ -145,6 +145,19 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
       </h1>
       <p className="coverage-intro">{t('placeIntro')}</p>
 
+      {/* The place's summary — how many sites, over what span — under the
+          intro, as every entity page has it, not under the photographs. */}
+      <div className="entity-meta">
+        <span className="entity-meta-item">
+          {fmtNum(tFn(lang, 'placeSiteCount', place.shrines.length))}
+        </span>
+        <span className="entity-meta-item">
+          {place.yearSpan
+            ? fmtNum(tFn(lang, 'placeSpan', place.yearSpan.earliest, place.yearSpan.latest))
+            : t('placeSpanNone')}
+        </span>
+      </div>
+
       {photos.length >= 2 && (
         <div className="place-photo-strip">
           {photos.map((shrine) => {
@@ -176,17 +189,6 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
           })}
         </div>
       )}
-
-      <div className="entity-meta">
-        <span className="entity-meta-item">
-          {fmtNum(tFn(lang, 'placeSiteCount', place.shrines.length))}
-        </span>
-        <span className="entity-meta-item">
-          {place.yearSpan
-            ? fmtNum(tFn(lang, 'placeSpan', place.yearSpan.earliest, place.yearSpan.latest))
-            : t('placeSpanNone')}
-        </span>
-      </div>
 
       {place.traditions.length > 0 && (
         <section className="kg-section">
@@ -315,10 +317,22 @@ export default function PlacePage() {
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
+        {/* The shared trail: an <ol>, so the size, colour and separator rules
+            (direction-aware in Urdu) reach it. This was the one page that drew
+            its own — a full-size cobalt site title and a literal "›" that
+            pointed the wrong way in Urdu. */}
         <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
-          <Link to="/">{t('title')}</Link>
-          <span aria-hidden="true"> › </span>
-          <span>{t('placesTitle')}</span>
+          <ol>
+            <li>
+              <Link to="/">{t('mapBreadcrumb')}</Link>
+            </li>
+            <li>{t('placesTitle')}</li>
+            {place && (
+              <li aria-current="page" className="shrine-breadcrumb-current">
+                <bdi>{localizeRecordedName(place.name, lang)}</bdi>
+              </li>
+            )}
+          </ol>
         </nav>
 
         {/* In the outer component, which is the one holding the data: the article

@@ -333,6 +333,7 @@ export const UI_TEXT_UR: UiStrings = {
   orderCompareNote:
     'نیچے دی گئی ہر تعداد، صدی اور جگہ صفحہ کھلتے وقت گراف سے شمار کی جاتی ہے، اِس لیے یہ جدول اُس طرح پرانا نہیں ہو سکتا جیسے کوئی جملہ ہو جاتا ہے۔ ہر سطر یہ بتاتی ہے کہ آرکائیو کے پاس کیا ہے، یہ نہیں کہ سلسلہ کیا ہے۔',
   orderCompareFigures: 'شخصیات',
+  orderCompareFigureOne: 'شخصیت',
   orderCompareSpan: 'صدیوں کا دورانیہ',
   orderCompareSites: 'مقامات کی تعداد',
   /* ── What the archive says about an order (OrderPage) ──────────────
@@ -1068,6 +1069,7 @@ export const UI_TEXT_UR: UiStrings = {
   statusRuin: 'کھنڈر',
   statusDestroyed: 'منہدم',
   sourceNoteLabel: 'نوٹ',
+  figurePrecisionLabel: 'تاریخیں',
   figurePrecisionHelp:
     'ریکارڈ اِس شخصیت کی تاریخوں کے بارے میں کتنا متعین ہے۔ یہ وہاں دکھایا جاتا ہے جہاں تاریخیں خود نہیں بتاتیں — ورنہ ایک سادہ سن، جسے آرکائیو تخمینہ جانتا ہے، حتمی معلوم ہوتا ہے۔',
   precisionExact: 'متعین',

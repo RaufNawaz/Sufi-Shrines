@@ -85,7 +85,7 @@ export function CommandPalette({
   filters,
   categoryCounts,
 }: CommandPaletteProps) {
-  const { lang, t, fmtNum } = useLang();
+  const { lang, t, fmtNum, localizeField } = useLang();
   const teamView = hasProjectAccess();
   const isRtl = isRtlLang(lang);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -669,7 +669,16 @@ export function CommandPalette({
                                   <bdi>
                                     {teamView
                                       ? shrine.location
-                                      : publicLocation(shrine.location, shrine, lang)}
+                                      : /* Localized first, as every other caller does
+                                           and publicLocation's own docstring asks:
+                                           the Urdu reader was handed "Lahore, Punjab"
+                                           under a Nastaliq name (Urdu council,
+                                           17 October 2026). */
+                                        publicLocation(
+                                          localizeField(shrine.raw, 'Location') || shrine.location,
+                                          shrine,
+                                          lang,
+                                        )}
                                   </bdi>
                                 </span>
                               )}

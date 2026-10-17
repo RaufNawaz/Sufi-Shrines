@@ -371,6 +371,7 @@ const UI_TEXT_EN = {
   orderCompareNote:
     'Every figure, century span and place below is counted from the graph on load, so this table cannot go stale the way a sentence can. Each row is what the archive holds, not what the order is.',
   orderCompareFigures: 'Figures',
+  orderCompareFigureOne: 'Figure',
   orderCompareSpan: 'Century span',
   orderCompareSites: 'Sites',
   /* ── What the archive says about an order (OrderPage) ────────────────────
@@ -1169,6 +1170,7 @@ const UI_TEXT_EN = {
   statusRuin: 'Ruin',
   statusDestroyed: 'Destroyed',
   sourceNoteLabel: 'Note',
+  figurePrecisionLabel: 'Dates',
   figurePrecisionHelp:
     'How precise the record is about this figure\u2019s dates. Shown where the dates themselves do not say — a bare year the archive knows is an approximation would otherwise read as settled.',
   precisionExact: 'exact',

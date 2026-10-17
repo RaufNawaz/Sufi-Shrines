@@ -385,6 +385,10 @@
 [dir='rtl'] .shrine-place-tag {
   font-family: var(--font-urdu);
   font-size: var(--text-base);
+  /* The compact leading, not the body's 2.05 meant for paragraphs: with it
+     the chip stood 60px tall, taller than Share and Save beside it, a bubble
+     rather than a label (Urdu council, 17 October 2026). Still 44px+. */
+  line-height: var(--leading-urdu-heading);
 }
 
 /* Quiet contribution prompt on low-information pages — a footnote, not a
@@ -553,6 +557,23 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   color: var(--color-text-secondary);
+}
+
+/* The plain citation is a sentence a reader pastes into their own prose, so it
+   is set as prose: the page's face, and in Urdu Nastaliq at the UI leading.
+   Only BibTeX keeps the monospace, and keeps it left to right. */
+.cite-text--prose {
+  font-family: inherit;
+  font-size: var(--text-sm);
+}
+
+[dir='rtl'] .cite-text--prose {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
+
+.cite-text--machine {
+  text-align: left;
 }
 
 /* Share + nav actions */
@@ -1797,6 +1818,14 @@
   margin-inline: var(--space-2);
   color: var(--color-text-muted);
   opacity: 0.6;
+}
+
+/* In Urdu the trail runs right to left, so the separator points left, toward
+   the page you are on. '›' is bidi-mirrored in principle, but it rendered
+   unmirrored here — pointing back at the parent on every page with a
+   breadcrumb (Urdu council, 17 October 2026, checked in the render). */
+[dir='rtl'] .shrine-breadcrumb li:not(:last-child)::after {
+  content: '‹';
 }
 
 .shrine-breadcrumb a {

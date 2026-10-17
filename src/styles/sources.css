@@ -189,6 +189,13 @@
   overflow: hidden;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
+  /* The title is Latin in both views, and it runs in its own direction: left
+     to inherit the Urdu page's rtl, the overflow cut the *start* of the title
+     ("ah Awliya-e-Pakistan") instead of its end. */
+  direction: ltr;
+  unicode-bidi: isolate;
+  /* And when a title is still too long for its spine, the cut is marked. */
+  text-overflow: ellipsis;
   font-family: var(--font-sans);
   font-size: calc(var(--text-xs) * 0.9);
   font-weight: 600;

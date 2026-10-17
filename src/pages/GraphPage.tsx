@@ -520,7 +520,9 @@ export default function GraphPage() {
                   <span className="order-card-name">{localizeOrderName(row.order, lang)}</span>
                   <span className="order-card-figures">
                     <span className="order-card-num">{fmtNum(row.figures)}</span>
-                    <span className="order-card-label">{t('orderCompareFigures')}</span>
+                    <span className="order-card-label">
+                      {row.figures === 1 ? t('orderCompareFigureOne') : t('orderCompareFigures')}
+                    </span>
                   </span>
                   <span className="order-card-meta">
                     {row.span && (
@@ -544,9 +546,10 @@ export default function GraphPage() {
                         )}
                       </span>
                     )}
-                    <span>
-                      {fmtNum(row.sites)} {t('orderCompareSites')}
-                    </span>
+                    {/* The counted phrase, not number + column label: "1 Sites"
+                        in English, "۵ مقامات کی تعداد" ("5 number of sites") in
+                        Urdu. */}
+                    <span>{fmtNum(tFn(lang, 'placeSiteCount', row.sites))}</span>
                   </span>
                 </button>
               );

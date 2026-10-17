@@ -816,6 +816,20 @@
   transform: rotate(225deg) translate(-0.1em, -0.1em);
 }
 
+/* In RTL the caret's inline-end border is its *left* one, so the same rotation
+   pointed it sideways — "<", which reads as "go elsewhere" rather than "opens
+   here". Rotated the other way it points down closed and up open, as in
+   English (Urdu council, 17 October 2026). */
+[dir='rtl'] .almanac-facet-toggle::after,
+[dir='rtl'] .almanac-undated-summary::after {
+  transform: rotate(-45deg) translate(0.1em, -0.1em);
+}
+
+[dir='rtl'] .almanac-facet-toggle[aria-expanded='true']::after,
+[dir='rtl'] .almanac-undated[open] > .almanac-undated-summary::after {
+  transform: rotate(-225deg) translate(0.1em, -0.1em);
+}
+
 .almanac-facet-active {
   font-size: var(--text-sm);
   color: var(--color-text-muted);

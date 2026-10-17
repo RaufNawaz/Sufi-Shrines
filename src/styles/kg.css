@@ -2195,23 +2195,18 @@
 }
 
 /* "circa", "range", "sources disagree" — the record's own account of how precise
-   a figure's dates are, beside the dates rather than in a footnote.
-   `--color-accent-text` is the same gold the almanac's approximate-date flag
-   uses: this is the same claim about the same kind of uncertainty, and it clears
-   AA on the pale ground where the raw gilding gold does not. */
+   a figure's dates are, beside the dates rather than in a footnote. Set as one
+   more item of the meta row ("Dates: range"), at the row's size in its muted
+   ink: until 17 October 2026 it was a 12px lowercase gold word that read as a
+   stray tag after the death year. */
 .entity-date-precision {
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: var(--tracking-slight);
-  text-transform: lowercase;
-  color: var(--color-accent-text);
+  color: var(--color-text-muted);
   white-space: nowrap;
   cursor: help;
 }
 
 [dir='rtl'] .entity-date-precision {
   font-family: var(--font-urdu);
-  font-size: var(--text-sm);
   /* Nastaliq is caseless; lowercasing it does nothing and confuses a screen
      reader's pronunciation of the run. */
   text-transform: none;
@@ -3051,7 +3046,6 @@
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
-  margin-block-start: auto;
 }
 .order-card-num {
   font-size: var(--text-3xl);
@@ -3071,6 +3065,10 @@
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   font-variant-numeric: tabular-nums;
+  /* The details line sits at the card's foot, so the large numeral sits at
+     one height across a row of cards (it was pushed down by however much
+     shorter a card's details were; typography council, 17 Oct 2026). */
+  margin-block-start: auto;
 }
 [dir='rtl'] .order-card-name,
 [dir='rtl'] .order-card-num {
