@@ -131,7 +131,10 @@ const BUDGETS_KB = {
      1. HEAD was already red before this change. Built clean at f649acc, the
         shell measured 279/275, MapPage 626/620 and TypologyPage 335/328. MapPage
         at 626 is the number the note below says to watch for — "if this grows
-        by ~10 KB the palette went static again" — and is worth a look of its own.
+        by ~10 KB the palette went static again" — and it did not: checked the
+        same night, CommandPalette is still a dynamic import
+        (MapSidebar.tsx, `loadCommandPalette`). The growth is the 15–16 October
+        map work: the location control, pinch handling, sheet-on-drag.
      2. The Sources tab: ~3.7 KB of English interface strings (the English table
         is eager by design; the Urdu one is its own chunk), a sixth tab icon, the
         welcome card's sixth destination. The shell went 279 → 284.
