@@ -595,6 +595,7 @@ details[open] > .sources-row-summary::after {
 }
 
 .sources-entry-tags .entity-saint-shrine-tag {
+  position: relative;
   display: inline-flex;
   align-items: center;
   min-block-size: 32px;
@@ -607,12 +608,15 @@ details[open] > .sources-row-summary::after {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2) var(--space-4);
-  margin: var(--space-3) 0 0;
+  margin: 0 0 var(--space-3);
 }
 
 .sources-action {
   display: inline-flex;
   align-items: center;
+  /* A gap, not a space in the text: inline-flex trims whitespace at the edge
+     of each item, so "About this work: " rendered as "work:Tazkirah". */
+  gap: 0.35em;
   min-block-size: 32px;
   font-size: var(--text-sm);
   font-weight: 600;
@@ -959,4 +963,87 @@ details[open] > .sources-row-summary::after {
 
 .source-map-dots a {
   outline: none;
+}
+
+/* Find a copy, near the top: a compact block, so it does not push the map and
+   entries far down on a phone. */
+.source-find-section .kg-section-heading {
+  margin-block-end: var(--space-1);
+}
+
+.source-find-section .kg-section-note {
+  margin-block-end: var(--space-3);
+}
+
+/* The entry the reader came from, in a row they were sent to: named, not just
+   coloured, so "24 other entries" on the shrine page and "25 entries" here
+   visibly add up. */
+.sources-entry-tags .sources-entry-tag--from {
+  gap: var(--space-2);
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent-pale);
+  color: var(--color-text);
+}
+
+.sources-entry-from {
+  font-size: var(--text-xs);
+  color: var(--color-accent-text);
+}
+
+[dir='rtl'] .sources-entry-from {
+  font-size: var(--text-sm);
+}
+
+.sources-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: 44px;
+  margin-block-start: var(--space-2);
+  padding-inline: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .sources-jump:hover {
+    background: var(--color-primary-bg);
+  }
+}
+
+.sources-jump:active {
+  background: var(--press-tint);
+}
+
+.sources-jump:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.sources-empty p {
+  margin: 0 0 var(--space-3);
+}
+
+.sources-empty p:last-child {
+  margin-block-end: 0;
+}
+
+/* Chips and action links are 32px to keep a twenty-five-entry row compact; the
+   tap area is 44px all the same (an invisible extension, so the rows of chips
+   keep their rhythm). The 8px gap between chips keeps neighbours apart. */
+.sources-entry-tags .entity-saint-shrine-tag::after,
+.sources-action::after {
+  content: '';
+  position: absolute;
+  inset-block: -6px;
+  inset-inline: 0;
+}
+
+.sources-action {
+  position: relative;
 }

@@ -293,6 +293,21 @@ export default function GraphPage() {
     );
   }, [lineageGroups, lineageQuery, lang]);
 
+  /* A name the current order does not hold may be one link away in another, or
+     in none: "Bahauddin" found nothing in the Chishtiyya and the reader was
+     told so, with the answer sitting in the full list behind the scope switch
+     above (journeys council, 17 October 2026). Counted over every recorded
+     link, so the dead end can say where the matches are. */
+  const lineageMatchesElsewhere = useMemo(() => {
+    const q = lineageQuery.trim().toLocaleLowerCase();
+    if (!q || lineageScope === 'all' || visibleLineageGroups.length > 0) return 0;
+    type Figure = (typeof lineageEdges)[number]['subject'];
+    const hit = (figure: Figure) =>
+      localizeFigureName(figure, lang).toLocaleLowerCase().includes(q) ||
+      figure.name.toLocaleLowerCase().includes(q);
+    return lineageEdges.filter((edge) => hit(edge.subject) || hit(edge.object)).length;
+  }, [lineageQuery, lineageScope, visibleLineageGroups.length, lineageEdges, lang]);
+
   /* Edges with neither endpoint in any recorded order. Computed over every order
      rather than the active one — this is a fact about the dataset, not about the
      current selection, so it must not change as the reader clicks. */
@@ -657,7 +672,19 @@ export default function GraphPage() {
               />
             )}
             {visibleLineageGroups.length === 0 ? (
-              <p className="graph-figures-note">{t('lineageNoMatch')}</p>
+              lineageMatchesElsewhere > 0 ? (
+                <p className="graph-figures-note">
+                  <button
+                    type="button"
+                    className="action-btn"
+                    onClick={() => setLineageScope('all')}
+                  >
+                    {fmtNum(tFn(lang, 'lineageMatchesElsewhere', lineageMatchesElsewhere))}
+                  </button>
+                </p>
+              ) : (
+                <p className="graph-figures-note">{t('lineageNoMatch')}</p>
+              )
             ) : (
               <ul className="graph-lineage-list" data-latin>
                 {(showAllTeachers || lineageQuery

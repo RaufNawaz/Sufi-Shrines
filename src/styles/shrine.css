@@ -2789,6 +2789,20 @@
   color: var(--color-primary);
 }
 
+/* A 17px-tall link a reader is invited to tap. The hit area grows to 44px
+   without moving a line of the bibliography: an invisible box around the text,
+   which is how the platform pads a small control set inside prose. */
+.article-source-reach {
+  position: relative;
+}
+
+.article-source-reach::after {
+  content: '';
+  position: absolute;
+  inset-block: -14px;
+  inset-inline: -6px;
+}
+
 /* An underline runs through the descenders of Nastaliq (HANDOVER §9.48) —
    and so did the border that replaced it. A border-block-end is painted at
    the bottom of the *inline box*, which is set by the font's descent metric,

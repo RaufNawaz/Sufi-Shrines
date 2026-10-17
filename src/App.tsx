@@ -170,6 +170,10 @@ function LinkTransitions() {
          navigation in NetworkGraph's click handler. */
       const link = (event.target as Element | null)?.closest?.('a[href]');
       if (!(link instanceof HTMLAnchorElement) || link.hasAttribute('download')) return;
+      /* A link that runs its own navigation says so: the header's back
+         chevron keeps href="/" for a new tab but steps back in history on a
+         plain click, and this listener, running first, would send it home. */
+      if (link.hasAttribute('data-own-navigation')) return;
       if (link.target && link.target !== '_self') return;
       const to = routerPathForHref(link.href, base);
       if (!to) return;

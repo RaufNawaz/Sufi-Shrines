@@ -169,21 +169,10 @@ export function ShrinePreview({
           {shrine.statusNote && <bdi>{shrine.statusNote}</bdi>}
         </div>
       )}
-      {leadText && (
-        <p className="preview-description">
-          <InlineEmphasis text={leadText} />
-        </p>
-      )}
-      {relatedTour && (
-        <div className="preview-related-tour">
-          <span>
-            {translate(lang as Lang, 'partOfTour')}: {localizeTourTitle(relatedTour, lang as Lang)}
-          </span>
-          <button className="preview-related-tour-btn" onClick={() => onStartTour(relatedTour.id)}>
-            {translate(lang as Lang, 'viewTour')}
-          </button>
-        </div>
-      )}
+      {/* The actions under the facts, before the description: on a phone the
+          sheet showed 462px of a 496px preview and "View full details" — the
+          way from the map into the archive — sat below the fold, under the tab
+          bar (journeys council, 17 October 2026). */}
       <div className="preview-actions">
         <Link to={`/shrine/${shrine.slug}`} className="preview-view-link">
           {translate(lang as Lang, 'viewFullDetails')}
@@ -269,6 +258,21 @@ export function ShrinePreview({
           </span>
         </button>
       </div>
+      {leadText && (
+        <p className="preview-description">
+          <InlineEmphasis text={leadText} />
+        </p>
+      )}
+      {relatedTour && (
+        <div className="preview-related-tour">
+          <span>
+            {translate(lang as Lang, 'partOfTour')}: {localizeTourTitle(relatedTour, lang as Lang)}
+          </span>
+          <button className="preview-related-tour-btn" onClick={() => onStartTour(relatedTour.id)}>
+            {translate(lang as Lang, 'viewTour')}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

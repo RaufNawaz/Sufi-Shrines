@@ -81,6 +81,8 @@ const UI_TEXT_EN = {
   lineageHideSource: 'Hide source',
   lineageFindPlaceholder: 'Find a teacher or disciple',
   lineageNoMatch: 'No teacher or disciple by that name in this scope.',
+  lineageMatchesElsewhere: (n: number) =>
+    `Not in this order — ${n} ${n === 1 ? 'link' : 'links'} among all recorded lineages. Show ${n === 1 ? 'it' : 'them'}`,
   lineageTeacherPage: 'Open the teacher’s page',
   settingsLookHelp:
     'The archive was redesigned on 9 October 2026 after the way Apple sets a page: cool neutrals, one typeface, pill controls. The classic look is the warm, serif design it replaced. The layout is the same under both.',
@@ -188,6 +190,7 @@ const UI_TEXT_EN = {
   uncategorized: 'Uncategorized',
   descriptionMore: 'More',
   backToMap: 'Back to map',
+  back: 'Back',
   /* ── Tab bar (phone) ─────────────────────────────────────────────────── */
   tabMap: 'Map',
   tabExplore: 'Figures',
@@ -1006,6 +1009,11 @@ const UI_TEXT_EN = {
     `${books} books · ${pages.toLocaleString('en-US')} pages`,
   sourcesShowAllBooks: (n: number) => `Show all ${n} books`,
   sourcesShowFewer: 'Show fewer',
+  sourcesCameFrom: 'you came from here',
+  sourcesJumpSearch: 'Search every source',
+  sourcesSearchAllKinds: 'Search all kinds',
+  sourcesNoMatchKind: (n: number) =>
+    `Nothing of this kind matches, but ${n} ${n === 1 ? 'source of another kind does' : 'sources of other kinds do'}.`,
   sourcesShowMore: 'Show more',
   sourcesNoMatch: 'No source matches that search.',
   sourcesOpenWork: 'About this work',
@@ -1486,6 +1494,8 @@ export function tFn(lang: Lang, key: 'placeSiteCount', n: number): string;
 export function tFn(lang: Lang, key: 'sourcesShowing', shown: number, total: number): string;
 export function tFn(lang: Lang, key: 'sourcesReadingCount', books: number, pages: number): string;
 export function tFn(lang: Lang, key: 'sourcesShowAllBooks', n: number): string;
+export function tFn(lang: Lang, key: 'sourcesNoMatchKind', n: number): string;
+export function tFn(lang: Lang, key: 'lineageMatchesElsewhere', n: number): string;
 export function tFn(lang: Lang, key: 'placeSpan', from: number, to: number): string;
 export function tFn(lang: Lang, key: 'placesUnplaced', n: number): string;
 export function tFn(lang: Lang, key: 'ariaMapShowing', name: string): string;
@@ -1567,6 +1577,8 @@ export function tFn(
     | 'sourcesShowing'
     | 'sourcesReadingCount'
     | 'sourcesShowAllBooks'
+    | 'sourcesNoMatchKind'
+    | 'lineageMatchesElsewhere'
     | 'placeSpan'
     | 'placesUnplaced'
     | 'ariaMapShowing'

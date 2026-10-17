@@ -41,7 +41,7 @@ function stripLeadingListMarker(line: string): string {
  * renders for the team view only, so every public reader who followed it
  * landed on a page without the row it named.
  */
-function SourceReach({ citation }: { citation: string }) {
+function SourceReach({ citation, fromSlug }: { citation: string; fromSlug: string }) {
   const { lang, fmtNum } = useLang();
   const { shrines } = useShrineData();
   const index = useMemo(() => buildSourceIndex(shrines), [shrines]);
@@ -52,7 +52,10 @@ function SourceReach({ citation }: { citation: string }) {
 
   if (!entry || entry.shrines.length <= 1) return null;
   return (
-    <Link className="article-source-reach" to={`/sources#${sourceAnchorId(entry.name)}`}>
+    <Link
+      className="article-source-reach"
+      to={`/sources?from=${encodeURIComponent(fromSlug)}#${sourceAnchorId(entry.name)}`}
+    >
       {fmtNum(tFn(lang, 'sourceAlsoCitedBy', entry.shrines.length - 1))}
     </Link>
   );
@@ -63,11 +66,14 @@ function ArticleSection({
   heading,
   content,
   isSources = false,
+  fromSlug,
 }: {
   id: string;
   heading: string;
   content: string;
   isSources?: boolean;
+  /** The entry this article belongs to, so /sources can mark it in the row. */
+  fromSlug: string;
 }) {
   const { lang, numerals } = useLang();
   // Dates inside translated article text were the one place Eastern numerals
@@ -104,7 +110,7 @@ function ArticleSection({
                  counts real ones. Per line, on the evidence. */
               <li key={i} {...(/[A-Za-z]/.test(line) ? { 'data-latin': '' } : {})}>
                 {renderInlineBold(localize(line))}
-                <SourceReach citation={line} />
+                <SourceReach citation={line} fromSlug={fromSlug} />
               </li>
             ))}
         </ul>
@@ -164,6 +170,7 @@ export function ShrineArticle({ shrine }: Props) {
             heading={localizeHeading(section.heading, lang)}
             content={section.content}
             isSources={SOURCES_HEADING_ALIASES.has(section.heading.trim().toLowerCase())}
+            fromSlug={shrine.slug}
           />
         );
       })}
@@ -175,6 +182,7 @@ export function ShrineArticle({ shrine }: Props) {
           heading={section.title[lang] || section.title.en}
           content={section.content}
           isSources={section.id === 'sources'}
+          fromSlug={shrine.slug}
         />
       ))}
 

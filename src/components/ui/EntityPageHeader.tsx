@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { withViewTransition } from '../../lib/nav/viewTransition';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { TABS, activeTabId } from '../../lib/nav/tabs';
 import { TabLink } from '../nav/TabLink';
@@ -73,6 +74,20 @@ let lastMeasuredHeaderHeight: number | null = null;
 
 export function EntityPageHeader({ title }: { title?: string }) {
   const { t } = useLang();
+  const navigate = useNavigate();
+  /* Back means back. The chevron at the top of every page went to the map,
+     always, and on a phone — where only the chevron shows — it looks like the
+     platform's back button: a reader three pages into the sources tapped it and
+     lost their place (journeys council, 17 October 2026). When this visit has
+     an earlier entry in the app's own history (React Router's `idx`), it steps
+     back to it; a reader who arrived from outside, on a shared link, still gets
+     "Back to map", since there is nothing in the app behind them. */
+  const historyIndex =
+    typeof window !== 'undefined'
+      ? ((window.history.state as { idx?: number } | null)?.idx ?? 0)
+      : 0;
+  const canGoBack = historyIndex > 0;
+  const backLabel = canGoBack ? t('back') : t('backToMap');
   const search = useArchiveSearch();
   const location = useLocation();
   const currentTab = activeTabId(location.pathname);
@@ -212,7 +227,17 @@ export function EntityPageHeader({ title }: { title?: string }) {
       className={`shrine-page-header no-print${hidden ? ' shrine-page-header--hidden' : ''}`}
       onFocus={() => setHidden(false)}
     >
-      <Link to="/" className="back-link" aria-label={t('backToMap')}>
+      <Link
+        to="/"
+        className="back-link"
+        aria-label={backLabel}
+        {...(canGoBack ? { 'data-own-navigation': '' } : {})}
+        onClick={(e) => {
+          if (!canGoBack || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+          withViewTransition(() => navigate(-1));
+        }}
+      >
         <svg
           width="16"
           height="16"
@@ -226,7 +251,7 @@ export function EntityPageHeader({ title }: { title?: string }) {
         >
           <polyline points="15 18 9 12 15 6" />
         </svg>
-        {t('backToMap')}
+        {backLabel}
       </Link>
       {collapsed && title ? (
         /* `aria-hidden`, and not for tidiness: this is the `<h1>` said twice.

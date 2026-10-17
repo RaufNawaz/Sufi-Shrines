@@ -67,6 +67,7 @@ export function SourceRow({
   worksBySlug,
   open,
   highlighted,
+  fromSlug,
   onToggle,
 }: {
   source: LibrarySource;
@@ -74,6 +75,8 @@ export function SourceRow({
   worksBySlug: Map<string, ShelfWork>;
   open?: boolean;
   highlighted?: boolean;
+  /** The entry the reader followed a link from, marked among the chips. */
+  fromSlug?: string;
   onToggle?: (open: boolean) => void;
 }) {
   const { lang, t, fmtNum } = useLang();
@@ -101,18 +104,9 @@ export function SourceRow({
           </span>
         </summary>
         <div className="sources-row-body">
-          <ul className="sources-entry-tags">
-            {source.shrines.map(({ slug, name }) => {
-              const shrine = shrinesBySlug.get(slug);
-              return (
-                <li key={slug}>
-                  <Link to={`/shrine/${slug}`} className="entity-saint-shrine-tag">
-                    <bdi>{shrine ? localizeShrineName(shrine, lang) : name}</bdi>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          {/* The way onward first — the work's page, the source itself — and
+              then the entries: a widely cited line has twenty-five chips, and
+              the link a reader most likely wants sat under all of them. */}
           {(works.length > 0 || url) && (
             <p className="sources-row-actions">
               {works.map((work) => (
@@ -130,6 +124,24 @@ export function SourceRow({
               )}
             </p>
           )}
+          <ul className="sources-entry-tags">
+            {source.shrines.map(({ slug, name }) => {
+              const shrine = shrinesBySlug.get(slug);
+              return (
+                <li key={slug}>
+                  <Link
+                    to={`/shrine/${slug}`}
+                    className={`entity-saint-shrine-tag${slug === fromSlug ? ' sources-entry-tag--from' : ''}`}
+                  >
+                    <bdi>{shrine ? localizeShrineName(shrine, lang) : name}</bdi>
+                    {slug === fromSlug && (
+                      <span className="sources-entry-from">{t('sourcesCameFrom')}</span>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </details>
     </li>

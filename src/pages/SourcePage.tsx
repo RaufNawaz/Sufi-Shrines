@@ -159,6 +159,26 @@ function SourceContent({ work, library, lang }: { work: ShelfWork; library: Libr
 
       {!cited && book && <p className="source-callout">{t('sourceNotYetCited')}</p>}
 
+      {/* Near the top, because getting hold of the book is why most readers
+          open this page; it sat under every entry and citation, eight phone
+          screens down on the Tazkirah (journeys council, 17 Oct 2026). */}
+      <section className="kg-section source-find-section" aria-labelledby="source-find-heading">
+        <h2 id="source-find-heading" className="kg-section-heading">
+          {t('sourceFindHeading')}
+        </h2>
+        <p className="kg-section-note">{t('sourceFindNote')}</p>
+        <ul className="source-find">
+          {copySearchLinks(work).map(({ service, url }) => (
+            <li key={service}>
+              <a className="source-find-link" href={url} target="_blank" rel="noopener noreferrer">
+                {t(COPY_LABEL_KEYS[service])}
+                <span aria-hidden="true"> ↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {cited && (
         <div className="source-overview">
           <section className="kg-section source-map-section" aria-labelledby="source-map-heading">
@@ -296,23 +316,6 @@ function SourceContent({ work, library, lang }: { work: ShelfWork; library: Libr
           </ul>
         </section>
       )}
-
-      <section className="kg-section" aria-labelledby="source-find-heading">
-        <h2 id="source-find-heading" className="kg-section-heading">
-          {t('sourceFindHeading')}
-        </h2>
-        <p className="kg-section-note">{t('sourceFindNote')}</p>
-        <ul className="source-find">
-          {copySearchLinks(work).map(({ service, url }) => (
-            <li key={service}>
-              <a className="source-find-link" href={url} target="_blank" rel="noopener noreferrer">
-                {t(COPY_LABEL_KEYS[service])}
-                <span aria-hidden="true"> ↗</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
     </>
   );
 }

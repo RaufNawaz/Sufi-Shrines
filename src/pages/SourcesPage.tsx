@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -320,6 +320,8 @@ export default function SourcesPage() {
 
   /* The line a shrine page's "also cited by…" link asked for. */
   const { hash } = useLocation();
+  const [params] = useSearchParams();
+  const fromSlug = params.get('from') ?? undefined;
   const wanted = hash.startsWith('#source-') ? hash.slice(1) : '';
   const [opened, setOpened] = useState<Set<string>>(() => new Set());
 
@@ -345,13 +347,28 @@ export default function SourcesPage() {
     setOrder('cited');
     setLimit((current) => Math.max(current, at + 1));
     setOpened((current) => new Set(current).add(wanted));
-    const id = window.requestAnimationFrame(() =>
-      document.getElementById(wanted)?.scrollIntoView({ block: 'center' }),
-    );
+    /* Focus follows the eye: the row's summary, so Tab continues from the line
+       the reader was sent to rather than from the page title 2,800px above. */
+    const id = window.requestAnimationFrame(() => {
+      const row = document.getElementById(wanted);
+      row?.scrollIntoView({ block: 'center' });
+      row?.querySelector<HTMLElement>('summary')?.focus({ preventScroll: true });
+    });
     return () => window.cancelAnimationFrame(id);
   }, [wanted, library.sources]);
 
   const shown = filtered.slice(0, limit);
+
+  /* What a kind filter is hiding: a search that finds nothing among the press
+     may find the book the reader meant, and saying "no match" without saying
+     so sends them away thinking the archive does not cite it. */
+  const elsewhere = useMemo(() => {
+    const q = fold(query.trim());
+    if (!type || !q || filtered.length > 0) return 0;
+    return library.sources.filter((s) => fold(s.name).includes(q)).length;
+  }, [library.sources, query, type, filtered.length]);
+
+  const searchRef = useRef<HTMLInputElement>(null);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -383,6 +400,32 @@ export default function SourcesPage() {
           {t('sourcesTitle')}
         </h1>
         <p className="typology-intro">{t('sourcesIntro')}</p>
+        {/* The list's search sits below the shelf and the reading desk — on a
+            phone, three screens down — and the header's search icon finds
+            shrines, not sources. One tap to the field. */}
+        <button
+          type="button"
+          className="sources-jump"
+          onClick={() => {
+            searchRef.current?.scrollIntoView({ block: 'center' });
+            searchRef.current?.focus({ preventScroll: true });
+          }}
+        >
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          {t('sourcesJumpSearch')}
+        </button>
 
         {loading && shrines.length === 0 ? (
           <p className="coverage-loading page-loading-reserve">{t('loading')}</p>
@@ -433,6 +476,7 @@ export default function SourcesPage() {
                     <path d="m20 20-3.5-3.5" />
                   </svg>
                   <input
+                    ref={searchRef}
                     type="search"
                     value={query}
                     placeholder={t('sourcesSearchPlaceholder')}
@@ -473,7 +517,18 @@ export default function SourcesPage() {
               </p>
 
               {filtered.length === 0 ? (
-                <p className="sources-empty">{t('sourcesNoMatch')}</p>
+                <div className="sources-empty">
+                  <p>
+                    {elsewhere > 0
+                      ? fmtNum(tFn(lang, 'sourcesNoMatchKind', elsewhere))
+                      : t('sourcesNoMatch')}
+                  </p>
+                  {elsewhere > 0 && (
+                    <button type="button" className="action-btn" onClick={() => setType(null)}>
+                      {t('sourcesSearchAllKinds')}
+                    </button>
+                  )}
+                </div>
               ) : (
                 <ul className="sources-list">
                   {shown.map((source) => {
@@ -486,6 +541,7 @@ export default function SourcesPage() {
                         worksBySlug={worksBySlug}
                         open={opened.has(anchor)}
                         highlighted={anchor === wanted}
+                        {...(anchor === wanted && fromSlug ? { fromSlug } : {})}
                         onToggle={(isOpen) =>
                           setOpened((current) => {
                             if (isOpen === current.has(anchor)) return current;

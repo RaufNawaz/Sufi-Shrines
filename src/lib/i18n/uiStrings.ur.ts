@@ -81,6 +81,8 @@ export const UI_TEXT_UR: UiStrings = {
   lineageHideSource: 'ماخذ چھپائیں',
   lineageFindPlaceholder: 'کوئی مرشد یا مرید تلاش کریں',
   lineageNoMatch: 'اس دائرے میں اس نام کا کوئی مرشد یا مرید نہیں۔',
+  lineageMatchesElsewhere: (n: number) =>
+    `اس سلسلے میں نہیں — تمام درج سلسلوں میں ${n} روابط ملے۔ دکھائیں`,
   lineageTeacherPage: 'مرشد کا صفحہ کھولیں',
   settingsLookHelp:
     'آرکائیو کو ۹ اکتوبر ۲۰۲۶ کو اُس طرز پر نئے سرے سے ترتیب دیا گیا جس طرح ایپل صفحہ سجاتا ہے: ٹھنڈے غیر جانبدار رنگ، ایک ہی خط، گول کنٹرول۔ کلاسیکی انداز وہ گرم، سیریف ڈیزائن ہے جس کی جگہ اِس نے لی۔ دونوں میں ترتیب ایک جیسی ہے۔',
@@ -196,6 +198,7 @@ export const UI_TEXT_UR: UiStrings = {
   uncategorized: 'غیر زمرہ بند',
   descriptionMore: 'مزید',
   backToMap: 'نقشے پر واپس جائیں',
+  back: 'واپس',
   /* ── ٹیب بار (فون) ───────────────────────────────────────────────────── */
   tabMap: 'نقشہ',
   tabExplore: 'شخصیات',
@@ -905,6 +908,11 @@ export const UI_TEXT_UR: UiStrings = {
     `${books} کتابیں · ${pages.toLocaleString('en-US')} صفحات`,
   sourcesShowAllBooks: (n: number) => `تمام ${n} کتابیں دکھائیں`,
   sourcesShowFewer: 'کم دکھائیں',
+  sourcesCameFrom: 'آپ یہاں سے آئے',
+  sourcesJumpSearch: 'تمام ماخذ میں تلاش کریں',
+  sourcesSearchAllKinds: 'تمام اقسام میں تلاش کریں',
+  sourcesNoMatchKind: (n: number) =>
+    `اس قسم کا کوئی ماخذ نہیں ملا، لیکن دوسری اقسام میں ${n} ماخذ ملتے ہیں۔`,
   sourcesShowMore: 'مزید دکھائیں',
   sourcesNoMatch: 'اس تلاش سے کوئی ماخذ نہیں ملا۔',
   sourcesOpenWork: 'اس کتاب کے بارے میں',
