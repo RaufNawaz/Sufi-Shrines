@@ -96,7 +96,8 @@
         opacity: 0.35;
         cursor: not-allowed;
       }
-      select {
+      select,
+      input[type='search'] {
         font: inherit;
         padding: 6px 8px;
         border-radius: 8px;
@@ -217,6 +218,12 @@
       <header>
         <h1>Shrines and welfare</h1>
         <div class="seg" id="units" role="group" aria-label="Unit"></div>
+        <input
+          id="find"
+          type="search"
+          placeholder="Find an indicator"
+          aria-label="Find an indicator"
+        />
         <select id="ind" aria-label="Indicator"></select>
         <label class="chk"><input type="checkbox" id="showSites" checked /> Archive sites</label>
         <label class="chk"><input type="checkbox" id="showOsm" /> OSM leads</label>
@@ -565,13 +572,23 @@
           };
           u.appendChild(b);
         }
+        // With 240-odd indicators the menu is filtered by the search field (label, theme or
+        // definition, every word must match); the current indicator always stays listed.
+        const words = (document.getElementById('find').value || '')
+            .toLowerCase()
+            .split(/\s+/)
+            .filter(Boolean),
+          hit = (i) =>
+            i.key === key ||
+            words.every((w) => `${i.label} ${i.group} ${i.def}`.toLowerCase().includes(w)),
+          shown = D.indicators.filter(hit);
         const s = document.getElementById('ind'),
-          groups = [...new Set(D.indicators.map((i) => i.group))];
+          groups = [...new Set(shown.map((i) => i.group))];
         s.innerHTML = groups
           .map(
             (g) =>
               `<optgroup label="${g}">` +
-              D.indicators
+              shown
                 .filter((i) => i.group === g)
                 .map(
                   (i) =>
@@ -582,6 +599,19 @@
           )
           .join('');
       }
+      const find = document.getElementById('find');
+      find.oninput = () => controls();
+      // Enter takes the first match that is not already showing.
+      find.onkeydown = (e) => {
+        if (e.key !== 'Enter') return;
+        const first = [...document.getElementById('ind').options].find((o) => o.value !== key);
+        if (!first) return;
+        key = first.value;
+        if (!IND[key].units.includes(unit))
+          unit = IND[key].units.includes('district') ? 'district' : IND[key].units[0];
+        controls();
+        draw();
+      };
       document.getElementById('ind').onchange = (e) => {
         key = e.target.value;
         if (!IND[key].units.includes(unit))

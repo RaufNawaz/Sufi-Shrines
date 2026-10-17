@@ -152,7 +152,8 @@ in the page by `pako` (a third CDN script), so 7.1 MB of JSON ships as a 2.4 MB 
 that would each cost an hour: **`JSON.parse` rejects `NaN`**, which the old JS-literal embedding
 accepted, so the builder turns every NaN into null and dumps with `allow_nan=False`; and **do not
 move the page script into a `type="text/plain"` block** to run it later — Prettier formats that as
-prose and re-wraps the code. Zero-inflated indicators (flood exposure, conflict deaths) get a
+prose and re-wraps the code. A search field above the menu filters it by label, theme or definition (Enter takes the first
+match). Zero-inflated indicators (flood exposure, conflict deaths) get a
 "zero" class of their own, or their septiles collapse to three faint classes. Re-checked in
 Chromium on 17 Oct 2026: all 243 indicators at all 467 indicator-unit pairs draw with data, no
 console errors, no sideways scroll at 390 px.
