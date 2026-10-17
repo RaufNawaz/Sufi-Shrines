@@ -1344,6 +1344,11 @@
 /* ── /graph explorer page ───────────────────────────────────────────────── */
 
 .graph-page-intro {
+  /* The page intro's size and leading, as every other page's (.coverage-intro):
+     three intros were 16px beside six at 18px (design-system council,
+     17 October 2026). */
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
   color: var(--color-text-secondary);
   max-width: 60ch;
   margin-block-end: 1.5rem;

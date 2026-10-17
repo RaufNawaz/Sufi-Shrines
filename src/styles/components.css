@@ -1826,3 +1826,10 @@
   min-block-size: 36px;
   text-decoration: none;
 }
+
+/* The page intros given an explicit (Latin) leading for their size keep
+   Nastaliq's own in Urdu. */
+[dir='rtl'] .graph-page-intro,
+[dir='rtl'] .chronology-lede {
+  line-height: var(--leading-urdu);
+}
