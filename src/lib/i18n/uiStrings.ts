@@ -333,6 +333,7 @@ const UI_TEXT_EN = {
   lightMode: 'Light mode',
   skipToContent: 'Skip to content',
   skipToShrineList: 'Skip to shrine list',
+  skipToSearch: 'Skip to search',
   gallery: 'Gallery',
   scrollToTop: 'Scroll to top',
   openInMaps: 'Open in Maps',
@@ -580,8 +581,8 @@ const UI_TEXT_EN = {
   graphLineageScopeOrder: (order: string, n: number) => `In the ${order} (${n})`,
   graphLineageScopeAll: (n: number) => `All recorded links (${n})`,
   graphLineageScopeLabel: 'Which links to show',
-  graphLineageUnaffiliated: (n: number) =>
-    `${n} of these links belong to no order this archive records — a Sikh or Hindu lineage is a line of teaching, not a silsila, and some Sufi teachers named in a chain have no order recorded here.`,
+  graphLineageUnaffiliated: (n: number, total: number) =>
+    `Of all ${total} recorded links, ${n} belong to no order this archive records — a Sikh or Hindu lineage is a line of teaching, not a silsila, and some Sufi teachers named in a chain have no order recorded here.`,
 
   // ── Urs Almanac (DESIGN_VISION.md F1) ──────────────────────────────────
   welcomeExploreMore: 'Elsewhere in the archive',
@@ -1157,6 +1158,7 @@ const UI_TEXT_EN = {
   infoLevelFull: 'Fully documented',
   infoLevelModerate: 'Documented from sources',
   infoLevelLow: 'Limited information',
+  trustExplainButton: 'What do these mean?',
   infoLevelTooltip:
     'How thoroughly we have documented this site so far. It reflects our records only — never the site’s significance.',
   infoLevelFilterLabel: 'Information level',
@@ -1212,6 +1214,8 @@ const UI_TEXT_EN = {
   eventYearLabel: 'Event year',
   contributePrompt:
     'We know little about this site. If you know it, we would like to hear from you.',
+  contributeActionGithub: 'Send it on GitHub',
+  githubLinkNote: 'opens GitHub in a new tab; a free account is needed',
   contributeAction: 'Write to us',
   stopOf: (current: number, total: number) => `Stop ${current} of ${total}`,
   nextIn: (seconds: number) => `Next in ${seconds}s`,
@@ -1411,7 +1415,7 @@ export function tFn(lang: Lang, key: 'orderSpan', from: string, to: string): str
 export function tFn(lang: Lang, key: 'chronologySpan', from: string, to: string): string;
 export function tFn(lang: Lang, key: 'graphLineageScopeOrder', order: string, n: number): string;
 export function tFn(lang: Lang, key: 'graphLineageScopeAll', n: number): string;
-export function tFn(lang: Lang, key: 'graphLineageUnaffiliated', n: number): string;
+export function tFn(lang: Lang, key: 'graphLineageUnaffiliated', n: number, total: number): string;
 export function tFn(lang: Lang, key: 'orderSpanOne', century: string): string;
 export function tFn(lang: Lang, key: 'lineageChainRemove', n: number): string;
 export function tFn(

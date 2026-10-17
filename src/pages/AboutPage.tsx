@@ -247,7 +247,7 @@ export default function AboutPage() {
     <div className="page-enter entity-page-wrapper">
       <EntityPageHeader title={t('aboutTitle')} />
 
-      <article
+      <main
         className="entity-page about-page"
         id="main-content"
         tabIndex={-1}
@@ -401,13 +401,17 @@ export default function AboutPage() {
             <dt>{t('aboutLicenceData')}</dt>
             <dd>
               <a href={PUBLICATION.dataLicenseUrl} target="_blank" rel="noopener noreferrer">
-                <bdi data-latin>Open Database License (ODbL) v1.0</bdi>
+                <bdi lang="en" data-latin>
+                  Open Database License (ODbL) v1.0
+                </bdi>
               </a>
             </dd>
             <dt>{t('aboutLicenceCode')}</dt>
             <dd>
               <a href={PUBLICATION.codeLicenseUrl} target="_blank" rel="noopener noreferrer">
-                <bdi data-latin>MIT</bdi>
+                <bdi lang="en" data-latin>
+                  MIT
+                </bdi>
               </a>
             </dd>
             {/* Not decoration and not a courtesy: Mehr Nastaliq Web is CC BY 4.0,
@@ -427,7 +431,7 @@ export default function AboutPage() {
                   isolates side by side in an RTL row, the licence link was
                   reordered into the middle of the sentence. */}
               <span className="about-licence-latin" lang="en" dir="ltr">
-                <bdi data-latin>
+                <bdi lang="en" data-latin>
                   Mehr Nastaliq Web — Nasrullah Mehr and Zeeshan Nasar, CSaLT, Information
                   Technology University of the Punjab, Lahore
                 </bdi>{' '}
@@ -436,7 +440,9 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <bdi data-latin>(CC BY 4.0)</bdi>
+                  <bdi lang="en" data-latin>
+                    (CC BY 4.0)
+                  </bdi>
                 </a>
               </span>
             </dd>
@@ -461,7 +467,9 @@ export default function AboutPage() {
             {CONTACT_EMAIL && (
               <>
                 <a href={`mailto:${CONTACT_EMAIL}`}>
-                  <bdi data-latin>{CONTACT_EMAIL}</bdi>
+                  <bdi lang="en" data-latin>
+                    {CONTACT_EMAIL}
+                  </bdi>
                 </a>
                 {' · '}
               </>
@@ -469,15 +477,18 @@ export default function AboutPage() {
             <a href={correctionIssueUrl('')} target="_blank" rel="noopener noreferrer">
               {t('reportCorrection')}
             </a>
+            <span className="link-note"> ({t('githubLinkNote')})</span>
           </p>
           <p className="about-note">
             <a href={PUBLICATION.repository} target="_blank" rel="noopener noreferrer">
-              <bdi data-latin>{PUBLICATION.repository}</bdi>
+              <bdi lang="en" data-latin>
+                {PUBLICATION.repository}
+              </bdi>
             </a>
           </p>
         </section>
         <SiteFooter />
-      </article>
+      </main>
       <ScrollToTop />
     </div>
   );

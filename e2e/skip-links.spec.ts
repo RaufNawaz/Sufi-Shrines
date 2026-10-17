@@ -69,14 +69,21 @@ test.describe('skip links', () => {
     });
   }
 
-  test('the shrine-list skip link is offered only where the list exists', async ({ page }) => {
+  /* Was "skip to shrine list", into a visually hidden list whose links are
+     not tabbable — a skip to nowhere for a sighted keyboard reader. It goes to
+     the map's search now, and following it must land focus there. */
+  test('the map offers a skip to its search, and it moves focus there', async ({ page }) => {
     await page.goto('/');
     await page.locator('#sidebar').waitFor();
-    await expect(page.locator('a.skip-link[href="#shrine-directory"]')).toHaveCount(1);
+    const skip = page.locator('a.skip-link[href="#map-search"]');
+    await expect(skip).toHaveCount(1);
+    await skip.focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('#map-search')).toBeFocused();
 
     await page.goto('/about');
     await page.locator('h1.entity-title').waitFor();
-    await expect(page.locator('a.skip-link[href="#shrine-directory"]')).toHaveCount(0);
+    await expect(page.locator('a.skip-link[href="#map-search"]')).toHaveCount(0);
   });
 
   test('the content skip link is the first tabbable, and following it moves focus', async ({

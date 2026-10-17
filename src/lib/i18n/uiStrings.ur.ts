@@ -312,6 +312,7 @@ export const UI_TEXT_UR: UiStrings = {
   lightMode: 'لائٹ موڈ',
   skipToContent: 'مواد پر جائیں',
   skipToShrineList: 'مزارات کی فہرست پر جائیں',
+  skipToSearch: 'تلاش پر جائیں',
   gallery: 'گیلری',
   scrollToTop: 'اوپر جائیں',
   openInMaps: 'نقشے میں کھولیں',
@@ -539,8 +540,8 @@ export const UI_TEXT_UR: UiStrings = {
   graphLineageScopeOrder: (order: string, n: number) => `${order} میں (${n})`,
   graphLineageScopeAll: (n: number) => `تمام درج شدہ رشتے (${n})`,
   graphLineageScopeLabel: 'کون سے رشتے دکھائے جائیں',
-  graphLineageUnaffiliated: (n: number) =>
-    `اِن میں سے ${n} رشتے کسی ایسے سلسلے سے تعلق نہیں رکھتے جو یہ آرکائیو درج کرتا ہے — سکھ یا ہندو روایت میں تعلیم کی لڑی ہوتی ہے، سلسلہ نہیں، اور زنجیر میں نامزد کچھ صوفی اساتذہ کا سلسلہ یہاں درج نہیں۔`,
+  graphLineageUnaffiliated: (n: number, total: number) =>
+    `تمام ${total} درج رشتوں میں سے ${n} رشتے کسی ایسے سلسلے سے تعلق نہیں رکھتے جو یہ آرکائیو درج کرتا ہے — سکھ یا ہندو روایت میں تعلیم کی لڑی ہوتی ہے، سلسلہ نہیں، اور زنجیر میں نامزد کچھ صوفی اساتذہ کا سلسلہ یہاں درج نہیں۔`,
 
   // ── عرس تقویم ──────────────────────────────────────────────────────────
   welcomeExploreMore: 'آرکائیو میں مزید',
@@ -1056,6 +1057,7 @@ export const UI_TEXT_UR: UiStrings = {
   infoLevelFull: 'مکمل طور پر دستاویز شدہ',
   infoLevelModerate: 'جزوی طور پر دستاویز شدہ',
   infoLevelLow: 'محدود معلومات',
+  trustExplainButton: 'ان کا کیا مطلب ہے؟',
   infoLevelTooltip:
     'یہ نشان بتاتا ہے کہ ہم نے اس مقام کو اب تک کس حد تک دستاویز کیا ہے۔ اس کا تعلق صرف ہمارے ریکارڈ سے ہے — مقام کی اہمیت سے ہرگز نہیں۔',
   infoLevelFilterLabel: 'معلومات کی سطح',
@@ -1107,6 +1109,8 @@ export const UI_TEXT_UR: UiStrings = {
   eventYearLabel: 'تقریب کا سال',
   contributePrompt:
     'ہم اس مقام کے بارے میں بہت کم جانتے ہیں۔ اگر آپ اسے جانتے ہیں تو ہم آپ سے سننا چاہیں گے۔',
+  contributeActionGithub: 'گٹ ہب پر بھیجیں',
+  githubLinkNote: 'گٹ ہب نئے ٹیب میں کھلتا ہے؛ مفت اکاؤنٹ درکار ہے',
   contributeAction: 'ہمیں لکھیں',
   stopOf: (current: number, total: number) => `${current} / ${total}`,
   nextIn: (seconds: number) => `اگلا مقام ${seconds} سیکنڈ میں`,

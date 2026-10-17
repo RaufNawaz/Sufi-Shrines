@@ -528,6 +528,9 @@ export function MapSidebar({
         <div className="list-toggle-bar">
           <button
             className={`list-toggle-btn${directoryOpen ? ' active' : ''}`}
+            /* The skip link's and Escape's target: the one search control the
+               front door always shows. */
+            id="map-search"
             onClick={() => {
               if (directoryMode === 'spotlight') {
                 setPaletteOpen(true);

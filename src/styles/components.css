@@ -1763,3 +1763,16 @@
     margin: 0;
   }
 }
+
+/* Where a link goes, said beside it: "(opens GitHub in a new tab; a free
+   account is needed)". Muted and smaller, so it qualifies the link without
+   competing with it. */
+.link-note {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .link-note {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}

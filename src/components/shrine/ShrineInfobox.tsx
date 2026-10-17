@@ -418,7 +418,7 @@ export function ShrineInfobox({ shrine }: Props) {
                      counting these as undeclared on any route that had one —
                      it had none. */
                   return isLatinRun ? (
-                    <bdi data-latin>
+                    <bdi lang="en" data-latin>
                       {fmtNum(recorded)}
                       {qualifier}
                     </bdi>

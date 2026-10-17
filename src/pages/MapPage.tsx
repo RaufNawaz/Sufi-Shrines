@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { Shrine } from '../types/shrine';
+import type { Lang, Shrine } from '../types/shrine';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
@@ -23,6 +23,7 @@ import { readToursEnabled, writeToursEnabled } from '../lib/toursPreference';
 import { parseSharedList, importSharedList } from '../lib/sharedList';
 import { buildSharedGroundOverview } from '../lib/data/sharedGround';
 import { isOnOverlayEntry, isOverlayHistoryPop } from '../lib/nav/overlayHistory';
+import { publicLocation } from '../lib/data/publicLocation';
 
 /** Drop the one-shot ?list= param after the reader acts on the banner. */
 function clearListParam(): void {
@@ -409,8 +410,19 @@ export default function MapPage() {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
+      /* Where the keyboard was. If it was inside the preview or the sheet,
+         those are about to close under it and focus would fall to <body>, the
+         next Tab starting over at the top (a11y council, 17 October 2026) — so
+         it goes to the search, the control a reader closing a site most likely
+         wants next, and one that stays visible in the collapsed sheet. */
+      const fromPanel = (document.activeElement as HTMLElement | null)?.closest('.sidebar');
       if (sidebarOpen) setSidebarOpen(false);
       selectShrine(null);
+      if (fromPanel) {
+        window.requestAnimationFrame(() =>
+          document.querySelector<HTMLElement>('#map-search')?.focus(),
+        );
+      }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
@@ -544,7 +556,14 @@ export default function MapPage() {
       >
         <ol>
           {shrines.map((s) => {
-            const location = localizeField(s.raw, 'Location') || s.location;
+            /* The place name, not the survey cell — the same rule as every
+               visible list; a screen reader walking this landmark heard 171
+               raw notes. */
+            const location = publicLocation(
+              localizeField(s.raw, 'Location') || s.location,
+              s,
+              lang as Lang,
+            );
             return (
               <li key={s.id}>
                 {/* <Link>, not <a href>. This was a raw `href="/shrine/…"`,
@@ -575,7 +594,10 @@ export default function MapPage() {
                   {location ? (
                     <>
                       {' '}
-                      — <bdi data-latin>{location}</bdi>
+                      —{' '}
+                      <bdi lang="en" data-latin>
+                        {location}
+                      </bdi>
                     </>
                   ) : (
                     ''

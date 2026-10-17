@@ -8,6 +8,9 @@ import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { formatDistance } from '../../lib/i18n/formatDistance';
 import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
+import { publicLocation } from '../../lib/data/publicLocation';
+import { hasProjectAccess } from '../../lib/projectAccess';
+import type { Lang } from '../../types/shrine';
 
 interface Props {
   shrine: Shrine;
@@ -33,14 +36,24 @@ export function RelatedShrines({ shrine, all }: Props) {
       <div className="related-grid stagger-in">
         {related.map((s) => {
           const name = localizeShrineName(s, lang);
-          const location = localizeField(s.raw, 'Location') || s.location;
+          /* A place name for the public, as every other list of sites shows
+             it (publicLocation.ts): the raw cell can be a sixty-word survey
+             note, which reached the card verbatim — English prose under an
+             Urdu name, read out in full as part of the link (a11y council,
+             17 October 2026). The team keeps the cell. */
+          const rawLocation = localizeField(s.raw, 'Location') || s.location;
+          const location = hasProjectAccess()
+            ? rawLocation
+            : publicLocation(rawLocation, s, lang as Lang);
           const dist = shrine.latLng && s.latLng ? haversineKm(shrine.latLng, s.latLng) : null;
 
           return (
             <Link key={s.id} to={`/shrine/${s.slug}`} className="related-card hover-lift">
               <ShrineImage
                 src={s.imageUrl}
-                alt={name}
+                /* Empty: the name follows inside the same link, and said
+                   twice it was the start of every card's accessible name. */
+                alt=""
                 category={s.category}
                 className="related-card-img"
                 placeholderClassName="related-card-img-placeholder"

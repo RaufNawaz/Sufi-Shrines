@@ -119,11 +119,15 @@ function Shelf({ works }: { works: ShelfWork[] }) {
                       data-latin where an attribute cannot. The tooltip is the
                       same for a pointer, English view only for that reason. */}
                   <span className="sr-only">
-                    <bdi data-latin>{work.title}</bdi>
+                    <bdi lang="en" data-latin>
+                      {work.title}
+                    </bdi>
                     {work.author && (
                       <>
                         {' — '}
-                        <bdi data-latin>{work.author}</bdi>
+                        <bdi lang="en" data-latin>
+                          {work.author}
+                        </bdi>
                       </>
                     )}
                     {', '}
@@ -189,11 +193,15 @@ function ReadingDesk({ works }: { works: ShelfWork[] }) {
                   )}
                 </span>
                 <span className="sources-card-title">
-                  <bdi data-latin>{work.title}</bdi>
+                  <bdi lang="en" data-latin>
+                    {work.title}
+                  </bdi>
                 </span>
                 {work.author && (
                   <span className="sources-card-author">
-                    <bdi data-latin>{work.author}</bdi>
+                    <bdi lang="en" data-latin>
+                      {work.author}
+                    </bdi>
                   </span>
                 )}
                 <span className="sources-card-foot">
@@ -366,12 +374,9 @@ export default function SourcesPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <EntityPageHeader title={t('sourcesTitle')} />
 
-      <article
+      <main
         className="entity-page sources-page"
         id="main-content"
         tabIndex={-1}
@@ -564,7 +569,7 @@ export default function SourcesPage() {
           </>
         )}
         <SiteFooter />
-      </article>
+      </main>
     </div>
   );
 }

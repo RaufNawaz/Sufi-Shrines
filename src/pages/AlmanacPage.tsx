@@ -25,6 +25,7 @@ import type { CategoryKey } from '../lib/data/categoryKey';
 import { isRtlLang } from '../lib/i18n/languages';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 import { hasProjectAccess } from '../lib/projectAccess';
+import { correctionIssueUrl } from '../lib/data/constants';
 
 /** URL keys for the two facets. Short, because they end up in a shared link. */
 const CATEGORY_PARAM = 'cat';
@@ -282,7 +283,7 @@ export default function AlmanacPage() {
     <div className="page-enter entity-page-wrapper">
       <EntityPageHeader title={t('almanacTitle')} />
 
-      <article
+      <main
         className="entity-page almanac-page"
         id="main-content"
         tabIndex={-1}
@@ -748,14 +749,23 @@ export default function AlmanacPage() {
                       <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />
                     </svg>
                   </span>
-                  <p>{t('almanacContribute')}</p>
+                  <p>
+                    {t('almanacContribute')}{' '}
+                    {/* It asked for dates and offered no way to send one, under
+                        the calendar's largest gap — 101 sites observed with no
+                        date recorded (a11y council, 17 October 2026). */}
+                    <a href={correctionIssueUrl('')} target="_blank" rel="noopener noreferrer">
+                      {t('reportCorrection')}
+                    </a>
+                    <span className="link-note"> ({t('githubLinkNote')})</span>
+                  </p>
                 </aside>
               </section>
             )}
           </>
         )}
         <SiteFooter />
-      </article>
+      </main>
     </div>
   );
 }

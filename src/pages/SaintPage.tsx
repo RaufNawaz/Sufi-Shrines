@@ -444,7 +444,7 @@ export default function SaintPage() {
     <div className="page-enter entity-page-wrapper">
       <EntityPageHeader title={displayName} />
 
-      <article
+      <main
         className="entity-page"
         id="main-content"
         tabIndex={-1}
@@ -467,7 +467,9 @@ export default function SaintPage() {
                   saint pages it already scanned both happened to have
                   translated names, so the title of every other figure's page
                   was an undeclared Latin run. */}
-              <bdi data-latin>{displayName}</bdi>
+              <bdi lang="en" data-latin>
+                {displayName}
+              </bdi>
             </li>
           </ol>
         </nav>
@@ -486,7 +488,9 @@ export default function SaintPage() {
         <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
         <h1 ref={headingRef} className="entity-title">
-          <bdi data-latin>{displayName}</bdi>
+          <bdi lang="en" data-latin>
+            {displayName}
+          </bdi>
         </h1>
 
         {/* A prose figure type — the cell as recorded, not a vocabulary label.
@@ -501,7 +505,13 @@ export default function SaintPage() {
               const raw = saint.figureType ?? '';
               const urdu = isRtl ? translateToUrdu(raw) : raw;
               const translated = isRtl && urdu !== raw && !/[A-Za-z]/.test(urdu);
-              return translated ? urdu : <bdi data-latin>{raw}</bdi>;
+              return translated ? (
+                urdu
+              ) : (
+                <bdi lang="en" data-latin>
+                  {raw}
+                </bdi>
+              );
             })()}
           </p>
         )}
@@ -534,7 +544,9 @@ export default function SaintPage() {
                   digits and a Latin month, because the month name is the
                   source's word and this archive does not invent one. Declared
                   and isolated, like a citation. */}
-              <bdi data-latin>{fmtNum(born)}</bdi>
+              <bdi lang="en" data-latin>
+                {fmtNum(born)}
+              </bdi>
             </span>
           )}
           {died && (
@@ -545,7 +557,9 @@ export default function SaintPage() {
                   digits and a Latin month, because the month name is the
                   source's word and this archive does not invent one. Declared
                   and isolated, like a citation. */}
-              <bdi data-latin>{fmtNum(died)}</bdi>
+              <bdi lang="en" data-latin>
+                {fmtNum(died)}
+              </bdi>
             </span>
           )}
           {era && (
@@ -556,7 +570,9 @@ export default function SaintPage() {
                   digits and a Latin month, because the month name is the
                   source's word and this archive does not invent one. Declared
                   and isolated, like a citation. */}
-              <bdi data-latin>{fmtNum(era)}</bdi>
+              <bdi lang="en" data-latin>
+                {fmtNum(era)}
+              </bdi>
             </span>
           )}
           {precision && (
@@ -632,7 +648,13 @@ export default function SaintPage() {
                 <span className="entity-disputed-field">
                   {(() => {
                     const labelKey = disputedFieldLabelKey(d.field);
-                    return labelKey ? t(labelKey) : <bdi data-latin>{d.field}</bdi>;
+                    return labelKey ? (
+                      t(labelKey)
+                    ) : (
+                      <bdi lang="en" data-latin>
+                        {d.field}
+                      </bdi>
+                    );
                   })()}
                 </span>
                 <span className="entity-disputed-values">
@@ -774,7 +796,9 @@ export default function SaintPage() {
                     {recorded.map((value, i) => (
                       <React.Fragment key={value}>
                         {i > 0 && <span aria-hidden="true"> · </span>}
-                        <bdi data-latin>{value}</bdi>
+                        <bdi lang="en" data-latin>
+                          {value}
+                        </bdi>
                       </React.Fragment>
                     ))}
                   </p>
@@ -1068,7 +1092,9 @@ export default function SaintPage() {
                                citable location, and an archive that claims
                                provenance leaves the reader an exact string to
                                look for (i18n rule 7). */
-                            <bdi data-latin>{note.source.raw}</bdi>
+                            <bdi lang="en" data-latin>
+                              {note.source.raw}
+                            </bdi>
                           )}
                         </p>
                       )}
@@ -1094,7 +1120,9 @@ export default function SaintPage() {
           {/* Infobox sidebar */}
           <aside className="entity-infobox">
             <div className="entity-infobox-title">
-              <bdi data-latin>{displayName}</bdi>
+              <bdi lang="en" data-latin>
+                {displayName}
+              </bdi>
             </div>
             <div className="entity-infobox-body">
               {saint.altNames?.[0] && (
@@ -1184,7 +1212,7 @@ export default function SaintPage() {
         />
 
         <SiteFooter />
-      </article>
+      </main>
 
       <ScrollToTop />
     </div>

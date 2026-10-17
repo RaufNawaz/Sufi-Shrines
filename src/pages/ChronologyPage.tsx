@@ -312,12 +312,9 @@ export default function ChronologyPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <EntityPageHeader title={t('chronologyTitle')} />
 
-      <article
+      <main
         className="entity-page"
         id="main-content"
         lang={isRtl ? 'ur' : undefined}
@@ -543,7 +540,7 @@ export default function ChronologyPage() {
         ) : null}
 
         <SiteFooter />
-      </article>
+      </main>
     </div>
   );
 }

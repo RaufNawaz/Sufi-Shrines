@@ -12,7 +12,7 @@ test.describe('Shrine detail page', () => {
     await expect(page.locator('h1.shrine-title')).toContainText(TEST_NAME);
 
     await expect(page.locator('.shrine-breadcrumb')).toBeVisible();
-    await expect(page.locator('article.shrine-page')).toBeVisible();
+    await expect(page.locator('main.shrine-page')).toBeVisible();
   });
 
   test('pre-rendered page has correct document title', async ({ page }) => {

@@ -116,7 +116,7 @@ export function RecordedObservanceList({
               row.shrineLabel && (
                 <Link to={`/shrine/${row.shrineSlug}`}>
                   {isRtl && /[A-Za-z]/.test(row.shrineLabel) ? (
-                    <bdi data-latin>{row.shrineLabel}</bdi>
+                    <bdi lang="en" data-latin>{row.shrineLabel}</bdi>
                   ) : (
                     row.shrineLabel
                   )}
@@ -171,7 +171,7 @@ export function RecordedObservanceList({
             {row.figure && row.shrineSlug && row.shrineLabel && (
               <Link to={`/shrine/${row.shrineSlug}`} className="entity-saint-shrine-tag">
                 {isRtl && /[A-Za-z]/.test(row.shrineLabel) ? (
-                  <bdi data-latin>{row.shrineLabel}</bdi>
+                  <bdi lang="en" data-latin>{row.shrineLabel}</bdi>
                 ) : (
                   row.shrineLabel
                 )}

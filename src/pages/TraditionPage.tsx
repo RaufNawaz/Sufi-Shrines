@@ -81,12 +81,9 @@ export default function TraditionPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <EntityPageHeader title={displayName} />
 
-      <article
+      <main
         className="entity-page"
         id="main-content"
         lang={isRtl ? 'ur' : undefined}
@@ -142,7 +139,9 @@ export default function TraditionPage() {
             {alsoKnownAsFor(tradition).map((name, i) => (
               <span key={name}>
                 {i > 0 && <span aria-hidden="true"> · </span>}
-                <bdi data-latin>{name}</bdi>
+                <bdi lang="en" data-latin>
+                  {name}
+                </bdi>
               </span>
             ))}
           </p>
@@ -163,7 +162,9 @@ export default function TraditionPage() {
                     {localizeShrineName(definitionEntry, lang)}
                   </Link>
                 ) : (
-                  <bdi data-latin>{tradition.definitionShrine}</bdi>
+                  <bdi lang="en" data-latin>
+                    {tradition.definitionShrine}
+                  </bdi>
                 )}
               </p>
             </section>
@@ -186,7 +187,9 @@ export default function TraditionPage() {
                             /* The dataset is fetched live and this file is
                                static, so a row can be absent from a given load.
                                The recorded name is still the honest label. */
-                            <bdi data-latin>{member.shrineName}</bdi>
+                            <bdi lang="en" data-latin>
+                              {member.shrineName}
+                            </bdi>
                           )}
                         </div>
                         {/* Evidence, in the source's words. Latin in either
@@ -224,7 +227,7 @@ export default function TraditionPage() {
         )}
 
         <SiteFooter />
-      </article>
+      </main>
     </div>
   );
 }

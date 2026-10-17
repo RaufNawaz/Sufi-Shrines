@@ -106,7 +106,12 @@ function DateAsRecorded({ value }: { value: string }) {
   const isRtl = isRtlLang(lang);
 
   const rendered = fmtNum(isRtl ? translateToUrdu(value) : value);
-  if (isRtl && /[A-Za-z]/.test(rendered)) return <bdi data-latin>{rendered}</bdi>;
+  if (isRtl && /[A-Za-z]/.test(rendered))
+    return (
+      <bdi lang="en" data-latin>
+        {rendered}
+      </bdi>
+    );
   return <>{rendered}</>;
 }
 
@@ -314,7 +319,7 @@ export default function OrderPage() {
     <div className="page-enter entity-page-wrapper">
       <EntityPageHeader title={orderName} />
 
-      <article
+      <main
         className="entity-page"
         id="main-content"
         tabIndex={-1}
@@ -742,7 +747,9 @@ export default function OrderPage() {
                                 // an English string: declare it rather than leave it
                                 // to look translated.
                                 return isRtl && /[A-Za-z]/.test(label) ? (
-                                  <bdi data-latin>{label}</bdi>
+                                  <bdi lang="en" data-latin>
+                                    {label}
+                                  </bdi>
                                 ) : (
                                   label
                                 );
@@ -893,7 +900,7 @@ export default function OrderPage() {
         />
 
         <SiteFooter />
-      </article>
+      </main>
 
       <ScrollToTop />
     </div>

@@ -182,7 +182,7 @@ export default function ReviewPage() {
     <div className="page-enter entity-page-wrapper">
       <EntityPageHeader title={t('reviewTitle')} />
 
-      <article
+      <main
         className="entity-page"
         id="main-content"
         tabIndex={-1}
@@ -284,7 +284,9 @@ export default function ReviewPage() {
                     {item.source && (
                       <p className="review-source">
                         <span className="review-source-label">{t('reviewEvidence')}:</span>{' '}
-                        <bdi data-latin>{item.source}</bdi>
+                        <bdi lang="en" data-latin>
+                          {item.source}
+                        </bdi>
                       </p>
                     )}
 
@@ -324,7 +326,7 @@ export default function ReviewPage() {
           </>
         )}
         <SiteFooter />
-      </article>
+      </main>
 
       <ScrollToTop />
     </div>

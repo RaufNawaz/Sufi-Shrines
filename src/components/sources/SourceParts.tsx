@@ -36,7 +36,7 @@ export function CitationText({ text, className }: { text: string; className?: st
   return (
     <bdi
       className={`sources-citation${className ? ` ${className}` : ''}`}
-      {...(/[A-Za-z]/.test(text) ? { 'data-latin': '' } : {})}
+      {...(/[A-Za-z]/.test(text) ? { 'data-latin': '', lang: 'en' } : {})}
     >
       {parts}
     </bdi>
@@ -48,7 +48,9 @@ export function WorkTitle({ work, as = 'span' }: { work: ShelfWork; as?: 'span' 
   const Tag = as;
   return (
     <Tag className={as === 'h1' ? 'entity-title source-title' : 'source-work-title'}>
-      <bdi data-latin>{work.title}</bdi>
+      <bdi lang="en" data-latin>
+        {work.title}
+      </bdi>
     </Tag>
   );
 }
@@ -113,7 +115,9 @@ export function SourceRow({
                 <Link key={work.slug} to={`/source/${work.slug}`} className="sources-action">
                   {t('sourcesOpenWork')}
                   {': '}
-                  <bdi data-latin>{work.title.split(':')[0]}</bdi>
+                  <bdi lang="en" data-latin>
+                    {work.title.split(':')[0]}
+                  </bdi>
                 </Link>
               ))}
               {url && (

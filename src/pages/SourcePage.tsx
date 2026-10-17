@@ -102,11 +102,15 @@ function SourceContent({ work, library, lang }: { work: ShelfWork; library: Libr
         {book && <span className="source-read-badge">{t('sourceReadBadge')}</span>}
       </p>
       <h1 ref={headingRef} className="entity-title source-title">
-        <bdi data-latin>{work.title}</bdi>
+        <bdi lang="en" data-latin>
+          {work.title}
+        </bdi>
       </h1>
       {work.author && (
         <p className="source-author">
-          <bdi data-latin>{work.author}</bdi>
+          <bdi lang="en" data-latin>
+            {work.author}
+          </bdi>
         </p>
       )}
 
@@ -334,7 +338,7 @@ export default function SourcePage() {
   return (
     <div className="page-enter entity-page-wrapper">
       <EntityPageHeader {...(work ? { title: work.title.split(':')[0] } : {})} />
-      <article
+      <main
         className="entity-page source-page"
         id="main-content"
         tabIndex={-1}
@@ -351,7 +355,9 @@ export default function SourcePage() {
             </li>
             {work && (
               <li aria-current="page">
-                <bdi data-latin>{work.title.split(':')[0]}</bdi>
+                <bdi lang="en" data-latin>
+                  {work.title.split(':')[0]}
+                </bdi>
               </li>
             )}
           </ol>
@@ -370,7 +376,7 @@ export default function SourcePage() {
           </>
         )}
         <SiteFooter />
-      </article>
+      </main>
       <ScrollToTop />
     </div>
   );

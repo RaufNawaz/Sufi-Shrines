@@ -245,9 +245,14 @@ function SkipLinks() {
       <a href="#main-content" className="skip-link">
         {t('skipToContent')}
       </a>
+      {/* To the search, which a sighted keyboard reader can see and use. It
+          went to the shrine directory, a visually hidden list whose links are
+          not in the tab order, so the next Tab landed back at the top; a
+          screen reader still reaches the directory as a landmark (a11y
+          council, 17 October 2026). */}
       {onMap && (
-        <a href="#shrine-directory" className="skip-link">
-          {t('skipToShrineList')}
+        <a href="#map-search" className="skip-link">
+          {t('skipToSearch')}
         </a>
       )}
     </>

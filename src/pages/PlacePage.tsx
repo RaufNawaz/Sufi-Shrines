@@ -310,7 +310,7 @@ export default function PlacePage() {
           article is in the inner one. */}
       <EntityPageHeader {...(place ? { title: localizeRecordedName(place.name, lang) } : {})} />
 
-      <article
+      <main
         className="entity-page place-page"
         id="main-content"
         tabIndex={-1}
@@ -351,7 +351,7 @@ export default function PlacePage() {
           </>
         )}
         <SiteFooter />
-      </article>
+      </main>
 
       <ScrollToTop />
     </div>

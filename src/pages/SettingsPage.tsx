@@ -255,12 +255,9 @@ export default function SettingsPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <EntityPageHeader title={t('settings')} />
 
-      <article
+      <main
         className="entity-page settings-page"
         id="main-content"
         tabIndex={-1}
@@ -306,7 +303,9 @@ export default function SettingsPage() {
                   onChange={() => setLang('en' as Lang)}
                 />
                 <span className="settings-option-label" lang="en">
-                  <bdi data-latin>English</bdi>
+                  <bdi lang="en" data-latin>
+                    English
+                  </bdi>
                 </span>
               </label>
               <label className="settings-option">
@@ -659,6 +658,9 @@ export default function SettingsPage() {
                 type="file"
                 accept="application/json,.json"
                 className="settings-file-input"
+                /* The visible Import button opens it; tabbable, it was a stop
+                   where focus vanished. */
+                tabIndex={-1}
                 aria-label={t('settingsSavedImport')}
                 onChange={(event) => {
                   const file = event.target.files?.[0];
@@ -704,7 +706,7 @@ export default function SettingsPage() {
         )}
 
         <SiteFooter />
-      </article>
+      </main>
     </div>
   );
 }

@@ -133,6 +133,11 @@ function ShrineContent({
      reaching this page at all means the component has just mounted. A context
      here would be a re-render in place of a `localStorage.getItem`. */
   const [showSharedGround] = useState(readSharedGroundSection);
+  /* The two trust badges' meaning, one tap away. It lived only in their
+     `title`, which a keyboard, a touch screen and most screen readers never
+     reach — and four of the seven labels contain "documented" (a11y council,
+     17 October 2026). */
+  const [trustExplained, setTrustExplained] = useState(false);
   const [showNearbyMosques] = useState(readNearbyMosquesSection);
   const saved = useSavedShrines();
   const isShrineSaved = saved.includes(shrine.slug);
@@ -201,7 +206,7 @@ function ShrineContent({
   const supportKey = supportLevelKey(shrine.supportLevel);
 
   return (
-    <article
+    <main
       className="shrine-page"
       id="main-content"
       tabIndex={-1}
@@ -286,7 +291,13 @@ function ShrineContent({
                 debt. */}
             {(() => {
               const shown = fmtNum(founded);
-              return /[A-Za-z]/.test(shown) ? <bdi data-latin>{shown}</bdi> : shown;
+              return /[A-Za-z]/.test(shown) ? (
+                <bdi lang="en" data-latin>
+                  {shown}
+                </bdi>
+              ) : (
+                shown
+              );
             })()}
           </span>
         )}
@@ -365,8 +376,25 @@ function ShrineContent({
         <span className="shrine-summary-trust">
           <InfoLevelBadge level={shrine.infoLevel} className="shrine-summary-badge" />
           <SupportLevelBadge level={shrine.supportLevel} className="shrine-summary-badge" />
+          {(shrine.infoLevel || shrine.supportLevel) && (
+            <button
+              type="button"
+              className="trust-explain-btn"
+              aria-expanded={trustExplained}
+              aria-controls="trust-explain"
+              onClick={() => setTrustExplained((open) => !open)}
+            >
+              {t('trustExplainButton')}
+            </button>
+          )}
         </span>
       </div>
+      {trustExplained && (
+        <div id="trust-explain" className="trust-explain">
+          {shrine.infoLevel && <p>{t('infoLevelTooltip')}</p>}
+          {shrine.supportLevel && <p>{t('supportLevelTooltip')}</p>}
+        </div>
+      )}
 
       {/* The places this site is recorded in — often two, a town and its
           district, because it is in both. Until these pages existed, the fact
@@ -460,7 +488,11 @@ function ShrineContent({
         >
           <polyline points="20 6 9 17 4 12" />
         </svg>
-        {t('copied')}
+        {/* The words only while it is showing: a live region announces a
+            change of text, and the text never changed — only its opacity — so
+            "Copied" was never spoken, and a linear read met a stray "Copied"
+            after Save (a11y council, 17 October 2026). */}
+        {copied ? t('copied') : ''}
       </div>
 
       {/* Article layout: hero + contents rail + prose + infobox.
@@ -562,18 +594,24 @@ function ShrineContent({
                 }
                 {...(CONTACT_EMAIL ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               >
-                {t('contributeAction')}
+                {/* Say where it goes. Without a project address the link is a
+                    GitHub issue form, which needs an account — "Write to us"
+                    promised something easier (a11y council, 17 Oct 2026). */}
+                {CONTACT_EMAIL ? t('contributeAction') : t('contributeActionGithub')}
               </a>
+              {!CONTACT_EMAIL && <span className="link-note"> ({t('githubLinkNote')})</span>}
             </aside>
           )}
         </div>
-        <aside>
+        {/* A layout column, not a landmark: the facts box inside is the
+            complementary landmark, named; an unnamed <aside> around it made two. */}
+        <div className="shrine-infobox-column">
           {/* Held for the same reason: the infobox is a table of the row's own
               fields, and an index row has ten of the sheet's forty-four. A
               half-populated fact table reads as an archive that knows less than
               it does. */}
           {articleReady && <ShrineInfobox shrine={shrine} />}
-        </aside>
+        </div>
       </div>
 
       {proseReady && navItems.length >= 2 && (
@@ -593,8 +631,9 @@ function ShrineContent({
         <a href={correctionIssueUrl(shrine.slug)} target="_blank" rel="noopener noreferrer">
           {t('reportCorrection')}
         </a>
+        <span className="link-note"> ({t('githubLinkNote')})</span>
       </SiteFooter>
-    </article>
+    </main>
   );
 }
 

@@ -475,7 +475,7 @@ export default function GraphPage() {
     <div className="page-enter entity-page-wrapper">
       <EntityPageHeader title={t('graphExplorerTitle')} />
 
-      <article
+      <main
         className="entity-page"
         id="main-content"
         tabIndex={-1}
@@ -645,7 +645,12 @@ export default function GraphPage() {
                 disappear behind a Sufi-order filter. */}
             {unaffiliatedCount > 0 && (
               <p className="graph-figures-note">
-                {fmtNum(tFn(lang, 'graphLineageUnaffiliated', unaffiliatedCount))}
+                {/* Counted over every recorded link, and now says so: it sat
+                    under "Recorded teacher–disciple links: 18" (the selected
+                    order's) reading "36 of these links…" (a11y council). */}
+                {fmtNum(
+                  tFn(lang, 'graphLineageUnaffiliated', unaffiliatedCount, lineageEdges.length),
+                )}
               </p>
             )}
             {/* `data-latin`: many of these endpoints are figures the Urdu
@@ -1233,10 +1238,12 @@ export default function GraphPage() {
                           {work && !usesLatinScript(lang) ? (
                             work.ur
                           ) : (
-                            <bdi data-latin>{work?.en ?? f.work}</bdi>
+                            <bdi lang="en" data-latin>
+                              {work?.en ?? f.work}
+                            </bdi>
                           )}
                           {' · '}
-                          <bdi data-latin>
+                          <bdi lang="en" data-latin>
                             entries/book_takeaways/{f.work}.md:
                             {f.records.map((r) => r.line).join(', ')}
                           </bdi>
@@ -1250,7 +1257,7 @@ export default function GraphPage() {
           </Sheet>
         )}
         <SiteFooter />
-      </article>
+      </main>
     </div>
   );
 }

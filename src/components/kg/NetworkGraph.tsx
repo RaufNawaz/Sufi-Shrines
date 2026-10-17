@@ -235,7 +235,7 @@ export function NetworkGraph({ center, connected, legend }: Props) {
                 the caption says whose shrine it is. */}
             {preview.node.imageOf && (
               <span className="network-preview-site">
-                <bdi data-latin>{preview.node.imageOf}</bdi>
+                <bdi lang="en" data-latin>{preview.node.imageOf}</bdi>
               </span>
             )}
           </div>

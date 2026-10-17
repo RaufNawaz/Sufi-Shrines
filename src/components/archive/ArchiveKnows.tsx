@@ -260,11 +260,11 @@ export function ArchiveKnows({
                         {/* The work's own title and author, which is what a
                             reader would search for. Latin in both views for the
                             same reason a bibliography is (i18n rule 7). */}
-                        <bdi data-latin>{work.title}</bdi>
+                        <bdi lang="en" data-latin>{work.title}</bdi>
                         {work.author && (
                           <span className="coverage-work-author">
                             {' · '}
-                            <bdi data-latin>{work.author}</bdi>
+                            <bdi lang="en" data-latin>{work.author}</bdi>
                           </span>
                         )}
                       </span>

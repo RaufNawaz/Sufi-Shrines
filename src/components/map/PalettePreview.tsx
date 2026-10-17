@@ -71,7 +71,7 @@ export function PalettePreview({ shrine, onShow }: { shrine: Shrine; onShow: () 
       </h3>
       {(location || founded) && (
         <p className="palette-preview-meta">
-          {location && <bdi data-latin>{location}</bdi>}
+          {location && <bdi lang="en" data-latin>{location}</bdi>}
           {location && founded && ' · '}
           {founded && fmtNum(founded)}
         </p>
@@ -79,7 +79,7 @@ export function PalettePreview({ shrine, onShow }: { shrine: Shrine; onShow: () 
       {saint && (
         <p className="palette-preview-figure">
           <span className="palette-preview-label">{figureLabel}</span>
-          <bdi data-latin>{saint}</bdi>
+          <bdi lang="en" data-latin>{saint}</bdi>
         </p>
       )}
       {lead && (

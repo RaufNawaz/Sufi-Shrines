@@ -145,12 +145,9 @@ export default function TypologyPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <EntityPageHeader title={t('typologyTitle')} />
 
-      <article
+      <main
         className="entity-page typology-page"
         id="main-content"
         lang={isRtl ? 'ur' : undefined}
@@ -221,7 +218,7 @@ export default function TypologyPage() {
                       <div className="related-card-name">{name}</div>
                       {/* The recorded Location, declared. `RelatedShrines`
                           renders the identical value with
-                          `<bdi data-latin>` — the column often carries a survey
+                          `<bdi lang="en" data-latin>` — the column often carries a survey
                           qualification in English rather than a place name —
                           and this copy of the card did not, which put 14
                           undeclared English runs on `/typology?lang=ur`. Found
@@ -253,7 +250,7 @@ export default function TypologyPage() {
           </section>
         ))}
         <SiteFooter />
-      </article>
+      </main>
     </div>
   );
 }
