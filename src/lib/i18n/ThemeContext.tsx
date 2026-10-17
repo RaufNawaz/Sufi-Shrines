@@ -3,6 +3,7 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useS
 
 import type { Theme } from '../../types/shrine';
 import { THEME_STORAGE_KEY } from '../storageKeys';
+import { withViewTransition } from '../nav/viewTransition';
 
 function detectInitialTheme(): Theme {
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
@@ -22,13 +23,25 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(detectInitialTheme);
 
+  /* One change, not two. The page flipped at once while ~130 chips, segments
+     and tags ran their own 150ms colour transitions, so the active language
+     segment lingered light blue on black (motion council, 17 October 2026).
+     Element transitions are suspended for the switch, and the switch itself is
+     a single crossfade where the browser has View Transitions and motion is
+     allowed — otherwise an instant, uniform flip. */
   const toggleTheme = useCallback(() => {
-    setTheme((t) => {
-      const next = t === 'dark' ? 'light' : 'dark';
+    const next: Theme = theme === 'dark' ? 'light' : 'dark';
+    const root = document.documentElement;
+    root.classList.add('theme-switching');
+    withViewTransition(() => {
+      root.setAttribute('data-theme', next);
       localStorage.setItem(THEME_STORAGE_KEY, next);
-      return next;
+      setTheme(next);
     });
-  }, []);
+    window.requestAnimationFrame(() =>
+      window.requestAnimationFrame(() => root.classList.remove('theme-switching')),
+    );
+  }, [theme]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

@@ -364,3 +364,11 @@ html.vt-nav .shrine-page-header {
 :root[data-motion='reduced']::view-transition-new(*) {
   animation: none !important;
 }
+
+/* Suspended for the frame a theme switch lands in, so every element changes
+   colour together (ThemeContext.toggleTheme). */
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
