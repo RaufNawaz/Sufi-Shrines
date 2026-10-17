@@ -152,7 +152,23 @@ function ShrineContent({
     (localizeField(shrine.raw, 'Category') || shrine.category);
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
-  const founded = resolveFoundedDate(shrine.raw, lang);
+  /* The date under the title reads what the facts box reads: `year_built`
+     first, the legacy `Founded/Opened` only where there is none. Until 17
+     October 2026 it read the legacy column alone, and 96 of 171 entries showed
+     two different dates on one screen — Data Darbar "11th Century" here and
+     "1072" in the facts box — the vaguer one in the more prominent place.
+
+     A `year_built` that is a qualified phrase stays a phrase (RULE 2): shown
+     verbatim when it is short, and when it is long ("681 CE / c. 63 AH
+     (popular tradition) — see note; second tradition…") left to the facts box,
+     which carries it whole. Pulling a bare number out of it here would drop
+     exactly the qualification the archive keeps. */
+  const yearBuilt = String(shrine.yearBuilt ?? '').trim();
+  const founded = yearBuilt
+    ? yearBuilt.length <= FOUNDED_SUMMARY_MAX
+      ? yearBuilt
+      : ''
+    : resolveFoundedDate(shrine.raw, lang);
 
   const statusKey = siteStatusKey(shrine.status);
   const statusLabel =
@@ -581,6 +597,9 @@ function ShrineContent({
     </article>
   );
 }
+
+/** Longest recorded `year_built` phrase the summary line repeats verbatim. */
+const FOUNDED_SUMMARY_MAX = 40;
 
 export default function ShrinePage() {
   const { slug } = useParams<{ slug: string }>();

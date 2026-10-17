@@ -307,6 +307,20 @@ button,
   touch-action: manipulation;
 }
 
+/* Form controls take the page's face. Browsers give buttons and fields their
+   own system font, and the only rule that overrode it was the RTL one further
+   down — so in English, Share, Save, "Add to calendar", every "Copy" and every
+   "Show all" button rendered in Arial beside Source Sans text (measured,
+   typography council, 17 October 2026). Family only: line-height is left to
+   each control, so nothing changes height. The [dir='rtl'] rule still wins in
+   Urdu, being more specific. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
 /* Every link has a colour, including the ones nobody styled.
  *
  * There was no `a { color }` anywhere, so an anchor without its own rule fell

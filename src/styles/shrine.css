@@ -76,9 +76,14 @@
   line-height: var(--leading-snug);
 }
 
+/* 54 entries have no live photograph. Their placeholder was 220px tall —
+   on a phone the largest thing on the first screen of a thin entry, with the
+   caption scrim darkening an image that was not there — pushing the facts a
+   reader came for below the fold. A short band keeps the tradition glyph as a
+   marker of the gap without spending the screen on it (council, 17 Oct 2026). */
 .shrine-hero-placeholder {
   width: 100%;
-  height: 220px;
+  height: 112px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1838,6 +1843,12 @@
   display: none;
 }
 
+/* No scrim where there is no photograph: it exists to carry the credit over an
+   image, and over the placeholder it was a grey smear. */
+.shrine-hero:has(.shrine-hero-placeholder)::after {
+  display: none;
+}
+
 .shrine-hero::after {
   content: '';
   position: absolute;
@@ -2051,7 +2062,7 @@
 
 /* ── ShrineImage (base placeholder styles live in components.css) ───────────── */
 .shrine-img-placeholder.shrine-hero-placeholder {
-  height: 220px;
+  height: 112px;
 }
 
 /* ── Sources & Provenance panel ────────────────────────────────────────────── */
