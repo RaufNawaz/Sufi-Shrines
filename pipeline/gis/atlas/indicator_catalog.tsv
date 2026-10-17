@@ -95,6 +95,11 @@ travel_health_min_popw	Minutes to health care (motorized)	Access and connectivit
 share_pop_within_30min_health	Within 30 min of health care (%)	Access and connectivity	1	2020
 walk_health_min_popw	Minutes to health care on foot	Access and connectivity	0	2020
 share_pop_within_60min_walk_health	Within an hour's walk of health care (%)	Access and connectivity	1	2020
+km_to_gov_primary_popw	Km to government primary care (BHU/RHC)	Access and connectivity	0	2017
+share_pop_within_5km_gov_primary	Within 5 km of government primary care (%)	Access and connectivity	1	2017
+km_to_hq_hospital_popw	Km to a tehsil/district HQ hospital	Access and connectivity	0	2017
+gov_primary_per_100k	Government primary facilities per 100,000	Access and connectivity	1	2017
+private_facilities_per_100k	Private health facilities per 100,000	Access and connectivity	1	2017
 mobile_download_mbps	Mobile download speed, Mbps (Speedtest)	Access and connectivity	1	2025 Q2
 fixed_download_mbps	Fixed broadband speed, Mbps (Speedtest)	Access and connectivity	1	2025 Q2
 mobile_devices_per_1000	Devices testing mobile data per 1,000	Access and connectivity	1	2025 Q2

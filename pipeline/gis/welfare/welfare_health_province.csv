@@ -1,0 +1,8 @@
+province_code,province_name,km_to_gov_primary_popw,km_to_hq_hospital_popw,share_pop_within_5km_gov_primary,share_pop_within_25km_hq_hospital,gov_primary_per_100k,private_facilities_per_100k
+PK1,Azad Kashmir,2.768,10.812,89.145,97.288,5.678,6.834
+PK2,Balochistan,7.929,48.485,50.705,25.723,5.915,3.138
+PK3,Gilgit Baltistan,18.173,23.833,11.062,59.267,1.565,4.0
+PK4,Islamabad,5.415,12.487,44.326,99.975,0.507,20.666
+PK5,Khyber Pakhtunkhwa,4.967,14.757,79.591,88.502,2.383,3.677
+PK6,Punjab,3.631,14.27,77.438,87.71,1.898,6.192
+PK7,Sindh,5.4,52.79,64.159,28.371,1.292,4.656

@@ -81,6 +81,11 @@ def main(a):
             zipfile.ZipFile(z).extractall(d)
 
     # Tracked (unlike sources/), so a fresh clone can check its downloads against these bytes.
+    rar = SRC / "health_facilities/Pakistan_Health_Facilities.rar"
+    if rar.exists() and not (SRC / "health_facilities/x/Pakistan_Health_Facilities.shp").exists():
+        (SRC / "health_facilities/x").mkdir(parents=True, exist_ok=True)
+        subprocess.run(["tar", "-xf", str(rar), "-C", str(SRC / "health_facilities/x")], check=True)
+
     with open(HERE / "fetched_extended.tsv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]), delimiter="\t", lineterminator="\n")
         w.writeheader()

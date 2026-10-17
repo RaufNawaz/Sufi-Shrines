@@ -1,0 +1,5 @@
+check,kind,measured,reference,result,note
+BHUs in the file vs Pakistan Economic Survey 2017-18,external,"4,023 (73%)","5,508 in 2017",warn,The file is incomplete; distances are an upper bound where a facility is missing
+RHCs in the file vs Pakistan Economic Survey 2017-18,external,567 (84%),676 in 2017,warn,The file is incomplete; distances are an upper bound where a facility is missing
+facilities placed inside the boundary file,integrity,100.0%,>= 97%,pass,
+"distance to government primary care vs MAP motorized travel time to care, districts",convergent,"rho = +0.64, n = 160","sign +, rho >= 0.5",pass,

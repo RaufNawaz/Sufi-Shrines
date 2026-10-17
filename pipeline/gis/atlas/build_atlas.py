@@ -9,6 +9,7 @@ Run last, after every layer builder (see docs/GIS_FOUNDATION.md, "Full run order
   welfare, wave 1  welfare_grid_h3_r6 / _tehsil / _district / _province   (build_welfare_layers.py)
   welfare, wave 2  welfare_ext_grid / _tehsil / _district / _province     (build_extended_layers.py)
   air quality      welfare_air_grid / _tehsil / _district / _province     (build_air_quality.py)
+  health access    welfare_health_grid / _tehsil / _district / _province  (build_health_facilities.py)
   surveys          outcomes_pslm_district (build_pslm_district.py), outcomes_pslm15_district
                    (build_pslm_2015.py), outcomes_nns_district (build_nns_district.py),
                    outcomes_mics_district (build_mics_district.py),
@@ -179,7 +180,10 @@ def main():
     w1 = {u: L(f"welfare_{u}", geom=True) for u in ["grid_h3_r6", "tehsil", "district"]}
     w1["province"] = L("welfare_province", geom=True)
     w2 = {u: L(f"welfare_ext_{u}") for u in ["grid", "tehsil", "district", "province"]}
-    air = {u: L(f"welfare_air_{u}") for u in ["grid", "tehsil", "district", "province"]}
+    # Further welfare families on the carrier, one layer per unit each (build_air_quality.py,
+    # build_health_facilities.py).
+    fam = {f: {u: L(f"welfare_{f}_{u}") for u in ["grid", "tehsil", "district", "province"]} for f in ["air", "health"]}
+    extra = lambda u: [(f, fam[f][u]) for f in fam]
     c1 = {"tehsil": L("outcomes_tehsil"), "district": L("outcomes_district")}
     c2 = {"tehsil": L("outcomes_ext_tehsil"), "district": L("outcomes_ext_district")}
     surveys = [("PSLM 2019-20", L("outcomes_pslm_district")), ("PSLM 2014-15", L("outcomes_pslm15_district")),
@@ -190,19 +194,19 @@ def main():
 
     print("joining")
     out = {
-        "grid": join_all(w1["grid_h3_r6"], "h3_id", [("wave 2", w2["grid"]), ("air", air["grid"])], "grid"),
+        "grid": join_all(w1["grid_h3_r6"], "h3_id", [("wave 2", w2["grid"])] + extra("grid"), "grid"),
         "tehsil": join_all(w1["tehsil"], "tehsil_code",
-                           [("census", c1["tehsil"]), ("census ext", c2["tehsil"]), ("wave 2", w2["tehsil"]),
-                            ("air", air["tehsil"])], "tehsil"),
+                           [("census", c1["tehsil"]), ("census ext", c2["tehsil"]), ("wave 2", w2["tehsil"])]
+                           + extra("tehsil"), "tehsil"),
         "district": join_all(w1["district"], "district_code",
-                             [("census", c1["district"]), ("census ext", c2["district"]), ("wave 2", w2["district"]),
-                              ("air", air["district"])]
+                             [("census", c1["district"]), ("census ext", c2["district"]), ("wave 2", w2["district"])]
+                             + extra("district")
                              + surveys,
                              "district"),
     }
     prov = w1["province"].merge(adm_p[["province_code", "n_site", "n_mus", "n_mus_pre1857", "area_km2"]],
                                 on="province_code", how="left")
-    out["province"] = join_all(prov, "province_code", [("wave 2", w2["province"]), ("air", air["province"])], "province")
+    out["province"] = join_all(prov, "province_code", [("wave 2", w2["province"])] + extra("province"), "province")
     out["province"] = out["province"][out["province"].geometry.notna()]          # FATA: data row, no polygon
     for u in out:
         out[u] = derived(out[u], u)
@@ -219,6 +223,7 @@ def main():
         pd.read_csv(GIS / "welfare/welfare_codebook.csv").assign(wave="welfare 1"),
         pd.read_csv(GIS / "welfare/welfare_ext_codebook.csv").assign(wave="welfare 2"),
         pd.read_csv(GIS / "welfare/welfare_air_codebook.csv").assign(wave="welfare 2"),
+        pd.read_csv(GIS / "welfare/welfare_health_codebook.csv").assign(wave="welfare 2"),
         L("outcomes_codebook").rename(columns={"census_table": "source_key"})
         .assign(publisher="Pakistan Bureau of Statistics, Census 2023 (via PakPC2023 0.2.0)", licence="PBS", wave="census"),
         pd.read_csv(GIS / "outcomes/outcomes_ext_codebook.csv").rename(columns={"census_table": "source_key"})
