@@ -332,7 +332,18 @@ function fittedOpeningView(shrines: Shrine[]) {
   const sheet = sheetPeekHeight((name) =>
     getComputedStyle(document.documentElement).getPropertyValue(name),
   );
-  return { bounds: L.latLngBounds(corners), options: fitPadding(sheet) };
+  /* The sheet rests on the tab bar, not on the bottom of the screen, so the
+     band the map cannot show is the sheet *plus* the bar. Fitting to the sheet
+     alone left 49px of "visible" map underneath it: invisible on a tall phone,
+     and on a 390×664 one two sites opened hidden (map-opening-view.spec.ts,
+     17 October 2026). Measured rather than read from `--tabbar-height`, which
+     is a calc() with the safe-area inset in it and does not parse. */
+  const tabbar = document.querySelector('.tabbar');
+  const tabbarHeight =
+    tabbar && getComputedStyle(tabbar).display !== 'none'
+      ? tabbar.getBoundingClientRect().height
+      : 0;
+  return { bounds: L.latLngBounds(corners), options: fitPadding(sheet + tabbarHeight) };
 }
 
 /**
