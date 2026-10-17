@@ -132,6 +132,7 @@ $PY pipeline/gis/shrine_sources/build_external_sites.py
 $PY pipeline/gis/welfare/fetch_extended_sources.py  # ~1.3 GB more (Ookla is most of it), hashed
 $PY pipeline/gis/outcomes/build_census_extended.py --census pipeline/gis/sources/census_pakpc2023/PakPC2023/data
 $PY pipeline/gis/welfare/build_extended_layers.py   # ~10 min; reads welfare_district, so after wave one
+$PY pipeline/gis/welfare/build_air_quality.py       # needs netCDF4 (pip); ~1 GB of LGHAP zips
 $PY pipeline/gis/outcomes/build_pslm_district.py    # needs welfare_ext_district.csv (the IPC check)
 $PY pipeline/gis/outcomes/build_mpi_district.py
 $PY pipeline/gis/outcomes/build_pslm_2015.py        # after build_pslm_district.py
@@ -160,7 +161,7 @@ Checked in Chromium on 16 Oct 2026: every unit draws, all four lead toggles work
 errors, no sideways scroll at 390 px. The file is 3.1 MB and committed, so it opens from any
 clone; rebuild it after any layer changes. It carries no team-only column.
 
-**Since 17 Oct 2026 it reads the atlas** (below): 201 indicators in 16 themes, the menu and labels
+**Since 17 Oct 2026 it reads the atlas** (below): 207 indicators in 17 themes, the menu and labels
 from `atlas/indicator_catalog.tsv`. The data is embedded gzipped and base64-encoded and inflated
 in the page by `pako` (a third CDN script), so 7.1 MB of JSON ships as a 2.4 MB file. Two things
 that would each cost an hour: **`JSON.parse` rejects `NaN`**, which the old JS-literal embedding
@@ -168,7 +169,7 @@ accepted, so the builder turns every NaN into null and dumps with `allow_nan=Fal
 move the page script into a `type="text/plain"` block** to run it later — Prettier formats that as
 prose and re-wraps the code. Zero-inflated indicators (flood exposure, conflict deaths) get a
 "zero" class of their own, or their septiles collapse to three faint classes. Re-checked in
-Chromium on 17 Oct 2026: all 201 indicators at all 380 indicator-unit pairs draw with data, no
+Chromium on 17 Oct 2026: all 207 indicators at all 395 indicator-unit pairs draw with data, no
 console errors, no sideways scroll at 390 px.
 
 ## Welfare layers (added 16 October 2026)
@@ -228,16 +229,16 @@ tracked in `welfare/`.
 
 The aim: every measured welfare outcome for people in Pakistan that is openly available, on one
 frame. **`atlas_district`, `atlas_tehsil`, `atlas_province` and `atlas_grid_h3_r6`** in the
-GeoPackage hold every indicator as a column (299 at district), so ArcGIS or QGIS opens one layer
-and needs no joins; `atlas_codebook` (261 indicators) gives each one's definition, publisher,
+GeoPackage hold every indicator as a column (305 at district), so ArcGIS or QGIS opens one layer
+and needs no joins; `atlas_codebook` (267 indicators) gives each one's definition, publisher,
 licence, year and the units it reaches. Flat copies are tracked in `pipeline/gis/atlas/`.
 `build_atlas.py` refuses a column that arrives from two sources, an indicator with no
 definition, and any change to the archive's site counts.
 
 **`atlas_sites`** (layer and `atlas/atlas_sites.csv`) is the table the shrine-exposure analysis
-starts from: each of the 169 archive sites with all 198 catalog indicators for the place it stands
+starts from: each of the 169 archive sites with all 204 catalog indicators for the place it stands
 in. Each indicator is taken at the finest unit that reaches nearly all sites — hexagon for the
-satellite and modelled layers (42), district for most surveys (138), province for DHS's region
+satellite and modelled layers (45), district for most surveys (141), province for DHS's region
 figures (16) — and that unit is the codebook's `site_unit`, so no column mixes units. Census
 tehsil values reach only the 77 cleanly matched districts, so for sites they fall back to district.
 Only the sites layer's public columns are carried; the build fails if a team-only one appears.
@@ -248,10 +249,11 @@ What was added, by builder. Each writes its own checks file; every number below 
 |---|---|---|---|
 | `outcomes/build_census_extended.py` | Census 2023 tables 4, 6, 13A, 20-26 | child-woman ratio (fertility proxy), dependency ratio, under-5 sex ratio, girls / boys 15-19 ever married, youth literacy by sex, kacha / pakka housing, jhuggis, homelessness, no kitchen, no washroom, women home-owners, age heaping | district (all 23); tehsil (11) |
 | `welfare/build_extended_layers.py` | DHS modelled surfaces (17), MAP, Kummu GDP, UCDP, Ookla, UNOSAT, IPC | stunting, vaccination, ANC, facility births, contraception, unmet need, literacy by sex, water, open defecation, bed nets, tobacco; malaria (Pv, Pf) 2024; walking time to care; GDP per capita 2023 and growth; conflict deaths 2015-24; mobile / fixed internet speed and use; share living in the 2022 and 2010 flood extents; IPC phase 3+ | hexagon, tehsil, district, province (IPC district only) |
-| `outcomes/build_pslm_district.py` | PSLM 2019-20 microdata (PBS) | literacy, net enrolment, out of school, women's and men's mobile ownership and internet use, full immunisation, child diarrhoea, ORS, prenatal care, skilled birth attendance, facility births, postnatal care, women's work, handwashing with soap, drainage, waste collection, LHW visits, FIES food insecurity | district (129) |
+| `outcomes/build_pslm_district.py` | PSLM 2019-20 microdata (PBS) | literacy, net enrolment, out of school, women's and men's mobile ownership and internet use, full immunisation, child diarrhoea, ORS, prenatal care, skilled birth attendance, facility births, postnatal care, women's work, handwashing with soap, drainage, waste collection, LHW visits, FIES food insecurity, ownership of agricultural land and of cattle | district (129) |
 | `outcomes/build_mpi_district.py` | Planning Commission / UNDP / OPHI 2016 | district MPI, headcount and intensity, six rounds 2004/05-2014/15 | district (124) |
 | `outcomes/build_pslm_2015.py` | PSLM 2014-15 microdata (PBS) | the same literacy, schooling, immunisation, diarrhoea, maternal-care and LHW indicators for 2014-15, and the change to 2019-20 | district (122; change for 107) |
 | `outcomes/build_nns_district.py` | National Nutrition Survey 2018, Vol. 2 | stunting, wasting, underweight, overweight, clinical anaemia, child disability, iodized salt, women's underweight and obesity, marriage before 18 and 15, **E. coli and arsenic tested in household drinking water**, FIES, social-protection coverage | district (146, incl. AJK, GB, ex-FATA) |
+| `welfare/build_air_quality.py` | LGHAP v2 (Bai et al. 2024), 1 km monthly PM2.5 | annual PM2.5 where people live; share above WHO's guideline (5) and its least strict interim target (35 µg/m³) | hexagon, tehsil, district, province |
 | `outcomes/build_wb_poverty_district.py` | World Bank, *Pakistan Poverty Map 2019-2020* (PRWP 11012), Annex 1 | **monetary poverty rate (with SE)**, poverty gap, number of poor, consumption per adult equivalent | district (129) |
 | `outcomes/build_mics_district.py` | Provincial MICS 6, sampling-error appendices | **under-five, infant and neonatal mortality and TFR (with standard errors)**, foundational reading and numeracy, birth registration, violent discipline, child labour, child marriage, feeling safe, discrimination, life satisfaction, and more | district (65: Punjab, Sindh) |
 
@@ -327,12 +329,20 @@ What was added, by builder. Each writes its own checks file; every number below 
   30.04, Punjab 16.56, Sindh 26.17, Balochistan 38.73) exactly and miss the province models'
   (29.03, 16.21, 25.75, 42.50). The annex prints **Multan's mean consumption as 35,473 PKR** against
   a 5,140 median — kept as printed, flagged by a check.
+- **LGHAP's NetCDF files have no geotransform and store PM25 as (lon, lat)**: rasterio opens them
+  as an identity-transformed 36,000 × 12,000 array. Read the `lat` and `lon` variables with
+  netCDF4. The build's orientation check (Lahore's annual mean 90 µg/m³ above Gilgit's 15) is
+  what guards this. Population-weighted national mean, 2021: 47.1 µg/m³.
+- **PSLM's land area and owner's sex are not usable as published**: the owner codes carry no
+  labels, and the file's acre conversion is inconsistent (an 11-acre plot converts to 38; the
+  maximum is 240,000 acres). Only whether a household owns land is used.
 - pdfplumber took over ten minutes on a 380-page report; `pdftotext -layout` (poppler, installed)
   takes seconds and keeps table columns aligned. Both NNS and MICS are read that way.
 
 **Not reached, and why** (so the next attempt does not start from zero):
 
-- Satellite PM2.5 (ACAG V6.GL.02) sits behind Box and NASA Earthdata logins; IHME's gridded
+- Satellite PM2.5 from ACAG (V6.GL.02) sits behind Box and NASA Earthdata logins — LGHAP v2 on
+  Zenodo is used instead; IHME's gridded
   child mortality, growth failure and WASH estimates behind a GHDx login; SEDAC's relative
   deprivation and infant mortality grids behind Earthdata. All would add real outcomes.
 - **The Khyber Pakhtunkhwa 2019 and Balochistan 2019-20 MICS reports** are published only at

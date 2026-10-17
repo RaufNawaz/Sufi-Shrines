@@ -3,6 +3,11 @@
 > **In this repository:** see `docs/GIS_FOUNDATION.md` for what was measured on import (15 Oct
 > 2026), the caveats that come from the archive's own audits (coordinate precision, unknown
 > founding years, team-only columns in `sites`), and the rebuild order.
+>
+> **For analysis, start from the atlas** (added 17 Oct 2026): `atlas_district`, `atlas_tehsil`,
+> `atlas_province` and `atlas_grid_h3_r6` hold every welfare indicator as a column, `atlas_sites`
+> gives each archive site the values of the place it stands in, and `atlas_codebook` defines
+> them all (`pipeline/gis/atlas/`).
 
 This folder builds one GeoPackage, `shrines_foundation.gpkg`, that every later map or dataset is layered onto. It opens directly in QGIS, ArcGIS Pro and ArcGIS Online, and reads into Python (geopandas) or R (sf).
 
