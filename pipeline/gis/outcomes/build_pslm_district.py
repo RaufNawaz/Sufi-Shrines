@@ -212,6 +212,19 @@ def indicators():
           " / ".join(f"{v:.0%}" for v in prev), "c01 > c04 > c08", prev[0] > prev[3] > prev[7])
     out["pslm_fies_raw4plus"] = wmean(k, "fies4")
     out["pslm_whole_day_without_food"] = wmean(k, "dayhungry")
+    # Assets (section G): agricultural land and cattle, yes/no per household. Area and the owner's sex
+    # are left out: the owner codes (1-4) carry no labels, and the acre conversion in sgaq03_con is
+    # inconsistent (one plot of 11 acres converts to 38; the maximum is 240,000 acres), so a
+    # landholding Gini would measure the conversion errors.
+    hreg = rd("plist", ["hhcode", "region"]).drop_duplicates("hhcode").set_index("hhcode").region
+    g_ = rd("secg", ["hhcode", "itc", "sgaq01"])
+    land = g_[g_.itc == 1].drop_duplicates("hhcode").join(hhw, on="hhcode", how="inner").join(hreg, on="hhcode")
+    land["own"] = (land.sgaq01 == 1).astype(float).where(land.sgaq01.notna())
+    out["pslm_hh_own_agri_land"] = wmean(land, "own")
+    out["pslm_rural_hh_own_agri_land"] = wmean(land[land.region == 1], "own")
+    cat = g_[g_.itc == 4].drop_duplicates("hhcode").join(hhw, on="hhcode", how="inner")
+    cat["cattle"] = (cat.sgaq01 == 1).astype(float).where(cat.sgaq01.notna())
+    out["pslm_hh_own_cattle"] = wmean(cat, "cattle")
     n["households"] = hhw.groupby("district").size()
     return pd.DataFrame(out), pd.DataFrame(n)
 
@@ -338,6 +351,9 @@ CODEBOOK = {
     "pslm_waste_collected": "Households whose waste is collected (municipal or private door-step, or a public bin), %",
     "pslm_waste_dumped_open": "Households whose waste goes to the street, open space or a water body, %",
     "pslm_lhw_visited": "Households visited by a Lady Health Worker (as reported in the health module), %",
+    "pslm_hh_own_agri_land": "Households in which a member owns agricultural land, %",
+    "pslm_rural_hh_own_agri_land": "Rural households in which a member owns agricultural land, % (its complement is rural landlessness)",
+    "pslm_hh_own_cattle": "Households owning buffaloes or cows, %",
     "pslm_fies_mod_sev": "Moderate or severe food insecurity, % of households (FIES, FAO method), as published by PBS in Table 9.1 of the PSLM 2019-20 report",
     "pslm_fies_mod_sev_moe": "Margin of error of the above, points (PBS Table 9.1)",
     "pslm_fies_severe": "Severe food insecurity, % of households (FIES), PBS Table 9.1",
@@ -398,7 +414,8 @@ def main():
     m = out.drop_duplicates("district_code").set_index("district_code").join(census, how="inner")
     for a, b, sign in [("pslm_literacy", "literacy", +1), ("pslm_literacy_female", "literacy_female", +1),
                        ("pslm_out_of_school_5_16", "out_of_school_5_16", +1),
-                       ("pslm_own_mobile_women", "literacy_female", +1)]:
+                       ("pslm_own_mobile_women", "literacy_female", +1),
+                       ("pslm_hh_own_agri_land", "urban_share", -1)]:
         x = m[[a, b]].dropna()
         r = x[a].rank().corr(x[b].rank())
         check(f"{a} (2019-20) vs census 2023 {b}", "convergent", f"rho = {r:+.2f}, n = {len(x)}",

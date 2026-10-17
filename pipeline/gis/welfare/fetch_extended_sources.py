@@ -6,7 +6,8 @@ Usage (from the repo root):
   python pipeline/gis/welfare/fetch_extended_sources.py            # fetch only what is missing
   python pipeline/gis/welfare/fetch_extended_sources.py --refresh  # re-download everything
 
-Exits non-zero naming any source that failed, keeping the previous copy of it.
+Exits non-zero naming any source that failed, keeping the previous copy of it, and any file whose
+publisher states an MD5 (expected_md5) that the download does not match.
 """
 import argparse, csv, datetime, subprocess, sys, zipfile
 from pathlib import Path
@@ -59,8 +60,11 @@ def main(a):
                 except Exception as e:                       # keep the previous copy, report, go on
                     failed.append(f"{r['key']} {dest.name}: {e}")
                     continue
+            md5 = digest(dest, "md5")
+            if r.get("expected_md5") and md5 != r["expected_md5"]:
+                failed.append(f"{r['key']} {dest.name}: md5 {md5} != published {r['expected_md5']}")
             out.append({"key": r["key"], "file": str(dest.relative_to(SRC)), "bytes": dest.stat().st_size,
-                        "sha256": digest(dest, "sha256"), "md5": digest(dest, "md5"),
+                        "sha256": digest(dest, "sha256"), "md5": md5, "md5_published": r.get("expected_md5", ""),
                         "fetched_utc": datetime.datetime.fromtimestamp(
                             dest.stat().st_mtime, datetime.timezone.utc).isoformat(timespec="seconds"),
                         "url": url})

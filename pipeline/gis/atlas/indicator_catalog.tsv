@@ -13,6 +13,9 @@ mpi_headcount	MPI poor (%)	Wealth and poverty	0	2017-18
 mpi_severe	In severe multidimensional poverty (%)	Wealth and poverty	0	2017-18
 mpi_vulnerable	Vulnerable to poverty (%)	Wealth and poverty	0	2017-18
 ipc_phase3plus	Food insecurity, IPC phase 3+ (%)	Wealth and poverty	0	latest
+pslm_rural_hh_own_agri_land	Rural households owning agricultural land (%)	Wealth and poverty	1	2019-20
+pslm_hh_own_agri_land	Households owning agricultural land (%)	Wealth and poverty	1	2019-20
+pslm_hh_own_cattle	Households owning cattle or buffalo (%)	Wealth and poverty	1	2019-20
 literacy	Literacy, 10+ (%)	Education	1	2023
 literacy_female	Female literacy, 10+ (%)	Education	1	2023
 literacy_female_rural	Rural female literacy, 10+ (%)	Education	1	2023

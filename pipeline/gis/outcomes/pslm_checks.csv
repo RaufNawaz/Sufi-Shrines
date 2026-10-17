@@ -14,5 +14,6 @@ pslm_literacy (2019-20) vs census 2023 literacy,convergent,"rho = +0.92, n = 129
 pslm_literacy_female (2019-20) vs census 2023 literacy_female,convergent,"rho = +0.94, n = 129","sign +, |rho| >= 0.4",pass,
 pslm_out_of_school_5_16 (2019-20) vs census 2023 out_of_school_5_16,convergent,"rho = +0.93, n = 129","sign +, |rho| >= 0.4",pass,
 pslm_own_mobile_women (2019-20) vs census 2023 literacy_female,convergent,"rho = +0.63, n = 129","sign +, |rho| >= 0.4",pass,
+pslm_hh_own_agri_land (2019-20) vs census 2023 urban_share,convergent,"rho = -0.54, n = 129","sign -, |rho| >= 0.4",pass,
 pslm_fies_mod_sev vs census 2023 literacy,convergent,"rho = -0.45, n = 129","sign -, |rho| >= 0.4",pass,
 "PSLM 2019-20 FIES vs IPC phase 3+ (2021-2026 analyses), districts the IPC covers",convergent,"rho = -0.01, n = 76","sign +, rho >= 0.3",warn,"Two measures four to six years apart, either side of the 2022 floods; reported, not reconciled"
