@@ -149,3 +149,14 @@ pslm_covered_drainage	Covered or underground drainage (%)	Water and sanitation	1
 pslm_no_drainage	No drainage system (%)	Water and sanitation	0	2019-20
 pslm_waste_collected	Household waste collected (%)	Water and sanitation	1	2019-20
 pslm_waste_dumped_open	Waste dumped in the open (%)	Water and sanitation	0	2019-20
+chg_literacy_15_20	Change in literacy, 2014-15 to 2019-20 (points)	Change over time	1	2015-2020
+chg_literacy_female_15_20	Change in female literacy, 2014-15 to 2019-20 (points)	Change over time	1	2015-2020
+chg_out_of_school_5_16_15_20	Change in out of school 5-16, 2014-15 to 2019-20 (points)	Change over time	0	2015-2020
+chg_fully_immunised_15_20	Change in full immunisation, 2014-15 to 2019-20 (points)	Change over time	1	2015-2020
+chg_diarrhoea_u5_15_20	Change in child diarrhoea, 2014-15 to 2019-20 (points)	Change over time	0	2015-2020
+chg_skilled_birth_attendance_15_20	Change in skilled birth attendance, 2014-15 to 2019-20 (points)	Change over time	1	2015-2020
+chg_facility_delivery_15_20	Change in facility births, 2014-15 to 2019-20 (points)	Change over time	1	2015-2020
+chg_prenatal_care_15_20	Change in prenatal care, 2014-15 to 2019-20 (points)	Change over time	1	2015-2020
+chg_lhw_visited_15_20	Change in LHW visits, 2014-15 to 2019-20 (points)	Change over time	1	2015-2020
+pslm15_literacy	Literacy, 10+ (%, PSLM 2014-15)	Education	1	2014-15
+pslm15_fully_immunised	Children fully immunised (%, PSLM 2014-15)	Health and nutrition	1	2014-15

@@ -138,8 +138,9 @@ def indicators():
                          "siaq5k", "siaq5m", "siaq06", "siaq09"])
     ant = ["siaq5a", "siaq5b", "siaq5c", "siaq5d", "siaq5i", "siaq5j", "siaq5k", "siaq5m"]
     c = im[im.age == 1].copy()
-    # Code 4 appears only on the polio items and carries no label; PBS's Table 4.3C counts it as
-    # received (with it, this reproduces the table to a 0.3-point median; without it, 7.5 points off).
+    # Code 4 appears only on the polio items and carries no label in this file; the 2014-15 file labels
+    # it "polio campaign". PBS's Table 4.3C counts it as received (with it, this reproduces the table
+    # to a 0.3-point median; without it, 7.5 points off).
     c["full_any"] = c[ant].isin([1, 2, 4]).all(axis=1).astype(float)
     c["full_rec"] = (c[ant] == 1).all(axis=1).astype(float)
     out["pslm_fully_immunised"] = wmean(c, "full_any")
@@ -234,7 +235,8 @@ def parse_table(pages):
             if len(after) >= 6:
                 out[norm(m.group(1))] = after
             elif j > 0 and ints.match(lines[j - 1]) and len(lines[j - 1].split()) >= 6:
-                out[norm(m.group(1))] = [int(x) for x in lines[j - 1].split()]
+                # the rank and the 2014-15 value, where printed, follow the name on its own line
+                out[norm(m.group(1))] = [int(x) for x in lines[j - 1].split()] + after
     return out
 
 

@@ -69,7 +69,8 @@ def main(a):
             zipfile.ZipFile(z).extractall(z.with_suffix(""))
     for z, d, probe in [(SRC / "ucdp/ged251-csv.zip", SRC / "ucdp", "*.csv"),
                         (SRC / "unosat/FL20220808PAK_SHP.zip", SRC / "unosat/FL20220808PAK_SHP", "**/*.shp"),
-                        (SRC / "pslm/stata_data_pslm_2019_20.zip", SRC / "pslm/microdata_2019_20", "**/*.dta")]:
+                        (SRC / "pslm/stata_data_pslm_2019_20.zip", SRC / "pslm/microdata_2019_20", "**/*.dta"),
+                        (SRC / "pslm/stata_data_pslm_2014_15.zip", SRC / "pslm/microdata_2014_15", "**/*.dta")]:
         if z.exists() and not any(d.glob(probe)):
             zipfile.ZipFile(z).extractall(d)
 

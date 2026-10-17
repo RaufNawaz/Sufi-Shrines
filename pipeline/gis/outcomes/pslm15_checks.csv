@@ -1,0 +1,7 @@
+check,kind,measured,reference,result,note
+PSLM 2014-15 districts placed in OCHA districts,integrity,114 labels,all,pass,
+2014-15 literacy 10+ (Table 2.14a): ours vs PBS's '14-15' column,external,"median |diff| 0.22 points, 100% within 2.5, n = 102",median <= 1.0 and >= 90% within 2.5 points,pass,
+"2014-15 fully immunised, recall and record (Table 4.3C): ours vs PBS's '14-15' column",external,"median |diff| 0.27 points, 98% within 2.5, n = 102",median <= 1.0 and >= 90% within 2.5 points,pass,
+2014-15 diarrhoea under 5 (Table 4.6): ours vs PBS's '14-15' column,external,"median |diff| 0.25 points, 100% within 2.5, n = 101",median <= 1.0 and >= 90% within 2.5 points,pass,
+districts with a like-for-like change 2014-15 to 2019-20,integrity,107,>= 100 (all but split and new districts),pass,
+literacy change has both signs across districts,integrity,"60 up, 47 down",both present,pass,
