@@ -8,3 +8,5 @@ tehsil: archive sites after the joins,169,169 sites with coordinates,pass
 every indicator defined once,none,none,pass
 every catalog indicator present in some unit,all,all,pass
 every indicator column has a definition,all,all,pass
+site table carries no team-only column,none,none,pass
+"site table: every archive site, every catalog indicator a unit","169 sites, 198 indicators",169 sites,pass

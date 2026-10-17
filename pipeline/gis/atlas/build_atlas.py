@@ -15,7 +15,10 @@ Run last, after every layer builder (see docs/GIS_FOUNDATION.md, "Full run order
                    outcomes_mpi_district (build_mpi_district.py)
 
 Writes atlas_grid_h3_r6, atlas_tehsil, atlas_district, atlas_province and atlas_codebook into the
-GeoPackage, and flat copies (tracked, no geometry) of all but the grid beside this script.
+GeoPackage, and flat copies (tracked, no geometry) of all but the grid beside this script. Also
+atlas_sites: every archive site with every catalog indicator for the place it stands in, each
+indicator at the finest unit that reaches nearly all sites (the unit is in the codebook's site_unit),
+and only the sites layer's public columns.
 
 indicator_catalog.tsv (hand-written) gives each indicator its short label, theme, direction and
 year; the viewer reads the same catalog, so the menu and the codebook cannot drift apart.
@@ -91,6 +94,33 @@ DERIVED_DEFS = {
     "n_site": ("Archive sites with coordinates in the unit, all traditions", "archive"),
     "n_mus": ("Archive Muslim shrines in the unit", "archive"),
 }
+
+
+SITE_PUBLIC = ["site_id", "name", "category", "site_type", "status", "support_level", "shared_pin", "lat", "lon",
+               "h3_id", "tehsil_code", "district_code", "province_code"]
+TEAM_ONLY = {"qa_note", "needs_review", "flags", "description"}       # docs/GIS_FOUNDATION.md, caveat 5
+UNIT_KEYS = [("hex", "grid", "h3_id"), ("tehsil", "tehsil", "tehsil_code"), ("district", "district", "district_code"),
+             ("province", "province", "province_code")]
+
+
+def site_table(out, cat, sites):
+    """Every archive site with each catalog indicator at the finest unit that reaches (nearly) all
+    the sites any unit reaches. The unit is fixed per indicator, never mixed within a column."""
+    t = sites[SITE_PUBLIC].copy()
+    chosen, cols = {}, {}
+    for k in cat[cat.theme != "Archive"].key:
+        cover = {}
+        for name, u, key in UNIT_KEYS:
+            if k in out[u].columns:
+                vals = t[[key]].merge(out[u][[key, k]].drop_duplicates(key), on=key, how="left")[k]
+                cover[name] = (vals.notna().mean(), vals.to_numpy())
+        if not cover:
+            continue
+        best = max(c for c, _ in cover.values())
+        name = next(n for n, _, _ in UNIT_KEYS if n in cover and cover[n][0] >= 0.95 * best)
+        cols[k] = cover[name][1]
+        chosen[k] = name
+    return pd.concat([t, pd.DataFrame(cols, index=t.index)], axis=1), chosen
 
 
 def main():
@@ -177,12 +207,22 @@ def main():
     cb = cb[["indicator", "label", "theme", "higher_is_better", "year", "units", "definition", "source_key",
              "publisher", "licence", "wave", "in_viewer"]].sort_values(["theme", "indicator"], na_position="last")
 
+    print("site table")
+    st, site_unit = site_table(out, cat, L("sites"))
+    leaked = sorted(set(st.columns) & TEAM_ONLY)
+    check("site table carries no team-only column", "none" if not leaked else ", ".join(leaked), "none", not leaked)
+    check("site table: every archive site, every catalog indicator a unit", f"{len(st)} sites, {len(site_unit)} indicators",
+          f"{len(sites)} sites", len(st) == len(sites) and len(site_unit) == (cat.theme != "Archive").sum())
+    cb["site_unit"] = cb.indicator.map(site_unit).fillna("")
+
     print("writing")
     for u, g in out.items():
         layer = "atlas_grid_h3_r6" if u == "grid" else f"atlas_{u}"
         gpd.GeoDataFrame(g, geometry="geometry", crs=4326).to_file(GPKG, layer=layer, driver="GPKG")
         if u != "grid":
             g.drop(columns="geometry").to_csv(HERE / f"atlas_{u}.csv", index=False)
+    gpd.GeoDataFrame(st, geometry=gpd.points_from_xy(st.lon, st.lat), crs=4326).to_file(GPKG, layer="atlas_sites", driver="GPKG")
+    st.to_csv(HERE / "atlas_sites.csv", index=False)
     gpd.GeoDataFrame(cb, geometry=[None] * len(cb)).to_file(GPKG, layer="atlas_codebook", driver="GPKG")
     cb.to_csv(HERE / "atlas_codebook.csv", index=False)
     pd.DataFrame(CHECKS).to_csv(HERE / "checks.csv", index=False, quoting=csv.QUOTE_MINIMAL)
