@@ -21,7 +21,7 @@ import {
 } from '../components/kg/RecordedObservanceList';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
-import { CATEGORY_LABELS } from '../lib/data/categoryKey';
+import { CATEGORY_LABELS, categoryKey, type CategoryKey } from '../lib/data/categoryKey';
 import type { Lang, Shrine } from '../types/shrine';
 
 import { isRtlLang } from '../lib/i18n/languages';
@@ -41,6 +41,54 @@ import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
  * It deliberately does not describe the place: this archive has no prose about
  * Lahore, and writing some here would be inventing content (RULE 2).
  */
+
+/**
+ * The Sufi orders of the figures this place's sites commemorate, most figures
+ * first. Order pages listed their places ("Where this order stands") and the
+ * place page named no order back (explorer council, 17 October 2026). The
+ * graph is loaded dynamically: this route keeps it off its eager bundle.
+ */
+type PlaceOrder = { slug: string; name: Record<Lang, string>; count: number };
+
+function useOrdersForFigures(figureSlugs: string[]): PlaceOrder[] {
+  const [orders, setOrders] = React.useState<PlaceOrder[]>([]);
+  const key = figureSlugs.join('|');
+  React.useEffect(() => {
+    let cancelled = false;
+    const slugs = key.split('|').filter(Boolean);
+    if (slugs.length === 0) {
+      setOrders([]);
+      return;
+    }
+    /* The name helper too: `localizeKgName` imports the graph as well. */
+    void Promise.all([import('../lib/kg'), import('../lib/i18n/localizeKgName')]).then(
+      ([{ getOrderMemberships }, { localizeOrderName }]) => {
+        if (cancelled) return;
+        const counts = new Map<string, PlaceOrder>();
+        for (const slug of slugs) {
+          for (const { order } of getOrderMemberships(slug)) {
+            const entry = counts.get(order.slug);
+            if (entry) entry.count++;
+            else
+              counts.set(order.slug, {
+                slug: order.slug,
+                name: { en: localizeOrderName(order, 'en'), ur: localizeOrderName(order, 'ur') },
+                count: 1,
+              });
+          }
+        }
+        setOrders([...counts.values()].sort((a, b) => b.count - a.count));
+      },
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [key]);
+  return orders;
+}
+
+/** Rows shown before "Show all" in the figure and observance lists. */
+const LIST_CAP = 8;
 
 function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
   const { t, fmtNum, localizeField } = useLang();
@@ -90,6 +138,7 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
    * already has, which is the pattern the almanac's cards have used since the
    * graph landed. */
   const figures = React.useMemo(() => figuresAtShrines(place.shrines), [place.shrines]);
+  const orders = useOrdersForFigures(React.useMemo(() => figures.map((f) => f.slug), [figures]));
 
   const shrineBySlug = React.useMemo(
     () => new Map(place.shrines.map((s) => [s.slug, s])),
@@ -130,6 +179,23 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
     }
     return rows;
   }, [place.shrines, figures, lang]);
+
+  /* The place's sites by tradition, in the order the counts already use, and
+     then any whose category is not one of the six — so no site drops off the
+     page for want of a group. */
+  const siteGroups = React.useMemo(() => {
+    const groups: { key: CategoryKey; shrines: Shrine[] }[] = place.traditions.map(({ key }) => ({
+      key,
+      shrines: place.shrines.filter((s) => categoryKey(s.category) === key),
+    }));
+    const other = place.shrines.filter((s) => categoryKey(s.category) === 'default');
+    if (other.length > 0) groups.push({ key: 'default', shrines: other });
+    return groups;
+  }, [place.traditions, place.shrines]);
+  const groupLabel = (key: CategoryKey): string =>
+    key === 'default' ? t('placeSitesOther') : CATEGORY_LABELS[key][lang];
+  const [showAllFigures, setShowAllFigures] = React.useState(false);
+  const [showAllObservances, setShowAllObservances] = React.useState(false);
 
   useDocumentTitle(`${displayName} — ${t('siteTitle')}`);
 
@@ -190,17 +256,75 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
         </div>
       )}
 
-      {place.traditions.length > 0 && (
-        <section className="kg-section">
-          <h2 className="kg-section-heading">{t('placeTraditionsHeading')}</h2>
-          <ul className="place-tradition-list">
-            {place.traditions.map(({ key, count }) => (
+      {/* The sites first (explorer council, 17 October 2026). They were last,
+          under every figure and every observance — about eleven phone screens
+          down on /place/lahore — though "what is here?" is the question a place
+          page exists to answer. Grouped under the tradition counts that used to
+          sit above them as plain text; the counts now jump to their group. */}
+      <section className="kg-section" id="place-sites">
+        <h2 className="kg-section-heading">{t('placeSitesHeading')}</h2>
+        {siteGroups.length > 1 && (
+          <ul className="place-tradition-list" aria-label={t('placeTraditionsHeading')}>
+            {siteGroups.map(({ key, shrines }) => (
               <li key={key} className={`place-tradition place-tradition--${key}`}>
-                <span className="place-tradition-name">{CATEGORY_LABELS[key][lang]}</span>
-                <span className="place-tradition-count">{fmtNum(count)}</span>
+                <a href={`#place-sites-${key}`} className="place-tradition-link">
+                  <span className="place-tradition-name">{groupLabel(key)}</span>
+                  <span className="place-tradition-count">{fmtNum(shrines.length)}</span>
+                </a>
               </li>
             ))}
           </ul>
+        )}
+        {siteGroups.map(({ key, shrines }) => (
+          <div key={key} id={`place-sites-${key}`} className="place-site-group">
+            {siteGroups.length > 1 && (
+              <h3 className="place-site-group-heading">{groupLabel(key)}</h3>
+            )}
+            <ul className="place-site-list inset-list">
+              {shrines.map((shrine, i) => (
+                <li
+                  key={shrine.slug}
+                  className="inset-row inset-row--link reveal-rise"
+                  style={{ '--stagger-index': i } as React.CSSProperties}
+                >
+                  <Link to={`/shrine/${shrine.slug}`}>
+                    <span className="inset-row-label inset-row-label--stacked">
+                      <span className="inset-row-title">
+                        <bdi>{localizeShrineName(shrine, lang)}</bdi>
+                      </span>
+                      {/* The Location column — as recorded for the team, a place
+                          name for the public (`publicLocation`). Often still an
+                          English value either way, hence data-latin. */}
+                      {rowLocation(shrine) && (
+                        <span className="inset-row-sub" data-latin>
+                          <bdi>{rowLocation(shrine)}</bdi>
+                        </span>
+                      )}
+                    </span>
+                    <span className="inset-row-chevron" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      {orders.length > 0 && (
+        <section className="kg-section">
+          <h2 className="kg-section-heading">{t('placeOrdersHeading')}</h2>
+          <p className="kg-section-note">{t('placeOrdersNote')}</p>
+          <div className="order-place-list">
+            {orders.map(({ slug: orderSlug, name, count }) => (
+              <Link
+                key={orderSlug}
+                to={`/order/${orderSlug}`}
+                className="order-place-tag hover-lift"
+              >
+                <bdi>{name[lang]}</bdi> <span className="order-place-count">{fmtNum(count)}</span>
+              </Link>
+            ))}
+          </div>
         </section>
       )}
 
@@ -209,12 +333,13 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
           <h2 className="kg-section-heading">{t('placeFiguresHeading')}</h2>
           <p className="kg-section-note">{t('placeFiguresNote')}</p>
           <ul className="place-figure-list">
-            {figures.map(({ slug: figureSlug, recordedName, shrineSlugs }) => (
-              <li key={figureSlug} className="place-figure">
-                <Link to={`/saint/${figureSlug}`} className="place-figure-name">
-                  {fmtNum(localizeRecordedName(recordedName, lang))}
-                </Link>
-                {/* No connector word between the name and its sites. "at" on
+            {(showAllFigures ? figures : figures.slice(0, LIST_CAP)).map(
+              ({ slug: figureSlug, recordedName, shrineSlugs }) => (
+                <li key={figureSlug} className="place-figure">
+                  <Link to={`/saint/${figureSlug}`} className="place-figure-name">
+                    {fmtNum(localizeRecordedName(recordedName, lang))}
+                  </Link>
+                  {/* No connector word between the name and its sites. "at" on
                     its own is a fragment, and `noSentenceFragments.test.ts` is
                     right to refuse it: where a preposition goes is a fact about
                     the language, not about the layout, and Urdu's postposition
@@ -222,24 +347,30 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
                     says the sites are listed beside the name, and the order
                     page's member list already shows shrine tags with no label
                     at all. */}
-                <span className="place-figure-sites">
-                  {shrineSlugs.map((shrineSlug) => {
-                    const shrine = shrineBySlug.get(shrineSlug);
-                    if (!shrine) return null;
-                    return (
-                      <Link
-                        key={shrineSlug}
-                        to={`/shrine/${shrineSlug}`}
-                        className="entity-saint-shrine-tag"
-                      >
-                        <bdi>{localizeShrineName(shrine, lang)}</bdi>
-                      </Link>
-                    );
-                  })}
-                </span>
-              </li>
-            ))}
+                  <span className="place-figure-sites">
+                    {shrineSlugs.map((shrineSlug) => {
+                      const shrine = shrineBySlug.get(shrineSlug);
+                      if (!shrine) return null;
+                      return (
+                        <Link
+                          key={shrineSlug}
+                          to={`/shrine/${shrineSlug}`}
+                          className="entity-saint-shrine-tag"
+                        >
+                          <bdi>{localizeShrineName(shrine, lang)}</bdi>
+                        </Link>
+                      );
+                    })}
+                  </span>
+                </li>
+              ),
+            )}
           </ul>
+          {figures.length > LIST_CAP && !showAllFigures && (
+            <button type="button" className="action-btn" onClick={() => setShowAllFigures(true)}>
+              {fmtNum(tFn(lang, 'almanacShowList', figures.length))}
+            </button>
+          )}
         </section>
       )}
 
@@ -248,39 +379,21 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
           <h2 className="kg-section-heading">{t('placeObservancesHeading')}</h2>
           <p className="kg-section-note">{t('placeObservancesNote')}</p>
           <ObservanceGapNote rows={observances} />
-          <RecordedObservanceList rows={observances} showReviewState={teamView} />
+          <RecordedObservanceList
+            rows={showAllObservances ? observances : observances.slice(0, LIST_CAP)}
+            showReviewState={teamView}
+          />
+          {observances.length > LIST_CAP && !showAllObservances && (
+            <button
+              type="button"
+              className="action-btn"
+              onClick={() => setShowAllObservances(true)}
+            >
+              {fmtNum(tFn(lang, 'almanacShowList', observances.length))}
+            </button>
+          )}
         </section>
       )}
-
-      <section className="kg-section">
-        <h2 className="kg-section-heading">{t('placeSitesHeading')}</h2>
-        <ul className="place-site-list inset-list">
-          {place.shrines.map((shrine, i) => (
-            <li
-              key={shrine.slug}
-              className="inset-row inset-row--link reveal-rise"
-              style={{ '--stagger-index': i } as React.CSSProperties}
-            >
-              <Link to={`/shrine/${shrine.slug}`}>
-                <span className="inset-row-label inset-row-label--stacked">
-                  <span className="inset-row-title">
-                    <bdi>{localizeShrineName(shrine, lang)}</bdi>
-                  </span>
-                  {/* The Location column — as recorded for the team, a place
-                      name for the public (`publicLocation`). Often still an
-                      English value either way, hence data-latin. */}
-                  {rowLocation(shrine) && (
-                    <span className="inset-row-sub" data-latin>
-                      <bdi>{rowLocation(shrine)}</bdi>
-                    </span>
-                  )}
-                </span>
-                <span className="inset-row-chevron" />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
 
       <CiteThisEntry
         kind="place"

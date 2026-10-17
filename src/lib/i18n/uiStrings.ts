@@ -309,7 +309,7 @@ const UI_TEXT_EN = {
   saintObservancesHeading: 'Days kept for this figure',
   saintObservancesNote:
     'Every observance the archive records at a site where this figure is commemorated — not only the ones with a date. Dates appear exactly as they were written down.',
-  saintPlaceHeading: 'Where this figure rests',
+  saintPlaceHeading: 'Where these sites are',
   saintPlaceNote:
     'The place comes from the site’s own recorded Location, which is shown beneath it as written — including where it says what the survey did not record.',
   /* ── Figure pages: the entry's own account of the life ─────────────────
@@ -1315,6 +1315,22 @@ const UI_TEXT_EN = {
   traditionDefinitionHeading: 'What the archive says',
   traditionFromEntry: 'From the entry for',
   traditionSitesHeading: 'Sites recorded in this tradition',
+  placeSitesOther: 'Other sites',
+  placeOrdersHeading: 'Sufi orders here',
+  placeOrdersNote:
+    'The orders of the figures these sites commemorate, with how many of those figures belong to each.',
+  orderLineageLinks: (n: number) =>
+    n === 1
+      ? '1 teacher–disciple link is recorded with a member of this order at one end.'
+      : `${n} teacher–disciple links are recorded with a member of this order at one end.`,
+  orderLineageOpen: 'Read them as a tree',
+  orderLineageNone: 'No teacher–disciple links are recorded for this order yet.',
+  traditionFiguresHeading: 'Figures commemorated at these sites',
+  traditionFiguresNote:
+    'The people these sites remember. A site’s tradition is not necessarily the figure’s own.',
+  saintTraditionsHeading: 'Traditions at the sites that commemorate this figure',
+  saintTraditionsNote:
+    'Recorded for the sites, not the figure: a site’s tradition is not necessarily the figure’s own.',
   traditionSitesNote:
     'Each of these is a site whose own entry places it in this tradition, with the sentence that says so.',
   traditionScopeHeading: 'What this does not include',
@@ -1506,6 +1522,7 @@ export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, tota
    pieces itself decides that placement in English. */
 export function tFn(lang: Lang, key: 'settingsSavedCount', n: string): string;
 export function tFn(lang: Lang, key: 'offlineDataBannerDated', date: string): string;
+export function tFn(lang: Lang, key: 'orderLineageLinks', n: number): string;
 export function tFn(lang: Lang, key: 'settingsSavedImported', n: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayKm', value: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayMetres', value: string): string;
@@ -1542,6 +1559,7 @@ export function tFn(
     | 'chronologySpan'
     | 'settingsSavedCount'
     | 'offlineDataBannerDated'
+    | 'orderLineageLinks'
     | 'settingsSavedImported'
     | 'distanceAwayKm'
     | 'distanceAwayMetres'

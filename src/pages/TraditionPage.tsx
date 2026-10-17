@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
@@ -17,6 +17,44 @@ import { hasProjectAccess } from '../lib/projectAccess';
 import { categoryDisplayLabel } from '../lib/data/categoryKey';
 import { renderInlineBold } from '../components/shrine/inlineFormat';
 import { alsoKnownAsFor, getTraditionBySlug, getTraditionMembers } from '../lib/data/traditions';
+import type { Lang } from '../types/shrine';
+
+/**
+ * The figures commemorated at a tradition's sites. Derived, and worded as
+ * derived: a site's tradition is not its figure's — Guru Nanak is commemorated
+ * at Udasi darbars and the Udasi order was his son's — so the list says where
+ * these people are remembered, not what they belonged to. Before this, the two
+ * kinds of page never linked to each other (explorer council, 17 October
+ * 2026). `lib/kg` is loaded dynamically: this route never needed the graph.
+ */
+type SiteFigure = { slug: string; name: Record<Lang, string> };
+
+function useFiguresAtSites(shrineSlugs: string[]): SiteFigure[] {
+  const [figures, setFigures] = useState<SiteFigure[]>([]);
+  const key = shrineSlugs.join('|');
+  useEffect(() => {
+    let cancelled = false;
+    const wanted = new Set(key.split('|').filter(Boolean));
+    /* The name helper too: `localizeKgName` imports the graph as well. */
+    void Promise.all([import('../lib/kg'), import('../lib/i18n/localizeKgName')]).then(
+      ([{ getKGStore }, { localizeFigureName }]) => {
+        if (cancelled) return;
+        setFigures(
+          getKGStore()
+            .saints.filter((s) => s.shrines.some((slug) => wanted.has(slug)))
+            .map((s) => ({
+              slug: s.slug,
+              name: { en: localizeFigureName(s, 'en'), ur: localizeFigureName(s, 'ur') },
+            })),
+        );
+      },
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [key]);
+  return figures;
+}
 
 /**
  * One of the six traditions the archive documents outside the Sufi orders.
@@ -62,6 +100,12 @@ export default function TraditionPage() {
 
   const tradition = slug ? getTraditionBySlug(slug) : undefined;
   const members = useMemo(() => (slug ? getTraditionMembers(slug) : []), [slug]);
+  const memberSlugs = useMemo(() => members.map((m) => m.shrineSlug), [members]);
+  const figuresFound = useFiguresAtSites(memberSlugs);
+  const figures = useMemo(
+    () => [...figuresFound].sort((a, b) => a.name[lang].localeCompare(b.name[lang], lang)),
+    [figuresFound, lang],
+  );
 
   /* Real names from the live dataset, so a member reads as its entry's title
      rather than a title-cased slug — and so the Urdu view can localise it.
@@ -206,6 +250,25 @@ export default function TraditionPage() {
                       </li>
                     );
                   })}
+                </ul>
+              </section>
+            )}
+
+            {figures.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('traditionFiguresHeading')}</h2>
+                <p className="kg-section-note">{t('traditionFiguresNote')}</p>
+                <ul className="inset-list tradition-figures">
+                  {figures.map((figure) => (
+                    <li key={figure.slug} className="inset-row inset-row--link">
+                      <Link to={`/saint/${figure.slug}`}>
+                        <span className="inset-row-label">
+                          <bdi>{figure.name[lang]}</bdi>
+                        </span>
+                        <span className="inset-row-chevron" />
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </section>
             )}

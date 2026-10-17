@@ -174,7 +174,7 @@ const BUDGETS_KB = {
   /* 626 → 620 on 15 October 2026: CommandPalette (with its preview pane and
      filters) is lazy now, fetched when the browser is idle, and the route
      measured 616. If this grows by ~10 KB the palette went static again. */
-  'src/pages/MapPage.tsx': 640, // measured 637 on 17 Oct 2026, with the filter summary, in-view tab stops and the era note
+  'src/pages/MapPage.tsx': 644, // measured 641 on 17 Oct 2026 (round 5 strings)
   /* 520 → 526 on 29 Aug 2026, and raised rather than left at exactly the
      measurement for a specific reason: the route hit **520 against a 520
      budget**, which is not a pass, it is a landmine. The next person to add a
@@ -214,9 +214,9 @@ const BUDGETS_KB = {
 
      The structural point is still open and is worth more than either number:
      `/saint/:slug` downloads the whole graph to render one figure. */
-  'src/pages/SaintPage.tsx': 694, // measured 691 on 17 Oct 2026, with per-article Urdu loading
+  'src/pages/SaintPage.tsx': 699, // measured 696 on 17 Oct 2026, round 5: traditions row, capped days
   'src/pages/OrderPage.tsx': 682, // measured 679 on 17 Oct 2026, after the Urdu council's RecordedRun
-  'src/pages/GraphPage.tsx': 623, // measured 620 on 17 Oct 2026, after the council rounds
+  'src/pages/GraphPage.tsx': 628, // measured 625 on 17 Oct 2026, round 5: ?order= and #lineage
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
      UI strings, and the English string table is eager on every route, so the
      whole table moves together. Almanac was simply the one with the least
@@ -302,7 +302,7 @@ const BUDGETS_KB = {
      and reaches it through a dynamic import, so ShrinePage pays nothing for it.
      A static import there would have cost 17 KB against 3 KB of headroom.
      If this route ever jumps by ~420 KB, something pulled in src/lib/kg.ts. */
-  'src/pages/TraditionPage.tsx': 363, // measured 360 on 17 Oct 2026 (round 5 strings)
+  'src/pages/TraditionPage.tsx': 365, // measured 362 on 17 Oct 2026; the figures list loads the graph through import()
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two
@@ -349,7 +349,7 @@ const BUDGETS_KB = {
      and in no number here. Re-based at measurement + 7 KB, this file's rule. Not
      raised, and at or near zero slack before this change: ShrinePage 534/534,
      AlmanacPage 360/360, index.html 272/272. */
-  'src/pages/PlacePage.tsx': 374, // measured 371 on 17 Oct 2026, with the map council strings
+  'src/pages/PlacePage.tsx': 378, // measured 375 on 17 Oct 2026, round 5: grouped sites; orders load through import()
   // Added 23 Aug 2026 when the two branches merged: this route was built on the
   // other line, so this table had never seen it.
   /* 310 → 317, 29 August 2026, with PlacePage on the same day and for the same

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { Sheet } from '../components/ui/Sheet';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
@@ -111,7 +111,32 @@ export default function GraphPage() {
   const teamView = hasProjectAccess();
   const headingRef = useFocusHeadingOnMount();
   const kg = useMemo(() => getKGStore(), []);
-  const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
+  /* `?order=<slug>` opens the page on that order — the order page links here
+     for its lineage tree (explorer council, 17 October 2026). */
+  const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(() => {
+    const asked = new URLSearchParams(window.location.search).get('order');
+    return kg.orders.some((o) => o.slug === asked) ? asked : (kg.orders[0]?.slug ?? null);
+  });
+  /* Arriving at #lineage. The network diagram above it lays out after the
+     first paint and pushes the section ~700px down, so the jump is repeated
+     while the page settles — for two seconds, and never once the reader has
+     scrolled for themselves. */
+  useEffect(() => {
+    if (window.location.hash !== '#lineage') return;
+    const jump = () => document.getElementById('lineage')?.scrollIntoView({ block: 'start' });
+    jump();
+    const observer = new ResizeObserver(jump);
+    observer.observe(document.body);
+    const stop = () => observer.disconnect();
+    const timer = window.setTimeout(stop, 2000);
+    const events = ['wheel', 'touchstart', 'keydown', 'pointerdown'] as const;
+    events.forEach((e) => window.addEventListener(e, stop, { once: true, passive: true }));
+    return () => {
+      stop();
+      window.clearTimeout(timer);
+      events.forEach((e) => window.removeEventListener(e, stop));
+    };
+  }, []);
   const [figureQuery, setFigureQuery] = useState('');
   /* Which lineage rows show their source line (9 October 2026): the quotation
      is evidence, and evidence is read on demand rather than printed under
@@ -656,7 +681,7 @@ export default function GraphPage() {
         )}
 
         {lineageEdges.length > 0 && (
-          <section className="graph-page-section">
+          <section className="graph-page-section" id="lineage">
             <h2 className="section-heading">{t('graphLineageHeading')}</h2>
             <p className="graph-figures-note">
               {t('graphLineageNote')} {fmtNum(scopedLineageEdges.length)}

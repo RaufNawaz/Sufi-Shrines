@@ -158,11 +158,16 @@ describe('lineage links are addressable per relation, not per figure', () => {
     }
   });
 
-  it('keys LineageView list items on slug and relation', () => {
+  it('gives LineageView one row per figure that carries every recorded relation', () => {
     const src = read('components/kg/LineageView.tsx');
-    // A `key={link.saint.slug}` here silently drops one of two recorded facts.
+    /* A row per link keyed on the slug silently dropped one of two recorded
+       facts; a row per link keyed on slug and relation read as two people with
+       one name. Since 17 October 2026 the links are grouped by figure and the
+       row prints each relation and each distinct quotation. */
     expect(src).not.toMatch(/key=\{link\.saint\.slug\}/);
-    expect(src).toContain('${link.saint.slug}:${link.relation}');
+    expect(src).toMatch(/groupBySaint\(teachers\)/);
+    expect(src).toMatch(/groupBySaint\(disciples\)/);
+    expect(src).toMatch(/relations\.map\(/);
   });
 });
 

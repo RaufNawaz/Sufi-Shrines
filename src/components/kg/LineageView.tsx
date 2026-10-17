@@ -12,8 +12,13 @@ import {
 import { renderInlineBold } from '../shrine/inlineFormat';
 
 interface Props {
-  order: KGOrder | undefined;
-  members: KGSaint[];
+  /** The order as the tree's root, with its members under it. Only the order
+   * page passes these: on a figure's page the whole membership sat between
+   * "Teachers" and "Disciples" — 22 names, ~1,000px on a phone, for a figure
+   * whose order is already linked three times above (explorer council,
+   * 17 October 2026). */
+  order?: KGOrder;
+  members?: KGSaint[];
   currentSlug?: string;
   /** This saint's recorded teacher(s)/predecessor(s), hand-sourced from
    * shrine_entries/ — see data/kg-seeds.json#lineageRelations. */
@@ -39,18 +44,36 @@ interface Props {
  * a page that shows the name and hides both is asserting more than the archive
  * knows.
  */
+/** One row per figure. 13 pairs in the graph are recorded twice — once
+ *  `disciple_of`, once `successor_of` — and listed per link they read as two
+ *  people with one name; /graph already merged them, the figure page did not. */
+function groupBySaint(links: LineageLink[]): LineageLink[][] {
+  const rows = new Map<string, LineageLink[]>();
+  for (const link of links) {
+    const row = rows.get(link.saint.slug);
+    if (row) row.push(link);
+    else rows.set(link.saint.slug, [link]);
+  }
+  return [...rows.values()];
+}
+
 function LineageLinkItem({
-  link,
+  links,
   showReviewState,
 }: {
-  link: LineageLink;
+  links: LineageLink[];
   showReviewState: boolean;
 }) {
   const { lang, t } = useLang();
-  const saint = link.saint;
-  const relationLabel = t(
-    link.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel',
+  const saint = links[0].saint;
+  const relations = [...new Set(links.map((l) => l.relation))];
+  /* Distinct quotations, and not one that is already inside another: the two
+     records of a pair often quote the same sentence, one of them cut short. */
+  const quoted = [...new Map(links.filter((l) => l.quote).map((l) => [l.quote, l])).values()];
+  const quotes = quoted.filter(
+    (link) => !quoted.some((other) => other !== link && other.quote!.includes(link.quote!)),
   );
+  const unreviewed = links.some((l) => !l.reviewed);
 
   return (
     <li className="lineage-relation-item">
@@ -61,14 +84,18 @@ function LineageLinkItem({
         <Link to={`/saint/${saint.slug}`} lang={langAttr(lang)} data-latin>
           <bdi>{localizeFigureName(saint, lang)}</bdi>
         </Link>
-        <span className="lineage-relation-tag">{relationLabel}</span>
-        {showReviewState && !link.reviewed && (
+        {relations.map((relation) => (
+          <span key={relation} className="lineage-relation-tag">
+            {t(relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
+          </span>
+        ))}
+        {showReviewState && unreviewed && (
           <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
             {t('lineageUnreviewed')}
           </span>
         )}
       </div>
-      {link.quote && (
+      {quotes.map((link) => (
         /* Latin on purpose in either language, for the same reason /graph does
            it: this sentence is the entire basis for trusting an unreviewed
            claim, and an archive whose distinguishing claim is provenance must
@@ -77,13 +104,13 @@ function LineageLinkItem({
            file path under it is for the team: a public reader cannot open
            `shrine_entries/…md`, and the entry's own bibliography is one link
            away. */
-        <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
-          {renderInlineBold(link.quote)}
+        <blockquote key={link.quote} className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
+          {renderInlineBold(link.quote ?? '')}
           {showReviewState && link.source && (
             <cite className="graph-lineage-cite">{link.source}</cite>
           )}
         </blockquote>
-      )}
+      ))}
     </li>
   );
 }
@@ -105,14 +132,13 @@ export function LineageView({
         <div className="lineage-chain-section">
           <h3 className="lineage-chain-heading">{t('teachersHeading')}</h3>
           <ul className="lineage-relation-list">
-            {/* Keyed by relation as well as slug. 13 pairs in the graph are
-                recorded twice — once `disciple_of`, once `successor_of` — and
-                keyed on the slug alone React saw a duplicate and dropped one of
-                the two recorded facts. */}
-            {teachers.map((link) => (
+            {/* One row per figure, carrying every recorded relation and
+                quotation: keyed on the slug alone, React once dropped one of
+                the two facts for a pair recorded twice. */}
+            {groupBySaint(teachers).map((links) => (
               <LineageLinkItem
-                key={`${link.saint.slug}:${link.relation}`}
-                link={link}
+                key={links[0].saint.slug}
+                links={links}
                 showReviewState={showReviewState}
               />
             ))}
@@ -137,7 +163,7 @@ export function LineageView({
             </Link>
           </div>
 
-          {members.length > 0 && (
+          {members && members.length > 0 && (
             <ul className="lineage-members" role="group">
               {members.map((saint) => {
                 const isCurrent = saint.slug === currentSlug;
@@ -177,10 +203,10 @@ export function LineageView({
         <div className="lineage-chain-section">
           <h3 className="lineage-chain-heading">{t('disciplesHeading')}</h3>
           <ul className="lineage-relation-list">
-            {disciples.map((link) => (
+            {groupBySaint(disciples).map((links) => (
               <LineageLinkItem
-                key={`${link.saint.slug}:${link.relation}`}
-                link={link}
+                key={links[0].saint.slug}
+                links={links}
                 showReviewState={showReviewState}
               />
             ))}

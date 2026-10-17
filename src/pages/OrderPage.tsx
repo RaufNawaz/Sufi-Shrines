@@ -23,8 +23,8 @@ import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
-import { LineageView } from '../components/kg/LineageView';
 import {
+  getAllLineageEdges,
   getOrderBySlug,
   getOrderMemberships,
   getOrderObservances,
@@ -189,6 +189,14 @@ export default function OrderPage() {
   }, [order, shrineNames, lang]);
 
   const saints = useMemo(() => (slug ? getSaintsInOrder(slug) : []), [slug]);
+  /* Recorded teacher–disciple links with a member of this order at either end
+     — the same scope /graph gives the order. */
+  const lineageLinkCount = useMemo(() => {
+    const members = new Set(saints.map((s) => s.slug));
+    return getAllLineageEdges().filter(
+      (edge) => members.has(edge.subject.slug) || members.has(edge.object.slug),
+    ).length;
+  }, [saints]);
   // Each member's membership record *for this order* — that is where the
   // branch, the verbatim silsila string and the reviewed flag live.
   const members = useMemo<Member[]>(() => {
@@ -844,7 +852,19 @@ export default function OrderPage() {
             {/* Spiritual lineage */}
             <section className="kg-section">
               <h2 className="kg-section-heading">{t('spiritualLineage')}</h2>
-              <LineageView order={order} members={saints} showReviewState={teamView} />
+              {/* It was the member list a fifth time, flat under the order's
+                  name, with not one teacher→disciple edge — the edges were only
+                  on /graph, which could not be linked to an order (explorer
+                  council, 17 October 2026). Now it says how many links are
+                  recorded and opens /graph on this order's tree. */}
+              {lineageLinkCount > 0 ? (
+                <p className="kg-section-note">
+                  {fmtNum(tFn(lang, 'orderLineageLinks', lineageLinkCount))}{' '}
+                  <Link to={`/graph?order=${order.slug}#lineage`}>{t('orderLineageOpen')}</Link>
+                </p>
+              ) : (
+                <p className="kg-section-note">{t('orderLineageNone')}</p>
+              )}
             </section>
           </div>
 

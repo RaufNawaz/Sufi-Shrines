@@ -1359,6 +1359,9 @@
 }
 
 .graph-page-section {
+  /* Linked to as /graph?order=…#lineage from an order page: clear the sticky
+     header. */
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
   margin-block-end: 2rem;
 }
 
@@ -2873,6 +2876,11 @@
   margin: 0;
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+}
+
+.tradition-figures,
+.saint-traditions {
+  margin-block-start: var(--space-2);
 }
 
 .tradition-members {

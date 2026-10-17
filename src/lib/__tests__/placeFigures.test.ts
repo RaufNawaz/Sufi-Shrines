@@ -130,6 +130,9 @@ describe('the place page does not pull the knowledge graph', () => {
     /* `localizeKgName` is the other door onto the same 426 KB: it imports
        `slugToLabel` from `../kg`. `localizeRecordedName` is the graph-free
        equivalent and is what this page uses. */
-    expect(code).not.toMatch(/localizeKgName/);
+    /* A static import, that is: since 17 October 2026 the "Sufi orders here"
+       row loads both through `import()`, which keeps them off this route's
+       eager bundle — what this test is protecting. */
+    expect(code).not.toMatch(/from '[^']*localizeKgName'/);
   });
 });

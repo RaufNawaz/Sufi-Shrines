@@ -35,3 +35,35 @@ export function useShrineTraditions(shrineSlug: string): Tradition[] {
 
   return traditions;
 }
+
+/**
+ * The traditions recorded for any of several sites, each once, in the order
+ * first found. A figure's page asks this of the sites that commemorate the
+ * figure; same dynamic import, for the same reason as above.
+ */
+export function useTraditionsForShrines(shrineSlugs: readonly string[]): Tradition[] {
+  const [traditions, setTraditions] = useState<Tradition[]>([]);
+  const key = shrineSlugs.join('|');
+
+  useEffect(() => {
+    let cancelled = false;
+    setTraditions([]);
+    const slugs = key.split('|').filter(Boolean);
+    if (slugs.length === 0) return;
+    void import('../../lib/data/traditions').then((mod) => {
+      if (cancelled) return;
+      const seen = new Map<string, Tradition>();
+      for (const slug of slugs) {
+        for (const tradition of mod.getTraditionsForShrine(slug)) {
+          if (!seen.has(tradition.slug)) seen.set(tradition.slug, tradition);
+        }
+      }
+      setTraditions([...seen.values()]);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [key]);
+
+  return traditions;
+}

@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTraditionsForShrines } from '../components/shrine/useShrineTraditions';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { EntityNotFound } from '../components/ui/EntityNotFound';
@@ -21,7 +22,6 @@ import {
   getRetiredSaintTarget,
   getOrderMemberships,
   getSaintObservances,
-  getSaintsInOrder,
   getTeachersOf,
   getDisciplesOf,
   getKinOf,
@@ -70,6 +70,9 @@ import { hasProjectAccess } from '../lib/projectAccess';
 import { publicLocation } from '../lib/data/publicLocation';
 import type { Shrine } from '../types/shrine';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
+/** Observance rows shown before "Show all". */
+const OBSERVANCE_CAP = 5;
+
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
   /* The retirement redirect below has to carry these. `?lang=ur` is how the
@@ -118,15 +121,18 @@ export default function SaintPage() {
    * the source's verbatim silsila wording and the reviewed flag, none of which
    * had anywhere to be rendered.
    *
-   * The first membership stays the one that seeds the lineage tree and the
-   * network diagram, both of which take a single order.
+   * The first membership stays the one that seeds the network diagram, which
+   * takes a single order.
    */
   const memberships = useMemo(() => (slug ? getOrderMemberships(slug) : []), [slug]);
   const order = memberships[0]?.order;
   const recorded = useMemo(() => recordedSilsilas(memberships), [memberships]);
-  const orderMembers = useMemo(() => (order ? getSaintsInOrder(order.slug) : []), [order]);
   const teachers = useMemo(() => (slug ? getTeachersOf(slug) : []), [slug]);
   const disciples = useMemo(() => (slug ? getDisciplesOf(slug) : []), [slug]);
+  /* Tradition pages and figure pages never linked to each other (explorer
+     council, 17 October 2026); the join runs through the sites. */
+  const traditions = useTraditionsForShrines(saint?.shrines ?? []);
+  const [showAllObservances, setShowAllObservances] = React.useState(false);
   /* Both directions of every recorded family tie, elders first — `getKinOf`
      resolves which label each end reads by. Plus the two ties the archive
      records without naming the relative, which are not edges and would
@@ -812,16 +818,6 @@ export default function SaintPage() {
               </section>
             )}
 
-            {/* Days kept for this figure — all of them, dated or not. */}
-            {observances.length > 0 && (
-              <section className="kg-section">
-                <h2 className="kg-section-heading">{t('saintObservancesHeading')}</h2>
-                <p className="kg-section-note">{t('saintObservancesNote')}</p>
-                <ObservanceGapNote rows={observances} />
-                <RecordedObservanceList rows={observances} showReviewState={teamView} />
-              </section>
-            )}
-
             {/* Associated shrines — the site, photographed.
                 The list was a pin glyph and a name. A figure has no portrait in
                 this archive and inventing one is out of the question, but the
@@ -875,13 +871,56 @@ export default function SaintPage() {
               </section>
             )}
 
+            {/* Days kept for this figure — all of them, dated or not. After the
+                sites rather than before: on /saint/guru-nanak sixteen rows of
+                dates pushed the sites themselves 2,300px down, and five rows
+                then "Show all" answers the question without the wall
+                (explorer council, 17 October 2026). */}
+            {observances.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('saintObservancesHeading')}</h2>
+                <p className="kg-section-note">{t('saintObservancesNote')}</p>
+                <ObservanceGapNote rows={observances} />
+                <RecordedObservanceList
+                  rows={showAllObservances ? observances : observances.slice(0, OBSERVANCE_CAP)}
+                  showReviewState={teamView}
+                />
+                {observances.length > OBSERVANCE_CAP && !showAllObservances && (
+                  <button
+                    type="button"
+                    className="action-btn"
+                    onClick={() => setShowAllObservances(true)}
+                  >
+                    {fmtNum(tFn(lang, 'almanacShowList', observances.length))}
+                  </button>
+                )}
+              </section>
+            )}
+
+            {traditions.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('saintTraditionsHeading')}</h2>
+                <p className="kg-section-note">{t('saintTraditionsNote')}</p>
+                <ul className="inset-list saint-traditions">
+                  {traditions.map((tradition) => (
+                    <li key={tradition.slug} className="inset-row inset-row--link">
+                      <Link to={`/tradition/${tradition.slug}`}>
+                        <span className="inset-row-label">
+                          {isRtl ? tradition.nameUr : tradition.name}
+                        </span>
+                        <span className="inset-row-chevron" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {/* Spiritual lineage */}
-            {(order || teachers.length > 0 || disciples.length > 0) && (
+            {(teachers.length > 0 || disciples.length > 0 || (chain?.steps.length ?? 0) > 0) && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('spiritualLineage')}</h2>
                 <LineageView
-                  order={order}
-                  members={orderMembers}
                   currentSlug={saint.slug}
                   teachers={teachers}
                   disciples={disciples}
@@ -946,7 +985,9 @@ export default function SaintPage() {
                 material, which sits better beside Sources than above the
                 silsila. The gaps section stays after all three, for the reason
                 written above it. Reordering back is safe and costs 0.57 CLS. */}
-            {/* Where this figure rests — place, then the Location as recorded. */}
+            {/* Where the associated sites are — place, then the Location as recorded.
+                It was headed "Where this figure rests", which a list of eighteen
+                gurdwaras commemorating Guru Nanak is not. */}
             {restingPlaces.length > 0 && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('saintPlaceHeading')}</h2>
