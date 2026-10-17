@@ -1,0 +1,4 @@
+check,kind,measured,reference,result,note
+every indicator found for every region,integrity,"absent []; missing {'EM_WERN_W_WIF': ['FATA'], 'MA_MBAY_W_B18': ['PK1', 'PK3']}",all,warn,Reported as the API returns it; a missing value is left empty
+every share between 0 and 100,integrity,0 out of range,none,pass,
+DHS 2017-18 marriage by 18 vs NNS 2018 (population-weighted to province),convergent,"rho = +0.90, n = 5",rho >= 0.6,pass,

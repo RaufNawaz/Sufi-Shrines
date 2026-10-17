@@ -207,6 +207,18 @@ mics_child_labour	Children 5-17 in child labour (%)	Child protection	0	2017-19
 mics_married_before_18	Women 20-24 married before 18 (%, MICS)	Child protection	0	2017-19
 mics_feel_safe_women	Women who feel safe walking alone after dark (%)	Women and gender	1	2017-19
 mics_discrimination_women	Women who felt discriminated against (%)	Women and gender	0	2017-19
+dhs_women_justify_wife_beating	Women who say wife-beating can be justified (%)	Women and gender	0	2017-18
+dhs_men_justify_wife_beating	Men who say wife-beating can be justified (%)	Women and gender	0	2017-18
+dhs_women_say_all_decisions	Married women with a say in all household decisions (%)	Women and gender	1	2017-18
+dhs_husband_3plus_controlling	Women whose husband shows 3+ controlling behaviours (%)	Women and gender	0	2017-18
+dhs_women_physical_violence_ever	Women who experienced physical violence since 15 (%)	Women and gender	0	2017-18
+dhs_partner_violence_12m	Partner violence in the last 12 months (%)	Women and gender	0	2017-18
+dhs_violence_never_told	Survivors who never sought help or told anyone (%)	Women and gender	0	2017-18
+dhs_women_own_house	Women who own a house (%)	Women and gender	1	2017-18
+dhs_women_bank_account	Women with a bank account (%)	Women and gender	1	2017-18
+dhs_women_decide_own_earnings	Women who decide how their earnings are used (%)	Women and gender	1	2017-18
+dhs_women_health_insurance	Women with health insurance (%)	Women and gender	1	2017-18
+dhs_women_no_media	Women with no weekly media access (%)	Women and gender	0	2017-18
 mics_life_satisfaction_women	Life satisfaction, women 15-24 (0-10)	Wellbeing	1	2017-19
 mics_life_satisfaction_men	Life satisfaction, men 15-24 (0-10)	Wellbeing	1	2017-19
 mics_safely_managed_water	Safely managed drinking water (%, MICS)	Water and sanitation	1	2017-19

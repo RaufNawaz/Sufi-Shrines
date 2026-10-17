@@ -10,6 +10,7 @@ Run last, after every layer builder (see docs/GIS_FOUNDATION.md, "Full run order
   welfare, wave 2  welfare_ext_grid / _tehsil / _district / _province     (build_extended_layers.py)
   air quality      welfare_air_grid / _tehsil / _district / _province     (build_air_quality.py)
   health access    welfare_health_grid / _tehsil / _district / _province  (build_health_facilities.py)
+  DHS by region    welfare_dhs_regions                                    (build_dhs_regions.py)
   surveys          outcomes_pslm_district (build_pslm_district.py), outcomes_pslm15_district
                    (build_pslm_2015.py), outcomes_nns_district (build_nns_district.py),
                    outcomes_mics_district (build_mics_district.py),
@@ -206,7 +207,8 @@ def main():
     }
     prov = w1["province"].merge(adm_p[["province_code", "n_site", "n_mus", "n_mus_pre1857", "area_km2"]],
                                 on="province_code", how="left")
-    out["province"] = join_all(prov, "province_code", [("wave 2", w2["province"])] + extra("province"), "province")
+    out["province"] = join_all(prov, "province_code", [("wave 2", w2["province"])] + extra("province")
+                               + [("DHS regions", L("welfare_dhs_regions"))], "province")
     out["province"] = out["province"][out["province"].geometry.notna()]          # FATA: data row, no polygon
     for u in out:
         out[u] = derived(out[u], u)
@@ -224,6 +226,7 @@ def main():
         pd.read_csv(GIS / "welfare/welfare_ext_codebook.csv").assign(wave="welfare 2"),
         pd.read_csv(GIS / "welfare/welfare_air_codebook.csv").assign(wave="welfare 2"),
         pd.read_csv(GIS / "welfare/welfare_health_codebook.csv").assign(wave="welfare 2"),
+        pd.read_csv(GIS / "welfare/welfare_dhs_regions_codebook.csv").assign(wave="welfare 2"),
         L("outcomes_codebook").rename(columns={"census_table": "source_key"})
         .assign(publisher="Pakistan Bureau of Statistics, Census 2023 (via PakPC2023 0.2.0)", licence="PBS", wave="census"),
         pd.read_csv(GIS / "outcomes/outcomes_ext_codebook.csv").rename(columns={"census_table": "source_key"})
