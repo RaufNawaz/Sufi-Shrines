@@ -20,12 +20,16 @@ import { UI_TEXT } from '../src/lib/i18n/uiStrings';
  */
 
 const URDU_CHUNK = /urdu-content-[^/]*\.js/;
+/* One entry's article (17 October 2026): the loader table and the entry's own
+   chunk, emitted by scripts/vite-urdu-articles.mjs. The entry page asks for
+   these instead of the whole payload. */
+const ARTICLE_CHUNK = /urdu-article-loaders|\/data-darbar-[^/]*\.js/;
 
 /** Records every request for the Urdu article chunk. */
-function watchUrduChunk(page: Page): string[] {
+function watchUrduChunk(page: Page, pattern: RegExp = URDU_CHUNK): string[] {
   const hits: string[] = [];
   page.on('request', (request: Request) => {
-    if (URDU_CHUNK.test(request.url())) hits.push(request.url());
+    if (pattern.test(request.url())) hits.push(request.url());
   });
   return hits;
 }
@@ -44,10 +48,12 @@ async function longestUrduRun(page: Page): Promise<number> {
 test.describe('Urdu article payload is language-gated', () => {
   test('an English reader never requests it', async ({ page }) => {
     const hits = watchUrduChunk(page);
+    const articleHits = watchUrduChunk(page, ARTICLE_CHUNK);
     await page.goto('/shrine/data-darbar');
     await expect(page.locator('.article-prose').first()).toBeVisible();
     // The article is on screen, so the data path has fully run.
     expect(hits, 'the 1 MB Urdu payload was fetched for an English reader').toEqual([]);
+    expect(articleHits, 'an Urdu article was fetched for an English reader').toEqual([]);
   });
 
   test('the map route never requests it in English either', async ({ page }) => {
@@ -57,20 +63,27 @@ test.describe('Urdu article payload is language-gated', () => {
     expect(hits).toEqual([]);
   });
 
-  test('?lang=ur requests it and renders Urdu prose', async ({ page }) => {
+  /* Since 17 October 2026 an entry page asks for its own article, not every
+     entry's: the whole payload held an Urdu shared link's prose back to 9.7 s
+     (performance council). */
+  test('?lang=ur requests its own article, not the whole payload, and renders Urdu prose', async ({
+    page,
+  }) => {
     const hits = watchUrduChunk(page);
+    const articleHits = watchUrduChunk(page, ARTICLE_CHUNK);
     await page.goto('/shrine/data-darbar?lang=ur');
     await expect(page.locator('.article-prose').first()).toBeVisible();
     await expect
-      .poll(() => hits.length, { message: 'Urdu reader did not get the Urdu payload' })
+      .poll(() => articleHits.length, { message: "Urdu reader did not get the entry's article" })
       .toBeGreaterThan(0);
     // A long unbroken Urdu run means real translated prose, not just the
     // localized UI chrome around an English body.
     await expect.poll(() => longestUrduRun(page)).toBeGreaterThan(400);
+    expect(hits, 'an entry page fetched every Urdu article to show one').toEqual([]);
   });
 
   test('switching to Urdu mid-session re-merges the article content', async ({ page }) => {
-    const hits = watchUrduChunk(page);
+    const hits = watchUrduChunk(page, ARTICLE_CHUNK);
     await page.goto('/shrine/data-darbar');
     await expect(page.locator('.article-prose').first()).toBeVisible();
     expect(hits).toEqual([]);
@@ -80,7 +93,9 @@ test.describe('Urdu article payload is language-gated', () => {
     // Urdu and the article body would stay English.
     await page.locator('.lang-seg[lang="ur"]').click();
     await expect
-      .poll(() => hits.length, { message: 'switching language did not fetch the Urdu payload' })
+      .poll(() => hits.length, {
+        message: "switching language did not fetch the entry's Urdu article",
+      })
       .toBeGreaterThan(0);
     await expect.poll(() => longestUrduRun(page)).toBeGreaterThan(400);
   });

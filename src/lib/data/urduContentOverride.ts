@@ -48,6 +48,48 @@ let CONTENT: UrduContentMap | null = null;
 let inflight: Promise<UrduContentMap> | null = null;
 const listeners = new Set<() => void>();
 
+/**
+ * Single articles, fetched one entry at a time (17 October 2026).
+ *
+ * A shrine page needs its own article and nothing else, and on an Urdu shared
+ * link the whole payload — 262 KB gzipped — held the article back to 9.7 s
+ * against 5.9 s in English (performance council). Each entry is its own chunk
+ * now (`scripts/vite-urdu-articles.mjs`); the page asks for its slug, the
+ * article merges into the same rows by the same rule, and the same listeners
+ * fire, so `useShrineData`'s re-merge and fingerprint see an ordinary update.
+ * `isUrduContentLoaded` keeps its meaning — *every* article — for the surfaces
+ * that list many entries.
+ */
+const ARTICLES: UrduContentMap = {};
+/** Slugs whose chunk has resolved — including the one entry with no article. */
+const articleLoaded = new Set<string>();
+const articleInflight = new Map<string, Promise<void>>();
+
+/** True once this entry's Urdu article (or the whole payload) is in memory. */
+export function isUrduArticleLoaded(slug: string): boolean {
+  return CONTENT !== null || articleLoaded.has(slug);
+}
+
+/** Fetch one entry's Urdu article. Concurrent callers share one request. */
+export function loadUrduArticle(slug: string): Promise<void> {
+  if (isUrduArticleLoaded(slug)) return Promise.resolve();
+  const pending = articleInflight.get(slug);
+  if (pending) return pending;
+  const request = import('virtual:urdu-article-loaders')
+    .then(async ({ default: loaders }) => {
+      const load = loaders[slug];
+      const entry = load ? ((await load()).default as UrduContentEntry | null) : null;
+      if (entry) ARTICLES[slug] = entry;
+      articleLoaded.add(slug);
+      listeners.forEach((listener) => listener());
+    })
+    .finally(() => {
+      articleInflight.delete(slug);
+    });
+  articleInflight.set(slug, request);
+  return request;
+}
+
 /** True once the Urdu article payload is in memory. */
 export function isUrduContentLoaded(): boolean {
   return CONTENT !== null;
@@ -99,6 +141,9 @@ export function onUrduContentLoaded(listener: () => void): () => void {
 export function resetUrduContentForTests(): void {
   CONTENT = null;
   inflight = null;
+  for (const key of Object.keys(ARTICLES)) delete ARTICLES[key];
+  articleLoaded.clear();
+  articleInflight.clear();
 }
 
 /**
@@ -145,5 +190,6 @@ export function applyUrduContentOverrides(rows: ShrineRow[]): ShrineRow[] {
   // A no-op until `loadUrduContent()` has resolved. Deliberate: an English
   // reader never loads the payload, and the fields this would fill are only
   // ever read in the Urdu view.
-  return CONTENT ? mergeUrduContent(rows, CONTENT) : rows;
+  if (CONTENT) return mergeUrduContent(rows, CONTENT);
+  return Object.keys(ARTICLES).length > 0 ? mergeUrduContent(rows, ARTICLES) : rows;
 }

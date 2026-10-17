@@ -141,7 +141,10 @@ const BUDGETS_KB = {
 
      Later the same night the council rounds added ~1 KB more of interface
      strings (the map key, trust explanation, atlas switch, wordmark), taking
-     four routes 1 KB over; those four were re-measured and set to +3.
+     four routes 1 KB over; those four were re-measured and set to +3. Then
+     per-article Urdu loading (urduContentOverride.loadUrduArticle) added ~1 KB
+     to the shell and tipped four more; same treatment. The trade is 1 KB on
+     every route against 255 KB off an Urdu entry page's critical path.
 
      The two new pages: the index does not load the country outline (DotMap.tsx
      is its own module for exactly that), the book page does. Each budget is the
@@ -211,7 +214,7 @@ const BUDGETS_KB = {
 
      The structural point is still open and is worth more than either number:
      `/saint/:slug` downloads the whole graph to render one figure. */
-  'src/pages/SaintPage.tsx': 690, // measured 687 on 17 Oct 2026
+  'src/pages/SaintPage.tsx': 694, // measured 691 on 17 Oct 2026, with per-article Urdu loading
   'src/pages/OrderPage.tsx': 678, // measured 675 on 17 Oct 2026
   'src/pages/GraphPage.tsx': 623, // measured 620 on 17 Oct 2026, after the council rounds
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
@@ -281,7 +284,7 @@ const BUDGETS_KB = {
   /* +4 KB on 9 Oct 2026: the page rebuilt (HANDOVER §9.277) — a chart card with
      packed lanes and a hover label, a tradition filter, and inset lists with
      disclosure. All of it is page code; no new import. */
-  'src/pages/ChronologyPage.tsx': 341, // measured 338 on 17 Oct 2026
+  'src/pages/ChronologyPage.tsx': 345, // measured 342 on 17 Oct 2026, with per-article Urdu loading
   /* Track A's archive-wide half, new on 29 Aug 2026. Carries the shell, the
      shrine snapshot and `sharedGround.ts` — no graph, no provenance, no places
      index, and no map: the page is a list of pairs, and every distance on it is
@@ -317,7 +320,7 @@ const BUDGETS_KB = {
      `sourceIndex.ts` is on every shrine page and this is not. */
   /* +1 KB on 9 Oct 2026: the citation cards and the Latin-run span (HANDOVER
      §9.277) — markup only. */
-  'src/pages/AboutPage.tsx': 372, // measured 369 on 17 Oct 2026
+  'src/pages/AboutPage.tsx': 376, // measured 373 on 17 Oct 2026, with per-article Urdu loading
   /* 292 → 312 on 26 Aug 2026 when the place page gained its figures and
      observances (A3). The first draft of that feature measured **608 KB**: the
      join was `getSaintsForShrine`, and `src/lib/kg.ts` statically imports the
@@ -360,7 +363,7 @@ const BUDGETS_KB = {
      headroom fail first regardless of what changed. */
   /* +2 KB on 9 Oct 2026: the tile mosaic and the per-form tradition bars
      (HANDOVER §9.279) — page code, no new import. */
-  'src/pages/TypologyPage.tsx': 342, // measured 339 on 17 Oct 2026
+  'src/pages/TypologyPage.tsx': 346, // measured 343 on 17 Oct 2026, with per-article Urdu loading
   /* The review desk. 257 KB measured 26 Aug 2026 — essentially the app shell and
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`
      inside the route, so a public reader never downloads a page they cannot

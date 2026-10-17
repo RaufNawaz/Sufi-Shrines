@@ -9,3 +9,10 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+/* Per-entry Urdu articles, built from src/data/urdu-content.json by
+   scripts/vite-urdu-articles.mjs. */
+declare module 'virtual:urdu-article-loaders' {
+  const loaders: Record<string, () => Promise<{ default: unknown }>>;
+  export default loaders;
+}

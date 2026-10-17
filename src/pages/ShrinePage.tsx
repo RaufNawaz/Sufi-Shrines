@@ -60,7 +60,7 @@ import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLe
 
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
-import { useUrduArticles } from '../hooks/useUrduArticlesReady';
+import { useUrduArticle } from '../hooks/useUrduArticlesReady';
 function SkeletonPage() {
   return (
     <div className="shrine-loading">
@@ -694,7 +694,9 @@ export default function ShrinePage() {
    * is a table of the row's own sheet fields and owes the Urdu articles
    * nothing, so it should not blink while they land.
    */
-  const urduArticlesReady = useUrduArticles();
+  /* This entry's article only (17 October 2026): the whole payload held an
+     Urdu shared link's prose back to 9.7 s. See `loadUrduArticle`. */
+  const urduArticlesReady = useUrduArticle(slug ?? '');
   const proseReady =
     articleReady &&
     // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: asks whether the Urdu-only article payload applies, a fact about that one file

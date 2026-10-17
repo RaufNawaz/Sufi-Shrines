@@ -35,7 +35,7 @@ import { applyMotionPreference, readMotionPreference } from './lib/motionPrefere
 import { applyLookPreference, readLookPreference } from './lib/lookPreference';
 import { detectInitialLang } from './lib/i18n/detectLang';
 import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
-import { ensureUrduContentForLang } from './lib/data/urduContentOverride';
+import { loadUrduArticle } from './lib/data/urduContentOverride';
 import { loadUiStrings } from './lib/i18n/uiStrings';
 import { prefetchCsvText } from './lib/data/csvPrefetch';
 
@@ -117,8 +117,13 @@ prefetchCsvText();
    Matching the segment covers `/shrine/x`, `/Sufi-Shrines/shrine/x` and both
    `/ur` mirrors, and its worst case is a payload fetched on a route that did
    not need it, which is the direction that costs a reader nothing. */
-if (window.location.pathname.includes('/shrine/')) {
-  void ensureUrduContentForLang(initialLang);
+/* This entry's article, not every entry's (17 October 2026): the whole payload
+   is 262 KB gzipped and held an Urdu shared link's prose back to 9.7 s; one
+   article is a few KB. The slug is the path segment after `/shrine/`. */
+const shrineSlug = /\/shrine\/([^/?#]+)/.exec(window.location.pathname)?.[1];
+// eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the Urdu article payload applies only to the Urdu view
+if (shrineSlug && initialLang === 'ur') {
+  void loadUrduArticle(decodeURIComponent(shrineSlug));
 }
 
 /*

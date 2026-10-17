@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import {
   ensureUrduContentForLang,
+  isUrduArticleLoaded,
   isUrduContentLoaded,
+  loadUrduArticle,
   onUrduContentLoaded,
 } from '../lib/data/urduContentOverride';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -38,7 +40,11 @@ export function useUrduArticlesReady(): boolean {
   const [ready, setReady] = useState(isUrduContentLoaded);
   useEffect(() => {
     if (ready) return;
-    return onUrduContentLoaded(() => setReady(true));
+    /* The listener also fires when a single article lands; this hook means
+       every article, so it checks rather than assumes. */
+    return onUrduContentLoaded(() => {
+      if (isUrduContentLoaded()) setReady(true);
+    });
   }, [ready]);
   return ready;
 }
@@ -70,6 +76,28 @@ export function useUrduArticles(): boolean {
   useEffect(() => {
     void ensureUrduContentForLang(lang);
   }, [lang]);
+
+  return ready;
+}
+
+/**
+ * One entry's Urdu article: asked for in the Urdu view, ready when it (or the
+ * whole payload) is in memory. The shrine page waits on this rather than on
+ * every article (see `loadUrduArticle`).
+ */
+export function useUrduArticle(slug: string): boolean {
+  const { lang } = useLang();
+  const [ready, setReady] = useState(() => isUrduArticleLoaded(slug));
+
+  useEffect(() => {
+    setReady(isUrduArticleLoaded(slug));
+    const unsubscribe = onUrduContentLoaded(() => {
+      if (isUrduArticleLoaded(slug)) setReady(true);
+    });
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the Urdu article payload applies only to the Urdu view
+    if (lang === 'ur') void loadUrduArticle(slug);
+    return unsubscribe;
+  }, [lang, slug]);
 
   return ready;
 }
