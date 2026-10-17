@@ -10,6 +10,7 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/h3-js@4.1.0/dist/h3-js.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako_inflate.min.js"></script>
     <style>
       :root {
         --bg: #f6f7f9;
@@ -256,7 +257,13 @@
       </aside>
     </div>
     <script>
-      const D = /*__DATA__*/ null;
+      // build_viewer.py embeds the data gzipped and base64-encoded (7 MB of JSON becomes ~2 MB).
+      const D = JSON.parse(
+        pako.inflate(
+          Uint8Array.from(atob(/*__DATA__*/ null), (c) => c.charCodeAt(0)),
+          { to: 'string' },
+        ),
+      );
       const PAL = ['#f7fbff', '#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#3182bd', '#08519c'];
       const CAT = {
         'Muslim Shrine': '#e4572e',
@@ -324,9 +331,22 @@
           return { id: r[0], name: r[0], p, hex: r[0] };
         });
       }
+      // When zeros fill at least one class (flood exposure, conflict deaths, malaria in the north),
+      // septiles collapse into two or three classes and the places with any value disappear. Then
+      // zero gets a class of its own and the positive values are split into the remaining six.
+      let zeroClass = false;
       function breaks(vals) {
         const v = vals.filter((x) => x != null && !Number.isNaN(x)).sort((a, b) => a - b);
+        zeroClass = false;
         if (!v.length) return [];
+        const pos = v.filter((x) => x > 0);
+        if (v[0] === 0 && pos.length && (v.length - pos.length) / v.length >= 1 / PAL.length) {
+          zeroClass = true;
+          const b = [pos[0]];
+          for (let i = 1; i < PAL.length - 1; i++)
+            b.push(pos[Math.floor((i * pos.length) / (PAL.length - 1))]);
+          return [...new Set(b)];
+        }
         const b = [];
         for (let i = 1; i < PAL.length; i++) b.push(v[Math.floor((i * v.length) / PAL.length)]);
         return [...new Set(b)];
@@ -377,10 +397,13 @@
           hi = [...b.map(fmt), 'max'];
         el.innerHTML =
           PAL.slice(0, b.length + 1)
-            .map((c, i) => `<div><i style="background:${c}"></i>${lo[i]} – ${hi[i]}</div>`)
+            .map(
+              (c, i) =>
+                `<div><i style="background:${c}"></i>${zeroClass && i === 0 ? 'zero' : `${lo[i]} – ${hi[i]}`}</div>`,
+            )
             .join('') +
           '<div><i style="background:#ccc;opacity:.4"></i>no value</div>' +
-          `<div style="margin-top:4px">Darker = higher. ${IND[key].good === true ? 'Higher is better.' : IND[key].good === false ? 'Higher is worse.' : ''} Classes are septiles of this unit.</div>`;
+          `<div style="margin-top:4px">Darker = higher. ${IND[key].good === true ? 'Higher is better.' : IND[key].good === false ? 'Higher is worse.' : ''} ${zeroClass ? 'Zero is its own class; the rest are sextiles of the non-zero values.' : 'Classes are septiles of this unit.'}</div>`;
       }
       function ranks(a) {
         const idx = a.map((v, i) => [v, i]).sort((x, y) => x[0] - y[0]),

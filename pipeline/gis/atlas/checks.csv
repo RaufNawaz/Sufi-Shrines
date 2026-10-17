@@ -1,0 +1,10 @@
+check,measured,reference,result
+grid: no indicator column arrives from two sources,none,none,pass
+tehsil: no indicator column arrives from two sources,none,none,pass
+district: no indicator column arrives from two sources,none,none,pass
+province: no indicator column arrives from two sources,none,none,pass
+district: archive sites after the joins,169,169 sites with coordinates,pass
+tehsil: archive sites after the joins,169,169 sites with coordinates,pass
+every indicator defined once,none,none,pass
+every catalog indicator present in some unit,all,all,pass
+every indicator column has a definition,all,all,pass

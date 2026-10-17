@@ -1,0 +1,151 @@
+key	label	theme	higher_is_better	year
+rwi_popw	Relative Wealth Index (Meta)	Wealth and poverty	1	2021
+gdp_pc_2023_popw	GDP per capita, PPP $ (division)	Wealth and poverty	1	2023
+gdp_pc_growth_13_23	GDP per capita growth, %/yr 2013-23 (division)	Wealth and poverty	1	2013-2023
+ntl_2023_popw	Night lights where people live	Wealth and poverty	1	2023
+ntl_change_13_23	Change in night lights, 2013-2023	Wealth and poverty	1	2013-2023
+share_pop_lit_at_night	People in a lit cell (%)	Wealth and poverty	1	2023
+mpi	Multidimensional Poverty Index	Wealth and poverty	0	2017-18
+mpi_headcount	MPI poor (%)	Wealth and poverty	0	2017-18
+mpi_severe	In severe multidimensional poverty (%)	Wealth and poverty	0	2017-18
+mpi_vulnerable	Vulnerable to poverty (%)	Wealth and poverty	0	2017-18
+ipc_phase3plus	Food insecurity, IPC phase 3+ (%)	Wealth and poverty	0	latest
+literacy	Literacy, 10+ (%)	Education	1	2023
+literacy_female	Female literacy, 10+ (%)	Education	1	2023
+literacy_female_rural	Rural female literacy, 10+ (%)	Education	1	2023
+literacy_gender_gap	Literacy gender gap (points)	Education	0	2023
+youth_literacy_15_24	Youth literacy, 15-24 (%)	Education	1	2023
+youth_literacy_female_15_24	Young women's literacy, 15-24 (%)	Education	1	2023
+youth_literacy_gender_gap	Youth literacy gender gap (points)	Education	0	2023
+out_of_school_5_16	Out of school, 5-16 (%, approx.)	Education	0	2023
+out_of_school_5_16_female	Girls out of school, 5-16 (%, approx.)	Education	0	2023
+never_attended_school	Never attended school, 5+ (%)	Education	0	2023
+dhsms_women_literate	Women 15-49 literate (%, DHS surface)	Education	1	2017-18
+dhsms_men_literate	Men 15-49 literate (%, DHS surface)	Education	1	2017-18
+dhs_women_secondary_plus	Women with secondary+ education (%)	Education	1	2017-18
+dhsms_stunted	Children stunted (%, DHS surface)	Health and nutrition	0	2017-18
+dhsms_vacc_all_basic	All 8 basic vaccinations (%, DHS surface)	Health and nutrition	1	2017-18
+dhsms_vacc_dpt3	DPT3 vaccinated (%, DHS surface)	Health and nutrition	1	2017-18
+dhsms_vacc_measles	Measles vaccinated (%, DHS surface)	Health and nutrition	1	2017-18
+dhsms_vacc_dpt1	DPT1 vaccinated (%, DHS surface)	Health and nutrition	1	2017-18
+dhsms_vacc_card_seen	Vaccination card seen (%, DHS surface)	Health and nutrition	1	2017-18
+dhsms_anc4	4+ antenatal visits (%, DHS surface)	Health and nutrition	1	2017-18
+dhsms_facility_delivery	Births in a health facility (%, DHS surface)	Health and nutrition	1	2017-18
+malaria_pv_per_1000	Malaria, P. vivax cases per 1,000	Health and nutrition	0	2024
+malaria_pf_per_1000	Malaria, P. falciparum cases per 1,000	Health and nutrition	0	2024
+dhsms_itn_access	Access to a treated bed net (%, DHS surface)	Health and nutrition	1	2017-18
+dhsms_men_smoke	Men who smoke (%, DHS surface)	Health and nutrition	0	2017-18
+disability	Population with a disability (%)	Health and nutrition	0	2023
+dhs_under5_mortality	Under-5 mortality per 1,000	Health and nutrition	0	2017-18
+dhs_infant_mortality	Infant mortality per 1,000	Health and nutrition	0	2017-18
+dhs_stunted	Children stunted (%)	Health and nutrition	0	2017-18
+dhs_wasted	Children wasted (%)	Health and nutrition	0	2017-18
+dhs_underweight	Children underweight (%)	Health and nutrition	0	2017-18
+dhs_fully_vaccinated	Fully vaccinated (%)	Health and nutrition	1	2017-18
+dhs_facility_delivery	Births in a facility (%)	Health and nutrition	1	2017-18
+child_woman_ratio	Children 0-4 per 1,000 women 15-49	Fertility and family	0	2023
+child_woman_ratio_rural	Child-woman ratio, rural	Fertility and family	0	2023
+child_woman_ratio_urban	Child-woman ratio, urban	Fertility and family	0	2023
+dhs_tfr	Total fertility rate	Fertility and family	0	2017-18
+dhsms_modern_contraception	Modern contraception, married women (%, DHS surface)	Fertility and family	1	2017-18
+dhsms_unmet_need_fp	Unmet need for family planning (%, DHS surface)	Fertility and family	0	2017-18
+dhsms_demand_satisfied_modern	Family-planning demand met by modern methods (%, DHS surface)	Fertility and family	1	2017-18
+dhs_modern_contraception	Modern contraception, married women (%)	Fertility and family	1	2017-18
+share_under5	Population under 5 (%)	Fertility and family		2023
+share_under15	Population under 15 (%)	Fertility and family		2023
+dependency_ratio_census	Dependency ratio (0-14 and 65+ per 100 aged 15-64)	Fertility and family	0	2023
+hh_size	Persons per household	Fertility and family		2023
+girls_15_19_ever_married	Girls 15-19 ever married (%)	Women and gender	0	2023
+girls_15_19_ever_married_rural	Rural girls 15-19 ever married (%)	Women and gender	0	2023
+boys_15_19_ever_married	Boys 15-19 ever married (%)	Women and gender	0	2023
+women_20_24_ever_married	Women 20-24 ever married (%)	Women and gender		2023
+sex_ratio_under5	Boys per 100 girls, under 5	Women and gender		2023
+home_owner_female	Owned homes with a woman owner (%)	Women and gender	1	2023
+dhs_partner_violence	Partner violence, ever-married women (%)	Women and gender	0	2017-18
+improved_water	Improved drinking water (%)	Water and sanitation	1	2023
+piped_water	Tap water (%)	Water and sanitation	1	2023
+water_inside_home	Water source inside the home (%)	Water and sanitation	1	2023
+flush_toilet	Flush toilet (%)	Water and sanitation	1	2023
+no_toilet	No toilet (%)	Water and sanitation	0	2023
+no_washroom	No bathing room (%)	Water and sanitation	0	2023
+dhsms_improved_water	Improved water (%, DHS surface)	Water and sanitation	1	2017-18
+dhsms_open_defecation	Open defecation (%, DHS surface)	Water and sanitation	0	2017-18
+electricity	Households on grid electricity (%)	Housing and energy	1	2023
+electricity_rural	Rural households on electricity (%)	Housing and energy	1	2023
+solar_lighting	Households lit by solar (%)	Housing and energy		2023
+cooking_gas	Cooking with gas or LPG (%)	Housing and energy	1	2023
+cooking_firewood	Cooking with firewood (%)	Housing and energy	0	2023
+housing_kacha	Kacha (mud) housing (%)	Housing and energy	0	2023
+housing_pakka	Pakka (brick or concrete) housing (%)	Housing and energy	1	2023
+jhuggi_structures	Jhuggi (shack) structures (%)	Housing and energy	0	2023
+homeless_per_100k	Homeless per 100,000	Housing and energy	0	2023
+one_room_home	Living in one room (%)	Housing and energy	0	2023
+no_kitchen	No kitchen (%)	Housing and energy	0	2023
+home_owned	Owning their home (%)	Housing and energy		2023
+dhs_hh_electricity	Households with electricity (%)	Housing and energy	1	2017-18
+travel_city_min_popw	Minutes to a city of 50k+	Access and connectivity	0	2015
+share_pop_within_60min_city	Within 60 min of a city (%)	Access and connectivity	1	2015
+travel_health_min_popw	Minutes to health care (motorized)	Access and connectivity	0	2020
+share_pop_within_30min_health	Within 30 min of health care (%)	Access and connectivity	1	2020
+walk_health_min_popw	Minutes to health care on foot	Access and connectivity	0	2020
+share_pop_within_60min_walk_health	Within an hour's walk of health care (%)	Access and connectivity	1	2020
+mobile_download_mbps	Mobile download speed, Mbps (Speedtest)	Access and connectivity	1	2025 Q2
+fixed_download_mbps	Fixed broadband speed, Mbps (Speedtest)	Access and connectivity	1	2025 Q2
+mobile_devices_per_1000	Devices testing mobile data per 1,000	Access and connectivity	1	2025 Q2
+fixed_devices_per_1000	Devices testing home broadband per 1,000	Access and connectivity	1	2025 Q2
+share_pop_near_mobile_test	Near a tile with mobile-data use (%)	Access and connectivity	1	2025 Q2
+share_pop_flooded_2022	Living inside the 2022 flood extent (%)	Shocks and security	0	2022
+share_pop_flooded_2010	Living inside the 2010 flood extent (%)	Shocks and security	0	2010
+conflict_deaths_per_100k	Conflict deaths per 100,000, 2015-24	Shocks and security	0	2015-2024
+conflict_civilian_deaths_per_100k	Civilian conflict deaths per 100,000, 2015-24	Shocks and security	0	2015-2024
+conflict_events	Conflict events, 2015-24	Shocks and security	0	2015-2024
+pop2023	Population (census)	Population and identity		2023
+pop_kontur_2023	Population (Kontur, modelled)	Population and identity		2023
+pop_density	People per km2 (Kontur)	Population and identity		2023
+urban_share	Urban population (%)	Population and identity		2023
+pop_growth_17_23	Population growth, %/yr 2017-23	Population and identity		2017-2023
+share_hindu_all	Hindu population (%)	Population and identity		2023
+share_christian	Christian population (%)	Population and identity		2023
+share_ahmadi	Ahmadi population (%)	Population and identity		2023
+share_sikh	Sikh population (%)	Population and identity		2023
+rural_access_index	Rural Access Index (OSM roads)	OSM-based (read the caveat)	1	2023
+share_access_hospitals_1h	Within 1 h of an OSM hospital (%)	OSM-based (read the caveat)	1	2023
+share_access_primary_healthcare_1h	Within 1 h of OSM primary care (%)	OSM-based (read the caveat)	1	2023
+share_access_education_5km	Within 5 km of an OSM school (%)	OSM-based (read the caveat)	1	2023
+age_heaping_whipple	Age heaping (Whipple index; 100 = none)	Data quality		2023
+rwi_cell_share	Share of people with an RWI tile nearby (%)	Data quality		2021
+n_site	Archive sites (all traditions)	Archive
+n_mus	Archive Muslim shrines	Archive
+sites_per_million	Archive sites per million people	Archive
+mpi_district_2015	District MPI, 2014/15	Wealth and poverty	0	2014-15
+mpi_headcount_2015	District MPI poor (%), 2014/15	Wealth and poverty	0	2014-15
+mpi_headcount_2005	District MPI poor (%), 2004/05	Wealth and poverty	0	2004-05
+mpi_headcount_change_05_15	Change in MPI poor, 2004/05 to 2014/15 (points)	Wealth and poverty	0	2004-2015
+pslm_fies_mod_sev	Food insecurity, moderate or severe (%, FIES)	Wealth and poverty	0	2019-20
+pslm_fies_severe	Food insecurity, severe (%, FIES)	Wealth and poverty	0	2019-20
+pslm_whole_day_without_food	Someone went a whole day without food (%)	Wealth and poverty	0	2019-20
+pslm_literacy	Literacy, 10+ (%, PSLM)	Education	1	2019-20
+pslm_literacy_female	Female literacy, 10+ (%, PSLM)	Education	1	2019-20
+pslm_ner_primary_6_10	Net primary enrolment, 6-10 (%)	Education	1	2019-20
+pslm_ner_primary_6_10_girls	Girls' net primary enrolment, 6-10 (%)	Education	1	2019-20
+pslm_out_of_school_5_16_girls	Girls 5-16 out of school (%, PSLM)	Education	0	2019-20
+pslm_fully_immunised	Children 12-23 months fully immunised (%)	Health and nutrition	1	2019-20
+pslm_diarrhoea_u5	Diarrhoea in children under 5, last 30 days (%)	Health and nutrition	0	2019-20
+pslm_ors_given	ORS given for child diarrhoea (%)	Health and nutrition	1	2019-20
+pslm_prenatal_care	Any prenatal care, recent mothers (%)	Health and nutrition	1	2019-20
+pslm_skilled_birth_attendance	Skilled birth attendance (%)	Health and nutrition	1	2019-20
+pslm_facility_delivery	Births in a facility (%, PSLM)	Health and nutrition	1	2019-20
+pslm_postnatal_care	Postnatal check-up (%)	Health and nutrition	1	2019-20
+pslm_lhw_visited	Households visited by a Lady Health Worker (%)	Health and nutrition	1	2019-20
+pslm_women_working	Women 15-64 in paid or family work (%)	Women and gender	1	2019-20
+pslm_own_mobile_women	Women 10+ owning a mobile phone (%)	Women and gender	1	2019-20
+pslm_mobile_gender_gap	Mobile ownership gender gap (points)	Women and gender	0	2019-20
+pslm_internet_3m_women	Women 10+ who used the internet, last 3 months (%)	Women and gender	1	2019-20
+pslm_internet_3m_men	Men 10+ who used the internet, last 3 months (%)	Access and connectivity	1	2019-20
+pslm_own_smartphone	Owning a smartphone, 10+ (%)	Access and connectivity	1	2019-20
+pslm_hh_internet	Households with internet (%)	Access and connectivity	1	2019-20
+pslm_handwash_soap	Handwashing place with soap (%)	Water and sanitation	1	2019-20
+pslm_covered_drainage	Covered or underground drainage (%)	Water and sanitation	1	2019-20
+pslm_no_drainage	No drainage system (%)	Water and sanitation	0	2019-20
+pslm_waste_collected	Household waste collected (%)	Water and sanitation	1	2019-20
+pslm_waste_dumped_open	Waste dumped in the open (%)	Water and sanitation	0	2019-20
