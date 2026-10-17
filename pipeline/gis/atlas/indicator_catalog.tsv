@@ -139,6 +139,11 @@ mpi_district_2015	District MPI, 2014/15	Wealth and poverty	0	2014-15
 mpi_headcount_2015	District MPI poor (%), 2014/15	Wealth and poverty	0	2014-15
 mpi_headcount_2005	District MPI poor (%), 2004/05	Wealth and poverty	0	2004-05
 mpi_headcount_change_05_15	Change in MPI poor, 2004/05 to 2014/15 (points)	Wealth and poverty	0	2004-2015
+undp_hdi_2015	District Human Development Index (UNDP)	Wealth and poverty	1	2015
+undp_hdi_change_05_15	Change in district HDI, 2005-2015	Change over time	1	2005-2015
+undp_health_satisfaction_2015	Households satisfied with their health facility (%)	Health and nutrition	1	2015
+undp_mean_schooling_2015	Mean years of schooling (UNDP)	Education	1	2015
+undp_expected_schooling_2015	Expected years of schooling (UNDP)	Education	1	2015
 pslm_fies_mod_sev	Food insecurity, moderate or severe (%, FIES)	Wealth and poverty	0	2019-20
 pslm_fies_severe	Food insecurity, severe (%, FIES)	Wealth and poverty	0	2019-20
 pslm_whole_day_without_food	Someone went a whole day without food (%)	Wealth and poverty	0	2019-20

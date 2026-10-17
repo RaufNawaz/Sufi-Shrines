@@ -1,0 +1,8 @@
+check,kind,measured,reference,result,note
+Table 1 and Table 2 district rows,integrity,114 and 114,114 each (the report's count),pass,
+"HDI 2015 and 2013: Table 1 equals Table 2, every district",integrity,114 and 114 of 114 equal,all,pass,
+every HDI between 0 and 1,integrity,0.091-0.891,0-1,pass,
+HDI districts placed in OCHA districts,integrity,114 of 114,all,pass,
+one HDI district per OCHA district,integrity,none shared,none shared,pass,
+"undp_hdi_2015 vs mpi_headcount_2015, districts",convergent,"rho = -0.97, n = 122","sign -, |rho| >= 0.8",pass,
+"undp_hdi_2015 vs literacy, districts",convergent,"rho = +0.93, n = 122","sign +, |rho| >= 0.7",pass,

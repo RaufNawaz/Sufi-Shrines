@@ -1,0 +1,9 @@
+indicator,definition,census_table,source
+undp_hdi_2015,"District Human Development Index, 2015 (UNDP Pakistan; health, education and living-standard indices)",Tables 1-2,"UNDP Pakistan, National Human Development Report 2017, district HDI volume (HDI Report 2017), Tables 1-2"
+undp_hdi_2005,"District Human Development Index, 2005",Tables 1-2,"UNDP Pakistan, National Human Development Report 2017, district HDI volume (HDI Report 2017), Tables 1-2"
+undp_hdi_change_05_15,"Change in the district HDI, 2005 to 2015",Tables 1-2,"UNDP Pakistan, National Human Development Report 2017, district HDI volume (HDI Report 2017), Tables 1-2"
+undp_immunisation_2015,"HDI health component: immunisation rate, %, 2015",Tables 1-2,"UNDP Pakistan, National Human Development Report 2017, district HDI volume (HDI Report 2017), Tables 1-2"
+undp_health_satisfaction_2015,"HDI health component: households satisfied with the health facility, %, 2015",Tables 1-2,"UNDP Pakistan, National Human Development Report 2017, district HDI volume (HDI Report 2017), Tables 1-2"
+undp_expected_schooling_2015,"HDI education component: expected years of schooling, 2015",Tables 1-2,"UNDP Pakistan, National Human Development Report 2017, district HDI volume (HDI Report 2017), Tables 1-2"
+undp_mean_schooling_2015,"HDI education component: mean years of schooling, 2015",Tables 1-2,"UNDP Pakistan, National Human Development Report 2017, district HDI volume (HDI Report 2017), Tables 1-2"
+undp_living_standard_2015,"HDI living-standard component, %, 2015",Tables 1-2,"UNDP Pakistan, National Human Development Report 2017, district HDI volume (HDI Report 2017), Tables 1-2"
