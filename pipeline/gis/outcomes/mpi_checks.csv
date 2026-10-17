@@ -1,0 +1,9 @@
+check,kind,measured,reference,result,note
+district rows parsed from the annex,integrity,116,116 (the annex's district list),pass,
+every district-round satisfies MPI = H x A,integrity,652 of 652,"all, within 0.0015",pass,
+annex national MPI 2014/15,external,0.197,0.197 (UNDP/OPHI launch figure),pass,
+annex districts placed in OCHA districts,integrity,116 of 116,all,pass,
+one annex district per OCHA district,integrity,none shared,none shared,pass,
+mpi_headcount_2015 vs census 2023 literacy,convergent,"rho = -0.93, n = 122","sign -, |rho| >= 0.6",pass,
+mpi_headcount_2015 vs census 2023 flush_toilet,convergent,"rho = -0.90, n = 122","sign -, |rho| >= 0.6",pass,
+MPI headcount 2014/15 vs PSLM 2019-20 full immunisation,convergent,"rho = -0.60, n = 118","sign -, |rho| >= 0.3",pass,

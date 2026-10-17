@@ -1,6 +1,6 @@
 """
 Download every wave-two source listed in sources_extended.tsv into pipeline/gis/sources/
-(gitignored), unpack what the build reads, and hash what arrived into sources/fetched_extended.tsv.
+(gitignored), unpack what the build reads, and hash what arrived into welfare/fetched_extended.tsv (tracked).
 
 Usage (from the repo root):
   python pipeline/gis/welfare/fetch_extended_sources.py            # fetch only what is missing
@@ -67,15 +67,18 @@ def main(a):
     for z in sorted((SRC / "dhs_ms").glob("PK2017DHS_*_MS_v01.zip")):
         if not z.with_suffix("").exists():
             zipfile.ZipFile(z).extractall(z.with_suffix(""))
-    for z, d in [(SRC / "ucdp/ged251-csv.zip", SRC / "ucdp"), (SRC / "unosat/FL20220808PAK_SHP.zip", SRC / "unosat/FL20220808PAK_SHP")]:
-        if z.exists() and not any(d.glob("*.csv" if "ucdp" in str(d) else "**/*.shp")):
+    for z, d, probe in [(SRC / "ucdp/ged251-csv.zip", SRC / "ucdp", "*.csv"),
+                        (SRC / "unosat/FL20220808PAK_SHP.zip", SRC / "unosat/FL20220808PAK_SHP", "**/*.shp"),
+                        (SRC / "pslm/stata_data_pslm_2019_20.zip", SRC / "pslm/microdata_2019_20", "**/*.dta")]:
+        if z.exists() and not any(d.glob(probe)):
             zipfile.ZipFile(z).extractall(d)
 
-    with open(SRC / "fetched_extended.tsv", "w", newline="") as f:
+    # Tracked (unlike sources/), so a fresh clone can check its downloads against these bytes.
+    with open(HERE / "fetched_extended.tsv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]), delimiter="\t")
         w.writeheader()
         w.writerows(out)
-    print(f"{len(out)} files hashed into sources/fetched_extended.tsv")
+    print(f"{len(out)} files hashed into welfare/fetched_extended.tsv")
     if failed:
         sys.exit("FAILED:\n  " + "\n  ".join(failed))
 

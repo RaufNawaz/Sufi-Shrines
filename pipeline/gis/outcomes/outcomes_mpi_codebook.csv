@@ -1,0 +1,7 @@
+indicator,definition,census_table,source
+mpi_district_2015,"Multidimensional Poverty Index 2014/15 (15 indicators: education, health, living standards)","Statistical Annex, pp. 68-73","Ministry of Planning, Development and Reform, UNDP and OPHI (2016), Multidimensional Poverty in Pakistan"
+mpi_headcount_2015,"MPI poor, % of population, 2014/15","Statistical Annex, pp. 68-73","Ministry of Planning, Development and Reform, UNDP and OPHI (2016), Multidimensional Poverty in Pakistan"
+mpi_intensity_2015,"Average share of indicators in which the poor are deprived, %, 2014/15","Statistical Annex, pp. 68-73","Ministry of Planning, Development and Reform, UNDP and OPHI (2016), Multidimensional Poverty in Pakistan"
+mpi_district_2005,Multidimensional Poverty Index 2004/05,"Statistical Annex, pp. 68-73","Ministry of Planning, Development and Reform, UNDP and OPHI (2016), Multidimensional Poverty in Pakistan"
+mpi_headcount_2005,"MPI poor, % of population, 2004/05","Statistical Annex, pp. 68-73","Ministry of Planning, Development and Reform, UNDP and OPHI (2016), Multidimensional Poverty in Pakistan"
+mpi_headcount_change_05_15,"Change in MPI headcount 2004/05 to 2014/15, points (negative is a fall in poverty)","Statistical Annex, pp. 68-73","Ministry of Planning, Development and Reform, UNDP and OPHI (2016), Multidimensional Poverty in Pakistan"

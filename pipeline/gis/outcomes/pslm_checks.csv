@@ -1,0 +1,18 @@
+check,kind,measured,reference,result,note
+PSLM districts placed in an OCHA district,integrity,131 of 131,all,pass,
+FIES item prevalence falls from mild to severe (c01 > c04 > c08),integrity,22% / 34% / 33% / 9% / 14% / 6% / 6% / 4%,c01 > c04 > c08,pass,
+literacy 10+ (Table 2.14a): our computation (lit_rw) vs PBS's published district totals,external,"median |diff| 0.20 points, 100% within 2.5, n = 116",median <= 1.0 and >= 90% within 2.5 points (the table is rounded to whole numbers),pass,
+"fully immunised, recall and record, 12-23 months (Table 4.3C): our computation (pslm_fully_immunised) vs PBS's published district totals",external,"median |diff| 0.26 points, 100% within 2.5, n = 113",median <= 1.0 and >= 90% within 2.5 points (the table is rounded to whole numbers),pass,
+"diarrhoea, children under 5 (Table 4.6): our computation (pslm_diarrhoea_u5) vs PBS's published district totals",external,"median |diff| 0.22 points, 100% within 2.5, n = 117",median <= 1.0 and >= 90% within 2.5 points (the table is rounded to whole numbers),pass,
+districts with fewer than 30 children aged 12-23 months in the sample,integrity,"7: 111, 130, 406, 415, 416, 427, 430",none,warn,Immunisation for these districts rests on very few children; read with care
+PBS Table 9.1 (FIES) rows matched to surveyed PSLM districts,integrity,126 of 126; national 16.44%,all 126; national 16.44% as printed,pass,
+"our FIES raw score (4+ of 8) vs PBS's calibrated moderate-or-severe prevalence, districts",external,"rho = +0.91, n = 126",rho >= 0.8,pass,
+one PSLM district per OCHA district,integrity,none shared,none shared,pass,
+OCHA districts without a PSLM value,integrity,"31: Bagh, Bhimber, Jhelum Valley, Haveli, Kotli, Mirpur, Muzaffarabad, Neelum, Poonch, Sudhnoti, Chagai, Jhal Magsi, Lehri, Musakhel, Panjgur, Zhob, Chaman, Astore, Diamir, Ghanche, Ghizer, Gilgit, Hunza, Skardu, Nagar, Kharmang, Shigar, Darel, Tangir, Gupis-Yasin, Rondu","AJK and Gilgit-Baltistan (outside the survey), districts created after 2019, and the five Balochistan districts with no households in the 2019-20 microdata",pass,
+PSLM districts with a label but no households in the microdata,integrity,"chagai, jhal magsi, musa khel, panjgoor, zhob","reported, not filled",pass,
+pslm_literacy (2019-20) vs census 2023 literacy,convergent,"rho = +0.92, n = 129","sign +, |rho| >= 0.4",pass,
+pslm_literacy_female (2019-20) vs census 2023 literacy_female,convergent,"rho = +0.94, n = 129","sign +, |rho| >= 0.4",pass,
+pslm_out_of_school_5_16 (2019-20) vs census 2023 out_of_school_5_16,convergent,"rho = +0.93, n = 129","sign +, |rho| >= 0.4",pass,
+pslm_own_mobile_women (2019-20) vs census 2023 literacy_female,convergent,"rho = +0.63, n = 129","sign +, |rho| >= 0.4",pass,
+pslm_fies_mod_sev vs census 2023 literacy,convergent,"rho = -0.45, n = 129","sign -, |rho| >= 0.4",pass,
+"PSLM 2019-20 FIES vs IPC phase 3+ (2021-2026 analyses), districts the IPC covers",convergent,"rho = -0.01, n = 76","sign +, rho >= 0.3",warn,"Two measures four to six years apart, either side of the 2022 floods; reported, not reconciled"
