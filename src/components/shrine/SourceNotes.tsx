@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { localizeProseDigits } from '../../lib/i18n/numerals';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { SOURCE_NOTE_SLUG_SET } from '../../data/sourceNoteSlugs';
 import type { Lang } from '../../types/shrine';
@@ -18,7 +19,7 @@ interface SourceNoteItem {
  * withheld. Renders nothing for entries without notes.
  */
 export function SourceNotes({ slug }: { slug: string }) {
-  const { lang, t, fmtNum } = useLang();
+  const { lang, t, fmtNum, numerals } = useLang();
   const [items, setItems] = useState<SourceNoteItem[] | null>(null);
 
   const hasNotes = SOURCE_NOTE_SLUG_SET.has(slug);
@@ -56,7 +57,10 @@ export function SourceNotes({ slug }: { slug: string }) {
         <p className="source-notes-intro">{t('srcNotesIntro')}</p>
         <ul className="source-notes-list">
           {items.map((item, i) => (
-            <li key={i}>{item[lang as Lang]}</li>
+            /* Prose digits follow the reader's numeral setting, as the
+               article's do; URLs and coordinates stay Western (the helper
+               locks them). */
+            <li key={i}>{localizeProseDigits(item[lang as Lang], lang, numerals === 'eastern')}</li>
           ))}
         </ul>
       </details>

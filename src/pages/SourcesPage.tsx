@@ -54,7 +54,7 @@ function fold(text: string): string {
   return text
     .normalize('NFD')
     .replace(/\p{M}/gu, '')
-    .replace(/[*‘’“”"]/g, '')
+    .replace(/[*‘’“”"ʿʾ]/g, '')
     .toLowerCase();
 }
 
@@ -331,12 +331,22 @@ export default function SourcesPage() {
     const q = fold(query.trim());
     let rows: LibrarySource[] = library.sources;
     if (type) rows = rows.filter((s) => s.type === type);
-    if (q) rows = rows.filter((s) => fold(s.name).includes(q));
+    /* A line also matches by the Urdu title of the work it cites: «تذکرہ»
+       found nothing while the work's Urdu title is on the shelf (search
+       council, 17 October 2026). */
+    if (q) {
+      const urduTitle = new Map(
+        library.works.flatMap((w) => (w.titleUr ? [[w.slug, fold(w.titleUr)] as const] : [])),
+      );
+      rows = rows.filter(
+        (s) => fold(s.name).includes(q) || s.works.some((slug) => urduTitle.get(slug)?.includes(q)),
+      );
+    }
     if (order === 'alpha') {
       rows = [...rows].sort((a, b) => fold(a.name).localeCompare(fold(b.name)));
     }
     return rows;
-  }, [library.sources, query, type, order]);
+  }, [library.sources, library.works, query, type, order]);
 
   /* Arriving with a line in the URL: clear anything that would hide it, show
      enough of the list to include it, open it, and bring it into view. */

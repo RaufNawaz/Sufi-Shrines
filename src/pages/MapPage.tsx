@@ -168,6 +168,9 @@ function setFiltersInURL(filters: FilterState): void {
   window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
 }
 
+/** Marks a history entry this page pushed for a site selection. */
+const SELECTION_ENTRY = '__mapSelection';
+
 export default function MapPage() {
   const { shrines, loading, error, offline, sourceTimestamp, refresh } = useShrineData();
   const { t, isRTL, lang, localizeField } = useLang();
@@ -374,7 +377,32 @@ export default function MapPage() {
     /* A choice made from the palette lands while the palette's own history
        entry is current; replace it rather than stack a dead back step. */
     const url = `${window.location.pathname}${qs ? `?${qs}` : ''}`;
-    if (isOnOverlayEntry()) window.history.replaceState(null, '', url);
+    /* A selection is one step of history, not one per change (phone council,
+       17 October 2026). Tapping a site, closing it, then pressing Back used to
+       reopen the site; Back again left an expanded sheet on the welcome card;
+       only a third Back left the page — because every change, closing
+       included, pushed an entry. Now the first selection pushes one, tagged;
+       moving to another site replaces it; closing pops it. A selection that
+       starts on an entry this page did not push — a deep link, the palette's —
+       replaces in place and stays untagged, so closing it never steps off the
+       page. */
+    const state = window.history.state as Record<string, unknown> | null;
+    const onSelectionEntry = state?.[SELECTION_ENTRY] === true;
+    if (!tourChanged && !activeTourId) {
+      if (isOnOverlayEntry()) {
+        /* Chosen from the palette, on its own history entry: take the entry
+           over and drop its overlay marker, or the palette's close would see
+           its marker, step back, and the step back would deselect the site. */
+        window.history.replaceState(null, '', url);
+      } else if (selectedId === null) {
+        if (onSelectionEntry) window.history.back();
+        else window.history.replaceState(state, '', url);
+      } else if (onSelectionEntry || getSelectedSlug()) {
+        window.history.replaceState(state, '', url);
+      } else {
+        window.history.pushState({ [SELECTION_ENTRY]: true }, '', url);
+      }
+    } else if (isOnOverlayEntry()) window.history.replaceState(null, '', url);
     else window.history.pushState(null, '', url);
 
     if (activeTourId) recordTourStop(activeTourId, tourStopIdx);
@@ -405,6 +433,9 @@ export default function MapPage() {
       if (!slug) {
         selectShrine(null);
         selectedIdRef.current = null;
+        /* Back from a site lands on the map as it was: the sheet the selection
+           raised folds back to its peek. */
+        if (isMobile) setSidebarOpen(false);
         return;
       }
       const shrine = shrines.find((s) => s.slug === slug);

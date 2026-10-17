@@ -6,7 +6,13 @@ import { isRtlLang } from '../../lib/i18n/languages';
 import { useShrineData } from '../../hooks/useShrineData';
 import { useSearch } from '../../lib/search/useSearch';
 import { useDebounce } from '../../hooks/useDebounce';
-import { matchEntities, type SearchEntity } from '../../lib/search/entitySearch';
+import {
+  matchEntities,
+  normalizeForSearch,
+  type SearchEntity,
+} from '../../lib/search/entitySearch';
+import { shelfTitles } from '../../lib/data/sourceShelf';
+import { stripInlineBoldMarkup } from '../shrine/inlineFormat';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { localizeFigureName, localizeOrderName } from '../../lib/i18n/localizeKgName';
 import { isUrduSeedLoaded, loadUrduSeed, onUrduSeedLoaded } from '../../lib/i18n/urduFallback';
@@ -19,6 +25,8 @@ import { localizeObservance } from '../../lib/i18n/localizeObservance';
 import { getFieldValue } from '../../lib/data/fieldAliasing';
 import { useSavedShrines } from '../../lib/savedShrines';
 import type { Shrine } from '../../types/shrine';
+import { hasProjectAccess } from '../../lib/projectAccess';
+import { publicLocation } from '../../lib/data/publicLocation';
 import { useBackToClose } from '../../hooks/useBackToClose';
 import { clearRecent, useRecentEntries } from '../../lib/recentEntries';
 import { isOnOverlayEntry } from '../../lib/nav/overlayHistory';
@@ -53,14 +61,40 @@ import { prefersReducedMotion } from '../../lib/motionPreference';
 /* Three traditions, the same slice the orders get: they answer the same
    question for the five non-Sufi traditions, and a search that returned eight
    of anything would push the shrines off the first screen on a phone. */
-const PER_GROUP = { shrine: 6, figure: 5, order: 3, tradition: 3, place: 4, day: 4 } as const;
+const PER_GROUP = {
+  shrine: 6,
+  figure: 5,
+  order: 3,
+  tradition: 3,
+  place: 4,
+  source: 3,
+  day: 4,
+} as const;
+
+/** An observance as searched: accents and ʿ folded, the article in "Rabi
+ *  ul/al Awwal" dropped, doubled letters single, spaces gone. */
+function foldObservance(text: string): string {
+  return normalizeForSearch(text)
+    .replace(/\b(?:ul|al|ur|ar|us|as|ud|ad|un|an|ush|ash|uz|az|el)\b/g, ' ')
+    .replace(/([a-z])\1/g, '$1')
+    .replace(/\s+/g, '');
+}
+
+/* The books with pages, each with the strings it can be found by — title in
+   both scripts and author — folded once. */
+const SHELF = shelfTitles().map((work) => ({
+  work,
+  haystack: [work.title, work.titleUr ?? '', work.author ?? '']
+    .map(normalizeForSearch)
+    .filter(Boolean),
+}));
 
 /* `| undefined` on the optional fields, not just `?`: this project runs
    `exactOptionalPropertyTypes`, under which `meta?: string` refuses an explicit
    `undefined` — and every one of these is computed from data that may not be
    there. */
 type Row = {
-  kind: 'shrine' | 'figure' | 'order' | 'tradition' | 'place' | 'day';
+  kind: 'shrine' | 'figure' | 'order' | 'tradition' | 'place' | 'source' | 'day';
   key: string;
   name: string;
   meta?: string | undefined;
@@ -92,8 +126,30 @@ function Highlighted({ text, query }: { text: string; query: string }) {
 /** The map palette's closing fade, so the two searches leave alike. */
 const CLOSE_MS = 140;
 
-export function ArchiveSearch({ onClose: onCloseNow }: { onClose: () => void }) {
-  const { lang, t, fmtNum } = useLang();
+export function ArchiveSearch({
+  onClose: onCloseNow,
+  initialQuery = '',
+}: {
+  onClose: () => void;
+  initialQuery?: string;
+}) {
+  const { lang, t, fmtNum, localizeField } = useLang();
+  /* The place, not the survey's paragraph about it, and in the reader's
+     language — the map's palette has done this since round 2; this one printed
+     "Shah Alam Market; the survey places the mazar near…" under a result, in
+     English under a Nastaliq name (search council, 17 October 2026). The team
+     keeps the recorded cell. */
+  const teamView = hasProjectAccess();
+  const rowLocation = useCallback(
+    (shrine: Shrine): string | undefined => {
+      if (!shrine.location) return undefined;
+      return teamView
+        ? shrine.location
+        : publicLocation(localizeField(shrine.raw, 'Location') || shrine.location, shrine, lang) ||
+            undefined;
+    },
+    [teamView, localizeField, lang],
+  );
   const isRtl = isRtlLang(lang);
   const navigate = useNavigate();
   /* The header search vanished on Escape or Done while the map's palette —
@@ -123,7 +179,7 @@ export function ArchiveSearch({ onClose: onCloseNow }: { onClose: () => void }) 
   useBackToClose(true, onClose);
   const { shrines } = useShrineData();
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(initialQuery);
   const debounced = useDebounce(query, 120);
   const [activeIndex, setActiveIndex] = useState(0);
   const [entities, setEntities] = useState<readonly SearchEntity[]>([]);
@@ -261,7 +317,7 @@ export function ArchiveSearch({ onClose: onCloseNow }: { onClose: () => void }) 
               kind: 'shrine',
               key: `recent:shrine:${shrine.slug}`,
               name: localizeShrineName(shrine, lang),
-              meta: shrine.location ? localizeRecordedName(shrine.location, lang) : undefined,
+              meta: rowLocation(shrine),
               to: `/shrine/${shrine.slug}`,
               tone: categoryKey(shrine.category),
               saved: saved.has(shrine.slug),
@@ -309,7 +365,7 @@ export function ArchiveSearch({ onClose: onCloseNow }: { onClose: () => void }) 
         kind: 'shrine' as const,
         key: `shrine:${shrine.slug}`,
         name: localizeShrineName(shrine, lang),
-        meta: shrine.location ? localizeRecordedName(shrine.location, lang) : undefined,
+        meta: rowLocation(shrine),
         to: `/shrine/${shrine.slug}`,
         tone: categoryKey(shrine.category),
         saved: saved.has(shrine.slug),
@@ -365,24 +421,53 @@ export function ArchiveSearch({ onClose: onCloseNow }: { onClose: () => void }) 
 
        The link carries a hash, which is what makes the almanac open its month
        *listing* rather than the calendar: the anchor exists only there. */
-    const needle = q.toLocaleLowerCase(lang);
-    const dayRows: Row[] = shrines
-      .map((shrine): Row | null => {
-        const recorded = getFieldValue(shrine.raw, 'Events').trim();
-        if (!recorded) return null;
-        const shown = localizeObservance(recorded, lang);
-        const haystack = `${recorded}\n${shown}`.toLocaleLowerCase(lang);
-        if (!haystack.includes(needle)) return null;
-        return {
-          kind: 'day' as const,
-          key: `day:${shrine.slug}`,
-          name: shown,
-          meta: localizeShrineName(shrine, lang),
-          to: `/almanac#${shrine.slug}`,
-        };
-      })
-      .filter((row) => row !== null)
-      .slice(0, PER_GROUP.day);
+    /* Folded the way month names are actually spelt across the sheet —
+       "Rabi ul Awal", "Rabi al-Awwal", "Rabīʿ al-Thānī" — so one spelling
+       finds the others; and only the clause that matched is shown, without
+       its markdown, rather than a 251-character cell with the asterisks
+       printing (search council, 17 October 2026). */
+    const needle = foldObservance(q);
+    const dayRows: Row[] = needle
+      ? shrines
+          .map((shrine): Row | null => {
+            const recorded = getFieldValue(shrine.raw, 'Events').trim();
+            if (!recorded) return null;
+            const clause = recorded
+              .split(';')
+              .map((part) => part.trim())
+              .find(
+                (part) =>
+                  foldObservance(part).includes(needle) ||
+                  foldObservance(localizeObservance(part, lang)).includes(needle),
+              );
+            if (!clause) return null;
+            return {
+              kind: 'day' as const,
+              key: `day:${shrine.slug}`,
+              name: stripInlineBoldMarkup(localizeObservance(clause, lang)),
+              meta: localizeShrineName(shrine, lang),
+              to: `/almanac#${shrine.slug}`,
+            };
+          })
+          .filter((row) => row !== null)
+          .slice(0, PER_GROUP.day)
+      : [];
+
+    /* Books. "Tazkirah" and "Kashf al-Mahjub" found nothing here while each has
+       a page (search council, 17 October 2026). */
+    const folded = normalizeForSearch(q);
+    const sourceRows: Row[] = folded
+      ? SHELF.filter(({ haystack }) => haystack.some((h) => h.includes(folded)))
+          .slice(0, PER_GROUP.source)
+          .map(({ work }) => ({
+            kind: 'source' as const,
+            key: `source:${work.slug}`,
+            // eslint-disable-next-line no-restricted-syntax -- titleUr is an Urdu-only sibling field
+            name: lang === 'ur' && work.titleUr ? work.titleUr : work.title,
+            meta: work.author,
+            to: `/source/${work.slug}`,
+          }))
+      : [];
 
     return [
       ...shrineRows,
@@ -390,12 +475,14 @@ export function ArchiveSearch({ onClose: onCloseNow }: { onClose: () => void }) 
       ...byType('order'),
       ...byType('tradition'),
       ...placeRows,
+      ...sourceRows,
       ...dayRows,
     ];
   }, [
     debounced,
     ids,
     shrines,
+    rowLocation,
     searchableEntities,
     searchablePlaces,
     places,
@@ -426,7 +513,9 @@ export function ArchiveSearch({ onClose: onCloseNow }: { onClose: () => void }) 
             ? t('searchGroupTraditions')
             : kind === 'place'
               ? t('placesTitle')
-              : t('searchGroupDays');
+              : kind === 'source'
+                ? t('tabSources')
+                : t('searchGroupDays');
 
   useEffect(() => setActiveIndex(0), [rows]);
 

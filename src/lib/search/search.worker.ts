@@ -83,6 +83,31 @@ const BOOSTS: Record<(typeof INDEX_FIELDS)[number], number> = {
   description: 1,
 };
 
+/**
+ * Every word first, any word only when that finds nothing; typos allowed only
+ * in words of five letters or more.
+ *
+ * Searching any-word with fuzzy matching on every term made the list mostly
+ * noise: "Bibi Pak Daman" matched 137 of 171 sites (any site with "Bibi" in
+ * it, or "Pak" for Pakistan in its location), "Panja Sahib" 31, and a
+ * four-letter word took one typo — "Data" found Hinglaj *Mata*, "Rabi" found
+ * the *Ravi* Road (search council, 17 October 2026). Measured against the 171
+ * rows with these settings: Bibi Pak Daman 1, Panja Sahib 1, Data Darbar 3,
+ * Multan unchanged at 17.
+ */
+export const SEARCH_OPTIONS = {
+  fuzzy: (term: string) => (term.length >= 5 ? 0.2 : false),
+  prefix: true,
+  boost: BOOSTS,
+  combineWith: 'AND' as const,
+};
+
+export function searchAllThenAny(index: MiniSearch<ShrineDoc>, query: string): number[] {
+  const all = index.search(query);
+  const hits = all.length > 0 ? all : index.search(query, { combineWith: 'OR' });
+  return hits.map((r) => r.id as number);
+}
+
 let ms: MiniSearch<ShrineDoc> | null = null;
 
 self.onmessage = (e: MessageEvent<InMsg>) => {
@@ -99,12 +124,7 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
       fields: [...INDEX_FIELDS],
       storeFields: [],
       processTerm,
-      searchOptions: {
-        fuzzy: 0.2,
-        prefix: true,
-        boost: BOOSTS,
-        combineWith: 'OR',
-      },
+      searchOptions: SEARCH_OPTIONS,
     });
     ms.addAll(msg.docs);
     (self as unknown as Worker).postMessage({ type: 'ready' } satisfies OutMsg);
@@ -113,7 +133,7 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
 
   if (msg.type === 'search') {
     if (!ms) return;
-    const results = msg.query.trim() ? ms.search(msg.query).map((r) => r.id as number) : [];
+    const results = msg.query.trim() ? searchAllThenAny(ms, msg.query) : [];
     (self as unknown as Worker).postMessage({
       type: 'results',
       ids: results,

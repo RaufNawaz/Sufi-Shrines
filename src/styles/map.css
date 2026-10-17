@@ -265,6 +265,34 @@
   background: var(--color-text);
 }
 
+.sheet-selected-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-4) var(--space-2);
+  border-bottom: var(--hairline) solid var(--color-border-light);
+  flex-shrink: 0;
+  background: var(--color-bg-surface);
+}
+
+.sheet-selected-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.sheet-selected-close {
+  flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+}
+
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -1777,6 +1805,21 @@
   color: var(--color-text-secondary);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  /* One line. It is Latin in both languages; in Urdu it took the Nastaliq
+     size and leading, grew to two 51px lines, and laid the Leaflet link along
+     the sheet's grab handle, where a thumb reaching for the handle opened
+     leafletjs.com (phone council, 17 October 2026). */
+  max-inline-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[dir='rtl'] .leaflet-control-attribution {
+  /* The Latin size, still scaled by the reader's text-size setting. */
+  font-size: calc(0.75rem * var(--reading-scale));
+  font-family: var(--font-sans);
+  line-height: var(--leading-normal);
 }
 
 /* Zoom + custom control bars — rounded, soft shadow, theme-aware */
@@ -2528,6 +2571,33 @@
     padding: var(--space-2) var(--space-4) var(--space-3);
     background: var(--color-bg-surface);
     box-shadow: 0 calc(-1 * var(--hairline)) 0 var(--color-border-light);
+    /* One row, always: pinned to the sheet's foot, a second row climbs over
+       the site's name. */
+    flex-wrap: nowrap;
+  }
+
+  .sidebar-detail .preview-view-link {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* In Nastaliq "Share" and "Save" wrapped the row to 122px and it covered the
+     site's name on 360px and short phones (phone council, 17 October 2026).
+     There they are 44px icon buttons; the label stays in the button for
+     assistive technology, only hidden from sight. */
+  [dir='rtl'] .sidebar-detail .preview-copy-link {
+    justify-content: center;
+    min-width: 44px;
+    padding-inline: 0;
+  }
+
+  [dir='rtl'] .sidebar-detail .preview-copy-link > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 

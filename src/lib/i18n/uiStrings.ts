@@ -891,6 +891,11 @@ const UI_TEXT_EN = {
   almanacDownloadIcs: 'Add to calendar (.ics)',
   almanacDownloadIcsHint:
     'Downloads the dated observances. Hijri-based entries carry their approximation in the event notes.',
+  almanacIcsFixedDate: 'A fixed date in the Gregorian calendar, as recorded.',
+  almanacIcsLeftOut: (n: number) =>
+    n === 1
+      ? '1 observance recorded only to the month, or by a rule, is left out of the calendar file: a calendar needs a day.'
+      : `${n} observances recorded only to the month, or by a rule, are left out of the calendar file: a calendar needs a day.`,
   almanacRule: 'recurrence recorded, not a fixed date',
   almanacMonthOnly: 'month recorded, day not recorded',
   /* ── The calendar view ─────────────────────────────────────────────────── */
@@ -925,9 +930,9 @@ const UI_TEXT_EN = {
   almanacCalendarUnplacedHeading: 'This month, day not recorded',
   almanacCalendarUnplacedNote:
     'The archive records the month for these and no day, so they sit beside the grid rather than on it. A Hijri month straddles two Gregorian ones, which is why one can appear under both.',
-  tourTotalDistance: 'Total distance',
-  tourEstDriveTime: 'Est. drive time',
-  tourNextStopDistance: 'to next stop',
+  tourTotalDistance: 'Distance in a straight line',
+  tourNextStopDistance: 'in a straight line to the next stop,',
+  tourNextStopDirections: 'Directions to it',
   tourPreviewTitle: 'Tour overview',
   tourStartButton: 'Start tour',
   tourBackButton: 'Back',
@@ -936,6 +941,7 @@ const UI_TEXT_EN = {
   resumeTourPrompt: 'Continue where you left off',
   resumeButton: 'Resume',
   dismiss: 'Dismiss',
+  closeSitePreview: 'Close this site',
   tourCompletedBadge: 'Completed',
   tourInProgressBadge: 'In progress',
   audioPlay: 'Play narration',
@@ -948,6 +954,9 @@ const UI_TEXT_EN = {
   autoplayResume: 'Resume autoplay',
   locationUnavailable: 'Location unavailable',
   nearestToYou: 'Nearest to you',
+  tourNearestStop: (stop: string, name: string, distance: string) =>
+    `Stop ${stop}, ${name}, is ${distance} from you`,
+  tourStartAtStop: (stop: string) => `Start at stop ${stop}`,
   relatedToursHeading: 'You might also like',
   partOfTour: 'Part of the guided tour',
   viewTour: 'View tour',
@@ -984,6 +993,8 @@ const UI_TEXT_EN = {
   citeSupportLevel: 'Support level',
   obsHeading: 'Urs & observances',
   obsViewAlmanac: 'See it in the Urs Calendar',
+  obsNextLabel: 'Next',
+  paletteSearchArchive: (q: string) => `Search figures, places and sources for “${q}”`,
   obsProjectedCaveat:
     'Projected from the Hijri calendar. An ʿurs begins on the local moon sighting, so the day can fall one or two days either side.',
   fieldSiteType: 'Built form',
@@ -1014,7 +1025,7 @@ const UI_TEXT_EN = {
   sourcesReadingNote:
     'Books the project has read cover to cover, in Urdu, Persian and English. What they say is checked before it enters an entry, so most are not cited yet; each one lists its entries here as soon as one cites it.',
   sourcesReadingCited: 'Cited',
-  sourcesReadingInReview: 'In review',
+  sourcesReadingInReview: 'Read · not yet cited',
   sourcesKindsHeading: 'What kind of sources',
   sourcesKindsNote:
     'Sorted by the form of each citation, not by checking the work itself, so a line can sit in the wrong pile. The citation is always shown exactly as recorded.',
@@ -1523,6 +1534,16 @@ export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, tota
 export function tFn(lang: Lang, key: 'settingsSavedCount', n: string): string;
 export function tFn(lang: Lang, key: 'offlineDataBannerDated', date: string): string;
 export function tFn(lang: Lang, key: 'orderLineageLinks', n: number): string;
+export function tFn(lang: Lang, key: 'almanacIcsLeftOut', n: number): string;
+export function tFn(
+  lang: Lang,
+  key: 'tourNearestStop',
+  stop: string,
+  name: string,
+  distance: string,
+): string;
+export function tFn(lang: Lang, key: 'tourStartAtStop', stop: string): string;
+export function tFn(lang: Lang, key: 'paletteSearchArchive', q: string): string;
 export function tFn(lang: Lang, key: 'settingsSavedImported', n: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayKm', value: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayMetres', value: string): string;
@@ -1560,6 +1581,10 @@ export function tFn(
     | 'settingsSavedCount'
     | 'offlineDataBannerDated'
     | 'orderLineageLinks'
+    | 'almanacIcsLeftOut'
+    | 'tourNearestStop'
+    | 'tourStartAtStop'
+    | 'paletteSearchArchive'
     | 'settingsSavedImported'
     | 'distanceAwayKm'
     | 'distanceAwayMetres'

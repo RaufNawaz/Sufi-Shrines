@@ -149,8 +149,8 @@ const BUDGETS_KB = {
      The two new pages: the index does not load the country outline (DotMap.tsx
      is its own module for exactly that), the book page does. Each budget is the
      17 October measurement + 3. */
-  'src/pages/SourcesPage.tsx': 371, // measured 368 on 17 Oct 2026, after the council rounds
-  'src/pages/SourcePage.tsx': 379, // measured 376 on 17 Oct 2026, after the council rounds
+  'src/pages/SourcesPage.tsx': 375, // measured 372 on 17 Oct 2026, council round 6
+  'src/pages/SourcePage.tsx': 383, // measured 380 on 17 Oct 2026, council round 6
   /* 265 → 272 on 30 August 2026. Measured 265 against a 265 budget, which this
      file's own header calls a landmine rather than a pass — and index.html is
      the worst place to leave one, because every route's shell is in it, so it

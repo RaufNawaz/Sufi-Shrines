@@ -8,6 +8,7 @@ import {
 } from '../../lib/data/articleParsing';
 import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeHeading } from '../../lib/data/headingLabels';
+import { stripInlineBoldMarkup } from './inlineFormat';
 import { SOURCES_HEADING_ALIASES } from '../../lib/data/constants';
 
 /** Heading → in-page anchor id. Distinct from lib/data/slugify (URL slugs). */
@@ -210,7 +211,10 @@ export function useArticleContent(shrine: Shrine) {
     const items: ArticleNavItem[] = [];
     if (leadText) items.push({ id: 'overview', label: t('overview') });
     for (const s of inlineSections) {
-      items.push({ id: anchorSlug(s.heading), label: localizeHeading(s.heading, lang) });
+      items.push({
+        id: anchorSlug(s.heading),
+        label: stripInlineBoldMarkup(localizeHeading(s.heading, lang)),
+      });
     }
     for (const s of uniqueColumnSections) {
       items.push({ id: s.id, label: s.title[lang] || s.title.en });

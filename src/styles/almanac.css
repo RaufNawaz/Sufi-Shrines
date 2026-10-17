@@ -1263,6 +1263,12 @@
 
 /* The moon-sighting caveat, once, with the hollow dot as its key. The team
    view prints a pill on each projected date instead (ObservanceCard). */
+.almanac-ics-note {
+  margin: var(--space-2) 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
 .almanac-cal-caveat {
   display: flex;
   align-items: baseline;

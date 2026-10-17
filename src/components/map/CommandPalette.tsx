@@ -9,6 +9,7 @@ import type { CategoryKey } from '../../lib/data/categoryKey';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { useBackToClose } from '../../hooks/useBackToClose';
+import { useArchiveSearch } from '../search/ArchiveSearchProvider';
 import { ShrineFilters, type ShrineFiltersProps } from './ShrineFilters';
 import { PalettePreview } from './PalettePreview';
 import { usePointerSheen } from '../../hooks/usePointerSheen';
@@ -148,6 +149,27 @@ export function CommandPalette({
   }, [onCloseNow]);
   // Back leaves the way Done does — with the fade — not by leaving the page.
   useBackToClose(open, onClose);
+
+  const archiveSearch = useArchiveSearch();
+  /* Close this palette, and open the archive search once this palette's own
+     history entry has been popped — opened in the same tick, it would push its
+     entry first and leave this one orphaned under it, one extra Back. */
+  const handOffToArchive = useCallback(() => {
+    const q = query.trim();
+    let done = false;
+    const go = () => {
+      if (done) return;
+      done = true;
+      window.removeEventListener('popstate', go);
+      /* The archive search returns focus to whatever had it when it opened;
+         this palette's field is gone by then, so give it the map's Search. */
+      document.getElementById('map-search')?.focus();
+      archiveSearch.open(q);
+    };
+    window.addEventListener('popstate', go);
+    window.setTimeout(go, 400);
+    onCloseNow();
+  }, [query, archiveSearch, onCloseNow]);
   useEffect(
     () => () => {
       if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
@@ -705,6 +727,19 @@ export function CommandPalette({
                 />
               </aside>
             )}
+          </div>
+        )}
+
+        {/* The map's search finds sites. A reader typing "Multan", "Data Ganj
+            Bakhsh" or "Tazkirah" here — the front door — wanted the place, the
+            figure or the book, and got 17 sites, 18 sites, or "No matches"
+            (search council, 17 October 2026). The archive search answers all
+            three; this hands the query to it. */}
+        {expanded && query.trim() && archiveSearch && (
+          <div className="palette-elsewhere">
+            <button type="button" className="action-btn" onClick={handOffToArchive}>
+              {tFn(lang, 'paletteSearchArchive', query.trim())}
+            </button>
           </div>
         )}
 

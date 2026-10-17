@@ -14,7 +14,7 @@ import { ObservanceCard } from '../components/almanac/ObservanceCard';
 import { AlmanacCalendar } from '../components/almanac/AlmanacCalendar';
 import { CoverageTiles } from '../components/almanac/CoverageTiles';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
-import { buildIcs } from '../lib/data/almanacIcs';
+import { buildIcs, isCalendarable } from '../lib/data/almanacIcs';
 import { downloadIcsFile } from '../lib/data/icsDownload';
 import { gregorianMonthName, SEASON_LABEL_KEYS } from '../lib/i18n/formatDateWindow';
 import { placesForShrine } from '../lib/data/places';
@@ -257,12 +257,17 @@ export default function AlmanacPage() {
     return new Set([...counts].filter(([, n]) => n > 1).map(([month]) => month));
   }, [months]);
 
+  /* Said after the download, when the reader is looking at what they got:
+     the file holds only observances recorded to the day. */
+  const [icsLeftOut, setIcsLeftOut] = React.useState<number | null>(null);
   const downloadIcs = () => {
     const ics = buildIcs(almanac.dated, {
       baseUrl: `${window.location.origin}${import.meta.env.BASE_URL}`.replace(/\/$/, ''),
       now: new Date(),
+      lang,
     });
     downloadIcsFile(ics, 'urs-almanac.ics');
+    setIcsLeftOut(almanac.dated.filter((entry) => !isCalendarable(entry)).length);
   };
 
   const { counts } = almanac;
@@ -391,6 +396,13 @@ export default function AlmanacPage() {
                   )}
                 </>
               );
+
+              const icsNote =
+                icsLeftOut !== null && icsLeftOut > 0 ? (
+                  <p className="almanac-ics-note" role="status">
+                    {fmtNum(tFn(lang, 'almanacIcsLeftOut', icsLeftOut))}
+                  </p>
+                ) : null;
 
               /* ── The two facets ─────────────────────────────────────────
                   Between the toolbar and the grid, because they narrow what the
@@ -523,6 +535,7 @@ export default function AlmanacPage() {
                     showApproximateFlags={teamAccess}
                   >
                     {facets}
+                    {icsNote}
                     {empty}
                   </AlmanacCalendar>
                 );
@@ -537,6 +550,7 @@ export default function AlmanacPage() {
                     <div className="almanac-year-controls">{controls}</div>
                   </div>
                   {facets}
+                  {icsNote}
                   {empty}
 
                   {/* Twelve month sections is a long scroll to reach next

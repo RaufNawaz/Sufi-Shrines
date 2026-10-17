@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import type { TourTradition } from '../../lib/tours/tours';
 import {
   TOURS,
@@ -56,7 +57,15 @@ export function TourList({
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const [geoStatus, setGeoStatus] = useState<'idle' | 'loading' | 'error'>('idle');
-  const [nearest, setNearest] = useState<{ tourId: string; km: number } | null>(null);
+  /* Which stop is near, not only which tour: in Lahore the nearest tour was a
+     1,246 km Indus route whose eighth stop is Data Darbar, and the badge said
+     only "0 km" (calendar council, 17 October 2026). */
+  const [nearest, setNearest] = useState<{
+    tourId: string;
+    km: number;
+    stopIdx: number;
+    shrine: Shrine;
+  } | null>(null);
 
   const tourDistances = useMemo(() => {
     const map = new Map<string, number>();
@@ -106,11 +115,12 @@ export function TourList({
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const userLoc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-        let best: { tourId: string; km: number } | null = null;
+        let best: { tourId: string; km: number; stopIdx: number; shrine: Shrine } | null = null;
         for (const tour of TOURS) {
           for (const point of resolveTourStops(tour, shrines)) {
             const km = haversineKm(userLoc, point.shrine.latLng);
-            if (!best || km < best.km) best = { tourId: tour.id, km };
+            if (!best || km < best.km)
+              best = { tourId: tour.id, km, stopIdx: point.stopIndex, shrine: point.shrine };
           }
         }
         setNearest(best);
@@ -382,7 +392,7 @@ export function TourList({
               const km = tourDistances.get(tour.id);
               const tourProgress = progress.tours[tour.id];
               const isNearest = nearest?.tourId === tour.id;
-              return (
+              const card = (
                 <button
                   key={tour.id}
                   className={`tour-card hover-lift${isNearest ? ' tour-card--nearest' : ''}`}
@@ -404,14 +414,35 @@ export function TourList({
                           : `${t(lang, 'tourInProgressBadge')} ${fmtNum(tourProgress.stopIdx + 1)}/${fmtNum(tour.stops.length)}`}
                       </span>
                     )}
-                    {isNearest && (
+                    {isNearest && nearest && (
                       <span className="tour-card-nearest-badge">
-                        {t(lang, 'nearestToYou')} (
-                        {formatDistance(nearest!.km, units, lang, fmtNum, { style: 'bare' })})
+                        {tFn(
+                          lang,
+                          'tourNearestStop',
+                          fmtNum(nearest.stopIdx + 1),
+                          localizeShrineName(nearest.shrine, lang),
+                          formatDistance(nearest.km, units, lang, fmtNum, { style: 'bare' }),
+                        )}
                       </span>
                     )}
                   </span>
                 </button>
+              );
+              /* Start where the reader is, not at stop 1 a province away. A
+                 sibling of the card, because a button cannot hold a button. */
+              return isNearest && nearest && nearest.stopIdx > 0 ? (
+                <React.Fragment key={tour.id}>
+                  {card}
+                  <button
+                    type="button"
+                    className="action-btn tour-start-here"
+                    onClick={() => onResume(tour.id, nearest.stopIdx)}
+                  >
+                    {tFn(lang, 'tourStartAtStop', fmtNum(nearest.stopIdx + 1))}
+                  </button>
+                </React.Fragment>
+              ) : (
+                card
               );
             })}
           </div>

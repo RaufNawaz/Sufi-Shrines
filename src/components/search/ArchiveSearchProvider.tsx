@@ -38,8 +38,10 @@ const ArchiveSearch = lazy(() =>
  */
 
 interface ArchiveSearchApi {
-  /** Open the overlay. A no-op on the map, which runs its own. */
-  open: () => void;
+  /** Open the overlay, optionally with a query already typed. The map's own
+   *  palette hands over to it this way (search council, 17 October 2026);
+   *  otherwise the map runs its own and the shortcuts do not open this one. */
+  open: (query?: string) => void;
   /** Whether this route is one this provider serves — the map is not. */
   available: boolean;
 }
@@ -63,6 +65,7 @@ export function ArchiveSearchProvider({ children }: { children: React.ReactNode 
   const { pathname } = useLocation();
   const available = !isMapRoute(pathname);
   const [open, setOpen] = useState(false);
+  const [initialQuery, setInitialQuery] = useState('');
 
   // Leaving the page closes it: a route change behind a modal leaves the reader
   // looking at an overlay onto something else.
@@ -88,7 +91,13 @@ export function ArchiveSearchProvider({ children }: { children: React.ReactNode 
   }, [available]);
 
   const api = useMemo<ArchiveSearchApi>(
-    () => ({ open: () => setOpen(true), available }),
+    () => ({
+      open: (query?: string) => {
+        setInitialQuery(query ?? '');
+        setOpen(true);
+      },
+      available,
+    }),
     [available],
   );
   const close = useCallback(() => setOpen(false), []);
@@ -96,12 +105,12 @@ export function ArchiveSearchProvider({ children }: { children: React.ReactNode 
   return (
     <ArchiveSearchContext.Provider value={api}>
       {children}
-      {available && open && (
+      {open && (
         /* No fallback: the palette animates in when its chunk lands, and a
            spinner flashed for the ~one frame the chunk takes from cache would
            be noise. The keys were pressed; the overlay is already coming. */
         <Suspense fallback={null}>
-          <ArchiveSearch onClose={close} />
+          <ArchiveSearch onClose={close} initialQuery={initialQuery} />
         </Suspense>
       )}
     </ArchiveSearchContext.Provider>

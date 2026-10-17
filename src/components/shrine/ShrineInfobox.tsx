@@ -1,3 +1,4 @@
+import { NextObservanceLine } from './ShrineObservances';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { orderSlugForSilsila } from '../../lib/data/silsila';
@@ -219,19 +220,25 @@ export function ShrineInfobox({ shrine }: Props) {
                   // Bullets, one per recorded observance (project head, 11 Sep
                   // 2026). renderInlineBold turns the sheet's *ʿurs* italics
                   // into <em> instead of printing the asterisks.
-                  <ul className="infobox-bullets">
-                    {splitEvents(value).map((part, i) => (
-                      <li key={i}>
-                        <bdi lang={isUntranslatedInUrdu(lang, part) ? 'en' : undefined}>
-                          {renderInlineBold(fmtNum(part))}
-                        </bdi>
-                      </li>
-                    ))}
-                  </ul>
+                  <>
+                    <ul className="infobox-bullets">
+                      {splitEvents(value).map((part, i) => (
+                        <li key={i}>
+                          <bdi lang={isUntranslatedInUrdu(lang, part) ? 'en' : undefined}>
+                            {renderInlineBold(fmtNum(part))}
+                          </bdi>
+                        </li>
+                      ))}
+                    </ul>
+                    <NextObservanceLine shrine={shrine} />
+                  </>
                 ) : isEventsKey(key) ? (
-                  <bdi lang={isUntranslatedInUrdu(lang, value) ? 'en' : undefined}>
-                    {renderInlineBold(fmtNum(value))}
-                  </bdi>
+                  <>
+                    <bdi lang={isUntranslatedInUrdu(lang, value) ? 'en' : undefined}>
+                      {renderInlineBold(fmtNum(value))}
+                    </bdi>
+                    <NextObservanceLine shrine={shrine} />
+                  </>
                 ) : (
                   // <bdi> so an untranslated Latin fallback value can't
                   // garble the surrounding RTL layout (same treatment as

@@ -90,8 +90,11 @@ function ArticleSection({
           heading ("2010 کا دھماکہ…"), so the year rendered Western in the
           heading and Eastern in the paragraph directly beneath it: one year,
           two numeral systems, one screen. */}
+      {/* Through the inline formatter as well: four headings carry the
+          markdown the body does ("The annual *ʿurs*"), and the asterisks
+          printed (epistemic council, 17 October 2026). */}
       <h2 className="article-section-heading" id={`${id}-heading`}>
-        {localize(heading)}
+        {renderInlineBold(localize(heading))}
       </h2>
       {isSources ? (
         <ul className="article-prose article-sources-list">

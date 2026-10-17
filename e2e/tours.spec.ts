@@ -114,7 +114,7 @@ test.describe('Guided tours on the map — Phase 2 (richer stops)', () => {
     await page.getByRole('switch', { name: UI_TEXT.en.turnOnTours }).click();
   });
 
-  test('tour preview shows stop count, distance, and estimated drive time before starting', async ({
+  test('tour preview shows stop count and straight-line distance before starting', async ({
     page,
   }) => {
     await page.getByText(INDUS.title).click();
@@ -132,9 +132,9 @@ test.describe('Guided tours on the map — Phase 2 (richer stops)', () => {
          "a distance is shown in the reader's units" without pinning the number,
          which depends on the CSV. */
     ).toContainText(UI_TEXT.en.distanceBareKm('').trim());
-    await expect(
-      preview.locator('.tour-preview-stat', { hasText: UI_TEXT.en.tourEstDriveTime }),
-    ).toBeVisible();
+    /* No drive time: it was the straight line divided by 60 km/h, and read as
+       a measured route (calendar council, 17 October 2026). */
+    await expect(preview.locator('.tour-preview-stat')).toHaveCount(2);
     await expect(preview.locator('.tour-preview-stops li')).toHaveCount(INDUS.stops.length);
   });
 

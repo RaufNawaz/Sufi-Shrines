@@ -54,6 +54,15 @@
   padding: var(--space-2) var(--space-3);
   background: var(--color-bg-surface);
   font-size: var(--text-sm);
+  /* The separators, painted by each row into the hairline gap above it and
+     beside it. The gap alone let the list's grey show through, and a 0.5px gap
+     at a fractional offset (a list starting at y=355.375 on a 2x phone) fell
+     between device pixels and vanished — one separator in three missing
+     (17 October 2026). A shadow is painted with the row, so it is always
+     drawn; the container's overflow clips the ones on the outer edge. */
+  box-shadow:
+    0 calc(-1 * var(--hairline)) 0 0 var(--color-border-light),
+    calc(-1 * var(--hairline)) 0 0 0 var(--color-border-light);
 }
 
 /* A row that goes somewhere: the whole row, not the words inside it. A link

@@ -151,15 +151,20 @@
 /* A phone: a page sheet from the bottom, nearly full height, with a grabber.
    The bottom pad clears the home indicator. */
 @media (max-width: 640px) {
+  /* The top pad clears the status bar in the installed app (standalone,
+     black-translucent), where the grabber and Done sat under the clock. And
+     a sheet rises only as tall as what it holds: Contents for a 13-section
+     entry opened 832px tall with 100px of nothing under the list (phone
+     council, 17 October 2026). */
   .sheet-backdrop {
     align-items: flex-end;
-    padding: var(--space-3) 0 0;
+    padding: calc(var(--space-3) + var(--safe-top)) 0 0;
   }
 
   .sheet {
     inline-size: 100%;
-    block-size: calc(100dvh - var(--space-3));
-    max-block-size: none;
+    block-size: auto;
+    max-block-size: calc(100dvh - var(--space-3) - var(--safe-top));
     border-radius: 16px 16px 0 0;
     padding-block-end: var(--safe-bottom);
     animation: sheet-rise var(--duration-base) var(--easing-spring) backwards;

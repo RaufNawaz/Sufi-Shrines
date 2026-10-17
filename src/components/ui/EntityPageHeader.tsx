@@ -314,7 +314,7 @@ export function EntityPageHeader({ title }: { title?: string }) {
           <button
             type="button"
             className="icon-btn"
-            onClick={search.open}
+            onClick={() => search.open()}
             aria-label={t('paletteTitle')}
             title={t('paletteTitle')}
           >

@@ -257,6 +257,7 @@ export function ShrinePreview({
           className={`preview-copy-link preview-save-btn${isShrineSaved ? ' is-saved' : ''}`}
           onClick={() => toggleSaved(shrine.slug)}
           aria-pressed={isShrineSaved}
+          aria-label={translate(lang as Lang, 'saveShrineFull')}
           title={translate(lang as Lang, 'saveShrineFull')}
         >
           <svg

@@ -901,6 +901,11 @@
 
 /* ── Footer ───────────────────────────────────────────────────────────────── */
 
+.palette-elsewhere {
+  padding: var(--space-2) var(--space-4);
+  border-top: var(--hairline) solid var(--color-border-light);
+}
+
 .palette-footer {
   flex-shrink: 0;
   display: flex;
@@ -996,7 +1001,8 @@
     /* Near-fullscreen: 14vh of blurred map above a card wastes the only screen
        most of this archive's readers have. The bottom pad clears the home
        indicator, which otherwise sits over the last result. */
-    padding: var(--space-2) var(--space-2) max(var(--space-2), var(--safe-bottom));
+    padding: calc(var(--space-2) + var(--safe-top)) var(--space-2)
+      max(var(--space-2), var(--safe-bottom));
     align-items: stretch;
   }
 

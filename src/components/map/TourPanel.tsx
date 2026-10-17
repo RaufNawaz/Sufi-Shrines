@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { pinIsApproximate } from '../../lib/data/approximatePin';
 import type { Tour } from '../../lib/tours/tours';
 import {
   localizeTourTitle,
@@ -142,6 +144,8 @@ export function TourPanel({
   const activePointIdx = points.findIndex((p) => p.stopIndex === stopIdx);
   const nextLegKm =
     activePointIdx >= 0 && activePointIdx < points.length - 1 ? legsKm[activePointIdx + 1] : null;
+  const nextPoint =
+    activePointIdx >= 0 && activePointIdx < points.length - 1 ? points[activePointIdx + 1] : null;
 
   const urduArticlesReady = useUrduArticles();
   /*
@@ -279,8 +283,10 @@ export function TourPanel({
         width={IMAGE_WIDTH.preview}
       />
 
+      {/* The stop's own entry, one tap away: the running panel had no link
+          in it at all (calendar council, 17 October 2026). */}
       <h3 className="tour-stop-name" lang={langAttr(lang)} ref={stopHeadingRef}>
-        {shrineName}
+        {shrine ? <Link to={`/shrine/${shrine.slug}`}>{shrineName}</Link> : shrineName}
       </h3>
 
       <p className="tour-narrative" lang={langAttr(lang)}>
@@ -337,11 +343,31 @@ export function TourPanel({
         </p>
       )}
 
-      {nextLegKm !== null && (
-        <p className="tour-next-distance">
-          {formatDistance(nextLegKm, units, lang, fmtNum, { style: 'bare' })}{' '}
-          {t(lang, 'tourNextStopDistance')}
-        </p>
+      {/* Where the next stop is, and how to get there — the line gave a
+          distance to an unnamed place. The distance is a straight line and
+          says so; the directions are the maps app's, from this stop to that
+          one, and an approximate pin is flagged before anyone drives to it. */}
+      {nextLegKm !== null && nextPoint && (
+        <div className="tour-next">
+          <p className="tour-next-distance">
+            {formatDistance(nextLegKm, units, lang, fmtNum, { style: 'bare' })}{' '}
+            {t(lang, 'tourNextStopDistance')}{' '}
+            <bdi>{localizeShrineName(nextPoint.shrine, lang)}</bdi>
+          </p>
+          <a
+            className="tour-next-directions"
+            href={`https://www.google.com/maps/dir/?api=1${
+              shrine?.latLng ? `&origin=${shrine.latLng.lat},${shrine.latLng.lng}` : ''
+            }&destination=${nextPoint.shrine.latLng.lat},${nextPoint.shrine.latLng.lng}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t(lang, 'tourNextStopDirections')}
+          </a>
+          {pinIsApproximate(nextPoint.shrine) && (
+            <p className="location-approximate">{t(lang, 'locationApproximate')}</p>
+          )}
+        </div>
       )}
 
       <div className="tour-progress">

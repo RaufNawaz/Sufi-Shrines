@@ -455,6 +455,7 @@ export function MapSidebar({
     () => (selectedId !== null ? shrines.find((s) => s.id === selectedId) : null),
     [selectedId, shrines],
   );
+  const compactSelected = isMobile && !embed && !!selectedShrine && !activeTour;
 
   const clearAllFilters = useCallback(() => {
     setSearchRaw('');
@@ -496,8 +497,43 @@ export function MapSidebar({
           <div className="sheet-handle-pill" aria-hidden="true" />
         </button>
       )}
+      {/* A selected site on a phone: its name and a close, in place of the
+          archive's header and Search. Those took ~180px of the sheet before
+          the site began, so on a short phone the pinned buttons sat over the
+          site's name, and the lowered peek showed the archive's name and
+          nothing about the site (phone council, 17 October 2026). */}
+      {compactSelected && selectedShrine && (
+        <div className="sheet-selected-bar">
+          <span
+            className={`palette-result-dot palette-result-dot--${categoryKey(selectedShrine.category)}`}
+            aria-hidden="true"
+          />
+          <bdi className="sheet-selected-name">{localizeShrineName(selectedShrine, lang)}</bdi>
+          <button
+            type="button"
+            className="icon-btn sheet-selected-close"
+            onClick={() => onSelect(null)}
+            aria-label={t('closeSitePreview')}
+            title={t('closeSitePreview')}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      )}
       {/* Header — hidden in embed mode for minimal iframe chrome */}
-      {!embed && (
+      {!embed && !compactSelected && (
         <div className="sidebar-header">
           <div className="sidebar-brand">
             <ShrineGlyph className="brand-icon" />
@@ -557,7 +593,7 @@ export function MapSidebar({
       56px was four seconds of largest-contentful-paint (HANDOVER §9, 28 Aug). A transient element
       must never sit above a permanent one in a fixed-height sheet. */}
       {/* Table-of-shrines toggle — hidden in embed mode */}
-      {!error && !embed && (
+      {!error && !embed && !compactSelected && (
         <div className="list-toggle-bar">
           <button
             className={`list-toggle-btn${directoryOpen ? ' active' : ''}`}

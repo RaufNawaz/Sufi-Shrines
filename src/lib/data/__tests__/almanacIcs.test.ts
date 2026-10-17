@@ -47,7 +47,7 @@ describe('buildIcs', () => {
   it('does not claim approximation for a fixed civil date', () => {
     const almanac = buildAlmanac([shrine('Mian Mir', 'Annual urs (7 February)')], FROM);
     const ics = unfold(buildIcs(almanac.dated, OPTIONS));
-    expect(ics).toContain('A fixed civil-calendar date.');
+    expect(ics).toContain('A fixed date in the Gregorian calendar\\, as recorded.');
     expect(ics).not.toContain('SUMMARY:Mian Mir — ʿurs (approximate)');
   });
 
@@ -58,8 +58,8 @@ describe('buildIcs', () => {
     );
     const ics = unfold(buildIcs(almanac.dated, OPTIONS));
     expect(ics).toContain('Comma\\, Shrine');
-    // The recorded source text keeps its semicolon, escaped.
-    expect(ics).toMatch(/Recorded in the archive as: Annual urs \(7 February\)/);
+    // The event is titled with the observance as recorded.
+    expect(ics).toMatch(/SUMMARY:Comma\\, Shrine — Annual urs \(7 February\)/);
   });
 
   it('folds lines to the 75-octet limit', () => {
@@ -84,6 +84,65 @@ describe('buildIcs', () => {
     const second = buildIcs(buildAlmanac([shrine('Data Darbar', 'Annual urs (18-20 Safar)')], FROM).dated, OPTIONS);
     const uid = (s: string) => unfold(s).split('\r\n').find((l) => l.startsWith('UID:'));
     expect(uid(first)).toBe(uid(second));
+  });
+
+  it('gives the same observance the same UID whatever list it was downloaded from', () => {
+    const dd = shrine('Data Darbar', 'Annual urs (18-20 Safar)');
+    const alone = buildIcs(buildAlmanac([dd], FROM).dated, OPTIONS);
+    const amongOthers = buildIcs(
+      buildAlmanac([shrine('Mian Mir', 'Annual urs (7 February)'), dd], FROM).dated,
+      OPTIONS,
+    );
+    const ddUid = (s: string) =>
+      unfold(s)
+        .split('\r\n')
+        .find((l) => l.startsWith('UID:data-darbar-'));
+    expect(ddUid(alone)).toBeDefined();
+    expect(ddUid(amongOthers)).toBe(ddUid(alone));
+  });
+
+  it('leaves out an observance recorded only to the month — a calendar needs a day', () => {
+    const almanac = buildAlmanac(
+      [
+        shrine('Month Only', 'Annual urs (Rajab)'),
+        shrine('Rule Based', 'Urs on the first Wednesday and Thursday of Rajab'),
+      ],
+      FROM,
+    );
+    // Both are in the almanac — the file is what leaves them out.
+    expect(almanac.dated.length).toBeGreaterThan(0);
+    const ics = buildIcs(almanac.dated, OPTIONS);
+    expect(ics).not.toContain('BEGIN:VEVENT');
+  });
+
+  it('titles an event with what was recorded, not the word ʿurs', () => {
+    const almanac = buildAlmanac([shrine('Mazar-e-Iqbal', 'Iqbal Day (9 November)')], FROM);
+    const ics = unfold(buildIcs(almanac.dated, OPTIONS));
+    expect(ics).toContain('SUMMARY:Mazar-e-Iqbal — Iqbal Day (9 November)');
+    expect(ics).not.toContain('ʿurs');
+  });
+
+  it('writes a place name, not a survey paragraph, as the location', () => {
+    const almanac = buildAlmanac(
+      [
+        shrine(
+          'Survey Shrine',
+          'Annual urs (7 February)',
+          'Lahore (no locality, address or coordinates recorded in the survey)',
+        ),
+      ],
+      FROM,
+    );
+    const ics = unfold(buildIcs(almanac.dated, OPTIONS));
+    expect(ics).not.toContain('recorded in the survey');
+  });
+
+  it('writes the Urdu reader’s file in Urdu', () => {
+    const almanac = buildAlmanac([shrine('Data Darbar', 'Annual urs (18-20 Safar)')], FROM);
+    const en = unfold(buildIcs(almanac.dated, OPTIONS));
+    const ur = unfold(buildIcs(almanac.dated, { ...OPTIONS, lang: 'ur' }));
+    expect(ur).not.toBe(en);
+    expect(ur).toMatch(/DESCRIPTION:[^\r]*[\u0600-\u06FF]/);
   });
 
   it('produces an empty but valid calendar when nothing is dated', () => {

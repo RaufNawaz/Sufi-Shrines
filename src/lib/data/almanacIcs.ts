@@ -12,6 +12,33 @@
  * exclusive, so it is the day *after* the last day of the observance.
  */
 import type { AlmanacEntry } from './almanac';
+import type { Lang } from '../../types/shrine';
+import { t } from '../i18n/uiStrings';
+import { localizeShrineName } from '../i18n/localizeShrineName';
+import { localizeObservance } from '../i18n/localizeObservance';
+import { publicLocation } from './publicLocation';
+
+/**
+ * Whether an observance can go into a calendar file as days.
+ *
+ * Only one recorded to the day. The calendar page will not place a month-only
+ * observance on a day, because that would invent a date; the file used to do
+ * something worse and write it as an all-day event 29–61 days long ("Jeth,
+ * May–June" became 61 days), with "A fixed civil-calendar date." in its notes
+ * (calendar council, 17 October 2026). A recurrence rule ("first Wednesday and
+ * Thursday of Rajab") is a month with the day deliberately unrecorded, so it
+ * stays out too.
+ */
+export function isCalendarable(entry: AlmanacEntry): boolean {
+  return entry.observance.precision === 'day' && !entry.observance.ruleBased;
+}
+
+/** A short stable hash, so two observances of one site on one day stay two. */
+function shortHash(text: string): string {
+  let h = 5381;
+  for (let i = 0; i < text.length; i++) h = ((h << 5) + h + text.charCodeAt(i)) | 0;
+  return (h >>> 0).toString(36);
+}
 
 function icsDate(date: Date): string {
   const y = date.getUTCFullYear();
@@ -52,6 +79,8 @@ export interface IcsOptions {
   baseUrl: string;
   /** Stamp for DTSTAMP; injected so output is deterministic in tests. */
   now: Date;
+  /** The reader's language: names, titles and notes are written in it. */
+  lang?: Lang;
 }
 
 export function buildIcs(entries: AlmanacEntry[], options: IcsOptions): string {
@@ -66,24 +95,28 @@ export function buildIcs(entries: AlmanacEntry[], options: IcsOptions): string {
     `X-WR-CALNAME:${icsText('Urs Almanac — Shrines of Pakistan')}`,
   ];
 
-  entries.forEach((entry, i) => {
+  const lang = options.lang ?? 'en';
+  for (const entry of entries.filter(isCalendarable)) {
     const { shrine, observance, window, approximate } = entry;
-    const summary = approximate
-      ? `${shrine.name} — ʿurs (approximate)`
-      : `${shrine.name} — ʿurs`;
+    const name = localizeShrineName(shrine, lang);
+    /* The observance as recorded — "Annual urs (18-20 Safar)", "Guru Nanak
+       Gurpurab" — not the word ʿurs for every row: Iqbal Day and a Kali
+       festival were both titled "— ʿurs". */
+    const recorded = localizeObservance(observance.sourceText, lang);
+    const summary = `${name} — ${recorded}${approximate ? ` (${t(lang, 'almanacApproximate')})` : ''}`;
 
     const description = [
-      `Recorded in the archive as: ${observance.sourceText}`,
-      approximate
-        ? 'This date is projected from the Hijri calendar. The observance begins on ' +
-          'local moon sighting and may fall one or two days either side. Confirm with ' +
-          'the shrine before travelling.'
-        : 'A fixed civil-calendar date.',
+      approximate ? t(lang, 'almanacProjectedCaveat') : t(lang, 'almanacIcsFixedDate'),
       `${options.baseUrl}/shrine/${shrine.slug}`,
     ].join('\n');
 
-    // A stable UID so re-importing updates rather than duplicates.
-    const uid = `${shrine.slug}-${icsDate(window.start)}-${i}@shrines-of-pakistan`;
+    /* Stable across downloads, so re-importing updates rather than
+       duplicates. It carried the row's index in whatever list was downloaded,
+       so the same ʿurs had a different UID from the shrine page, the full
+       calendar and a filtered one. */
+    const uid = `${shrine.slug}-${icsDate(window.start)}-${shortHash(observance.sourceText)}@shrines-of-pakistan`;
+    /* A place name, not the survey's paragraph about the address. */
+    const location = shrine.location ? publicLocation(shrine.location, shrine, lang) : '';
 
     lines.push(
       'BEGIN:VEVENT',
@@ -95,10 +128,10 @@ export function buildIcs(entries: AlmanacEntry[], options: IcsOptions): string {
       `SUMMARY:${icsText(summary)}`,
       `DESCRIPTION:${icsText(description)}`,
       `URL:${options.baseUrl}/shrine/${shrine.slug}`,
-      shrine.location ? `LOCATION:${icsText(shrine.location)}` : '',
+      location ? `LOCATION:${icsText(location)}` : '',
       'END:VEVENT',
     );
-  });
+  }
 
   lines.push('END:VCALENDAR');
   return lines.filter(Boolean).map(fold).join('\r\n');

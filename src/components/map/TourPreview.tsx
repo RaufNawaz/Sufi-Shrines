@@ -2,21 +2,13 @@ import { useMemo } from 'react';
 import type { Tour } from '../../lib/tours/tours';
 import { TOURS, localizeTourTitle, localizeTourDescription } from '../../lib/tours/tours';
 import { resolveTourStops } from '../../lib/tours/tourRoute';
-import { totalDistanceKm, estimateDriveTime } from '../../lib/tours/tourGeo';
+import { totalDistanceKm } from '../../lib/tours/tourGeo';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { t } from '../../lib/i18n/uiStrings';
 import type { Shrine, Lang } from '../../types/shrine';
 import { langAttr } from '../../lib/i18n/languages';
 import { formatDistance } from '../../lib/i18n/formatDistance';
 import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
-
-function formatDriveTime(km: number, lang: Lang, fmtNum: (n: number | string) => string): string {
-  const { hours, minutes } = estimateDriveTime(km);
-  const parts: string[] = [];
-  if (hours > 0) parts.push(`${fmtNum(hours)}${t(lang, 'hoursAbbrev')}`);
-  parts.push(`${fmtNum(minutes)}${t(lang, 'minutesAbbrev')}`);
-  return parts.join(' ');
-}
 
 interface TourPreviewProps {
   tour: Tour;
@@ -83,17 +75,16 @@ export function TourPreview({
           <dt>{t(lang, 'stopsLabel')}</dt>
           <dd>{fmtNum(tour.stops.length)}</dd>
         </div>
+        {/* A straight line between the stops, and labelled so. There was a
+            drive time beside it — that line divided by 60 km/h — which read
+            as a measured route: "1 km · 1m" across Uch Sharif, "33h 18m" for
+            the temples (calendar council, 17 October 2026). The archive has no
+            road data, so it no longer estimates one. */}
         {hasDistance && (
-          <>
-            <div className="tour-preview-stat">
-              <dt>{t(lang, 'tourTotalDistance')}</dt>
-              <dd>{formatDistance(km, units, lang, fmtNum, { style: 'bare' })}</dd>
-            </div>
-            <div className="tour-preview-stat">
-              <dt>{t(lang, 'tourEstDriveTime')}</dt>
-              <dd>{formatDriveTime(km, lang, fmtNum)}</dd>
-            </div>
-          </>
+          <div className="tour-preview-stat">
+            <dt>{t(lang, 'tourTotalDistance')}</dt>
+            <dd>{formatDistance(km, units, lang, fmtNum, { style: 'bare' })}</dd>
+          </div>
         )}
       </dl>
 

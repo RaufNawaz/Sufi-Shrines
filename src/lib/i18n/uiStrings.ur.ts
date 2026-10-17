@@ -803,6 +803,11 @@ export const UI_TEXT_UR: UiStrings = {
   almanacDownloadIcs: 'تقویم میں شامل کریں',
   almanacDownloadIcsHint:
     'متعین تاریخ والی تقریبات ڈاؤن لوڈ ہوتی ہیں۔ ہجری تاریخوں کے ساتھ ان کی تخمینی نوعیت نوٹ میں درج ہوتی ہے۔',
+  almanacIcsFixedDate: 'عیسوی تقویم کی مقررہ تاریخ، جیسا کہ درج ہے۔',
+  almanacIcsLeftOut: (n: number) =>
+    n === 1
+      ? 'ایک تقریب جس کا صرف مہینہ یا قاعدہ درج ہے، کیلنڈر فائل میں شامل نہیں: کیلنڈر کو دن درکار ہے۔'
+      : `${n} تقریبات جن کا صرف مہینہ یا قاعدہ درج ہے، کیلنڈر فائل میں شامل نہیں: کیلنڈر کو دن درکار ہے۔`,
   almanacRule: 'تکرار درج ہے، مقررہ تاریخ نہیں',
   almanacMonthOnly: 'مہینہ درج ہے، دن درج نہیں',
   /* ── تقویمی منظر — مسودہ، کسی روانی رکھنے والے نے نہیں دیکھا ──────────── */
@@ -833,9 +838,9 @@ export const UI_TEXT_UR: UiStrings = {
   almanacCalendarUnplacedHeading: 'اِس مہینے میں، دن درج نہیں',
   almanacCalendarUnplacedNote:
     'آرکائیو اِن کا مہینہ درج کرتا ہے، دن نہیں، اِس لیے یہ جدول پر نہیں بلکہ اُس کے ساتھ دی گئی ہیں۔ ہجری مہینہ دو عیسوی مہینوں پر پھیلتا ہے، اِسی لیے ایک تقریب دونوں کے نیچے آ سکتی ہے۔',
-  tourTotalDistance: 'کل فاصلہ',
-  tourEstDriveTime: 'ڈرائیو کا تخمینی وقت',
-  tourNextStopDistance: 'اگلے مقام تک',
+  tourTotalDistance: 'سیدھی لکیر میں فاصلہ',
+  tourNextStopDistance: 'سیدھی لکیر میں اگلے مقام تک،',
+  tourNextStopDirections: 'وہاں تک راستہ',
   tourPreviewTitle: 'دورے کا خلاصہ',
   tourStartButton: 'دورہ شروع کریں',
   tourBackButton: 'واپس',
@@ -843,6 +848,7 @@ export const UI_TEXT_UR: UiStrings = {
   minutesAbbrev: 'م',
   resumeTourPrompt: 'جہاں چھوڑا تھا وہاں سے جاری رکھیں',
   resumeButton: 'جاری رکھیں',
+  closeSitePreview: 'یہ مقام بند کریں',
   dismiss: 'بند کریں',
   tourCompletedBadge: 'مکمل',
   tourInProgressBadge: 'جاری',
@@ -856,6 +862,9 @@ export const UI_TEXT_UR: UiStrings = {
   autoplayResume: 'خودکار چلانا دوبارہ شروع کریں',
   locationUnavailable: 'مقام دستیاب نہیں',
   nearestToYou: 'آپ کے قریب ترین',
+  tourNearestStop: (stop: string, name: string, distance: string) =>
+    `مقام ${stop}، ${name}، آپ سے ${distance} دور ہے`,
+  tourStartAtStop: (stop: string) => `مقام ${stop} سے شروع کریں`,
   relatedToursHeading: 'یہ بھی دیکھیں',
   partOfTour: 'رہنما دورے کا حصہ',
   viewTour: 'دورہ دیکھیں',
@@ -890,6 +899,8 @@ export const UI_TEXT_UR: UiStrings = {
   citeSupportLevel: 'تصدیق کا درجہ',
   obsHeading: 'عرس اور تقریبات',
   obsViewAlmanac: 'عرس تقویم میں دیکھیں',
+  obsNextLabel: 'اگلی تاریخ',
+  paletteSearchArchive: (q: string) => `شخصیات، جگہوں اور ماخذ میں «${q}» تلاش کریں`,
   obsProjectedCaveat:
     'یہ تاریخ ہجری تقویم سے تخمینی طور پر نکالی گئی ہے۔ عرس مقامی رویتِ ہلال سے شروع ہوتا ہے، اِس لیے دن ایک دو دن آگے پیچھے ہو سکتا ہے۔',
   fieldSiteType: 'تعمیری صورت',
@@ -920,7 +931,7 @@ export const UI_TEXT_UR: UiStrings = {
   sourcesReadingNote:
     'وہ کتابیں جو اس منصوبے نے اول سے آخر تک پڑھی ہیں، اردو، فارسی اور انگریزی میں۔ ان کی باتیں کسی اندراج میں شامل ہونے سے پہلے جانچی جاتی ہیں، اس لیے زیادہ تر کا ابھی حوالہ نہیں دیا گیا؛ جیسے ہی کوئی اندراج ان کا حوالہ دے گا، وہ یہاں درج ہو جائے گا۔',
   sourcesReadingCited: 'حوالہ شدہ',
-  sourcesReadingInReview: 'زیرِ جانچ',
+  sourcesReadingInReview: 'پڑھی گئی · ابھی حوالہ نہیں',
   sourcesKindsHeading: 'ماخذ کی اقسام',
   sourcesKindsNote:
     'یہ درجہ بندی ہر حوالے کی ظاہری صورت سے کی گئی ہے، خود کتاب کو جانچ کر نہیں، اس لیے کوئی سطر غلط خانے میں ہو سکتی ہے۔ حوالہ ہمیشہ بعینہٖ ویسا ہی دکھایا جاتا ہے جیسا درج ہے۔',

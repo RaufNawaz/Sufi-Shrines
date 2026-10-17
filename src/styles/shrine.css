@@ -434,6 +434,8 @@
    projection so a reader can check the arithmetic. */
 .shrine-observances {
   margin-top: var(--space-8);
+  /* Jumped to from the infobox's "Next" line. */
+  scroll-margin-top: var(--space-4);
   border-top: var(--hairline) solid var(--color-border-light);
   padding-top: var(--space-4);
 }
@@ -1018,6 +1020,12 @@
    deliberately kept visible rather than hidden in a tooltip. */
 /* The Events row, one bullet per recorded observance. Padding rather than a
    margin so the disc sits inside the row's own inline edge in both directions. */
+.infobox-next-observance {
+  display: inline-block;
+  margin-block-start: var(--space-1);
+  font-size: var(--text-sm);
+}
+
 .infobox-bullets {
   margin: 0;
   padding-inline-start: 1.1em;
@@ -1746,6 +1754,11 @@
 .site-footer a {
   color: var(--color-primary);
   text-decoration: underline;
+  /* Same 44px rule as the breadcrumb: footer links were 20px tall, 23px
+     apart. Padding rather than an overlay, so stacked links cannot overlap,
+     and only what the line lacks: Nastaliq's line is most of 44px already. */
+  display: inline-block;
+  padding-block: max(0px, calc((44px - 1lh) / 2));
 }
 
 .site-footer a:hover {
@@ -1916,6 +1929,18 @@
   color: var(--color-primary);
   text-decoration: none;
   font-weight: 500;
+  /* A 44px target around a 19px word: the way up one level was a 22×19px tap
+     on every page below the map (phone council, 17 October 2026). The box is
+     invisible and extends only vertically — sideways it would overflow its
+     row (no-overflow.spec) and overlap the next crumb. */
+  position: relative;
+}
+
+.shrine-breadcrumb a::after {
+  content: '';
+  position: absolute;
+  inset-block: calc((44px - 100%) / -2);
+  inset-inline: 0;
 }
 
 .shrine-breadcrumb a:hover {

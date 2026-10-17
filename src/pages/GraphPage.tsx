@@ -35,7 +35,8 @@ import { figureImage } from '../lib/kgFigureImages';
 import { useFigureImages } from '../hooks/useFigureImages';
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import { t, tFn } from '../lib/i18n/uiStrings';
-import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
+import { buildFigureIndex, figureHaystack, matchFigures } from '../lib/data/figureSearch';
+import { normalizeForSearch } from '../lib/search/entitySearch';
 import { centurySpan, figureCentury } from '../lib/data/figureDates';
 import { CENTURY_ORDINAL } from '../lib/data/era';
 import type { Lang } from '../types/shrine';
@@ -99,6 +100,22 @@ function kinOnlyNote(lang: Lang, links: KinLink[]): string | undefined {
   return rest.length > 0
     ? tFn(lang, 'graphLineageOnlyKinOfMore', role, name, rest.length)
     : tFn(lang, 'graphLineageOnlyKinOf', role, name);
+}
+
+/**
+ * The lineage finder's test: every name a figure is recorded under, in both
+ * scripts, accents folded, and spacing ignored — the same strings the figure
+ * index on this page and the header search accept. It read only the display
+ * name, so "Baba Farid", "Ganj Shakar" and "Sulaimān" found nothing while
+ * the figure was in the list (search council, 17 October 2026).
+ */
+function lineageNameMatcher(query: string, lang: Lang): (figure: KGSaint) => boolean {
+  const q = normalizeForSearch(query);
+  const qTight = q.replace(/\s+/g, '');
+  return (figure) => {
+    const hay = normalizeForSearch(`${figureHaystack(figure)} ${localizeFigureName(figure, lang)}`);
+    return hay.includes(q) || hay.replace(/\s+/g, '').includes(qTight);
+  };
 }
 
 export default function GraphPage() {
@@ -334,12 +351,8 @@ export default function GraphPage() {
 
   /* Type to narrow: a teacher stays if their name or any disciple's matches. */
   const visibleLineageGroups = useMemo(() => {
-    const q = lineageQuery.trim().toLocaleLowerCase();
-    if (!q) return lineageGroups;
-    type Figure = (typeof lineageGroups)[number]['teacher'];
-    const hit = (figure: Figure) =>
-      localizeFigureName(figure, lang).toLocaleLowerCase().includes(q) ||
-      figure.name.toLocaleLowerCase().includes(q);
+    if (!lineageQuery.trim()) return lineageGroups;
+    const hit = lineageNameMatcher(lineageQuery, lang);
     return lineageGroups.filter(
       (group) => hit(group.teacher) || group.rows.some((row) => hit(row.subject)),
     );
@@ -351,12 +364,8 @@ export default function GraphPage() {
      above (journeys council, 17 October 2026). Counted over every recorded
      link, so the dead end can say where the matches are. */
   const lineageMatchesElsewhere = useMemo(() => {
-    const q = lineageQuery.trim().toLocaleLowerCase();
-    if (!q || lineageScope === 'all' || visibleLineageGroups.length > 0) return 0;
-    type Figure = (typeof lineageEdges)[number]['subject'];
-    const hit = (figure: Figure) =>
-      localizeFigureName(figure, lang).toLocaleLowerCase().includes(q) ||
-      figure.name.toLocaleLowerCase().includes(q);
+    if (!lineageQuery.trim() || lineageScope === 'all' || visibleLineageGroups.length > 0) return 0;
+    const hit = lineageNameMatcher(lineageQuery, lang);
     return lineageEdges.filter((edge) => hit(edge.subject) || hit(edge.object)).length;
   }, [lineageQuery, lineageScope, visibleLineageGroups.length, lineageEdges, lang]);
 
