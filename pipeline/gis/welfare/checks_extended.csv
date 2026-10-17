@@ -1,0 +1,79 @@
+check,kind,measured,reference,result,note
+"fast raster sampler equals wave one's rasterio.sample on 5,000 cells",integrity,identical,identical,pass,
+"DHS surfaces: no two MEAN rasters identical (except the known AHTOBCMNON copy, not used)",integrity,"18 rasters, identical groups: [['AHTOBCMANY', 'AHTOBCMNON']]","only [['AHTOBCMANY', 'AHTOBCMNON']]",pass,
+dhsms_stunted sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_vacc_all_basic sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_vacc_dpt1 sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_vacc_dpt3 sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_vacc_measles sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_vacc_card_seen sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_anc4 sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_facility_delivery sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_modern_contraception sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_unmet_need_fp sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_demand_satisfied_modern sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_women_literate sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_men_literate sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_improved_water sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_open_defecation sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_men_smoke sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+dhsms_itn_access sampled for populated cells,integrity,99.93% of people,>= 98%,pass,
+DHS validation correlation read from every PDF,integrity,17 of 17,all,pass,
+malaria_pv sampled for populated cells,integrity,98.19% of people,>= 97%,pass,the rest fall on MAP no-data cells and stay empty
+malaria_pf sampled for populated cells,integrity,98.10% of people,>= 97%,pass,the rest fall on MAP no-data cells and stay empty
+walk_health_min sampled for populated cells,integrity,99.94% of people,>= 99%,pass,
+"walking vs motorized time to health care, cells",convergent,rho = +0.88,rho >= 0.8,pass,
+Kummu Pakistan admin-2 units,integrity,32,32 (GADM divisions),pass,
+GDP per capita found for populated cells,integrity,99.88% of people,>= 97%,pass,Cells on the Line of Control and the coast can fall between GADM and OCHA outlines
+"GDP per capita 2023, population-weighted national mean vs Kummu's national figure",external,"6,004","6,037 (tabulated_adm0)",pass,Kummu downscales with their own population grid; Kontur 2023 weights differ
+Ookla mobile tiles inside Pakistan,integrity,"59,434 tiles, 583,157 tests","> 1,000 tiles",pass,
+Ookla fixed tiles inside Pakistan,integrity,"69,300 tiles, 2,061,970 tests","> 1,000 tiles",pass,
+UCDP deaths 2015-2024 located to district precision or better,integrity,"94.6% of 9,933 deaths",>= 80%,pass,
+people inside the 2022 flood extent (Kontur 2023),external,32.9 M,"UNOSAT's own 27.9 M exposed, 1-31 Aug 2022 (population exposure XLSX): same order",pass,"Different snapshot (Jul-Aug cumulative), population base and cell-centre rule"
+IPC areas matched to a district by name,integrity,125 of 126; unmatched ['Usta muhammad'],>= 90%,pass,
+dhsms_stunted: national population-weighted mean vs DHS headline,external,37.5,"37.6 (DHS API, CN_NUTS_C_HA2)",pass,> 15 points fails as a misread
+dhsms_stunted: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.43, n = 6",rho >= 0.6,warn,
+dhsms_vacc_all_basic: national population-weighted mean vs DHS headline,external,65.0,"65.6 (DHS API, CH_VACC_C_BAS)",pass,> 15 points fails as a misread
+dhsms_vacc_all_basic: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.83, n = 6",rho >= 0.6,pass,
+dhsms_vacc_dpt1: national population-weighted mean vs DHS headline,external,79.8,"86.3 (DHS API, CH_VACC_C_DP1)",pass,> 15 points fails as a misread
+dhsms_vacc_dpt1: national mean more than 5 points from the headline,external,-6.5 points,within 5,warn,smoothing or population weights; read the province ranking and the CI width
+dhsms_vacc_dpt1: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.89, n = 6",rho >= 0.6,pass,
+dhsms_vacc_dpt3: national population-weighted mean vs DHS headline,external,72.2,"75.4 (DHS API, CH_VACC_C_DP3)",pass,> 15 points fails as a misread
+dhsms_vacc_dpt3: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.77, n = 6",rho >= 0.6,pass,
+dhsms_vacc_measles: national population-weighted mean vs DHS headline,external,71.4,"73.2 (DHS API, CH_VACS_C_MSL)",pass,> 15 points fails as a misread
+dhsms_vacc_card_seen: national population-weighted mean vs DHS headline,external,61.6,"55.8 (DHS API, CH_VAC1_C_VCD)",pass,> 15 points fails as a misread
+dhsms_vacc_card_seen: national mean more than 5 points from the headline,external,+5.8 points,within 5,warn,smoothing or population weights; read the province ranking and the CI width
+dhsms_anc4: national population-weighted mean vs DHS headline,external,50.3,"52.8 (DHS API, RH_ANCN_W_N4P)",pass,> 15 points fails as a misread
+dhsms_facility_delivery: national population-weighted mean vs DHS headline,external,71.9,"71.8 (DHS API, RH_DELP_C_DHF)",pass,> 15 points fails as a misread
+dhsms_facility_delivery: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.71, n = 6",rho >= 0.6,pass,
+dhsms_modern_contraception: national population-weighted mean vs DHS headline,external,23.9,"25.0 (DHS API, FP_CUSM_W_MOD)",pass,> 15 points fails as a misread
+dhsms_modern_contraception: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.43, n = 6",rho >= 0.6,warn,
+dhsms_unmet_need_fp: national population-weighted mean vs DHS headline,external,16.5,"17.3 (DHS API, FP_NADM_W_UNT)",pass,> 15 points fails as a misread
+dhsms_unmet_need_fp: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.94, n = 6",rho >= 0.6,pass,
+dhsms_demand_satisfied_modern: national population-weighted mean vs DHS headline,external,46.1,"48.6 (DHS API, FP_NADM_W_PDM)",pass,> 15 points fails as a misread
+dhsms_demand_satisfied_modern: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.83, n = 6",rho >= 0.6,pass,
+dhsms_women_literate: national population-weighted mean vs DHS headline,external,47.4,"50.4 (DHS API, ED_LITR_W_LIT)",pass,> 15 points fails as a misread
+dhsms_women_literate: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.60, n = 6",rho >= 0.6,pass,
+dhsms_men_literate: national population-weighted mean vs DHS headline,external,70.0,"70.0 (DHS API, ED_LITR_M_LIT)",pass,> 15 points fails as a misread
+dhsms_men_literate: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.60, n = 6",rho >= 0.6,pass,
+dhsms_improved_water: national population-weighted mean vs DHS headline,external,97.9,"95.6 (DHS API, WS_SRCE_P_IMP)",pass,> 15 points fails as a misread
+dhsms_improved_water: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.89, n = 6",rho >= 0.6,pass,
+dhsms_open_defecation: national population-weighted mean vs DHS headline,external,7.6,"12.1 (DHS API, WS_TLET_P_NFC)",pass,> 15 points fails as a misread
+dhsms_open_defecation: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.81, n = 6",rho >= 0.6,pass,
+dhsms_men_smoke: national population-weighted mean vs DHS headline,external,25.2,"22.6 (DHS API, AH_TOBC_M_ANY)",pass,> 15 points fails as a misread
+dhsms_men_smoke: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.09, n = 6",rho >= 0.6,warn,
+dhsms_itn_access: national population-weighted mean vs DHS headline,external,1.0,"2.0 (DHS API, ML_ITNA_P_ACC)",pass,> 15 points fails as a misread
+dhsms_itn_access: province ranking vs DHS (excluding KP/FATA),external,"rho = +0.89, n = 6",rho >= 0.6,pass,
+"dhsms_women_literate vs census/wave-one literacy_female, districts",convergent,"rho = +0.77, n = 135","sign +, |rho| >= 0.4",pass,
+"dhsms_men_literate vs census/wave-one literacy_male, districts",convergent,"rho = +0.77, n = 135","sign +, |rho| >= 0.4",pass,
+"dhsms_open_defecation vs census/wave-one no_toilet, districts",convergent,"rho = +0.55, n = 134","sign +, |rho| >= 0.4",pass,
+"dhsms_improved_water vs census/wave-one improved_water, districts",convergent,"rho = +0.84, n = 135","sign +, |rho| >= 0.4",pass,
+"dhsms_stunted vs census/wave-one literacy_female, districts",convergent,"rho = -0.50, n = 135","sign -, |rho| >= 0.4",pass,
+"dhsms_facility_delivery vs census/wave-one rwi_popw, districts",convergent,"rho = +0.68, n = 135","sign +, |rho| >= 0.4",pass,
+"mobile_devices_per_1000 vs rwi_popw, districts",convergent,"rho = +0.70, n = 135","sign +, |rho| >= 0.3",pass,
+"fixed_devices_per_1000 vs urban_share, districts",convergent,"rho = +0.69, n = 135","sign +, |rho| >= 0.3",pass,
+"mobile_download_mbps vs ntl_2023_popw, districts",convergent,"rho = +0.39, n = 135","sign +, |rho| >= 0.3",pass,
+"gdp_pc_2023_popw vs rwi_popw, districts",convergent,"rho = +0.50, n = 135","sign +, |rho| >= 0.3",pass,
+"walk_health_min_popw vs literacy, districts",convergent,"rho = -0.78, n = 135","sign -, |rho| >= 0.3",pass,
+"share flooded vs UNOSAT's own district exposure, Aug 2022",external,"rho = +0.95, n = 124",rho >= 0.6,pass,
+every extended indicator's source is listed in sources_extended.tsv,integrity,all,all,pass,

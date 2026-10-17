@@ -1,0 +1,86 @@
+"""
+Download every wave-two source listed in sources_extended.tsv into pipeline/gis/sources/
+(gitignored), unpack what the build reads, and hash what arrived into sources/fetched_extended.tsv.
+
+Usage (from the repo root):
+  python pipeline/gis/welfare/fetch_extended_sources.py            # fetch only what is missing
+  python pipeline/gis/welfare/fetch_extended_sources.py --refresh  # re-download everything
+
+Exits non-zero naming any source that failed, keeping the previous copy of it.
+"""
+import argparse, csv, datetime, subprocess, sys, zipfile
+from pathlib import Path
+
+from fetch_sources import get, digest, SRC
+
+HERE = Path(__file__).resolve().parent
+DHS_MS = ["AHTOBCMANY", "AHTOBCMNON", "CHVAC1CVCD", "CHVACCCBAS", "CHVACCCDP1", "CHVACCCDP3", "CHVACSCMSL",
+          "CNNUTSCHA2", "EDLITRMLIT", "EDLITRWLIT", "FPCUSMWMOD", "FPNADMWPDM", "FPNADMWUNT", "MLITNAPACC",
+          "RHANCNWN4P", "RHDELPCDHF", "WSSRCEPIMP", "WSTLETPNFC"]
+DHS_IDS = ["AH_TOBC_M_ANY", "AH_TOBC_M_NON", "CH_VAC1_C_VCD", "CH_VACC_C_BAS", "CH_VACC_C_DP1", "CH_VACC_C_DP3",
+           "CH_VACS_C_MSL", "CN_NUTS_C_HA2", "ED_LITR_M_LIT", "ED_LITR_W_LIT", "FP_CUSM_W_MOD", "FP_NADM_W_PDM",
+           "FP_NADM_W_UNT", "ML_ITNA_P_ACC", "RH_ANCN_W_N4P", "RH_DELP_C_DHF", "WS_SRCE_P_IMP", "WS_TLET_P_NFC"]
+
+
+def targets(r):
+    if r["key"] == "dhs_ms":
+        return [(r["url"] + f"PK2017DHS_{s}_MS_v01.zip", SRC / r["path"] / f"PK2017DHS_{s}_MS_v01.zip") for s in DHS_MS]
+    if r["key"] == "dhs_ms_api":
+        u = r["url"] + ",".join(DHS_IDS)
+        return [(u, SRC / r["path"]), (u.replace("breakdown=subnational", "breakdown=national"),
+                                       SRC / r["path"].replace(".json", "_national.json"))]
+    if r["key"] == "ookla":
+        return [(r["url"], SRC / r["path"]), (r["url"].replace("mobile", "fixed"), SRC / r["path"].replace("mobile", "fixed"))]
+    if r["key"] == "census_pakpc2023":
+        return []
+    return [(r["url"], SRC / r["path"])]
+
+
+def main(a):
+    rows = list(csv.DictReader(open(HERE / "sources_extended.tsv"), delimiter="\t"))
+    out, failed = [], []
+    for r in rows:
+        if r["key"] == "census_pakpc2023":
+            d = SRC / r["path"]
+            if not d.exists():
+                subprocess.run(["git", "clone", "--depth", "1", r["url"], str(d)], check=False)
+            if not (d / "data/TABLE_04.RData").exists():
+                failed.append("census_pakpc2023: clone failed")
+            continue
+        for url, dest in targets(r):
+            if a.refresh or not dest.exists():
+                print("fetch", dest.relative_to(SRC))
+                try:
+                    tmp = dest.with_suffix(dest.suffix + ".part")
+                    get(url, tmp)
+                    tmp.replace(dest)
+                except Exception as e:                       # keep the previous copy, report, go on
+                    failed.append(f"{r['key']} {dest.name}: {e}")
+                    continue
+            out.append({"key": r["key"], "file": str(dest.relative_to(SRC)), "bytes": dest.stat().st_size,
+                        "sha256": digest(dest, "sha256"), "md5": digest(dest, "md5"),
+                        "fetched_utc": datetime.datetime.fromtimestamp(
+                            dest.stat().st_mtime, datetime.timezone.utc).isoformat(timespec="seconds"),
+                        "url": url})
+
+    # Unpack what the build reads.
+    for z in sorted((SRC / "dhs_ms").glob("PK2017DHS_*_MS_v01.zip")):
+        if not z.with_suffix("").exists():
+            zipfile.ZipFile(z).extractall(z.with_suffix(""))
+    for z, d in [(SRC / "ucdp/ged251-csv.zip", SRC / "ucdp"), (SRC / "unosat/FL20220808PAK_SHP.zip", SRC / "unosat/FL20220808PAK_SHP")]:
+        if z.exists() and not any(d.glob("*.csv" if "ucdp" in str(d) else "**/*.shp")):
+            zipfile.ZipFile(z).extractall(d)
+
+    with open(SRC / "fetched_extended.tsv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(out[0]), delimiter="\t")
+        w.writeheader()
+        w.writerows(out)
+    print(f"{len(out)} files hashed into sources/fetched_extended.tsv")
+    if failed:
+        sys.exit("FAILED:\n  " + "\n  ".join(failed))
+
+
+if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument("--refresh", action="store_true")
+    main(p.parse_args())
