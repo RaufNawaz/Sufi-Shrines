@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import type { useLang } from '../../lib/i18n/LanguageContext';
+import { useLang } from '../../lib/i18n/LanguageContext';
+import { CATEGORY_LABELS, CATEGORY_ORDER } from '../../lib/data/categoryKey';
 import type { UiStringKey } from '../../lib/i18n/uiStrings';
 
 interface WelcomeCardProps {
@@ -71,6 +72,7 @@ const DESTINATIONS: readonly {
 ];
 
 export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
+  const { lang } = useLang();
   return (
     <div className="welcome-card">
       <div className="welcome-card-icon-wrap" aria-hidden="true">
@@ -82,6 +84,23 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
       <p className="welcome-card-text">{t('noSelection')}</p>
       {/* The "list button above" this hint refers to is hidden in embed mode */}
       {!embed && <p className="welcome-card-hint">{t('exploreHint')}</p>}
+
+      {/* The map's key, where a first-time reader looks. A marker's ring is its
+          tradition and its size says whether there is a photograph; nothing on
+          the front door said either, and a reader took the large photographed
+          markers for the major sites (data-viz council, 17 October 2026). */}
+      <div className="welcome-legend">
+        <p className="welcome-card-links-heading">{t('welcomeLegendHeading')}</p>
+        <ul className="welcome-legend-list">
+          {CATEGORY_ORDER.map((key) => (
+            <li key={key} className="welcome-legend-item">
+              <span className={`filter-chip-dot filter-chip-dot--${key}`} aria-hidden="true" />
+              {CATEGORY_LABELS[key][lang]}
+            </li>
+          ))}
+        </ul>
+        <p className="filter-legend-note welcome-legend-note">{t('mapLegendPhoto')}</p>
+      </div>
 
       {/* Embeds stay link-free so an embedded map can't navigate its host away. */}
       {!embed && (

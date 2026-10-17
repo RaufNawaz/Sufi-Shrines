@@ -116,21 +116,26 @@
   background: var(--slice);
 }
 
+/* One ink, strongest for the most precise record: the five slices are an
+   order (day, month, season, undated, none), not five kinds. They were cobalt,
+   teal, gold and rubric red — the red on the largest slice, 101 sites, read as
+   an alarm, and cobalt is the interactive colour (data-viz council, 17 October
+   2026). Mixed against the surface, so the ramp inverts with the theme. */
 .almanac-coverage-item--day,
 .almanac-coverage-bar-slice--day {
-  --slice: var(--color-primary);
+  --slice: var(--color-text);
 }
 .almanac-coverage-item--month,
 .almanac-coverage-bar-slice--month {
-  --slice: var(--color-secondary);
+  --slice: color-mix(in srgb, var(--color-text) 68%, var(--color-bg-surface));
 }
 .almanac-coverage-item--season,
 .almanac-coverage-bar-slice--season {
-  --slice: var(--color-accent);
+  --slice: color-mix(in srgb, var(--color-text) 44%, var(--color-bg-surface));
 }
 .almanac-coverage-item--undated,
 .almanac-coverage-bar-slice--undated {
-  --slice: var(--color-rubric);
+  --slice: color-mix(in srgb, var(--color-text) 24%, var(--color-bg-surface));
 }
 .almanac-coverage-item--none,
 .almanac-coverage-bar-slice--none {

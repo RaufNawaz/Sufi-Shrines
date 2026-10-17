@@ -190,6 +190,8 @@ const UI_TEXT_EN = {
   uncategorized: 'Uncategorized',
   descriptionMore: 'More',
   backToMap: 'Back to map',
+  welcomeLegendHeading: 'On the map',
+  mapLegendPhoto: 'Larger markers are sites with a photograph.',
   back: 'Back',
   /* ── Tab bar (phone) ─────────────────────────────────────────────────── */
   tabMap: 'Map',
@@ -635,7 +637,8 @@ const UI_TEXT_EN = {
   /* One sentence, not "of" + "sites" assembled around two numbers. Urdu's
      postposition takes its operands in the opposite order, so the fragments
      reassembled into a claim about the wrong numbers — see the ur entry. */
-  almanacCoverageTotal: (dated: number, total: number) => `${dated} of ${total} sites`,
+  almanacCoverageTotal: (dated: number, total: number) =>
+    `${dated} of ${total} sites can be placed on the calendar`,
   /* ── Place pages: who is commemorated here, and when ───────────────────
      Both sections are joins over data the graph already held and no page
      rendered. The notes say where the join comes from, because a reader who
@@ -990,7 +993,7 @@ const UI_TEXT_EN = {
   sourcesStatCitations: 'citations',
   sourcesShelfHeading: 'The shelf',
   sourcesShelfNote:
-    'The works the archive cites most, however many ways each is written down. The thicker the spine, the more entries rest on it.',
+    'The works the archive cites most, however many ways each is written down. A spine’s thickness grows with the square root of the entries resting on it — the number at its foot — and the thinnest are kept wide enough to tap.',
   sourcesReadingHeading: 'Read in full for the archive',
   sourcesReadingNote:
     'Books the project has read cover to cover, in Urdu, Persian and English. What they say is checked before it enters an entry, so most are not cited yet; each one lists its entries here as soon as one cites it.',
@@ -1041,7 +1044,8 @@ const UI_TEXT_EN = {
   sourcePlacesHeading: 'Places',
   sourceEntriesHeading: 'Entries that rest on it',
   sourceMapHeading: 'Where its sites are',
-  sourceMapNote: 'Each dot is a site whose entry cites this work.',
+  sourceMapNote:
+    'Each dot is a site whose entry cites this work; a larger, numbered dot is several sites in one place.',
   sourceTraditionsHeading: 'Traditions',
   sourceCitationsHeading: 'How the archive cites it',
   sourceCitationsNote: 'Each line exactly as the entries record it.',

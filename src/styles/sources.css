@@ -128,8 +128,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  inline-size: var(--spine-w, 2.5rem);
-  block-size: var(--spine-h, 11rem);
+  inline-size: var(--spine-w, 2.75rem);
+  /* One height for every spine: a height that varied by book was a second
+     variable a reader would look for a meaning in, and there was none. */
+  block-size: 13.5rem;
   padding-block: var(--space-3) var(--space-2);
   border-radius: 3px 3px 1px 1px;
   background:
@@ -1053,4 +1055,13 @@ details[open] > .sources-row-summary::after {
 
 .sources-action {
   position: relative;
+}
+
+/* The count on a grouped dot: the page ground on the tradition colour, which
+   inverts with it — dark on the light dots of the dark theme, light on the
+   dark ones of the light theme. */
+.source-map-count {
+  fill: var(--color-bg-surface);
+  font-weight: 700;
+  pointer-events: none;
 }

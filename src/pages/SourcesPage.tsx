@@ -58,12 +58,14 @@ function fold(text: string): string {
     .toLowerCase();
 }
 
-/** A spine is 2.75–5.5rem wide by entries, on a square-root scale so one book
- *  cited 48 times does not reduce every other spine to a hairline. The floor
- *  is 44px because a spine is a tap target before it is a bar. */
+/** A spine's width is the square root of its entries, from zero, so area-like
+ *  thickness compares honestly: 48 entries against 2 is √24 ≈ 4.9× as thick.
+ *  (It started at an offset until 17 October 2026, which made that 1.66×.) The
+ *  floor is 44px because a spine is a tap target before it is a bar — the note
+ *  says so, and the count at each spine's foot carries the exact value. */
 function spineWidth(entries: number, max: number): string {
   const share = Math.sqrt(entries) / Math.sqrt(Math.max(max, 1));
-  return `${(2.75 + share * 2.75).toFixed(2)}rem`;
+  return `max(2.75rem, ${(7 * share).toFixed(2)}rem)`;
 }
 
 /**
@@ -79,13 +81,6 @@ function spineLabel(title: string, max = 28): string {
   if (main.length <= max) return main;
   const cut = main.slice(0, max + 1).replace(/\s+\S*$/, '');
   return `${cut || main.slice(0, max)}…`;
-}
-
-/** Spine heights vary a little, as books do, and stably — from the slug. */
-function spineHeight(slug: string): string {
-  let h = 0;
-  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) >>> 0;
-  return `${(13 + (h % 7) * 0.4).toFixed(2)}rem`;
 }
 
 function Shelf({ works }: { works: ShelfWork[] }) {
@@ -112,7 +107,6 @@ function Shelf({ works }: { works: ShelfWork[] }) {
                   style={
                     {
                       '--spine-w': spineWidth(work.entries.length, max),
-                      '--spine-h': spineHeight(work.slug),
                     } as React.CSSProperties
                   }
                   {...(isRtl

@@ -198,6 +198,8 @@ export const UI_TEXT_UR: UiStrings = {
   uncategorized: 'غیر زمرہ بند',
   descriptionMore: 'مزید',
   backToMap: 'نقشے پر واپس جائیں',
+  welcomeLegendHeading: 'نقشے پر',
+  mapLegendPhoto: 'بڑے نشانات وہ مقامات ہیں جن کی تصویر موجود ہے۔',
   back: 'واپس',
   /* ── ٹیب بار (فون) ───────────────────────────────────────────────────── */
   tabMap: 'نقشہ',
@@ -584,7 +586,8 @@ export const UI_TEXT_UR: UiStrings = {
   /* "X میں سے Y" reads "Y out of X" — the total comes first. Built from the
        English order ("32" + "میں سے" + "169" + "مقامات") it said "169 places
        out of 32", which is not clumsy phrasing but a false number. */
-  almanacCoverageTotal: (dated: number, total: number) => `${total} میں سے ${dated} مقامات`,
+  almanacCoverageTotal: (dated: number, total: number) =>
+    `${total} میں سے ${dated} مقامات تقویم پر رکھے جا سکتے ہیں`,
   /* ── Places (Track B) — drafts, not reviewed by a fluent speaker ──────── */
   placeFiguresHeading: 'یہاں جن ہستیوں کی یاد منائی جاتی ہے',
   placeFiguresNote:
@@ -889,7 +892,7 @@ export const UI_TEXT_UR: UiStrings = {
   sourcesStatCitations: 'حوالے',
   sourcesShelfHeading: 'کتابوں کی الماری',
   sourcesShelfNote:
-    'وہ کتب جن کا آرکائیو سب سے زیادہ حوالہ دیتا ہے، چاہے ہر ایک کتنے ہی طریقوں سے لکھی گئی ہو۔ جتنی موٹی جلد، اتنے زیادہ اندراج اس پر قائم ہیں۔',
+    'وہ کتب جن کا آرکائیو سب سے زیادہ حوالہ دیتا ہے، چاہے ہر ایک کتنے ہی طریقوں سے لکھی گئی ہو۔ جلد کی موٹائی اس پر قائم اندراجات کے جذر کے ساتھ بڑھتی ہے — جن کی تعداد نیچے درج ہے — اور سب سے پتلی جلدیں بھی اتنی چوڑی رکھی گئی ہیں کہ انہیں چھوا جا سکے۔',
   sourcesReadingHeading: 'آرکائیو کے لیے مکمل پڑھی گئی کتابیں',
   sourcesReadingNote:
     'وہ کتابیں جو اس منصوبے نے اول سے آخر تک پڑھی ہیں، اردو، فارسی اور انگریزی میں۔ ان کی باتیں کسی اندراج میں شامل ہونے سے پہلے جانچی جاتی ہیں، اس لیے زیادہ تر کا ابھی حوالہ نہیں دیا گیا؛ جیسے ہی کوئی اندراج ان کا حوالہ دے گا، وہ یہاں درج ہو جائے گا۔',
@@ -940,7 +943,8 @@ export const UI_TEXT_UR: UiStrings = {
   sourcePlacesHeading: 'مقامات',
   sourceEntriesHeading: 'اس پر قائم اندراج',
   sourceMapHeading: 'اس کے مقامات کہاں ہیں',
-  sourceMapNote: 'ہر نقطہ ایک ایسا مقام ہے جس کا اندراج اس کتاب کا حوالہ دیتا ہے۔',
+  sourceMapNote:
+    'ہر نقطہ ایک ایسا مقام ہے جس کا اندراج اس کتاب کا حوالہ دیتا ہے؛ بڑا، عدد والا نقطہ ایک ہی جگہ کے کئی مقامات ہیں۔',
   sourceTraditionsHeading: 'روایات',
   sourceCitationsHeading: 'آرکائیو اس کا حوالہ کیسے دیتا ہے',
   sourceCitationsNote: 'ہر سطر بعینہٖ ویسی جیسی اندراجات میں درج ہے۔',

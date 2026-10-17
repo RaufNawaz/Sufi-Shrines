@@ -2477,3 +2477,84 @@
     box-shadow: 0 calc(-1 * var(--hairline)) 0 var(--color-border-light);
   }
 }
+
+/* The tradition dot on a category chip — the map's legend, carried by the
+   filter. A ring of the chip's ground keeps it visible on the active (cobalt)
+   chip too. */
+.filter-chip-dot {
+  --chip-dot: var(--color-cat-secular);
+  display: inline-block;
+  flex: none;
+  inline-size: 8px;
+  block-size: 8px;
+  margin-inline-end: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--chip-dot);
+  box-shadow: 0 0 0 1.5px var(--color-bg-surface);
+  vertical-align: 0.05em;
+}
+
+.filter-chip-dot--muslim {
+  --chip-dot: var(--color-cat-muslim);
+}
+.filter-chip-dot--hindu {
+  --chip-dot: var(--color-cat-hindu);
+}
+.filter-chip-dot--sikh {
+  --chip-dot: var(--color-cat-sikh);
+}
+.filter-chip-dot--nanakpanthi {
+  --chip-dot: var(--color-cat-nanakpanthi);
+}
+.filter-chip-dot--jain {
+  --chip-dot: var(--color-cat-jain);
+}
+.filter-chip-dot--secular {
+  --chip-dot: var(--color-cat-secular);
+}
+
+.filter-legend-note {
+  margin: 0;
+  padding: 0 var(--space-4) var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .filter-legend-note {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+.welcome-legend {
+  align-self: stretch;
+  margin-block: var(--space-4) 0;
+  padding-block-start: var(--space-4);
+  border-block-start: var(--hairline) solid var(--color-border-light);
+  text-align: start;
+}
+
+.welcome-legend-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2) var(--space-3);
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.welcome-legend-item {
+  display: flex;
+  align-items: center;
+  min-inline-size: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .welcome-legend-item {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+.welcome-legend-note {
+  padding: 0;
+}

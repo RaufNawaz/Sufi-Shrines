@@ -549,7 +549,13 @@ export default function GraphPage() {
                     {/* The counted phrase, not number + column label: "1 Sites"
                         in English, "۵ مقامات کی تعداد" ("5 number of sites") in
                         Urdu. */}
-                    <span>{fmtNum(tFn(lang, 'placeSiteCount', row.sites))}</span>
+                    {/* Only where it differs from the figure count. Every figure in
+                        an order has one site today, so it repeated the big
+                        number on all ten cards; when an order's figures share
+                        or span sites it says so by itself. */}
+                    {row.sites !== row.figures && (
+                      <span>{fmtNum(tFn(lang, 'placeSiteCount', row.sites))}</span>
+                    )}
                   </span>
                 </button>
               );

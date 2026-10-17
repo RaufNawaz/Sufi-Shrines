@@ -145,16 +145,29 @@ export function NetworkGraph({ center, connected, legend }: Props) {
 
   const geo = useMemo(() => geometry(connected.length), [connected.length]);
 
+  /* Around the ring in time order when the nodes carry a century: earliest at
+     twelve o'clock, clockwise, the undated last. Placed in data order, the
+     century ramp below was the only cue — a 2.5px ring on photographed nodes,
+     nearly identical from one to the next — and the "earliest → latest" key
+     matched no position (data-viz council, 17 October 2026). A stable sort,
+     so nodes of one century keep their order. */
+  const ordered = useMemo(() => {
+    if (!connected.some((node) => typeof node.century === 'number')) return connected;
+    const rank = (node: GraphNode) =>
+      typeof node.century === 'number' ? node.century : Number.POSITIVE_INFINITY;
+    return [...connected].sort((a, b) => rank(a) - rank(b));
+  }, [connected]);
+
   const positions = useMemo(() => {
-    const n = connected.length;
+    const n = ordered.length;
     if (n === 0) return [];
-    return connected.map((node, i) => {
+    return ordered.map((node, i) => {
       const angle = (2 * Math.PI * i) / n - Math.PI / 2;
       const x = Math.round(geo.cx + geo.r * Math.cos(angle));
       const y = Math.round(geo.cy + geo.r * Math.sin(angle));
       return { node, x, y };
     });
-  }, [connected, geo]);
+  }, [ordered, geo]);
 
   const title = `${center.label} — ${t('networkConnections')}`;
 

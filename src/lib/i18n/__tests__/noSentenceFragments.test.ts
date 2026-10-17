@@ -76,7 +76,11 @@ describe('UI strings are whole phrases', () => {
   it('the almanac total puts its operands where each language wants them', () => {
     // The regression this file exists for. 32 dated observances out of 169
     // sites: English leads with the part, Urdu leads with the whole.
-    expect(tFn('en', 'almanacCoverageTotal', 32, 169)).toBe('32 of 169 sites');
+    // Says what the 32 are since 17 October 2026: the headline sat over a
+    // five-slice bar with nothing to say which slices it counted.
+    expect(tFn('en', 'almanacCoverageTotal', 32, 169)).toBe(
+      '32 of 169 sites can be placed on the calendar',
+    );
     const ur = tFn('ur', 'almanacCoverageTotal', 32, 169);
     expect(ur).toContain('169 میں سے 32');
     // And the operands are genuinely swapped rather than coincidentally equal.

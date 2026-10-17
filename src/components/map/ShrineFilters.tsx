@@ -122,10 +122,18 @@ export function ShrineFilters({
                 onClick={() => toggleCategory(key)}
                 aria-pressed={activeCategories.includes(key)}
               >
+                {/* The marker ring's colour, so the filter is also the map's
+                    legend: nothing on the front door said what the colours
+                    meant (data-viz council, 17 October 2026). */}
+                <span className={`filter-chip-dot filter-chip-dot--${key}`} aria-hidden="true" />
                 {CATEGORY_LABELS[key][lang]}
               </button>
             ))}
           </div>
+          {/* The other thing a marker's look encodes, and the one a reader
+              misreads: a larger marker is a photographed site, not a larger or
+              more important one. */}
+          <p className="filter-legend-note">{t('mapLegendPhoto')}</p>
         </div>
       )}
 
