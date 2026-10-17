@@ -3172,3 +3172,65 @@
     display: none;
   }
 }
+
+/* Beside the article, the facts box sticks — and in Urdu (1,037px on Lal
+   Shahbaz) or on a 768px laptop it was taller than the screen, so its last
+   rows (Born, Died, Get Directions) could not be reached until the whole
+   article had scrolled past (reading council, 17 October 2026). Capped to the
+   space under the header, it scrolls within itself. Only where it sits in a
+   column; on a phone it is in the flow and must not become a scroll box. */
+@media (min-width: 641px) {
+  .shrine-infobox {
+    max-height: calc(100dvh - var(--page-header-height, var(--header-height)) - var(--space-8));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* ── Print, last in the cascade ─────────────────────────────────────────────
+   The handout rules in global.css lost to this file's own same-specificity
+   rules, which load later: an entry printed in a 502px column beside a 220px
+   facts column, the facts box still sticky and split across pages, the hero
+   at full size, and every control on paper — breadcrumb, place pill, "What do
+   these mean?", "Add to calendar", "Get Directions" (reading council,
+   17 October 2026). Here, after them, they hold. */
+@media print {
+  .shrine-article-layout {
+    display: block !important;
+  }
+
+  .shrine-infobox {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin-block: 6mm;
+  }
+
+  .shrine-hero {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 72mm;
+    overflow: hidden;
+    border: 0;
+    box-shadow: none;
+    background: none;
+  }
+
+  .shrine-hero-img {
+    max-height: 70mm;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .shrine-hero::after,
+  .shrine-breadcrumb,
+  .shrine-place-links,
+  .trust-explain-btn,
+  .trust-explain,
+  .shrine-observances-actions,
+  .infobox-actions,
+  .mobile-contents,
+  .source-notes-summary::after {
+    display: none !important;
+  }
+}

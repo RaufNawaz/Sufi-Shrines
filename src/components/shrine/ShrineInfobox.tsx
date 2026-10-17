@@ -262,7 +262,7 @@ export function ShrineInfobox({ shrine }: Props) {
               )}
               {shrine.siteTypeNote && (
                 <p className="infobox-note">
-                  {t('sourceNoteLabel')}: <bdi>{shrine.siteTypeNote}</bdi>
+                  {t('sourceNoteLabel')}: <bdi>{renderInlineBold(shrine.siteTypeNote)}</bdi>
                 </p>
               )}
             </dd>
@@ -333,7 +333,7 @@ export function ShrineInfobox({ shrine }: Props) {
                     ))}
                   {shrine.silsilaNote && (
                     <p className="infobox-note">
-                      {t('sourceNoteLabel')}: <bdi>{shrine.silsilaNote}</bdi>
+                      {t('sourceNoteLabel')}: <bdi>{renderInlineBold(shrine.silsilaNote)}</bdi>
                     </p>
                   )}
                 </dd>
@@ -431,7 +431,7 @@ export function ShrineInfobox({ shrine }: Props) {
                 })()}
                 {showQualifiers && shrine.yearBuiltNote && (
                   <p className="infobox-note" data-latin>
-                    {t('sourceNoteLabel')}: <bdi>{shrine.yearBuiltNote}</bdi>
+                    {t('sourceNoteLabel')}: <bdi>{renderInlineBold(shrine.yearBuiltNote)}</bdi>
                   </p>
                 )}
               </dd>
@@ -460,7 +460,7 @@ export function ShrineInfobox({ shrine }: Props) {
                 <bdi>{fmtNum(shrine.eventYear)}</bdi>
                 {shrine.eventNote && (
                   <p className="infobox-note" data-latin>
-                    {t('sourceNoteLabel')}: <bdi>{shrine.eventNote}</bdi>
+                    {t('sourceNoteLabel')}: <bdi>{renderInlineBold(shrine.eventNote)}</bdi>
                   </p>
                 )}
               </dd>

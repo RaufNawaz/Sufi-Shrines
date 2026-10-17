@@ -144,8 +144,21 @@ function destroyAfterPaint(layer: GlLayer): void {
     destroy();
     return;
   }
+  /* After the *destination* has painted, not after the next frame. Routes are
+     lazy, so the frame after the map unmounts is a Suspense gap, and a GL
+     teardown there (407 ms of script plus native GL work, 1.1 s at 4x CPU)
+     pushed the next page's first paint back by over a second — every tab tap
+     away from the map (performance council, 17 October 2026). Idle time, with
+     a deadline so a busy page still releases the context; two contexts alive
+     for that long is well inside every browser's limit. */
+  const ric = (
+    window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+    }
+  ).requestIdleCallback;
   requestAnimationFrame(() => {
-    setTimeout(destroy, 0);
+    if (ric) ric(destroy, { timeout: 3000 });
+    else setTimeout(destroy, 1500);
   });
 }
 

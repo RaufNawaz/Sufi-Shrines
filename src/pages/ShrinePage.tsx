@@ -528,16 +528,28 @@ function ShrineContent({
           {proseReady ? (
             <>
               <ShrineArticle shrine={shrine} />
+              {/* Where the source contradicts itself — beside the bibliography,
+                  where a reader weighing the sources is looking. It was the
+                  last thing on the page, after the related cards and the cite
+                  box, which read as an appendix to the footer for what RULE 2
+                  calls the archive's most honest content (reading council,
+                  17 October 2026). */}
+              <SourceNotes slug={shrine.slug} />
               <ShrineObservances shrine={shrine} />
             </>
           ) : (
             <ArticleSkeleton />
           )}
-          {shrine.latLng ? (
-            <LocationMap latLng={shrine.latLng} name={name} />
-          ) : (
-            <p className="location-not-recorded">{t('locationNotRecorded')}</p>
-          )}
+          {/* With the prose, not before it: the embed's lazy iframe sat inside
+              Chrome's load distance under the short skeleton and pulled ~220 KB
+              of Google Maps code in while the sheet was still downloading —
+              1.2 s of the Urdu article's wait (performance council). */}
+          {proseReady &&
+            (shrine.latLng ? (
+              <LocationMap latLng={shrine.latLng} name={name} />
+            ) : (
+              <p className="location-not-recorded">{t('locationNotRecorded')}</p>
+            ))}
           {/* Two adjacent facts — the ground this site shares with its
               neighbours, and what the companion Auqaf survey records about the
               mosques around it — both off unless the reader has asked for them
@@ -575,7 +587,6 @@ function ShrineContent({
           </p>
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
-          <SourceNotes slug={shrine.slug} />
           {hasProjectAccess() && (
             <React.Suspense fallback={null}>
               <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />
