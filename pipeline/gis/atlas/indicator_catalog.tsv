@@ -160,3 +160,20 @@ chg_prenatal_care_15_20	Change in prenatal care, 2014-15 to 2019-20 (points)	Cha
 chg_lhw_visited_15_20	Change in LHW visits, 2014-15 to 2019-20 (points)	Change over time	1	2015-2020
 pslm15_literacy	Literacy, 10+ (%, PSLM 2014-15)	Education	1	2014-15
 pslm15_fully_immunised	Children fully immunised (%, PSLM 2014-15)	Health and nutrition	1	2014-15
+nns_stunted	Children stunted (%, NNS)	Health and nutrition	0	2018
+nns_wasted	Children wasted (%, NNS)	Health and nutrition	0	2018
+nns_underweight	Children underweight (%, NNS)	Health and nutrition	0	2018
+nns_child_overweight	Children overweight (%, NNS)	Health and nutrition	0	2018
+nns_child_clinical_anaemia	Clinical anaemia in children (%, NNS)	Health and nutrition	0	2018
+nns_child_disability	Children 2-4 with a functional difficulty (%, NNS)	Health and nutrition	0	2018
+nns_iodized_salt	Adequately iodized salt (%, NNS)	Health and nutrition	1	2018
+nns_women_underweight	Women 15-49 underweight (%, NNS)	Women and gender	0	2018
+nns_women_obese	Women 15-49 obese (%, NNS)	Women and gender	0	2018
+nns_married_before_18	Women 20-24 married before 18 (%, NNS)	Women and gender	0	2018
+nns_married_before_15	Women 20-24 married before 15 (%, NNS)	Women and gender	0	2018
+nns_ecoli_water	E. coli in household drinking water (%, tested)	Water and sanitation	0	2018
+nns_arsenic_over_10ppb	Arsenic above WHO 10 ppb in drinking water (%, tested)	Water and sanitation	0	2018
+nns_arsenic_over_50ppb	Arsenic above 50 ppb in drinking water (%, tested)	Water and sanitation	0	2018
+nns_food_secure	Food secure (%, NNS FIES)	Wealth and poverty	1	2018
+nns_food_insecure_severe	Severely food insecure (%, NNS FIES)	Wealth and poverty	0	2018
+nns_social_protection	Households on a government social-protection scheme (%)	Wealth and poverty	1	2018

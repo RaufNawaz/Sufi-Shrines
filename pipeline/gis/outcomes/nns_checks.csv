@@ -1,0 +1,26 @@
+check,kind,measured,reference,result,note
+"values resting on 25-49 cases (in parentheses), kept and flagged",integrity,"ecoli_water 9, arsenic_over_10ppb 27, arsenic_over_50ppb 27, child_disability 5, food_secure 2, food_insecure_severe 2, social_protection 1, iodized_salt 2, child_clinical_anaemia 2, married_before_18 1, married_before_15 1, women_underweight 1, women_obese 1","flagged, not dropped",pass,
+"Table D2.3: district rows, all recognised",integrity,150 rows,">= 140 rows, none unrecognised",pass,
+"Table D1.6: district rows, all recognised",integrity,150 rows,">= 140 rows, none unrecognised",pass,
+"Table D5.1: district rows, all recognised",integrity,144 rows,">= 140 rows, none unrecognised",pass,
+"Table D5.3: district rows, all recognised",integrity,141 rows,">= 140 rows, none unrecognised",pass,
+"Table.D1.18: district rows, all recognised",integrity,141 rows,">= 140 rows, none unrecognised",pass,
+"Table D1.17: district rows, all recognised",integrity,150 rows,">= 140 rows, none unrecognised",pass,
+"Table D2.13: district rows, all recognised",integrity,150 rows,">= 140 rows, none unrecognised",pass,
+"Table D2.12: district rows, all recognised",integrity,150 rows,">= 140 rows, none unrecognised",pass,
+"Table D4.4: district rows, all recognised",integrity,150 rows,">= 140 rows, none unrecognised",pass,
+"Table D4.2: district rows, all recognised",integrity,150 rows,">= 140 rows, none unrecognised",pass,
+nns_stunted: national TOTAL row vs the Key Findings Report,external,40.2,40.2 ('The national average (40.2%)'),pass,
+nns_wasted: national TOTAL row vs the Key Findings Report,external,17.7,17.7 ('17.7% suffer from wasting'),pass,
+nns_underweight: national TOTAL row vs the Key Findings Report,external,28.9,28.9 ('almost one in three children underweight (28.9%)'),pass,
+nns_child_overweight: national TOTAL row vs the Key Findings Report,external,9.5,9.5 ('a high prevalence of overweight (9.5%)'),pass,
+nns_food_secure: national TOTAL row vs the Key Findings Report,external,63.1,63.1 ('More than half of households (63.1%) are food secure'),pass,
+nns_ecoli_water: national TOTAL row vs the Key Findings Report,external,31.3,36.0 ('About 36.0% of households in Pakistan drink water contaminated with E. Coli'),warn,"The NNS's two publications print different national figures; both recorded, neither corrected"
+nns_child_disability: national TOTAL row vs the Key Findings Report,external,14.0,12.7 ('12.7% children have a functional disability in one of these six domains'),warn,"The NNS's two publications print different national figures; both recorded, neither corrected"
+nns_women_underweight: national TOTAL row vs the Key Findings Report,external,14.5,14.4 ('One in seven (14.4%) are undernourished'),pass,"The NNS's two publications print different national figures; both recorded, neither corrected"
+NNS districts placed in OCHA districts,integrity,"143 of 150; not placed: ['baltistan', 'frbannu', 'frdikhan', 'frkohat', 'frlakkimarwat', 'frpeshawar', 'frtank']",all but the six Frontier Regions and 'Baltistan',pass,
+one NNS district per OCHA district,integrity,none shared,none shared,pass,
+OCHA districts without an NNS value,integrity,"14: Shaheed Sikandarabad, Duki, Chaman, Diamir, Skardu, Darel, Tangir, Gupis-Yasin, Rondu, Abbottabad, Haripur, Mansehra, North Waziristan, South Waziristan","reported, not filled",pass,"NNS 2018 Vol. 1 s.2.2.8: Mansehra, Abbottabad, Haripur, Diamir and North and South Waziristan were excluded because no-objection certificates were not issued; the rest were created after 2018"
+"nns_stunted vs dhsms_stunted, districts",convergent,"rho = +0.43, n = 146","sign +, |rho| >= 0.4",pass,
+"nns_married_before_18 vs girls_15_19_ever_married, districts",convergent,"rho = +0.69, n = 127","sign +, |rho| >= 0.4",pass,
+"nns_food_secure vs pslm_fies_mod_sev, districts",convergent,"rho = -0.35, n = 122","sign -, |rho| >= 0.4",warn,
