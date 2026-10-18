@@ -75,6 +75,50 @@ describe('renderInlineBold', () => {
   });
 });
 
+describe('renderInlineBold — Arabic-script quotations in Latin prose', () => {
+  // Bulleh Shah's Sharib paragraph (Rauf, 18 Oct 2026, HANDOVER §9.366): the
+  // quote marks, commas and the citation's "(" must stay OUTSIDE the RTL
+  // isolate, or the browser reorders them into the Urdu.
+  const sharib =
+    'In Sharib, "آپ کے پیرو مرشد آپ سے کسی بات پر خفا ہو گئے۔ انہوں نے آپ کی ولایت سلب کرلی", his pir grew displeased; ' +
+    'where he "روحانی فیوض حاصل کئے" and "فن موسیقی میں کمال حاصل کیا", and "کچھ دنوں کے بعد … عطا کی" (Sharib, p. 343).';
+
+  it('isolates exactly the Arabic-script text of each quotation, never the Latin punctuation around it', () => {
+    const { container } = render(<p>{renderInlineBold(sharib)}</p>);
+    const runs = Array.from(container.querySelectorAll('bdi')).map((b) => b.textContent);
+    expect(runs).toEqual([
+      'آپ کے پیرو مرشد آپ سے کسی بات پر خفا ہو گئے۔ انہوں نے آپ کی ولایت سلب کرلی',
+      'روحانی فیوض حاصل کئے',
+      'فن موسیقی میں کمال حاصل کیا',
+      'کچھ دنوں کے بعد … عطا کی',
+    ]);
+    for (const b of Array.from(container.querySelectorAll('bdi'))) {
+      expect(b.getAttribute('dir')).toBe('rtl');
+      expect(b.getAttribute('lang')).toBe('ur');
+    }
+    expect(container.textContent).toBe(sharib);
+  });
+
+  it('keeps a quotation carrying a transcription flag as one isolate', () => {
+    const text = 'he says "جب زمین بہی[OCR?] فروخت ہو گئی" and "[illegible] پناہ" (p. 111)';
+    const { container } = render(<p>{renderInlineBold(text)}</p>);
+    const runs = Array.from(container.querySelectorAll('bdi')).map((b) => b.textContent);
+    expect(runs).toEqual(['جب زمین بہی[OCR?] فروخت ہو گئی', '[illegible] پناہ']);
+    expect(container.textContent).toBe(text);
+  });
+
+  it('leaves a flag on a Latin word, and Latin-only text, unwrapped', () => {
+    const { container } = render(<p>{renderInlineBold('Sahib[OCR?] Kaur, 1832')}</p>);
+    expect(container.querySelector('bdi')).toBeNull();
+    expect(container.textContent).toBe('Sahib[OCR?] Kaur, 1832');
+  });
+
+  it('isolates Arabic-script inside italics too', () => {
+    const { container } = render(<p>{renderInlineBold('the *ولایت* he lost')}</p>);
+    expect(container.querySelector('em bdi')?.textContent).toBe('ولایت');
+  });
+});
+
 describe('stripInlineBoldMarkup', () => {
   it('removes ** wrapping but keeps the inner text', () => {
     expect(stripInlineBoldMarkup('**Book Title**, Author')).toBe('Book Title, Author');
