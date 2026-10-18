@@ -1,0 +1,14 @@
+
+### 9.328 — 12 October 2026 (19:58-20:10Z): Stage = notes. No batch run: the only notes-turn work left is the consolidated import, and it is blocked
+
+**Stage: notes** (scheduled firing, session_017uVNDEXRAhcLwFqTLuaeAc). No live notes claim, no leases, `queue.py status`: 31 integrated, 11 skipped, 0 summarized, 0 transcribed-not-summarized. Transcription has no work (khulasat 610/610). So this was the notes turn, and §9.327 says its work is the consolidated import ("The final database") unless Rauf rules otherwise on §9.327 Needs Rauf 4. No ruling is in the repo or the project as of 20:00Z (the question was asked in chat ~19:40Z). Nothing was built and nothing in the repo was changed except this section.
+
+**Why no import was built — measured, not guessed:**
+1. **The live fetch is impossible from a scheduled run.** The final-database step requires building against a live fetch of the sheet. `build_consolidated_import.py --dry-run` on the Mac shell dies at `fetch_raw_sheet()` with `Tunnel connection failed: 403 Forbidden`; a `curl` of the same `data/csv-source.json` URL from the cloud container is refused by the egress proxy (`docs.google.com:443 connect_rejected`). Neither instrument can reach docs.google.com. A build against a dated snapshot instead would break the builder's own stated reason for fetching live (RULE 3), so it was not attempted. Until the egress allowlist admits docs.google.com (or Rauf runs the builder himself on the Mac outside Cowork), no scheduled firing can do this step.
+2. **Needs Rauf 4 (§9.327) is open**: import now, or tag-file new rows on the 29 untagged books first.
+3. **A held item is inside the patch set the builder applies.** `data/patch_rulings_2026-09-23.csv` row 2 sets `mazar-of-bulleh-shah` `figure_died` 1757 → 1758 (ruled 23 Sep, carried in `import_2026-10-08.csv`). The integration stage says the import must refuse held items, and §9.317 holds the sheet on Bulleh Shah's death year ("propose no `figure_died` for Bulleh Shah"). Which ruling governs that cell is Rauf's.
+Also for whoever extends the builder: it asserts 171 rows (INV-1) and knows nothing of `PATCH_new_rows_*.csv` (hadeeqat, tareekh), whose rows have blank coordinates by ruling — the row-count invariant and the validators' treatment of coordinate-less rows both need deciding before those patches can be read.
+
+**Needs Rauf:** (a) §9.327 Needs Rauf 4; (b) Bulleh Shah's `figure_died` in `patch_rulings_2026-09-23.csv` — apply the 23 Sep ruling or hold per §9.317; (c) how a scheduled firing gets a live sheet fetch (allowlist docs.google.com, or the import is built interactively).
+
+**Next notes firing:** unless (a)-(c) are answered, the same — nothing it can do; it should check for a ruling and stop. **Next transcription firing:** nothing to do. Nothing committed: Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_318.md`-`_328.md` and `pipeline/book_queue/_rz_args.sh`.
