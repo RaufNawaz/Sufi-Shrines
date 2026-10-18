@@ -226,16 +226,30 @@ try {
   const page = await context.newPage();
   await page.goto(`${ORIGIN}${BASE}/shrine/data-darbar`, { waitUntil: 'load' });
   await page.locator('h1.shrine-title').waitFor({ timeout: 20_000 });
+  /* The back link renders only once there is in-app history to go back to
+     (EntityPageHeader's `canGoBack`), so a cold load has none: follow one
+     in-app link first, then go back along it. */
+  const start = new URL(page.url()).pathname;
+  await page.locator(`a[href^="${BASE}/place/"]`).first().click();
+  await page.waitForTimeout(1500);
+  const forward = new URL(page.url()).pathname;
+  if (!forward.startsWith(`${BASE}/place/`)) {
+    failures.push({
+      route: 'client-side navigation',
+      problems: [`place link landed on ${forward}, not under ${BASE}/place/`],
+    });
+  }
+  console.log(`${forward.startsWith(`${BASE}/place/`) ? '✓' : '✗'} place link → ${forward}`);
   await page.locator('a.back-link').click();
   await page.waitForTimeout(1500);
   const landed = new URL(page.url()).pathname;
-  if (landed !== `${BASE}/` && landed !== BASE) {
+  if (landed !== start) {
     failures.push({
       route: 'client-side navigation',
-      problems: [`back link landed on ${landed}, not ${BASE}/`],
+      problems: [`back link landed on ${landed}, not ${start}`],
     });
   }
-  console.log(`${landed === `${BASE}/` || landed === BASE ? '✓' : '✗'} back link → ${landed}`);
+  console.log(`${landed === start ? '✓' : '✗'} back link → ${landed}`);
   await context.close();
 } finally {
   await browser.close();

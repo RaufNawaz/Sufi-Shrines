@@ -122,7 +122,6 @@ prefetchCsvText();
    is 262 KB gzipped and held an Urdu shared link's prose back to 9.7 s; one
    article is a few KB. The slug is the path segment after `/shrine/`. */
 const shrineSlug = /\/shrine\/([^/?#]+)/.exec(window.location.pathname)?.[1];
-// eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the Urdu article payload applies only to the Urdu view
 if (shrineSlug && initialLang === 'ur') {
   void loadUrduArticle(decodeURIComponent(shrineSlug));
 }

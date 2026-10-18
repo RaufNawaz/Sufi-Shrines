@@ -823,7 +823,7 @@
       "chunks": 20
     },
     "khulasat_ut_tawarikh": {
-      "status": "transcribed",
+      "status": "integrated",
       "priority": 190,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -846,17 +846,41 @@
       "pages_done": "1-610",
       "leases": {},
       "assembled_file": "out/ocr/khulasat_ut_tawarikh/p001-end_2026-10-10_2100_transcribed.txt",
-      "takeaways_file": null,
-      "integrated_into": [],
+      "takeaways_file": "entries/book_takeaways/khulasat_ut_tawarikh.md",
+      "integrated_into": [
+        "tomb-of-qutbuddin-aibak",
+        "shrine-of-bahauddin-zakariya",
+        "shrine-of-hazrat-shah-daula-daryai",
+        "sakhi-sarwar",
+        "tilla-jogian",
+        "gurdwara-choa-sahib",
+        "shrine-of-fariduddin-ganjshakar",
+        "panj-tirath",
+        "darbar-malik-ahmad-ayaz",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "shrine-of-shah-rukn-e-alam",
+        "churrio-jabal-durga-mata-temple",
+        "shaktipeeth-shri-hinglaj-mata-mandir",
+        "data-darbar",
+        "gurdwara-panja-sahib",
+        "langer-makhdoom",
+        "garh-maharaja-shorkot",
+        "shrine-of-imam-ali-ul-haq",
+        "amb-temples-amb-sharif",
+        "gorakhnath-goraknath-temple",
+        "gurdwara-dash-mesh-pita",
+        "jagannath-temple-sialkot",
+        "ram-mandir-saidpur-ram-kund-mandir",
+        "dargah-of-khwaja-muhammad-zaman-luari-sharif",
+        "gurdwara-guru-ram-das-ji",
+        "gurdwara-rori-sahib",
+        "loh-temple-lava-temple",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "shrine-of-shah-shams-ud-din-sabzwari",
+        "shrine-of-shah-yusaf-gardez",
+        "shrine-of-syed-musa-pak"
+      ],
       "log": [
-        {
-          "t": "2026-10-04T20:09:44Z",
-          "msg": "lease 429-434 expired (worker w5)"
-        },
-        {
-          "t": "2026-10-04T20:09:44Z",
-          "msg": "lease 435-440 expired (worker w6)"
-        },
         {
           "t": "2026-10-04T20:24:17Z",
           "msg": "lease 417-422 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
@@ -1008,6 +1032,14 @@
         {
           "t": "2026-10-10T21:02:01Z",
           "msg": "chunked into 48 chunks of ~5000 words"
+        },
+        {
+          "t": "2026-10-11T20:58:36Z",
+          "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:36:28Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -2497,7 +2529,7 @@
       "chunks": 17
     },
     "rizvi_history_of_sufism_india_1": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 110,
       "group": "english",
       "route_planned": "text_probe",
@@ -2521,7 +2553,43 @@
       "leases": {},
       "assembled_file": "out/ocr/rizvi_history_of_sufism_india_1/p001-end_2026-09-15_1602_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/rizvi_history_of_sufism_india_1.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-fariduddin-ganjshakar",
+        "shrine-of-bahauddin-zakariya",
+        "data-darbar",
+        "shrine-of-shah-rukn-e-alam",
+        "gorakhnath-goraknath-temple",
+        "tilla-jogian",
+        "gurudwara-janam-asthan-nankana-sahib",
+        "gurdwara-darbar-sahib-kartarpur",
+        "lal-shahbaz-qalandar",
+        "shrine-of-miran-hussain-zanjani-zanjani-sahib",
+        "tomb-of-qutbuddin-aibak",
+        "dargah-pir-ratan-nath-jee",
+        "gurdwara-rori-sahib",
+        "gurdwara-dera-sahib",
+        "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+        "gurdwara-panjvi-chati-patshahi",
+        "gurdwara-babay-de-ber",
+        "gurdwara-balila-sahib-bal-lila-sahib",
+        "gurdwara-chakki-sahib",
+        "gurdwara-choa-sahib",
+        "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+        "gurdwara-malji-sahib",
+        "gurdwara-panja-sahib",
+        "gurdwara-patti-sahib",
+        "gurdwara-pehli-patshahi-jind-pir-sukkur",
+        "gurdwara-sach-khand-sahib",
+        "gurdwara-sacha-sauda",
+        "gurdwara-sahib-saidpur-guru-nanak-dev-ji",
+        "gurdwara-sri-kiara-sahib",
+        "gurdwara-sri-tilganji-sahib",
+        "gurdwara-tambo-sahib",
+        "mazar-e-iqbal",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "mazar-of-bulleh-shah"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:24Z",
@@ -2550,6 +2618,10 @@
         {
           "t": "2026-09-23T11:41:03Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T01:33:09Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -2565,7 +2637,7 @@
       "chunks": 28
     },
     "kasmani_queer_companions": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 111,
       "group": "english",
       "route_planned": "text_probe",
@@ -2589,7 +2661,24 @@
       "leases": {},
       "assembled_file": "out/ocr/kasmani_queer_companions/p001-end_2026-09-14_1709_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/kasmani_queer_companions.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "lal-shahbaz-qalandar",
+        "shrine-of-lakhi-shah-saddar",
+        "data-darbar",
+        "bibi-pak-daman",
+        "madho-lal-hussain",
+        "shrine-of-abdullah-shah-ghazi",
+        "bhit-bhit-shah",
+        "shrine-of-sachal-sarmast",
+        "shrine-of-bahauddin-zakariya",
+        "shrine-of-fariduddin-ganjshakar",
+        "shah-noorani-shrine-syed-bilawal-shah-noorani",
+        "sial-sharif",
+        "guru-gurpat-mandir-db-80-sirey-ghat",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "dargah-roza-sufi-shah-inayat-shaheed",
+        "shrine-of-shah-inayat-qadiri"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:24Z",
@@ -2614,6 +2703,10 @@
         {
           "t": "2026-09-23T05:17:17Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:02:53Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -2629,7 +2722,7 @@
       "chunks": 12
     },
     "boivin_hindu_sufis_south_asia": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 112,
       "group": "english",
       "route_planned": "text_probe",
@@ -2653,7 +2746,32 @@
       "leases": {},
       "assembled_file": "out/ocr/boivin_hindu_sufis_south_asia/p001-end_2026-09-14_1709_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/boivin_hindu_sufis_south_asia.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "lal-shahbaz-qalandar",
+        "shrine-of-sachal-sarmast",
+        "bhit-bhit-shah",
+        "dargah-roza-sufi-shah-inayat-shaheed",
+        "shrine-at-odero-lal-udero-lal-teerath-asthan",
+        "dargah-fateh-pur-sharif",
+        "shrine-of-bahauddin-zakariya",
+        "sadh-belo-sadh-belo-island-temple",
+        "ramapir-temple-tando-allahyar",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "sant-bhagat-kanwar-ram-temple-chak",
+        "mazar-of-bulleh-shah",
+        "shrine-of-shah-rukn-e-alam",
+        "shrine-of-shah-abdul-karim-bulri",
+        "mazar-e-iqbal",
+        "mithankot-kot-mithan",
+        "gurdwara-dash-mesh-pita",
+        "garh-maharaja-shorkot",
+        "dargah-pir-ratan-nath-jee",
+        "gurdwara-pehli-patshahi-jind-pir-sukkur",
+        "khatwari-darbar-shikarpur",
+        "gorakhnath-goraknath-temple",
+        "tilla-jogian",
+        "shri-laxmi-narayan-mandir-native-jetty-bridge"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:25Z",
@@ -2678,6 +2796,10 @@
         {
           "t": "2026-09-24T03:34:50Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:08:32Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -2693,7 +2815,7 @@
       "chunks": 13
     },
     "schaflechner_hinglaj_devi": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 113,
       "group": "english",
       "route_planned": "text_probe",
@@ -2717,7 +2839,17 @@
       "leases": {},
       "assembled_file": "out/ocr/schaflechner_hinglaj_devi/p001-end_2026-09-14_1709_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/schaflechner_hinglaj_devi.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shaktipeeth-shri-hinglaj-mata-mandir",
+        "chandragup-baba-chandragup",
+        "bhit-bhit-shah",
+        "shri-swaminarayan-mandir-karachi",
+        "shrine-of-pir-mangho",
+        "lal-shahbaz-qalandar",
+        "sadh-belo-sadh-belo-island-temple",
+        "ramapir-temple-tando-allahyar",
+        "shah-noorani-shrine-syed-bilawal-shah-noorani"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:25Z",
@@ -2742,6 +2874,10 @@
         {
           "t": "2026-09-23T11:41:03Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:09:38Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -2757,7 +2893,7 @@
       "chunks": 19
     },
     "werbner_basu_embodying_charisma": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 114,
       "group": "english",
       "route_planned": "text_probe",
@@ -2781,7 +2917,17 @@
       "leases": {},
       "assembled_file": "out/ocr/werbner_basu_embodying_charisma/p001-end_2026-09-14_1709_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/werbner_basu_embodying_charisma.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "darbar-ghamkol-sharif-zinda-pir",
+        "shrine-of-hazrat-shah-daula-daryai",
+        "bari-imam",
+        "shrine-of-fariduddin-ganjshakar",
+        "data-darbar",
+        "golra-sharif",
+        "mazar-e-iqbal",
+        "shrine-of-pir-baba-syed-ali-tirmizi",
+        "lal-shahbaz-qalandar"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:25Z",
@@ -2806,6 +2952,10 @@
         {
           "t": "2026-09-23T06:57:32Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:10:03Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -2821,7 +2971,7 @@
       "chunks": 15
     },
     "abbas_female_voice_sufi_ritual": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 115,
       "group": "english",
       "route_planned": "text_probe",
@@ -2845,7 +2995,26 @@
       "leases": {},
       "assembled_file": "out/ocr/abbas_female_voice_sufi_ritual/p001-end_2026-09-14_1709_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/abbas_female_voice_sufi_ritual.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "bhit-bhit-shah",
+        "lal-shahbaz-qalandar",
+        "mazar-of-bulleh-shah",
+        "madho-lal-hussain",
+        "bibi-pak-daman",
+        "data-darbar",
+        "shrine-of-fariduddin-ganjshakar",
+        "shrine-of-shah-inayat-qadiri",
+        "mithankot-kot-mithan",
+        "mausoleum-of-waris-shah",
+        "shrine-of-mian-mir",
+        "shrine-of-bahauddin-zakariya",
+        "shrine-of-shah-rukn-e-alam",
+        "garh-maharaja-shorkot",
+        "shrine-of-pir-mangho",
+        "shrine-of-sachal-sarmast",
+        "dargah-roza-sufi-shah-inayat-shaheed",
+        "tomb-of-qutbuddin-aibak"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:25Z",
@@ -2870,6 +3039,10 @@
         {
           "t": "2026-09-23T05:17:17Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:10:59Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -2885,7 +3058,7 @@
       "chunks": 11
     },
     "qureshi_sufi_music_qawwali": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 116,
       "group": "english",
       "route_planned": "text_probe",
@@ -2909,7 +3082,10 @@
       "leases": {},
       "assembled_file": "out/ocr/qureshi_sufi_music_qawwali/p001-end_2026-09-14_1709_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/qureshi_sufi_music_qawwali.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-fariduddin-ganjshakar",
+        "data-darbar"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:28Z",
@@ -2934,6 +3110,10 @@
         {
           "t": "2026-09-23T06:57:32Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:11:14Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -2949,7 +3129,7 @@
       "chunks": 15
     },
     "rozehnal_islamic_sufism_unbound": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 117,
       "group": "english",
       "route_planned": "text_probe",
@@ -2973,7 +3153,19 @@
       "leases": {},
       "assembled_file": "out/ocr/rozehnal_islamic_sufism_unbound/p001-end_2026-09-14_1710_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/rozehnal_islamic_sufism_unbound.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-fariduddin-ganjshakar",
+        "data-darbar",
+        "golra-sharif",
+        "mithankot-kot-mithan",
+        "mazar-e-iqbal",
+        "tomb-of-javindi-bibi",
+        "shrine-of-mian-mir",
+        "shrine-of-bahauddin-zakariya",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "shrine-of-shah-rukn-e-alam",
+        "ram-mandir-saidpur-ram-kund-mandir"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:30Z",
@@ -2998,6 +3190,10 @@
         {
           "t": "2026-09-23T06:57:32Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:11:50Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -3013,7 +3209,7 @@
       "chunks": 18
     },
     "schimmel_as_through_a_veil": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 118,
       "group": "english",
       "route_planned": "text_probe",
@@ -3037,7 +3233,29 @@
       "leases": {},
       "assembled_file": "out/ocr/schimmel_as_through_a_veil/p001-end_2026-09-14_1710_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/schimmel_as_through_a_veil.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "bhit-bhit-shah",
+        "mazar-e-iqbal",
+        "data-darbar",
+        "shrine-of-sachal-sarmast",
+        "mazar-of-bulleh-shah",
+        "garh-maharaja-shorkot",
+        "shrine-of-makhdoom-abdul-rahim-girhori",
+        "dargah-roza-sufi-shah-inayat-shaheed",
+        "shrine-of-bahauddin-zakariya",
+        "mithankot-kot-mithan",
+        "darbar-malik-ahmad-ayaz",
+        "shrine-of-fariduddin-ganjshakar",
+        "guru-gurpat-mandir-db-80-sirey-ghat",
+        "mausoleum-of-waris-shah",
+        "shrine-of-shah-abdul-karim-bulri",
+        "madho-lal-hussain",
+        "rahman-baba-mausoleum-rehman-baba-shrine",
+        "lal-shahbaz-qalandar",
+        "shaktipeeth-shri-hinglaj-mata-mandir",
+        "shri-panchmukhi-hanuman-mandir-karachi",
+        "umarkot-amarkot-shiv-mandir"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:30Z",
@@ -3062,6 +3280,10 @@
         {
           "t": "2026-09-22T17:34:58Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:12:54Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -3077,7 +3299,7 @@
       "chunks": 16
     },
     "schimmel_mystical_dimensions_of_islam": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 119,
       "group": "english",
       "route_planned": "text_probe",
@@ -3101,7 +3323,36 @@
       "leases": {},
       "assembled_file": "out/ocr/schimmel_mystical_dimensions_of_islam/p001-end_2026-09-14_1710_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/schimmel_mystical_dimensions_of_islam.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "bhit-bhit-shah",
+        "shrine-of-sachal-sarmast",
+        "shrine-of-fariduddin-ganjshakar",
+        "shrine-of-bahauddin-zakariya",
+        "dargah-roza-sufi-shah-inayat-shaheed",
+        "data-darbar",
+        "mazar-of-bulleh-shah",
+        "mausoleum-of-waris-shah",
+        "madho-lal-hussain",
+        "lal-shahbaz-qalandar",
+        "shrine-of-mian-mir",
+        "rahman-baba-mausoleum-rehman-baba-shrine",
+        "garh-maharaja-shorkot",
+        "shrine-of-makhdoom-nooh-hala",
+        "shrine-of-shah-abdul-karim-bulri",
+        "shrine-of-makhdoom-abdul-rahim-girhori",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "shrine-at-odero-lal-udero-lal-teerath-asthan",
+        "shrine-of-akhund-darweza-baba",
+        "tomb-of-qutbuddin-aibak",
+        "shaktipeeth-shri-hinglaj-mata-mandir",
+        "guru-gurpat-mandir-db-80-sirey-ghat",
+        "sial-sharif",
+        "mazar-e-iqbal",
+        "shrine-of-pir-mangho",
+        "darbar-malik-ahmad-ayaz",
+        "shri-panchmukhi-hanuman-mandir-karachi"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:30Z",
@@ -3126,6 +3377,10 @@
         {
           "t": "2026-09-26T21:48:05Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:30:27Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -3141,7 +3396,7 @@
       "chunks": 29
     },
     "khalid_walking_with_nanak": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 120,
       "group": "english",
       "route_planned": "text_probe",
@@ -3165,7 +3420,53 @@
       "leases": {},
       "assembled_file": "out/ocr/khalid_walking_with_nanak/p001-end_2026-09-15_1704_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/khalid_walking_with_nanak.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "gurdwara-darbar-sahib-kartarpur",
+        "gurdwara-panja-sahib",
+        "gurdwara-sacha-sauda",
+        "gurdwara-babay-nanki",
+        "gurdwara-babay-de-ber",
+        "gurdwara-rori-sahib",
+        "shrine-of-fariduddin-ganjshakar",
+        "gurdwara-dash-mesh-pita",
+        "katas-raj-temples",
+        "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+        "shri-varun-dev-mandir",
+        "gurdwara-shaheed-ganj-singh-singhnian",
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "gurdwara-guru-ram-das-ji",
+        "gurdwara-tambo-sahib",
+        "shree-ratneshwar-mahadev-temple-karachi",
+        "gurudwara-janam-asthan-nankana-sahib",
+        "gurdwara-choa-sahib",
+        "gurdwara-patti-sahib",
+        "gurdwara-chakki-sahib",
+        "samadhi-of-maharaja-ranjit-singh",
+        "shrine-of-bahauddin-zakariya",
+        "tomb-of-javindi-bibi",
+        "lal-shahbaz-qalandar",
+        "shrine-of-syed-musa-pak",
+        "mazar-of-bulleh-shah",
+        "tomb-of-baha-al-halim-uch-sharif",
+        "shrine-of-mian-mir",
+        "mazar-e-iqbal",
+        "data-darbar",
+        "gurdwara-balila-sahib-bal-lila-sahib",
+        "gurdwara-malji-sahib",
+        "gurdwara-sri-kiara-sahib",
+        "tomb-of-ustad-nuriya",
+        "madho-lal-hussain",
+        "mausoleum-of-waris-shah",
+        "churrio-jabal-durga-mata-temple",
+        "prahladpuri-temple",
+        "shah-jamal",
+        "tilla-jogian",
+        "shrine-of-abdullah-shah-ghazi",
+        "shrine-of-hazrat-shah-daula-daryai",
+        "sial-sharif",
+        "ram-mandir-saidpur-ram-kund-mandir",
+        "shri-laxmi-narayan-mandir-native-jetty-bridge"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:30Z",
@@ -3194,6 +3495,10 @@
         {
           "t": "2026-09-29T19:51:47Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:31:41Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -3209,7 +3514,7 @@
       "chunks": 14
     },
     "dhillon_janamsakhis": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 121,
       "group": "english",
       "route_planned": "text_probe",
@@ -3233,7 +3538,21 @@
       "leases": {},
       "assembled_file": "out/ocr/dhillon_janamsakhis/p001-end_2026-09-14_1710_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/dhillon_janamsakhis.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "gurdwara-darbar-sahib-kartarpur",
+        "gurdwara-rori-sahib",
+        "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+        "gurdwara-babay-nanki",
+        "gurdwara-sacha-sauda",
+        "shrine-of-fariduddin-ganjshakar",
+        "gurdwara-babay-de-ber",
+        "gurdwara-panja-sahib",
+        "katas-raj-temples",
+        "shaktipeeth-shri-hinglaj-mata-mandir",
+        "gurdwara-guru-ram-das-ji",
+        "gurdwara-dash-mesh-pita",
+        "churrio-jabal-durga-mata-temple"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:31Z",
@@ -3258,6 +3577,10 @@
         {
           "t": "2026-09-29T20:06:52Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:33:23Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -3273,7 +3596,7 @@
       "chunks": 9
     },
     "khalid_a_white_trail": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 122,
       "group": "english",
       "route_planned": "text_probe",
@@ -3297,7 +3620,45 @@
       "leases": {},
       "assembled_file": "out/ocr/khalid_a_white_trail/p001-end_2026-09-14_1710_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/khalid_a_white_trail.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "gurudwara-janam-asthan-nankana-sahib",
+        "gurdwara-panja-sahib",
+        "katas-raj-temples",
+        "gurdwara-dera-sahib",
+        "samadhi-of-maharaja-ranjit-singh",
+        "gurdwara-tambo-sahib",
+        "gurdwara-dash-mesh-pita",
+        "prahladpuri-temple",
+        "gurdwara-patti-sahib",
+        "churrio-jabal-durga-mata-temple",
+        "shrine-of-fariduddin-ganjshakar",
+        "gurdwara-panjvi-chati-patshahi",
+        "shrine-of-bahauddin-zakariya",
+        "gurdwara-rori-sahib",
+        "mazar-of-bulleh-shah",
+        "ram-mandir-saidpur-ram-kund-mandir",
+        "jain-mandir-lahore",
+        "shrine-of-mian-mir",
+        "data-darbar",
+        "gurdwara-sacha-sauda",
+        "krishna-mandir-ravi-road",
+        "gurdwara-balila-sahib-bal-lila-sahib",
+        "gurdwara-malji-sahib",
+        "gurdwara-guru-ram-das-ji",
+        "loh-temple-lava-temple",
+        "darbar-malik-ahmad-ayaz",
+        "shaktipeeth-shri-hinglaj-mata-mandir",
+        "shri-panchmukhi-hanuman-mandir-karachi",
+        "shrine-of-baba-shah-chiragh",
+        "mausoleum-of-waris-shah",
+        "sakhi-sarwar",
+        "bibi-pak-daman",
+        "shah-jamal",
+        "gurdwara-sri-kiara-sahib",
+        "gurdwara-darbar-sahib-kartarpur",
+        "sharada-peeth",
+        "shri-laxmi-narayan-mandir-native-jetty-bridge"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:31Z",
@@ -3322,6 +3683,10 @@
         {
           "t": "2026-10-03T17:39:38Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:34:41Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -3337,7 +3702,7 @@
       "chunks": 13
     },
     "khalid_in_search_of_shiva": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 123,
       "group": "english",
       "route_planned": "epub",
@@ -3353,7 +3718,31 @@
       "leases": {},
       "assembled_file": "out/ocr/khalid_in_search_of_shiva/p001-end_2026-09-14_1710_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/khalid_in_search_of_shiva.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "shrine-of-fariduddin-ganjshakar",
+        "shergarh",
+        "garh-maharaja-shorkot",
+        "madho-lal-hussain",
+        "mazar-of-bulleh-shah",
+        "mausoleum-of-waris-shah",
+        "gurudwara-janam-asthan-nankana-sahib",
+        "ranmal-sharif",
+        "shrine-of-abdullah-shah-ghazi",
+        "samadhi-of-maharaja-ranjit-singh",
+        "langer-makhdoom",
+        "mazar-e-iqbal",
+        "sial-sharif",
+        "shrine-of-hazrat-shah-daula-daryai",
+        "churrio-jabal-durga-mata-temple",
+        "ram-mandir-saidpur-ram-kund-mandir",
+        "data-darbar",
+        "gurdwara-panja-sahib",
+        "sharada-peeth",
+        "rahman-baba-mausoleum-rehman-baba-shrine",
+        "sakhi-sarwar",
+        "lal-shahbaz-qalandar",
+        "gurdwara-dash-mesh-pita"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:31Z",
@@ -3378,6 +3767,10 @@
         {
           "t": "2026-10-04T06:01:28Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:35:14Z",
+          "msg": "marked integrated"
         }
       ],
       "chunks": 9
@@ -3858,7 +4251,7 @@
       }
     },
     "nizami_revised_translation": {
-      "status": "summarized",
+      "status": "integrated",
       "priority": 210,
       "group": "urdu_other",
       "route_planned": "text_probe",
@@ -3882,7 +4275,9 @@
       "leases": {},
       "assembled_file": "out/ocr/nizami_revised_translation/p001-end_2026-09-14_1711_transcribed.txt",
       "takeaways_file": "entries/book_takeaways/nizami_revised_translation.md",
-      "integrated_into": [],
+      "integrated_into": [
+        "darbar-malik-ahmad-ayaz"
+      ],
       "log": [
         {
           "t": "2026-09-14T17:00:06Z",
@@ -3907,6 +4302,10 @@
         {
           "t": "2026-10-04T22:35:39Z",
           "msg": "marked summarized"
+        },
+        {
+          "t": "2026-10-12T19:36:41Z",
+          "msg": "marked integrated"
         }
       ],
       "scan_images": {
@@ -3922,5 +4321,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-10-10T21:50:56Z"
+  "updated": "2026-10-12T19:36:41Z"
 }
