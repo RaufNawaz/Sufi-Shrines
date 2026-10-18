@@ -1,0 +1,141 @@
+n	id	draft_line	book	pdf_page	draft_quote	printed_as_read	proposed	confidence	kind	note
+1	shrine-of-miran-hussain-zanjani-zanjani-sahib	L19	tareekh_lahore	275	سلاطین غوریہ کے وقت یہ شہر زنجان سے ہند کی سیر کو آیا اور تمام کشور ہند کی سیر کی واپسی کے وقت لاہور آ کر قیام پذیر ہوا اور یہان ہی فوت ہوا	سلاطین غوریہ کیوقت یہ شہر زنجان سے ہند کی سیر کو آیا اور تمام کشور ہند کی سیر کی واپسی کیوقت لاہور آ کر قیام پذیر ہوا اور یہان ہی فوت ہوا	سلاطین غوریہ کیوقت یہ شہر زنجان سے ہند کی سیر کو آیا اور تمام کشور ہند کی سیر کی واپسی کیوقت لاہور آ کر قیام پذیر ہوا اور یہان ہی فوت ہوا	high	ortho	p.275 prints کیوقت twice (as batch 4)
+2	shrine-of-miran-hussain-zanjani-zanjani-sahib	L19	tareekh_lahore	275	سال وفات اسکا سنہ ۶۰۴ [OCR?] ہے	as draft		high	no change	p.275: ہے as printed; the year numerals not read
+3	shrine-of-miran-hussain-zanjani-zanjani-sahib	L21	tahqiqat_chishti	269	ولایت سے ملک ہند میں	ولایت سے ملک ہند مین	ولایت سے ملک ہند مین	high	ortho	p.269
+4	shrine-of-miran-hussain-zanjani-zanjani-sahib	L21	tahqiqat_chishti	269	شیخ المشایخ سید حسین زنجانی جنکی مزار [illegible] ہے کہ وہی [illegible] نواح لاہور میں موجود ہے	شیخ المشایخ سید حسین زنجانی جنکی مزار کہوی میران نواح لاہور مین موجود ہی		high	misread	"p.269: the two [illegible] gaps are کہوی میران; ""ہے کہ وہی"" is not on the page — word, not applied (Rauf)"
+5	shrine-of-miran-hussain-zanjani-zanjani-sahib	L21	tahqiqat_chishti	269	اوسکا[OCR?] حال انکا علاحدہ تحریر یہ ہوگا	اور حال انکا علاحدہ تحریر ہوگا		high	misread	p.269 — word, not applied (Rauf)
+6	shrine-of-miran-hussain-zanjani-zanjani-sahib	L21	tahqiqat_chishti	270	پانچویں[OCR?] صدی[OCR?] ہجری میں	پانچسو ستاون ہجری مین		medium	misread	"p.270: the page gives a YEAR, 557 AH (""سنہ پانچسو ستاون ہجری مین وارد لاہور ہوئے""), not ""the fifth century AH"" — changes the English — word, not applied (Rauf)"
+7	shrine-of-miran-hussain-zanjani-zanjani-sahib	L21	tahqiqat_chishti	705	حضرت صدر دیوان صاحب				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+8	shrine-of-miran-hussain-zanjani-zanjani-sahib	L21	tahqiqat_chishti	705	تاریخ وفات انکی سنہ [illegible: year in numerals] ہجری				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+9	shrine-of-miran-hussain-zanjani-zanjani-sahib	L21	tahqiqat_chishti	705	نامعلوم				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+10	shrine-of-miran-hussain-zanjani-zanjani-sahib	L27	tahqiqat_chishti	163	پیر بہا ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+11	shrine-of-miran-hussain-zanjani-zanjani-sahib	L27	tahqiqat_chishti	163	جنازہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+12	shrine-of-miran-hussain-zanjani-zanjani-sahib	L27	tahqiqat_chishti	163	تکفین و تدفین				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+13	shrine-of-miran-hussain-zanjani-zanjani-sahib	L45	tahqiqat_chishti	270	اوران حضرات سے ملاقاتیں کیں	اوران حضرات سے ملاقاتین کین	اوران حضرات سے ملاقاتین کین	high	ortho	p.270
+14	shrine-of-miran-hussain-zanjani-zanjani-sahib	L53	tareekh_lahore	275	یہ متبرک مزار موضع کہوئی میران بیرون شہر لاہور بجانب شرق بفاصلہ ایک میل کے واقع ہے	as draft		high	no change	as printed (page read)
+15	shrine-of-miran-hussain-zanjani-zanjani-sahib	L53	tareekh_lahore	275	قد آدم بلند چار دیواری خشتی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+16	shrine-of-miran-hussain-zanjani-zanjani-sahib	L53	tareekh_lahore	275	مکانات پختہ فقرا کی سکونت کے لئے	as draft		high	no change	as printed (page read)
+17	shrine-of-miran-hussain-zanjani-zanjani-sahib	L53	tareekh_lahore	275	چاہ چرخی دار جاری				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+18	shrine-of-miran-hussain-zanjani-zanjani-sahib	L53	tareekh_lahore	275	اگرچہ عمارت مختصر ہے مگر مکان قدیم ہے اور صاحب مزار قدما ئے بزرگان شہر لاہور سے ہے	اگرچہ عمارت مختصر ہے مگر مکان قدیم ہے اور صاحب مزار قدما ئے بزرگان شہر لاہور سے ہی	اگرچہ عمارت مختصر ہے مگر مکان قدیم ہے اور صاحب مزار قدما ئے بزرگان شہر لاہور سے ہی	high	ortho	p.275 ends سے ہی (zoomed); the earlier ہے in the sentence are printed ہے
+19	shrine-of-miran-hussain-zanjani-zanjani-sahib	L53	tareekh_lahore	4	شاہ حسین زنجانی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+20	shrine-of-miran-hussain-zanjani-zanjani-sahib	L55	tahqiqat_chishti	6	حال مزار شاہ حسین زنجانی[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+21	shrine-of-miran-hussain-zanjani-zanjani-sahib	L55	tahqiqat_chishti	403	خانقاہ حضرت سید [OCR?] حسین زنجانی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+22	shrine-of-miran-hussain-zanjani-zanjani-sahib	L55	tahqiqat_chishti	403	جنوب رویہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+23	shrine-of-miran-hussain-zanjani-zanjani-sahib	L55	tahqiqat_chishti	403	معہ طاق [OCR?] پختہ [OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+24	shrine-of-miran-hussain-zanjani-zanjani-sahib	L55	tahqiqat_chishti	403	خشتی [OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+25	shrine-of-miran-hussain-zanjani-zanjani-sahib	L55	tahqiqat_chishti	403	ایک سہ درہ [OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+26	shrine-of-miran-hussain-zanjani-zanjani-sahib	L55	tahqiqat_chishti	403	مگر اب یہ مکان آوارہ [OCR?] … کوئی [OCR?] فقیر مکاندار [OCR?] یہاں نہیں بیٹھتا	مگر اب یہہ مکان آوارہ [OCR?] … کوئی [OCR?] فقیر مکاندار [OCR?] یہان نہین بیٹہتا	مگر اب یہہ مکان آوارہ [OCR?] … کوئی [OCR?] فقیر مکاندار [OCR?] یہان نہین بیٹہتا	high	ortho	p.403. Page also has پڑا ہی after آوارہ (inside the elision)
+27	shrine-of-miran-hussain-zanjani-zanjani-sahib	L57	tahqiqat_chishti	705	جنوب رویہ موضع میران دی کھوئی[OCR?] واقع ہے	جنوب رویہ موضع میران دی کہوئی[OCR?] واقع ہی	جنوب رویہ موضع میران دی کہوئی[OCR?] واقع ہی	high	ortho	p.705
+28	shrine-of-miran-hussain-zanjani-zanjani-sahib	L57	tahqiqat_chishti	705	چراغدان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+29	shrine-of-miran-hussain-zanjani-zanjani-sahib	L57	tahqiqat_chishti	705	چاہ چرخی دار				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+30	shrine-of-miran-hussain-zanjani-zanjani-sahib	L59	tahqiqat_chishti	705	مگر نامہم[OCR?] اوس مزار پر قبضہ کرم علی شاہ گدی نشین صدر دیوان صاحب کا ہی	مگر تاہم اوس مزار پر قبضہ ...		high	misread	p.705: نامہم[OCR?] is تاہم — word, not applied (Rauf)
+31	shrine-of-miran-hussain-zanjani-zanjani-sahib	L59	tahqiqat_chishti	705	آمدنی[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+32	shrine-of-miran-hussain-zanjani-zanjani-sahib	L63	tahqiqat_chishti	705	ہر سال ہمیشہ[OCR?] ایک دفعہ عرس ہوتا ہی	سال بہر ایک دفعہ عرس ہوتا ہی		medium	misread	"p.705: ""صاحب کا ہی سال بہر ایک دفعہ عرس ہوتا ہی"" — word, not applied (Rauf)"
+33	shrine-of-miran-hussain-zanjani-zanjani-sahib	L63	tahqiqat_chishti	403	سجادہ نشین صدر دیوان [OCR?] سال بسال [OCR?] فاتحہ کرا دیتا ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+34	shrine-of-miran-hussain-zanjani-zanjani-sahib	L63	tahqiqat_chishti	403	جب [OCR?] چاہ [OCR?] یہاں کا کم ہو گیا	جب [OCR?] چاہ [OCR?] یہان کا کم ہو گیا	جب [OCR?] چاہ [OCR?] یہان کا کم ہو گیا	high	ortho	"p.403: ""کہ اب مدت سی جب چاہ یہان کا کم ہوگیا ہی"""
+35	shrine-of-miran-hussain-zanjani-zanjani-sahib	L65	tareekh_lahore	275	سکہون کے وقت اس مزار پہ بڑا میلہ سالانہ ہوتا تہا مگر اب رفتہ رفتہ رونق میلے کی جاتی رہی ہے	سکہون کیوقت اس مزار پہ بڑا میلہ سالانہ ہوتا تہا مگر اب رفتہ رفتہ رونق میلے کی جاتی رہی ہی	سکہون کیوقت اس مزار پہ بڑا میلہ سالانہ ہوتا تہا مگر اب رفتہ رفتہ رونق میلے کی جاتی رہی ہی	high	ortho	p.275 zoomed: کیوقت, پہ as draft, ends رہی ہی
+36	shrine-of-miran-hussain-zanjani-zanjani-sahib	L69	tahqiqat_chishti	705	کرامات انکی ہزار ہا مشہور ہیں	کرامات انکی ہزار ہا مشہور ہین	کرامات انکی ہزار ہا مشہور ہین	high	ortho	p.705
+37	shrine-of-miran-hussain-zanjani-zanjani-sahib	L73	tahqiqat_chishti	705	حضرت صدر دیوان صاحب				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+38	shrine-of-miran-hussain-zanjani-zanjani-sahib	L75	tareekh_lahore	301	سنہ ۵۳۵[OCR?] ہجری				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+39	shrine-of-miran-hussain-zanjani-zanjani-sahib	L75	tareekh_lahore	301	سنہ ۵۵۶[OCR?] ہجری				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+40	shrine-of-miran-hussain-zanjani-zanjani-sahib	L75	tareekh_lahore	301	سید حسین زنجانی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+41	shrine-of-miran-hussain-zanjani-zanjani-sahib	L75	tareekh_lahore	301	یہ سید حسین زنجانی کے لاہور میں آ کر سکونت پذیر ہوا	یہ سید حسین زنجانی کے لاہور مین آ کر سکونت پذیر ہوا	یہ سید حسین زنجانی کے لاہور مین آ کر سکونت پذیر ہوا	high	ortho	"p.301 (Tareekh). WORD for Rauf: the page reads ""ہمراہی سید حسین زنجانی کے لاہور مین آ کر"" (came WITH Sayyid Husain Zanjani); the draft's opening یہ is not on the page there"
+42	shrine-of-miran-hussain-zanjani-zanjani-sahib	L75	tareekh_lahore	14	شیخ احمد زنجانی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+43	shrine-of-miran-hussain-zanjani-zanjani-sahib	L83	tareekh_lahore	271	موضع کہوئی میران کے مشرق کی سمت	موضع کہوئی میران کے شرق کی سمت		high	misread	p.271 (Tareekh 274): شرق, not مشرق — word, not applied (Rauf)
+44	shrine-of-miran-hussain-zanjani-zanjani-sahib	L87	tareekh_lahore	275	سال وفات اسکا سنہ ۶۰۴ [OCR?] ہے	as draft		high	no change	p.275: ہے as printed; the year numerals not read
+45	shrine-of-miran-hussain-zanjani-zanjani-sahib	L87	tahqiqat_chishti	705	نامعلوم				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+46	shrine-of-miran-hussain-zanjani-zanjani-sahib	L88	tareekh_lahore	275	سلاطین غوریہ کے وقت	سلاطین غوریہ کیوقت	سلاطین غوریہ کیوقت	high	ortho	p.275 prints کیوقت
+47	shrine-of-miran-hussain-zanjani-zanjani-sahib	L102	tahqiqat_chishti	269	شیخ المشایخ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+48	gurdwara-guru-ram-das-ji	L5	tareekh_lahore	101	جس مقام پر گورامداس صاحب مذہب سکہی کے جانشین چہارم کا جنم ہوا	as draft		high	no change	as printed (page read)
+49	gurdwara-guru-ram-das-ji	L5	tareekh_lahore	101	اور اسی جگہ پرورش پائی	as draft		high	no change	as printed (page read)
+50	gurdwara-guru-ram-das-ji	L5	tareekh_lahore	101	یہ عبادت گاہ سکہی مذہب سے متعلق ہی	as draft		high	no change	as printed (page read)
+51	gurdwara-guru-ram-das-ji	L5	tareekh_lahore	101	اس متبرک مکان کا کمال ادب کرتے ہین	as draft		high	no change	as printed (page read)
+52	gurdwara-guru-ram-das-ji	L7	tahqiqat_chishti	515	لاہور				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+53	gurdwara-guru-ram-das-ji	L17	tahqiqat_chishti	515	[illegible] کاتک سمت [illegible] بوقت چار گھڑی[OCR?] دن	[illegible] کاتک سمت [illegible] بوقت چار گہڑی[OCR?] دن	[illegible] کاتک سمت [illegible] بوقت چار گہڑی[OCR?] دن	high	ortho	"p.515 table: ""بوقت چار گہڑی دن چڑہے""; numerals not read"
+54	gurdwara-guru-ram-das-ji	L17	tahqiqat_chishti	515	ہرداس[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+55	gurdwara-guru-ram-das-ji	L17	tahqiqat_chishti	515	[illegible] کنور[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+56	gurdwara-guru-ram-das-ji	L17	tahqiqat_chishti	498	ہر داس				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+57	gurdwara-guru-ram-das-ji	L17	tahqiqat_chishti	498	کھتری قوم سود ہی ساکن لاہور	کہتری قوم سوڈہی ساکن لاہور		medium	misread	p.498: سود ہی is سوڈہی (Sodhi); کہتری — word, not applied (Rauf)
+58	gurdwara-guru-ram-das-ji	L19	tareekh_lahore	101	خاص جائے سکونت گورامداس کے ماباپ کی اس جگہ پر تہی	خاص جائے سکونت گورامداس کے ماباپ کی اسجگہ پر تہی	خاص جائے سکونت گورامداس کے ماباپ کی اسجگہ پر تہی	high	ortho	p.101 prints اسجگہ joined
+59	gurdwara-guru-ram-das-ji	L19	tareekh_lahore	101	سبب انقلاب زمانہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+60	gurdwara-guru-ram-das-ji	L19	tareekh_lahore	101	گوبندوال				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+61	gurdwara-guru-ram-das-ji	L19	tareekh_lahore	101	وہان ہی شادی گورامداس کی امرداس کی لڑکی کے ساتہ ہو گئی	وہان ہی شادی گورامداس کی امرداس کی لڑکی کے ساتہہ ہو گئی	وہان ہی شادی گورامداس کی امرداس کی لڑکی کے ساتہہ ہو گئی	high	ortho	p.101 ساتہہ
+62	gurdwara-guru-ram-das-ji	L21	tahqiqat_chishti	498	بارہ برس				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+63	gurdwara-guru-ram-das-ji	L21	tahqiqat_chishti	498	نعمت				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+64	gurdwara-guru-ram-das-ji	L25	tahqiqat_chishti	498	بی بی بھانی	بی بی بہانی	بی بی بہانی	high	ortho	"p.498 ""نام بی بی بہانی تہا"""
+65	gurdwara-guru-ram-das-ji	L25	tahqiqat_chishti	498	یہ شرف گورو ای[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+66	gurdwara-guru-ram-das-ji	L29	tahqiqat_chishti	680	چوتہی گورو رام داس خلف گورو امرداس[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+67	gurdwara-guru-ram-das-ji	L29	tahqiqat_chishti	686	گورو امر داس کا داماد				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+68	gurdwara-guru-ram-das-ji	L29	tahqiqat_chishti	686	اوسکی اولاد سوڈھی[OCR?] کہلاتی ہی	اوسکی اولاد سوڈہی[OCR?] کہلاتی ہی	اوسکی اولاد سوڈہی[OCR?] کہلاتی ہی	high	ortho	p.686
+69	gurdwara-guru-ram-das-ji	L29	tahqiqat_chishti	686	[illegible] پور				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+70	gurdwara-guru-ram-das-ji	L29	tahqiqat_chishti	686	سولہ[OCR?] سو [illegible] عیسوی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+71	gurdwara-guru-ram-das-ji	L39	tahqiqat_chishti	280	چوتھی بادشاہی گورو رام داس کی امرتسر میں	چوتہی بادشاہی گورو رام داس کی امرتسر میں	چوتہی بادشاہی گورو رام داس کی امرتسر میں	high	ortho	p.280; the last word میں/مین not decidable on this hand, kept
+72	gurdwara-guru-ram-das-ji	L39	tahqiqat_chishti	500	گورو رام داس کی لگی[OCR?] مشہور				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+73	gurdwara-guru-ram-das-ji	L39	tahqiqat_chishti	686	گورو رام داس[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+74	gurdwara-guru-ram-das-ji	L45	tahqiqat_chishti	499	فرزند خورد				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+75	gurdwara-guru-ram-das-ji	L45	tahqiqat_chishti	499	ولی عہد سجادہ نشین				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+76	gurdwara-guru-ram-das-ji	L45	tahqiqat_chishti	505	موضع گوبندوال جو متصل ضلع امرتسر ہے	موضع گوبندوال جو متصل ترنتارن ہے		high	misread	"p.505: ""متصل ترنتارن ہے"" (near Tarn Taran), not ""ضلع امرتسر"" — changes the English — word, not applied (Rauf)"
+77	gurdwara-guru-ram-das-ji	L49	tahqiqat_chishti	515	سمت [illegible] … گوئندوال[OCR?] ضلع امرتسر	as draft		medium	no change	p.515 table: گوئندوال confirmed; امرتسر may be printed امرت سر (gap), kept
+78	gurdwara-guru-ram-das-ji	L55	tareekh_lahore	101	پہلے اس جگہ چہوٹا سا مکان تہا	پہلے اسجگہ چہوٹا سا مکان تہا	پہلے اسجگہ چہوٹا سا مکان تہا	high	ortho	p.101 zoomed: اسجگہ
+79	gurdwara-guru-ram-das-ji	L55	tareekh_lahore	101	مہاراجہ رنجیت سنگہ کی اخیر عملداری مین				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+80	gurdwara-guru-ram-das-ji	L55	tareekh_lahore	101	مہاراجہ کے حکم سے محلہ سوداگران کے مکانات جو اس کے ساتہ ملحق تہے لے گئے	مہاراجہ کے حکم سے محلہ سوداگران کے مکانات جو اسکے ساتہہ ملحق تہے لے لئے گئے		high	misread	p.101 zoomed: لے لئے گئے (were acquired), not لے گئے; also اسکے, ساتہہ — word, not applied (Rauf)
+81	gurdwara-guru-ram-das-ji	L55	tareekh_lahore	101	ایک سال کے عرصے مین تیار ہو گیا	ایکسال کے عرصے مین تیار ہو گیا	ایکسال کے عرصے مین تیار ہو گیا	high	ortho	"p.101 zoomed: ایکسال. WORD for Rauf: the page has بنکر before تیار (""مین بنکر تیار ہوگیا""), omitted from the quote without an ellipsis"
+82	gurdwara-guru-ram-das-ji	L57	tareekh_lahore	101	بازار چوک متی[OCR?] کے جنوبی لین مین	... یہ مکان بازار چونی منڈی کے جنوبی لین مین		medium	misread	"p.101 zoomed: چوک متی[OCR?] is چونی منڈی (Chuna Mandi; p.102 also has ""چونی بازار"") — changes the English — word, not applied (Rauf)"
+83	gurdwara-guru-ram-das-ji	L57	tareekh_lahore	101	سرِ بازار ایک عالیشان دروازہ پختہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+84	gurdwara-guru-ram-das-ji	L57	tareekh_lahore	101	ایک علم یعنی چہنڈا کہڑا کیا گیا ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+85	gurdwara-guru-ram-das-ji	L59	tareekh_lahore	101/102	یہ عالیشان عمارت دربار امرتسر کی قطع پر ہی ہوئی ہے	یہ عالیشان عمارت دربار امرتسر کی قطع پر ہو بہو ہے		medium	misread	"p.101 last line zoomed: ""ہو بہو"" (exactly like), not ""ہی ہوئی"" — word, not applied (Rauf)"
+86	gurdwara-guru-ram-das-ji	L59	tareekh_lahore	102	بیچ مین اگرچہ گنبد نہین ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+87	gurdwara-guru-ram-das-ji	L67	tareekh_lahore	102	گرنتہہ صاحب کمال آداب سے رکہا رہتا ہی	گرنتہہ صاحب بکمال آداب رکہا رہتا ہی		high	misread	p.102: بکمال, no سے — word, not applied (Rauf)
+88	gurdwara-guru-ram-das-ji	L67	tareekh_lahore	102	جبین سائی[OCR?]	as draft		high	no change	as printed (page read)
+89	gurdwara-guru-ram-das-ji	L67	tareekh_lahore	102	دو وقت روز مرہ گرنتہہ پڑہا جاتا ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+90	gurdwara-guru-ram-das-ji	L69	tareekh_lahore	102	قوال موحدانہ کافیان گا کر لوگون کو محظوظ کرتے ہین	as draft		high	no change	as printed (page read)
+91	gurdwara-guru-ram-das-ji	L69	tareekh_lahore	102	آٹہوین روز انوار[OCR?] کے دن تیسرے پہر بڑا مجمع زن و مرد کا ہوتا ہی	as draft		high	no change	as printed (page read)
+92	gurdwara-guru-ram-das-ji	L69	tareekh_lahore	102	انوار				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+93	gurdwara-guru-ram-das-ji	L69	tareekh_lahore	102	شبد توحید آمیز گائے جاتے ہین	as draft		high	no change	as printed (page read)
+94	gurdwara-guru-ram-das-ji	L69	tareekh_lahore	102	جلسہ لایق دید ہوتا ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+95	gurdwara-guru-ram-das-ji	L71	tareekh_lahore	102	ابہی[OCR?] کے ہولیون کے دنون مین سنگہ سبہا کے ممبرون[OCR?] نے یہان بڑا جلسہ کیا تہا … تمام مندر اور بازار مین روشنی کی اور تمام رات شبد گاتے رہے تہے	ابکے ہولیون کے دنون مین ...		high	misread	p.102: ابہی[OCR?] کے is ابکے (this year) — word, not applied (Rauf)
+96	gurdwara-guru-ram-das-ji	L73	tareekh_lahore	102	فی الحال پجہاری اس گردوارے کا جیت سنگہ اور معتمد و معاون حلقہ کا ایک شخص کنہیا لال ہے	فی الحال پجاری اس گردوارے کا جیت سنگہ اور معتمد و معاون جلسہ کا ایک شخص کنہیا لال ہے		high	misread	p.102: پجاری; جلسہ not حلقہ — word, not applied (Rauf)
+97	gurdwara-guru-ram-das-ji	L73	tareekh_lahore	102	حقیقت مین یہ [illegible] شخص ہین	حقیقت مین یہ دونو لایق شخص ہین		high	misread	p.102: the [illegible] is دونو لایق — word, not applied (Rauf)
+98	gurdwara-guru-ram-das-ji	L91	tahqiqat_chishti	498	شہر لاہور کے بارہ دروازہ ہی[OCR?]	شہر لاہور کے بارہ دروازے بڑے اور ایک چہوٹا		medium	misread	p.498: دروازہ ہی[OCR?] is دروازے بڑے — word, not applied (Rauf)
+99	gurdwara-guru-ram-das-ji	L91	tahqiqat_chishti	498	دہلی دروازہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+100	gurdwara-guru-ram-das-ji	L93	tareekh_lahore	217	اس مہاراجہ نے چالیس سال تک پنجاب میں حکومت کی	اس مہاراجہ نے چالیس سال تک پنجاب مین حکومت کی	اس مہاراجہ نے چالیس سال تک پنجاب مین حکومت کی	high	ortho	p.217
+101	gurdwara-guru-ram-das-ji	L93	tareekh_lahore	221	مہاراجہ رنجیت سنگہ کے مرنے کے بعد اُسکا حقیقی بیٹا مہاراجہ کہڑک سنگہ پنجاب کی حکومت کے تختہ پر بیٹھا	مہاراجہ رنجیت سنگہ کے مرنے کے بعد اُسکا حقیقی بیٹا مہاراجہ کہڑک سنگہ پنجاب کی حکومت کے تختہ پر بیٹہا	مہاراجہ رنجیت سنگہ کے مرنے کے بعد اُسکا حقیقی بیٹا مہاراجہ کہڑک سنگہ پنجاب کی حکومت کے تختہ پر بیٹہا	high	ortho	"p.221. WORD for Rauf: the page reads ""حکومت کے تخت پر"" (تخت, not تختہ)"
+102	gurdwara-guru-ram-das-ji	L93	tahqiqat_chishti	586	کرسی حکومت پنجاب				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+103	gurdwara-guru-ram-das-ji	L114	tareekh_lahore	101	بازار چوک متی[OCR?] کے جنوبی لین مین	بازار چونی منڈی کے جنوبی لین مین		medium	misread	as L57 — word, not applied (Rauf)
+104	gurdwara-guru-ram-das-ji	L115	tareekh_lahore	101	پہلے اس جگہ چہوٹا سا مکان تہا	پہلے اسجگہ چہوٹا سا مکان تہا	پہلے اسجگہ چہوٹا سا مکان تہا	high	ortho	p.101 zoomed: اسجگہ
+105	gurdwara-guru-ram-das-ji	L116	tareekh_lahore	101	مہاراجہ رنجیت سنگہ کی اخیر عملداری مین				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+106	gurdwara-guru-ram-das-ji	L117	tareekh_lahore	101	لے گئے	لے لئے گئے		high	misread	p.101 zoomed: لے لئے گئے — word, not applied (Rauf; same sentence as L55)
+107	gurdwara-guru-ram-das-ji	L120	tahqiqat_chishti	680	خلف گورو امرداس[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+108	gurdwara-guru-ram-das-ji	L120	tahqiqat_chishti	686	گورو امر داس کا داماد				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+109	shrine-of-fariduddin-ganjshakar	L27	tahqiqat_chishti	229	شیخ نجیب الدین متوکل				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+110	shrine-of-fariduddin-ganjshakar	L43	tahqiqat_chishti	229	مقام اجودہن[OCR?] جو اب بنام پاک پٹن مشہور ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+111	shrine-of-fariduddin-ganjshakar	L43	tahqiqat_chishti	229	منکر درویشان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+112	shrine-of-fariduddin-ganjshakar	L51	tahqiqat_chishti	233	سلطان غیاث الدین				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+113	shrine-of-fariduddin-ganjshakar	L61	tahqiqat_chishti	232/233	یا حتی[OCR?] و ما قیوم[OCR?]				not read	Arabic invocation; no ں/ے/ھ/ئ/ؤ form; not image-read
+114	shrine-of-fariduddin-ganjshakar	L97	tahqiqat_chishti	233	العلماء اشرف الناس والفقراء اشرف الاشراف والفقیر من العلماء کالبدر فی الکواکب				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+115	shrine-of-fariduddin-ganjshakar	L97	tahqiqat_chishti	233	الآفتہ فی التدبیر والسلامت فی التسلیم				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+116	shrine-of-fariduddin-ganjshakar	L125	tahqiqat_chishti	233	مزار پر انو[OCR?] حضرت کی پاک پٹن میں موجود ہے	مزار پر انو[OCR?] حضرت کی پاک پٹن مین موجود ہے	مزار پر انو[OCR?] حضرت کی پاک پٹن مین موجود ہے	high	ortho	"p.233. WORD for Rauf: the page reads ""مزار پرانوار"" (as batch 1)"
+117	shrine-of-fariduddin-ganjshakar	L129	tahqiqat_chishti	233	عرصہ بیس[OCR?] سال کا گذرا[OCR?] کہ راقم الحروف بہی وہان حاضر ہوا تہا				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+118	shrine-of-fariduddin-ganjshakar	L129	tahqiqat_chishti	233	میانہ[OCR?] اوسط				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+119	shrine-of-fariduddin-ganjshakar	L129	tahqiqat_chishti	234	اب سرور سی[OCR?] یہ دروازہ کہلاتا ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+120	shrine-of-fariduddin-ganjshakar	L129	tahqiqat_chishti	234	وَ مَنْ دَخَلَهُ كَانَ آمِنًا				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+121	shrine-of-fariduddin-ganjshakar	L129	tahqiqat_chishti	234	لاکہہ در لاکہہ آدمی وہاں حاضر ہوتی میں	لاکہہ در لاکہہ آدمی وہان حاضر ہوتی ہین		high	misread	p.234: وہان; the last word is ہین (the draft's میں is a misreading) — word, not applied (Rauf)
+122	shrine-of-fariduddin-ganjshakar	L129	tahqiqat_chishti	234	تمام ملک ہندوستان و پنجاب وغیرہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+123	shrine-of-fariduddin-ganjshakar	L145	tahqiqat_chishti	161	گدی نشینان مزار حضرت بابا فرید الدین گنج شکر				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+124	shrine-of-fariduddin-ganjshakar	L151	tahqiqat_chishti	756	حضرت دیوان محمد سبحان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+125	shrine-of-fariduddin-ganjshakar	L163	tahqiqat_chishti	234	وَ مَنْ دَخَلَهُ كَانَ آمِنًا				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+126	shrine-of-fariduddin-ganjshakar	L249	tahqiqat_chishti	36/37	قطب الدین				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+127	shrine-of-fariduddin-ganjshakar	L249	tahqiqat_chishti	36/37	محبوب الٰہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+128	shrine-of-fariduddin-ganjshakar	L249	tahqiqat_chishti	36/37	از کمال نور[OCR?] رخ و ہمچون فرید الدین شدی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+129	shrine-of-fariduddin-ganjshakar	L249	tahqiqat_chishti	36/37	صد ہزاراں [illegible] شکر بار[OCR?] آمدے				not read	Persian verse (ے is the Persian form); not image-read
+130	shrine-of-fariduddin-ganjshakar	L249	tahqiqat_chishti	38	بامدادِ[OCR?] فرید الدین شکر گنج				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+131	shrine-of-fariduddin-ganjshakar	L249	tahqiqat_chishti	234/235	سنہ ۶۶۳[OCR?] ہجری				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+132	shrine-of-fariduddin-ganjshakar	L249	tahqiqat_chishti	234/235	مفتی[OCR?] غلام سرور[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+133	shrine-of-fariduddin-ganjshakar	L249	tahqiqat_chishti	234/235	گنج ٭ شکر ٭ گنج شکر				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+134	shrine-of-fariduddin-ganjshakar	L261	tahqiqat_chishti	228	پاؤں کی طرف چلہ کاٹوں	as draft		medium	no change	p.228: final ں/ن undecidable on this lithograph (dots often omitted); kept
+135	shrine-of-fariduddin-ganjshakar	L261	tareekh_lahore	289	خواجہ فرید پاک پٹنی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+136	shrine-of-fariduddin-ganjshakar	L261	tareekh_lahore	289	چلے کاٹے	as draft		high	no change	as printed (page read)
+137	shrine-of-fariduddin-ganjshakar	L261	tareekh_lahore	5	چلہ بابا فرید گنج شکر[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+138	shrine-of-fariduddin-ganjshakar	L261	tareekh_lahore	443	تکیہ[OCR?] بابا فرید گنج شکر				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+139	shrine-of-fariduddin-ganjshakar	L274	tahqiqat_chishti	234	سنہ ۶۶۳[OCR?] ہجری				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+140	shrine-of-fariduddin-ganjshakar	L301	tahqiqat_chishti	234	اب سرور سی[OCR?] یہ دروازہ کہلاتا ہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)

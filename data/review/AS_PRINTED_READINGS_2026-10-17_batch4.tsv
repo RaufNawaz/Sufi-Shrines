@@ -1,0 +1,113 @@
+n	id	draft_line	book	pdf_page	draft_quote	printed_as_read	proposed	confidence	kind	note
+1	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L5	tareekh_lahore	4	مکان باولی صاحب[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+2	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L5	tareekh_lahore	147	باولی کا مکان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+3	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L37	tareekh_lahore	110	یہ باولی گرو ارجن صاحب پانچوین جانشین مذہب سکہی کی تعمیر کی ہوئی مشہور ہے جو اُس نے بعہدِ جہانگیر بادشاہ کے بنوائی تہی	as draft		high	no change	as printed
+4	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L37	tareekh_lahore	110/111	تین سو روپیے	as draft		high	no change	as printed
+5	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L37	tareekh_lahore	110/111	جب زمین بہی[OCR?] فروخت ہو گئی تو جو کچہ زمین کے اندر تہا وہ بہی فروخت ہو گیا یہ مال میرا حق نہین ہی	جب زمین فروخت ہو گئی تو جو کچہہ زمین کے اندر تہا وہ بہی فروخت ہو گیا یہ مال میرا حق نہین ہی	جب زمین بہی[OCR?] فروخت ہو گئی تو جو کچہہ زمین کے اندر تہا وہ بہی فروخت ہو گیا یہ مال میرا حق نہین ہی	high	ortho	کچہ→کچہہ. The page shows no بہی after the first زمین (draft بہی[OCR?]) — word, not removed (Rauf)
+6	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L37	tareekh_lahore	110/111	بادشاہ کے حضور مین[OCR?]	as draft		high	no change	as printed
+7	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L37	tareekh_lahore	110/111	گرو ارجن نے تجویز کی کہ اس مال سے ایک باولی تعمیر کی جائے	as draft		high	no change	as printed
+8	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L39	tareekh_lahore	111	لنگاہیا[OCR?] نام ایک سکہہ کو مع اور چار سکہون کے باولی کی حفاظت پر مامور کر دیا	as draft		high	no change	as printed
+9	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L39	tareekh_lahore	111	خود بہی گرو کچہ اس مقام پر قیام رکہا کرتا تہا	خود بہی گرو اکثر اس مقام پر قیام رکہا کرتا تہا		high	misread	page prints اکثر where the draft has کچہ — word change, Rauf
+10	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L39	tareekh_lahore	111	گرو ارجن کا لنگر ہوا کرتا تہا	as draft		high	no change	as printed
+11	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L39	tareekh_lahore	111	گویا باولی والے مکان ہی کے متعلق	as draft		high	no change	as printed
+12	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L45	tareekh_lahore	112	جسقدر جائداد گرو کی لاہور مین تہی وہ ضبط[OCR?] کرکے قاضی کے حولے ہو گئی جسمین یہ باولی اور لنگر کا مقام بہی تہا	جسقدر جائداد گرو کی لاہور مین تہی وہ قرق کرکے قاضی کے حوالے ہوگئی جسمین یہ باولی اور لنگر کا مقام بہی تہا		medium	misread	ضبط[OCR?] reads قرق (attached); حولے looks حوالے — words, Rauf
+13	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L45	tareekh_lahore	112	بسبب اپنی ذاتی عداوت کے	as draft		high	no change	as printed
+14	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L45	tareekh_lahore	112	اُس روز سے یہ باولی بالکل مفقود ہو گئی	as draft		high	no change	as printed
+15	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L49	tareekh_lahore	112	سن ۱۸۹۶[OCR?] بکرمی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+16	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L49	tareekh_lahore	112	کسی مسّن[OCR?] سکہہ نے … یہ ظاہر کیا کہ گرو ارجن جی مہاراج میرے خواب مین آئے ہین	as draft		high	no change	as printed
+17	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L49	tareekh_lahore	112	ہماری باولی اور لنگر خانہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+18	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L49	tareekh_lahore	112	تم مہاراجہ رنجیت سنگہ کو کہو کہ اُس باولی کو کہدوے اور اُسکے پانی سے غسل کرے صحت ہو جائیگی	… اُس باولی کو کہدوائے اور اُسکے پانی سے غسل کرے صحت ہو جائیگی		medium	misread	کہدوے has ائے written above: کہدوائے? — Rauf
+19	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L49	tareekh_lahore	112	بعض کا قول ہی کہ گرو جی خود مہاراجہ کے خواب مین آئے اور یہ ارشاد کیا	as draft		high	no change	as printed
+20	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L49	tareekh_lahore	113	آخر باولی ظاہر ہوئی اور مہاراجہ نے اُسکے پانی سے غسل کرکے صحت پائی	as draft		high	no change	as printed
+21	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L51	tareekh_lahore	113	وہ قاضی[OCR?] کا عہد مسجد بہی مسمار ہوئی جو لنگر خانہ کے موقع پر بنی ہوئی تہی	وہ کانسی کار عمدہ مسجد بہی مسمار ہوئی جو لنگر خانہ کے موقع پر بنی ہوئی تہی		high	misread	"draft ""قاضی[OCR?] کا عہد"" is کانسی کار عمدہ (the tile-work mosque, as p.112 مسجد کانسی کار) — English may change, Rauf"
+22	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L51	tareekh_lahore	113	حکم ملا[OCR?] کہ خالصہ[OCR?] یعنی سلطنت کی یکماہ تنخواہ وضع کرکے یہ عالیشان مکان بنوایا جائے بعد وضع تنخواہ بہتر[OCR?] ہزار روپیہ جمع ہوا	حکم ملا کہ کل … سلطنت کی یکماہ تنخواہ وضع کرکے یہ عالیشان مکان بنوایا جائے بعد وضع تنخواہ ستر ہزار روپیہ جمع ہوا		medium	misread	بہتر[OCR?] (72) reads ستر (70) thousand; خالصہ[OCR?] not confirmed — numbers/words, Rauf
+23	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L51	tareekh_lahore	113	سن ۱۸۹۰[OCR?] بکرمی مین[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+24	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L57	tareekh_lahore	108	یہ متبرک مکان عبادت گاہ سکہان لاہور کے مشہور و معروف مکانات مین ہی ہے	یہ متبرک مکان عبادت گاہ سکہان لاہور کے مشہور و معروف مکانات مین سے ہے		medium	misread	the line end reads مین سے, then ہے on the next line; draft has مین ہی ہے — Rauf
+25	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L57	tareekh_lahore	108	بین بازار[OCR?] و کسیرا بازار و لوہٹی بازار کے درمیان	ڈبی بازار و کسیرا بازار و لوہٹی بازار کے درمیان		medium	misread	بین بازار[OCR?] looks ڈبی بازار (written above the line) — Rauf
+26	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L57	tareekh_lahore	108	ٹوپی[OCR?] یعنی لوہا بیچنے والون کا بازار	لوہٹی یعنی لوہا بیچنے والون کا بازار		high	misread	ٹوپی[OCR?] is لوہٹی (the bazaar named in the line above) — Rauf
+27	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L57	tareekh_lahore	108	گوٹی[OCR?] بازار	[شمال] کو ڈبی بازار		medium	misread	"گوٹی[OCR?] reads کو ڈبی (= ""to the north, Dabbi bazaar"") — Rauf"
+28	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L57	tareekh_lahore	108	کسیرا بازار یعنی برتن فروخت کرنیوالون کا بازار				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+29	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L59	tareekh_lahore	109	گویا ایک دالان کے تین دالان نہایت وسیع ہی	as draft		high	no change	as printed
+30	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L59	tareekh_lahore	109	فرش بوریا[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+31	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L61	tareekh_lahore	109	گرنتہہ صاحب بڑی[OCR?] عزت کے ساتہ مکلف غلافون کے اندر رکہا رہتا ہے	گرنتہہ صاحب بڑی عزت کے ساتہہ مکلف غلافون کے اندر رکہا رہتا ہے	گرنتہہ صاحب بڑی[OCR?] عزت کے ساتہہ مکلف غلافون کے اندر رکہا رہتا ہے	high	ortho	ساتہ→ساتہہ; بڑی legible ([OCR?] not removed, Q3)
+32	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L61	tareekh_lahore	109	اکثر مقفل رہتا ہی ضرورت کے وقت کہولا جاتا ہی	اکثر مقفل رہتا ہی ضرورت کیوقت کہولا جاتا ہی	اکثر مقفل رہتا ہی ضرورت کیوقت کہولا جاتا ہی	high	ortho	کے وقت→کیوقت as printed (batch 1 precedent)
+33	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L61	tareekh_lahore	109	ہمیشہ بند رہتا ہی	as draft		high	no change	as printed
+34	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L63	tareekh_lahore	109	چہتیس[OCR?] سیڑہیان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+35	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L63	tareekh_lahore	110	پینتیس[OCR?] اور سیڑہیان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+36	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L63	tareekh_lahore	110	جسکی دہل[OCR?] پانی کے اندر ہی	as draft		high	no change	as printed
+37	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L63	tareekh_lahore	110	اب مدت مدید سے خشک پڑا ہوا ہی	as draft		high	no change	as printed
+38	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L63	tareekh_lahore	110	چرخ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+39	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L63	tareekh_lahore	110	اب جاری نہین ہی	as draft		high	no change	as printed
+40	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L67	tareekh_lahore	113	بہائی نہال سنگہ	as draft		high	no change	as printed
+41	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L67	tareekh_lahore	113	آٹہہ ہزار روپیے سالانہ جاگیر اس مکان کی خدمت کی عوض	as draft		high	no change	as printed
+42	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L67	tareekh_lahore	113	بہائی جواہر سنگہ کرتارپوریہ	as draft		high	no change	as printed
+43	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L67	tareekh_lahore	113/114	بہائی خزان سنگہ نام ایک سفید ریش سکہہ	as draft		high	no change	as printed
+44	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L67	tareekh_lahore	113/114	مکان کی خدمت و خبر گیری پر	as draft		high	no change	as printed
+45	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L69	tareekh_lahore	113	کل ایکسو[OCR?] سنگل[OCR?] دوکانین دو نو بازارون کی طرف اس مکان کے متعلق ہین	کل ایکسو … دوکانین دونو بازارون کی طرف اس مکان کے متعلق ہین		medium	no change	the number word after ایکسو not settled (draft سنگل[OCR?])
+46	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L69	tareekh_lahore	110	احاطے کے اندر کی تمام کوٹہریان بازار والون نے کرایہ لیکر اپنے اسباب ڈالے ہوئے ہین	as draft		high	no change	as printed
+47	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L69	tareekh_lahore	110	اپنی نقدی[OCR?] و اسباب ڈال کر قفل لگا کے ہوئے ہین اور کرایہ دیتے ہین	اکثر لوگون نے اپنی اشیا و اسباب ڈالکر قفل لگائے ہوئے ہین اور کرایہ دیتے ہین		high	misread	نقدی[OCR?] is اشیا; لگا کے is لگائے (zoomed) — words, Rauf
+48	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L71	tareekh_lahore	113	پچاس[OCR?] روپیے ماہوار مکان کے خدام کی تنخواہ و چراغ بتی و کڑاہ[OCR?] پرشاد کے لیئے سرکار نے واگزار کر[OCR?] رکہا جو ماہوار محکمہ خفیفہ[OCR?] سے ملتا ہے	as draft		high	no change	as printed
+49	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L71	tareekh_lahore	113	اڑہائی[OCR?] روپیے ماہوار	as draft		high	no change	as printed
+50	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L71	tareekh_lahore	113	جو ہر روز علی الصباح حاضر ہو کر پرشاد یا نذر کرتے ہین	جو ہر روز علی الصباح حاضر ہوکر شادیانہ کرتے ہین		high	misread	"""پرشاد یا نذر"" is شادیانہ (paid to pipers and drummers, نفیری نوازون و نقارچیون) — English changes, Rauf"
+51	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L73	tareekh_lahore	114	پہلے ہمیشہ[OCR?] چڑہاوہ گرنتہہ صاحب کا دو روپیے یومیہ سے کم نہین ہوتا تہا اب آمدنی چڑہاوے کی نقد کچہ نہین ہوتی	پہلے ہمیشہ چڑہاوہ گرنتہہ صاحب کا دو روپیے یومیہ سے کم نہین ہوتا تہا اب آمدنی چڑہاوے کی نقد کچہہ نہین ہوتی	پہلے ہمیشہ[OCR?] چڑہاوہ گرنتہہ صاحب کا دو روپیے یومیہ سے کم نہین ہوتا تہا اب آمدنی چڑہاوے کی نقد کچہہ نہین ہوتی	high	ortho	کچہ→کچہہ
+52	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L73	tareekh_lahore	114	خدمتگاران کو اُسمین سے کچہ نہین ملتا	خدمتگاران کو اُسمین سے کچہہ نہین ملتا	خدمتگاران کو اُسمین سے کچہہ نہین ملتا	high	ortho	کچہ→کچہہ
+53	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L73	tareekh_lahore	114	البتہ پتاشے[OCR?] و شیرینی[OCR?] اور پیسے جسقدر گرنتہہ صاحب پر چڑہتے ہین وہ پُجاریون کا حق ہوتا ہی	as draft		high	no change	as printed
+54	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L77	tareekh_lahore	108	جب کوئی مجمع کسی قسم کا ہندو دین مین ہوتا ہی تو یہی مکان انتخاب کیا جاتا ہی	جب کوئی مجمع کسی قسم کا ہنود مین ہوتا ہی تو یہی مکان انتخاب کیا جاتا ہی		high	misread	ہندو دین مین is ہنود مین — word, Rauf
+55	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L77	tareekh_lahore	109	جو دو وقت بجایا جاتا ہی	as draft		high	no change	as printed
+56	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L85	tareekh_lahore	147	باولی کا مکان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+57	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L87	tareekh_lahore	147	باولی کے بہائی سکنہہ اور اکالیہ	باولی کے بہائی سکہہ اور اکالیہ		high	misread	سکنہہ is سکہہ — letter change in a word, Rauf
+58	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L87	tareekh_lahore	147	اس مسجد کا ملا ان بآواز بلند اذان دیتا ہے تو ہمارے کان مین پڑتی ہے یہ مسجد بہی باولی کے ساتہہ شامل ہمارے قبضہ مین رہنی چاہیئے یا گر ادہی جائے کہ مسلمانون کی ہمسایگی گورو کے سکہون کے ساتہہ نہ چاہیئے	اس مسجد کا ملّا بآواز بلند اذان دیتا ہی تو ہمارے کان مین پڑتی ہی یہ مسجد بہی باولی کے ساتہہ شامل ہمارے قبضہ مین رہنی چاہیئے یا گرادی جائے کہ مسلمانون کی ہمسایگی گورو کے سکہون کے ساتہہ نہ چاہیئے	اس مسجد کا ملا ان بآواز بلند اذان دیتا ہی تو ہمارے کان مین پڑتی ہی یہ مسجد بہی باولی کے ساتہہ شامل ہمارے قبضہ مین رہنی چاہیئے یا گر ادہی جائے کہ مسلمانون کی ہمسایگی گورو کے سکہون کے ساتہہ نہ چاہیئے	high	ortho	"ہے→ہی twice (zoomed). Draft ""ملا ان"" is ملّا (shadda); draft ""گر ادہی"" is گرادی — words, not changed (Rauf)"
+59	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L87	tareekh_lahore	147	مہاراجہ نے فی الفور حکم دیدیا کہ مسجد سے ملا ان نکالدیا جائے اور گرنتہہ رکہا جائے	as draft		high	no change	as printed
+60	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L89	tareekh_lahore	147	شہر کے مسلمان نہایت غمگین ہوئے	as draft		high	no change	as printed
+61	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L89	tareekh_lahore	148	تمام پنجاب کی مسجدون کے ملا کہبین[OCR?] بانگ بلند آواز سے نہین کہتے چہ جانیکہ باولی صاحب کے پاس جہان گرنتہہ صاحب رکہا ہو مسجد کا ملا اذان دیوے	as draft		high	no change	as printed
+62	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L89	tareekh_lahore	148	مسجد بدستور ملا کے حوالے کر دی جاوے اور اُس سے مچلکا لے لیا جاوے کہ بانگ ندیوے مسجد کی ودوکانون کا کرایہ بہی ضبط رہے	as draft		high	no change	as printed
+63	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L89	tareekh_lahore	148	مسلمانون نے اتنی بات کو ہی غنیمتا جانا اور مسجد پر دوبارہ قبضہ پایا مگر دوکانین ہاتہہ سے جاتی رہین	as draft		high	no change	as printed
+64	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L91	tareekh_lahore	148	بعد انقراض سلطنت سکہی انگریزی عملداری مین بہی وہ دوکانین بصیغہ نزول ضبط رہین	as draft		high	no change	as printed
+65	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L91	tareekh_lahore	148	بدین خیال کہ یہ محال مہاراجہ کیوقت سے ضبط ہے اب واگزار نہ کیا[OCR?] جاوے	بدین خیال کہ یہ محال مہاراجہ کیوقت سے ضبط ہے اب واگزار نہ فرمایا جاوے		high	misread	کیا[OCR?] is فرمایا — word, Rauf
+66	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L91	tareekh_lahore	148	بتیس[OCR?] ۳۲ برس				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+67	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L91	tareekh_lahore	148	مسجد کی ودوکانین جنکے کرایہ کی آمدنی پانسو روپیے سالانہ ہے سرکار سے واگزار ہوگئین اور رؤسائے اہل اسلام کی کمیٹی قرار پائی	as draft		high	no change	as printed
+68	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L99	tareekh_lahore	112	تمام خطہ پنجاب کا آ گیا	as draft		high	no change	as printed
+69	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	L137	tareekh_lahore	147	باولی کا مکان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+70	ranmal-sharif	L5	tahqiqat_chishti	483	حال حضرت نوشہ صاحب رحمتہ اللہ علیہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+71	ranmal-sharif	L5	tareekh_lahore	304	نو شاہ گنج بخش				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+72	ranmal-sharif	L13	tahqiqat_chishti	486	مناقب نوشاہیہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+73	ranmal-sharif	L13	tahqiqat_chishti	486	موضع کھلیانوالی[OCR?]	موضع کہلیانوالی	موضع کہلیانوالی[OCR?]	high	ortho	کھ→کہ as printed; [OCR?] kept (Q3)
+74	ranmal-sharif	L13	tahqiqat_chishti	486	شیخ علاء الدین				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+75	ranmal-sharif	L13	tahqiqat_chishti	486	ملا بی جیون[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+76	ranmal-sharif	L15	tahqiqat_chishti	486	پہلوان دین ہوگا				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+77	ranmal-sharif	L15	tahqiqat_chishti	487	سفر مکہ سے	as draft		high	no change	as printed
+78	ranmal-sharif	L15	tahqiqat_chishti	486/487	حضرت شاہ سلیمان صاحب				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+79	ranmal-sharif	L15	tahqiqat_chishti	486/487	قطب وقت				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+80	ranmal-sharif	L15	tahqiqat_chishti	488	شیخ اسمعیل				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+81	ranmal-sharif	L15	tahqiqat_chishti	488/489	بائیس[OCR?] برس	as draft		high	no change	as printed
+82	ranmal-sharif	L15	tahqiqat_chishti	488/489	اکثر لڑائیوں	اکثر لڑائیون	اکثر لڑائیون	high	ortho	یوں→یون
+83	ranmal-sharif	L15	tahqiqat_chishti	489/490	لق و دق				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+84	ranmal-sharif	L15	tahqiqat_chishti	489/490	دائم الصوم	دائم[/دایم?] الصوم		medium	no change	hamza not settled (faded); second reading wanted
+85	ranmal-sharif	L15	tahqiqat_chishti	490	موضع حاکوثارہ[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+86	ranmal-sharif	L15	tahqiqat_chishti	490	نوشہرہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+87	ranmal-sharif	L23	tahqiqat_chishti	484	ایک سو روپیہ لاگون کا				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+88	ranmal-sharif	L23	tahqiqat_chishti	484	حسب دستور مسلمانان پنجاب				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+89	ranmal-sharif	L29	tahqiqat_chishti	483/484	مزار مقام [illegible] ضلع شاہ پور میں اور انکے مزار بمقام سہن پال[OCR?] بہ [illegible] شیر شاہ[OCR?] بہ رسول نگر[OCR?] [illegible] ضلع گجرات میں	مزار مقام [بہبودال?] ضلع شاہ پور مین اور انکے مزار بمقام سہن پال [بشیرت?] قصبہ رسول نگر [?] ضلع گجرات مین	مزار مقام [illegible] ضلع شاہ پور مین اور انکے مزار بمقام سہن پال[OCR?] بہ [illegible] شیر شاہ[OCR?] بہ رسول نگر[OCR?] [illegible] ضلع گجرات مین	high	ortho	میں→مین twice. Several [illegible] look partly legible (قصبہ رسول نگر) — not filled (Q3)
+90	ranmal-sharif	L41	tahqiqat_chishti	466	نوشاہی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+91	ranmal-sharif	L41	tahqiqat_chishti	466	نوشاہیان				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+92	ranmal-sharif	L41	tahqiqat_chishti	466	حال				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+93	ranmal-sharif	L49	tahqiqat_chishti	484	دو خلیفہ نامی				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+94	ranmal-sharif	L49	tahqiqat_chishti	484	فقیر عبد الرحمن				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+95	ranmal-sharif	L49	tahqiqat_chishti	484	پاک رحمن				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+96	ranmal-sharif	L49	tahqiqat_chishti	484	پیر محمد سچیار[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+97	ranmal-sharif	L51	tahqiqat_chishti	337	شہ[OCR?] فرید[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+98	ranmal-sharif	L51	tahqiqat_chishti	337	حضرت بجیبار[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+99	ranmal-sharif	L51	tahqiqat_chishti	337	اور اونکی پیر روشن ضمیر حضرت نوشہ گنج بخش				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+100	ranmal-sharif	L51	tahqiqat_chishti	349	… اور یہ حضرت نوشہ صاحب کا فقط				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+101	ranmal-sharif	L90	tahqiqat_chishti	483/484	سہن پال[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+102	ranmal-sharif	L95	tahqiqat_chishti	489/490	لق و دق				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+103	ranmal-sharif	L95	tahqiqat_chishti	489/490	موضع حاکوثارہ[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+104	ranmal-sharif	L95	tahqiqat_chishti	489/490	نوشہرہ				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+105	ranmal-sharif	L96	tahqiqat_chishti	486	ملا بی جیون[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+106	ranmal-sharif	L97	tahqiqat_chishti	337	حضرت بجیبار[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+107	ranmal-sharif	L97	tahqiqat_chishti	337	شہ[OCR?] فرید[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+108	ranmal-sharif	L97	tahqiqat_chishti	484	پیر محمد سچیار[OCR?]				not read	no ں/ے/ھ/ئ/ؤ form in the quote; not image-read (batch 2 method)
+109	ranmal-sharif	L108	tareekh_lahore	304	جواہر شاہ خادم آلہی شاہ او وہ گامی شاہ کا او وہ محمد زبان[OCR?] کا او وہ شاہ عصمت المند[OCR?] کا او وہ شیخ عبد الرحمن المعروف پاک رحمان کا او وہ نو شاہ گنج بخش کا	جواہر شاہ خادم آلہی شاہ اور وہ گامے شاہ کا اور وہ محمد زبان کا اور وہ شاہ عصمت اللہ کا اور وہ شیخ عبد الرحمن المعروف پاک رحمان کا اور وہ نو شاہ گنج بخش کا		high	misread	"draft ""او وہ"" is اور وہ (×5), گامی is گامے, المند is اللہ — Rauf"
+110	ranmal-sharif	L108	tareekh_lahore	304	سنہ ۱۲۹۴[OCR?] ہجری میں	سنہ ۱۲۹۱[?] ہجری مین	سنہ ۱۲۹۴[OCR?] ہجری مین	high	ortho	میں→مین. The last digit looks ۱ not ۴ — numerals unreliable, draft digit and [OCR?] kept
+111	ranmal-sharif	L108	tareekh_lahore	304	جواہر شاہ سجادہ نشین بنا ہے	جواہر شاہ سجادہ نشین بحال …		medium	misread	"""سجادہ نشین بنا ہے"" not seen on p.304; the page has سجادہ نشین بحال — Rauf"
+112	ranmal-sharif	L108	tareekh_lahore	304	فقرا کے آرام کے لئے	as draft		high	no change	as printed

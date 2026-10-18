@@ -1,0 +1,102 @@
+## Overview
+
+Langar Makhdoom is a village of the Chiniot District in the Punjab that takes its name from the Sufi saint to whom its shrine is dedicated — *Makhdoom Burhan-ud-din*, remembered locally as Hazrat Langar Makhdoom. A modest but venerable shrine of the medieval centuries, traditionally dated to the thirteenth century, it belongs to the great movement of Sufi settlement that carried Islam into the Punjab countryside, and its very name carries the memory of the *langar*, the free kitchen of hospitality that has always stood at the heart of the Sufi hospice.
+
+None of the books consulted here describes the shrine of Makhdoom Burhan-ud-din at Langar Makhdoom, and none gives the saint's dates. What they offer is of three kinds, and each is given below as what it is. Two nineteenth-century Urdu books name a village of Langar Makhdum, and both attach it to a different man, a Makhdum Abdul Karim: Kanhaiya Lal's history of Lahore places "موضع لنگر مخدوم" on the river Chenab and calls Abdul Karim its resident (Kanhaiya Lal, *Tarikh-e Lahore*, p. 238, folio 241), and Nur Ahmad Chishti's *Tahqiqat-e Chishti* writes the village's name with Abdul Karim's own (Chishti, *Tahqiqat-e Chishti*, p. 448). The same *Tahqiqat* sets a Hazrat Makhdum Burhan al-Din two generations above Abdul Karim in a spiritual genealogy, with no place, tomb or date for him (Chishti, *Tahqiqat-e Chishti*, p. 450). And Sujan Rai Bhandari's Persian *Khulasat al-Tawarikh* records the tomb of a Shah Burhan, famous for his sainthood, in a city on the Chenab whose name is damaged in the printed text and may be Chiniot (Bhandari, *Khulasat al-Tawarikh*, p. 511). Whether any of these men is the saint of this shrine, the books do not say.
+
+## The Life of the Saint
+
+Little can be stated with certainty about the life of Makhdoom Burhan-ud-din beyond what local tradition preserves, and the historian must tread carefully among pious recollections. Tradition holds that he lived and taught in this corner of the Chiniot region and that he died in the year 1245 of the Common Era — 666 of the Hijri calendar — asking, in his humility, to be buried in the simple mud dwelling that had been his home; his grave is said to lie in a burial ground near the village of Changranwala, in the Lalian area of the district.
+
+He belonged, in the devotion of the region, to the first generation of Muslim holy men who made their homes among the villages of the central Punjab in the thirteenth century — the age of the great Chishti master Farid al-Din Ganj-i-Shakar of nearby Pakpattan — when the teaching and example of the Sufis, rather than the sword of conquerors, drew much of the rural population of the Punjab towards Islam. Whether or not the traditional dates are exact, they place Makhdoom Burhan-ud-din firmly within that formative era.
+
+The books consulted here neither confirm nor correct the traditional dates: not one of them gives a year of birth or death for a Burhan al-Din of Langar Makhdoom or of Chiniot.
+
+## Burhan al-Din and Shah Burhan in the Books
+
+Three passages in two books carry a name that matches the saint's. None of them names Langar Makhdoom as his place, and each is given here as that book's statement about its own man, not as an established part of this saint's life.
+
+The fullest is a spiritual genealogy in Nur Ahmad Chishti's *Tahqiqat-e Chishti*, which traces the masters of Mian Wadda upward. Mian Wadda's *murshid* is "مخدوم شیخ عبدالکریم", the Makhdum Abdul Karim of Langar Makhdum; Abdul Karim's *murshid* is printed "محمد و طیب[OCR?]"; his in turn is "حضرت مخدوم برہان الدین"; and above him stands "محمد و [illegible] الدین متقی[OCR?]", whose name is partly lost in the printed text (Chishti, *Tahqiqat-e Chishti*, p. 450). The genealogy gives this Hazrat Makhdum Burhan al-Din no place, no tomb and no date (Chishti, *Tahqiqat-e Chishti*, p. 450). It is the one passage in the books that sets a Makhdum Burhan al-Din in the spiritual line of the master of Langar Makhdum, but it does not say that he lived or lies there.
+
+Elsewhere in the same book a "سید برہان الدین[OCR?]", Sayyid Burhan al-Din, the reading of the name uncertain in the printed text, appears in another genealogy as a *murid* of "حضرت میان میر بالا پیر[OCR?]" and as the *pir* of a Shah Aziz, whose further name is illegible (Chishti, *Tahqiqat-e Chishti*, p. 299). This is a bare name in a chain of masters; the book says nothing more of him, and nothing ties him to Chiniot.
+
+Bhandari's *Khulasat al-Tawarikh*, composed in Persian in the reign of Aurangzeb, speaks of a tomb. Describing the course of the Chenab in the suba of Lahore, it writes of a city on the river, printed "چندتوت[OCR?]", and says of it: "درین شهر مزار شاه برهان که بولایت شهرت داشت و خلایق کثیر اعتقاد دارند واقع است" — the tomb of Shah Burhan is in this city; he was famous for his sainthood, and many believe in him (Bhandari, *Khulasat al-Tawarikh*, p. 511). The city's name is damaged in the printed text; reading it as "چنیوت", Chiniot, is a conjecture, not the book's own spelling here, though the same book writes "چنیوت" plainly in its history of the Langahs of Multan (Bhandari, *Khulasat al-Tawarikh*, p. 296). The book names the saint only as Shah Burhan, with no order and no date, and it says nothing of a village called Langar (Bhandari, *Khulasat al-Tawarikh*, p. 511).
+
+Two namesakes in these books are certainly other men. Richard Eaton's essays discuss Burhan al-Din Gharib, who moved to Daulatabad in 1329, died in 1337 and is buried at Khuldabad in the northern Deccan (Eaton, *Essays on Islam and Indian History*, pp. 181–182); he lived a century after the traditional date of this saint and far from the Punjab, and the book says nothing about the saint of Chiniot. The index of the *Khulasat al-Tawarikh* likewise lists a "برہان الدین غریب", with the epithet Gharib, which the saint of Langar Makhdoom is not given (Bhandari, *Khulasat al-Tawarikh*, p. 42).
+
+## The Name and the Langar
+
+The name by which the saint and his village are known — *Langar* — is itself telling. The *langar*, the kitchen where food is cooked and served freely to all who come, regardless of rank or creed, is one of the most characteristic institutions of the Sufi lodge in South Asia, an enactment in daily bread of the ideals of hospitality, charity, and the equality of all before God. That the saint should be remembered by this name suggests the reputation for open-handed generosity that clung to his hospice, and it links his memory to a tradition of feeding the poor that Sufi shrines across the Punjab and Sindh keep alive to this day.
+
+The books that name the village give it in full as Langar Makhdum, the *langar* of the Makhdum. Nur Ahmad Chishti writes "موضع لنگر مخدوم عبدالکریم صاحب [illegible] بر لب[OCR?] دریای [illegible]", the village of Langar Makhdum Abdul Karim Sahib on the bank of a river whose name is illegible in the printed text (Chishti, *Tahqiqat-e Chishti*, p. 448). Kanhaiya Lal writes "مخدوم عبدالکریم ساکن موضع لنگر مخدوم جو دریائے چناب پر واقع ہے" — Makhdum Abdul Karim, resident of the village of Langar Makhdum, which lies on the river Chenab (Kanhaiya Lal, *Tarikh-e Lahore*, p. 238, folio 241). Neither book says from which Makhdum the village took its name.
+
+## Makhdum Abdul Karim of Langar Makhdum
+
+Both books that name the village do so because a later saint was taught there, and both make the master of Langar Makhdum a Makhdum Abdul Karim.
+
+Kanhaiya Lal mentions the village once, in passing, as the place where the teacher of Shaikh Muhammad Ismail lived (Kanhaiya Lal, *Tarikh-e Lahore*, p. 238, folio 241). Ismail became the pupil of Makhdum Abdul Karim at the age of five, and it was from this master — "اپنے پیر روشن ضمیر سے", from his enlightened *pir* — that he received the *khirqa* of *khilafat* in the Suhrawardiyya order (Kanhaiya Lal, *Tarikh-e Lahore*, p. 238, folio 241). The book gives no dates for the place, says nothing of Burhan-ud-din, and does not call Langar Makhdum a shrine (Kanhaiya Lal, *Tarikh-e Lahore*, p. 238, folio 241).
+
+Nur Ahmad Chishti tells the story of another pupil, Mian Wadda. His mother moved with him from the village of "موضع ترکران[OCR?]", Tarkaran, the reading uncertain in the printed text, to Langar Makhdum Abdul Karim (Chishti, *Tahqiqat-e Chishti*, p. 448). There he studied with "حضرت مخدوم عبدالکریم", whom the book calls "عارف کامل", a perfect gnostic (Chishti, *Tahqiqat-e Chishti*, p. 448). He was first given the duty of tending the fire, "خدمت آتشا سائی[OCR?]", and afterwards study and cooking for the household (Chishti, *Tahqiqat-e Chishti*, p. 448). The book then has him seen carrying the milk vessels, with the words "آپ ولی کامل ہو گئے ہیں", you have become a perfect *wali* (Chishti, *Tahqiqat-e Chishti*, p. 448).
+
+The two books, as read here, do not say whether Kanhaiya Lal's Shaikh Muhammad Ismail and Chishti's Mian Wadda are one man.
+
+## Legends and Miracles
+
+The books record no miracle of Makhdoom Burhan-ud-din. The one wonder told of Langar Makhdum belongs to the household of Makhdum Abdul Karim: Nur Ahmad Chishti relates a miracle that brought Mian Wadda's service at the fire to an end, after which he passed to study and to cooking for the household (Chishti, *Tahqiqat-e Chishti*, p. 448).
+
+## Devotional Life
+
+The shrine remains a focus of local devotion. A mosque bearing the saint's name — the Masjid Burhan-ud-din — stands in his memory, and tradition records a weekly gathering of devotees at his tomb on Fridays, the day of congregational prayer, when the faithful come to offer *fatiha* and to seek the saint's intercession. His *ʿurs* — the annual commemoration of a saint's death, kept in Sufi practice as a joyful "wedding" of the soul with the divine — is observed each spring, traditionally over the days of the sixteenth to the eighteenth of March, drawing the surrounding countryside to the village.
+
+The books consulted here say nothing of the mosque, the Friday gatherings or the *ʿurs*. Of the tomb of Shah Burhan in the city on the Chenab, the *Khulasat al-Tawarikh* says only that many believe in him (Bhandari, *Khulasat al-Tawarikh*, p. 511).
+
+## Setting: Chiniot and the Chenab
+
+What follows speaks of the town of Chiniot and of the river, not of the shrine.
+
+Bhandari's account of the Chenab's course, after it leaves Hazara, comes to the city whose name is damaged in the printed text: "نزدیک شهر چندتوت[OCR?] که شهر متقدمین است ازمیان دو کوهچه میگذرد و تماشاے عجایب است" — near the city, which he calls a city of the ancients, the river passes between two hillocks, and it is a wondrous sight (Bhandari, *Khulasat al-Tawarikh*, p. 511). Where the same book names Chiniot plainly, it is in the wars of the Langah sultans of Multan. Sultan Husain b. Qutb al-Din took "چنیوت را نیز از ملک مانجهی[OCR?] کهوکهر[OCR?] گماشته سید خان", Chiniot too, from Malik Manjhi Khokhar, the agent of Sayyid Khan (Bhandari, *Khulasat al-Tawarikh*, p. 296). When Barbak Shah's army was beaten it fled "تا قصبه چنیوت", as far as the town of Chiniot, and afterwards "گماشته سلطان حسین را که در چنیوت بود بعد جنگ بدست آورده بعدم خانه فرستاد", seizing Sultan Husain's agent at Chiniot after the battle and sending him to the house of nothingness (Bhandari, *Khulasat al-Tawarikh*, p. 295). The book says nothing of a saint or a shrine in these passages.
+
+Haroon Khalid, visiting Chiniot, describes "the unfortunate haveli of Omar Hayat. Completed in 1935 this was a fine example of woodwork for which Chiniot has been popular" (Khalid, *In Search of Shiva*, p. 16, ch. 10, folio not stated). "To the residents of the haveli though this was a cursed house that first claimed the life of the father and then the son, followed by his mother. The mother and the son are buried in the main hall." After Partition it fell into disrepair and its top two floors crashed down; a few years before his visit the government of Pakistan took it over and renovated it "to serve as a museum and a library" (Khalid, *In Search of Shiva*, p. 16, ch. 10, folio not stated). Of the river on which Kanhaiya Lal places Langar Makhdum, Khalid writes, recalling Sohni and Mahiwal and the Takht Hazara of Ranjha: "The Chenab, in the folk culture of Punjab, is known as the river of love" (Khalid, *In Search of Shiva*, p. 9, ch. 3, folio not stated).
+
+## Setting: The Sufis and the Rural Punjab
+
+The current account sets Makhdoom Burhan-ud-din in the age of Baba Farid and of the Sufis who carried Islam into the Punjab countryside. The books speak of that age and that province, not of this saint, and they speak of it in more than one voice.
+
+Saiyid Athar Abbas Rizvi writes that Baba Farid's ancestors "came from Kabul, but migrated to the Panjab in the middle of the twelfth century" (Rizvi, *A History of Sufism in India*, p. 156, folio 138), and that the Suhrawardiyya, the order in which Kanhaiya Lal places the line of Makhdum Abdul Karim, "spread from Uch to Gujarat, the Panjab and Kashmir" in the fourteenth century (Rizvi, *A History of Sufism in India*, p. 299, folio 277). Annemarie Schimmel writes that in the time of Nizamuddin "Sufism became a mass movement in northwestern India", and that "A number of Punjabi tribes still claim to have been converted by Fariduddin Ganj-i Shakar" (Schimmel, *Mystical Dimensions of Islam*, p. 381, folio 350).
+
+Richard Eaton observes that "Islam took root much more readily in Bengal or the Punjab than in upper India" (Eaton, *Essays on Islam and Indian History*, p. 14, folio 2), and that in Punjab and Sind "shrines of great Sufis attracted and integrated pre-agrarian and non-Muslim pastoral clans into their ritual, socio-economic, and political orbits" (Eaton, *Essays on Islam and Indian History*, pp. 48–49, folios 36–37). But he reads the conversions as slow. Most Jat and Rajput groups that became Muslim in the medieval period "claim to have been converted either by Baba Farid or by his contemporary, Baha' al-Haqq Zakariya", yet the earliest sources on Baba Farid "make no mention of his having converted anyone", and many of the clans had not yet reached the Ajudhan area during his lifetime (Eaton, *Essays on Islam and Indian History*, p. 227, folio 215). From the genealogies of the Siyals of Jhang District he concludes that "religious conversion among Punjabi clans was very slow indeed—not only slow, but probably unconscious as well" (Eaton, *Essays on Islam and Indian History*, pp. 234–235, folios 222–223). He also notes that the writing of *taʿwidh* for the masses "has not changed from the thirteenth century to the present", the successors of Baba Farid, "in common with those of other shrines in the Punjab", writing them still (Eaton, *Essays on Islam and Indian History*, p. 218, folio 206).
+
+Waris Shah's invocation to *Hir and Ranjha*, in Charles Frederick Usborne's English, praises Farid in a line its later annotator could not let stand:
+
+*"When Shakarganj made his abode at Pakpattan, the Punjab was delivered of all its troubles."* (Waris Shah, *Hir and Ranjha*, p. 2, folio 1)
+
+The note replies: "Much as one would like to agree with Waris Shah this is not historically correct. The Punjab has had plenty of troubles even after Baba Farid honoured it by making it his home and his place of burial!" (Waris Shah, *Hir and Ranjha*, p. 2, folio 1).
+
+## Where the Sources Disagree
+
+- **Whose village.** The current account says the village takes its name from Makhdoom Burhan-ud-din, remembered locally as Hazrat Langar Makhdoom. Nur Ahmad Chishti writes the village's name with Makhdum Abdul Karim's, "موضع لنگر مخدوم عبدالکریم صاحب" (Chishti, *Tahqiqat-e Chishti*, p. 448). Kanhaiya Lal makes Makhdum Abdul Karim the resident of Langar Makhdum and says nothing of Burhan-ud-din (Kanhaiya Lal, *Tarikh-e Lahore*, p. 238, folio 241). Chishti's genealogy places a Hazrat Makhdum Burhan al-Din two generations above Abdul Karim, without a place (Chishti, *Tahqiqat-e Chishti*, p. 450).
+- **The saint's name and title.** The current account: Makhdoom Burhan-ud-din, Hazrat Langar Makhdoom. Bhandari: Shah Burhan, with no other name (Bhandari, *Khulasat al-Tawarikh*, p. 511). Chishti: Hazrat Makhdum Burhan al-Din in one genealogy (Chishti, *Tahqiqat-e Chishti*, p. 450), and a Sayyid Burhan al-Din, the reading uncertain, in another (Chishti, *Tahqiqat-e Chishti*, p. 299). None of the books says that these are one man.
+- **Where the tomb lies.** The current account places the grave in a burial ground near the village of Changranwala, in the Lalian area, in the mud dwelling that had been his home. Bhandari places the tomb of Shah Burhan in a city on the Chenab whose name is damaged in the printed text and may be Chiniot (Bhandari, *Khulasat al-Tawarikh*, p. 511). Kanhaiya Lal places Langar Makhdum itself on the Chenab (Kanhaiya Lal, *Tarikh-e Lahore*, p. 238, folio 241); Chishti puts it on the bank of a river whose name is illegible in the printed text (Chishti, *Tahqiqat-e Chishti*, p. 448).
+- **The Sufis and conversion in the Punjab.** The current account says that the teaching and example of the Sufis drew much of the rural population of the Punjab towards Islam, village by village. Schimmel reports that a number of Punjabi tribes still claim conversion by Baba Farid (Schimmel, *Mystical Dimensions of Islam*, p. 381, folio 350). Eaton finds that the earliest sources on Baba Farid make no mention of his converting anyone, and judges conversion among Punjabi clans very slow and probably unconscious (Eaton, *Essays on Islam and Indian History*, p. 227, folio 215; pp. 234–235, folios 222–223). These passages speak of the Punjab, not of this saint.
+- **Farid and the Punjab's troubles.** Waris Shah's verse says that the Punjab was delivered of all its troubles when Shakarganj made his abode at Pakpattan; the annotator of Usborne's translation calls this not historically correct (Waris Shah, *Hir and Ranjha*, p. 2, folio 1).
+
+## Legacy
+
+Langar Makhdoom is not among the grand shrines of the Punjab, and the sober historian can say little of its saint with certainty. Yet in this it is representative of a whole class of country shrines whose collective importance is very great: the resting-places of the humble Sufi teachers who, village by village, wove Islam into the fabric of Punjabi rural life. The shrine's endurance across some eight centuries of tradition, its Friday gatherings and its spring *ʿurs*, testify to the tenacity of local devotion and to the way a single holy man's memory can give a village its name and its identity.
+
+In the written record the village appears as a seat of teaching: the house of Makhdum Abdul Karim, a perfect gnostic in Nur Ahmad Chishti's words, where Mian Wadda kept the fire and cooked for the household (Chishti, *Tahqiqat-e Chishti*, p. 448), and from whose master Shaikh Muhammad Ismail received his *khilafat* in the Suhrawardiyya (Kanhaiya Lal, *Tarikh-e Lahore*, p. 238, folio 241).
+
+## Bibliography
+
+- Richard M. Eaton, essays on the Sufi shrines and the Islamisation of the Punjab and the Indus frontier.
+- Annemarie Schimmel, *Mystical Dimensions of Islam* (University of North Carolina Press).
+- David Gilmartin, *Empire and Islam: Punjab and the Making of Pakistan* (on shrine culture in rural Punjab).
+- Punjab district gazetteers for the Chiniot / Jhang region.
+- Local hagiographical tradition concerning Hazrat Makhdoom Burhan-ud-din (to be used with due caution).
+- Maulvi Nur Ahmad Chishti, *Tahqiqat-e Chishti* (dated 1867 for the original, the date unconfirmed).
+- Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original).
+- Sujan Rai Bhandari of Batala, *Khulasat al-Tawarikh* (Persian, composed regnal year 40 of Aurangzeb; 1918 Delhi lithograph edited by Zafar Hasan).
+- Richard M. Eaton, *Essays on Islam and Indian History* (Oxford University Press, 2000; 2003 impression).
+- Haroon Khalid, *In Search of Shiva: A Study of Folk Religious Practices in Pakistan* (New Delhi: Rupa Publications India, first impression 2015).
+- Saiyid Athar Abbas Rizvi, *A History of Sufism in India*, Vol. I, *Early Sufism and its History in India to 1600 AD* (New Delhi: Munshiram Manoharlal Publishers Pvt. Ltd.; first published 1978, copyright line 1975).
+- Waris Shah, *The Adventures of Hir and Ranjha*, recounted in Panjabi by Waris Shah and translated into English by Charles Frederick Usborne (1874–1919), with a later unnamed annotator's numbered notes (2004 edition).
