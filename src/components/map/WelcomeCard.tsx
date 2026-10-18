@@ -81,19 +81,9 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
         </svg>
       </div>
       <h2 className="welcome-card-title">{t('exploreTitle')}</h2>
-      {/* What this is, who made it, and where to read more — said first. The
-          card opened on an empty-state message, and the archive's own
-          one-sentence account of itself, with its two authors, lived only on
-          /about (first-visit council, 17 October 2026). */}
-      <p className="welcome-card-lede">{t('aboutLede')}</p>
-      <p className="welcome-card-credit">
-        {t('aboutCredit')}
-        {' · '}
-        <Link to="/about">{t('welcomeAboutLink')}</Link>
-      </p>
-      <p className="welcome-card-text">{t('noSelection')}</p>
-      {/* The "list button above" this hint refers to is hidden in embed mode */}
-      {!embed && <p className="welcome-card-hint">{t('exploreHint')}</p>}
+      {/* The archive's account of itself, its byline and the "select a marker"
+          hint sat here until 18 October 2026, when the project head asked for
+          the section to go; the account and byline remain on /about. */}
 
       {/* The map's key, where a first-time reader looks. A marker's ring is its
           tradition and its size says whether there is a photograph; nothing on
