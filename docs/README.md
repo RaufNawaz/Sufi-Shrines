@@ -174,3 +174,38 @@ content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provena
 - [planning/APPLE_PASS_2026-10-09.md](planning/APPLE_PASS_2026-10-09.md) — the Apple pass: what "professional-grade minimalist" means in this codebase, what shipped on 9 October 2026, and the page-by-page plan for the explorer pages.
 - [planning/APPLE_UI_REFINEMENT_PLAN.md](planning/APPLE_UI_REFINEMENT_PLAN.md) — the 15 October 2026 plan (drafted by Antigravity, continued by Claude Code): header tab capsule, Spotlight search, phone contents sheet, motion tokens. Its phases 2–4 are proposals, not shipped.
 - [planning/PHONE_COUNCIL_2026-10-15.md](planning/PHONE_COUNCIL_2026-10-15.md) — the phone council of 15 October 2026 (three seats): back-to-close for every overlay, a map sheet and lightbox that follow the finger, recently viewed, Near me, wake lock during tours, install offer; what is unverified and what is not done.
+
+## HANDOVER fragments
+
+`_APPEND_NNN.md` files are §9 entries written by the book-queue sessions as separate files, to be appended to [`HANDOVER.md`](HANDOVER.md). Most are already in it; as of 18 October 2026 four (§9.343, §9.346, §9.358, §9.360) carry text that is not, so they are kept until merged. Delete a fragment once its text is in HANDOVER.md.
+
+- [`_APPEND_318.md`](_APPEND_318.md)
+- [`_APPEND_319.md`](_APPEND_319.md)
+- [`_APPEND_320.md`](_APPEND_320.md)
+- [`_APPEND_321.md`](_APPEND_321.md)
+- [`_APPEND_322.md`](_APPEND_322.md)
+- [`_APPEND_323.md`](_APPEND_323.md)
+- [`_APPEND_324.md`](_APPEND_324.md)
+- [`_APPEND_325.md`](_APPEND_325.md)
+- [`_APPEND_326.md`](_APPEND_326.md)
+- [`_APPEND_327.md`](_APPEND_327.md)
+- [`_APPEND_328.md`](_APPEND_328.md)
+- [`_APPEND_331.md`](_APPEND_331.md)
+- [`_APPEND_343.md`](_APPEND_343.md)
+- [`_APPEND_344.md`](_APPEND_344.md)
+- [`_APPEND_345.md`](_APPEND_345.md)
+- [`_APPEND_346.md`](_APPEND_346.md)
+- [`_APPEND_348.md`](_APPEND_348.md)
+- [`_APPEND_349.md`](_APPEND_349.md)
+- [`_APPEND_350.md`](_APPEND_350.md)
+- [`_APPEND_354.md`](_APPEND_354.md)
+- [`_APPEND_355.md`](_APPEND_355.md)
+- [`_APPEND_356.md`](_APPEND_356.md)
+- [`_APPEND_357.md`](_APPEND_357.md)
+- [`_APPEND_358.md`](_APPEND_358.md)
+- [`_APPEND_360.md`](_APPEND_360.md)
+- [`_APPEND_363.md`](_APPEND_363.md)
+- [`_APPEND_364.md`](_APPEND_364.md)
+- [`_APPEND_365.md`](_APPEND_365.md)
+- [`_APPEND_366.md`](_APPEND_366.md)
+- [`_APPEND_368.md`](_APPEND_368.md)
