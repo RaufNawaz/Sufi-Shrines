@@ -71,6 +71,34 @@ export function normalizeFoundedDate(value: string): string {
   return trimmed.replace(FOUNDED_QUALIFIER_PREFIX, '').trim();
 }
 
+/**
+ * CONTINUATION COLUMNS (Rauf, 13 October 2026, HANDOVER §9.334/§9.336/§9.346).
+ *
+ * A Google Sheets cell holds at most 50,000 characters, and the longest
+ * rewritten articles run to ~194k. They are SPLIT, never cut: the import puts
+ * the first part in `Description` and the rest in `Description 2`,
+ * `Description 3`, …, each part under 50k and each split made only where a
+ * `## ` section begins. Every row is joined back here, before anything reads
+ * it, so the lead, the inline sections, the bibliography and search all see
+ * one article, and no `Description N` key survives to show up as an infobox
+ * field. The parts are joined with a blank line, which is exactly what the
+ * import removed (`pipeline/build_import_2026_10_15.py` asserts the round
+ * trip, and writes the columns contiguously: the walk stops at the first
+ * missing number). `scripts/data/build-dataset.mjs` does the same join; the
+ * two are kept in step by `fieldAliasing.test.ts`.
+ *
+ * Written small on purpose: this module is in every route's eager JS, and
+ * PlacePage had 223 bytes of budget left when it was added (15 Oct 2026).
+ */
+export function joinContinuationColumns(row: ShrineRow): ShrineRow {
+  for (let n = 2, k = 'Description 2'; k in row; k = `Description ${++n}`) {
+    const s = String(row[k] ?? '').trim();
+    if (s) row.Description = row.Description ? `${row.Description}\n\n${s}` : s;
+    delete row[k];
+  }
+  return row;
+}
+
 export function normalizeRow(row: Record<string, unknown>): ShrineRow {
   const normalized: ShrineRow = {};
   for (const [key, value] of Object.entries(row)) {
@@ -78,5 +106,5 @@ export function normalizeRow(row: Record<string, unknown>): ShrineRow {
     if (!k) continue;
     normalized[k] = typeof value === 'string' ? value.trim() : value != null ? String(value) : '';
   }
-  return normalized;
+  return joinContinuationColumns(normalized);
 }

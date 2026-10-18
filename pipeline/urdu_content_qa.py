@@ -160,6 +160,9 @@ def load_english():
     if not os.path.exists(ENGLISH_CSV):
         raise SystemExit(f"FAIL: {os.path.relpath(ENGLISH_CSV, ROOT)} not found — run npm run data:build")
     with open(ENGLISH_CSV, newline="", encoding="utf-8") as fh:
+        # Rewritten articles run to ~194k characters (Farid, 15 Oct 2026); the
+        # csv module's default 131,072-character field limit refuses them.
+        csv.field_size_limit(2**31 - 1)
         rows = list(csv.DictReader(fh))
     return {slugify(r.get("Name", "")): (r.get("Description") or "").strip() for r in rows}
 

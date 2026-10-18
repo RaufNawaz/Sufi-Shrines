@@ -46,6 +46,20 @@ const CSV_URL =
 
 // ── helpers ───────────────────────────────────────────────────────────────
 
+// Continuation columns: `Description 2`, `Description 3`, … are joined back
+// into `Description` with a blank line and removed, walking 2, 3, … until the
+// first missing number. Same rule as joinContinuationColumns() in
+// src/lib/data/fieldAliasing.ts (HANDOVER §9.336/§9.346); a Sheets cell holds
+// 50k characters and long articles are split, never cut.
+function joinContinuationColumns(row) {
+  for (let n = 2, k = 'Description 2'; k in row; k = `Description ${++n}`) {
+    const s = String(row[k] ?? '').trim();
+    if (s) row.Description = row.Description ? `${row.Description}\n\n${s}` : s;
+    delete row[k];
+  }
+  return row;
+}
+
 function normalizeRow(row) {
   const out = {};
   for (const [key, value] of Object.entries(row)) {
@@ -53,7 +67,7 @@ function normalizeRow(row) {
     if (!k) continue;
     out[k] = typeof value === 'string' ? value.trim() : value != null ? String(value) : '';
   }
-  return out;
+  return joinContinuationColumns(out);
 }
 
 function isValidRow(row) {
