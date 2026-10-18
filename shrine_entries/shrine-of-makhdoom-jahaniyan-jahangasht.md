@@ -188,13 +188,23 @@ by forty-nine years, which no chunk remarks on (pp. 161, 165; folios 149, 153; c
 - (book's word: "پنجاب"; refers to: the book's scope, chronogram "۱۲۹۲ھ"; quoted source: chronogram "از مفتی غلام صفدر صاحب لاہوری خلف مؤلف"): "جو خدا کے دوست تھے پنجاب میں   حال ان کا اس سے ہوتا ہے عیان" (p. 282, folio 270).
 - (book's word: "پنجاب"; refers to: the scholars of Punjab "شیخ حامد سے لے کر حضرت شیخ بہاؤالدین زکریا ملتانی تک"; editor's footnote (modern)): Maulana Muhammad Aqil Lahori's *تحفۃ المسلمین* records Shaikh Hamid Qari's sayings and also gives "پنجاب کے اکابر علما کے حالات" across that span. The editor says its rare manuscript is in his own library (p. 278, folio 266).
 
+### Related and cross-referenced rows from the join check
+
+*Added by `join_check.py apply` on 17 October 2026 under Rauf's rulings of 16 October 2026 (HANDOVER §9.357); decisions in `pipeline/book_queue/join_decisions.tsv`. Every proposed row named here stays its own row.*
+
+*Related site (ruling 2) — proposed row `sayyid-usman-famous-as-shah-jhula-bukhari-lahori`, Sayyid Usman, famous as Shah Jhula Bukhari Lahori. Join-check basis follows; then its line(s) under this book, copied verbatim from `shrine_entries/sayyid-usman-famous-as-shah-jhula-bukhari-lahori.md`.*
+
+Join-check basis: A separate Lahore site (the tah-khana of the Akbari fort) tied by descent from Makhdoom Jahaniyan, from Uch; the archive entry does not mention him. data-darbar and lal-shahbaz-qalandar share only the token Usman: no tie.
+
+- [PK] **Sayyid Usman, famous as Shah Jhula Bukhari Lahori / شاہ جھولہ بخاری** — entry no. 111; died 8 Rabi al-Awwal 912 AH; came from Uch to Lahore; nine-step pedigree to Makhdoom Jahaniyan; **the laqab from a disease** — a tremor in the left arm, "جھولا پنجابی زبان میں رعشہ کو کہتے ہیں"; appendix row 33 → "تہ خانہ قلعہ اکبری لاہور" then **the Shahi Qila, Lahore**. (pp. 173–174, folios 161–162; p. 288)
+
 ## From Maulvi Nur Ahmad Chishti, Tahqiqat-e Chishti
 
 *Integrated 10 October 2026 from `entries/book_takeaways/tahqiqat_chishti.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
 
 - Mapping Doubts (Pass 1): bare names only; "مخدوم جہاں" in a Qadiri shajra (p. 436) is not mapped.
 - **Saint**
-  - In "نقل شجرہ فقرائے رسول شاہی موجودین لاہور", master of "سید براہو[OCR?] بخاری", disciple of "حضرت سید [illegible]" (p. 154). Sain Qutb Shah "سید حسینی بخاری اولاد حضرت مخدوم جہانیاں" (p. 235).
+  - In "نقل شجرہ فقرای رسول شاہی موجودین لاہور", master of "سید براہو[OCR?] بخاری", disciple of "حضرت سید [illegible]" (p. 154). Sain Qutb Shah "سید حسینی بخاری اولاد حضرت مخدوم جہانیان" (p. 235).
 
 ### Province-level material: punjab
 
@@ -228,8 +238,8 @@ by forty-nine years, which no chunk remarks on (pp. 161, 165; folios 149, 153; c
 - According to "کتاب نسب نامہ حضرت پیر محمد شاہ صاحب", the Gilani ancestor came "اوچ شریف سے … بعہد اکبر شاہ" (p. 525).
 - The ancestor came to Multan, where a man married his daughter "مسمات فاطمہ" to him and presented "علاقہ اوچ[OCR?]"; he settled there, "اور اب کک[OCR?] اولاد انکی آبا و سے" (p. 526).
 - The hazrat's mazar there: "ہمیشہ … مسجد ہا اور وغیرہ بنا … عامر رہتے ہیں" (very garbled); something was confiscated ("ضبط") in Alamgir's time ("عالمگیر") (garbled) (p. 526).
-- "سادات اوچ" are famous; where a dispute over descent arises, "پھر کسکی مجال نہیں کہ دم مار سکے" once they accept a person as "صحیح النسب" (pp. 526–527).
-- The four sons of Hazrat Muhammad Ghaus "بمقام اوچ شریف آسودہ ہیں", beside the tomb of Shah Muhammad Ghaus; some of Abd al-Qadir Sani's descendants are "صاحب سجادہ اوچ میں" (p. 527).
+- "سادات اوچ" are famous; where a dispute over descent arises, "پہر کسکی مجال نہین کہ دم مار سکے" once they accept a person as "صحیح النسب" (pp. 526–527).
+- The four sons of Hazrat Muhammad Ghaus "بمقام اوچ شریف آسودہ ہین", beside the tomb of Shah Muhammad Ghaus; some of Abd al-Qadir Sani's descendants are "صاحب سجادہ اوچ مین" (p. 527).
 - "اول بزرگ انکے اوچ شریف سیداں میں سکونت پذیر تھے اور خدمت سادات اوچ کو انکی [illegible]": the Faqir family's elders lived at Uch Sharif Sayyidan and served the Sadat of Uch (p. 584).
 - "بعہد نواب خان بہادر[OCR?]": the Nawab, at Uch Sharif, had a boil ("دنبل[OCR?]") on his cheek that would not heal; he went to "سادات اوچ شریف" for prayer, and they named Ghulam Muhyi-ud-Din[OCR?] as a "حکیم حاذق"; the Nawab brought him to Lahore and was cured. Attributed to "حضرت شاہ سردار صاحب خلف الرشید جناب حضرت پیر محمد شاہ صاحب گیلانی", whose own account is said to be given separately (p. 584).
 
@@ -762,3 +772,891 @@ Three bullets, all from chunk 007, plus the shared unresolved bullet below. The 
 - (book's word: "Punjabi clans"; refers to: "from the late fourteenth to the early nineteenth centuries", the span of the Siyal data; author's argument): from the Siyal genealogies of Jhang District (Table 9.2), "If these data on the Siyals are at all indicative of the conversion pattern for the other clans … then we may conclude that religious conversion among Punjabi clans was very slow indeed—not only slow, but probably unconscious as well", "a period long before either British census officials or zealous reformers began urging Indians to place themselves into sharply differentiated religious categories" (pp. 234–235, folios 222–223).
 - (book's word: "the southwestern Punjab"; refers to: the 1935–38 court depositions; quoted source, the Lahore High Court record): "many of the major endogamous clans that are spread throughout the southwestern Punjab, mainly as peasant agriculturalists" claimed conversion by Baba Farid; "These clans, or binidaris [text-layer?] [biradaris] (brotherhoods), include the Wattu, the Siyal, the Dogar, the Kathia, the Bhatti, and the Tiwana" (p. 241, folio 229).
 - (book's word: "the Punjab"; refers to: Mughal officials newly arrived in Bengal, around 1620 in the surrounding narrative; book's historical prose): "The Bengali diet of fish and rice, for example, contrasted sharply with the wheat and meat diet of the Punjab and seems to have posed a special stumbling block for immigrants" (p. 263, folio 251).
+
+## From Saiyid Athar Abbas Rizvi, A History of Sufism in India, vol. 1
+
+*Integrated 12 October 2026 from `entries/book_takeaways/rizvi_history_of_sufism_india_1.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+*Attached as this book's claim, not as a settled identification or date (Rauf, 10 October 2026). This row was held over an open question (a death year, or which man or which shrine is meant); the book's material and its doubts are shown as they stand and do not settle it.*
+
+**The second-densest archive row in the book** (44 bullets across chunks 001, 015, 017, 018, 020, 025,
+026 and 027), and the only Pakistani archive figure whose birth date, death date and burial place the
+book all prints. Its names for him: **"Saiyid Abu 'Abdu'llah Jalalu'd-Din Husain bin Ahmad Bukhari,
+better known as the Makhdum Jahaniyan"** (p. 22, folio 8), "the Makhdum Jahaniyan, Saiyid Jalal
+Bukhari" (p. 24, folio 10), "Makhdum-i Jahaniyan Saiyid Jalal Bukhari" (p. 251, folio 231), "Syed
+Jalalu'd-Din (Bukhari)" inside a translated letter (p. 258, folio 238), "the Makhdum-i Jahaniyan (Lord
+of the Mortals)", "the Jahangasht (World Traveller)" and "the Saiyid" (pp. 299–300, folios 277–278).
+
+- **Saint**
+  - **Birth, as printed** — "Saiyid Jalalu'd-Din, the Makhdum-i Jahaniyan, was born on 15 Sha'ban
+    707/9 February 1308" (p. 299, folio 277).
+  - **Death and burial, as printed** — "Saiyid Jalalu'd-Din Bukhari died on 10 Zu'lhijja 785/3
+    February 1384 and was buried in Uch" (p. 303, folio 281). **785 − 707 = 78, and both AH/CE pairs
+    are internally consistent with each other and with the archive row's `figure_died` of 1384 — the
+    only archive date in this book that the book confirms.** The index agrees: "Makhdum Jahaniyan,
+    Saiyid Abu ‘Abdu'llah Jalalu’d-Din Husain b. Ahmad Bukhari (b. 1308, d. 1384), 8, 10, 231, 238,
+    267, 272-73, 277-82, 290-91, 316, 318-19, 405" (p. 474, folio 450) — **the fullest personal
+    headword the index gives any archive figure; those are folios, not PDF pages.**
+  - **Genealogy, in the book's own words** — "He was a grandson of Saiyid Jalalu'd-Din Surkh (Red), a
+    disciple of Shaikh Baha'u'd-Din Zakariyya. Saiyid Jalalu'd-Din Surkh had three sons: Saiyid Ahmad
+    Kabir, Saiyid Baha'u'd-Din and Saiyid Muhammad. Saiyid Jalalu'd-Din Bukhari and his younger
+    brother, Raju Qattal, were the sons of Saiyid Ahmad Kabir" (p. 299, folio 277).
+  - **Two initiations, one Suhrawardi and one Chishti — and the row's `silsila` cell records only
+    one.** "he received a formal religious education, and then became his father's disciple. Later he
+    obtained initiation into the Suhrawardiyya order from Shaikh Ruknu'd-Din" (p. 299, folio 277);
+    "After his return to Uch, Saiyid Jalalu'd-Din Bukhari went to Delhi and was initiated personally
+    into the Chishtiyya order by Shaikh Nasiru'd-Din" (p. 299, folio 277). **The book elsewhere makes
+    him the originator of the practice: "The practice seems to have been started in India by the
+    Suhrawardi, Makhdum Jahaniyan Saiyid Jalal Bukhari who, as we shall see, also obtained initiation
+    in the Chishtiyya order" (p. 292, folio 272).** The book also calls him plainly "the famous
+    Suhrawardi" (p. 429, folio 405) and "the celebrated Suhrawardi saint" (p. 22, folio 8), which
+    agrees with the row's `silsila`.
+  - **The source of the "Jahangasht" title — the second half of the archive row's own name, printed
+    and glossed.** "So well-travelled did he become that Saiyid Jalalu'd-Din was called the Jahangasht
+    (World Traveller)" (p. 300, folio 278).
+  - **The travels, given and then discounted by the author.** "Although it is believed that the Saiyid
+    went abroad on three different occasions, the validity of such an assertion is doubtful. His
+    travels mentioned in the Safar Nama-i Makhdum Jahaniyan (Book of the Travels of Makhdum Jahaniyan)
+    are mostly legendary and all of a later date" (p. 300, folio 278); "According to Jamali, during
+    his travels the Saiyid was met by more than three hundred important sufis" (p. 299, folio 277).
+  - **He called his disciples "Akhi", and Rizvi derives it from Anatolia.** "The Saiyid preferred to
+    call his disciples Akhi (brothers)"; "Saiyid Jalalu'd-Din in fact borrowed the ideal both from the
+    Akhi system, contained in the Anatolian craft guilds, and the Akhi and Futuwwa organizations among
+    dervish brotherhoods in Khurasan and Transoxiana" (p. 303, folio 281).
+
+- **Shrine / Darbar, khanqah and endowment**
+  - **A state office and an endowed khanqah at Sehwan, with land — the clearest shrine-economy
+    sentence in the chunk.** "It would seem that Sultan Muhammad bin Tughluq appointed him the
+    Shaikhu'l-Islam and made him the head of a khangah [OCR?] [khanqah] in Siwistan (Sehwan) known as
+    the Khanqah-i Muhammadi to which several villages were attached. However, Saiyid Jalalu'd-Din did
+    not remain there long" (p. 299, folio 277). **A named institution, a named place and an endowment
+    in villages.**
+  - **The khanqah run by a deputy in his absence.** "It seems likely that for most of the reign of
+    Sultan Muhammad bin Tughlugq [OCR?] [Tughluq], the Saiyid lived abroad and his Ahangah [OCR?]
+    [khanqah] was administered by his brother" (pp. 299–300, folios 277–278).
+  - **Uch as his seat, with a visiting pattern to the capital.** "During the time that Sultan Firuz
+    Shah Tughluq ruled in Delhi the Saiyid remained mainly at Uch, only visiting the capital
+    periodically. One of his known visits took place between 8 Rabi' II 781/24 July 1379 and Muharram
+    782/April 1380" (p. 300, folio 278). Chunk 001 dates the same visit to the day and adds the
+    weekdays: "The account dates from Sunday 8 Rabi' II 781/24 July 1379 and ends on Tuesday 17
+    Muharram 782/23 April 1380, during the time of Shaikh's visit to Delhi." (p. 22, folio 8).
+  - **The Uch khanqah as a destination a generation later, recorded as a snub.** "Mir Saiyid 'Ali on
+    his way to Kashmir passed through Uch and visited the khangah [khanqah] of the Makhdum Jahaniyan.
+    When Saiyid Makhdum Jahaniyan was informed of the visit of the Hamadani Saiyid, without taking
+    much notice he stated merely that Hamadan (All Knowing) was none but the Great Knower of the
+    Invisible World, that is, God the Most High" (p. 313, folio 291). **The one time the book treats
+    the Uch khanqah as a place people come to.**
+  - **Sultan Firuz visits him in his khanqah throughout a stay, and gets everything he asks.** "the
+    Sultan gave Saiyid Jalalu'd-Din Bukhari a royal reception and continued to visit him in his
+    khangah [khanqah] throughout his stay. So great was the Saiyid's hold with the Sultan that all his
+    recommendations were granted! His assistance was also sought by the governors of Sind" (p. 301,
+    folio 279). **The exclamation mark is as printed and may be OCR damage to a footnote marker — see
+    Doubts. This directly contradicts his own rule, one page later.**
+  - **No tomb description, no builder, no building date, no later custodian, no ʿurs and no sajjada
+    nashin for the Uch grave anywhere in the book — all (not stated)** (p. 303, folio 281).
+
+- **Practices & Events**
+  - **His ruling against the Shab-i Barat grave customs — a saint condemning shrine practice.** "A
+    notorious puritan, Makhdum Jahaniyan strongly opposed the tradition which had developed around the
+    Shab-i Barat festival which was held in the evening of the middle of Sha'ban, the eighth month in
+    the Muslim Calendar, when fire works were exploded, graves were white-washed and lighted lamps
+    were placed on them" (p. 302, folio 280). **Graves, lamps and whitewash named together as the
+    objects of a saint's disapproval.**
+  - **His other puritan rulings.** Muslims "should pray and give the money, which otherwise would be
+    used on crackers and lamps, to the poor"; "Only in India, he added, was there such a blatant
+    disregard of the holy law, for such innovations were not to be found in Ghazna, Khurasan or
+    Arabia"; "He also sternly disapproved of giving Allah such Hindi names as Thakur (Lord), Dhani
+    (Rich) and Kartar (Creator)"; "He advised the aima [OCR?] [aʾimma] not to accept any payment which
+    came from illegal sources of revenue" (p. 302, folio 280).
+  - **His rule on sufis and rulers, and the direction of the visit.** "Makhdum Jahaniyan urged that
+    dervishes, sufis and the 'ulama' visit rulers, government officials and the rich in order to elicit
+    assistance for the deprived and justified his own visits to Sultan Firuz on these grounds.
+    Dervishes, however, should never allow such people to visit them at their Ahangahs [khanqahs]; if
+    this did occur, the time should be beneficially used by preaching on the significance of the
+    Shari'a" (p. 302, folio 280). **Contradicted on the previous page — see Doubts.**
+  - **His ruling on royal stipends** — "according to the books of Fatwas, it was makruh (disapproved)
+    however it was not invalidated by the Shari'a" (p. 301, folio 279).
+  - **A qalandarised, Shiʿi, naked-ascetic section of his following, with its own initiation rite.**
+    "The custom and ideas of the Qalandariyya and the Nath yogis also had considerable impact on the
+    beliefs of a section of the followers of Makhdum Jahaniyan Saiyid Jalal Bukhari. Unlike other sufis
+    they adopted Shi'ism and in the same manner as the Madaris went naked and to warm themselves sat
+    before fires. Although their hair was unmatted, they shaved their heads, beards, moustaches and
+    eyebrows and spent their time wandering from place to place" (p. 342, folio 320). The rite: "When
+    they came into the order they offered all their material goods to their preceptors, and in return
+    were given a cap and the spiritual tree of the order which was worn on their heads or hung round
+    their necks" (p. 342, folio 320). **A total transfer of property at entry; a cap and a "spiritual
+    tree" as the instruments of investiture, and no khirqa, no baiʿa and no khilafat-nama — (not
+    stated).** The book calls them "Jalali saints" (p. 342, folio 320). **See Doubts: the compound name
+    at p. 342 fuses this row's title with the other Uch row's name.**
+  - **The khirqa as an instrument of deputisation, given to a named man at a named place.** "A more
+    famous Suhrawardiyya sufi in the region was Shaikh Rajgiri, to whom Makhdum Jahaniyan gave the
+    title 'Akhi.' A native of Daryabad in Awadh, Akhi was given Makhdum Jahaniyan's khirga [OCR?]
+    [khirqa] when he first settled at Kanauj" (p. 306, folio 284); "Kalpi became such a centre due to
+    the prestige of Shaikh Siraj Sukhta, a favourite Imam of Makhdum Jahaniyan" (p. 306, folio 284).
+  - **He initiates into the Suhrawardiyya, with a second man.** Shaikh Yusuf Budh "was initiated into
+    the Suhrawardiyya order by Saiyid Jalal Bukhari and Shaikh Raju Quttal" (p. 295, folio 275);
+    Shaikh Qiwamu'd-Din "went to Uch where he obtained initiation from Saiyid Jalalu'd-Din Makhdum
+    Jahaniyan of the Suhrawardiyya order" (p. 293, folio 273); and he hosts a traveller — "Then taking
+    the route through Multan and Uch to India, Simnani lived for a period with Makhdum Jahaniyan"
+    (p. 287, folio 267), **with no length of stay, no residence and no date — (not stated).**
+
+- **Politics, patronage and conversion**
+  - **He saves a sufi's life by having a royal farman cancelled.** Sultan Firuz, advised by the
+    ʿulamaʾ, "summon[ed] Shaikh Sharafu'd-Din from Bihar to account for his conduct. A farman was
+    issued authorizing this, but was cancelled at the request of Makhdum-i Jahaniyan Saiyid Jalal
+    Bukhari" (p. 251, folio 231); Rizvi makes the intervention decisive — "It would, however, seem
+    that the strong recommendations of Makhdum-i Jahaniyan, which the Sultan and the 'ulama' were
+    unable to ignore, saved Shaikh Sharafu'd-Din from the axe" (pp. 251–252, folios 231–232).
+  - **He is named as Sultan Firuz's own teacher of prayer, in a quoted letter.** "When for some days
+    his holiness, Syed Jalalu'd-Din (Bukhari) may his resting place be blessed! came to him, he met him
+    and derived many benefits from his association with the Syed"; "He learnt to say the 'Chasht' or
+    the morning prayer and 'Tahajjud' (night prayer) from the saintly saint after the latter's arrival
+    (at Delhi from Uch, near Multan)" (p. 258, folio 238). **The parentheses "(Bukhari)" and "(at Delhi
+    from Uch, near Multan)" are in the printed text, inside S.H. Askari's translation.**
+  - **A peace treaty brokered by him at Thatta.** "In 763/1362 accompanied by a large army Sultan
+    Firuz marched on Thatta… The Sammah ruler, Jam Jauna bin Babinya (756/1355—770/1369), sought to
+    arrange peace-terms through Saiyid Jalalu'd-Din. It was finally agreed that Jam's son, Mani, should
+    rule as a tributary of Sultan Firuz of Delhi. The peace was generally hailed as a triumph for
+    Makhdum Jahaniyan" (p. 301, folio 279).
+  - **A tax remission credited to him.** "The abolition of about twenty-eight taxes by Sultan Firuz
+    Shah largely imposed on towns throughout the empire may be ascribed to the influence of the
+    Saiyid" (p. 301, folio 279).
+  - **Conversions ascribed to him.** "It is believed that the Sumirahs of the lower Sind who were
+    Isma'ilis, adopted Sunnism under the influence of the Saiyid. A Jat chief of Sind, later named
+    'Abdu'llah, is also said to have embraced Islam through a supernatural feat performed by Makhdum
+    Jahaniyan" (p. 301, folio 279).
+  - **He is a measure of other men's standing at Delhi.** "At that time the Makhdum Jahaniyan had gone
+    to Delhi. The Sultan and his nobles used to pay their respects to the famous Suhrawardi and great
+    glamour surrounded his personality. The Baba suggested to Shaikh Ahmad that he should become the
+    disciple of the great Shaikh, but Ahmad refused to leave his pir" (p. 429, folio 405); and "At that
+    time Makhdum Jahaniyan also happened to visit Delhi. He called on Ahmad-i Khattu and hugged him,
+    telling him he reminded him of his friend, Baba Ishaq" (p. 429, folio 405).
+
+- **Succession and reach**
+  - "His successor was his brother, Sadru'd-Din, who achieved fame under his nicknames, Raju, and
+    Qattal (Slayer), for his militant evangelism" (p. 303, folio 281); "The Suhrawardi si/sila [OCR?]
+    [silsila] spread further through both the sons and grandsons of Makhdum Jahaniyan and Saiyid Raju
+    Qattal" (pp. 303–304, folios 281–282). His son "Saiyid Mahmud Nasiru'd-Din… too lived in Uch and
+    attracted disciples from Multan and neighbouring areas. He had a very large family and is believed
+    to have died in 847/1443-44" (p. 304, folio 282). The index adds "Muhammad b. Makhdum Jahaniyan,
+    282" (p. 476, folio 452).
+  - **Kashmir through disciples** — "the Suhrawardiyya order was revived in Kashmir by Saiyid Muhammad
+    Isfahani, a disciple of Makhdum Jahaniyan", and "Saiyid Jamalu'd-Din, a sufi of the Makhdum
+    Jahaniyan's order, made a spectacular impact on the sufi scene in Kashmir" (p. 312, folio 290).
+
+- **Legends & Miracles**
+  - **A death-bed scene at Uch with a named Hindu official.** "The Hindu, Nawahun, visited Makhdum
+    Jahaniyan on his death-bed and while praying for his recovery stated that the Saiyid was the seal of
+    the saints, just as the Prophet Muhammad was the seal of the prophets" (p. 301, folio 279); the
+    Saiyid "concluded that Nawahun's statement amounted to a protestation of faith" (p. 302, folio 280).
+    Nawahun is "the darogha of Uch", footnoted "A revenue official entrusted to keep accounts in
+    Persian" (p. 301, folio 279).
+  - **A death curse that works instantly, told without comment.** Saiyid Raju "retorted that the Shaikh
+    was dishonest and would die for it. Instantly Shaikh Muhammad was seized with a violent stomach-ache
+    from which he died. Nawahun was handed over to Saiyid Raju who again refused to embrace Islam and was
+    executed" (p. 302, folio 280).
+  - **The Mahbubiya's travel miracles, reported and disowned in the same paragraph.** The stories "should
+    not be accepted literally"; the Saiyid "even performed the rare and hazardous journey to China and
+    Mongolia, at the same time converting the local inhabitants en route"; "stock-in-trade anecdotes of
+    Saiyid Jalalu'd-Din Bukhari's encounter with yogis, all whom he ultimately converted to Islam"; "the
+    Saiyid travelled through Ceylon where, according to the author, Islam had failed to penetrate. There
+    again he was reported to have converted a yogi" (p. 300, folio 278).
+  - **A conversion by supernatural feat** — the Jat chief of Sind (p. 301, folio 279).
+  - **Three generations of Uch saints in contests with yogis.** "all the stories dealing with three
+    generations of these 'sufis in Uch recount conflicts with Hindu Yogis. Although the ultimate success
+    in the performance of supernatural feats is ascribed to the Suhrawardis, that of the yogis is not to
+    be underestimated. Habitually, the stories end with the Islamization of the vanquished in various
+    types of competitions" (p. 304, folio 282).
+  - **His disciple's shirt cures a cursed Sultan.** "The Sultan sought the protection of Shaikh Siraj
+    Sukhta, a disciple of the Makhdum Jahaniyan, who gave him his shirt to wear. The holy shirt cured the
+    Sultan" (p. 340, folio 318); the Sultan is "Qadir Shah, (1410-35)… ruler of Kalpi" (p. 340, folio 318).
+  - **The Jalali snake-swallowing, with its ʿAlid gloss.** "Jalali saints who had achieved a certain
+    standard of perfection like the Haidaris would swallow snakes saying they were 'Ali's fish and
+    scorpions were called 'Ali's prawns" (p. 342, folio 320), sourced to "Dabistan-i Mazahib, p. 215".
+
+- **Texts**
+  - **Four collections of his teachings, with their compilers, one of them supervised by him.** The Delhi
+    discourses were "the work of his disciple Abu 'Abdu' llah 'Ala'u'd-Din 'Ali bin Sa'd bin Ashraf bin
+    'Ali al-Quraishi al-Husaini. The Makhdum Jahaniyan encouraged the author in his undertaking and
+    clarified particular points he could not understand. The work was called the Khulasatu'l-Alfaz
+    Jami'u'l-'Ulum. Another of the Makhdum Jahaniyan's disciples, Makhdumzada 'Abdu'llah, compiled a
+    summary of discourses delivered by the great saint on different occasions, but these lack the
+    pithiness of those featured in the Khulasatu'l-Alfaz. The work is entitled the Siraju'l-Hidaya. The
+    Khazinat al-Fawa'id al Jalalaliyya, composed by Ahmad bin Ya'qub in 752/1351 and the Khazinah-i Jalali
+    by Abu'l Fazl bin Ziya' are compendiums of the teachings of the Makhdum Jahaniyan which, however, lack
+    the personal touches contained in malfuzat." (p. 22, folio 8). The Khulasatuʾl-Alfaz is described again
+    at p. 300 (folio 278), with its doctrine: "beginners on the mystic path should not concern themselves
+    with trying to understand the philosophy of the Wahdat al-Wujud as it was for experts only".
+  - **A fifth work on four generations of his family.** "The Mahbubiyya by Najmu'd-Din Yusuf bin
+    Ruknu'd-Din Muhammad Nia'mu'llah Gardezi covers various stories in the life of the Makhdum Jahaniyan,
+    Saiyid Jalal Bukhari, and the latter's son, grandson and great-grandson." (p. 24, folio 10). **The son,
+    grandson and great-grandson are unnamed there — (not stated).**
+  - **Two manuscript sources, one with a full shelfmark.** "Anonymous, Managib-i Makhdum-i Jahaniyan [OCR?]
+    [Manaqib-i Makhdum-i Jahaniyan], lvanow [OCR?] [Ivanow], 1210." (p. 448, folio 424); "Anonymous, Safar
+    Nama-i Makhdum Jahaniyan, India Office, D.P. 1107." (p. 448, folio 424). The index carries "Safar
+    Nama-i Makhdum Jahaniyan, 278" (p. 483, folio 459).
+
+- **Significance**
+  - **The book makes him the man who revived the Suhrawardiyya after Multan's decline** — "As discussed in
+    the previous chapter, after the death of Shaikh Ruknu'd-Din the order declined in Multan only to be
+    rejuvenated in Uch" (p. 299, folio 277) — **the originator in India of double initiation across two
+    orders** (p. 292, folio 272), a broker of peace and of tax relief (p. 301, folio 279), and a puritan who
+    attacked the lamp-and-whitewash cult of graves (p. 302, folio 280).
+
+### Doubts the notes raise on this row
+
+| row | the book prints | the archive row | status |
+|---|---|---|---|
+| `shrine-of-makhdoom-jahaniyan-jahangasht` | **b. 15 Shaʿban 707/9 February 1308, d. 10 Zuʾlhijja 785/3 February 1384** (pp. 299, 303; folios 277, 281); index "(b. 1308, d. 1384)" | `figure_died` **1384** | **Agreement, and the only archive date this book confirms.** |
+
+5. **`shrine-of-makhdoom-jahaniyan-jahangasht` at p. 295 (folio 275) and p. 429 (folio 405) is mapped by
+   transfer.** The book there prints only "Saiyid Jalal Bukhari" and "the Makhdum Jahaniyan" with no
+   personal name; the transfer rests on the equation "Makhdum Jahaniyan Saiyid Jalal Bukhari" at p. 292
+   (folio 272). **If a reviewer rejects the transfer, drop those two bullets and keep the rest.**
+   **Sharper: at p. 342 (folio 320) the book prints the compound "Makhdum Jahaniyan Saiyid Jalal Bukhari",
+   which fuses the grandson's title with the name that is the handle for the grandfather's row. The
+   material there is mapped by the title — but if the Jalali order is in fact traced to the grandfather,
+   the Shiʿism, the nakedness, the fire-sitting, the cap and spiritual tree and the snakes move wholesale
+   to `shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari`. This is the mapping most worth a
+   human's eye.**
+
+### Place-level material: UCH SHARIF
+
+*The book's place-level material on "UCH SHARIF" (5 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari, shrine-of-makhdoom-jahaniyan-jahangasht, tomb-of-baha-al-halim-uch-sharif, tomb-of-javindi-bibi, tomb-of-ustad-nuriya** — **UCH SHARIF, the archive's 5 rows, and the single most valuable place-level conversion in this book: a foundation legend for an archive town.** "the Shaikh founded a town later called Uch" (p. 129, folio 111), of Shaikh Safiuʾd-Din Kaziruni, who "ordered him to mount a camel and travel in whatever direction the animal led him; he was then to remain where the camel finally halted", the halt being "in the middle of a desert" (p. 129, folio 111) — Rizvi's verdict, "Although this story would appear mythical, it is typical of medieval tales relating to sufis." Also: "The Baba found a lonely mosque in Uch" (p. 158, folio 140); "a Malik of Uch and Multan" (p. 172, folio 154); "(at Delhi from Uch, near Multan)" (p. 258, folio 238); "he went to Multan and Uch. At Uch it is possible that he was formally initiated into the Suhrawardiyya order as is suggested by local legends" (p. 337, folio 315) — **a Suhrawardi initiation attached to the town itself**; the flying contest with the yogi "at Uch" (pp. 129–130, folios 111–112); the whole Uch section's statement that "all the stories dealing with three generations of these 'sufis in Uch recount conflicts with Hindu Yogis" (p. 304, folio 282); Uch as an economic statement in the Conclusion (p. 421, folio not stated); and the index headword "Uch, 110, 140, 154, 240, 267, 273, 277-82, 285, 291, 316, 320, 396" (p. 489, folio 465). **`tomb-of-javindi-bibi` and `tomb-of-ustad-nuriya` get nothing else at all: the book's own Uch section (pp. 299–304, folios 277–282) names no woman and no builder or craftsman — a substantive negative.**
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Panjab"; refers to: Ghaznawid rule, "Yamain al-Dawla Mahmud (388/998-421/1030)" and "Bahram Shah (1118-52)" as printed; book's historical prose): Mahmud "established Ghaznawid rule over Khurasan, Afghanistan and the Panjab"; after two defeats by 'Ala'u'd-Din of Ghur, "Bahram Shah was forced to flee to the Panjab" (p. 83, folio 67).
+- (book's word: "the Panjab"; refers to: Mahmud of Ghazna's annexation and after, with Hujwiri reaching Lahore "in c. 1035, while Sultan Mas'ud I (1031-41) reigned in Ghazna"; book's historical prose): "the annexation of the Panjab by Mahmud of Ghazna and its incorporation into his empire prompted many sufis to settle in the area"; Khattali "ordered his disciple, Shaikh Husain Zinjani to move to the Panjab", and later sent Hujwiri after him (p. 130, folio 112).
+- (book's word: "the Panjab"; refers to: "the middle of the twelfth century", after "'Ala'u'd-Din Husain of Ghur in 1150-51, followed by the Ghuzz invasion six years later"; book's historical prose): Baba Farid's ancestors "came from Kabul, but migrated to the Panjab in the middle of the twelfth century" (p. 156, folio 138); the destruction of Ghazna and the Ghuzz invasion "drove a large number of people from that region to the Panjab for safety"; the book names "The Ghaznawid Sultan of the Panjab" as the one who made Farid's father Qazi of Kahtwal (p. 157, folio 139).
+- (book's word: "the southern part of the Panjab"; refers to: "1175", as printed; book's historical prose): "A hundred and fifty years later in 1175 Mu'izzu'd-Din Muhammad bin Sam seized Multan, establishing firm control and Sunni rule over the southern part of the Panjab" (p. 128, folio 110).
+- (book's word: "the Panjab"; refers to: after Jalalu'd-Din's defeat "in November 1221" and Chingiz Khan's march back west; book's historical prose): Chingiz Khan's "absence enabled Itutmish [OCR?] [Iltutmish] to consolidate power in the Panjab, seven years later routing from Sind his rival, Nasiru'd-Din Qubacha" (p. 152, folio 134).
+- (book's word: "the Panjab"; refers to: "previous years" before Muhammad bin Tughluq's scheme "attempted in 1327"; book's historical prose): the Sultan raised "the slogan of jihad against the Mongols, who in previous years had devastated the Panjab and the region around Delhi" (p. 193, folio 175).
+- (book's word: "the Panjab"; refers to: "Timur's invasion in 1398-99", as printed; book's historical prose): "Timur's invasion in 1398-99 devastated both the Panjab and Delhi" (p. 290, folio 270).
+- (book's word: "the Panjab"; refers to: the time of Saiyid Jalalu'd-Din Bukhari, Makhdum-i Jahaniyan, born "15 Sha'ban 707/9 February 1308", and of "Sultan Firuz Shah Tughlug" [OCR?] [Tughluq]; book's historical prose): the Suhrawardiyya order "spread from Uch to Gujarat, the Panjab and Kashmir even extending its influence to the Delhi of Sultan Firuz Shah Tughlug [OCR?] [Tughluq]" (p. 299, folio 277).
+- (book's word: "the Punjab"; refers to: the time of "Mongol domination of Central Asia and Iran", Shaikh Baha'u'd-Din Zakariyya and Baba Farid; book's historical prose): Qalandariyyas and Jawaliqis passed through Multan, where they "often came into conflict with Shaikh Baha'u'd-Din Zakariyya"; "From the Punjab, the displeased qalandars moved to Delhi creating scenes wherever they saw a khanqah. Some went as far east as Bengal" (p. 325, folio 303).
+- (book's word: "the Panjab"; refers to: "the fifteenth century", with "The Mongol invasions between the thirteenth and fourteenth centuries" behind it; book's historical prose): "In the fifteenth century, the Panjab enjoyed a peaceful period due to Afghan rule. The Mongol invasions between the thirteenth and fourteenth centuries had devastated portions of the Panjab and the Afghans had successfully contributed to its re-settlement and urbanization by founding many new towns and promoting trade and commerce" (p. 408, folio 384).
+- (book's word: "the Panjab", "west Panjab"; refers to: "About 1520" and Babur's third invasion "in 926/1520", as printed; book's historical prose): Guru Nanak returned from eastern India "only to find the Panjab plunged into a number of significant political crises"; Babur "started unsuccessful negotiations with Ibrahim to annex west Panjab to Kabul. After two minor raids around the region between the Indus and Jhelum, Babur invaded a third time over the Panjab in 926/1520 reaching as far as Sialkot"; a footnote says Daulat Khan "Gradually he also became the governor of the Panjab and in [1523 [OCR?] invited Babur to invade India" (p. 409, folio 385).
+- (book's word: "Panjabi", "the Panjab"; refers to: "Guru Nanak's period"; quoted source, W.H. McLeod, *Guru Nanak and the Sikh religion*, quoted so that Rizvi can reject it): "the Panjabi sufism of Guru Nanak's period had evidently departed radically from the classical pattern of Arab and Persian Sufism"; most Muslims Nanak met "would, however, represent in varying degrees the blend of modified orthodoxy and debased Sufism which was dominant … in the Muslim community of the Panjab during this period" (pp. 419–420, folios 395–396).
+- (book's word: "Panjabis", "the Panjab"; refers to: "the time of Guru Nanak"; author's argument, against McLeod): "all literate Panjabis, both Hindus and Muslims, at the time of Guru Nanak were conversant with" 'Attar, Rumi and Sa'di; McLeod "seems to be unaware of Shaikh 'Abdu'l-Quddus Gangohi who lived in Shahabad, his disciple, Shaikh Jalal of Thaneswar, and the Qadiris who had made the Panjab the main centre of their activities" (p. 420, folio 396).
+
+## From Omar Kasmani, Queer Companions
+
+*Integrated 12 October 2026 from `entries/book_takeaways/kasmani_queer_companions.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Uchh
+
+*The book's place-level material on "Uchh" (5 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+  - The book's only Uch material is one clause: "Jalaluddin Surkhposh Bukhari (d. 1291) of Uchh.
+    Their shrines are spread across southern Punjab in Pakistan." (p. 188, folio 171, ch. 1 n. 17)
+    **That is all**; nothing else about the place or any of these five sites appears anywhere in 225
+    pages: **(not stated)**. The book spells it "Uchh" against the archive's "Uch Sharif".
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "central Punjab"; refers to: "the colonial period" set against "the postcolonial state", as the book reports them; quoted source, Umber bin Ibad 2019): "Though focusing only on central Punjab, Ibad notes that in the colonial period, “the state did not try to control shrines directly through its bureaucracy”; however, the postcolonial state has gone further, especially by virtue of implementing a unique politico-religious ideology" — in his view, a desire "to harness the pluralistic traditions of shrines in favor of “representing a Singular Islam”" (Ibad 2019, introduction) (p. 69, folio 52).
+- (book's word: "central Punjab"; refers to: stated in the present tense as a general condition, framed by Baba's childhood in a Punjab village "Decades on" from the 2012–2013 tellings; period otherwise not stated; author's argument): "Being a child in a poor rural family in central Punjab, one who is regarded as intersex means being given to particular bodily horizons, oriented to certain futures more than others"; "a most likely trajectory for a child such as Baba would have eventually involved a life with the khwaja-sara"; such children, "Given male names at birth and in most cases also registered as sons", "do not extend the social promise of family lines that cisgender sons are expected to offer" (p. 73, folio 56).
+- (book's word: "parts of Sindh and Punjab"; "Rural Punjab and Sindh" in the cited title; refers to: period not stated — the study is dated 2010 in the References; quoted source, Lubna Chaudhry): "In a study of women and poverty in parts of Sindh and Punjab, Lubna Chaudhry notes how unmarried girls in their teens and early twenties are most vulnerable. She points to discriminatory food portions within the family and limited access to health care, in addition to a lack of share in economic resources, even those that involve their labor" (p. 191, folio 174, ch. 2 n. 24; the study is "Women and Poverty: Salient Findings from a Gendered Analysis of a Quasi-Anthropological Study in Rural Punjab and Sindh", 2010, p. 205, folio 188).
+
+## From Michel Boivin, Hindu Sufis of South Asia
+
+*Integrated 12 October 2026 from `entries/book_takeaways/boivin_hindu_sufis_south_asia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+*Attached as this book's claim, not as a settled identification or date (Rauf, 10 October 2026). This row was held over an open question (a death year, or which man or which shrine is meant); the book's material and its doubts are shown as they stand and do not settle it.*
+
+The book's names for him: **"Jalal al-Din Bukhari Makhdum-i Jahaniyyan Jahangasht"**, **"Sayyid Jalal
+al-Din Bukhari"**, **"Makhdum Jahaniyyan Jahangasht"**. Present in chunks 003, 010 and 012.
+
+- **Saint**
+  - **Two death years, and the book does not reconcile them.** Life dates printed "(**1308–84**)", with
+    the second year abbreviated: "Qutub Ali Shah was a descendant in direct line from the great
+    Sohrawardi Sufi Jalal al-Din Bukhari Makhdum-i Jahaniyyan Jahangasht (1308–84), who was one of the
+    masters of the second Sohrawardiyya period, then based in **Utch near Bahawalpur in Punjab**."
+    (p. 56, folio 43) — the archive row's `1384` is supported by the printed `–84`. Against that:
+    "Jam Juna I Samma would have to ask for the intercession of **a saint of Multan**, Sayyid Jalal
+    al-Din Bukhari, better known under the name of Makhdum Jahaniyyan Jahangasht (**d. 1383**)."
+    (p. 189, folio 176) **1384 and 1383 stand side by side; and the book calls him "a saint of Multan"
+    where the archive locates the shrine at Uch Sharif. Both conflicts recorded, neither resolved. No
+    birth year on p. 189, no silsila there: (not stated).**
+  - **Order**: "the great **Sohrawardi** Sufi" and "one of the masters of the second **Sohrawardiyya**
+    period" (p. 56, folio 43). The order is indexed separately and much more heavily than the man:
+    "Jahaniyya 60, 82, 85, 99, 132, 154, 187" (p. 244, folio 231), with "sajjada nashin — of Jahaniyya
+    60" and "— of Tando Jahaniyyan 99" (p. 248, folio 235).
+  - **An office under a named sultan**: "He was named **shaykh al-islam** by the sultan of Delhi Muhammad
+    bin Tughluq." (p. 56, folio 43) **No regnal date, no year of appointment: (not stated).**
+  - **A political intercession, dated**: "In **1367**, his successor, Firuz Shah Tughluq, returned to lay
+    siege to Thatha; Jam Juna I Samma would have to ask for the intercession of a saint of Multan…"
+    (p. 189, folio 176)
+
+- **Shrine / Darbar**
+  - **The book names a base, not a tomb**: "then based in Utch near Bahawalpur in Punjab" (p. 56,
+    folio 43). **No shrine description, no building date, no custodian, no ʿurs: (not stated). The archive
+    row's `Uch Sharif, Bahawalpur District` is the book's `Utch near Bahawalpur in Punjab`.**
+  - **Index**: "Jahangasht, Jalal al-Din Bukhari Makhdum-i Jahaniyyan 43" (p. 244, folio 231) — the full
+    printed form carries both "Makhdum-i Jahaniyyan" and "Jahangasht". Folio 43 also carries "Utch
+    (Bahawalpur, Punjab) 43" (p. 251, folio 238), "Sohrawardiyya 38, 43, 85, 126, 187, 204 n.1",
+    "Tughluq, Muhammad bin 43" and "Sarmast, Sayyid Ali 43". **The index does not connect Utch to any of
+    them: (not stated).** A thesis on the lineage: "Matai, V. J., *Jahaniyyan khandan*, Jamshoro,
+    Institute of Sindhology, 2003 (M. A. Thesis 1972)" (p. 236, folio 223), and the source note "On Qutub
+    Ali Shah and the Jahaniyyan lineage, see the master's thesis by V. J. Matai submitted in 1972,
+    recently reprinted by the Institute of Sindhology (Matai 2003)." (p. 210, folio 197, Ch. 1 n. 15)
+  - **The "Jahaniyya silsila" is NOT stated by the book to derive from or be named after him.** "the
+    Sufis with whom they were in touch, including their masters, mostly belonged to two regional silsilas:
+    the Darazi silsila and **the Jahaniyya silsila**." (p. 200, folio 187) **Asserting the link would be
+    adding content; it is recorded here as unasserted. The book's Tando Jahaniyya is in Hyderabad, Sindh
+    — "Tando Jahaniyya, Hyderabad 14, 47, 82, 85, 99, 132" (p. 251, folio 238) — and the index does not
+    connect it to Uch Sharif: (not stated).**
+
+### Doubts the notes raise on this row
+
+- **Against `shrine_index.tsv`, recorded and not resolved.**
+  - `shrine-of-makhdoom-jahaniyan-jahangasht`: the book prints **"(d. 1383)"** and calls him **"a saint
+    of Multan"** (p. 189, folio 176); the archive row carries **1384** and locates the shrine at **Uch
+    Sharif, Bahawalpur District**. The book also prints **"(1308–84)"** for the same man at p. 56
+    (folio 43), and the id's own spelling is *jahaniyan*, one `y`, where the book prints "Jahaniyyan".
+  - `shrine-of-sachal-sarmast`: the book gives 1825 and 1829; the archive row carries **1827**.
+  - `dargah-pir-ratan-nath-jee`: the book puts the figure's dargah mandir in **Delhi**; the archive row
+    is at **Jhanda Bazar, Peshawar**. **Three readings are open and the book settles none**: a separate
+    Delhi dargah mandir of the same figure, a different figure, or a mislocated archive row.
+  - `shrine-at-odero-lal-udero-lal-teerath-asthan`: the book gives "the darbar of Udero Lal, the huge
+    sanctuary **close to Hyderabad**" and "Jhulelal/Shaykh Tahir" (p. 184, folio 171); the archive gives
+    **Odero Lal Village (near Tando Adam), Matiari District** and "Sheikh Tahir / Udero Lal (Jhulelal)".
+    **Divergent but not contradictory.**
+  - `shrine-of-bahauddin-zakariya` (1267) and `shrine-of-shah-rukn-e-alam` (1335): **the death years
+    agree with the archive**; only the order's spelling differs, "Sohrawardi" for "Suhrawardi" (p. 187,
+    folio 174).
+  - `dargah-of-khwaja-muhammad-zaman-luari-sharif`: the archive's silsila **Naqshbandi** matches the
+    Annexes passage on Lowari Sharif, **but the row's principal figure, Khwaja Muhammad Zaman, is not
+    named anywhere in the book: (not stated).**
+
+- **`Sayyid Jalal al-Din Bukhari`** — `shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari`
+  (d. 1291) and `shrine-of-makhdoom-jahaniyan-jahangasht` (d. 1384), both at Uch Sharif. **Settled on
+  the book's own gloss** — "better known under the name of Makhdum Jahaniyyan Jahangasht (d. 1383)"
+  (p. 189, folio 176), and "Jalal al-Din Bukhari Makhdum-i Jahaniyyan Jahangasht (1308–84)" (p. 56,
+  folio 43), whose `–84` matches 1384 and not 1291. **Recorded so the fork is not re-run.**
+
+- **"the Jahaniyya silsila" / "the Jahaniyyan lineage" ≠ that row** (pp. 73, 98, 166–167, 200; folios
+  60, 85, 153–154, 187). **A silsila name is not a mapping handle**, and no person is named. Note that
+  the Annex 2 chart strengthens the near-miss without closing it: it labels its Jahaniyya silsila
+  **`(Sohrawardiyya)`**, which now agrees with the row's Suhrawardi order, **but still names no person**
+  (p. 227, folio 214). **If a human confirms the link, the id is
+  `shrine-of-makhdoom-jahaniyan-jahangasht` and the facts are at p. 200 (folio 187) and p. 227
+  (folio 214).**
+
+- **`Tando Jahaniya` / `Tando Jahaniyya` / `Tando Jahaniyyan` ≠ `shrine-of-makhdoom-jahaniyan-jahangasht`**
+  (p. 27, folio 14; p. 60, folio 47; p. 112, folio not stated). The book locates Tando Jahaniyya "in
+  Hyderabad" and Jahaniyyan Jahangasht at "Utch near Bahawalpur in Punjab". **The resemblance is not
+  evidence.**
+
+### Place-level material: Utch near Bahawalpur in Punjab / Utch (Bahawalpur, Punjab)
+
+*The book's place-level material on "Utch near Bahawalpur in Punjab / Utch (Bahawalpur, Punjab)" (5 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**, **shrine-of-makhdoom-jahaniyan-jahangasht**, **tomb-of-baha-al-halim-uch-sharif**, **tomb-of-javindi-bibi**, **tomb-of-ustad-nuriya** (the book's "Utch near Bahawalpur in Punjab", indexed "Utch (Bahawalpur, Punjab)")
+  — **place-level.** "one of the masters of the second Sohrawardiyya period, then based in **Utch near
+  Bahawalpur in Punjab**" (p. 56, folio 43); indexed "Utch (Bahawalpur, Punjab) 43" (p. 251, folio 238),
+  **the index's gloss giving district and province and nothing more: no shrine, tomb, saint, ʿurs or
+  custodian is attached: (not stated).** **The book spells the town "Utch" and the archive "Uch Sharif".
+  Bahawalpur taken alone matches only four of these five rows — `tomb-of-javindi-bibi` carries Uch Sharif
+  without Bahawalpur in its location — so the five-row head follows the "Uch Sharif" join.**
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Punjab"; refers to: "the eighteenth century"; book's historical prose, hedged "It is possible"): on the Nanakpanth among Sindh's Hindus: "The Nanakpanth would have been initiated later. It is possible that the Aroras imported this cult from Punjab during their migrations in Sindh in the eighteenth century. The Nanakpanth is a form of Sikhism that does not recognize the authority of the Khalsa" (p. 43, folio 30).
+- (book's word: "Punjab"; refers to: "the second half of the nineteenth century"; book's historical prose, citing Oberoi 1994): "the first attempt to rationalize and uniformize the Sikh tradition was implemented. This process of normalizing the Sikh tradition was centred on Punjab, and it did not concern the Sindhi Nanakpanthis who were heterodox Sikhs" (p. 53, folio 40).
+- (book's word: "Punjab"; refers to: period not stated, historical; author's argument citing Lorenzen 1996): "The Nirguni tradition was more influential in Northern India, especially in Punjab, where the Sikh tradition historically derived from the Nirguni tradition of the Bhakti" (p. 89, folio 76).
+- (book's word: "the southern present Punjab"; refers to: an unstated past time ("at the time when"); author's argument): the shared devotional culture "would be called Sindhian culture, which refers to a set of social, religious and cultural traits that existed in the Sindhi area at the time when it encompassed the southern present Punjab, and also the territories of Rajasthan and Gujarat" (p. 53, folio 40). The book does not say whether "present Punjab" means the Pakistani province. The Rajasthan/Gujarat half is under `not attached`.
+- (book's word: "Southern Punjab", "South Punjab"; refers to: present day for the language; "the Middle Ages" for the historical claim; author's argument, in an endnote, the glossary and the main text): Ch. 6 n. 11: "The Siraiki language is mainly spoken in Southern Punjab, with Multan as capital. Interestingly, this area was a part of Sindh during the Middle Ages" (p. 216, folio 203). Glossary: Siraiki is "a language spoken in Northern Sindh and Southern Punjab" (p. 220, folio 207). In the main text, for some specialists the Siraiki of Northern Sindh is "a distinct language from the Siraiki of South Punjab" (p. 171, folio 158).
+- (book's word: "Punjab"; refers to: period not stated; author's argument, in an endnote and Annex 2): "the Chishtiyya was not widespread in Sindh, while it is dominant in Punjab and North India" (General conclusion n. 1, p. 217, folio 204). "The Chishtiyya is usually considered to be one of the most powerful Sufi orders in Northern India and Punjab" (p. 227, folio 214). The book does not say which Punjab.
+- (book's word: "Punjab"; refers to: "the Pax Britannica imposed by the colonial rule", and present-day scholarship; author's argument): scholars of Sindhi studies treat Sindh's religious encounters "as if comparable dynamics were not implemented in other regions, be they neighbouring Sindh, such as Punjab, Rajasthan or Gujarat, or elsewhere". "During the Pax Britannica imposed by the colonial rule, the exchange of goods and products was reinforced between the different regions of the north-western Indian subcontinent, including Punjab, Rajasthan, Gujarat and Sindh". Beyond the merchants there were "networks of circulating knowledge, and especially religious knowledge" (p. 196, folio not stated). The book does not give this colonial "Punjab" any boundary.
+
+## From Jürgen Schaflechner, Hinglaj Devi
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schaflechner_hinglaj_devi.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Punjab"; refers to: "Currently", the time of writing; endnote): "the Punjab has 8 reserved minority seats out of 371" (the same note gives Sindh 9 of 168; the note cites the provincial assembly websites) (p. 28, folio not stated, endnote 5 to p. 15).
+- (book's word: "Punjab Textbooks Board"; refers to: a class V Urdu textbook dated "Lahore 2002"; author's argument citing Nayyar and Salim 2005): in Pakistani schoolbooks "the Hindu" is not only a danger to national security but "has always been an enemy of Islam" (p. 20, folio not stated). The endnote gives the source as "“Hindū hameśah se islām kā duśman rahā hai,” Urdu class V, Punjab Textbooks Board, Lahore 2002 (see Nayyar and Salim 2005, 20)" (p. 28, folio not stated, endnote 7).
+- (book's word: "the Punjab"; refers to: "the eighteenth century" for the Bhatia and Khatri migration, period not stated for Thakur's general remark; quoted source, Thakur 1997, and Cook 2010 as reported): migrants "from Rajputanta[text-layer?] [Rajputana?] and the Punjab" who "professed Lohana occupations have acquired membership of the Lohana caste" (Thakur 1997, 68f.); "The Bhatia and the Khatris, for example, arrived in the eighteenth century from cities in the Punjab—like Multan—and were ultimately absorbed as Lohanas (Cook 2010, 135)" (pp. 80–81, folio not stated).
+
+## From Pnina Werbner and Helene Basu (eds.), Embodying Charisma
+
+*Integrated 12 October 2026 from `entries/book_takeaways/werbner_basu_embodying_charisma.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Punjabi villages"; refers to: period not stated, ethnographic present of Werth's chapter; editors' introduction, Werbner and Basu, summarising Lukas Werth's chapter 4): "This is reflected even at the most local level, in the countless shrines to unknown saints found on the outskirts of Punjabi villages. Against the unique biographies of named saints, these anonymous shrines, Lukas Werth discloses here, call for explanation"; their anonymity is "a key feature, he suggests, of their placement as mediators between the dangerous forces of nature and cultural continuity" (p. 23, folio 12). Werth's own fieldwork is at Rajpur in the salt range (see Sweep notes); the generalisation to "Punjabi villages" is the editors'.
+- (book's word: "Punjab"; refers to: period not stated; contributor's endnote, Lukas Werth, ch. 4, n. 9): "I could not find in this case expressive allusions to Khidr, who is often called Zinda pir in Punjab, because he also is thought to have disappeared alive (see Schimmel 1975: 202)" (p. 101, folio 90).
+- (book's word: "Punjab"; refers to: period not stated; contributor's argument, Jamal Malik, ch. 9): "The cult of the holy man (pîr) and the associated folk piety is particularly evident in the countryside, where major landlords and large-scale land concentrations are crucial features, especially in Punjab and Sindh. In many cases, the local pîr represents the local landlord or is at least closely related to him" (p. 199, folio 188).
+
+## From Shemeem Burney Abbas, The Female Voice in Sufi Ritual
+
+*Integrated 12 October 2026 from `entries/book_takeaways/abbas_female_voice_sufi_ritual.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Uch / Uch śahr / Uch Sharif / Uch Gilanian / Bahawalpur
+
+*The book's place-level material on "Uch / Uch śahr / Uch Sharif / Uch Gilanian / Bahawalpur" (5 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**, **shrine-of-makhdoom-jahaniyan-jahangasht**, **tomb-of-baha-al-halim-uch-sharif**, **tomb-of-javindi-bibi**, **tomb-of-ustad-nuriya** (the book's "Uch", "Uch śahr", "Uch Sharif", "Uch Gilanian", and its "Bahawalpur" — 5 rows, of which 4 also carry Bahawalpur District)
+  - **The book's own epithet for the place.** "His original name was Abdullah Shah, and his family were
+    Syeds who had settled in Uch Gilanian, **the city of saints in Bahawalpur**, where Bulle Shah was
+    born" (p. 107, folio not stated). **This is the only characterisation of Uch anywhere in the book,
+    and it is a characterisation of the place, not of any shrine in it.**
+  - "Thou art an inhabitant of Uch city [Uch literally means high/great]" (p. 104, folio not stated),
+    and, in prose, "Bulle Shah's mentor Inayat Shah, he--he belonged to Uch city" (p. 104, folio not
+    stated).
+  - **A hereditary qawwāl family that migrated out of Uch with a saint's family.** "We came with Bulle
+    Shah's family from Uch Sharif, and we have learned his poetry from our ancestors, who have always
+    sung here" — Muhammad Bakhsh at Kasur (p. 112, folio not stated).
+  - Bahawalpur is also a point in the Siraiki belt (p. 148, folio not stated) and, with Multan, the
+    seat of the landowning Syeds who "support the shrines of their ancestors" (pp. 168–169, folios not
+    stated); it recurs as a bare place-name at p. 188 (folio not stated). **No archive row carries
+    "Bahawalpur" as its town, only as its district, which is why these four sit here.**
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Panjab"; refers to: the Bibi Pak Daman's arrival, "according to tradition", when the land was known as "Hind"; book's historical prose reporting tradition — "Supposedly", "It is reported that", "are said to have"): the Bibi Pak Daman "involved the men in disseminating Islam among the lay non-Muslim populations in the Panjab. The women spoke to the male scholars and to their audiences from behind the veil"; "seven hundred male scholars came with the Bibi Pak Daman to Hind, as the land was known then" (p. 161, folio not stated).
+- (book's word: "the Panjab"; refers to: period not stated, given in the context of Shah Inayat's descent in Bulle Shah's time; author's argument, and glossary definition): "The arāĩ in the Panjab were gardeners or small cultivators who worked on their own land" (p. 108, folio not stated); the Glossary defines instead "arāĩ A caste of landowners in the Panjab" (p. 178, folio not stated). The two definitions are kept side by side.
+- (book's word: "the Panjab"; refers to: period not stated, present tense, in the discussion of Waris Shah's Hir; author's argument resting on endnoted sources, glossary definition): "The Jats of the Panjab are zamindars (landowners), known for practicing widow-marriage"; the Siyal tribe "is one of the few tribes in the Panjab that allow women to inherit property under customary law" (p. 121, folio not stated); the Glossary adds "Siyal Clan name of Hir's family; powerful landowners of the Panjab" (p. 188, folio not stated), "Kher ās" [text-layer?: Kheṛās] "A powerful clan of landowners in the Panjab mentioned in the Hir-Ranjha myth" (pp. 183–184, folios not stated), and, under satti, "Some sections of Indian society, such as the Siyal Jats of the Panjab, permitted a widow to remarry, and she was not forced into satti" (p. 189, folio not stated).
+- (book's word: "the Panjab"; refers to: Waris Shah's time, "the eighteenth century" as the book dates his Hir at p. 120, and "now"; author's argument): Waris Shah "is said to have recited it with great emotion among his speech communities in the Panjab"; "there is now substantial recorded material of Waris Shah's Hir available", and "Many renowned folk artists in the Panjab, such as Reshma, Zahida Parvin, Nazir Begum, Sabiha Khanum, Tufail Niazi, and Iqbal Bahu, have sung it" (p. 123, folio not stated).
+- (book's word: "Panjabi wedding", "Panjabi ritual"; refers to: "traditionally", period not stated; author's argument, endnote): Hir's lament as she is carried off in the palanquin "is traditionally sung at almost every Panjabi wedding at the time of the bride's departure to her husband's home" (p. 124, folio not stated); an endnote adds that "The ḍolī (palanquin) has a strong emotional context in Panjabi ritual, as a complex of emotions are associated with it" (p. 206, folio not stated). "Panjabi" here is a cultural adjective, not a place name.
+- (book's word: "the Siraiki-speaking area of the Panjab", "the Panjab"; refers to: present tense, period not stated; author's argument, glossary definition): the Sohni myth "is sung in Sufi poetry in all the regions of the Sind, the Siraiki-speaking area of the Panjab" (pp. 126–127, folios not stated); the Glossary calls Mahival "The hero in the Sohni-Mahival myth of the Panjab" (p. 184, folio not stated).
+- (book's word: "Panjab"; refers to: present tense, period not stated; glossary definition): "dhammāl The vigorous ritual dance performed at Sufi shrines in Panjab and Sind" (p. 180, folio not stated).
+
+## From Regula Burckhardt Qureshi, Sufi Music of India and Pakistan
+
+*Integrated 12 October 2026 from `entries/book_takeaways/qureshi_sufi_music_qawwali.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Panjab", "Panjabi"; refers to: period not stated, ethnographic present of the author's fieldwork; author's argument): "tunes from the two principal regions of the Qawwali tradition, Uttar Pradesh and Panjab, can be distinguished mainly by their rhythmic setting"; "A predominantly quantitative emphasis characterizes tunes from Uttar Pradesh, while Panjabi tunes tend to be rhythmically organized according to 'quality' or stress"; the drum articulation of the metre, "which in Panjab is more strongly accentual than in Uttar Pradesh, corresponding with the respective drumming traditions of each region (as elaborated in Stewart 1974)" (p. 73, folio 53). The music example that follows is captioned "Panjab (Kisi ko kuchh)" against "Uttar Pradesh (Kachhjagmag)" (p. 75, folio 55), and the same song is said to exemplify "the 'Panjabi style'" (p. 58, folio 38). The book does not say whether its "Panjab" is the Pakistani or the Indian side, or both; it sets it against an Indian region (Uttar Pradesh), and the "Panjab" example was sung by "a Panjabi Qawwal, Rahmat Khan" (p. 57, folio 37) and recorded at "Qawwali Hall, 'Urs Nizamuddin" / "Auliya, 18 Apr. 1976" (p. 13, front matter, folio xi by the front-matter rule). Borderline: kept because it is a statement about the region's musical tradition in general, not a language remark.
+
+*Sweep notes:* Hits in the `.txt` chunks for the brief's pattern (case-insensitive, widened to catch diacritic loss with `P[aue]n.?j.?[a-z]?b`): "Panjab" 3 (p. 73 ×2; p. 75 caption); "Panjabi" 6 (p. 13 CD listing "(Panjabi version) Panjabi Qawwal and Party" ×2; p. 57 "a Panjabi Qawwal, Rahmat Khan"; p. 58 "'Panjabi style'"; p. 73 "Panjabi tunes"; p. 256 glossary "ang     regional or genre style (for example, Panjabi ang)", folio 236 by rule); "Punjabi" 1 (bibliography title "A Punjabi Village in Pakistan", Eglar, date printed "i960" [text-layer?] [1960], p. 269); "Sind" 3, all bibliography titles (p. 267 BALOCH, "Musical Instruments of the Lower Indus Valley ofSind" [text-layer?] [of Sind]; p. 274 "'Music and Culture in Sind: An Ethnomusicological Perspective'" and "Sind through the Centuries"); "Pathan" 1 (performer name "Alaf Din Pathan (Lahore)", discography, p. 282); "Punjab"/"Sindh"/"Baluchistan"/"Balochistan"/"Frontier"/"Pakhtunkhwa"/"NWFP"/"Kashmir"/"Multan"/"suba"/"Sindhi"/"Baluchi"/"Kashmiri": 0. The case-insensitive "Sind" pattern also matched "simultaneous(ly)" 11 times (chunks 006, 008, 012, 013): false positives. Excluded: the p. 13 CD listing, the p. 57 performer description and the p. 256 glossary entry (person or terminology, folded into the bullet as context only where they bear on it); all bibliography and discography lines (titles and a name, no substantive text). No toponym-only province hits. Flags for a human: the single bullet's "Panjab" is unbounded in the book (no India/Pakistan side stated) and its illustrative recording was made at the ʿurs of Nizamuddin Auliya, which the takeaways place in Delhi — a reviewer may prefer to move it to `not attached`.
+
+## From Robert Rozehnal, Islamic Sufism Unbound
+
+*Integrated 12 October 2026 from `entries/book_takeaways/rozehnal_islamic_sufism_unbound.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+*Attached as this book's claim, not as a settled identification or date (Rauf, 10 October 2026). This row was held over an open question (a death year, or which man or which shrine is meant); the book's material and its doubts are shown as they stand and do not settle it.*
+
+Named once, and **the book places him at Multan, not Uch Sharif**.
+
+- **The whole evidence.** Gul Surkh's grandson, "**Sayyid Jalal ad-Din Bukhari Makhdum-i Jahaniyan**
+  … the famous fourteenth-century Suhrawardi master of Multan" (p. 57, folio 47).
+- **His training, quoted by the book from *Sirat-i Zauqi*.** Jalal ad-Din "completed his training
+  under Shaykh Rukn ad-Din Abul Fatah Suhrawardi and Nasir ad-Din Chirag-i Delhi. Thus both the
+  Suhrawardi and Chishti systems were followed in the family." (p. 57, folio 47)
+- **No death date here: (not stated).** But see the person-level attachment below: the book
+  separately prints "Sayyid Jalal ad-Din Bukhari (1303–1383)" as Bibi Jawindi's husband (p. 21,
+  folio 10), and those dates sit one year off this row's `figure_died`.
+
+### Doubts the notes raise on this row
+
+3. **Sayyid Jalal ad-Din Bukhari's dates.** Printed "(1303–1383)" (p. 21, folio 10).
+   `shrine-of-makhdoom-jahaniyan-jahangasht` records 1384 — one year off;
+   `shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari` records 1291 — nearly a century off.
+   Both rows are attached under the many-row person rule; the dates favour the first.
+
+- **The Multan / Uch Sharif location conflict is real and symmetrical.** The book calls Baha ad-Din
+  Zakaria "the well-known Suhrawardi saint of **Uch Sharif**" (p. 57, folio 47) where the archive
+  places him at Multan City; and in the *same sentence-run* it calls Makhdum-i Jahaniyan "the famous
+  fourteenth-century Suhrawardi master of **Multan**" (p. 57, folio 47) where the archive places him
+  at Uch Sharif. **Neither is corrected here. A human must adjudicate, and should note that the two
+  errors, if they are errors, are exact mirror images of each other in one passage — which suggests a
+  single transposition rather than two independent mistakes.**
+
+### Place-level material: Uch Sharif / Uch / Bahawalpur District / Bahawalpur
+
+*The book's place-level material on "Uch Sharif / Uch / Bahawalpur District / Bahawalpur" (5 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**, **shrine-of-makhdoom-jahaniyan-jahangasht**, **tomb-of-baha-al-halim-uch-sharif**, **tomb-of-javindi-bibi**, **tomb-of-ustad-nuriya** (the book's "Uch Sharif" and "Uch", 5 rows; the same four rows less `tomb-of-javindi-bibi` are also the archive's whole "Bahawalpur District" set, so the book's "Bahawalpur" attaches to them too):
+  - **The town as the author saw it in April 1996.** "the nearby town of Uch Sharif", where he "spent
+    a day wandering through the magnificent blue and white tiled mosques and desolate tombs of this
+    ancient center of learning, trade, and pilgrimage built on a hill overlooking the confluence of
+    the Sutlej and Chenab rivers" (p. 21, folio 10). **"Desolate tombs" is the book's own
+    characterisation of the site as a whole; no tomb but Bibi Jawindi's is named.**
+  - **Its location, given twice.** "an ancient city located seventy miles southwest of Multan in
+    Pakistan" (p. 210, folio 202); and the archive's own placement is Bahawalpur District.
+  - **Uch as a Suhrawardi and Qadiri foundation.** The book calls Baha ad-Din Zakaria "the well-known
+    Suhrawardi saint of Uch Sharif" (p. 57, folio 47) — **against the archive, which places him at
+    Multan.** And Ch 5 n. 53, the book's richest single note on the town: "Shaykh 'Abd al-Qadir
+    Jilani Thani was the eldest son of Shaykh Muhammad al-Husseini al-Jilani, **the founder of the
+    first Qadiriyya khanaqah at Uch**. A native of Turkey, Shaykh Muhammad traveled to Khurasan and
+    then Multan before settling with his family in Uch" (p. 259, folio 252). 'Abd al-Qadir Jilani
+    Thani (d. 1533) is called "the famous Qadiri saint of Uch Sharif" (p. 210, folio 202), and the
+    book adds "there seems to be no extant archive of the saint, no textual record to document his
+    life and legacy" (p. 210, folio 202).
+  - **Further reading the book points to on the town.** "Mas'ud Hasan Shahab, Khitta-i pak Uch
+    (Bahawalpur: Urdu Academy, 1967/1993), 257–261" and "Rizvi, A History of Sufism in India, II: 58"
+    (p. 259, folio 252).
+  - **The index headword.** "Uch Sharif 10, 47, 202" — **no gloss and no `see also`** (p. 280,
+    folio 274).
+  - **Bahawalpur, attaching to the same four Uch Sharif rows.** The city is a fieldwork base (p. 26,
+    folio 15) and an interview locale throughout (April 28, 29, 30, May 2, 2001 — pp. 79, 80, 93,
+    174, 191, 220, folios 69, 70, 83, 166, 183, 212); Allahabad is "the rural village of
+    Allahabad—sixty miles southwest of the city of Bahawalpur—in southern Punjab" (p. 21, folio 10);
+    and "the local Nawab of Bahawalpur" is named as a patron of Wahid Bakhsh's commission, schooling
+    and Civil Secretariat post (pp. 72, 74, 87, 88, folios 62, 64, 77, 78). **The book never names
+    Uch in a Bahawalpur context**, so this attachment is purely administrative; weigh it lightly.
+
+### Person-level material: Sayyid Jalal ad-Din Bukhari
+
+*The book's person-level material on "Sayyid Jalal ad-Din Bukhari" (2 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the person, not about this shrine alone.*
+
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**, **shrine-of-makhdoom-jahaniyan-jahangasht** (the book's "Sayyid Jalal ad-Din Bukhari", 2 rows): the book names him once, with dates, as Bibi Jawindi's husband — "the wife of the renowned fourteenth-century Suhrawardi shaykh, **Sayyid Jalal ad-Din Bukhari (1303–1383)**" (p. 21, folio 10).
+  - **The printed dates fit one row and not the other.** `shrine-of-makhdoom-jahaniyan-jahangasht`
+    records `figure_died` 1384 — one year off 1383;
+    `shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari` records 1291, nearly a century off.
+    **The book gives nothing else to choose between them**, and the first row's own archive *name*
+    contains the string "Jalaluddin Bukhari", which is exactly the
+    trap a keyword pass falls into. Under the many-row person rule both take the bullet; a human
+    should weigh the dates. See Doubts.
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Punjab"; refers to: British colonial rule — the book's frame is "the British Raj", no years given in the sentence; quoted source: Katherine Ewing, *Arguing Sainthood*, 49, per n. 10): "British policy, especially in the Punjab and Sind, was to treat them in essentially the same way that landlords and tribal leaders were treated . . . They tried to maintain the traditional social structure intact, securing the loyalty of the pirs, landlords, and chiefs by reinforcing their economic positions and educating them in the British tradition." — "them" being "The hereditary saints [sajjada nishin]", who "were seen primarily in terms of their economic power" (p. 33, folio 23). Note 10 points for "the British policy toward local Sufi institutions and exemplars in the Punjab" to Ansari's *Sufi Saints and State Power: The Pirs of Sind, 1843–1947* and Gilmartin's *Empire and Islam: Punjab and the Making of Pakistan* (p. 241, folio 234; bibliographic only).
+- (book's word: "the southern Punjab"; refers to: from Wahid Bakhsh's khilafat being "publicly confirmed" "In 1975" and Shahidullah Faridi's "last will and testament", no year printed for the will; author's argument): Shahidullah's will says Wahid Bakhsh "has initiated halqa zikr and guidance in Bahawalpur" and "should spread the silsila in this place only"; the author reads this: "Here Shahidullah effectively delineates the southern Punjab as Wahid Bakhsh’s personal spiritual domain (wilayat)", adding that "In the following years, however, the shaykh’s duties Chishti Sabiri master rapidly expanded in scope and scale" (sentence printed so, a word apparently missing; not repaired) (p. 90, folio 80). The will names only Bahawalpur; the extension to "the southern Punjab" is the author's.
+
+## From Annemarie Schimmel, As Through a Veil
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schimmel_as_through_a_veil.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Punjab"; refers to: "in the centuries after his death", i.e. after the historian Bada'uni, as the book states, with no dates given; book's historical prose): "only in the centuries after his death did mystical poets in Sind and the Punjab develop the art of utilizing simple folk tales as media for mystical instruction" (p. 154, folio 136).
+- (book's word: "the Punjab"; refers to: period not stated, the poets being "contemporaries" of "the urban poets in India"; book's historical prose): "While the urban poets in India expressed their veneration of the Prophet in grandiose hymns to display their erudition, their contemporaries in the plains of Sind and the Punjab wrote tender little poems or instructive Golden Alphabets to instil love for him into the souls of the villagers" (p. 222, folio 204).
+- (book's word: "the Panjab"; refers to: period not stated; author's argument, endnote 80 to "Mystical Poetry in the Vernaculars"): the story of Muhammad ibn al-Hanafiyya, "a son of 'Ali by another wife than Fatima", "is found in the Panjab, in Bengal, South India, and Malaysia" (p. 284, folio 266).
+- (book's word: "Panjabis"; refers to: present tense, no date; the version is dated "the late eighteenth century"; author's argument): the romance of Hir Ranjha (printed "Hfr Riinjhii" [text-layer?] [Hīr Rānjhā]), "elaborated in more than a hundred versions in Panjabi, Urdu, Sindhi, and Persian, was given its final form in the late eighteenth century by Warith Shah. It is his verse which is sung, time and again, wherever Panjabis meet" (p. 171, folio 153). This is about a people, not a territory, and the book does not say where they meet.
+
+## From Annemarie Schimmel, Mystical Dimensions of Islam
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schimmel_mystical_dimensions_of_islam.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+*Attached as this book's claim, not as a settled identification or date (Rauf, 10 October 2026). This row was held over an open question (a death year, or which man or which shrine is meant); the book's material and its doubts are shown as they stand and do not settle it.*
+
+Printed `Jalaluddin Makhdum-i Jahaniyan` and `Jalaluddln Makhdum-i Jahaniyan` [text-layer?:
+Jalāluddīn Makhdūm-i Jahāniyān] (pp. 385, 518, 520).
+
+- **Saint**
+  - **Two readings of the death year, and the book disagrees with the archive.** Running text:
+    `(d. 1383` [text-layer?: clean]`)` (p. 385, folio 354); index: `Jalaluddln Makhdum-i Jahaniyan
+    (d. 1382-83), 354` (p. 518, folio 487). **The archive row records 1384.** All three are kept;
+    none is resolved.
+  - The whole of what the book gives: `the active and pious Jalaluddin Makhdum-i Jahaniyan, "whom all
+    the inhabitants of the world serve" (d. 1383), a prolific writer in almost all religious fields.`
+    (p. 385, folio 354) — **the gloss of the title is the book's own**.
+  - He is given as the reason Ucch was `for a while, the center of the Suhrawardiyya` (p. 385,
+    folio 354), which agrees with the archive row's recorded Suhrawardi silsila.
+  - Cross-referenced at `Makhdum-i Jahaniyan. See Jalaluddin Makhdum-i Jahaniyan` (p. 520, folio 489).
+    **No** shrine, **no** site, **no** tomb, **no** Uch building — (not stated).
+
+### Place-level material: Ucch
+
+*The book's place-level material on "Ucch" (5 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**, **shrine-of-makhdoom-jahaniyan-jahangasht**, **tomb-of-baha-al-halim-uch-sharif**, **tomb-of-javindi-bibi**, **tomb-of-ustad-nuriya** (the book's `Ucch` — all 5 Uch Sharif rows, ruling (a); the book prints `Ucch`, never
+  `Uch Sharif`, and the identification was made from the book's own content — the place is
+  `northeast of Multan`, Sayyid Jalāluddīn Surkhpūsh settled there, and Makhdūm-i Jahāniyān made it the
+  centre of the order):
+  - Location as the book gives it: `Ucch, northeast of Multan` (p. 385, folio 354). **No district, no
+    province** — (not stated).
+  - **The centre of the Suhrawardiyya**: `Ucch was, for a while, the center of the Suhrawardiyya,
+    thanks chiefly to the active and pious Jalaluddin Makhdum-i Jahaniyan, "whom all the inhabitants of
+    the world serve" (d. 1383 [text-layer?: clean]), a prolific writer in almost all religious fields.`
+    (p. 385, folio 354).
+  - **The entry point of the Qadiriyya into the Subcontinent**: `It was in Ucch that the first
+    missionaries of the Qadiriyya settled in the late fifteenth century; from there this order spread
+    into the Subcontinent, where it soon gained a firm footing and was carried to Indonesia and
+    Malaysia.` (p. 385, folio 354). **The missionaries are not named** — (not stated). Compare the
+    book's other statement of that arrival, which gives a different century and no place: `the order
+    was introduced in the late fourteenth century` in `the Indo-Pakistani Subcontinent` (p. 278,
+    folio 247). **The two are kept side by side.**
+  - The index's `Ucch, 354` (p. 527, folio 496) was recorded; the key is `uch sharif`, so it never
+    literally fired.
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Punjab"; refers to: the Mogul period, "the Mogul emperors (especially Akbar)"; author's argument): interest in Rumi's work "seems to have been common to all classes of society—the Mogul emperors (especially Akbar) were as fond of him as the simple villagers in Sind and Punjab" (p. 358, folio 327).
+- (book's word: "Punjabi"; refers to: present day ("still claim"), looking back to "Nizamuddln's time" [text-layer?: Niẓāmuddīn's]; ethnographic present): in Nizamuddin's time "Sufism became a mass movement in northwestern India", and "A number of Punjabi tribes still claim to have been converted by Fariduddin Ganj-i Shakar" (p. 381, folio 350; header printed `35O` [text-layer?: 350]).
+- (book's word: "the Punjab"; refers to: the time of "Shah Ismacll [text-layer?: Ismāʿīl] Shahid" and "Sayyid Ahmad of Bareilly", no date given for the occupation; book's historical prose): both were "known for their brave fight against the Sikh, who had occupied the whole of the Punjab and part of the northwestern frontier" (p. 403, folio 372). The book's unit here is the Punjab as occupied by "the Sikh"; carried as printed.
+- (book's word: "a Panjabi village", "The Punjab"; refers to: present day, with Warith Shah's form dated "in the late eighteenth century"; ethnographic present and author's argument): "The visitor who stays in a Panjabi village will certainly find somebody to sing for him the old romance of Hir Ranjha in the classical form given it by Warith Shah"; "The Punjab and the Indus valley have a common tradition of mystical folk literature" (p. 414, folio 383; the section heading `MYSTICAL POETRY IN THE REGIONAL LANGUAGES— SINDHI, PANJABI, PASHTO` begins mid-page under an ordinary header).
+- (book's word: "the Punjab", "the two provinces"; refers to: "back to the fifteenth century", with Madho Lal Husayn as "sixteenth-century"; book's historical prose): "Reliable tradition traces the use of the native language for mystical poetry both in Sind and in the Punjab back to the fifteenth century"; Madho Lal's allusions to the stories of Hir and of Sohni Mehanwal "seems to inaugurate (or perhaps even continue from unknown beginnings) a tradition typical of the religious poetry of the two provinces: the insertion of folk tales into the context of mystical thought" (p. 415, folio 384).
+- (book's word: "The Punjab"; refers to: period not stated (an eighteenth-century Panjabi poet is quoted); author's argument): "The Punjab and Sind show close similarities in the types of mystical literature that nourished there"; Panjabi and Sindhi "were excellent media to express mystical feelings, though not mystical theories"; the themes "were sung time and again in forms inherited from the Indian past—dhoras, kdfh [text-layer?: kāfī], way—not in the Persian form of ghazal", in forms "closely connected with indigenous musical modes"; the attack on the "molld" [text-layer?: mollā] was taken up "by the mystics in the northwest part of the Subcontinent", and such verses "appealed particularly to the peasants and the illiterate" (p. 416, folio 385).
+- (book's word: "both provinces"; refers to: period not stated; author's argument): "In both provinces, a preference for the motif of spinning and weaving can be observed, a natural propensity in a cotton-growing country"; "Both provinces have also produced hymns extolling the great masters of the mystical orders, particularly cAbduDl-Qadir Gilanl [text-layer?: ʿAbduʾl-Qādir Gīlānī]"; the imagery "could easily be understood by everybody in the village" (p. 417, folio 386).
+- (book's word: "the Punjab"; refers to: period not stated, the example Sheikh Tahir is "sixteenth-century"; author's argument): "A strange fact—more visible in Sind than in the Punjab—is the way Hindus shared in the Muslim orders. Some saints were claimed by both communities" (p. 418, folio 387).
+- (book's word: "the Punjab"; refers to: "after 1800" and "the twentieth century"; book's historical prose): "In the Punjab, the literary heritage of Panjabi was rarely continued by Muslims after 1800, though in the twentieth century a number of mystical treatises have been written and published in Panjabi, including a part translation of Rumi's Mathnawi" (printed "Rumi'sMathnawi"); the language "was used almost exclusively by the Sikhs as their literary medium, whereas the Panjabi Muslims resorted to Urdu", "though they enjoyed and still enjoy listening to the simple mystical verses and ballads in their spoken mother tongue" (p. 427, folio 396; header printed `306` [text-layer?: 396]).
+- (book's word: "the Punjab"; refers to: period not stated; author's argument, Appendix 1): the Ahmad bila mim tradition "has been repeated in high literature as much as in popular mystical poetry, be it among the Turkish Bektashis or among the mystical bards of Sind and the Punjab" (p. 451, folio 420; header printed `42O` [text-layer?: 420]).
+- (book's word: "Punjab", "the Punjab"; refers to: period not stated, Sayyid Muhammad Jiw Jan is "in the seventeenth century"; author's argument, Appendix 2): "In the province of Sind, as well as in Punjab, a special aspect of mystical appreciation of women can be observed that is rarely encountered in other parts of the Muslim world, i.e., the representation of the longing soul in the form of a woman"; the bridal symbolism "is used mostly in the mystically interpreted folk tales of Sind and the Punjab"; "The tragic heroines of the Sindhi and Panjabi folk tales—like Hir, Sassui, Sohni, and many others—represent the human soul in search of the beloved" (p. 465, folio 434).
+
+## From Haroon Khalid, Walking with Nanak
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_walking_with_nanak.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Uch Sharif
+
+*The book's material headed "Uch Sharif (place-level: 5 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **Shrine / Darbar** (travelogue)
+  - The older city is on a mound, with "massive havelis … of the current caretakers of the shrine, the Gilanis and the Makhdooms" (p. 276, folio 250). The group of "thirteenth and fourteenth century shrines" was reached through "the market"; Iqbal Qaiser: "This place has changed since the last time I came here" (p. 281, folio 255). On the mound, "several graves … which were covered arbitrarily with the blue and white Multani tiles that had been recovered from these historical shrines" (p. 285, folio not stated).
+  - "River Sutlej, the lost river of Pakistan, used to flow from here before it was lost forever after the Indus Water Treaty was signed between India and Pakistan in 1960"; "Nanak must have seen these buildings intact with a mighty river flowing next to it" (pp. 281–282, folios 255–256).
+  - Nanak's traces: Iqbal Qaiser — "Do you want to see the well of Nanak? … There is nothing left there anyway"; the well "was hidden within the field, shielded by a grove of trees. It was abandoned and juice tetrapaks and wrappers were floating in the black water"; beside it a grassy mound — "This was the Gurdwara of Nanak … Now nothing remained" (p. 286, folio 260).
+- **Practices & Events**
+  - They drove "through Bahawalpur, heading towards our destination at Uch Sharif", where "the cultures of Punjab and Sindh merge"; the language is "Siraiki", which the author cannot understand (p. 276, folio 250). "The southern region of Punjab, where Uch Sharif lies, has more traces of religious and cultural syncretism compared to the northern and central region" (p. 277, folio 251). Named on the caravanserai route (p. 119, folio 101).
+  - Nanak's visit took place on his way to Sindh, "after he had settled down" (p. 278, folio 252); in the reconstruction, "Uch Sharif was one of the most famous Muslim shrines in Southern Punjab and Nanak had arrived here only a day ago, travelling from Kartarpur" (p. 288, folio 262).
+
+### Place-level material: Bahawalpur
+
+*The book's material headed "Bahawalpur (place-level: 4 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- "The boundary between Sindh and Punjab becomes a blur as we drive through Bahawalpur" (p. 276, folio 250); Ayesha Siddiqa "belongs to Bahawalpur, which is only about seventy kilometres from here" (printed "Ba … hawalpur" [OCR?]) (p. 284, folio 258).
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Pakistani Punjab"; refers to: the author's own lifetime, present day; travelogue/introduction): the author, "born and brought up in Pakistani Punjab", heard of Guru Nanak as founder of Sikhism, poet and spiritual leader, "Yet given the Muslim-dominant culture of Pakistani Punjab, there were no avenues available for me within the culture to explore his personality" (p. 15, folio not stated).
+- (book's word: "Pakistani Punjab", "Punjab"; refers to: present day and the author's childhood; author's argument): in "Pakistani Punjab", Punjabi "is looked down upon. It is considered to be a language of the boorish and the uneducated"; his elite private school fined any student speaking Punjabi "even in the playground"; "the educated elite of Punjab ends up disowning, in fact, ridiculing anything Punjabi, which includes the poetry of Baba Farid, Guru Nanak, Shah Hussain, Waris Shah and Bulleh Shah" (printed "Babs Farid" [OCR?] [Baba Farid]; the sentence opening at "rin system that is prevalent in Pakistani Punjab" is damaged [OCR?]) (p. 128, folio 110).
+- (book's word: "Punjab government"; refers to: the day of the visit, present day, date not stated; travelogue): over the locked gate of the school housing the gurdwara at Makhdoom Pur Pahuran hung "a banner describing the new policy of the Punjab government to improve the education system in public schools" (printed "improv" [OCR?]) (p. 128, folio 110).
+- (book's word: "Pakistani Punjabi", "Punjab"; refers to: present day, "the past few years"; travelogue): Boota Singh of Nena Kot ("We are not from the Tribal Areas. We are Punjabis") was "the first Pakistani Punjabi Sikh I had interacted with. Earlier, I had only encountered Pathan Sikhs who had moved to Punjab in the past few years" (p. 83, folio 65).
+- (book's word: "Punjab"; refers to: present day; book's historical prose): devotees of Nanak who refused the Khalsa of Guru Gobind Singh: "There are thousands of such Sikhs living in Khyber Pakhtunkhwa, Punjab and Sindh in Pakistan, and they are referred to as Nanak Panthi Hindus. In their temples, along with pictures of Hindu deities, one also finds a picture of Guru Nanak" (p. 98, folio 80).
+- (book's word: "southern Punjab"; refers to: present day, "for the past few years", with a historical contrast, period not stated; reported view of Ayesha Siddiqa, author of *Military Incorporated*, name printed "Ayesha Siddiqa 15 4 Pakista" [OCR?] at p. 283): organisations "like Jamat-ud-Daywa and Laskhar-e-Jhangvi" [OCR?], of the Ahl-e-Hadith school, "have seeped into the social fabric of southern Punjab, a region that has historically rejected such strands of Islam and adopted a syncretistic version of religion. Such Sufi shrines are a symbol of that strand of Islam"; this is changing as they open seminaries "in these rural areas" and attract unemployed youth (p. 284, folio 258).
+- (book's word: "the Punjab"; refers to: present day, "a recent paper"; reported view of Dr. Tahir Kamran): his paper "'Evolution and Impact of "Deobandi" Islam in the Punjab'" records "a similar phenomenon": such organisations are popular with the youth of the region because "they offer an explanation for their current oppression"; their first step is "to target such shrines and their guardians, who have become immensely rich feeding off the oppressed classes" (p. 284, folio 258).
+- (book's word: "The southern region of Punjab"; refers to: present day; author's argument): "The southern region of Punjab, where Uch Sharif lies, has more traces of religious and cultural syncretism compared to the northern and central region, where there is a greater prevalence of education and hence religious intolerance" (p. 277, folio 251).
+- (book's word: "Punjab", "Sindh"; refers to: present day, on the drive to Uch Sharif; travelogue): "The boundary between Sindh and Punjab becomes a blur as we drive through Bahawalpur"; "This is where the cultures of Punjab and Sindh merge. Some of the roadside hotels are called Punjab Hotel, while others are Sindh Hotel"; the language, "Siraiki", is "an amalgamation of the two languages"; Iqbal Qaiser: "The Siraiki spoken in Multan is closer to Punjabi, while here it is more like Sindhi" (p. 276, folio 250).
+- (book's word: "lower Punjab"; refers to: the day of the visit to Inderjit, present day, date not stated; travelogue): Geo news on the television was "covering the floods in Sindh and lower Punjab" (p. 306, folio 280).
+- (book's word: "Punjabi"; refers to: present day; travelogue): on a mound, shrubs of "karir (capparis deciduas), another ancient Punjabi species of plant that is no longer found anywhere except in abandoned places" (p. 92, folio 74).
+- (book's word: "Punjab"; refers to: "the end of the eighteenth century" at p. 34, "the nineteenth century" at p. 87 — both as printed; book's historical prose): "When Maharaja Ranjit Singh became the sovereign of Punjab at the end of the eighteenth century he spent large amounts of money on the renovation and expansion of many gurdwaras", and "attached vast tracts of land to these gurdwaras, so that the revenues from the lands could facilitate their functioning" (p. 34, folio 16); he is called "the Sikh ruler of Punjab, Maharaja Ranjit Singh in the nineteenth century" (p. 87, folio 69).
+- (book's word: "the Punjab"; refers to: the time of Guru Hargobind and Emperor Jahangir; book's historical prose, reporting "some claims"): "some claims have asserted that Hargobind [printed "Hargobe" [OCR?]] joined his employment, serving him in the Punjab" (p. 234, folio 208).
+- (book's word: "the Punjab"; refers to: "the time the mantle of Guruship was bestowed upon Harkrishan" (printed "By the me" [OCR?]); book's historical prose): "the Sikh community had expanded beyond the confines of the Punjab into places as far as Kabul and Ghaznvi [OCR?]", making central control by the Guru "increasingly difficult" (p. 181, folio 155).
+- (book's word: "Punjab"; refers to: period not stated; book's historical prose, reporting historians): the Guruship becoming feudal is called ironic "because Sikhism is seen as a reaction against the feudal land gt [OCR?] … ot [OCR?] [of] Punjab bv [OCR?] [by] a lor [OCR?] [lot] ot [OCR?] [of] historians" — the noun after "feudal land" is lost (p. 182, folio 156).
+- (book's word: "Punjab"; refers to: Nanak's lifetime, "the time the Mughal marauder Babur attacked Punjab"; introduction): Nanak's Babur Bani is "a long poem that Nanak wrote at the time the Mughal marauder Babur attacked Punjab, destroying the cities of Eminabad and Lahore on the way" (p. 15, folio not stated).
+- (book's word: "Punjab"; refers to: the time of Nanak's parents and of the young Nanak; author's reconstruction): "The jungles of Punjab were infested with thugs and dacoits who attacked innocent travellers" (p. 22, folio 4); the young Mardana's questions to Nanak include "the jungles of Punjab and the bandits residing in them" (p. 110, folio 92).
+- (book's word: "Punjab"; refers to: Nanak and Mardana's time; author's reconstruction): Mirasis travelled city to city singing of local chieftains, and landlords showered them with gifts; Mardana "knew by heart several folk stories of Hindu deities and Muslim saints that he would sing during different festivals of Punjab" (p. 121, folio 103); as a younger man "he would roam the cities and villages of Punjab, singing folk songs and legends", the most popular being Puran Bhagat's (p. 184, folio 158).
+- (book's word: "Punjab"; refers to: the time of Sheikh Ibrahim, Farid's twelfth successor, "three hundred years since the death of the great Sufi" as printed; author's reconstruction): Baba Farid's poetry "was still sung by qawwals at the shrine and by fakirs in the cities of Punjab" (p. 142, folio 124).
+- (book's word: "the Punjab", "the Punjabi"; refers to: the Sikh force's taking of Hassan Abdal under Hari Singh, date not stated; author's reconstruction in the novelised chapter "The Legend"): the Sikh soldiers "had arrived from the Punjab"; "For almost a thousand year[s] invaders had crossed into the Punjab from the West. Therefore in [the imagination?] [OCR?] of the Punjabi the West was a fearful place where giants resided" (p. 258, folio 232); Hari Singh wanted the tribesmen to know "that now it was the time of Punjab to create havoc in the Khyber" (p. 262, folio 236).
+
+## From Harish Dhillon, Janamsakhis
+
+*Integrated 12 October 2026 from `entries/book_takeaways/dhillon_janamsakhis.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- Book's word "Punjab" / "the Punjab region"; refers to the invasions and Muslim rule before Nanak's birth, as the book frames them (Ghaznavis, Ghoris, Tughlaqs "after the beginning of the eleventh century", through Taimur "in 1398"): "Since Punjab in the north was the gateway to India, it bore the brunt of all these invasions" (p. 15, folio 17); the conquerors, "once they had settled down in the Punjab region", turned to "either converting [printed "convening" [text-layer?]] the kafirs or non-believers or destroying them" (p. 16, folio 18); "For over three hundred years, Islam and Hinduism existed side by side in the Punjab region in a state of constant conflict" (p. 16, folio 18).
+- Book's word "Punjab"; refers to 1192, Ghori's conquest: "Shahabuddin Muhammad Ghori captured Punjab in 1192" (p. 136, folio 151).
+- Book's word "Punjab"; refers to the Puratan Janamsakhi's fifth udasi "(1523-1524)": "This lasted about one year and covered the towns and regions within Punjab." (p. 55, folio 61).
+- Book's word "Punjab"; refers to the third udasi "(1514-1516)" of the "more modern accounts": to Tashkent "and then back to Punjab via the Kashmir Valley" (p. 55, folio 61).
+- Book's word "Punjab"; refers to Nanak's time, the Haridwar episode dated "1504" and the Prayag episode (year not stated): Nanak faces "west, in the direction of Punjab" (p. 79, folio 87); "Punjab is very far away" (p. 80, folio 88); "He is Nanak, the great Guru from Punjab" (p. 102, folio 113).
+- Book's word "the Punjab"; refers to the return to Talwandi "in I 506 [text-layer?] [1506]": "there were very few in the Punjab who did not know of him and his teachings" (p. 123, folio 137).
+- Book's words "Punjab" / "the Punjab" / "south-west Punjab"; refers to the second udasi (no year given): Nanak "crossed through Rajpurana and the south-west Punjab till he came to Multan" (p. 164, folio 180); "Nanak was by now a well-known figure in Punjab" (p. 167, folio 183); the Multan Sufis' "patronizing tolerance" "As long as he was preaching elsewhere in the Punjab" (p. 168, folio 184).
+- Book's word "the Punjab"; refers to the close of the fourth udasi, around Babur's "third incursion into India" (no year given): "a south-eastern route co [text-layer?] [to] the Punjab" (p. 224, folio 246).
+
+## From Haroon Khalid, A White Trail
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_a_white_trail.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Bahawalpur
+
+*The book's material headed "Bahawalpur (place-level: 4 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+The book's "Bahawalpur" (chunks 002, 003). Place-level, on the 4 ids the toponym map gives (the protocol text says "Bahawalpur 5"); the Uch sites are not mentioned — only Hindu musicians and pilgrims.
+
+- The Bahawalnagar organisers "called a band of musicians from Bahawalpur, an area with a considerable population of Hindus, about one hundred and sixty five kilometres from here" (p. 31, folio not stated); twelve boys on bicycles came to Navratri from Bahawalpur chanting 'Ek do teen char, Mata Teri jai jai kar' (p. 37, folio not stated).
+- Buses of Hindu pilgrims "from Rahim Yaar Khan and Bahawalpur are also on their way" to Katas (p. 49, folio not stated).
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Southern Punjab"; refers to: the present, c. the book's writing; book's historical prose): of Pakistan's non-Muslims other than the Ahmadiyya, "the majority are Hindus living in the 'faraway' 'peripheral' regions of Southern Punjab, inner Sindh and Baluchistan" (p. 12, folio not stated).
+- (book's word: "the cities of Punjab"; refers to: the months after the Babri Mosque demolition, "6th of December 1992"; book's historical prose): "Well-known Hindus living in the cities of Punjab had to hide for several months after the incident" (p. 22, folio not stated).
+- (book's word: "urban Punjab"; refers to: the present, c. 2010; author's argument): "The religious distinctions between Hindus and Christians have become blurred in urban Punjab" (p. 28, folio not stated).
+- (book's words: "Central Punjab", "Southern Punjab"; refers to: "historically", the partition, and "after 1947" to the present; author's argument): "Compared to Central Punjab, Southern Punjab has been historically tolerant towards other non-Muslim faiths, which is why a significant Hindu population continues to live here"; "violence here during the partition never scaled the heights it did in the other regions, therefore the resentments between communities that seeped in after 1947 were not that serious" (p. 31, folio not stated).
+- (book's word: "Punjab"; refers to: the present, c. 2010–2011; author's argument): "A lot of Hindus in Punjab do this, passing off as Muslims or Christians by taking up non-Hindu names. This is a survival technique in a hostile environment" (p. 39, folio not stated). Minorities in KPK are visible in society, "which is hardly the case in Punjab, which is much more monolithic" (p. 49, folio not stated).
+- (book's word: "Pakistani Punjab"; refers to: after partition to the present; author's argument): without Hussain's family Ram Thamman "would have also been taken over by the refugees and converted into a household, like the hundreds of temples and Gurdwaras all over Pakistani Punjab" (p. 58, folio not stated).
+- (book's word: "Governor of Punjab"; refers to: the present, c. 2011, and "recent years", no date given; book's historical prose): "the Governor of Punjab Salman Taseer was gunned down" (p. 48, folio not stated); the Aasia Bibi case "received international coverage after the former Governor of Punjab, Salman Taseer came out in support of this woman and was later killed for his pains" (p. 90, folio not stated).
+- (book's word: "the Punjab"; refers to: the book's present, c. 2011, with "the census of 1998" cited; author's argument): "unlike the Hindus, the Christian community has a formidable presence in the Punjab"; Hindus "are a smaller community in the Punjab and can therefore be ignored" by political parties and leaders. Most Hindus are scattered in other provinces, "with only a few in Punjab. The Christians on the other hand have an overwhelming majority in the Punjab (among the minorities)" (p. 87, folio not stated).
+- (book's words: "the Punjab", "the province"; refers to: the present, c. the time of writing; author's argument): Shanti Nagar's Christian landlords make it "a unique case study in the social fabric of the Punjab. Whereas in most of the villages across the province, Muslims are the dominant landowners, while Christians are confined to menial jobs associated with the untouchable caste" (p. 123, folio not stated); "In a regular village where Christians are on the lower rung ... they would be treated as untouchables" (p. 124, folio not stated).
+- (book's word: "Punjab"; refers to: the attacks of 2005 and 2009, as the book dates them; author's argument): the attacks at Sangla Hill (2005) and at Gojra and Bahmniwala, Kasur (2009), "all of which happen to be located in Punjab"; "The story of a few burnt pages from the Quran found in local mosques seems to happen often" (p. 125, folio not stated).
+- (book's word: "the Punjab"; refers to: the present of Daria Boatwala's account, after she moved to Lahore "sometime in the eighties"; informant: Daria Boatwala): "here in the Punjab, the situation is much different. There are hardly any Zoroastrians here and I have never come across any Hindu. The only Christians that you see are those who are cleaners and sweepers" (p. 142, folio not stated).
+- (book's words: "the Punjab", "central Punjab", "the province"; refers to: period not stated ("an ancient festival"), then "After the creation of Pakistan" to the present, c. 2011; book's historical prose and author's argument): "Lohri like Vaisakhi or Basant, is an ancient festival of the Punjab that commemorates the change of season", celebrated "on the 13th of January, which is generally the last night of the month of Poh". Traditionally it means a village bonfire, dry fruit, folk songs, children collecting wood, and kheer cooled overnight (pp. 192–193, folio not stated). After the creation of Pakistan "this indigenous festival of the Punjab died down"; "the Sikh and the Hindu minorities of central Punjab also stopped this celebration" (p. 193, folio not stated). It was "earlier celebrated on a large scale throughout the province. It is ironical though that this Punjabi tradition shunned by Punjab is now being revived by a group of Pathan men residing in Punjab" (p. 194, folio not stated).
+- (book's word: "Punjab"; refers to: "the older days", period not stated more exactly; book's historical prose): "yellow was commonly used for buildings in Punjab during the older days" (p. 197, folio not stated).
+- (book's words: "South Punjab", "Southern Punjab"; refers to: the present, c. 2011; book's historical prose): Nanak Panthi Sikhs "belong to the areas of South Punjab and Sindh", with temples "in Sindh and Southern Punjab" (p. 197, folio not stated); the Dera Sahib langar workers are "low-caste Nanak Panthis from Southern Punjab" (p. 201, folio not stated).
+- (book's words: "the heart of Punjab", "Punjab"; refers to: the recent past to the present, no year stated; book's prose about Pathan Sikh elders, and author's argument): "Moving from tribal areas to the heart of Punjab, an overwhelming majority of them could not even speak the language. They remained confined to their little enclaves" (p. 203, folio not stated). Nankana's Sikh interviewees "remember this internal migration from KPK to Punjab", which gives "a good picture of the different socio-economic conditions in both of these provinces" (p. 235, folio not stated).
+- (book's word: "West Punjab"; refers to: the book's present, the November 2011 festival at Nankana; reportage): the Janamasthan kirtan singers "have covered their heads with a loose turban, a popular style in the villages of West Punjab" (p. 230, folio not stated). The book uses "West Punjab" here for a present-day style; it does not define the term.
+- (book's words: "Southern Punjab", "Central Punjab", "Punjab"; refers to: the book's present, the author's fieldwork period, no year stated; author's argument, Afterword): "The majority of the Hindu community is based in Sindh and Southern Punjab, where they have a proportionate representation from the lower and the upper castes" (p. 233, folio not stated). Hindus experience "ghettoization" in "Central Punjab where I conducted my research"; "My perception is that the conditions under which members of the Hindu community live in Central Punjab are the harshest compared to the other regions" (p. 233, folio not stated). "Almost all the interviews I conducted were of Hindus belonging to the lower castes because there are hardly any high-caste Hindus in this region", so his observations "from Central Punjab" cannot be "construed as being reflective of Hindu communities in areas where there is a considerable population" (pp. 233–234, folio not stated). "The majority of the Christian minority is based in Punjab", so his Christian material "can be generalized to be reflective of the larger Christian community in the country" (p. 234, folio not stated).
+- (book's word: "Punjab"; refers to: "the first half of the 11th century", before partition; the book does not state the unit's extent; book's historical prose): "Al-Beruni came to India during the first half of the 11th century, after the Muslim invader Shah Mahmood Ghaznvi attacked Punjab" (p. 44, folio not stated).
+- (book's words: "Punjab", "the land of Punjab", "Sher-e-Punjab"; refers to: the reign of "Maharaja Ranjit Singh (1780-1839)", with "1799" entry to Lahore and "1801" coronation, before partition; the book does not state the unit's extent; book's historical prose and author's argument): "Maharaja Ranjit Singh (1780-1839), the erstwhile ruler of Punjab" (p. 42, folio not stated); "the Sikh ruler of Punjab" (pp. 159, 196, folio not stated); "the Sikh king who ruled Punjab before the British took over" (p. 206, folio not stated); "crowned as the Ruler of Punjab" in 1801 (p. 207, folio not stated). "In the land of Punjab which was for over a millenium [as printed] ruled by Afghans, Mughals and other non-Punjabis, Ranjit Singh was the first Punjabi to rule Punjab"; he renovated "many Gurdwaras all over Punjab" and brought stability "in Punjab which lasted a good forty years" (p. 208, folio not stated).
+- (book's word: "Punjab"; refers to: British rule, before partition: "the middle of the nineteenth century", "almost a century after the colonization of Bengal", "almost immediately after his [Ranjit Singh's] death"; no year given; the book does not state the unit's extent; book's historical prose): the British "arrival, which in Punjab was in the middle of the nineteenth century"; "the nineteenth century, which is also known as the Sikh period" (p. 57, folio not stated). "Punjab was colonized almost a century after the colonization of Bengal by the British, as a result of which English language is not as institutionalized here" (p. 105, folio not stated). "As a result of sectarian divisions between the Sikh communities and the takeover of Punjab by the British, a large number of important Sikh Gurdwaras were being administered by Hindu mahants" (p. 189, folio not stated). "Punjab became a British colony almost immediately after his death eventually leading to its division at the time of Partition"; Dalip Singh was "the last Maharaja of Punjab, before the British took over" (p. 209, folio not stated).
+
+## From Haroon Khalid, In Search of Shiva
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_in_search_of_shiva.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- **Scope of the book** (book's words: "central Punjab", "southern Punjab"; period: the author's research travels, "spread over a few years", years not stated; author's own account): "Since this was mostly a self-funded project I could only limit my research around my hometown of Lahore. Therefore only parts of central Punjab are included and southern Punjab and Sindh are excluded, where there are many such shrines. These shrines also represent similar characteristics as discussed in this book" (p. 6, Introduction, folio not stated).
+- **Indus Valley comparison** (book's words: "present day Punjab, Pakistan"; period: the Indus Valley past compared with the present; author's argument): the Indus Valley as "an agriculture-intensive society … (similar to present day Punjab, Pakistan)", where the fertility cult has "particular significance" (p. 8, ch. 2, folio not stated).
+- **Canal colonies** (book's words: "Punjab", "the five rivers of Punjab"; period: "during the late nineteenth and early twentieth centuries", British rule; book's historical prose): "Jungli, which literally means 'people of the jungle', is a popular term used to refer to the indigenous Punjabis, as opposed to those who settled here after the construction of the canal colonies by the British during the late nineteenth and early twentieth centuries"; "the British connected the five rivers of Punjab with each other through canals, turning several acres of jungle land into agricultural land"; "thousands of new villages, referred to as chaks were established, and farming families from all over Punjab were invited to settle"; former inhabitants "were primarily nomads" unable "to prove ownership over land"; "Their land was snatched away and allotted to these migrants" (p. 8, ch. 2, folio not stated).
+- **Partition migration** (book's words: "the division of Punjab between India and Pakistan"; period: "the riots of 1947" and after; author's argument): "the wave of the second migration that took place after the division of Punjab between India and Pakistan"; locals "generally tend to be more embracive of practices 'non-Muslims'" than migrants; "I have seen several gurdwaras and temples being taken over and destroyed by the migrants"; where the population is largely indigenous "such 'non-Muslim' religious spaces are better looked after", with "exceptions" (p. 8, ch. 2, folio not stated). The generalisation is said of "the locals all over the country", framed by Punjab's division.
+- **Tableeghi reform, early twentieth century** (book's words: "undivided rural Punjab", "Punjab"; period: early twentieth century, the Arya Samaj / Shuddhi era; book's historical prose): Muhammad Ilyas, founder of the Tableeghi Jamaat, "worked in undivided rural Punjab, exhorting Muslims to 'purify' their religious practices which he argued were corrupted due to the influence of the dominant Hindu culture"; Muslim reformists like Ilyas "founded reformist movements of their own, aggravating the communal tension in Punjab" (p. 10, ch. 4, folio not stated).
+- **Tableeghi reach, present** (book's words: "southern Punjab", "the major cities of Punjab"; period: the present of the author's visits; author's argument): Tableeghi preachers "focus on southern Punjab and rural Sindh where syncretistic religion held sway"; "The Tableeghi Jamaat has managed to permeate the social fabric of the major cities of Punjab"; so "shrines similar to the ones at Kamalia and Apal Muri are likely to face a major onslaught due to their 'impure' religious practices, in coming years" (p. 10, ch. 4, folio not stated).
+- **Rural social life** (book's words: "rural Punjab"; period: the present of the author's visit; author's reportage and inference): visitors at the Apal Muri banyan left mobile numbers, "probably hoping to initiate a secret love affair in this highly monitored social life of rural Punjab" (p. 9, ch. 3, folio not stated).
+- **Folk culture: rivers and love legends** (book's words: "the folk culture of Punjab", "Punjabi culture", "love legends of Punjab"; period not stated / "For centuries"; which side of the border not stated; book's prose and the author speaking):
+  - "The Chenab, in the folk culture of Punjab, is known as the river of love" (Sohni and Mahiwal; Takth Hazara of Ranjha) (p. 9, ch. 3, folio not stated).
+  - "Isn't Heer Ranjha part of Punjabi culture? It is the most celebrated folk story here. For centuries it has been sung and dramatized" (the author, in conversation) (p. 16, ch. 10, folio not stated).
+  - Mirza Sahiban is "another famous folk love legend of Punjab"; "the story of Mirza Sahiban is such a blemish on the legacy of spiritual love stories of Punjab, that it was said that these two brought an end to the era of love legends" (p. 16, ch. 10, folio not stated).
+  - (Pass 1 flags the ch. 10 pair as possibly label uses rather than province statements — see Doubts.)
+- **Deobandi focus and shrine culture** (book's words: "South Punjab", "lower Punjab", "the urban Punjabi Muslim populace"; period: "In recent years" (Tahir Kamran) and the school's founding to "contemporary Pakistan"; Kamran as cited by the book, and book's prose):
+  - Per Dr Tahir Kamran ("The evolution of Deobandi school of thought in the Punjab", The Historian): "In recent years, the focus of the Deoband has been on South Punjab and Sindh where there is an ubiquitous saint and shrine culture"; "the people of the South are attracted towards the Deoband school of thought, and feel victimized by the feudal nature of society intertwined with the saint and the shrine culture" (p. 11, ch. 5, folio not stated).
+  - The Deobandi school "gained popularity in the lower and middle echelons of the urban Punjabi Muslim populace, a feature that they have retained in contemporary Pakistan" (p. 11, ch. 5, folio not stated).
+  - "Saeen is a title used to refer to a feudal lord or a spiritual leader from lower Punjab and Sindh, where the shrine culture thrives" (p. 11, ch. 5, folio not stated).
+- **Southern Punjab as shrine hub** (book's words: "southern Punjab"; period: the present of the author's journey, "elections were only a few months away", year not stated; author's account): "we had travelled to southern Punjab, believed to be the hub of shrine culture in the country" (p. 16, ch. 10, folio not stated).
+- **Urban bubble and the countryside** (book's words: "the culture of Punjab", "the heartland of Punjab"; period: the present of the author's visits; author's diary and reportage): "is it the bubble that we occupy in the urban centres that is out of context in the culture of Punjab" (p. 11, ch. 5, folio not stated); "One rarely finds such a lonely road in the heartland of Punjab, the most prosperous province of Pakistan" (p. 11, ch. 5, folio not stated).
+- **Provincial government: policing** (book's words: "the Punjab government"; period: the present, "now"; author's account): Changa Manga road "is much safer now, since the Punjab government introduced the motorway police" (p. 11, ch. 5, folio not stated).
+- **Provincial government: allegations over Jhang outfits** (book's words: "the Punjab government"; period: the present of the author's journey, year not stated; book's reportage of allegations): "human rights activists, opposition party leaders and segments of the media have alleged that the Punjab government, dominated by the right-winged Pakistan Muslim League Noon, has been supporting these radical outfits who are based in Jhang"; "The Muslim League Noon, on the other hand, rubbishes the claims" (p. 16, ch. 10, folio not stated).
+- **Eighteenth century: after the Mughals** (book's word: "Punjab"; period: after "the fall of the Mughal Empire", Meer Manu's governorship, Abdali's raids, and "1797"; book's historical prose; the book does not mark the unit as "undivided"):
+  - "Ever since the fall of the Mughal Empire conditions had deteriorated in Punjab. Ahmad Shah Abali [sic], the Afghan king, had already completed two raids of Punjab and beyond" (p. 15, ch. 9, folio not stated).
+  - "Moin-ul-Mulk, popularly known as Meer Manu" "was the governor of Punjab" and was "constantly pestered by the Sikh insurgent groups Misl, which had sprung up all over Punjab"; "The Sikh groups did not control much land but because of their anti-status quo politics the lower rungs of the society supported and protected them"; he "cast the battle between the state and insurgents as a war between Muslims and Sikhs, even though there were several Muslims in the Sikh groups and many non-Muslim soldiers in the army of Meer Manu" (p. 15, ch. 9, folio not stated).
+  - Abdali had "agreed an annual tax stipulation which the governor was responsible of paying to him, for the right of governing Punjab" (p. 15, ch. 9, folio not stated).
+  - "In 1797, when the grandson of Ahmad Shah Abdali, Shah Zaman Durrani, following the footsteps of his grandfather, attacked Punjab", the Sikh band "met him on the banks of the Chenab" (p. 15, ch. 9, folio not stated).
+- **Agrarian culture and abandoned festivals** (book's word: "Punjab"; period: the present, and "in days following the creation of Pakistan"; author's argument): "Punjab, still predominantly an agricultural society, upholds agrarian culture and traditions, of which the harvest season is the ultimate source of happiness"; but "in days following the creation of Pakistan ... several cultural festivals like Vaisakhi, Lohri and Basant were given up" (p. 15, ch. 9, folio not stated). (Pass 1 notes the abandonment is stated for the country's elite; carried here only beside the book's Punjab sentence.)
+- **Governor of Punjab, 2011** (book's word: "the Governor of Punjab"; period: "4 January 2011"; endnote, book's historical prose; political, not shrine material): "On 4 January 2011 the Governor of Punjab Salman Taseer was shot down by one of his bodyguards, Mumtaz Qadri, for supporting the cause of a Christian woman, Aasia Bibi, accused of blasphemy"; Qadri "became an instant hero, and was hailed by the lawyers' community"; "The retired chief justice of the Lahore High Court, Khwaja Sharif, offered to fight his case free of charge calling him a hero of Islam" (p. 19, Notes, note 44, folio not stated).
+
+**Label-only uses of "Punjab"/"Punjabi" (not province statements; not attached):** "Kharals from Punjab" (caste origin, kept under Arguments) and "travelled extensively in Punjab" (bare) (p. 8, ch. 2); "Punjabi folk love legend of Mirza-Sahiban ... significance in Punjabi culture", "uncharacteristic of Punjabis" (p. 9, ch. 3); "Punjab Cultural Institute", "vulgar Punjabi songs", "celebrated Sufis from Punjab" (p. 11, ch. 5); "a Punjabi phrase, 'oh jane'", a conversation "that took place in Punjabi" (p. 12, ch. 6); "the first poet of Punjabi" (p. 13, ch. 7); "Punjabi summer" (p. 15, ch. 9); "a spectacular Punjabi poet", "Shah Hussain (Punjabi Verses)" (p. 16, ch. 10); "Punjab" in book titles (notes 12, 78) and the Bibliography ("Punjabi History Board", "Pañjaba") (p. 19–20); "a Sikh, a Pathan and a Punjabi" (a friend's joke, ethnic label) (p. 7, ch. 1).
+
+**Kept with their places, not here (ruling (c)(4)):** "once popular throughout Punjab" (Sahari Mal's shrine) and "one of the largest festivals of Vaisakhi in Punjab" (Ram Thamman) (p. 15, ch. 9); "the hotbed of sectarian conflict in Punjab—Jhang" (p. 16, ch. 10, under Jhang); "southern Punjab" locating Tibba Haji Deen (p. 17, ch. 11); the "Punjab government" drug ban at a Lahore shrine (p. 11, ch. 5, under Lahore). Excluded as Indian-side: "Khalsa Dal ... based near Amritsar" (p. 15, ch. 9).
+
+## From Sujan Rai Bhandari, Khulasat al-Tawarikh
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khulasat_ut_tawarikh.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+*Attached as this book's claim, not as a settled identification or date (Rauf, 10 October 2026). This row was held over an open question (a death year, or which man or which shrine is meant); the book's material and its doubts are shown as they stand and do not settle it.*
+
+- Mapping Doubts (Pass 1): formerly held identity (the Uch Jalal / Jahaniyan split; lifted by Rauf 10 Oct 2026 and attached as this book's claim, not resolved): in c. 042 the book's "سید جلال بخاری" is the grandfather in Jahaniyan's genealogy and was put on the Surkh-Posh row by name. Both rows also stand on the Uch place-level line (c. 022, 032), where no saint is named and the question is not raised.
+- **Saint**
+  - Birth: "شب برات هفتصد و هفت هجری بعرصه وجود آمد" (Shab-i Barat, 707 AH) (p. 527).
+  - "مرید و خلیفه پدر بزرگوار خود است": disciple and khalifa of his own father (Sayyid Mahmud, per the genealogy) (p. 527).
+  - "از شیخ رکن الدین ابو الفتح سهروردی نیز خلافت یافت" (p. 527).
+  - "در دهلی شیخ نصیر الدین چراغ دهلی را دیده فراوان فیض اندوخت" (p. 527).
+  - Death: "چهارشنبه عید قربان هفتصد و هشتاد و پنج اخشیجی پیکر برانداخت" — a Wednesday, Id-i Qurban, "785"; no era word is printed with this year (p. 527).
+- **Shrine / Darbar**
+  - "درقصبه اوچ خوابگاه": his tomb is in the qasba of Uch (p. 527).
+- **Practices & Events**
+  - Followers: "درویشان ملنگ و دوداے سراپا برهنه از مریدان ان جناب درهرجانب هستند و ذکر جلی مینمایند" (p. 527).
+
+### Doubts the notes raise on this row
+
+- **The Uch Jalal / Jahaniyan split.** c. 042 found a way to choose for the Uch tomb: "خوابگاه شیخ جلال پور سید محمود بن سید جلال بخاری مشهور بمخدوم جهانیانست" — the man buried at Uch, Shaikh Jalal son of Sayyid Mahmud, is "known as Makhdum Jahaniyan" — so the tomb facts go to **shrine-of-makhdoom-jahaniyan-jahangasht** alone. His grandfather "سید جلال بخاری" is mapped by bare name to **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**; the book does not call him Surkh-Posh, does not place his tomb at Uch and gives no date. Not resolved. The genealogy is read "Shaikh Jalal, son (پور) of Sayyid Mahmud, son (بن) of Sayyid Jalal Bukhari"; Jahaniyan's death year "هفتصد و هشتاد و پنج" has no era word, unlike his birth "هفتصد و هفت هجری" (c. 042). Not mapped elsewhere: the index's "مخدوم جہانیان" — ۶۲[OCR?] (p. 20), which names no place and has a flagged locator; a separate entry "شیخ جلال" carries the same printed ۶۲ (p. 26) and "ملتان" also lists ۶۲ (p. 20), only an index coincidence — check printed page ۶۲ in the body (c. 002); the index's "جلال بخاری" ("۶۲"), no way to choose (c. 003); "شاه عالم بخاری" and "قطب عالم" (p. 533), placed by the book at Ahmadabad and Batwa, not Uch (c. 043). Both rows otherwise ride the Uch place-level lines only (c. 004, 022, 026, 032), where neither saint is named.
+
+### Place-level material: Uch
+
+*The book's material headed "Uch (place-level: 5 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+*Place-level attachment (ruling (a)): the index's "اوچ" and the book's "اوچ" / "قصبه اوچ", in c. 004 (index), 022, 026, 032, 042. Campaign, transit and boundary mentions only (brief item 2); no saint or tomb at Uch is named in this material. The same 5-id set is printed identically in every chunk. (Material on the Bukhari saints themselves sits under their single-row subsections; the Surkh-Posh identity is a formerly held one.)*
+
+- indexed: "اوچ" — printed locators "۶۰ - ۶۲ - ۱۸۴ - ۲۳۵ - ۲۵۶ - ۳۰۴ - ۳۲۰ [OCR?]" (p. 43). *basis: index headword (brief item 1)*
+- The book calls the place "قصبه اوچ" (p. 527). In describing suba Thatta: from "حدود ملتان و اوچ" to Thatta and Kach Makran, on the north, "کوههائے خارا بلند و مساکن اقوام بلوچ و بعضے افغان"; on the south, "از اوچ تا گجرات کوههائے ریگ و مواطن گروه بهتی" (p. 529). *basis: boundary mention*
+- Shihab al-Din's first campaign took "اوچ را ازقوم هتاهته[OCR?]" and left a deputy (p. 405). The second campaign came again to Multan and Uch and went on "براه ریگستان" to Gujarat (p. 405). *basis: campaign mention*
+- Mirza Pir Muhammad crossed the Sind and "حصار اوچ و ملتان بتصرف در اورده" (p. 333). Nothing else is said of Uch. *basis: campaign mention*
+- Khawas Khan's pursuit went "تا ملتان و اوچ" (p. 285). After Thatta, on the way to Maldeo's country: "و را[OCR?] و اوچ تابع ملتان آمده براه بیکانیر متوجه جودہ پور ... شدند" — apparently by way of[OCR?] Uch, "a dependency of Multan", then by Bikaner toward Jodhpur (p. 285). *basis: transit mention*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- **Weighing robes for the governor of Lahore; Shuja's opportunity** (c. 005; book's words: "صوبه دار لاهور" (p. 62), "پنجاب" (p. 61); period: the war of succession, the year printed "۱۰۶۸[OCR?]" (pp. 59, 63), a Mughal suba): at the weighing festival the "صوبه دار لاهور" was honoured "بارسال[OCR?] بارسال[OCR?] خلاع" (p. 62); the page break cuts the name — the preceding page ends "و خلیل الله خان [illegible]" (p. 63), but the book does not join the name to the title across the gap (see Doubts). Shuja took his chance "در اواسط سفر که رایات اقبال در پنجاب بود", while the standards were in Punjab in pursuit of Dara ("توجه رایات جهانگشا بسمت پنجاب بتعاقب دارا شکوه"), and set out for Allahabad (p. 61).
+- **The war of succession: subas Lahore and Multan** (c. 006; book's words: "صوبه پنجاب" and "صوبه داری لاهور" (p. 64), "صوبه داری ملتان" (p. 65), "ولایت پنجاب" and "پنجاب" (p. 70), "پنجاب" (pp. 74, 76), "کوهستان پنجاب" (pp. 64, 67); period: from the first accession, dated "غره ذی قعد سال هزار و شصت و هفت[OCR?] هجری" (p. 72), to Muharram–Safar of the year printed "۱۰۶۸[OCR?]" / "۱۰۶۹[OCR?]" (pp. 64–66); the Mughal subas of Lahore and Multan as the book names them):
+  - Dara had agreed with Shuja "که چون خود در پنجاب تهیه اسباب شورش می‌نماید" Shuja would march from Bengal as far as Allahabad, and after success they would divide "ملک و مال بمساوات[OCR?]" (p. 76).
+  - Dara told Sulaiman Shikoh to reach Punjab "براه بوریه[OCR?]"; the Barha sayyids advised "براه سهارنپور و بوریه[OCR?] به پنجاب" (p. 74).
+  - The march "بجانب ولایت پنجاب" in the rains: crossing "آب ستلج و بیاه[OCR?]" without boats or fords was judged all but impossible, and "اکثر عمدها[OCR?] نیز درین موسم تجویز حرکت نمی‌کردند"; the emperor set out from Aazzabad[OCR?] regardless on "هفتم[OCR?] ذی قعد مطابق هفدهم[OCR?] امرداد" (p. 70).
+  - Governors appointed: Khalilullah Khan "بصوبه داری لاهور و یک کرور[OCR?] دام انعام" (p. 64); Lashkar Khan "از صوبه کشمیر تغییر کرده بصوبه داری ملتان" (p. 65).
+  - The halt at Lahore was made "بجهت نظم و نسق مهمات صوبه پنجاب و رفاهیت و اسودگی سپاه" (p. 64).
+  - Faujdari of "کوهستان پنجاب": first Khanjar Khan, faujdar of Bhera[OCR?], after he left Dara (p. 67); then "میر میران[OCR?] خلف[OCR?] ان که خطاب میر خانی یافته بود", at the Lahore halt (p. 64). "کوهستان پنجاب" is not located by the book; its relation to the modern province is unknown.
+- **Dara's letters through the suba** (c. 007; book's words: "ان صوبه" and "ان مرز بوم", referring back to Lahore; period: Shawwal of the war of succession, the year not stated in the chunk; a Mughal suba): at Lahore Dara sent "استمالت نامجات ملاطفت امیز مبنی بر وعدهائے[OCR?] احسان" "در اطراف و اکناف ان صوبه", urging "سپاه ان مرز بوم را از هر جا و هر قوم و قبیله" to enlist with him (p. 77).
+- **Khusrau's revolt** (c. 012; book's words: "صوبه دار لاهور" (p. 146), "کوهستان پنجاب" (p. 146); period: "بعد هشت ماه از جلوس مقدس" (p. 147), dated by the accession "سنه ۱۰۱۴[OCR?] هجری" (p. 148) and the capture "سلخ محرم سنه ۱۰۱۵[OCR?]" (p. 145); a Mughal suba): Dilawar Khan, "صوبه دار لاهور", held the fort against Khusrau (p. 146). "راجه باسو را که از زمینداران عمده کوهستان پنجاب بود" had just joined the emperor and was sent after the prince (p. 146). "کوهستان پنجاب" is not located by the book.
+- **Grain prices and the jama** (c. 013; book's word: "پنجاب" (p. 164); period: while the imperial armies were quartered there before the march "از لاهور بجانب ولایت دکن"; no regnal year; not called a suba here): "از نزول عساکر منصوره در پنجاب نرخ غله گران بود ازینجهت جمع پرگنات زیاده شده"; when the armies left, grain became cheap and the peasants could not pay; a reduction "بحساب ده دوازده[OCR?] انده[OCR?]" was ordered (p. 164). The book reports this as Guru Arjan's petition (see the Guru Arjan subsection).
+- **The hill zamindars** (c. 014; book's words: "کوهستان پنجاب" (heading, p. 170) and "تابع پنجاب" (p. 170); period: the emperor's residence at Lahore, no regnal year): Zain Khan Koka, sent "براے تادیب زمینداران کوهستان", brought "جمیع راجهاے و رایان" to obedience "بزور شمشیر و قوت تدبیر" and brought several rajas to court (p. 170); "راجه باسو زمیندار مو[OCR?] تابع پنجاب" later rebelled (p. 170). Pass 1's Doubts: this bullet may not belong to the modern province at all.
+- **Three periods of "Punjab" in the Kashmir history** (c. 015; book's word: "پنجاب"; periods as the book places them): Timur's time — "جسرته[OCR?] کهوکهر[OCR?] از قید حضرت صاحب قران گریخته در پنجاب رسیده بود" (p. 191); Bahlul Lodi's time — "تاتار خان حاکم پنجاب گماشته سلطان بهلول لودی", from fear of whom the son of "سرام[OCR?] راجه جمون" left Jammu for Kashmir, and from whom Sultan Muhammad Shah and then Sultan Fath Shah of Kashmir each sought "کومک" (p. 190); the reign of "خاقان زمان", around "سنه[OCR?] ۹۸۵[OCR?]" — Yusuf Shah of Kashmir fled "از راه جموں بپیش میرزا یوسف خان حاکم پنجاب" and with him and Raja Man Singh reached Fatehpur (p. 186).
+- **Hakim Mirza's raids** (c. 016; book's words: "اهل پنجاب" (p. 203), "به پنجاب رسیده" and "در بودن پنجاب" (p. 202), "روانه بسمت پنجاب" (p. 203), "پرگنه پرسرور تابع پنجاب" (p. 205); period: the reign narrated, dated by regnal years — "سال بیست وششم جلوس والا" (p. 201), "سال بیست وهشتم جلوس والا" (p. 203), "سنه سی ام" (p. 198); "Punjab" is the book's own unit of that time):
+  - Hakim Mirza "بارها از اب سند گذشته باعث آزار واضرار اهل پنجاب میگردید" (p. 203).
+  - Emboldened by the Bengal amirs' revolt, he "از کابل لشکر آراسته به پنجاب رسیده باعث فتنه وفساد گردید واهل آن دیار را آزار واضرار رسانید"; on the imperial advance he could not stay in Punjab and returned to Kabul (p. 202).
+  - The emperor left Allahabas "بقصد رفع شورش محمد حکیم میرزا روانه بسمت پنجاب" (p. 203).
+  - Muzaffar Khan, after Bairam Khan's fall, became "کرورے پرگنه پرسرور تابع پنجاب" (p. 205). Whether "پرسرور" lies in present Pakistan is not stated.
+- **Khan Jahan, governor of Punjab, and the Mirzas** (c. 018; book's words: "پنجاب" and "خان جهان حاکم پنجاب" (p. 228), "بسمت پنجاب" and "از پنجاب" (p. 231); period: between "سال سیوم[OCR?] جلوس والا" and "سال بست سویم" (pp. 226, 232); the unit "پنجاب" under a "حاکم", not "صوبه"): when the standards moved "بسمت پنجاب", the Mirzas came out of Sambhal, plundered and besieged Delhi fort; the emperor went "از پنجاب بسمت دہلی" (p. 231). Ibrahim Husain Mirza and Masud Husain Mirza "براه دیپالپور[OCR?] رو به پنجاب آوردند" (p. 228). Khan Jahan, "که مهم نگر کوت داشت و کار به نزدیک رسانیده بود", made peace with the raja there and marched against them (p. 228); for the battle near Multan see the Multan subsection.
+- **Sultan Sikandar and Bairam Khan** (c. 019; book's words: "ولایت پنجاب" (pp. 247, 248), "پنجاب" (pp. 246, 248), "امرائے متعین پنجاب" (p. 238); period: the first years of the reign — the Mankot affair "سال دویم از جلوس والا" (p. 247), Bairam's fall "در سال ششم جلوس والا" (p. 245); the ruler not named in the chunk): Sultan Sikandar came out of the hills and "در ولایت پنجاب شروع تحصیل مال نموده و در ان دیار فتنه و آشوب رو داد", so the emperor marched "از دارالملک دهلی بسمت پنجاب" (p. 248). Mankot fell and Sikandar was expelled, bringing "امنیت[OCR?] در ولایت پنجاب" (p. 247). Bairam Khan "راه[OCR?] پنجاب نمود", turned after Bikaner "بسمت پنجاب" and "براه بہتنده[OCR?] و بہتاره[OCR?] در پنجاب رسید" (p. 246). "میر محمد خان کلان برادر اتگہ خان و دیگر امرائے متعین پنجاب" were sent against Sultan Adam the Gakhar (p. 238).
+- **Humayun's return and Sikandar's revenue-taking** (c. 020; book's words: "ولایت پنجاب" (p. 255), "پرگنات پنجاب" (p. 255), "متوجه پنجاب" (p. 252); period: Humayun's return to Hindustan, dated "سنه ۹۶۲[OCR?]" (p. 256), to Akbar's accession "سنه ۹۶۳ هجری" (p. 252); a Mughal-period unit as the book uses it): Shah Abul Maali was posted toward Lahore to manage "مهمات ولایت پنجاب" (p. 255). Sultan Sikandar "از کوهستان برآمده بر پرگنات پنجاب دست تصرف دراز کرده تا پرگنه چماری[OCR?] و مٹهاله[OCR?](۱) شروع تحصیل مال نموده"; the editor's footnote reads "چما[OCR?] [illegible]" (p. 255). Shah Abul Maali, "ازین جهت که با سپاه همراهی خود سلوک ناهنجار دارد", failed to repel him; Akbar and Bairam Khan were sent (p. 255). Akbar was "متوجه پنجاب" against Sikandar when news of Humayun's death reached him at Kalanaur (p. 252).
+- **The Niazi revolt** (c. 021; book's words: "قصبات و نواحی پنجاب", "در پنجاب"; period: Islam Shah's reign, the Niazi revolt; no year for the revolt; his accession "در سنه ۹۵۲[OCR?]" (p. 265); not called a suba): Azam Humayun defeated Khwaja Wais, pursued him "تا سہر[OCR?]", and "بر قصبات و نواحی پنجاب دست تطاول دراز کرده بند و مواشی و مال سکنہ[OCR?] آن دیار غارت نموده" (p. 262); "شورشے عظیم در پنجاب و حالتے غریب بر ساکنان آن دیار رو داد" (p. 262). Islam Shah marched "با لشکر گران و توپ خانه فراوان از دہلی"; the Niazis held out in Dhankot until defeated (p. 262).
+- **Salim Khan in Punjab** (c. 022; book's word: "پنجاب"; period: the reign of Salim Khan, son of Sher Khan, "که بعد از فوت پدر تخت نشین ہندوستان شده بود", at Kamran's flight; no year; Salim Khan's sphere under the Sur, not a Mughal suba): Kamran went to Salim Khan, "و درآن وقت در پنجاب ہم جمہون[OCR?] داشت"; he arrived "در مقام قصبه بنر[OCR?]", and Salim Khan sent his son "آواز خان[OCR?]" and "مولانا عبدالله سلطان پوری" to meet him (p. 275).
+- **The Langah realm of Multan** (c. 023; book's words: "ولایت ملتان" (pp. 296–297), "آن ولایت" (p. 294), "پنجاب" (pp. 295–296), "ولایت لاهور" (p. 286); period: the Langah period, from Shaikh Yusuf's "۸۵۵ [OCR?]" to Kamran Mirza's possession "لغایت سنه ۹۳۶[OCR?]", and Humayun's war with Sher Khan (946[OCR?]); the book's own "ولایت", not a Mughal suba):
+  - Langah expansion: Sultan Husain took "قلعه شور را از تصرف غازیخان" and Chiniot, and "در سرعت[OCR?] اوقات[OCR?] تا کروکوت[OCR?] و دهنکوت متصرف شد" (p. 296).
+  - "تاتار خان حاکم پنجاب" was sent by Sultan Bahlul Lodi, with Bahlul's son, against Sultan Husain (p. 296).
+  - Baluch settlement: "ملک سهراب دودائی[OCR?] پدر اسمعیل خان و فتح خان" came "با قوم و قبیله خود از نواحی کچ و مکران"; the Sultan gave "ملک[OCR?] سهراب" in jagir "از قلعه کوت کردز[OCR?] تا دهنکوت[OCR?]" (p. 295). "الموع[OCR?] بسیار" of Baluch followed: "بقیه ولایت کنار دریای سند به بلوچان مقرر گردید رفته رفته از سیت پور[OCR?] تا دهنکوت[OCR?] به بلوچان قرار یافت چنانچه ازان ایام آن ولایت در تصرف اولاد ملک سهراب است" (p. 295). The book does not say where Kot Kardaz[OCR?], Sitpur[OCR?] or Dhankot lie.
+  - Border treaty: after the "قوت" (as printed) of Sultan Bahlul, "سلطان سکندر والی دهلی" made peace with Sultan Husain: "طرفین بر ولایت خود قانع بوده بر حد[OCR?] یکدیگر یورش نکنند" (p. 295).
+  - Babur, "بعد رسیدن در پنجاب", granted Multan to Arghun with the charge "در آبادانی[OCR?] ملک و رفاهیت[OCR?] رعایا کوشد" (p. 295).
+  - Eighty years outside Delhi: "در آن ولایت چهار سال حکومت میرزا شاه حسین ارغون [illegible] و از ابتدا[OCR?] گشته [illegible] لغایت سنه ۹۳۶[OCR?] مدت هشتاد سال [illegible] آن ولایت از تصرف فرمان دهان دهلی بسیردن[OCR?] بود درین ولا داخل کشور دهلی گردید و شاهزاده کامران میرزا بر آن قابض گشت" (p. 294).
+  - Kamran's jagir: "لاهور و ملتان" (p. 294). Later Sher Khan "از روی خدیعت" gave Kamran hope "که ولایت لاهور برو مسلم داشته باشد", so Kamran withdrew from aiding Humayun (p. 286).
+- **The history of "ولایت ملتان" and Babur's refusal to withdraw** (c. 024; book's words: "ولایت ملتان" (p. 298), "ولایت پنجاب" (p. 299); periods as given per item, from "سنه نود و نه هجری" to Babur's reign; the book's own "ولایت", not a Mughal suba; Pass 1 filed this as province rather than on the 8 Multan rows — brief item 9):
+  - Babur's reign: "ولایت ملتان که از مدت متمادی از تصرف سلاطین دهلی بدر رفته بود بحسن تدبیر و شمشیر همت شاهزاده کامران میرزا و بتایید اقبال لایزال حضرت بادشاه بتسخیر در آمد" (p. 298). The earlier history follows, introduced "از بعضے تواریخ بدین نمط بمطالعه این خاکسار آمده" (p. 298).
+  - "در ولایت ملتان آغاز ظهور اسلام در سنه نود و نه هجری از محمد قاسم در زمان حجاج بن یوسف است" (p. 298).
+  - "سلطان محمود غزنوی آن ولایت را از تصرف قرامطه ملاحده بر آورده رواج السلام [OCR?] داد" (p. 298).
+  - "شهاب الدین سلطان غوری بر هندوستان [OCR?] فتح یافت ولایت ملتان نیز در تصرف سلطان در آمد" (p. 298).
+  - "از ابتداۓ ششصد [OCR?] سنه هجری لغایت ۸۵۵ [OCR?] سنه آن ولایت در تصرف سلاطین دهلی ماند" (p. 298).
+  - Reign of "سلطان محمد شاه که از نژاد [illegible] خضر خان [OCR?] فرمان روائے دهلی بود": Hindustan fell into "ملوک طوائف", and "حاکم ولایت ملتان نیز دم استقلال زد و از حکم سلطان محمد شاه انحراف ورزید" (p. 298). The account breaks off at "چون نوبت سلطنت سلطان علاء الدین ولد سلطان محمد شاه [illegible]" (p. 298) and continues in the next chunk.
+  - Before the battle with Rana Sanga the wazirs advised "چند قلعه استحکام داده بولایت پنجاب رفته اقامت باید ورزید"; Babur refused (p. 299).
+- **The Mongols "عازم پنجاب"** (c. 029; book's word: "پنجاب" (p. 370); period: Jalal al-Din Khalji's reign, the year printed "سنه ۶۹۳[OCR?]"; editor's footnote variant "سنه ۶۹۱[OCR?] فرشته جلد اول صفحه ۹۴[OCR?]"; not a Mughal suba): "مغول چنگیزی بالشکر گران عازم پنجاب گشت"; the sultan marched against them; they made peace, and their leader, "که قرابت هلاکو[OCR?] خان بود", came in and became a Muslim with some other amirs; the sultan called him son, gave him a daughter, and settled them at "غیاث پور", which came to be called "مغل پوره" (p. 370). The book does not say where in Punjab the Mongols arrived or met the sultan.
+- **Balban on the Mongol threat** (c. 031; book's word: "ولایت پنجاب"; period: Balban's reign, as the book places it): urged to conquer "ولایت گجرات ومالوه", he answered "چون مغل همیشه بر ولایت پنجاب تاخت مینماید از دهلی ببلاد دور دست رفتن مناسب نیست", and "ملک خود را مضبوط درامن وامان داشتن بهتر ازان است که بملک دیگران تاختن" (p. 388).
+- **Khusraw Shah and Khusraw Malik** (c. 032; book's word: "ولایت پنجاب"; period: their rule from Lahore — Khusraw Shah died "درسنه ۵۵۵", Khusraw Malik went to Ghazni "درسنه ۵۸۲ هجری"): Khusraw Shah, having taken Lahore, "تاآخر عمر بحکومت ولایت پنجاب قیام ورزیده" (p. 405); "سلطان خسرو ملک بن خسروشاه بعد رحلت پدر برمسند حکومت ولایت پنجاب متمکن گشت" (p. 405).
+- **Raja Jaipal's realm** (c. 034; book's word: "ولایت سامانه و پنجاب"; period: Raja Jaipal and Sultan Nasir al-Din, whose accession is printed "سنه ۳۶۷[OCR?] هجرے"; not a Mughal suba; no boundaries): the historians of Hind do not list Jaipal among Delhi's rulers, "اما ازین جهت که دار الایالت او قلعه بلنده[OCR?] (۱) بمطالعه در آمده ظاهرا ولایت سامانه و پنجاب وغیره ذلک سوائے دهلی در تصرف او حواله[OCR?] بود" (p. 427); editor's footnote variant for "بلنده": "بهتنده[OCR?]" (p. 427). The raids succeeded because "در آن ایام در هندوستان طوائف ملوک شده بود یکے فرمان روا استقلال نداشت" (pp. 426–427).
+- **The Pandavas' last journey** (c. 038; book's words: "ملتان و پنجاب", inside "ولایت تهتهه[OCR?] و ملتان و پنجاب"; period: after Yudhishthira's abdication, at the arrival of "دور کلجگ"; Pass 1 placed this bare passing journey here, not on the 8 Multan rows — brief item 9): after Bengal, the Deccan, Gujarat and Dwarka, the five brothers and Draupadi "سیر ولایت تهتهه[OCR?] و ملتان و پنجاب نموده", then went to the mountain of Badrinath (p. 479). Nothing more is said of these lands.
+- **Punjab before and after Kabul joined Hind** (c. 040; book's word: "ولایت پنجاب"; two undated periods the book contrasts — "در زمان سابق که کابل از والیئے هند بیرون بود", and the time since "هند و کابل در تصرف یک فرمان روا درآمده"): formerly the Turanians raided the borders, and "درین صورت ولایت پنجاب ویران و خراب می بود" (p. 501); since Hind and Kabul came under one ruler this "باعث آبادی پنجاب و امنیت تمام هند شده" (p. 501). The clause opens "انان[OCR?] زانیکه".
+- **Suba Lahore described** (c. 041; book's words: "صوبه لاهور" / "این صوبه"; also "پنجاب" in "پنج دریاے پنجاب" and "اهل پنجاب"; period: the author's time, c. 1107 AH, a Mughal suba; the suba as described includes places outside Pakistan — Batala, the Jalandhar doab, the Kangra and Jammu hills, Sirhind):
+  - Organised by doabs: "اماکن مشهوره پنج دوابه", then "شش دریاے این صوبه که برین پنج دوابه حایل است" (p. 513). Doab names as printed: "بست جالندهر و نهروال[OCR?]" (Sutlej–Beas) (p. 513); "باری مانجهه" (Beas–Ravi) (p. 513); "چنا[OCR?]" (Ravi–Chenab) (p. 512), "رچنا" for Sialkot (p. 517); "چنتهه[OCR?]" (Chenab–Bihat) (p. 511), "چونهت" for Gujrat (p. 515); "سند ساگر" (Bihat–Sind) (p. 511).
+  - "پنج دریاے پنجاب" join the Indus beyond Multan in the Baloch country; from there the whole stream is called Sind and becomes "بحر زخار[OCR?]" (p. 510). The combined Sutlej–Beas ends in the Indus, "که راوی و چناب و بهت نیز درو واصل است" (p. 513).
+  - "بالجمله صوبه لاهور ولایتی است خوش آب و هوا": summers very hot, winters cold; melons and grapes like Iran's and Turan's, mangoes like Hindustan's; rice better than Bengal's and sugarcane better than the Deccan's (p. 510).
+  - Irrigation: "اکثر مدار اب یاری[OCR?] چاه است"; a wheel of "سیصد و شصت چوب" and more than a hundred small pots, turned by a pair of oxen, each turn lifting "چندین صد من اب"; kharif and rabi and cheap grain depend on rain (p. 510).
+  - Gold washed from the sand, especially on "دریاے بیاه و بهت"; the northern hills have mines of silver, copper, "روئین[OCR?]" and "جسد[OCR?]"; the miners profit, "و محصول و بسرکار بادشاهی دهند" (p. 510).
+  - Size: "طول این صوبه از اب ستلج تا دریاے سند صد و هشتاد کروه"; "عرض از بهیره تا چوکهندی[OCR?] هشتاد و هفت کروه" (p. 510). Borders: "شرق رویه سهرند و غرب سو ملتان و شمال کشمیر و جنوب بیپاپور[OCR?]" (p. 510).
+  - Revenue: "پنج سرکار بعضے" (p. 510) / "پنج دوابه مشتمل بر سیصد و شانزده محال و هشتاد و نه کرور و سی و سه لک و هفتاد هزار دام داخل این صوبه است" (p. 509).
+  - "اهل پنجاب" compose wonderful verses and designs on the love of Hir and Ranjha and sing them (pp. 512–511).
+- **Subas Multan and Lahore described** (c. 042; book's words: "صوبه دار الامان ملتان" (p. 528), "ولایت ملتان" (p. 525), "صوبه دار السلطنت لاهور" (p. 525), "پنجاب" / "ولایت پنجاب" (pp. 522–523); period: the author's time, c. 1107 AH, two Mughal subas, except where an item gives the book's own earlier period):
+  - Suba Multan, earlier period ("گویند"): in the reign of "سلطان علاء الدین ثانی والی دهلی", "ولایت ملتان ... از تصرف او بدر رفته بقوم لنکاه تعلق یافته بود" (p. 525).
+  - Langah period: "سلطان حسین لنکاه" granted "از کرورکوت تا مانکوت" in jagir to "ملک سهراب و غیره بلوچان که از کچ مکران نزد او رسیده بودند" (p. 525).
+  - Reign of Akbar: "راجه تودرمل دیوان اعلی ان ولایت را بر بلوچان مسلم داشته درمیان خراسان و هندوستان یزک محکم مقرر ساخت و درحدود هر دو کشور سد باستحکام انداخت" (p. 525).
+  - Extent: "طول این صوبه از فیروزپور تا سیوستان چهارصد کروه و عرض از خطپور تا جیسلمیر صد و بست و پنج کروه و درازی از صدگهره تا کچ مکران ششصد و شصت کروه" (p. 525). Bounds: east "پیوسته بسرکار سهرند", west "کچ مکران", north "شورکوت", south "صوبه اجمیر" (p. 525).
+  - Administration and revenue: "سرکار ملتان و دیپالپور و بهکر سه سرکار مشتمل بر نود و شش محال بست و چهار کرور و چهل و شش لک و پنجاه و پنجهزار دام داخل این صوبه است" (p. 525). "سرکار دیپالپور تابع این صوبه است" (p. 526).
+  - Suba Lahore: the author turns from the capital to the suba with "شطری از قصبه جات این صوبه مینویسد" (p. 523).
+  - Punjab before Tatar Khan's governorship ("گویند"): "درپنجاب نوعی طوفان جوش برزد که از دریاے ستلج تا دریاے چناب تمام زمین اب نشین", and towns and villages were destroyed; "مغول بلخ و کابل درهر سال بر ولایت پنجاب ترکتازی مینمودند", so the country lay waste and produce was small (p. 523).
+  - Punjab in the time of "سلطان بهلول لودی(۲)" (editor's footnote variant: "سکندر لودی"), when Tatar Khan became "صوبه دار لاهور": Rai Ram Deo Bhatti "پنج[OCR?] لک تنکه تمام پنجاب را از تاتارخان اجاره گرفت" (pp. 522–523).
+- **Dipalpur "dependent on Multan"** (c. 043; book's words: "دیپالپور تابع ملتان"; period: the author's time, c. 1107 AH, a Mughal unit; the book does not say whether "ملتان" means the suba, the sarkar or the city): suba Ajmer's boundaries are "مشرق رویه مستقر الخلافه اکبر آباد و غرب رویه دیپالپور تابع ملتان" (p. 534).
+- **Suba Lahore as suba Delhi's western neighbour** (c. 044; book's words: "صوبه لاهور"; period: the author's time, c. 1107 AH, a Mughal suba): suba Shahjahanabad is bounded "جانب مشرق صوبه اکبر آباد و مغرب صوبه لاهور و جنوب اجمیر و شمال کوهستان کمایون" (p. 550). Nothing else is said about suba Lahore here, and the line between the two subas is not drawn.
+- **The sultans of Multan as a source; contents headings** (c. 047; book's words: "ولایت ملتان", "ولایت پنجاب", "کوهستان پنجاب"; period per item; the book's own units, not the modern province):
+  - The times of the independent sultans of Multan, "درازمنه مختلفه": among the author's sources is the "تاریخ سلاطین ولایت ملتان", listed with "مالوه و دولت آباد و دکن و جونپور و بنگاله و اودیسه" — lands that at various times passed out of the control of Delhi's throne-holders, each with "حاکمی جداگانه" (p. 581). Pass 1 read "ولایت ملتان" here as the realm, not the city; a consolidator may prefer the 8 Multan rows (brief item 9).
+  - Table-of-contents locators: "دربیان نهضت موکب مقدس بدفع داراشکوه بجانب ولایت پنجاب", printed page ۵۱۹, in the Aurangzeb run (p. 589); "دربیان تادیب زمینداران کوهستان پنجاب", printed page ۴۱۹, in the run before "رحلت حضرت خاقان زمان" (p. 591). *basis: contents headings only*

@@ -313,7 +313,7 @@ Phalia. **The place Ranmal / Phalia, the shrine's urs, custodianship and fabric 
   "خدا کا واسطہ درمیان لایا".
 - **A five-step Naushahi Qadiri chain terminating in him**, entry ۲۳۱: "نوشاہیہ قادریہ خاندان میں
   بیعت اس بزرگ کی بخدمت رحمان شاہ کے اور اس کی بخدمت محمد صدیق کے اور اس کی بخدمت شاہ فرید لاہوری کے
-  اور اس کی بخدمت پیر محمد سچیار کے اور اس کی بخدمت حضرت حاجی محمد نوشہ گنج بخش کے تھی" — Fazl Shah →
+  اور اس کی بخدمت پیر محمد سچیار کے اور اس کی بخدمت حضرت حاجی محمد نوشاہ گنج بخش کے تھی" — Fazl Shah →
   Rahman Shah → Muhammad Siddiq → Shah Farid Lahori → Pir Muhammad Sachyar → Haji Muhammad Naushah
   Ganj Bakhsh (p. 272, folio 260). Two more Naushahi figures stand in the same chunk:
   "حضرت شاہ کنٹھہ [OCR?] نوشاہی" (entry ۲۳۲, pp. 272–273) and "حضرت شاہ فرید نوشاہی" (entry ۲۳۵,

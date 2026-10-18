@@ -327,7 +327,7 @@ attached. (Raised by chunks 007, 008, 015, 018, 032.)
   - In chains: after "قطب الدین", before "محبوب الٰہی", "از کمال نور[OCR?] رخ و ہمچون فرید الدین شدی", "صد ہزاراں [illegible] شکر بار[OCR?] آمدے" (pp. 36–37); chronogram "بامدادِ[OCR?] فرید الدین شکر گنج" (p. 38); last link after "خواجہ علاء[OCR?] احمد صابر کلیری[OCR?]" in the "سلسلہ جناب کا صابریہ چشتیہ" of Sayyid Chiragh Shah of Miani (p. 205); Shah Kaku Chishti "بعد [illegible] انکی حضرت خواجہ فرید الدین شکر گنج سے ہی ہوئی ہیں" (pp. 217–218); "حضرت خواجہ علی احمد صابر صاحب" → "حضرت خواجہ فرید گنج شکر" → "حنفی [OCR?] گرد [OCR?]" (p. 348); Ghore Shah's chain between "حضرت شیخ علی احمد صابر" and "حضرت خواجہ قطب الدین بختیار کاکی[OCR?] اوشی[OCR?]" (p. 434).
   - The author's family: "مرزا عنایت اللہ بیگ [OCR?]" came "بحالت یتیمی", Baba Farid "اسکو سجادہ و فرزندان خود [illegible]"; "اسی لحاظ سے تمام اولاد اوسکی بھی چشتی کہلاتی ہے اور اب ہم جو چشتی کہلاتے ہیں اسکا بھی یہی سبب ہے کہ ہم اوکی اولاد میں سے ہیں"; "سلسلہ ہمارا [illegible] بھی چشتیہ ہے", pen name "چشتی" (p. 24).
 - **Shrine / Darbar**
-  - "مزار پر انو[OCR?] حضرت کی پاک پٹن میں موجود ہے"; the author visited "عرصہ بیس[OCR?] سال کا گذرا[OCR?] کہ راقم الحروف بہی وہان حاضر ہوا تہا"; the building "میانہ[OCR?] اوسط", lower than the town's ground; stature medium from the grave; two doors (p. 233). One door ("اب سرور سی[OCR?] یہ دروازہ کہلاتا ہی") explained by Nizam-ud-Din's dream of the Prophet saying "وَ مَنْ دَخَلَهُ كَانَ آمِنًا"; "لاکہہ در لاکہہ آدمی وہاں حاضر ہوتی میں", seen by the author, crowd control by beating (p. 234). Devotees "تمام ملک ہندوستان و پنجاب وغیرہ" (p. 234).
+  - "مزار پر انو[OCR?] حضرت کی پاک پٹن مین موجود ہے"; the author visited "عرصہ بیس[OCR?] سال کا گذرا[OCR?] کہ راقم الحروف بہی وہان حاضر ہوا تہا"; the building "میانہ[OCR?] اوسط", lower than the town's ground; stature medium from the grave; two doors (p. 233). One door ("اب سرور سی[OCR?] یہ دروازہ کہلاتا ہی") explained by Nizam-ud-Din's dream of the Prophet saying "وَ مَنْ دَخَلَهُ كَانَ آمِنًا"; "لاکہہ در لاکہہ آدمی وہاں حاضر ہوتی میں", seen by the author, crowd control by beating (p. 234). Devotees "تمام ملک ہندوستان و پنجاب وغیرہ" (p. 234).
 - **Practices & Events**
   - Abdullah Khokhar went to "گدی نشینان مزار حضرت بابا فرید الدین گنج شکر" at Pak Pattan[OCR?] to offer his daughter; refused — "باہم درویش میں", Shaikh Ashraf was Alamgir's "مصاحب[OCR?]" (p. 161).
   - Maulvi Fakhr-ud-Din went yearly "باراد [OCR?] آستانہ بوسی"; sat in a hujra "جسکا طول دو گز اور عرض ڈیڑہ گز تہا"; sajjada nashin then "حضرت دیوان محمد سبحان" (p. 756); "گل بستان [OCR?] شیخ پاک پٹن" on Ghulam Husain's grave in Lahore, a literary reference (p. 759).
@@ -493,7 +493,7 @@ that a human can move the unmapped portion out again without losing it.
   گئے تھے اور خون ان سے بہتا تھا" — **twenty years** standing in contemplation, never sitting, feet swollen
   and bleeding, and he does not remember whether he ate anything in those twenty years (note 14 → راحت
   القلوب اردو ترجمہ ص 300) (p. 60, folio 56). He once kept a **روزۂ طے**, once did a **چلہ معکوس**, an
-  inverted chilla, once kept a **روزۂ داؤدی** (p. 60, folio 56).
+  inverted chilla, once kept a **روزہ داؤدی** (p. 60, folio 56).
 - **Marriages and children.** Four marriages: **بی بی نہرزہ[OCR?]**, daughter of **سلطان غیاث الدین
   بلبن**; **بی بی کلثوم**, mother of شیخ نصر اللہ; **بی بی شارو[OCR?]**; **بی بی سکرے[OCR?]**. Five sons
   and three daughters; sons **خواجہ نصیر الدین نصر اللہ، شیخ شہاب الدین، شیخ بدر الدین سلیمان، شیخ نظام
@@ -2445,3 +2445,1789 @@ Pakpattan.**
 - (book's word: "the upper Punjab"; refers to: "the nineteenth century"; book's historical prose): the line from Shah Mirra "resurfaces in the nineteenth century in the figure of Hafiz Sayyid Muhammad 'Ali Khayrabadi, marking the expansion of the Nizami branch of Chishti Sufism through disciples of Shaykh Sulayman Taunsawi in the upper Punjab" (p. 71, folio 57).
 - (book's word: "the Punjab"; refers to: "the colonial period"; author's argument): "If we were to follow only the dictates of political history and the criteria of social science, the test case for the Chishti Nizami Sulaymaniyya lineage in the colonial period might seem to be the battles over shrines in the Punjab"; the example given is Taunsa, and "Political power struggles internal to the Sulaymaniyya can be traced to British manipulation and also the rivalry of local Sikhs, Hindus, and Muslim reformers" (p. 124, folio printed "Ill" [text-layer?] [111]). The authors then set this political reading aside: "political contestation is only part of the narrative".
 - (book's word: "the Punjab"; refers to: present day ("continues to be intoned"); ethnographic present): "The name Qalandar continues to be intoned in popular qawwali lyrics of the Punjab, and it has been appropriated by a mainstream Sufi group, the Indian Qalandari order centered at Kakori near Lucknow" (p. 36, folio 22). Which side of the border is not stated.
+
+## From Saiyid Athar Abbas Rizvi, A History of Sufism in India, vol. 1
+
+*Integrated 12 October 2026 from `entries/book_takeaways/rizvi_history_of_sufism_india_1.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**The densest archive row in this book by a wide margin** (89 site- or person-specific bullets across
+chunks 001, 009, 010, 011, 013, 014, 016, 017, 019, 020, 021, 023, 024, 025, 026 and 027). The book's
+names for him are **"Shaikh Faridu'd-Din Ganj-i Shakar, who was known as Baba Farid"** (p. 23, folio
+9), "Shaikh Faridu'd-Din, popularly called Baba Farid" (p. 156, folio 138), "Shaikh Farid" (p. 162,
+folio 144), "Baba Farid Ganj-i Shakar" (p. 350, folio 328) and, throughout, "Baba Farid" and "the
+Baba". **It never prints "Mas'ud"** — the archive row's principal figure is "Baba Fariduddin Mas'ud
+Ganjshakar" — **and it never prints "Pakpattan" anywhere in 491 pages**; its name for the seat is
+**"Ajodhan"** (pp. 156, 158, 159, 162, 163, 174, 218, 351, 413, 425; folios 138, 140, 141, 144, 145,
+156, 200, 329, 389, not stated). **The identification of Ajodhan with Pakpattan is not made by the
+book and has not been made here.** See Doubts.
+
+- **Saint**
+  - **Birth: two years, the book prefers neither.** "Shaikh Farid was born in 569/1173-74 or
+    571/1175-76" (p. 157, folio 139). The index prints the same pair as a headword date:
+    "Baba Farid (b. 1173-74 or 1175-76, d. 1265), 4-5, 9, 12-13, 136, 138-46, 148-60, 174, 176, 178,
+    189, 193, 197-98, 219, 223-24, 228, 256, 303, 308, 327-29, 331, 333, 373, 385, 389, 401-2"
+    (p. 461, folio 437) — **those are the book's own printed page numbers, i.e. folios, and have not
+    been converted.** **The archive row carries no birth year; the book supplies one.**
+  - **Death: the book says 1265, four times, and the archive row says 1266 — recorded, not
+    reconciled.** "he remained from about 1236 until his death on 5 Muharram 664/17 October 1265"
+    (p. 158, folio 140); "the Baba is believed to have died on 5 Muharram 664/17 October 1265. AA,
+    p. 54" (p. 174, folio 156, footnote 9) — **the main text of chunk 010 never states it, and the
+    footnote's own purpose is to attack another writer's chronology**; "he visited Baba Farid before
+    the latter's death in 1265" (p. 330, folio 308); and the index's "d. 1265" (p. 461, folio 437).
+    **No hijri-only variant, no month beyond Muharram, no place of death: (not stated).**
+  - **Ancestry and migration.** "Shaikh Faridu'd-Din's ancestors came from Kabul, but migrated to the
+    Panjab in the middle of the twelfth century" (p. 156, folio 138), the cause being "The orgy of
+    Ghazna's destruction by 'Ala'u'd-Din Husain of Ghur in 1150-51, followed by the Ghuzz invasion six
+    years later" (pp. 156–157, folios 138–139).
+  - **Father, office and the two place-names I cannot adjudicate.** "Baba Farid's father, Qazi
+    Shu'aib, went to Lahore and later moved to Qasur, south-east of Lahore. The Ghaznawid Sultan of
+    the Panjab made him the Qazi of Kahtwal, a town in Multan, between Maharan and Ajodhan" (p. 157,
+    folio 139). **"Maharan" and "Kahtwal" are recorded exactly as printed; see Doubts.**
+  - **Mother — unnamed, and named by the book as the greater influence.** "The Shaikh's father was a
+    scholar, but it was his mother, an exceedingly pious woman, who prayed nightly at lengthy vigils,
+    who exerted the greater influence on the future sufi saint" (p. 157, folio 139). **Her personal
+    name is (not stated) anywhere in the book.**
+  - **Brothers.** "There Qazi Shu'aib married and had three sons, 'Izzu'd-Din Mahmud, Faridu'd-Din and
+    Najibu'd-Din" (p. 157, folio 139). The younger brother is "Shaikh Najibu'd-Din Matwakkil (Trusting
+    in God)" (p. 169, folio 151), spelt "Mutwakkil" at pp. 173, 174, 176 (folios 155, 156, 158) —
+    **one man, two spellings; see Doubts.**
+  - **Early asceticism at Kahtwal, and the townsfolk's verdict.** "Unconcerned with food or clothing,
+    he was constantly occupied with meditation in a place behind the mosque at Kahtwal. The townsfolk
+    came to believe he was deranged, and they spoke so to Shaikh Jalalu'd-Din Tabrizi of Baba Farid
+    and what to them were his strange habits" (p. 157, folio 139).
+  - **Initiation — and the book's own dispute about where.** "At the age of eighteen, Baba Farid
+    settled in Multan to undertake further studies and joined a seminary at the mosque of Maulana
+    Minhaju'd-Din Tirmizi. There he met Khwaja Qutbu'd-Din Bakhtiyar Kaki and asked to become his
+    disciple. According to Jamali, Baba Farid was initiated by the Khwaja at Multan and was advised to
+    complete his education there" (p. 157, folio 139); Rizvi dissents — "Jamali adds that the Baba
+    then visited Qandahar to acquire further knowledge, but it is more likely that Baba Farid reached
+    Delhi shortly after the Khwaja's arrival and was initiated into the distinguished group of sufis
+    residing in the Khwaja's jamu'at-khana [OCR?] [jama'at-khana]" (p. 157, folio 139). **Multan or
+    Delhi, hedged with "more likely" — kept both ways; see Doubts.**
+  - **The cell at Delhi and Khwaja Mu'inu'd-Din's prophecy.** "Baba Farid lived in a small cell near
+    the jama'at-khana and, under guidance, performed severe ascetic exercises. His austerities so
+    impressed Khwaja Mu'inu'd-Din during his visit to Delhi, that he took a special interest in Baba
+    Farid, prophesied his later fame and asked Khwaja Qutbu'd-Din to join him in prayer for his
+    disciple's future greatness" (pp. 157–158, folios 139–140). **That Delhi cell survives into the
+    fifteenth century as a place of retreat: Gisu Daraz "ordered him to perform forty days continuous
+    meditation and penance in the Delhi cell of Baba Farid. The cell was later incorporated into the
+    tomb of Shaikh Qutbu'd-Din" (p. 276, folio 256).** So the book records a cell of his *inside
+    another man's tomb at Delhi*, and no structure of his own at Ajodhan.
+  - **The chilla-i maʿkus at Uch, described as a physical procedure.** He asked "if he could perform a
+    chilla which involved spiritual exercises and fasting for forty days. The Khwaja finally permitted
+    him to perform a chilla-i ma'kus (inverted chilla)"; the details, obtained through "Badru'd-Din
+    Ghaznawi", were that "it required a man to tie a rope around his feet and remain suspended in a
+    well, head down, for forty days and nights, while both fasting and praying. The Baba found a
+    lonely mosque in Uch and, taking the mu'azzin into his confidence performed the chilla-i ma'kus"
+    (p. 158, folio 140). The master's reason for hesitating: "Khwaja Qutbu'd-Din Bakhtiyar's
+    reluctance to permit chilla-i ma'kus sprang from the fact that such devotional exercises gave the
+    devotee unnecessary publicity" (p. 158, folio 140, footnote 3). **The book later makes this a
+    first: "the first Indian sufi to perform it was Baba Farid" (p. 364, folio 342), the practice
+    named there *namaz-i maʿkus* and at p. 358 (folio 336) *salat-i maʿkus* — the book's own
+    variation, not OCR.**
+  - **Hansi, twelve years, and the five days.** "After the Baba's fame in Delhi became an obstacle to
+    prayer and meditation, he left for Hansi in the Hisar district. He was therefore absent from Delhi
+    at the time of the Khwaja's death, arriving five days after the event" (p. 158, folio 140); "It
+    was mainly his deep affection for Shaikh Jamalu'd-Din which prompted Baba Farid to stay in Hansi
+    for a period of twelve years. To Baba Shaikh Jamal was his jamal (beauty)" (p. 171, folio 153).
+  - **Succession by relic, under a will — the clearest deputisation mechanism in the book.** "In
+    accordance with the Khwaja's will, Qazi Hamidu'd-Din Nagauri gave Baba Farid relics from the
+    Khwaja, including his khirga [OCR?] [khirqa], turban, stick and wooden sandals. Although this
+    implied that the Baba was the Khwaja's successor in Delhi, the Baba's asceticism and total
+    withdrawal from the world precluded any conflict with Shaikh Badru'd-Din" (p. 158, folio 140).
+    **No khilafat-nama and no document: four physical objects and a will.** Against this the book also
+    states "His successor in Delhi was Shaikh Badru'd-Din, who came from Ghazna" (p. 156, folio 138) —
+    **a succession claim against a succession in fact, and both belong in this row; see Doubts.**
+  - **Learning and languages.** "Baba Farid was himself a scholar and wrote excellent poetry in
+    Arabic, Persian and the local Hindawi dialect. He recited the Qur'an perfectly, popularized the
+    study of the 'Awarifu'l-M'aarif [OCR?] ['Awarifu'l-Ma'arif] and lectured on the subtle philosophy
+    of the Lawa 'ih [Lawa'ih] of Qazi Hamidu'd-Din Nagauri" (p. 164, folio 146). Of that last work,
+    "Baba Farid lectured on the work to his chief disciples" (p. 215, folio 197), and the book says it
+    "no longer exists but 'vas [OCR?] [was] a most important and advanced sufi text book at that time"
+    (p. 215, folio 197).
+  - **Family, in the numbers the book states plainly.** "Having had two or three wives, the Baba's
+    family was large. Some of his children died of starvation in infancy, but five sons and three
+    daughters survived and outlived him" (p. 167, folio 149). The sons: "The eldest, Nasiru'd-Din",
+    who "lived as an agriculturalist"; "Baba's second son, Shihabu'd-Din"; "The third, Badru'd-Din
+    Sulaiman" (p. 167, folio 149); "his fourth son, Nizamu'd-Din, who preferred the life of a
+    soldier"; "Baba Farid's fifth son, Shaikh Ya'qub, was a malamati and died in obscurity" (p. 168,
+    folio 150). The daughters: "Bibi Sharifa, who was widowed at a very early age and did not remarry,
+    was the most pious"; "His third daughter was married to one of her father's disciples, Shaikh
+    Badru'd-Din Ishaq" (p. 168, folio 150). **The second daughter is not named — (not stated).**
+  - **On women as khalifas.** Of Bibi Sharifa, "Her father often stated that if women could have
+    become khalifas he would not have hesitated in making her one" (p. 168, folio 150).
+  - **The soldier son's death, recorded twice with two causes and two dates and not adjudicated.**
+    "According to Amir Khwurd, Nizamu'd-Din was killed fighting against a Mongol army which had
+    attacked Ajodhan. Later sources refer to his death during 'Ala'u'd-Din Khalji's invasion of
+    Ranthambhor in 1301" (p. 168, folio 150). Separately: "Baba Farid's favourite son was a soldier in
+    Balban's army" (p. 243, folio 223).
+  - **A son quoted in his own right.** "Earlier Khwaja Ya'qub, a son of Baba Farid, defined a muwahhid
+    as follows:" — "The muwahhid is he whose main concern is good action. Whatever he does aims at
+    seeking divine grace. Water does not drown him and fire doesn't burn him. Absorbed in Tawhid
+    (Wahdat al-Wujud) he is in a state of self-effacement" (p. 397, folio 373), footnoted
+    "Ma'ariju'l-Wilayar. f. 1Sa [OCR?] [Ma'ariju'l-Wilayat, f. 15a]".
+  - **The lineage's spread, credited to one son.** "It was mainly due to Shaikh Badru'd-Din that the
+    descendants of Baba Farid spread throughout all of India, and became a significant part of the
+    sufi movement in the sub-continent" (p. 167, folio 149).
+  - **A nephew claim the book calls legendary.** "According to the latter, the sufi whose
+    khilafat-nama, Shaikh Jamalu'd-Din had torn was Sabir, and he was also depicted as the nephew of
+    Baba Farid" (p. 172, folio 154), of which Rizvi says the stories "are legendary".
+
+- **Shrine / Darbar**
+  - **The founding of the pilgrimage site — the single most important passage in the book for this
+    row, and it is a decision taken at the funeral.** His fourth son Nizamu'd-Din "was with Balban's
+    army in Patiali (approximately two hundred kilometres east of Delhi). When he reached Ajodhan, the
+    coffin was being taken for burial outside the city walls. He suggested to his brothers that it be
+    brought inside so that pilgrims could also receive spiritual guidance from members of Baba Farid's
+    descendants. His advice was taken" (p. 168, folio 150). **The grave is moved inside the walls
+    precisely so that pilgrims will reach the family. The book gives no tomb structure, no builder, no
+    building date, no shrine name, no ʿurs, no custodian and no sajjada nashin — all (not stated).**
+  - **His house, and a stated architectural rule of the order.** "Shaikh Faridu'd-Din lived near the
+    Jami' mosque, in a small house of mud walls covered with a thatched roof. He had strictly
+    forbidden the use of burnt bricks for the buildings which, according to Chishti tradition, were
+    not simple enough for an ascetic's dwelling. The door remained open until midnight as a welcome to
+    visitors" (p. 159, folio 141). **A prohibition on burnt brick, from the saint whose shrine is a
+    burnt-brick monument.**
+  - **The institution is a jamaʿat-khana, not a khanqah.** "an account of Baba Farid's jama'at-khana
+    at Ajodhan" (p. 173, folio 155); Nizamu'd-Din "left Delhi for Ajodhan and met Shaikh Faridu'd-Din
+    Ganj-i Shakar. He was welcomed with a great deal of honour and warmth by Baba Farid who offered
+    him a bed in the jama'at-khana" (p. 174, folio 156); "Maulana Badru'd-Din Ishaq" is "the steward
+    of his jama'at-khana" (p. 170, folio 152).
+  - **He rebuked a Chishti who accepted a purpose-built khanqah.** Shaikh Badru'd-Din "wrote to Baba
+    Farid in Ajodhan asking for his assistance. The latter replied that such misfortunes befell one
+    who violated the traditions of his preceptors and that no other Chishti sufi had lived in a
+    khangah [OCR?] [khanqah] built for his own personal use" (p. 156, folio 138).
+  - **The site's strategic value, in the book's own words.** "His long stay on the Satlaj, along one of
+    the main routes from Multan to Lahore and Delhi, was a spiritually rewarding experience" (p. 158,
+    folio 140).
+  - **The tombs of his spiritual ancestors are a destination in the next generation** — "the tombs of
+    his spiritual ancestors in Ajmer and Ajodhan" (p. 200, folio 182). **The book names no occupant of
+    the Ajodhan tomb in that sentence; the attachment to this row rests on the place plus Baba Farid's
+    presence at Ajodhan eleven folios later (p. 211, folio 193). See Doubts.**
+  - **His possessions, itemised.** "Among his few possessions, the Baba had a small rug which he used
+    by night as a blanket, but which hardly covered him. During the day it was used as a sitting rug.
+    Khwaja Qutbu'd-Din's stick rested behind his head as a pillow" (p. 159, folio 141).
+
+- **Practices & Events**
+  - **Diet, and the sharing rule built into it.** "His food consisted of wild fruit and millet bread.
+    Abstaining from nourishment during the day, in the evening he broke his fast by taking sherbet. A
+    bowl of it would be brought to the Baba and often mixed with dried grapes. Of this he drank never
+    more than half, dividing the rest among his visitors. After prayers, two pieces of bread smeared
+    with ghee were taken to Baba Farid. One was given away, the other he himself ate, sharing it with
+    his favourite disciples" (p. 159, folio 141).
+  - **The zakat parable — the book's one piece of hard arithmetic on renunciation.** "The zakat of
+    Sharia'a [OCR?] [Shari'a] was five dirhams out of 200, the zakat of Tariga [Tariqa] involved the
+    payment of 195 dirhams out of 200 and the retention of only five dirhams and the zakat of Hagiqa
+    [Haqiqa] entailed the payment of everything, while retaining nothing" (p. 164, folio 146).
+  - **His definition of sufism, social rather than reclusive.** "To Baba Farid, sufism was a strenuous
+    exercise leading one to a pious life within the society in which one lived. It demanded humility,
+    modesty, patience, fortitude and a cleansing of the heart from all conceit. Self-abnegation
+    involved careful concern for any offence to another, and in the event of such a situation, sincere
+    and copious apologies were demanded" (p. 164, folio 146).
+  - **Faqirs above the ʿulamaʾ.** "He encouraged education in his disciples and considered the 'ulama'
+    to be nobler than the common people, though he disliked their self-satisfied indifference to
+    others. The fagirs [OCR?] [faqirs], he asserted, were superior to the 'ulama' and occupied the
+    same place among them as the full moon amongst a constellation of stars" (p. 164, folio 146).
+  - **Fasting and prayer as the two halves of the path.** "Fasting was the first half of the way along
+    the sufi path, said the Baba, and prayers and pilgrimages the other" (p. 174, folio 156); asked
+    whether to abandon study for supererogatory prayer, "Baba Farid suggested that he continue both,
+    as the two were necessary for the life of a dervish and he would then see which would emerge as
+    the most dominant" (p. 174, folio 156).
+  - **The aphorism corpus and its size.** "Five hundred aphorisms of Baba Farid were collected, of
+    which the following, selected by Amir Khwurd, give some insight into the Baba's broadly based,
+    humanitarian teachings" (p. 164, folio 146), followed by sixty numbered sayings running to p. 166
+    (folio 148). **Saying 5 has lost its numeral in the OCR — see Doubts.**
+  - **Khilafat-nama practice, and the forgery threat that produced it — the row's core institutional
+    material.** "The Baba took care that his khilafat-namas were quite accurate and not forged as a
+    disciple whom he considered unworthy of receiving a khilafat-nama threatened the Baba that he
+    would prepare a similar document and use it for enlisting his own disciples" (pp. 166–167, folios
+    148–149); "Maulana Badru'd-Din Ishaq who prepared copies of the khilafat-nama was required to sign
+    them, and they were later endorsed by the Baba's senior disciple, Shaikh Jamalu'd-Din, who lived
+    at Hansi" (p. 167, folio 149); "The copy of the khilafat-nama given to him by the Baba is also
+    preserved" (p. 166, folio 148).
+  - **Three classes of khalifa, in his own reported scheme, and the count.** "Later authorities give a
+    long list of the khalifas of Baba Farid, but Amir Khwurd lists only seven. According to Baba
+    himself, the khalifas were chosen in three different ways. The most outstanding were those whom
+    God inspired the Shaikh to select. These were the Rahmani khalifas. The second category were those
+    personally chosen by the Shaikh because of their own merits. The third group consisted of those
+    disciples whom the Shaikh accepted as successors on the recommendation of others" (p. 168,
+    folio 150); "Baba Farid's most outstanding khalifa was Shaikh Nizamu'd-Din Auliya'" (p. 168,
+    folio 150).
+  - **The initiation of Nizamuʾd-Din Auliyaʾ, dated to the day.** "In 655/1257-58 Nizamu'd-Din left
+    Delhi for Ajodhan"; "Nizamu'd-Din was immediately initiated and his head shaved" (p. 174,
+    folio 156); "In Jumada I 663/February 1265, the Shaikh made his third and final visit to the Baba"
+    (p. 174, folio 156); "He received his khilafat-nama from Baba Farid on 13 Ramazan 663/29 June
+    1265" (p. 175, folio 157). **Three visits in all** (p. 174, folio 156). His parting words: "'You
+    will be a tree under whose shadow the people will find rest… you should strengthen your spirits by
+    devotion…I have handed over all these things to you for at the time of my death you will not be
+    present.'" (p. 175, folio 157).
+  - **Severity as a teacher, in Rizvi's own assessment.** "The method by which Baba Farid trained
+    Shaikh Nizamu'd-Din Auliya' to take up his position as successor in the order became engraved in
+    the latter's memory. Two anecdotes from the Fawa 'idu'l-Fu'ad [Fawa'idu'l-Fu'ad] indicate that the
+    course was extremely severe" (p. 175, folio 157), closing with his own justification, "'the pir is
+    the mashshata (hairdresser) of the murids (disciples).'" (p. 176, folio 158).
+  - **He is the origin of the Chishti amulet practice, with a physical object.** "the fact that Shaikh
+    Faridu'd-Din once gave me a pot of ink and ordered me to write amulets for the people. Finding me
+    hesitant, he upbraided me saying that many would come to me for assistance and that I should
+    refuse no-one" (p. 193, folio 175). Earlier, he had himself asked Khwaja Qutbuʾd-Din about amulets:
+    "The Khwaja replied that the fulfilment of desires belonged to no-one; the amulets contained God's
+    name and His words, and could be given to the people" (pp. 154–155, folios 136–137).
+  - **He permitted prostration before the pir, and his successor could not abolish it because of
+    him.** Nizamuʾd-Din "believed the practice should cease, but found himself unable to oppose the
+    traditions followed by Shaikh Qutbu'd-Din Bakhtiyar Kaki and Shaikh Faridu'd-Din, who had both
+    permitted prostration" (p. 239, folio 219). **The most load-bearing statement in the book about
+    what may be done at a Chishti saint's feet.**
+  - **He is the stated source of Nizamuʾd-Din's authority to initiate at all.** "I accept what people
+    say to me, and use no intermediaries, as a perfect saint (Baba Farid) has authorized me to
+    initiate disciples" (p. 192, folio 174). **The parenthesis "(Baba Farid)" stands inside the
+    quotation and appears to be the author's gloss, not the speaker's — see Doubts.**
+  - **He is the terminus of the chain by which mass discipleship is dated.** "From the times of Shaikh
+    Abu Sa'id (bin) Abi'l Khair to those of Shaikh Saifu'd-Din Bakharzi and Shaikh Shihabu'd-Din
+    Suhrawardi and Shaikh Faridu'd-Din (Baba Farid), large numbers of people began to throng the doors
+    of sufi teachers. They belonged to all classes—rulers, noblemen, dignitaries and commoners"
+    (p. 192, folio 174).
+  - **A named manuscript moving down three generations with a khilafat-nama.** Nizamuʾd-Din gave
+    Shaikh Qutbuʾd-Din Munawwar "the copy of the 'Awarifu'l-Ma'arif which his grandfather had given
+    the Shaikh to be passed on to his grandson. Shaikh Jamalu'd-Din had originally obtained it from
+    Baba Farid at the time of receiving his khilafat-nama" (p. 196, folio 178).
+  - **Samaʿ without musicians — the correspondence read as music.** "The Qazi's letters were not
+    compiled in book form but those written to Baba Farid were preserved by him. Once the Baba wished
+    to partake of sama' although no musician was present. Asking Maulana Badru'd-Din to bring him the
+    Qazi's letters, he began to read them and instantly fellintoanecstaticswoon [OCR?] [fell into an
+    ecstatic swoon]" (p. 216, folio 198). **The sentence cannot be quoted verbatim; see Doubts.**
+  - **His jamaʿat-khana as a meeting-point with Hatha-Yoga Siddhas.** "The topics discussed at the
+    jama 'at-khana gatherings of Baba Farid were of great interest to visiting Siddhas whose beliefs
+    were founded on Hatha Yoga" (p. 345, folio 323); and he is one of the two sufis for whom Nath
+    doctrine "offered a common ground for the exchange of ideas with such sufis as Shaikh Hamidu'd-Din
+    Nagauri and Baba Farid. Discussions on the conception of the Ultimate Reality enhanced the mutual
+    respect of the Naths and the sufis" (p. 355, folio 333).
+
+- **Economy, patronage and the state**
+  - **Persecution at Ajodhan, by officials and by the local Qazi, and twice in fear of his life.**
+    "Although he selected a lonely place to reside, Baba Farid was harassed by local officers of the
+    Qazi of Ajodhan and by the rudeness of the people of the town. This was prompted mainly by the
+    Qazi's hostility towards the sufi movement" (p. 158, folio 140); "On one occasion the Qazi
+    requested the 'ulama' of Multan to issue a fatwa (legal decree) against anyone who lived in a
+    mosque, was known as a dervish, listened to music or danced. The 'ulama' refused to comply, after
+    discovering that such a fatwa would be used against the Baba" (pp. 158–159, folios 140–141);
+    "Nevertheless, official oppression continued, and an attempt was made on his life by a qalandar.
+    At a later date, the Shaikh became convinced that a Muslim magician was employing witchcraft to
+    kill him" (p. 159, folio 141).
+  - **Rizvi's own reading of why he went to Ajodhan, against a named modern scholar.** "The Baba did
+    not, therefore, select Ajodhan in order to reform or convert 'backward Hindu tribes', as Nizami
+    seeks to show, for it would appear that there was a great deal of work to be done among the
+    Muslims of Ajodhan. Rather, through an example of sanctity and austerity, Baba Farid sought to
+    reform the Muslims in the area of north-west India" (p. 159, folio 141).
+  - **The land grant he refused and the cash he took.** "Ulugh Khan himself visited Shaikh Farid and
+    offered a farman of four villages to the Shaikh and a cash payment for dervishes. The Shaikh
+    returned the farman but accepted the money for distribution among the dervishes" (p. 162,
+    folio 144); "Ulugh Khan prevented Sultan Nasiru'd-Din from seeing Baba Farid in 650/1252-53 when
+    the Sultan was marching towards Multan" (p. 162, folio 144); "Ulugh Khan was too discreet to
+    request the Shaikh to pray for his succession to the throne" but "paid close attention to the
+    Shaikh's utterances for a propitious omen" (p. 162, folio 144).
+  - **His rejection of patronage is made the reason the whole order survived.** "However, Baba Farid,
+    through his total rejection of government patronage, averted the crisis threatening the Chishti
+    order and succeeded in convincing his disciples that the wisest course was not to accept any form
+    of land grant. Holiness could only be obtained, said the Baba, by ignoring princes" (p. 244,
+    folio 224). **But the rule bound only khalifas:** "non-involvement in government service was not
+    compulsory for ordinary disciples, and applied only to khalifas. According to Baba Farid,
+    association with rulers and noblemen was disastrous for spiritualists but that those who were
+    connected with the government in some way were in the overwhelming majority" (p. 244, folio 224),
+    footnoted "Counsel to Sidi Maula, Tarikh-i Firuz Shahi, p. 209".
+  - **He is cited as the precedent for refusing a Sultan's villages** — "Quoting a precedent set by
+    Baba Farid, the Shaikh requested the Qazi to admonish those who acted contrary to the traditions
+    of their pirs" (p. 196, folio 178). **The content of the precedent is (not stated).**
+  - **A merchants' boycott reduced his community to near starvation at the end of his life.** "As a
+    result of Sher Khan's hostility towards Baba Farid, merchants and wealthy supporters appear to
+    have stopped sending gifts to the sufis at the jama'at-khana. This action impoverished Baba Farid,
+    his family and other members of his religious community, during the last years of his life, and
+    they all were reduced to near starvation" (p. 163, folio 145). The verse he is said to have
+    recited against Sher Khan: "'Alas! You have no knowledge about me; / When you would gain knowledge
+    about me, you would repent.'" (p. 163, folio 145).
+  - **One recorded intercession with a revenue official, and it failed.** An "'amil (revenue officer)"
+    asked him "to recommend the wali (governor) of Ajodhan to refrain from harassing him. Baba Farid
+    sent a message to the wali requesting that he treat the 'amil kindly. However, the Shaikh was
+    unsuccessful and the wali refused to heed his advice" (p. 163, folio 145); he "offered assistance
+    only to people who requested spiritual help and rarely made recommendations to worldly
+    authorities" (p. 163, folio 145).
+  - **Mass devotion in his lifetime, and the physical management of it.** "Baba Farid was tremendously
+    popular at this time. The soldiers of Sultan Nasiru'd-Din's army also visited him. The large crowd
+    of men concerned him, so he left his house. A sleeve from his shirt was hung from the roof of his
+    dwelling facing the street. Crowds of people came to kiss the sleeve and in the process it was
+    torn to shreds. Baba Farid went to the mosque and on his instructions his disciples formed a
+    circle around him, so his devotees could not come too close. A farrash (menial servant) broke the
+    circle of protectors and falling at the Shaikh's feet, kissed them" (pp. 162–163, folios 144–145).
+  - **Verses of counsel recited before a prince.** "The verses recited by Baba Farid before Ulugh Beg,
+    reminded him of Firidun's previous rule of justice and advocated a high degree of tolerance. In
+    advising him to appoint a God-fearing vizier, Baba Farid possibly had in mind the Saljuqid vizier,
+    Nizamu'l-Mulk Tusi" (p. 244, folio 224). **"possibly had in mind" is Rizvi's conjecture.**
+  - **The Balban marriage story, rejected outright by the author.** "Later Chishti records give an
+    exaggerated account of the intimate relationship between Baba Farid and Sultan Balban (1266-87)";
+    "According to the Jawahar-i Faridi, after his accession Balban married his daughter to the Shaikh,
+    but this is hardly historical as the Shaikh died before Ulugh Khan became Sultan Balban of the
+    Delhi Sultanate" (p. 162, folio 144).
+  - **His descendants as objects of a reigning Sultan's devotion.** Muhammad bin Tughluq "was a most
+    religious man, who was deeply devoted to the descendants of Shaikh Hamidu'd-Din Nagauri and Baba
+    Farid" (p. 194, folio 176). **Rizvi's own assertion, sourced only to "All independent sources
+    affirm" with no source named — (not stated).**
+  - **An eighteen-year service and a disciple's relocation.** Amir Khwurd's grandfather, "Saiyid
+    Muhammad bin Mahmud Kirmani, a merchant who traded hetween [OCR?] [between] Kirman in Iran and
+    Lahore. During business trips to Lahore via Ajodhan, he would call on Shaikh Faridu'd-Din Ganj-i
+    Shakar, who was known as Baba Farid, and on one occasion became his disciple … Although his
+    father-in-law pressed him to remain in Multan, the Saiyid finally settled in Ajodhan and for about
+    eighteen years loyally served his pir. After Baba Farid's death, the Shaikh and his sons migrated
+    to Delhi and became great companions of Shaikh Nizamu'd-Din Auliya'." (p. 23, folio 9).
+
+- **Legends & Miracles** *(as the book attributes them, with its own hedges kept)*
+  - **The pebbles that turned to sugar three times, and the master's ruling that legitimised eating
+    them.** "overpowered by incessant fasting for three days, the Baba placed some pebbles in his
+    mouth. These immediately changed into sugar. Baba Farid, believing that this had been the work of
+    the devil, spat them out… Finally, overpowered by extreme hunger he ate some pebbles which had
+    become sugar so that he could continue praying. Khwaja Qutbu'd-Din approved his action, telling
+    him that whatever was received from the unseen world must necessarily be good" (p. 158, folio 140).
+    The book flags the etymology as contested: "The reason why the Shaikh came to be known as Ganj-i
+    Shakar (Store of Sugar) is described in different stories in various hagiological works" (p. 158,
+    folio 140).
+  - **The thief blinded by the sight of his praying mother, and healed by her.** "a thief, entering the
+    house glanced at the praying woman and was instantly blinded. The robber implored the Shaikh's
+    mother to restore his eyesight. She did so, and the blindness was removed. The following day, the
+    thief returned with his family to the Shaikh's house and was converted to Islam" (p. 157,
+    folio 139); repeated in Appendix A with Rizvi's own evidential gloss — "Indeed this is one of the
+    rare conversions through early Chishti influence, although the circumstances which prompted it,
+    according to the story, were miraculous" (p. 425, folio not stated).
+  - **His mother's disappearance and the bag of bones that emptied itself.** "When Baba Farid settled
+    at Ajodhan he asked his brother, Shaikh Najibu'd-Din Mutwakkil, to bring his mother who was then
+    living at either Hansi or Delhi, to Ajodhan to live with him" (p. 425, folio not stated); she
+    vanished on the journey, and "Presuming them to be those of his mother who had fallen prey to a
+    lion or some other beast, the Shaikh collected them in a bag and took them to Ajodhan. When the bag
+    was opened, to the astonishment of the two brothers, it was empty" (p. 426, folio 402). "The
+    tragedy was related to Baba Farid and the latter appropriately had prayers said and food
+    distributed to the poor for the repose of his mother's soul" (p. 426, folio 402); the book calls
+    the whole episode "strange" (p. 425, folio not stated), and sources it to "FF, pp. 136-37".
+  - **The pomegranate seed that illuminates the heart.** Jalalu'd-Din Tabrizi "had with him a
+    pomegranate, and broke it, offering it to Baba Farid. As the Baba was fasting he refused to eat it,
+    but after his guest had left he picked upa [OCR?] [picked up a] seed and in the evening ate that.
+    Instantly his heart was illuminated and he lamented not having eaten the whole fruit. However in
+    Delhi Khwaja Qutbu'd-Din consoled the Baba saying that in each pomegranate there was only one seed
+    endowed with spiritual blessings and that he had had it" (p. 157, folio 139, footnote 2).
+  - **A wall felled instead of a disciple.** "Seeing that the qalandar was determined to strike the
+    disciple, the Baba asked him to strike the wall instead. The qalandar complied and the wall fell
+    down" (pp. 160–161, folios 142–143).
+  - **The desert prophecy fulfilled by five deaths.** He "begged them not to go through the desert but
+    to take another route. Ignoring his advice, they proceeded to travel along the desert route.
+    Shortly afterwards, news was brought that the four had died from heat exhaustion and the fifth, who
+    finally reached a well, drank so much water that he also died" (p. 164, folio 146).
+  - **The withheld prayer that foretold a death.** "The Shaikh made nineteen visits to Baba Farid at
+    Ajodhan, and on each occasion the Baba prayed that there might be a further visit. On the
+    nineteenth he refrained from his usual prayer, and a few months before the Baba's death Shaikh
+    Najibu'd-Din died" (p. 170, folio 152).
+  - **Foreknowledge of his own death, spoken to his khalifa** — "I have handed over all these things to
+    you for at the time of my death you will not be present.'" (p. 175, folio 157).
+  - **A hidden theft detected without being told.** Of the hundred tankas of which 'Arif kept fifty:
+    "the Baba smiled and said that 'Arif had already divided it on a brotherly basis, rather than
+    giving him the entire amount entrusted to him" (p. 172, folio 154).
+  - **A wilaya with a physical frontier.** Baba Farid "replied that the limit of his spiritual influence
+    was at a certain water tank and that beyond it began the area of Shaikh Baha'u'd-Din whose prayers
+    he should attain. The musician acted on the Baba's advice and safely completed his journey"
+    (p. 211, folio 193). **A mapped boundary between this row's saint and `shrine-of-bahauddin-zakariya`'s.**
+  - **A hair of his beard as a working amulet — relic, cure, failure and recovery.** "Shaikh
+    Nizamu'd-Din Auliya' related that even a hair from the beard of Baba Farid was used by him as an
+    amulet"; "One day I was sitting with Shaikh Faridu'd-Din. A hair from his beard fell on his lap. I
+    requested the Shaikh to give it to me so that I could preserve it as a ta'wiz (amulet). He ordered
+    me to do so. I… kept the hair in a piece of cloth and brought it to Delhi. That hair embodied a
+    great blessing. Whenever a sick person approached me for an amulet, I gave the hair to him. He
+    would keep it for a few days and be cured" (p. 240, folio 220); and the failure — "Once my friend
+    Taju'd-Din Multani's child became ill. He approached me for the amulet. I had placed the hair in a
+    niche but I could not find it… his son died of the illness. After a few days someone else
+    approached me for the amulet, to my surprise it was in its usual niche", with Rizvi's gloss, "The
+    moral of this story is that the hair could not be found as the child was destined to die"
+    (pp. 240–241, folios 220–221).
+  - **A curse-like anecdote, told and then repudiated by the author.** He "had given a gift to a dervish
+    and then ordered him to go away"; the dervish asked for his comb and predicted prosperity for him,
+    and "Baba Farid replied that he had thrown in the river whatever prosperity was wished on him.
+    Going to bathe in a neighbouring shallow river, the dervish was drowned" (p. 248, folio 228).
+    Rizvi: "the story of the cause of the death of the dervishes and the sons of 'Imad is incompatible
+    with more factual evidence which depicts the kindliness of both Baba Farid and Shaikh Nizamu'd-Din
+    Auliya'" (p. 248, folio 228).
+  - **Flight and mass conversion ascribed to his descendants, and rejected.** "Their myths related to
+    the performance of supernatural feats such as flying through the air and to the conversion of huge
+    numbers of Hindus, the latter being quite contrary to the Chishti mission" (p. 27, folio 13).
+  - **Spiritual conversation with the dead saint at Ajodhan — the book's own explanation of the Guru
+    Nanak meeting.** "the Janam-Sakhis expressed the sufi and Nath belief that great saints did not die
+    but remained accessible to important mystics in later ages through spiritual conversation"
+    (p. 413, folio 389); "At Ajodhan and Multan, Guru Nanak was reported to have had discussions with
+    Baba Farid and Shaikh Baha'u'd-Din Zakariyya. Some scholars have suggested that there may have been
+    some descendants of the two great saints with the same names with whom the Guru may have exchanged
+    ideas. The suggestion is far-fetched although Guru Nanak did undoubtedly enjoy the company of sufis
+    in these towns" (p. 413, folio 389). **Rizvi therefore treats the meeting as a conversation with the
+    dead saint, not with a namesake descendant.**
+
+- **Texts, verse and the record**
+  - **Three spurious malfuzat in his name, in a list the author condemns.** "The Fawa'idu's-Salikin, the
+    alleged discourses of Shaikh Qutbu'd-Din Bakhtiyar Kaki; the authorship attributed to Shaikh
+    Faridu'd-Din"; "The Asraru'l-Auliya', the alleged discourses of Shaikh Faridu'd-Din; the authorship
+    attributed to his son-in-law, Maulana Badr Ishaq"; "The Rahatu'l-Qulub, the alleged discourses of
+    Shaikh Faridu'd-Din; the authorship attributed to Shaikh Nizamu'd-Din Auliya'" (p. 18, folio 4) —
+    all inside works "embroidered by anonymous authors who were bereft of either a feeling for history
+    or a first-hand knowledge of the lives of their heroes" (p. 18, folio 4).
+  - **He is the reason Nizamuʾd-Din wrote nothing down.** "Shaikh Nizamu'd-Din answered that he also had
+    tried to write down what he had heard from Shaikh Faridu'd-Din (Baba Farid), but that he, too, had
+    always been by what he said that he was unable to write a word." (p. 19, folio 5). **A word or line
+    is missing between "been" and "by" — see Doubts; the fact survives the damage, the wording must not
+    be quoted as printed.**
+  - **He heads the second tabaqa of the Akhbaruʾl-Akhyar** — "2. Shaikh Faridu'd-Din Ganj-i Shakar and
+    his followers and disciples." (p. 26, folio 12).
+  - **A whole hagiographic literature built on him, and rejected.** "'Ali Asghar bin Shaikh Maudud bin
+    Shaikh Muhammad Chishti of Fathpur … used a eulogistic style in his Jawahir-i Faridi to glorify the
+    spiritual achievements of Shaikh Faridu'd-Din Ganj-i Shakar and his descendants. They were the
+    ancestors of Shaikh Salim Chishti whose prayers were said to have been responsible for the birth of
+    Akbar's son, Prince Salim, later Emperor Jahangir… The work was completed in 1033/1623." (p. 27,
+    folio 13). **The Salim Chishti genealogy is reported as the Jawahir-i Faridi's, not asserted.**
+  - **Hindawi verse: he is one of only two named sufi composers whose songs survive.** "Most of the
+    Hindawi songs recited at sama' gatherings held during this period have been lost, but a few verses
+    that have survived have been ascribed to Shaikh Hamidu'd-Din Nagauri and Baba Farid" (p. 349,
+    folio 327); they "were not composed for propaganda purposes but were a natural evolution from the
+    deep and personal involvement of these two great mystics with their environment" (p. 349,
+    folio 327).
+  - **A Multani-dialect verse the book cannot read.** "The Siyaru'l-Auliya' quotes a verse composed by
+    Baba Farid in the Multani dialect whose precise meaning is difficult to decipher" (p. 350,
+    folio 328), footnoted "Sururu's-Sudur, pp. 50-1; SA, p. 367".
+  - **Two dohas in a dated printed collection with a Persian crib.** "The Saba'-Sanabil of Mir
+    'Abdu'l-Wahid Bilgarami contains two dohas by Baba Farid with a Persian translation. The Mir
+    himself was a good poet in Hindawi and his version makes the doha more intelligible" (p. 350,
+    folio 328), cited as "Mir 'Abdu'l-Wahid Bilgarami, Saba' Sanabil, Kanpur, 1299/1881-82, p. 58".
+    Both attack false initiation and outward asceticism — "You give a cap as a mark of initiation, and
+    this indicates that you are presumptuous" and "You shave your head but what you should do is to cut
+    lust from the heart" (p. 350, folio 328). **The Devanagari originals of these verses are printed
+    only in the footnotes and every one of them is destroyed in the OCR — see Doubts.**
+  - **More than a hundred slokas in the Sikh scripture, and Rizvi's verdict on them.** "Controversy
+    surrounds more than a hundred s/okas [OCR?] [slokas] ascribed to Baba Farid Ganj-i Shakar in the
+    Guru Garanth [OCR?] [Guru Granth], compiled by the fifth Sikh Guru, Arjan, in 1604" (p. 350,
+    folio 328); "Some scholars assert they were composed by Baba Farid himself but the language
+    indicates they were the work of his successors who may have rewritten some of Baba Farid's original
+    slokas into a more intelligible Multani. Some of these slokas are even ascribed to Kabir"
+    (pp. 350–351, folios 328–329); "Others believe that the s/okas [slokas] in the Guru Garanth [Guru
+    Granth] were composed by Shaikh Ibrahim, a successor of Baba Farid, whom Guru Nanak visited at
+    Ajodhan" (p. 351, folio 329); and Rizvi's own conclusion, "A careful analysis of Baba Farid's
+    slokas in the Guru Granth would tend to suggest they were not composed by one individual. Therefore
+    it is wrong to ascribe them either to Shaikh Ibrahim or another of Baba Farid's descendants, known
+    as Farid Sani. They represent the teachings of Baba Farid through the years from his own time to
+    the fifteenth century and were therefore composed by a number of different descendants, all using
+    Farid as their nom de plume" (p. 351, folio 329). **An entry quoting "slokas of Baba Farid in the
+    Guru Granth" must carry this.**
+  - **The pen-name practice, made parallel to the Nath practice.** "A corpus of dohas with Farid as the
+    nom de plume which were compiled by a number of descendants of the Baba show that their authors
+    were also influenced by this trend" (p. 353, folio 331).
+  - **Two bibliography entries and one modern monograph.** "'Ali Asghar, Jawahir-i Faridi, Lahore, 1884"
+    (p. 438, folio 414); "Faridu'd-Din, Shaikh, Sururu's-Sudur, Habibganj, Aligarh University MS"
+    (p. 441, folio 417); "Mugqbool Elahi [OCR?] [Muqbool Elahi], The couplets of Baba Farid, Lahore,
+    1967." (p. 454, folio 430); "Nizami, K.A., The life and times of Shaikh Farid Ganj-i Shakar,
+    Aligarh, 1955." (p. 454, folio 430) — **the only monograph on a Pakistani archive figure in the
+    entire bibliography.**
+  - **The index's satellites, quoted as printed.** "Faridu’d-Din Ganj-i Shankar [OCR?] [Ganj-i Shakar],
+    see Baba Farid" (p. 465, folio 441) — **a cross-reference with the epithet corrupted in the
+    headword itself**; "Ganj-i Shakar, 140" (p. 465, folio 441); "Jawahir-i Faridi, 13, 117, 144"
+    (p. 470, folio 446); "The life and times of Shaikh Faridu‘d-Din Ganj-i Shakar, 141, 156" (p. 473,
+    folio 449); "Nizamu'd-Din b. Baba Farid, 150" (p. 479, folio 455); and the seat, "Ajodhan, 9,
+    138-41, 149, 152-53, 156—59, 182, 193, 200, 304, 345, 389, 396, 401" (p. 459, folio 435).
+    **"Pakpattan" is NOT an index headword anywhere in the P run (p. 480, folio 456).**
+  - **He appears in a plate caption.** "An Imaginary Gathering of Eminent Sufis. XVII century miniature
+    in the Hermitage Museum, Leningrad. Left: Khwaja Mu'inu'd-Din Chishti; Khwaja Qutbu'd-Din Bakhtiyar
+    Kaki; Baba Farid. Rig/it [OCR?] [Right]: Shaikh *'Abdu'l Qadir Jilani; Shaikh Abu "Ali Qalandar;
+    Shaikh Nizamu' d-Din Auliya'." (p. 298, folio not stated). **A bare name on a plate leaf; see
+    Doubts.**
+
+- **Significance**
+  - **He is the hinge of the Chishti order's institutional survival** (p. 244, folio 224), the source of
+    its amulet practice (p. 193, folio 175), the licence for prostration before the pir (p. 239,
+    folio 219), the first Indian sufi to perform the inverted prayer (p. 364, folio 342), and the saint
+    whose grave was deliberately placed where pilgrims could reach his descendants (p. 168, folio 150).
+    **Against that, the book gives the shrine itself nothing: no fabric, no patron, no ʿurs, no
+    custodian, no revenue — all (not stated).**
+
+### Doubts the notes raise on this row
+
+| row | the book prints | the archive row | status |
+|---|---|---|---|
+| `shrine-of-fariduddin-ganjshakar` | **5 Muharram 664/17 October 1265** (pp. 158, 174; folios 140, 156), "death in 1265" (p. 330, folio 308); index "d. 1265" (p. 461, folio 437) | `figure_died` **1266** | **A one-year discrepancy, consistent across four statements in the book. Not reconciled.** The book's main text never states the death; it is carried only in a footnote whose own purpose is to attack another chronology (p. 174, folio 156, footnote 9), and an entry should cite it as "AA, p. 54, as reported by Rizvi". |
+
+| row | the book prints | the archive row | status |
+|---|---|---|---|
+| `shrine-of-fariduddin-ganjshakar` (birth) | **569/1173-74 or 571/1175-76** (p. 157, folio 139); index "b. 1173-74 or 1175-76" | no birth year | **The book supplies a date the archive lacks, and prefers neither of its two.** |
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Panjab"; refers to: Ghaznawid rule, "Yamain al-Dawla Mahmud (388/998-421/1030)" and "Bahram Shah (1118-52)" as printed; book's historical prose): Mahmud "established Ghaznawid rule over Khurasan, Afghanistan and the Panjab"; after two defeats by 'Ala'u'd-Din of Ghur, "Bahram Shah was forced to flee to the Panjab" (p. 83, folio 67).
+- (book's word: "the Panjab"; refers to: Mahmud of Ghazna's annexation and after, with Hujwiri reaching Lahore "in c. 1035, while Sultan Mas'ud I (1031-41) reigned in Ghazna"; book's historical prose): "the annexation of the Panjab by Mahmud of Ghazna and its incorporation into his empire prompted many sufis to settle in the area"; Khattali "ordered his disciple, Shaikh Husain Zinjani to move to the Panjab", and later sent Hujwiri after him (p. 130, folio 112).
+- (book's word: "the Panjab"; refers to: "the middle of the twelfth century", after "'Ala'u'd-Din Husain of Ghur in 1150-51, followed by the Ghuzz invasion six years later"; book's historical prose): Baba Farid's ancestors "came from Kabul, but migrated to the Panjab in the middle of the twelfth century" (p. 156, folio 138); the destruction of Ghazna and the Ghuzz invasion "drove a large number of people from that region to the Panjab for safety"; the book names "The Ghaznawid Sultan of the Panjab" as the one who made Farid's father Qazi of Kahtwal (p. 157, folio 139).
+- (book's word: "the southern part of the Panjab"; refers to: "1175", as printed; book's historical prose): "A hundred and fifty years later in 1175 Mu'izzu'd-Din Muhammad bin Sam seized Multan, establishing firm control and Sunni rule over the southern part of the Panjab" (p. 128, folio 110).
+- (book's word: "the Panjab"; refers to: after Jalalu'd-Din's defeat "in November 1221" and Chingiz Khan's march back west; book's historical prose): Chingiz Khan's "absence enabled Itutmish [OCR?] [Iltutmish] to consolidate power in the Panjab, seven years later routing from Sind his rival, Nasiru'd-Din Qubacha" (p. 152, folio 134).
+- (book's word: "the Panjab"; refers to: "previous years" before Muhammad bin Tughluq's scheme "attempted in 1327"; book's historical prose): the Sultan raised "the slogan of jihad against the Mongols, who in previous years had devastated the Panjab and the region around Delhi" (p. 193, folio 175).
+- (book's word: "the Panjab"; refers to: "Timur's invasion in 1398-99", as printed; book's historical prose): "Timur's invasion in 1398-99 devastated both the Panjab and Delhi" (p. 290, folio 270).
+- (book's word: "the Panjab"; refers to: the time of Saiyid Jalalu'd-Din Bukhari, Makhdum-i Jahaniyan, born "15 Sha'ban 707/9 February 1308", and of "Sultan Firuz Shah Tughlug" [OCR?] [Tughluq]; book's historical prose): the Suhrawardiyya order "spread from Uch to Gujarat, the Panjab and Kashmir even extending its influence to the Delhi of Sultan Firuz Shah Tughlug [OCR?] [Tughluq]" (p. 299, folio 277).
+- (book's word: "the Punjab"; refers to: the time of "Mongol domination of Central Asia and Iran", Shaikh Baha'u'd-Din Zakariyya and Baba Farid; book's historical prose): Qalandariyyas and Jawaliqis passed through Multan, where they "often came into conflict with Shaikh Baha'u'd-Din Zakariyya"; "From the Punjab, the displeased qalandars moved to Delhi creating scenes wherever they saw a khanqah. Some went as far east as Bengal" (p. 325, folio 303).
+- (book's word: "the Panjab"; refers to: "the fifteenth century", with "The Mongol invasions between the thirteenth and fourteenth centuries" behind it; book's historical prose): "In the fifteenth century, the Panjab enjoyed a peaceful period due to Afghan rule. The Mongol invasions between the thirteenth and fourteenth centuries had devastated portions of the Panjab and the Afghans had successfully contributed to its re-settlement and urbanization by founding many new towns and promoting trade and commerce" (p. 408, folio 384).
+- (book's word: "the Panjab", "west Panjab"; refers to: "About 1520" and Babur's third invasion "in 926/1520", as printed; book's historical prose): Guru Nanak returned from eastern India "only to find the Panjab plunged into a number of significant political crises"; Babur "started unsuccessful negotiations with Ibrahim to annex west Panjab to Kabul. After two minor raids around the region between the Indus and Jhelum, Babur invaded a third time over the Panjab in 926/1520 reaching as far as Sialkot"; a footnote says Daulat Khan "Gradually he also became the governor of the Panjab and in [1523 [OCR?] invited Babur to invade India" (p. 409, folio 385).
+- (book's word: "Panjabi", "the Panjab"; refers to: "Guru Nanak's period"; quoted source, W.H. McLeod, *Guru Nanak and the Sikh religion*, quoted so that Rizvi can reject it): "the Panjabi sufism of Guru Nanak's period had evidently departed radically from the classical pattern of Arab and Persian Sufism"; most Muslims Nanak met "would, however, represent in varying degrees the blend of modified orthodoxy and debased Sufism which was dominant … in the Muslim community of the Panjab during this period" (pp. 419–420, folios 395–396).
+- (book's word: "Panjabis", "the Panjab"; refers to: "the time of Guru Nanak"; author's argument, against McLeod): "all literate Panjabis, both Hindus and Muslims, at the time of Guru Nanak were conversant with" 'Attar, Rumi and Sa'di; McLeod "seems to be unaware of Shaikh 'Abdu'l-Quddus Gangohi who lived in Shahabad, his disciple, Shaikh Jalal of Thaneswar, and the Qadiris who had made the Panjab the main centre of their activities" (p. 420, folio 396).
+
+## From Omar Kasmani, Queer Companions
+
+*Integrated 12 October 2026 from `entries/book_takeaways/kasmani_queer_companions.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+*The book prints `Faridud-din[text-layer?]` [Fariduddin] `Ganjshakr` and, separately, "Baba Farid".*
+
+- "`Faridud-din[text-layer?]` [Fariduddin] Ganjshakr (d. 1266) of `Pak-­Pattan`", second of the three
+  figures with whom Lal is said to have met at Chothanbi; "Their shrines are spread across southern
+  Punjab in Pakistan." (p. 188, folio 171, ch. 1 n. 17) **The death year 1266 matches the archive
+  row.**
+- His shrine is named again in the References: `Eaton, Richard. 1982. "Court of Man, Court of God:
+  Local Perceptions of the Shrine of Baba Farid." In Moral Conduct and Authority: The Place of Adab
+  in South Asian Islam, edited by Barbara Metcalf, 333 – 56. Berkeley: University of California
+  Press.` (p. 206, folio 189). **No location, no silsila and no discussion: (not stated).**
+
+### Doubts the notes raise on this row
+
+- **Name-spelling divergences between book and archive, all of which a consolidator will hit:** book
+  "Bahaʾuddin Zakaria" vs archive "Bahauddin Zakariya"; book "`Faridud-din` Ganjshakr" vs archive
+  "Baba Fariduddin Mas'ud Ganjshakar"; book "`Pak-­Pattan`" vs archive "Pakpattan"; book "Jalaluddin
+  Surkhposh Bukhari" vs archive "Sayyid Jalaluddin Surkh-Posh Bukhari"; book "Uchh" vs archive "Uch
+  Sharif"; book "Madho Lal Husain" vs archive "Madho Lal Hussain"; book "Bibiyan-pak-daman" vs
+  archive "Bibi Pak Daman"; book "Data Ganj Bukhsh" and "Data Ganj Bakhsh" four years apart. **The
+  death years 1267, 1266 and 1291 match the archive exactly, which is what makes those three
+  identifications safe.**
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "central Punjab"; refers to: "the colonial period" set against "the postcolonial state", as the book reports them; quoted source, Umber bin Ibad 2019): "Though focusing only on central Punjab, Ibad notes that in the colonial period, “the state did not try to control shrines directly through its bureaucracy”; however, the postcolonial state has gone further, especially by virtue of implementing a unique politico-religious ideology" — in his view, a desire "to harness the pluralistic traditions of shrines in favor of “representing a Singular Islam”" (Ibad 2019, introduction) (p. 69, folio 52).
+- (book's word: "central Punjab"; refers to: stated in the present tense as a general condition, framed by Baba's childhood in a Punjab village "Decades on" from the 2012–2013 tellings; period otherwise not stated; author's argument): "Being a child in a poor rural family in central Punjab, one who is regarded as intersex means being given to particular bodily horizons, oriented to certain futures more than others"; "a most likely trajectory for a child such as Baba would have eventually involved a life with the khwaja-sara"; such children, "Given male names at birth and in most cases also registered as sons", "do not extend the social promise of family lines that cisgender sons are expected to offer" (p. 73, folio 56).
+- (book's word: "parts of Sindh and Punjab"; "Rural Punjab and Sindh" in the cited title; refers to: period not stated — the study is dated 2010 in the References; quoted source, Lubna Chaudhry): "In a study of women and poverty in parts of Sindh and Punjab, Lubna Chaudhry notes how unmarried girls in their teens and early twenties are most vulnerable. She points to discriminatory food portions within the family and limited access to health care, in addition to a lack of share in economic resources, even those that involve their labor" (p. 191, folio 174, ch. 2 n. 24; the study is "Women and Poverty: Salient Findings from a Gendered Analysis of a Quasi-Anthropological Study in Rural Punjab and Sindh", 2010, p. 205, folio 188).
+
+## From Michel Boivin, Hindu Sufis of South Asia
+
+*Integrated 12 October 2026 from `entries/book_takeaways/boivin_hindu_sufis_south_asia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Punjab"; refers to: "the eighteenth century"; book's historical prose, hedged "It is possible"): on the Nanakpanth among Sindh's Hindus: "The Nanakpanth would have been initiated later. It is possible that the Aroras imported this cult from Punjab during their migrations in Sindh in the eighteenth century. The Nanakpanth is a form of Sikhism that does not recognize the authority of the Khalsa" (p. 43, folio 30).
+- (book's word: "Punjab"; refers to: "the second half of the nineteenth century"; book's historical prose, citing Oberoi 1994): "the first attempt to rationalize and uniformize the Sikh tradition was implemented. This process of normalizing the Sikh tradition was centred on Punjab, and it did not concern the Sindhi Nanakpanthis who were heterodox Sikhs" (p. 53, folio 40).
+- (book's word: "Punjab"; refers to: period not stated, historical; author's argument citing Lorenzen 1996): "The Nirguni tradition was more influential in Northern India, especially in Punjab, where the Sikh tradition historically derived from the Nirguni tradition of the Bhakti" (p. 89, folio 76).
+- (book's word: "the southern present Punjab"; refers to: an unstated past time ("at the time when"); author's argument): the shared devotional culture "would be called Sindhian culture, which refers to a set of social, religious and cultural traits that existed in the Sindhi area at the time when it encompassed the southern present Punjab, and also the territories of Rajasthan and Gujarat" (p. 53, folio 40). The book does not say whether "present Punjab" means the Pakistani province. The Rajasthan/Gujarat half is under `not attached`.
+- (book's word: "Southern Punjab", "South Punjab"; refers to: present day for the language; "the Middle Ages" for the historical claim; author's argument, in an endnote, the glossary and the main text): Ch. 6 n. 11: "The Siraiki language is mainly spoken in Southern Punjab, with Multan as capital. Interestingly, this area was a part of Sindh during the Middle Ages" (p. 216, folio 203). Glossary: Siraiki is "a language spoken in Northern Sindh and Southern Punjab" (p. 220, folio 207). In the main text, for some specialists the Siraiki of Northern Sindh is "a distinct language from the Siraiki of South Punjab" (p. 171, folio 158).
+- (book's word: "Punjab"; refers to: period not stated; author's argument, in an endnote and Annex 2): "the Chishtiyya was not widespread in Sindh, while it is dominant in Punjab and North India" (General conclusion n. 1, p. 217, folio 204). "The Chishtiyya is usually considered to be one of the most powerful Sufi orders in Northern India and Punjab" (p. 227, folio 214). The book does not say which Punjab.
+- (book's word: "Punjab"; refers to: "the Pax Britannica imposed by the colonial rule", and present-day scholarship; author's argument): scholars of Sindhi studies treat Sindh's religious encounters "as if comparable dynamics were not implemented in other regions, be they neighbouring Sindh, such as Punjab, Rajasthan or Gujarat, or elsewhere". "During the Pax Britannica imposed by the colonial rule, the exchange of goods and products was reinforced between the different regions of the north-western Indian subcontinent, including Punjab, Rajasthan, Gujarat and Sindh". Beyond the merchants there were "networks of circulating knowledge, and especially religious knowledge" (p. 196, folio not stated). The book does not give this colonial "Punjab" any boundary.
+
+## From Jürgen Schaflechner, Hinglaj Devi
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schaflechner_hinglaj_devi.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Punjab"; refers to: "Currently", the time of writing; endnote): "the Punjab has 8 reserved minority seats out of 371" (the same note gives Sindh 9 of 168; the note cites the provincial assembly websites) (p. 28, folio not stated, endnote 5 to p. 15).
+- (book's word: "Punjab Textbooks Board"; refers to: a class V Urdu textbook dated "Lahore 2002"; author's argument citing Nayyar and Salim 2005): in Pakistani schoolbooks "the Hindu" is not only a danger to national security but "has always been an enemy of Islam" (p. 20, folio not stated). The endnote gives the source as "“Hindū hameśah se islām kā duśman rahā hai,” Urdu class V, Punjab Textbooks Board, Lahore 2002 (see Nayyar and Salim 2005, 20)" (p. 28, folio not stated, endnote 7).
+- (book's word: "the Punjab"; refers to: "the eighteenth century" for the Bhatia and Khatri migration, period not stated for Thakur's general remark; quoted source, Thakur 1997, and Cook 2010 as reported): migrants "from Rajputanta[text-layer?] [Rajputana?] and the Punjab" who "professed Lohana occupations have acquired membership of the Lohana caste" (Thakur 1997, 68f.); "The Bhatia and the Khatris, for example, arrived in the eighteenth century from cities in the Punjab—like Multan—and were ultimately absorbed as Lohanas (Cook 2010, 135)" (pp. 80–81, folio not stated).
+
+## From Pnina Werbner and Helene Basu (eds.), Embodying Charisma
+
+*Integrated 12 October 2026 from `entries/book_takeaways/werbner_basu_embodying_charisma.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**Two entirely different kinds of evidence, and the book never joins them: a Pakpattan shrine named
+only inside Eaton's titles in three reference lists, and a spring-and-cave cult near Kallar Kahar in
+the salt range described at first hand by Lukas Werth. Chunks 002, 006, 013 and 015 feed this row.**
+
+- **Saint**
+  - **The book gives him no death date, no birth date, no silsila and no full name anywhere.** All
+    **(not stated)** (pp. 95–102, folios 84–91; p. 216, folio 205; p. 250, folio 239). Do not import
+    1266, "Baba Fariduddin Mas'ud Ganjshakar", "Pakpattan" or "Chishti" from the archive row onto
+    anything sourced to Werth's chapter.
+  - The whole of Werth's characterisation of him is "This famous saint (see Eaton 1984)" (p. 95,
+    folio 84).
+- **Shrine / Darbar**
+  - **Pakpattan, from a title only.** "Eaton, Richard M. (1982) ‘Court of Men, Court of God: Local
+    Perceptions of the Shrine of Baba Farid, Pakpattan, Punjab', *Contributions to Asian Studies*
+    XVII: 44–46" (p. 34, folio 23) — **"Pakpattan, Punjab" is given by the book in this 1982 title
+    only.** Also "Eaton, Richard M. (1984) ‘The Political and Religious Authority of the Shrine of
+    Baba Farid'" (p. 34, folio 23; p. 101, folio 90; and, with circumflexes, "the Shrine of Bâbâ
+    Farîd" at p. 216, folio 205). **Neither Eaton title is discussed in the introduction's own text:
+    the body of pp. 26–32 cites Eaton only for Bijapur and for Bengal** (pp. 29–30, folios 18–19).
+    Werth defers discussion of "the succession of authority at shrines" to "Eaton (1984)" (p. 100,
+    folio 89).
+  - **A second, different shrine — a mountain cave above a spring.** "A locally well-known spring near
+    Kallar Kahar is also associated with a shrine: the spring of Baba Farid" (p. 95, folio 84). "He is
+    said to have vanished into a cave near the top of the mountain, above the spring, where there is
+    also a small shrine, accessible only after some half-hour's climb" (p. 96, folio 85). The spring
+    flows "with sweet water containing healing powers" (p. 96, folio 85). **The book never says this
+    is or is not the same saint as Pakpattan's; it simply describes both.**
+- **Legends & Miracles**
+  - **Baba Farid and the bitter lake**, reported by Werth as a local tradition near Kallar Kahar: he
+    met girls carrying water and asked for a drink; "they teased him and said: ‘The water is bitter.'
+    Three times he repeated his request, with the same answer, at which point he turned the lake's
+    sweet waters bitter (its waters are salty)" (p. 95, folio 84). "Then he disappeared into the
+    mountain above, to a lonely place whence nowadays his spring emerges, flowing with sweet water
+    containing healing powers" (pp. 95–96, folios 84–85).
+- **Significance**
+  - The Subject Index headword is `Farid, Baba: spring of 84–5` (p. 250, folio 239) — **the book's own
+    apparatus indexes him by the spring, not by Pakpattan.** The number is a printed-page locator.
+
+### Doubts the notes raise on this row
+
+- **`shrine-of-fariduddin-ganjshakar` — two different shrines, and the book never joins them.** Eaton's
+  titles attach "Pakpattan, Punjab" to "the Shrine of Baba Farid" (p. 34, folio 23); Werth describes a
+  spring near Kallar Kahar and a cave shrine above it (pp. 95–96, folios 84–85) and calls its saint
+  "Baba Farid". **The mapping is to the person, who is the row's principal figure; the site Werth
+  describes is not the archive row's site, and the two must be kept apart in any entry.** The Subject
+  Index reinforces the split: the headword is `Farid, Baba: spring of 84–5` (p. 250, folio 239), and
+  its locators sit among `springs 84–5`, `wells 84–5`, `trees 83–4` and `Kallar Kahar 84–5` (pp. 250,
+  251, 253–254, folios 239, 240, 242–243). **That is a locator coincidence only; nothing here asserts
+  that the "spring of Baba Farid" is at Kallar Kahar.** The index also carries a separate `Ibn al-Farid
+  219` (p. 251, folio 240) — a different person.
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Punjabi villages"; refers to: period not stated, ethnographic present of Werth's chapter; editors' introduction, Werbner and Basu, summarising Lukas Werth's chapter 4): "This is reflected even at the most local level, in the countless shrines to unknown saints found on the outskirts of Punjabi villages. Against the unique biographies of named saints, these anonymous shrines, Lukas Werth discloses here, call for explanation"; their anonymity is "a key feature, he suggests, of their placement as mediators between the dangerous forces of nature and cultural continuity" (p. 23, folio 12). Werth's own fieldwork is at Rajpur in the salt range (see Sweep notes); the generalisation to "Punjabi villages" is the editors'.
+- (book's word: "Punjab"; refers to: period not stated; contributor's endnote, Lukas Werth, ch. 4, n. 9): "I could not find in this case expressive allusions to Khidr, who is often called Zinda pir in Punjab, because he also is thought to have disappeared alive (see Schimmel 1975: 202)" (p. 101, folio 90).
+- (book's word: "Punjab"; refers to: period not stated; contributor's argument, Jamal Malik, ch. 9): "The cult of the holy man (pîr) and the associated folk piety is particularly evident in the countryside, where major landlords and large-scale land concentrations are crucial features, especially in Punjab and Sindh. In many cases, the local pîr represents the local landlord or is at least closely related to him" (p. 199, folio 188).
+
+## From Shemeem Burney Abbas, The Female Voice in Sufi Ritual
+
+*Integrated 12 October 2026 from `entries/book_takeaways/abbas_female_voice_sufi_ritual.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+The book's names: "Baba Fariduddin Ganj-e Shakar at Pakpattan Sharif", "Pir Chishti Shakarganj or Baba
+Farid of Pakpattan", "Shaikh Faridu ddin Ganj-e Shakar", "Shaikh Farid, also known as Baba Farid",
+"Baba Farid", "Baba Ganj Shakar", "pīr Farīd", "Yār Farīd", "the Sufi saint".
+
+- **Saint**
+  - "Although Baba Farid ([text-layer?: – — both dates dropped]) was a Muslim Sufi saint who wrote
+    devotional poetry in Panjabi, his texts are revered among the Sikhs because he influenced the
+    founder of their own religion, Baba Guru Nanak (b. [text-layer?: date dropped]). Some of Baba
+    Farid's poetry is preserved in the sacred texts of Sikhism" (p. 87, folio not stated). **The book
+    prints two dates for Baba Farid and a birth year for Guru Nanak; the text layer has destroyed all
+    three, and none has been supplied.**
+  - "Shaikh Farid, also known as Baba Farid (– [numeral dropped, text-layer]), is said to be the
+    creator of the kāfī form in which the human soul is treated as a female and contextualized in the
+    imagery of the medieval institution of marriage" (p. 148, folio not stated). **A second empty date
+    range, the en-dash surviving; the claim is given as report ("is said to be"), not as the author's
+    own.**
+  - **No silsila is stated for him as a person**; the shrine is classed as Chishtiyya (below). No
+    custodian, no death date in any recoverable form: all **(not stated)**. 1266 and "Chishti" appear
+    nowhere.
+  - The index files him under `Suﬁ Saints belonging to Pakistan-Indian silsilās` as `Farid, Baba
+    Ganj-e Shakar`, with **two** locators, both destroyed (p. 239, folio not stated) — more than most
+    names on that list receive.
+- **Shrine / Darbar**
+  - Named as a Chishtiyya shrine in Pakistan where "the same ritual in qawwālī discourse is followed"
+    and where "this is an exclusively male domain, women's presence at such performances is rare"
+    (p. 84, folio not stated).
+  - **A qawwāl's pilgrimage tie.** Of Nusrat Fateh Ali Khan: "He was himself a devotee of the Sufi
+    saint and performed at his shrine in Pakpattan Sharif" (p. 89, folio not stated).
+  - **A woman observing a shrine performance from concealment.** "Lorraine Sakata, personal
+    communication, [year dropped, text-layer]. Sakata accompanied the musician to Pakpattan Sharif
+    where he performed at the shrine. She observed the performance sitting behind a pillar where the
+    men could not see her" (p. 203, folio not stated). **In this note the saint is never named — only
+    the place and "the shrine".**
+  - No ʿurs date, no custodian, no sajjada nashin, no Auqaf, no building: all **(not stated)**.
+- **Significance**
+  - **His verse opens a qawwālī in the United Kingdom**, transliterated by the author with her own
+    facing translation: "Sir devĩ te vafā na mangĩ-ehī pīr Farīd dā dāse" / "Give thy head, expect not
+    loyalty in return, O, this is Farid, the Saint's wisdom"; "Yār Farīd ābād thī vaṇ o jhok-rab phir
+    vīrān basāe" / "O lover Farid, alive were those habitations once—may God bring the wilderness to
+    life again!" (p. 88, folio not stated). **Within two lines the book prints `dā dāse` and `dā dase`,
+    and `basāe` at p. 88 against `basāε` at p. 89; both pairs are kept as printed.** The same line
+    appears again in the Author's Note, glossed "Give thy head, expect no loyalty in return— / O, this
+    is Farid, the Saint's wisdom" (p. 10, folio not stated).
+  - "The trope was in ''Yār Farīd'' (line [text-layer?: number dropped] of transliteration), the
+    invocation to Baba Farid. This very poetry had influenced Guru Nanak, the founder of their own
+    faith. Thus, he is a revered Sufi among the Sikhs as well as among his Muslim devotees" (p. 89,
+    folio not stated).
+  - **The sacred frame is what makes a flirtatious lyric mystical — the author's own analytical move.**
+    "Had it not been for the very sacred frame at the beginning, when his ensemble invoked Baba Farid,
+    a researcher might have taken the performance for a secular love song where a lover seeks a beloved
+    and serenades her" (p. 89, folio not stated).
+  - **He frames Waris Shah's Hir.** "Waris Shah gives the story a spiritual construction. He uses a
+    formulaic initiation for the poem, with an ode to God and to Love, obedience to the prophet
+    Muhammad and to his four companions, and more specifically to Pir Chishti Shakarganj or Baba Farid
+    of Pakpattan" (p. 123, folio not stated). **"Of Pakpattan" here is the only geographical datum the
+    book attaches to him outside the Chishtiyya-shrine sentence.**
+  - In the oral canon: "To this day some of Shaikh Fariduddin Ganj-e Shakar's (d.  ) [text-layer?:
+    digits dropped] best Sufi poetry in Panjabi is preserved in the Gurmukhi script in the sacred texts
+    of Sikhism" (p. 49, folio not stated); "there is Baba Farid's kalām in the Guru Granth Sahib"
+    (p. 54, folio not stated).
+  - Among the poets performers invoke at the outset: "they called upon the spirits of Sufi poets like
+    Baba Farid, Khawaja Ghulam Farid, Sultan Bahu, or Bulle Shah to validate their singing of a
+    particular text" (p. 99, folio not stated); named by Nusrat Fateh Ali Khan among poets of the
+    female voice, "then when you read Baba Farid—Bulle Shah—" (p. 98, folio not stated); named second
+    in the Kasur qawwāl's list of sources as "Baba Ganj Shakar" (p. 111, folio not stated); named in
+    Abida Parvin's repertoire list as "Baba Farid" (p. 54, folio not stated).
+  - An entire endnote reads, in full, "Also called Baba Farid." (p. 197, folio not stated) — **four
+    words; its number is destroyed and its callout lies in a body chapter, so whom it glosses is (not
+    stated).**
+
+### Doubts the notes raise on this row
+
+- **A second "Farid" at p. 118 has NOT been mapped.** "The singer invoked the Sufi poet Farid to create
+  the mystical frame" (p. 118, folio not stated), with the refrain "Yā-ā-r Farīd". **No place, date,
+  epithet or order is attached, the context is Siraiki, and the book names "Baba Farid of Pakpattan" only
+  five pages later. The two candidates are `mithankot-kot-mithan` and `shrine-of-fariduddin-ganjshakar`;
+  neither has been picked, and nothing outside the chunk was used to break the tie.**
+
+- **`shrine-of-fariduddin-ganjshakar` at p. 203 rests on a place and the words "the shrine", with no
+  saint named** (p. 203, folio not stated); and one endnote supporting the row is four words long,
+  "Also called Baba Farid.", with its callout destroyed (p. 197, folio not stated). **A human should
+  confirm the referent from the body chapter.**
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Panjab"; refers to: the Bibi Pak Daman's arrival, "according to tradition", when the land was known as "Hind"; book's historical prose reporting tradition — "Supposedly", "It is reported that", "are said to have"): the Bibi Pak Daman "involved the men in disseminating Islam among the lay non-Muslim populations in the Panjab. The women spoke to the male scholars and to their audiences from behind the veil"; "seven hundred male scholars came with the Bibi Pak Daman to Hind, as the land was known then" (p. 161, folio not stated).
+- (book's word: "the Panjab"; refers to: period not stated, given in the context of Shah Inayat's descent in Bulle Shah's time; author's argument, and glossary definition): "The arāĩ in the Panjab were gardeners or small cultivators who worked on their own land" (p. 108, folio not stated); the Glossary defines instead "arāĩ A caste of landowners in the Panjab" (p. 178, folio not stated). The two definitions are kept side by side.
+- (book's word: "the Panjab"; refers to: period not stated, present tense, in the discussion of Waris Shah's Hir; author's argument resting on endnoted sources, glossary definition): "The Jats of the Panjab are zamindars (landowners), known for practicing widow-marriage"; the Siyal tribe "is one of the few tribes in the Panjab that allow women to inherit property under customary law" (p. 121, folio not stated); the Glossary adds "Siyal Clan name of Hir's family; powerful landowners of the Panjab" (p. 188, folio not stated), "Kher ās" [text-layer?: Kheṛās] "A powerful clan of landowners in the Panjab mentioned in the Hir-Ranjha myth" (pp. 183–184, folios not stated), and, under satti, "Some sections of Indian society, such as the Siyal Jats of the Panjab, permitted a widow to remarry, and she was not forced into satti" (p. 189, folio not stated).
+- (book's word: "the Panjab"; refers to: Waris Shah's time, "the eighteenth century" as the book dates his Hir at p. 120, and "now"; author's argument): Waris Shah "is said to have recited it with great emotion among his speech communities in the Panjab"; "there is now substantial recorded material of Waris Shah's Hir available", and "Many renowned folk artists in the Panjab, such as Reshma, Zahida Parvin, Nazir Begum, Sabiha Khanum, Tufail Niazi, and Iqbal Bahu, have sung it" (p. 123, folio not stated).
+- (book's word: "Panjabi wedding", "Panjabi ritual"; refers to: "traditionally", period not stated; author's argument, endnote): Hir's lament as she is carried off in the palanquin "is traditionally sung at almost every Panjabi wedding at the time of the bride's departure to her husband's home" (p. 124, folio not stated); an endnote adds that "The ḍolī (palanquin) has a strong emotional context in Panjabi ritual, as a complex of emotions are associated with it" (p. 206, folio not stated). "Panjabi" here is a cultural adjective, not a place name.
+- (book's word: "the Siraiki-speaking area of the Panjab", "the Panjab"; refers to: present tense, period not stated; author's argument, glossary definition): the Sohni myth "is sung in Sufi poetry in all the regions of the Sind, the Siraiki-speaking area of the Panjab" (pp. 126–127, folios not stated); the Glossary calls Mahival "The hero in the Sohni-Mahival myth of the Panjab" (p. 184, folio not stated).
+- (book's word: "Panjab"; refers to: present tense, period not stated; glossary definition): "dhammāl The vigorous ritual dance performed at Sufi shrines in Panjab and Sind" (p. 180, folio not stated).
+
+## From Regula Burckhardt Qureshi, Sufi Music of India and Pakistan
+
+*Integrated 12 October 2026 from `entries/book_takeaways/qureshi_sufi_music_qawwali.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+The only archive row the book treats at any length, present in eight of fifteen chunks. **It is a
+name-hit, not a site-hit**: the book names the man as Nizamuddin Auliya's spiritual guide and as the
+eponym of a building in Delhi, and it names Pakpattan exactly once, in a table. The book's forms for
+him, all as printed: `BabaFarid` `[text-layer?: Baba Farid — the space between the two words did not
+extract]` (p. 9, folio vii); "Baba Ganj-e-Shakar", "Ganj-e-Shakar" and bare "Farid" (p. 46, folio
+26); `Farlduddln Ganj-e-ShakarJBaba Farld'` `[text-layer?: Farīduddīn Ganj-e-Shakar 'Bābā Farīd']`
+(p. 101, folio 81); "the saint Fariduddin Ganj-e-Shakar" (p. 124, folio 104); `Baba Farld`
+`[text-layer?: Baba Farīd]` (pp. 131, 262; folios 111, 242); "Fariddudin Ganj-e-Shakar" with a
+doubled *d* (p. 262, folio 242); and `Sheikh Fand Ganj-i-Shakar` `[text-layer?: Sheikh Farid
+Ganj-i-Shakar]` in a cited book title (p. 273, folio 253).
+
+- **Saint**
+  - **Death year and burial place — stated once only, in Table 18, "Hierarchy of Sufism: the Chishti
+    Silsild" `[text-layer?: Chishtī Silsilā]`: `d. 1266, Pakpattan`** (p. 101, folio 81). These are
+    body-table digits, not header or locator digits. **This agrees exactly with the archive row**,
+    whose `figure_died` is 1266 and whose `location_short` is "Pakpattan, Pakpattan, Punjab". No
+    discrepancy to resolve. **Pakpattan is named nowhere else in the book** — not in chunks 001, 003,
+    006, 007, 009, 013 or 014, each of which was checked and says so.
+  - **Order — Chishti, and stated as such twice.** In Table 18 he stands in the left-hand column
+    headed `CHISHTIYA`, first of four columns `CHISHTIYA | SUHRAWARDIYA | NAQSHBANDIYA | QADRIYA`
+    printed under the rubric `FOUNDER SAINTS OF MAJOR ORDERS:` (p. 101, folio 81) — this agrees with
+    the archive row's `silsila`, "Chishti". **The other three columns are heads only: the table
+    prints no name at all under Suhrawardiya, Naqshbandiya or Qadriya** (p. 101, folio 81). The
+    Glossary repeats it: "Farlduddin Ganj-e-Shakar `[text-layer?: Farīduddīn Ganj-e-Shakar]`  major
+    thirteenth-century saint of the Chishti order in India, spiritual guide of Nizamuddin Auliya"
+    (p. 263, folio 243).
+  - **Position in the chain.** Third name in the Indian Chishti line, below `Qutbuddin
+    Bakhtiyar-e-KakI 'Qutab Sahib' / d. 1237, Delhi` `[text-layer?: Qutbuddīn Bakhtiyār-e-Kākī]` and
+    above the pair `Ala'uddin Sabir 'Sabir Pak' / d. 1291, Piran-e-Kalyar` and `Nizamuddin
+    AuliyaJMahbub-e-IlahT / d. 1325, Delhi` `[text-layer?: Nizāmuddīn Auliyā 'Mahbūb-e-Ilāhī']`
+    (p. 101, folio 81). The chain above him, at the head of the same table: `GOD` / `PROPHET
+    MJHAMMAD` `[text-layer?: PROPHET MUHAMMAD]` / `HAZRAT ALI` (p. 101, folio 81). The endnotes
+    repeat the lower link: "Qutab Sahib is the spiritual guide of Baba Farid, also known as
+    Ganj-e-Shakar" (note 8, p. 254, folio 234).
+  - **His standing relation to Nizamuddin Auliya is the thing the book says about him most often** —
+    four separate times, in four chunks. Glossary: "Baba Farld `[text-layer?: Farīd]`  respectful
+    term of reference and address for the saint Fariduddin Ganj-e-Shakar, spiritual guide of
+    Nizamuddin Auliya" (p. 262, folio 242). Endnote 6, in full: "The spiritual guide of Nizamuddin
+    Auliya (see Table 18)" — **the name is supplied only by the cross-reference, not printed in the
+    note itself** (note 6, p. 254, folio 234). In the assembly chapter: "Nizamuddin's Sheikh, the
+    saint Fariduddin Ganj-e-Shakar" (p. 124, folio 104). In the dog anecdote: "his own spiritual
+    guide, the saint Baba Farid" (p. 143, folio 123).
+  - **Sobriquet.** The printed string `Ganj-e-ShakarJBaba Farld'` carries the measured
+    opening-single-quote substitution (`J` for `'`), so the book prints *Ganj-e-Shakar 'Bābā Farīd'*
+    (p. 101, folio 81). **The sobriquet is given without gloss or explanation anywhere in the book.**
+    Separately, his name is the book's type-case for an honorific: "the term bdbd `[text-layer?:
+    bābā]`, often attached to a saint's name (Baba Farld `[text-layer?: Baba Farīd]`, Baba Zahin
+    Shah), is a common term of address for an old man" (p. 131, folio 111) — the point being made is
+    about audience seniority, not about Farid.
+  - **Birth year, any other date, any poem attributed to him, any miracle: all (not stated)**,
+    checked in every chunk that names him.
+- **Practices & Events**
+  - **His death anniversary is observed at the Nizamuddin Auliya shrine in Delhi**, among that
+    shrine's annual events: "Then there are the anniversaries of Hazrat Ali, son-in-law of the
+    Prophet and preceptor of Sufism, and of the Saint's own spiritual guide, Baba Farid, as well as
+    the commemoration of the martyrdom of Imam Husain" (p. 116, folio 96). **The book gives no date
+    for this anniversary** — unlike the two great Nizamuddin anniversaries, for which it does print
+    Islamic dates — so the date is **(not stated)**. Nothing is said of an ʿurs at Pakpattan.
+  - **The Chilla is a working Qawwali venue in the present.** Khwaja Hasan Sani Nizami "maintains the
+    true Sufi tradition, with his special gatherings both in his hujrd `[text-layer?: hujra]`
+    opposite the tomb of Amir Khusrau, and at the 'Chilla'" (p. 124, folio 104); "it is Meraj who
+    always performs at the chilla assembly" (p. 124, folio 104); "The Chilla Mahfil is perhaps the
+    most exclusive or intimate Qawwali event at Nizamuddin Auliya" (p. 164, folio 144), though the
+    book also notes "the somewhat remote location of the Chilla" (p. 164, folio 144). Plate 6:
+    "Meraj Ahmad offers a traditionally deferential greeting to his patron, leading pirzada
+    `[text-layer?: pīrzāda]` and Sheikh Khwaja Hasan Sani Nizami, on his arrival at the Chilla"
+    (p. 117, folio 97). Plates 22–26 are all captioned to the Chilla and the Chilla Mahfil — 22
+    "Qawwals awaiting the Chilla Mahfil", 23 "The Chilla of BabaFarid", 24 "Meraj surveying his
+    audience", 25 "The leading Sufis of the Chilla assembly", 26 "Sufi poet Allama Anwar Sabri
+    outside the Chilla" (p. 9, folio vii; printed locators folios 146–147 = PDF pp. 166–167).
+  - **He is invoked inside the sung repertoire, and the invocation has a measurable economic
+    effect.** In the second verse of the Amir Khusrau Hindi song `Tori surat ke balharl`
+    `[text-layer?: Torī sūrat ke balhārī]`: "Sadqa Baba Ganj-e-Shakar ka / Rakh le laj hamari (Nijam
+    Piya)", which the book translates "In the name of Ganj-e-Shakar / Protect our honour (Nijam,
+    Beloved)" (p. 46, folio 26). In the fourth verse of the same song: "Qutab Farid mil ae barati /
+    Khusrau raj dularl `[text-layer?: dulārī]` (Nijam Piya)" — "Qutab and Farid have both joined in
+    the wedding procession; Khusrau is the darling bride" (p. 46, folio 26); **the book does not
+    gloss which Farid here, and does not gloss "Qutab" at this point at all** (see Doubts). And in
+    the song `Kachh jagmag`: "Ganj-e-Shakar ke rup men, Mahbub piyara sowat hai" — "In the likeness
+    of Ganj-e-Shakar [see note 6 above], the dear Beloved is asleep" (p. 51, folio 31); the bracketed
+    back-reference is the book's own. **The performance consequence, stated outright:** Meraj "moves
+    on to the next stanza which is certain to yield offerings, since it constitutes an appeal to the
+    saint in the very name of his own spiritual guide, Baba Farid"; "Meraj dwells on the first line
+    containing the saintly name, and, on adding the second line, decides to repeat, to allow for the
+    full impact of both" (p. 187, folio 167).
+  - **Transmission of that song — the line on which this row's material could enter a Pakistani
+    entry:** "This song, both text and music, is part of the Qawwal Bachche's special heritage. It is
+    widely sung within the entire Chishti silsild `[text-layer?: silsila]`, however, and can
+    therefore be heard in a number of variants" (p. 47, folio 27).
+- **Legends & Miracles**
+  - **None attributed to him anywhere in the book: (not stated).** The nearest thing is the dog
+    anecdote, in which the miracle-worker is Nizamuddin Auliya, not Farid: the saint rose in respect
+    at "the sight of a dog outside the door that resembled the animal he used to see by the house of
+    his own spiritual guide, the saint Baba Farid" (p. 143, folio 123).
+- **Significance**
+  - A site linked to him is the book's worked example of what makes a place proper for a Qawwali
+    assembly: the primary place is the shrine, "but also any other locality having an associational
+    link with a saint (such as the Chilla of Baba Farid near the Nizamuddin Auliya shrine)" (p. 132,
+    folio 112).
+  - The author's own frame for why he is named in the repertoire: the song "most directly conveys the
+    mystical love experience through the Hindi devotional idiom in which the devotee speaks as a
+    bride giving up the self to merge with the beloved saint Nizamuddin, and it also touches on the
+    supplication and invocation of spiritual seniors" (p. 47, folio 27). **This is the only
+    interpretive frame the book gives for his presence in the repertoire.**
+  - Cited in a title in the bibliography: "NIZAMI, Khaliq Ahmad 1955/1973 `[text-layer?: 1955/1973]`
+    *The Life and Times of Sheikh Fand Ganj-i-Shakar* `[text-layer?: Sheikh Farid Ganj-i-Shakar]`
+    (Delhi: Idarah-i-Adabiyat-i-Delli)" (p. 273, folio 253).
+
+### Doubts the notes raise on this row
+
+- **`shrine-of-fariduddin-ganjshakar`** is carried by the bare name "Baba Farid" / "Ganj-e-Shakar" in
+  seven of its eight chunks. The book names **Pakpattan exactly once**, in Table 18 (p. 101, folio
+  81), and describes **no shrine there at all**. Everywhere else the name is attached to a building in
+  Delhi or sung inside a verse. **The competing archive row is `mithankot-kot-mithan`, whose principal
+  figure is Khwaja Ghulam Farid (d. 1901).** It was refused on two discriminators the book itself
+  supplies — the Chilla structure is "thirteenth-century" (p. 166, folio 146) and the man is
+  Nizamuddin Auliya's "own spiritual guide" (p. 187, folio 167) — but a human should confirm this
+  before any of it enters the Pakpattan entry.
+  - **The bare "Farid" of "Qutab Farid mil ae barati" (p. 46, folio 26) is the weakest single
+    attachment in the file.** It was folded into this row because "Baba Ganj-e-Shakar" is named
+    unambiguously two verses earlier in the same song — **proximity, not a statement of the book's**.
+    Reversible.
+  - **The death year AGREES with the archive and needs no reconciliation**: Table 18 prints `d. 1266,
+    Pakpattan`; the row's `figure_died` is 1266 and its `location_short` is "Pakpattan, Pakpattan,
+    Punjab" (p. 101, folio 81). The silsila also agrees: Chishti.
+  - **The Chilla is given two different locations in the same book and they are not reconciled**:
+    "attached to Humayan's `[text-layer?: Humayun's]` tomb in Delhi" (p. 262, folio 242) versus "near
+    the Nizamuddin Auliya shrine" (p. 132, folio 112) and "overlooking the Jumna river" nearby the
+    Nizamuddin complex (p. 124, folio 104). **Both are printed; both are kept above.** A worker on
+    the Delhi chapters should check printed folios 2, 42, 104 and 144 (= PDF pp. 22, 62, 124, 164),
+    the locators the index gives for "Chilla Baba Farid" (p. 283, folio 263).
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Panjab", "Panjabi"; refers to: period not stated, ethnographic present of the author's fieldwork; author's argument): "tunes from the two principal regions of the Qawwali tradition, Uttar Pradesh and Panjab, can be distinguished mainly by their rhythmic setting"; "A predominantly quantitative emphasis characterizes tunes from Uttar Pradesh, while Panjabi tunes tend to be rhythmically organized according to 'quality' or stress"; the drum articulation of the metre, "which in Panjab is more strongly accentual than in Uttar Pradesh, corresponding with the respective drumming traditions of each region (as elaborated in Stewart 1974)" (p. 73, folio 53). The music example that follows is captioned "Panjab (Kisi ko kuchh)" against "Uttar Pradesh (Kachhjagmag)" (p. 75, folio 55), and the same song is said to exemplify "the 'Panjabi style'" (p. 58, folio 38). The book does not say whether its "Panjab" is the Pakistani or the Indian side, or both; it sets it against an Indian region (Uttar Pradesh), and the "Panjab" example was sung by "a Panjabi Qawwal, Rahmat Khan" (p. 57, folio 37) and recorded at "Qawwali Hall, 'Urs Nizamuddin" / "Auliya, 18 Apr. 1976" (p. 13, front matter, folio xi by the front-matter rule). Borderline: kept because it is a statement about the region's musical tradition in general, not a language remark.
+
+*Sweep notes:* Hits in the `.txt` chunks for the brief's pattern (case-insensitive, widened to catch diacritic loss with `P[aue]n.?j.?[a-z]?b`): "Panjab" 3 (p. 73 ×2; p. 75 caption); "Panjabi" 6 (p. 13 CD listing "(Panjabi version) Panjabi Qawwal and Party" ×2; p. 57 "a Panjabi Qawwal, Rahmat Khan"; p. 58 "'Panjabi style'"; p. 73 "Panjabi tunes"; p. 256 glossary "ang     regional or genre style (for example, Panjabi ang)", folio 236 by rule); "Punjabi" 1 (bibliography title "A Punjabi Village in Pakistan", Eglar, date printed "i960" [text-layer?] [1960], p. 269); "Sind" 3, all bibliography titles (p. 267 BALOCH, "Musical Instruments of the Lower Indus Valley ofSind" [text-layer?] [of Sind]; p. 274 "'Music and Culture in Sind: An Ethnomusicological Perspective'" and "Sind through the Centuries"); "Pathan" 1 (performer name "Alaf Din Pathan (Lahore)", discography, p. 282); "Punjab"/"Sindh"/"Baluchistan"/"Balochistan"/"Frontier"/"Pakhtunkhwa"/"NWFP"/"Kashmir"/"Multan"/"suba"/"Sindhi"/"Baluchi"/"Kashmiri": 0. The case-insensitive "Sind" pattern also matched "simultaneous(ly)" 11 times (chunks 006, 008, 012, 013): false positives. Excluded: the p. 13 CD listing, the p. 57 performer description and the p. 256 glossary entry (person or terminology, folded into the bullet as context only where they bear on it); all bibliography and discography lines (titles and a name, no substantive text). No toponym-only province hits. Flags for a human: the single bullet's "Panjab" is unbounded in the book (no India/Pakistan side stated) and its illustrative recording was made at the ʿurs of Nizamuddin Auliya, which the takeaways place in Delhi — a reviewer may prefer to move it to `not attached`.
+
+## From Robert Rozehnal, Islamic Sufism Unbound
+
+*Integrated 12 October 2026 from `entries/book_takeaways/rozehnal_islamic_sufism_unbound.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+The book's central shrine, present in **fifteen of the eighteen chunks** and the subject of its
+whole first chapter. The author's forms of the name, all as printed: "Baba Farid ad-Din Mas'ud Ganj-i
+Shakkar" (p. 8, folio not stated; p. 29, folio not stated), "Baba Farid ad-Din Ganj-i Shakkar"
+(p. 26, folio 15), "Farid al-Din Ganj-i Shakkar" (p. 111, folio 102), "Baba Farid Shakar Ganj"
+(p. 220, folio 212), "Shaikh Farid-ud Din Ganj-i Shakar" in two cited book titles (p. 241,
+folio 234; p. 272, folio 266), "Baba Farid Shakarganj" in a 1911 article title (p. 242, folio 235),
+and in the disciples' own address "Hazrat Baba Sahab" / "Baba Sahab" (p. 76, folio 66; p. 80,
+folio 70). The pilgrims' shout at the ʿurs is "Ya Farid, Haq Farid!" (p. 36, folio 26) and
+"Farid! Farid!" (p. 36, folio 26).
+
+- **Saint**
+  - **Death year — printed 1265 throughout the body, and 1295 once in the index.** "(d. 1265)" is
+    given in the figure caption (p. 8, folio not stated; p. 35, folio 25), in the shajara (p. 15,
+    folio 4), in the chapter summary (p. 26, folio 15), in the book's opening sentence (p. 29, folio
+    not stated) and again at (p. 215, folio 207). **The index headword prints "Farid ad-Din Ganj-i
+    Shakkar (d. 1295)"** (p. 276, folio 270). Both figures are the book's own — digits survive in
+    this text layer — and **both disagree with the archive row's `figure_died` of 1266**. All three
+    are kept side by side; see Doubts.
+  - **Birth date, and his own silsila as a chain, are (not stated) anywhere in the book.** He is
+    placed only by position: link **19** of the forty-three-link shajara Chishti Sabiri disciples
+    "recite … in a ritual liturgy" — "19. Farid ad-Din Mas'ud Ganj-i Shakkar (d. 1265)", standing
+    between "18. Qutb ad-Din Bakhtiyar Kaki (d. 1237)" and "20. 'Ala ad-Din 'Ali Ahmad Sabir
+    (d. 1291), eponymous founder of the Chishti Sabiri order" (p. 15, folio 4). Elsewhere the only
+    affiliation given is the adjective "the Chishti saint" (p. 130, folio 121) and "his renowned
+    thirteenth-century predecessor" (p. 175, folio 167).
+  - **Rank, in the book's own words.** "Pakistan's most famous Sufi saint" (p. 26, folio 15); "one of
+    South Asia's most renowned Sufi saints" (p. 29, folio not stated); "the preeminent saint of
+    Pakistan's Punjab" (p. 36, folio 26); "the patron saint of Pakistan" (p. 215, folio 207); "one of
+    the Chishti order's most renowned saints" (pp. 157–158, folios 149–150). For the order he is "the
+    patron saint" of the silsila (p. 76, folio 66), and "the contemporary silsila places the tomb of
+    Shaykh Baba Farid ad-Din Mas'ud Ganj-i Shakkar in Pakpattan at the center of Sufi sacred
+    geography in Pakistan" (p. 206, folio 198).
+  - **Twelve years of suluk.** "several murids highlighted the symbolic significance of twelve years,
+    noting that the saints Baba Farid Ganj-i Shakkar and 'Ali Ahmad Sabir both underwent twelve years
+    of spiritual training before completing suluk" (p. 81, folio 71, interview September 2, 2001,
+    Karachi).
+  - **He is a poet whose own Persian verse is sung at his ʿurs**: "The three hour evening sama'
+    session was filled with ancient Hindi songs of Amir Khusrau and the Persian songs of Hazrat Baba
+    Farid himself" (p. 232, folio 224).
+  - **As author.** Wahid Bakhsh Sial Rabbani "published numerous Urdu translations of classical
+    Persian biographical texts, including the discourses of Farid al-Din Ganj-i Shakkar, Maqam-i Ganj
+    Shakkar" (p. 111, folio 102). The Chishti Sabiri book about him is Rabbani's *Maqam-i Ganj-i
+    Shakkar* (Lahore: al-Faisal Publishers, 1994) (p. 250, folio 243; p. 264, folio 258) — **the
+    single most-cited Rabbani title in the endnotes**, carrying the order's overview of zikr at
+    420–425 (p. 258, folio 251), its defence of ziyarat and ʿurs at 340–364 (p. 260, folio 253), the
+    ʿurs hadith at 38 (p. 260, folio 253), a long treatment of sama' at 365–416 (p. 261, folio 254),
+    and the wahdat al-wujud / wahdat ash-shuhud doctrine at 212–231 (p. 251, folio 244). **What that
+    book argues about Baba Farid is (not stated).**
+  - **Secondary literature the book points to, with its own citations.** Richard M. Eaton, "The
+    Political and Religious Authority of the Shrine of Baba Farid," in *Moral Conduct and Authority*,
+    ed. Barbara Daly Metcalf (Berkeley: University of California Press, 1984) — cited once at pages
+    "44–61" (p. 241, folio 234) and once at "333–356" in the Bibliography (p. 267, folio 261); and
+    Khaliq Ahmad Nizami, *The Life and Times of Shaikh Farid-ud Din Ganj-i Shakar* (Delhi: Idarah-i
+    Adabiyat-i Delli, 1973) (p. 241, folio 234; p. 272, folio 266). **The two page ranges Eaton is
+    given are irreconcilable in the book itself; see Doubts.**
+- **Shrine / Darbar**
+  - **Place and distance.** "The regional shrine complex in the small pilgrimage town of
+    Pakpattan—120 miles southwest of Lahore—has for centuries served as a central marker in the
+    regional history of Punjab" (p. 35, folio 25). The figure caption is "The Shrine of Baba Farid
+    ad-Din Mas'ud Ganj-i Shakkar (d. 1265), Pakpattan, Pakistan" (p. 8, folio not stated; p. 35,
+    folio 25). Called "the rural tomb complex in Pakpattan" (p. 48, folio 38) and "a rural Sufi
+    shrine in Pakistan" (p. 158, folio 150).
+  - **Antiquity — two figures, both the book's.** "Since the thirteenth century, the tomb of the
+    saint, Baba Farid, has linked the local population to a wider universe of Islamic piety and
+    Chishti Sufi spiritual hierarchy" (p. 35, folio 25); the author writes of "Pakpattan's
+    seven-hundred-year history" (p. 242, folio 235); a disciple speaks of
+    "a six-hundred-and-fifty-year-old tradition" of custodianship broken by the Awqaf takeover
+    (p. 41, folio 31). **No
+    building date, no architect and no foundation year anywhere: (not stated).**
+  - **Standing after Partition.** With pilgrimage to "the major Chishti shrines in India—including
+    Ajmer Sharif, Kalyar Sharif, and Nizam ad-Din in Delhi" made "prohibitively difficult for
+    Pakistani Muslims" by "new passports and the redrawing of local maps", "Pakpattan now stands as
+    the unrivaled center of a distinctly Pakistani Sufism" (p. 36, folio 26).
+  - **Communal composition, as the book frames it.** "In the absence of other religious
+    communities—the Hindu, Jain, or Sikh 'Other'—Pakpattan is no longer a site of intercommunal
+    conflict or cooperation. Instead, the shrine is now marked as exclusively Muslim space"
+    (pp. 35–36, folios 25–26). Against that, the 1833 account it quotes has "Numbers of pilgrims,
+    both Hindus and Mussalmans" coming to the shrine (p. 36, folio 26). **Both are kept.**
+  - **The bihishti darwaza (Gate of Heaven).** "the narrow Gate of Heaven (bihishti darwaza)"; "This
+    famous southern door of the saint's tomb remains closed throughout the year until the evening of
+    the anniversary when it is opened by the Diwan, a direct lineal descendant of the saint and the
+    shrine's official representative (sajjada nishin)" (p. 36, folio 26). Passing through it is "a
+    direct, salvational encounter with Baba Farid's living grace (baraka), a ritual reenactment of
+    the saint's eternal union ('urs, or 'marriage') with God" (p. 36, folio 26). Its dimensions come
+    from an 1833 European account the book quotes: "The doorway is about two feet wide . . . the
+    apartment itself is not capable of containing thirty people crowded together" (p. 36, folio 26) —
+    **the visitor is not named; the year is printed "1833"**. The index carries `bihishti darwaza
+    (Gate of Heaven) 26, 27, 28, 29, 30, 212 … see also Pakpattan Sharif` (p. 275, folio not stated).
+  - **Other fabric named.** "the narrow stairwell at the extreme north end of the shrine, a
+    passageway typically reserved for the Diwan and his personal guests" (pp. 36–37, folios 26–27);
+    "the northern gate" by which the order's party customarily leaves (p. 38, folio 28); "a large
+    stage in the center of the courtyard" (pp. 37–38, folios 27–28); "the inner sanctum of the tomb"
+    (p. 219, folio 211); "the dargah" (p. 218, folio 210); "a room adjacent to the shrine" for sama'
+    (p. 225, folio 217); and "a separate indoor room… in private compounds near the shrines"
+    (p. 224, folio 216). **No measurements, no dome, no dates: (not stated).**
+  - **Crowding is an architectural fact of the site.** "This is especially true at Pakpattan where
+    thousands of pilgrims are pressed into an extremely cramped area. As a result, murids generally
+    avoid lingering in the shrine for extended periods of time" (p. 217, folio 209).
+  - **Bookstalls as shrine economy.** "The silsila's books are also found in the myriad bookstalls
+    that flank the country's major Sufi shrines, most prominently in the narrow lanes surrounding the
+    tomb complex of Baba Farid, the Chishti saint, in Pakpattan" (p. 130, folio 121).
+- **Custodianship, money and the state**
+  - **The custodian is named.** "Diwan Maudud Mas'ud Chishti", "the shrine's chief custodian" (p. 39,
+    folio 29), who issued "the personal invitation" under which the Chishti Sabiri party entered the
+    complex early (p. 37, folio 27). The index prints "Maudud Mas'ud Chishti, Diwan 26–7, 29, 31 …
+    see also Pakpattan Sharif" (p. 277, folio 271). A second family member is named: "Badr
+    Moeenuddin, the Diwan's maternal uncle" (p. 39, folio 29). The office is glossed by the book's
+    own index as "sajjada nishin (hereditary shrine custodian)" (p. 279, folio 273).
+  - **The annuity dispute, with figures.** Ch 1 n. 21: "According to the article, the Diwan had
+    delayed the ceremonies while arguing with the representatives of the Awqaf Department, insisting
+    that the shrine should be paid an annuity of **1,500,000 rupees** rather than the **150,000
+    rupees** they were promised. See Jang, Monday, April 2, 2001, 1" (p. 242, folio 235). In the body
+    the same quarrel is "bickering over the annual payment allotted to him from the Awqaf Department"
+    (p. 39, folio 29). **The department is spelled "Awqaf" here and "Awqaf" at p. 41, folio 31.**
+  - **Colonial-era interference at this shrine specifically.** "At times, the British interfered
+    directly in the administration of local shrines such as `Pakattan` [text-layer?: Pakpattan],
+    going so far as to mediate succession disputes in colonial courts" (p. 33, folio 23).
+- **The stampede of 1 April 2001 — the book's fullest single subject**
+  - **The event, in the book's opening sentence.** "On the night of April 1, 2001 more than one
+    hundred Pakistani men lost their lives, crushed to death in a mob stampede at the tomb of one of
+    South Asia's most renowned Sufi saints: Baba Farid ad-Din Mas'ud Ganj-i Shakkar (d. 1265)"
+    (p. 29, folio not stated). The author was present: "I too was there that night, accompanying a
+    select group of Chishti Sabiri Sufi disciples (murids)" (p. 37, folio 27).
+  - **Date and calendar.** It fell "Late in the night of April 1, 2001—the fifth day of Muharram, the
+    first month of the Muslim lunar calendar", "the eve of Baba Farid's death anniversary ('urs)",
+    when "tens of thousands of devotees inundated the provincial town of Pakpattan" (p. 36,
+    folio 26).
+  - **Death toll — contradictory within the book, and kept so.** "more than one hundred Pakistani
+    men" (p. 29, folio not stated); "over a hundred devotees" (p. 26, folio 15); a German disciple's
+    "more than one hundred people who breathed their last there" (p. 41, folio 31); against the
+    reporter Tahir Jehangir in *The Friday Times*: "The newspapers reported over forty, but I can
+    vouch for the fact that there were many more" (p. 37, folio 27).
+  - **Mechanics of the crush, as the author reconstructs it.** Victims "ascended the narrow stairwell
+    at the extreme north end of the shrine"; "an impatient crowd of several thousand onlookers broke
+    through a weak police cordon and descended upon them from above"; "a police contingent posted at
+    the entrance point made the fateful decision to close and lock the doors, sealing off the only
+    means of escape" (pp. 36–37, folios 26–27). "Pilgrims had become martyrs, crushed to death."
+    (p. 37, folio 27)
+  - **Two flatly opposed attributions of blame, kept side by side as the book keeps them.** The
+    state's: "the Diwan had delayed the public ceremonies and the opening of the bihishti darwaza by
+    four hours while bickering over the annual payment allotted to him from the Awqaf Department",
+    and the next day "the lead article in the national Urdu newspaper Jang quoted the district
+    commissioner who insisted that this financial quarrel precipitated the crisis" (p. 39, folio 29);
+    "Local politicians and police attributed the chaos, confusion, and deaths to the greed of the
+    local shrine authorities and the lawlessness of an unruly, uneducated mob" (p. 48, folio 38). The
+    custodians': Badr Moeenuddin, writing in the English daily *The Nation*, "blames poor crowd
+    control and security arrangements as the underlying cause of the stampede", noting "the tragedy
+    took place some two hours after the Diwan's arrival for the door-opening ceremony" (p. 39,
+    folio 29); "The heirs of Pakpattan's holy man, by contrast, condemned these same administrators
+    for overturning established crowd control policies and shirking responsibility" (p. 48,
+    folio 38).
+  - **The named victim is not named.** "A fourteen-year-old boy from the group was not so fortunate,
+    however, perishing amid the melee . . . He was the son of a prominent devotee and, significantly,
+    the great-grandson of the prominent Chishti Sabiri master, Shaykh Muhammad Zauqi Shah
+    (1877–1951)" (p. 38, folio 28); "a member of a sayyid family (i.e., a lineal descendant of the
+    Prophet Muhammad)" (p. 42, folio 32); "a promising young boy among their ranks" (p. 234, folio
+    not stated). **His name is (not stated) anywhere in the book.** The order also suffered "the
+    injuries to their own living master and several prominent devotees" (p. 48, folio 38) — the
+    injured master is Shaykh Siraj, treated by a Malaysian disciple who is a medical doctor (p. 43,
+    folio 33).
+  - **The order's reading of the deaths.** "With a firm belief that nothing accidental happens in
+    proximity to a saint's tomb, murids reasoned that the loss of life must be sacralized and
+    understood in terms of martyrdom (shahadat)" (p. 41, folio 31); losses were read "as a ritual
+    sacrifice demanded by the saint" (p. 48, folio 38); "Murids now commemorate the 'marriage'
+    ('urs) of both the saint and the young boy with the God. In both cases, death has been
+    transformed into martyrdom" (p. 234, folio not stated). This "diverges sharply from the
+    rationalist interpretation of the Pakistani state" (p. 234, folio not stated).
+  - **Portents.** "many disciples recalled strange circumstances and portents of impending disaster";
+    "A number of disciples narrated dreams that they experienced in the days leading up to the 'urs:
+    visions of Chishti Sabiri shaykhs, the death of family members and, in the case of one female
+    murid, an attack by a black goat"; "others noted sudden shifts in the weather as the ceremonies
+    began that evening" (p. 43, folio 33).
+  - **Precedent: this had happened before.** Ch 1 n. 20, the author's own judgement: "The scope and
+    scale of the tragedy of 2001 seem to be unprecedented in Pakpattan's seven-hundred-year history.
+    Given the massive crowds that attend the shrine's annual 'urs commemoration, however, accidents
+    are not uncommon" (p. 242, folio 235). Quoted in the same note: "As Miles Irving noted in 1911,
+    'Some thirty years ago there was an unfortunate occasion on which several lives were lost by the
+    crush of the Door of Paradise, and before British rule, it is said, this was of yearly
+    occurrence.'" — source given as Miles Irving, "The Shrine of Baba Farid Shakarganj at Pakpattan,"
+    *Journal of the Panjab Historical Society* (Lahore), Vol. 1, No. 1 (1911): 70, reprinted in
+    *Punjab Past and Present*, Vol. 7, No. 2 (October 1973): 412 (p. 242, folio 235). **"Some thirty
+    years" before 1911 is Irving's phrasing, not a date the book supplies.**
+  - **The press and unpublished sources on the event, as cited.** Tahir Jehangir, "Carnage in
+    Pakpattan," *Friday Times*, April 13–19, 2001, 14–15 (p. 242, folio 235; p. 270, folio 264);
+    Awais Ibrahim, "Who Locked the Door at Shrine?" *Nation*, Wednesday, April 4, 2001, 9 (p. 242,
+    folio 235) and, in the Bibliography, "1, 9" (p. 270, folio 264); *Jang*, Monday, April 2, 2001, 1
+    (p. 242, folio 235); Muhammad Haroon, "Tragedy at the Wedding Anniversary," unpublished article,
+    2001, cited at pages 2 and 3 (p. 242, folio 235; p. 264, folio 258).
+  - **Aftermath.** "The Pakpattan tragedy of April 1, 2001 quickly receded from Pakistan's media
+    spotlight" (p. 234, folio not stated). The chapter that narrates it was published separately:
+    "A version of this chapter was published as an article: 'Faqir or Faker?: The Pakpattan Tragedy
+    and the Politics of Sufism in Pakistan,' Religion 36 (2006): 29–47" (p. 240, folio 233). The
+    index has a headword "Pakpattan tragedy" 25–38, 227 with **no gloss** (p. 278, folio 272). The
+    author twice uses the event as a period marker: murids became vocal about extremism "After the
+    tragedy at Pakpattan and, in particular, in the wake of the attacks of September 11" (p. 45,
+    folio 35); "The 2001 Pakpattan tragedy locates the Chishti Sabiri order within Pakistan's
+    contested political landscape" (p. 48, folio 38).
+- **Practices and events**
+  - **The ʿurs: month given, day given, year never fixed.** It is "the annual death anniversary
+    ('urs)" (p. 157, folio 149); "the Muharram 'urs of Baba Farid in Pakpattan" (p. 232, folio 224);
+    "the annual pilgrimage for the Muharram 'urs at Pakpattan" (p. 234, folio not stated). In the
+    order's printed ritual calendar, "measured according to the Muslim lunar calendar", it is item 2:
+    "**Baba Farid Ganj-i Shakkar (5 Muharram): at the saint's tomb in Pakpattan**" (p. 215,
+    folio 207). The 2001 stampede fell on "the fifth day of Muharram" (p. 36, folio 26), consistent
+    with that. It is a "weeklong 'urs retreat" (p. 217, folio 209).
+  - **Pakpattan carries two of the order's four ʿurs, because Partition moved one there.** The full
+    printed cycle: "1. Khwaja Mu'in ad-Din Chishti Ajmeri (6 Rajab): at the shrine of Baba Farid
+    Ganj-i Shakkar in Pakpattan; 2. Baba Farid Ganj-i Shakkar (5 Muharram): at the saint's tomb in
+    Pakpattan; 3. Shahidullah Faridi (17 Ramadan): at the saint's tomb in Karachi; 4. Wahid Bakhsh
+    Sial Rabbani (20 Dhu al-Qa'da): at the saint's tomb in Allahabad" (p. 215, folio 207). The reason
+    is stated: "After 1947, Pakistani disciples could no longer easily travel to the major Sufi
+    shrines in India—including the tomb of Mu'in ad-Din Chishti in Ajmer, central Rajasthan. In
+    response, the silsila transferred the 'urs of Muin ad-Din to the shrine of Baba Farid in
+    Pakpattan" (p. 215, folio 207). **The spelling shifts from "Mu'in ad-Din" to "Muin ad-Din" inside
+    that one sentence; see Doubts.**
+  - **What the Diwan distributes at the ʿurs.** "the Diwan mounted a large stage in the center of the
+    courtyard to distribute saffron-soaked strips of cloth known as pechas to the assembled masses"
+    (pp. 37–38, folios 27–28).
+  - **The order's own conduct at the tomb, observed.** Male disciples, "Dressed in white shalwar
+    kamiz and following the strict rules of etiquette and decorum (adab)", "formed a series of
+    straight rows parallel to the main door of the saint's tomb" and "sat or stood in quiet
+    contemplation (muraqaba) as the female disciples looked down from the rooftop balcony above"
+    (p. 37, folio 27). At the ʿurs "most murids offer communal prayers inside the dargah" (p. 218,
+    folio 210); group muraqaba facing the tomb "is a regular practice, for example, in Pakpattan
+    where following communal prayers disciples sit together in silent contemplation, facing the
+    saint's tomb" (p. 218, folio 210). **Zikr is deliberately suppressed here:** "Disciples generally
+    avoid zikr in Karachi and Pakpattan altogether, though it is performed at the 'urs in Allahabad"
+    (p. 218, folio 210), explained by a senior disciple as "At Pakpattan we do not do anything extra
+    because Baba Sahab's influence is so great and so powerful" (p. 218, folio 210).
+  - **Women's access is the most restricted of the order's three Pakistani shrines.** A female
+    disciple from Peshawar: "It is not like this at Pakpattan Sharif . . . At Pakpattan Sharif women
+    cannot even enter [the inner sanctum of the tomb]. The most you can do is touch and kiss the
+    threshold" (p. 219, folio 211), contrasted with "Hazrat Wahid Bakhsh's mazar [in Allahabad]"
+    where "the women can go inside" on a time-segregated basis (p. 219, folio 211).
+  - **A full day at the ʿurs**, from another female murid describing "a typical day at the 'urs in
+    Pakpattan Sharif": morning prayer "at the women's compound or at the shrine"; breakfast "around
+    seven thirty or eight o'clock"; an audience with "Hazrat Siraj Sahab [the current teaching
+    shaykh]" "At about ten o'clock"; communal noon prayers; individual muraqaba at the shrine
+    "generally between afternoon and evening prayers"; "'asr at the compound"; then the shrine "for
+    muraqaba and the communal maghrib payers [text-layer?: prayers]"; dinner; "and prepare for the
+    qawwali" (p. 219, folio 211).
+  - **The order houses its people beside the tomb.** "In Allahabad, Karachi, and Pakpattan, the
+    silsila maintains separate living compounds for men and women adjacent to the saint's tomb"
+    (p. 216, folio 208); "During the weeklong 'urs retreats, groups of murids share rooms and bathing
+    facilities, gathering together for meals prepared in the on-site kitchens" (p. 217, folio 209).
+    A shaykh's "hut, outside the shrine" is used during the ʿurs (p. 157, folio 149).
+  - **Sama' and qawwali at this shrine.** The mahfil-i sama' is held off the shrine floor: "In both
+    Pakpattan and Allahabad where the musical assembly is held in a room adjacent to the shrine, the
+    shaykh sits directly opposite the performers" (p. 225, folio 217); "In other locations such as
+    Allahabad and Pakpattan, the silsila maintains a separate indoor room for the occasion in private
+    compounds near the shrines" (p. 224, folio 216). **Control of the performers is exercised:** "I
+    was told, for instance, that throughout the 1970s Shaykh Shahidullah Faridi pointedly refused to
+    allow either the Sabri Brothers or Nusrat Fateh 'Ali Khan to perform at the annual 'urs in
+    Pakpattan (September 30, 2000, Pakpattan)" (p. 230, folio 222) — **the dateline shows the author
+    interviewing at the shrine itself on that date.** From Wahid Bakhsh's letter written at the 1990
+    ʿurs: "On the night of the 'urs the qawwals sang special Persian and Hindi ghazals for our silsila
+    people because they know what our taste is. On the arrival of the Diwan Sahib, the qawwali
+    reverted to mob entertainment" (p. 232, folio 224) — **the Diwan Sahib is given no name and no
+    office title in that passage: (not stated)**. "During mob qawwali we fixed our attention on the
+    saint himself who made up for all the deficiency" (p. 232, folio 224).
+  - **A week of mujahada at the tomb, timed.** The same 1990 letter records "a full week of spiritual
+    exercises (mujahada) at the shrine (mazar) comprising three strenuous hours in the morning from
+    8 am until 11 am, and three hours in the evening, from 5 to 8 pm" (p. 232, folio 224).
+  - **Qur'an recitation at the shrine during the ʿurs:** "I went down to the shrine and joined a group
+    reciting Qur'an" (p. 157, folio 149).
+  - **A dated lecture delivered at this shrine.** Shahidullah Faridi's counter-polemic against
+    accusations of idolatry was given "in a lecture delivered to his disciples during the 'urs at
+    Pakpattan on **July 20, 1977**" (p. 212, folio 204): "we come here because these relics have an
+    association with a saintly person like Baba Sahib. We come here because they are signs of Allah
+    . . . Baba Sahab himself is a sign of God" (p. 212, folio 204).
+  - **Pilgrimage from abroad and at a distance.** A 1955 return "to Karachi from the 'urs of Baba
+    Farid ad-Din Ganj-i Shakkar in Pakpattan" (p. 76, folio 66); a 1979 pilgrimage by Wahid Bakhsh's
+    first Malaysian disciple — "It was the 'urs of Baba Farid" and "This was in 1979" (p. 157,
+    folio 149). Malaysian disciples unable to travel "gathered together at a private home in Kuala
+    Lumpur on the evening of the 'urs", "Listening to recordings of sama' on a small cassette player",
+    and "commemorated the death of anniversary [text-layer?: death anniversary] of Baba Farid on the
+    opposite side of the Indian Ocean" (p. 43, folio 33).
+- **Legends and miracles (karamat)**
+  - **Salvation through the doorway**, in the 1833 account: "all who pass through this doorway are
+    considered saved from the fires of perdition"; "A superlative heaven is allotted to those who are
+    first to enter the tomb on the day mentioned" (p. 36, folio 26).
+  - **Pakpattan grants every request** — what the Malaysian disciple was told before going: "I was
+    told that in Pakpattan nobody's requests are rejected, so I packed my bags and followed the
+    group" (p. 157, folio 149).
+  - **A collapse and illumination inside the shrine at the ʿurs, 1979.** "Suddenly, I received some
+    illuminations [kashfiyyat]. I fell down … I sensed that I was unconscious, but I could still hear
+    people talking around me. They were saying, 'He has had a heart attack!'"; "People carried me to
+    Captain Wahid Bakhsh's hut, outside the shrine"; "Captain Sahab came and blew his breath on me"
+    and confirmed the experience — "You do not have a shaykh, but you have a great deal of
+    concentration. You are open to these things, but you don't have a filter. A shaykh is a filter."
+    (p. 157, folio 149). The author calls it "a mystical out-of-body experience at the shrine of one
+    of the Chishti order's most renowned saints" (pp. 157–158, folios 149–150) and dates it "almost
+    three decades ago" (p. 158, folio 150). **He also met, inside the shrine, "a dervish, an English
+    dervish, walking around inside the shrine, searching for a shaykh"** — unnamed, and not connected
+    by the book to Shahidullah Faridi (p. 157, folio 149); see Doubts.
+  - **The dream at his shrine that authorised a shaykh, 1955.** Shahidullah "had a vivid dream in
+    which his status as khalifa was confirmed by the patron saint himself" (p. 76, folio 66); the
+    dream is dated in the narration to "the ninth of Muharram", with **no year attached to that
+    phrase** (p. 76, folio 66). In a disciple's telling: "He saw a vision that he was standing in the
+    shrine (darbar) of Hazrat Baba Sahab, may God have mercy upon him"; "Baba Sahab himself was
+    standing at the door of his mazar. The people were shouting at him, 'Please, we want to become
+    your disciples (murids). Make us your disciples!'" (pp. 76–77, folios 66–67), and Baba Sahab
+    orders "You make these people murids!", Shahidullah objects "My shaykh has not allowed me", and
+    the dead Zauqi Shah appears and answers "Of course I've allowed you!" (pp. 76–77, folios 66–67;
+    narrated May 21, 2001, Karachi). The author's framing: "This paradigmatic experience is not
+    recorded in any text, but during my interviews I heard it narrated—with slight variations—on
+    numerous occasions" (p. 76, folio 66).
+  - **The saint gives a living shaykh his name.** "Soon after he officially dropped his surname,
+    Lennard, and adopted the moniker 'Faridi' to mark his special relationship with the saint in
+    Pakpattan" (p. 77, folio 67, interview September 2, 2001, Karachi); the book calls Baba Farid
+    Shahidullah Faridi's "namesake" (p. 79, folio 69).
+  - **He met his own wife in a dream**, reported as a hagiographic parallel drawn by disciples:
+    "Several disciples recounted a similar story about the saint Baba Farid Ganj-i Shakkar who also
+    met his future wife in a prescient dream" (p. 79, folio 69).
+  - **He claims a child as his daughter.** A closed door to Zauqi Shah's room "was a sign that some
+    saint, or even the Holy Prophet… was present there"; the child Ammi Jan opened it and "the
+    saintly person with him was sitting there and said, 'No, no. Let her come. She is my daughter.'
+    And then he put her on his lap. Afterward Hazrat Sahab told Ammi Jan that the man was Baba Sahab
+    [the saint, Farid ad-Din]" (p. 80, folio 70). The author: "While this intriguing hagiographic
+    anecdote is not recorded in any text, it too is now integrated into the contemporary silsila's
+    collective memory" (p. 80, folio 70). Her later ziyarat: "Whenever she would visit his mazar
+    [Pakpattan Sharif], there was a wonderful scene. People would gather, and there were such
+    blessings. She attracted a lot of women; no queen could receive such a reception" (p. 80,
+    folio 70, interview April 29, 2001, Bahawalpur). **The bracketed "[Pakpattan Sharif]" is the
+    book's own editorial insertion.**
+  - **He speaks from the tomb.** "Once I was passing along the street near Baba Sahab [the tomb of
+    Baba Farid ad-Din Ganj-i Shakkar in Pakpattan]" — Wahid Bakhsh thought, "'Baba Sahab has not left
+    a large number of books for us to read.' At that moment a voice came to me; it was the voice of
+    Baba Sahab. He said, 'You are my books!'" (p. 174, folio 166, narrated April 30, 2001,
+    Bahawalpur). The author's gloss: the episode "conveys a simple but clear message", illuminating
+    "the superiority of experiential wisdom over abstract, theoretical book knowledge" (p. 175,
+    folio 167).
+  - **Knowledge at the gate surpasses the universities.** Of Shahidullah Faridi at the bihishti
+    darwaza: "Hazrat Shahidullah Faridi was at the shrine of Baba Farid Shakar Ganj [at Pakpattan].
+    It was the time of the 'urs, and people were coming out of the Gate of Heaven [bihishti
+    darwaza]"; "These are the real universities, these places. Real knowledge is given to you through
+    the attention of the saint, through inspiration." (p. 220, folio 212)
+  - **He appears in a woman's visions**, in a list of Maqsuda Begam's "spiritual encounters with the
+    Prophet Muhammad, Khizr, Jesus, Baba Farid ad-Din Ganj-i Shakkar, Muhammad Ali Jinnah, Shah Sayyid
+    Waris Hasan, and Zauqi Shah, among others" (p. 93, folio 83).
+  - **He is one of five figures contemplated daily.** Murids perform muraqaba-i shaykh on "Hazrat
+    Khwaja Mu'in ad-Din Chishti Ajmeri, Baba Farid ad-Din, al-Hujwiri, Muhammad Zauqi Shah, and Shah
+    Sayyid Waris Hasan for fifteen to thirty minutes on a daily basis" (p. 206, folio 198).
+- **Significance**
+  - "Sufi shrines such as Pakpattan serve as vital centers of popular piety—nodal points of local
+    identity and culture." (p. 47, folio 37) "contemporary Chishti Sabiri disciples champion and
+    defend Sufi tomb complexes such as Pakpattan as doorways to divinity" (p. 214, folio 206). "As
+    the Pakpattan tragedy of 2001 so clearly illustrated, Sufi shrines are also controversial,
+    contested spaces." (p. 212, folio 204) "by sacralizing the suffering at Pakpattan, this
+    counternarrative also marks the shrine—and the legacy of its patron saint, Baba Farid—as the
+    rightful inheritance of the contemporary Chishti Sabiri order." (p. 44, folio 34)
+  - **Richard Eaton on the shrine, quoted at length by the book:** "The shrine of Baba Farid in
+    Pakpattan provides a striking example of how Islam, the religion par excellence 'of the Book,'
+    has been in one instance mediated among common villagers most of whom were illiterate" — the
+    shrine "displayed, in short, the Court of God", and Baba Farid was the devotee's "friend in
+    court" (p. 35, folio 25).
+  - **Index locators for the person**, printed folios 4, 15, 19, 25–6, 32, 66–7, 69–70, 71, 83, 114,
+    149, 166–7, 198, 227, with the cross-reference "see also Pakpattan Sharif" (p. 276, folio 270);
+    and for the place, the headword "Pakpattan Sharif" at printed folios 19, 66–7, 70, 112, 121,
+    149–50, 166, 198, 204, 207, 209, 210–12, 216, 217, 222, 224, 227, with "see also Farid ad-Din
+    Ganj-i Shakkar" (p. 278, folio 272). **These are the book's own printed folios, not PDF pages,
+    and no locator has been converted.**
+
+### Doubts the notes raise on this row
+
+1. **Baba Farid's death year — the book gives two, and neither matches the archive.** Body text and
+   captions print **"(d. 1265)"** six times (p. 8 folio not stated; p. 15 folio 4; p. 26 folio 15;
+   p. 29 folio not stated; p. 35 folio 25; p. 215 folio 207); the **index headword prints "(d. 1295)"**
+   (p. 276, folio 270). The archive row records **1266**. Digits survive intact in this text layer and
+   neither figure is glued to an endnote, so both are the book's own. **Three values, no reconciliation
+   in the book.**
+
+10. **The Pakpattan annuity figures, 1,500,000 and 150,000 rupees** (p. 242, folio 235), differ by
+    exactly one order of magnitude, which is the shape a digit-dropout would take. Digits are
+    otherwise intact in this book, and the two figures are printed in one sentence as a contrast, so
+    they are almost certainly the book's own — **but a human should confirm against the page, because
+    this is the single most quotable economic number in the book.**
+
+11. **"Some thirty years ago"** in the 1911 Irving quotation (p. 242, folio 235) is Irving's phrasing
+    and yields no date. **Do not convert it to c. 1881.**
+
+### Place-level material: Pakpattan / Pakpattan Sharif
+
+*The book's place-level material on "Pakpattan / Pakpattan Sharif" (1 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **shrine-of-fariduddin-ganjshakar** (the book's "Pakpattan" and "Pakpattan Sharif" where no saint
+  is named in the sentence): the toponym takes the town's single archive row, so the following now
+  belong to that row rather than sitting unmapped — "around the time of the mob stampede in
+  Pakpattan Sharif" (p. 44, folio 34); "the 2001 Pakpattan tragedy" (p. 121, folio 112); "the
+  Pakpattan tragedy of 2001" (p. 212, folio 204); the index headword "Pakpattan Sharif" with its
+  seventeen locator groups (p. 278, folio 272); the headword "Pakpattan tragedy" 25–38, 227 (p. 278,
+  folio 272); and the interview dateline "(September 30, 2000, Pakpattan)" (p. 230, folio 222).
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Punjab"; refers to: British colonial rule — the book's frame is "the British Raj", no years given in the sentence; quoted source: Katherine Ewing, *Arguing Sainthood*, 49, per n. 10): "British policy, especially in the Punjab and Sind, was to treat them in essentially the same way that landlords and tribal leaders were treated . . . They tried to maintain the traditional social structure intact, securing the loyalty of the pirs, landlords, and chiefs by reinforcing their economic positions and educating them in the British tradition." — "them" being "The hereditary saints [sajjada nishin]", who "were seen primarily in terms of their economic power" (p. 33, folio 23). Note 10 points for "the British policy toward local Sufi institutions and exemplars in the Punjab" to Ansari's *Sufi Saints and State Power: The Pirs of Sind, 1843–1947* and Gilmartin's *Empire and Islam: Punjab and the Making of Pakistan* (p. 241, folio 234; bibliographic only).
+- (book's word: "the southern Punjab"; refers to: from Wahid Bakhsh's khilafat being "publicly confirmed" "In 1975" and Shahidullah Faridi's "last will and testament", no year printed for the will; author's argument): Shahidullah's will says Wahid Bakhsh "has initiated halqa zikr and guidance in Bahawalpur" and "should spread the silsila in this place only"; the author reads this: "Here Shahidullah effectively delineates the southern Punjab as Wahid Bakhsh’s personal spiritual domain (wilayat)", adding that "In the following years, however, the shaykh’s duties Chishti Sabiri master rapidly expanded in scope and scale" (sentence printed so, a word apparently missing; not repaired) (p. 90, folio 80). The will names only Bahawalpur; the extension to "the southern Punjab" is the author's.
+
+## From Annemarie Schimmel, As Through a Veil
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schimmel_as_through_a_veil.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+- **Evidence base:** three chunks (012, 014, 015) — one endnote that names him together with his site,
+  one bibliography entry (a title only), one index headword, plus a bare place-level index headword for
+  Pakpattan. There is no body-text description of the saint or the shrine.
+- Saint:
+  - Index headword printed `Fanduddrn Ganj-i Shakar (d . 1265)`[text-layer?: `Farīduddīn Ganj-i Shakar`]
+    (p. 353, folio 335).
+  - Named with his site in an endnote on Panjabi genres: "In Panjabi, there are biirahmasa
+    [text-layer?: bārahmāsa] about Fariduddin Ganj Shakar of Pakpattan (Majmuca Panj Ganj
+    [text-layer?: Majmūʿa Panj Ganj], p. 9)" (p. 287, folio 269); `Majmu<a Panj Ganj` is also cited alone
+    a few notes earlier (p. 287, folio 269).
+  - Bibliography: "Nizami, Khaliq Ahmad. The Life and Times of Shaikh Farid Ganj-i Shakar. Aligarh
+    University Press, 1955." (p. 332, folio 314) — the entry names no shrine and no Pakpattan.
+- Shrine / Darbar: Pakpattan is named as his place inside the endnote clause (p. 287, folio 269), and
+  stands as its own index headword, `Pakpattan` (p. 360, folio 342), carried here under ruling (a) as the
+  only archive row in that place. Nothing is said of the building, the ʿurs or custodianship.
+- Practices & Events: Panjabi bārahmāsa are composed about him (p. 287, folio 269) — the only devotional
+  practice this book reports for the row.
+- **Doubt:** apart from that single endnote the evidence is bibliographic and index-level; the `Pakpattan`
+  headword is a bare place name attached under ruling (a), place-level rather than site-specific (p. 360,
+  folio 342). Chunk 012 flagged the risk of confusing him with Khwaja Ghulam Farid, named in the same run
+  of notes (p. 286, folio 268) — see `mithankot-kot-mithan`.
+
+### Doubts the notes raise on this row
+
+**Seven death years in the book disagree with the archive rows.** All seven are printed headwords in
+the `Index of Proper Names`, i.e. a 1982 Columbia monograph disagreeing with the sheet, not OCR
+noise. The archive's `figure_died` is given only for comparison.
+
+- `Fanduddrn Ganj-i Shakar (d . 1265)`[text-layer?: `Farīduddīn Ganj-i Shakar`] (p. 353, folio 335)
+  against 1266.
+
+- **Thin attachments — author-only, imprint-only, title-only.** `data-darbar`: Hujwiri is only an
+  author, "Hujwiri/Nicholson" five times (pp. 245–254, folios 227–236), plus the single clause "who
+  spent his last years in Lahore" (p. 61, folio 51); the epithet "Data Ganj Bakhsh" appears only in
+  the index headword (p. 355, folio 337) and nowhere in the body.
+  `rahman-baba-mausoleum-rehman-baba-shrine` is the weakest of all: the name appears **only inside a
+  book title**, "Jens Enevoldsen, Selections from Rahman Baba" (p. 278, folio 260; p. 319, folio 301),
+  and the index has no Rahman Baba headword. `shrine-of-makhdoom-abdul-rahim-girhori` rests in one
+  chunk on a damaged word inside a title, "Kalam-i Girhoi;i" (p. 318, folio 300), and in another on
+  "the Sindhi mystic Girhori" with no first name (p. 294, folio 276) — the surname match is the
+  note-writer's, not the book's, though the index does print `Girhon, c Abdur Ral;lim (d . 1778)`
+  (p. 353, folio 335). `shri-panchmukhi-hanuman-mandir-karachi` rests on "Abu Hanifa and Hanuman are
+  one and the same" (p. 176, folio 158) plus a bare headword (p. 354, folio 336).
+  `darbar-malik-ahmad-ayaz` rests on the Mahmud–Ayaz pairing alone, "his Turkish officer Ayaz"
+  (p. 84, folio 74) — no Lahore, no tomb, no office; the identification is inferential.
+  `mazar-e-iqbal`, `shrine-of-shah-abdul-karim-bulri`, `garh-maharaja-shorkot`,
+  `mazar-of-bulleh-shah`, `shrine-of-fariduddin-ganjshakar` and `mithankot-kot-mithan` each rest, in
+  the bibliography chunk, on one printed entry with no tomb, date, place or silsila (pp. 325–341,
+  folios 307–323).
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "the Punjab"; refers to: "in the centuries after his death", i.e. after the historian Bada'uni, as the book states, with no dates given; book's historical prose): "only in the centuries after his death did mystical poets in Sind and the Punjab develop the art of utilizing simple folk tales as media for mystical instruction" (p. 154, folio 136).
+- (book's word: "the Punjab"; refers to: period not stated, the poets being "contemporaries" of "the urban poets in India"; book's historical prose): "While the urban poets in India expressed their veneration of the Prophet in grandiose hymns to display their erudition, their contemporaries in the plains of Sind and the Punjab wrote tender little poems or instructive Golden Alphabets to instil love for him into the souls of the villagers" (p. 222, folio 204).
+- (book's word: "the Panjab"; refers to: period not stated; author's argument, endnote 80 to "Mystical Poetry in the Vernaculars"): the story of Muhammad ibn al-Hanafiyya, "a son of 'Ali by another wife than Fatima", "is found in the Panjab, in Bengal, South India, and Malaysia" (p. 284, folio 266).
+- (book's word: "Panjabis"; refers to: present tense, no date; the version is dated "the late eighteenth century"; author's argument): the romance of Hir Ranjha (printed "Hfr Riinjhii" [text-layer?] [Hīr Rānjhā]), "elaborated in more than a hundred versions in Panjabi, Urdu, Sindhi, and Persian, was given its final form in the late eighteenth century by Warith Shah. It is his verse which is sung, time and again, wherever Panjabis meet" (p. 171, folio 153). This is about a people, not a territory, and the book does not say where they meet.
+
+## From Annemarie Schimmel, Mystical Dimensions of Islam
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schimmel_mystical_dimensions_of_islam.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+Printed `Fariduddin`, `Fariduddm`, `Farld`, `Far id`, `Fartd`, `Farlduddln`, `Farid Ganj-i Shakar`,
+`Fariduddin Ganj-i Shakar of Pakpattan`, `Sheikh Farld Ganj-i Shakar` and `Shaikh Farid Ganj-i Shakar`
+[text-layer?: Farīduddīn Ganj-i Shakar] (pp. 273, 310–311, 377–384, 411, 415, 461, 489, 514, 534). The
+`t` of `Fartd` is **not** in the measured substitution table and was not repaired. **This is not the
+`Farīduddīn ʿAṭṭār` of the false-friend list** — the book prints the distinguishing epithet
+`Ganj-i Shakar`, and prints `cAttar` separately on the same pages.
+
+- **Saint**
+  - **Two readings of the death year, kept side by side.** The running text prints
+    `Bakhtiyar Kaki's successor was Fariduddm (d. 1265` [text-layer?: clean]`)` (p. 377, folio 346)
+    and the index prints `Fariduddin Ganj-i Shakar (d. 1265), 279,` / `346-48, 350, 352, 380, 384;
+    mother of,` / `346, 43°` [text-layer?: 346, 430 — `43°` is **not resolved**: `°` has proved to
+    stand for 0 and for 8 in this book] (p. 514, folio 483). **The archive row records 1266.**
+  - Succession and move: `but because of the politically confused situation he left the capital and
+    settled in the Punjab on the river Sutlej.` (p. 377, folio 346).
+  - Formation: `Far id had been influenced in his early religious life by his pious mother.`
+    (p. 377, folio 346). She is not named — **(not stated)**. Named again among the mothers who formed
+    Sufi leaders: `Whether it be Farid Ganj-i Shakar's mother in India or cAbduDl-Qadir Gilam's`
+    [text-layer?: ʿAbduʾl-Qādir Gīlānī's] `mother and aunt (N 628), there is no doubt that many elderly
+    women in the families contributed to the spiritual formation of some of the great Sufi leaders.`
+    (p. 461, folio 430).
+  - Asceticism, with the book's own term: `He performed extremely difficult ascetic practices, among
+    them the chilla ma'kusa, hanging upside down in a well and performing the prescribed prayers and
+    recollections for forty days.` (p. 377, folio 346). The same practice under its other name is
+    footnoted to him: footnote 19, `For the salat maqluba see Khaliq Ahmad Nizami, The Life and Times
+    of Fartd Ganj-i Shakar (Aligarh, 1955), p. 179.` [text-layer?: ṣalāt maqlūba] (p. 273, folio 242)
+    — **but the main text does not say Farīd himself performed it**, only that `some later Indo-Muslim
+    saints` did (pp. 272–273, folios 241–242). `(not stated)`.
+  - Family: `He did not care for his wives or children, eight of whom survived.` (p. 378, folio 347).
+  - A judgement the book quotes without naming its source: `we may well believe that "no saint
+    excelled him in his devotions and penances."` (p. 378, folio 347).
+  - Named in the thirteenth-century roll of India: `the names of Mu c inuddm Chishti, BahaDuddin
+    Zakariya Mul-` / `tani, Farld Ganj-i Shakar, Nizamuddin Auliya, Fakhruddin Iraqi, and many others
+    tell of the spiritual glory of the thirteenth` (p. 310, folio 279) `century.` (p. 311, folio 280).
+  - Contrasted with Bahāʾuddīn Zakariyā: `the stern ascetic Farld, who gave no thought to any worldly
+    needs and refused all governmental grants for his family and his disciples` (p. 383, folio 352).
+- **Shrine / Darbar**
+  - The place-name and its meaning: `His home has been known, ever since, as Pakpattan, "the ferry of
+    the pure."` (p. 377, folio 346). The **toponym `Pakpattan` matches the single archive row of that
+    place**, which is the same row the person rule gives; no second id attaches.
+  - Pakpattan as a place of resort: `After his third visit to Pakpattan, he was appointed khalifa in
+    Delhi.` (p. 379, folio 348) — of Nizāmuddīn.
+  - The book gives **no** tomb, **no** ʿurs, **no** custodian, **no** building — `(not stated)`
+    throughout (pp. 273, 310–311, 377–384, 411, 415, 461, 489, 514, 534).
+- **Practices & Events**
+  - The economy of his khānqāh is given by the book as the type case of early Chishti practice
+    (p. 378, folio 347) — the detail sits in the Practices material, not here.
+  - Succession: `Fariduddin invested seven khalifas with spiritual power; among his disciples, Jamal
+    Hanswi and Nizamuddin must be counted as his special friends.` (p. 379, folio 348);
+    `Farlduddln's outstanding khalifa, however, was Nizamuddin, whom he met in 1257` [text-layer?:
+    clean]`, orHY a ^ew years before his death.` (p. 379, folio 348) — **the words after the date are
+    badly damaged and are not reconstructed**; the date itself prints clean. The index records the
+    office: `Khalifa ("vicegerent"): … of Fariduddm Ganj-i Shakar, 348` (p. 534, folio 503).
+- **Legends & Miracles**
+  - **The surname legend**, with Schimmel's hedge kept: `His constant fasting was miraculously
+    rewarded—even pebbles turned into sugar, hence his surname Ganj-i shakar, "sugar treasure."`
+    (pp. 377–378, folios 346–347), followed by `Whether this charming legend is true or not, it shows
+    the extreme importance Farld placed on ascetic exercises` (p. 378, folio 347).
+  - **The dead-child tradition**, marked as legend by the book itself: `When he was informed that a
+    child had died—so legend has it—he said: "If fate has so decreed and he dies, tie a rope around
+    his feet and throw him out and come back!"` (p. 378, folio 347).
+- **Significance**
+  - *The vernacular claim the archive will want*, with Schimmel's own hedge: `Fariduddin Ganj-i Shakar
+    of Pakpattan is credited with having used a kind of Old Panjabi for his mystical songs.` (p. 415,
+    folio 384); and, separately, `It is possible that Fariduddin composed a few lines of poetry in the
+    local dialect, which would place him in the chain of those mystics who helped disseminate Sufi
+    teachings in popular songs, thus influencing the population, particularly the women, who used to
+    sing these simple verses while doing their daily work.` (p. 379, folio 348). **Both hedges —
+    `is credited with`, `It is possible` — are the book's and are kept.**
+  - *A living claim, stated in the present tense*: `A number of Punjabi tribes still claim to have
+    been converted by Fariduddin Ganj-i Shakar.` (p. 381, folio 350). No tribe is named —
+    **(not stated)**.
+  - *A proverb for patience.* In Mīr Dard's hagiography, `One of his biographers writes that "the
+    mountain of his patience would have made Sheikh Farld Ganj-i Shakar bite his fingers from
+    amazement like sugarcane,"` (p. 411, folio 380) — the praise is of Dard; Farīd is the measure, not
+    the subject.
+  - *As a subject of scholarship*: `Nizami, Khaliq Ahmad. The Life and Times of Shaikh Farid Ganj-i` /
+    `Shakar. Aligarh, 1955.` (p. 489, folio printed `45°`).
+
+### Doubts the notes raise on this row
+
+- **shrine-of-bahauddin-zakariya** and **shrine-of-fariduddin-ganjshakar** — both also rest, in chunk 016, on a bare five-name list with no date, no site and no order, saying only that they `tell of the spiritual glory of the thirteenth century` (pp. 310–311, folios 279–280).
+
+- **shrine-of-fariduddin-ganjshakar** — from a book *title* in a footnote: `The Life and Times of Fartd Ganj-i Shakar` (p. 273, folio 242, chunk 014); Farīd is the *subject* of a cited book, not its author, which the 18 September ruling arguably does not name. *"A human should rule on this case; it is one line to remove."*
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Punjab"; refers to: the Mogul period, "the Mogul emperors (especially Akbar)"; author's argument): interest in Rumi's work "seems to have been common to all classes of society—the Mogul emperors (especially Akbar) were as fond of him as the simple villagers in Sind and Punjab" (p. 358, folio 327).
+- (book's word: "Punjabi"; refers to: present day ("still claim"), looking back to "Nizamuddln's time" [text-layer?: Niẓāmuddīn's]; ethnographic present): in Nizamuddin's time "Sufism became a mass movement in northwestern India", and "A number of Punjabi tribes still claim to have been converted by Fariduddin Ganj-i Shakar" (p. 381, folio 350; header printed `35O` [text-layer?: 350]).
+- (book's word: "the Punjab"; refers to: the time of "Shah Ismacll [text-layer?: Ismāʿīl] Shahid" and "Sayyid Ahmad of Bareilly", no date given for the occupation; book's historical prose): both were "known for their brave fight against the Sikh, who had occupied the whole of the Punjab and part of the northwestern frontier" (p. 403, folio 372). The book's unit here is the Punjab as occupied by "the Sikh"; carried as printed.
+- (book's word: "a Panjabi village", "The Punjab"; refers to: present day, with Warith Shah's form dated "in the late eighteenth century"; ethnographic present and author's argument): "The visitor who stays in a Panjabi village will certainly find somebody to sing for him the old romance of Hir Ranjha in the classical form given it by Warith Shah"; "The Punjab and the Indus valley have a common tradition of mystical folk literature" (p. 414, folio 383; the section heading `MYSTICAL POETRY IN THE REGIONAL LANGUAGES— SINDHI, PANJABI, PASHTO` begins mid-page under an ordinary header).
+- (book's word: "the Punjab", "the two provinces"; refers to: "back to the fifteenth century", with Madho Lal Husayn as "sixteenth-century"; book's historical prose): "Reliable tradition traces the use of the native language for mystical poetry both in Sind and in the Punjab back to the fifteenth century"; Madho Lal's allusions to the stories of Hir and of Sohni Mehanwal "seems to inaugurate (or perhaps even continue from unknown beginnings) a tradition typical of the religious poetry of the two provinces: the insertion of folk tales into the context of mystical thought" (p. 415, folio 384).
+- (book's word: "The Punjab"; refers to: period not stated (an eighteenth-century Panjabi poet is quoted); author's argument): "The Punjab and Sind show close similarities in the types of mystical literature that nourished there"; Panjabi and Sindhi "were excellent media to express mystical feelings, though not mystical theories"; the themes "were sung time and again in forms inherited from the Indian past—dhoras, kdfh [text-layer?: kāfī], way—not in the Persian form of ghazal", in forms "closely connected with indigenous musical modes"; the attack on the "molld" [text-layer?: mollā] was taken up "by the mystics in the northwest part of the Subcontinent", and such verses "appealed particularly to the peasants and the illiterate" (p. 416, folio 385).
+- (book's word: "both provinces"; refers to: period not stated; author's argument): "In both provinces, a preference for the motif of spinning and weaving can be observed, a natural propensity in a cotton-growing country"; "Both provinces have also produced hymns extolling the great masters of the mystical orders, particularly cAbduDl-Qadir Gilanl [text-layer?: ʿAbduʾl-Qādir Gīlānī]"; the imagery "could easily be understood by everybody in the village" (p. 417, folio 386).
+- (book's word: "the Punjab"; refers to: period not stated, the example Sheikh Tahir is "sixteenth-century"; author's argument): "A strange fact—more visible in Sind than in the Punjab—is the way Hindus shared in the Muslim orders. Some saints were claimed by both communities" (p. 418, folio 387).
+- (book's word: "the Punjab"; refers to: "after 1800" and "the twentieth century"; book's historical prose): "In the Punjab, the literary heritage of Panjabi was rarely continued by Muslims after 1800, though in the twentieth century a number of mystical treatises have been written and published in Panjabi, including a part translation of Rumi's Mathnawi" (printed "Rumi'sMathnawi"); the language "was used almost exclusively by the Sikhs as their literary medium, whereas the Panjabi Muslims resorted to Urdu", "though they enjoyed and still enjoy listening to the simple mystical verses and ballads in their spoken mother tongue" (p. 427, folio 396; header printed `306` [text-layer?: 396]).
+- (book's word: "the Punjab"; refers to: period not stated; author's argument, Appendix 1): the Ahmad bila mim tradition "has been repeated in high literature as much as in popular mystical poetry, be it among the Turkish Bektashis or among the mystical bards of Sind and the Punjab" (p. 451, folio 420; header printed `42O` [text-layer?: 420]).
+- (book's word: "Punjab", "the Punjab"; refers to: period not stated, Sayyid Muhammad Jiw Jan is "in the seventeenth century"; author's argument, Appendix 2): "In the province of Sind, as well as in Punjab, a special aspect of mystical appreciation of women can be observed that is rarely encountered in other parts of the Muslim world, i.e., the representation of the longing soul in the form of a woman"; the bridal symbolism "is used mostly in the mystically interpreted folk tales of Sind and the Punjab"; "The tragic heroines of the Sindhi and Panjabi folk tales—like Hir, Sassui, Sohni, and many others—represent the human soul in search of the beloved" (p. 465, folio 434).
+
+## From Haroon Khalid, Walking with Nanak
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_walking_with_nanak.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+The book's "Baba Farid", "Sheikh Farid", "Sheikh Farid-ud-din of Pakpattan", title "Shakarganj". The Tibba Haji Deen material (birthplace, ancestors' graves, childhood well) is on this row by the person rule; it is **not** the Pakpattan shrine.
+
+- **Saint**
+  - Baba Farid "was born in the year 1173 CE" at the village of Tibba Haji Deen (formerly Kothewal) (p. 150, folio 132). "It had been three hundred years since the death of the great Sufi" at the time of Nanak's visit (reconstruction) (p. 142, folio 124).
+  - Pakpattan "had once been known as Ajodhan, but its name was changed to Pakpattan after the head of the Chistiyan si/si/a [OCR?] [silsila] (religious order), Baba Farid, left Delhi and settled here"; "a small insignificant city", next to which "on top of an abandoned mound Baba Farid used to teach his students"; the Sutlej "snaked through" it (p. 141, folio 123). "Baba Farid moved from Delhi to Pakpattan because he did not want to associate with the rulers there. His madrassa was similar to poorly funded public schools, where the students could not even afford a proper meal" (p. 282, folio 256).
+  - "Baba Farid is considered to be the first poet of the Punjabi language"; he "wrote for the people in a language that they could understand", when the elite used Persian and Arabic; he "first uses the symbolism of a wife being abandoned by her husband" for devotee and deity (p. 153, folio 135). "The Chistiyan school of thought in Sufism, of which Baba Farid was once the head, is one of the most syncretic sects of Islam"; its hallmark is qawwali, "the Muslim version of bhajan" (p. 153, folio 135).
+  - Chistiyan is "a small city which was established by Baba Farid's son and named after his school of thought, according to legend" (p. 154, folio not stated).
+  - Poems quoted in the reconstructed scenes: "I did not sleep with my love tonight / And every bit of my body aches", "Sheikh Farid's most popular qawwali" (p. 138, folio 120); "If someone smites your face, O Farid …" (p. 147, folio 129); "You did not launch your boat …" (p. 148, folio 130).
+  - Author's reconstruction of his descendants: Sheikh Ibrahim, "the twelfth descendant of the great Sheikh Farid-ud-din of Pakpattan" (p. 141, folio 123), "the twelfth successor of Baba Farid" (p. 142, folio 124), holding the position of Diwan, which he found frustrating; he disapproved of the myths made from Farid's life (p. 146, folio 128) and "abhorred the institutionalisation of spirituality as was being practised in the name of his family" (p. 142, folio 124); he "took immense pride in the fact that his ancestor Baba Farid was the best Punjabi poet ever" (p. 143, folio 125).
+- **Shrine / Darbar**
+  - Travelogue, Pakpattan: "The shrine of Baba Farid is the focal point of the city of Pakpattan"; roads lead to it; it is the highest point of the area; it was "an abandoned mound, probably carrying within it the secrets of an ancient city, when Farid moved here with his students. Now it is a shrine spread over a vast tract of land"; shops on the approach are all named after Baba Farid or "his title Shakarganj" (p. 154, folio not stated).
+  - "the shrine of Sheikh Farid at Pakpattan, one of the biggest centres of the Sufi Chistiyan school of thought in all of South Asia" (p. 143, folio 125).
+  - Author's reconstruction, Nanak's era: the city became "a major trading city, with the shrine at the centre", and "the power of his descendants" grew until they "became major feudal lords and political players of the region" (p. 142, folio 124); the shrine "was in one corner" of the courtyard, beside it a tomb "which contained the graves of the descendants of the saint", with "several stalls around" (damaged) (p. 142, folio 124); the shrine sits on a mound larger than the one where Nanak sat (p. 146, folio 128).
+  - Tibba Haji Deen (travelogue): the birthplace house "is preserved", its courtyard holding graves of the saint's ancestors "back seven generations"; "Baba Farid's parents are also buried here"; Ghulam Shabbir's family "has been serving this shrine for the past seven generations", passing down magical stories of the saint and his ancestors (p. 150, folio 132). Nearby "another shrine dedicated to the childhood of Baba Farid": a well within a house under an iron cage, on whose railing devotees tie thread; a caretaker draws and serves the water (p. 150, folio 132). "The shrine at Tiba Haji Deen was older than the shrine of Baba Farid at Pakpattan, but it was less important. The importance, in this case, was determined by the number of followers each shrine had" (p. 145, folio 127).
+  - Tibba Nanaksar is "about five kilometres from the shrine of Baba Farid" (p. 154, folio not stated); Iqbal Qaiser says pressure "even by the Diwan of the shrine of Baba Farid" led the government to renovate the Tibba Nanaksar gurdwara (p. 156, folio 138); a descendant of Baba Farid, "Baba Fateh Ullah Shah Noori Chisti", has a shrine there around which a mosque was built (p. 155, folio 137).
+- **Practices & Events**
+  - His poetry "was still sung by qawwals at the shrine and by fakirs in the cities of Punjab" (reconstruction, p. 142, folio 124); qawwal devotees came "with the Diwan of Chawali Mashaikh" (p. 138, folio 120).
+  - "Once Baba Farid found a place in the Guru Granth Sahib, his personality and shrine became holy for the followers of Guru Nanak as well. Every year, hundreds of Sikhs and Hindus travel to Pakpattan to pay homage to the shrine of Baba Farid" (p. 153, folio 135).
+  - Named among Sufi shrines ("Baba Farid's at Pakpattan") that have "come under attack" in "a wave of Islamic purism" (p. 278, folio 252).
+  - Depicted on the banner at Jalaludin's shrine at Uch, "in a simple white dress with a green shawl on his shoulders" (p. 282, folio 256); named at Uch as one of three saints said to have meditated in the mosque rooms, which the author thinks apocryphal (p. 283, folio not stated).
+- **Legends & Miracles**
+  - The childhood well: "Because of his presence, this well and its water became sacred" (p. 150, folio 132).
+- **Significance**
+  - Named among the "spiritual teachers" whose poetry the Guru Granth Sahib contains (p. 82, folio 64; p. 317, folio 291). The author: Ibrahim's scribe compiled "all the poems of Baba Farid" and handed them to Nanak; "It was through this channel that the poems of Baba Farid found their place in the Guru Granth Sahib"; before that they passed orally, "it was through Guru Nanak that they were preserved for the first time in written form" (p. 149, folio 131).
+  - In the author's reconstruction Nanak praises "the use of simple vernacular" in Farid's poetry and calls him "the true follower of the Prophet Muhammad (PBUH)" (p. 147, folio 129); narrates Farid's poetry and talks at night to "the imaginary Bhagat Kabir and Farid" (p. 208, folio 182); heads "for Pakpattan to meet his friend Sheikh Ibrahim" (p. 209, folio 183); on his first visit to the shrine notices a few dervish "far from the message of the saint", whose message "for Nanak captured the true essence of religion" (p. 288, folio 262). The author: Nanak "like Farid, also chose Punjabi as his medium of expression" and was "impressed by the fact that Baba Farid lived a life of simplicity and shunned violence" (p. 153, folio 135).
+  - Baba Farid is named among Punjabi poets ridiculed by the educated elite of Punjab (p. 128, folio 110) and among the figures who have "become a part of" the author's existence (p. 151, folio 133).
+  - Bibliography: "Sri Guru Granth Sahib Raags 1 ndex——Author: Baba Sheikh Farid-—-SearchGurbani. com" (accessed "12 Feb. 2014") (p. 311, folio 285).
+
+### Doubts the notes raise on this row
+
+- Tibba Haji Deen gurdwara and Maha Chawar's shrine: placed in Tibba Haji Deen by inference ("this village"; "From Tibba Haji Deen we travelled…", p. 154; "whose shrine we visited in the last chapter", p. 164); the introducing lines (p. 150) are partly lost. Baba Farid's birthplace house, ancestors' graves and childhood well at Tibba Haji Deen are under `shrine-of-fariduddin-ganjshakar` on the person rule — they are NOT the Pakpattan shrine.
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Pakistani Punjab"; refers to: the author's own lifetime, present day; travelogue/introduction): the author, "born and brought up in Pakistani Punjab", heard of Guru Nanak as founder of Sikhism, poet and spiritual leader, "Yet given the Muslim-dominant culture of Pakistani Punjab, there were no avenues available for me within the culture to explore his personality" (p. 15, folio not stated).
+- (book's word: "Pakistani Punjab", "Punjab"; refers to: present day and the author's childhood; author's argument): in "Pakistani Punjab", Punjabi "is looked down upon. It is considered to be a language of the boorish and the uneducated"; his elite private school fined any student speaking Punjabi "even in the playground"; "the educated elite of Punjab ends up disowning, in fact, ridiculing anything Punjabi, which includes the poetry of Baba Farid, Guru Nanak, Shah Hussain, Waris Shah and Bulleh Shah" (printed "Babs Farid" [OCR?] [Baba Farid]; the sentence opening at "rin system that is prevalent in Pakistani Punjab" is damaged [OCR?]) (p. 128, folio 110).
+- (book's word: "Punjab government"; refers to: the day of the visit, present day, date not stated; travelogue): over the locked gate of the school housing the gurdwara at Makhdoom Pur Pahuran hung "a banner describing the new policy of the Punjab government to improve the education system in public schools" (printed "improv" [OCR?]) (p. 128, folio 110).
+- (book's word: "Pakistani Punjabi", "Punjab"; refers to: present day, "the past few years"; travelogue): Boota Singh of Nena Kot ("We are not from the Tribal Areas. We are Punjabis") was "the first Pakistani Punjabi Sikh I had interacted with. Earlier, I had only encountered Pathan Sikhs who had moved to Punjab in the past few years" (p. 83, folio 65).
+- (book's word: "Punjab"; refers to: present day; book's historical prose): devotees of Nanak who refused the Khalsa of Guru Gobind Singh: "There are thousands of such Sikhs living in Khyber Pakhtunkhwa, Punjab and Sindh in Pakistan, and they are referred to as Nanak Panthi Hindus. In their temples, along with pictures of Hindu deities, one also finds a picture of Guru Nanak" (p. 98, folio 80).
+- (book's word: "southern Punjab"; refers to: present day, "for the past few years", with a historical contrast, period not stated; reported view of Ayesha Siddiqa, author of *Military Incorporated*, name printed "Ayesha Siddiqa 15 4 Pakista" [OCR?] at p. 283): organisations "like Jamat-ud-Daywa and Laskhar-e-Jhangvi" [OCR?], of the Ahl-e-Hadith school, "have seeped into the social fabric of southern Punjab, a region that has historically rejected such strands of Islam and adopted a syncretistic version of religion. Such Sufi shrines are a symbol of that strand of Islam"; this is changing as they open seminaries "in these rural areas" and attract unemployed youth (p. 284, folio 258).
+- (book's word: "the Punjab"; refers to: present day, "a recent paper"; reported view of Dr. Tahir Kamran): his paper "'Evolution and Impact of "Deobandi" Islam in the Punjab'" records "a similar phenomenon": such organisations are popular with the youth of the region because "they offer an explanation for their current oppression"; their first step is "to target such shrines and their guardians, who have become immensely rich feeding off the oppressed classes" (p. 284, folio 258).
+- (book's word: "The southern region of Punjab"; refers to: present day; author's argument): "The southern region of Punjab, where Uch Sharif lies, has more traces of religious and cultural syncretism compared to the northern and central region, where there is a greater prevalence of education and hence religious intolerance" (p. 277, folio 251).
+- (book's word: "Punjab", "Sindh"; refers to: present day, on the drive to Uch Sharif; travelogue): "The boundary between Sindh and Punjab becomes a blur as we drive through Bahawalpur"; "This is where the cultures of Punjab and Sindh merge. Some of the roadside hotels are called Punjab Hotel, while others are Sindh Hotel"; the language, "Siraiki", is "an amalgamation of the two languages"; Iqbal Qaiser: "The Siraiki spoken in Multan is closer to Punjabi, while here it is more like Sindhi" (p. 276, folio 250).
+- (book's word: "lower Punjab"; refers to: the day of the visit to Inderjit, present day, date not stated; travelogue): Geo news on the television was "covering the floods in Sindh and lower Punjab" (p. 306, folio 280).
+- (book's word: "Punjabi"; refers to: present day; travelogue): on a mound, shrubs of "karir (capparis deciduas), another ancient Punjabi species of plant that is no longer found anywhere except in abandoned places" (p. 92, folio 74).
+- (book's word: "Punjab"; refers to: "the end of the eighteenth century" at p. 34, "the nineteenth century" at p. 87 — both as printed; book's historical prose): "When Maharaja Ranjit Singh became the sovereign of Punjab at the end of the eighteenth century he spent large amounts of money on the renovation and expansion of many gurdwaras", and "attached vast tracts of land to these gurdwaras, so that the revenues from the lands could facilitate their functioning" (p. 34, folio 16); he is called "the Sikh ruler of Punjab, Maharaja Ranjit Singh in the nineteenth century" (p. 87, folio 69).
+- (book's word: "the Punjab"; refers to: the time of Guru Hargobind and Emperor Jahangir; book's historical prose, reporting "some claims"): "some claims have asserted that Hargobind [printed "Hargobe" [OCR?]] joined his employment, serving him in the Punjab" (p. 234, folio 208).
+- (book's word: "the Punjab"; refers to: "the time the mantle of Guruship was bestowed upon Harkrishan" (printed "By the me" [OCR?]); book's historical prose): "the Sikh community had expanded beyond the confines of the Punjab into places as far as Kabul and Ghaznvi [OCR?]", making central control by the Guru "increasingly difficult" (p. 181, folio 155).
+- (book's word: "Punjab"; refers to: period not stated; book's historical prose, reporting historians): the Guruship becoming feudal is called ironic "because Sikhism is seen as a reaction against the feudal land gt [OCR?] … ot [OCR?] [of] Punjab bv [OCR?] [by] a lor [OCR?] [lot] ot [OCR?] [of] historians" — the noun after "feudal land" is lost (p. 182, folio 156).
+- (book's word: "Punjab"; refers to: Nanak's lifetime, "the time the Mughal marauder Babur attacked Punjab"; introduction): Nanak's Babur Bani is "a long poem that Nanak wrote at the time the Mughal marauder Babur attacked Punjab, destroying the cities of Eminabad and Lahore on the way" (p. 15, folio not stated).
+- (book's word: "Punjab"; refers to: the time of Nanak's parents and of the young Nanak; author's reconstruction): "The jungles of Punjab were infested with thugs and dacoits who attacked innocent travellers" (p. 22, folio 4); the young Mardana's questions to Nanak include "the jungles of Punjab and the bandits residing in them" (p. 110, folio 92).
+- (book's word: "Punjab"; refers to: Nanak and Mardana's time; author's reconstruction): Mirasis travelled city to city singing of local chieftains, and landlords showered them with gifts; Mardana "knew by heart several folk stories of Hindu deities and Muslim saints that he would sing during different festivals of Punjab" (p. 121, folio 103); as a younger man "he would roam the cities and villages of Punjab, singing folk songs and legends", the most popular being Puran Bhagat's (p. 184, folio 158).
+- (book's word: "Punjab"; refers to: the time of Sheikh Ibrahim, Farid's twelfth successor, "three hundred years since the death of the great Sufi" as printed; author's reconstruction): Baba Farid's poetry "was still sung by qawwals at the shrine and by fakirs in the cities of Punjab" (p. 142, folio 124).
+- (book's word: "the Punjab", "the Punjabi"; refers to: the Sikh force's taking of Hassan Abdal under Hari Singh, date not stated; author's reconstruction in the novelised chapter "The Legend"): the Sikh soldiers "had arrived from the Punjab"; "For almost a thousand year[s] invaders had crossed into the Punjab from the West. Therefore in [the imagination?] [OCR?] of the Punjabi the West was a fearful place where giants resided" (p. 258, folio 232); Hari Singh wanted the tribesmen to know "that now it was the time of Punjab to create havoc in the Khyber" (p. 262, folio 236).
+
+## From Harish Dhillon, Janamsakhis
+
+*Integrated 12 October 2026 from `entries/book_takeaways/dhillon_janamsakhis.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+The book's "Hazrar [text-layer?] [Hazrat] Khwaja Fariduddln Mas'iid [text-layer?] [Fariduddin Mas'ud] Ganjshakar".
+- **Saint**
+  - "Nanak then went to Pak Pattan, a town near Sirhind. It was the seat of" Farid "(1173-1266), popularly known as Baba Farid or Sheikh Farid, the famous Sufi saint and Muslim missionary, belonging co [to] the Chishti order" (p. 171, folio 187). "1266" agrees with the row's `figure_died`; "near Sirhind" is the book's placing (see Doubts).
+- **Practices & Events**
+  - "Ti!la [text-layer?] [Tilla] Baba Farid (the city of Faridkot in Punjab) then known as Mokhalpur was named after him by its then ruler Raja Mok.hal [text-layer?] [Mokhal]"; the "Baba Sheikh Farid Agman Purb Mela" is held "each year for three days, from 21 to 23 September, commemorating his arrival in che [the] city" (p. 172, folio 188).
+- **Significance**
+  - In Dhillon's retelling Nanak "spent many days there holding discussions with him. Later, he personally included 134 hymns composed by Baba Farid in the Adi Granth" (p. 171, folio 187).
+  - Quoting (note 35): Farid's contribution was "his development of the language for literary purposes"; "Farid laid the basis for a vernacular Punjabi literature" (p. 171, folio 187; p. 172, folio 188).
+
+### Doubts the notes raise on this row
+
+- **Baba Farid**: the book calls Pak Pattan "a town near Sirhind" (p. 171, folio 187); the row locates the shrine at Pakpattan, Punjab. Needs a human check. "he personally included 134 hymns" — "he" read as Nanak from context. Faridkot "in Punjab" is not placed on either side of the border; "Tilla Baba Farid" is not `tilla-jogian`.
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- Book's word "Punjab" / "the Punjab region"; refers to the invasions and Muslim rule before Nanak's birth, as the book frames them (Ghaznavis, Ghoris, Tughlaqs "after the beginning of the eleventh century", through Taimur "in 1398"): "Since Punjab in the north was the gateway to India, it bore the brunt of all these invasions" (p. 15, folio 17); the conquerors, "once they had settled down in the Punjab region", turned to "either converting [printed "convening" [text-layer?]] the kafirs or non-believers or destroying them" (p. 16, folio 18); "For over three hundred years, Islam and Hinduism existed side by side in the Punjab region in a state of constant conflict" (p. 16, folio 18).
+- Book's word "Punjab"; refers to 1192, Ghori's conquest: "Shahabuddin Muhammad Ghori captured Punjab in 1192" (p. 136, folio 151).
+- Book's word "Punjab"; refers to the Puratan Janamsakhi's fifth udasi "(1523-1524)": "This lasted about one year and covered the towns and regions within Punjab." (p. 55, folio 61).
+- Book's word "Punjab"; refers to the third udasi "(1514-1516)" of the "more modern accounts": to Tashkent "and then back to Punjab via the Kashmir Valley" (p. 55, folio 61).
+- Book's word "Punjab"; refers to Nanak's time, the Haridwar episode dated "1504" and the Prayag episode (year not stated): Nanak faces "west, in the direction of Punjab" (p. 79, folio 87); "Punjab is very far away" (p. 80, folio 88); "He is Nanak, the great Guru from Punjab" (p. 102, folio 113).
+- Book's word "the Punjab"; refers to the return to Talwandi "in I 506 [text-layer?] [1506]": "there were very few in the Punjab who did not know of him and his teachings" (p. 123, folio 137).
+- Book's words "Punjab" / "the Punjab" / "south-west Punjab"; refers to the second udasi (no year given): Nanak "crossed through Rajpurana and the south-west Punjab till he came to Multan" (p. 164, folio 180); "Nanak was by now a well-known figure in Punjab" (p. 167, folio 183); the Multan Sufis' "patronizing tolerance" "As long as he was preaching elsewhere in the Punjab" (p. 168, folio 184).
+- Book's word "the Punjab"; refers to the close of the fourth udasi, around Babur's "third incursion into India" (no year given): "a south-eastern route co [text-layer?] [to] the Punjab" (p. 224, folio 246).
+
+## From Haroon Khalid, A White Trail
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_a_white_trail.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+The book's "Baba Fareed Shakar Ganj's" shrine (p. 63), "Baba Fareed Ganjshakar" / "Baba Fareed", "Pak Pattan, the city of Baba Fareed" (p. 200, folio not stated). Mostly person-level.
+
+- **Saint**
+  - "a Muslim Saint from the twelfth century, popularly known as Baba Fareed Ganjshakar", in a framed picture at Janamasthan kneeling in a green shawl, hands raised in prayer (p. 188, folio not stated).
+  - "Guru Nanak visited the shrine of Baba Fareed, a famous Muslim saint from Pakpattan" (p. 167, folio not stated); Nanak "traveled to Pak Pattan where he met the spiritual descendants of Baba Fareed and collected the poetry of the saint" (p. 188, folio not stated); went "to Pak Pattan, the city of Baba Fareed, to collect his poetry from his descendants", later included in the Granth Sahib by Guru Arjan (p. 200, folio not stated). The Granth contains the writings of "Baba Fareed" (p. 168, folio not stated).
+  - Bare mention in Kartar's list: Punjabi is "the language of Baba Guru Nanak, Baba Fareed, Waris Shah, Bulleh Shah" (p. 202, folio not stated).
+- **Shrine / Darbar**
+  - Named among "famous Muslim shrines" where Ghulam Ali's dandiya group has played (p. 63, folio not stated); among the shrines Nadeem has visited "on the occasion of urs" (p. 219, folio not stated).
+  - Place-level: the bangle vendor Abdul Razzak "originally belongs to the city of Pak Pattan, about a hundred and fifty kilometres away from here [Ram Thamman]" (p. 61, folio not stated).
+- **Practices & Events**
+  - The qawwals at Nankana "begin with a devotional song, expressing love towards the Muslim Saint Baba Fareed. The Sikh community, which feels a strong affinity towards the Muslim Saint, rejoices" (p. 218, folio not stated).
+- **Significance**
+  - "Being part of the Granth, Baba Fareed is also given a special status in the Sikh religion and revered like the Gurus" (p. 188, folio not stated).
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- (book's word: "Southern Punjab"; refers to: the present, c. the book's writing; book's historical prose): of Pakistan's non-Muslims other than the Ahmadiyya, "the majority are Hindus living in the 'faraway' 'peripheral' regions of Southern Punjab, inner Sindh and Baluchistan" (p. 12, folio not stated).
+- (book's word: "the cities of Punjab"; refers to: the months after the Babri Mosque demolition, "6th of December 1992"; book's historical prose): "Well-known Hindus living in the cities of Punjab had to hide for several months after the incident" (p. 22, folio not stated).
+- (book's word: "urban Punjab"; refers to: the present, c. 2010; author's argument): "The religious distinctions between Hindus and Christians have become blurred in urban Punjab" (p. 28, folio not stated).
+- (book's words: "Central Punjab", "Southern Punjab"; refers to: "historically", the partition, and "after 1947" to the present; author's argument): "Compared to Central Punjab, Southern Punjab has been historically tolerant towards other non-Muslim faiths, which is why a significant Hindu population continues to live here"; "violence here during the partition never scaled the heights it did in the other regions, therefore the resentments between communities that seeped in after 1947 were not that serious" (p. 31, folio not stated).
+- (book's word: "Punjab"; refers to: the present, c. 2010–2011; author's argument): "A lot of Hindus in Punjab do this, passing off as Muslims or Christians by taking up non-Hindu names. This is a survival technique in a hostile environment" (p. 39, folio not stated). Minorities in KPK are visible in society, "which is hardly the case in Punjab, which is much more monolithic" (p. 49, folio not stated).
+- (book's word: "Pakistani Punjab"; refers to: after partition to the present; author's argument): without Hussain's family Ram Thamman "would have also been taken over by the refugees and converted into a household, like the hundreds of temples and Gurdwaras all over Pakistani Punjab" (p. 58, folio not stated).
+- (book's word: "Governor of Punjab"; refers to: the present, c. 2011, and "recent years", no date given; book's historical prose): "the Governor of Punjab Salman Taseer was gunned down" (p. 48, folio not stated); the Aasia Bibi case "received international coverage after the former Governor of Punjab, Salman Taseer came out in support of this woman and was later killed for his pains" (p. 90, folio not stated).
+- (book's word: "the Punjab"; refers to: the book's present, c. 2011, with "the census of 1998" cited; author's argument): "unlike the Hindus, the Christian community has a formidable presence in the Punjab"; Hindus "are a smaller community in the Punjab and can therefore be ignored" by political parties and leaders. Most Hindus are scattered in other provinces, "with only a few in Punjab. The Christians on the other hand have an overwhelming majority in the Punjab (among the minorities)" (p. 87, folio not stated).
+- (book's words: "the Punjab", "the province"; refers to: the present, c. the time of writing; author's argument): Shanti Nagar's Christian landlords make it "a unique case study in the social fabric of the Punjab. Whereas in most of the villages across the province, Muslims are the dominant landowners, while Christians are confined to menial jobs associated with the untouchable caste" (p. 123, folio not stated); "In a regular village where Christians are on the lower rung ... they would be treated as untouchables" (p. 124, folio not stated).
+- (book's word: "Punjab"; refers to: the attacks of 2005 and 2009, as the book dates them; author's argument): the attacks at Sangla Hill (2005) and at Gojra and Bahmniwala, Kasur (2009), "all of which happen to be located in Punjab"; "The story of a few burnt pages from the Quran found in local mosques seems to happen often" (p. 125, folio not stated).
+- (book's word: "the Punjab"; refers to: the present of Daria Boatwala's account, after she moved to Lahore "sometime in the eighties"; informant: Daria Boatwala): "here in the Punjab, the situation is much different. There are hardly any Zoroastrians here and I have never come across any Hindu. The only Christians that you see are those who are cleaners and sweepers" (p. 142, folio not stated).
+- (book's words: "the Punjab", "central Punjab", "the province"; refers to: period not stated ("an ancient festival"), then "After the creation of Pakistan" to the present, c. 2011; book's historical prose and author's argument): "Lohri like Vaisakhi or Basant, is an ancient festival of the Punjab that commemorates the change of season", celebrated "on the 13th of January, which is generally the last night of the month of Poh". Traditionally it means a village bonfire, dry fruit, folk songs, children collecting wood, and kheer cooled overnight (pp. 192–193, folio not stated). After the creation of Pakistan "this indigenous festival of the Punjab died down"; "the Sikh and the Hindu minorities of central Punjab also stopped this celebration" (p. 193, folio not stated). It was "earlier celebrated on a large scale throughout the province. It is ironical though that this Punjabi tradition shunned by Punjab is now being revived by a group of Pathan men residing in Punjab" (p. 194, folio not stated).
+- (book's word: "Punjab"; refers to: "the older days", period not stated more exactly; book's historical prose): "yellow was commonly used for buildings in Punjab during the older days" (p. 197, folio not stated).
+- (book's words: "South Punjab", "Southern Punjab"; refers to: the present, c. 2011; book's historical prose): Nanak Panthi Sikhs "belong to the areas of South Punjab and Sindh", with temples "in Sindh and Southern Punjab" (p. 197, folio not stated); the Dera Sahib langar workers are "low-caste Nanak Panthis from Southern Punjab" (p. 201, folio not stated).
+- (book's words: "the heart of Punjab", "Punjab"; refers to: the recent past to the present, no year stated; book's prose about Pathan Sikh elders, and author's argument): "Moving from tribal areas to the heart of Punjab, an overwhelming majority of them could not even speak the language. They remained confined to their little enclaves" (p. 203, folio not stated). Nankana's Sikh interviewees "remember this internal migration from KPK to Punjab", which gives "a good picture of the different socio-economic conditions in both of these provinces" (p. 235, folio not stated).
+- (book's word: "West Punjab"; refers to: the book's present, the November 2011 festival at Nankana; reportage): the Janamasthan kirtan singers "have covered their heads with a loose turban, a popular style in the villages of West Punjab" (p. 230, folio not stated). The book uses "West Punjab" here for a present-day style; it does not define the term.
+- (book's words: "Southern Punjab", "Central Punjab", "Punjab"; refers to: the book's present, the author's fieldwork period, no year stated; author's argument, Afterword): "The majority of the Hindu community is based in Sindh and Southern Punjab, where they have a proportionate representation from the lower and the upper castes" (p. 233, folio not stated). Hindus experience "ghettoization" in "Central Punjab where I conducted my research"; "My perception is that the conditions under which members of the Hindu community live in Central Punjab are the harshest compared to the other regions" (p. 233, folio not stated). "Almost all the interviews I conducted were of Hindus belonging to the lower castes because there are hardly any high-caste Hindus in this region", so his observations "from Central Punjab" cannot be "construed as being reflective of Hindu communities in areas where there is a considerable population" (pp. 233–234, folio not stated). "The majority of the Christian minority is based in Punjab", so his Christian material "can be generalized to be reflective of the larger Christian community in the country" (p. 234, folio not stated).
+- (book's word: "Punjab"; refers to: "the first half of the 11th century", before partition; the book does not state the unit's extent; book's historical prose): "Al-Beruni came to India during the first half of the 11th century, after the Muslim invader Shah Mahmood Ghaznvi attacked Punjab" (p. 44, folio not stated).
+- (book's words: "Punjab", "the land of Punjab", "Sher-e-Punjab"; refers to: the reign of "Maharaja Ranjit Singh (1780-1839)", with "1799" entry to Lahore and "1801" coronation, before partition; the book does not state the unit's extent; book's historical prose and author's argument): "Maharaja Ranjit Singh (1780-1839), the erstwhile ruler of Punjab" (p. 42, folio not stated); "the Sikh ruler of Punjab" (pp. 159, 196, folio not stated); "the Sikh king who ruled Punjab before the British took over" (p. 206, folio not stated); "crowned as the Ruler of Punjab" in 1801 (p. 207, folio not stated). "In the land of Punjab which was for over a millenium [as printed] ruled by Afghans, Mughals and other non-Punjabis, Ranjit Singh was the first Punjabi to rule Punjab"; he renovated "many Gurdwaras all over Punjab" and brought stability "in Punjab which lasted a good forty years" (p. 208, folio not stated).
+- (book's word: "Punjab"; refers to: British rule, before partition: "the middle of the nineteenth century", "almost a century after the colonization of Bengal", "almost immediately after his [Ranjit Singh's] death"; no year given; the book does not state the unit's extent; book's historical prose): the British "arrival, which in Punjab was in the middle of the nineteenth century"; "the nineteenth century, which is also known as the Sikh period" (p. 57, folio not stated). "Punjab was colonized almost a century after the colonization of Bengal by the British, as a result of which English language is not as institutionalized here" (p. 105, folio not stated). "As a result of sectarian divisions between the Sikh communities and the takeover of Punjab by the British, a large number of important Sikh Gurdwaras were being administered by Hindu mahants" (p. 189, folio not stated). "Punjab became a British colony almost immediately after his death eventually leading to its division at the time of Partition"; Dalip Singh was "the last Maharaja of Punjab, before the British took over" (p. 209, folio not stated).
+
+## From Haroon Khalid, In Search of Shiva
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_in_search_of_shiva.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+The book's "Baba Farid", "his title Ganj Shakar (Treasure of Sugar)", "Baba Farid Shakarganj of Pakpattan", "Hazrat Baba Farid Shakarganj", "the shrine of Baba Farid", plus the toponyms "Pakpattan" and "Ajodhan" (Pakpattan's only archive row, so the place material sits here too). Five chunks. The ch. 7 visit is reportage; the ch. 2 Pakpattan lines and the ch. 10–11 lines about Chistian and Kothewal are place-level or informant material, so weigh them accordingly.
+
+- **Saint**
+  - "The city of Pakpattan was a small, insignificant one known as Ajodhan on the bank of river Sutlej when Baba Farid had decided to settle here in the thirteenth century". He was "at that point the head of Chisti order with its centre in Delhi"; believing the order "should distance itself from the imperial authority", "he had shifted the centre from Delhi to Ajodhan" (book's historical prose) (p. 13, ch. 7, folio not stated).
+  - The period, side by side: settled at Ajodhan "in the thirteenth century" (p. 13, ch. 7, folio not stated) vs "the famous Muslim mystic from the twelfth century" (p. 17, ch. 11, folio not stated).
+  - On his title: "several myths as to how the saint earned this title—one of them being that he was extremely soft-spoken" (p. 13, ch. 7, folio not stated).
+  - He "had lived a life of poverty and away from the politics of his time" (author's argument) (p. 13, ch. 7, folio not stated).
+  - Birthplace, Tibba Haji Deen / "Kothewal" (informants). A shrine official said privately: "'Baba Farid did not hang inside the well, as it is believed ... This well belonged to his family. Baba Farid was born here and this well was part of his house'". Iqbal Qaiser asked "'Wasn't he born in Kothewal?'" and the official answered "'This is Kothewal. Kothewal was its old name'" (p. 17, ch. 11, folio not stated). In "the house where Baba Farid was born", "In an open courtyard were seven graves"; an old caretaker said "the graves belonged to Baba Farid's father, grandfather, uncles, and siblings", and that a further "small grave" was one of his own ancestors, "who, like him, also spent her life looking after this sacred place" (p. 17, ch. 11, folio not stated). The author wondered whether the caretaker's family "once served the family of the Muslim saint before they moved to Pakpattan" (p. 17, ch. 11, folio not stated).
+  - Family and Chistian. A guide cleaning a grave at Chistian said: "This is the grave of the nephew of Hazrat Tajuddin Chisti, the grandson of Baba Farid Shakarganj of Pakpattan. That is the shrine of Hazrat Tajuddin Chisti" (p. 16, ch. 10, folio not stated). "According to Tajul Auliya, a book written by a resident of this city, Chistian was founded by the grandson of Hazrat Baba Farid Shakarganj": there was an old fort with a jungle outside it, "Within that jungle there was a spot where Baba Farid had spent some time in meditation. Later when the saint settled at Pakpattan, he asked his grandson, Tajuddin Chisti to populate the place of his meditation" (p. 16, ch. 10, folio not stated). "The name of the city is derived from the syncretistic school of thought that Baba Farid and his progeny espoused to" (endnote 93, as Pass 1 recorded it) (p. 16, ch. 10, folio not stated).
+- **Shrine / Darbar** (reportage, ch. 7 visit; visit date not stated)
+  - The author, with Maryam and Anam, "had driven here from Lahore, a journey of about four hours, to do a piece on the shrine of Baba Farid" (p. 13, ch. 7, folio not stated).
+  - "The shrine of Baba Farid is located on the top of a mound that overlooks the entire city"; "The madrassah of Baba Farid was located on the mound where he is buried" (p. 13, ch. 7, folio not stated).
+  - "It seems as if the entire city of Pakpattan has developed around this shrine. All roads lead here. The name of every other shop or business entity either includes Baba Farid or his title Ganj Shakar" (p. 13, ch. 7, folio not stated).
+  - Layout: stairs lead up to "an open courtyard with a new mosque on one side and the shrine of Baba Farid in front", with "a huge line of men" waiting. "Women are not allowed inside the chamber where the grave is located"; instead there is "a verandah adjacent to the shrine, from where they can catch a glimpse of the grave". "This was a modest building" (p. 13, ch. 7, folio not stated).
+  - "Behind the shrine is a splendid structure rising several metres higher. This is where the progeny of Baba Farid is buried. The graves of his female family members are covered with purdah. Here too women are not allowed" (p. 13, ch. 7, folio not stated).
+  - "Facing the shrine is an ancient Karir tree". Nizamuddin Auliya, "a disciple of Baba Farid", wrote that "the day dela, an unripe fruit of the wild Karir tree, was cooked it was regarded as a feast by the students" (p. 13, ch. 7, folio not stated).
+  - "Behind the qawwals was the langar hall, offering free food to all" (p. 13, ch. 7, folio not stated).
+  - Security: "A couple of years prior to our visit there was a blast at the entrance of the shrine killing six people" (p. 13, ch. 7, folio not stated). Women were searched in "the small makeshift room covered by curtains" by "female police officials", and the author showed his press card to "the head of security", who then allowed cameras inside (p. 13, ch. 7, folio not stated). Said of "all such shrines" in this passage: "Photography was strictly prohibited"; there were "elaborate security measures at the entrance"; "Earlier these shrines would remain open throughout the night providing shelter to all, but now they are shut at midnight on the order of the government" (p. 13, ch. 7, folio not stated).
+  - Custodianship: "The current guardians of the shrine are from the family of Baba Farid and they are not only one of the richest but also one of the most powerful families of the region". His progeny "received gifts and awards from different rulers" (p. 13, ch. 7, folio not stated).
+- **Practices & Events** (reportage unless marked)
+  - "always a rush outside the shrine, where there are several shops selling religious paraphernalia"; devotees buy "chaddar, flowers and incense sticks to be presented to the caretakers of the shrine"; "It is considered inauspicious to visit the grave of a saint without a gift" (p. 13, ch. 7, folio not stated).
+  - "At the shrine of Baba Farid, the most important Chisti Sufi in Pakistan, there are qawwals performing at all times of the day". A group sat "under the shade of a building across from the Karir tree", "one man on the harmonium and one on tabla while the rest of them clapped"; "Aptly the musicians were singing verses of Baba Farid" (p. 13, ch. 7, folio not stated).
+  - "a young man, wearing an off-white shalwar kameez, started whirling on his knees in a state of trance"; another devotee "threw notes of ten rupees in the air", which an assistant collected; "Here women and men sat together"; after "about half-an-hour" the qawwals "were replaced by another group"; devotees came from "different socioeconomic backgrounds", and "several more devotees around me slip into a state of trance" (p. 13, ch. 7, folio not stated).
+  - "For years now Sikhs have petitioned the Pakistani government to grant them visas to attend the urs of Baba Farid but in vain" (book's historical prose) (p. 13, ch. 7, folio not stated).
+  - "The well of Baba Farid" at Tibba Haji Deen: "Signs on the walls pointed towards the well"; pilgrims walked "barefoot on the dusty roads of the village, out of respect for the holy village"; "The well was covered by an iron cage, on which devotees had tied saffron-coloured threads"; a boy drew water "for the pilgrims to consume"; "There were coins and notes at the base of the well, thrown in by pilgrims to seek the blessings of the saint" (p. 17, ch. 11, folio not stated). A shrine official said: "'Drinking water from this well will cure all your problems!'" (p. 17, ch. 11, folio not stated).
+  - Caretaker at the birth-house (informant): "'Our family has been serving this shrine for the past seven generations'"; "'I am soon going to put up Baba Farid's family tree here. I have given it for composing'". The author wondered whether "seven generations was rhetorical"; the caretaker "was not educated but he knew the saint's poetry and his family history ... learned it from his elders" (p. 17, ch. 11, folio not stated).
+- **Legends & Miracles**
+  - The well, two versions side by side. "According to tradition, he hung himself inside a well not far from the shrine, while performing religious meditation for a number of days" (p. 17, ch. 11, folio not stated). Against this, the shrine official: "'Baba Farid did not hang inside the well, as it is believed'" (p. 17, ch. 11, folio not stated).
+- **Significance**
+  - "Perhaps the greatest contribution of Baba Farid is not in religion but in literature. He is believed to be the first poet of Punjabi" (p. 13, ch. 7, folio not stated).
+  - Guru Nanak: Baba Farid "became an inspiration for Guru Nanak when he visited the shrine during his travels. Here through the descendants of Farid he learned about the poetry of Baba Farid", and so "the poetry of Baba Farid found its way into the Guru Granth Sahib, making Baba Farid a saint in Sikh tradition as well" (p. 13, ch. 7, folio not stated). At Kothewal the author writes that Nanak "was fascinated by Baba Farid's poetry which was later also recorded in the Guru Granth Sahib. By visiting the city of Farid's birth, Nanak probably wanted to pay homage to the Muslim saint" (author's argument) (p. 17, ch. 11, folio not stated). "There is a picture of Baba Farid accompanying the picture of Guru Nanak at the shrine of Guru Nanak at Nankana Sahib" (p. 13, ch. 7, folio not stated; see the Nankana Sahib group).
+  - The author reads the modest tomb and the grander progeny building as showing "the transition that occurred after the death of Baba Farid" (author's argument) (p. 13, ch. 7, folio not stated).
+  - Orthodox critics (as the book reports them) argue that Sufis "like Baba Farid" condoned qawwali "because they wanted to win over Hindus into Islam"; "However today there is no need for qawwali" (p. 13, ch. 7, folio not stated).
+  - The author wonders "why our heroes cannot be people like Baba Farid, Waris Shah and Bulleh Shah, who spread the message of peace and brought several religious communities together instead of shedding blood" (p. 14, ch. 8, folio not stated).
+- **Pakpattan place-level and bare mentions** (ch. 2; weigh accordingly)
+  - Bare mention: after finding no phalli at 50 Chak PS, the author says, "At least we will get to see Baba Farid's shrine at Pakpattan". Nothing more is said about the shrine in this chapter (p. 8, ch. 2, folio not stated).
+  - The Aban Shah shrine of 50 Chak PS (not an archive row), side by side. Iqbal Qaiser: "Let's make a trip to Pakpattan. There is an interesting shrine there" (p. 8, ch. 2, folio not stated). The author calls it "another shrine of phallic offerings also referred to as Aban Shah near Pakpattan" (p. 8, ch. 2, folio not stated). Hanifa (per her brother) places the saint's real grave "in a village called Lakhewali Haveli near Pakpattan next to the river [Sutlej]" (p. 8, ch. 2, folio not stated).
+
+### Doubts the notes raise on this row
+
+- **Ambiguous Farid.** "Fareed Gharib" in Syed Lal Esan Shah's curse (p. 8, ch. 2) is the name of one of his sons — NOT mapped to either Farid row; "Dadu" in the same verse is a name (false friend). Every other "Baba Farid" (pp. 13, 16, 17; chs. 7, 10, 11) is unambiguous by Pakpattan / Ganj Shakar / Shakarganj → `shrine-of-fariduddin-ganjshakar`; no Khwaja Ghulam Farid anywhere. "Markaz-etaleemat-e-Fareediya" (Bibliography) is a publisher's name only.
+
+- `shrine-of-fariduddin-ganjshakar` — chunk 002: "Baba Farid's shrine at Pakpattan" is a bare mention, and the Pakpattan sub-bullet (Aban Shah shrine and Lakhewali Haveli "at"/"near Pakpattan") is place-level.
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- **Scope of the book** (book's words: "central Punjab", "southern Punjab"; period: the author's research travels, "spread over a few years", years not stated; author's own account): "Since this was mostly a self-funded project I could only limit my research around my hometown of Lahore. Therefore only parts of central Punjab are included and southern Punjab and Sindh are excluded, where there are many such shrines. These shrines also represent similar characteristics as discussed in this book" (p. 6, Introduction, folio not stated).
+- **Indus Valley comparison** (book's words: "present day Punjab, Pakistan"; period: the Indus Valley past compared with the present; author's argument): the Indus Valley as "an agriculture-intensive society … (similar to present day Punjab, Pakistan)", where the fertility cult has "particular significance" (p. 8, ch. 2, folio not stated).
+- **Canal colonies** (book's words: "Punjab", "the five rivers of Punjab"; period: "during the late nineteenth and early twentieth centuries", British rule; book's historical prose): "Jungli, which literally means 'people of the jungle', is a popular term used to refer to the indigenous Punjabis, as opposed to those who settled here after the construction of the canal colonies by the British during the late nineteenth and early twentieth centuries"; "the British connected the five rivers of Punjab with each other through canals, turning several acres of jungle land into agricultural land"; "thousands of new villages, referred to as chaks were established, and farming families from all over Punjab were invited to settle"; former inhabitants "were primarily nomads" unable "to prove ownership over land"; "Their land was snatched away and allotted to these migrants" (p. 8, ch. 2, folio not stated).
+- **Partition migration** (book's words: "the division of Punjab between India and Pakistan"; period: "the riots of 1947" and after; author's argument): "the wave of the second migration that took place after the division of Punjab between India and Pakistan"; locals "generally tend to be more embracive of practices 'non-Muslims'" than migrants; "I have seen several gurdwaras and temples being taken over and destroyed by the migrants"; where the population is largely indigenous "such 'non-Muslim' religious spaces are better looked after", with "exceptions" (p. 8, ch. 2, folio not stated). The generalisation is said of "the locals all over the country", framed by Punjab's division.
+- **Tableeghi reform, early twentieth century** (book's words: "undivided rural Punjab", "Punjab"; period: early twentieth century, the Arya Samaj / Shuddhi era; book's historical prose): Muhammad Ilyas, founder of the Tableeghi Jamaat, "worked in undivided rural Punjab, exhorting Muslims to 'purify' their religious practices which he argued were corrupted due to the influence of the dominant Hindu culture"; Muslim reformists like Ilyas "founded reformist movements of their own, aggravating the communal tension in Punjab" (p. 10, ch. 4, folio not stated).
+- **Tableeghi reach, present** (book's words: "southern Punjab", "the major cities of Punjab"; period: the present of the author's visits; author's argument): Tableeghi preachers "focus on southern Punjab and rural Sindh where syncretistic religion held sway"; "The Tableeghi Jamaat has managed to permeate the social fabric of the major cities of Punjab"; so "shrines similar to the ones at Kamalia and Apal Muri are likely to face a major onslaught due to their 'impure' religious practices, in coming years" (p. 10, ch. 4, folio not stated).
+- **Rural social life** (book's words: "rural Punjab"; period: the present of the author's visit; author's reportage and inference): visitors at the Apal Muri banyan left mobile numbers, "probably hoping to initiate a secret love affair in this highly monitored social life of rural Punjab" (p. 9, ch. 3, folio not stated).
+- **Folk culture: rivers and love legends** (book's words: "the folk culture of Punjab", "Punjabi culture", "love legends of Punjab"; period not stated / "For centuries"; which side of the border not stated; book's prose and the author speaking):
+  - "The Chenab, in the folk culture of Punjab, is known as the river of love" (Sohni and Mahiwal; Takth Hazara of Ranjha) (p. 9, ch. 3, folio not stated).
+  - "Isn't Heer Ranjha part of Punjabi culture? It is the most celebrated folk story here. For centuries it has been sung and dramatized" (the author, in conversation) (p. 16, ch. 10, folio not stated).
+  - Mirza Sahiban is "another famous folk love legend of Punjab"; "the story of Mirza Sahiban is such a blemish on the legacy of spiritual love stories of Punjab, that it was said that these two brought an end to the era of love legends" (p. 16, ch. 10, folio not stated).
+  - (Pass 1 flags the ch. 10 pair as possibly label uses rather than province statements — see Doubts.)
+- **Deobandi focus and shrine culture** (book's words: "South Punjab", "lower Punjab", "the urban Punjabi Muslim populace"; period: "In recent years" (Tahir Kamran) and the school's founding to "contemporary Pakistan"; Kamran as cited by the book, and book's prose):
+  - Per Dr Tahir Kamran ("The evolution of Deobandi school of thought in the Punjab", The Historian): "In recent years, the focus of the Deoband has been on South Punjab and Sindh where there is an ubiquitous saint and shrine culture"; "the people of the South are attracted towards the Deoband school of thought, and feel victimized by the feudal nature of society intertwined with the saint and the shrine culture" (p. 11, ch. 5, folio not stated).
+  - The Deobandi school "gained popularity in the lower and middle echelons of the urban Punjabi Muslim populace, a feature that they have retained in contemporary Pakistan" (p. 11, ch. 5, folio not stated).
+  - "Saeen is a title used to refer to a feudal lord or a spiritual leader from lower Punjab and Sindh, where the shrine culture thrives" (p. 11, ch. 5, folio not stated).
+- **Southern Punjab as shrine hub** (book's words: "southern Punjab"; period: the present of the author's journey, "elections were only a few months away", year not stated; author's account): "we had travelled to southern Punjab, believed to be the hub of shrine culture in the country" (p. 16, ch. 10, folio not stated).
+- **Urban bubble and the countryside** (book's words: "the culture of Punjab", "the heartland of Punjab"; period: the present of the author's visits; author's diary and reportage): "is it the bubble that we occupy in the urban centres that is out of context in the culture of Punjab" (p. 11, ch. 5, folio not stated); "One rarely finds such a lonely road in the heartland of Punjab, the most prosperous province of Pakistan" (p. 11, ch. 5, folio not stated).
+- **Provincial government: policing** (book's words: "the Punjab government"; period: the present, "now"; author's account): Changa Manga road "is much safer now, since the Punjab government introduced the motorway police" (p. 11, ch. 5, folio not stated).
+- **Provincial government: allegations over Jhang outfits** (book's words: "the Punjab government"; period: the present of the author's journey, year not stated; book's reportage of allegations): "human rights activists, opposition party leaders and segments of the media have alleged that the Punjab government, dominated by the right-winged Pakistan Muslim League Noon, has been supporting these radical outfits who are based in Jhang"; "The Muslim League Noon, on the other hand, rubbishes the claims" (p. 16, ch. 10, folio not stated).
+- **Eighteenth century: after the Mughals** (book's word: "Punjab"; period: after "the fall of the Mughal Empire", Meer Manu's governorship, Abdali's raids, and "1797"; book's historical prose; the book does not mark the unit as "undivided"):
+  - "Ever since the fall of the Mughal Empire conditions had deteriorated in Punjab. Ahmad Shah Abali [sic], the Afghan king, had already completed two raids of Punjab and beyond" (p. 15, ch. 9, folio not stated).
+  - "Moin-ul-Mulk, popularly known as Meer Manu" "was the governor of Punjab" and was "constantly pestered by the Sikh insurgent groups Misl, which had sprung up all over Punjab"; "The Sikh groups did not control much land but because of their anti-status quo politics the lower rungs of the society supported and protected them"; he "cast the battle between the state and insurgents as a war between Muslims and Sikhs, even though there were several Muslims in the Sikh groups and many non-Muslim soldiers in the army of Meer Manu" (p. 15, ch. 9, folio not stated).
+  - Abdali had "agreed an annual tax stipulation which the governor was responsible of paying to him, for the right of governing Punjab" (p. 15, ch. 9, folio not stated).
+  - "In 1797, when the grandson of Ahmad Shah Abdali, Shah Zaman Durrani, following the footsteps of his grandfather, attacked Punjab", the Sikh band "met him on the banks of the Chenab" (p. 15, ch. 9, folio not stated).
+- **Agrarian culture and abandoned festivals** (book's word: "Punjab"; period: the present, and "in days following the creation of Pakistan"; author's argument): "Punjab, still predominantly an agricultural society, upholds agrarian culture and traditions, of which the harvest season is the ultimate source of happiness"; but "in days following the creation of Pakistan ... several cultural festivals like Vaisakhi, Lohri and Basant were given up" (p. 15, ch. 9, folio not stated). (Pass 1 notes the abandonment is stated for the country's elite; carried here only beside the book's Punjab sentence.)
+- **Governor of Punjab, 2011** (book's word: "the Governor of Punjab"; period: "4 January 2011"; endnote, book's historical prose; political, not shrine material): "On 4 January 2011 the Governor of Punjab Salman Taseer was shot down by one of his bodyguards, Mumtaz Qadri, for supporting the cause of a Christian woman, Aasia Bibi, accused of blasphemy"; Qadri "became an instant hero, and was hailed by the lawyers' community"; "The retired chief justice of the Lahore High Court, Khwaja Sharif, offered to fight his case free of charge calling him a hero of Islam" (p. 19, Notes, note 44, folio not stated).
+
+**Label-only uses of "Punjab"/"Punjabi" (not province statements; not attached):** "Kharals from Punjab" (caste origin, kept under Arguments) and "travelled extensively in Punjab" (bare) (p. 8, ch. 2); "Punjabi folk love legend of Mirza-Sahiban ... significance in Punjabi culture", "uncharacteristic of Punjabis" (p. 9, ch. 3); "Punjab Cultural Institute", "vulgar Punjabi songs", "celebrated Sufis from Punjab" (p. 11, ch. 5); "a Punjabi phrase, 'oh jane'", a conversation "that took place in Punjabi" (p. 12, ch. 6); "the first poet of Punjabi" (p. 13, ch. 7); "Punjabi summer" (p. 15, ch. 9); "a spectacular Punjabi poet", "Shah Hussain (Punjabi Verses)" (p. 16, ch. 10); "Punjab" in book titles (notes 12, 78) and the Bibliography ("Punjabi History Board", "Pañjaba") (p. 19–20); "a Sikh, a Pathan and a Punjabi" (a friend's joke, ethnic label) (p. 7, ch. 1).
+
+**Kept with their places, not here (ruling (c)(4)):** "once popular throughout Punjab" (Sahari Mal's shrine) and "one of the largest festivals of Vaisakhi in Punjab" (Ram Thamman) (p. 15, ch. 9); "the hotbed of sectarian conflict in Punjab—Jhang" (p. 16, ch. 10, under Jhang); "southern Punjab" locating Tibba Haji Deen (p. 17, ch. 11); the "Punjab government" drug ban at a Lahore shrine (p. 11, ch. 5, under Lahore). Excluded as Indian-side: "Khalsa Dal ... based near Amritsar" (p. 15, ch. 9).
+
+## From Sujan Rai Bhandari, Khulasat al-Tawarikh
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khulasat_ut_tawarikh.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+- Mapping Doubts (Pass 1): c. 002 is person-level on a bare index name (the headword names the principal figure; the index says nothing about a tomb). c. 045 is person-level, not via Ajodhan: the book places Farid at "قصبه اجودهن" as a living shaikh (p. 556), does not equate Ajodhan with Pakpattan there and does not name his tomb; the Hansi tomb (p. 554) is his khalifa's, and Hansi has no row. Not mapped: "شیخ فرید" (p. 26) and "فرید بخاری" (p. 24) in the index (c. 002); "اجودھن - ۳۳ - ۶۲" (p. 46), which the index does not equate with Pakpattan (c. 004); every "فرید" of c. 012, which is "شیخ فرید بخاری" (pp. 144, 146, 147, 149); "شیخ فرید الدین ثانی" at Sirhind (p. 554), a later saint "در زمان حضرت شاهجهان" (c. 045). The book never names Pakpattan; it names "پتن عرف اجودهن" (p. 527).
+- *basis: person-level, bare index headword (c. 002) and bare name (c. 045).*
+- **Saint**
+  - "پسر جلال الدین سلیمان از نژاد فرخ شاه کابلی" (p. 527); "زاد بوم ایشان قصبه کهوتوال نزدیک ملتان واقع است" (p. 526).
+  - As a youth he gave himself to formal learning. "درملتان اتفاق خواجه قطب الدین محمد بختیار را دریافته": in Multan he met Khwaja Qutb al-Din Muhammad Bakhtiyar, went with him to Delhi and became his disciple (p. 526).
+  - "بعضی گویند" that on the Khwaja's instruction he went from Multan to Qandahar and Sistan to study, then rejoined the Khwaja in Delhi, practised hard austerities, and with the Khwaja's leave settled at "قصبه هانسی" (p. 526).
+  - At his death Khwaja Qutb al-Din ordered that "خرقه و عصا و غیره انچه از پیر رسیده" be given to Farid, who came from Hansi to Delhi, took the trust, went back, and "درپتن طرح اقامت انداخت" (p. 526).
+  - Death: "روز شنبه پنجم محرم سال ششصد و شصت و هفت هجری درپتن" (Saturday 5 Muharram 667 AH, at Patan) (p. 526).
+  - Friendship with Bahauddin Zakariya: "مدتی باهم بودند" (p. 528).
+- **Shrine / Darbar**
+  - "درشهر پتن عرف اجودهن سرکار دیپالپور خاور رویه ملتان خوابگاه شیخ فرید الدین گنجشکر": the tomb is in the city of Patan alias Ajodhan, sarkar Dipalpur, east of Multan (p. 527).
+- **Practices & Events**
+  - Many people benefited from him (p. 526).
+  - Nizamuddin Auliya "در بست سالگی بقصبه اجودهن رسیده از شیخ فرید الدین گنجشکر ارادت گرفت"; having obtained "کلید گنجینه معنوی", he was given leave ("رخصت") for Delhi to guide people (p. 556). *basis: bare name (c. 045).*
+  - At Hansi, "که معموره پاستانی است", is the "مزار شیخ جمال الدین خلیفه شیخ فرید الدین گنجشکر" (p. 554). The chunk says nothing of Farid's own tomb, dates or descendants, and does not name Pakpattan (c. 045).
+- **Legends & Miracles**
+  - The name: earth turned to sugar under his gaze, so "بگنج شکر مشهور شدند" (see Legends and miracles) (p. 526).
+- **Significance**
+  - indexed: "فریدالدین گنجشکر" — printed locators ۳۳, ۳۵, ۶۱, ۶۳ (p. 24).
+
+### Doubts the notes raise on this row
+
+- **Farid.** Person-level on the index's bare name (c. 002) and at "قصبه اجودهن" as a living shaikh (p. 556) — Ajodhan is not equated with Pakpattan in that chunk and his tomb is not named, so it is not treated as a Pakpattan toponym (c. 045). Not mapped: the index's "شیخ فرید" (p. 26), "فرید بخاری" (p. 24) (c. 002) and "اجودھن - ۳۳ - ۶۲" (p. 46) (c. 004).
+
+### Province-level material: punjab
+
+*The book's `punjab` bullets, copied into every existing entry in the province (Rauf, 8 and 10 October 2026). They speak of the province, not of this shrine.*
+
+- **Weighing robes for the governor of Lahore; Shuja's opportunity** (c. 005; book's words: "صوبه دار لاهور" (p. 62), "پنجاب" (p. 61); period: the war of succession, the year printed "۱۰۶۸[OCR?]" (pp. 59, 63), a Mughal suba): at the weighing festival the "صوبه دار لاهور" was honoured "بارسال[OCR?] بارسال[OCR?] خلاع" (p. 62); the page break cuts the name — the preceding page ends "و خلیل الله خان [illegible]" (p. 63), but the book does not join the name to the title across the gap (see Doubts). Shuja took his chance "در اواسط سفر که رایات اقبال در پنجاب بود", while the standards were in Punjab in pursuit of Dara ("توجه رایات جهانگشا بسمت پنجاب بتعاقب دارا شکوه"), and set out for Allahabad (p. 61).
+- **The war of succession: subas Lahore and Multan** (c. 006; book's words: "صوبه پنجاب" and "صوبه داری لاهور" (p. 64), "صوبه داری ملتان" (p. 65), "ولایت پنجاب" and "پنجاب" (p. 70), "پنجاب" (pp. 74, 76), "کوهستان پنجاب" (pp. 64, 67); period: from the first accession, dated "غره ذی قعد سال هزار و شصت و هفت[OCR?] هجری" (p. 72), to Muharram–Safar of the year printed "۱۰۶۸[OCR?]" / "۱۰۶۹[OCR?]" (pp. 64–66); the Mughal subas of Lahore and Multan as the book names them):
+  - Dara had agreed with Shuja "که چون خود در پنجاب تهیه اسباب شورش می‌نماید" Shuja would march from Bengal as far as Allahabad, and after success they would divide "ملک و مال بمساوات[OCR?]" (p. 76).
+  - Dara told Sulaiman Shikoh to reach Punjab "براه بوریه[OCR?]"; the Barha sayyids advised "براه سهارنپور و بوریه[OCR?] به پنجاب" (p. 74).
+  - The march "بجانب ولایت پنجاب" in the rains: crossing "آب ستلج و بیاه[OCR?]" without boats or fords was judged all but impossible, and "اکثر عمدها[OCR?] نیز درین موسم تجویز حرکت نمی‌کردند"; the emperor set out from Aazzabad[OCR?] regardless on "هفتم[OCR?] ذی قعد مطابق هفدهم[OCR?] امرداد" (p. 70).
+  - Governors appointed: Khalilullah Khan "بصوبه داری لاهور و یک کرور[OCR?] دام انعام" (p. 64); Lashkar Khan "از صوبه کشمیر تغییر کرده بصوبه داری ملتان" (p. 65).
+  - The halt at Lahore was made "بجهت نظم و نسق مهمات صوبه پنجاب و رفاهیت و اسودگی سپاه" (p. 64).
+  - Faujdari of "کوهستان پنجاب": first Khanjar Khan, faujdar of Bhera[OCR?], after he left Dara (p. 67); then "میر میران[OCR?] خلف[OCR?] ان که خطاب میر خانی یافته بود", at the Lahore halt (p. 64). "کوهستان پنجاب" is not located by the book; its relation to the modern province is unknown.
+- **Dara's letters through the suba** (c. 007; book's words: "ان صوبه" and "ان مرز بوم", referring back to Lahore; period: Shawwal of the war of succession, the year not stated in the chunk; a Mughal suba): at Lahore Dara sent "استمالت نامجات ملاطفت امیز مبنی بر وعدهائے[OCR?] احسان" "در اطراف و اکناف ان صوبه", urging "سپاه ان مرز بوم را از هر جا و هر قوم و قبیله" to enlist with him (p. 77).
+- **Khusrau's revolt** (c. 012; book's words: "صوبه دار لاهور" (p. 146), "کوهستان پنجاب" (p. 146); period: "بعد هشت ماه از جلوس مقدس" (p. 147), dated by the accession "سنه ۱۰۱۴[OCR?] هجری" (p. 148) and the capture "سلخ محرم سنه ۱۰۱۵[OCR?]" (p. 145); a Mughal suba): Dilawar Khan, "صوبه دار لاهور", held the fort against Khusrau (p. 146). "راجه باسو را که از زمینداران عمده کوهستان پنجاب بود" had just joined the emperor and was sent after the prince (p. 146). "کوهستان پنجاب" is not located by the book.
+- **Grain prices and the jama** (c. 013; book's word: "پنجاب" (p. 164); period: while the imperial armies were quartered there before the march "از لاهور بجانب ولایت دکن"; no regnal year; not called a suba here): "از نزول عساکر منصوره در پنجاب نرخ غله گران بود ازینجهت جمع پرگنات زیاده شده"; when the armies left, grain became cheap and the peasants could not pay; a reduction "بحساب ده دوازده[OCR?] انده[OCR?]" was ordered (p. 164). The book reports this as Guru Arjan's petition (see the Guru Arjan subsection).
+- **The hill zamindars** (c. 014; book's words: "کوهستان پنجاب" (heading, p. 170) and "تابع پنجاب" (p. 170); period: the emperor's residence at Lahore, no regnal year): Zain Khan Koka, sent "براے تادیب زمینداران کوهستان", brought "جمیع راجهاے و رایان" to obedience "بزور شمشیر و قوت تدبیر" and brought several rajas to court (p. 170); "راجه باسو زمیندار مو[OCR?] تابع پنجاب" later rebelled (p. 170). Pass 1's Doubts: this bullet may not belong to the modern province at all.
+- **Three periods of "Punjab" in the Kashmir history** (c. 015; book's word: "پنجاب"; periods as the book places them): Timur's time — "جسرته[OCR?] کهوکهر[OCR?] از قید حضرت صاحب قران گریخته در پنجاب رسیده بود" (p. 191); Bahlul Lodi's time — "تاتار خان حاکم پنجاب گماشته سلطان بهلول لودی", from fear of whom the son of "سرام[OCR?] راجه جمون" left Jammu for Kashmir, and from whom Sultan Muhammad Shah and then Sultan Fath Shah of Kashmir each sought "کومک" (p. 190); the reign of "خاقان زمان", around "سنه[OCR?] ۹۸۵[OCR?]" — Yusuf Shah of Kashmir fled "از راه جموں بپیش میرزا یوسف خان حاکم پنجاب" and with him and Raja Man Singh reached Fatehpur (p. 186).
+- **Hakim Mirza's raids** (c. 016; book's words: "اهل پنجاب" (p. 203), "به پنجاب رسیده" and "در بودن پنجاب" (p. 202), "روانه بسمت پنجاب" (p. 203), "پرگنه پرسرور تابع پنجاب" (p. 205); period: the reign narrated, dated by regnal years — "سال بیست وششم جلوس والا" (p. 201), "سال بیست وهشتم جلوس والا" (p. 203), "سنه سی ام" (p. 198); "Punjab" is the book's own unit of that time):
+  - Hakim Mirza "بارها از اب سند گذشته باعث آزار واضرار اهل پنجاب میگردید" (p. 203).
+  - Emboldened by the Bengal amirs' revolt, he "از کابل لشکر آراسته به پنجاب رسیده باعث فتنه وفساد گردید واهل آن دیار را آزار واضرار رسانید"; on the imperial advance he could not stay in Punjab and returned to Kabul (p. 202).
+  - The emperor left Allahabas "بقصد رفع شورش محمد حکیم میرزا روانه بسمت پنجاب" (p. 203).
+  - Muzaffar Khan, after Bairam Khan's fall, became "کرورے پرگنه پرسرور تابع پنجاب" (p. 205). Whether "پرسرور" lies in present Pakistan is not stated.
+- **Khan Jahan, governor of Punjab, and the Mirzas** (c. 018; book's words: "پنجاب" and "خان جهان حاکم پنجاب" (p. 228), "بسمت پنجاب" and "از پنجاب" (p. 231); period: between "سال سیوم[OCR?] جلوس والا" and "سال بست سویم" (pp. 226, 232); the unit "پنجاب" under a "حاکم", not "صوبه"): when the standards moved "بسمت پنجاب", the Mirzas came out of Sambhal, plundered and besieged Delhi fort; the emperor went "از پنجاب بسمت دہلی" (p. 231). Ibrahim Husain Mirza and Masud Husain Mirza "براه دیپالپور[OCR?] رو به پنجاب آوردند" (p. 228). Khan Jahan, "که مهم نگر کوت داشت و کار به نزدیک رسانیده بود", made peace with the raja there and marched against them (p. 228); for the battle near Multan see the Multan subsection.
+- **Sultan Sikandar and Bairam Khan** (c. 019; book's words: "ولایت پنجاب" (pp. 247, 248), "پنجاب" (pp. 246, 248), "امرائے متعین پنجاب" (p. 238); period: the first years of the reign — the Mankot affair "سال دویم از جلوس والا" (p. 247), Bairam's fall "در سال ششم جلوس والا" (p. 245); the ruler not named in the chunk): Sultan Sikandar came out of the hills and "در ولایت پنجاب شروع تحصیل مال نموده و در ان دیار فتنه و آشوب رو داد", so the emperor marched "از دارالملک دهلی بسمت پنجاب" (p. 248). Mankot fell and Sikandar was expelled, bringing "امنیت[OCR?] در ولایت پنجاب" (p. 247). Bairam Khan "راه[OCR?] پنجاب نمود", turned after Bikaner "بسمت پنجاب" and "براه بہتنده[OCR?] و بہتاره[OCR?] در پنجاب رسید" (p. 246). "میر محمد خان کلان برادر اتگہ خان و دیگر امرائے متعین پنجاب" were sent against Sultan Adam the Gakhar (p. 238).
+- **Humayun's return and Sikandar's revenue-taking** (c. 020; book's words: "ولایت پنجاب" (p. 255), "پرگنات پنجاب" (p. 255), "متوجه پنجاب" (p. 252); period: Humayun's return to Hindustan, dated "سنه ۹۶۲[OCR?]" (p. 256), to Akbar's accession "سنه ۹۶۳ هجری" (p. 252); a Mughal-period unit as the book uses it): Shah Abul Maali was posted toward Lahore to manage "مهمات ولایت پنجاب" (p. 255). Sultan Sikandar "از کوهستان برآمده بر پرگنات پنجاب دست تصرف دراز کرده تا پرگنه چماری[OCR?] و مٹهاله[OCR?](۱) شروع تحصیل مال نموده"; the editor's footnote reads "چما[OCR?] [illegible]" (p. 255). Shah Abul Maali, "ازین جهت که با سپاه همراهی خود سلوک ناهنجار دارد", failed to repel him; Akbar and Bairam Khan were sent (p. 255). Akbar was "متوجه پنجاب" against Sikandar when news of Humayun's death reached him at Kalanaur (p. 252).
+- **The Niazi revolt** (c. 021; book's words: "قصبات و نواحی پنجاب", "در پنجاب"; period: Islam Shah's reign, the Niazi revolt; no year for the revolt; his accession "در سنه ۹۵۲[OCR?]" (p. 265); not called a suba): Azam Humayun defeated Khwaja Wais, pursued him "تا سہر[OCR?]", and "بر قصبات و نواحی پنجاب دست تطاول دراز کرده بند و مواشی و مال سکنہ[OCR?] آن دیار غارت نموده" (p. 262); "شورشے عظیم در پنجاب و حالتے غریب بر ساکنان آن دیار رو داد" (p. 262). Islam Shah marched "با لشکر گران و توپ خانه فراوان از دہلی"; the Niazis held out in Dhankot until defeated (p. 262).
+- **Salim Khan in Punjab** (c. 022; book's word: "پنجاب"; period: the reign of Salim Khan, son of Sher Khan, "که بعد از فوت پدر تخت نشین ہندوستان شده بود", at Kamran's flight; no year; Salim Khan's sphere under the Sur, not a Mughal suba): Kamran went to Salim Khan, "و درآن وقت در پنجاب ہم جمہون[OCR?] داشت"; he arrived "در مقام قصبه بنر[OCR?]", and Salim Khan sent his son "آواز خان[OCR?]" and "مولانا عبدالله سلطان پوری" to meet him (p. 275).
+- **The Langah realm of Multan** (c. 023; book's words: "ولایت ملتان" (pp. 296–297), "آن ولایت" (p. 294), "پنجاب" (pp. 295–296), "ولایت لاهور" (p. 286); period: the Langah period, from Shaikh Yusuf's "۸۵۵ [OCR?]" to Kamran Mirza's possession "لغایت سنه ۹۳۶[OCR?]", and Humayun's war with Sher Khan (946[OCR?]); the book's own "ولایت", not a Mughal suba):
+  - Langah expansion: Sultan Husain took "قلعه شور را از تصرف غازیخان" and Chiniot, and "در سرعت[OCR?] اوقات[OCR?] تا کروکوت[OCR?] و دهنکوت متصرف شد" (p. 296).
+  - "تاتار خان حاکم پنجاب" was sent by Sultan Bahlul Lodi, with Bahlul's son, against Sultan Husain (p. 296).
+  - Baluch settlement: "ملک سهراب دودائی[OCR?] پدر اسمعیل خان و فتح خان" came "با قوم و قبیله خود از نواحی کچ و مکران"; the Sultan gave "ملک[OCR?] سهراب" in jagir "از قلعه کوت کردز[OCR?] تا دهنکوت[OCR?]" (p. 295). "الموع[OCR?] بسیار" of Baluch followed: "بقیه ولایت کنار دریای سند به بلوچان مقرر گردید رفته رفته از سیت پور[OCR?] تا دهنکوت[OCR?] به بلوچان قرار یافت چنانچه ازان ایام آن ولایت در تصرف اولاد ملک سهراب است" (p. 295). The book does not say where Kot Kardaz[OCR?], Sitpur[OCR?] or Dhankot lie.
+  - Border treaty: after the "قوت" (as printed) of Sultan Bahlul, "سلطان سکندر والی دهلی" made peace with Sultan Husain: "طرفین بر ولایت خود قانع بوده بر حد[OCR?] یکدیگر یورش نکنند" (p. 295).
+  - Babur, "بعد رسیدن در پنجاب", granted Multan to Arghun with the charge "در آبادانی[OCR?] ملک و رفاهیت[OCR?] رعایا کوشد" (p. 295).
+  - Eighty years outside Delhi: "در آن ولایت چهار سال حکومت میرزا شاه حسین ارغون [illegible] و از ابتدا[OCR?] گشته [illegible] لغایت سنه ۹۳۶[OCR?] مدت هشتاد سال [illegible] آن ولایت از تصرف فرمان دهان دهلی بسیردن[OCR?] بود درین ولا داخل کشور دهلی گردید و شاهزاده کامران میرزا بر آن قابض گشت" (p. 294).
+  - Kamran's jagir: "لاهور و ملتان" (p. 294). Later Sher Khan "از روی خدیعت" gave Kamran hope "که ولایت لاهور برو مسلم داشته باشد", so Kamran withdrew from aiding Humayun (p. 286).
+- **The history of "ولایت ملتان" and Babur's refusal to withdraw** (c. 024; book's words: "ولایت ملتان" (p. 298), "ولایت پنجاب" (p. 299); periods as given per item, from "سنه نود و نه هجری" to Babur's reign; the book's own "ولایت", not a Mughal suba; Pass 1 filed this as province rather than on the 8 Multan rows — brief item 9):
+  - Babur's reign: "ولایت ملتان که از مدت متمادی از تصرف سلاطین دهلی بدر رفته بود بحسن تدبیر و شمشیر همت شاهزاده کامران میرزا و بتایید اقبال لایزال حضرت بادشاه بتسخیر در آمد" (p. 298). The earlier history follows, introduced "از بعضے تواریخ بدین نمط بمطالعه این خاکسار آمده" (p. 298).
+  - "در ولایت ملتان آغاز ظهور اسلام در سنه نود و نه هجری از محمد قاسم در زمان حجاج بن یوسف است" (p. 298).
+  - "سلطان محمود غزنوی آن ولایت را از تصرف قرامطه ملاحده بر آورده رواج السلام [OCR?] داد" (p. 298).
+  - "شهاب الدین سلطان غوری بر هندوستان [OCR?] فتح یافت ولایت ملتان نیز در تصرف سلطان در آمد" (p. 298).
+  - "از ابتداۓ ششصد [OCR?] سنه هجری لغایت ۸۵۵ [OCR?] سنه آن ولایت در تصرف سلاطین دهلی ماند" (p. 298).
+  - Reign of "سلطان محمد شاه که از نژاد [illegible] خضر خان [OCR?] فرمان روائے دهلی بود": Hindustan fell into "ملوک طوائف", and "حاکم ولایت ملتان نیز دم استقلال زد و از حکم سلطان محمد شاه انحراف ورزید" (p. 298). The account breaks off at "چون نوبت سلطنت سلطان علاء الدین ولد سلطان محمد شاه [illegible]" (p. 298) and continues in the next chunk.
+  - Before the battle with Rana Sanga the wazirs advised "چند قلعه استحکام داده بولایت پنجاب رفته اقامت باید ورزید"; Babur refused (p. 299).
+- **The Mongols "عازم پنجاب"** (c. 029; book's word: "پنجاب" (p. 370); period: Jalal al-Din Khalji's reign, the year printed "سنه ۶۹۳[OCR?]"; editor's footnote variant "سنه ۶۹۱[OCR?] فرشته جلد اول صفحه ۹۴[OCR?]"; not a Mughal suba): "مغول چنگیزی بالشکر گران عازم پنجاب گشت"; the sultan marched against them; they made peace, and their leader, "که قرابت هلاکو[OCR?] خان بود", came in and became a Muslim with some other amirs; the sultan called him son, gave him a daughter, and settled them at "غیاث پور", which came to be called "مغل پوره" (p. 370). The book does not say where in Punjab the Mongols arrived or met the sultan.
+- **Balban on the Mongol threat** (c. 031; book's word: "ولایت پنجاب"; period: Balban's reign, as the book places it): urged to conquer "ولایت گجرات ومالوه", he answered "چون مغل همیشه بر ولایت پنجاب تاخت مینماید از دهلی ببلاد دور دست رفتن مناسب نیست", and "ملک خود را مضبوط درامن وامان داشتن بهتر ازان است که بملک دیگران تاختن" (p. 388).
+- **Khusraw Shah and Khusraw Malik** (c. 032; book's word: "ولایت پنجاب"; period: their rule from Lahore — Khusraw Shah died "درسنه ۵۵۵", Khusraw Malik went to Ghazni "درسنه ۵۸۲ هجری"): Khusraw Shah, having taken Lahore, "تاآخر عمر بحکومت ولایت پنجاب قیام ورزیده" (p. 405); "سلطان خسرو ملک بن خسروشاه بعد رحلت پدر برمسند حکومت ولایت پنجاب متمکن گشت" (p. 405).
+- **Raja Jaipal's realm** (c. 034; book's word: "ولایت سامانه و پنجاب"; period: Raja Jaipal and Sultan Nasir al-Din, whose accession is printed "سنه ۳۶۷[OCR?] هجرے"; not a Mughal suba; no boundaries): the historians of Hind do not list Jaipal among Delhi's rulers, "اما ازین جهت که دار الایالت او قلعه بلنده[OCR?] (۱) بمطالعه در آمده ظاهرا ولایت سامانه و پنجاب وغیره ذلک سوائے دهلی در تصرف او حواله[OCR?] بود" (p. 427); editor's footnote variant for "بلنده": "بهتنده[OCR?]" (p. 427). The raids succeeded because "در آن ایام در هندوستان طوائف ملوک شده بود یکے فرمان روا استقلال نداشت" (pp. 426–427).
+- **The Pandavas' last journey** (c. 038; book's words: "ملتان و پنجاب", inside "ولایت تهتهه[OCR?] و ملتان و پنجاب"; period: after Yudhishthira's abdication, at the arrival of "دور کلجگ"; Pass 1 placed this bare passing journey here, not on the 8 Multan rows — brief item 9): after Bengal, the Deccan, Gujarat and Dwarka, the five brothers and Draupadi "سیر ولایت تهتهه[OCR?] و ملتان و پنجاب نموده", then went to the mountain of Badrinath (p. 479). Nothing more is said of these lands.
+- **Punjab before and after Kabul joined Hind** (c. 040; book's word: "ولایت پنجاب"; two undated periods the book contrasts — "در زمان سابق که کابل از والیئے هند بیرون بود", and the time since "هند و کابل در تصرف یک فرمان روا درآمده"): formerly the Turanians raided the borders, and "درین صورت ولایت پنجاب ویران و خراب می بود" (p. 501); since Hind and Kabul came under one ruler this "باعث آبادی پنجاب و امنیت تمام هند شده" (p. 501). The clause opens "انان[OCR?] زانیکه".
+- **Suba Lahore described** (c. 041; book's words: "صوبه لاهور" / "این صوبه"; also "پنجاب" in "پنج دریاے پنجاب" and "اهل پنجاب"; period: the author's time, c. 1107 AH, a Mughal suba; the suba as described includes places outside Pakistan — Batala, the Jalandhar doab, the Kangra and Jammu hills, Sirhind):
+  - Organised by doabs: "اماکن مشهوره پنج دوابه", then "شش دریاے این صوبه که برین پنج دوابه حایل است" (p. 513). Doab names as printed: "بست جالندهر و نهروال[OCR?]" (Sutlej–Beas) (p. 513); "باری مانجهه" (Beas–Ravi) (p. 513); "چنا[OCR?]" (Ravi–Chenab) (p. 512), "رچنا" for Sialkot (p. 517); "چنتهه[OCR?]" (Chenab–Bihat) (p. 511), "چونهت" for Gujrat (p. 515); "سند ساگر" (Bihat–Sind) (p. 511).
+  - "پنج دریاے پنجاب" join the Indus beyond Multan in the Baloch country; from there the whole stream is called Sind and becomes "بحر زخار[OCR?]" (p. 510). The combined Sutlej–Beas ends in the Indus, "که راوی و چناب و بهت نیز درو واصل است" (p. 513).
+  - "بالجمله صوبه لاهور ولایتی است خوش آب و هوا": summers very hot, winters cold; melons and grapes like Iran's and Turan's, mangoes like Hindustan's; rice better than Bengal's and sugarcane better than the Deccan's (p. 510).
+  - Irrigation: "اکثر مدار اب یاری[OCR?] چاه است"; a wheel of "سیصد و شصت چوب" and more than a hundred small pots, turned by a pair of oxen, each turn lifting "چندین صد من اب"; kharif and rabi and cheap grain depend on rain (p. 510).
+  - Gold washed from the sand, especially on "دریاے بیاه و بهت"; the northern hills have mines of silver, copper, "روئین[OCR?]" and "جسد[OCR?]"; the miners profit, "و محصول و بسرکار بادشاهی دهند" (p. 510).
+  - Size: "طول این صوبه از اب ستلج تا دریاے سند صد و هشتاد کروه"; "عرض از بهیره تا چوکهندی[OCR?] هشتاد و هفت کروه" (p. 510). Borders: "شرق رویه سهرند و غرب سو ملتان و شمال کشمیر و جنوب بیپاپور[OCR?]" (p. 510).
+  - Revenue: "پنج سرکار بعضے" (p. 510) / "پنج دوابه مشتمل بر سیصد و شانزده محال و هشتاد و نه کرور و سی و سه لک و هفتاد هزار دام داخل این صوبه است" (p. 509).
+  - "اهل پنجاب" compose wonderful verses and designs on the love of Hir and Ranjha and sing them (pp. 512–511).
+- **Subas Multan and Lahore described** (c. 042; book's words: "صوبه دار الامان ملتان" (p. 528), "ولایت ملتان" (p. 525), "صوبه دار السلطنت لاهور" (p. 525), "پنجاب" / "ولایت پنجاب" (pp. 522–523); period: the author's time, c. 1107 AH, two Mughal subas, except where an item gives the book's own earlier period):
+  - Suba Multan, earlier period ("گویند"): in the reign of "سلطان علاء الدین ثانی والی دهلی", "ولایت ملتان ... از تصرف او بدر رفته بقوم لنکاه تعلق یافته بود" (p. 525).
+  - Langah period: "سلطان حسین لنکاه" granted "از کرورکوت تا مانکوت" in jagir to "ملک سهراب و غیره بلوچان که از کچ مکران نزد او رسیده بودند" (p. 525).
+  - Reign of Akbar: "راجه تودرمل دیوان اعلی ان ولایت را بر بلوچان مسلم داشته درمیان خراسان و هندوستان یزک محکم مقرر ساخت و درحدود هر دو کشور سد باستحکام انداخت" (p. 525).
+  - Extent: "طول این صوبه از فیروزپور تا سیوستان چهارصد کروه و عرض از خطپور تا جیسلمیر صد و بست و پنج کروه و درازی از صدگهره تا کچ مکران ششصد و شصت کروه" (p. 525). Bounds: east "پیوسته بسرکار سهرند", west "کچ مکران", north "شورکوت", south "صوبه اجمیر" (p. 525).
+  - Administration and revenue: "سرکار ملتان و دیپالپور و بهکر سه سرکار مشتمل بر نود و شش محال بست و چهار کرور و چهل و شش لک و پنجاه و پنجهزار دام داخل این صوبه است" (p. 525). "سرکار دیپالپور تابع این صوبه است" (p. 526).
+  - Suba Lahore: the author turns from the capital to the suba with "شطری از قصبه جات این صوبه مینویسد" (p. 523).
+  - Punjab before Tatar Khan's governorship ("گویند"): "درپنجاب نوعی طوفان جوش برزد که از دریاے ستلج تا دریاے چناب تمام زمین اب نشین", and towns and villages were destroyed; "مغول بلخ و کابل درهر سال بر ولایت پنجاب ترکتازی مینمودند", so the country lay waste and produce was small (p. 523).
+  - Punjab in the time of "سلطان بهلول لودی(۲)" (editor's footnote variant: "سکندر لودی"), when Tatar Khan became "صوبه دار لاهور": Rai Ram Deo Bhatti "پنج[OCR?] لک تنکه تمام پنجاب را از تاتارخان اجاره گرفت" (pp. 522–523).
+- **Dipalpur "dependent on Multan"** (c. 043; book's words: "دیپالپور تابع ملتان"; period: the author's time, c. 1107 AH, a Mughal unit; the book does not say whether "ملتان" means the suba, the sarkar or the city): suba Ajmer's boundaries are "مشرق رویه مستقر الخلافه اکبر آباد و غرب رویه دیپالپور تابع ملتان" (p. 534).
+- **Suba Lahore as suba Delhi's western neighbour** (c. 044; book's words: "صوبه لاهور"; period: the author's time, c. 1107 AH, a Mughal suba): suba Shahjahanabad is bounded "جانب مشرق صوبه اکبر آباد و مغرب صوبه لاهور و جنوب اجمیر و شمال کوهستان کمایون" (p. 550). Nothing else is said about suba Lahore here, and the line between the two subas is not drawn.
+- **The sultans of Multan as a source; contents headings** (c. 047; book's words: "ولایت ملتان", "ولایت پنجاب", "کوهستان پنجاب"; period per item; the book's own units, not the modern province):
+  - The times of the independent sultans of Multan, "درازمنه مختلفه": among the author's sources is the "تاریخ سلاطین ولایت ملتان", listed with "مالوه و دولت آباد و دکن و جونپور و بنگاله و اودیسه" — lands that at various times passed out of the control of Delhi's throne-holders, each with "حاکمی جداگانه" (p. 581). Pass 1 read "ولایت ملتان" here as the realm, not the city; a consolidator may prefer the 8 Multan rows (brief item 9).
+  - Table-of-contents locators: "دربیان نهضت موکب مقدس بدفع داراشکوه بجانب ولایت پنجاب", printed page ۵۱۹, in the Aurangzeb run (p. 589); "دربیان تادیب زمینداران کوهستان پنجاب", printed page ۴۱۹, in the run before "رحلت حضرت خاقان زمان" (p. 591). *basis: contents headings only*

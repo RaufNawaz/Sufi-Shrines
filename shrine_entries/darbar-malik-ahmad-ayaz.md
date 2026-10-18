@@ -188,3 +188,228 @@ See Doubts.
   no tomb, burial place, office or city to him at all**; the archive row's principal figure is
   described as "slave of Mahmud Ghaznavi, minister, and governor of Lahore". **The identification is
   from the Mahmud connection alone. A human should confirm or strike it.**
+
+## From Annemarie Schimmel, As Through a Veil
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schimmel_as_through_a_veil.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+- **Evidence base:** one chunk (004), body text only, four sentences all on p. 84 (folio 74). Purely a
+  literary reference — Ayaz as a figure in the Persian lover/beloved topos — mapped under the
+  18 September person ruling.
+- Saint / figure:
+  - "More surprising is the transformation of the great warrior king of Ghazna, Sultan Mahmud, into the
+    model of the ideal lover" (p. 84, folio 74).
+  - "This conqueror of northwest India is praised for his close relationship with his Turkish officer
+    Ayaz, who appears as the exemplar of the 'servant.'" (p. 84, folio 74)
+  - "But the king finally became 'the slave of his slave'" (p. 84, folio 74).
+- Shrine / Darbar: **(not stated)** — the book gives Ayaz no date, no place, no burial and no title
+  beyond "his Turkish officer", and does not name Lahore (p. 84, folio 74).
+- Significance: he functions in the book as the exemplary "servant" of the Mahmud–Ayaz topos and as the
+  hinge of its inversion, the king becoming his slave's slave (p. 84, folio 74).
+- **Doubt (unresolved — for human adjudication):** this row is deliberately **not** on this book's Lahore
+  place-level list. Its `location_short` in the archive is truncated and never says Lahore, although its
+  `principal_figure` field reads "governor of Lahore". Pass-1 chunk 009 included it under a Lahore head;
+  the corrected map excludes it, and that exclusion is what this file follows — the row carries only its
+  own p. 84 (folio 74) material. The question stays open pending a regeneration of the `location_short`
+  column, after which a human must decide whether the row rejoins this book's Lahore place-level list.
+  Independently of that, the book itself never names Lahore in connection with Ayaz (p. 84, folio 74),
+  so nothing in this text supports the Lahore attachment on its own.
+
+### Doubts the notes raise on this row
+
+- **The toponym heads are not the same size in every chunk, and one row is in dispute.** Lahore is
+  31 rows in `toponym_map.txt`; chunks working from `shrine_index.tsv` used **35**, adding
+  `darbar-abul-muali-qadri`, `ghazi-ilm-din-shaheed`, `tahir-bandagi-qadri` and `wasif-ali-wasif`
+  (p. 254, folio 236; p. 357, folio 339). One chunk used **36** by also adding
+  `darbar-malik-ahmad-ayaz`, whose `location_short` is truncated at "Shah Alam Market; the survey
+  places the mazar near Darbar Al…" and never names a city (p. 233, folio not stated); four other
+  chunks deliberately excluded it. **A human must settle that one row once.** Karachi is 9 on the map
+  and **11** as used, adding `darya-lal-mandir-darya-lal-sankat-mochan-mandir` and
+  `shri-panchmukhi-hanuman-mandir-karachi` (p. 311, folio not stated; p. 318, folio 300). Multan is
+  "Multan (7)" on the map against BRIEF §4's 8; **8** is used throughout, the map omitting
+  `shrine-of-hafiz-muhammad-jamal-multani` (p. 104, folio 94). Islamabad is the union of two map
+  lines, **4** (p. 316, folio 298).
+
+- **Thin attachments — author-only, imprint-only, title-only.** `data-darbar`: Hujwiri is only an
+  author, "Hujwiri/Nicholson" five times (pp. 245–254, folios 227–236), plus the single clause "who
+  spent his last years in Lahore" (p. 61, folio 51); the epithet "Data Ganj Bakhsh" appears only in
+  the index headword (p. 355, folio 337) and nowhere in the body.
+  `rahman-baba-mausoleum-rehman-baba-shrine` is the weakest of all: the name appears **only inside a
+  book title**, "Jens Enevoldsen, Selections from Rahman Baba" (p. 278, folio 260; p. 319, folio 301),
+  and the index has no Rahman Baba headword. `shrine-of-makhdoom-abdul-rahim-girhori` rests in one
+  chunk on a damaged word inside a title, "Kalam-i Girhoi;i" (p. 318, folio 300), and in another on
+  "the Sindhi mystic Girhori" with no first name (p. 294, folio 276) — the surname match is the
+  note-writer's, not the book's, though the index does print `Girhon, c Abdur Ral;lim (d . 1778)`
+  (p. 353, folio 335). `shri-panchmukhi-hanuman-mandir-karachi` rests on "Abu Hanifa and Hanuman are
+  one and the same" (p. 176, folio 158) plus a bare headword (p. 354, folio 336).
+  `darbar-malik-ahmad-ayaz` rests on the Mahmud–Ayaz pairing alone, "his Turkish officer Ayaz"
+  (p. 84, folio 74) — no Lahore, no tomb, no office; the identification is inferential.
+  `mazar-e-iqbal`, `shrine-of-shah-abdul-karim-bulri`, `garh-maharaja-shorkot`,
+  `mazar-of-bulleh-shah`, `shrine-of-fariduddin-ganjshakar` and `mithankot-kot-mithan` each rest, in
+  the bibliography chunk, on one printed entry with no tomb, date, place or silsila (pp. 325–341,
+  folios 307–323).
+
+## From Annemarie Schimmel, Mystical Dimensions of Islam
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schimmel_mystical_dimensions_of_islam.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+Printed only `Ayaz`, `his slave Ayaz` and `the Turkish officer Ayaz` — **the book never prints
+`Malik Ahmad Ayaz`, `Malik Ayaz`, a governorship, a ministry, a tomb, Lahore or a death date for him**
+(pp. 221, 323, 512). The identification rests on the one descriptor the book states explicitly and the
+archive row also states: that he was **the slave of Maḥmūd of Ghazna**.
+
+- **Saint**
+  - `Mahmud of Ghazna, the warrior king of Afghanistan (d. 1030), famous in political history as the
+    conqueror of northwest India, becomes in literary tradition the model of the lover, because of his
+    inclination toward his slave Ayaz.` (p. 323, folio 292). **The death year `1030` prints cleanly in
+    four digits and belongs to Maḥmūd, not to Ayāz; the book gives Ayāz no date** — `(not stated)`.
+    The archive row's own `figure_died` of `8 August 1041` is **not** in this book, and neither date is
+    carried onto the other.
+  - **Promoted here by worker A.** The index entry `Ayaz, 190, 292` (p. 512, folio 481) was declined
+    by chunk 027 for want of a gloss. Its two locators are exactly the two printed folios at which this
+    book discusses Maḥmūd's Ayāz — p. 221 = folio 190 and p. 323 = folio 292 — so the entry is the
+    same man the person rule already took, and the ordinary person rule covers it. **The separate entry
+    `Ayaz, Sheikh, 390 n` four lines away (p. 512, folio 481) is a different man and is NOT mapped.**
+- **Significance**
+  - *The standing model of mystical love.* `The story of Mahmud and Ayaz is a typical expression of
+    this kind of love and shows, at the same time, how the poets of Iran used historical facts to point
+    out eternal truth.` (p. 323, folio 292); `The complete surrender of the Turkish officer Ayaz, for
+    whom only Mahmud exists, results in perfect love of the king, who becomes, in a wonderful
+    transformation, the slave of his slave. Ayaz is the symbol of the loving soul.` (p. 323,
+    folio 292).
+  - *The Hūmā bird.* `One day the Huma bird passed over Mahmud's army, and everybody rushed to be
+    touched by the Huma's shade, which, in Persian tradition, conveys kingdom. Only Ayaz went into
+    Mahmud's shade` (`U 176`) `, for here was his true kingdom: he is like the faithful, who does not
+    seek glory and power from anything created but only from his eternally rich, beloved Lord.`
+    (p. 323, folio 292).
+  - *Rūmī's allegory of the worn shoes.* `One of the finest allegories ever written is by RumI, who
+    tells the story of Ayaz, Mahmud of Ghazna's favorite slave, who looked every morning at the
+    out-worn shoes and shabby clothes he wore before Mahmud elected him for himself; it was necessary
+    for him to remember his former lowly state so that he could appreciate the bounty that his lord had
+    bestowed upon him` (`M 5:2113`) (p. 221, folio 190), with Schimmel's gloss: `Thus, concludes RumI,
+    man should likewise remember how weak he was created, and then he will recognize his nothingness
+    before God, who gives him every- thing out of grace.` (p. 221, folio 190).
+  - *The book's own reference on the theme*, footnote 5: `See Gertrud Spies, Mahmud von Ghazna bei
+    Farid ud^din ^Attdr [text-layer?: Farīd ud-dīn ʿAṭṭār] (Basel, 1959); several epics have been
+    devoted to this topic, and lyrics abound in allusions to Ayaz.` (p. 323, folio 292).
+  - **Maḥmūd of Ghazna himself is NOT mapped to this row**; the row's principal figure is Ayāz. Maḥmūd
+    is indexed separately as `Mahmud of Ghazna (d. 1030), 89, 190, 292` (p. 520, folio 489) and is
+    carried in the next section.
+
+### Doubts the notes raise on this row
+
+- **`Ayaz, 190, 292` in the index was not mapped**, although **darbar-malik-ahmad-ayaz** is mapped
+  elsewhere: the index prints `Ayaz` with **no gloss whatever** — no Maḥmūd, no Ghazna, no Lahore —
+  and prints a **second, clearly different `Ayaz, Sheikh, 390 n` four lines away** (p. 512,
+  folio 481, chunk 027).
+
+1. **`data darbar` → 2 rows (**darbar-malik-ahmad-ayaz**, **peer-makki**), ruling (a).** Chunk 006 declined
+   the key because `The book prints Data Ganj Bakhsh, not Data Darbar.` That is an **orthographic**
+   objection, not one of the three unruled questions, and it is exactly the class of gap that Pass-1
+   workers on this same book fired through twice elsewhere: chunk 020 joined the book's `Ucch` to the
+   key `uch sharif`, and chunk 021 joined the book's bare `Sehwan` to the key `sehwan sharif` by going
+   to `location_short` as ruling (a) directs. Both declined rows name this shrine in their own
+   `location_short` (`Darbar Ali Hajveri Ganj Bakhsh (Data Darbar)`; `Bhati Gate area (near Data
+   Darbar)`), and the book makes two substantive statements about the shrine as a place of pilgrimage
+   (p. 119, folio 88; p. 376, folio 345). **Both rows are already inside the Lahore 35, so reversing
+   this costs nothing.**
+
+2. **The index entry `Ayaz, 190, 292` → **darbar-malik-ahmad-ayaz**, ordinary person rule.** Chunk 027
+   declined it because `Identity cannot be established from this chunk` — an identity objection, not
+   the bare-index-entry objection, and chunk 027 mapped thirteen other bare index person entries
+   without hesitation. A consolidator can see what a chunk worker could not: the entry's two locators
+   are precisely the two printed folios at which this book discusses Maḥmūd's Ayāz (p. 221 = folio 190,
+   p. 323 = folio 292), both already mapped to this row by chunks 012 and 017. **The second, clearly
+   different entry `Ayaz, Sheikh, 390 n` four lines away is NOT mapped.**
+
+- **darbar-malik-ahmad-ayaz** — no date in this book at all. The archive's `8 August 1041, as given in
+  the account; calendar era unstated` appears nowhere in it. Chunk 017 warns explicitly that the
+  `(d. 1030)` on p. 323, folio 292 is **Maḥmūd of Ghazna's, not Ayāz's**, and that neither date has
+  been carried onto the other.
+
+- **darbar-malik-ahmad-ayaz** — from one Rūmī allegory: `Ayaz, Mahmud of Ghazna's favorite slave` (p. 221, folio 190, chunk 012), plus `his slave Ayaz` / `the Turkish officer Ayaz` (p. 323, folio 292, chunk 017). The book **never** prints `Malik Ahmad Ayaz`, `Malik Ayaz`, Lahore, a governorship, a tomb or a date for him.
+
+### Place-level material: Data Ganj Bakhsh
+
+*The book's place-level material on "Data Ganj Bakhsh" (2 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **darbar-malik-ahmad-ayaz**, **peer-makki** (the book's `Data Ganj Bakhsh` — the 2 rows whose `location_short` names this shrine
+  as their own landmark, ruling (a); **promoted here by worker A**, see `## REVIEW (worker A)`):
+  - `His shrine, called that of Data Ganj Bakhsh, is still a popular place of pilgrimage in Lahore.`
+    (p. 119, folio 88); and `his tomb still provides a place of pilgrimage for the Panjabis.` (p. 376,
+    folio 345). The `INDEX OF SUBJECTS` files `Pilgrimage: … to Data Ganj Bakhsh, 88` (p. 538,
+    folio 507) — the book's own printed folio, unconverted.
+  - **Both rows are already inside the Lahore 35, so nothing is lost if Rauf reverses the promotion.**
+    The book says nothing about either of these two sites themselves — (not stated) (pp. 119, 376, 538).
+
+## From Haroon Khalid, A White Trail
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_a_white_trail.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+Judgement-call mapping, doubtful: from "the Hindu dominated market of Shah Alami" against the index's "Shah Alam Market"; chunk 010 declined the same mapping. Place-level only; the shrine is not mentioned.
+
+- **Practices & Events** (place-level, partition)
+  - At partition Bishna Ram saw from his house in Lahore "the burning of the Hindu dominated market of Shah Alami, still one of the largest wholesale markets in the city" (p. 67, folio not stated).
+  - According to Ram, "The Hindus had their shops in the front, while they lived at the back. Using the gutters, the Muslims entered that area and burned everything" (p. 67, folio not stated).
+
+### Doubts the notes raise on this row
+
+- `darbar-malik-ahmad-ayaz` is mapped in chunk 004 by matching the book's "market of Shah Alami" (p. 67) to the map key "shah alam market", a spelling-variant judgement. Chunk 010 declined the same identification for "Shah Alami" (p. 186, "a low end place"). The row has no province.
+
+## From Sujan Rai Bhandari, Khulasat al-Tawarikh
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khulasat_ut_tawarikh.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+- Mapping Doubts (Pass 1): c. 042's attachment is a name-only match (brief item 11). Not mapped: the index's three separate Ayaz headwords "ایاز - ۶۴ - ۱۷۹ - ۱۸۱" (p. 43), "احمد ایاز - ۲۵۴" and "اعزالدین ایاز - ۱۹۱" (pp. 44–45), none identified (c. 004); "احمد ایاز عرف خواجه جهان", "از مقربان سلطان محمدشاه" (p. 344), a name trap (c. 027); "ملک اعزالدین[OCR?] ایاز حاکم ملتان" (p. 398), Rukn al-Din Firuz Shah's governor of Multan, a different man by the book's own chronology (c. 032). No "ایاز" occurs in c. 034. Hujwiri's tomb (c. 042) is not treated as the toponym "data darbar", which would bring in this row and **peer-makki**. The row has no province in its source (protocol ruling (c)).
+- *basis: bare name (c. 032 the principal figure's name; c. 042 name-only, brief item 11).*
+- **Saint**
+  - Origin, introduced with "گویند": "این ایاز خلف والی کشمیر بود". As a small child he went with his father to a hunting ground; "جمعی ازعیاران آدم دزد" seized him, took him out of that country and sold him in Badakhshan to a merchant "بقیمت خاطرخواه"; "ازتقدیرات قادر مطلق شاهزاده بغلامی منسوب گشت" (p. 410).
+  - The merchant, "نظر برحسن وجمال ایاز", valued him above all his slaves and saw to his upbringing, and came "بقصد تجارت ازبدخشان درغزنین" (p. 410).
+  - In Ghazni word spread of a slave too beautiful to look at; great and small came to see him, likening him to the moon and "درحسن وخوبی به یوسف کنعان" (pp. 409–410).
+  - The Sultan summoned the merchant with him, bought Ayaz "بقیمت گران انچه سوداگر میخواست بلکه زیاده بران" and made him "انیس انجمن خاص وجلیس مجلس اختصاص" (p. 409); "اورا برتمامی خادم وحشم برگزیده" (p. 409).
+  - "وسلطان اگرچه چندین هزار غلام داشت اماسرامد ایشان ملک ایاز بود که سلطان درکمند عشق اوگرفتاری داشت" (p. 410).
+  - Introduced with "بعضی شعرا نوشته اند": "ایاز اگرچه حسن صوری وجمال ظاهری چندان نداشت لیکن دراخلاق پسندیده طاق ... بود"; the Sultan's devotion was to his "سیرت نیک خصایل", not his looks (p. 408).
+- **Practices & Events**
+  - After Sultan Mahmud Ghaznavi conquered Hindustan, "ملک ایاز که منظور نظر سلطان و درخوبی و فراست بے همتا بود" turned to restoring Lahore; he "قلعه پخته احداث نمود", and the city was rebuilt (p. 525). The book says nothing of his tomb (c. 042).
+  - Chunk 032 says nothing of Ayaz in Lahore, of any office he held, or of his death or tomb.
+- **Legends & Miracles**
+  - Zulali's dream version: see Legends and miracles (pp. 408–409).
+- **Significance**
+  - A digression on love: "بدرگاهش شاه ودرویش برابر ودرحضرتش خواجه وغلام همسر" (p. 409).
+  - Verses on this love are in "محمود نامه ودیگر رساله"; as the sentence runs, the Sultan himself composed them, "سوز درونی وراز نهانی خویش بعرصه ظهور آورده" (p. 409).
+  - "قصه عشق ونیاز سلطان وحسن وناز ایاز مشهور هست[OCR?] ودراکثر کتب مسطور علی الخصوص مولانا زلالی" (p. 409).
+
+### Doubts the notes raise on this row
+
+- **c. 042's name-only matches** (person-level, bare names): **darbar-malik-ahmad-ayaz**, named only as Lahore's restorer, the index giving the row no city or province; **loh-temple-lava-temple** on "لو"; **ram-mandir-saidpur-ram-kund-mandir** on "راجه رام چند"; **churrio-jabal-durga-mata-temple** on "درگا", Hinglaj's deity; **gurdwara-rori-sahib** on "مردانه", the row's co-principal figure; **gurdwara-guru-ram-das-ji**, the three Guru Arjan rows and the six Guru Hargobind rows, named only in the succession list; **data-darbar** on "میر علی حجویری", not "Data Ganj Bakhsh".
+
+- **Malik Ayaz.** Mapped to darbar-malik-ahmad-ayaz on "ملک ایاز" plus the book's "سرامد" of Sultan Mahmud's slaves — no Lahore, governorship, office, death or tomb, and the row has no province in the index (c. 032); and as Lahore's restorer (c. 042). Not mapped: the index's three Ayaz headwords "ایاز - ۶۴ - ۱۷۹ - ۱۸۱" (p. 43), "احمد ایاز - ۲۵۴" and "اعزالدین ایاز - ۱۹۱" (pp. 44–45), none identified — "a consolidator could check the body at those printed pages" (c. 004); "احمد ایاز عرف خواجه جهان", "از مقربان سلطان محمدشاه" (p. 344), a name trap (c. 027); "ملک اعزالدین[OCR?] ایاز حاکم ملتان" (p. 398), a different man by the book's chronology, placed only in the Multan bullet (c. 032). No Ayaz in c. 024, 034, 047.
+
+## From Nizami-i Arudi, Chahar Maqala (tr. E. G. Browne)
+
+*Integrated 12 October 2026 from `entries/book_takeaways/nizami_revised_translation.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**Person-level identification only:** the book's Ayaz is Sultan Mahmud's favourite in Anecdote XIV (Nizami's narrative). The book says nothing of Lahore, a governorship or a tomb. Ayaz's name in the opening sentence is lost in an interleaved line (p. 55), and his description is reconstructed from interleaved fragments. Two chunks (003, 012).
+
+- **Saint**
+  - The anecdote is headed "SULTAN MAHMUD AND, AYAZ" (Anecdote XIV; the book's "Ayaz" / "Aydz" [text-layer?] [Ayaz]) (p. 55, folio 37).
+  - "The love borne by Sultan Yamtnttd-Dawla [text-layer?] [Yaminu'd-Dawla] Mahmud to … the Turk is well-known and famous". The line is interleaved in the text layer, and Ayaz's name before "the Turk" is not legible (p. 55, folio 37).
+  - Ayaz described (interleaved lines; the reading is reconstructed from the fragments [text-layer?]): "not remarkably handsome, but was of sweet expression and olive complexion, symmetrically formed, graceful in his movements, sensible and deliberate in action, and mightily endowed with all the arts of pleasing" (p. 55, folio 37).
+  - Mahmud "was a pious and God-fearing maif [text-layer?] [man], and he wrestled much with his love for Ayaz so that he should not diverge … from the Path of the Law" (p. 55, folio 37).
+  - At a carousal, with the wine affecting him, Mahmud looked at "the curls of Ayaz" and "lover-like he drew him to himself". The "watchman" of the Qur'anic verse warned him: "O Mahmud, mingte [text-layer?] [mingle] not sin with love". Fearing he could not withstand "the hosts of Ayaz's locks", he gave Ayaz a knife and told him to cut off his curls "in the middle" (p. 55, folio 37).
+  - Ayaz "doubled back his locks to get the measurement, executed the king's command, and laid the two tresses before Mahmud". "this ready obedience became a fresh cause of love", and Mahmud gave Ayaz gold and jewels "beyond his usual wont" before falling "into a drunken sleejp [text-layer?] [sleep]" (p. 55, folio 37).
+  - Browne's footnote: here and in the next sentence he preferred "the alternative reading of the MSis. [text-layer?] [MSS.]" to the printed text, which places "We believe and we affirm" differently (p. 55, folio 37).
+  - Next morning Mahmud "saw the clipped tresses" and was seized by remorse. No courtier dared ask him why, until "Hajib 'All [ibn] Qarib" [text-layer?] ['Ali], "his Chief Chamberlain", sent "'Unsurf" [text-layer?] ['Unsuri] in to restore his temper (p. 56, folio 38).
+  - 'Unsuri "extemporized" the quatrain "Why deem it shame a fair one's curls to shear, … When clipped the Cypress doth most trim appear". Mahmud had the poet's mouth filled twice with "precious stones" and drank wine to those verses until nightfall, "whereby his melancholy was dissipated" (p. 56, folio 38).
+  - Index entry "Ayaz (xi), 37-8". The only gloss is the bracketed "(xi)", with no title, office, place or tomb (p. 188, folio 170).
+  - Ayaz's position, burial, governorship, death date and any link to Lahore: (not stated).
+- **Significance**
+  - The author's moral: "improvisation is the chief pillar of the Poetic Art" (p. 56, folio 38). The anecdote stands in the Second Discourse, on poets (PDF pp. 45–81).
+
+### Doubts the notes raise on this row
+
+- Note XVII "on Anecdote XIV" concerns 'Ali ibn Qarib and does not name Ayaz — no `darbar-malik-ahmad-ayaz` bullet (chunk 008).
+
+- **darbar-malik-ahmad-ayaz** — person-level identification (chunk 003): the book's Ayaz is Mahmud's favourite; the book does not mention Lahore, a governorship or a tomb in this anecdote. Ayaz's name in the opening sentence is lost in an interleaved line (p. 55); the description is reconstructed from interleaved fragments [text-layer?].
+
+- **darbar-malik-ahmad-ayaz** — person-level identification (chunk 012): the index entry for Ayaz says only "(xi)" (p. 188); it does not mention Lahore, a governorship or a tomb. The meaning of the "(xi)"-type markers is not explained in the chunk. (The chunk-012 note identifies this Ayaz as Mahmud's favourite "per the brief, Anecdote XIV", not from the index itself.)

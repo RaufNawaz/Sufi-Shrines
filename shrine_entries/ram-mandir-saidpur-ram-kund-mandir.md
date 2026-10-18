@@ -152,3 +152,301 @@ The book's forms are **"Rama"** once and, damaged, **"Razna"** twice.
 *The book's place-level material on "Islamabad" (4 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
 
 - **bari-imam**, **golra-sharif**, **gurdwara-sahib-saidpur-guru-nanak-dev-ji**, **ram-mandir-saidpur-ram-kund-mandir** (the book's "Islamabad"): **Islamabad is the seat of a Persian-studies research centre whose imprints and manuscripts the book cites** — `Islamabad: Markaz-i Tahqiqat-i Farsi-i Iran u Pakistan, 1398/1978` (p. 234, folio 224) and `also citing Islamabad MS` (p. 235, folio 225).
+
+## From Saiyid Athar Abbas Rizvi, A History of Sufism in India, vol. 1
+
+*Integrated 12 October 2026 from `entries/book_takeaways/rizvi_history_of_sufism_india_1.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Person-level material: RAMA
+
+*The book's person-level material on "RAMA" (1 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the person, not about this shrine alone.*
+
+- **ram-mandir-saidpur-ram-kund-mandir** — **RAMA.** "adored in the form of two of his ten incarnations, Rama and Krishna" (p. 376, folio 354); "devotion to the incarnation of Vishnu in the form of Rama, and of his consort Sita" (p. 379, folio 357); "A Hindi scholar identified Pitambar Pir with the Hindu god, Rama", and Kabir's "Nirguna Rama" against "Ram Chandar" (pp. 398, 401; folios 374, 377); "Ram and Rahim were the same Being" (p. 412, folio 388); "traditional terms used by Hindus and Muslims to invoke God, such as Allah, Khuda, Sahib, Hari and Rama" (p. 415, folio 391); index "Rama" (p. 482, folio 458). **Rizvi presents "Hari" and "Rama" in Guru Nanak's usage as names for a single formless God, not as the deities of cult sites, and the Pass 1 worker judged these weak candidates — recorded with the conversion.**
+
+## From Omar Kasmani, Queer Companions
+
+*Integrated 12 October 2026 from `entries/book_takeaways/kasmani_queer_companions.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Person-level material: Ram
+
+*The book's person-level material on "Ram" (1 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the person, not about this shrine alone.*
+
+  - Named once, in the English rendering of Mai Dhadli's Urdu song at a fakir dwelling in Sehwan:
+    "Muhammad in one place, Ali in another, and yet elsewhere, Qalandar is Ram." (p. 57, folio 40)
+    The saint's memory is said to span "Muhammad, Ali, or Ram" (pp. 57–58, folios 40–41). **No
+    temple, site or festival is attached: (not stated).**
+
+## From Michel Boivin, Hindu Sufis of South Asia
+
+*Integrated 12 October 2026 from `entries/book_takeaways/boivin_hindu_sufis_south_asia.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Person-level material: Rama / Ram / Ramachandra / Shri Ramchandra / Sri Ramchandra
+
+*The book's person-level material on "Rama / Ram / Ramachandra / Shri Ramchandra / Sri Ramchandra" (1 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the person, not about this shrine alone.*
+
+- **ram-mandir-saidpur-ram-kund-mandir** (the book's "Rama", "Ram", "Ramachandra", "Shri Ramchandra",
+  "Sri Ramchandra") — **person-level.** "Sachal mentions different Hindu gods, such as **Ram**, Hanuman,
+  Sita and especially Krishna" and "Sachal also refers to this episode of the Ramayana" — Diwali and
+  Ram's return to Ayodhya (p. 106, folio 93); "Murad stated that the jogis are fascinated by **Rama**
+  (Paniker 2000: 437)" (p. 108, folio 95); "Qutub Ali Shah gives the names of Laxman and Sita, **Ram** and
+  Krishna" (p. 107, folio 94); "**Ramachandra**" among the pictures on Rochaldas's wall (p. 134,
+  folio 121); "**Sri Ramchandra**" (p. 139, folio 126); "**Shri Ramchandra, an incarnation of Vishnu**"
+  in the Yoga Vasishtha dialogue (p. 163, folio 150). Indexed "**Rama (god)** 76, 77, 94, 121, 126, 150"
+  (p. 247, folio 234). **The mapping is made on the index's own headword "Rama (god)", which is the
+  archive row's principal figure exactly; equating the book's "Shri Ramchandra" with "Rama" is a step the
+  book does not print and is flagged rather than taken. No temple, no Saidpur, no Islamabad: (not
+  stated).**
+
+## From Jürgen Schaflechner, Hinglaj Devi
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schaflechner_hinglaj_devi.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Islamabad
+
+*The book's place-level material on "Islamabad" (4 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **Islamabad** — **bari-imam**, **golra-sharif**, **gurdwara-sahib-saidpur-guru-nanak-dev-ji**, **ram-mandir-saidpur-ram-kund-mandir** (4 rows, the ruled count)
+  - Islamabad is named once: "an official of the Islamabad-based Jinnah Institute branded Hinglaj in
+    2012 as a 'high risk for catastrophe' due to a possibility of extremist attacks" (p. 50, folio not
+    stated). **The Pass 1 notes did not flag Islamabad as a toponym case; it is added here because the
+    toponym is present at a cited page and ruling (a) is a standing ruling.** Flagged under Doubts so
+    a human can strike it if the reading is thought too thin.
+
+### Person-level material: Rama
+
+*The book's person-level material on "Rama" (1 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the person, not about this shrine alone.*
+
+- **Rama** — **ram-mandir-saidpur-ram-kund-mandir** (1 row)
+  - Rama dominates the book's account of the pilgrimage route, and the whole of that material is set
+    out under `shaktipeeth-shri-hinglaj-mata-mandir` above: his brahm hatyā and the sentence of
+    pilgrimage (p. 120, folio not stated); his defeat by the Goddess's army at the Ungakhera Bherum
+    Luk pass and his twelve-year battle (pp. 120–121, folios not stated); the condition that he come
+    as a simple pilgrim from Ram Bagh (p. 121, folio not stated); the Devi's promise to his excluded
+    men (p. 121, folio not stated); the water miracles of Hanuman, Lakshmana and Sita (p. 121, folio
+    not stated); the sun and moon he carves on the mountain opposite the temple (pp. 121, 132, 142,
+    257, folios not stated); his ninety-six Brahmins accepting Hinglaj as their clan Goddess (p. 76,
+    folio not stated); the Saraswat Brahmins' ṭīkā, which "according to legend—they had gotten from
+    Ramacandra. Rama was in need of a priest and since he could not find any in Balochistan he simply
+    applied a ṭīkā on a mlecch's (Hin. barbarian) forehead." (Burton 1851, 312) (p. 100, folio not
+    stated); Lalu Jasraj as "the aguā of Ramacandra's party and the first Kapri" (p. 181, folio not
+    stated); the pūjā places named for him on the route, "the resting place of Rama (Sin. rām
+    jharoku)" (p. 256, folio not stated), "Khari Nadi, where people take a bath in the ocean and
+    worship Rama" and "the Rama pūjā" (pp. 203, 204, folios not stated); and "the mytho-historic
+    journey of Rama and his entourage" now largely destroyed by Karachi's growth (p. 322, folio not
+    stated). **"no figure was ever as present in the representations of the traditional pilgrimage to
+    Hinglaj as Rama, the seventh incarnation of the God Vishnu."** (p. 119, folio not stated) Index:
+    `Rama, 60n28, 67, 69–70, 93, 108–113, 137, 186, 191, 242` (p. 357, folio not stated). **The book
+    never connects Rama to Saidpur, Islamabad, Ram Kund or any temple of his; the attachment is
+    person-level only.**
+
+## From Pnina Werbner and Helene Basu (eds.), Embodying Charisma
+
+*Integrated 12 October 2026 from `entries/book_takeaways/werbner_basu_embodying_charisma.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Islamabad
+
+*The book's place-level material on "Islamabad" (4 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **bari-imam**, **golra-sharif**, **gurdwara-sahib-saidpur-guru-nanak-dev-ji**, **ram-mandir-saidpur-ram-kund-mandir** (the book's "Islamabad", 4 rows): named as "Pakistan's capital city,
+  Islamabad", on whose outskirts the village of Nurpur Shahan and Barri Imam's shrine stand (p. 151,
+  folio 140); in the parenthesis "Pir Mehr ‘Ali Shah (Golra/Islamabad)" on a devotional print (p. 159,
+  folio 148); and as a publisher's city, printed both "Islamabad" and "Islâmâbâd" (p. 169, folio 158;
+  pp. 216–217, folios 205–206). Two of these four rows — `bari-imam` and `golra-sharif` — also carry
+  site-specific material and have their own subsections above.
+
+## From Shemeem Burney Abbas, The Female Voice in Sufi Ritual
+
+*Integrated 12 October 2026 from `entries/book_takeaways/abbas_female_voice_sufi_ritual.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Islamabad
+
+*The book's place-level material on "Islamabad" (4 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **bari-imam**, **golra-sharif**, **gurdwara-sahib-saidpur-guru-nanak-dev-ji**, **ram-mandir-saidpur-ram-kund-mandir** (the book's "Islamabad" — 4 rows)
+  - **The capital as a patronage market, stated flatly.** Abida Parvin "lives in Islamabad and not in
+    her hometown of Hyderabad, because Islamabad is the capital and she can negotiate business from
+    there. Her clients are the foreign diplomats in the city and state and private agencies" (p. 80,
+    folio not stated); "Islamabad is the capital and therefore its population consists of officials
+    linked with the federal government, and the foreign embassies and their support staff" (pp. 100–101,
+    folios not stated).
+  - **State patronage of a concert, and its colonial genealogy.** "I attended Abida Parvin's concert at
+    the Open University in Islamabad where she sang for three hours in the summer heat of August. The
+    university sponsored her performance… Since the Open University is a state-sponsored institution,
+    the concert was held for the benefit of senior government officials and faculty at the university.
+    Invitations to such concerts are among the perks that go with being part of the official Islamabad
+    bureaucracy. **This practice has a colonial heritage**" (pp. 100–101, folios not stated). **"Three
+    hours" and "August" survive; the year is [numeral dropped, text-layer] (p. 116, folio not stated).**
+  - **Performance as political speech, in the capital, before the bureaucracy.** "That evening this
+    woman performer sang in a fiery mood and blasted the orthodox government of the time in the presence
+    of its official bureaucracy by using the frames of Sufi poetry" (p. 101, folio not stated); she sang
+    Layla-Majnun "before an august audience of government bureaucrats" with the intention "to entertain
+    and also to create sociopolitical awareness through myth about the minority provinces or
+    marginalized groups in the country" (pp. 134–135, folios not stated). **Which government is (not
+    stated).**
+  - The state's archives and institutes sit here: "The key archives from which I collected the materials
+    were the Institute of Folk Heritage and the Allama Iqbal Open University in Islamabad" (p. 23, folio
+    not stated); "Lok Virsa, the Institute of Folk Heritage in Islamabad, contacted her through Radio
+    Pakistan in Hyderabad. Through Lok Virsa she was able to go to international concerts in the Middle
+    East and Europe; **as a state organization, Lok Virsa could afford to pay for her trips abroad**"
+    (p. 34, folio not stated). The author's first interview was "with Ustad Nusrat Fateh Ali Khan in
+    [numeral dropped] at the Marriott Hotel in Islamabad" (p. 22, folio not stated; p. 195, folio not
+    stated). "Some of them hold influential positions with the federal government in Islamabad" (p. 81,
+    folio not stated).
+
+## From Robert Rozehnal, Islamic Sufism Unbound
+
+*Integrated 12 October 2026 from `entries/book_takeaways/rozehnal_islamic_sufism_unbound.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+Named once, as one word in a list of five, inside a report of a Sufi shaykh's theology of other
+religions.
+
+- **The whole evidence.** Reporting Zauqi Shah's lectures, the book says "In certain lectures the
+  shaykh describes non-Muslim spiritual luminaries—Krishna, **Rama**, Sita, Lachman, and Guru
+  Nanak—as believers in the one true God and religious leaders with 'Divine connection' (nisbat)"
+  (p. 63, folio 53).
+- **No temple, no Saidpur, no Islamabad, no ritual, no date: all (not stated).** The id is assigned
+  only because the 18 September 2026 ruling is unconditional and "Rama" matches exactly one archive
+  row. **This is a name-only, deity-in-a-doctrinal-list hit and is near-worthless for the temple's
+  entry; a human should consider dropping it.** See Doubts, where the Pass-1 worker recommends the
+  same.
+
+### Doubts the notes raise on this row
+
+- **`ram-mandir-saidpur-ram-kund-mandir` rests on one word in that same list of five** (p. 63,
+  folio 53) — "Rama", inside a report of a Sufi shaykh's theology of other religions. There is no
+  temple, no Saidpur, no Islamabad, no ritual, no date. It is assigned only because the 18 September
+  ruling is unconditional and "Rama" matches exactly one row. **The Pass-1 worker recommended
+  dropping it and I record that recommendation here: this is the bullet to remove if the ruling is
+  ever narrowed to exclude deities named in doctrinal lists.**
+
+### Place-level material: Islamabad
+
+*The book's place-level material on "Islamabad" (4 rows), from its list of rows attached at place or person level, copied into every existing entry that list names (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+- **bari-imam**, **golra-sharif**, **gurdwara-sahib-saidpur-guru-nanak-dev-ji**, **ram-mandir-saidpur-ram-kund-mandir** (the book's "Islamabad", 4 rows):
+  - **A journal of the order is published from the city.** "Since 1989, The Association of Spiritual
+    Training—founded by Wahid Bakhsh and administered by a number of his senior disciples—has
+    published an English language journal titled The Sufi Path. **Based in Islamabad**, it has
+    produced fourteen issues to date" (p. 130, folio 121); its imprint appears as "The Sufi Path
+    (Book 13) (Islamabad: Association of Spiritual Training, Pakistan, 1995)" (p. 244, folio 237),
+    Book 14 is
+    cited repeatedly through Chapter 2's notes (pp. 246–248, folios 239–241), and the Bibliography
+    lists "Association of Spiritual Training Pakistan" in Islamabad publishing "The Sufi Path. Books
+    13/14" (1995/1996) (p. 263, folio not stated).
+  - **A weekly halqa that has stopped.** "Another female murid used to host a similar weekly halqa in
+    Islamabad, but this practice has recently been discontinued" (p. 201, folio 193). **This is one
+    of the very few institutional *closures* the book records.**
+  - **Islamabad as a fieldwork base.** "I also traveled frequently to Islamabad, Bahawalpur,
+    Allahabad (southern Punjab), and Karachi to interact with the Chishti Sabiri disciples" (p. 26,
+    folio 15); interview datelines March 22 and March 24, 2001 (pp. 109, 186, 190, folios 100, 178,
+    182) and a journey to visit disciples (p. 91, folio 81).
+  - **No Islamabad shrine or temple is named anywhere in the book: (not stated).** The book's one
+    Islamabad-district figure, Sayyid Mehr Ali Shah of Golra, is treated in his own subsection above
+    and is attached by name, not by place.
+
+## From Annemarie Schimmel, As Through a Veil
+
+*Integrated 12 October 2026 from `entries/book_takeaways/schimmel_as_through_a_veil.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+### Place-level material: Islamabad
+
+*The book's material headed "Islamabad (place-level: 4 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+**Kind of evidence: IMPRINT-ONLY, and nothing else.** Chunk 014 states it: "**imprint only, and
+nothing else** … The city appears solely as the seat of the publishing ministry." Both occurrences are
+the same government publication. The book never discusses Islamabad, and names no Islamabad site,
+saint or practice. This subsection can be dropped wholesale from a shrine entry.
+
+- "Bowering, Gerhard. … -- 'The Prophet of Islam: The First and the Last Prophet.' The Message of the
+  Prophet. Islamabad: Government of Pakistan 1976; pp . 48-60 ." (p. 316, folio 298) — a state
+  publication, the only Islamabad entry in chunk 013.
+- "Message of the Prophet. A selection of articles read at the First Inter-/national Congress on Seerat
+  1976 . Ministry of Religiou s Affairs . Islamabad: Government of Pakistan, 1976." (p. 330, folio 312).
+
+## From Haroon Khalid, Walking with Nanak
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_walking_with_nanak.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+Person-level on Rama only; the Islamabad Saidpur is never mentioned (the book's "Saidpur" is Eminabad).
+
+- Manora temple tiles of "Ram and Sita", faces wiped clean (p. 229, folio not stated). The jogis' chant "'Hare Ram, Hare Krishna'" is in the Krishna group below.
+
+### Place-level material: Islamabad
+
+*The book's material headed "Islamabad (place-level: 4 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+Nothing about any Islamabad site.
+
+- The author moved to Islamabad "after my marriage" (p. 157, folio 139) and "now live[s] in Islamabad" (p. 282, folio 256); Islamabad drivers are "much more courteous" than Lahore's (p. 159, folio 141); he and Anam were "driving back to Islamabad after a weekend in Lahore" (p. 245, folio 219); "Rawalpindi happens to be the twin city of Islamabad, the federal capital of the country" (p. 265, folio 239).
+
+## From Haroon Khalid, A White Trail
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_a_white_trail.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+Person-level, bare mentions: the book's "Ram" / "Rama"; the Saidpur temple is never named.
+
+- **Saint** (bare mentions, grouped)
+  - The Babri Mosque demolishers' "rationale was that the mosque had been built ... on the site of a Hindu Temple, birth site of the mythological Hindu King, Ram" (p. 21, folio not stated).
+  - In Amog Lila's account of Navratri, Sita prayed nine nights while "Ravan and Rama (Sita's husband)" fought; "On the tenth day, the goddess heard her plea and Ram was able to kill Ravana and thus won the war. The burning of Dushera (on the tenth day) is a remembrance of that victory" (p. 40, folio not stated).
+  - Hanuman "was a follower of Ram and played a central role in the battle between Ram and Ravana" (p. 64, folio not stated); Sita bore "the twin sons of Ram, Luv and Kush" at Valmiki's ashram "after she had been banished by Ram", "the perfect woman, the wife of Ram" (p. 71, folio not stated).
+  - "depictions of ... Ram and Sita" among the faded frescoes of the Ranjit Singh samadhi (p. 209, folio not stated).
+
+### Place-level material: Islamabad
+
+*The book's material headed "Islamabad (place-level: 4 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+The book's "Islamabad" (chunks 003, 013). Place-level and thin: no religious-site content.
+
+- According to Gupta, "Shahbaz Bhatti has been murdered this morning in Islamabad, outside his residence" (2nd March 2011); "a couple of months ago, the Governor of Punjab Salman Taseer was gunned down by his bodyguard in Islamabad for criticizing the law" (p. 48, folio not stated).
+- The Baha'is "are evenly scattered throughout the country, with Lahore and Islamabad being two of the important cities as far as Baha'i representation is concerned" (p. 234, folio not stated).
+
+## From Haroon Khalid, In Search of Shiva
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khalid_in_search_of_shiva.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+**Judgement call, person-level via Rama:** Rama appears in a Sleeman quotation and as the deity of Ram Navami; nothing concerns Saidpur. (The row is also in the Islamabad and Margalla hills place-level groups.) Two chunks.
+
+- **Saint / Legends**
+  - Quoting William Henry Sleeman, *Rambles and Recollections of an Indian Official*: "When Ram set out with his army for Ceylon, he is supposed to have worshipped the little tree called 'cheonkul', which stood near his capital of Ajodhya". Sleeman says he saw "a procession of more than seventy thousands persons" attend their prince to worship it "on the festival of the Dashara" (p. 9, ch. 3, folio not stated).
+- **Practices & Events / Significance**
+  - Eid Milad-Un-Nabi "was originally inspired by a Hindu festival called Ram Navami. The festival celebrates the birth of Ram, a popular deity"; "Streets are lit and the entire community takes part"; "Hindus have been celebrating Ram Navami for centuries" (author's argument) (p. 13, ch. 7, folio not stated).
+
+### Doubts the notes raise on this row
+
+- Rama: `ram-mandir-saidpur-ram-kund-mandir` — chunk 003 (Rama only in a Sleeman quotation) and chunk 006 (Ram as deity of Ram Navami, no site); judgement call.
+
+- `ram-mandir-saidpur-ram-kund-mandir` via Rama — see Person-level.
+
+### Place-level material: Islamabad
+
+*The book's material headed "Islamabad (place-level: 4 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+Place-level under ruling (a). **Judgement call; thin:** the material is one news sentence (ch. 1), one Salman Rashid sentence (ch. 3) and one sentence on Al-Huda (ch. 10). "the federal capital of Pakistan" (ch. 5) and "the capital city of Pakistan" (ch. 11) are not named as Islamabad and are not mapped here.
+
+- On the protest day: "Horrible news was coming in from Rawalpindi and Islamabad. A mob comprising thousands was heading towards the diplomatic enclave to protest outside the United States' embassy"; "The government of Pakistan ... had put up barriers to stop the progress of the mob"; "There were hundreds of foreigners in the diplomatic enclave" (p. 7, ch. 1, folio not stated).
+- Salman Rashid, "a well-known travel writer" (informant): "I have heard of a bodhi tree in Islamabad and one near Jhelum" (p. 9, ch. 3, folio not stated).
+- "Al-Huda is one of the most prominent Pakistani religious revivalist organizations, based in Islamabad, which aims to educate women about the Quran and the Sunnah. Established in 1994, in the past few years, it has spread rapidly across the educated middle class of Islamabad" (p. 16, ch. 10, folio not stated).
+
+### Place-level material: Margalla hills
+
+*The book's material headed "Margalla hills (place-level: 2 rows)", copied into every existing entry that heading lists (ruling (a); Rauf, 10 October 2026). It is about the place in general, not about this shrine alone.*
+
+Place-level under ruling (a) via the `margalla hills` key, ch. 5. **Judgement call:** the material is about Taxila's Dharmarajika, which the book places "in the heart of Margalla hills", and not about the Saidpur sites. The coordinator may prefer to drop it.
+
+- "in the heart of Margalla hills, where the federal capital of Pakistan is. There, in the ruins of Taxila, is a site known as Dharmarajika, a stupa around which are the remains of a monastery and giant sculptures of Lord Buddha and Bodhisattva, dating back to the third century BCE"; "a UNESCO world heritage site and a major tourist attraction"; "believed to have been constructed by the great Mauryan emperor, Ashoka". The author once walked the encircling pathway with "Buddhist monks and the students from the neighbouring monastery" (p. 11, ch. 5, folio not stated).
+
+## From Sujan Rai Bhandari, Khulasat al-Tawarikh
+
+*Integrated 12 October 2026 from `entries/book_takeaways/khulasat_ut_tawarikh.md` (reviewed: no). Every line below the heading is copied verbatim from that file; nothing was added or reworded. Page references are as the takeaways give them.*
+
+- Mapping Doubts (Pass 1): c. 042 is a name-only match (brief item 11). c. 047's Rama is a person-level mapping on a bare name, named only as the subject of a Persian translation in the source list, with no site (single-row person rule).
+- *basis: bare-name person mapping (brief item 11; c. 047).*
+- **Significance**
+  - Named only as the father of "لو", to whom the founding of Lahore is attributed (p. 525).
+  - Named only as the subject of a book the author read: "ترجمه رامائن که متضمن بر احوال سری رام چند از کتب مشهور است", rendered "از سنسکرت بفارسی" by "جماعه مذکور", the group already named, whose names the text does not repeat (p. 583). No site is named.
+
+### Doubts the notes raise on this row
+
+- **Rama.** ram-mandir-saidpur-ram-kund-mandir mapped for "راجه رام چند", whom the book does not identify further (c. 042), and for Rama named only as the subject of a Persian translation (p. 583), single-row person rule (c. 047). NOT mapped: "راجه رام چندر" at Ajodhya (p. 546), applying §9.316 rule 1 "by analogy, as a deity at a particular non-archive site" — "if the consolidator holds that the single-row person rule (18 Sept) prevails, the Ajodhya bullet is the material" (c. 044).
+
+- **c. 042's name-only matches** (person-level, bare names): **darbar-malik-ahmad-ayaz**, named only as Lahore's restorer, the index giving the row no city or province; **loh-temple-lava-temple** on "لو"; **ram-mandir-saidpur-ram-kund-mandir** on "راجه رام چند"; **churrio-jabal-durga-mata-temple** on "درگا", Hinglaj's deity; **gurdwara-rori-sahib** on "مردانه", the row's co-principal figure; **gurdwara-guru-ram-das-ji**, the three Guru Arjan rows and the six Guru Hargobind rows, named only in the succession list; **data-darbar** on "میر علی حجویری", not "Data Ganj Bakhsh".

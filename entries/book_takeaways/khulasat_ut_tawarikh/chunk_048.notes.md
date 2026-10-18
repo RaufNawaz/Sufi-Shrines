@@ -1,0 +1,180 @@
+# khulasat_ut_tawarikh — chunk 048 — pp. 592–610
+
+In reading order (p. 610 down to p. 592) this chunk is the book's front matter and has no narrative of its own. It opens with the dark cover, a University of Toronto library pocket, an ownership inscription and blank leaves (pp. 610–605). Next comes the 1918 editor's Urdu introduction, "مقدمه" (pp. 604–597). Its sub-headings are "ترتیب کتاب ہذا" (method), "قلمی نسخه جات" (the five manuscripts), "مصنف" (the author), "نفس کتاب" (the book itself) and "معذرت" (apology and thanks), and it is signed "ظفر حسن۔ بی۔ اے" at "دھلی" on "۱۱ اگست سنه ۱۹۱۸ع" (p. 597). It is followed by the editor's list of 22 works cited, "فهرست کتب تواریخ که حواله انها در کتاب هذا داده شده" (pp. 596–595), and then the first three pages of the table of contents, "فهرست مضامین کتاب خلاصة التواریخ" (pp. 594–592). The table of contents runs from the preface through the eighteen subas and the Hindu rajas into Akbar's reign, and breaks off at printed page "۳۶۹[OCR?]". No archive row's site or principal figure is named, so this chunk maps zero ids. Lahore, Multan and Thatta appear only as suba headings in the table of contents; Lahore and the Punjab also appear in the editor's assessment of the book.
+
+## Other saints, sites and events (not in the archive)
+
+- **The author.** The book itself never names him (the editor, p. 600). His name and home, as printed:
+  - The editor's settled form: "بہرحال یه طے شده امر ہے که اسکا مصنف سجان رائے بٹالوی ہے" (p. 600).
+  - According to the editor, the scribes of MSS 2, 3 and 4 write "منشی سجان رائے بهنڈاری ساکن بٹاله" at the end of their copies (p. 600).
+  - MS 2's colophon: "تصنیف منشی المناشی سجان رائے بهنڈاری ساکن بٹاله مضاف[OCR?] صوبه پنجاب" (p. 601).
+  - MS 4's colophon: "تصنیف منشی المناشی سجان رائے بهنداری ساکن بٹاله که در علوم ہندی و فارسی و سنسکرت دستگاه داشت" (p. 600).
+  - Professor Dowson read the name as "سبحان رائے" and Batala as "پٹیاله". The editor cites him as "تاریخ ہندوستان مصنفه الیٹ صاحب جلد ہشتم صفحه ۵" (p. 600).
+  - His home: "مصنف کے وطن پرگنه بٹاله" (p. 598). Batala is outside Pakistan and takes no row.
+  - The only thing he says about himself, according to the editor: from the time he came of age ("جب سے اوسنے ہوش سنبھالا") he served "ناظمان امور مملکت و مال و صاحبان کارگاه دولت و اقبال". The editor refers to printed "صفحه ۶" (p. 600).
+  - He was a Hindu. The editor infers this from the Hindi eras ("سنین ہندی") that the preface uses beside Aurangzeb's regnal year and the Hijri year (p. 600). He also calls the book written "ایک ہندو کے قلم سے" and its author "ایک ہندو مورخ" (p. 598).
+  - The library card: "Sujān Rā'e Bhandārī / The Khulasatu-t-tawarikh" (p. 609).
+- **The editor.** He signs "ناچیز / ظفر حسن۔ بی۔ اے / دھلی / ۱۱ اگست سنه ۱۹۱۸ع" (p. 597).
+  - Correction and collation began in "ماه جون سنه ۱۹۱۷ع" (p. 597).
+  - He did the work "محض شوقیه", in the time left over from his "فرائض منصبی" (p. 598; also p. 603). His post is (not stated).
+  - His father was "مولوی شریعت الله صاحب", and his elder brother "مولوی ابرار حسن صاحب سکریٹری ہیوٹ مسلم ہائی اسکول مراد آباد" (p. 597).
+- **Others named in the introduction** (pp. 604–597):
+  - Sir Sayyid Ahmad Khan's "آثار الصنادید", which the editor calls "آثار قدیمه دہلی پر بہترین کتاب". Its many references to the Khulasat first brought the book to his notice (p. 604).
+  - "آنریبل ڈبلیو۔ ایم۔ ہیلی صاحب بہادر ... چیف کمشنر صوبه دہلی". He encouraged the printing, promised every help and wrote to "ریاست جیپور" (pp. 604–603).
+  - "سر جان ہیوبرٹ مارشل صاحب بہادر کے۔ سی۔ آئی۔ ای۔ ... ڈائرکٹر جنرل محکمه آثار قدیمه", who was then in Kashmir. He approved the plan, and on a tour to Delhi "گذشته موسم سرما میں" he examined all the editor's manuscripts (p. 603).
+  - Helpers, all on p. 597:
+    - "پیر ولایت شاه صاحب۔ بی۔ اے۔ بی۔ ٹی۔ اسسٹنٹ ماسٹر عربک ہائی اسکول دہلی"
+    - "مولوی اشفاق علی صاحب منشی سپرانٹینڈنیٹ حلقه شمالی"
+    - "عزیز برادران حافظ محمد حسن بی۔ اے و مقبول حسن و فضل حسن و بشیر احمد", who helped with "مقابله نسخه جات قلمی و تصحیح پروف و ترتیب فہرست اسماء".
+  - Lenders of manuscripts (p. 600):
+    - MS 4: "سید احسن شاه صاحب رئیس سردھنه ضلع میرٹھ و تحصیلدار گونڈه".
+    - MS 5: "سینٹ اسٹیفنس کالج دہلی", especially "مولانا مولوی عبدالرحمن صاحب پروفیسر عربی".
+- **Places in the metadata.** None of them is an archive place.
+  - Delhi, Lucknow and Moradabad, where the editor found his manuscripts (pp. 601–600).
+  - Jaipur, where MS 2 was copied (p. 601) and whose darbar library was approached (p. 603).
+  - Sardhana, Meerut and Gonda (p. 600).
+  - Kashmir (p. 603).
+  - "ملک دکن در شهر احمدنگر", in the death notice appended to most manuscripts (p. 602).
+- **Table of contents.** These are locators only; the printed page numbers are quoted as text (pp. 594–592).
+  - The preface and the description of Hindustan: "در بیان خاصان درگاه ایزدی و تعریف آفریننده عالم | ۲", "در بیان تالیف این نسخه مسمی بخلاصة التواریخ | ۵", "در تعریف و توصیف کشور هندوستان جنت نشان | ۹" and "درویشان هند | ۲۲" (p. 594).
+  - The subas of archive interest: "صوبه تهته | ۵۹", "صوبه دارالامان ملتان | ۶۱" and "صوبه دارالسلطنت لاهور | ۶۴", followed by "صوبه دلپذیر کشمیر | ۸۰" and "صوبه دارالملک کابل | ۸۳" (p. 594).
+  - The other thirteen subas, in printed order (p. 594): Shahjahanabad ۲۸, Akbarabad ۳۹, Allahabad ۴۱, Awadh ۴۳, "بهار عرف پتنه" ۴۵, Bengal ۴۷, Orissa ۴۹, Aurangabad ۵۰, Berar ۵۱, Khandesh ۵۲, Malwa ۵۳, Ajmer ۵۴ and "صوبه دارالبرکات گجرات" ۵۵.
+  - The Hindu rajas, from "احوال فرمانروایان هندوستان از ابتدائے راجه جدهشتر پاندوان | ۸۹" to "راجه پرتهی راج المشهور به رائے پتهورا | ۱۵۶" (pp. 594–593).
+  - The Muslim rulers begin with "در بیان احوال سلاطین مسلمین | ۱۶۰" and "ناصرالدین سبکتگین | ۱۶۱" (p. 593). They run through the Delhi sultans to "ظهیر الدین محمد بابر بادشاه | ۲۷۹" (p. 592).
+  - The Langah line, after Babur (p. 592):
+    - "سلطان قطب الدین عرف رائے سنهره لنگاه | ۲۹۲[OCR?]"
+    - "سلطان حسین بن سلطان قطب الدین | ۲۹۳"
+    - "سلطان محمود بن فیروز شاه بن سلطان حسین | ۲۹۴"
+    - "سلطان حسین بن سلطان محمود | ۲۹۵"
+    - then "میرزا شاه حسین ارغون | ۲۹۵".
+    - None of these lines names Multan.
+  - Akbar's reign (p. 592) starts at "ابو الفتح جلال الدین محمد اکبر بادشاه | ۳۳۶". It includes "دربیان تسخیر ولایت گکهران | ۳۵۰" and "دربیان کشته شدن شاه ابو المعالی | ۳۵۲" (see Doubts). The last line in this chunk is "دربیان تسخیر قلعه [illegible] | ۳۶۹[OCR?]".
+- **Works cited.** This is bibliography only (pp. 596–595).
+  - Of archive interest (p. 596): "۵- تاریخ پنجاب مصنفه سید محمد لطیف مطبوعه سنٹرل پریس کلکته سنه ۱۸۹۱ع (انگریزی) ٭" and "۴- بادشاه نامه مصنفه ملا عبدالحمید لاهوری مطبوعه ایشیاٹک سوسائٹی بنگاله سنه ۱۸۶۷-۱۸۶۸ع ٭".
+  - The other twenty, by number:
+    - On p. 596: ۱ اکبرنامه, ۲ اقبال نامه جهانگیری, ۳ آئین اکبری, ۶ تاریخ فرشته, ۷ تاریخ فیروزشاهی (Afif, "۱۸۶۰[OCR?]ع"), ۸ تاریخ فیروزشاهی (Barani), ۹ تاریخ هند (Elliot, in English), ۱۰ توزک جهانگیری, ۱۱ تیمورنامه (manuscript, "قلمی") and ۱۲ شاه جهان نامه (manuscript).
+    - On p. 595: ۱۳ طبقات اکبری, ۱۴ طبقات ناصری, ۱۵ ظفرنامه, ۱۶ عالمگیرنامه, ۱۷ فتوحات فیروزشاهی (manuscript), ۱۸ مآثر الامرا, ۱۹ مآثر عالمگیری, ۲۰ مفتاح التواریخ, ۲۱ منتخب اللباب and ۲۲ منتخب التواریخ.
+- **The scan's provenance** (pp. 610–605). These marks belong to the scan, not the book.
+  - Pp. 605–610 each carry the stamp "Sri Satguru Jagjit Singh Ji eLibrary".
+  - P. 608 has a pencilled price, "$3.50[OCR?]", and the inscription "Aziz Ahmad[OCR?] / London, May 1966". It also has a triangular library stamp reading "LIBRARY", "UNIVERSITY" and "OF T[OCR?]", dated "JUN 4 9[OCR?]" with the year incomplete.
+  - P. 609 has a pocket from the "UNIVERSITY OF TORONTO LIBRARY", call number "DS 451 S94 1918".
+  - Pp. 605–607 are blank, and p. 610 is illegible.
+
+## Arguments and interpretations (academic books)
+
+All of this is the 1918 editor's own account, in Urdu.
+
+- **How the edition began** (pp. 604–603):
+  - He learned of the book from the many references in "آثار الصنادید". He found a manuscript "عرصه کی جستجو کے بعد" (p. 604).
+  - He showed it to Hailey, who urged him to print it (p. 604). Hailey then wrote to Jaipur State asking leave to study and collate any manuscript in the darbar library ("دربار کے کتب خانه"). Jaipur agreed, but by then the editor had found several other manuscripts. He did not take up the offer, which might also have harmed his official duties (p. 603).
+  - Marshall approved the plan and examined the manuscripts. Without "ان ہر دو ممدوحین" (Hailey and Marshall), the editor says, he would not even have thought of printing the book (p. 603).
+- **Method, "ترتیب کتاب ہذا"** (p. 603):
+  - An old book must be collated from several different manuscripts. They should not be suspected of being copied from one exemplar, and their correctness and age should be assured.
+  - He found "پانچ عدد قلمی نسخے" of a history that "امتداد زمانه سے غیر معروف اور کمیاب ہوگئی ہے".
+  - Where the manuscripts differ, every variant goes into the footnotes, and the disputed word in the text is marked with the letter "ن".
+  - References to other histories are added. Their list is "مقدمه ہذا کے آخر میں"; it follows on pp. 596–595.
+- **The five manuscripts, "قلمی نسخه جات"** (pp. 602–600). The book was "پانچ مختلف قلمی نسخون کے مقابله کے بعد شایع" (p. 598).
+  - **MS 1.** It is described first; the editor numbers the next one "(۲) نسخه دویم". It is the editor's own and was found in Delhi (pp. 602–601).
+    - It was the first manuscript he obtained. It is in "خط شکسته", "قدرے بوسیده مگر مکمل", the oldest of all and comparatively correct. He judges it "اون سب سے زیاده مستند": the most authoritative copy known to him or to other historians (p. 602).
+    - Layout: each page is split into two equal halves written "بیاضی صورتوں" in. Two lines in ordinary book style are written at the top, the bottom and the middle. There are "۲۰[OCR?] سے ۲۸ تک" lines a page, "تعداد اوراق ۲۱۳" and "تقطیع ۱۲½ انچه × ۸½ انچه" (p. 602).
+    - The first ten original folios were lost and were later recopied and inserted. The original ninth folio is pasted at the end, among leaves with unrelated writing, so "اصل ورق صرف نو ضایع ہوئے ہیں" (pp. 602–601).
+    - Colophon (p. 601): "بتاریخ نوزدہم ربیع الثانی سنه احد[OCR?] معزالدین عالمگیر ثانی پادشاه غازی مطابق سنه یکهزار و یکصد و شصت و هشت هجری روز یکشنبه وقت یکپاس شب گذشته صورت اتمام پذیرفت". It is followed by "تمت تمام شد کار من نظام شد" and the couplet "قاریا برمن مکن چندین عتاب / گر خطائے رفته باشد در کتاب".
+    - Almost all known manuscripts carry the appended notice of Aurangzeb's death; this one alone does not (p. 602).
+  - **MS 2.** The editor's own, found in Lucknow (p. 601).
+    - "خط نستعلیق", "نہایت اچھی حالت میں", "تعداد اوراق ۵۰۵", "تقطیع ۹ انچه × ۶ انچه", "۱۵ سطریں".
+    - Colophon: "... سجان رائے بهنڈاری ساکن بٹاله مضاف[OCR?] صوبه پنجاب بتاریخ بست و ششم شهر شعبان المعظم روز شنبه سنه یکهزار و دو صد چیزے بالا هجری و سنه جلوس میمنت مانوس شاه اکبر ولد حضرت شاه عالم بادشاه غازی در عهد مهاراجه دهراج راج راجندر سری سوامی جگت سنگه بهادر در بلده سوامی جیپور ...". It ends with the couplet "هر که خواند دعا طمع دارم / زانکه من بنده گنهگارم" and "سمت راجه بکرماجیت یکهزار و هشت صد شصت و چهار".
+    - The editor thinks the scribe was a Hindu who did not know the Hijri year exactly, and probably left out the regnal year of "اکبرشاه ثانی" by oversight.
+    - The lower margin of the last page gives the folio total as "میزان کل سـ۵[OCR?] جزو ورق".
+  - **MS 3.** The editor's own, found in Moradabad through his brother Abrar Hasan (pp. 601–600).
+    - "۴۹۵ ورق", "تقطیع ۸½ انچه × ۵½ انچه", "۱۴ سطریں", "خط نستعلیق". The year of writing is rubbed out ("مٹا ہوا ہے") (p. 601).
+    - Colophon: "تمت تمام کار من نظام شد کتاب خلاصة التواریخ بتاریخ نوزدہم جمادی الاول سنه ... روز جمعه بوقت دوپہر باتمام رسید" (p. 601).
+  - **MS 4.** Lent by Sayyid Ahsan Shah of Sardhana (p. 600).
+    - "خط نستعلیق", "کرم خورده مگر مکمل", "۲۸۲ ورق", "تقطیع ۱۱½ انچه × ۷¾ انچه[OCR?]", "۲۰ سطریں". It has no date of writing.
+    - Colophon: "تمت تمام شد کتاب خلاصة التواریخ تصنیف منشی المناشی سجان رائے بهنداری ساکن بٹاله که در علوم ہندی و فارسی و سنسکرت دستگاه داشت".
+  - **MS 5.** In the library of St Stephen's College, Delhi (p. 600).
+    - It is incomplete: it runs only to Shah Jahan's reign and his deposition ("دیکھو صفحه ۴۹۰"), and the first three pages are also missing.
+    - "تعداد اوراق موجوده ۳۰۸", "تقطیع ۱۰½ انچه × ۶[OCR?] انچه", "خط شکسته".
+    - The number of lines varies: "۱۸ یا ۱۹" a page up to about half the book, rising to "۲۴ و ۲۵" at the end.
+    - No colophon or date is given.
+- **The appended death notice of Aurangzeb** (p. 602):
+  - The book was written in Aurangzeb's regnal year "[illegible: a superscript numeral]". Its narrative goes as far as his accession and the pursuit of Shah Shuja and Dara Shikoh.
+  - Yet almost all known manuscripts except MS 1 end with a few lines on Aurangzeb's death and its date, out of sequence ("بے سلسله"). Dowson ("تاریخ ہند مصنفه ایلیٹ صاحب جلد ہشتم صفحات ۵-۷") took this to be a copyist's addition, made early on and repeated in later copies. Three of the editor's manuscripts carry it.
+  - The editor quotes it from MS 2: "القصه آخر الامر بتاریخ بست و هشتم ذیقعده سنه ۱۱۱۸[OCR?] هجری بعد انتظام مهام روز مبارک جمعه بعد سه پاس روز حضرت پادشاه جنت آرامگاه در عمر نود و یک سال و هفده روز و دو گھڑی پیمانه عمر لبریز نموده مدت سلطنت پنجاه سال و دو ماه و بست و هشت روز در ملک دکن در شهر احمدنگر این معنی بوقوع آمد".
+- **Authorship, "مصنف"** (pp. 600–599):
+  - Nothing about the author can be drawn from the book itself, "حتی که اوس کے نام کا بھی پته نہیں چلتا". This is so even though the long preface gives the reason for writing, the title, the date of composition and many Persian and Sanskrit sources (p. 600).
+  - The evidence for his name and religion (MSS 2–4, the Hindi eras, the conclusion "سجان رائے بٹالوی") is listed under the author above (p. 600).
+  - Custom required an author to name himself in the preface. The editor explains why Sujan Rai did not: he was "محض ایک معمولی اور غیر معروف شخص", and his name would add nothing to the book. Nor did he seek fame; his aim was "اظہار حقیقت حال ... جو ایک مورخ کا نصب العین ہونا چاہیے" (p. 599).
+  - Hence, the editor argues, his statements will be mostly "رطب و یابس سے پاک اور اصل واقعات پر مبنی". This holds especially for Aurangzeb's time, "جبکه وه اکثر واقعات کا خود شاہد متصور ہے" (p. 599).
+- **The book, "نفس کتاب"** (p. 599):
+  - It was composed in "سنه ۴۰ جلوس اورنگ زیب مطابق سنه ۱۱۰۷ ہجری (سنه ۱۶۹۵-۹۶ع)", and the author spent "دو سال" on it.
+  - "یه کتاب مخصوص دہلی کی تاریخ ہے". It gives all the rajas and sultans of Delhi, from Yudhishthira to the time of writing. Other kingdoms are treated briefly, at the point where they were conquered and joined to Delhi.
+  - It is written in ornate Persian, with metaphors and verses "برمحل و موقعه".
+  - It has three parts:
+    - "حصه اول۔ جغرافیه مملکت ہند بزمانه سلطنت شہنشاه اورنگ زیب"
+    - "حصه دویم۔ حالات راجگان ہند من ابتدائے سلطنت راجه جدهشتر پانڈو تا زمانه سلطنت راجه پرتھی راج المعروف برائے پتھورا"
+    - "حصه سویم۔ حالات پادشاہان اسلام از زمانه سلطنت ناصرالدین سبکتگین تا زمان پادشاه اورنگ زیب"
+- **The editor's judgement of the book's value** (pp. 599–598):
+  - Part 1 "بہت زیاده قابل قدر ہے" (pp. 599–598).
+    - It gives the geography of Hindustan under Aurangzeb, with its produce and the condition of its people.
+    - It treats each of the "اٹھاره صوبجات" of the Mughal empire separately: "اونکے خاص خاص شہر اور دلچسپ مقامات و عمارات اور اونکے مصنوعات اور نیز مسافات دریا کا ذکر ہو[OCR?]".
+    - It names each suba's sarkars and mahals "معه زر مالگذاری", so that "گویا که یه حصه آئین اکبری کا ایک ضمیمه ہے", one that adds new information.
+  - On the Punjab in particular: "خاص طور پر قابل ذکر پنجاب کا جغرافیه ہے اور اوس میں بھی صوبه لاہور اور مصنف کے وطن پرگنه بٹاله کا جو بیشتر مصنف کی ذاتی واقفیت پر مبنی ہے" (p. 598).
+  - Part 2 also has "خاص اہمیت": it is probably the first published Persian history to shed light on ancient Indian history, "اگرچه اوس زمانه کے واقعات عموماً قصه و کہانی سے زیاده وقعت نہیں رکھتے" (p. 598).
+  - Part 3 takes most of its events from the histories the author lists in his preface. But its detailed account of the civil war between Aurangzeb and his brothers adds information, and because it rests on the author's own knowledge it is "مستند" (p. 598).
+  - The Khulasat is probably the first old history of the Muslim kings written "ایک ہندو کے قلم سے" (p. 598).
+    - It was plainly not written "پادشاه وقت کے زیر اثر", so it will be "بہترین ذریعه معلومات".
+    - It also shows what a Hindu historian "اب سے دو ڈھائی سو برس پہلے" thought of the Muslim kings, and especially of his contemporary Aurangzeb.
+- **The edition's limits, "معذرت"** (pp. 598–597):
+  - The editor describes the labour of collation and of reading "شکسته اور بدخط تحریرات". Verifying names was the hardest part, because old scribes were "نقطوں اور مرکز دینے[OCR?] کی پابندی سے بری" (p. 598).
+  - Collation began in June 1917, and he expected publication by the end of that year. Copying ("کاپی نویسی") and printing brought difficulties he had not foreseen. He regrets that "غلطیاں بھی جو لیتھو کے ساتھه لازم و ملزوم کا حکم رکھتی ہین رہگئی ہین", despite careful proofreading (p. 597).
+
+## Citable passages
+
+- "پنجاب کا جغرافیه … صوبه لاہور اور مصنف کے وطن پرگنه بٹاله کا جو بیشتر مصنف کی ذاتی واقفیت پر مبنی ہے" — "the geography of the Punjab … of suba Lahore and of the author's home, pargana Batala, which rests mostly on the author's personal knowledge." (the editor, p. 598)
+- "خلاصة التواریخ سنه ۴۰ جلوس اورنگ زیب مطابق سنه ۱۱۰۷ ہجری (سنه ۱۶۹۵-۹۶ع) میں تحریر ہوئی" — "The Khulasat al-Tawarikh was written in regnal year 40 of Aurangzeb, corresponding to 1107 AH (1695-96)." (p. 599)
+- "تصنیف منشی المناشی سجان رائے بهنداری ساکن بٹاله که در علوم ہندی و فارسی و سنسکرت دستگاه داشت" — "composed by the munshi of munshis Sujan Rai Bhandari, resident of Batala, who was master of the Hindi, Persian and Sanskrit sciences." (MS 4 colophon, p. 600)
+- "خلاصة التواریخ غالباً پہلی قدیمی تاریخ ہے جس میں پادشاہان اسلام کے حالات ایک ہندو کے قلم سے تحریر ہوئے ہیں" — "The Khulasat is probably the first old history in which the affairs of the Muslim kings were written by a Hindu's pen." (p. 598)
+- "یه کتاب پادشاه وقت کے زیر اثر تحریر نہیں ہوئی اس لئے اہل نظر کے لیے وه بہترین ذریعه معلومات ہوگی" — "This book was not written under the influence of the reigning king, so for discerning readers it will be the best source of information." (p. 598)
+
+## Doubts
+
+- **Zero mappings.** No archive row's site or principal figure is named on pp. 592–610.
+  - Lahore appears as "صوبه دارالسلطنت لاهور" (a TOC heading, p. 594) and as "صوبه لاہور" (the editor, p. 598). Both mean the Mughal suba, not the city, so the 35 Lahore rows are not attached under ruling (a).
+  - Multan appears only as "صوبه دارالامان ملتان" (p. 594), and Thatta only as "صوبه تهته" (p. 594). Both are locators.
+- **No Province-level bullet.** The chunk makes no statement about what is in any suba. The TOC headings are locators.
+  - The editor's sentence on "پنجاب کا جغرافیه ... صوبه لاہور ... پرگنه بٹاله" (p. 598) judges the book's sources, not the province, so it is recorded under Arguments rather than as PROVINCE punjab. The consolidator may wish to carry it into "What this book is" as a reliability note on the suba Lahore pages. That unit is the book's own: a Mughal suba, not the modern province.
+  - MS 2's "ساکن بٹاله مضاف[OCR?] صوبه پنجاب" (p. 601) is a scribe's description of Batala. Batala is outside Pakistan, so under ruling (c)(3) it takes no province.
+- **The Langah TOC lines** (p. 592) name "لنگاه" but not Multan, so nothing from them is attached to Multan's 8 rows. The first locator is flagged "۲۹۲[OCR?]".
+- **"سلطان قطب الدین"** appears in "سلطان آرام شاه پسر خوانده سلطان قطب الدین | ۱۸۹" (p. 593). The line names him only as Aram Shah's adoptive father. It gives no "ایبک" and no place, and, as transcribed, he has no heading of his own; the line before is "سلطان شهاب الدین عرف معزالدین محمد | ۱۸۴".
+  - Identifying him with the principal figure of `tomb-of-qutbuddin-aibak` would be an identification the chunk does not make, and a TOC line is only a locator. Not mapped.
+  - Check against the page image whether the TOC really has no Qutb al-Din heading or whether the transcription dropped a line.
+- **"دربیان کشته شدن شاه ابو المعالی | ۳۵۲"** (p. 592) is a name match only with `darbar-abul-muali-qadri`, whose principal figure is "Shah Abul Muali Qadri". The heading sits in Akbar's reign, concerns a killing, and gives no title, nisba or place. Not mapped; weigh it against the body text at printed ۳۵۲.
+- **No other name in the TOC is a row's principal figure.** Checked: Sabuktigin, Mahmud, Iltutmish, Razia, the Khaljis, the Tughluqs, the Lodis, Babur, Sher Shah, Humayun and Akbar. Rulers are not shrines (brief, wave-1 rule 2). "سلطان شمس الدین عرف ملک التمش" is not a Shams of Multan.
+- **"گجرات".** Both TOC occurrences are suba Gujarat by the book's own words: "صوبه دارالبرکات گجرات | ۵۵" (p. 594), and "تسخیر ولایت گجرات" with the Mirzas (p. 592). Neither is Gujrat in the Punjab, so no row.
+- **"ولایت گکهران"** (TOC, printed ۳۵۰, p. 592): the chunk does not place it, and it is not in `toponym_map.txt`. Nothing attached.
+- **An inconsistency in the editor's account.** He says the scribes of MSS 2, 3 and 4 write the author's name at the end (p. 600), but the MS 3 colophon he quotes contains no name (p. 601). Recorded, not resolved.
+- **Spellings of the author's name.** "بهنڈاری" (pp. 601, 600) and "بهنداری" (the MS 4 colophon, p. 600); "سجان رائے" throughout; Dowson's "سبحان رائے" and "پٹیاله" (p. 600); the library card's "Sujān Rā'e Bhandārī" (p. 609). All are quoted as printed, and none is preferred here.
+- **The regnal year of composition** is illegible on p. 602 ("[illegible: a superscript numeral]"). P. 599 prints "سنه ۴۰ جلوس".
+- **Dates are carried as printed; none is converted:**
+  - MS 1: year "احد[OCR?]" of Alamgir II, equated with "یکهزار و یکصد و شصت و هشت هجری" (p. 601).
+  - MS 2: the Hijri year is given only as "یکهزار و دو صد چیزے بالا" ("one thousand two hundred and something"). The regnal year is missing, and the Bikrami year is "یکهزار و هشت صد شصت و چهار" (p. 601). The identification of "شاه اکبر ولد حضرت شاه عالم" as "اکبرشاه ثانی" is the editor's.
+  - MS 3: the year is printed as "سنه ..." because it is rubbed out (p. 601).
+  - Death notice: "۱۱۱۸[OCR?]". In the editor's and Dowson's view it is a copyist's addition, not the author's text (p. 602).
+- **Flags on manuscript and bibliographic figures:**
+  - MS 1 line count "۲۰[OCR?]" (p. 602).
+  - MS 2 folio total "سـ۵[OCR?]" (p. 601).
+  - MS 4 size "۷¾ انچه[OCR?]" and MS 5 size "۶[OCR?] انچه" (p. 600).
+  - The date of Afif's Tarikh-i Firuz Shahi, printed "۱۸۶۰[OCR?]ع" (p. 596).
+- **The "٭" after most works-cited entries** (all but nos. ۸, ۹, ۱۳, ۱۹ and ۲۰) is not explained in the chunk. The editor also ends paragraphs with "٭" throughout the introduction. Its meaning is not stated.
+- **Paginations and page joins:**
+  - The introduction carries abjad folios ا to ح (pp. 604–597), the works list 1–2 (pp. 596–595), and the TOC 3–5 (pp. 594–592). These are recorded only and not cited.
+  - Each introduction page ends mid-sentence and joins the next lower page cleanly.
+  - P. 593 ends "۲۶[illegible: last digit under the library watermark]", and p. 592 resumes at "۲۶۵". The TOC continues below p. 592, outside this chunk.
+  - "صفحه ۶" and "صفحه ۴۹۰" (both p. 600), and every TOC number, are printed pages of the 1918 edition, quoted as text.
+- **The TOC has eighteen suba headings** (p. 594), matching the editor's "اٹھاره صوبجات" (p. 599). Recorded only.
+- **Provenance marks** on pp. 605–610 belong to the scan, not the book. On the p. 608 stamp, "OF T[OCR?]" and "JUN 4 9[OCR?]" are left as printed. The p. 609 pocket names the University of Toronto Library.
+- **Damage** is light: 18 `[OCR?]` and 4 `[illegible]` in all.
+  - Four flags are on the library marks (p. 608).
+  - Three are in the TOC: "سریر آرای[OCR?]" (p. 594), "۲۹۲[OCR?]" and "۳۶۹[OCR?]" (p. 592). The TOC also has three `[illegible]`, on pp. 594, 593 and 592.
+  - The other eleven are in the introduction and works list: the dates and figures listed above, "مضاف[OCR?]" (p. 601), "متبحر[OCR?]" (p. 597), "مرکز دینے[OCR?]" (p. 598) and "ہو[OCR?]" (p. 599). The fourth `[illegible]` is the regnal year on p. 602.
+  - The lower parts of pp. 597 and 595 carry only show-through from the reverse of the leaf.
