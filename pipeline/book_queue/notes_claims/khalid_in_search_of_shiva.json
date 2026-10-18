@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-04T05:51:25Z",
-  "expires_at": "2026-10-04T07:21:25Z",
-  "note": "Pass 2 (9/9 noted) [taking over a released or expired claim; previous holder session_013QRvhWXMiKgydz2LtWojnU]",
-  "released_at": "2026-10-04T06:01:55Z",
-  "released_by": "session_01A3TFE7Vg6AfRsakDYiSRrw",
-  "session": "session_01A3TFE7Vg6AfRsakDYiSRrw",
+  "claimed_at": "2026-10-12T19:34:41Z",
+  "expires_at": "2026-10-12T21:04:41Z",
+  "note": "integration (batch of 14) [taking over a released or expired claim; previous holder session_01A3TFE7Vg6AfRsakDYiSRrw]",
+  "released_at": "2026-10-12T19:35:14Z",
+  "released_by": "session_019MfndMWm8AitHWNVbHXcmK",
+  "session": "session_019MfndMWm8AitHWNVbHXcmK",
   "slug": "khalid_in_search_of_shiva",
   "status": "released"
 }

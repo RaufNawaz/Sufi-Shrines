@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-10-18T19:53:22Z",
+  "expires_at": "2026-10-18T21:23:22Z",
+  "note": "[taking over a released or expired claim; previous holder sched_2026-10-17T1422Z]",
+  "released_at": "2026-10-18T20:08:41Z",
+  "released_by": "sched_2026-10-18T1952Z",
+  "session": "sched_2026-10-18T1952Z",
+  "slug": "as_printed_sweep",
+  "status": "released"
+}

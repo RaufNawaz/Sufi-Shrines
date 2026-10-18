@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-10-14T12:25:13Z",
+  "expires_at": "2026-10-14T16:25:13Z",
+  "note": "[taking over a released or expired claim; previous holder session_sched_2026-10-13T2222Z]",
+  "released_at": "2026-10-14T12:33:23Z",
+  "released_by": "session_sched_2026-10-14T1222Z",
+  "session": "session_sched_2026-10-14T1222Z",
+  "slug": "desc__purana-bhalwal",
+  "status": "released"
+}

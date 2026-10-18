@@ -1,8 +1,10 @@
 {
-  "claimed_at": "2026-10-10T22:07:03Z",
-  "expires_at": "2026-10-10T23:37:03Z",
-  "note": "12/48 notes; wave 3 = 009,012,014,021,025,033 [renewing own claim; previous holder session_018MEC39WXYZaZATQGaNdiix]",
-  "session": "session_018MEC39WXYZaZATQGaNdiix",
+  "claimed_at": "2026-10-12T19:35:14Z",
+  "expires_at": "2026-10-12T21:05:14Z",
+  "note": "integration (batch of 14) [taking over a released or expired claim; previous holder session_01RUFK6hb2x6R1yGNjF6TF2t]",
+  "released_at": "2026-10-12T19:36:28Z",
+  "released_by": "session_019MfndMWm8AitHWNVbHXcmK",
+  "session": "session_019MfndMWm8AitHWNVbHXcmK",
   "slug": "khulasat_ut_tawarikh",
-  "status": "active"
+  "status": "released"
 }

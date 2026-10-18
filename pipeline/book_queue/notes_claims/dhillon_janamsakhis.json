@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-09-29T20:00:51Z",
-  "expires_at": "2026-09-29T21:30:51Z",
-  "note": "PASS 2 (interactive) [renewing own claim; previous holder session_012pf4pkZbJfu7V69aqUgksB]",
-  "released_at": "2026-09-29T20:06:52Z",
-  "released_by": "session_012pf4pkZbJfu7V69aqUgksB",
-  "session": "session_012pf4pkZbJfu7V69aqUgksB",
+  "claimed_at": "2026-10-12T19:31:41Z",
+  "expires_at": "2026-10-12T21:01:41Z",
+  "note": "integration (batch of 14) [taking over a released or expired claim; previous holder session_012pf4pkZbJfu7V69aqUgksB]",
+  "released_at": "2026-10-12T19:33:23Z",
+  "released_by": "session_019MfndMWm8AitHWNVbHXcmK",
+  "session": "session_019MfndMWm8AitHWNVbHXcmK",
   "slug": "dhillon_janamsakhis",
   "status": "released"
 }

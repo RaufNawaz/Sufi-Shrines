@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-10-13T21:46:07Z",
+  "expires_at": "2026-10-14T00:46:07Z",
+  "note": "[renewing own claim; previous holder session_sched_2026-10-13T2030Z]",
+  "released_at": "2026-10-13T21:57:46Z",
+  "released_by": "session_sched_2026-10-13T2030Z",
+  "session": "session_sched_2026-10-13T2030Z",
+  "slug": "desc__tomb-of-qutbuddin-aibak",
+  "status": "released"
+}

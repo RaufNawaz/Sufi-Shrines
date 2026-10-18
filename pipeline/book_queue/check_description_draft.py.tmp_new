@@ -1,0 +1,252 @@
+#!/usr/bin/env python3
+"""check_description_draft.py — refuse a rewritten Description that breaks RULE 2 or the shape.
+
+Rauf ruled on 13 October 2026 (HANDOVER §9.333) that the Descriptions of the rows with
+row-specific material from two or more books are REWRITTEN from their shrine entries, as long
+as the material supports, with more of the books' verse. The brief is
+`docs/prompts/DESCRIPTION_REWRITE_BRIEF.md`. This is its instrument (RULE 4): every check exits
+non-zero rather than warns, and a failure is fixed in the DRAFT unless the check is wrong.
+
+    python3 pipeline/book_queue/check_description_draft.py ID [ID ...] [--sheet CSV] [--quiet]
+
+Reads entries/descriptions/<id>.md (the proposed cell), shrine_entries/<id>.md (the material)
+and the row's current Description from --sheet (default: the 8 Oct post-import snapshot).
+
+Checks, per draft:
+  F1  single newlines only inside a verse paragraph (every line Arabic-script, no Latin, no list
+      marker — the exact shape src/components/shrine/ProseParagraphs.tsx renders as verse) or a
+      run of "- " list items
+  F2  headings are "## " lines opening a paragraph; no "#", "###"
+  F3  asterisks balanced in every paragraph
+  F4  no HTML, footnote syntax or tables
+  F5  "## Bibliography" present and the last heading
+  F6  no "## " section over 45,000 characters (a Sheets cell holds 50,000; long articles are
+      split across section columns by section, §9.334)
+  P1  no process vocabulary (the notes, takeaways, chunk, Doubt I23, archive row, OCR outside
+      "[OCR?]", PDF page, Pass 1/2)
+  C1  every citation "(Surname, *Title*, p. …)" names a book whose "## From" section exists in
+      the entry, and its page reference occurs in THAT section (digit-bounded)
+  Q1  every Arabic-script run of 3+ words occurs verbatim in the entry or the current Description
+      (bold markers and whitespace normalised; [OCR?]/[illegible…] kept as tokens)
+  Q2  every quoted English passage of 6+ words occurs in the entry or the current Description
+  Q3  every segment of an italic verse rendering ("*… / …*") of 4+ words occurs there too: no
+      verse translation of our own
+  B1  every "- " item of the current Description's bibliography is kept verbatim
+  B2  every book cited in the body has a bibliography item carrying its title
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import os
+import re
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
+DEFAULT_SHEET = os.path.join(REPO, "data", "snapshot_2026-10-08_post-import.csv")
+
+ARABIC = re.compile(r"[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]")
+LATIN = re.compile(r"[A-Za-z]")
+PROCESS = re.compile(
+    r"\b(the notes|takeaways?|chunks?|Doubt [A-Z]{0,2}\d+|archive row|PDF page|Pass [12])\b"
+    r"|\bOCR\b(?!\?\])",
+    re.I,
+)
+CITE_GROUP = re.compile(r"\(([^()]*\*[^*()]+\*[^()]*\bp{1,2}\. [^()]*)\)")
+SECTION_MAX = 45000
+OCR_TOKEN = "⟪q⟫"
+ILL_TOKEN = "⟪i⟫"
+
+
+def norm(s: str) -> str:
+    s = s.replace("**", "").replace("’", "'").replace("‘", "'")
+    s = s.replace("“", '"').replace("”", '"').replace("‌", "")
+    s = s.replace("[OCR?]", OCR_TOKEN)
+    s = re.sub(r"\[illegible[^\]]*\]", ILL_TOKEN, s)
+    s = s.replace("*", "")
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def load_sheet(path: str) -> dict:
+    with open(path, encoding="utf-8", newline="") as fh:
+        return {r["id"]: r for r in csv.DictReader(fh)}
+
+
+def book_sections(entry: str) -> list:
+    """[(heading, text)] for every '## From …' section."""
+    out = []
+    parts = re.split(r"^(## .+)$", entry, flags=re.M)
+    for i in range(1, len(parts), 2):
+        h = parts[i][3:].strip()
+        if h.startswith("From "):
+            out.append((h[5:].strip(), parts[i + 1]))
+    return out
+
+
+def paragraphs(text: str) -> list:
+    return [p for p in re.split(r"\n\s*\n", text.strip()) if p.strip()]
+
+
+def is_verse(p: str) -> bool:
+    lines = [l.strip() for l in p.split("\n") if l.strip()]
+    return len(lines) >= 2 and all(
+        ARABIC.search(l) and not LATIN.search(l.replace("[OCR?]", "")) and not re.match(r"^[-*•#]", l)
+        for l in lines
+    )
+
+
+def is_list(p: str) -> bool:
+    return all(l.startswith("- ") for l in p.split("\n") if l.strip())
+
+
+def bib_items(desc: str) -> list:
+    m = re.search(r"^## (Bibliography|Sources|References)\s*$", desc, re.M)
+    if not m:
+        return []
+    return [l.strip() for l in desc[m.end():].split("\n") if l.strip().startswith("- ")]
+
+
+def arabic_runs(text: str) -> list:
+    """Arabic-script runs of 3+ words, taken line by line so that a run never joins two
+    paragraphs or two hemistichs (each hemistich must occur in the source on its own)."""
+    out = []
+    for line in text.split("\n"):
+        t = norm(line)
+        # Latin words split runs; the two marker tokens are already non-Latin
+        for seg in re.split(r"[A-Za-z][A-Za-z'\-]*|\u2026|\.\.\.|\s/\s", t):
+            seg = seg.strip(" ,.;:()[]\"'-\u2013\u2014|0123456789")
+            words = [w for w in seg.split() if ARABIC.search(w)]
+            if len(words) >= 3:
+                out.append(seg)
+    return out
+
+
+def check(id_: str, sheet: dict, quiet: bool, draft_dir: str = "") -> list:
+    errs = []
+    dpath = os.path.join(draft_dir or os.path.join(REPO, "entries", "descriptions"), id_ + ".md")
+    epath = os.path.join(REPO, "shrine_entries", id_ + ".md")
+    if not os.path.exists(dpath):
+        return ["no draft at %s" % os.path.relpath(dpath, REPO)]
+    if not os.path.exists(epath):
+        return ["no entry at %s" % os.path.relpath(epath, REPO)]
+    if id_ not in sheet:
+        return ["id %r not in the sheet snapshot" % id_]
+    draft = open(dpath, encoding="utf-8").read().strip("\n")
+    entry = open(epath, encoding="utf-8").read()
+    current = sheet[id_]["Description"]
+    pool = norm(entry) + " ‖ " + norm(current)
+    secs = book_sections(entry)
+
+    paras = paragraphs(draft)
+    if "\r" in draft:
+        errs.append("F1 carriage return in draft")
+    headings = []
+    for n, p in enumerate(paras, 1):
+        lines = p.split("\n")
+        if p.lstrip().startswith("#"):
+            # the archive's own articles sometimes run a heading straight into its first
+            # paragraph on the next line; the renderer splits on the heading line, so accept it
+            if not re.match(r"^## \S", lines[0]) or lines[0].startswith("###"):
+                errs.append("F2 paragraph %d: heading must be '## ': %r" % (n, lines[0][:60]))
+            headings.append(lines[0][3:].strip())
+            if len(lines) == 1:
+                continue
+            p = "\n".join(lines[1:])
+            lines = lines[1:]
+        if len(lines) > 1 and not (is_verse(p) or is_list(p)):
+            errs.append("F1 paragraph %d has a single newline and is neither verse nor a list: %r" % (n, p[:80]))
+        if p.count("*") % 2:
+            errs.append("F3 paragraph %d: unbalanced asterisks: %r" % (n, p[:80]))
+        if re.search(r"</?[a-zA-Z][^>]*>|\[\^|^\s*\|.*\|\s*$", p, re.M):
+            errs.append("F4 paragraph %d: HTML, footnote or table syntax" % n)
+    # F6 — a Google Sheets cell holds at most 50,000 characters. Rauf ruled on 13 October 2026
+    # (§9.334) that a long article is split across the site's dedicated section columns, never
+    # cut, so the limit binds each "## " section (the unit the splitter moves), not the article.
+    for sec in re.split(r"(?m)^(?=## )", draft):
+        if len(sec) > SECTION_MAX:
+            errs.append("F6 section %r is %d chars; a section must stay under %d so the article can be "
+                        "split across cells — divide it under two headings" % (sec.split("\n")[0][:50], len(sec), SECTION_MAX))
+    if not headings or headings[-1] not in ("Bibliography",):
+        errs.append("F5 '## Bibliography' missing or not the last heading (last: %r)" % (headings[-1] if headings else None))
+
+    body = draft.split("\n## Bibliography")[0]
+    for m in PROCESS.finditer(body):
+        errs.append("P1 process vocabulary in prose: %r … %r" % (m.group(0), body[max(0, m.start() - 40):m.end() + 40]))
+
+    cited_titles = set()
+    for g in CITE_GROUP.finditer(body):
+        for part in g.group(1).split(";"):
+            part = part.strip()
+            tm = re.search(r"\*([^*]+)\*", part)
+            if not tm:
+                continue
+            title = tm.group(1).strip()
+            ref = part[tm.end():].lstrip(" ,").strip()
+            if not re.match(r"pp?\. ", ref):
+                errs.append("C1 citation without a page reference: (%s)" % part)
+                continue
+            hits = [(h, t) for h, t in secs if title in h]
+            if not hits:
+                errs.append("C1 cited title %r matches no '## From' section (have: %s)" % (title, "; ".join(h for h, _ in secs)))
+                continue
+            cited_titles.add(title)
+            pat = re.escape(norm(ref)) + r"(?![0-9])"
+            if not any(re.search(pat, norm(t)) for _, t in hits):
+                errs.append("C1 %r not found in the %r section: (%s)" % (ref, hits[0][0], part))
+
+    for seg in arabic_runs(body):
+        if seg not in pool:
+            errs.append("Q1 Arabic-script run not in the entry or current text: %r" % seg[:120])
+
+    # pair every double quote in order (a length floor here once threw every later pair out of
+    # step: a short quotation made the next prose read as a quotation, §9.334)
+    for m in re.finditer(r'"([^"]*)"', norm(body)):
+        q = m.group(1).strip(" ,.;:")
+        if len(q.split()) >= 6 and LATIN.search(q) and not ARABIC.search(q):
+            if q not in pool:
+                errs.append("Q2 English quotation not in the entry or current text: %r" % q[:120])
+
+    for p in paras:
+        if p.startswith("*") and " / " in p:
+            inner = p.split("*")[1] if p.count("*") >= 2 else p
+            for seg in inner.split(" / "):
+                s = norm(seg).strip(" ,.;:\"'")
+                if len(s.split()) >= 4 and s not in pool:
+                    errs.append("Q3 verse rendering not in the entry or current text: %r" % s[:120])
+
+    dbib = bib_items(draft)
+    for item in bib_items(current):
+        if item not in dbib:
+            errs.append("B1 current bibliography item dropped: %r" % item[:100])
+    bibtext = "\n".join(dbib)
+    for t in cited_titles:
+        if t not in bibtext:
+            errs.append("B2 cited book %r has no bibliography item" % t)
+
+    if not quiet:
+        print("%s  %s  current %d chars -> draft %d chars, %d citations to %d books, %d paragraphs"
+              % ("FAIL" if errs else "ok  ", id_, len(current), len(draft),
+                 sum(len(g.group(1).split(";")) for g in CITE_GROUP.finditer(body)), len(cited_titles), len(paras)))
+    return errs
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("ids", nargs="+")
+    ap.add_argument("--sheet", default=DEFAULT_SHEET)
+    ap.add_argument("--quiet", action="store_true")
+    ap.add_argument("--draft-dir", default="", help="read drafts from here instead (self-tests)")
+    a = ap.parse_args()
+    sheet = load_sheet(a.sheet)
+    bad = 0
+    for i in a.ids:
+        errs = check(i, sheet, a.quiet, a.draft_dir)
+        for e in errs:
+            print("   " + e)
+        bad += bool(errs)
+    return 1 if bad else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

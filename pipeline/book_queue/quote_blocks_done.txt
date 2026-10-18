@@ -1,0 +1,22 @@
+# Rows whose Descriptions have every non-English quotation in an original-script block (HANDOVER §9.366).
+# Written by check_quote_blocks.py done; one id per line.
+mazar-of-bulleh-shah
+guru-gurpat-mandir-db-80-sirey-ghat
+lal-shahbaz-qalandar
+rahman-baba-mausoleum-rehman-baba-shrine
+sadh-belo-sadh-belo-island-temple
+shri-laxmi-narayan-mandir-native-jetty-bridge
+shri-panchmukhi-hanuman-mandir-karachi
+shrine-of-makhdoom-abdul-rahim-girhori
+sial-sharif
+gorakhnath-goraknath-temple
+katas-raj-temples
+mausoleum-of-waris-shah
+prahladpuri-temple
+shaktipeeth-shri-hinglaj-mata-mandir
+tomb-of-javindi-bibi
+dargah-of-khwaja-muhammad-zaman-luari-sharif
+dargah-pir-ratan-nath-jee
+gurdwara-sacha-sauda
+gurdwara-tambo-sahib
+mithankot-kot-mithan

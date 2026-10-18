@@ -1,0 +1,7 @@
+T="Saiyid Athar Abbas Rizvi, A History of Sufism in India, vol. 1"
+D="12 October 2026"
+HELD="mazar-of-bulleh-shah,shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari,shrine-of-makhdoom-jahaniyan-jahangasht"
+NEG="langer-makhdoom,shergarh,sakhi-sarwar,gurdwara-dash-mesh-pita,gurdwara-chhevin-patshahi-chitti-gatti,gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan,gurdwara-chhevin-patshahi-mozang,gurdwara-chowmala-sahib,gurdwara-patshahi-chhevin-hadiara-lahore,gurdwara-guru-ram-das-ji"
+DA="data-darbar:L7763,shrine-of-bahauddin-zakariya:L7764,shrine-of-fariduddin-ganjshakar:L7766,shrine-of-fariduddin-ganjshakar:L7765,shrine-of-shah-rukn-e-alam:L7767,shrine-of-miran-hussain-zanjani-zanjani-sahib:L7768,tomb-of-qutbuddin-aibak:L7770,gurdwara-darbar-sahib-kartarpur:L7771,gurudwara-janam-asthan-nankana-sahib:L7771,gurdwara-dera-sahib:L7772,lal-shahbaz-qalandar:L7773,dargah-pir-ratan-nath-jee:L8024,gurdwara-sahib-saidpur-guru-nanak-dev-ji:L8033,gurudwara-janam-asthan-nankana-sahib:L8043"
+DAH="shrine-of-makhdoom-jahaniyan-jahangasht:L7769,shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari:L7774"
+CN="Attached as this book's claim, not as a settled identification or date (Rauf, 10 October 2026). This row was held over an open question (a death year, or which man or which shrine is meant); the book's material and its doubts are shown as they stand and do not settle it."

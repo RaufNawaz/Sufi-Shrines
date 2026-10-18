@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-05T13:49:31Z",
-  "expires_at": "2026-10-05T15:19:31Z",
-  "note": "province sweep (ruling c), \u00a79.257 [taking over a released or expired claim; previous holder session_01FrYV2YkwVWReuKExH3A6T6]",
-  "released_at": "2026-10-05T14:10:36Z",
-  "released_by": "session_013fu7ixkPpX9Xs8e4t9PjcS",
-  "session": "session_013fu7ixkPpX9Xs8e4t9PjcS",
+  "claimed_at": "2026-10-12T01:26:39Z",
+  "expires_at": "2026-10-12T02:56:39Z",
+  "note": "integration [taking over a released or expired claim; previous holder session_013fu7ixkPpX9Xs8e4t9PjcS]",
+  "released_at": "2026-10-12T01:33:14Z",
+  "released_by": "session_01JPxF4fZ5wmThmZ1ZL5atAh",
+  "session": "session_01JPxF4fZ5wmThmZ1ZL5atAh",
   "slug": "rizvi_history_of_sufism_india_1",
   "status": "released"
 }

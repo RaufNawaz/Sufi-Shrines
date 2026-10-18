@@ -1,0 +1,220 @@
+# Aliases the join check (join_check.py screen) searches for in each proposed row's entry line.
+# archive_id <TAB> alias. A Latin alias matches as a whole word, case- and accent-insensitive;
+# an Arabic-script alias matches as a plain substring. These are reading aids for the SCREEN only:
+# a hit is a candidate to be read, never a decision. Add an alias whenever a reader finds a clue
+# the screen missed (say so in the run record).
+data-darbar	Data
+data-darbar	Ganj Bakhsh
+data-darbar	Hujwiri
+data-darbar	داتا
+data-darbar	گنج بخش
+data-darbar	ہجویری
+data-darbar	هجویری
+shrine-of-mian-mir	Mian Mir
+shrine-of-mian-mir	میاں میر
+shrine-of-mian-mir	میان میر
+madho-lal-hussain	Madho Lal
+madho-lal-hussain	Shah Husain
+madho-lal-hussain	Shah Hussain
+madho-lal-hussain	مادھو
+madho-lal-hussain	شاہ حسین
+bibi-pak-daman	Pak Daman
+bibi-pak-daman	Pakdaman
+bibi-pak-daman	پاکدامن
+bibi-pak-daman	پاک دامن
+shah-jamal	Shah Jamal
+shah-jamal	شاہ جمال
+peer-makki	Makki
+peer-makki	مکی
+shrine-of-shah-inayat-qadiri	Shah Inayat
+shrine-of-shah-inayat-qadiri	شاہ عنایت
+shrine-of-baba-shah-chiragh	Chiragh
+shrine-of-baba-shah-chiragh	چراغ
+shrine-of-baba-shah-chiragh	Abd al-Razzaq
+shrine-of-baba-shah-chiragh	عبدالرزاق
+shrine-of-baba-shah-chiragh	عبد الرزاق
+shrine-of-mauj-darya-bukhari	Mauj Darya
+shrine-of-mauj-darya-bukhari	موج دریا
+shrine-of-miran-hussain-zanjani-zanjani-sahib	Zanjani
+shrine-of-miran-hussain-zanjani-zanjani-sahib	زنجانی
+shrine-of-baba-shah-kamal	Shah Kamal
+shrine-of-baba-shah-kamal	شاہ کمال
+tomb-of-qutbuddin-aibak	Aibak
+tomb-of-qutbuddin-aibak	ایبک
+darbar-malik-ahmad-ayaz	Ayaz
+darbar-malik-ahmad-ayaz	ایاز
+darbar-abul-muali-qadri	Abu al-Muali
+darbar-abul-muali-qadri	Abul Muali
+darbar-abul-muali-qadri	ابوالمعالی
+darbar-abul-muali-qadri	ابو المعالی
+tahir-bandagi-qadri	Tahir Bandagi
+tahir-bandagi-qadri	Shaikh Tahir
+tahir-bandagi-qadri	طاہر
+abul-faiz-qalander-ali-suharwardi	Qalandar Ali
+abul-faiz-qalander-ali-suharwardi	قلندر علی
+samadhi-of-maharaja-ranjit-singh	Ranjit Singh
+samadhi-of-maharaja-ranjit-singh	رنجیت سنگھ
+gurdwara-dera-sahib	Guru Arjan
+gurdwara-dera-sahib	ارجن
+gurdwara-guru-ram-das-ji	Ram Das
+gurdwara-guru-ram-das-ji	رام داس
+gurdwara-shaheed-bhai-taru-singh	Taru Singh
+gurdwara-shaheed-bhai-taru-singh	تارو سنگھ
+gurdwara-shaheed-ganj-singh-singhnian	Shahid Ganj
+gurdwara-shaheed-ganj-singh-singhnian	Shaheed Ganj
+gurdwara-shaheed-ganj-singh-singhnian	شہید گنج
+gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	Baoli
+gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	باؤلی
+gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	باولی
+gurdwara-babay-nanki	Nanaki
+gurdwara-babay-nanki	نانکی
+gurdwara-chhevin-patshahi-mozang	Hargobind
+gurdwara-chhevin-patshahi-mozang	ہرگوبند
+gurdwara-chowmala-sahib	Chowmala
+gurdwara-chowmala-sahib	Chaumala
+loh-temple-lava-temple	Lava
+loh-temple-lava-temple	Loh
+krishna-mandir-ravi-road	Ravi Road
+jain-mandir-lahore	Jain
+valmik-mandir-naqi-road	Valmik
+valmik-mandir-naqi-road	بالمیک
+mazar-e-iqbal	Iqbal
+ghazi-ilm-din-shaheed	Ilm Din
+khawaja-feroz-ud-din-gharib-nawaz	Gharib Nawaz
+shrine-of-bahauddin-zakariya	Baha al-Din Zakariya
+shrine-of-bahauddin-zakariya	Bahauddin Zakariya
+shrine-of-bahauddin-zakariya	بہاؤالدین
+shrine-of-bahauddin-zakariya	بہاء الدین
+shrine-of-bahauddin-zakariya	زکریا
+shrine-of-shah-rukn-e-alam	Rukn
+shrine-of-shah-rukn-e-alam	رکن الدین
+shrine-of-shah-rukn-e-alam	رکن عالم
+shrine-of-shah-yusaf-gardez	Gardez
+shrine-of-shah-yusaf-gardez	گردیز
+shrine-of-syed-musa-pak	Musa Pak
+shrine-of-syed-musa-pak	موسیٰ پاک
+shrine-of-syed-musa-pak	موسی پاک
+shrine-of-shah-shams-ud-din-sabzwari	Sabzwari
+shrine-of-shah-shams-ud-din-sabzwari	Shams Tabriz
+shrine-of-shah-shams-ud-din-sabzwari	سبزواری
+shrine-of-shah-shams-ud-din-sabzwari	شمس تبریز
+shrine-of-hafiz-muhammad-jamal-multani	Hafiz Jamal
+shrine-of-hafiz-muhammad-jamal-multani	حافظ جمال
+shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi	Ali Akbar
+shrine-of-makhdoom-jahaniyan-jahangasht	Jahaniyan
+shrine-of-makhdoom-jahaniyan-jahangasht	Jahangasht
+shrine-of-makhdoom-jahaniyan-jahangasht	جہانیاں
+shrine-of-makhdoom-jahaniyan-jahangasht	جہاں گشت
+shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari	Surkh
+shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari	سرخ پوش
+shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari	جلال الدین
+shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari	جلال بخاری
+tomb-of-javindi-bibi	Jawindi
+tomb-of-javindi-bibi	Javindi
+tomb-of-javindi-bibi	جیوندی
+tomb-of-baha-al-halim-uch-sharif	Baha al-Halim
+tomb-of-baha-al-halim-uch-sharif	بہاء الحلیم
+tomb-of-ustad-nuriya	Nuriya
+shrine-of-fariduddin-ganjshakar	Farid
+shrine-of-fariduddin-ganjshakar	Ganjshakar
+shrine-of-fariduddin-ganjshakar	Ganj-i Shakar
+shrine-of-fariduddin-ganjshakar	فرید
+shrine-of-fariduddin-ganjshakar	گنج شکر
+shrine-of-pir-sher-muhammad	Sher Muhammad
+shrine-of-pir-sher-muhammad	شیر محمد
+mazar-of-bulleh-shah	Bulleh
+mazar-of-bulleh-shah	Bulha
+mazar-of-bulleh-shah	بلھے
+mazar-of-bulleh-shah	بلہے
+mazar-of-bulleh-shah	بلھا
+shrine-of-hazrat-shah-daula-daryai	Shah Daula
+shrine-of-hazrat-shah-daula-daryai	شاہ دولہ
+shrine-of-imam-ali-ul-haq	Imam Ali
+shrine-of-imam-ali-ul-haq	امام علی
+shrine-of-akhund-darweza-baba	Darweza
+shrine-of-akhund-darweza-baba	درویزہ
+gorakhnath-goraknath-temple	Gor Khatri
+gorakhnath-goraknath-temple	گورکھتری
+rahman-baba-mausoleum-rehman-baba-shrine	Rahman Baba
+shrine-of-mian-umar-baba-chamkani	Chamkani
+shrine-of-mian-umar-baba-chamkani	چمکنی
+dargah-pir-ratan-nath-jee	Ratan Nath
+langer-makhdoom	Langar Makhdum
+langer-makhdoom	Burhan al-Din
+ranmal-sharif	Naushah Ganj Bakhsh
+ranmal-sharif	نوشہ
+ranmal-sharif	Naushah
+purana-bhalwal	Shah Sulaiman
+purana-bhalwal	Sakhi Badshah
+shergarh	Daud Bandagi
+shergarh	داؤد
+shamsabad	Shams Ali
+shah-yousuf	Shah Yousuf
+garh-maharaja-shorkot	Sultan Bahu
+garh-maharaja-shorkot	باہو
+sakhi-sarwar	Sakhi Sarwar
+sakhi-sarwar	سخی سرور
+sakhi-sarwar	Lakhdata
+lal-shahbaz-qalandar	Lal Shahbaz
+lal-shahbaz-qalandar	Sehwan
+madho-lal-hussain	Lal Husain
+madho-lal-hussain	لال حسین
+bibi-pak-daman	Tokhta
+bibi-pak-daman	توختہ
+shergarh	Daud Kirmani
+shrine-of-syed-musa-pak	Jamal al-Din Musa
+shrine-of-baba-shah-chiragh	Abdul Qadir Sani
+shrine-of-baba-shah-chiragh	Ghaus Bala Pir
+bari-imam	Hasan Peshawari
+bari-imam	حسن پشاوری
+gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	Chhajju
+gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	چہجو
+shrine-of-shah-inayat-qadiri	Raza Qadri
+shrine-of-shah-inayat-qadiri	رضا قادری
+shrine-of-shah-inayat-qadiri	Oonchi Masjid
+shrine-of-shah-inayat-qadiri	اونچی مسجد
+shrine-of-baba-shah-kamal	Kamil Shah
+shrine-of-baba-shah-kamal	کامل شاہ
+tahir-bandagi-qadri	Adam Banuri
+tahir-bandagi-qadri	آدم بنوری
+shrine-of-bahauddin-zakariya	Hamid Qari
+shrine-of-bahauddin-zakariya	حامد قاری
+shrine-of-bahauddin-zakariya	Kotli Muftian
+shrine-of-bahauddin-zakariya	Mian Kalan
+shrine-of-bahauddin-zakariya	میاں کلاں
+shrine-of-bahauddin-zakariya	صدر الدین عارف
+ranmal-sharif	Rahman Shah
+ranmal-sharif	Sachiar
+ranmal-sharif	سچیار
+samadhi-of-maharaja-ranjit-singh	Mai Bhagi
+samadhi-of-maharaja-ranjit-singh	مائی بھاگی
+samadhi-of-maharaja-ranjit-singh	Jindan
+samadhi-of-maharaja-ranjit-singh	رانی جند
+samadhi-of-maharaja-ranjit-singh	نو نہال
+samadhi-of-maharaja-ranjit-singh	Kharak Singh
+samadhi-of-maharaja-ranjit-singh	چند کنور
+data-darbar	Jali Shah
+data-darbar	جلی شاہ
+data-darbar	Shah Ashraf
+data-darbar	شاہ اشرف
+data-darbar	نور محمد سادھو
+shrine-of-fariduddin-ganjshakar	Ghore Shah
+shrine-of-fariduddin-ganjshakar	گھوڑے شاہ
+bibi-pak-daman	Rangrez
+bibi-pak-daman	رنگریز
+shrine-of-hazrat-shah-daula-daryai	شہر اللہ
+shrine-of-shah-rukn-e-alam	Bibi Rasti
+shrine-of-shah-rukn-e-alam	بی بی رستی
+shrine-of-shah-rukn-e-alam	بی بی راستی
+darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a	Maharvi
+darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a	مہاروی
+shrine-of-hafiz-muhammad-jamal-multani	Maharvi
+shrine-of-baba-shah-chiragh	نیلا گنبد
+shrine-of-baba-shah-chiragh	حاجی محمد سعید
+gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore	سنہری مسجد
+gurdwara-shaheed-ganj-singh-singhnian	Sarai Muhammad Sultan
+gurdwara-shaheed-ganj-singh-singhnian	محمد سلطان ٹہیکہ دار
+gurdwara-darbar-sahib-kartarpur	سری چند
+madho-lal-hussain	بہادر خاں
+madho-lal-hussain	بہادر خان
+langer-makhdoom	Mian Wadda

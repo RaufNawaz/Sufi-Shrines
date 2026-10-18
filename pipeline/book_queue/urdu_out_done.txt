@@ -1,0 +1,2 @@
+# Rows whose Description prose is English only, Arabic script left only in verse (HANDOVER §9.368).
+# Written by check_urdu_out.py done; one id per line.
