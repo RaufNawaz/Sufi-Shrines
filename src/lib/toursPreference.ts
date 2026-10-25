@@ -16,23 +16,14 @@
  * 169 sites. Anyone who has switched them on has said they want them.
  */
 import { TOURS_STORAGE_KEY } from './storageKeys';
+import { readStorage, writeStorage } from './safeStorage';
 
 export const DEFAULT_TOURS_ENABLED = false;
 
 export function readToursEnabled(): boolean {
-  if (typeof window === 'undefined') return DEFAULT_TOURS_ENABLED;
-  try {
-    return window.localStorage.getItem(TOURS_STORAGE_KEY) === 'on';
-  } catch {
-    return DEFAULT_TOURS_ENABLED;
-  }
+  return readStorage(TOURS_STORAGE_KEY) === 'on';
 }
 
 export function writeToursEnabled(enabled: boolean): void {
-  if (typeof window === 'undefined') return;
-  try {
-    window.localStorage.setItem(TOURS_STORAGE_KEY, enabled ? 'on' : 'off');
-  } catch {
-    // Preferences are optional when storage is unavailable.
-  }
+  writeStorage(TOURS_STORAGE_KEY, enabled ? 'on' : 'off');
 }

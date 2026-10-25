@@ -36,29 +36,18 @@
  * calm one.
  */
 import { MOTION_STORAGE_KEY } from './storageKeys';
+import { readStorage, writeStorage } from './safeStorage';
 
 export type MotionPreference = 'system' | 'reduced';
 
 export const DEFAULT_MOTION: MotionPreference = 'system';
 
 export function readMotionPreference(): MotionPreference {
-  if (typeof window === 'undefined') return DEFAULT_MOTION;
-  try {
-    return window.localStorage.getItem(MOTION_STORAGE_KEY) === 'reduced'
-      ? 'reduced'
-      : DEFAULT_MOTION;
-  } catch {
-    return DEFAULT_MOTION;
-  }
+  return readStorage(MOTION_STORAGE_KEY) === 'reduced' ? 'reduced' : DEFAULT_MOTION;
 }
 
 export function writeMotionPreference(motion: MotionPreference): void {
-  if (typeof window === 'undefined') return;
-  try {
-    window.localStorage.setItem(MOTION_STORAGE_KEY, motion);
-  } catch {
-    // Preferences are optional when storage is unavailable.
-  }
+  writeStorage(MOTION_STORAGE_KEY, motion);
 }
 
 /**

@@ -11,25 +11,16 @@
  * calendar preference rather than as a document attribute.
  */
 import { UNITS_STORAGE_KEY } from './storageKeys';
+import { readStorage, writeStorage } from './safeStorage';
 
 export type DistanceUnits = 'km' | 'mi';
 
 export const DEFAULT_UNITS: DistanceUnits = 'km';
 
 export function readUnits(): DistanceUnits {
-  if (typeof window === 'undefined') return DEFAULT_UNITS;
-  try {
-    return window.localStorage.getItem(UNITS_STORAGE_KEY) === 'mi' ? 'mi' : DEFAULT_UNITS;
-  } catch {
-    return DEFAULT_UNITS;
-  }
+  return readStorage(UNITS_STORAGE_KEY) === 'mi' ? 'mi' : DEFAULT_UNITS;
 }
 
 export function writeUnits(units: DistanceUnits): void {
-  if (typeof window === 'undefined') return;
-  try {
-    window.localStorage.setItem(UNITS_STORAGE_KEY, units);
-  } catch {
-    // Preferences are optional when storage is unavailable.
-  }
+  writeStorage(UNITS_STORAGE_KEY, units);
 }

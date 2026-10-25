@@ -21,6 +21,7 @@
  * reflow the reader watches happen.
  */
 import { TEXT_SIZE_STORAGE_KEY } from './storageKeys';
+import { readStorage, writeStorage } from './safeStorage';
 
 export type TextSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
@@ -59,22 +60,12 @@ export function textSizeAt(index: number): TextSize {
 }
 
 export function readTextSize(): TextSize {
-  if (typeof window === 'undefined') return DEFAULT_TEXT_SIZE;
-  try {
-    const stored = window.localStorage.getItem(TEXT_SIZE_STORAGE_KEY);
-    return isTextSize(stored) ? stored : DEFAULT_TEXT_SIZE;
-  } catch {
-    return DEFAULT_TEXT_SIZE;
-  }
+  const stored = readStorage(TEXT_SIZE_STORAGE_KEY);
+  return isTextSize(stored) ? stored : DEFAULT_TEXT_SIZE;
 }
 
 export function writeTextSize(size: TextSize): void {
-  if (typeof window === 'undefined') return;
-  try {
-    window.localStorage.setItem(TEXT_SIZE_STORAGE_KEY, size);
-  } catch {
-    // Preferences are optional when storage is unavailable.
-  }
+  writeStorage(TEXT_SIZE_STORAGE_KEY, size);
 }
 
 /**

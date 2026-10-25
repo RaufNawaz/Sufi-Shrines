@@ -85,7 +85,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   kept: `data/csv-source.json` (content, off-limits) and `public/_redirects` name it.
 - [ ] C3 Group the manual scripts into `scripts/measure/` and `scripts/maintenance/`, and fix the
   `package.json` description ("163 sites").
-- [ ] C4 Consolidate the seven preference modules into one `createStoredPreference` helper under
+- [~] C4 (storage half) Consolidate the seven preference modules into one `createStoredPreference` helper under
   `src/lib/preferences/`, and the JS duplicates (slug copies, Eastern digits in prerender,
   haversine, `parseCsv`).
 - [ ] C5 After the content session ends: root `RUN_IN_PROGRESS_*`, `docs/` archive layout,
@@ -156,3 +156,6 @@ The audits were read-only. Their findings, condensed, with file references as of
 - 25 Oct: B4 baseline committed: a CSP meta with `object-src 'none'; base-uri 'self';
   form-action 'self'`. The strict `script-src` half needs per-build hashes for prerender's
   inline scripts and is the next step if wanted.
+- 25 Oct: C4, storage half, committed. The seven preference modules use `safeStorage` and lose 70
+  lines of duplicated try/catch. Not moved into `src/lib/preferences/`: that is cosmetic, and it
+  would churn every import site for nothing a reader sees.

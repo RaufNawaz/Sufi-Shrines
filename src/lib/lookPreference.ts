@@ -1,5 +1,6 @@
 import { syncThemeColor } from './themeColor';
 import { LOOK_STORAGE_KEY } from './storageKeys';
+import { readStorage, writeStorage } from './safeStorage';
 
 /**
  * The archive's look: the Apple pass of 9 October 2026, or the warm serif
@@ -18,21 +19,11 @@ export type LookPreference = 'modern' | 'classic';
 export const DEFAULT_LOOK: LookPreference = 'modern';
 
 export function readLookPreference(): LookPreference {
-  if (typeof window === 'undefined') return DEFAULT_LOOK;
-  try {
-    return window.localStorage.getItem(LOOK_STORAGE_KEY) === 'classic' ? 'classic' : DEFAULT_LOOK;
-  } catch {
-    return DEFAULT_LOOK;
-  }
+  return readStorage(LOOK_STORAGE_KEY) === 'classic' ? 'classic' : DEFAULT_LOOK;
 }
 
 export function writeLookPreference(look: LookPreference): void {
-  if (typeof window === 'undefined') return;
-  try {
-    window.localStorage.setItem(LOOK_STORAGE_KEY, look);
-  } catch {
-    // Preferences are optional when storage is unavailable.
-  }
+  writeStorage(LOOK_STORAGE_KEY, look);
 }
 
 export function applyLookPreference(look: LookPreference, root: HTMLElement): void {

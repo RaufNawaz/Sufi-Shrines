@@ -28,27 +28,16 @@
  * recorded one*", and the help text on /settings says so.
  */
 import { CALENDAR_STORAGE_KEY } from './storageKeys';
+import { readStorage, writeStorage } from './safeStorage';
 
 export type CalendarPreference = 'gregorian' | 'hijri';
 
 export const DEFAULT_CALENDAR: CalendarPreference = 'gregorian';
 
 export function readCalendarPreference(): CalendarPreference {
-  if (typeof window === 'undefined') return DEFAULT_CALENDAR;
-  try {
-    return window.localStorage.getItem(CALENDAR_STORAGE_KEY) === 'hijri'
-      ? 'hijri'
-      : DEFAULT_CALENDAR;
-  } catch {
-    return DEFAULT_CALENDAR;
-  }
+  return readStorage(CALENDAR_STORAGE_KEY) === 'hijri' ? 'hijri' : DEFAULT_CALENDAR;
 }
 
 export function writeCalendarPreference(calendar: CalendarPreference): void {
-  if (typeof window === 'undefined') return;
-  try {
-    window.localStorage.setItem(CALENDAR_STORAGE_KEY, calendar);
-  } catch {
-    // Preferences are optional when storage is unavailable.
-  }
+  writeStorage(CALENDAR_STORAGE_KEY, calendar);
 }
