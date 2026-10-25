@@ -190,10 +190,36 @@ function DefaultBasemap({ isDark, lang }: { isDark: boolean; lang: Lang }) {
      exists to avoid. */
 
   return (
-    <React.Suspense fallback={null}>
-      <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />
-    </React.Suspense>
+    <BasemapBoundary onFailure={onFailure}>
+      <React.Suspense fallback={null}>
+        <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />
+      </React.Suspense>
+    </BasemapBoundary>
   );
+}
+
+/* A failed download of the ~1 MB maplibre chunk (common on patchy mobile data)
+   or a throw while it evaluates used to reach the route's error boundary and
+   replace the whole map page. Only the basemap is lost, so only the basemap
+   falls back: to the keyless raster tiles. */
+class BasemapBoundary extends React.Component<
+  { onFailure: () => void; children: React.ReactNode },
+  { failed: boolean }
+> {
+  override state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  override componentDidCatch(error: unknown) {
+    if (import.meta.env.DEV) console.warn('[map] vector basemap failed, using raster:', error);
+    this.props.onFailure();
+  }
+
+  override render() {
+    return this.state.failed ? null : this.props.children;
+  }
 }
 
 // Manages the raster fallback tile layer and switches it when dark mode changes.

@@ -4,7 +4,9 @@ import { detectInitialLang } from '../i18n/detectLang';
 /* Safari with "Block All Cookies" throws on reading localStorage, not only on
    writing it: these are the startup paths that used to leave a blank page. */
 describe('safeStorage', () => {
-  afterEach(() => vi.restoreAllMocks());
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
 
   it('reads and writes normally', () => {
     expect(writeStorage('safe-storage-test', 'x')).toBe(true);

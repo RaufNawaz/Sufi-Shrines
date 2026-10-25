@@ -205,22 +205,45 @@ export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
         ? warmDarkStyle(localizeStyle(style, buildLang))
         : localizeStyle(style, buildLang);
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- the plugin augments L at runtime
-      const layer = (L as any).maplibreGL({
-        style: localized,
-        // Stated once, explicitly. Left to the plugin, it concatenates the
-        // attribution of every source in the style — and this style has two
-        // (maptiler_planet and an attribution-only pseudo-source) carrying
-        // the same credit, so the control renders it twice.
-        attributionControl: { customAttribution: MAPTILER_ATTRIBUTION },
-        /* How far beyond the screen the basemap is drawn. The plugin's 10% left
+      let layer: GlLayer;
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- the plugin augments L at runtime
+        layer = (L as any).maplibreGL({
+          style: localized,
+          // Stated once, explicitly. Left to the plugin, it concatenates the
+          // attribution of every source in the style — and this style has two
+          // (maptiler_planet and an attribution-only pseudo-source) carrying
+          // the same credit, so the control renders it twice.
+          attributionControl: { customAttribution: MAPTILER_ATTRIBUTION },
+          /* How far beyond the screen the basemap is drawn. The plugin's 10% left
            a fast flick on a phone running into blank edges until the next
            redraw; 25% keeps a flick inside drawn map. */
-        padding: 0.25,
-      }) as GlLayer;
-
-      layer.addTo(map);
+          padding: 0.25,
+          /* Capped at 2. An iPhone reports 3, and with the 25% padding above
+           the canvas was ~1755x3800 device pixels (~27 MB a buffer) — with
+           a second context alive during destroyAfterPaint, enough for iOS to
+           drop the context or reload the tab (mobile audit, 25 October 2026).
+           At 2 the labels are still sharp. */
+          pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+        }) as GlLayer;
+        layer.addTo(map);
+      } catch (error) {
+        /* No WebGL (disabled, blocklisted GPU, or too many contexts): the
+           plugin throws from inside addTo. Without this the throw was an
+           unhandled rejection and the reader got an empty map. */
+        if (import.meta.env.DEV) console.warn('[map] MapLibre could not start:', error);
+        if (!cancelled) onFailure();
+        return;
+      }
       layerRef.current = layer;
+
+      /* iOS Safari drops WebGL contexts of backgrounded tabs and under memory
+         pressure, leaving a blank or black basemap under the markers. The
+         keyless raster basemap does not depend on WebGL, so switch to it. */
+      layer.getMaplibreMap()?.on('webglcontextlost', () => {
+        if (import.meta.env.DEV) console.warn('[map] WebGL context lost, falling back to raster');
+        if (!cancelled) onFailure();
+      });
       // A DEV-only handle on the layer. Diagnosing a blank basemap means
       // asking the GL map whether its style and source actually loaded, and
       // there is no other way to reach it from a test harness.

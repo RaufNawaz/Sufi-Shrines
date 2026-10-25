@@ -39,14 +39,14 @@ The audits were read-only. Their findings, condensed, with file references as of
   Safari before 16.4 throws a SyntaxError, so **every `/saint/*` page crashes on iOS 15 and
   16.0–16.3**. Rewrite it without lookbehind, and add a build gate that fails if `dist/assets/*.js`
   contains `(?<=` or `(?<!`.
-- [ ] A2 Map: `MapLibreBasemap` is lazy-loaded with no error boundary of its own, so a failed
+- [x] A2 Map: `MapLibreBasemap` is lazy-loaded with no error boundary of its own, so a failed
   chunk takes down the whole map page. If WebGL cannot start, `addTo` throws inside an async IIFE
   and `onFailure` never runs. There is no `webglcontextlost` handler, though iOS drops contexts
   when a tab is backgrounded. Fall back to the CARTO raster in all three cases.
 - [x] A3 Unguarded `localStorage`: `main.tsx:46`, `ThemeContext.tsx` (10, 39, 56, 60),
   `LanguageContext.tsx` (24, 59, 112), `detectLang.ts:46`, `tourProgress.ts:38`. Safari with
   "Block All Cookies" and some in-app webviews throw on these reads, which can leave a blank page.
-- [ ] A4 MapLibre canvas: cap `pixelRatio` at 2 and lower `padding` on narrow screens (iPhone memory).
+- [x] A4 MapLibre canvas: cap `pixelRatio` at 2 (padding kept at 0.25, a deliberate flick-margin choice) on narrow screens (iPhone memory).
 - [ ] A5 Service worker: stop precaching `shrines-fallback`, `provenance`, `kg-review-queue` and
   `source-notes` (about 4.4 MB on a first visit). Use NetworkFirst for the sheet CSV, so an edit
   shows on the first load. Cache images with status 200 only and fewer entries (opaque responses
@@ -116,3 +116,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   `useActiveSection` now measures scroll position. On Data Darbar (one section is 5.3 screens
   tall), the old code was wrong at 48 of 169 scroll positions and the new code at 0, measured
   on the dev server.
+- 25 Oct: A2 and A4 committed. A `BasemapBoundary`, a try/catch around `addTo`, and a
+  `webglcontextlost` listener each fall back to the keyless raster; `pixelRatio` is capped at 2.
+  **Not exercised end to end**: this machine has no `VITE_MAPTILER_KEY`, so the dev server never
+  takes the vector path. Typecheck and unit tests only.
