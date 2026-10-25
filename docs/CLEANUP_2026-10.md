@@ -51,7 +51,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   `source-notes` (about 4.4 MB on a first visit). Use NetworkFirst for the sheet CSV, so an edit
   shows on the first load. Cache images with status 200 only and fewer entries (opaque responses
   inflate the quota count).
-- [ ] A6 Tour audio: `useTourAudio.ts:16` ignores `BASE_URL`. The probe may never settle on iOS,
+- [x] A6 Tour audio: `useTourAudio.ts:16` ignores `BASE_URL`. The probe may never settle on iOS,
   and `speak()` runs after an `await`, outside the user's tap.
 - [ ] A7 Phones: turn off heavy `backdrop-filter` under `(hover: none)`. The bottom sheet's drag
   sets `height` on every touchmove (`MapSidebar.tsx:206`).
@@ -138,3 +138,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   ten routes plus the marker count, all 11 passing against a scratch build. CI now installs WebKit.
   Gotcha: in Git Bash, `VITE_BASE_PATH=/` is rewritten to `C:/Program Files/Git/`; prefix
   `MSYS_NO_PATHCONV=1`.
+- 25 Oct: A6 committed. The narration path now carries `BASE_URL`. A HEAD probe runs when the stop
+  changes, so Play starts audio or speech synchronously inside the tap, as iOS requires.
+  `utterance.onerror` resets the state. Unit tests pass; the tours e2e is still to run in the
+  batch e2e pass.

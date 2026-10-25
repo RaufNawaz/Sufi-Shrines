@@ -13,29 +13,26 @@ export type TourAudioSource = 'asset' | 'tts' | null;
  * (see vite.config.ts) the first time it's played.
  */
 export function tourAudioAssetPath(tourId: string, stopIndex: number, lang: Lang): string {
-  return `/audio/tours/${tourId}/${stopIndex}.${lang}.mp3`;
+  // Under the deploy's base path: a bare `/audio/…` 404s on a /Sufi-Shrines/ deploy.
+  return `${import.meta.env.BASE_URL}audio/tours/${tourId}/${stopIndex}.${lang}.mp3`;
 }
 
-/** Resolves true if playable audio exists at `src`, false on any error. */
-function probeAudioAsset(src: string): Promise<boolean> {
-  return new Promise((resolve) => {
-    const audio = new Audio();
-    const cleanup = () => {
-      audio.removeEventListener('canplaythrough', onOk);
-      audio.removeEventListener('error', onErr);
-    };
-    const onOk = () => {
-      cleanup();
-      resolve(true);
-    };
-    const onErr = () => {
-      cleanup();
-      resolve(false);
-    };
-    audio.addEventListener('canplaythrough', onOk, { once: true });
-    audio.addEventListener('error', onErr, { once: true });
-    audio.src = src;
-  });
+/**
+ * Resolves true if an audio file exists at `src`, false otherwise.
+ *
+ * A HEAD request, not an `<audio>` element waiting for `canplaythrough`: iOS
+ * Safari does not load media outside a user gesture, so that promise never
+ * settled there and the Play button did nothing (mobile audit, 25 October
+ * 2026). The content type is checked because a dev server answers a missing
+ * file with the app's index.html and a 200.
+ */
+async function probeAudioAsset(src: string): Promise<boolean> {
+  try {
+    const response = await fetch(src, { method: 'HEAD' });
+    return response.ok && (response.headers.get('content-type') ?? '').startsWith('audio/');
+  } catch {
+    return false;
+  }
 }
 
 function speechLangTag(lang: Lang): string {
@@ -77,9 +74,25 @@ export function useTourAudio({ tourId, stopIndex, text, lang }: UseTourAudioOpti
 
   useEffect(() => stop, [stop]);
 
-  const play = useCallback(async () => {
+  /* Whether this stop has a recorded narration, found out *before* the tap.
+     iOS lets audio and speech start only synchronously inside a user gesture;
+     awaiting the probe in the click handler put speak() after an await, where
+     iOS ignores it. */
+  const hasAssetRef = useRef(false);
+  useEffect(() => {
+    let cancelled = false;
+    hasAssetRef.current = false;
+    void probeAudioAsset(tourAudioAssetPath(tourId, stopIndex, lang)).then((found) => {
+      if (!cancelled) hasAssetRef.current = found;
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [tourId, stopIndex, lang]);
+
+  const play = useCallback(() => {
     if (state === 'paused' && source === 'asset' && audioElRef.current) {
-      await audioElRef.current.play();
+      void audioElRef.current.play().catch(() => setState('idle'));
       setState('playing');
       return;
     }
@@ -89,15 +102,13 @@ export function useTourAudio({ tourId, stopIndex, text, lang }: UseTourAudioOpti
       return;
     }
 
-    const assetSrc = tourAudioAssetPath(tourId, stopIndex, lang);
-    const hasAsset = await probeAudioAsset(assetSrc);
-    if (hasAsset) {
-      const audio = new Audio(assetSrc);
+    if (hasAssetRef.current) {
+      const audio = new Audio(tourAudioAssetPath(tourId, stopIndex, lang));
       audio.addEventListener('ended', () => setState('idle'));
       audioElRef.current = audio;
       setSource('asset');
       setState('playing');
-      await audio.play();
+      void audio.play().catch(() => setState('idle'));
       return;
     }
 
@@ -107,6 +118,9 @@ export function useTourAudio({ tourId, stopIndex, text, lang }: UseTourAudioOpti
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = speechLangTag(lang);
     utterance.onend = () => setState('idle');
+    // No voice for the language, or the engine refused: back to idle rather
+    // than a Pause button over silence.
+    utterance.onerror = () => setState('idle');
     setSource('tts');
     setState('playing');
     window.speechSynthesis.speak(utterance);
