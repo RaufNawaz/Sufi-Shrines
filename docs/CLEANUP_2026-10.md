@@ -166,3 +166,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   allowlist is not done, because `tools/process_books.py` passes a configurable name; the key holder
   is trusted. The `tools/utrnet` model pin needs the real file's sha256, so it is left for whoever
   next runs the OCR machine setup (it belongs to the book-queue toolchain).
+- 25 Oct: `verify-kg-proposals.mjs` imports the shared `slugify` (its copy trimmed only one
+  edge dash); the gate still verifies all 247 proposals. Left alone on purpose: prerender's
+  `easternDigits` and `escHtml` are small Node-side mirrors of TypeScript helpers that plain Node
+  cannot import, and each is documented as a mirror.

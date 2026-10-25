@@ -63,6 +63,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { slugify } from './lib/slugs.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -167,23 +168,6 @@ const failures = [];
 const notes = [];
 const reconciled = [];
 const fail = (m) => failures.push(m);
-
-/** Mirror of buildStableSlug() in src/lib/data/slugify.ts. */
-function slugify(text) {
-  let t = (text || '').toLowerCase();
-  for (const [ch, rep] of [
-    ['&', ' and '],
-    ['@', ' at '],
-    ['%', ' percent '],
-    ['+', ' plus '],
-  ]) {
-    t = t.split(ch).join(rep);
-  }
-  t = t.replace(/[^\w\s-]/g, '');
-  t = t.replace(/[\s_]+/g, '-');
-  t = t.replace(/-+/g, '-');
-  return t.replace(/^-|-$/g, '').trim();
-}
 
 /**
  * Normalise for substring comparison. Only whitespace and the quote/dash
