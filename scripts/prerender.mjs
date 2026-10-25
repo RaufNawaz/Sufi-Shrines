@@ -181,6 +181,24 @@ function leadSentences(text) {
   return out.trim();
 }
 
+/**
+ * JSON for inside a `<script type="application/ld+json">` element.
+ *
+ * Plain `JSON.stringify` leaves `<` alone, so sheet text containing
+ * `</script>` would close the element and run whatever followed as script on
+ * every prerendered page (security audit, 25 October 2026). `<`, `>` and `&`
+ * are escaped as JSON unicode escapes, which parse to the same string; U+2028
+ * and U+2029 for old parsers that treat them as line ends.
+ */
+function scriptSafeJson(json) {
+  return json
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
+}
+
 function escHtml(s) {
   return String(s || '')
     .replace(/&/g, '&amp;')
@@ -331,13 +349,13 @@ function buildShrineHead(shrine, baseHtml) {
   const extras = [
     canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
     canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
-    `  <script type="application/ld+json">${jsonLd}</script>`,
+    `  <script type="application/ld+json">${scriptSafeJson(jsonLd)}</script>`,
   ]
     .filter(Boolean)
     .join('\n');
 
   html = withSocialImage(html, imgUrl, `${field(row, 'Name')}${location ? ` — ${location}` : ''}`);
-  html = html.replace('</head>', `${extras}\n</head>`);
+  html = html.replace('</head>', () => `${extras}\n</head>`);
   return html;
 }
 
@@ -406,13 +424,13 @@ function buildShrineHeadUr(shrine, baseHtml) {
   const extras = [
     urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
     urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
-    `  <script type="application/ld+json">${jsonLd}</script>`,
+    `  <script type="application/ld+json">${scriptSafeJson(jsonLd)}</script>`,
   ]
     .filter(Boolean)
     .join('\n');
 
   html = withSocialImage(html, imgUrl, imgUrl ? urduNameFor(row) : SITE_TITLE_UR);
-  return html.replace('</head>', `${extras}\n</head>`);
+  return html.replace('</head>', () => `${extras}\n</head>`);
 }
 
 // ── main ──────────────────────────────────────────────────────────────────
@@ -617,11 +635,11 @@ if (kgData) {
     const extras = [
       canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
       canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
-      `  <script type="application/ld+json">${saintJsonLd}</script>`,
+      `  <script type="application/ld+json">${scriptSafeJson(saintJsonLd)}</script>`,
     ]
       .filter(Boolean)
       .join('\n');
-    html = html.replace('</head>', `${extras}\n</head>`);
+    html = html.replace('</head>', () => `${extras}\n</head>`);
     writeFileSync(join(outDir, 'index.html'), html, 'utf8');
     saintSlugs.push(`/saint/${saint.slug}`);
 
@@ -659,11 +677,11 @@ if (kgData) {
     const extrasUr = [
       urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
       urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
-      `  <script type="application/ld+json">${JSON.stringify({ ...JSON.parse(saintJsonLd), '@id': urCanonicalUrl || `${KG_BASE}saint/${saint.slug}`, name: translateWordsUr(saint.name), inLanguage: 'ur' })}</script>`,
+      `  <script type="application/ld+json">${scriptSafeJson(JSON.stringify({ ...JSON.parse(saintJsonLd), '@id': urCanonicalUrl || `${KG_BASE}saint/${saint.slug}`, name: translateWordsUr(saint.name), inLanguage: 'ur' }))}</script>`,
     ]
       .filter(Boolean)
       .join('\n');
-    htmlUr = htmlUr.replace('</head>', `${extrasUr}\n</head>`);
+    htmlUr = htmlUr.replace('</head>', () => `${extrasUr}\n</head>`);
     const urOutDir = join(distDir, 'ur', 'saint', saint.slug);
     mkdirSync(urOutDir, { recursive: true });
     writeFileSync(join(urOutDir, 'index.html'), htmlUr, 'utf8');
@@ -725,11 +743,11 @@ if (kgData) {
     const extras = [
       canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
       canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
-      `  <script type="application/ld+json">${orderJsonLd}</script>`,
+      `  <script type="application/ld+json">${scriptSafeJson(orderJsonLd)}</script>`,
     ]
       .filter(Boolean)
       .join('\n');
-    html = html.replace('</head>', `${extras}\n</head>`);
+    html = html.replace('</head>', () => `${extras}\n</head>`);
     writeFileSync(join(outDir, 'index.html'), html, 'utf8');
     orderSlugs.push(`/order/${order.slug}`);
 
@@ -777,11 +795,11 @@ if (kgData) {
     const extrasUr = [
       urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
       urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
-      `  <script type="application/ld+json">${JSON.stringify({ ...JSON.parse(orderJsonLd), '@id': urCanonicalUrl || `${KG_BASE}order/${order.slug}`, name: orderNameUr, alternateName: order.name, inLanguage: 'ur' })}</script>`,
+      `  <script type="application/ld+json">${scriptSafeJson(JSON.stringify({ ...JSON.parse(orderJsonLd), '@id': urCanonicalUrl || `${KG_BASE}order/${order.slug}`, name: orderNameUr, alternateName: order.name, inLanguage: 'ur' }))}</script>`,
     ]
       .filter(Boolean)
       .join('\n');
-    htmlUr = htmlUr.replace('</head>', `${extrasUr}\n</head>`);
+    htmlUr = htmlUr.replace('</head>', () => `${extrasUr}\n</head>`);
     const urOutDir = join(distDir, 'ur', 'order', order.slug);
     mkdirSync(urOutDir, { recursive: true });
     writeFileSync(join(urOutDir, 'index.html'), htmlUr, 'utf8');
@@ -851,18 +869,20 @@ const placeSlugs = [];
            crawler can do something with. `containsPlace` is left out
            deliberately — listing 35 shrines in the head of a page that already
            links to all 35 adds bytes, not information. */
-        `  <script type="application/ld+json">${JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Place',
-          '@id': canonical || `${KG_BASE}place/${place.slug}`,
-          name: lang === 'ur' ? nameUr : place.name,
-          ...(lang === 'ur' ? { inLanguage: 'ur' } : {}),
-          ...(alternate ? { url: alternate } : {}),
-        })}</script>`,
+        `  <script type="application/ld+json">${scriptSafeJson(
+          JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Place',
+            '@id': canonical || `${KG_BASE}place/${place.slug}`,
+            name: lang === 'ur' ? nameUr : place.name,
+            ...(lang === 'ur' ? { inLanguage: 'ur' } : {}),
+            ...(alternate ? { url: alternate } : {}),
+          }),
+        )}</script>`,
       ]
         .filter(Boolean)
         .join('\n');
-      return out.replace('</head>', `${extras}\n</head>`);
+      return out.replace('</head>', () => `${extras}\n</head>`);
     };
 
     const outDir = join(distDir, 'place', place.slug);
@@ -945,19 +965,21 @@ const traditionSlugs = [];
         /* Organization, as the orders use — a tradition is a body people belong
            to. `subjectOf` is left out for the same reason place pages omit
            containsPlace: the page already links every member. */
-        `  <script type="application/ld+json">${JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          '@id': canonical || `${KG_BASE}tradition/${tradition.slug}`,
-          name: lang === 'ur' ? tradition.nameUr : tradition.name,
-          ...(tradition.alsoKnownAs?.length ? { alternateName: tradition.alsoKnownAs } : {}),
-          description: lang === 'ur' ? tradition.definitionUr : tradition.definition,
-          ...(lang === 'ur' ? { inLanguage: 'ur' } : {}),
-        })}</script>`,
+        `  <script type="application/ld+json">${scriptSafeJson(
+          JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            '@id': canonical || `${KG_BASE}tradition/${tradition.slug}`,
+            name: lang === 'ur' ? tradition.nameUr : tradition.name,
+            ...(tradition.alsoKnownAs?.length ? { alternateName: tradition.alsoKnownAs } : {}),
+            description: lang === 'ur' ? tradition.definitionUr : tradition.definition,
+            ...(lang === 'ur' ? { inLanguage: 'ur' } : {}),
+          }),
+        )}</script>`,
       ]
         .filter(Boolean)
         .join('\n');
-      return out.replace('</head>', `${extras}\n</head>`);
+      return out.replace('</head>', () => `${extras}\n</head>`);
     };
 
     const outDir = join(distDir, 'tradition', tradition.slug);
@@ -1047,17 +1069,19 @@ const sourceSlugs = [];
         canonical ? `  <meta property="og:url" content="${escHtml(canonical)}" />` : '',
         /* Book, with its title and author as the archive records them — the
            citation's own words, no catalogue data added. */
-        `  <script type="application/ld+json">${JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Book',
-          '@id': canonical || `${KG_BASE}source/${work.slug}`,
-          name: work.title,
-          ...(work.author ? { author: work.author } : {}),
-        })}</script>`,
+        `  <script type="application/ld+json">${scriptSafeJson(
+          JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Book',
+            '@id': canonical || `${KG_BASE}source/${work.slug}`,
+            name: work.title,
+            ...(work.author ? { author: work.author } : {}),
+          }),
+        )}</script>`,
       ]
         .filter(Boolean)
         .join('\n');
-      return out.replace('</head>', `${extras}\n</head>`);
+      return out.replace('</head>', () => `${extras}\n</head>`);
     };
 
     const outDir = join(distDir, 'source', work.slug);
@@ -1559,7 +1583,11 @@ for (const route of APP_ROUTES) {
       if (!existsSync(full)) continue;
       const html = readFileSync(full, 'utf8');
       if (html.includes(indexChunk)) continue;
-      writeFileSync(full, html.replace('</head>', `${tag}\n</head>`), 'utf8');
+      writeFileSync(
+        full,
+        html.replace('</head>', () => `${tag}\n</head>`),
+        'utf8',
+      );
       injected += 1;
     }
     console.log(
@@ -1620,7 +1648,11 @@ for (const route of APP_ROUTES) {
         else if (entry.name === 'index.html') {
           const html = readFileSync(full, 'utf8');
           if (html.includes(urduChunk)) continue;
-          writeFileSync(full, html.replace('</head>', `${tag}\n</head>`), 'utf8');
+          writeFileSync(
+            full,
+            html.replace('</head>', () => `${tag}\n</head>`),
+            'utf8',
+          );
           injected += 1;
         }
       }
@@ -1702,7 +1734,11 @@ for (const route of APP_ROUTES) {
         } else if (entry.name === 'index.html') {
           const html = readFileSync(full, 'utf8');
           if (html.includes(urduChunk)) continue; // /ur page, or already done
-          writeFileSync(full, html.replace('</head>', `${conditional}\n</head>`), 'utf8');
+          writeFileSync(
+            full,
+            html.replace('</head>', () => `${conditional}\n</head>`),
+            'utf8',
+          );
           conditioned += 1;
         }
       }

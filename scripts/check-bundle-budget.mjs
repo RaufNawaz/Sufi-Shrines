@@ -150,7 +150,7 @@ const BUDGETS_KB = {
      is its own module for exactly that), the book page does. Each budget is the
      17 October measurement + 3. */
   'src/pages/SourcesPage.tsx': 375, // measured 372 on 17 Oct 2026, council round 6
-  'src/pages/SourcePage.tsx': 383, // measured 380 on 17 Oct 2026, council round 6
+  'src/pages/SourcePage.tsx': 386, // measured 384 on 25 Oct 2026: +1 KB shared by every route for useTeamAccess, TeamViewBadge and safeStorage (mobile/security pass)
   /* 265 → 272 on 30 August 2026. Measured 265 against a 265 budget, which this
      file's own header calls a landmine rather than a pass — and index.html is
      the worst place to leave one, because every route's shell is in it, so it
@@ -216,7 +216,7 @@ const BUDGETS_KB = {
      `/saint/:slug` downloads the whole graph to render one figure. */
   'src/pages/SaintPage.tsx': 703, // measured 700 on 17 Oct 2026, council round 7
   'src/pages/OrderPage.tsx': 687, // measured 684 on 17 Oct 2026, council round 7
-  'src/pages/GraphPage.tsx': 628, // measured 625 on 17 Oct 2026, round 5: ?order= and #lineage
+  'src/pages/GraphPage.tsx': 631, // measured 629 on 25 Oct 2026: +1 KB, useTeamAccess, TeamViewBadge and safeStorage (was 628, round 5: ?order= and #lineage)
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
      UI strings, and the English string table is eager on every route, so the
      whole table moves together. Almanac was simply the one with the least
@@ -374,7 +374,7 @@ const BUDGETS_KB = {
      string will never reach, and the person who added it reasonably concludes
      the failure is theirs. That false attribution cost two sessions time on a
      shared tree today. Headroom is deliberate; see SettingsPage below. */
-  'src/pages/ReviewPage.tsx': 311, // measured 308 on 17 Oct 2026 (round 5 strings)
+  'src/pages/ReviewPage.tsx': 314, // measured 312 on 25 Oct 2026: +1 KB, useTeamAccess, TeamViewBadge and safeStorage
   /* The settings page, added 27 Aug 2026. 269 KB is the app shell plus a page
      of native form controls, which is why it sits beside NotFoundPage and
      ReviewPage rather than with the routes that carry an index.

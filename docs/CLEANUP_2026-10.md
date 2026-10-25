@@ -62,7 +62,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   using IndexedDB instead of re-stringifying 1–2 MB per visit.
 
 ### B. Security
-- [ ] B1 `scripts/prerender.mjs`: JSON-LD is injected with plain `JSON.stringify`. Sheet text
+- [x] B1 `scripts/prerender.mjs`: JSON-LD is injected with plain `JSON.stringify`. Sheet text
   containing `</script>` would run as stored XSS. Escape `<`, `>`, `&`, U+2028 and U+2029, and use
   function replacers in `html.replace('</head>', …)` (a `$&` in sheet text corrupts pages). Gate
   it in `check-routes-prerendered.mjs`.
@@ -120,3 +120,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   `webglcontextlost` listener each fall back to the keyless raster; `pixelRatio` is capped at 2.
   **Not exercised end to end**: this machine has no `VITE_MAPTILER_KEY`, so the dev server never
   takes the vector path. Typecheck and unit tests only.
+- 25 Oct: B1 committed. A full build ran in a scratch worktree (the repo's `dist/` is left
+  alone while Rauf's dev server runs): JSON-LD still parses, and the new gate fires on a planted
+  `<`. Bundle budgets for Graph, Source and Review were raised 3 KB with a dated reason (+1 KB
+  shared by every route for the team hook, badge and safeStorage).

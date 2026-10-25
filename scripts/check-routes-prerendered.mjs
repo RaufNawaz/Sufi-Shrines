@@ -315,6 +315,34 @@ if (!existsSync(join(DIST, '404.html'))) {
   failures.push('dist/404.html is missing — GitHub Pages has no SPA fallback without it');
 }
 
+/* Structured data carries sheet text (names, leads, citations) inside a
+   <script> element. A literal `<` there means scriptSafeJson() was bypassed,
+   and sheet text reading `</script>…` would run as script on that page
+   (security audit, 25 October 2026). Every emitted page is checked. */
+{
+  const LD_JSON = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  const unsafe = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name !== 'assets') walk(path);
+      } else if (entry.name.endsWith('.html')) {
+        for (const [, body] of readFileSync(path, 'utf8').matchAll(LD_JSON)) {
+          if (body.includes('<')) unsafe.push(path.slice(DIST.length + 1));
+        }
+      }
+    }
+  };
+  walk(DIST);
+  if (unsafe.length) {
+    failures.push(
+      `${unsafe.length} page(s) carry an unescaped "<" inside JSON-LD (first: ${unsafe[0]}) — ` +
+        'wrap the JSON in scriptSafeJson() in prerender.mjs',
+    );
+  }
+}
+
 if (failures.length) {
   console.error('check-routes-prerendered: FAILED');
   for (const f of failures) console.error(`  · ${f}`);
