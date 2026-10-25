@@ -47,7 +47,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   `LanguageContext.tsx` (24, 59, 112), `detectLang.ts:46`, `tourProgress.ts:38`. Safari with
   "Block All Cookies" and some in-app webviews throw on these reads, which can leave a blank page.
 - [x] A4 MapLibre canvas: cap `pixelRatio` at 2 (padding kept at 0.25, a deliberate flick-margin choice) on narrow screens (iPhone memory).
-- [ ] A5 Service worker: stop precaching `shrines-fallback`, `provenance`, `kg-review-queue` and
+- [x] A5 Service worker (partly; see the log): stop precaching `shrines-fallback`, `provenance`, `kg-review-queue` and
   `source-notes` (about 4.4 MB on a first visit). Use NetworkFirst for the sheet CSV, so an edit
   shows on the first load. Cache images with status 200 only and fewer entries (opaque responses
   inflate the quota count).
@@ -129,3 +129,8 @@ The audits were read-only. Their findings, condensed, with file references as of
   `npm run verify` is fully green, data gates included. It also caught three invariants my
   earlier commits broke (an unstyled class, a token fallback, two docs missing from the index);
   fixed in this commit.
+- 25 Oct: A5 committed. Team-only payloads are out of the precache (283 entries / 5.4 MB, was
+  285 / 5.6 MB). The sheet CSV is NetworkFirst with a 6 s timeout, kept 7 days. Opaque image and
+  tile caches use `purgeOnQuotaError`, and images are capped at 120. `shrines-fallback` is **kept**
+  in the precache on purpose: it is the offline safety net for field visits when the sheet cache
+  has expired.

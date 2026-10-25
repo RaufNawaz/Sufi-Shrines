@@ -93,6 +93,11 @@ export default defineConfig(({ command }) => {
             '**/urdu-content-*.js',
             '**/urdu-seed-*.js',
             '**/vendor/mapbox-gl-rtl-text-*.js',
+            // Team-only payloads (the provenance panel and /review): a public
+            // reader never opens them, so a public phone should not download
+            // them (mobile audit, 25 October 2026).
+            '**/provenance-*.js',
+            '**/kg-review-queue-*.js',
           ],
           // The navigation fallback must resolve to a URL that exists in the
           // precache manifest, which is served under `base` — a hardcoded
@@ -114,11 +119,18 @@ export default defineConfig(({ command }) => {
               },
             },
             {
+              /* NetworkFirst, not StaleWhileRevalidate: under SWR the app's own
+                 "live" fetch was answered from this cache, so a sheet edit
+                 reached a returning reader only on their second visit. The
+                 cache now answers only offline or when the network is slower
+                 than the timeout, and is kept a week for field visits. */
               urlPattern: /^https:\/\/docs\.google\.com\/spreadsheets/,
-              handler: 'StaleWhileRevalidate',
+              handler: 'NetworkFirst',
               options: {
                 cacheName: 'google-sheets-csv',
-                expiration: { maxAgeSeconds: 60 * 60 * 24 },
+                networkTimeoutSeconds: 6,
+                expiration: { maxEntries: 4, maxAgeSeconds: 60 * 60 * 24 * 7 },
+                cacheableResponse: { statuses: [200] },
               },
             },
             {
@@ -126,7 +138,15 @@ export default defineConfig(({ command }) => {
               handler: 'CacheFirst',
               options: {
                 cacheName: 'map-tiles-carto',
-                expiration: { maxEntries: 500, maxAgeSeconds: 60 * 60 * 24 * 30 },
+                /* Tiles load as no-cors images, so they are opaque responses,
+                   which Chrome pads heavily when counting storage quota. On
+                   a quota error, drop this cache rather than the whole origin's
+                   storage (the precache and the reader's saved data with it). */
+                expiration: {
+                  maxEntries: 500,
+                  maxAgeSeconds: 60 * 60 * 24 * 30,
+                  purgeOnQuotaError: true,
+                },
               },
             },
             {
@@ -145,7 +165,15 @@ export default defineConfig(({ command }) => {
               handler: 'CacheFirst',
               options: {
                 cacheName: 'shrine-images',
-                expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 30 },
+                /* Opaque (status 0) for every external host, and each one is
+                   padded to megabytes in Chrome's quota accounting: 300 of
+                   them could claim gigabytes on a phone. Fewer, and purged
+                   first on a quota error, as for the tiles above. */
+                expiration: {
+                  maxEntries: 120,
+                  maxAgeSeconds: 60 * 60 * 24 * 30,
+                  purgeOnQuotaError: true,
+                },
                 cacheableResponse: { statuses: [0, 200] },
               },
             },
