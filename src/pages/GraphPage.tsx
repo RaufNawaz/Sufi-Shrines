@@ -42,7 +42,7 @@ import { CENTURY_ORDINAL } from '../lib/data/era';
 import type { Lang } from '../types/shrine';
 
 import { isRtlLang, usesLatinScript } from '../lib/i18n/languages';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { BOOK_FIGURE_REGIONS_UR, BOOK_FIGURE_WORKS, loadBookFigures } from '../lib/bookFigures';
 import type { BookFigure } from '../lib/bookFigures';
 import { prefersReducedMotion } from '../lib/motionPreference';
@@ -125,7 +125,7 @@ export default function GraphPage() {
      in the section note, and the repository path under each quote are the
      desk's apparatus. The quotes themselves stay — they are what a reader
      checks a lineage against. */
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
   const headingRef = useFocusHeadingOnMount();
   const kg = useMemo(() => getKGStore(), []);
   /* `?order=<slug>` opens the page on that order — the order page links here

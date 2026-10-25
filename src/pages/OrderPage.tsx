@@ -49,7 +49,7 @@ import orderProseData from '../../data/kg-order-prose.json';
 import type { KGSaint } from '../types/kg';
 
 import { isRtlLang } from '../lib/i18n/languages';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { publicLocation } from '../lib/data/publicLocation';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 interface Member {
@@ -134,7 +134,7 @@ export default function OrderPage() {
      `unreviewed` count in the header and chip on each member, the note that a
      description was written for this site, and the raw Location cell under
      each site card. The sourced passages and the members are the public's. */
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
   const siteLocation = (shrine: Shrine): string =>
     teamView
       ? shrine.location

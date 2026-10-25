@@ -48,7 +48,7 @@ import { SupportLevelBadge } from '../components/ui/SupportLevelBadge';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
 import { primaryFigureSlug, figureLabelsForShrine } from '../lib/kgShrineFigures';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { ShrineObservances } from '../components/shrine/ShrineObservances';
 import { NearbyMosques } from '../components/shrine/NearbyMosques';
@@ -129,6 +129,7 @@ function ShrineContent({
   sourceTimestamp: number | null;
 }) {
   const { lang, t, localizeField, fmtNum } = useLang();
+  const teamView = useTeamAccess();
   const shrinePlaces = React.useMemo(() => placesForShrine(shrine), [shrine]);
   const { navItems } = useArticleContent(shrine);
   const { share, copied } = useShareLink();
@@ -665,7 +666,7 @@ function ShrineContent({
           </p>
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
-          {hasProjectAccess() && (
+          {teamView && (
             <React.Suspense fallback={null}>
               <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />
             </React.Suspense>

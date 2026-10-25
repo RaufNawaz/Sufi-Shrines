@@ -16,7 +16,7 @@ import { usePointerSheen } from '../../hooks/usePointerSheen';
 
 import { isRtlLang } from '../../lib/i18n/languages';
 import { publicLocation } from '../../lib/data/publicLocation';
-import { hasProjectAccess } from '../../lib/projectAccess';
+import { useTeamAccess } from '../../lib/projectAccess';
 import { haversineKm } from '../../lib/data/shrineModel';
 import type { LatLng } from '../../types/shrine';
 import { formatDistance } from '../../lib/i18n/formatDistance';
@@ -88,7 +88,7 @@ export function CommandPalette({
   categoryCounts,
 }: CommandPaletteProps) {
   const { lang, t, fmtNum, localizeField } = useLang();
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
   const isRtl = isRtlLang(lang);
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);

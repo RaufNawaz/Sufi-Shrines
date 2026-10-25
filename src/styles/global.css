@@ -780,6 +780,46 @@ body.lang-rtl {
   animation: page-fade-in var(--duration-base) var(--easing) both;
 }
 
+/* Team view is on (TeamViewBadge.tsx): a small pill at the top inline-start
+   corner on every page, so team-only text is never screenshotted unknowingly.
+   Pointer-transparent except for its own exit button. */
+.team-view-badge {
+  position: fixed;
+  inset-block-start: calc(var(--safe-top, 0px) + var(--space-2));
+  inset-inline: 0;
+  margin-inline: auto;
+  inline-size: fit-content;
+  z-index: var(--z-toast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-inline-start: var(--space-3);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  pointer-events: none;
+}
+.team-view-badge-exit {
+  pointer-events: auto;
+  display: inline-grid;
+  place-items: center;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+.team-view-badge-exit:focus-visible {
+  outline: 2px solid var(--color-text-inverse);
+  outline-offset: -4px;
+}
+
 .sw-update-msg {
   font-size: var(--text-sm);
   font-weight: 500;

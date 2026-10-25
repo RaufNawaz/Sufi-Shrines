@@ -12,7 +12,7 @@ import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { isRtlLang } from '../lib/i18n/languages';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { YEAR_PRECISION_LABEL_KEYS } from '../lib/data/yearPrecision';
 import {
   buildChronology,
@@ -263,6 +263,7 @@ function PlacesGroup({ band }: { band: TraditionBand }) {
 export default function ChronologyPage() {
   const { shrines, loading, offline, sourceTimestamp } = useShrineData();
   const { t, lang, fmtNum } = useLang();
+  const teamView = useTeamAccess();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
   useDocumentTitle(`${t('chronologyTitle')} — ${t('siteTitle')}`);
@@ -518,7 +519,7 @@ export default function ChronologyPage() {
                 and team view"). The data is untouched: the tiles above still
                 say how many places have no bar, and every undated place keeps
                 its entry. */}
-            {hasProjectAccess() && (
+            {teamView && (
               <section className="chronology-undated" aria-labelledby="chronology-undated-heading">
                 <h2 className="section-heading" id="chronology-undated-heading">
                   {t('chronologyUndatedHeading')}

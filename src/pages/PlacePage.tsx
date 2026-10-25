@@ -26,7 +26,7 @@ import type { Lang, Shrine } from '../types/shrine';
 
 import { isRtlLang } from '../lib/i18n/languages';
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { publicLocation } from '../lib/data/publicLocation';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 import { NotFoundSearch } from '../components/ui/NotFoundSearch';
@@ -100,7 +100,7 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
      characters. The team keeps the cell; the public reads a short recorded
      value as recorded, and otherwise the *other* places the entry resolves to
      (this page's own name would only repeat the heading). */
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
   const rowLocation = (shrine: Shrine): string =>
     teamView
       ? shrine.location

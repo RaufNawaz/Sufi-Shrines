@@ -29,5 +29,7 @@ describe('stylesheets', () => {
       for (const w of warnings) problems.push(`${file}:${w.location?.line}: ${w.text}`);
     }
     expect(problems).toEqual([]);
-  });
+    // esbuild's first transform starts its service process, which on a loaded
+    // machine (or Windows) takes longer than the default 5 s on its own.
+  }, 30_000);
 });

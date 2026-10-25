@@ -19,7 +19,7 @@ import { CONTACT_EMAIL, correctionIssueUrl } from '../lib/data/constants';
 
 import { isRtlLang } from '../lib/i18n/languages';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 /**
  * What this archive is, who made it, how to reuse it, and how to cite it.
  *
@@ -118,7 +118,7 @@ export default function AboutPage() {
   const coverage = useMemo(() => buildCoverage(shrines), [shrines]);
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
 
   useDocumentTitle(`${t('aboutTitle')} — ${t('siteTitle')}`);
 

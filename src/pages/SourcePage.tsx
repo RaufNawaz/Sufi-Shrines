@@ -12,7 +12,7 @@ import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
 import { isRtlLang } from '../lib/i18n/languages';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { publicLocation } from '../lib/data/publicLocation';
 import { sourceAnchorId } from '../lib/data/sourceIndex';
 import { categoryKey } from '../lib/data/categoryKey';
@@ -61,7 +61,7 @@ function SourceContent({ work, library, lang }: { work: ShelfWork; library: Libr
   const { t, fmtNum, localizeField } = useLang();
   const { shrines } = useShrineData();
   const headingRef = useFocusHeadingOnMount();
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
   useDocumentTitle(`${work.title.split(':')[0]} — ${t('siteTitle')}`);
 
   const shrinesBySlug = useMemo(() => new Map(shrines.map((s) => [s.slug, s])), [shrines]);

@@ -22,7 +22,7 @@ import type { Lang } from '../../types/shrine';
 import { usesLatinScript } from '../../lib/i18n/languages';
 import { isRtlLang } from '../../lib/i18n/languages';
 import { useShrineTraditions } from './useShrineTraditions';
-import { hasProjectAccess } from '../../lib/projectAccess';
+import { useTeamAccess } from '../../lib/projectAccess';
 import { renderInlineBold } from './inlineFormat';
 function isFoundedKey(key: string): boolean {
   return key === 'Founded' || key === 'Founded/Opened';
@@ -115,7 +115,7 @@ export function ShrineInfobox({ shrine }: Props) {
      "remove the approximate etc badges in the public-facing"). The data is
      untouched and the team view still shows every word of it; the public reads
      the year. Same soft gate as the provenance block on the page (`?team=1`). */
-  const showQualifiers = hasProjectAccess();
+  const showQualifiers = useTeamAccess();
 
   // Build ordered rows: priority keys first, then remaining, up to max
   const allEntries = Object.entries(shrine.raw).filter(([key, value]) => {

@@ -66,7 +66,7 @@ import { disputedFieldLabelKey } from '../lib/data/figureDates';
 import { localizeRecordedDate } from '../lib/i18n/localizeRecordedDate';
 
 import { isRtlLang } from '../lib/i18n/languages';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { publicLocation } from '../lib/data/publicLocation';
 import type { Shrine } from '../types/shrine';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
@@ -87,7 +87,7 @@ export default function SaintPage() {
      "as recorded"; the raw Location under each site; the list of what the
      archive does not record; and the Sources & Provenance block. What the
      public keeps is every claim and the sentence each rests on. */
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
   const siteLocation = (shrine: Shrine | undefined): string =>
     !shrine
       ? ''

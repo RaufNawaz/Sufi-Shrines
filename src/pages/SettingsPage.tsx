@@ -37,7 +37,7 @@ import {
   writeLookPreference,
   type LookPreference,
 } from '../lib/lookPreference';
-import { hasProjectAccess, isTeamKnown, setProjectAccess } from '../lib/projectAccess';
+import { isTeamKnown, setProjectAccess, useTeamAccess } from '../lib/projectAccess';
 import type { DistanceUnits } from '../lib/unitsPreference';
 import {
   buildSavedListFile,
@@ -166,7 +166,7 @@ export default function SettingsPage() {
   const [textSize, setTextSize] = useState<TextSize>(readTextSize);
   const [motion, setMotion] = useState<MotionPreference>(readMotionPreference);
   const [look, setLook] = useState<LookPreference>(readLookPreference);
-  const [teamView, setTeamView] = useState<boolean>(hasProjectAccess);
+  const teamView = useTeamAccess();
   const teamKnown = isTeamKnown();
   const saved = useSavedShrines();
   const { shrines: allShrines, offline, sourceTimestamp } = useShrineData({ acceptIndex: true });
@@ -200,7 +200,6 @@ export default function SettingsPage() {
     applyLookPreference(next, document.documentElement);
   };
   const chooseTeamView = (on: boolean) => {
-    setTeamView(on);
     setProjectAccess(on);
   };
 

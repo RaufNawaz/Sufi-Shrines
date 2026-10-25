@@ -5,7 +5,7 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { isRtlLang } from '../lib/i18n/languages';
 import {
   loadVerdicts,
@@ -80,18 +80,14 @@ export default function ReviewPage() {
   const { lang, t, fmtNum } = useLang();
   const headingRef = useFocusHeadingOnMount();
   const isRtl = isRtlLang(lang);
-  const [allowed, setAllowed] = useState(false);
+  const allowed = useTeamAccess();
   const [items, setItems] = useState<QueueItem[] | null>(null);
   const [verdicts, setVerdicts] = useState<VerdictMap>({});
 
   useDocumentTitle(`${t('reviewTitle')} — ${t('siteTitle')}`);
 
-  /* The gate and the stored session are both browser state, so they are read in
-     an effect rather than during render: this route is prerendered like every
-     other, and reading localStorage while rendering would make the first paint
-     depend on it. */
+  /* The stored session is browser state, so it is read in an effect. */
   useEffect(() => {
-    setAllowed(hasProjectAccess());
     setVerdicts(loadVerdicts());
   }, []);
 

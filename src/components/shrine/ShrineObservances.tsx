@@ -7,7 +7,7 @@ import { buildIcs, isCalendarable } from '../../lib/data/almanacIcs';
 import { downloadIcsFile } from '../../lib/data/icsDownload';
 import { observanceDateDisplay } from '../../lib/i18n/observanceDates';
 import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
-import { hasProjectAccess } from '../../lib/projectAccess';
+import { useTeamAccess } from '../../lib/projectAccess';
 
 interface Props {
   shrine: Shrine;
@@ -32,7 +32,7 @@ export function ShrineObservances({ shrine }: Props) {
   /* The per-date "approximate" pill is team-facing since 11 September 2026
      (same rule as the calendar page); the public reads the projected dates and
      the calendar page's single moon-sighting caveat. */
-  const showFlags = hasProjectAccess();
+  const showFlags = useTeamAccess();
 
   if (!next) return null;
 
@@ -131,6 +131,7 @@ export function ShrineObservances({ shrine }: Props) {
 export function NextObservanceLine({ shrine }: Props) {
   const { lang, t, fmtNum } = useLang();
   const { calendar } = useReaderPreferences();
+  const teamView = useTeamAccess();
   const next = useMemo(() => buildAlmanac([shrine], new Date()).dated[0] ?? null, [shrine]);
   if (!next) return null;
   const dates = observanceDateDisplay(
@@ -146,7 +147,7 @@ export function NextObservanceLine({ shrine }: Props) {
       {t('obsNextLabel')}: <bdi>{dates.lead}</bdi>
       {/* The pill is the team's (11 September 2026 ruling); the public reads
           the caveat on the panel this links to. */}
-      {hasProjectAccess() && dates.leadIsProjection && <> ({t('almanacApproximate')})</>}
+      {teamView && dates.leadIsProjection && <> ({t('almanacApproximate')})</>}
     </a>
   );
 }

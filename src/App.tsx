@@ -24,6 +24,7 @@ import {
 import { withViewTransition } from './lib/nav/viewTransition';
 import { isOnOverlayEntry } from './lib/nav/overlayHistory';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
+import { TeamViewBadge } from './components/ui/TeamViewBadge';
 import { persistAccessParamIfPresent } from './lib/projectAccess';
 import { stripUrPrefix } from './lib/i18n/urlLangPrefix';
 import { useRecordRecentEntries } from './lib/recentEntries';
@@ -472,6 +473,7 @@ export default function App() {
                 </Suspense>
               </RouteErrorBoundary>
               <UpdateToast />
+              <TeamViewBadge />
             </ArchiveSearchProvider>
           </BrowserRouter>
         </ReaderPreferencesProvider>

@@ -25,7 +25,7 @@ import { localizeObservance } from '../../lib/i18n/localizeObservance';
 import { getFieldValue } from '../../lib/data/fieldAliasing';
 import { useSavedShrines } from '../../lib/savedShrines';
 import type { Shrine } from '../../types/shrine';
-import { hasProjectAccess } from '../../lib/projectAccess';
+import { useTeamAccess } from '../../lib/projectAccess';
 import { publicLocation } from '../../lib/data/publicLocation';
 import { useBackToClose } from '../../hooks/useBackToClose';
 import { clearRecent, useRecentEntries } from '../../lib/recentEntries';
@@ -139,7 +139,7 @@ export function ArchiveSearch({
      "Shah Alam Market; the survey places the mazar near…" under a result, in
      English under a Nastaliq name (search council, 17 October 2026). The team
      keeps the recorded cell. */
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
   const rowLocation = useCallback(
     (shrine: Shrine): string | undefined => {
       if (!shrine.location) return undefined;

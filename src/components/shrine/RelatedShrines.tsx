@@ -9,7 +9,7 @@ import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { formatDistance } from '../../lib/i18n/formatDistance';
 import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 import { publicLocation } from '../../lib/data/publicLocation';
-import { hasProjectAccess } from '../../lib/projectAccess';
+import { useTeamAccess } from '../../lib/projectAccess';
 import type { Lang } from '../../types/shrine';
 
 interface Props {
@@ -20,6 +20,7 @@ interface Props {
 export function RelatedShrines({ shrine, all }: Props) {
   const { lang, t, localizeField, fmtNum } = useLang();
   const { units } = useReaderPreferences();
+  const teamView = useTeamAccess();
 
   const related = findRelatedShrines(shrine, all);
   if (related.length === 0) return null;
@@ -42,9 +43,7 @@ export function RelatedShrines({ shrine, all }: Props) {
              Urdu name, read out in full as part of the link (a11y council,
              17 October 2026). The team keeps the cell. */
           const rawLocation = localizeField(s.raw, 'Location') || s.location;
-          const location = hasProjectAccess()
-            ? rawLocation
-            : publicLocation(rawLocation, s, lang as Lang);
+          const location = teamView ? rawLocation : publicLocation(rawLocation, s, lang as Lang);
           const dist = shrine.latLng && s.latLng ? haversineKm(shrine.latLng, s.latLng) : null;
 
           return (

@@ -13,7 +13,7 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { isRtlLang } from '../lib/i18n/languages';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { categoryDisplayLabel } from '../lib/data/categoryKey';
 import { renderInlineBold } from '../components/shrine/inlineFormat';
 import { alsoKnownAsFor, getTraditionBySlug, getTraditionMembers } from '../lib/data/traditions';
@@ -94,7 +94,7 @@ export default function TraditionPage() {
   const isRtl = isRtlLang(lang);
   /* The evidence quote is the page's content and stays public; the repository
      path under it is team-only, as on every lineage row (HANDOVER §9.183). */
-  const teamView = hasProjectAccess();
+  const teamView = useTeamAccess();
   const headingRef = useFocusHeadingOnMount();
   const { shrines, offline, sourceTimestamp } = useShrineData();
 

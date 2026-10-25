@@ -24,7 +24,7 @@ import type { CategoryKey } from '../lib/data/categoryKey';
 
 import { isRtlLang } from '../lib/i18n/languages';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
-import { hasProjectAccess } from '../lib/projectAccess';
+import { useTeamAccess } from '../lib/projectAccess';
 import { correctionIssueUrl } from '../lib/data/constants';
 
 /** URL keys for the two facets. Short, because they end up in a shared link. */
@@ -173,7 +173,7 @@ export default function AlmanacPage() {
   /* The public view withholds the per-date "approximate" pill and prints the
      moon-sighting caveat once instead (11 September 2026); the project team
      keeps the pills. Not security — see projectAccess.ts. */
-  const teamAccess = hasProjectAccess();
+  const teamAccess = useTeamAccess();
 
   /* Which view, in the URL rather than in component state.
    *
