@@ -112,3 +112,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   `scripts/check-no-lookbehind.mjs` added to `npm run build` and tested both ways.
 - 25 Oct: A3 committed. `src/lib/safeStorage.ts` is now used at every unguarded site; a scan
   finds no other `localStorage` call outside a `try`.
+- 25 Oct (reported by Rauf): the contents rail stopped following the reader on long entries.
+  `useActiveSection` now measures scroll position. On Data Darbar (one section is 5.3 screens
+  tall), the old code was wrong at 48 of 169 scroll positions and the new code at 0, measured
+  on the dev server.
