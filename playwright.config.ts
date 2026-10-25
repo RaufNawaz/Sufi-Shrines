@@ -46,6 +46,15 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      testIgnore: /webkit-smoke\.spec\.ts/,
+    },
+    /* Safari's engine on a phone: only the smoke spec, which asks whether every
+       route renders without an error (e2e/webkit-smoke.spec.ts). Needs
+       `npx playwright install webkit` once. */
+    {
+      name: 'webkit-iphone',
+      use: { ...devices['iPhone 13'] },
+      testMatch: /webkit-smoke\.spec\.ts/,
     },
   ],
   webServer: {

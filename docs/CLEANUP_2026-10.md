@@ -57,7 +57,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   sets `height` on every touchmove (`MapSidebar.tsx:206`).
 - [ ] A8 Taps feel dead on slow networks: `App.tsx:193` waits for the chunk preload before
   navigating. Navigate after about 150 ms regardless.
-- [ ] A9 Add a WebKit (iPhone) Playwright smoke project, so Safari regressions are caught.
+- [x] A9 Add a WebKit (iPhone) Playwright smoke project, so Safari regressions are caught.
 - [ ] A10 Later, larger changes: per-route CSS, `srcset` thumbnails, and storing the CSV text or
   using IndexedDB instead of re-stringifying 1–2 MB per visit.
 
@@ -134,3 +134,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   tile caches use `purgeOnQuotaError`, and images are capped at 120. `shrines-fallback` is **kept**
   in the precache on purpose: it is the offline safety net for field visits when the sheet cache
   has expired.
+- 25 Oct: A9 committed. The `webkit-iphone` Playwright project runs `e2e/webkit-smoke.spec.ts`:
+  ten routes plus the marker count, all 11 passing against a scratch build. CI now installs WebKit.
+  Gotcha: in Git Bash, `VITE_BASE_PATH=/` is rewritten to `C:/Program Files/Git/`; prefix
+  `MSYS_NO_PATHCONV=1`.
