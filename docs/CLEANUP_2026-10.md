@@ -68,9 +68,9 @@ The audits were read-only. Their findings, condensed, with file references as of
   it in `check-routes-prerendered.mjs`.
 - [ ] B2 A MapTiler key is committed in `legacy/app.js:266,276`. Remove it with `legacy/` (C2).
   **Rauf: rotate the key in MapTiler Cloud.**
-- [ ] B3 Dependencies: `maplibre-gl` (critical advisory; practically unreachable here) and
+- [~] B3 Dependencies (analysed, not changed): `maplibre-gl` (critical advisory; practically unreachable here) and
   `react-router-dom` 6.30.4 (moderate). Bump within their major versions.
-- [ ] B4 A Content-Security-Policy `<meta>` (see the audit's suggested policy). Verify with e2e.
+- [~] B4 (baseline added) A Content-Security-Policy `<meta>` (see the audit's suggested policy). Verify with e2e.
 - [ ] B5 Dev tooling advisories (vite 5, vitest, storybook). Evaluate upgrades separately.
 - [ ] B6 `tools/utrnet` downloads model weights unpinned and loads them with
   `weights_only=False`: pin a revision and check a sha256. `google-apps-script/Code.gs`: neutralise
@@ -149,3 +149,10 @@ The audits were read-only. Their findings, condensed, with file references as of
   preloads already catch their own errors. Only the unbounded wait was real.)
 - 25 Oct: A7, drag half, committed: the bottom sheet's drag writes its height once per animation
   frame. The blur half is a design question, listed under Questions for Rauf.
+- 25 Oct: **full e2e on a production build of the branch: 576 passed, 0 failed** (Chromium and
+  the new WebKit iPhone project, a11y included). B3 analysed: both advisories are fixed only in
+  new major versions (`maplibre-gl` 6, React Router 7). The audit judged both unreachable here,
+  so the upgrade is left for a dedicated, reviewed pass rather than done unattended.
+- 25 Oct: B4 baseline committed: a CSP meta with `object-src 'none'; base-uri 'self';
+  form-action 'self'`. The strict `script-src` half needs per-build hashes for prerender's
+  inline scripts and is the next step if wanted.
