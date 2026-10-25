@@ -174,7 +174,9 @@ The audits were read-only. Their findings, condensed, with file references as of
   length. A corrected coordinate, photo or status therefore read as "no change", and returning
   readers kept the old row for up to an hour. Every cell is now in the key (long cells sampled
   every 8th character plus their exact length): about 4 ms per call on desktop Node.
-- A10, cache half, analysed and left: the dataset is re-stringified into `localStorage` only
-  when the content changes (`adoptCsvResult` returns early on a fingerprint match). Storing the CSV
-  text instead would need the fetch path re-plumbed through a hook full of documented races.
-  Not worth doing unattended.
+- A10, cache half, analysed and left. Within the 1-hour cache window, the dataset is
+  re-stringified only when its content changes (`adoptCsvResult` returns early on a fingerprint
+  match). Once the cache has expired, every visit re-saves it (~1.9 MB), because the slim index,
+  not the cache, is what the CSV is compared against. The fix is to keep the cache timestamp under
+  its own key and rewrite the body only on a real change, but that means re-plumbing a hook full
+  of documented races. Not done unattended; recommended as a reviewed change.
