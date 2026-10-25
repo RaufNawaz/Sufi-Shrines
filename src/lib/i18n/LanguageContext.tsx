@@ -17,11 +17,12 @@ import { warmUrduFonts } from './urduFonts';
 import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
 import { detectInitialLang } from './detectLang';
 import type { ShrineRow } from '../../types/shrine';
+import { readStorage, writeStorage } from '../safeStorage';
 
 export type Numerals = 'eastern' | 'western';
 
 function detectInitialNumerals(): Numerals {
-  const stored = localStorage.getItem(NUMERALS_STORAGE_KEY);
+  const stored = readStorage(NUMERALS_STORAGE_KEY);
   return stored === 'western' ? 'western' : 'eastern';
 }
 
@@ -56,7 +57,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const setNumerals = useCallback((next: Numerals) => {
     setNumeralsState(next);
-    localStorage.setItem(NUMERALS_STORAGE_KEY, next);
+    writeStorage(NUMERALS_STORAGE_KEY, next);
   }, []);
 
   const fmtNum = useCallback(
@@ -109,7 +110,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
      */
     void loadUiStrings(next).then(() => {
       setLangState(next);
-      localStorage.setItem(LANGUAGE_STORAGE_KEY, next);
+      writeStorage(LANGUAGE_STORAGE_KEY, next);
       const params = new URLSearchParams(window.location.search);
       params.set('lang', next);
       /* Carry the hash. Rebuilding from pathname and search alone discards it,

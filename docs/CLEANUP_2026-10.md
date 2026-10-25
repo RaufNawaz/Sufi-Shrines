@@ -43,7 +43,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   chunk takes down the whole map page. If WebGL cannot start, `addTo` throws inside an async IIFE
   and `onFailure` never runs. There is no `webglcontextlost` handler, though iOS drops contexts
   when a tab is backgrounded. Fall back to the CARTO raster in all three cases.
-- [ ] A3 Unguarded `localStorage`: `main.tsx:46`, `ThemeContext.tsx` (10, 39, 56, 60),
+- [x] A3 Unguarded `localStorage`: `main.tsx:46`, `ThemeContext.tsx` (10, 39, 56, 60),
   `LanguageContext.tsx` (24, 59, 112), `detectLang.ts:46`, `tourProgress.ts:38`. Safari with
   "Block All Cookies" and some in-app webviews throw on these reads, which can leave a blank page.
 - [ ] A4 MapLibre canvas: cap `pixelRatio` at 2 and lower `padding` on narrow screens (iPhone memory).
@@ -110,3 +110,5 @@ The audits were read-only. Their findings, condensed, with file references as of
   performance, security, and redundancy.
 - 25 Oct: D1 committed (team view Phase 1). A1 committed: lookbehind removed;
   `scripts/check-no-lookbehind.mjs` added to `npm run build` and tested both ways.
+- 25 Oct: A3 committed. `src/lib/safeStorage.ts` is now used at every unguarded site; a scan
+  finds no other `localStorage` call outside a `try`.

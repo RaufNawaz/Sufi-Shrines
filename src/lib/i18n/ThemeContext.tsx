@@ -5,9 +5,10 @@ import type { Theme } from '../../types/shrine';
 import { THEME_STORAGE_KEY } from '../storageKeys';
 import { withViewTransition } from '../nav/viewTransition';
 import { syncThemeColor } from '../themeColor';
+import { readStorage, writeStorage } from '../safeStorage';
 
 function detectInitialTheme(): Theme {
-  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  const stored = readStorage(THEME_STORAGE_KEY);
   if (stored === 'dark' || stored === 'light') return stored;
   // No explicit choice: follow the device (mirrors the pre-paint block in
   // main.tsx). A phone in dark mode used to get the light site.
@@ -36,7 +37,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.classList.add('theme-switching');
     withViewTransition(() => {
       root.setAttribute('data-theme', next);
-      localStorage.setItem(THEME_STORAGE_KEY, next);
+      writeStorage(THEME_STORAGE_KEY, next);
       setTheme(next);
     });
     window.requestAnimationFrame(() =>
@@ -53,11 +54,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // (sunset auto-switch on phones). The moon button writes to storage and
   // pins the choice from then on.
   useEffect(() => {
-    if (localStorage.getItem(THEME_STORAGE_KEY)) return;
+    if (readStorage(THEME_STORAGE_KEY)) return;
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     const onChange = (e: MediaQueryListEvent) => {
       // Re-check at event time: a choice made after mount pins the theme.
-      if (localStorage.getItem(THEME_STORAGE_KEY)) return;
+      if (readStorage(THEME_STORAGE_KEY)) return;
       setTheme(e.matches ? 'dark' : 'light');
     };
     mq.addEventListener('change', onChange);

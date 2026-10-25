@@ -1,4 +1,5 @@
 import { TOUR_PROGRESS_STORAGE_KEY } from '../storageKeys';
+import { writeStorage } from '../safeStorage';
 
 export type TourStatus = 'in-progress' | 'completed';
 
@@ -35,7 +36,8 @@ function readState(): TourProgressState {
 }
 
 function writeState(state: TourProgressState): void {
-  localStorage.setItem(TOUR_PROGRESS_STORAGE_KEY, JSON.stringify(state));
+  // Unremembered when storage is unavailable; the tour itself still runs.
+  writeStorage(TOUR_PROGRESS_STORAGE_KEY, JSON.stringify(state));
 }
 
 export function getTourProgressState(): TourProgressState {

@@ -39,11 +39,12 @@ import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
 import { loadUrduArticle } from './lib/data/urduContentOverride';
 import { loadUiStrings } from './lib/i18n/uiStrings';
 import { prefetchCsvText } from './lib/data/csvPrefetch';
+import { readStorage } from './lib/safeStorage';
 
 // Prevent FOUC by setting data-theme before paint. An explicit choice
 // (the moon button) pins the theme; otherwise follow the device — a phone
 // in dark mode used to get the light site (seen on a real phone, 22 Aug).
-const stored = localStorage.getItem(THEME_STORAGE_KEY);
+const stored = readStorage(THEME_STORAGE_KEY);
 const theme =
   stored === 'dark' || stored === 'light'
     ? stored

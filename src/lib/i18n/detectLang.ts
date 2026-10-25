@@ -1,6 +1,7 @@
 import type { Lang } from '../../types/shrine';
 import { LANGUAGE_STORAGE_KEY } from '../storageKeys';
 import { isUrPrefixedPath } from './urlLangPrefix';
+import { readStorage } from '../safeStorage';
 
 /**
  * The reader's language, decided from the request itself.
@@ -43,7 +44,7 @@ export function detectInitialLang(): Lang {
   // as ?lang=ur — checked before localStorage so a shared /ur/shrine/<slug>
   // link never flashes the wrong language before App.tsx's normalizer runs.
   if (isUrPrefixedPath(window.location.pathname)) return rememberIfUnset('ur');
-  const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  const stored = readStorage(LANGUAGE_STORAGE_KEY);
   if (stored === 'en' || stored === 'ur') return stored;
   if (navigator.language?.toLowerCase().startsWith('ur')) return 'ur';
   return 'en';
