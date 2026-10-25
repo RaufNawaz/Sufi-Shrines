@@ -114,7 +114,9 @@ function saveShrine_(payload) {
   }
 
   var rowValues = headers.map(function (header) {
-    return Object.prototype.hasOwnProperty.call(updatedRow, header) ? updatedRow[header] : '';
+    return Object.prototype.hasOwnProperty.call(updatedRow, header)
+      ? asLiteral_(updatedRow[header])
+      : '';
   });
 
   sheet.getRange(rowNumber, 1, 1, headers.length).setValues([rowValues]);
@@ -124,6 +126,14 @@ function saveShrine_(payload) {
     rowNumber: rowNumber,
     addedColumns: addedColumns,
   };
+}
+
+// setValues() turns any string that begins with '=' into a live formula, so a
+// cell of text could become =IMPORTXML(...) or =HYPERLINK(...) in the
+// production sheet. A leading apostrophe stores it as the literal text it is
+// (Sheets hides the apostrophe). Security audit, 25 October 2026.
+function asLiteral_(value) {
+  return typeof value === 'string' && value.charAt(0) === '=' ? "'" + value : value;
 }
 
 function getTargetSheet_(payload) {

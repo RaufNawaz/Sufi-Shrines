@@ -72,7 +72,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   `react-router-dom` 6.30.4 (moderate). Bump within their major versions.
 - [~] B4 (baseline added) A Content-Security-Policy `<meta>` (see the audit's suggested policy). Verify with e2e.
 - [ ] B5 Dev tooling advisories (vite 5, vitest, storybook). Evaluate upgrades separately.
-- [ ] B6 `tools/utrnet` downloads model weights unpinned and loads them with
+- [~] B6 (Apps Script half) `tools/utrnet` downloads model weights unpinned and loads them with
   `weights_only=False`: pin a revision and check a sha256. `google-apps-script/Code.gs`: neutralise
   leading `=+-@` and allowlist `sheetName`.
 
@@ -105,6 +105,9 @@ The audits were read-only. Their findings, condensed, with file references as of
   Keep it, move it out, or archive it?
 - Turn off the frosted-glass blur (`backdrop-filter`) on touch devices for speed on older iPhones?
   It is a visible design change to the tab bar, palette and map overlays, so it waits for a ruling.
+- `google-apps-script/Code.gs` now stores a value beginning with `=` as literal text. The repo copy
+  is not what runs: if the endpoint is still deployed, paste the file into the Apps Script editor
+  and redeploy. If nothing uses it any more, take the deployment down (RULE 3).
 
 ## Progress log
 
@@ -159,3 +162,7 @@ The audits were read-only. Their findings, condensed, with file references as of
 - 25 Oct: C4, storage half, committed. The seven preference modules use `safeStorage` and lose 70
   lines of duplicated try/catch. Not moved into `src/lib/preferences/`: that is cosmetic, and it
   would churn every import site for nothing a reader sees.
+- 25 Oct: B6, Apps Script half, committed (formula injection neutralised). The `sheetName`
+  allowlist is not done, because `tools/process_books.py` passes a configurable name; the key holder
+  is trusted. The `tools/utrnet` model pin needs the real file's sha256, so it is left for whoever
+  next runs the OCR machine setup (it belongs to the book-queue toolchain).
