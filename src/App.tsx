@@ -18,6 +18,7 @@ import { TabBar } from './components/nav/TabBar';
 import {
   ROUTE_MODULES,
   SEGMENT_MODULES,
+  preloadBriefly,
   preloadForHref,
   routerPathForHref,
 } from './lib/nav/routeModules';
@@ -151,6 +152,9 @@ function LinkPrefetcher() {
   return null;
 }
 
+/** Only the latest tap navigates, if an earlier one is still waiting. */
+let latestTap = 0;
+
 /* Every in-app link crossfades, the way the tabs have since 15 October 2026:
    the page's chunk is awaited first (so the transition captures the page and
    not the Suspense spinner), then the navigation runs inside a View
@@ -192,9 +196,10 @@ function LinkTransitions() {
       /* Followed from inside an open sheet or palette: replace the entry that
          overlay pushed, so back from the destination is one step, not two. */
       const replace = isOnOverlayEntry();
-      void preloadForHref(link.href, base).then(() =>
-        withViewTransition(() => navigate(to, { replace })),
-      );
+      const token = ++latestTap;
+      void preloadBriefly(preloadForHref(link.href, base)).then(() => {
+        if (token === latestTap) withViewTransition(() => navigate(to, { replace }));
+      });
     };
     /* Capture, so this runs before React Router's own handler on <Link>,
        which then sees `defaultPrevented` and stands down. */

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { preloadRoute } from '../../lib/nav/routeModules';
+import { preloadBriefly, preloadRoute } from '../../lib/nav/routeModules';
 import { withViewTransition } from '../../lib/nav/viewTransition';
 import { prefersReducedMotion } from '../../lib/motionPreference';
 
@@ -58,7 +58,7 @@ export function TabLink({
         return;
       }
       event.preventDefault();
-      void preloadRoute(to).then(() => withViewTransition(() => navigate(to)));
+      void preloadBriefly(preloadRoute(to)).then(() => withViewTransition(() => navigate(to)));
     },
     [current, navigate, pathname, to],
   );

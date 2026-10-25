@@ -88,6 +88,25 @@ export function preloadForHref(href: string, base: string): Promise<unknown> {
   return pending;
 }
 
+/** How long a tap waits for the destination's code before navigating anyway. */
+const PRELOAD_WAIT_MS = 250;
+
+/**
+ * Resolves when `preload` does or after PRELOAD_WAIT_MS, whichever is first.
+ *
+ * Taps await the destination's chunk so the view transition captures a painted
+ * page rather than the Suspense fallback. Unbounded, that wait was the whole
+ * download: on slow mobile data a tap sat with no response for seconds
+ * (mobile audit, 25 October 2026). Past the cap, the route's own Suspense
+ * fallback is the feedback.
+ */
+export function preloadBriefly(preload: Promise<unknown>): Promise<void> {
+  return Promise.race([
+    preload.then(() => undefined),
+    new Promise<void>((resolve) => setTimeout(resolve, PRELOAD_WAIT_MS)),
+  ]);
+}
+
 /** First path segments the router owns (with or without the `/ur` prefix). A
  *  same-origin link outside these — a dataset download, a vendored file — is
  *  a file, not a page, and must be left to the browser. */

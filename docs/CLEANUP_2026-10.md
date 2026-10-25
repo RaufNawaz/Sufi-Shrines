@@ -55,7 +55,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   and `speak()` runs after an `await`, outside the user's tap.
 - [ ] A7 Phones: turn off heavy `backdrop-filter` under `(hover: none)`. The bottom sheet's drag
   sets `height` on every touchmove (`MapSidebar.tsx:206`).
-- [ ] A8 Taps feel dead on slow networks: `App.tsx:193` waits for the chunk preload before
+- [x] A8 Taps feel dead on slow networks: `App.tsx:193` waits for the chunk preload before
   navigating. Navigate after about 150 ms regardless.
 - [x] A9 Add a WebKit (iPhone) Playwright smoke project, so Safari regressions are caught.
 - [ ] A10 Later, larger changes: per-route CSS, `srcset` thumbnails, and storing the CSV text or
@@ -142,3 +142,6 @@ The audits were read-only. Their findings, condensed, with file references as of
   changes, so Play starts audio or speech synchronously inside the tap, as iOS requires.
   `utterance.onerror` resets the state. Unit tests pass; the tours e2e is still to run in the
   batch e2e pass.
+- 25 Oct: A8 committed. `preloadBriefly()` caps the pre-navigation chunk wait at 250 ms for in-app
+  links and the tab bar. (The audit's "failed preload leaves the tap dead" was wrong: both
+  preloads already catch their own errors. Only the unbounded wait was real.)
