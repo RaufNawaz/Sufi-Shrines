@@ -35,7 +35,7 @@ That session works in the Mac folder. These are its uncommitted files as of 25 O
 The audits were read-only. Their findings, condensed, with file references as of `d368297`:
 
 ### A. Mobile / Safari stability (highest impact first)
-- [ ] A1 `src/lib/i18n/localizeRecordedDate.ts:155,157`: a regex lookbehind built at module scope.
+- [x] A1 `src/lib/i18n/localizeRecordedDate.ts:155,157`: a regex lookbehind built at module scope.
   Safari before 16.4 throws a SyntaxError, so **every `/saint/*` page crashes on iOS 15 and
   16.0–16.3**. Rewrite it without lookbehind, and add a build gate that fails if `dist/assets/*.js`
   contains `(?<=` or `(?<!`.
@@ -108,3 +108,5 @@ The audits were read-only. Their findings, condensed, with file references as of
 - 25 Oct: clone fast-forwarded to `d368297`, branch cut, dependencies reinstalled, Playwright
   WebKit installed for Safari testing. Three read-only audits started: mobile/Safari
   performance, security, and redundancy.
+- 25 Oct: D1 committed (team view Phase 1). A1 committed: lookbehind removed;
+  `scripts/check-no-lookbehind.mjs` added to `npm run build` and tested both ways.

@@ -150,12 +150,18 @@ for (const [i, variants] of GREGORIAN_VARIANTS.entries()) {
 
 const ALL_MONTHS = [...MONTH_VARIANTS.flat(), ...GREGORIAN_VARIANTS.flat()];
 /* No `\b` on either side: several variants end in a letter but others contain
-   `.` and `ʿ`, where `\b` behaves differently. A lookaround on the letter class
-   is what "not part of a longer word" actually means here. */
-const MONTH_RE = new RegExp(`(?<![A-Za-z])(${alternation(ALL_MONTHS)})(?![A-Za-z])`, 'g');
+   `.` and `ʿ`, where `\b` behaves differently. "Not part of a longer word" is
+   a non-letter (or the start) before and a lookahead after.
+
+   The leading guard is a captured group, not a lookbehind: Safari before 16.4
+   rejects `(?<!…)` as a syntax error when the module is parsed, and this
+   module's chunk took every /saint/ page down with it on iOS 15 and
+   16.0–16.3 (mobile audit, 25 October 2026). scripts/check-no-lookbehind.mjs
+   keeps lookbehind out of the build. */
+const MONTH_RE = new RegExp(`(^|[^A-Za-z])(${alternation(ALL_MONTHS)})(?![A-Za-z])`, 'g');
 
 const ERA_RE = new RegExp(
-  `(?<![A-Za-z])(${alternation(ERA_MARKERS.map(([latin]) => latin))})(?![A-Za-z])`,
+  `(^|[^A-Za-z])(${alternation(ERA_MARKERS.map(([latin]) => latin))})(?![A-Za-z])`,
   'g',
 );
 const ERA_INDEX = new Map(ERA_MARKERS.map(([latin, urdu]) => [latin.toLowerCase(), urdu]));
@@ -195,23 +201,32 @@ export function localizeRecordedDate(value: string | null | undefined, lang: Lan
   if (!raw || lang !== 'ur') return raw;
 
   let touchedMonth = false;
-  const withMonths = raw.replace(MONTH_RE, (match, _m, offset: number) => {
-    if (!inDateContext(raw, offset, offset + match.length)) return match;
-    const urdu = MONTH_INDEX.get(match.toLowerCase());
-    if (urdu === undefined) return match;
-    touchedMonth = true;
-    return urdu;
-  });
+  const withMonths = raw.replace(
+    MONTH_RE,
+    (whole: string, lead: string, match: string, offset: number) => {
+      const start = offset + lead.length;
+      if (!inDateContext(raw, start, start + match.length)) return whole;
+      const urdu = MONTH_INDEX.get(match.toLowerCase());
+      if (urdu === undefined) return whole;
+      touchedMonth = true;
+      return lead + urdu;
+    },
+  );
 
   /* The era marker only follows the month, never leads. Substituted only where
      a month was — or where a number precedes it, which is the "1045 AH" and
      "681 CE" shape. Left alone in prose, where "AD" could be an initialism and
      `CE` could be anything. */
-  return withMonths.replace(ERA_RE, (match, _m, offset: number) => {
-    const before = withMonths.slice(Math.max(0, offset - 16), offset);
-    if (!touchedMonth && !/[\d۰-۹]\s*$/.test(before)) return match;
-    return ERA_INDEX.get(match.toLowerCase()) ?? match;
-  });
+  return withMonths.replace(
+    ERA_RE,
+    (whole: string, lead: string, match: string, offset: number) => {
+      const start = offset + lead.length;
+      const before = withMonths.slice(Math.max(0, start - 16), start);
+      if (!touchedMonth && !/[\d۰-۹]\s*$/.test(before)) return whole;
+      const urdu = ERA_INDEX.get(match.toLowerCase());
+      return urdu === undefined ? whole : lead + urdu;
+    },
+  );
 }
 
 /** True when a localised value still carries Latin, so a caller knows whether it
