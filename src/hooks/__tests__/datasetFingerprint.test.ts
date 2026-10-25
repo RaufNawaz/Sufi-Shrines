@@ -87,4 +87,14 @@ describe('the dataset fingerprint distinguishes an Urdu merge', () => {
       fingerprintShrines(buildShrines(long)),
     );
   });
+
+  it('any edited cell changes the fingerprint, not only name, date and length', () => {
+    /* A corrected coordinate or a swapped photograph used to fingerprint as
+       "no change", so a returning reader's background refresh dropped it. */
+    const before = rows();
+    const after = rows().map((row, i) => (i === 0 ? { ...row, Latitude: '31.551' } : row));
+    expect(fingerprintShrines(buildShrines(after))).not.toBe(
+      fingerprintShrines(buildShrines(before)),
+    );
+  });
 });

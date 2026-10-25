@@ -170,3 +170,11 @@ The audits were read-only. Their findings, condensed, with file references as of
   edge dash); the gate still verifies all 247 proposals. Left alone on purpose: prerender's
   `easternDigits` and `escHtml` are small Node-side mirrors of TypeScript helpers that plain Node
   cannot import, and each is documented as a mirror.
+- 25 Oct: found and fixed: `fingerprintShrines` keyed only on name, founded and description
+  length. A corrected coordinate, photo or status therefore read as "no change", and returning
+  readers kept the old row for up to an hour. Every cell is now in the key (long cells sampled
+  every 8th character plus their exact length): about 4 ms per call on desktop Node.
+- A10, cache half, analysed and left: the dataset is re-stringified into `localStorage` only
+  when the content changes (`adoptCsvResult` returns early on a fingerprint match). Storing the CSV
+  text instead would need the fetch path re-plumbed through a hook full of documented races.
+  Not worth doing unattended.

@@ -232,8 +232,7 @@ function rebuildWithUrduContent(): Shrine[] | null {
 }
 
 /**
- * Cheap content fingerprint — enough to detect real sheet edits without
- * serializing every row.
+ * Content fingerprint — detects any sheet edit without serializing the rows.
  *
  * ## Why the Urdu description length is in the key
  *
@@ -268,11 +267,27 @@ function rebuildWithUrduContent(): Shrine[] | null {
    payload, and a test that elaborate would be testing the scaffold. */
 export function fingerprintShrines(shrines: Shrine[]): string {
   let hash = 0;
+  /* A long cell (the prose, ~80% of the bytes) is hashed by its exact length
+     and every 8th character; a short one in full. Every character of every
+     cell cost ~10 ms a call on a desktop, several times that on a phone, and
+     this runs on each refresh. */
+  const mix = (text: string) => {
+    const step = text.length > 512 ? 8 : 1;
+    if (step > 1) hash = (hash * 31 + text.length) | 0;
+    for (let i = 0; i < text.length; i += step) hash = (hash * 31 + text.charCodeAt(i)) | 0;
+    hash = (hash * 31) | 0; // field separator
+  };
   for (const s of shrines) {
-    const key =
-      `${s.name}\0${s.founded}\0${(s.raw.Description ?? '').length}` +
-      `\0${getFieldValue(s.raw, 'Description Urdu').length}`;
-    for (let i = 0; i < key.length; i++) hash = (hash * 31 + key.charCodeAt(i)) | 0;
+    mix(`${s.name}\0${s.founded}\0${getFieldValue(s.raw, 'Description Urdu').length}`);
+    /* Every cell, not three of them. The key was name, founded and the
+       description's length, so a corrected coordinate, a new photograph, a
+       changed status or a same-length fix to the prose fingerprinted as "no
+       change": the background refresh discarded it and a returning reader
+       kept the old row until the hour-old cache expired (25 October 2026). */
+    for (const key of Object.keys(s.raw)) {
+      mix(key);
+      mix(String(s.raw[key] ?? ''));
+    }
   }
   return `${shrines.length}:${hash}`;
 }
