@@ -180,3 +180,30 @@ The audits were read-only. Their findings, condensed, with file references as of
   not the cache, is what the CSV is compared against. The fix is to keep the cache timestamp under
   its own key and rewrite the body only on a real change, but that means re-plumbing a hook full
   of documented races. Not done unattended; recommended as a reviewed change.
+
+## Summary (end of the unattended run, 25 October 2026)
+
+The plan is done as far as it can safely go without Rauf. Final state of the branch: `npm run
+verify` green, and **576/576 e2e on a production build** (Chromium plus the new WebKit iPhone
+project).
+
+**Fixed (mobile and Safari):** Saint pages crashing on iOS 15 and 16.0–16.3 (plus a build gate);
+blank page or dead theme toggle when Safari blocks storage; the contents rail not following long
+entries (48/169 scroll positions wrong → 0); the map surviving chunk, WebGL and context-loss
+failures, with the canvas pixel ratio capped; tour narration on iPhone; taps waiting unboundedly
+on slow data; sheet drag batched per frame; service-worker freshness and quota safety; sheet edits
+to coordinates, photos or status reaching returning readers.
+
+**Security:** stored-XSS route through prerendered JSON-LD closed (plus a gate); baseline CSP;
+Apps Script formula injection neutralised; the committed MapTiler key removed with `legacy/`.
+
+**Cleanup:** dead functions and `legacy/` removed; preference storage de-duplicated; the KG
+verifier's drifted slug copy replaced; team view made reactive and visible.
+
+**Left on purpose, each for a reason recorded above:** the major upgrades of `maplibre-gl` and
+React Router (B3); a strict `script-src` CSP (B4); the `tools/utrnet` model pin (B6); per-route
+CSS, `srcset` thumbnails and the cache-timestamp split (A10); moving scripts and docs (C3, C5),
+which would break paths that `docs/HANDOVER.md` cites, and HANDOVER belongs to the other session.
+
+**For Rauf in the morning:** the Questions list above, and this branch to review. It is not
+merged and not pushed.
