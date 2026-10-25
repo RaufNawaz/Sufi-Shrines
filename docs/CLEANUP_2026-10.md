@@ -53,7 +53,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   inflate the quota count).
 - [x] A6 Tour audio: `useTourAudio.ts:16` ignores `BASE_URL`. The probe may never settle on iOS,
   and `speak()` runs after an `await`, outside the user's tap.
-- [ ] A7 Phones: turn off heavy `backdrop-filter` under `(hover: none)`. The bottom sheet's drag
+- [x] A7 (drag half) Phones: turn off heavy `backdrop-filter` under `(hover: none)`. The bottom sheet's drag
   sets `height` on every touchmove (`MapSidebar.tsx:206`).
 - [x] A8 Taps feel dead on slow networks: `App.tsx:193` waits for the chunk preload before
   navigating. Navigate after about 150 ms regardless.
@@ -103,6 +103,8 @@ The audits were read-only. Their findings, condensed, with file references as of
 - `docs/` holds personal correspondence (`email_to_adil_data_layer.md`,
   `message_to_saifullah_2026-08-16.md`, `ADIL_UPDATE_2026-10-08.md`) in a public repository.
   Keep it, move it out, or archive it?
+- Turn off the frosted-glass blur (`backdrop-filter`) on touch devices for speed on older iPhones?
+  It is a visible design change to the tab bar, palette and map overlays, so it waits for a ruling.
 
 ## Progress log
 
@@ -145,3 +147,5 @@ The audits were read-only. Their findings, condensed, with file references as of
 - 25 Oct: A8 committed. `preloadBriefly()` caps the pre-navigation chunk wait at 250 ms for in-app
   links and the tab bar. (The audit's "failed preload leaves the tap dead" was wrong: both
   preloads already catch their own errors. Only the unbounded wait was real.)
+- 25 Oct: A7, drag half, committed: the bottom sheet's drag writes its height once per animation
+  frame. The blur half is a design question, listed under Questions for Rauf.

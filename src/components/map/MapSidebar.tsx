@@ -172,6 +172,14 @@ export function MapSidebar({
       velocity: number;
       moved: boolean;
     } | null = null;
+    /* One height write per frame. touchmove fires at up to 120 Hz on a
+       ProMotion iPhone, and each write re-lays out the sheet's list. */
+    let frame = 0;
+    let pendingH = 0;
+    const applyHeight = () => {
+      frame = 0;
+      aside.style.height = `${pendingH}px`;
+    };
 
     const onStart = (e: TouchEvent) => {
       const target = e.target as Element | null;
@@ -203,8 +211,8 @@ export function MapSidebar({
       drag.velocity = (y - drag.lastY) / dt;
       drag.lastY = y;
       drag.lastT = e.timeStamp;
-      const h = Math.min(drag.maxH, Math.max(drag.minH, drag.startH - (y - drag.startY)));
-      aside.style.height = `${h}px`;
+      pendingH = Math.min(drag.maxH, Math.max(drag.minH, drag.startH - (y - drag.startY)));
+      if (!frame) frame = requestAnimationFrame(applyHeight);
       if (e.cancelable) e.preventDefault();
     };
     const onEnd = (e: TouchEvent) => {
@@ -212,6 +220,10 @@ export function MapSidebar({
       const { moved, velocity, minH, maxH } = drag;
       drag = null;
       if (!moved) return;
+      if (frame) {
+        cancelAnimationFrame(frame);
+        applyHeight();
+      }
       /* A drag also produces a synthetic click on whatever it started on —
          without this, dragging the handle toggled the sheet a second time. */
       if (e.cancelable) e.preventDefault();
@@ -233,6 +245,7 @@ export function MapSidebar({
       aside.removeEventListener('touchmove', onMove);
       aside.removeEventListener('touchend', onEnd);
       aside.removeEventListener('touchcancel', onEnd);
+      if (frame) cancelAnimationFrame(frame);
       aside.classList.remove('sidebar--dragging');
       aside.style.height = '';
     };
