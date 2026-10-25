@@ -1,7 +1,7 @@
 {
   "name": "sufi-shrines",
   "version": "2.0.0",
-  "description": "Bilingual (English/Urdu) interactive map and scholarly archive of 163 sacred sites across Pakistan — Sufi shrines, Hindu temples, and Sikh gurdwaras — with provenance-tracked sources.",
+  "description": "Bilingual (English/Urdu) interactive map and scholarly archive of sacred sites across Pakistan — Sufi shrines, Hindu and Jain temples, Sikh gurdwaras, Udasi darbars and memorials — with provenance-tracked sources.",
   "license": "MIT",
   "private": true,
   "type": "module",

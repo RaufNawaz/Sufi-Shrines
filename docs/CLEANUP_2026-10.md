@@ -77,11 +77,12 @@ The audits were read-only. Their findings, condensed, with file references as of
   leading `=+-@` and allowlist `sheetName`.
 
 ### C. Code and repository cleanup
-- [ ] C1 Dead functions: `kg.ts` (`getEventsByShrine`, `getSaintShrines`, `getPlaceForShrine`,
+- [x] C1 Dead functions: `kg.ts` (`getEventsByShrine`, `getSaintShrines`, `getPlaceForShrine`,
   `getOrderForSaint`, `getPlaceBySlug`), `sourceLibrary.entriesOf`, `kgFigureImages.imageCoverage`,
   `mosques.resetMosquesCache`, `urduFonts.resetUrduFontWarmForTests`,
   `useUrduArticlesReady`. Drop exports that are used only inside their own file.
-- [ ] C2 Delete `legacy/` (the pre-React app; git history keeps it) and `scripts/backfill-slugs.mjs`.
+- [x] C2 Delete `legacy/` (the pre-React app; git history keeps it). `scripts/backfill-slugs.mjs` is
+  kept: `data/csv-source.json` (content, off-limits) and `public/_redirects` name it.
 - [ ] C3 Group the manual scripts into `scripts/measure/` and `scripts/maintenance/`, and fix the
   `package.json` description ("163 sites").
 - [ ] C4 Consolidate the seven preference modules into one `createStoredPreference` helper under
@@ -124,3 +125,7 @@ The audits were read-only. Their findings, condensed, with file references as of
   alone while Rauf's dev server runs): JSON-LD still parses, and the new gate fires on a planted
   `<`. Bundle budgets for Graph, Source and Review were raised 3 KB with a dated reason (+1 KB
   shared by every route for the team hook, badge and safeStorage).
+- 25 Oct: C1 and C2 committed (dead functions, `legacy/`, the stale `package.json` description).
+  `npm run verify` is fully green, data gates included. It also caught three invariants my
+  earlier commits broke (an unstyled class, a token fallback, two docs missing from the index);
+  fixed in this commit.

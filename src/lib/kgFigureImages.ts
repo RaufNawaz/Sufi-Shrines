@@ -121,11 +121,3 @@ export function figureImage(figureSlug: string): FigureImage | undefined {
 export function shrineImage(shrineSlug: string): string | undefined {
   return INDEX?.shrines[shrineSlug]?.url;
 }
-
-/** Coverage, for reporting — not for deciding whether to render. */
-export function imageCoverage(): { figures: number; shrines: number } {
-  return {
-    figures: Object.keys(INDEX?.figures ?? {}).length,
-    shrines: Object.keys(INDEX?.shrines ?? {}).length,
-  };
-}

@@ -109,7 +109,6 @@ deploy instructions, and the OCR pipeline for Urdu book processing.
 | `docs/`                                   | Reference docs, OCR guides, and `docs/planning/` (roadmaps, runbooks)         |
 | `e2e/`                                    | Playwright tests                                                              |
 | `google-apps-script/`                     | Sheets-side script for the book-processing pipeline                           |
-| `legacy/`                                 | Pre-rewrite vanilla-JS site, kept for reference (not built)                   |
 | `books/`, `out/`, `chunks/`, `summaries/` | Local research data (gitignored): source PDFs, OCR output, pipeline artifacts |
 
 ---

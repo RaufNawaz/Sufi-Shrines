@@ -140,6 +140,8 @@ Point-in-time documents. Useful as history; **do not read them as current state*
 | -------------------------------------------------------------- | ---------------------------------------------------------- |
 | [`ADIL_UPDATE_2026-10-08.md`](ADIL_UPDATE_2026-10-08.md) | Draft update to Adil for the 8 October deploy and sheet import |
 | [`PROPOSAL_Shrines_Data_Quality.md`](PROPOSAL_Shrines_Data_Quality.md) | Data-quality proposal                               |
+| [`CLEANUP_2026-10.md`](CLEANUP_2026-10.md) | Performance, Safari/mobile stability, security and repository cleanup pass (October 2026): the three audits' plan, ticked as items land, with a progress log |
+| [`TEAM_ACCESS_PLAN.md`](TEAM_ACCESS_PLAN.md) | Team view: what was shaky about `?team=1`, the Phase 1 fixes, and the Phase 2 sign-in options awaiting Rauf's ruling |
 | [`DOMAIN_AND_HOSTING_2026-09-11.md`](DOMAIN_AND_HOSTING_2026-09-11.md) | Domain names (availability measured), registrars, hosting for a static site; three decisions for Rauf at the top |
 | [`STATUS_AND_ROADMAP.md`](STATUS_AND_ROADMAP.md)               | Status and roadmap write-up                                |
 | [`OPERATING_PLAN.md`](OPERATING_PLAN.md)                       | Operating plan                                             |

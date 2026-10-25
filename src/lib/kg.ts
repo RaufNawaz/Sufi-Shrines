@@ -3,7 +3,6 @@ import type {
   KGStore,
   KGSaint,
   KGOrder,
-  KGPlace,
   KGEvent,
   KGRelation,
   KGRelationType,
@@ -83,14 +82,6 @@ export function getOrderBySlug(slug: string): KGOrder | undefined {
   return kg.orders.find((o) => o.slug === slug);
 }
 
-export function getPlaceBySlug(slug: string): KGPlace | undefined {
-  return kg.places.find((p) => p.slug === slug);
-}
-
-export function getEventsByShrine(shrineSlug: string): KGEvent[] {
-  return kg.events.filter((e) => e.shrineSlug === shrineSlug);
-}
-
 // ── Relation queries ──────────────────────────────────────────────────────────
 
 export function getRelations(opts: {
@@ -106,19 +97,6 @@ export function getRelations(opts: {
   });
 }
 
-/** Returns all shrine slugs where this saint is commemorated. */
-export function getSaintShrines(saintSlug: string): string[] {
-  return getSaintBySlug(saintSlug)?.shrines ?? [];
-}
-
-/** Returns the Sufi order for a saint, or undefined if unrecorded. */
-export function getOrderForSaint(saintSlug: string): KGOrder | undefined {
-  const rel = getRelations({ subject: `saint:${saintSlug}`, type: 'belongs_to_order' })[0];
-  if (!rel) return undefined;
-  const orderSlug = rel.object.replace(/^order:/, '');
-  return getOrderBySlug(orderSlug);
-}
-
 /** Returns the saint(s) commemorated at a shrine (as KGSaint records). */
 export function getSaintsForShrine(shrineSlug: string): KGSaint[] {
   return getRelations({ object: shrineSlug, type: 'buried_at' })
@@ -127,14 +105,6 @@ export function getSaintsForShrine(shrineSlug: string): KGSaint[] {
       return getSaintBySlug(slug);
     })
     .filter((s): s is KGSaint => s !== undefined);
-}
-
-/** Returns the place (district-level) for a shrine, or undefined. */
-export function getPlaceForShrine(shrineSlug: string): KGPlace | undefined {
-  const rel = getRelations({ subject: shrineSlug, type: 'located_in' })[0];
-  if (!rel) return undefined;
-  const slug = rel.object.replace(/^place:/, '');
-  return getPlaceBySlug(slug);
 }
 
 /** Returns all saints in a given order. */

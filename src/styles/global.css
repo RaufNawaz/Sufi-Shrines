@@ -785,7 +785,7 @@ body.lang-rtl {
    Pointer-transparent except for its own exit button. */
 .team-view-badge {
   position: fixed;
-  inset-block-start: calc(var(--safe-top, 0px) + var(--space-2));
+  inset-block-start: calc(var(--safe-top) + var(--space-2));
   inset-inline: 0;
   margin-inline: auto;
   inline-size: fit-content;

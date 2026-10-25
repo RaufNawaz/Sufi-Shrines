@@ -15,7 +15,7 @@ export function TeamViewBadge() {
   if (!teamView) return null;
   return (
     <div className="team-view-badge" role="status">
-      <span className="team-view-badge-label">{t('settingsTeamLabel')}</span>
+      <span>{t('settingsTeamLabel')}</span>
       <button
         type="button"
         className="team-view-badge-exit"

@@ -55,8 +55,3 @@ export function warmUrduFonts(): void {
     }
   }
 }
-
-/** Test seam: lets a spec assert the once-per-page guard from a clean state. */
-export function resetUrduFontWarmForTests(): void {
-  warmed = false;
-}

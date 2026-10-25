@@ -206,12 +206,6 @@ export function buildLibrary(shrines: readonly Shrine[]): Library {
   return library;
 }
 
-/** The entries a citation line is cited by, as full rows. */
-export function entriesOf(source: IndexedSource, shrines: readonly Shrine[]): Shrine[] {
-  const wanted = new Set(source.shrines.map((s) => s.slug));
-  return shrines.filter((s) => wanted.has(s.slug));
-}
-
 export interface CoCited {
   /** A shelf work, when the companion is one; otherwise a single citation line. */
   work?: ShelfWork;

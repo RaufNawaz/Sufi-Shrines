@@ -167,7 +167,3 @@ export function fetchMosques(): Promise<AuqafMosque[]> {
   return mosquesPromise;
 }
 
-/** Test hook: clears the module cache. */
-export function resetMosquesCache(): void {
-  mosquesPromise = null;
-}
