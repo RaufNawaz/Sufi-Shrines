@@ -207,3 +207,18 @@ which would break paths that `docs/HANDOVER.md` cites, and HANDOVER belongs to t
 
 **For Rauf in the morning:** the Questions list above, and this branch to review. It is not
 merged and not pushed.
+
+## State at hand-off (25 October 2026, evening)
+
+- Branch `cleanup/perf-stability-security` in `C:Usersg16DesktopShrines Project`, not
+  merged and not pushed. Verify green; e2e 576/576 on a production build.
+- The questions above were asked in the chat on 25 October. Their answers go here when they come.
+- The hourly resume watcher was cancelled: the plan is finished and the rest waits on those answers.
+- The local dev server on port 5173 was stopped by Claude Code because Windows ran low on memory.
+  It was not restarted. `npm run dev` brings it back.
+- Docs brought up to date in the same pass: `CLAUDE.md` (team view, Safari conventions, the WebKit
+  e2e project), `CHANGELOG.md`, `docs/HANDOFF.md` and `docs/WINDOWS_SETUP.md` (`legacy/` gone,
+  WebKit install).
+- **Not written: a `docs/HANDOVER.md` §9 entry.** HANDOVER is on the do-not-touch list above while
+  the descriptions session runs. Add a short §9 entry pointing here once this branch merges.
+

@@ -239,6 +239,13 @@ RULE 2 still holds in the sheet and in the team view; the gate decides only what
 shown. Tests that need the team view set `localStorage` `shrines_team_access` = `'1'`; a
 `<Navigate>` redirect drops `?team=1`. Full list in `docs/HANDOVER.md` §9.183.
 
+**Since 25 October 2026** components read the gate through `useTeamAccess()`, so switching it
+re-renders every page at once. `?team=1` is removed from the address bar after it is read, so a
+copied link no longer hands the team view on, and a **Team view** badge with an exit button shows
+while it is on. It is still a soft gate, not access control: anything team-only ships in the public
+bundle. The plan for real sign-in, and the decision it needs from Rauf, is
+`docs/TEAM_ACCESS_PLAN.md`.
+
 **Credit and citation are two names and the website, nothing else** (Rauf, 11 September 2026):
 "Adil Ahsan and Rauf Nawaz" (that order, ruled 11 September 2026) — no institution, no address, anywhere public.
 `src/lib/data/__tests__/citation.test.ts` greps `CITATION.cff`, `codemeta.json`,
@@ -299,6 +306,12 @@ outside citations/URLs/coordinates/`<bdi>`.
 ## Coding conventions
 
 - TypeScript strict; keep `npm run verify` green. No new lint warnings (`--max-warnings 0`).
+- **Safari and phones** (25 October 2026, `docs/CLEANUP_2026-10.md`): read and write
+  `localStorage` only through `readStorage`/`writeStorage` in `src/lib/safeStorage.ts`, because
+  Safari with cookies blocked throws on access. No regex lookbehind (`(?<=`, `(?<!`): Safari before
+  16.4 cannot parse it, and `scripts/check-no-lookbehind.mjs` fails the build on one. JSON put into
+  a prerendered `<script>` goes through `scriptSafeJson()` in `scripts/prerender.mjs`, and every
+  `.replace()` that inserts sheet text uses a function replacer, so `$&` in a cell stays literal.
 - Components are functional + hooks; prefer existing patterns (see `TRADITION_LABELS` in
   `src/lib/tours/tours.ts` as the model for enum label maps).
 - Accessibility is a requirement, not a nice-to-have (axe + Storybook a11y). 44px targets,
@@ -477,6 +490,8 @@ npm run verify           # typecheck + lint + format + unit tests + data gates  
                          # CI run in the repo's visible history (19 Aug).
 npm run test             # vitest run
 npm run e2e              # playwright (build first with npm run build:e2e — root base path)
+                         # Chromium, plus a WebKit iPhone smoke project (e2e/webkit-smoke.spec.ts)
+                         # since 25 Oct 2026: npx playwright install chromium webkit
 npm run lint / typecheck
 npm run format           # prettier --write (format:check in CI)
 npm run data:build       # fetch sheet CSV → data/shrines.json + csv + app snapshot

@@ -17,8 +17,8 @@ location, related shrines, guided tours — in English or Urdu.
 All shrine data lives in a **Google Sheet**, published as a CSV fetched at runtime. No
 server is required; the site deploys from the `dist/` folder to GitHub Pages.
 
-The live app is built with **Vite 5 + React 18 + TypeScript 5**. Legacy vanilla-JS files
-are archived under `legacy/` for reference only.
+The live app is built with **Vite 5 + React 18 + TypeScript 5**. The legacy vanilla-JS app
+was removed on 25 October 2026 and survives only in git history.
 
 ---
 

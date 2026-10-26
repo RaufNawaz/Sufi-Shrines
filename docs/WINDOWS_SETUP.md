@@ -56,4 +56,5 @@ matches the Mac byte for byte.
 ## Not yet done on this PC
 
 - Tesseract (`urd`/`fas`) for OCR: follow `BOOK_OCR_WORKFLOW.md` (the Windows one) when needed.
-- Playwright browsers for `npm run e2e`: `npx playwright install`.
+- Playwright browsers for `npm run e2e`: `npx playwright install chromium webkit` (WebKit runs
+  the iPhone smoke project, `e2e/webkit-smoke.spec.ts`, since 25 October 2026).

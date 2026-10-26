@@ -57,12 +57,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `e2e/visual.spec.ts`.
 - Unused dependencies: `eslint-plugin-react`, stray `playwright` package,
   `@vitest/coverage-v8`.
+- `legacy/`, the pre-React app, which also carried a committed MapTiler key
+  (25 October 2026; still in git history, so the key needs rotating).
+- Dead exports in `kg.ts`, `sourceLibrary.ts`, `kgFigureImages.ts`, `mosques.ts`
+  and `urduFonts.ts` (25 October 2026).
 
 ### Fixed
 
 - GitHub Pages 404s from a missing base path.
 - Real English leaks in the Urdu view found by end-to-end screenshot verification.
 - Brittle `map.spec.ts` search assertion broken by the growing dataset.
+- Mobile and Safari (25 October 2026, `docs/CLEANUP_2026-10.md`): saint pages
+  crashing on iOS 15–16.3 (regex lookbehind; now a build gate); a blank page when
+  Safari blocks storage (`src/lib/safeStorage.ts`); the contents rail not following
+  long entries; the map surviving a failed MapLibre chunk or a lost WebGL context;
+  tour narration on iPhone; taps capped at 250 ms waiting for a route chunk; the
+  service worker serving sheet edits on the next load and staying inside its quota.
+- Team view (25 October 2026): reactive in every component, `?team=1` stripped from
+  the address bar, and a visible badge with an exit button while it is on.
+
+### Security
+
+- JSON-LD in prerendered pages escapes `<`, `>` and `&`, so a sheet cell cannot close
+  the script tag; `check-routes-prerendered.mjs` fails the build if one does.
+- A baseline Content-Security-Policy meta tag.
+- The Apps Script endpoint stores a value beginning with `=` as text, not a formula.
 
 ## [2.1.0]
 
@@ -116,6 +135,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.x]
 
-Original hand-written vanilla JavaScript app (archived in `legacy/`) using Leaflet.js
+Original hand-written vanilla JavaScript app (archived in `legacy/` until 25 October 2026, now only in git history) using Leaflet.js
 from CDN, Google Sheets CSV via PapaParse, `app.js` / `shrine.js` / `shrine.html` /
 `style.css`. Translations pre-built via LibreTranslate and committed as `translations.js`.
