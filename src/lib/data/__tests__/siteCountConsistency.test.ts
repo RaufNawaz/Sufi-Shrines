@@ -169,13 +169,19 @@ describe('bibliography figures written in prose match buildCoverage', () => {
   });
 
   it('still finds exactly one entry citing nothing, as the paragraph claims', () => {
+    /* Since 30 October 2026 the claim is about entries with a Description: the
+       318 book rows have none and are counted apart in the same sentence. */
+    const undescribed = (snapshot.rows as { Description?: string }[]).filter(
+      (r) => !String(r.Description ?? '').trim(),
+    ).length;
     expect(
-      coverage.bibliography.withNone,
-      'CLAUDE.md says "Exactly one entry cites nothing (Sant Baba Asudaram Darbar)". If this ' +
-        'moved, the sentence needs rewriting rather than the number nudging — it names the entry.',
+      coverage.bibliography.withNone - undescribed,
+      'CLAUDE.md says "Of the entries with a Description, exactly one cites nothing (Sant Baba ' +
+        'Asudaram Darbar)". If this moved, the sentence needs rewriting rather than the number ' +
+        'nudging — it names the entry.',
     ).toBe(1);
     expect(readFileSync(join(ROOT, 'CLAUDE.md'), 'utf8')).toContain(
-      'Exactly one entry cites nothing',
+      'Of the entries with a Description, exactly one cites nothing',
     );
   });
 });

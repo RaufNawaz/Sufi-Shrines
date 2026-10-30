@@ -50,6 +50,11 @@ describe('source-notes content contract', () => {
     );
     const expected = shrineSnapshot.rows
       .filter((row) => row.qa_note?.trim())
+      /* The October 2026 book rows (318) carry the new rows build's own review
+         flag in qa_note and have no Description: there is no article for a
+         reader's source note to qualify, so they are outside this contract
+         until a Description is written for them. */
+      .filter((row) => String(row.Description ?? '').trim())
       .map((row) => slugByName.get(row.Name) ?? row.id)
       .filter((slug) => !AWAITING_DRAFTED_NOTE.includes(slug))
       .sort();

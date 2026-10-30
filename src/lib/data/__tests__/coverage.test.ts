@@ -109,7 +109,10 @@ describe('coverage of the shipped snapshot', () => {
     const c = buildCoverage(buildShrines(snapshot.rows));
 
     expect(c.total).toBeGreaterThan(150);
-    expect(c.bibliography.withNone).toBeLessThanOrEqual(3);
+    /* The 318 book rows of October 2026 have no Description, so nothing to cite
+       from; counted apart so a described entry losing its bibliography still fails. */
+    const undescribed = snapshot.rows.filter((r) => !String(r.Description ?? '').trim()).length;
+    expect(c.bibliography.withNone - undescribed).toBeLessThanOrEqual(3);
     expect(c.bibliography.items).toBeGreaterThan(400);
     expect(c.bibliography.withThreeOrMore).toBeGreaterThan(80);
 

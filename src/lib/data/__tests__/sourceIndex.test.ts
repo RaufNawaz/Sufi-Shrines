@@ -81,8 +81,10 @@ describe('what it says about the archive', () => {
   it('finds the one entry the archive cites nothing for', () => {
     /* HANDOVER: exactly one entry cites nothing (Sant Baba Asudaram Darbar).
        Asserted as a range rather than a name, so an enrichment pass closing it
-       is a passing test rather than a failing one. */
-    expect(index.uncited).toBeLessThan(5);
+       is a passing test rather than a failing one. The 318 book rows of
+       October 2026 have no Description to cite from and are counted apart. */
+    const undescribed = snapshot.rows.filter((r: { Description?: string }) => !String(r.Description ?? '').trim()).length;
+    expect(index.uncited - undescribed).toBeLessThan(5);
   });
 
   it('finds sources more than one entry rests on', () => {

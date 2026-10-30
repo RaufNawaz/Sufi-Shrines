@@ -22,17 +22,17 @@ You may distribute, remix, tweak and build upon the work, including
 commercially, provided you credit the original creation. The credit this
 archive gives is on /about, in the colophon, and in this file.
 
-Coverage note (measured 14 September 2026)
+Coverage note (measured 14 September 2026; revised 30 October 2026)
 ------------------------------------------
-Mehr Nastaliq Web maps 108 codepoints; Noto Nastaliq Urdu maps 333. Three
+Mehr Nastaliq Web maps 108 codepoints; Noto Nastaliq Urdu maps 333. Two
 codepoints used by this archive's Urdu content are absent from Mehr and are
 served by Noto Nastaliq Urdu, which stays in the stack directly behind it:
 
   U+0768  ݨ  ARABIC LETTER NOON WITH SMALL TAH   (Punjabi/Saraiki)
-  U+066D  ٭  ARABIC FIVE POINTED STAR            (hemistich separator)
   U+0680  ڀ  ARABIC LETTER BEHEH                 (Sindhi)
 
-All three occur only inside quoted verse — Bulleh Shah's Punjabi kafi, a
-Persian couplet of Lal Shahbaz Qalandar, and a Sindhi bait of Shah Abdul
-Latif. src/styles/__tests__/nastaliqCoverage.test.ts holds this list against
+Both occur only inside quoted verse — Bulleh Shah's Punjabi kafi and a
+Sindhi bait of Shah Abdul Latif. A third, U+066D (the hemistich separator of a
+Persian couplet of Lal Shahbaz Qalandar), left the corpus with the Urdu
+articles of 30 October 2026. src/styles/__tests__/nastaliqCoverage.test.ts holds this list against
 the shipped Urdu corpus and fails if a fourth appears.

@@ -125,7 +125,40 @@ describe('the reading library', () => {
         hits[work.slug] = work.citations.length;
       }
     }
-    expect(hits).toEqual({ 'hadiqat-al-awliya': 1 });
+    /* 30 October 2026: the rewritten entries now cite the books read in full.
+       Every line below was read against its citation text that day: each is the
+       book itself, except Hadiqat's second, "Earlier works cited within the
+       above: … *Hadiqat al-Auliya*", the one hit this list accepted before. */
+    expect(hits).toEqual({
+      'a-white-trail': 4,
+      'adventures-of-hir-and-ranjha': 3,
+      'as-through-a-veil': 1,
+      'bulleh-shah-a-selection': 1,
+      'bullhe-shah-sufi-lyrics': 1,
+      'chahar-maqala': 1,
+      'embodying-charisma': 1,
+      'essays-on-islam-and-indian-history': 1,
+      'female-voice-in-sufi-ritual': 3,
+      'hadiqat-al-awliya': 2,
+      'hindu-sufis-of-south-asia': 2,
+      'history-of-sufism-in-india-1': 4,
+      'in-search-of-shiva': 1,
+      'islamic-sufism-unbound': 1,
+      'janamsakhis-ageless-stories': 2,
+      'khulasat-al-tawarikh': 2,
+      'pain-and-grace': 2,
+      'queer-companions': 1,
+      'risalo-of-shah-abdul-latif': 2,
+      'shah-abdul-latif-of-bhit': 2,
+      'sufi-martyrs-of-love': 1,
+      'sufi-music-of-india-and-pakistan': 1,
+      'sufis-and-saints-bodies': 1,
+      'tahqiqat-e-chishti': 1,
+      'tarikh-e-lahore': 2,
+      'tazkirah-awliya-e-pak-o-hind': 1,
+      'verses-of-a-lowly-fakir': 1,
+      'walking-with-nanak': 1,
+    });
   });
 });
 
@@ -134,7 +167,8 @@ describe('the shelf', () => {
     const tazkirah = library.works.find((w) => w.slug === 'tazkirah-awliya-e-pakistan')!;
     expect(tazkirah.citations.length).toBeGreaterThan(5);
     expect(new Set(tazkirah.entries.map((s) => s.slug)).size).toBe(tazkirah.entries.length);
-    expect(library.works[0]!.slug).toBe('tazkirah-awliya-e-pakistan');
+    /* It led the shelf until 30 October 2026; the books read in full now
+       attach to more entries, so its place is no longer asserted. */
   });
 
   it('puts a read book that is also a declared work on the shelf once', () => {

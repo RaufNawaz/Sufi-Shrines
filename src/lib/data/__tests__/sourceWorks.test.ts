@@ -38,12 +38,17 @@ describe('what the archive rests on, counted by work', () => {
   });
 
   it('finds the archive leaning on one book far harder than the citation list shows', () => {
-    const top = rollup[0];
-    expect(top.work.slug).toBe('tazkirah-awliya-e-pakistan');
-    /* The number the citation index can show is the biggest single record — 25.
-       The number that is true is the work's. Asserted as a floor so the gap
-       cannot quietly close by the rollup breaking. */
-    const biggestSingleRecord = Math.max(...index.sources.map((s) => s.shrines.length));
+    /* Until 30 October 2026 the Tazkirah also topped the rollup; since the
+       rewritten entries cite Schimmel's *Mystical Dimensions of Islam* in 55,
+       it is second, with 48. The point stands for the Tazkirah itself: its
+       biggest single citation record is far smaller than the work's reach,
+       because its volumes and spellings are cited as separate records. */
+    const top = rollup.find((r) => r.work.slug === 'tazkirah-awliya-e-pakistan')!;
+    const biggestSingleRecord = Math.max(
+      ...index.sources
+        .filter((s) => worksForCitation(s.name).some((w) => w.slug === top.work.slug))
+        .map((s) => s.shrines.length),
+    );
     expect(top.entries.length).toBeGreaterThan(biggestSingleRecord);
     expect(top.entries.length).toBeGreaterThanOrEqual(45);
     expect(top.citationRecords).toBeGreaterThan(1);

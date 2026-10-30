@@ -17,8 +17,10 @@ Live at **`raufnawaz.github.io/Sufi-Shrines/`**.
 
 Each site has a location, a prose description, provenance metadata, and where available
 photographs taken by our own enumerators. The archive's distinguishing claim is not coverage —
-Punjab Auqaf alone administers **534** shrines against our **171** (*count as of 8 October
-2026; 169 from 21 August until the 8 October import made two more rows shippable*) — but *honesty about provenance*: a visitor should be able to tell a field-verified entry
+Punjab Auqaf alone administers **534** shrines against our **489** (*count as of 30 October
+2026: 171 described entries and 318 rows seeded from two books, many of them temples, mosques
+and graveyards rather than shrines, so the comparison flatters us; 171 from 8 October, 169 from
+21 August*) — but *honesty about provenance*: a visitor should be able to tell a field-verified entry
 from one compiled off the web. `/coverage` computes that comparison, and everything behind it,
 from the shipped data on every page load, so the reader is never relying on a number in a
 document.
@@ -1331,8 +1333,8 @@ nothing errored.
     candid thing in the repository, no reader could see any of them, and they go stale: §9.40's
     entry and CLAUDE.md's "49 of 167 entries have no bibliography" were both quoted as current
     long after they stopped being true (168 of 169 now carry one; 533 citations — 544 until the
-    counting rule was corrected on 24 August; 103 citing three
-    or more). A page computed from the shipped data cannot drift from it.
+    counting rule was corrected on 24 August; 143 citing three
+    or more, re-measured 30 October 2026, when 1,452 citations stood across 170 entries). A page computed from the shipped data cannot drift from it.
 
     *That "103" read 107 until 30 August 2026 — this sentence, whose subject is a number quoted
     after it stopped being true, was quoting a number after it stopped being true. It is the

@@ -1,5 +1,26 @@
 [
   {
+    "name": "Abdullah Khweshgi",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Abu al-Khair",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Akhund Muhammad Rafi Peshawari",
+    "location": "Peshawar",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Allo Mahar",
     "location": "Allo Mahar, Sialkot, Punjab",
     "category": "Muslim Shrine",
@@ -14,11 +35,53 @@
     "saint": "Shiva (Mahadev)"
   },
   {
+    "name": "Asthan Sitla Mata (outside the wall)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Ayub Sabir Miran",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Badshahi Masjid",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Bahle [OCR?] Shah Majzub Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Bari Imam",
     "location": "Bari Imam, Islamabad, Islamabad Capital Territory",
     "category": "Muslim Shrine",
     "founded": "1705",
     "saint": "Bari Imam (Shah Abdul Latif Kazmi)"
+  },
+  {
+    "name": "Begumpura graveyard",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Bhadr Kali (in-city)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Bhagnari Mandir",
@@ -42,11 +105,25 @@
     "saint": "Bhai Waliram"
   },
   {
+    "name": "Bhairon ji ka Asthan, Mohalla Wachhowali",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Bhit (Bhit Shah)",
     "location": "Bhit (Bhit Shah), Bhit, Sindh",
     "category": "Muslim Shrine",
     "founded": "1772",
     "saint": "Shah Abdul Latif Bhittai"
+  },
+  {
+    "name": "Bibi Rasti",
+    "location": "Multan",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Chandragup (Baba Chandragup)",
@@ -56,6 +133,20 @@
     "saint": "Shiva (associated deity)"
   },
   {
+    "name": "Chaubara Chhajju Bhagat",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Chishti family graves, Maidan Zarin Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Churrio Jabal Durga Mata Temple",
     "location": "Churrio Hill, Nagarparkar, Tharparkar District, Sindh, Pakistan",
     "category": "Hindu Temple",
@@ -63,8 +154,15 @@
     "saint": "Goddess Durga (Mata)"
   },
   {
+    "name": "Dan Shahid",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Darbar Abul Muali Qadri",
-    "location": "Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is \"right near his shrine.\" No province, district, address or coordinates given in the survey. Pin is Mochi Gate's own coordinate (an approximate landmark, not the shrine's exact position).",
+    "location": "Lahore",
     "category": "",
     "founded": "1024 AH (as given in the form; not a construction date)",
     "saint": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"
@@ -78,14 +176,14 @@
   },
   {
     "name": "Darbar Ghazi Ilm Din Shaheed",
-    "location": "Miani Sahib Graveyard, Lahore. The field survey itself locates the shrine only as “Lahore” (its one detail, ‘Railway Auqaf land,’ refers to the funeral prayer, not necessarily the burial site); the placement at Miani Sahib comes from published press accounts — see Bibliography. The pin is the graveyard landmark, shared with the other Miani Sahib entries, not the grave's exact position.",
+    "location": "Miani Sahib Graveyard, Lahore",
     "category": "",
     "founded": "1929",
     "saint": "Ghazi Ilm Din Shaheed"
   },
   {
     "name": "Darbar Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
-    "location": "Miani Sahib Graveyard, Lahore, Punjab. The field survey places the shrine \"in the middle of Miani Sahib Graveyard\" but gives no street address, no locality/section name within the graveyard, and no coordinates.",
+    "location": "Miani Sahib Graveyard, Lahore, Punjab",
     "category": "",
     "founded": "November 27, 1981 CE / 1402 AH",
     "saint": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami"
@@ -99,28 +197,28 @@
   },
   {
     "name": "Darbar Hazrat Shah Gohar Peer",
-    "location": "Lahore (no locality, address or coordinates recorded in the survey).",
+    "location": "Lahore",
     "category": "",
     "founded": "Unknown",
     "saint": "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer"
   },
   {
     "name": "Darbar Hazrat Tahir Bandagi Qadri",
-    "location": "Miani Sahib Graveyard, Lahore. Per the field survey, this shrine is the oldest seat within Miani Sahib Graveyard — the graveyard grew up around it over the centuries, not the reverse. The survey gives no street address, no coordinates, and no position within the graveyard's roughly 475 kanals beyond \"alongside the mosque\" that Hazrat Tahir Bandagi built.",
+    "location": "Miani Sahib Graveyard, Lahore",
     "category": "",
     "founded": "1630 CE (8 Muharram 1040 AH)",
     "saint": "Hazrat Tahir Bandagi Qadri"
   },
   {
     "name": "Darbar Malik Ahmad Ayaz",
-    "location": "Shah Alam Market; the survey places the mazar near Darbar Ali Hajveri Ganj Bakhsh (Data Darbar). No city, district, tehsil or province is stated anywhere in the survey for the shrine itself. Pin reuses Data Darbar's own coordinate, since the survey ties this shrine's location directly to it — an approximate landmark, not the shrine's exact position.",
+    "location": "Shah Alam Market, Lahore",
     "category": "",
     "founded": "1041 (as given: \"8 August 1041\")",
     "saint": "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore"
   },
   {
     "name": "Darbar Mian Qurban Ali Shah",
-    "location": "Mint Stop, Lahore (as given in the survey; no province, street address or coordinates are recorded).",
+    "location": "Mint Stop, Lahore",
     "category": "",
     "founded": "1416 AH (c. 1995–96 CE) — see note; not verified as a construction date",
     "saint": "Hazrat Mian Qurban Ali Shah Sarkar"
@@ -134,7 +232,7 @@
   },
   {
     "name": "Darbar Wasif Ali Wasif",
-    "location": "Miani Sahib Graveyard, Lahore — the survey gives no street address, tehsil, district, or coordinates; it locates the shrine only as a dedicated plot beside the graveyard, which it describes as one of the largest graveyards in Asia.",
+    "location": "Miani Sahib Graveyard, Lahore",
     "category": "",
     "founded": "1993",
     "saint": "Hazrat Wasif Ali Wasif Awan (born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus)"
@@ -189,11 +287,46 @@
     "saint": "Hazrat Data Ganj Bakhsh (Ali Hujwiri)"
   },
   {
+    "name": "Devi Dwara Rajo and Dharman",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Dharamsala Bhai Goma Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Dharamsala of Baba Khuda Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Eidgah Sharif",
     "location": "Eidgah Sharif, Rawalpindi, Punjab",
     "category": "Muslim Shrine",
     "founded": "18th century",
     "saint": "Pir Abdul-ul-karim"
+  },
+  {
+    "name": "Faqir Taj Shah Majzub Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Fazl Shah Majzub Naushahi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Garh Maharaja (Shorkot)",
@@ -222,6 +355,13 @@
     "category": "Hindu Temple",
     "founded": "1375-1376 CE",
     "saint": "Jain temple dedicated to Parshvanatha (23rd Tirthankara)"
+  },
+  {
+    "name": "Gulabi Shah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Gurdas Ram Mandir",
@@ -476,6 +616,97 @@
     "saint": "Guru Nanak"
   },
   {
+    "name": "Gyan Mandir and Shivala Ishri Prashad Kayath",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Hafiz Ghulam Muhammad, known as Imam Gamun",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Hafiz Muhammad Taqi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Haji Ahmad, resident of Qalat",
+    "location": "Peshawar",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Haji Fath Ali Muttaqi Sialkoti",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Haji Hafiz Qari Abd al-Malik",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Haji Jamiat",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Haji Muhammad Saeed (Dola Wari)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Half-demolished mosque near Sarai Muhammad Sultan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Hanuman Mandir, Moti Bazaar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Hazrat Ghulam Muhi al-Din Qasuri Mujaddidi",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Hazrat Shah Hasan Wali Kamil",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Imambara and Gami Shah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Jagannath Temple, Sialkot",
     "location": "Paris Road, Mohallah Puran Nagar, Sialkot, Punjab, Pakistan",
     "category": "Hindu Temple",
@@ -488,6 +719,13 @@
     "category": "Hindu Temple",
     "founded": "1940",
     "saint": "Jain Tirthankaras"
+  },
+  {
+    "name": "Jali Shah Majzub Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Jhollay Lal Mandir",
@@ -511,6 +749,13 @@
     "saint": "Goddess Kali"
   },
   {
+    "name": "Kali Devi Mandir",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Kalka Cave Temple (Asthan of Kalka Devi)",
     "location": "Aror, Sukkur District, Sindh, Pakistan",
     "category": "Hindu Temple",
@@ -525,11 +770,60 @@
     "saint": "Shiva (Mahadev)"
   },
   {
+    "name": "Khanqah Kahhote Shah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Khatwari Darbar, Shikarpur",
     "location": "Thekrati Bazar, old city, Shikarpur, Sindh, Pakistan",
     "category": "Sikh Gurdwara",
     "founded": "18th century (c. 1725–1750)",
     "saint": "Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh"
+  },
+  {
+    "name": "Khwaja Ayub Qureshi Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Khwaja Bihari Qadri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Khwaja Hafiz Abd al-Khaliq Uwaisi",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Khwaja Khawand Mahmud Lahori, famous as Hazrat Ishan Naqshbandi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Khwaja Muhammad Siddiq Peshawari",
+    "location": "Peshawar",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Kotwali mosque of Mian Nura (Nur Muhammad)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Krishna Mandir (Kabari Bazar)",
@@ -544,6 +838,13 @@
     "category": "Hindu Temple",
     "founded": "",
     "saint": "Lord Krishna"
+  },
+  {
+    "name": "Kuka dharamsala, Moti Bazaar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Lal Kurti Temple (Balmiki Mandir), Rawalpindi",
@@ -574,6 +875,279 @@
     "saint": "Lava (Luv), son of Rama and Sita"
   },
   {
+    "name": "Madrasa Garhi Shahu (Khair Garh)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mai Bhagi Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Makhdoom Nau Bahar Shah, sajjada nashin of Uch Bukhari",
+    "location": "Uch",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Makhdum Mufti Shaikh Muhammad Qureshi, \"Mian Kalan\"",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Makhdum Shah Alam Sadr Jahan",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mandir Banke Bihari",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mandir Bawa Mehr Das (four mandirs)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mandir Bhadr Kali, Niaz Beg",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mandir Sitla Devi (inside the city)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mandir Than Bhairon, Ichhra",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Marghat, the Hindu cremation ground",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Bazar Bi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Bukan Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Chiniyan Wali",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Dai Anga",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Dai Ladu",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Hafiz Chabuk Sawar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Imam Shah Wali",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Khurd Nawab Wazir Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Khwaja Ayaz",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Masti Darwaza (Maryam Zamani)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Mian Muhammad Sultan Thekedar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Mohalla Takiya Sadhuwan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Moran Tawaif",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Muhammad Salih Kambo, Mochi Darwaza",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Muhammad Salih Sindhi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Mulla Majid, Mohalla Chehl Bibian",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Naqiban",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Pari Mahal",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Phulian Wali",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Shaikh Nawab Imam al-Din Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masjid Wazir Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mastan Shah Lahori Majzub",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Masum Shah Majzub Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mata Mandir of Kucha Bal Nath",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Maulana Ghulam Muhyi al-Din Qasuri",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Maulana Haji Sa'd Allah",
+    "location": "Wazirabad",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Maulvi Jami Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Maulvi Timur Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Mausoleum of Waris Shah",
     "location": "Jandiala Sher Khan, Sheikhupura District, Punjab, Pakistan",
     "category": "Muslim Shrine",
@@ -581,11 +1155,102 @@
     "saint": "Waris Shah"
   },
   {
+    "name": "Mazar Chiragh Shah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mazar Marg Naini",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Mazar of Bulleh Shah",
     "location": "Mazar of Bulleh Shah, Kasur, Punjab",
     "category": "Muslim Shrine",
     "founded": "1757",
     "saint": "Bulleh Shah (Abdullah Shah Qadri)"
+  },
+  {
+    "name": "Mazar Shahid Ganj, Mohalla Sadhwan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mian Amir Bakhsh the bookbinder",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mian Jan Muhammad",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mian Mongar Majzub Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mian Nura's second mosque, Kashmiri Bazaar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Miani graveyard and Panj Pir Dher",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mir Sayyid Shah Firoz",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Miran Sayyid Ghulam Muhyi al-Din",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Miran Sayyid Mubarak Haqqani",
+    "location": "Uch",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mirza Hadi / Muhammad Muslim (Pir Zaidi)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Miskin Shah Amri (Mir Inayat Allah)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Mithankot (Kot Mithan)",
@@ -602,11 +1267,123 @@
     "saint": "Khwaja Muhammad Qasim Sadiq"
   },
   {
+    "name": "Mosque at the Garhi Shahu compound",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mosque of Sayyid Amir Shah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mosque of Zabita Khan and Mirza Muhammad (Mirza Mota)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Moti Masjid, Lahore Fort",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mufti Ghulam Muhammad",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mufti Muhammad Taqi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mufti Rahim Allah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mufti Rahmat Allah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mufti Shaikh Muhammad Mukarram Qureshi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Multani Dharamsala",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Mustaqim Shah Lahori Faizpuri Majzub",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)",
     "location": "Karoonjhar Mountains region, Nagarparkar, Sindh, Pakistan",
     "category": "Hindu Temple",
     "founded": "Buildings date 12th–15th century CE",
     "saint": "Jain Tirthankaras"
+  },
+  {
+    "name": "Nawab Zakariya Khan's graveyard complex, Mughalpura",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Neighbourhood thakurdwara on a confectioners' shop site",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Nizam Shah Lahori Majzub",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Nur Muhammad Thani Naruwala",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Old tomb under Government House",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Panj Tirath",
@@ -621,6 +1398,97 @@
     "category": "Hindu Temple",
     "founded": "17th Century",
     "saint": "Smadhi of Dya Ram"
+  },
+  {
+    "name": "Past Masjid / Nichi Masjid",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Balkhi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Bhola Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Burhan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Dhal",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Ghazi, known as Pir az Ghaib",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Hadi Rahnuma",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Muhammad Sachiar Naushahi",
+    "location": "Gujrat",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Muhammad Shirazi Chishti",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Sayyid Kamal, known as Pir Jahanian",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Siraj al-Din, known as Pir Siraji",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Zaki",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Pir Zuhdi Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Prahladpuri Temple",
@@ -644,6 +1512,13 @@
     "saint": "Rahman Baba (Abdur Rahman Mohmand)"
   },
   {
+    "name": "Ram Dwara, Mohalla Wachhowali",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Ram Mandir, Saidpur (Ram Kund Mandir)",
     "location": "Saidpur Village, Margalla Hills, Islamabad Capital Territory, Pakistan",
     "category": "Hindu Temple",
@@ -658,6 +1533,13 @@
     "saint": "Ramdev Pir (Ramapir)"
   },
   {
+    "name": "Rani Gul Begum",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Ranmal Sharif",
     "location": "Ranmal Sharif, Phalia, Punjab",
     "category": "Muslim Shrine",
@@ -665,11 +1547,39 @@
     "saint": "Syed Muhammad Noushah Qadiri"
   },
   {
+    "name": "Rasul Shahi faqirs and Nur Husain",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Sadh Belo (Sadh Belo Island Temple)",
     "location": "Sadh Belo Island, near Sukkur/Rohri, Sindh, Pakistan",
     "category": "Hindu Temple",
     "founded": "1823 (site); 1899 (temple built)",
     "saint": "Baba Bankhandi Maharaj (Udasi founder)"
+  },
+  {
+    "name": "Sadhu Chuhra's well and shivala",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Safed Gumbad / Laka Gumbad (Yahya Khan)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sain Qutb Shah Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Sain Vali Vilayat Rai Darbar, Kambar",
@@ -684,6 +1594,118 @@
     "category": "Muslim Shrine",
     "founded": "13th century",
     "saint": "Sultan Sakhi Sarwar"
+  },
+  {
+    "name": "Samadh Bawa Jhingar Shah Suthra",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Bhai Rupa",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Bhai Vasti Ram",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Dariya Gar Sanyasi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Haqiqat Rai",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Jamadar Khushhal Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Maharaja Kharak Singh and Kunwar Nau Nihal Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Maharaja Sher Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Raja Dhian Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Raja Suchet Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Raja Teja Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Raja Udham Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Ram Singh, son of Jamadar Khushhal Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Rani Chand Kaur",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Rani Raj Kaur (Rani Nakain)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Samadh Sardar Jawahar Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Samadhi of Maharaja Ranjit Singh",
@@ -721,11 +1743,305 @@
     "saint": "Satguru Swami Sai Satramdas Sahib (1866–1910)"
   },
   {
+    "name": "Sarvwala Maqbara (Sharaf al-Nisa Begum)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Abd al-Karim, famous as Pir Bhawan Shah",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Abd al-Wahhab Qadiri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Abdul Qadir Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Abdul Qadir Sani",
+    "location": "Uch",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Abu Turab, known as Shah Gada Husaini Shattari Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Ahmad Shaikh al-Hind Gilani",
+    "location": "Wazirabad",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Ahmad Tokhta Tirmizi Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Badr al-Din Shah Alam (Sabz Gumbad)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Baha al-Din Gilani, known as Bahawal Sher Qalandar Hujrawi",
+    "location": "Hujra",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Chiragh Shah Hakim",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Fazl Shah of mauza Sanda",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Hamid Ganj Bakhsh",
+    "location": "Uch",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Hasan Peshawari Qadri Gilani",
+    "location": "Peshawar",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Jan Muhammad Huzuri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Jhulan Shah, famous as Ghore Shah Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Kamil Shah Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Mahmud Huzuri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Mitha Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Muhammad Ghaus Bala Pir",
+    "location": "Satghara",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Muhammad Ghaus Uchi Jili Gilani",
+    "location": "Uch",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Muhammad Muqim Muhkam al-Din",
+    "location": "Jarwa",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Muhammad Muqim, entitled Muhkam al-Din",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Muhammad Nur",
+    "location": "Chunian",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Munawwar Ali Shah Naqshbandi Suhrawardi Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Nasir al Din",
+    "location": "Uch",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Sadr al-Din, known as Shaikh Rajan Qattal",
+    "location": "Uch",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Sar Buland",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Shah Bilawal",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Shah Husain, known as Bhohre Wala",
+    "location": "Peshawar",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Shah Ismat Allah Hamza Pahalwan Naushahi",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Shahbaz",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Suf Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Usman, famous as Shah Jhula Bukhari Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyid Yaqub, addressed as Sadr-e Diwan Zanjani Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sayyids of Mohalla Syed Sar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Sevapanthi Darbar (Bhai Gurdas), Gandava",
     "location": "Heart of Gandava (Gandawah) town, Jhal Magsi District, Balochistan, Pakistan",
     "category": "Sikh Gurdwara",
     "founded": "18th–19th century (Sevapanthi foundation; exact date uncertain)",
     "saint": "Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak"
+  },
+  {
+    "name": "Shah Badr al-Din Gilani",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Dargahi Qadri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Farid Naushahi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Ismail Muhaddith",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Kaku Chishti Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Muhammad Ghaus Gilani Qadri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Shah Noorani Shrine (Syed Bilawal Shah Noorani)",
@@ -735,6 +2051,48 @@
     "saint": "Syed Bilawal Shah Noorani"
   },
   {
+    "name": "Shah Rahmat Allah Qureshi (Multani then Lahori)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Raza Qadri Shattari Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Rustam Ghazi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Shams al-Din Qadri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Sharaf (enclosure at Khwaja Muhammad Saeed's)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Sharf (mohalla outside Bhati Gate)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Shah Yousuf",
     "location": "Shah Yousuf, Shahpur, Punjab",
     "category": "Muslim Shrine",
@@ -742,11 +2100,375 @@
     "saint": "Hazrat Shah Yousuf"
   },
   {
+    "name": "Shah Zia al-Din Shirwani",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah Zia Qadiri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shah کنٹھہ [OCR?] Naushahi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Shahwala Teja Singh Mandir",
     "location": "Mohallah Dharowal, Sialkot, Punjab, Pakistan",
     "category": "Hindu Temple",
     "founded": "ancient; heritage accounts ~900-1,000 yrs old",
     "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Shaikh Abd al-Hakim Sialkoti",
+    "location": "Sialkot",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Abd al-Jalil, Qutb al-Alam Chuhar Bandagi Qureshi Harithi Hakari Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Abd al-Khaliq Lahori Chishti Sabri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Abd al-Razzaq Makki (Nila Gumbad)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Abdullah Shah Baloch Lahori Qadri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Abu Ishaq Qadri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Ahmad Mashuq-e Ilahi",
+    "location": "Multan",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh al-Islam Mufti Abdul Salam Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Ali Rangrez",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Arif Chishti",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Ashraf",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Faiz Bakhsh Lahori Sabri Chishti",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Fath Shah Shattari Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Ghulam Husain of Walian Wali",
+    "location": "Gujranwala",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Ghulam Murtaza Qasuri",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Ghulan Shah Sarmast Qadiri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Haji Abd al-Karim Chishti Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Haji Muhammad Saeed Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Haji Ramzan Lahori Chishti",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Hamid al-Din Abu al-Hakim Qureshi Hakkari Suhrawardi, Sultan al-Tarikin",
+    "location": "Multan",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Hamid Qari Suhrawardi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Hasan Kunjadgar, famous as Hassu Teli Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Ilm al-Din Chuniwal",
+    "location": "Chunian",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Jan Allah Chishti Sabri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Jan Muhammad Suhrawardi Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Jan Muhammad Thani Lahori Suhrawardi — Jan Muhammad Parvezabadi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Karam Shah Qureshi Harithi ہنکاری [OCR?]",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Khair al-Din, known as Khair Shah Chishti Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Ladhe Shah \"موئنہ ساز [OCR?]\" Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Mahmud Shah Naqshbandi Mujaddidi Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Mir Muhammad Yaqub Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhammad Arif Chishti Sabri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhammad Ashraf Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhammad Ismail Lahori, famous as Mian Kalan — also Mian Wada",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhammad Ismail Muhaddith wa Mufassir Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhammad Saeed Chishti Sabri Sharaqpuri",
+    "location": "Sharaqpur",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhammad Salim Chishti Sabri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhammad Siddiq Chishti Sabri Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhkam al-Din Sahib al-Sair Uwaisi",
+    "location": "Bahawalpur",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Muhtaram",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Musa Ahangar Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Musa Khokhar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Nur Ahmad, famous as Nur Husain Qadiri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Nur Muhammad Chishti, famous as Nur Muhammad مجھیل [OCR?] Maharvi",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Nur Qasuri",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Sa'di بلخاری [OCR?] Mujaddidi Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Sadr al-Din Arif",
+    "location": "Multan",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Sayyid Abu Ishaq Gazruni, famous as Miran Badshah Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shaikh Shahr Allah Multani",
+    "location": "Multan",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Shaktipeeth Shri Hinglaj Mata Mandir",
@@ -770,6 +2492,20 @@
     "saint": "Goddess Sharada (Saraswati)"
   },
   {
+    "name": "Sharaf Shah Lahori",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sher Shah Qadri Multani",
+    "location": "Multan",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Shergarh",
     "location": "Shergarh, Okara, Punjab",
     "category": "Muslim Shrine",
@@ -782,6 +2518,139 @@
     "category": "Hindu Temple",
     "founded": "1830s (present structure); lingam ~2,000 yrs old",
     "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Shivala and Devi Dwara Ganga Parbat",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala and samadh of Shiv Gar Sanyasi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala and Thakurdwara outside Mori Gate",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Bakhshi Bhagat Ram",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Dharm Chand Wala",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Diwan Ratan Chand, with tank and sarai",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Diwan Shankar Das",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Gulab Rai Jamadar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Lala Chhote Lal",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Lala Nihal Chand",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala near Chah Badhu Wala",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala north of Masjid Wazir Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Pandit Radha Kishan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Raghunath Misr",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Raja Dina Nath",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Sukh Dyal Sud",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Tarpolia Wala",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Thibi Wala",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Shivala Wilbagh / Dilbagh Rai",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Shree Ratneshwar Mahadev Temple, Karachi",
@@ -1113,11 +2982,249 @@
     "saint": "Muhammad Shamsuddin Sialvi"
   },
   {
+    "name": "Sohan Majzub Ajodhani Pakpattani",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sufi Wali Masjid",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sultan Bala Din Uwaisi",
+    "location": "",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Sunehri Masjid (Masjid Tilai), Kashmiri Bazaar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Swami Dharmdas Darbar, Larkana (Kennedy Market)",
     "location": "Kennedy Market area, Larkana, Larkana District, Sindh, Pakistan",
     "category": "Hindu Temple",
     "founded": "Late 19th–early 20th century (uncertain)",
     "saint": "Swami Dharmdas (Nanakpanthi sant)"
+  },
+  {
+    "name": "Taja",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Takiya Baba Farid Ganjshakar (Lahore)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Taksali Wali Masjid",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Tali Sahib (Baba Sri Chand)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara and Shivala Lala Jasna Dibar and Jangam",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara and Shivala Sant Shah and Devi Dyal",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Atar Singh Subedar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara attached to Mandir Banke Bihari",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Baikunth Das",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Bakho Misr",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Bawa Dehona Das",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Bawa Mangal Das",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Bhori Sarkar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Chhojhi Mal Khatri",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Chor Mor Wala",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Jwala Dai",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Lala Bhagwan Das",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Lala Mahin Lal",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Lala Nihal Chand (five mandirs)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Makho Shah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara of the Kankhal image",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Pandit Aukat Nath",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Pandit Radha Kishan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Rai Singh Risaldar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Raja Teja Singh",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Rani Jindan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Thakurdwara Rani Lachhmi",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "The foundress's tomb at Naya Kot",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "The small rauza of the newly-Muslim woman",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "The Takiya Ambli Wala enclosure",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Tilla Jogian",
@@ -1127,11 +3234,25 @@
     "saint": "Guru Gorakhnath (Nath yogis)"
   },
   {
+    "name": "Tomb of Ali Mardan Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Tomb of Allama Iqbal (Mazar-e-Iqbal)",
     "location": "Lahore, Punjab, Pakistan",
     "category": "Muslim Shrine",
     "founded": "1951 (mausoleum; Iqbal d. 1938)",
     "saint": "Allama Muhammad Iqbal"
+  },
+  {
+    "name": "Tomb of Asaf Jah",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Tomb of Baha'al-Halim (Uch Sharif)",
@@ -1141,11 +3262,67 @@
     "saint": "Hazrat Baha'al-Halim (Sayyid Baha al-Din Halim)"
   },
   {
+    "name": "Tomb of Bahadur Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Tomb of Jahangir",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Tomb of Jani Khan (Nizam al-Daula)",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Tomb of Javindi Bibi",
     "location": "Mohalla Bukhari, Uch Sharif, Punjab",
     "category": "Muslim Shrine",
     "founded": "1291",
     "saint": "Bibi Jawindi"
+  },
+  {
+    "name": "Tomb of Muhammad Salih and Shaikh Inayat Allah Kambo",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Tomb of Nawab Mian Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Tomb of Nawab Nusrat Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Tomb of Nur Jahan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Tomb of Prince Parvez",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Tomb of Qutbuddin Aibak",
@@ -1162,11 +3339,60 @@
     "saint": "Ustad Nuriya (master-builder)"
   },
   {
+    "name": "Tomb of Zeb al-Nisa Begum",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Tombs of Makhduma Begum and Nawab Abu al-Hasan Khan",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Travellers' mosque of Muhammad Sultan Thekedar",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
     "name": "Umarkot (Amarkot) Shiv Mandir",
     "location": "Umerkot District, Sindh, Pakistan",
     "category": "Hindu Temple",
     "founded": "ancient; current structure ~early 1900s",
     "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Unchi Masjid, Bhati Darwaza",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Unnamed mosque of the Dilawar Khan land case",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Unnamed temple with fourteen shops",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
+  },
+  {
+    "name": "Vaishno Devi Mandir, Mohalla Talwara",
+    "location": "Lahore",
+    "category": "",
+    "founded": "",
+    "saint": ""
   },
   {
     "name": "Valmik Mandir (Naqi Road)",

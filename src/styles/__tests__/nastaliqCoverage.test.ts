@@ -14,12 +14,14 @@
  * letters sit apart in a line of text where nothing else does. It is not a
  * missing-glyph box; it is subtler than that and therefore easier to ship.
  *
- * Three characters in the archive are in that position today, and all three are
- * in quoted verse — the most typographically exposed content on any page:
+ * Two characters in the archive are in that position today, and both are in
+ * quoted verse — the most typographically exposed content on any page:
  *
  *   U+0768  ݨ  Bulleh Shah's Punjabi:  بُلھیا! کی جاݨاں میں کوݨ
- *   U+066D  ٭  a Persian couplet's hemistich separator
  *   U+0680  ڀ  Shah Abdul Latif's Sindhi:  جي تُو بيت ڀانئين
+ *
+ * (A third, U+066D ٭, a Persian couplet's hemistich separator, left the corpus
+ * with the Urdu articles of 30 October 2026, and its exception went with it.)
  *
  * They are accepted, listed here, and recorded in
  * public/fonts/MehrNastaliqWeb-LICENSE.txt. What this file is for is the
@@ -61,7 +63,6 @@ const FALLBACK_FACE = 'Noto Nastaliq Urdu';
 /** Accepted gaps in the reading face, with the reason each is tolerated. */
 const KNOWN_FALLBACK_CHARS = [
   { cp: 0x0768, char: 'ݨ', why: "Punjabi/Saraiki noon+tah — Bulleh Shah's kafi" },
-  { cp: 0x066d, char: '٭', why: 'hemistich separator in a Persian couplet' },
   { cp: 0x0680, char: 'ڀ', why: "Sindhi beheh — Shah Abdul Latif's bait" },
 ];
 
@@ -146,7 +147,7 @@ describe('Nastaliq coverage', () => {
     ).toEqual([]);
   });
 
-  it('the three accepted gaps are still real gaps', () => {
+  it('the accepted gaps are still real gaps', () => {
     /* The other direction, so the list cannot rot into folklore: if a future
        face covers one of these, the exception should go rather than sit here
        claiming a problem that no longer exists. */

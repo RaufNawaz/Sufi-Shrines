@@ -231,9 +231,13 @@ const BUDGETS_KB = {
      through the same ProseParagraphs, so the verse language caption and its map
      (about 2.5 KB with the Gurmukhi rules of 30 October) came with it. Measured
      705. */
-  'src/pages/SaintPage.tsx': 708, // measured 705 on 30 Oct 2026
-  'src/pages/OrderPage.tsx': 687, // measured 684 on 17 Oct 2026, council round 7
-  'src/pages/GraphPage.tsx': 631, // measured 629 on 25 Oct 2026: +1 KB, useTeamAccess, TeamViewBadge and safeStorage (was 628, round 5: ?order= and #lineage)
+  /* These three import data/kg.json eagerly. On 30 October 2026 the snapshot took
+     in the 318 rows seeded from two books (171 → 489 sites), each a shrine node
+     with its place in the graph: kg.json 395 → 451 KB, and each page +30 to 36 KB
+     with no code change. Data growth, so the budgets move with it. */
+  'src/pages/SaintPage.tsx': 744, // measured 741 on 30 Oct 2026 (was 705 before the 318 rows)
+  'src/pages/OrderPage.tsx': 720, // measured 717 on 30 Oct 2026 (was 684, 17 Oct, council round 7)
+  'src/pages/GraphPage.tsx': 667, // measured 664 on 30 Oct 2026 (was 629, 25 Oct: useTeamAccess, TeamViewBadge and safeStorage)
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
      UI strings, and the English string table is eager on every route, so the
      whole table moves together. Almanac was simply the one with the least

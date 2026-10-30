@@ -338,11 +338,11 @@ outside citations/URLs/coordinates/`<bdi>`.
 ## Standing findings
 
 - ~~**49 of 167 entries (29%) have no bibliography at all.**~~ **Closed — re-measured
-  21 August 2026; count corrected 24 August; re-measured 8 October.** 170 of 171 entries now carry a bibliography,
-  **538** citations in total (544 until the counting rule was fixed — one regex matched twice
-  inside any citation ending in a URL, and nine do), **103** of
-  them citing three or more sources. Exactly one entry cites nothing (Sant Baba Asudaram
-  Darbar). *That 103 read 107 until 30 August 2026, when this sentence's four numbers were
+  21 August 2026; count corrected 24 August; re-measured 8 and 30 October.** 170 of 171 entries now carry a bibliography,
+  **1452** citations in total (538 on 8 October, before the rewritten entries; 544 until the counting rule was fixed — one regex matched twice
+  inside any citation ending in a URL, and nine do), **143** of
+  them citing three or more sources. Of the entries with a Description, exactly one cites nothing (Sant Baba Asudaram
+  Darbar); the 318 rows seeded from two books in October have no Description and cite nothing yet. *That 103 read 107 until 30 August 2026, when this sentence's four numbers were
   computed rather than quoted for the first time. Three were right; the fourth had drifted —
   four lines below this paragraph's own account of the 544→533 drift.
   `siteCountConsistency.test.ts` now holds all four against `buildCoverage()`.* The
@@ -354,7 +354,7 @@ outside citations/URLs/coordinates/`<bdi>`.
   `buildCoverage()` in `src/lib/data/coverage.ts`, tested against the shipped snapshot.
   (They computed on `/coverage` until 24 August 2026, when `/coverage` and `/report` were
   merged into `/about`; both remain as redirects into it.)
-- Coverage is ~32% of Punjab Auqaf's Punjab register alone (171 vs 534; 169 until the 8 October 2026 import). *Measured 21 August
+- Coverage is ~32% of Punjab Auqaf's Punjab register alone (171 described entries vs 534; 169 until the 8 October 2026 import; the 318 book rows of October are not counted here, being mostly temples, mosques and graveyards). *Measured 21 August
   2026* for the 169; the 534 is an external figure from the register, not computed here.
 - **51 of 169 entries carry no photograph at all**, and 242 image fields are populated across
   the other 118. *Measured 21 August 2026 from `src/data/shrines-fallback.json`.* Also on

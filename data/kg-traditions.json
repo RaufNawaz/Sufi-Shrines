@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09T02:33:30.506Z",
+  "generated": "2026-10-30T02:49:48.786Z",
   "traditions": [
     {
       "slug": "nath",
@@ -10,8 +10,8 @@
         "Kanphata yogis"
       ],
       "category": "Hindu Temple",
-      "definition": "The Naths, who flourished across northern India, Nepal, and the north-western frontier from roughly the early medieval centuries, practised a rigorous discipline of yoga and *hatha* austerity and revered Shiva as the *adi-nath*, the first lord and archetypal yogi.",
-      "definitionUr": "ناتھ، جو قرون وسطیٰ کے ابتدائی صدیوں سے شمالی ہندوستان، نیپال، اور شمال مغربی سرحد بھر میں پروان چڑھے، یوگا اور ہٹھ ریاضت کا ایک سخت نظم و ضبط اپناتے تھے اور شیو کو آدی ناتھ، پہلا آقا اور نمونہ یوگی، کے طور پر پوجتے تھے۔",
+      "definition": "The Naths trace their lineage to Gorakhnath and, before him, to Matsyendranath, the founder of the sect, a figure partly of legend. They flourished across northern India, Nepal and the frontier lands of the north west from roughly the early medieval centuries. They practised a rigorous discipline of yoga and the austerity of *hatha*, the yoga of the body, and revered Shiva as the *adi-nath*, the first lord and archetypal yogi.",
+      "definitionUr": "ناتھ جوگی اپنی نسبت گورکھ ناتھ سے، اور ان سے پہلے متسیندر ناتھ سے جوڑتے ہیں۔ متسیندر ناتھ اس فرقے کے بانی تھے، اور ان کی شخصیت کسی حد تک افسانوی ہے۔ کم و بیش قرونِ وسطیٰ کی ابتدائی صدیوں سے ناتھ جوگی شمالی ہندوستان، نیپال اور شمال مغرب کے سرحدی علاقوں میں پھلتے پھولتے رہے۔ وہ یوگ کے کڑے نظم کے پابند تھے اور جسمانی یوگ کی وہ سخت ریاضت کرتے تھے جسے *ہٹھ* کہتے ہیں۔ شیو کو وہ *آدی ناتھ* یعنی اولین آقا اور جوگیوں کا مثالی نمونہ مان کر پوجتے تھے۔",
       "definitionShrine": "dargah-pir-ratan-nath-jee",
       "source": "data/shrines.csv#dargah-pir-ratan-nath-jee"
     },
@@ -23,8 +23,8 @@
         "Udasipanth"
       ],
       "category": "Nanakpanthi / Udasi Darbar",
-      "definition": "The distinctive character of Sadh Belo flows from its rootedness in the *Udasipanth*. This religious and ascetic movement grew from the teachings of Sri Chand, the elder son of Guru Nanak, and blended devotional streams in a manner that resists neat sectarian classification, honouring Sikh scripture and Hindu deities alike, and cultivating a tradition of renunciation, pilgrimage and hospitality.",
-      "definitionUr": "سادھ بیلو کا منفرد کردار اس کے \"اداسی پنتھ\" میں جڑ پکڑنے سے پھوٹتا ہے۔ یہ مذہبی اور سنیاسی تحریک گرو نانک کے بڑے بیٹے سری چند کی تعلیمات سے پروان چڑھی، اور اس نے عقیدتی دھاروں کو ایسے انداز میں ملایا جو کسی صاف ستھری فرقہ وارانہ درجہ بندی میں نہیں آتا، سکھ صحیفے اور ہندو دیوتاؤں دونوں کا احترام کرتی، اور ترک، زیارت اور مہمان نوازی کی روایت پروان چڑھاتی ہے۔",
+      "definition": "The character of Sadh Belo flows from its roots in the *Udasipanth*, the *Udasi* path. This religious and ascetic movement grew from the teachings of Sri Chand, the elder son of Guru Nanak, and blended devotional streams in a way that resists neat sectarian classification, honouring Sikh scripture and Hindu deities alike and cultivating a tradition of renunciation, pilgrimage and hospitality.",
+      "definitionUr": "سادھ بیلو کے مزاج کی جڑیں *اداسی پنتھ* یعنی اداسیوں کی راہ میں پیوست ہیں۔ یہ مذہبی اور زاہدانہ تحریک گرو نانک کے بڑے بیٹے سری چند کی تعلیمات سے پروان چڑھی۔ اس میں عقیدت کے مختلف دھارے یوں گھل مل گئے کہ اسے کسی ایک فرقے کے خانے میں رکھنا آسان نہیں۔ اس تحریک نے سکھ صحیفے اور ہندو دیوتاؤں کا یکساں احترام کیا اور ترکِ دنیا، تیرتھ یاترا اور مہمان نوازی کی روایت کو فروغ دیا۔",
       "definitionShrine": "sadh-belo-sadh-belo-island-temple",
       "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple"
     },
@@ -75,8 +75,8 @@
         "Shaktipeeth"
       ],
       "category": "Hindu Temple",
-      "definition": "The sanctity of Hinglaj is rooted in the pan-Indian legend of the *Shakti Peethas*. According to tradition, the goddess Sati, wife of Shiva, immolated herself in grief and outrage when her father Daksha insulted her husband. The bereaved Shiva, cradling her corpse, began the cosmic dance of destruction, the *tandava*, threatening the universe itself. To end his frenzy, Vishnu released his discus, the *Sudarshana Chakra*, which dismembered Sati's body; wherever a part fell to earth, a *Shakti Peetha* arose, charged with the presence of the goddess.",
-      "definitionUr": "ہنگلاج کی تقدس شکتی پیٹھوں کی عالمگیر ہندوستانی روایت میں جڑی ہے۔ روایت کے مطابق، شیو کی اہلیہ دیوی ستی نے اُس وقت غم و غضب میں خود کو آگ کے حوالے کر دیا جب ان کے والد دکش نے ان کے شوہر کی توہین کی۔ سوگوار شیو نے ان کی نعش کو اٹھائے ہوئے تباہی کا کائناتی رقص \"تانڈو\" شروع کر دیا، جس سے خود کائنات کو خطرہ لاحق ہو گیا۔ ان کے جنون کو ختم کرنے کے لیے وشنو نے اپنا چکر \"سدرشن چکر\" چلایا، جس نے ستی کے جسم کے ٹکڑے کر دیے؛ جہاں جہاں کوئی حصہ زمین پر گرا، وہاں ایک شکتی پیٹھ وجود میں آیا، جو دیوی کی موجودگی سے معمور ہوا۔",
+      "definition": "The sanctity of Hinglaj rests on the legend of the *Shakti Peethas*, told across India, and it is the story most often heard at the shrine today. Tradition tells that the Goddess was born as Sati, daughter of King Daksha, and married Shiva against her father's will. When Daksha performed the *ashvamedha*, the horse sacrifice, and invited every god except Shiva, Sati, in grief and outrage at the insult to her husband, jumped into the sacrificial fire. Shiva killed Daksha and, cradling her body, began the *tandava*, a frantic dance that threatened to destroy the whole world. To end it, Vishnu released his discus, the *Sudarshana Chakra*, which cut Sati's body into many parts; they fell out of Shiva's arms and scattered over the subcontinent, and wherever a part came to earth a *Shakti Peetha* arose, charged with the presence of the Goddess.",
+      "definitionUr": "ہنگلاج کا تقدس شکتی پیٹھوں کی اس کتھا پر قائم ہے جو ہندوستان بھر میں سنائی جاتی ہے، اور آج اس مندر میں بھی سب سے زیادہ یہی کہانی سننے کو ملتی ہے۔ روایت ہے کہ دیوی نے راجا دکش کی بیٹی ستی کے روپ میں جنم لیا اور باپ کی مرضی کے خلاف شیو سے بیاہ کیا۔ جب دکش نے گھوڑے کی قربانی کا *اشومیدھ* یگیہ رچایا اور شیو کے سوا ہر دیوتا کو بلایا تو شوہر کی اس توہین پر غم اور غصے سے بھری ستی قربانی کی آگ میں کود گئیں۔ شیو نے دکش کو مار ڈالا اور ستی کی لاش بانہوں میں اٹھائے *تانڈو* ناچنے لگے؛ یہ ایسا دیوانہ وار رقص تھا جس سے ساری دنیا کے تباہ ہو جانے کا خطرہ پیدا ہو گیا۔ اسے روکنے کے لیے وشنو نے اپنا سدرشن چکر چھوڑا، جس نے ستی کے جسم کے بہت سے ٹکڑے کر دیے۔ یہ ٹکڑے شیو کی بانہوں سے گر کر سارے برصغیر میں بکھر گئے، اور جہاں جہاں کوئی ٹکڑا زمین پر گرا، وہاں دیوی کی موجودگی سے معمور ایک شکتی پیٹھ وجود میں آ گیا۔",
       "definitionShrine": "shaktipeeth-shri-hinglaj-mata-mandir",
       "source": "data/shrines.csv#shaktipeeth-shri-hinglaj-mata-mandir"
     },
@@ -112,28 +112,28 @@
       "traditionSlug": "nath",
       "shrineSlug": "dargah-pir-ratan-nath-jee",
       "shrineName": "Dargah Pir Ratan Nath Jee",
-      "quote": "The temple's saint, Ratan Nath, belongs to the *Nath sampradaya*, the order of *kanphata* (\"split-eared\") yogis who trace their lineage to Gorakhnath and, before him, to Matsyendranath, the semi-legendary founder of the sect.",
+      "quote": "The temple's saint, Ratan Nath, belongs to the *Nath sampradaya*, the order of the *kanphata* yogis, named for their split ears.",
       "source": "data/shrines.csv#dargah-pir-ratan-nath-jee"
     },
     {
       "traditionSlug": "nath",
       "shrineSlug": "gorakhnath-goraknath-temple",
       "shrineName": "Gorakhnath (Goraknath) Temple",
-      "quote": "The temple honours Guru Gorakhnath, one of the most influential figures of medieval Indian spirituality, traditionally held to have lived somewhere between the ninth and twelfth centuries CE and revered as a *mahasiddha* and the founder of the *Nath* order of *yogis*.",
+      "quote": "It is dedicated to Guru Gorakhnath, the great saint and *yogi*, a master of the ascetic discipline of yoga, who is venerated as the founder of the *Nath* monastic order, and it is one of the very few Hindu temples in the city still standing and in use.",
       "source": "data/shrines.csv#gorakhnath-goraknath-temple"
     },
     {
       "traditionSlug": "nath",
       "shrineSlug": "tilla-jogian",
       "shrineName": "Tilla Jogian",
-      "quote": "It became the principal seat of the *Kanphata* yogis — the \"split-eared\" ascetics, so called from the great rings inserted through the cartilage of their ears at initiation — an order that looked to Gorakhnath as its master.",
+      "quote": "Tilla Jogian became the principal seat of the *Kanphata* yogis, the 'split-eared' ascetics, so called from the great rings inserted through the cartilage of their ears at initiation, an order that looked to Gorakhnath as its master.",
       "source": "data/shrines.csv#tilla-jogian"
     },
     {
       "traditionSlug": "udasi",
       "shrineSlug": "sadh-belo-sadh-belo-island-temple",
       "shrineName": "Sadh Belo (Sadh Belo Island Temple)",
-      "quote": "One of the most important living centres of Hindu worship in the province, it is intimately bound to the *Udasi* tradition, the ascetic order that traces its lineage to Sri Chand, elder son of Guru Nanak",
+      "quote": "One of the most important living centres of Hindu worship in the province, it belongs to the *Udasi* tradition, the ascetic order that traces its lineage to Sri Chand, elder son of Guru Nanak",
       "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple"
     },
     {
@@ -168,14 +168,14 @@
       "traditionSlug": "shakti-peetha",
       "shrineSlug": "shaktipeeth-shri-hinglaj-mata-mandir",
       "shrineName": "Shaktipeeth Shri Hinglaj Mata Mandir",
-      "quote": "It is one of the fifty-one *Shakti Peethas* venerated across the subcontinent, and one of only two situated in present-day Pakistan.",
+      "quote": "It is one of the fifty one *Shakti Peethas*, the seats of the Goddess's power venerated across the subcontinent, and every year the *Hinglaj Yatra*, the pilgrimage to the shrine and one of the largest Hindu pilgrimages in Pakistan, draws tens of thousands of devotees along a demanding desert route.",
       "source": "data/shrines.csv#shaktipeeth-shri-hinglaj-mata-mandir"
     },
     {
       "traditionSlug": "shakti-peetha",
       "shrineSlug": "sharada-peeth",
       "shrineName": "Sharada Peeth",
-      "quote": "Simultaneously a temple, a fabled university, and one of the great *Shakti Peethas*, Sharada Peeth occupies a singular place in the cultural and religious memory of Kashmir.",
+      "quote": "At once a temple, a fabled university and one of the great *Shakti Peethas*, the seats of the Goddess, it holds a singular place in the cultural and religious memory of Kashmir.",
       "source": "data/shrines.csv#sharada-peeth"
     },
     {
@@ -189,7 +189,7 @@
       "traditionSlug": "nanakpanthi",
       "shrineSlug": "gurdwara-pehli-patshahi-jind-pir-sukkur",
       "shrineName": "Gurdwara Pehli Patshahi (Jind Pir), Sukkur",
-      "quote": "Its first custodian is said to have been an Udasi *sadhu* of the Jhulelal devotion, and the shrine passed into the keeping of the Nanakpanthi community of Sindh — Hindus and Sikhs together — who honour Guru Nanak without a firm confessional boundary.",
+      "quote": "Its first custodian is said to have been an Udasi *sadhu*, a Hindu ascetic, of the Jhulelal devotion. The shrine passed into the keeping of the Nanakpanthi community of Sindh, Hindus and Sikhs together, who honour Guru Nanak without a firm confessional boundary; accounts differ on whether Sindh's followers of Nanak are to be counted as Sikhs.",
       "source": "data/shrines.csv#gurdwara-pehli-patshahi-jind-pir-sukkur"
     },
     {
@@ -203,7 +203,7 @@
       "traditionSlug": "nanakpanthi",
       "shrineSlug": "guru-gurpat-mandir-db-80-sirey-ghat",
       "shrineName": "Guru Gurpat Mandir (DB-80 Sirey Ghat)",
-      "quote": "On a plot known as DB-80 in the Sirey Ghat quarter of Hyderabad, Sindh, stands the Guru Gurpat Mandir — also called the Darbar of Baba Gurpat Sahib — a Nanakpanthi shrine, registered with Pakistan's Evacuee Trust Property Board as a functional mandir, built around a Sant revered as a twelfth-generation descendant, in the Jagiasi lineage, of Guru Nanak.",
+      "quote": "The darbar's tradition holds that Gurpat Sahib was born in the Punjab into the Jagiasi lineage of Nanakpanthi Sants, the spiritual descendants of Guru Nanak through the Udasi line of Baba Sri Chand, and that he travelled to Sindh in the early nineteenth century.",
       "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat"
     },
     {
@@ -252,7 +252,7 @@
       "traditionSlug": "udasi",
       "shrineSlug": "guru-gurpat-mandir-db-80-sirey-ghat",
       "shrineName": "Guru Gurpat Mandir (DB-80 Sirey Ghat)",
-      "quote": "According to the darbar's own tradition, Gurpat Sahib was born into the Jagiasi lineage of Nanakpanthi Sants — spiritual descendants of Guru Nanak through Baba Sri Chand's Udasi line — in Punjab, and travelled to Sindh in the early nineteenth century.",
+      "quote": "The darbar's tradition holds that Gurpat Sahib was born in the Punjab into the Jagiasi lineage of Nanakpanthi Sants, the spiritual descendants of Guru Nanak through the Udasi line of Baba Sri Chand, and that he travelled to Sindh in the early nineteenth century.",
       "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat"
     }
   ]

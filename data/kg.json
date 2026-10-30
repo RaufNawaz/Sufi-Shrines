@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-10-09T02:33:30.506Z",
+  "generated": "2026-10-30T02:49:48.786Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -56,7 +56,7 @@
         "Bari Sarkar"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#bari-imam"
+      "biographySource": "entries/descriptions/bari-imam.md#bari-imam"
     },
     {
       "id": "saint:bhai-sant-thawan-das",
@@ -94,7 +94,7 @@
       "died": "1752",
       "datePrecision": "year",
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#bhit-bhit-shah"
+      "biographySource": "entries/descriptions/bhit-bhit-shah.md#bhit-bhit-shah"
     },
     {
       "id": "saint:goddess-durga",
@@ -132,7 +132,7 @@
         "Wali Allah"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#darbar-abul-muali-qadri"
+      "biographySource": "entries/descriptions/darbar-abul-muali-qadri.md#darbar-abul-muali-qadri"
     },
     {
       "id": "saint:khwaja-muhammad-qasim",
@@ -197,7 +197,7 @@
         "Gharib Nawaz"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami"
+      "biographySource": "data/live_sheet_2026-10-15.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami"
     },
     {
       "id": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
@@ -218,7 +218,7 @@
         "Pir Pathan"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
+      "biographySource": "data/live_sheet_2026-10-15.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
     },
     {
       "id": "saint:shah-gohar-peer",
@@ -264,7 +264,7 @@
         "wali-e-kamil"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri"
+      "biographySource": "data/live_sheet_2026-10-15.csv#darbar-hazrat-tahir-bandagi-qadri"
     },
     {
       "id": "saint:malik-ahmad-ayaz",
@@ -285,7 +285,7 @@
       "died": "8 August 1041, as given in the account; calendar era unstated",
       "datePrecision": "exact-date",
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#darbar-malik-ahmad-ayaz"
+      "biographySource": "data/live_sheet_2026-10-15.csv#darbar-malik-ahmad-ayaz"
     },
     {
       "id": "saint:hazrat-mian-qurban-ali-shah-sarkar",
@@ -365,7 +365,7 @@
         "shaheed (as popular belief, not a formal ruling — per the survey)"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#darbar-wasif-ali-wasif"
+      "biographySource": "data/live_sheet_2026-10-15.csv#darbar-wasif-ali-wasif"
     },
     {
       "id": "saint:sufi-shah-inayat-shaheed",
@@ -383,7 +383,7 @@
         "Shaheed"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#dargah-roza-sufi-shah-inayat-shaheed"
+      "biographySource": "entries/descriptions/dargah-roza-sufi-shah-inayat-shaheed.md#dargah-roza-sufi-shah-inayat-shaheed"
     },
     {
       "id": "saint:syed-rakhyal-shah-sufi-al-qadri",
@@ -430,7 +430,7 @@
         "Khwaja Kalan"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif"
+      "biographySource": "data/live_sheet_2026-10-15.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif"
     },
     {
       "id": "saint:pir-syed-muhammad-rashid-shah-roze-dhani",
@@ -474,7 +474,7 @@
         "yogi-saint"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#dargah-pir-ratan-nath-jee"
+      "biographySource": "entries/descriptions/dargah-pir-ratan-nath-jee.md#dargah-pir-ratan-nath-jee"
     },
     {
       "id": "saint:jhulelal",
@@ -516,7 +516,7 @@
         "teacher of teachers"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#data-darbar"
+      "biographySource": "entries/descriptions/data-darbar.md#data-darbar"
     },
     {
       "id": "saint:pir-abdul-ul-karim",
@@ -550,7 +550,7 @@
         "Sultan Bahu"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#garh-maharaja-shorkot"
+      "biographySource": "entries/descriptions/garh-maharaja-shorkot.md#garh-maharaja-shorkot"
     },
     {
       "id": "saint:pir-meher-ali-shah",
@@ -572,7 +572,7 @@
         "Pir"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#golra-sharif"
+      "biographySource": "entries/descriptions/golra-sharif.md#golra-sharif"
     },
     {
       "id": "saint:guru-gorakhnath",
@@ -596,7 +596,7 @@
         "founder of the Nath order of yogis"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#gorakhnath-goraknath-temple",
+      "biographySource": "entries/descriptions/gorakhnath-goraknath-temple.md#gorakhnath-goraknath-temple",
       "disputedDates": [
         {
           "field": "floruit",
@@ -674,7 +674,7 @@
       "died": "1539",
       "datePrecision": "exact-date",
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#gurudwara-janam-asthan-nankana-sahib",
+      "biographySource": "entries/descriptions/gurudwara-janam-asthan-nankana-sahib.md#gurudwara-janam-asthan-nankana-sahib",
       "titles": [
         "the first of the ten Gurus"
       ]
@@ -696,7 +696,7 @@
       "died": "1518",
       "datePrecision": "circa",
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#gurdwara-babay-nanki"
+      "biographySource": "entries/descriptions/gurdwara-babay-nanki.md#gurdwara-babay-nanki"
     },
     {
       "id": "saint:guru-arjan-dev",
@@ -721,7 +721,7 @@
         "the first martyr of the Sikh faith"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#gurdwara-dera-sahib"
+      "biographySource": "entries/descriptions/gurdwara-dera-sahib.md#gurdwara-dera-sahib"
     },
     {
       "id": "saint:bhai-biba-singh",
@@ -806,7 +806,7 @@
         "the fourth of the ten Sikh Gurus"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#gurdwara-guru-ram-das-ji"
+      "biographySource": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji"
     },
     {
       "id": "saint:bhai-lalo",
@@ -822,7 +822,7 @@
       "born": "1452 (\"traditionally said\")",
       "datePrecision": "year",
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
+      "biographySource": "entries/descriptions/gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi.md#gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
     },
     {
       "id": "saint:bhai-mardana",
@@ -901,7 +901,7 @@
         "Sant"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat"
+      "biographySource": "data/live_sheet_2026-10-15.csv#guru-gurpat-mandir-db-80-sirey-ghat"
     },
     {
       "id": "saint:lord-jagannath",
@@ -1023,7 +1023,7 @@
         "Qalandar"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#lal-shahbaz-qalandar"
+      "biographySource": "entries/descriptions/lal-shahbaz-qalandar.md#lal-shahbaz-qalandar"
     },
     {
       "id": "saint:makhdoom-burhan-ud-din",
@@ -1044,7 +1044,7 @@
         "Makhdoom"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#langer-makhdoom"
+      "biographySource": "entries/descriptions/langer-makhdoom.md#langer-makhdoom"
     },
     {
       "id": "saint:lava",
@@ -1077,7 +1077,7 @@
         "the \"Shakespeare of the Punjabi language\""
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#mausoleum-of-waris-shah"
+      "biographySource": "entries/descriptions/mausoleum-of-waris-shah.md#mausoleum-of-waris-shah"
     },
     {
       "id": "saint:bulleh-shah",
@@ -1096,7 +1096,7 @@
       "died": "1758",
       "datePrecision": "circa",
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#mazar-of-bulleh-shah"
+      "biographySource": "entries/descriptions/mazar-of-bulleh-shah.md#mazar-of-bulleh-shah"
     },
     {
       "id": "saint:khwaja-ghulam-farid",
@@ -1115,7 +1115,7 @@
         "Khwaja"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#mithankot-kot-mithan"
+      "biographySource": "data/live_sheet_2026-10-15.csv#mithankot-kot-mithan"
     },
     {
       "id": "saint:khwaja-muhammad-qasim-sadiq",
@@ -1209,7 +1209,7 @@
         "Sakhi Badshah (\"the generous king\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#purana-bhalwal"
+      "biographySource": "entries/descriptions/purana-bhalwal.md#purana-bhalwal"
     },
     {
       "id": "saint:rahman-baba",
@@ -1231,7 +1231,7 @@
         "Rahman Baba"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#rahman-baba-mausoleum-rehman-baba-shrine"
+      "biographySource": "entries/descriptions/rahman-baba-mausoleum-rehman-baba-shrine.md#rahman-baba-mausoleum-rehman-baba-shrine"
     },
     {
       "id": "saint:dedicated-to-lord-rama",
@@ -1262,7 +1262,7 @@
         "Pir"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#ramapir-temple-tando-allahyar"
+      "biographySource": "entries/descriptions/ramapir-temple-tando-allahyar.md#ramapir-temple-tando-allahyar"
     },
     {
       "id": "saint:syed-muhammad-noushah-qadiri",
@@ -1284,7 +1284,7 @@
         "Noushah (\"the bridegroom\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#ranmal-sharif"
+      "biographySource": "entries/descriptions/ranmal-sharif.md#ranmal-sharif"
     },
     {
       "id": "saint:baba-bankhandi-maharaj",
@@ -1305,7 +1305,7 @@
         "Udasi saint"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#sadh-belo-sadh-belo-island-temple"
+      "biographySource": "entries/descriptions/sadh-belo-sadh-belo-island-temple.md#sadh-belo-sadh-belo-island-temple"
     },
     {
       "id": "saint:sain-vali-vilayat-rai",
@@ -1347,7 +1347,7 @@
         "Sultan"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#sakhi-sarwar"
+      "biographySource": "entries/descriptions/sakhi-sarwar.md#sakhi-sarwar"
     },
     {
       "id": "saint:maharaja-ranjit-singh",
@@ -1369,7 +1369,7 @@
         "Maharaja"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh"
+      "biographySource": "data/live_sheet_2026-10-15.csv#samadhi-of-maharaja-ranjit-singh"
     },
     {
       "id": "saint:sant-baba-asudaram-sakhi-baba",
@@ -1495,7 +1495,7 @@
         "Shah Noorani"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shah-noorani-shrine-syed-bilawal-shah-noorani"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shah-noorani-shrine-syed-bilawal-shah-noorani"
     },
     {
       "id": "saint:shah-yousuf",
@@ -1583,7 +1583,7 @@
         "Kirmani"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shergarh"
+      "biographySource": "entries/descriptions/shergarh.md#shergarh"
     },
     {
       "id": "saint:lakshmi-narayan",
@@ -1663,7 +1663,7 @@
       "figureType": "Deity",
       "datePrecision": "unrecorded",
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-at-odero-lal-udero-lal-teerath-asthan"
+      "biographySource": "entries/descriptions/shrine-at-odero-lal-udero-lal-teerath-asthan.md#shrine-at-odero-lal-udero-lal-teerath-asthan"
     },
     {
       "id": "saint:abdullah-shah-ghazi",
@@ -1682,7 +1682,7 @@
         "patron saint of Karachi"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-abdullah-shah-ghazi"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-abdullah-shah-ghazi"
     },
     {
       "id": "saint:abul-faiz-qalander-ali-suharwardi",
@@ -1784,7 +1784,7 @@
         "Chiragh (\"lamp\"), given by his grandfather Hazrat Abdul Qadir Sani"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-baba-shah-chiragh"
+      "biographySource": "entries/descriptions/shrine-of-baba-shah-chiragh.md#shrine-of-baba-shah-chiragh"
     },
     {
       "id": "saint:hazrat-baba-shah-kamal",
@@ -1803,7 +1803,7 @@
         "\"Qadiri Suhrawardi\" (a composite title attached by local devotional tradition)"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-baba-shah-kamal"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-baba-shah-kamal"
     },
     {
       "id": "saint:bahauddin-zakariya",
@@ -1825,7 +1825,7 @@
         "Baha-ud-Din"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-bahauddin-zakariya"
+      "biographySource": "entries/descriptions/shrine-of-bahauddin-zakariya.md#shrine-of-bahauddin-zakariya"
     },
     {
       "id": "saint:bibi-pak-daman",
@@ -1851,7 +1851,7 @@
         "the six Bibis"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-bibi-pak-daman",
+      "biographySource": "entries/descriptions/bibi-pak-daman.md#shrine-of-bibi-pak-daman",
       "disputedDates": [
         {
           "field": "era",
@@ -1888,7 +1888,7 @@
         "qutb of the Chishti order"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-fariduddin-ganjshakar"
+      "biographySource": "entries/descriptions/shrine-of-fariduddin-ganjshakar.md#shrine-of-fariduddin-ganjshakar"
     },
     {
       "id": "saint:ganj-e-inayat-sarkar",
@@ -1937,7 +1937,7 @@
         "Hafiz"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-hafiz-muhammad-jamal-multani"
+      "biographySource": "entries/descriptions/shrine-of-hafiz-muhammad-jamal-multani.md#shrine-of-hafiz-muhammad-jamal-multani"
     },
     {
       "id": "saint:shah-hussain",
@@ -1961,7 +1961,7 @@
         "\"Baba\""
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar"
+      "biographySource": "entries/descriptions/madho-lal-hussain.md#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar"
     },
     {
       "id": "saint:hazrat-muhammad-ayub-shah-bukhari",
@@ -2020,7 +2020,7 @@
         "Daryai (from *darya*, \"river\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-hazrat-shah-daula-daryai"
+      "biographySource": "entries/descriptions/shrine-of-hazrat-shah-daula-daryai.md#shrine-of-hazrat-shah-daula-daryai"
     },
     {
       "id": "saint:imam-ali-ul-haq",
@@ -2041,7 +2041,7 @@
         "warrior-saint"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-imam-ali-ul-haq",
+      "biographySource": "entries/descriptions/shrine-of-imam-ali-ul-haq.md#shrine-of-imam-ali-ul-haq",
       "disputedDates": [
         {
           "field": "era / died",
@@ -2076,7 +2076,7 @@
         "Surkh-Posh (\"the Red-Robed\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari"
+      "biographySource": "entries/descriptions/shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.md#shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari"
     },
     {
       "id": "saint:laki-shah-saddar",
@@ -2124,7 +2124,7 @@
         "shaheed (martyr)"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori"
+      "biographySource": "entries/descriptions/shrine-of-makhdoom-abdul-rahim-girhori.md#shrine-of-makhdoom-abdul-rahim-girhori"
     },
     {
       "id": "saint:jahaniyan-jahangasht",
@@ -2148,7 +2148,7 @@
         "Jahangasht (\"the World-Traveller\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-makhdoom-jahaniyan-jahangasht"
+      "biographySource": "entries/descriptions/shrine-of-makhdoom-jahaniyan-jahangasht.md#shrine-of-makhdoom-jahaniyan-jahangasht"
     },
     {
       "id": "saint:makhdoom-nooh",
@@ -2172,7 +2172,7 @@
         "Makhdoom Sarwar Nooh"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-makhdoom-nooh-hala"
+      "biographySource": "entries/descriptions/shrine-of-makhdoom-nooh-hala.md#shrine-of-makhdoom-nooh-hala"
     },
     {
       "id": "saint:hazrat-meeran-muhammad-shah-bukhari",
@@ -2195,7 +2195,7 @@
         "hafiz-e-Quran"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-mauj-darya-bukhari"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-mauj-darya-bukhari"
     },
     {
       "id": "saint:mian-mir",
@@ -2219,7 +2219,7 @@
         "Mian"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-mian-mir",
+      "biographySource": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "disputedDates": [
         {
           "field": "died",
@@ -2291,7 +2291,7 @@
         "Hussaini Syed"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib"
     },
     {
       "id": "saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini",
@@ -2313,7 +2313,7 @@
         "Makki (from twelve years of seclusion at Mecca)"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-peer-makki"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-peer-makki"
     },
     {
       "id": "saint:syed-ali-tirmizi",
@@ -2395,7 +2395,7 @@
         "Haji"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-pir-mangho"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-pir-mangho"
     },
     {
       "id": "saint:pir-sher-muhammad",
@@ -2419,7 +2419,7 @@
         "Sharaqpuri"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-pir-sher-muhammad"
+      "biographySource": "entries/descriptions/shrine-of-pir-sher-muhammad.md#shrine-of-pir-sher-muhammad"
     },
     {
       "id": "saint:qalandar-baba-auliya",
@@ -2466,7 +2466,7 @@
         "Shair-e-Haft-Zaban (\"the poet of seven languages\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-sachal-sarmast"
+      "biographySource": "entries/descriptions/shrine-of-sachal-sarmast.md#shrine-of-sachal-sarmast"
     },
     {
       "id": "saint:shah-abdul-karim-bulri",
@@ -2488,7 +2488,7 @@
         "Shah"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-shah-abdul-karim-bulri"
     },
     {
       "id": "saint:shah-inayat-qadiri",
@@ -2513,7 +2513,7 @@
         "Mufakkir-e-Pakistan (as recorded by the 2026 field survey)"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-shah-inayat-qadiri"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri"
     },
     {
       "id": "saint:syed-shah-jamal-uddin-naqvi-bukhari",
@@ -2535,7 +2535,7 @@
         "Baba Shah Jamal"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-shah-jamal",
+      "biographySource": "entries/descriptions/shah-jamal.md#shrine-of-shah-jamal",
       "disputedDates": [
         {
           "field": "died",
@@ -2570,7 +2570,7 @@
         "Rukn-e-Alam (\"Pillar of the World\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-shah-rukn-e-alam"
+      "biographySource": "entries/descriptions/shrine-of-shah-rukn-e-alam.md#shrine-of-shah-rukn-e-alam"
     },
     {
       "id": "saint:shah-shams-ud-din-sabzwari",
@@ -2592,7 +2592,7 @@
         "Shams (\"the sun\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-shah-shams-ud-din-sabzwari"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-shah-shams-ud-din-sabzwari"
     },
     {
       "id": "saint:shah-yusaf-gardez",
@@ -2614,7 +2614,7 @@
         "Sayyid"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-shah-yusaf-gardez"
+      "biographySource": "data/live_sheet_2026-10-15.csv#shrine-of-shah-yusaf-gardez"
     },
     {
       "id": "saint:syed-musa-pak",
@@ -2635,7 +2635,7 @@
         "Shaheed (\"the martyr\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-syed-musa-pak"
+      "biographySource": "entries/descriptions/shrine-of-syed-musa-pak.md#shrine-of-syed-musa-pak"
     },
     {
       "id": "saint:muhammad-shamsuddin-sialvi",
@@ -2657,7 +2657,7 @@
         "Hazrat"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#sial-sharif"
+      "biographySource": "entries/descriptions/sial-sharif.md#sial-sharif"
     },
     {
       "id": "saint:swami-dharmdas",
@@ -2696,7 +2696,7 @@
         "Sir"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#tomb-of-allama-iqbal-mazar-e-iqbal",
+      "biographySource": "entries/descriptions/mazar-e-iqbal.md#tomb-of-allama-iqbal-mazar-e-iqbal",
       "disputedDates": [
         {
           "field": "died",
@@ -2750,7 +2750,7 @@
         "Bibi"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#tomb-of-javindi-bibi"
+      "biographySource": "entries/descriptions/tomb-of-javindi-bibi.md#tomb-of-javindi-bibi"
     },
     {
       "id": "saint:sultan-qutb-ud-din-aibak",
@@ -2773,7 +2773,7 @@
         "founder of the Mamluk (\"Slave\") dynasty"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#tomb-of-qutbuddin-aibak"
+      "biographySource": "data/live_sheet_2026-10-15.csv#tomb-of-qutbuddin-aibak"
     },
     {
       "id": "saint:ustad-nuriya",
@@ -3561,7 +3561,7 @@
         "Tokhta (\"standing\", \"ever-present\")"
       ],
       "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#shrine-of-bibi-pak-daman"
+      "biographySource": "entries/descriptions/bibi-pak-daman.md#shrine-of-bibi-pak-daman"
     },
     {
       "id": "saint:hazrat-peer-syed-abdullah",
@@ -4037,6 +4037,24 @@
   ],
   "places": [
     {
+      "id": "place:lahore",
+      "type": "place",
+      "slug": "lahore",
+      "name": "Lahore",
+      "district": "Lahore",
+      "province": "Lahore",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:peshawar",
+      "type": "place",
+      "slug": "peshawar",
+      "name": "Peshawar",
+      "district": "Peshawar",
+      "province": "Peshawar",
+      "country": "Pakistan"
+    },
+    {
       "id": "place:sialkot",
       "type": "place",
       "slug": "sialkot",
@@ -4107,6 +4125,15 @@
       "country": "Pakistan"
     },
     {
+      "id": "place:multan",
+      "type": "place",
+      "slug": "multan",
+      "name": "Multan",
+      "district": "Multan",
+      "province": "Multan",
+      "country": "Pakistan"
+    },
+    {
       "id": "place:lasbela-district",
       "type": "place",
       "slug": "lasbela-district",
@@ -4127,16 +4154,6 @@
       "country": "Pakistan"
     },
     {
-      "id": "place:district",
-      "type": "place",
-      "slug": "district",
-      "name": "district",
-      "city": "Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is \"right near his shrine.\" No province",
-      "district": "district",
-      "province": "not the shrine's exact position).",
-      "country": "Pakistan"
-    },
-    {
       "id": "place:near-kohat",
       "type": "place",
       "slug": "near-kohat",
@@ -4144,26 +4161,6 @@
       "city": "Ghamkol valley",
       "district": "near Kohat",
       "province": "Khyber Pakhtunkhwa",
-      "country": "Pakistan"
-    },
-    {
-      "id": "place:lahore-the-field-survey-itself-locates-the-shrine-only-as-lahore-its-one-detail",
-      "type": "place",
-      "slug": "lahore-the-field-survey-itself-locates-the-shrine-only-as-lahore-its-one-detail",
-      "name": "Lahore. The field survey itself locates the shrine only as “Lahore” (its one detail",
-      "city": "Miani Sahib Graveyard",
-      "district": "Lahore. The field survey itself locates the shrine only as “Lahore” (its one detail",
-      "province": "not the grave's exact position.",
-      "country": "Pakistan"
-    },
-    {
-      "id": "place:lahore",
-      "type": "place",
-      "slug": "lahore",
-      "name": "Lahore",
-      "city": "Miani Sahib Graveyard",
-      "district": "Lahore",
-      "province": "and no coordinates.",
       "country": "Pakistan"
     },
     {
@@ -4177,36 +4174,6 @@
       "country": "Pakistan"
     },
     {
-      "id": "place:address-or-coordinates-recorded-in-the-survey",
-      "type": "place",
-      "slug": "address-or-coordinates-recorded-in-the-survey",
-      "name": "address or coordinates recorded in the survey).",
-      "city": "Lahore (no locality",
-      "district": "address or coordinates recorded in the survey).",
-      "province": "address or coordinates recorded in the survey).",
-      "country": "Pakistan"
-    },
-    {
-      "id": "place:lahore-per-the-field-survey",
-      "type": "place",
-      "slug": "lahore-per-the-field-survey",
-      "name": "Lahore. Per the field survey",
-      "city": "Miani Sahib Graveyard",
-      "district": "Lahore. Per the field survey",
-      "province": "and no position within the graveyard's roughly 475 kanals beyond \"alongside the mosque\" that Hazrat Tahir Bandagi built.",
-      "country": "Pakistan"
-    },
-    {
-      "id": "place:lahore-as-given-in-the-survey-no-province",
-      "type": "place",
-      "slug": "lahore-as-given-in-the-survey-no-province",
-      "name": "Lahore (as given in the survey; no province",
-      "city": "Mint Stop",
-      "district": "Lahore (as given in the survey; no province",
-      "province": "street address or coordinates are recorded).",
-      "country": "Pakistan"
-    },
-    {
       "id": "place:punjab",
       "type": "place",
       "slug": "punjab",
@@ -4214,16 +4181,6 @@
       "city": "Rawalpindi District",
       "district": "Punjab",
       "province": "Punjab",
-      "country": "Pakistan"
-    },
-    {
-      "id": "place:lahore-the-survey-gives-no-street-address",
-      "type": "place",
-      "slug": "lahore-the-survey-gives-no-street-address",
-      "name": "Lahore — the survey gives no street address",
-      "city": "Miani Sahib Graveyard",
-      "district": "Lahore — the survey gives no street address",
-      "province": "which it describes as one of the largest graveyards in Asia.",
       "country": "Pakistan"
     },
     {
@@ -4264,16 +4221,6 @@
       "city": "Pir Jo Goth",
       "district": "Kingri Taluka",
       "province": "Sindh",
-      "country": "Pakistan"
-    },
-    {
-      "id": "place:peshawar",
-      "type": "place",
-      "slug": "peshawar",
-      "name": "Peshawar",
-      "city": "Jhanda Bazar",
-      "district": "Peshawar",
-      "province": "Khyber Pakhtunkhwa",
       "country": "Pakistan"
     },
     {
@@ -4596,6 +4543,24 @@
       "country": "Pakistan"
     },
     {
+      "id": "place:uch",
+      "type": "place",
+      "slug": "uch",
+      "name": "Uch",
+      "district": "Uch",
+      "province": "Uch",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:wazirabad",
+      "type": "place",
+      "slug": "wazirabad",
+      "name": "Wazirabad",
+      "district": "Wazirabad",
+      "province": "Wazirabad",
+      "country": "Pakistan"
+    },
+    {
       "id": "place:sheikhupura-district",
       "type": "place",
       "slug": "sheikhupura-district",
@@ -4636,13 +4601,12 @@
       "country": "Pakistan"
     },
     {
-      "id": "place:multan",
+      "id": "place:gujrat",
       "type": "place",
-      "slug": "multan",
-      "name": "Multan",
-      "city": "Fort of Multan (near Shrine of Bahauddin Zakariya)",
-      "district": "Multan",
-      "province": "Punjab",
+      "slug": "gujrat",
+      "name": "Gujrat",
+      "district": "Gujrat",
+      "province": "Gujrat",
       "country": "Pakistan"
     },
     {
@@ -4736,6 +4700,42 @@
       "country": "Pakistan"
     },
     {
+      "id": "place:hujra",
+      "type": "place",
+      "slug": "hujra",
+      "name": "Hujra",
+      "district": "Hujra",
+      "province": "Hujra",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:satghara",
+      "type": "place",
+      "slug": "satghara",
+      "name": "Satghara",
+      "district": "Satghara",
+      "province": "Satghara",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:jarwa",
+      "type": "place",
+      "slug": "jarwa",
+      "name": "Jarwa",
+      "district": "Jarwa",
+      "province": "Jarwa",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:chunian",
+      "type": "place",
+      "slug": "chunian",
+      "name": "Chunian",
+      "district": "Chunian",
+      "province": "Chunian",
+      "country": "Pakistan"
+    },
+    {
       "id": "place:jhal-magsi-district",
       "type": "place",
       "slug": "jhal-magsi-district",
@@ -4763,6 +4763,33 @@
       "city": "Shah Yousuf",
       "district": "Shahpur",
       "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:gujranwala",
+      "type": "place",
+      "slug": "gujranwala",
+      "name": "Gujranwala",
+      "district": "Gujranwala",
+      "province": "Gujranwala",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:sharaqpur",
+      "type": "place",
+      "slug": "sharaqpur",
+      "name": "Sharaqpur",
+      "district": "Sharaqpur",
+      "province": "Sharaqpur",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:bahawalpur",
+      "type": "place",
+      "slug": "bahawalpur",
+      "name": "Bahawalpur",
+      "district": "Bahawalpur",
+      "province": "Bahawalpur",
       "country": "Pakistan"
     },
     {
@@ -4912,15 +4939,6 @@
       "city": "Near Naulung (Moola gorge)",
       "district": "Gandava area",
       "province": "Balochistan",
-      "country": "Pakistan"
-    },
-    {
-      "id": "place:sharaqpur",
-      "type": "place",
-      "slug": "sharaqpur",
-      "name": "Sharaqpur",
-      "district": "Sharaqpur",
-      "province": "Punjab",
       "country": "Pakistan"
     },
     {
@@ -7683,6 +7701,20 @@
     },
     {
       "type": "located_in",
+      "subject": "abu-al-khair",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "akhund-muhammad-rafi-peshawari",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "allo-mahar",
       "object": "place:sialkot",
       "confidence": 0.95,
@@ -7697,8 +7729,50 @@
     },
     {
       "type": "located_in",
+      "subject": "asthan-sitla-mata-outside-the-wall",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "ayub-sabir-miran",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "badshahi-masjid",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "bahle-ocr-shah-majzub-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "bari-imam",
       "object": "place:islamabad",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "begumpura-graveyard",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "bhadr-kali-in-city",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -7725,8 +7799,22 @@
     },
     {
       "type": "located_in",
+      "subject": "bhairon-ji-ka-asthan-mohalla-wachhowali",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "bhit-bhit-shah",
       "object": "place:bhit",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "bibi-rasti",
+      "object": "place:multan",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -7739,6 +7827,20 @@
     },
     {
       "type": "located_in",
+      "subject": "chaubara-chhajju-bhagat",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "chishti-family-graves-maidan-zarin-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "churrio-jabal-durga-mata-temple",
       "object": "place:nagarparkar",
       "confidence": 0.95,
@@ -7746,8 +7848,15 @@
     },
     {
       "type": "located_in",
+      "subject": "dan-shahid",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "darbar-abul-muali-qadri",
-      "object": "place:district",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -7761,7 +7870,7 @@
     {
       "type": "located_in",
       "subject": "darbar-ghazi-ilm-din-shaheed",
-      "object": "place:lahore-the-field-survey-itself-locates-the-shrine-only-as-lahore-its-one-detail",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -7782,28 +7891,28 @@
     {
       "type": "located_in",
       "subject": "darbar-hazrat-shah-gohar-peer",
-      "object": "place:address-or-coordinates-recorded-in-the-survey",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
     {
       "type": "located_in",
       "subject": "darbar-hazrat-tahir-bandagi-qadri",
-      "object": "place:lahore-per-the-field-survey",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
     {
       "type": "located_in",
       "subject": "darbar-malik-ahmad-ayaz",
-      "object": "place:district",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
     {
       "type": "located_in",
       "subject": "darbar-mian-qurban-ali-shah",
-      "object": "place:lahore-as-given-in-the-survey-no-province",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -7817,7 +7926,7 @@
     {
       "type": "located_in",
       "subject": "darbar-wasif-ali-wasif",
-      "object": "place:lahore-the-survey-gives-no-street-address",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -7872,8 +7981,43 @@
     },
     {
       "type": "located_in",
+      "subject": "devi-dwara-rajo-and-dharman",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "dharamsala-bhai-goma-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "dharamsala-of-baba-khuda-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "eidgah-sharif",
       "object": "place:rawalpindi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "faqir-taj-shah-majzub-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "fazl-shah-majzub-naushahi",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -7902,6 +8046,13 @@
       "type": "located_in",
       "subject": "gori-temple-gori-jo-mandar",
       "object": "place:tharparkar-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "gulabi-shah",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8159,6 +8310,76 @@
     },
     {
       "type": "located_in",
+      "subject": "gyan-mandir-and-shivala-ishri-prashad-kayath",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "hafiz-ghulam-muhammad-known-as-imam-gamun",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "hafiz-muhammad-taqi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "haji-ahmad-resident-of-qalat",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "haji-jamiat",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "haji-muhammad-saeed-dola-wari",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "half-demolished-mosque-near-sarai-muhammad-sultan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "hanuman-mandir-moti-bazaar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "hazrat-shah-hasan-wali-kamil",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "imambara-and-gami-shah",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "jagannath-temple-sialkot",
       "object": "place:mohallah-puran-nagar",
       "confidence": 0.95,
@@ -8168,6 +8389,13 @@
       "type": "located_in",
       "subject": "jain-mandir-lahore",
       "object": "place:old-anarkali",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "jali-shah-majzub-lahori",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8194,6 +8422,13 @@
     },
     {
       "type": "located_in",
+      "subject": "kali-devi-mandir",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "kalka-cave-temple-asthan-of-kalka-devi",
       "object": "place:sukkur-district",
       "confidence": 0.95,
@@ -8208,8 +8443,50 @@
     },
     {
       "type": "located_in",
+      "subject": "khanqah-kahhote-shah",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "khatwari-darbar-shikarpur",
       "object": "place:old-city",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "khwaja-ayub-qureshi-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "khwaja-bihari-qadri-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "khwaja-khawand-mahmud-lahori-famous-as-hazrat-ishan-naqshbandi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "khwaja-muhammad-siddiq-peshawari",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "kotwali-mosque-of-mian-nura-nur-muhammad",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8223,6 +8500,13 @@
     {
       "type": "located_in",
       "subject": "krishna-mandir-ravi-road",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "kuka-dharamsala-moti-bazaar",
       "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
@@ -8257,6 +8541,265 @@
     },
     {
       "type": "located_in",
+      "subject": "madrasa-garhi-shahu-khair-garh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mai-bhagi-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "makhdoom-nau-bahar-shah-sajjada-nashin-of-uch-bukhari",
+      "object": "place:uch",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "makhdum-mufti-shaikh-muhammad-qureshi-mian-kalan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mandir-banke-bihari",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mandir-bawa-mehr-das-four-mandirs",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mandir-bhadr-kali-niaz-beg",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mandir-sitla-devi-inside-the-city",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mandir-than-bhairon-ichhra",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "marghat-the-hindu-cremation-ground",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-bazar-bi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-bukan-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-chiniyan-wali",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-dai-anga",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-dai-ladu",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-hafiz-chabuk-sawar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-imam-shah-wali",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-khurd-nawab-wazir-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-khwaja-ayaz",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-masti-darwaza-maryam-zamani",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-mian-muhammad-sultan-thekedar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-mohalla-takiya-sadhuwan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-moran-tawaif",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-muhammad-salih-kambo-mochi-darwaza",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-muhammad-salih-sindhi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-mulla-majid-mohalla-chehl-bibian",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-naqiban",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-pari-mahal",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-phulian-wali",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-shaikh-nawab-imam-al-din-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masjid-wazir-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mastan-shah-lahori-majzub",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "masum-shah-majzub-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mata-mandir-of-kucha-bal-nath",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "maulana-haji-sad-allah",
+      "object": "place:wazirabad",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "maulvi-jami-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "maulvi-timur-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "mausoleum-of-waris-shah",
       "object": "place:sheikhupura-district",
       "confidence": 0.95,
@@ -8264,8 +8807,99 @@
     },
     {
       "type": "located_in",
+      "subject": "mazar-chiragh-shah",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mazar-marg-naini",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "mazar-of-bulleh-shah",
       "object": "place:kasur",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mazar-shahid-ganj-mohalla-sadhwan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mian-amir-bakhsh-the-bookbinder",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mian-jan-muhammad",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mian-mongar-majzub-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mian-nuras-second-mosque-kashmiri-bazaar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "miani-graveyard-and-panj-pir-dher",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mir-sayyid-shah-firoz",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "miran-sayyid-ghulam-muhyi-al-din",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "miran-sayyid-mubarak-haqqani",
+      "object": "place:uch",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mirza-hadi-muhammad-muslim-pir-zaidi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "miskin-shah-amri-mir-inayat-allah",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8285,8 +8919,113 @@
     },
     {
       "type": "located_in",
+      "subject": "mosque-at-the-garhi-shahu-compound",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mosque-of-sayyid-amir-shah",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mosque-of-zabita-khan-and-mirza-muhammad-mirza-mota",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "moti-masjid-lahore-fort",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mufti-ghulam-muhammad",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mufti-muhammad-taqi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mufti-rahim-allah",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mufti-rahmat-allah",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mufti-shaikh-muhammad-mukarram-qureshi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "multani-dharamsala",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "mustaqim-shah-lahori-faizpuri-majzub",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
       "object": "place:nagarparkar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "nawab-zakariya-khans-graveyard-complex-mughalpura",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "neighbourhood-thakurdwara-on-a-confectioners-shop-site",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "nizam-shah-lahori-majzub",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "old-tomb-under-government-house",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8301,6 +9040,90 @@
       "type": "located_in",
       "subject": "parnami-mandir",
       "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "past-masjid-nichi-masjid",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-balkhi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-bhola-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-burhan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-dhal",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-ghazi-known-as-pir-az-ghaib",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-hadi-rahnuma",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-muhammad-sachiar-naushahi",
+      "object": "place:gujrat",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-muhammad-shirazi-chishti",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-siraj-al-din-known-as-pir-siraji",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-zaki",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "pir-zuhdi-lahori",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8327,6 +9150,13 @@
     },
     {
       "type": "located_in",
+      "subject": "ram-dwara-mohalla-wachhowali",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "ram-mandir-saidpur-ram-kund-mandir",
       "object": "place:margalla-hills",
       "confidence": 0.95,
@@ -8341,6 +9171,13 @@
     },
     {
       "type": "located_in",
+      "subject": "rani-gul-begum",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "ranmal-sharif",
       "object": "place:phalia",
       "confidence": 0.95,
@@ -8348,8 +9185,36 @@
     },
     {
       "type": "located_in",
+      "subject": "rasul-shahi-faqirs-and-nur-husain",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "sadh-belo-sadh-belo-island-temple",
       "object": "place:near-sukkurrohri",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sadhu-chuhras-well-and-shivala",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "safed-gumbad-laka-gumbad-yahya-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sain-qutb-shah-lahori",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8364,6 +9229,118 @@
       "type": "located_in",
       "subject": "sakhi-sarwar",
       "object": "place:dera-ghazi-khan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-bawa-jhingar-shah-suthra",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-bhai-rupa",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-bhai-vasti-ram",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-dariya-gar-sanyasi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-haqiqat-rai",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-jamadar-khushhal-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-maharaja-kharak-singh-and-kunwar-nau-nihal-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-maharaja-sher-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-raja-dhian-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-raja-suchet-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-raja-teja-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-raja-udham-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-ram-singh-son-of-jamadar-khushhal-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-rani-chand-kaur",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-rani-raj-kaur-rani-nakain",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "samadh-sardar-jawahar-singh",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8404,8 +9381,274 @@
     },
     {
       "type": "located_in",
+      "subject": "sarvwala-maqbara-sharaf-al-nisa-begum",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-abd-al-wahhab-qadiri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-abdul-qadir-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-abdul-qadir-sani",
+      "object": "place:uch",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-abu-turab-known-as-shah-gada-husaini-shattari-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-ahmad-shaikh-al-hind-gilani",
+      "object": "place:wazirabad",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-ahmad-tokhta-tirmizi-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-badr-al-din-shah-alam-sabz-gumbad",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-baha-al-din-gilani-known-as-bahawal-sher-qalandar-hujrawi",
+      "object": "place:hujra",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-chiragh-shah-hakim",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-hamid-ganj-bakhsh",
+      "object": "place:uch",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-hasan-peshawari-qadri-gilani",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-jan-muhammad-huzuri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-jhulan-shah-famous-as-ghore-shah-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-kamil-shah-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-mahmud-huzuri-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-mitha-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-muhammad-ghaus-bala-pir",
+      "object": "place:satghara",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-muhammad-ghaus-uchi-jili-gilani",
+      "object": "place:uch",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-muhammad-muqim-muhkam-al-din",
+      "object": "place:jarwa",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-muhammad-nur",
+      "object": "place:chunian",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-munawwar-ali-shah-naqshbandi-suhrawardi-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-nasir-al-din",
+      "object": "place:uch",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-sadr-al-din-known-as-shaikh-rajan-qattal",
+      "object": "place:uch",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-sar-buland",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-shah-bilawal",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-shah-husain-known-as-bhohre-wala",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-shahbaz",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-suf-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-usman-famous-as-shah-jhula-bukhari-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyid-yaqub-addressed-as-sadr-e-diwan-zanjani-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sayyids-of-mohalla-syed-sar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "sevapanthi-darbar-bhai-gurdas-gandava",
       "object": "place:jhal-magsi-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-badr-al-din-gilani",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-dargahi-qadri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-farid-naushahi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-ismail-muhaddith",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-kaku-chishti-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-muhammad-ghaus-gilani-qadri-lahori",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8418,6 +9661,48 @@
     },
     {
       "type": "located_in",
+      "subject": "shah-rahmat-allah-qureshi-multani-then-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-raza-qadri-shattari-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-rustam-ghazi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-shams-al-din-qadri-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-sharaf-enclosure-at-khwaja-muhammad-saeeds",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-sharf-mohalla-outside-bhati-gate",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "shah-yousuf",
       "object": "place:shahpur",
       "confidence": 0.95,
@@ -8425,8 +9710,351 @@
     },
     {
       "type": "located_in",
+      "subject": "shah-zia-al-din-shirwani",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-zia-qadiri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shah-ocr-naushahi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "shahwala-teja-singh-mandir",
       "object": "place:sialkot",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-abd-al-hakim-sialkoti",
+      "object": "place:sialkot",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-abd-al-jalil-qutb-al-alam-chuhar-bandagi-qureshi-harithi-hakari-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-abd-al-khaliq-lahori-chishti-sabri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-abd-al-razzaq-makki-nila-gumbad",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-abdullah-shah-baloch-lahori-qadri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-abu-ishaq-qadri-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-ahmad-mashuq-e-ilahi",
+      "object": "place:multan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-al-islam-mufti-abdul-salam-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-ali-rangrez",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-arif-chishti",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-ashraf",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-faiz-bakhsh-lahori-sabri-chishti",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-fath-shah-shattari-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-ghulam-husain-of-walian-wali",
+      "object": "place:gujranwala",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-ghulan-shah-sarmast-qadiri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-haji-abd-al-karim-chishti-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-haji-muhammad-saeed-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-haji-ramzan-lahori-chishti",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-hamid-al-din-abu-al-hakim-qureshi-hakkari-suhrawardi-sultan-al-tarikin",
+      "object": "place:multan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-hamid-qari-suhrawardi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-hasan-kunjadgar-famous-as-hassu-teli-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-ilm-al-din-chuniwal",
+      "object": "place:chunian",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-jan-allah-chishti-sabri-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-jan-muhammad-suhrawardi-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-jan-muhammad-thani-lahori-suhrawardi-jan-muhammad-parvezabadi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-karam-shah-qureshi-harithi-ocr",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-khair-al-din-known-as-khair-shah-chishti-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-ladhe-shah-ocr-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-mahmud-shah-naqshbandi-mujaddidi-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-mir-muhammad-yaqub-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhammad-arif-chishti-sabri-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhammad-ashraf-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhammad-ismail-lahori-famous-as-mian-kalan-also-mian-wada",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhammad-ismail-muhaddith-wa-mufassir-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhammad-saeed-chishti-sabri-sharaqpuri",
+      "object": "place:sharaqpur",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhammad-salim-chishti-sabri-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhammad-siddiq-chishti-sabri-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhkam-al-din-sahib-al-sair-uwaisi",
+      "object": "place:bahawalpur",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-muhtaram",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-musa-ahangar-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-musa-khokhar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-nur-ahmad-famous-as-nur-husain-qadiri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-sadi-ocr-mujaddidi-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-sadr-al-din-arif",
+      "object": "place:multan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-sayyid-abu-ishaq-gazruni-famous-as-miran-badshah-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shaikh-shahr-allah-multani",
+      "object": "place:multan",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8453,6 +10081,20 @@
     },
     {
       "type": "located_in",
+      "subject": "sharaf-shah-lahori",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sher-shah-qadri-multani",
+      "object": "place:multan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "shergarh",
       "object": "place:okara",
       "confidence": 0.95,
@@ -8462,6 +10104,139 @@
       "type": "located_in",
       "subject": "shiv-mandir-chiti-ghati",
       "object": "place:mansehra-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-and-devi-dwara-ganga-parbat",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-and-samadh-of-shiv-gar-sanyasi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-and-thakurdwara-outside-mori-gate",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-bakhshi-bhagat-ram",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-dharm-chand-wala",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-diwan-ratan-chand-with-tank-and-sarai",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-diwan-shankar-das",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-gulab-rai-jamadar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-lala-chhote-lal",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-lala-nihal-chand",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-near-chah-badhu-wala",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-north-of-masjid-wazir-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-pandit-radha-kishan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-raghunath-misr",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-raja-dina-nath",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-sukh-dyal-sud",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-tarpolia-wala",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-thibi-wala",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "shivala-wilbagh-dilbagh-rai",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8796,8 +10571,232 @@
     },
     {
       "type": "located_in",
+      "subject": "sufi-wali-masjid",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "sunehri-masjid-masjid-tilai-kashmiri-bazaar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "swami-dharmdas-darbar-larkana-kennedy-market",
       "object": "place:larkana",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "taja",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "takiya-baba-farid-ganjshakar-lahore",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "taksali-wali-masjid",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tali-sahib-baba-sri-chand",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-and-shivala-lala-jasna-dibar-and-jangam",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-and-shivala-sant-shah-and-devi-dyal",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-atar-singh-subedar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-attached-to-mandir-banke-bihari",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-baikunth-das",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-bakho-misr",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-bawa-dehona-das",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-bawa-mangal-das",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-bhori-sarkar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-chhojhi-mal-khatri",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-chor-mor-wala",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-jwala-dai",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-lala-bhagwan-das",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-lala-mahin-lal",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-lala-nihal-chand-five-mandirs",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-makho-shah",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-of-the-kankhal-image",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-pandit-aukat-nath",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-pandit-radha-kishan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-rai-singh-risaldar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-raja-teja-singh",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-rani-jindan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "thakurdwara-rani-lachhmi",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "the-foundresss-tomb-at-naya-kot",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "the-small-rauza-of-the-newly-muslim-woman",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "the-takiya-ambli-wala-enclosure",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8810,8 +10809,22 @@
     },
     {
       "type": "located_in",
+      "subject": "tomb-of-ali-mardan-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "tomb-of-allama-iqbal-mazar-e-iqbal",
       "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tomb-of-asaf-jah",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8824,8 +10837,64 @@
     },
     {
       "type": "located_in",
+      "subject": "tomb-of-bahadur-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tomb-of-jahangir",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tomb-of-jani-khan-nizam-al-daula",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "tomb-of-javindi-bibi",
       "object": "place:uch-sharif",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tomb-of-muhammad-salih-and-shaikh-inayat-allah-kambo",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tomb-of-nawab-mian-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tomb-of-nawab-nusrat-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tomb-of-nur-jahan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tomb-of-prince-parvez",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -8845,8 +10914,57 @@
     },
     {
       "type": "located_in",
+      "subject": "tomb-of-zeb-al-nisa-begum",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "tombs-of-makhduma-begum-and-nawab-abu-al-hasan-khan",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "travellers-mosque-of-muhammad-sultan-thekedar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
       "subject": "umarkot-amarkot-shiv-mandir",
       "object": "place:sindh",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "unchi-masjid-bhati-darwaza",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "unnamed-mosque-of-the-dilawar-khan-land-case",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "unnamed-temple-with-fourteen-shops",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "type": "located_in",
+      "subject": "vaishno-devi-mandir-mohalla-talwara",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -9145,7 +11263,7 @@
       "object": "saint:shah-inayat-qadiri",
       "confidence": 0.7,
       "method": "human",
-      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri",
       "quote": "The field survey names Waris Shah as a second prominent disciple from this period"
     },
     {
@@ -9154,7 +11272,7 @@
       "object": "saint:guru-nanak",
       "confidence": 0.9,
       "method": "human",
-      "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat",
+      "source": "entries/descriptions/guru-gurpat-mandir-db-80-sirey-ghat.md#guru-gurpat-mandir-db-80-sirey-ghat",
       "quote": "built around a Sant revered as a twelfth-generation descendant, in the Jagiasi lineage, of Guru Nanak",
       "generations": 12,
       "removeWording": "a twelfth-generation descendant, in the Jagiasi lineage"
@@ -9165,7 +11283,7 @@
       "object": "saint:baba-bankhandi-maharaj",
       "confidence": 0.9,
       "method": "human",
-      "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple",
+      "source": "entries/descriptions/sadh-belo-sadh-belo-island-temple.md#sadh-belo-sadh-belo-island-temple",
       "quote": "built under an eighth successor in the lineage, Sant Harnam Das",
       "generations": 8,
       "removeWording": "an eighth successor in the lineage"
@@ -9180,7 +11298,7 @@
       "elderRole": "grandfatherPaternal",
       "juniorRole": "grandsonPaternal",
       "kinWording": "grandson of",
-      "source": "data/shrines.csv#shrine-of-shah-rukn-e-alam",
+      "source": "entries/descriptions/shrine-of-shah-rukn-e-alam.md#shrine-of-shah-rukn-e-alam",
       "quote": "Rukn-ud-Din was born in Multan in 1251, the grandson of Baha-ud-Din Zakariya and son of Sadr-ud-Din Arif"
     },
     {
@@ -9193,7 +11311,7 @@
       "elderRole": "grandfatherUnspecified",
       "juniorRole": "grandsonUnspecified",
       "kinWording": "grandson of",
-      "source": "data/shrines.csv#shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "source": "entries/descriptions/shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.md#shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
       "quote": "Chief among his descendants was his grandson, Sayyid Jalaluddin known as Makhdoom Jahaniyan Jahangasht"
     },
     {
@@ -9206,7 +11324,7 @@
       "elderRole": "ancestor",
       "juniorRole": "descendant",
       "kinWording": "a descendant of",
-      "source": "data/shrines.csv#tomb-of-javindi-bibi",
+      "source": "entries/descriptions/tomb-of-javindi-bibi.md#tomb-of-javindi-bibi",
       "quote": "Bibi Jawindi was a saintly woman of the great Bukhari sayyid family of Uch, a descendant of Makhdoom Jahaniyan Jahangasht"
     },
     {
@@ -9219,7 +11337,7 @@
       "elderRole": "ancestor",
       "juniorRole": "descendant",
       "kinWording": "a descendant of",
-      "source": "data/shrines.csv#shrine-of-mauj-darya-bukhari",
+      "source": "entries/descriptions/shrine-of-mauj-darya-bukhari.md#shrine-of-mauj-darya-bukhari",
       "quote": "the son of Safi-ud-Din Bukhari of the Sadaat of that town, a descendant of Jalaluddin Surkh-Posh Bukhari whose genealogy is traced through Syed Jalal-ud-Din Jahaniyan Jahangasht"
     },
     {
@@ -9246,7 +11364,7 @@
       "juniorRole": "descendant",
       "generationDisputed": true,
       "kinWording": "great-great-grandson of / great-grandson of (sources disagree)",
-      "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+      "source": "entries/descriptions/shrine-of-shah-abdul-karim-bulri.md#shrine-of-shah-abdul-karim-bulri",
       "quote": "A separate source, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, instead calls him Bhittai's great-grandfather (three generations, not four)"
     },
     {
@@ -9261,7 +11379,7 @@
       "juniorIsPlural": true,
       "contested": true,
       "kinWording": "the daughters of",
-      "source": "data/shrines.csv#shrine-of-bibi-pak-daman",
+      "source": "entries/descriptions/bibi-pak-daman.md#shrine-of-bibi-pak-daman",
       "quote": "holds that the six were the daughters of the great saint Sayyid Ahmad Tokhta Tirmidhi, “Murshid-e-Punjab,”"
     },
     {
@@ -9274,7 +11392,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "the son of",
-      "source": "data/shrines.csv#shrine-of-peer-makki",
+      "source": "entries/descriptions/peer-makki.md#shrine-of-peer-makki",
       "quote": "a scholar-mystic born in Baghdad — the son of Hazrat Peer Syed Abdullah, of a Hasani-Hussaini family of religious scholars"
     },
     {
@@ -9287,7 +11405,7 @@
       "elderRole": "ancestor",
       "juniorRole": "descendant",
       "kinWording": "traced his descent to",
-      "source": "data/shrines.csv#shrine-of-baba-shah-chiragh",
+      "source": "entries/descriptions/shrine-of-baba-shah-chiragh.md#shrine-of-baba-shah-chiragh",
       "quote": "a Sufi of the Qadiri lineage who traced his descent to Sheikh Abdul Qadir Gilani of Baghdad"
     },
     {
@@ -9300,7 +11418,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "their father, who personally instructed both sons",
-      "source": "data/shrines.csv#shrine-of-baba-shah-kamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-baba-shah-kamal",
       "quote": "Their father, Syed Ahmad Shah, a descendant of Jalaluddin Surkh-Posh Bukhari of Uch Sharif, personally instructed both sons in Islamic theology"
     },
     {
@@ -9313,7 +11431,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "his father, from whom he received his first instruction",
-      "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+      "source": "entries/descriptions/dargah-of-khwaja-muhammad-zaman-luari-sharif.md#dargah-of-khwaja-muhammad-zaman-luari-sharif",
       "quote": "Muhammad Zaman received his first instruction from his father, Shaikh Abdul Latif, a follower of the Naqshbandi order"
     },
     {
@@ -9378,7 +11496,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "son of the fourth Guru / grandson of the third",
-      "source": "data/shrines.csv#gurdwara-dera-sahib",
+      "source": "entries/descriptions/gurdwara-dera-sahib.md#gurdwara-dera-sahib",
       "quote": "Guru Arjan (1563–1606), son of the fourth Guru, Ram Das, and grandson of the third, Amar Das, presided over the Sikh Panth"
     },
     {
@@ -9391,7 +11509,7 @@
       "elderRole": "grandfatherUnspecified",
       "juniorRole": "grandsonUnspecified",
       "kinWording": "son of the fourth Guru / grandson of the third",
-      "source": "data/shrines.csv#gurdwara-dera-sahib",
+      "source": "entries/descriptions/gurdwara-dera-sahib.md#gurdwara-dera-sahib",
       "quote": "Guru Arjan (1563–1606), son of the fourth Guru, Ram Das, and grandson of the third, Amar Das, presided over the Sikh Panth"
     },
     {
@@ -9404,7 +11522,7 @@
       "elderRole": "fatherInLaw",
       "juniorRole": "sonInLaw",
       "kinWording": "married his daughter",
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "source": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji",
       "quote": "he came under the influence of Guru Amar Das, the third Guru, whose daughter he married"
     },
     {
@@ -9560,7 +11678,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "his youngest son",
-      "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh",
+      "source": "data/live_sheet_2026-10-15.csv#samadhi-of-maharaja-ranjit-singh",
       "quote": "Construction began the following month under his son Kharak Singh and was largely completed by 1848 under his youngest son, Duleep Singh"
     },
     {
@@ -9599,7 +11717,7 @@
       "elderRole": "brother",
       "juniorRole": "brother",
       "kinWording": "his brother",
-      "source": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib",
+      "source": "entries/descriptions/shrine-of-miran-hussain-zanjani-zanjani-sahib.md#shrine-of-miran-hussain-zanjani-zanjani-sahib",
       "quote": "He died in 1042 CE and was buried alongside his brother, Hazrat Musa Hussain Zanjani, whose own shrine lies nearby."
     },
     {
@@ -9625,7 +11743,7 @@
       "elderRole": "brother",
       "juniorRole": "sister",
       "kinWording": "the elder sister of",
-      "source": "data/shrines.csv#gurdwara-babay-nanki",
+      "source": "entries/descriptions/gurdwara-babay-nanki.md#gurdwara-babay-nanki",
       "quote": "Gurdwara Babay Nanki commemorates *Bebe Nanaki* (also Bibi Nanaki), the elder sister of Guru Nanak and, in Sikh tradition, the very first of his followers — the first Sikh."
     },
     {
@@ -9638,7 +11756,7 @@
       "elderRole": "brother",
       "juniorRole": "brother",
       "kinWording": "the elder brother of",
-      "source": "data/shrines.csv#shrine-of-baba-shah-kamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-baba-shah-kamal",
       "quote": "lies the tomb of Hazrat Baba Shah Kamal, remembered chiefly as the elder brother of the celebrated Sufi Baba Shah Jamal."
     },
     {
@@ -9651,7 +11769,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "their father",
-      "source": "data/shrines.csv#shrine-of-baba-shah-kamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-baba-shah-kamal",
       "quote": "Their father, Syed Ahmad Shah, a descendant of Jalaluddin Surkh-Posh Bukhari of Uch Sharif, personally instructed both sons in Islamic theology"
     },
     {
@@ -9664,7 +11782,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "his son",
-      "source": "data/shrines.csv#gurdwara-dera-sahib",
+      "source": "entries/descriptions/gurdwara-dera-sahib.md#gurdwara-dera-sahib",
       "quote": "The martyrdom of Guru Arjan altered the course of Sikh history. His son, Guru Hargobind, on assuming the Guruship, is remembered as having girded himself with two swords"
     },
     {
@@ -9690,7 +11808,7 @@
       "elderRole": "grandfatherUnspecified",
       "juniorRole": "grandsonUnspecified",
       "kinWording": "grandson",
-      "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh",
+      "source": "entries/descriptions/samadhi-of-maharaja-ranjit-singh.md#samadhi-of-maharaja-ranjit-singh",
       "quote": "Adjoining smaller samadhis honour his son Kharak Singh and grandson Nau Nihal Singh."
     },
     {
@@ -9703,7 +11821,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "son of",
-      "source": "data/shrines.csv#shrine-of-shah-rukn-e-alam",
+      "source": "entries/descriptions/shrine-of-shah-rukn-e-alam.md#shrine-of-shah-rukn-e-alam",
       "quote": "Rukn-ud-Din was born in Multan in 1251, the grandson of Baha-ud-Din Zakariya and son of Sadr-ud-Din Arif, into the leading Suhrawardi family of the region."
     },
     {
@@ -9716,7 +11834,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "his father",
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "His father, Qazi Sain Datta, was a man of religious standing respected throughout Sindh"
     },
     {
@@ -9729,7 +11847,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "his father",
-      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "source": "entries/descriptions/darbar-abul-muali-qadri.md#darbar-abul-muali-qadri",
       "quote": "Tradition holds that Shah Abul Muali was born on 10 Zil Hajj 960 Hijri in Kirman, Iran, the son of Syed Rehmatullah Kirmani, of the Kirmani Sadaat."
     },
     {
@@ -9794,7 +11912,7 @@
       "elderRole": "mother",
       "juniorRole": "son",
       "kinWording": "his mother",
-      "source": "data/shrines.csv#garh-maharaja-shorkot",
+      "source": "entries/descriptions/garh-maharaja-shorkot.md#garh-maharaja-shorkot",
       "quote": "his mother, Bibi Rasti, a woman of great piety who is herself remembered as a saint"
     },
     {
@@ -9807,7 +11925,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "his father",
-      "source": "data/shrines.csv#gurudwara-janam-asthan-nankana-sahib",
+      "source": "entries/descriptions/gurudwara-janam-asthan-nankana-sahib.md#gurudwara-janam-asthan-nankana-sahib",
       "quote": "His father, Mehta Kalu (Kalyan Das), was a village accountant; his mother was Mata Tripta."
     },
     {
@@ -9820,7 +11938,7 @@
       "elderRole": "mother",
       "juniorRole": "son",
       "kinWording": "his mother",
-      "source": "data/shrines.csv#gurudwara-janam-asthan-nankana-sahib",
+      "source": "entries/descriptions/gurudwara-janam-asthan-nankana-sahib.md#gurudwara-janam-asthan-nankana-sahib",
       "quote": "His father, Mehta Kalu (Kalyan Das), was a village accountant; his mother was Mata Tripta."
     },
     {
@@ -9872,7 +11990,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "his father",
-      "source": "data/shrines.csv#tomb-of-allama-iqbal-mazar-e-iqbal",
+      "source": "entries/descriptions/mazar-e-iqbal.md#tomb-of-allama-iqbal-mazar-e-iqbal",
       "quote": "among them his son Javid, to whom the great Persian poem *Javid Nama* is addressed"
     },
     {
@@ -9911,7 +12029,7 @@
       "elderRole": "grandfatherUnspecified",
       "juniorRole": "grandsonUnspecified",
       "kinWording": "his grandfather",
-      "source": "data/shrines.csv#shrine-of-baba-shah-chiragh",
+      "source": "entries/descriptions/shrine-of-baba-shah-chiragh.md#shrine-of-baba-shah-chiragh",
       "quote": "Given the honorific \"Chiragh,\" meaning lamp, by his grandfather Hazrat Abdul Qadir Sani"
     },
     {
@@ -9937,7 +12055,7 @@
       "elderRole": "husband",
       "juniorRole": "wife",
       "kinWording": "his first wife",
-      "source": "data/shrines.csv#shrine-of-mauj-darya-bukhari",
+      "source": "entries/descriptions/shrine-of-mauj-darya-bukhari.md#shrine-of-mauj-darya-bukhari",
       "quote": "His first wife, Syedna Bibi Fatima Sani — remembered as \"Bibi Killah,\" and popularly as Mai Fatima — bore him two sons and rests in a separate shrine facing his own"
     },
     {
@@ -9950,7 +12068,7 @@
       "elderRole": "husband",
       "juniorRole": "wife",
       "kinWording": "his wife",
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "source": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji",
       "quote": "at the request of his wife Maharani Datar Kaur, during the celebrations that attended the birth of their son Kharak Singh in 1801"
     },
     {
@@ -9963,7 +12081,7 @@
       "elderRole": "mother",
       "juniorRole": "son",
       "kinWording": "their son",
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "source": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji",
       "quote": "at the request of his wife Maharani Datar Kaur, during the celebrations that attended the birth of their son Kharak Singh in 1801"
     },
     {
@@ -9989,7 +12107,7 @@
       "elderRole": "father",
       "juniorRole": "son",
       "kinWording": "his son",
-      "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh",
+      "source": "data/live_sheet_2026-10-15.csv#samadhi-of-maharaja-ranjit-singh",
       "quote": "Construction began the following month under his son Kharak Singh and was largely completed by 1848 under his youngest son, Duleep Singh"
     },
     {
@@ -10002,7 +12120,7 @@
       "elderRole": "unclePaternal",
       "juniorRole": "nephewPaternal",
       "kinWording": "his father's brother",
-      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "source": "data/live_sheet_2026-10-15.csv#darbar-abul-muali-qadri",
       "quote": "Two of his father's brothers are named: Sheikh Dawood Bandgi Kirmani, whose shrine the survey places at Shergarh, and Syed Jalal ud Deen, whose shrine it places in Sindh."
     },
     {
@@ -10051,7 +12169,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#data-darbar",
+      "source": "entries/descriptions/data-darbar.md#data-darbar",
       "quote": "His own spiritual guide was Abu’l-Fadl Muhammad al-Khuttali, who linked him to the “sober” Sufism of the school of Junayd of Baghdad"
     },
     {
@@ -10061,7 +12179,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib",
+      "source": "entries/descriptions/shrine-of-miran-hussain-zanjani-zanjani-sahib.md#shrine-of-miran-hussain-zanjani-zanjani-sahib",
       "quote": "on the instruction of his spiritual master, Sheikh Abu al-Fazal Khatil, and is remembered to have preached in the city for some thirty-six years"
     },
     {
@@ -10071,7 +12189,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "source": "entries/descriptions/madho-lal-hussain.md#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
       "quote": "he is remembered as a disciple of the Sufi master Bahlol (Bahlol Daryai) and as a devoted frequenter of the shrine of Data Ganj Bakhsh"
     },
     {
@@ -10081,7 +12199,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "at the hands of the master whom the shrine’s tradition remembers as Shaikh Siyustani, from whom he received training and, in time, the khilafat, the authority to guide others."
     },
     {
@@ -10091,7 +12209,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "from whom he received training and, in time, the khilafat, the authority to guide others."
     },
     {
@@ -10101,7 +12219,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "His foremost successor was Mullah Shah Badakhshi, who carried on the master’s nightly practice of habs-e-dam"
     },
     {
@@ -10111,7 +12229,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "became the spiritual guide of Prince Dara Shikoh and, through him, of the emperor Shah Jahan’s brilliant daughter, the princess Jahanara"
     },
     {
@@ -10121,7 +12239,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "His sister, the princess Jahanara — Shah Jahan’s best-loved daughter — was herself a disciple of Mullah Shah"
     },
     {
@@ -10131,7 +12249,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-jamal",
       "quote": "a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi"
     },
     {
@@ -10151,7 +12269,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+      "source": "entries/descriptions/tahir-bandagi-qadri.md#darbar-hazrat-tahir-bandagi-qadri",
       "quote": "For advanced learning he became a disciple (*mureed*) of Hazrat Shah Sikandar, who is credited with giving him the name \"Tahir Bandagi\""
     },
     {
@@ -10191,7 +12309,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri",
       "quote": "Shah Inayat trained under a Shattari Sufi teacher — named in earlier sourcing for this entry as Muhammad Ali Raza Shattari"
     },
     {
@@ -10201,7 +12319,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri",
       "quote": "and named in a 2026 field survey as Hazrat Shah Raza Qadri Shattari; the two names are close but not identical"
     },
     {
@@ -10211,7 +12329,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#mausoleum-of-waris-shah",
+      "source": "entries/descriptions/mausoleum-of-waris-shah.md#mausoleum-of-waris-shah",
       "quote": "tracing his discipleship to the line of the saint Makhdoom of Kasur"
     },
     {
@@ -10221,7 +12339,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
+      "source": "entries/descriptions/shrine-of-bahauddin-zakariya.md#shrine-of-bahauddin-zakariya",
       "quote": "travelling to Baghdad to enter the discipleship of Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi, the great systematiser of the Suhrawardi order"
     },
     {
@@ -10231,7 +12349,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
+      "source": "entries/descriptions/shrine-of-bahauddin-zakariya.md#shrine-of-bahauddin-zakariya",
       "quote": "Under him Zakariya completed his training with remarkable speed and received the mantle of *khilafat*, with authorisation to carry the order to India."
     },
     {
@@ -10241,7 +12359,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
+      "source": "entries/descriptions/shrine-of-bahauddin-zakariya.md#shrine-of-bahauddin-zakariya",
       "quote": "carried by his disciples and descendants — among them the poet-saint Fakhr-ud-Din Iraqi, who came to Multan and married into his family"
     },
     {
@@ -10261,7 +12379,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar",
+      "source": "entries/descriptions/shrine-of-fariduddin-ganjshakar.md#shrine-of-fariduddin-ganjshakar",
       "quote": "A disciple and spiritual heir of Khwaja Qutbuddin Bakhtiar Kaki of Delhi, and the master of the great Nizamuddin Auliya"
     },
     {
@@ -10291,7 +12409,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-hafiz-muhammad-jamal-multani",
+      "source": "entries/descriptions/shrine-of-hafiz-muhammad-jamal-multani.md#shrine-of-hafiz-muhammad-jamal-multani",
       "quote": "Hafiz Jamal was a disciple of *Khwaja Noor Muhammad Maharvi*, a leading Chishti master of the region"
     },
     {
@@ -10301,7 +12419,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "source": "entries/descriptions/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.md#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "quote": "He was initiated in the Chishti-Nizami order and became the spiritual heir of his master Khwaja Nur Muhammad Maharvi’s line"
     },
     {
@@ -10311,7 +12429,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "source": "entries/descriptions/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.md#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "quote": "became the spiritual heir of his master Khwaja Nur Muhammad Maharvi’s line"
     },
     {
@@ -10321,7 +12439,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#garh-maharaja-shorkot",
+      "source": "entries/descriptions/garh-maharaja-shorkot.md#garh-maharaja-shorkot",
       "quote": "Bahu received initiation in the Qadiri order at the hand of Sayyid Abdul Rahman of Delhi"
     },
     {
@@ -10331,7 +12449,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#purana-bhalwal",
+      "source": "entries/descriptions/purana-bhalwal.md#purana-bhalwal",
       "quote": "his spiritual guide (*pir*) was Shah Maroof Khushabi of the nearby town of Khushab"
     },
     {
@@ -10341,7 +12459,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-hazrat-shah-daula-daryai",
+      "source": "entries/descriptions/shrine-of-hazrat-shah-daula-daryai.md#shrine-of-hazrat-shah-daula-daryai",
       "quote": "he became the disciple of a Suhrawardi *faqir* remembered as Shah Saidan Sarmast, serving at his master's *khanqah* with great devotion"
     },
     {
@@ -10351,7 +12469,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+      "source": "entries/descriptions/shrine-of-shah-abdul-karim-bulri.md#shrine-of-shah-abdul-karim-bulri",
       "quote": "adds that he was himself a disciple (*murid*) of Makhdoom Nooh of Hala before settling and preaching at Bulri"
     },
     {
@@ -10371,7 +12489,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+      "source": "entries/descriptions/dargah-of-khwaja-muhammad-zaman-luari-sharif.md#dargah-of-khwaja-muhammad-zaman-luari-sharif",
       "quote": "There he came under the influence of the Sufi master Khwaja Abul Masakin, whose disciple he became"
     },
     {
@@ -10381,7 +12499,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+      "source": "entries/descriptions/dargah-of-khwaja-muhammad-zaman-luari-sharif.md#dargah-of-khwaja-muhammad-zaman-luari-sharif",
       "quote": "Muhammad Zaman received his first instruction from his father, Shaikh Abdul Latif, a follower of the Naqshbandi order"
     },
     {
@@ -10391,7 +12509,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-makhdoom-abdul-rahim-girhori",
       "quote": "He was among the foremost *khalifas* (deputies) of Khwaja Muhammad Zaman of Luari Sharif (also recorded in this dataset)"
     },
     {
@@ -10401,7 +12519,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-makhdoom-abdul-rahim-girhori",
       "quote": "He was among the foremost *khalifas* (deputies) of Khwaja Muhammad Zaman of Luari Sharif"
     },
     {
@@ -10721,7 +12839,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#gurdwara-dera-sahib",
+      "source": "entries/descriptions/gurdwara-dera-sahib.md#gurdwara-dera-sahib",
       "quote": "Sikh tradition records that the Guru's son and successor, Guru Hargobind, raised a memorial platform at the site of the martyrdom"
     },
     {
@@ -10731,7 +12849,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "source": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji",
       "quote": "he served with such devotion and humility that he was in time chosen to succeed him. As the fourth Guru he"
     },
     {
@@ -10741,7 +12859,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "source": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji",
       "quote": "Orphaned young, he came under the influence of Guru Amar Das, the third Guru, whose daughter he married and whom he served with such devotion and humility"
     },
     {
@@ -10771,7 +12889,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#gorakhnath-goraknath-temple",
+      "source": "entries/descriptions/gorakhnath-goraknath-temple.md#gorakhnath-goraknath-temple",
       "quote": "He is remembered as the disciple of Matsyendranath, and the *Nath* tradition he shaped"
     },
     {
@@ -10851,7 +12969,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
+      "source": "entries/descriptions/gurdwara-darbar-sahib-kartarpur.md#gurdwara-darbar-sahib-kartarpur",
       "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru"
     },
     {
@@ -10861,7 +12979,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
+      "source": "entries/descriptions/gurdwara-darbar-sahib-kartarpur.md#gurdwara-darbar-sahib-kartarpur",
       "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru"
     },
     {
@@ -10881,7 +12999,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+      "source": "data/live_sheet_2026-10-15.csv#darbar-hazrat-tahir-bandagi-qadri",
       "quote": "formally became Mujaddid Alf Sani's disciple as well -- later teaching Mujaddid Alf Sani's own children"
     },
     {
@@ -10941,7 +13059,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+      "source": "entries/descriptions/shrine-of-shah-abdul-karim-bulri.md#shrine-of-shah-abdul-karim-bulri",
       "quote": "His sayings and verses were first gathered by a disciple, Mir Daryai Tharawi, in the Persian work *Bayan al-Arifin*, completed in 1630"
     },
     {
@@ -10951,7 +13069,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "source": "entries/descriptions/shah-jamal.md#shrine-of-shah-jamal",
       "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple"
     },
     {
@@ -10961,7 +13079,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "His disciples cherished their own intimate wonders: Meerak Mohammad Lahori relates how, having taken up and chewed a discarded betel-leaf from the saint"
     },
     {
@@ -11028,7 +13146,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "source": "entries/descriptions/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.md#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "quote": "He was initiated in the Chishti-Nizami order and became the spiritual heir of his master Khwaja Nur Muhammad Maharvi’s line",
       "branch": "Chishti-Nizami",
       "asRecorded": "Chishti-Nizami"
@@ -11087,7 +13205,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+      "source": "entries/descriptions/dargah-of-khwaja-muhammad-zaman-luari-sharif.md#dargah-of-khwaja-muhammad-zaman-luari-sharif",
       "quote": "the shrine of Khwaja Muhammad Zaman (1713–1775), one of the most revered Naqshbandi Sufis and Sindhi mystic poets of the eighteenth century",
       "asRecorded": "Naqshbandi"
     },
@@ -11132,7 +13250,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#golra-sharif",
+      "source": "entries/descriptions/golra-sharif.md#golra-sharif",
       "quote": "in the Sufi path he was initiated in the Chishti order, taking spiritual allegiance in the line of Khwaja Shamsuddin Sialvi of Sial Sharif",
       "asRecorded": "Chishti"
     },
@@ -11155,7 +13273,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#purana-bhalwal",
+      "source": "entries/descriptions/purana-bhalwal.md#purana-bhalwal",
       "quote": "a sixteenth-century Sufi of the *Qadiriyya* order who is remembered locally with the affectionate title *Sakhi Badshah*",
       "asRecorded": "Qadiri"
     },
@@ -11200,7 +13318,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-baba-shah-chiragh",
+      "source": "entries/descriptions/shrine-of-baba-shah-chiragh.md#shrine-of-baba-shah-chiragh",
       "quote": "the shrine of Baba Shah Chiragh commemorates Syed Abdul Razzaq, a Sufi of the Qadiri lineage who traced his descent to Sheikh Abdul Qadir Gilani of Baghdad",
       "asRecorded": "Qadiri"
     },
@@ -11222,7 +13340,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-baba-shah-kamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-baba-shah-kamal",
       "quote": "local devotional tradition attaches to him the composite title \"Qadiri Suhrawardi,\" suggesting an affiliation with the same overlapping Sufi orders associated with his brother's shrine nearby",
       "branch": "Qadiri Suhrawardi",
       "asRecorded": "Qadiri"
@@ -11246,7 +13364,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-hafiz-muhammad-jamal-multani",
+      "source": "entries/descriptions/shrine-of-hafiz-muhammad-jamal-multani.md#shrine-of-hafiz-muhammad-jamal-multani",
       "quote": "marks the resting place of the man traditionally credited with establishing the *Chishti* order firmly in the city",
       "asRecorded": "Chishti"
     },
@@ -11268,7 +13386,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-hazrat-shah-daula-daryai",
+      "source": "entries/descriptions/shrine-of-hazrat-shah-daula-daryai.md#shrine-of-hazrat-shah-daula-daryai",
       "quote": "he became the disciple of a Suhrawardi *faqir* remembered as Shah Saidan Sarmast, serving at his master's *khanqah* with great devotion",
       "asRecorded": "Suhrawardi"
     },
@@ -11279,7 +13397,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori",
+      "source": "entries/descriptions/shrine-of-makhdoom-abdul-rahim-girhori.md#shrine-of-makhdoom-abdul-rahim-girhori",
       "quote": "It honours a leading Naqshbandi mystic and scholar of eighteenth-century Sindh (1739–1778) who belonged to the Mangrio tribe",
       "asRecorded": "Naqshbandi"
     },
@@ -11290,7 +13408,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-makhdoom-nooh-hala",
+      "source": "entries/descriptions/shrine-of-makhdoom-nooh-hala.md#shrine-of-makhdoom-nooh-hala",
       "quote": "A Sufi of the *Suhrawardi* order, honoured also with an Uwaisi spiritual lineage, he is remembered as the founder of the *Sarwari* branch of the order in Sindh",
       "asRecorded": "Suhrawardi"
     },
@@ -11301,7 +13419,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-mauj-darya-bukhari",
+      "source": "entries/descriptions/shrine-of-mauj-darya-bukhari.md#shrine-of-mauj-darya-bukhari",
       "quote": "an adherent of the Suhrawardi silsila founded by Bahauddin Zakariya of Multan",
       "asRecorded": "Suhrawardi"
     },
@@ -11334,7 +13452,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-pir-sher-muhammad",
+      "source": "entries/descriptions/shrine-of-pir-sher-muhammad.md#shrine-of-pir-sher-muhammad",
       "quote": "he became a spiritual guide of great reputation, uniting the Qadiri and Chishti lineages, and drew disciples from across the Punjab and beyond",
       "branch": "Qadiri-Chishti",
       "asRecorded": "Qadiri"
@@ -11346,7 +13464,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri",
       "quote": "He combined the Qadiri and Shattari silsilas in his own practice and authored several Persian works of mystical philosophy",
       "branch": "Qadri Shattari",
       "asRecorded": "Qadri Shattari"
@@ -11358,7 +13476,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-jamal",
       "quote": "The shrine — of the Suhrawardi line and the Ahl-e-Sunnat tradition — has been in the care of the government's Auqaf Department since 1960",
       "asRecorded": "Suhrawardi"
     },
@@ -11369,7 +13487,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-jamal",
       "quote": "He belonged jointly to the Qadiriyya, Suhrawardiyya and Chishtiyya orders — a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi",
       "asRecorded": "Suhrawardi"
     },
@@ -11380,7 +13498,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-jamal",
       "quote": "He belonged jointly to the Qadiriyya, Suhrawardiyya and Chishtiyya orders — a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi",
       "asRecorded": "Suhrawardi"
     },
@@ -11402,7 +13520,7 @@
       "confidence": 0.95,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#sial-sharif",
+      "source": "entries/descriptions/sial-sharif.md#sial-sharif",
       "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi",
       "asRecorded": "Chishti"
     },
@@ -11424,7 +13542,7 @@
       "confidence": 0.7,
       "method": "machine-extracted",
       "reviewed": false,
-      "source": "data/shrines.csv#tomb-of-javindi-bibi",
+      "source": "entries/descriptions/tomb-of-javindi-bibi.md#tomb-of-javindi-bibi",
       "quote": "Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her holiness.",
       "asRecorded": "Suhrawardi"
     },
@@ -12511,10 +14629,10 @@
   "stats": {
     "saints": 244,
     "orders": 10,
-    "places": 96,
+    "places": 99,
     "events": 151,
-    "sources": 469,
-    "relations": 733,
+    "sources": 525,
+    "relations": 1033,
     "ambiguousMerges": 68
   },
   "retiredSlugs": {
@@ -12545,7 +14663,7 @@
       "saintSlug": "khwaja-ghulam-farid",
       "wording": "succeeded to the seat on his brother's death",
       "quote": "his father and, after him, his elder brother were the spiritual guides (*sajjada-nashins*) of their line, and on his brother’s death Ghulam Farid succeeded to the seat",
-      "source": "data/shrines.csv#mithankot-kot-mithan",
+      "source": "entries/descriptions/mithankot-kot-mithan.md#mithankot-kot-mithan",
       "notes": "A real succession, but neither the father nor the brother is named, so no edge can be drawn. Recorded here so it is not lost."
     },
     {
@@ -12559,14 +14677,14 @@
       "saintSlug": "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
       "wording": "followed his father's trade as a shoemaker",
       "quote": "He never left his father's trade: the survey describes him working as a shoemaker in Rang Mahal Bazaar for the whole of his life, making and selling shoes, while living with deliberate simplicity.",
-      "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "source": "data/live_sheet_2026-10-15.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
       "notes": "The father is never named, and the fact recorded is not descent but inheritance of a trade — he kept his father's work for life. No second node to point at."
     },
     {
       "saintSlug": "hazrat-wasif-ali-wasif-awan",
       "wording": "sent by his father to his maternal grandfather in Jhang",
       "quote": "His father then sent him to his maternal grandfather in Jhang, a move the survey describes as transformative: his grandfather had been associated with the Muslim League",
-      "source": "data/shrines.csv#darbar-wasif-ali-wasif",
+      "source": "data/live_sheet_2026-10-15.csv#darbar-wasif-ali-wasif",
       "notes": "Two unnamed relatives in one sentence, and the grandfather carries the detail the entry cares about — a Muslim League association. Urdu splits paternal and maternal grandfather (دادا/نانا), which is why the entry saying 'maternal' matters even with no name to attach it to."
     },
     {
@@ -12580,14 +14698,14 @@
       "saintSlug": "bulleh-shah",
       "wording": "his father a learned man, an imam and teacher",
       "quote": "Bulleh Shah was born around 1680, into a respected Sayyid family; his father was a learned and pious man, an imam and teacher, and the family settled in the Kasur region of the Punjab.",
-      "source": "data/shrines.csv#mazar-of-bulleh-shah",
+      "source": "entries/descriptions/mazar-of-bulleh-shah.md#mazar-of-bulleh-shah",
       "notes": "The father's occupation and learning are recorded; his name is not. The entry treats it as the context his poetry came out of."
     },
     {
       "saintSlug": "shah-inayat-qadiri",
       "wording": "buried alongside two of his sons",
       "quote": "Shah Inayat died around 1728 and is buried at Mozang alongside two of his sons, per existing sourcing for this entry.",
-      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri",
       "notes": "Two sons, neither named, and the fact is a burial arrangement rather than a lineage claim."
     },
     {
@@ -12608,7 +14726,7 @@
       "saintSlug": "syed-musa-pak",
       "wording": "ancestor of the Gilani (Musa Pak) sayyids",
       "quote": "a revered Qadiri saint of the sixteenth century and the ancestor of the Gilani (Musa Pak) sayyids",
-      "source": "data/shrines.csv#shrine-of-syed-musa-pak",
+      "source": "entries/descriptions/shrine-of-syed-musa-pak.md#shrine-of-syed-musa-pak",
       "notes": "Ancestor of a named FAMILY, not of a named person. The Gilani sayyids are not a node and should not become one on the strength of this."
     },
     {
@@ -12622,7 +14740,7 @@
       "saintSlug": "syed-miran-hussain-zanjani",
       "wording": "family descent from Imam Musa Kazim through the Zanjan line",
       "quote": "traces his family's descent from Imam Musa Kazim through the Zanjan line",
-      "source": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib",
+      "source": "entries/descriptions/shrine-of-miran-hussain-zanjani-zanjani-sahib.md#shrine-of-miran-hussain-zanjani-zanjani-sahib",
       "notes": "Same shape as Abdullah Shah Ghazi's descent through Imam Hasan: a named ancestor who is not a figure in this archive, because the archive holds sites in Pakistan. Nothing to point at, and creating the node to draw the edge would be the wrong fix."
     }
   ]
