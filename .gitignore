@@ -148,3 +148,8 @@ pipeline/book_queue/state.json.bak-*
 pipeline/gis/*.gpkg
 pipeline/gis/boundaries/
 pipeline/gis/sources/
+
+# The Claude desktop app's delivery folder for this connected folder: screenshots and copies of
+# files sent into a chat. Not part of the repository (30 October 2026; 61 of its files went into
+# the commit of that day by `git add -A` and turned format:check red).
+Claude outputs/
