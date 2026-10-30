@@ -1,0 +1,2 @@
+qid_keep	qid_duplicate	evidence	judged
+Q30641887	Q63343676	Both labelled "Gurdwara Chowa Sahib", both instance of gurdwara (Q337986), 24 m apart; OSM node/8661461630 carries wikidata=Q30641887; Q30641887 has en/ur Wikipedia sitelinks, Q63343676 has none and a description saying it is the ruins of the same historic gurdwara. Same place twice on Wikidata, not two places.	agent, 29 Oct 2026, from wikidata_items.json; confirmed by Rauf Nawaz, 30 Oct 2026 (still to merge on Wikidata itself)

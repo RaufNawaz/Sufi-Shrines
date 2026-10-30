@@ -1,0 +1,2 @@
+source	source_id	archive_site_id	same_place	evidence	judged
+wikidata	Q137739251	samadh-bhai-vasti-ram	1	Wikidata "Samadhi of Bhai Vasti Ram", cenotaph in Lahore; archive row "Samadh Bhai Vasti Ram", Lahore. The item postdates external_sites.csv, so the archive matcher never saw it.	Rauf Nawaz, 30 Oct 2026: "probably the same"

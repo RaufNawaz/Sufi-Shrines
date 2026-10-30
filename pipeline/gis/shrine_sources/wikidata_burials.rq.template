@@ -1,0 +1,7 @@
+# People whose own item says they are buried at one of the shrine items (P119, place of burial,
+# read in the inverse direction). ITEMS is filled by fetch_merged_sources.sh with the QIDs the
+# subclass query returned; never typed by hand. A structured statement, not a name parsed from a title.
+SELECT ?item ?person WHERE {
+  VALUES ?item { ITEMS }
+  ?person wdt:P119 ?item .
+}

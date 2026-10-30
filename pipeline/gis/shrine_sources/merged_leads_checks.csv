@@ -1,0 +1,146 @@
+name,value,note
+fetch: osm_details.json,fetched,"osm, fetched 2026-10-30T03:00:34Z, sha256 40ecf02e09dd"
+fetch: wikidata.json,kept_previous_after_failure,"wikidata, fetched 2026-10-30T02:50:04Z, sha256 138718a71b16"
+fetch: wikidata_subclass.json,kept_previous_after_failure,"wikidata, fetched 2026-10-30T02:50:04Z, sha256 617588a2628b"
+fetch: wikidata_burials.json,kept_previous_after_failure,"wikidata, fetched 2026-10-30T02:50:04Z, sha256 d8167a0d8450"
+fetch: wikidata_properties.json,kept_previous_after_failure,"wikidata, fetched 2026-10-30T02:50:04Z, sha256 8b63bb9bbc37"
+fetch: wikidata_items.json,kept_previous_after_failure,"wikidata, fetched 2026-10-30T02:50:04Z, sha256 82552d403fcc"
+fetch: wikidata_refs.json,kept_previous_after_failure,"wikidata, fetched 2026-10-30T02:50:04Z, sha256 8a38c329a653"
+"invariant: both sources read from a downloaded file, not the external_sites.csv fallback",pass,"both fresh. A fallback record carries no figure, date, heritage or image fields"
+records: wikidata,94,items after the church/cathedral/masonic/war-graves class exclusion
+records: osm,773,OSM base 2026-10-30T02:50:56Z
+records: geonames,0,excluded by design
+external_sites.csv rows read (osm+wikidata),866,geonames rows ignored: 1856
+records not in external_sites.csv (new since its build),1,wikidata:Q137739251. Not name-matched against the archive or the other source: rerun build_external_sites.py for that
+external_sites.csv records no longer returned by the source,0,
+"hard links found (OSM wikidata tag, Wikidata OSM-id statements, both inside the item sets)",26,
+extra unions the hard links add beyond external_sites.csv place_id,0,
+hard links that contradict the matcher,0,
+OSM wikidata tags pointing outside the Wikidata item set,15,kept as the place's qid (sources stays osm); node/13822189781->Q139488107; node/3686774129->Q60803; node/3720311467->Q13424935; node/8955079625->Q6437453; node/9411368041->Q38249742; relation/14415306->Q113384592; way/1539970029->Q123337335; way/1544547599->Q8064218; way/174504957->Q38251923; way/489613646->Q3629175; way/610899668->Q27490182; way/621947796->Q39061135; way/682031703->Q104857542; way/903463528->Q39053987; way/946631993->Q28886306
+Wikidata OSM-id statements pointing outside the OSM selection,2,Q15983527->way/900538788; Q3765487->way/459389601
+invariant: every OSM/Wikidata record lands in exactly one place,pass,867 memberships for 867 records
+places carrying two QIDs that wikidata_duplicates.tsv pairs as one place,1,node/8661461630(Q30641887) + Q30641887(Q30641887) + Q63343676(Q63343676)
+invariant: no place carries two different QIDs (unless paired in wikidata_duplicates.tsv),pass,0 conflicts
+wikidata_duplicates.tsv rows that no longer apply,0,
+invariant: every archive_match_verdicts.tsv id exists in data/shrines.csv,pass,1 verdicts
+invariant: every archive_match_verdicts.tsv record is in the sources,pass,1 verdicts
+invariant: place ids unique,pass,817 ids for 817 rows
+invariant: no GeoNames record in the output,pass,0 geonames records
+"invariant: where a place has a Wikidata coordinate, the output coordinate is it",pass,0 mismatches
+invariant: every figure_name comes from a structured field,pass,0 without
+invariant: no place matched to two different archive sites,pass,0
+"coordinate outliers outside Pakistan's rough bbox (lat 23-37.5, lon 60.5-77.9)",0,none
+"invariant: match_gold.tsv precision, place level after hard-link unions, >= 95%",pass,25 / 25 = 100%.  (OSM and Wikidata pairs only; human verdicts already applied in external_sites.csv)
+property P31,instance of,expected: instance of
+property P17,country,expected: country
+property P625,coordinate location,expected: coordinate location
+property P547,commemorates,expected: commemorates
+property P825,dedicated to,expected: dedicated to
+property P119,place of burial,expected: place of burial
+property P138,named after,expected: named after
+property P140,religion or worldview,expected: religion or worldview
+property P571,inception,expected: inception
+property P131,located in the administrative territorial entity,expected: located in the administrative territorial entity
+property P1435,heritage designation,expected: heritage designation
+property P18,image,expected: image
+property P11693,OpenStreetMap node ID,expected: OpenStreetMap node ID
+property P10689,OpenStreetMap way ID,expected: OpenStreetMap way ID
+property P402,OpenStreetMap relation ID,expected: OpenStreetMap relation ID
+property P569,date of birth,expected: date of birth
+property P570,date of death,expected: date of death
+invariant: every Wikidata property read has the live label this script expects,pass,17 of 17 match
+places,817,
+places: wikidata+osm,36,overlap
+places: wikidata,57,only Wikidata
+places: osm,724,only OSM
+places: coordinates from wikidata,93,
+places: coordinates from osm,724,
+wikidata-osm offset where both: median m,14.3,over 36 places
+wikidata-osm offset where both: p90 m,132.2,
+places whose two sources disagree by > 300 m,2,P00785 Bibi Pak Daman 550 m; P00797 Valmiki Temple 3703 m
+places with admin_codes_stale (fetched coordinate moved > 1 m from external_sites.csv),0,
+places in the archive,93,
+leads: places not in the archive,724,includes places not yet run through the archive matcher: see 'records not in external_sites.csv'
+places with archive_unchecked=1 (a record the archive matcher has not seen; in_archive=0 is not a finding for these),1,N-Q137739251 Samadhi of Bhai Vasti Ram
+leads not in the archive and inside external_sites.csv's admin boundary,724,
+places with a figure,25,3.1% of places
+places with a figure from osm:buried:wikidata,0,
+places with a figure from osm:memorial:name,0,
+places with a figure from osm:subject,0,
+places with a figure from osm:subject:wikidata,1,
+places with a figure from wikidata:P119(inverse),10,
+places with a figure from wikidata:P547,4,
+places with a figure from wikidata:P825,12,
+places with a figure QID but no English label,0,
+places with named_after (P138; not counted as a figure),0,
+fill: id,817,100.0%
+fill: name,778,95.2%
+fill: name_ur,137,16.8%
+fill: name_from,778,95.2%
+fill: aliases,157,19.2%
+fill: description,90,11.0%
+fill: kind,817,100.0%
+fill: religion,412,50.4%
+fill: religion_from,412,50.4%
+fill: denomination,60,7.3%
+fill: lat,817,100.0%
+fill: lon,817,100.0%
+fill: coord_from,817,100.0%
+fill: sources,817,100.0%
+fill: qid,108,13.2%
+fill: qid_duplicates,1,0.1%
+fill: osm_ids,760,93.0%
+fill: figure_name,25,3.1%
+fill: figure_name_ur,22,2.7%
+fill: figure_qid,25,3.1%
+fill: figure_born,17,2.1%
+fill: figure_died,19,2.3%
+fill: figure_from,25,3.1%
+fill: named_after,0,0.0%
+fill: year_built,21,2.6%
+fill: year_built_precision,21,2.6%
+fill: year_built_from,21,2.6%
+fill: heritage,2,0.2%
+fill: admin_label,174,21.3%
+fill: admin_from,174,21.3%
+fill: tehsil_code,816,99.9%
+fill: district_code,816,99.9%
+fill: province_code,816,99.9%
+fill: h3_id,816,99.9%
+fill: admin_codes_stale,816,99.9%
+fill: image,70,8.6%
+fill: wikipedia_en,80,9.8%
+fill: wikipedia_ur,57,7.0%
+fill: wikidata_url,108,13.2%
+fill: osm_url,760,93.0%
+fill: wd_osm_offset_m,36,4.4%
+fill: coord_disagreement,36,4.4%
+fill: in_archive,817,100.0%
+fill: archive_site_id,93,11.4%
+fill: archive_unchecked,817,100.0%
+fill: external_place_ids,816,99.9%
+fill: in_external_sites,817,100.0%
+osm tag frequency: name,735,of 773 elements
+osm tag frequency: name:en,115,of 773 elements
+osm tag frequency: name:ur,91,of 773 elements
+osm tag frequency: alt_name,6,of 773 elements
+osm tag frequency: old_name,0,of 773 elements
+osm tag frequency: religion,416,of 773 elements
+osm tag frequency: denomination,61,of 773 elements
+osm tag frequency: historic,364,of 773 elements
+osm tag frequency: building,282,of 773 elements
+osm tag frequency: start_date,3,of 773 elements
+osm tag frequency: construction_date,2,of 773 elements
+osm tag frequency: heritage,0,of 773 elements
+osm tag frequency: wikipedia,26,of 773 elements
+osm tag frequency: wikidata,35,of 773 elements
+osm tag frequency: buried:wikidata,0,of 773 elements
+osm tag frequency: subject:wikidata,1,of 773 elements
+osm tag frequency: subject,1,of 773 elements
+osm tag frequency: memorial:name,0,of 773 elements
+osm tag frequency: addr:city,107,of 773 elements
+osm tag frequency: addr:district,0,of 773 elements
+osm tag frequency: addr:province,3,of 773 elements
+osm tag frequency: image,2,of 773 elements
+osm tag frequency: wikimedia_commons,4,of 773 elements
+osm tag frequency: description,4,of 773 elements

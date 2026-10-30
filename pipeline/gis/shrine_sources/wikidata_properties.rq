@@ -1,0 +1,8 @@
+# The English label of every Wikidata property build_merged_leads.py reads, fetched live so the
+# property table in merged_leads_checks.csv is measured, not remembered. If a label ever changes
+# meaning, the build's property check fails.
+SELECT ?p ?label WHERE {
+  VALUES ?p { wd:P31 wd:P17 wd:P625 wd:P547 wd:P825 wd:P119 wd:P138 wd:P140 wd:P571 wd:P131
+              wd:P1435 wd:P18 wd:P11693 wd:P10689 wd:P402 wd:P569 wd:P570 }
+  ?p rdfs:label ?label . FILTER(LANG(?label) = "en")
+}
