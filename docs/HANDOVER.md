@@ -21942,3 +21942,26 @@ Full account in `docs/GIS_FOUNDATION.md`, "The viewer" (29 Oct paragraph). Findi
 - **The hairline rectangle around Pakistan on the viewer's basemap** came from fractional zoom (5.5): scaled Esri tiles from two levels met there. It is gone at whole zoom levels, so the map now uses `zoomSnap: 1` and `fitBounds`.
 - **In the legend, `.legend div { display: flex; align-items: center }` also styles any div nested inside it.** It gave the bivariate grid's empty cells a height of 0, so the 3×3 square showed as a blank box. Likewise `label.chk { display: inline-flex }` beat the `hidden` attribute until `[hidden] { display: none !important }` was added.
 - Decision for Rauf, also put in the chat: in **One measure**, an indicator the current unit lacks stays choosable and moves the map to a unit that has it (the old behaviour). In Compare two and Composite it is disabled with the reason.
+
+### 9.420, 30 October 2026 (interactive): Stage = infrastructure. The archive database: PostgreSQL 17 + PostGIS on this PC, replacing the sheet as the master (cutover not yet taken)
+
+Rauf ruled on 30 October that a database replaces the Google Sheet as the master, hosted on this PC
+with open-source cloud tooling for reliability, edited in a table editor, with the site reading a
+snapshot exported at deploy. Everything is in `docs/DATABASE.md`; the essentials:
+
+- **Built and verified:** cluster in `~/pgdata/17` (outside iCloud, localhost only, scram,
+  checksums), roles with an editor/reader/owner split, a schema holding every sheet column, an
+  audit trigger recording who changed what, an import that reads every cell back before it
+  commits, an export the build's own parser reads identically to the sheet (489 rows), nightly
+  dump with a restore drill, WAL archiving, and a point-in-time recovery drill that matched live.
+- **The sheet is still production.** The cutover (freeze the sheet, point `build-dataset.mjs` at
+  the export) has not been taken; it touches the website's code.
+- **Not registered:** the scheduled tasks (`pipeline/db/windows/install_tasks.ps1`); the agent's
+  attempt was refused as persistence, rightly; Rauf runs it once by hand.
+- **Deleted `pipeline/db/migrate_sites.py`** (the first-day mirror loader): its DDL began
+  `DROP TABLE IF EXISTS media, sites, categories CASCADE`, which against the new database would
+  have wiped the master.
+- **Gotcha worth the hour:** `postgresql.conf` strips single backslashes, so a Windows-path
+  `archive_command` "succeeded" into a mangled relative path inside the data directory while the
+  server's own counter reported every segment archived. Forward slashes; and `backup.py` now
+  checks the archived file is really on disk.
