@@ -19,9 +19,11 @@
         --muted: #5d6470;
         --line: #e2e5ea;
         --accent: #1f5fbf;
+        --chip: #eef3fb;
         --pass: #1b7f3b;
         --warn: #a86400;
         --fail: #b3261e;
+        --shadow: rgba(16, 24, 40, 0.22);
       }
       @media (prefers-color-scheme: dark) {
         :root {
@@ -31,9 +33,11 @@
           --muted: #a0a7b1;
           --line: #30343a;
           --accent: #7fb0ff;
+          --chip: #26303d;
           --pass: #5ccf7e;
           --warn: #f0b250;
           --fail: #ff8a80;
+          --shadow: rgba(0, 0, 0, 0.55);
         }
       }
       * {
@@ -52,9 +56,12 @@
           Roboto,
           sans-serif;
       }
+      a {
+        color: var(--accent);
+      }
       #app {
         display: grid;
-        grid-template-columns: 1fr 380px;
+        grid-template-columns: minmax(0, 1fr) 380px;
         grid-template-rows: auto 1fr;
         height: 100vh;
       }
@@ -62,11 +69,12 @@
         grid-column: 1/3;
         display: flex;
         flex-wrap: wrap;
-        gap: 10px 16px;
+        gap: 8px 14px;
         align-items: center;
-        padding: 10px 16px;
+        padding: 8px 16px;
         border-bottom: 1px solid var(--line);
         background: var(--panel);
+        min-width: 0;
       }
       header h1 {
         font-size: 16px;
@@ -75,6 +83,7 @@
       }
       .seg {
         display: inline-flex;
+        flex-wrap: wrap;
         border: 1px solid var(--line);
         border-radius: 8px;
         overflow: hidden;
@@ -86,15 +95,18 @@
         padding: 6px 11px;
         font: inherit;
         cursor: pointer;
-        min-height: 32px;
+        min-height: 44px;
       }
       .seg button[aria-pressed='true'] {
         background: var(--accent);
-        color: #fff;
+        color: var(--panel);
       }
       .seg button:disabled {
         opacity: 0.35;
         cursor: not-allowed;
+      }
+      [hidden] {
+        display: none !important;
       }
       select,
       input[type='search'] {
@@ -104,24 +116,89 @@
         border: 1px solid var(--line);
         background: var(--panel);
         color: var(--text);
-        max-width: 340px;
-        min-height: 32px;
+        max-width: min(340px, 100%);
+        min-height: 44px;
       }
       label.chk {
         display: inline-flex;
-        gap: 5px;
+        gap: 6px;
         align-items: center;
         color: var(--muted);
         font-size: 13px;
+        min-height: 44px;
+        cursor: pointer;
+      }
+      #chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        min-width: 0;
+      }
+      #chips:empty {
+        display: none;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--chip);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding-left: 12px;
+        font-size: 13px;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .chip .lab {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .chip .tag {
+        font-size: 11px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .chip button,
+      .iconbtn {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1;
+        min-width: 44px;
+        min-height: 44px;
+        cursor: pointer;
+        border-radius: 22px;
+        flex: none;
+      }
+      .chip button:hover,
+      .iconbtn:hover {
+        color: var(--text);
+      }
+      #notice {
+        font-size: 12px;
+        color: var(--warn);
+        flex-basis: 100%;
+      }
+      #notice:empty {
+        display: none;
+      }
+      #mapwrap {
+        position: relative;
+        min-height: 300px;
+        overflow: hidden;
       }
       #map {
-        min-height: 300px;
+        position: absolute;
+        inset: 0;
       }
       aside {
         overflow: auto;
         border-left: 1px solid var(--line);
         background: var(--panel);
         padding: 14px 16px;
+        min-width: 0;
       }
       aside h2 {
         font-size: 13px;
@@ -152,7 +229,42 @@
       .legend i {
         width: 18px;
         height: 12px;
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(127, 127, 127, 0.4);
+        flex: none;
+      }
+      .legend .biv {
+        display: grid;
+        grid-template-columns: 18px auto;
+        grid-template-rows: auto 18px;
+        gap: 4px;
+        align-items: center;
+        margin: 4px 0 8px;
+      }
+      .legend .biv .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 26px);
+        grid-template-rows: repeat(3, 26px);
+        border: 1px solid rgba(127, 127, 127, 0.5);
+        width: max-content;
+      }
+      .legend .biv .grid span {
+        width: 26px;
+        height: 26px;
+      }
+      .biv .yl {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 11px;
+        color: var(--muted);
+        max-height: 78px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .biv .xl {
+        grid-column: 2;
+        font-size: 11px;
+        color: var(--muted);
       }
       .stat {
         font-size: 22px;
@@ -190,16 +302,143 @@
         fill: var(--muted);
         font-size: 10px;
       }
+      #scatter {
+        max-width: 100%;
+        height: auto;
+      }
       details summary {
         cursor: pointer;
         color: var(--accent);
       }
-      .leaflet-tooltip {
+      /* Panes: base choropleth (canvas) < footprint < hover < raised tile (SVG) < markers (canvas). */
+      .leaflet-foot-pane,
+      .leaflet-hover-pane,
+      .leaflet-lift-pane {
+        pointer-events: none;
+      }
+      .leaflet-base-pane {
+        transition: filter 0.18s;
+      }
+      #map.has-sel .leaflet-base-pane {
+        filter: brightness(0.8) saturate(0.7);
+      }
+      .leaflet-hover-pane path {
+        transform: translateY(-2px);
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35));
+      }
+      .leaflet-lift-pane path {
+        transform: translateY(0);
+        filter: drop-shadow(0 7px 6px rgba(0, 0, 0, 0.45));
+        transition: transform 0.18s ease-out;
+      }
+      .leaflet-lift-pane path.up {
+        transform: translateY(-7px);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .leaflet-lift-pane path,
+        .leaflet-base-pane {
+          transition: none;
+        }
+      }
+      #tip {
+        position: absolute;
+        z-index: 900;
+        pointer-events: none;
+        background: var(--panel);
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        box-shadow: 0 2px 8px var(--shadow);
+        padding: 4px 8px;
+        font-size: 12px;
+        max-width: 260px;
+      }
+      #tip[hidden],
+      #card[hidden] {
+        display: none;
+      }
+      #tip .v {
+        color: var(--muted);
+      }
+      #card {
+        position: absolute;
+        z-index: 1000;
+        width: 320px;
+        max-width: calc(100% - 16px);
+        max-height: calc(100% - 16px);
+        overflow: auto;
+        background: var(--panel);
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        box-shadow: 0 10px 28px var(--shadow);
+        padding: 10px 12px 12px;
+        font-size: 13px;
+      }
+      #card.docked {
+        left: 8px !important;
+        right: 8px;
+        top: auto !important;
+        bottom: 8px;
+        width: auto;
+        max-width: none;
+        max-height: 58%;
+      }
+      #card .iconbtn {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+      }
+      #card .crumbs {
+        font-size: 12px;
+        color: var(--muted);
+        padding-right: 40px;
+      }
+      #card h3 {
+        margin: 2px 40px 8px 0;
+        font-size: 16px;
+      }
+      #card h4 {
+        margin: 10px 0 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+      }
+      #card .row {
+        border-top: 1px solid var(--line);
+        padding: 5px 0;
+      }
+      #card .val {
+        font-weight: 600;
+        font-size: 15px;
+      }
+      #card ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .lead-badge {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #f59e0b;
+        border: 1px solid #1d1f23;
+      }
+      .leaflet-popup-content {
         font-size: 12px;
       }
       @media (max-width: 820px) {
+        #find {
+          flex: 1 1 120px;
+        }
+        #ind {
+          flex: 1 1 100%;
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+        }
         #app {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr);
           grid-template-rows: auto 60vh auto;
           height: auto;
         }
@@ -218,6 +457,7 @@
       <header>
         <h1>Shrines and welfare</h1>
         <div class="seg" id="units" role="group" aria-label="Unit"></div>
+        <div class="seg" id="modes" role="group" aria-label="How to show the indicators"></div>
         <input
           id="find"
           type="search"
@@ -225,14 +465,21 @@
           aria-label="Find an indicator"
         />
         <select id="ind" aria-label="Indicator"></select>
+        <div id="chips" aria-label="Chosen indicators"></div>
         <label class="chk"><input type="checkbox" id="showSites" checked /> Archive sites</label>
-        <label class="chk"><input type="checkbox" id="showOsm" /> OSM leads</label>
-        <label class="chk"><input type="checkbox" id="showWd" /> Wikidata leads</label>
-        <label class="chk"><input type="checkbox" id="showGn" /> GeoNames leads</label>
+        <label class="chk"><input type="checkbox" id="showLeads" /> Leads (Wikidata + OSM)</label>
+        <label class="chk" id="leadsInWrap" hidden
+          ><input type="checkbox" id="showLeadsIn" /> include places already in the archive</label
+        >
+        <div id="notice" role="status" aria-live="polite"></div>
       </header>
-      <div id="map"></div>
+      <div id="mapwrap">
+        <div id="map"></div>
+        <div id="tip" hidden></div>
+        <div id="card" role="dialog" aria-labelledby="cardTitle" hidden></div>
+      </div>
       <aside>
-        <h2>Indicator</h2>
+        <h2 id="titleHead">Indicator</h2>
         <div id="title" style="font-weight: 600"></div>
         <div class="def" id="def"></div>
         <div id="flag"></div>
@@ -245,6 +492,7 @@
           id="scatter"
           width="340"
           height="230"
+          viewBox="0 0 340 230"
           role="img"
           aria-label="Scatter of indicator against archive sites"
         ></svg>
@@ -254,6 +502,8 @@
           archive has looked as much as where shrines are. Check any pattern at more than one unit
           (hexagon, tehsil, district) before reading anything into it.
         </div>
+        <h2>Leads</h2>
+        <div id="leadsLegend" class="legend"></div>
         <h2>Open sources, measured against the archive</h2>
         <div id="coverage"></div>
         <h2>Verification</h2>
@@ -264,14 +514,29 @@
       </aside>
     </div>
     <script>
-      // build_viewer.py embeds the data gzipped and base64-encoded (7 MB of JSON becomes ~2 MB).
+      // build_viewer.py (or rebuild_from_embedded.py) embeds the data gzipped and base64-encoded.
       const D = JSON.parse(
         pako.inflate(
           Uint8Array.from(atob(/*__DATA__*/ null), (c) => c.charCodeAt(0)),
           { to: 'string' },
         ),
       );
+      const $ = (id) => document.getElementById(id);
+      const esc = (s) =>
+        String(s ?? '').replace(
+          /[&<>"']/g,
+          (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
+        );
       const PAL = ['#f7fbff', '#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#3182bd', '#08519c'];
+      // The composite is "better off" whichever way its parts run, so it gets its own hue.
+      const PALC = ['#f7fcf5', '#e5f5e0', '#c7e9c0', '#a1d99b', '#74c476', '#31a354', '#006d2c'];
+      // Joshua Stevens' 3x3 bivariate scheme (pink x blue), BIV[row = B tertile][col = A tertile].
+      // Its corners differ in hue and lightness, so it survives the common colour-vision deficiencies.
+      const BIV = [
+        ['#e8e8e8', '#e4acac', '#c85a5a'],
+        ['#b0d5df', '#ad9ea5', '#985356'],
+        ['#64acbe', '#627f8c', '#574249'],
+      ];
       const CAT = {
         'Muslim Shrine': '#e4572e',
         'Hindu Temple': '#f3a712',
@@ -280,12 +545,30 @@
         'Jain Temple': '#2a9d8f',
         'Secular / Memorial': '#555',
       };
-      const SRC = { osm: '#222', wikidata: '#0a8f5a', geonames: '#8a8f99' };
+      const SRC = { wikidata: '#0a8f5a', osm: '#3b4252', both: '#c2410c' };
+      const SRCL = { wikidata: 'Wikidata', osm: 'OSM', both: 'Wikidata and OSM' };
       const UNITS = [
         ['hex', 'Hexagon'],
         ['tehsil', 'Tehsil'],
         ['district', 'District'],
         ['province', 'Province'],
+      ];
+      const UNIT1 = {
+        hex: 'hexagon',
+        tehsil: 'tehsil',
+        district: 'district',
+        province: 'province',
+      };
+      const UNITN = {
+        hex: 'populated hexagons',
+        tehsil: 'tehsils',
+        district: 'districts',
+        province: 'provinces',
+      };
+      const MODES = [
+        ['single', 'One measure'],
+        ['bi', 'Compare two'],
+        ['comp', 'Composite'],
       ];
       const YS = [
         ['sites_per_million', 'Archive sites per million people'],
@@ -294,24 +577,123 @@
         ['sites_per_1000km2', 'Archive sites per 1,000 km²'],
       ];
       const IND = Object.fromEntries(D.indicators.map((i) => [i.key, i]));
+      // Leads: the merged Wikidata + OSM file (one object per place). A page built before that file
+      // existed carries the old per-source rows; they are mapped onto the same shape and GeoNames
+      // is dropped either way.
+      const LEADS = D.leads
+        .filter((l) => l.src !== 'geonames')
+        .map((l) =>
+          'in_archive' in l
+            ? l
+            : {
+                id: null,
+                name: l.name,
+                name_ur: null,
+                kind: l.kind,
+                religion: l.rel || null,
+                lat: l.lat,
+                lon: l.lon,
+                src: l.src,
+                qid: null,
+                figure: null,
+                figure_ur: null,
+                year_built: null,
+                url: l.src === 'wikidata' ? l.url : null,
+                osm_url: l.src === 'osm' ? l.url : null,
+                wiki_en: null,
+                off_m: null,
+                disagree: false,
+                in_archive: false,
+              },
+        );
+      const HEXRES = D.hex.rows.length ? h3.getResolution(D.hex.rows[0][0]) : 6;
+
       let unit = 'district',
-        key = 'literacy',
+        mode = 'single',
+        sel = ['literacy'],
         ykey = 'sites_per_million',
-        layer = null;
+        V = null; // the current view: kind, keys, per-feature values and colours
 
-      const map = L.map('map', { preferCanvas: true, zoomSnap: 0.5 }).setView([30.2, 69.3], 5.5);
-      // Esri's keyless light-gray canvas. CARTO stamps "API KEY REQUIRED" on tiles requested from a file:// page.
-      L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-        {
-          attribution: 'Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors',
-          maxZoom: 16,
-        },
-      ).addTo(map);
-      const renderer = L.canvas({ padding: 0.3 });
+      // ---- geometry -----------------------------------------------------------------------------
+      function bboxOf(g) {
+        const b = [Infinity, Infinity, -Infinity, -Infinity];
+        const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+        for (const p of polys)
+          for (const [x, y] of p[0]) {
+            if (x < b[0]) b[0] = x;
+            if (y < b[1]) b[1] = y;
+            if (x > b[2]) b[2] = x;
+            if (y > b[3]) b[3] = y;
+          }
+        return b;
+      }
+      function inRing(x, y, r) {
+        let c = false;
+        for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+          const xi = r[i][0],
+            yi = r[i][1],
+            xj = r[j][0],
+            yj = r[j][1];
+          if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c;
+        }
+        return c;
+      }
+      function inPoly(x, y, rings) {
+        if (!inRing(x, y, rings[0])) return false;
+        for (let k = 1; k < rings.length; k++) if (inRing(x, y, rings[k])) return false;
+        return true;
+      }
+      function inGeom(x, y, g) {
+        if (g.type === 'Polygon') return inPoly(x, y, g.coordinates);
+        if (g.type === 'MultiPolygon') return g.coordinates.some((p) => inPoly(x, y, p));
+        return false;
+      }
+      const CACHE = {};
+      function feats(u) {
+        if (CACHE[u]) return CACHE[u];
+        let fs;
+        if (u === 'hex') {
+          const c = D.hex.cols;
+          fs = D.hex.rows.map((r) => {
+            const p = {};
+            c.forEach((k, i) => (p[k] = r[i + 1]));
+            return { id: r[0], name: 'Hexagon', p, hex: r[0] };
+          });
+        } else
+          fs = D[u].features.map((f) => ({
+            id: f.properties.id,
+            name: f.properties.name,
+            p: f.properties,
+            geom: f.geometry,
+            bbox: bboxOf(f.geometry),
+          }));
+        fs.byId = new Map(fs.map((f, i) => [f.id, i]));
+        CACHE[u] = fs;
+        return fs;
+      }
+      // The feature index under a point: an H3 lookup for hexagons, a bbox-filtered
+      // point-in-polygon for the rest. O(1) and ~600 bbox tests respectively, so hover stays cheap.
+      function featAt(u, lat, lng) {
+        const fs = feats(u);
+        if (u === 'hex') {
+          const i = fs.byId.get(h3.latLngToCell(lat, lng, HEXRES));
+          return i == null ? -1 : i;
+        }
+        for (let i = 0; i < fs.length; i++) {
+          const b = fs[i].bbox;
+          if (lng < b[0] || lng > b[2] || lat < b[1] || lat > b[3]) continue;
+          if (inGeom(lng, lat, fs[i].geom)) return i;
+        }
+        return -1;
+      }
+      function latlngsOf(f) {
+        return f.hex ? h3.cellToBoundary(f.hex) : null;
+      }
 
+      // ---- numbers ------------------------------------------------------------------------------
+      const ok = (v) => v != null && !Number.isNaN(v);
       function fmt(v) {
-        if (v == null || Number.isNaN(v)) return '—';
+        if (!ok(v)) return '—';
         const a = Math.abs(v);
         return a >= 1e6
           ? (v / 1e6).toFixed(2) + ' M'
@@ -323,94 +705,32 @@
                 ? v.toFixed(1)
                 : v.toFixed(2);
       }
-      function features() {
-        if (unit !== 'hex')
-          return D[unit].features.map((f) => ({
-            id: f.properties.id,
-            name: f.properties.name,
-            p: f.properties,
-            geom: f.geometry,
-          }));
-        const c = D.hex.cols;
-        return D.hex.rows.map((r) => {
-          const p = {};
-          c.forEach((k, i) => (p[k] = r[i + 1]));
-          return { id: r[0], name: r[0], p, hex: r[0] };
-        });
-      }
+      const ord = (n) => {
+        const s = ['th', 'st', 'nd', 'rd'],
+          v = n % 100;
+        return n + (s[(v - 20) % 10] || s[v] || s[0]);
+      };
       // When zeros fill at least one class (flood exposure, conflict deaths, malaria in the north),
       // septiles collapse into two or three classes and the places with any value disappear. Then
       // zero gets a class of its own and the positive values are split into the remaining six.
-      let zeroClass = false;
-      function breaks(vals) {
-        const v = vals.filter((x) => x != null && !Number.isNaN(x)).sort((a, b) => a - b);
-        zeroClass = false;
-        if (!v.length) return [];
+      function breaks(vals, n) {
+        const v = vals.filter(ok).sort((a, b) => a - b);
+        let zero = false;
+        if (!v.length) return { b: [], zero };
         const pos = v.filter((x) => x > 0);
-        if (v[0] === 0 && pos.length && (v.length - pos.length) / v.length >= 1 / PAL.length) {
-          zeroClass = true;
+        if (v[0] === 0 && pos.length && (v.length - pos.length) / v.length >= 1 / n) {
           const b = [pos[0]];
-          for (let i = 1; i < PAL.length - 1; i++)
-            b.push(pos[Math.floor((i * pos.length) / (PAL.length - 1))]);
-          return [...new Set(b)];
+          for (let i = 1; i < n - 1; i++) b.push(pos[Math.floor((i * pos.length) / (n - 1))]);
+          return { b: [...new Set(b)], zero: true };
         }
         const b = [];
-        for (let i = 1; i < PAL.length; i++) b.push(v[Math.floor((i * v.length) / PAL.length)]);
-        return [...new Set(b)];
+        for (let i = 1; i < n; i++) b.push(v[Math.floor((i * v.length) / n)]);
+        return { b: [...new Set(b)], zero };
       }
-      function colour(v, b) {
-        if (v == null || Number.isNaN(v)) return null;
+      function klass(v, b) {
         let i = 0;
         while (i < b.length && v >= b[i]) i++;
-        return PAL[Math.min(i, PAL.length - 1)];
-      }
-
-      function draw() {
-        if (layer) map.removeLayer(layer);
-        const fs = features(),
-          vals = fs.map((f) => f.p[key]),
-          b = breaks(vals);
-        layer = L.layerGroup();
-        for (const f of fs) {
-          const v = f.p[key],
-            col = colour(v, b);
-          const style = {
-            renderer,
-            weight: unit === 'hex' ? 0 : 0.6,
-            color: '#fff',
-            fillColor: col || '#ccc',
-            fillOpacity: col ? (unit === 'hex' ? 0.78 : 0.72) : 0.25,
-          };
-          let shape;
-          if (f.hex) {
-            shape = L.polygon(h3.cellToBoundary(f.hex), style);
-          } else {
-            shape = L.geoJSON(f.geom, { style: () => style, renderer });
-          }
-          shape.bindTooltip(
-            `<b>${f.name}</b><br>${IND[key].label}: ${fmt(v)}<br>Archive sites: ${f.p.n_site ?? 0}`,
-            { sticky: true },
-          );
-          layer.addLayer(shape);
-        }
-        layer.addTo(map);
-        overlays();
-        legend(b);
-        panel(fs);
-      }
-      function legend(b) {
-        const el = document.getElementById('legend');
-        const lo = ['min', ...b.map(fmt)],
-          hi = [...b.map(fmt), 'max'];
-        el.innerHTML =
-          PAL.slice(0, b.length + 1)
-            .map(
-              (c, i) =>
-                `<div><i style="background:${c}"></i>${zeroClass && i === 0 ? 'zero' : `${lo[i]} – ${hi[i]}`}</div>`,
-            )
-            .join('') +
-          '<div><i style="background:#ccc;opacity:.4"></i>no value</div>' +
-          `<div style="margin-top:4px">Darker = higher. ${IND[key].good === true ? 'Higher is better.' : IND[key].good === false ? 'Higher is worse.' : ''} ${zeroClass ? 'Zero is its own class; the rest are sextiles of the non-zero values.' : 'Classes are septiles of this unit.'}</div>`;
+        return i;
       }
       function ranks(a) {
         const idx = a.map((v, i) => [v, i]).sort((x, y) => x[0] - y[0]),
@@ -422,6 +742,16 @@
           i = j + 1;
         }
         return r;
+      }
+      // Percentile rank in [0, 1] (mid-rank for ties) among the units that have a value; null elsewhere.
+      function pctRanks(vals) {
+        const idx = [];
+        vals.forEach((v, i) => ok(v) && idx.push(i));
+        const r = ranks(idx.map((i) => vals[i])),
+          n = idx.length,
+          out = new Array(vals.length).fill(null);
+        idx.forEach((i, j) => (out[i] = n > 1 ? (r[j] - 1) / (n - 1) : 0.5));
+        return out;
       }
       function spearman(x, y) {
         const rx = ranks(x),
@@ -438,51 +768,500 @@
         }
         return s / Math.sqrt(a * c);
       }
-      function panel(fs) {
-        const i = IND[key];
-        document.getElementById('title').textContent = i.label + ' · ' + i.group;
-        document.getElementById('def').textContent = i.def || '';
-        document.getElementById('flag').innerHTML = i.group.startsWith('OSM')
-          ? '<div class="note">Built on OpenStreetMap, which holds ~3% of Pakistan\'s schools (5,071 vs 313,418 in PES 2021-22). This measures mapping as much as access.</div>'
-          : unit === 'province'
-            ? '<div class="note">Province values. DHS 2017-18 also reports FATA (now part of KP), which has no polygon here; see welfare_province.csv.</div>'
-            : '';
-        const ysel = YS.filter(([k]) => unit !== 'hex' || k === 'n_site' || k === 'n_mus');
-        if (!ysel.find(([k]) => k === ykey)) ykey = ysel[0][0];
-        document.getElementById('yrow').innerHTML =
-          '<select id="ysel" aria-label="Archive measure">' +
-          ysel
-            .map(([k, l]) => `<option value="${k}" ${k === ykey ? 'selected' : ''}>${l}</option>`)
-            .join('') +
-          '</select>';
-        document.getElementById('ysel').onchange = (e) => {
-          ykey = e.target.value;
-          panel(features());
+      const rho = (xs, ys) => {
+        const x = [],
+          y = [];
+        xs.forEach((v, i) => ok(v) && ok(ys[i]) && (x.push(v), y.push(ys[i])));
+        return { n: x.length, r: x.length >= 8 ? spearman(x, y) : null };
+      };
+      // Rank among the units with a value: 1 = highest. Percentile by mid-rank.
+      function rankOf(vals, i) {
+        const v = vals[i];
+        if (!ok(v)) return null;
+        let n = 0,
+          above = 0,
+          below = 0;
+        for (const x of vals)
+          if (ok(x)) {
+            n++;
+            if (x > v) above++;
+            else if (x < v) below++;
+          }
+        return {
+          rank: above + 1,
+          n,
+          pct: Math.round((100 * (below + (n - above - below) / 2)) / n),
         };
-        const pts = fs
-          .filter((f) => f.p[key] != null && f.p[ykey] != null)
-          .map((f) => [f.p[key], f.p[ykey], f.name]);
-        const corr = document.getElementById('corr'),
-          svg = document.getElementById('scatter');
-        if (pts.length < 8) {
-          corr.innerHTML =
-            '<div class="def">Too few units (' +
-            pts.length +
-            ') for a correlation to mean anything.</div>';
-          svg.innerHTML = '';
+      }
+      const median = (a) => {
+        const s = [...a].sort((x, y) => x - y);
+        return s.length ? s[Math.floor(s.length / 2)] : null;
+      };
+
+      // ---- the view -----------------------------------------------------------------------------
+      // What is drawn follows from the mode and the chosen indicators. With nothing chosen the map
+      // is blank; with one, "Compare two" and "Composite" show that one until a second is added.
+      function viewKind() {
+        if (!sel.length) return { kind: 'none', keys: [] };
+        if (mode === 'bi' && sel.length >= 2) return { kind: 'bi', keys: sel.slice(0, 2) };
+        if (mode === 'comp' && sel.length >= 2) return { kind: 'comp', keys: sel.slice() };
+        return { kind: 'single', keys: [sel[0]] };
+      }
+      function tertiles(vals) {
+        const v = vals.filter(ok).sort((a, b) => a - b);
+        return v.length ? [v[Math.floor(v.length / 3)], v[Math.floor((2 * v.length) / 3)]] : [];
+      }
+      function computeView(fs) {
+        const k = viewKind(),
+          vals = Object.fromEntries(k.keys.map((key) => [key, fs.map((f) => f.p[key])])),
+          W = { ...k, vals, col: new Array(fs.length).fill(null) };
+        if (k.kind === 'single') {
+          const v = vals[k.keys[0]],
+            br = breaks(v, PAL.length);
+          W.br = br;
+          v.forEach((x, i) => ok(x) && (W.col[i] = PAL[Math.min(klass(x, br.b), PAL.length - 1)]));
+        } else if (k.kind === 'bi') {
+          const [a, b] = k.keys,
+            ta = tertiles(vals[a]),
+            tb = tertiles(vals[b]);
+          W.t = [ta, tb];
+          W.cls = fs.map((_, i) =>
+            ok(vals[a][i]) && ok(vals[b][i])
+              ? [klass(vals[a][i], ta), klass(vals[b][i], tb)]
+              : null,
+          );
+          W.cls.forEach((c, i) => c && (W.col[i] = BIV[c[1]][c[0]]));
+        } else if (k.kind === 'comp') {
+          // Unweighted mean of percentile ranks, each turned so that higher = better off. Only units
+          // with every component get a value.
+          const pr = Object.fromEntries(k.keys.map((key) => [key, pctRanks(vals[key])]));
+          W.pr = pr;
+          W.comp = fs.map((_, i) => {
+            let s = 0;
+            for (const key of k.keys) {
+              const p = pr[key][i];
+              if (p == null) return null;
+              s += IND[key].good ? p : 1 - p;
+            }
+            return (100 * s) / k.keys.length;
+          });
+          W.excluded = fs.filter(
+            (_, i) => W.comp[i] == null && k.keys.some((key) => ok(vals[key][i])),
+          ).length;
+          W.br = breaks(W.comp, PALC.length);
+          W.comp.forEach(
+            (x, i) => ok(x) && (W.col[i] = PALC[Math.min(klass(x, W.br.b), PALC.length - 1)]),
+          );
+        }
+        return W;
+      }
+
+      // ---- map ----------------------------------------------------------------------------------
+      // Whole zoom levels only: at a fractional zoom the scaled basemap tiles left a hairline
+      // rectangle around Pakistan where tiles of two levels met.
+      const map = L.map('map', { preferCanvas: true, zoomSnap: 1 }).fitBounds([
+        [23.6, 60.9],
+        [37.1, 77.8],
+      ]);
+      // Esri's keyless light-gray canvas. CARTO stamps "API KEY REQUIRED" on tiles requested from a file:// page.
+      L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: 'Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors',
+          maxZoom: 16,
+        },
+      ).addTo(map);
+      [
+        ['base', 400],
+        ['foot', 450],
+        ['hover', 455],
+        ['lift', 460],
+        ['marks', 610],
+        ['badges', 615],
+      ].forEach(([n, z]) => (map.createPane(n).style.zIndex = z));
+      map.getPane('badges').style.pointerEvents = 'none';
+      // The choropleth is one canvas and takes no events: hover and click are resolved by featAt(),
+      // so 19,000 hexagons cost nothing per mousemove and markers never fight the regions for clicks.
+      const baseR = L.canvas({ pane: 'base', padding: 0.3 }),
+        markR = L.canvas({ pane: 'marks', padding: 0.3 }),
+        footR = L.svg({ pane: 'foot', padding: 0.3 }),
+        hoverR = L.svg({ pane: 'hover', padding: 0.3 }),
+        liftR = L.svg({ pane: 'lift', padding: 0.3 });
+
+      const SHAPES = {};
+      let baseGroup = null;
+      function shapesFor(u) {
+        if (SHAPES[u]) return SHAPES[u];
+        const opt = { renderer: baseR, interactive: false, weight: 0 };
+        SHAPES[u] = feats(u).map((f) =>
+          f.hex
+            ? L.polygon(h3.cellToBoundary(f.hex), opt)
+            : L.geoJSON(f.geom, { style: () => opt, interactive: false, renderer: baseR }),
+        );
+        return SHAPES[u];
+      }
+      function styleFor(i, hex) {
+        if (V.kind === 'none')
+          return {
+            stroke: true,
+            color: '#3b4252',
+            weight: hex ? 0.4 : 0.8,
+            opacity: hex ? 0.35 : 0.7,
+            fill: false,
+          };
+        const c = V.col[i];
+        return {
+          stroke: !hex,
+          color: '#fff',
+          weight: hex ? 0 : 0.6,
+          opacity: 1,
+          fill: true,
+          fillColor: c || '#ccc',
+          fillOpacity: c ? (hex ? 0.78 : 0.72) : 0.25,
+        };
+      }
+      // A change of indicator or mode restyles the existing shapes; only a change of unit rebuilds.
+      function draw() {
+        const fs = feats(unit),
+          sh = shapesFor(unit);
+        V = computeView(fs);
+        if (!baseGroup || baseGroup._unit !== unit) {
+          if (baseGroup) map.removeLayer(baseGroup);
+          baseGroup = L.layerGroup(sh);
+          baseGroup._unit = unit;
+          baseGroup.addTo(map);
+        }
+        const hex = unit === 'hex';
+        sh.forEach((s, i) => s.setStyle(styleFor(i, hex)));
+        legend(fs);
+        panel(fs);
+        hoverIdx = -1;
+        clearHover();
+        if (selIdx >= 0) select(selIdx, false);
+      }
+
+      // ---- hover and selection ------------------------------------------------------------------
+      let hoverIdx = -1,
+        hoverShape = null,
+        selIdx = -1,
+        selShapes = [],
+        overMarker = false,
+        lastMove = null,
+        rafPending = false;
+      const tip = $('tip'),
+        card = $('card'),
+        wrap = $('mapwrap');
+      function copyShape(f, renderer, style) {
+        const ll = latlngsOf(f);
+        const o = { ...style, renderer, interactive: false };
+        return ll
+          ? L.polygon(ll, o)
+          : L.geoJSON(f.geom, { style: () => o, interactive: false, renderer });
+      }
+      function liftStyle(i, strong) {
+        const c = V.kind === 'none' ? null : V.col[i];
+        return {
+          color: '#ffffff',
+          weight: strong ? 2 : 1.5,
+          fill: true,
+          fillColor: c || (V.kind === 'none' ? '#e9edf3' : '#cccccc'),
+          fillOpacity: c ? 0.95 : V.kind === 'none' ? 0.85 : 0.6,
+        };
+      }
+      function clearHover() {
+        if (hoverShape) map.removeLayer(hoverShape);
+        hoverShape = null;
+        tip.hidden = true;
+      }
+      function valueLines(i) {
+        if (V.kind === 'none') return '';
+        if (V.kind === 'comp')
+          return `<div class="v">Composite: ${ok(V.comp[i]) ? V.comp[i].toFixed(0) + ' / 100' : 'not every component'}</div>`;
+        return V.keys
+          .map((k) => `<div class="v">${esc(IND[k].label)}: ${fmt(V.vals[k][i])}</div>`)
+          .join('');
+      }
+      function hover(latlng, point) {
+        const i = overMarker ? -1 : featAt(unit, latlng.lat, latlng.lng);
+        if (i < 0 || i === selIdx) {
+          // Nothing under the cursor, or the raised tile, whose card already says it all.
+          hoverIdx = i;
+          clearHover();
           return;
         }
-        const rho = spearman(
-            pts.map((p) => p[0]),
-            pts.map((p) => p[1]),
-          ),
-          withS = pts.filter((p) => p[1] > 0);
-        const med = (a) => {
-          const s = [...a].sort((x, y) => x - y);
-          return s.length ? s[Math.floor(s.length / 2)] : null;
+        const fs = feats(unit);
+        if (i !== hoverIdx) {
+          hoverIdx = i;
+          if (hoverShape) map.removeLayer(hoverShape);
+          hoverShape = copyShape(fs[i], hoverR, liftStyle(i, false)).addTo(map);
+          const f = fs[i];
+          tip.innerHTML = `<b>${esc(f.hex ? 'Hexagon in ' + (hierarchy(f)[0]?.[1] || 'Pakistan') : f.name)}</b>${valueLines(i)}`;
+        }
+        tip.hidden = false;
+        const W = wrap.clientWidth,
+          tw = tip.offsetWidth,
+          th = tip.offsetHeight;
+        let x = point.x + 14,
+          y = point.y + 14;
+        if (x + tw > W - 4) x = point.x - tw - 14;
+        if (y + th > wrap.clientHeight - 4) y = point.y - th - 14;
+        tip.style.left = Math.max(4, x) + 'px';
+        tip.style.top = Math.max(4, y) + 'px';
+      }
+      map.on('mousemove', (e) => {
+        lastMove = e;
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+          rafPending = false;
+          if (lastMove && !map.dragging.moving()) hover(lastMove.latlng, lastMove.containerPoint);
+        });
+      });
+      map.on('mouseout movestart zoomstart', () => {
+        lastMove = null;
+        hoverIdx = -1;
+        clearHover();
+      });
+      map.on('click', (e) => {
+        const i = featAt(unit, e.latlng.lat, e.latlng.lng);
+        if (i < 0 || i === selIdx) clearSel();
+        else select(i, true);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && selIdx >= 0) {
+          clearSel();
+          map.getContainer().focus();
+        }
+      });
+      function clearSel() {
+        selShapes.forEach((s) => map.removeLayer(s));
+        selShapes = [];
+        selIdx = -1;
+        card.hidden = true;
+        map.getContainer().classList.remove('has-sel');
+      }
+      function select(i, animate) {
+        const fs = feats(unit),
+          f = fs[i];
+        selShapes.forEach((s) => map.removeLayer(s));
+        selIdx = i;
+        map.closePopup();
+        tip.hidden = true;
+        if (hoverShape && hoverIdx === i) {
+          map.removeLayer(hoverShape);
+          hoverShape = null;
+        }
+        // A dark footprint stays on the ground; the copy above it rises and casts a shadow.
+        const foot = copyShape(f, footR, {
+          stroke: false,
+          fill: true,
+          fillColor: '#0b0f17',
+          fillOpacity: 0.45,
+        }).addTo(map);
+        const top = copyShape(f, liftR, liftStyle(i, true)).addTo(map);
+        selShapes = [foot, top];
+        const paths = [];
+        top.eachLayer
+          ? top.eachLayer((l) => l._path && paths.push(l._path))
+          : top._path && paths.push(top._path);
+        if (animate) requestAnimationFrame(() => paths.forEach((p) => p.classList.add('up')));
+        else paths.forEach((p) => p.classList.add('up'));
+        map.getContainer().classList.add('has-sel');
+        openCard(i);
+      }
+
+      // ---- the card -----------------------------------------------------------------------------
+      // Tehsil codes extend district codes, which extend province codes (PK10101 > PK101 > PK1), so
+      // the hierarchy comes from the ids; a hexagon is placed by its centre.
+      function hierarchy(f) {
+        const out = [];
+        let tid = null,
+          did = null,
+          pid = null;
+        if (unit === 'tehsil') tid = f.id;
+        else if (unit === 'district') did = f.id;
+        else if (unit === 'province') pid = f.id;
+        else {
+          const [lat, lng] = h3.cellToLatLng(f.hex);
+          const t = featAt('tehsil', lat, lng);
+          if (t >= 0) tid = feats('tehsil')[t].id;
+          else {
+            const d = featAt('district', lat, lng);
+            if (d >= 0) did = feats('district')[d].id;
+          }
+        }
+        const nm = (u, id) => {
+          const i = id && feats(u).byId.get(id);
+          return i != null && id ? feats(u)[i].name : null;
         };
-        corr.innerHTML = `<div><span class="stat">ρ = ${rho.toFixed(2)}</span> <span class="def">Spearman, ${pts.length} ${unit === 'hex' ? 'populated hexagons' : unit + 's'}</span></div>
-    <div class="def">Median ${i.label.toLowerCase()}: ${fmt(med(withS.map((p) => p[0])))} where the archive has a site (${withS.length}), ${fmt(med(pts.filter((p) => p[1] == 0).map((p) => p[0])))} where it has none.</div>`;
+        if (tid) {
+          if (unit !== 'tehsil') out.push(['Tehsil', nm('tehsil', tid)]);
+          did = tid.slice(0, 5);
+        }
+        if (did) {
+          if (unit !== 'district') out.push(['District', nm('district', did)]);
+          pid = did.slice(0, 3);
+        }
+        if (pid && unit !== 'province') out.push(['Province', nm('province', pid)]);
+        return out.filter((x) => x[1]);
+      }
+      const SITE_IN = {};
+      function sitesIn(u) {
+        if (SITE_IN[u]) return SITE_IN[u];
+        const m = new Map();
+        for (const s of D.sites) {
+          const i = featAt(u, s.lat, s.lon);
+          if (i >= 0) (m.get(i) || m.set(i, []).get(i)).push(s);
+        }
+        return (SITE_IN[u] = m);
+      }
+      function leadsIn(f) {
+        let n = 0,
+          na = 0;
+        const cell = f.hex;
+        for (const l of LEADS) {
+          let hit;
+          if (cell) hit = h3.latLngToCell(l.lat, l.lon, HEXRES) === cell;
+          else {
+            const b = f.bbox;
+            hit =
+              l.lon >= b[0] && l.lon <= b[2] && l.lat >= b[1] && l.lat <= b[3]
+                ? inGeom(l.lon, l.lat, f.geom)
+                : false;
+          }
+          if (hit) l.in_archive ? na++ : n++;
+        }
+        return [n, na];
+      }
+      function rankText(r) {
+        if (!r) return '';
+        return `${r.rank === 1 ? 'highest' : ord(r.rank) + ' highest'} of ${r.n.toLocaleString()} ${UNITN[unit]} · ${ord(r.pct)} percentile`;
+      }
+      function openCard(i) {
+        const fs = feats(unit),
+          f = fs[i],
+          h = hierarchy(f);
+        const title = f.hex ? `Hexagon in ${h[0]?.[1] || 'Pakistan'}` : f.name;
+        let html = `<button class="iconbtn" type="button" aria-label="Close">×</button>
+          <div class="crumbs">${esc(UNITS.find((u) => u[0] === unit)[1])}${h.map((x) => ' · ' + esc(x[0]) + ' ' + esc(x[1])).join('')}</div>
+          <h3 id="cardTitle">${esc(title)}</h3>`;
+        if (V.kind === 'comp') {
+          const r = rankOf(V.comp, i);
+          html += `<div class="row"><div>Composite (unweighted rank average of ${V.keys.length})</div>
+            <div class="val">${ok(V.comp[i]) ? V.comp[i].toFixed(1) + ' / 100' : '—'}</div>
+            <div class="def">${r ? rankText(r) : 'Not every component has a value here, so no composite.'}</div></div>`;
+        }
+        for (const k of V.keys) {
+          const ind = IND[k],
+            r = rankOf(V.vals[k], i),
+            dir =
+              ind.good === true ? 'higher is better' : ind.good === false ? 'higher is worse' : '';
+          html += `<div class="row"><div>${esc(ind.label)}</div><div class="val">${fmt(V.vals[k][i])}</div>
+            <div class="def">${r ? rankText(r) : 'No value at this ' + UNIT1[unit]}${dir ? ' · ' + dir : ''}</div></div>`;
+        }
+        const pop = [];
+        if (ok(f.p.pop2023)) pop.push(`${fmt(f.p.pop2023)} (Census 2023)`);
+        if (ok(f.p.pop_kontur_2023))
+          pop.push(`${fmt(f.p.pop_kontur_2023)} (Kontur 2023, modelled)`);
+        if (pop.length) html += `<div class="row">Population: ${pop.join('; ')}</div>`;
+        const ss = sitesIn(unit).get(i) || [],
+          nAtlas = f.p.n_site;
+        html += `<h4>Archive sites (${ss.length})</h4>`;
+        html += ss.length
+          ? '<ul>' +
+            ss
+              .map(
+                (s) =>
+                  `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a> <span class="def">${esc(s.cat)}</span></li>`,
+              )
+              .join('') +
+            '</ul>'
+          : '<div class="def">None.</div>';
+        if (ok(nAtlas) && nAtlas !== ss.length)
+          html += `<div class="def">The atlas counts ${nAtlas} here; the list places sites by position on simplified boundaries.</div>`;
+        const [nl, na] = leadsIn(f);
+        html += `<h4>Leads</h4><div>${nl} not in the archive (Wikidata + OSM)${na ? `; ${na} more already in it` : ''}.</div>`;
+        card.innerHTML = html;
+        card.querySelector('.iconbtn').onclick = () => clearSel();
+        card.hidden = false;
+        placeCard();
+      }
+      // Beside the region where there is room, otherwise docked to the bottom of the map.
+      function placeCard() {
+        if (card.hidden || selIdx < 0) return;
+        const W = wrap.clientWidth,
+          H = wrap.clientHeight,
+          f = feats(unit)[selIdx];
+        if (W < 560) {
+          card.classList.add('docked');
+          return;
+        }
+        card.classList.remove('docked');
+        let b = f.bbox;
+        if (!b) {
+          const ll = h3.cellToBoundary(f.hex);
+          b = [
+            Math.min(...ll.map((p) => p[1])),
+            Math.min(...ll.map((p) => p[0])),
+            Math.max(...ll.map((p) => p[1])),
+            Math.max(...ll.map((p) => p[0])),
+          ];
+        }
+        const p0 = map.latLngToContainerPoint([b[3], b[0]]),
+          p1 = map.latLngToContainerPoint([b[1], b[2]]),
+          cw = card.offsetWidth,
+          ch = card.offsetHeight;
+        let x = p1.x + 14;
+        if (x + cw > W - 8) x = p0.x - cw - 14;
+        if (x < 8) x = W - cw - 8;
+        let y = Math.max(8, Math.min(p0.y, H - ch - 8));
+        card.style.left = x + 'px';
+        card.style.top = y + 'px';
+      }
+      map.on('move zoom resize', () => requestAnimationFrame(placeCard));
+      L.DomEvent.disableClickPropagation(card);
+      L.DomEvent.disableScrollPropagation(card);
+
+      // ---- legend and panel ---------------------------------------------------------------------
+      function legend() {
+        const el = $('legend');
+        if (V.kind === 'none') {
+          el.innerHTML = `<div><i style="background:transparent;border-color:#3b4252"></i>${esc(UNITS.find((u) => u[0] === unit)[1])} boundaries</div><div class="def">No welfare measure is shown. Hover or click a ${UNIT1[unit]} for its sites and leads.</div>`;
+          return;
+        }
+        if (V.kind === 'bi') {
+          const [a, b] = V.keys,
+            [ta, tb] = V.t;
+          const cells = [2, 1, 0]
+            .map((r) =>
+              [0, 1, 2].map((c) => `<span style="background:${BIV[r][c]}"></span>`).join(''),
+            )
+            .join('');
+          el.innerHTML = `<div class="biv"><div class="yl" title="${esc(IND[b].label)}">${esc(IND[b].label)} →</div><div class="grid">${cells}</div><div class="xl">${esc(IND[a].label)} →</div></div>
+            <div class="def">Tertiles of each at this unit. Across: ${esc(IND[a].label)} (breaks ${ta.map(fmt).join(', ')}). Up: ${esc(IND[b].label)} (breaks ${tb.map(fmt).join(', ')}). Grey-white = low on both; dark = high on both.</div>
+            <div><i style="background:#ccc;opacity:.4"></i>missing either value</div>`;
+          return;
+        }
+        const P = V.kind === 'comp' ? PALC : PAL,
+          { b, zero } = V.br;
+        const lo = ['min', ...b.map(fmt)],
+          hi = [...b.map(fmt), 'max'];
+        const k = V.keys[0];
+        el.innerHTML =
+          P.slice(0, b.length + 1)
+            .map(
+              (c, i) =>
+                `<div><i style="background:${c}"></i>${zero && i === 0 ? 'zero' : `${lo[i]} – ${hi[i]}`}</div>`,
+            )
+            .join('') +
+          `<div><i style="background:#ccc;opacity:.4"></i>${V.kind === 'comp' ? 'missing a component' : 'no value'}</div>` +
+          (V.kind === 'comp'
+            ? '<div style="margin-top:4px">Darker = better off on the chosen measures, on average. Classes are septiles of the composite at this unit.</div>'
+            : `<div style="margin-top:4px">Darker = higher. ${IND[k].good === true ? 'Higher is better.' : IND[k].good === false ? 'Higher is worse.' : ''} ${zero ? 'Zero is its own class; the rest are sextiles of the non-zero values.' : 'Classes are septiles of this unit.'}</div>`);
+      }
+      function scatter(pts, xl, yl, yFromZero, note) {
+        const svg = $('scatter');
+        svg.setAttribute('aria-label', `Scatter of ${xl} against ${yl}`);
         const W = 340,
           H = 230,
           m = { l: 38, r: 8, t: 8, b: 28 },
@@ -490,157 +1269,430 @@
           ys = pts.map((p) => p[1]);
         const x0 = Math.min(...xs),
           x1 = Math.max(...xs),
-          y0 = 0,
+          y0 = yFromZero ? 0 : Math.min(...ys),
           y1 = Math.max(...ys) || 1;
         const X = (v) => m.l + ((v - x0) / (x1 - x0 || 1)) * (W - m.l - m.r),
           Y = (v) => H - m.b - ((v - y0) / (y1 - y0 || 1)) * (H - m.t - m.b);
         const show =
           unit === 'hex'
             ? pts
-                .filter((p) => p[1] > 0)
-                .concat(pts.filter((p) => p[1] == 0).filter((_, k) => k % 15 === 0))
+                .filter((p) => p[3])
+                .concat(pts.filter((p) => !p[3]).filter((_, k) => k % 15 === 0))
             : pts;
         svg.innerHTML =
           `<line x1="${m.l}" y1="${H - m.b}" x2="${W - m.r}" y2="${H - m.b}" stroke="currentColor" opacity=".3"/><line x1="${m.l}" y1="${m.t}" x2="${m.l}" y2="${H - m.b}" stroke="currentColor" opacity=".3"/>` +
           show
             .map(
               (p) =>
-                `<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="3" fill="${p[1] > 0 ? '#e4572e' : '#6baed6'}" fill-opacity=".6"><title>${p[2]}: ${fmt(p[0])}, ${fmt(p[1])}</title></circle>`,
+                `<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="3" fill="${p[3] ? '#e4572e' : '#6baed6'}" fill-opacity=".6"><title>${esc(p[2])}: ${fmt(p[0])}, ${fmt(p[1])}</title></circle>`,
             )
             .join('') +
           // Axis values on one line, the axis title on the next: on one line they overprinted.
-          `<text x="${m.l}" y="${H - 15}">${fmt(x0)}</text><text x="${W - m.r}" y="${H - 15}" text-anchor="end">${fmt(x1)}</text><text x="${W / 2}" y="${H - 2}" text-anchor="middle">${i.label}</text>` +
-          `<text x="4" y="${m.t + 8}">${fmt(y1)}</text><text x="4" y="${H - m.b}">0</text>` +
+          `<text x="${m.l}" y="${H - 15}">${fmt(x0)}</text><text x="${W - m.r}" y="${H - 15}" text-anchor="end">${fmt(x1)}</text><text x="${W / 2}" y="${H - 2}" text-anchor="middle">${esc(xl.length > 60 ? xl.slice(0, 58) + '…' : xl)}</text>` +
+          `<text x="4" y="${m.t + 8}">${fmt(y1)}</text><text x="4" y="${H - m.b}">${fmt(y0)}</text>` +
           (unit === 'hex'
             ? `<text x="${W - m.r}" y="${m.t + 8}" text-anchor="end">every hexagon with a site; 1 in 15 without</text>`
+            : '') +
+          (note
+            ? `<text x="${W - m.r}" y="${m.t + 20}" text-anchor="end">${esc(note)}</text>`
             : '');
       }
+      function panel(fs) {
+        const T = $('title'),
+          Df = $('def'),
+          F = $('flag'),
+          corr = $('corr'),
+          svg = $('scatter'),
+          name = (f) => (f.hex ? f.id : f.name);
+        const keys = V.keys;
+        $('titleHead').textContent =
+          V.kind === 'comp' ? 'Composite' : V.kind === 'bi' ? 'Two indicators' : 'Indicator';
+        F.innerHTML =
+          (keys.some((k) => IND[k].group.startsWith('OSM'))
+            ? '<div class="note">Built on OpenStreetMap, which holds ~3% of Pakistan\'s schools (5,071 vs 313,418 in PES 2021-22). This measures mapping as much as access.</div>'
+            : '') +
+          (unit === 'province' && keys.length
+            ? '<div class="note">Province values. DHS 2017-18 also reports FATA (now part of KP), which has no polygon here; see welfare_province.csv.</div>'
+            : '');
+        const ysel = YS.filter(([k]) => unit !== 'hex' || k === 'n_site' || k === 'n_mus');
+        if (!ysel.find(([k]) => k === ykey)) ykey = ysel[0][0];
+        const yl = ysel.find(([k]) => k === ykey)[1];
+        if (V.kind === 'none') {
+          T.textContent = 'No welfare measure';
+          Df.textContent = `The basemap and ${UNIT1[unit]} boundaries only, with the archive's sites and the leads on top.`;
+          $('yrow').innerHTML = '';
+          const withS = fs.filter((f) => (f.p.n_site || 0) > 0),
+            top = [...withS].sort((a, b) => b.p.n_site - a.p.n_site).slice(0, 6);
+          corr.innerHTML = `<div><span class="stat">${withS.length.toLocaleString()}</span> <span class="def">of ${fs.length.toLocaleString()} ${UNITN[unit]} hold at least one archive site.</span></div>
+            <div class="def">Most sites: ${top.map((f) => `${esc(f.hex ? hierarchy(f)[0]?.[1] || f.id : f.name)} (${f.p.n_site})`).join(', ')}.</div>`;
+          svg.innerHTML = '';
+          return;
+        }
+        $('yrow').innerHTML =
+          '<select id="ysel" aria-label="Archive measure">' +
+          ysel
+            .map(([k, l]) => `<option value="${k}" ${k === ykey ? 'selected' : ''}>${l}</option>`)
+            .join('') +
+          '</select>';
+        $('ysel').onchange = (e) => {
+          ykey = e.target.value;
+          panel(feats(unit));
+        };
+        const yv = fs.map((f) => f.p[ykey]);
+        if (V.kind === 'bi') {
+          const [a, b] = keys;
+          T.textContent = `${IND[a].label} × ${IND[b].label}`;
+          Df.innerHTML = `<b>Across:</b> ${esc(IND[a].def)}<br><b>Up:</b> ${esc(IND[b].def)}`;
+          const ab = rho(V.vals[a], V.vals[b]),
+            ay = rho(V.vals[a], yv),
+            by = rho(V.vals[b], yv);
+          const r = (x) => (x.r == null ? `too few ${UNITN[unit]} (${x.n})` : x.r.toFixed(2));
+          corr.innerHTML = `<div><span class="stat">ρ = ${ab.r == null ? '—' : ab.r.toFixed(2)}</span> <span class="def">Spearman between the two, ${ab.n} ${UNITN[unit]}</span></div>
+            <div class="def">With ${esc(yl.toLowerCase())}: ${esc(IND[a].label)} ρ = ${r(ay)}; ${esc(IND[b].label)} ρ = ${r(by)}.</div>
+            <div class="def">Scatter: the two indicators; orange = a ${UNIT1[unit]} with an archive site.</div>`;
+          const pts = [];
+          fs.forEach((f, i) => {
+            const x = V.vals[a][i],
+              y = V.vals[b][i];
+            if (ok(x) && ok(y)) pts.push([x, y, name(f), (f.p.n_site || 0) > 0]);
+          });
+          if (pts.length < 2) svg.innerHTML = '';
+          else scatter(pts, IND[a].label, IND[b].label, false, 'up: ' + IND[b].label.slice(0, 40));
+          return;
+        }
+        let xv, xl;
+        if (V.kind === 'comp') {
+          xv = V.comp;
+          xl = 'Composite (rank average)';
+          const shaded = V.comp.filter(ok).length;
+          T.textContent = `Composite of ${keys.length}: unweighted average of percentile ranks`;
+          Df.innerHTML =
+            `Each ${UNIT1[unit]}'s percentile rank on each indicator, among the ${UNITN[unit]} that have it, turned so that higher = better off, then averaged with equal weight (0-100). <b>Not an official index</b>: the weights are equal by default, not by judgement, and a rank says nothing about how far apart two places are.<ul style="margin:4px 0;padding-left:18px">` +
+            keys
+              .map(
+                (k) =>
+                  `<li>${esc(IND[k].label)} <span class="def">(${IND[k].good ? 'higher is better' : 'higher is worse, so reversed'})</span></li>`,
+              )
+              .join('') +
+            `</ul>${shaded.toLocaleString()} ${UNITN[unit]} have every component and are shaded; ${V.excluded.toLocaleString()} with only some of them are left grey${V.excluded ? ' and excluded from the statistics below' : ''}.`;
+        } else {
+          const i = IND[keys[0]];
+          xv = V.vals[keys[0]];
+          xl = i.label;
+          T.textContent = i.label + ' · ' + i.group;
+          Df.textContent = i.def || '';
+        }
+        const pts = [];
+        fs.forEach((f, i) => {
+          if (ok(xv[i]) && ok(yv[i])) pts.push([xv[i], yv[i], name(f), yv[i] > 0]);
+        });
+        if (pts.length < 8) {
+          corr.innerHTML = `<div class="def">Too few units (${pts.length}) for a correlation to mean anything.</div>`;
+          svg.innerHTML = '';
+          return;
+        }
+        const r = spearman(
+            pts.map((p) => p[0]),
+            pts.map((p) => p[1]),
+          ),
+          withS = pts.filter((p) => p[1] > 0);
+        corr.innerHTML = `<div><span class="stat">ρ = ${r.toFixed(2)}</span> <span class="def">Spearman, ${pts.length} ${UNITN[unit]}</span></div>
+    <div class="def">Median ${esc(xl.toLowerCase())}: ${fmt(median(withS.map((p) => p[0])))} where the archive has a site (${withS.length}), ${fmt(median(pts.filter((p) => p[1] == 0).map((p) => p[0])))} where it has none.</div>`;
+        scatter(pts, xl, yl, true);
+      }
 
-      let ovl = L.layerGroup().addTo(map);
+      // ---- sites and leads ----------------------------------------------------------------------
+      const ovl = L.layerGroup().addTo(map);
+      function leadHTML(l) {
+        const links = [];
+        if (l.qid)
+          links.push(
+            `<a href="https://www.wikidata.org/wiki/${esc(l.qid)}" target="_blank" rel="noopener">Wikidata ${esc(l.qid)}</a>`,
+          );
+        if (l.osm_url)
+          links.push(
+            `<a href="${esc(l.osm_url)}" target="_blank" rel="noopener">OpenStreetMap</a>`,
+          );
+        if (l.wiki_en)
+          links.push(`<a href="${esc(l.wiki_en)}" target="_blank" rel="noopener">Wikipedia</a>`);
+        // url is the record the lead came from; skip it when it repeats a link already given.
+        const wdUrl = l.qid && l.url && /wikidata\.org/.test(l.url);
+        if (l.url && !wdUrl && l.url !== l.osm_url && l.url !== l.wiki_en)
+          links.push(`<a href="${esc(l.url)}" target="_blank" rel="noopener">source record</a>`);
+        const ur = (s) => (s ? ` <span lang="ur" dir="rtl">${esc(s)}</span>` : '');
+        return (
+          `<b>${esc(l.name || '(unnamed)')}</b>${ur(l.name_ur)}` +
+          (l.figure ? `<br>Figure: ${esc(l.figure)}${ur(l.figure_ur)}` : '') +
+          `<br>${esc(l.kind || 'place')}${l.religion ? ' · ' + esc(l.religion) : ''}` +
+          (l.year_built != null && l.year_built !== '' ? `<br>Built: ${esc(l.year_built)}` : '') +
+          `<br><span style="color:${SRC[l.src]}">●</span> ${SRCL[l.src] || esc(l.src)} lead` +
+          (l.disagree
+            ? `<br><b>Wikidata and OSM disagree</b>${l.off_m != null ? ` (points ${esc(l.off_m)} m apart)` : ''}`
+            : '') +
+          `<br><i>${l.in_archive ? 'Already in the archive.' : 'Not in the archive.'}</i>` +
+          (links.length ? '<br>' + links.join(' · ') : '')
+        );
+      }
       function overlays() {
         ovl.clearLayers();
-        const add = (src, on) => {
-          if (!on) return;
-          for (const l of D.leads.filter((l) => l.src === src))
-            L.circleMarker([l.lat, l.lon], {
-              renderer,
-              radius: 3,
-              weight: 1,
-              color: SRC[src],
-              fillOpacity: 0,
+        const showL = $('showLeads').checked,
+          showIn = $('showLeadsIn').checked;
+        $('leadsInWrap').hidden = !showL;
+        const mk = (ll, opt, html) =>
+          L.circleMarker(ll, { renderer: markR, bubblingMouseEvents: false, ...opt })
+            .bindPopup(html, { autoPanPadding: [16, 16] })
+            .on('mouseover', () => {
+              overMarker = true;
+              hoverIdx = -1;
+              clearHover();
             })
-              .bindPopup(
-                `<b>${l.name}</b><br>${l.kind}${l.rel ? ' · ' + l.rel : ''}<br>${src} lead, not in the archive<br><a href="${l.url}" target="_blank" rel="noopener">source record</a>`,
-              )
-              .addTo(ovl);
-        };
-        add('geonames', showGn.checked);
-        add('wikidata', showWd.checked);
-        add('osm', showOsm.checked);
-        if (showSites.checked)
+            .on('mouseout', () => (overMarker = false))
+            .addTo(ovl);
+        if (showL)
+          for (const l of LEADS) {
+            if (l.in_archive && !showIn) continue;
+            mk(
+              [l.lat, l.lon],
+              {
+                radius: 4,
+                weight: 1.5,
+                color: SRC[l.src] || '#666',
+                fillColor: SRC[l.src] || '#666',
+                fillOpacity: 0.25,
+              },
+              leadHTML(l),
+            );
+            if (l.disagree)
+              L.marker([l.lat, l.lon], {
+                pane: 'badges',
+                interactive: false,
+                keyboard: false,
+                icon: L.divIcon({ className: 'lead-badge', iconSize: [8, 8], iconAnchor: [-1, 9] }),
+              }).addTo(ovl);
+          }
+        if ($('showSites').checked)
           for (const s of D.sites)
-            L.circleMarker([s.lat, s.lon], {
-              renderer,
-              radius: 5,
-              weight: 1,
-              color: '#fff',
-              fillColor: CAT[s.cat] || '#000',
-              fillOpacity: 0.95,
-            })
-              .bindPopup(
-                `<b>${s.name}</b><br>${s.cat} · ${s.status || ''}<br>${s.support}${s.shared_pin ? '<br><i>pin shared with another site</i>' : ''}<br><a href="${s.url}" target="_blank" rel="noopener">archive page</a>`,
-              )
-              .addTo(ovl);
-        ovl.bringToFront?.();
+            mk(
+              [s.lat, s.lon],
+              {
+                radius: 5,
+                weight: 1,
+                color: '#fff',
+                fillColor: CAT[s.cat] || '#000',
+                fillOpacity: 0.95,
+              },
+              `<b>${esc(s.name)}</b><br>${esc(s.cat)} · ${esc(s.status || '')}<br>${esc(s.support)}${s.shared_pin ? '<br><i>pin shared with another site</i>' : ''}<br><a href="${esc(s.url)}" target="_blank" rel="noopener">archive page</a>`,
+            );
+        const nIn = LEADS.filter((l) => l.in_archive).length,
+          bySrc = (s) => LEADS.filter((l) => l.src === s && !l.in_archive).length;
+        $('leadsLegend').innerHTML =
+          ['wikidata', 'osm', 'both']
+            .map(
+              (s) =>
+                `<div><i style="background:${SRC[s]};opacity:.8;border-radius:50%;width:12px"></i>${SRCL[s]}: ${bySrc(s).toLocaleString()} not in the archive</div>`,
+            )
+            .join('') +
+          `<div><span class="lead-badge" style="display:inline-block"></span> the two sources disagree</div>` +
+          `<div class="def">${nIn ? `${nIn.toLocaleString()} more are already in the archive and hidden unless you tick "include places already in the archive". ` : ''}Leads are for a person to read; none enters the archive unchecked.</div>`;
       }
-      ['showSites', 'showOsm', 'showWd', 'showGn'].forEach(
-        (id) => (document.getElementById(id).onchange = overlays),
-      );
+      ['showSites', 'showLeads', 'showLeadsIn'].forEach((id) => ($(id).onchange = overlays));
 
+      // ---- controls -----------------------------------------------------------------------------
+      function notice(t) {
+        $('notice').textContent = t || '';
+      }
+      function inUse() {
+        return viewKind().keys;
+      }
       function controls() {
-        const u = document.getElementById('units');
+        const u = $('units');
         u.innerHTML = '';
+        const used = inUse();
         for (const [k, l] of UNITS) {
           const b = document.createElement('button');
+          b.type = 'button';
           b.textContent = l;
           b.setAttribute('aria-pressed', k === unit);
-          b.disabled = !IND[key].units.includes(k);
+          const missing = used.filter((key) => !IND[key].units.includes(k));
+          b.disabled = missing.length > 0;
+          b.title = missing.length
+            ? `Not available at ${UNIT1[k]}: ${missing.map((key) => IND[key].label).join('; ')}`
+            : '';
           b.onclick = () => {
             unit = k;
+            clearSel();
             controls();
             draw();
           };
           u.appendChild(b);
         }
+        const m = $('modes');
+        m.innerHTML = '';
+        for (const [k, l] of MODES) {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = l;
+          b.setAttribute('aria-pressed', k === mode);
+          b.onclick = () => setMode(k);
+          m.appendChild(b);
+        }
         // With 240-odd indicators the menu is filtered by the search field (label, theme or
-        // definition, every word must match); the current indicator always stays listed.
-        const words = (document.getElementById('find').value || '')
-            .toLowerCase()
-            .split(/\s+/)
-            .filter(Boolean),
+        // definition, every word must match); chosen indicators always stay listed.
+        const words = ($('find').value || '').toLowerCase().split(/\s+/).filter(Boolean),
           hit = (i) =>
-            i.key === key ||
+            sel.includes(i.key) ||
             words.every((w) => `${i.label} ${i.group} ${i.def}`.toLowerCase().includes(w)),
           shown = D.indicators.filter(hit);
-        const s = document.getElementById('ind'),
+        const why = (i) => {
+          if (mode === 'single') {
+            if (sel[0] === i.key) return ['', false];
+            // One measure: an indicator not at this unit stays choosable and moves the map to a unit that has it.
+            return i.units.includes(unit)
+              ? ['', false]
+              : [` (${i.units.map((x) => UNIT1[x]).join(', ')} only; switches unit)`, false];
+          }
+          if (sel.includes(i.key)) return [' (chosen)', true];
+          if (mode === 'bi' && sel.length >= 2) return ['', false];
+          if (mode === 'comp' && i.good == null)
+            return [
+              ' (no better/worse direction in the catalogue; cannot go into a composite)',
+              true,
+            ];
+          if (!i.units.includes(unit))
+            return [
+              ` (not at ${UNIT1[unit]}; ${i.units.map((x) => UNIT1[x]).join(', ')} only)`,
+              true,
+            ];
+          return ['', false];
+        };
+        const s = $('ind'),
           groups = [...new Set(shown.map((i) => i.group))];
-        s.innerHTML = groups
+        const multi = mode !== 'single';
+        s.innerHTML =
+          `<option value="" ${!sel.length && !multi ? 'selected' : ''}>None (no welfare measure)</option>` +
+          (multi
+            ? `<option value="__add" hidden ${'selected'}>${sel.length ? (mode === 'bi' && sel.length >= 2 ? 'Replace the second indicator…' : 'Add an indicator…') : 'Choose an indicator…'}</option>`
+            : '') +
+          groups
+            .map(
+              (g) =>
+                `<optgroup label="${esc(g)}">` +
+                shown
+                  .filter((i) => i.group === g)
+                  .map((i) => {
+                    const [t, dis] = why(i);
+                    return `<option value="${i.key}" ${!multi && sel[0] === i.key ? 'selected' : ''} ${dis ? 'disabled' : ''}>${esc(i.label)}${esc(t)}</option>`;
+                  })
+                  .join('') +
+                '</optgroup>',
+            )
+            .join('');
+        const c = $('chips');
+        const tags = mode === 'bi' ? ['across', 'up'] : [];
+        c.innerHTML = sel
           .map(
-            (g) =>
-              `<optgroup label="${g}">` +
-              shown
-                .filter((i) => i.group === g)
-                .map(
-                  (i) =>
-                    `<option value="${i.key}" ${i.key === key ? 'selected' : ''}>${i.label}${i.units.includes(unit) ? '' : ' (' + i.units.join(', ') + ')'}</option>`,
-                )
-                .join('') +
-              '</optgroup>',
+            (k, j) =>
+              `<span class="chip" title="${esc(IND[k].label)}">${tags[j] ? `<span class="tag">${tags[j]}</span>` : ''}<span class="lab">${esc(IND[k].label)}</span><button type="button" data-k="${k}" aria-label="Remove ${esc(IND[k].label)}">×</button></span>`,
           )
           .join('');
+        c.querySelectorAll('button').forEach(
+          (b) =>
+            (b.onclick = () => {
+              sel = sel.filter((k) => k !== b.dataset.k);
+              notice(
+                mode !== 'single' && sel.length === 1
+                  ? `Showing ${IND[sel[0]].label} alone; add another indicator to ${mode === 'bi' ? 'compare two' : 'build a composite'}.`
+                  : '',
+              );
+              refresh();
+            }),
+        );
       }
-      const find = document.getElementById('find');
+      function setMode(k) {
+        let msg = '';
+        if (k === 'single' && sel.length > 1) {
+          msg = `One measure keeps ${IND[sel[0]].label}.`;
+          sel = sel.slice(0, 1);
+        }
+        if (k === 'bi' && sel.length > 2) {
+          msg = 'Compare two keeps the first two indicators.';
+          sel = sel.slice(0, 2);
+        }
+        if (k === 'comp') {
+          const drop = sel.filter((key) => IND[key].good == null);
+          if (drop.length) {
+            msg = `Left out of the composite (no better/worse direction in the catalogue): ${drop.map((key) => IND[key].label).join('; ')}.`;
+            sel = sel.filter((key) => IND[key].good != null);
+          }
+        }
+        if (!msg && k !== 'single' && sel.length < 2)
+          msg =
+            k === 'bi'
+              ? 'Choose a second indicator from the menu to compare.'
+              : 'Add indicators from the menu: two or more make a composite.';
+        mode = k;
+        notice(msg);
+        refresh();
+      }
+      function refresh() {
+        // A unit the chosen indicators do not all reach is not drawable: move to one they share.
+        const used = inUse();
+        if (used.length && used.some((k) => !IND[k].units.includes(unit))) {
+          const common = UNITS.map((u) => u[0]).filter((u) =>
+            used.every((k) => IND[k].units.includes(u)),
+          );
+          if (common.length) {
+            unit = common.includes('district') ? 'district' : common[0];
+            clearSel();
+          }
+        }
+        controls();
+        draw();
+      }
+      const find = $('find');
       find.oninput = () => controls();
-      // Enter takes the first match that is not already showing.
+      // Enter takes the first enabled match that is not already chosen.
       find.onkeydown = (e) => {
         if (e.key !== 'Enter') return;
-        const first = [...document.getElementById('ind').options].find((o) => o.value !== key);
-        if (!first) return;
-        key = first.value;
-        if (!IND[key].units.includes(unit))
-          unit = IND[key].units.includes('district') ? 'district' : IND[key].units[0];
-        controls();
-        draw();
+        const first = [...$('ind').options].find(
+          (o) => o.value && o.value !== '__add' && !o.disabled && !sel.includes(o.value),
+        );
+        if (first) choose(first.value);
       };
-      document.getElementById('ind').onchange = (e) => {
-        key = e.target.value;
-        if (!IND[key].units.includes(unit))
-          unit = IND[key].units.includes('district') ? 'district' : IND[key].units[0];
-        controls();
-        draw();
+      function choose(k) {
+        notice('');
+        if (!k) sel = [];
+        else if (mode === 'single') sel = [k];
+        else if (mode === 'bi') sel = sel.length >= 2 ? [sel[0], k] : [...sel, k];
+        else sel = [...sel, k];
+        refresh();
+      }
+      $('ind').onchange = (e) => {
+        if (e.target.value !== '__add') choose(e.target.value);
       };
-      // An indicator not available at this unit stays selectable; choosing it moves to a unit that has it.
 
-      document.getElementById('coverage').innerHTML =
+      $('coverage').innerHTML =
         '<table><tr><th>Source</th><th>Features</th><th>Archive sites it has</th><th>Median offset</th><th>p90</th></tr>' +
         D.coverage
+          .filter((c) => c.source === 'osm' || c.source === 'wikidata')
           .map(
             (c) =>
-              `<tr><td>${c.source}</td><td>${c.features}</td><td>${c.archive_sites_found} / ${c.of_archive}</td><td>${c.median_offset_m ?? '—'} m</td><td>${c.p90_offset_m ?? '—'} m</td></tr>`,
+              `<tr><td>${c.source === 'osm' ? 'OSM' : 'Wikidata'}</td><td>${c.features}</td><td>${c.archive_sites_found} / ${c.of_archive}</td><td>${c.median_offset_m ?? '—'} m</td><td>${c.p90_offset_m ?? '—'} m</td></tr>`,
           )
           .join('') +
         '</table><div class="def">Offset is the distance between the source\'s point and the archive\'s pin for the same place: agreement, not independent accuracy (some archive pins were checked against OSM in August).</div>';
-      const n = D.checks.length,
-        np = D.checks.filter((c) => c.result === 'pass').length,
-        nw = D.checks.filter((c) => c.result === 'warn').length;
-      document.getElementById('checksum').textContent =
-        `${np} of ${n} checks pass, ${nw} warn, ${n - np - nw} fail`;
-      document.getElementById('checks').innerHTML = D.checks
-        .map(
-          (c) =>
-            `<tr><td class="${c.result}">${c.result}</td><td>${c.check}<br><span class="def">${c.measured} — vs ${c.reference}</span></td></tr>`,
-        )
-        .join('');
+      const CHECKS = D.checks.filter(
+          (c) => !/geonames/i.test(`${c.check} ${c.measured} ${c.reference}`),
+        ),
+        n = CHECKS.length,
+        np = CHECKS.filter((c) => c.result === 'pass').length,
+        nw = CHECKS.filter((c) => c.result === 'warn').length;
+      $('checksum').textContent = `${np} of ${n} checks pass, ${nw} warn, ${n - np - nw} fail`;
+      $('checks').innerHTML = CHECKS.map(
+        (c) =>
+          `<tr><td class="${esc(c.result)}">${esc(c.result)}</td><td>${esc(c.check)}<br><span class="def">${esc(c.measured)} — vs ${esc(c.reference)}</span></td></tr>`,
+      ).join('');
+      overlays();
       controls();
       draw();
     </script>

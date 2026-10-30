@@ -3,7 +3,9 @@ Build pipeline/gis/viewer/index.html: one self-contained page for looking at wel
 Pakistan with the archive's sites (and the open-source leads) laid over it.
 
 Reads the atlas layers of shrines_foundation.gpkg (atlas/build_atlas.py, run last of the layer
-builders) and atlas/indicator_catalog.tsv for the menu. Writes one HTML file with the data
+builders), atlas/indicator_catalog.tsv for the menu, and shrine_sources/merged_leads.json for the leads.
+Without the GeoPackage, rebuild_from_embedded.py puts a changed template (or new leads) into the page
+using the data already embedded in it. Writes one HTML file with the data
 embedded, so it opens from disk with a double-click (map tiles and Leaflet/h3-js load from CDNs).
 
 Only public columns go in: no qa_note, needs_review or flags (see docs/GIS_FOUNDATION.md).
@@ -21,6 +23,9 @@ import geopandas as gpd
 HERE = Path(__file__).resolve().parent
 GIS = HERE.parent
 GPKG = GIS / "shrines_foundation.gpkg"
+LEADS = GIS / "shrine_sources/merged_leads.json"
+sys.path.insert(0, str(HERE))
+from rebuild_from_embedded import load_leads  # noqa: E402  (stdlib only; shared schema check)
 SITE = "https://raufnawaz.github.io/Sufi-Shrines/shrine/"
 
 # The menu comes from atlas/indicator_catalog.tsv (label, theme, direction, year), in file order, so the
@@ -116,11 +121,10 @@ def main():
     data["sites"] = [{"name": r.name, "cat": r.category, "lat": round(r.lat, 5), "lon": round(r.lon, 5),
                       "support": r.support_level, "status": r.status, "shared_pin": int(r.shared_pin),
                       "url": SITE + slugify(r.name)} for r in sites.itertuples()]
-    ext = pd.read_csv(GIS / "shrine_sources/external_sites.csv")
-    ext = ext[ext.place_archive_site_id.isna() & ext.tehsil_code.notna()]
-    data["leads"] = [{"src": r.source, "name": r.name if isinstance(r.name, str) else "(unnamed)", "kind": r.kind,
-                      "rel": r.religion if isinstance(r.religion, str) else "", "lat": round(r.lat, 5),
-                      "lon": round(r.lon, 5), "url": r.url} for r in ext.itertuples()]
+    # Leads: one object per place, Wikidata and OSM merged (Wikidata first, GeoNames dropped), validated
+    # against the schema by the same function rebuild_from_embedded.py --leads uses, so the two builds
+    # cannot disagree about the shape the page reads.
+    data["leads"] = load_leads(LEADS)
 
     cb = pd.read_csv(GIS / "atlas/atlas_codebook.csv")
     defs = {r.indicator: f"{r.definition} — {r.publisher}" for r in cb.itertuples()}
@@ -148,7 +152,7 @@ def main():
     # Prettier formats the template (npm run verify checks it) and turns "/*__DATA__*/null" into
     # "/*__DATA__*/ null"; a plain replace then matched nothing and wrote an empty page. Match any
     # spacing, and refuse to write unless exactly one placeholder was filled.
-    tpl = (HERE / "template.html").read_text()
+    tpl = (HERE / "template.html").read_text(encoding="utf-8")
     # JSON.parse rejects NaN, which a JS literal accepted: every NaN becomes null, and allow_nan=False
     # makes a missed one fail here rather than leave a blank page.
     raw = json.dumps(denan(data), separators=(",", ":"), allow_nan=False).encode()
@@ -156,7 +160,7 @@ def main():
     html, n = re.subn(r"/\*__DATA__\*/\s*null", lambda m: payload, tpl)
     if n != 1:
         sys.exit(f"template.html: expected one /*__DATA__*/ null placeholder, found {n}")
-    (HERE / "index.html").write_text(html)
+    (HERE / "index.html").write_text(html, encoding="utf-8", newline="")
     print(f"index.html {len(html) / 1e6:.1f} MB ({len(raw) / 1e6:.1f} MB of JSON, gzipped): {len(data['district']['features'])} districts, "
           f"{len(data['tehsil']['features'])} tehsils, {len(data['hex']['rows'])} hexagons, "
           f"{len(data['sites'])} sites, {len(data['leads'])} leads")
