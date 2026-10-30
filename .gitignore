@@ -153,3 +153,6 @@ pipeline/gis/sources/
 # files sent into a chat. Not part of the repository (30 October 2026; 61 of its files went into
 # the commit of that day by `git add -A` and turned format:check red).
 Claude outputs/
+
+# pipeline/db/migrate_sites.py --dry-run output (rebuilt from data/shrines.csv)
+pipeline/db/out/

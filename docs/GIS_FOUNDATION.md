@@ -158,6 +158,75 @@ match). Zero-inflated indicators (flood exposure, conflict deaths) get a
 Chromium on 17 Oct 2026: all 243 indicators at all 467 indicator-unit pairs draw with data, no
 console errors, no sideways scroll at 390 px.
 
+**Since 29 Oct 2026: a blank map, overlays, a raised tile and one set of leads.** (The paragraphs
+above still describe the data; where they mention GeoNames, that is gone from the page.)
+
+- **Modes.** The menu opens with **None (no welfare measure)**: the basemap and the unit's
+  boundaries as outlines, still hoverable and clickable, and a panel that counts sites per unit
+  instead of statistics. Then three modes, as buttons: **One measure** (as before); **Compare
+  two**, a 3×3 bivariate map of the two indicators' tertiles at the current unit, in Joshua
+  Stevens' pink × blue scheme, with a 2-D legend square naming both and the Spearman ρ between
+  them as well as each one's ρ with the archive; and **Composite**. Chosen indicators show as
+  removable chips. In Compare two and Composite an indicator the current unit lacks is disabled
+  in the menu with the reason; in One measure it stays choosable and moves the map to a unit that
+  has it, as before. A unit button is disabled, with the reason in its tooltip, when a chosen
+  indicator does not reach it.
+- **The composite** is the unweighted mean of each indicator's percentile rank among the units
+  that have it (mid-rank for ties, scaled 0–1), each turned with the catalog's
+  `higher_is_better` so that higher means better off, times 100. Only units with every component
+  get a value; the panel says how many were left out. The 23 indicators whose direction is blank
+  in the catalog are disabled with the reason; the page does not give them one. It is labelled
+  on the page as an unweighted rank average, not an official index.
+- **Interaction.** The choropleth is one canvas that takes no events. Hover and click are
+  resolved by the page: an H3 lookup for a hexagon (about 17 µs) and a bbox-filtered
+  point-in-polygon for the others (about 7 µs over 577 tehsils), one per animation frame. So
+  hover costs nothing at 19,000 hexagons, and markers no longer fight the regions for clicks. The
+  hovered region is copied into an SVG pane and lifted 2 px; a light tooltip gives its name and
+  values. A click lifts it 7 px with a CSS drop shadow over a dark footprint left in place, dims
+  the rest, and opens a card. The card shows the hierarchy (read from the codes: `PK10101` is in
+  `PK101`, which is in `PK1`; a hexagon is placed by its centre), every active value with its
+  rank and percentile among units, population, the archive sites inside with links to their
+  pages, and the number of leads inside. It sits beside the region, or docks to the bottom of the
+  map when the map is narrower than 560 px. Esc, the × button or a click outside closes it.
+  `prefers-reduced-motion` drops the transition and keeps the shadow.
+- **Leads.** One toggle, **Leads (Wikidata + OSM)**, reads `shrine_sources/merged_leads.json`
+  (one object per place, Wikidata given priority, GeoNames dropped). Markers are coloured by
+  `src`, and a small amber badge marks `disagree`. Places with `in_archive: true` stay hidden
+  unless a second box is ticked. A page built before that file existed carries the old
+  per-source rows, which the page maps onto the same shape and from which it drops GeoNames.
+  GeoNames is also left out of the source-offset table and of the verification list.
+- **Also fixed:** 19,000 per-shape tooltips were bound on every redraw (now none); every change
+  of indicator rebuilt every shape (now restyled, and only a unit change rebuilds); marker clicks
+  also reached the map; the zoom is whole levels only, because at 5.5 the scaled basemap tiles
+  drew a hairline rectangle around Pakistan; and a `hidden` label stayed visible under
+  `display: inline-flex`.
+
+**`rebuild_from_embedded.py`** (Python standard library only) exists because the GeoPackage is not
+in the repository and `build_viewer.py` needs it and geopandas. It takes the payload out of the
+current `index.html`, optionally swaps in `--leads merged_leads.json` (each lead checked against
+the 18-key schema, as `build_viewer.py` now checks it too, through the same function), and fills
+the same single `/*__DATA__*/ null` placeholder in `template.html`. It refuses to write if the
+decoded JSON does not re-serialise to the same bytes. `--check` runs only that test. Unchanged
+data keeps the original base64 literal, so a template-only rebuild leaves the payload
+byte-identical. Re-gzipping gives the same deflate stream but a different gzip header: byte 9 is
+the OS code, `03` from macOS and `0a` from Windows.
+
+Verified in Chromium (Playwright, file://) on 29 Oct 2026, against both the current payload and
+a four-lead fixture in the merged schema:
+
+- none, single, bivariate and composite each draw at all four units;
+- the composite for Lahore district equals an independent recomputation;
+- hover and click lift the region, and the card's literacy for Lahore (79.6, 8th of 135
+  districts) and its 36 site links match the embedded data;
+- marker clicks open their popup without selecting the region, and a region click closes the
+  popup;
+- `in_archive` leads are hidden by default;
+- the word GeoNames appears nowhere on the page;
+- no console errors, and no sideways scroll at 390 px in any mode, with the card on screen;
+- reduced motion keeps the shadow without the transition.
+
+**Not checked:** the real `merged_leads.json`, which did not exist yet, and WebKit.
+
 ## Welfare layers (added 16 October 2026)
 
 `pipeline/gis/welfare/`. Every source, its licence and its URL are in `sources.tsv`; every file's
@@ -406,6 +475,83 @@ mirrors returned 502/500 for every query, and Wikidata 429 after repeated runs, 
 `fetch_shrine_sources.sh` keeps the previous file for a failed source and exits non-zero naming
 it. **A site's URL slug is `slugify(name)`, not `id`:** slugify reaches all 169 prerendered pages,
 `id` only 156.
+
+## Merged leads (Wikidata over OSM) (added 29 October 2026)
+
+`pipeline/gis/shrine_sources/merged_leads.csv` (one row per place, every attribute),
+`merged_leads.json` (the viewer's compact array) and `merged_leads_checks.csv` (counts, fill
+rates, the live property table, invariants). Built by `build_merged_leads.py`, Python stdlib
+only. **Leads, not entries (RULE 2).**
+
+**GeoNames is out.** Against the archive's own pins its median offset is 148 m (p90 1,082 m);
+OSM's is 22 m (437 m) and Wikidata's 19 m (578 m). The table above is the measurement.
+
+**Precedence, per field: Wikidata if non-empty, else OSM.** Coordinates likewise: wherever a
+place has a Wikidata item its point is the item's, and the build fails if not. `name_from`,
+`coord_from`, `religion_from`, `year_built_from`, `admin_from` and `figure_from` say which
+source gave each value. Places are the existing `place_id` groups of `external_sites.csv` (no
+name matching is redone), plus a union wherever an OSM `wikidata` tag or a Wikidata OSM
+node/way/relation ID statement links the two.
+
+**The figure columns come only from structured statements**: Wikidata P547 (commemorates),
+P825 (dedicated to), people whose own item gives P119 (place of burial) as the site, and the OSM
+tags `buried:wikidata` / `subject:wikidata` / `subject` / `memorial:name`. A saint's name is never
+parsed out of a shrine's title, so a darbar named for its saint and carrying no such statement
+has an empty figure. P138 (named after) goes in `named_after`, not in the figure. On a Hindu
+temple P825 is usually a deity (Varuna, Durga): that is what the site is dedicated to.
+
+**Measured 29 October 2026** (OSM base 2026-10-30T02:43Z; 773 OSM elements, 94 Wikidata items
+after the church exclusion):
+
+| | |
+|---|---|
+| Places | 817 |
+| In both sources | 36 (Wikidata–OSM offset median 14 m, p90 132 m) |
+| Wikidata only / OSM only | 57 / 724 |
+| Coordinates from Wikidata / OSM | 93 / 724 |
+| Sources disagree by > 300 m | 2: Bibi Pak Daman 550 m, Valmiki Temple 3.7 km |
+| In the archive | 93 (92 by the matcher, 1 by a person's verdict) |
+| Leads (not in the archive) | 724 |
+| Places with a figure | **25 (3.1%)**: P825 12, P119 inverse 10, P547 4, OSM `subject:wikidata` 1 (one place can have two) |
+
+The figure fill rate is the finding: the structured sources almost never say whose shrine a
+shrine is. OSM in Pakistan carries one `subject:wikidata` (Waris Shah) and no `buried:wikidata`
+or `memorial:name` at all; of 773 elements 115 have `name:en`, 91 `name:ur`, 35 `wikidata`, 3
+`start_date`, 0 `heritage`. Burial statements (P119) are on the people's items, not the shrines',
+which is why the inverse query exists: they bring whole families (five Bhuttos, six people at the
+Mazar-e-Quaid).
+
+**Dates are as Wikidata gives them**, with the precision named: `2000` at *century* precision
+is Wikidata's encoding of "20th century", not the year 2000, and `(Julian)` marks a Julian-calendar
+value. Several items carry two inception or birth values; both are kept, separated by `;`.
+
+**A Wikidata duplicate**: Gurdwara Chowa Sahib is Q30641887 and Q63343676, 24 m apart, same
+label and class. The "no place carries two QIDs" invariant fired on it. It is now paired in
+`wikidata_duplicates.tsv` with the evidence (the OSM node links Q30641887, which has the
+Wikipedia sitelinks), **confirmed by Rauf on 30 October 2026**; any other two-QID place still
+fails the build. It should still be merged on Wikidata itself.
+
+**One new item since 16 October**, Samadhi of Bhai Vasti Ram (Q137739251), is not in
+`external_sites.csv`, so the archive matcher has never seen it: `archive_unchecked = 1`, and its
+`in_archive = 0` is not a finding. The archive has a row "Samadh Bhai Vasti Ram" (Lahore), very
+likely the same place, and **Rauf judged it so on 30 October 2026** ("probably the same"). That
+verdict is in `archive_match_verdicts.tsv`, which the build applies to records the matcher has
+not seen, failing if a verdict names an archive id that does not exist or a record no longer in
+the sources. The place is now `in_archive = 1`. Its admin codes and H3 cell stay empty until
+`build_external_sites.py` is rerun (needs the gis venv and the GeoPackage).
+
+**Rerun** (from the repo root; curl and any Python 3, no venv):
+
+```bash
+pipeline/gis/shrine_sources/fetch_merged_sources.sh      # ~6 min, mostly Overpass
+python pipeline/gis/shrine_sources/build_merged_leads.py # exits non-zero on any invariant
+```
+
+The fetch keeps the previous files for a source that fails and exits non-zero; the build falls
+back to `external_sites.csv`'s thin rows for a missing source and fails its "fresh fetch"
+invariant, so a fallback never passes silently. `fetch_manifest.csv` beside the downloads records
+each file's SHA-256 and fetch time. Property IDs are checked against their live labels on every
+build (17 of 17 on 29 October).
 
 ## Licences
 
