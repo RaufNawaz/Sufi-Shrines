@@ -497,7 +497,12 @@ const BUDGET: Record<string, number> = {
      the Urdu view the one that cannot check the archive's arithmetic. The
      figures section added none: a figure's recorded name is in the dictionary
      for all 169 rows, and the site tags beside it were already on the page. */
-  place: 3,
+  /* 3 → 75, 30 October 2026, and all 72 are the bibliography of the Lahore
+     place article (9f2a428b): its 21 entries, each split into several text
+     nodes by the italic title. CLAUDE.md, Urdu rule 7: citations may be Latin,
+     because a reader needs the exact title to find the source. The Urdu prose
+     above the bibliography adds none. */
+  place: 75,
   /* Two, and they are the only two Latin runs on the page a reader can
      legitimately meet: `EN` in the masthead's language segment, and `English`
      as the name of the English option in the reading-language group. A language

@@ -35,10 +35,12 @@ test.describe('places', () => {
     // after hydration.
     await expect.poll(() => links.count(), { timeout: 15000 }).toBeGreaterThanOrEqual(20);
 
-    // Lahore is the densest place in the archive, so it heads the index.
-    const first = links.first();
-    await expect(first).toContainText('Lahore');
-    await first.click();
+    /* Lahore is the densest town in the archive. It headed the index until
+       30 October 2026 (9f2a428b), when the provinces became places and Punjab,
+       which holds Lahore's sites and the rest, went above it. Found by name. */
+    const lahore = page.locator('.coverage-place-link[href$="/place/lahore"]');
+    await expect(lahore).toContainText('Lahore');
+    await lahore.click();
 
     await expect(page).toHaveURL(/\/place\/lahore$/);
     await expect(page.locator('h1.entity-title')).toHaveText('Lahore');
@@ -73,9 +75,12 @@ test.describe('places', () => {
 
     const pills = page.locator('.shrine-place-tag');
     expect(await pills.count()).toBeGreaterThanOrEqual(1);
-    await expect(pills.first()).toContainText('Lahore');
+    /* The province first, then the town, as an address reads (9f2a428b). */
+    await expect(pills.first()).toContainText('Punjab');
+    const lahore = pills.filter({ hasText: 'Lahore' });
+    await expect(lahore).toHaveCount(1);
 
-    await pills.first().click();
+    await lahore.click();
     await expect(page).toHaveURL(/\/place\/lahore$/);
     /* …and the place it navigated to lists the shrine it came from. Matched by
        href rather than by text: two of Lahore's entries mention Data Darbar,
@@ -106,10 +111,10 @@ test.describe('places', () => {
     await expect(
       page.getByRole('heading', { name: UI_TEXT_UR.placesTitle, exact: true }),
     ).toBeVisible();
-    const first = page.locator('.coverage-place-link').first();
-    await expect(first.locator('.coverage-place-name')).toHaveText('لاہور');
+    const lahore = page.locator('.coverage-place-link[href$="/place/lahore"]');
+    await expect(lahore.locator('.coverage-place-name')).toHaveText('لاہور');
 
-    await first.click();
+    await lahore.click();
     await expect(page.locator('h1.entity-title')).toHaveText('لاہور');
     await expect(page.locator('.entity-type-kicker')).toHaveText(UI_TEXT_UR.placeKicker);
     // Eastern numerals reach the counts, like every other number site.
@@ -119,7 +124,8 @@ test.describe('places', () => {
   test('[ur] the shrine page pills are Urdu place names', async ({ page }) => {
     await page.goto('/shrine/data-darbar?lang=ur');
     await page.locator('h1.shrine-title').waitFor();
-    await expect(page.locator('.shrine-place-tag').first()).toHaveText('لاہور');
+    // Province, then town (9f2a428b).
+    await expect(page.locator('.shrine-place-tag')).toHaveText(['پنجاب', 'لاہور']);
   });
 });
 

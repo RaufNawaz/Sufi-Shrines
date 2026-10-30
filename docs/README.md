@@ -180,6 +180,15 @@ Prompts written for Claude Code or other agents (RULE 0: they live here, not in 
 | [`prompts/PUBLIC_DESCRIPTION_BRIEF.md`](prompts/PUBLIC_DESCRIPTION_BRIEF.md) | The public descriptions: a shorter reader facing English and a full Urdu article for each row, from its team version, checked by V1, V2 and V3 (§9.382 to §9.412) |
 | [`prompts/PLACE_DESCRIPTION_BRIEF.md`](prompts/PLACE_DESCRIPTION_BRIEF.md) | The place and province articles (Rauf, 30 October 2026): the books' account of each place, team version, public English and Urdu, checked by V1, V2 and V3; Lahore the pilot; the scheduled task that resumes after a usage limit (§9.423) |
 | [`prompts/public_description_workers_2026-10-28/README.md`](prompts/public_description_workers_2026-10-28/README.md) | The worker briefs of the run that finished the public descriptions (§9.411, §9.412): [writer EN](prompts/public_description_workers_2026-10-28/WRITER_EN.md), [writer UR](prompts/public_description_workers_2026-10-28/WRITER_UR.md), [V1](prompts/public_description_workers_2026-10-28/V1.md), [V1 confirm](prompts/public_description_workers_2026-10-28/V1_CONFIRM.md), [V2](prompts/public_description_workers_2026-10-28/V2.md), [V3](prompts/public_description_workers_2026-10-28/V3.md), [UR fixer](prompts/public_description_workers_2026-10-28/FIXER_UR.md), [UR confirm](prompts/public_description_workers_2026-10-28/CONFIRM_UR.md) |
+| [`prompts/place_description_workers_2026-10-30/README.md`](prompts/place_description_workers_2026-10-30/README.md) | The worker prompts of the Lahore place-article pilot (§9.423): [1_section_drafter](prompts/place_description_workers_2026-10-30/1_section_drafter.md), [2_composer](prompts/place_description_workers_2026-10-30/2_composer.md), [3_english_only_pass](prompts/place_description_workers_2026-10-30/3_english_only_pass.md), [4_overview_and_disagreements](prompts/place_description_workers_2026-10-30/4_overview_and_disagreements.md), [5_public_writer](prompts/place_description_workers_2026-10-30/5_public_writer.md), [6_V1](prompts/place_description_workers_2026-10-30/6_V1.md), [7_urdu_writer](prompts/place_description_workers_2026-10-30/7_urdu_writer.md), [8_V2](prompts/place_description_workers_2026-10-30/8_V2.md), [9_V3](prompts/place_description_workers_2026-10-30/9_V3.md), [10_urdu_fixer](prompts/place_description_workers_2026-10-30/10_urdu_fixer.md), [11_V2_V3_confirming](prompts/place_description_workers_2026-10-30/11_V2_V3_confirming.md) |
+| [`prompts/WELFARE_VIEWER_CRITIQUE_BRIEF.md`](prompts/WELFARE_VIEWER_CRITIQUE_BRIEF.md) | Brief for an outside critique of the "Shrines and welfare" viewer (`pipeline/gis/viewer/`) |
+
+## Research (`research/`)
+
+Findings and reviews from the GIS research viewer (`pipeline/gis/viewer/index.html`).
+
+- [`research/VIEWER_REVIEW_2026-10-30.md`](research/VIEWER_REVIEW_2026-10-30.md) — the review of the Shrines and Welfare viewer, 30 October 2026
+- [`research/VIEWER_STUDY_GUIDE.md`](research/VIEWER_STUDY_GUIDE.md) — the viewer's study guide (repository record of the Claude doc)
 
 Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu dictionary +
 content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provenance, exports).
@@ -243,3 +252,4 @@ content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provena
 - [`_APPEND_416.md`](_APPEND_416.md)
 - [`_APPEND_417.md`](_APPEND_417.md)
 - [`_APPEND_422.md`](_APPEND_422.md)
+- [`_APPEND_423.md`](_APPEND_423.md)

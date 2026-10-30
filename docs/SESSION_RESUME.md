@@ -85,7 +85,7 @@ the reason the rest is credible.
 3. Commit the refreshed data (`data: refresh snapshot after the 30 October import`).
 4. See how the branch relates to `1.7` (`git fetch`, `git log --oneline origin/1.7..HEAD`, `git merge-base HEAD origin/1.7`), push the branch, bring it into `1.7` (merge or pull request) and push `1.7`. The workflow runs `data:validate` before it deploys.
 
-**On this PC (Windows PowerShell 5.1).** `&&` is not a statement separator here: one command per line, or `;`. After the commit of 30 October, Git's automatic tidy up asked "Deletion of directory '.git/objects/00' failed. Should I try again?" over and over (something else had the folder open: an editor, the Claude app's link to the folder, a sync tool). Ctrl+C is safe once the commit line has printed; run `git gc` later with nothing else open. An aborted commit message left `.git/.COMMIT_EDITMSG.swp`; if Vim warns about a swap file, press D.
+**On this PC (Windows PowerShell 5.1).** `&&` is not a statement separator here: one command per line, or `;`. After the commit of 30 October, Git's automatic tidy up asked "Deletion of directory '.git/objects/00' failed. Should I try again?" over and over. *Diagnosis corrected 30 October 2026 (§9.432): the folders were read-only, not held open; cleared, and `scripts/windows/clear-readonly-dirs.ps1` clears them again if it recurs.* An aborted commit message left `.git/.COMMIT_EDITMSG.swp`; if Vim warns about a swap file, press D.
 
 **Asked in the chat, not yet answered** (this is the record; ask again in the chat, RULE 5):
 
