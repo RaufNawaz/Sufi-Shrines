@@ -71,8 +71,14 @@ const RULES = [
     // The verb is case-insensitive (a note can start a sentence: "Ask Saifullah
     // for a precise pin") but the name must stay capitalised, so ordinary prose
     // like "visitors ask whether the urs is held" does not trip it.
+    // Two kinds of capitalised word after "ask" are not colleagues, and the public
+    // descriptions of 30 October 2026 carry both: a deity ("It closes by asking God
+    // to make Sindh flourish") and a poet addressing himself inside quoted verse
+    // ("Ask Waris the poet, he knows this well."). The first is excluded by name,
+    // the second by `exempt`: a directive to a colleague is never in quotation marks.
     pattern:
-      /\b(?:[Aa]sk(?:ing)?|[Rr]equest(?:ed)?\s+from|[Ff]ollow\s+up\s+with|[Cc]heck\s+with)\s+[A-Z][a-z]+/,
+      /\b(?:[Aa]sk(?:ing)?|[Rr]equest(?:ed)?\s+from|[Ff]ollow\s+up\s+with|[Cc]heck\s+with)\s+(?!(?:God|Allah)\b)[A-Z][a-z]+/,
+    exempt: (value, index) => insideQuotation(value, index),
     why: 'a directive to a named colleague is not a fact about the shrine — move it to qa_note',
   },
   {
@@ -86,6 +92,14 @@ const RULES = [
     why: 'placeholder copy',
   },
 ];
+
+/** True when `index` falls inside an open “…” or "…" quotation in `value`. */
+function insideQuotation(value, index) {
+  const before = value.slice(0, index);
+  const curlyOpen = (before.match(/“/g) ?? []).length - (before.match(/”/g) ?? []).length;
+  const straight = (before.match(/"/g) ?? []).length;
+  return curlyOpen > 0 || straight % 2 === 1;
+}
 
 function loadRows() {
   const candidates = [
@@ -130,7 +144,9 @@ for (const row of rows) {
     if (typeof value !== 'string' || !value.trim()) continue;
     if (INTERNAL_ONLY_KEYS.has(column)) continue;
     for (const rule of RULES) {
-      const match = rule.pattern.exec(value);
+      const match = [...value.matchAll(new RegExp(rule.pattern.source, 'g'))].find(
+        (m) => !rule.exempt?.(value, m.index),
+      );
       if (!match) continue;
       const start = Math.max(0, match.index - 50);
       if (PENDING_SHEET_FIX.get(name) === column) {
