@@ -10,11 +10,12 @@ test.describe('Atlas of Built Forms', () => {
     await page.goto('/typology');
     await expect(page.locator('h1.entity-title')).toHaveText(UI_TEXT.en.typologyTitle);
 
-    // The largest vocabulary group leads (Temple, 38 in the fixture), and
-    // its heading carries the count.
+    // The largest vocabulary group leads, and its heading carries the count.
+    // Dargah / Mazar since 30 October 2026, when the fixture took in the 318
+    // book rows (201 sites); Temple, at 38, until then.
     const first = page.locator('.typology-group-heading').first();
-    await expect(first).toContainText('Temple');
-    await expect(first.locator('.typology-group-count')).toContainText('38');
+    await expect(first).toContainText('Dargah / Mazar');
+    await expect(first.locator('.typology-group-count')).toContainText('201');
 
     // A survey-prose form, where one exists, is kept as prose and not forced
     // into the vocabulary; the one blank row gets an explicit "not recorded"

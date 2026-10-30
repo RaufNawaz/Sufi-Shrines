@@ -1474,10 +1474,14 @@
   padding-inline-start: 0;
 }
 
+/* `overflow-wrap: anywhere` since 30 October 2026: the rewritten entries cite
+   whole titles and long unbroken URLs, and at phone width in this view one
+   (Tahqiqat-e Chishti's) ran 12px past the column (e2e/no-overflow.spec.ts). */
 [dir='rtl'] .article-sources-list li {
   margin-bottom: var(--space-3);
   padding-inline-start: 1.5em;
   text-indent: -1.5em;
+  overflow-wrap: anywhere;
 }
 
 [dir='rtl'] .article-sources-list li[data-latin] {

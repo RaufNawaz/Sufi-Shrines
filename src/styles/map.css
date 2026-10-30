@@ -1140,8 +1140,16 @@
    count, so nothing looked broken; the list was simply not there.
    `min-height` here, plus shrinkable filter sections below, makes flexbox
    take the space back from the filters instead of from the content. */
+/* `flex-basis: 0`, not `auto`, since 30 October 2026. With `auto` the list's
+   own content height is its preferred size, and shrinking is weighted by it:
+   once the archive held 489 rows the list outweighed everything, the filter
+   sections were squeezed to one or two pixels, and in Urdu at 720px tall the
+   "more filters" toggle sat clipped under the list count where no tap could
+   reach it (e2e/nastaliq-metrics.spec.ts). From zero, the list takes the
+   space that is left, keeps its 12rem floor, and the filters give way only
+   past that floor, scrolling inside themselves. */
 .shrine-list-panel {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-height: 12rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;

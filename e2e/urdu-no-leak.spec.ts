@@ -274,7 +274,13 @@ const BUDGET: Record<string, number> = {
   // not measured here — entry-sections.spec.ts is where the section's own Urdu
   // behaviour is asserted, including that the names keep Latin metrics rather
   // than Nastaliq's.
-  shrine: 6,
+  /* 30 October 2026, with the new Urdu articles and the rewritten entries: the
+     three shrine routes rose because their bibliographies did (1,452 citations
+     across the archive, against 538 on 8 October). Measured that day, every
+     added run is a citation line in `.article-sources-list` (i18n rule 7), none
+     elsewhere on the page: Data Darbar 88 of its 92, Bari Imam 31 of 35, Bibi
+     Pak Daman 55 of 58. */
+  shrine: 92,
   // 17 -> 19, raised 26 August 2026: the figure pages gained "Where this figure
   // rests", and its second line is the site's recorded Location verbatim —
   // "Jhanda Bazar, Peshawar, Khyber Pakhtunkhwa, Pakistan", and for several rows
@@ -430,7 +436,7 @@ const BUDGET: Record<string, number> = {
   /* Every one is a bibliography line the Urdu article does not have — see the
      route's note. The number is the size of one entry's English bibliography,
      counted per text node, and it moves when that entry's citations do. */
-  'shrine:urdu-bibliography-fallback': 8,
+  'shrine:urdu-bibliography-fallback': 35, // 8 until 30 October 2026; see `shrine`
   saint: 12,
   /* 24 → 27, 29 August 2026. Three runs, all in the new "Family recorded"
      section: his father's name (`Syed Ul Hassan Kabeer`, which the dictionary
@@ -476,7 +482,7 @@ const BUDGET: Record<string, number> = {
      entries `NearbyMosques` prints verbatim, and the survey's own note on
      where it locates the shrine. Recorded strings, shown as recorded (RULE 2),
      each one a decision rather than an exemption. */
-  'shrine:latin-recorded-date': 5,
+  'shrine:latin-recorded-date': 58, // 5 until 30 October 2026; see `shrine`
   about: 8,
   /* 36 → 59, 26 August 2026, and every one of the 23 is a recorded `Events`
      cell. The place page gained "Days observed here" (A3), which prints each
