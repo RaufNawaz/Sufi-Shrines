@@ -869,6 +869,16 @@ invariant, so a fallback never passes silently. `fetch_manifest.csv` beside the 
 each file's SHA-256 and fetch time. Property IDs are checked against their live labels on every
 build (17 of 17 on 29 October).
 
+## Shrines per district beyond the archive (added 30 October 2026)
+
+`pipeline/gis/shrine_sources/district_counts/` counts shrines per district from OSM (a wider pull,
+classified into audited tiers), GeoNames, Wikidata and the Department of Archaeology & Museums'
+national inventory, separately and as a deduplicated union, with OSM's mapping effort as a control;
+measures every source against DOAM as the official baseline; and checks the archive's pins. The
+viewer's workbench reads the counts (`build_viewer.py`). **Read its `README.md` before using any of
+them**: the sources disagree on which districts are dense, and OSM's coverage follows wealth.
+HANDOVER §9.434.
+
 ## Licences
 
 Boundaries come from OCHA COD-AB through `pkmapr` 1.4.0, which is GPL-3. Census figures are

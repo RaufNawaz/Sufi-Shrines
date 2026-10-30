@@ -108,6 +108,28 @@ def main():
         "tehsil": round_coords(feature_collection(t, "tehsil_code", "tehsil_name", cols, 0.006)),
         "province": round_coords(feature_collection(wp, "province_code", "province_name", cols, 0.02)),
     }
+    # Shrine counts beyond the archive (shrine_sources/district_counts/, HANDOVER 9.434): each open
+    # or official source separately, their deduplicated union, and OSM's mapping effort, which the
+    # workbench's note says to control for. District and province only.
+    dcnt = pd.read_csv(GIS / "shrine_sources/district_counts/district_counts.csv")
+    pcnt = pd.read_csv(GIS / "shrine_sources/district_counts/province_counts.csv")
+    for c in (dcnt, pcnt):
+        c["n_ext_osm"] = c.n_osm_A + c.n_osm_B
+        c.rename(columns={"n_union_ab": "n_ext_union", "n_geonames": "n_ext_geonames",
+                          "n_wikidata": "n_ext_wikidata", "n_doam": "n_ext_doam"}, inplace=True)
+    EXT = ["n_ext_union", "n_ext_osm", "n_ext_geonames", "n_ext_wikidata", "n_ext_doam", "n_osm_pow_effort"]
+    for unit, tab, key in (("district", dcnt, "district_code"), ("province", pcnt, "province_name")):
+        look = tab.set_index(key)[EXT].to_dict("index")
+        hit = 0
+        for f in data[unit]["features"]:
+            k = f["properties"]["id"] if unit == "district" else f["properties"]["name"]
+            if k in look:
+                hit += 1
+                f["properties"].update({c: clean(v) for c, v in look[k].items()})
+                pop = f["properties"].get("pop2023")
+                f["properties"]["ext_union_per_million"] = clean(look[k]["n_ext_union"] / pop * 1e6) if pop else None
+        if hit != len(data[unit]["features"]):
+            sys.exit(f"district_counts: {hit} of {len(data[unit]['features'])} {unit} features matched")
     grid = L("atlas_grid_h3_r6", ignore_geometry=True)
     grid = grid[grid.pop_kontur_2023.fillna(0) > 0]       # unpopulated hexagons carry no welfare value
     hex_cols = list(dict.fromkeys([k for k in IND if k in grid.columns and grid[k].notna().any()] + ["n_site", "n_mus"]))

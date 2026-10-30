@@ -2245,6 +2245,30 @@
           group: 'Archive',
         },
         sites_per_1000km2: { label: 'Archive sites per 1,000 km²', group: 'Archive' },
+        // Counts beyond the archive (shrine_sources/district_counts/README.md). District and
+        // province only. They disagree with one another: read the README before choosing one.
+        n_ext_union: {
+          label: 'Shrines and temples in any source, deduplicated (count)',
+          group: 'Other sources',
+        },
+        ext_union_per_million: {
+          label: 'Shrines and temples in any source, per million people',
+          group: 'Other sources',
+        },
+        n_ext_osm: { label: 'OpenStreetMap shrines and temples (count)', group: 'Other sources' },
+        n_ext_geonames: {
+          label: 'GeoNames shrines and tombs, from old gazetteer maps (count)',
+          group: 'Other sources',
+        },
+        n_ext_wikidata: { label: 'Wikidata shrines and temples (count)', group: 'Other sources' },
+        n_ext_doam: {
+          label: 'Dept. of Archaeology inventory: tombs, shrines, temples, gurdwaras (count)',
+          group: 'Other sources',
+        },
+        n_osm_pow_effort: {
+          label: 'OpenStreetMap mosques mapped, a measure of mapping effort (count)',
+          group: 'Other sources',
+        },
       };
       const CJV = Object.fromEntries(
         D.indicators.map((i) => [
@@ -2314,6 +2338,12 @@
       }
       const usesArchive = (spec) =>
         [spec.y, ...spec.x, ...spec.c].some((v) => CJV[v.key] && CJV[v.key].group === 'Archive');
+      const usesOtherSources = (spec) =>
+        [spec.y, ...spec.x, ...spec.c].some(
+          (v) => CJV[v.key] && CJV[v.key].group === 'Other sources' && v.key !== 'n_osm_pow_effort',
+        );
+      const controlsEffort = (spec) =>
+        [spec.x, spec.c].flat().some((v) => v.key === 'n_osm_pow_effort');
 
       // ---- test a conjecture: data --------------------------------------------------------------
       // Listwise deletion: a unit missing any variable (or the exposure) is left out; so is one where
@@ -4190,7 +4220,7 @@
           <h3>Correlations, outcome with each regressor</h3>
           <div class="scroll"><table><tr><th>Regressor</th><th class="num">Pearson r</th><th class="num">Spearman ρ</th></tr>${corr}</table></div>
           <div class="def">p-values from ${s.perms.toLocaleString()} permutations of the outcome (seed ${s.seed}), two-sided, on the same ${e.n} ${UNITN[e.unit]} and transforms as the regression. Permutation treats the units as exchangeable, so it shares the regression's blindness to spatial correlation.</div>
-          <div class="note">${nSess} test${nSess === 1 ? '' : 's'} this session; ${B.m} distinct hypotheses in the log, which the Benjamini–Hochberg adjustment covers. It does not cover the map views and side-panel correlations looked at first${ctx.views ? ` (${ctx.views} this session)` : ''}, so it understates the search behind any test prompted by them. Ecological: these are associations among ${UNITN[e.unit]}, not among people or among shrines, and nothing here shows what causes what.${usesArchive(s) ? ' The archive is curated, not a census: a shrine variable measures where the archive has looked as well as where shrines are, so a result about it is a result about archive coverage.' : ''}${[s.y, ...s.x, ...s.c].some((v) => v.key === 'n_mus_pre1857') ? ' Pre-1857 counts a numeric year below 1857; 25 of the 80 Muslim shrines have no numeric year and count as not pre-1857.' : ''}${[s.y, ...s.x, ...s.c].some((v) => DEFECT[v.key]) ? ' <b>Uses a travel-time indicator with a known coastal data defect</b> (see the side panel): coastal values are biased.' : ''}</div>
+          <div class="note">${nSess} test${nSess === 1 ? '' : 's'} this session; ${B.m} distinct hypotheses in the log, which the Benjamini–Hochberg adjustment covers. It does not cover the map views and side-panel correlations looked at first${ctx.views ? ` (${ctx.views} this session)` : ''}, so it understates the search behind any test prompted by them. Ecological: these are associations among ${UNITN[e.unit]}, not among people or among shrines, and nothing here shows what causes what.${usesArchive(s) ? ' The archive is curated, not a census: a shrine variable measures where the archive has looked as well as where shrines are, so a result about it is a result about archive coverage.' : ''}${usesOtherSources(s) ? ` The other sources do not agree on which districts have many shrines (OpenStreetMap against GeoNames, Spearman 0.09 per person across 135 districts), and OpenStreetMap's mapping follows wealth; GeoNames runs the other way.${controlsEffort(s) ? '' : ' <b>Add the mapping-effort count as a control</b> before reading a welfare result.'} See shrine_sources/district_counts/README.md.` : ''}${[s.y, ...s.x, ...s.c].some((v) => v.key === 'n_mus_pre1857') ? ' Pre-1857 counts a numeric year below 1857; 25 of the 80 Muslim shrines have no numeric year and count as not pre-1857.' : ''}${[s.y, ...s.x, ...s.c].some((v) => DEFECT[v.key]) ? ' <b>Uses a travel-time indicator with a known coastal data defect</b> (see the side panel): coastal values are biased.' : ''}</div>
           <div class="cjbtns"><button class="btn" type="button" id="cjResMap">Show residuals on the map</button><button class="btn" type="button" id="cjMaupBtn">Same test at every unit</button></div>
           <svg id="cjRvf" width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Residuals against fitted values"></svg>
           <div id="cjMaup"></div>

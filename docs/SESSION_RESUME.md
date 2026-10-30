@@ -34,6 +34,17 @@ the reason the rest is credible.
 
 ---
 
+## 30 October 2026, night (later): deploy fixed, read-only folders, shrine counts beyond the archive (read HANDOVER §9.432 to §9.434)
+
+**State.** `1.7` = `096b8a08`, deployed (Pages run succeeded): the deploy of `9f2a428b` had failed on the docs index; four place tests and one Urdu budget were stale after the provinces became places. The "Deletion of directory failed" loop was 8,977 read-only folders, cleared (`scripts/windows/clear-readonly-dirs.ps1`). The shrine-count work is in `pipeline/gis/shrine_sources/district_counts/` and the viewer.
+
+**Asked in the chat (RULE 5), record here; ask again if unanswered:**
+
+1. Ten archive pins are placed elsewhere by the DOAM inventory and OSM or Wikidata agreeing (Lal Shahbaz Qalandar ≈ 900 m among them; `archive_location_check.csv`, verdict `pin_suspect`). Prepare a CSV patch for the sheet moving them to the agreeing point, after a person checks each on a satellite view?
+2. Give each Punjab Auqaf register entry a district (from the place names many carry, then a person's check), so the official register can calibrate the counts as DOAM does now?
+
+---
+
 ## 30 October 2026, late night: verse, data refresh and three deploys (read `docs/_APPEND_422.md`, §9.422)
 
 **State.** All committed and pushed. `1.7` = `9801b63f`; the live site has the verse figures, Gurmukhi originals, language captions, the new Urdu articles, the October cleanup and the 489 row snapshot. Deploys: `606aca00` succeeded; `ca4d3354` failed at its test step (`DATABASE.md` not indexed, fixed in `bb19b05a`); `9801b63f` **deployed successfully** (Pages run completed, 30 October); its CI run was still going at the end of the session, so glance at it (`https://api.github.com/repos/RaufNawaz/Sufi-Shrines/actions/runs?branch=1.7`).

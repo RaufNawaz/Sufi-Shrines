@@ -1,0 +1,3 @@
+register,province,district_as_written,district_code,stated_total,what_is_counted,source_url,source_locator,source_date
+Punjab Auqaf & Religious Affairs Department,Punjab,(province total; no district stated),,548,Shrines under Administrative control of Auqaf Department,https://auqaf.punjab.gov.pk/faqs,FAQ 'How many Shrines are there under Administrative control of Auqaf?',undated web page (fetched 2026-10-30)
+Sindh Auqaf Department,Sindh,(province total; no district stated),,78,Dargahs under administrative Control of Auqaf Department (the same site's list enumerates 80),https://arazud.sindh.gov.pk/about-auqaf,'Total No. of Dargahs under administrative Control of Auqaf Department : 78',undated web page (fetched 2026-10-30)

@@ -22243,3 +22243,34 @@ Nothing was committed.
 Also seen: CI's E2E job at `9801b63f` failed only in the WebKit iPhone project, which could not launch WebKit on the runner ("Target page, context or browser has been closed"); a CI environment fault, not a page fault. Not fixed here.
 
 **The delete loop, measured.** 8,977 of the repository's 8,985 folders (including `.git/objects/*`, `src/`, `dist/`, 7,353 in `node_modules`) carried the Windows **Read-only** attribute; no file outside `.git` did. Windows will not remove a read-only folder: `cmd /c rmdir` on one answers "Access is denied" (MSYS `rmdir` succeeds, which is why some tools worked and others did not). Git for Windows' `rmdir` fails the same way, hence "Deletion of directory '.git/objects/00' failed. Should I try again?" for every object folder `git gc` empties; so did Explorer deletes and `dist/` clean-ups. The earlier explanation in `WINDOWS_SETUP.md` and `SESSION_RESUME.md` ("something else had the folder open") was wrong and is corrected. A folder created during this session stayed writable, and `dist/`'s folders from the 00:58 build of 30 October carry it, so it was a one-time recursive change after that build (the Read-only box ticked on the folder's Properties with "apply to all subfolders", or a tool doing the same), not a running process. All cleared. `scripts/windows/clear-readonly-dirs.ps1` clears them again, and with `-Check` reports and exits 1.
+
+### 9.433, 30 October 2026 (subagent, Windows PC): Auqaf shrine registers, what is published and what is not
+
+**Asked.** List the shrines under the provincial Auqaf departments, with their districts, so they can be counted per district.
+
+**Found.** Two official web registers, transcribed into `pipeline/gis/shrine_sources/registers/auqaf_registers.csv` (560 rows, rebuilt by `build_auqaf_registers.py`, raw pages in the gitignored `pipeline/gis/sources/shrine_dbs/registers/`):
+- **Punjab:** `auqaf.punjab.gov.pk/shrines` gives 480 names, but by **zone**, not district. The department's own FAQ says 548.
+- **Sindh:** `arazud.sindh.gov.pk/list-of-dargahs-mosques` gives 80 names, mostly by **circle**. The department's own page says 78.
+
+Only 13 rows state a district. **No official per-district list or total was found for any province.**
+
+**Gotchas that cost time.**
+- KP's `auqaf.kp.gov.pk/properties/Shrine` has exactly the right table (District, Number of Properties), but its data proxy returned a server error. Retry it.
+- The elearn.gov.pk district gazetteers, which have Auqaf chapters, refused connections.
+- The Punjab auction schedules are organised by district-named circles. pdfplumber extracts their Urdu in reversed visual order.
+
+Full source log and gaps: `pipeline/gis/shrine_sources/registers/README_auqaf.md`. Nothing committed.
+
+### 9.434, 30 October 2026 (interactive, Windows PC): shrines per district beyond the archive, an official baseline, and the archive's pins checked against it
+
+**Asked.** Rauf: the conjecture workbench is good, but make the data behind it reliable: expand the shrine counts per district "way beyond the archive"; then, because the archive may have locations wrong, find a verified source to use as the baseline, adjust the others to it, and use it to check the archive; work from Wikidata and OSM or something more credible from an official body.
+
+**Built.** `pipeline/gis/shrine_sources/district_counts/` (its `README.md` is the full record): a wide OSM pull (`overpass_counts.ql`, 2,794 elements) classified into tiers by auditable rules (`classify_osm.py`), GeoNames, Wikidata, and the **DOAM national inventory** found by a subagent (`registers/README_heritage.md`), joined into one place per site with the measured matcher plus cannot-link constraints; per-district and per-province counts by source and as a union (**3,637 places**, against the archive's 168 pinned); OSM's mapped mosques as a mapping-effort measure (`overpass_effort.ql`); validity, calibration and an archive pin check. The viewer's workbench has the counts as variables (group "Other sources"), with a note under any result that uses them.
+
+**Measured, each by reading samples.** OSM tier A 25/25, B 48/50, C ≈ 2/3 (kept out of the main union). Traps now rules: `religion=shinto` on 14 darbars; درگاہ inside بندرگاہ and مندر inside سمندری (whole-word matching); "X Shrine Mosque" is the mosque (13/15). Union link precision 23/25; union-find chaining (Shah Jamal to Shah Kamal, Prahladpuri to Zakariya) fixed by cannot-link constraints. **The sources disagree on which districts are dense** (OSM vs GeoNames per person, Spearman 0.09); **OSM's mapping follows wealth** (mapped mosques +0.78 per s.d. of RWI); GeoNames and DOAM run the other way. A shrines-and-welfare result can change sign with the source.
+
+**The baseline.** DOAM's points sit 12 m (median) from OSM's for the same place; other sources together hold about 17–20% of DOAM's sites. Anchored on DOAM, the two-list estimate of Muslim shrine places is a **floor of about 9,100 nationally (7,700–10,500), 2,560 in Punjab**. The Auqaf registers (Punjab 480 named of 548 stated, Sindh 80; §9.433) cannot calibrate: name-only matching was right about 12 times in 40.
+
+**The archive's pins.** 84 sites have independent records: 61 confirmed within 150 m; **10 suspect**, each placed elsewhere by DOAM and OSM or Wikidata agreeing within metres: Hafiz Jamal Multani, Shah Ali Akbar, Malik Ayaz (1.2–1.5 km), Baha'al-Halim and Bibi Jawindi (one shared placeholder pin), Abul Muali Qadri, **Lal Shahbaz Qalandar (≈ 900 m)**, Tahir Bandagi (a pin shared with Ghazi Ilm Din and Wasif Ali Wasif), Ranjit Singh's samadhi, Miran Hussain Zanjani. Nothing was moved (RULE 2/3); proposed points are in `archive_location_check.csv`.
+
+**Gotchas.** Overpass refused the first wide query on all three mirrors and answered a retry a minute later. The register name-matcher is O(names × candidates) in pure Python: ~15 minutes. Another session (the place-articles watcher) was writing in this checkout at the same time; only this work's files were committed.

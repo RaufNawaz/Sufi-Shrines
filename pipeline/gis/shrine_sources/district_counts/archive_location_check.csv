@@ -1,0 +1,85 @@
+archive_id,name,district_code,verdict,nearest_independent_m,agreeing_sources,agreeing_centre_lat,agreeing_centre_lon,pin_to_agreeing_centre_m,archive_lat,archive_lon,records_m
+shrine-of-hafiz-muhammad-jamal-multani,Shrine of Hafiz Muhammad Jamal Multani,PK622,pin_suspect,1514,doam+osm,30.19538,71.485335,1518,30.1993,71.4702,doam:sites/10280 1514; osm:way/900538810 1515; osm:way/900538809 1526
+shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi,Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi),PK622,pin_suspect,1445,doam+osm+wikidata,30.217616,71.438151,1482,30.214,71.453,doam:sites/6430 1445; osm:way/900538821 1445; osm:way/900538792 1500; osm:way/900538796 1501; wikidata:Q6794057 1522; doam:sites/6427 2350
+darbar-malik-ahmad-ayaz,Darbar Malik Ahmad Ayaz,PK617,pin_suspect,1187,doam+osm,31.582455,74.318469,1193,31.57803,74.307,osm:way/903945368 1187; osm:node/8395172968 1192; doam:sites/10165 1199
+tomb-of-baha-al-halim-uch-sharif,Tomb of Baha'al-Halim (Uch Sharif),PK603,pin_suspect,1178,doam+osm+wikidata,29.240321,71.051975,1195,29.238,71.064,doam:sites/6550 1178; wikidata:Q18210989 1178; osm:node/4736287721 1232
+tomb-of-javindi-bibi,Tomb of Javindi Bibi,PK603,pin_suspect,1162,doam+wikidata,29.240889,71.05247,1164,29.238,71.064,wikidata:Q7818612 1162; doam:sites/6552 1166
+darbar-abul-muali-qadri,Darbar Abul Muali Qadri,PK617,pin_suspect,905,doam+osm,31.56994,74.326041,913,31.5772,74.32155,osm:way/611963337 905; doam:sites/10193 912; osm:way/611963338 920
+lal-shahbaz-qalandar,Lal Shahbaz Qalandar,PK708,pin_suspect,883,doam+osm,26.42839,67.862471,901,26.42669,67.87132,osm:relation/12152063 883; doam:sites/5179 919; geonames:11120809 923
+tahir-bandagi-qadri,Darbar Hazrat Tahir Bandagi Qadri,PK617,pin_suspect,813,doam+osm,31.549197,74.308437,814,31.5498,74.317,osm:way/1078951946 813; doam:sites/10192 815
+samadhi-of-maharaja-ranjit-singh,Samadhi of Maharaja Ranjit Singh,PK617,pin_suspect,684,doam+osm+wikidata,31.589286,74.311227,688,31.5847,74.3161,doam:sites/6470 684; osm:way/105841052 684; wikidata:Q3383698 684; osm:way/604159945 689; osm:way/604159948 697; geonames:7043731 718
+shrine-of-miran-hussain-zanjani-zanjani-sahib,Shrine of Miran Hussain Zanjani (Zanjani Sahib),PK617,pin_suspect,384,doam+osm,31.586364,74.344531,385,31.5897,74.3456,osm:way/618664586 384; doam:sites/10204 385
+shrine-of-akhund-panju-baba,Shrine of Akhund Panju Baba,PK526,disputed,2131,doam,34.0385,71.7228,2131,34.0576,71.7247,geonames:1106957 1948; doam:sites/4612 2131
+shrine-of-akhund-darweza-baba,Shrine of Akhund Darweza Baba,PK528,disputed,1441,osm,33.999437,71.591427,1441,33.9933,71.6052,geonames:8624279 1183; osm:node/8436248356 1441
+ghazi-ilm-din-shaheed,Darbar Ghazi Ilm Din Shaheed,PK617,disputed,857,osm,31.552534,74.308545,857,31.5498,74.317,osm:way/611906754 857
+darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a,Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A),PK607,disputed,853,osm,30.701264,70.648049,853,30.70826,70.6517,osm:node/2899978113 853
+wasif-ali-wasif,Darbar Wasif Ali Wasif,PK617,disputed,570,osm,31.549851,74.310982,570,31.5498,74.317,osm:way/611906758 570
+chandragup-baba-chandragup,Chandragup (Baba Chandragup),PK217,disputed,372,osm,25.447776,65.868094,372,25.4453,65.8656,osm:node/4081039771 372
+gurdwara-sahib-saidpur-guru-nanak-dev-ji,Gurdwara Sahib Saidpur (Guru Nanak Dev Ji),PK401,near,266,wikidata,33.74476,73.06805,266,33.7425,73.0671,wikidata:Q96146336 266
+ram-mandir-saidpur-ram-kund-mandir,"Ram Mandir, Saidpur (Ram Kund Mandir)",PK401,near,232,doam,33.728203,73.058955,1808,33.7427,73.0678,wikidata:Q96103649 232; doam:sites/6230 1808
+shrine-of-baba-shah-kamal,Shrine of Baba Shah Kamal,PK617,near,191,doam+osm,31.523419,74.311277,197,31.5235,74.3092,osm:way/612407253 191; doam:sites/10215 198; osm:way/612407252 202
+jagannath-temple-sialkot,"Jagannath Temple, Sialkot",PK634,near,186,wikidata,32.497222,74.536111,186,32.495833,74.535,wikidata:Q6122174 186
+dargah-fateh-pur-sharif,Dargah Fateh Pur Sharif,PK208,near,155,wikidata,28.571146,67.496815,155,28.56978,67.49652,wikidata:Q133858005 155
+shergarh,Shergarh,PK626,confirmed,142,doam,30.830482,73.73902,142,30.82922,73.73882,doam:sites/10301 142; geonames:11544066 142
+shrine-of-mauj-darya-bukhari,Shrine of Mauj Darya Bukhari,PK617,confirmed,110,doam+osm,31.564111,74.31066,117,31.565,74.31,doam:sites/10302 110; osm:way/618358809 118; doam:sites/10196 120; osm:way/618358808 121
+dargah-of-khwaja-muhammad-zaman-luari-sharif,Dargah of Khwaja Muhammad Zaman (Luari Sharif),PK701,confirmed,89,doam+osm,24.56175,68.901814,95,24.5612,68.9011,osm:node/10718809899 89; doam:sites/9988 101
+gurudwara-janam-asthan-nankana-sahib,Gurudwara Janam Asthan Nankana Sahib,PK624,confirmed,89,osm,31.445283,73.696452,89,31.445763,73.695697,osm:way/633355235 89; wikidata:Q3695654 241
+kali-bari-mandir,Kali Bari Mandir,PK528,confirmed,75,doam,33.998883,71.542133,75,33.9986,71.5414,doam:sites/9313 75
+shrine-of-pir-sher-muhammad,Shrine of Pir Sher Muhammad,PK633,confirmed,67,doam,31.457698,74.092149,67,31.45717,74.0925,doam:sites/10316 67; geonames:1330749 106
+golra-sharif,Golra Sharif,PK401,confirmed,58,doam+osm+wikidata,33.691629,72.974368,71,33.691377,72.97507,wikidata:Q18209210 58; doam:sites/9182 67; geonames:1338886 91; osm:way/258337819 109
+mazar-of-bulleh-shah,Mazar of Bulleh Shah,PK614,confirmed,53,doam+osm,31.121044,74.447619,62,31.121329,74.448182,osm:way/389061959 53; doam:sites/10141 72
+bari-imam,Bari Imam,PK401,confirmed,43,doam+osm+wikidata,33.745253,73.111046,30,33.74499,73.110982,osm:node/4139137690 43; doam:sites/6347 47; wikidata:Q125867499 55; osm:way/595938766 56
+shrine-of-sachal-sarmast,Shrine of Sachal Sarmast,PK711,confirmed,40,doam+osm,27.305522,68.512763,46,27.305874,68.512516,doam:sites/5185 40; osm:node/2526245617 52
+mausoleum-of-waris-shah,Mausoleum of Waris Shah,PK633,confirmed,36,osm,31.817633,73.916438,36,31.817313,73.916507,osm:relation/14415306 36; osm:way/1083290433 37; geonames:11526572 43
+gurdwara-shaheed-bhai-taru-singh,Gurdwara Shaheed Bhai Taru Singh,PK617,confirmed,35,osm+wikidata,31.579044,74.331791,43,31.578684,74.331944,wikidata:Q85764906 35; osm:way/611961544 42; osm:way/611961542 46; osm:way/611961543 50
+bhagnari-mandir,Bhagnari Mandir,PK721,confirmed,34,osm,24.85731,66.999949,34,24.8571,66.9997,osm:way/682033062 34
+darya-lal-mandir-darya-lal-sankat-mochan-mandir,Darya Lal Mandir (Darya Lal Sankat Mochan Mandir),PK721,confirmed,33,osm,24.849117,66.99132,33,24.84889,66.99111,osm:way/682031703 33
+gurdwara-shaheed-ganj-singh-singhnian,Gurdwara Shaheed Ganj Singh Singhnian,PK617,confirmed,32,osm+wikidata,31.578575,74.332149,39,31.5783,74.3319,osm:way/619290344 32; osm:way/605819635 38; wikidata:Q85764895 46
+sharada-peeth,Sharada Peeth,PK108,confirmed,31,doam+wikidata,34.792222,74.190113,33,34.79194,74.19,wikidata:Q3765487 31; doam:sites/6633 38
+shrine-of-qalandar-baba-auliya,Shrine of Qalandar Baba Auliya,PK702,confirmed,31,osm,24.960191,67.056562,41,24.95986,67.056731,osm:way/687693318 31; osm:way/687693317 50
+umarkot-amarkot-shiv-mandir,Umarkot (Amarkot) Shiv Mandir,PK728,confirmed,31,doam,25.416028,69.776306,31,25.416306,69.77625,doam:sites/10373 31
+gurdwara-chhevin-patshahi-mozang,"Gurdwara Chhevin Patshahi, Mozang",PK617,confirmed,30,osm,31.555487,74.315997,31,31.5556,74.3163,osm:way/618622153 30; osm:way/618622154 33
+shree-ratneshwar-mahadev-temple-karachi,"Shree Ratneshwar Mahadev Temple, Karachi",PK721,confirmed,27,osm+wikidata,24.812903,67.027154,52,24.81275,67.026667,osm:way/682033231 27; wikidata:Q98079324 95
+bhit-bhit-shah,Bhit (Bhit Shah),PK715,confirmed,26,doam+osm,25.806265,68.491416,44,25.80649,68.49105,osm:way/478389225 26; doam:sites/10375 72
+shrine-of-shah-shams-ud-din-sabzwari,Shrine of Shah Shams-ud-Din Sabzwari,PK622,confirmed,22,doam+osm+wikidata,30.201022,71.484075,23,30.200818,71.484105,osm:way/900538787 22; wikidata:Q100457785 33; doam:sites/10267 39; doam:sites/6429 42; geonames:1409700 132; geonames:1465475 246
+rahman-baba-mausoleum-rehman-baba-shrine,Rahman Baba Mausoleum (Rehman Baba Shrine),PK528,confirmed,21,doam+osm,33.993595,71.589888,31,33.993333,71.59,geonames:7041419 21; osm:node/3276959669 21; doam:sites/4563 42
+gurdwara-babay-de-ber,Gurdwara Babay De Ber,PK634,confirmed,19,osm+wikidata,32.481023,74.54889,20,32.4811,74.5487,wikidata:Q5619946 19; osm:relation/12253086 20
+shrine-of-hazrat-shah-daula-daryai,Shrine of Hazrat Shah Daula Daryai,PK610,confirmed,19,doam,32.571804,74.084588,19,32.57183,74.084384,doam:sites/10118 19
+sakhi-sarwar,Sakhi Sarwar,PK607,confirmed,17,doam+osm,29.986447,70.302344,27,29.986519,70.302609,osm:node/2340772144 17; doam:sites/10103 39
+bibi-pak-daman,Shrine of Bibi Pak Daman,PK617,confirmed,17,doam+osm,31.564432,74.339891,17,31.564283,74.339948,doam:sites/10208 17; osm:way/611956194 18; wikidata:Q4903032 567
+shahwala-teja-singh-mandir,Shahwala Teja Singh Mandir,PK634,confirmed,15,osm+wikidata,32.490919,74.544985,15,32.4908,74.5449,osm:way/365527483 15; wikidata:Q65054296 18
+gurdwara-darbar-sahib-kartarpur,Gurdwara Darbar Sahib Kartarpur,PK625,confirmed,13,osm+wikidata,32.087285,75.016698,13,32.08735,75.01658,osm:relation/14033480 13; osm:way/743532013 20; wikidata:Q5619951 22; geonames:11081786 33
+gurdwara-bhai-joga-singh,Gurdwara Bhai Joga Singh,PK528,confirmed,11,doam+osm,34.00207,71.563074,14,34.001941,71.563077,osm:way/838390251 11; doam:sites/4552 18
+gurdwara-rori-sahib,Gurdwara Rori Sahib,PK609,confirmed,9,osm,32.047395,74.248972,9,32.047458,74.248917,osm:way/863294226 9
+dargah-pir-ratan-nath-jee,Dargah Pir Ratan Nath Jee,PK528,confirmed,6,doam,34.0116,71.5788,6,34.011583,71.578861,doam:sites/4386 6; wikidata:Q24952161 700
+shrine-of-mian-mir,Shrine of Mian Mir,PK617,confirmed,6,osm,31.548372,74.360099,6,31.548375,74.360031,osm:way/621947796 6; osm:way/621947799 7; geonames:1388667 264
+shrine-of-pir-mangho,Shrine of Pir Mangho,PK729,confirmed,6,doam+osm,24.979775,67.034506,80,24.980369,67.034959,osm:node/7034769399 6; osm:way/752866656 14; geonames:7045952 125; doam:sites/6031 147
+katas-raj-temples,Katas Raj Temples,PK605,confirmed,5,doam+osm,32.72389,72.951615,12,32.724,72.951639,doam:sites/6750 5; osm:node/3391903920 6; osm:way/489613646 32
+prahladpuri-temple,Prahladpuri Temple,PK622,confirmed,5,osm,30.200315,71.476835,5,30.200361,71.476833,osm:node/1921954357 5; wikidata:Q7237726 741
+gorakhnath-goraknath-temple,Gorakhnath (Goraknath) Temple,PK528,confirmed,3,doam+osm+wikidata,34.008201,71.580667,3,34.008194,71.580639,osm:relation/11550311 3; wikidata:Q24952162 5; doam:sites/4384 6; geonames:8624867 9
+gurdwara-chakki-sahib,Gurdwara Chakki Sahib,PK609,confirmed,3,osm,32.041951,74.260765,77,32.0422,74.26,osm:node/9886024553 3; osm:node/9886024552 152
+gurdwara-choa-sahib,Gurdwara Choa Sahib,PK613,confirmed,3,doam+osm+wikidata,32.971196,73.573271,11,32.9711,73.5733,wikidata:Q30641887 3; osm:node/8661461630 15; doam:sites/10357 18
+shrine-of-shah-yusaf-gardez,Shrine of Shah Yusaf Gardez,PK622,confirmed,1,doam+osm,30.194794,71.466484,1,30.19479,71.46649,doam:sites/6428 1; osm:node/1921952703 1; osm:way/900538786 2
+amb-temples-amb-sharif,Amb Temples (Amb Sharif),PK616,confirmed,0,doam+osm+wikidata,32.508389,71.936513,3,32.508402,71.936538,wikidata:Q40889216 0; doam:sites/6897 3; osm:node/4388683990 9; doam:sites/6590 528
+churrio-jabal-durga-mata-temple,Churrio Jabal Durga Mata Temple,PK726,confirmed,0,wikidata,24.399917,71.064944,0,24.399917,71.064944,wikidata:Q28169612 0
+gori-temple-gori-jo-mandar,Gori Temple (Gori jo Mandar),PK726,confirmed,0,osm+wikidata,24.638148,70.617752,1,24.638139,70.61775,wikidata:Q60045535 0; osm:way/491754279 2
+kalka-cave-temple-asthan-of-kalka-devi,Kalka Cave Temple (Asthan of Kalka Devi),PK723,confirmed,0,wikidata,27.626056,68.930917,0,27.626056,68.930917,wikidata:Q97353646 0
+ramapir-temple-tando-allahyar,"Ramapir Temple, Tando Allahyar",PK724,confirmed,0,wikidata,25.457722,68.721778,0,25.457722,68.721778,wikidata:Q96401177 0
+shri-swaminarayan-mandir-karachi,"Shri Swaminarayan Mandir, Karachi",PK721,confirmed,0,doam+osm+wikidata,24.854374,67.007983,2,24.854361,67.007972,wikidata:Q2639803 0; osm:way/681003151 1; doam:sites/6242 8; osm:way/681534117 9
+shri-varun-dev-mandir,Shri Varun Dev Mandir,,confirmed,0,osm+wikidata,24.797576,66.97083,2,24.797583,66.970806,wikidata:Q7503915 0; osm:way/682033059 5
+shrine-at-odero-lal-udero-lal-teerath-asthan,Shrine at Odero Lal (Udero Lal Teerath Asthan),PK715,confirmed,0,osm+wikidata,25.701335,68.561438,0,25.701335,68.561438,osm:node/4717267479 0; wikidata:Q30593609 0
+shrine-of-abdullah-shah-ghazi,Shrine of Abdullah Shah Ghazi,PK721,confirmed,0,osm,24.810608,67.030349,16,24.8107,67.03023,osm:way/691601994 0; geonames:11118460 20; osm:way/691601996 32
+shrine-of-bahauddin-zakariya,Shrine of Bahauddin Zakariya,PK622,confirmed,0,doam+osm+wikidata,30.200586,71.476441,8,30.20061,71.47652,osm:way/28021196 0; osm:way/900538814 7; doam:sites/10273 12; wikidata:Q39061227 14
+shrine-of-fariduddin-ganjshakar,Shrine of Fariduddin Ganjshakar,PK627,confirmed,0,doam+osm,30.341323,73.387783,14,30.3412,73.38775,osm:way/174504957 0; geonames:11543765 25; doam:sites/9694 28
+madho-lal-hussain,Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar),PK617,confirmed,0,doam+osm,31.585689,74.374717,8,31.585654,74.374797,doam:sites/10203 0; osm:way/611331224 5; osm:way/611331223 26
+shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari,Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari),PK603,confirmed,0,doam+wikidata,29.240136,71.052863,0,29.240139,71.052861,wikidata:Q18210991 0; doam:sites/7041 1
+shrine-of-makhdoom-jahaniyan-jahangasht,Shrine of Makhdoom Jahaniyan Jahangasht,PK603,confirmed,0,doam+wikidata,29.24288,71.055356,1,29.242889,71.055361,wikidata:Q100287102 0; doam:sites/7043 2
+peer-makki,Shrine of Peer Makki,PK617,confirmed,0,doam,31.579491,74.323627,1823,31.58286,74.30479,osm:way/617283943 0; doam:sites/10207 1823; osm:node/8400170348 2185; osm:node/8400170349 2197
+shah-jamal,Shrine of Shah Jamal,PK617,confirmed,0,osm+wikidata,31.52816,74.328987,7,31.52822,74.329,wikidata:Q7818642 0; osm:way/621948315 6; osm:way/475524569 16; geonames:7043402 47
+shrine-of-shah-rukn-e-alam,Shrine of Shah Rukn-e-Alam,PK622,confirmed,0,doam+osm+wikidata,30.199075,71.471629,18,30.19913,71.47181,osm:way/900538788 0; osm:way/900538789 15; doam:sites/6431 16; wikidata:Q15983527 47; geonames:1465473 175
+shrine-of-syed-musa-pak,Shrine of Syed Musa Pak,PK622,confirmed,0,doam+osm,30.190286,71.471529,5,30.19025,71.47156,osm:way/900538804 0; doam:sites/10271 10
+tilla-jogian,Tilla Jogian,PK613,confirmed,0,doam,32.860583,73.440343,0,32.860583,73.440343,doam:sites/10363 0
+mazar-e-iqbal,Tomb of Allama Iqbal (Mazar-e-Iqbal),PK617,confirmed,0,doam+osm+wikidata,31.587896,74.311312,1,31.5879,74.3113,wikidata:Q7818633 0; doam:sites/6498 1; osm:way/316466012 2; osm:way/291782545 3; geonames:7043467 228
+tomb-of-qutbuddin-aibak,Tomb of Qutbuddin Aibak,PK617,confirmed,0,doam+osm+wikidata,31.574722,74.313571,4,31.5747,74.3136,wikidata:Q138803811 0; doam:sites/6492 7; osm:node/2394131445 9; geonames:7043457 1569
+shah-noorani-shrine-syed-bilawal-shah-noorani,Shah Noorani Shrine (Syed Bilawal Shah Noorani),PK213,geonames_only,,,,,,25.77296,67.01538,geonames:1341734 544
+shrine-of-hazrat-muhammad-ayub-shah-bukhari,Shrine of Hazrat Muhammad Ayub Shah Bukhari,PK208,geonames_only,,,,,,28.617,67.483,geonames:11232321 1127
