@@ -34,6 +34,48 @@ the reason the rest is credible.
 
 ---
 
+## 30 October 2026, night: start here (read HANDOVER §9.412 to §9.417)
+
+**Working copy and branch.** `C:\Users\g16\Desktop\Shrines Project`, branch `cleanup/perf-stability-security` (cut 25 October from `d368297`, `docs/CLEANUP_2026-10.md`). Last commit, by Rauf on 30 October at 02:12Z: "feat: verse originals in Gurmukhi, restored lines, verse language labels, new Urdu articles". **Not pushed.** GitHub Pages deploys only on a push to `1.7` (`.github/workflows/deploy-pages.yml`); `origin/1.7` was at `9435527` when last fetched and has none of this branch.
+
+**The sheet.** The import of 30 October is in: the published sheet, read on 30 October and hashed row by row, is byte for byte `data/import_2026-10-30.csv`. The live English therefore carries the 94 public descriptions, Guru Nanak's and Farid's lines in Gurmukhi, and the four restored lines.
+
+**Why the live site does not look right yet.** Rauf, 30 October, with a screenshot of Bulleh Shah's English article showing a rendering as italic prose with "(translated by Christopher Shackle)": "i imported the csv but the poetry still reads like this". How verse is set is site code, and the code of 29 and 30 October exists only on this branch: renderings as centred figures with a colophon credit (§9.414), Gurmukhi originals and the lone verse line rule (§9.415), the language captions (§9.416), and the new Urdu articles in `src/data/urdu-content.json`. The live site runs `1.7`, which sets a rendering as italic prose, shows a Gurmukhi original as plain left aligned text (a two line original runs on as one line), and still serves the old Urdu articles beside the new English. **A deploy fixes it; nothing in the sheet can.**
+
+**To deploy (Rauf's decision, asked in the chat on 30 October).** A deploy of this branch also ships the October cleanup on it (21 commits: Safari fixes, a Content Security Policy, service worker changes; `docs/CLEANUP_2026-10.md` says "not merged and not pushed until Rauf says so"). In order:
+
+1. `npm run data:build`, then `npm run data:validate`. Until `data:build`, `pipeline/urdu_content_qa.py` compares the new Urdu articles with the old English in `data/shrines.csv` and fails on the 94 rows.
+2. `npm run verify`, `npm run build`.
+3. Commit the refreshed data (`data: refresh snapshot after the 30 October import`).
+4. See how the branch relates to `1.7` (`git fetch`, `git log --oneline origin/1.7..HEAD`, `git merge-base HEAD origin/1.7`), push the branch, bring it into `1.7` (merge or pull request) and push `1.7`. The workflow runs `data:validate` before it deploys.
+
+**On this PC (Windows PowerShell 5.1).** `&&` is not a statement separator here: one command per line, or `;`. After the commit of 30 October, Git's automatic tidy up asked "Deletion of directory '.git/objects/00' failed. Should I try again?" over and over (something else had the folder open: an editor, the Claude app's link to the folder, a sync tool). Ctrl+C is safe once the commit line has printed; run `git gc` later with nothing else open. An aborted commit message left `.git/.COMMIT_EDITMSG.swp`; if Vim warns about a swap file, press D.
+
+**Asked in the chat, not yet answered** (this is the record; ask again in the chat, RULE 5):
+
+1. Originals not in the corpus: may an original come from a named standard edition (a *Shah jo Risalo*, a *Hir* of Waris Shah, an edition of Shah Hussain's kafis), cited in the bibliography as the Guru Granth Sahib is?
+2. Songs the books give only in romanization (Abbas, Qureshi): write them in Shahmukhi, or show the romanization as the original?
+3. Farid's "Ajj na suti" stands in Gurmukhi, as the Granth keeps it: keep, or add the Shahmukhi?
+4. Guru Nanak's lines are captioned "Gurmukhi" (the script), not "Punjabi", because one gurdwara article says he composed "in Hindi": keep, or say Punjabi?
+5. The translator credit set as "tr. NAME" (§9.414): is it the credit he wants?
+6. The four questions at the end of `docs/DATA_SOURCE_OPTIONS.md` (who edits the data; may an edit take minutes to appear; any truly private fields; start step 1, the articles compiled from the repository files).
+7. The deploy above.
+
+To check by hand: the restored line `مسجد و چاہ را انکو تعمیر` in Madho Lal Hussain's article (`انکو` is not Persian as printed; Chishti, *Tahqiqat-e Chishti*, p. 441).
+
+**Next work.** Rauf approved all four poetry routes on 29 October, with the rule "the original needs to be there". `entries/verse_originals/README.md` has the state (10 of 179 renderings found) and the table of where the rest are. In order:
+
+1. Rafat's Bulleh Shah: the Shahmukhi of each kafi faces the translation on the verso of the PDF in Adil Ahsan's Drive folder (file id `1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr`). Read the originals of his 10 renderings (and of any Shackle rendering of the same kafi) off those pages, enter them in `entries/verse_originals/registry.json` as found, then run `pipeline/apply_verse_originals.py`, `pipeline/verse_languages.py --write --check <sheet csv>`, rebuild the Urdu content (`urdu-i18n/build_urdu_content.py` after copying the changed `.ur.md` into `urdu-i18n/content/`) and build a new import.
+2. Shackle's *Risalo* PDF (Drive file id `1HOEtLylAPFcrkmL5SfOBZnriOl4qMZjW`): does it carry the Sindhi facing text?
+3. Khalid, *Walking with Nanak*, p. 144, "God is One, / The Path is One": identify the line (not in the Granth by a BaniDB search; perhaps a Janamsakhi saying). Nothing is inserted until it is identified.
+4. The rest waits on question 1.
+
+BaniDB gives the Granth's Gurmukhi exactly (`https://api.banidb.com/v2/angs/<ang>/G`); the cloud sandbox could not reach it and read it through a browser on sikhitothemax.org, but this PC may reach it directly.
+
+**Invariants for any change to a public description:** `python3 pipeline/apply_verse_originals.py --check` (every found original stands above its rendering in both languages), `python3 pipeline/verse_languages.py --check <sheet csv>` (every quoted verse has a recorded language), and `pipeline/build_public_import.py`, which refuses a file whose V1/V2/V3 stamps are not on its current md5. A verse added by hand, beyond the registry, needs V1/V2/V3 again (§9.415 shows the focused form used for the four restored lines).
+
+---
+
 ## 9 October 2026, evening — the phone pass (read HANDOVER §9.281)
 
 Phone header fixed (theme into the gear, one language button, title whole); Shared Ground's

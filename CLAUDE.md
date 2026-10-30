@@ -516,6 +516,7 @@ Commit in coherent units with a scope prefix (`data:`, `media:`, `feat:`, `docs:
 
 ## Pointers
 
+- `docs/SESSION_RESUME.md`: the standing queue. Read its newest dated section first: on 30 October 2026, a deploy waiting on Rauf, the questions he has not yet answered, and the verse originals work.
 - `docs/README.md` — index of all reference and planning docs.
 - `docs/HANDOVER.md` — full state, trust calibration, risks. Read §1, §2, §9 first.
 - `docs/planning/URDU_IMPLEMENTATION_PLAN.md` — full phased Urdu plan.

@@ -58,3 +58,10 @@ matches the Mac byte for byte.
 - Tesseract (`urd`/`fas`) for OCR: follow `BOOK_OCR_WORKFLOW.md` (the Windows one) when needed.
 - Playwright browsers for `npm run e2e`: `npx playwright install chromium webkit` (WebKit runs
   the iPhone smoke project, `e2e/webkit-smoke.spec.ts`, since 25 October 2026).
+
+## Found on 30 October 2026
+
+- The clone in use since 25 October 2026 is `C:\Users\g16\Desktop\Shrines Project` (branch `cleanup/perf-stability-security`, `docs/CLEANUP_2026-10.md`).
+- Windows PowerShell 5.1 does not accept `&&` between commands ("The token '&&' is not a valid statement separator in this version"). Put each command on its own line, or join them with `;`.
+- After a commit, Git's automatic tidy up can ask "Deletion of directory '.git/objects/00' failed. Should I try again?" without end, when something else has the folder open (an editor, the Claude app's link to the folder, a sync tool). Ctrl+C is safe once the commit has printed; run `git gc` later with nothing else open.
+- An aborted commit message leaves `.git/.COMMIT_EDITMSG.swp`; if Vim warns about a swap file on the next commit, press D.
