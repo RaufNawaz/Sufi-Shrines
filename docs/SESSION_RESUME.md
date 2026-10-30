@@ -34,6 +34,20 @@ the reason the rest is credible.
 
 ---
 
+## 30 October 2026, late night: verse, data refresh and three deploys (read `docs/_APPEND_422.md`, §9.422)
+
+**State.** All committed and pushed. `1.7` = `9801b63f`; the live site has the verse figures, Gurmukhi originals, language captions, the new Urdu articles, the October cleanup and the 489 row snapshot. Deploys: `606aca00` succeeded; `ca4d3354` failed at its test step (`DATABASE.md` not indexed, fixed in `bb19b05a`); `9801b63f` was running when this was written: **check its result first** (`https://api.github.com/repos/RaufNawaz/Sufi-Shrines/actions/runs?branch=1.7`), and if green, check `/shrine/gurdwara-choa-sahib` and the Urdu map sidebar on the live site.
+
+**Answered by Rauf this session** (strike these in the section below): the verse look, the translator credit as "tr. NAME" (approved with the look); the deploy (done); KG evidence whose words left the sheet points to `entries/descriptions/<id>.md` or `data/live_sheet_2026-10-15.csv`; displayed order and tradition excerpts are reselected from the public text, dropped where it no longer allows (Junaidi now has none); the 318 book rows got the full refresh; the approximate pin flag stays off (pin caveats live in `qa_note`).
+
+**Still open, ask again in the chat (RULE 5):** questions 1 to 4 and 6 of the section below (standard editions; romanized songs; Farid in Shahmukhi; "Gurmukhi" or "Punjabi"; `DATA_SOURCE_OPTIONS.md`). The 58 drafted Urdu names in `urdu-i18n/shrine_names_book_rows.tsv` (basis `draft`) and Mint Stop's منٹ اسٹاپ await a reader.
+
+**Next: verse originals, blocked on a file.** Rafat's PDF (Drive id `1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr`, owner Adil) is not on this PC: G: (Drive for Desktop) holds only My Drive, and the connector cannot fetch 8.4 MB. Rauf to add a shortcut to My Drive or save it in `media-source/`. Then: the registry's 9 `open-rafat-*` entries (folios 73, 129, 165, 169, 185), originals on the facing versos; quote only Bulleh Shah's Shahmukhi. Pipeline as in the section below.
+
+**Before any deploy after a data refresh:** run the Playwright suite too (`MSYS_NO_PATHCONV=1 VITE_BASE_PATH=/ npm run build` in Git Bash, then `npx playwright test --project=chromium --output=<scratch>`); the deploy workflow does not, and that is how two live faults shipped this session. `e2e/palette.spec.ts`'s keyboard test failed once under load and passes alone.
+
+---
+
 ## 30 October 2026, late night: the database, the GIS leads and the research viewer (read HANDOVER §9.418 to §9.421, then `docs/DATABASE.md`)
 
 **State.** Everything is committed on `cleanup/perf-stability-security` and pushed; `1.7` was fast-forwarded to `9801b63f` with Rauf's approval in the other session, which watched the deploy (its result is that session's record). `npm run verify` was green at `9801b63f`. Two sessions worked this checkout side by side that night (`shrines-project-1c`: this work; `shrines-project-97`: the verse and deploy work below).
