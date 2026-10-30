@@ -21,19 +21,16 @@
  * external URL carries its own origin.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { execSync } from 'node:child_process';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = join(__dirname, '../../../..');
 
-const FILES = execSync(
-  "find src -name '*.tsx' -not -path '*__tests__*' -not -name '*.stories.tsx'",
-  { cwd: ROOT, encoding: 'utf8' },
-)
-  .trim()
-  .split('\n')
-  .filter(Boolean);
+// Walked in Node rather than with `find`: from PowerShell on Windows `find` is
+// find.exe, a different program, and the suite failed before a test ran.
+const FILES = (readdirSync(join(ROOT, 'src'), { recursive: true }) as string[])
+  .map((f) => `src/${f.replace(/\\/g, '/')}`)
+  .filter((f) => f.endsWith('.tsx') && !f.includes('__tests__') && !f.endsWith('.stories.tsx'));
 
 /**
  * Paths that are genuinely served from the site root regardless of base, or are

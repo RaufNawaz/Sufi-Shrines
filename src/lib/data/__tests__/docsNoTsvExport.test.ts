@@ -28,16 +28,16 @@
  * does not have the word "forbidden" three lines away.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { execSync } from 'node:child_process';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = join(__dirname, '../../../..');
 
-const DOCS = execSync("find docs -name '*.md'", { cwd: ROOT, encoding: 'utf8' })
-  .trim()
-  .split('\n')
-  .filter(Boolean);
+// Walked in Node rather than with `find`: from PowerShell on Windows `find` is
+// find.exe, a different program, and the suite failed before a test ran.
+const DOCS = (readdirSync(join(ROOT, 'docs'), { recursive: true }) as string[])
+  .map((f) => `docs/${f.replace(/\\/g, '/')}`)
+  .filter((f) => f.endsWith('.md'));
 
 /**
  * Imperative TSV-export phrasings. Each is an instruction, not a discussion:
