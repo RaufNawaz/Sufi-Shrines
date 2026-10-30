@@ -19,6 +19,8 @@ EXPORT_LOGIN = "shrines_export"
 
 
 def connect(user, dbname=DBNAME):
+    # archive: the tables (migration 0002); extensions: where Supabase keeps PostGIS
     return psycopg2.connect(host=os.environ.get("PGHOST", "localhost"),
                             port=int(os.environ.get("PGPORT", "5432")),
-                            dbname=dbname, user=user, application_name="shrines-pipeline")
+                            dbname=dbname, user=user, application_name="shrines-pipeline",
+                            options="-c search_path=archive,public,extensions")

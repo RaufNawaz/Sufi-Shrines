@@ -56,6 +56,11 @@ CHECKs only on the controlled vocabularies in CLAUDE.md: `category`, `status`, `
 neither. All 489 rows satisfied them without a single edit. `year_built_precision` and
 `figure_type` hold qualifying prose and are deliberately unconstrained.
 
+**Since migration 0002 the tables live in schema `archive`**, not `public`, with row-level security on and
+policies only for the archive's own roles. On Supabase, `public` is published through the hosted REST
+API to the `anon` key; `archive` is not, and those roles are revoked from it as well. Connections set
+`search_path = archive, public, extensions` (`db.py`; `extensions` is where Supabase keeps PostGIS).
+
 **Changing the schema:** add `migrations/000N_name.sql` and run `python pipeline/db/migrate.py`.
 Never edit an applied migration; the runner stores each file's SHA-256 and refuses.
 
@@ -136,9 +141,23 @@ with `import_sheet.py --from-sheet --replace`. The steps, none taken yet:
    This touches the website's code and is a separate, reviewed change.
 5. **Keep the sheet** as a read-only historical copy; do not delete it.
 
+## Hosting: Supabase (Rauf, 30 October 2026)
+
+Rauf ruled that Adil must be able to edit with something open source and easy, not a VPN, and chose
+**Supabase** (open-source PostgreSQL + PostGIS, hosted; self-hostable later). The master copy moves
+there; this PC keeps the local cluster as the **backup target**: a nightly dump pulled from Supabase,
+restored and compared here. Two known limits, stated rather than glossed:
+
+- **Supabase's table editor runs every edit as one database user**, so the history records each
+  change but not which person made it. The sign-in admin page (planned) restores attribution.
+- **The free tier keeps no downloadable backups and may pause an idle project**; the nightly pull
+  is the backup, and should also count as activity (not yet verified).
+
+Waiting on: Rauf creating the Supabase project and putting its connection password in pgpass
+(never in the chat or the repo).
+
 ## Open (decisions asked in the chat, 30 October 2026)
 
 - The off-site copy: which open-source tool and which cloud destination.
-- How Adil reaches the database to edit (the server is localhost-only by design).
-- Which table editor.
+- Which table editor: settled by Supabase (its own web table editor).
 - When to start the parallel run and freeze the sheet.
