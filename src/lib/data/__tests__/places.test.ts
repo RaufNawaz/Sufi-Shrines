@@ -96,8 +96,14 @@ describe('buildPlaces over the shipped snapshot', () => {
      * Sharda were simply missing, and Girhor Sharif was unplaced for a vowel
      * ("Umarkot" against a pattern that only matched "Umerkot"). A loose
      * threshold would have hidden all five. */
-    expect(unplaced.length).toBeLessThanOrEqual(2);
-    expect(unplaced.every((s) => !s.location || s.location.length > 80)).toBe(true);
+    /* Since the October 2026 book rows, 18 rows have an EMPTY Location: Hadiqat
+     * al-Awliya gives each a list of candidate places ("Satghara, Hujra, Jarwa,
+     * Chunian…") and the build refused to choose one (RULE 2). They cannot be
+     * placed and are counted apart; the threshold still holds for every row
+     * that names somewhere, which is where a vocabulary gap would show. */
+    const named = unplaced.filter((s) => s.location);
+    expect(named.length).toBeLessThanOrEqual(2);
+    expect(named.every((s) => s.location!.length > 80)).toBe(true);
   });
 
   it('lets one site belong to a town and its district, because it is in both', () => {

@@ -77,6 +77,7 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'buner', name: 'Buner', match: /\bBuner\b/i },
   { slug: 'chakwal', name: 'Chakwal', match: /\bChakwal\b/i },
   { slug: 'chiniot', name: 'Chiniot', match: /\bChiniot\b/i },
+  { slug: 'chunian', name: 'Chunian', match: /\bChunian\b/i },
   { slug: 'dadu', name: 'Dadu', match: /\bDadu\b/i },
   { slug: 'dera-ghazi-khan', name: 'Dera Ghazi Khan', match: /\bDera\s+Ghazi\s+Khan\b/i },
   { slug: 'eminabad', name: 'Eminabad', match: /\bEminabad\b/i },
@@ -86,8 +87,10 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'gujrat', name: 'Gujrat', match: /\bGujrat\b/i },
   { slug: 'hasan-abdal', name: 'Hasan Abdal', match: /\bHasan\s+Abdal\b/i },
   { slug: 'hingol', name: 'Hingol National Park', match: /\bHingol\b/i },
+  { slug: 'hujra', name: 'Hujra', match: /\bHujra\b/i },
   { slug: 'hyderabad', name: 'Hyderabad', match: /\bHyderabad\b/i },
   { slug: 'islamabad', name: 'Islamabad', match: /\bIslamabad\b/i },
+  { slug: 'jarwa', name: 'Jarwa', match: /\bJarwa\b/i },
   { slug: 'jhal-magsi', name: 'Jhal Magsi', match: /\bJhal\s+Magsi\b/i },
   { slug: 'jhang', name: 'Jhang', match: /\bJhang\b/i },
   { slug: 'jhelum', name: 'Jhelum', match: /\bJhelum\b/i },
@@ -126,6 +129,7 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'rajanpur', name: 'Rajanpur', match: /\bRajanpur\b/i },
   { slug: 'rawalpindi', name: 'Rawalpindi', match: /\bRawalpindi\b/i },
   { slug: 'sargodha', name: 'Sargodha', match: /\bSargodha\b|\bSial\s+Sharif\b/i },
+  { slug: 'satghara', name: 'Satghara', match: /\bSatghara\b/i },
   { slug: 'sehwan', name: 'Sehwan Sharif', match: /\bSehwan\b/i },
   { slug: 'shahpur', name: 'Shahpur', match: /\bShahpur\b/i },
   { slug: 'sharaqpur', name: 'Sharaqpur', match: /\bSharaqpur\b/i },
@@ -142,11 +146,12 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   },
   { slug: 'taunsa-sharif', name: 'Taunsa Sharif', match: /\bTaunsa\b/i },
   { slug: 'tharparkar', name: 'Tharparkar', match: /\bTharparkar\b/i },
-  { slug: 'uch-sharif', name: 'Uch Sharif', match: /\bUch\s+Sharif\b/i },
+  { slug: 'uch-sharif', name: 'Uch Sharif', match: /\bUch(?:\s+Sharif)?\b/i },
   /* Both spellings occur in the data — "Umerkot" in the Location column of one
      row and "Umarkot" in another. `Ume?rkot` matched only the first, which left
      Girhor Sharif unplaced for a missing vowel. */
   { slug: 'umerkot', name: 'Umerkot', match: /\bUm[ae]?rkot\b/i },
+  { slug: 'wazirabad', name: 'Wazirabad', match: /\bWazirabad\b/i },
 ] as const;
 
 export interface PlaceRecord {

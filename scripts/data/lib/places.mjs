@@ -27,6 +27,7 @@ export const PLACE_VOCABULARY = [
   { slug: 'buner', name: 'Buner', pattern: '\\bBuner\\b' },
   { slug: 'chakwal', name: 'Chakwal', pattern: '\\bChakwal\\b' },
   { slug: 'chiniot', name: 'Chiniot', pattern: '\\bChiniot\\b' },
+  { slug: 'chunian', name: 'Chunian', pattern: '\\bChunian\\b' },
   { slug: 'dadu', name: 'Dadu', pattern: '\\bDadu\\b' },
   { slug: 'dera-ghazi-khan', name: 'Dera Ghazi Khan', pattern: '\\bDera\\s+Ghazi\\s+Khan\\b' },
   { slug: 'eminabad', name: 'Eminabad', pattern: '\\bEminabad\\b' },
@@ -36,8 +37,10 @@ export const PLACE_VOCABULARY = [
   { slug: 'gujrat', name: 'Gujrat', pattern: '\\bGujrat\\b' },
   { slug: 'hasan-abdal', name: 'Hasan Abdal', pattern: '\\bHasan\\s+Abdal\\b' },
   { slug: 'hingol', name: 'Hingol National Park', pattern: '\\bHingol\\b' },
+  { slug: 'hujra', name: 'Hujra', pattern: '\\bHujra\\b' },
   { slug: 'hyderabad', name: 'Hyderabad', pattern: '\\bHyderabad\\b' },
   { slug: 'islamabad', name: 'Islamabad', pattern: '\\bIslamabad\\b' },
+  { slug: 'jarwa', name: 'Jarwa', pattern: '\\bJarwa\\b' },
   { slug: 'jhal-magsi', name: 'Jhal Magsi', pattern: '\\bJhal\\s+Magsi\\b' },
   { slug: 'jhang', name: 'Jhang', pattern: '\\bJhang\\b' },
   { slug: 'jhelum', name: 'Jhelum', pattern: '\\bJhelum\\b' },
@@ -72,6 +75,7 @@ export const PLACE_VOCABULARY = [
   { slug: 'rajanpur', name: 'Rajanpur', pattern: '\\bRajanpur\\b' },
   { slug: 'rawalpindi', name: 'Rawalpindi', pattern: '\\bRawalpindi\\b' },
   { slug: 'sargodha', name: 'Sargodha', pattern: '\\bSargodha\\b|\\bSial\\s+Sharif\\b' },
+  { slug: 'satghara', name: 'Satghara', pattern: '\\bSatghara\\b' },
   { slug: 'sehwan', name: 'Sehwan Sharif', pattern: '\\bSehwan\\b' },
   { slug: 'shahpur', name: 'Shahpur', pattern: '\\bShahpur\\b' },
   { slug: 'sharaqpur', name: 'Sharaqpur', pattern: '\\bSharaqpur\\b' },
@@ -84,8 +88,9 @@ export const PLACE_VOCABULARY = [
   { slug: 'tando-muhammad-khan', name: 'Tando Muhammad Khan', pattern: '\\bTando\\s+Muhammad\\s+Khan\\b' },
   { slug: 'taunsa-sharif', name: 'Taunsa Sharif', pattern: '\\bTaunsa\\b' },
   { slug: 'tharparkar', name: 'Tharparkar', pattern: '\\bTharparkar\\b' },
-  { slug: 'uch-sharif', name: 'Uch Sharif', pattern: '\\bUch\\s+Sharif\\b' },
+  { slug: 'uch-sharif', name: 'Uch Sharif', pattern: '\\bUch(?:\\s+Sharif)?\\b' },
   { slug: 'umerkot', name: 'Umerkot', pattern: '\\bUm[ae]?rkot\\b' },
+  { slug: 'wazirabad', name: 'Wazirabad', pattern: '\\bWazirabad\\b' },
 ];
 
 /** Compiled once; the flags match the app's (`i`, no `g` — these are tests, not

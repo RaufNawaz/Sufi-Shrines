@@ -126,6 +126,19 @@ PLACE_TOKENS = {
     "Quetta": "کوئٹہ",
     "Sehwan Sharif": "سیہون شریف",
     "Uch Sharif": "اوچ شریف",
+    # Added 30 October 2026 for the book rows and the sheet's shortened Locations.
+    # Jarwa and Satghara as the repository's sources print them ("سجادہ نشینان
+    # جروہ"; "ستگھرہ جو پنجاب میں مشہور قصبہ ہے"); Mint Stop is an unreviewed
+    # draft (no Urdu precedent in the archive); the rest follow existing usage.
+    "Uch": "اوچ",
+    "Chunian": "چونیاں",
+    "Hujra": "حجرہ",
+    "Jarwa": "جروہ",
+    "Satghara": "ستگھرہ",
+    "Wazirabad": "وزیرآباد",
+    "Miani Sahib Graveyard": "قبرستان میانی صاحب",
+    "Mint Stop": "منٹ اسٹاپ",
+    "Shah Alam Market": "شاہ عالم مارکیٹ",
     "Bahawalpur": "بہاولپور",
     "Pakpattan": "پاکپتن",
     "Kasur": "قصور",
@@ -613,6 +626,32 @@ SHRINE_NAMES = {
  "Wadpagga Sharif": "واد پگہ شریف",
  "Ziarat Kaka Sahib": "زیارت کاکا صاحب",
 }
+
+def _load_book_row_names():
+    """The 318 rows the book pipeline added in October 2026 (Hadiqat al-Awliya,
+    Tarikh-e Lahore), from `shrine_names_book_rows.tsv` (30 October 2026).
+
+    `basis` says where each name comes from. `printed`: the head as the book's
+    Urdu edition prints it (`_name_ur` in the patch CSV), old spellings kept,
+    with the pipeline's `[OCR?]` doubt mark written `[؟]` so the Urdu view keeps
+    the doubt without Latin letters. `draft`: where the patch had no Urdu head or
+    only part of one, an UNREVIEWED draft built on the printed parts. Kept in a
+    file of its own so the two kinds stay told apart until someone reads them.
+    """
+    path = os.path.join(OUT, "shrine_names_book_rows.tsv")
+    names = {}
+    with open(path, encoding="utf-8") as f:
+        next(f)
+        for line in f:
+            name, name_ur, basis = line.rstrip("\n").split("\t")
+            if basis not in ("printed", "draft") or re.search(r"[A-Za-z]", name_ur):
+                raise SystemExit("[build_dictionary] bad row in %s: %r" % (path, line))
+            if name in SHRINE_NAMES or name in names:
+                raise SystemExit("[build_dictionary] %s names %r twice" % (path, name))
+            names[name] = name_ur
+    return names
+
+SHRINE_NAMES.update(_load_book_row_names())
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 4. SAINTS (keyed by exact English string)

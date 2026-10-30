@@ -70,6 +70,14 @@ const datasetSlugs = (): Set<string> => {
 
 const graph = (): Graph => JSON.parse(read('data', 'kg.json')) as Graph;
 
+/** Rows whose Location is empty: nothing to place them by (RULE 2). Since
+ *  October 2026, 18 of the book rows, whose source gives candidate places only. */
+const unlocatedSlugs = (): Set<string> => {
+  const rows = (JSON.parse(read('src', 'data', 'shrines-fallback.json')) as { rows: Row[] }).rows;
+  const slugs = buildSlugs(rows) as string[];
+  return new Set(slugs.filter((_, i) => !String(rows[i]!.Location ?? '').trim()));
+};
+
 const REBUILD =
   'Run `npm run data:kg`. The graph is rebuilt by a different command from the dataset, and ' +
   'nothing else notices when only one of them has run.';
@@ -81,7 +89,14 @@ describe('graph ↔ dataset parity', () => {
     const counts = new Map<string, number>();
     for (const r of locatedIn) counts.set(r.subject, (counts.get(r.subject) ?? 0) + 1);
 
-    const missing = [...slugs].filter((s) => !counts.has(s));
+    /* A row with no Location cannot be placed, and that is harmless only while
+       no figure in the graph is buried there: the failure this test guards is a
+       figure marked lineageOnly for a shrine the archive holds. So those rows are
+       let through on exactly that condition, checked here. */
+    const unlocated = unlocatedSlugs();
+    const buriedAt = new Set(graph().relations.filter((r) => r.type === 'buried_at').map((r) => r.object));
+    expect([...unlocated].filter((s) => buriedAt.has(s)), 'an unlocated shrine has a figure').toEqual([]);
+    const missing = [...slugs].filter((s) => !counts.has(s) && !unlocated.has(s));
     const duplicated = [...counts].filter(([, n]) => n > 1).map(([s, n]) => `${s} (${n})`);
 
     expect(
