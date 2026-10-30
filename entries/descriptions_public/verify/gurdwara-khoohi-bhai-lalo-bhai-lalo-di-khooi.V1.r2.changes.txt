@@ -1,0 +1,74 @@
+Coordinator fixes from V1 round 1 (exact wording from the report). Each item: the V1 point, then the old and new sentence.
+
+[V1 r1 #1]
+OLD: One of its lines, in English translation, dates the invaders' coming:
+
+*Coming in seventy-eight (1521 C.E)*
+
+The Guru composed verses in Hindi on the truth of God, setting out divine unity.
+NEW: Accounts of the year of Babur's invasion differ; one of its lines, in English translation, gives the poem's own reckoning:
+
+*Coming in seventy-eight (1521 C.E)*
+
+The Guru composed verses in Hindi on the truth of God, setting out divine unity.
+
+[V1 r1 #2]
+OLD: The Guru's teaching that there was no Hindu and no Muslim was questioned at three courts, and one of them was the court of Malik Bhago in Eminabad.
+
+## The Gurdwara
+
+Once Guru Nanak had lodged there, Bhai Lalo's house was made into a gurdwara, a Sikh house of worship, remembered as Bhai Lalu Di Khoi, and the well from which the Guru is said to have drunk was preserved within it.
+
+After the Partition of 1947 a refugee family of Muslim migrants occupied the building and lived inside it until 1989; accounts of its care after Partition differ.
+NEW: The Guru's teaching that there was no Hindu and no Muslim, it is told, was questioned at three courts, and one of them was the court of Malik Bhago in Eminabad.
+
+## The Gurdwara
+
+Once Guru Nanak had lodged there, Bhai Lalo's house was made into a gurdwara, a Sikh house of worship, remembered as Bhai Lalu Di Khoi, and the well from which the Guru is said to have drunk was preserved within it.
+
+After the Partition of 1947 a refugee family of Muslim migrants occupied the building and lived inside it until 1989; accounts of its care after Partition differ.
+
+[V1 r1 #3]
+OLD: Once Guru Nanak had lodged there, Bhai Lalo's house was made into a gurdwara, a Sikh house of worship, remembered as Bhai Lalu Di Khoi, and the well from which the Guru is said to have drunk was preserved within it.
+
+After the Partition of 1947 a refugee family of Muslim migrants occupied the building and lived inside it until 1989; accounts of its care after Partition differ.
+NEW: Bhai Lalo's house, where tradition holds that Guru Nanak lodged, was made into a gurdwara, a Sikh house of worship, remembered as Bhai Lalu Di Khoi, and the well from which the Guru is said to have drunk is still preserved within it.
+
+After the Partition of 1947 a refugee family of Muslim migrants occupied the building and lived inside it until 1989; accounts of its care after Partition differ.
+
+[V1 r1 #4]
+OLD: He works on a daily wage for Ramdev, the master carpenter, and cannot afford to miss a single day's work.
+NEW: In the same telling he works on a daily wage for Ramdev, the master carpenter, and cannot afford to miss a single day's work.
+
+[V1 r1 point 6]
+OLD: The stories draw his poverty in a few objects: a single oil lamp, a loosely strung *charpoy*, a woven string bed, a single thick *bajre ki roti*, a millet bread, and a single small onion.
+
+In the janamsakhi telling the Guru came to Saidpur twice.
+NEW: The stories draw his poverty in a few objects: a single oil lamp, a loosely strung string bed or *charpoy*, a single thick *bajre ki roti* of millet, and a single small onion.
+
+In the janamsakhi telling the Guru came to Saidpur twice.
+
+[V1 r1 point 7]
+OLD: The janamsakhis tell that on the first visit Lalo warned Nanak that by staying with him he risked being cast out of his *biradari*, his kinship group.
+NEW: The janamsakhis tell that on the first visit Lalo warned Nanak that by staying with him he risked being cast out of his own *biradari*, his kinship group.
+
+[V1 r1 minor 1]
+OLD: The gurdwara was kept locked at all times, and the keys were believed to be with members of the Sikh community at the nearby Gurdwara Rori Sahib.
+
+## Devotion and Pilgrimage
+
+The gurdwara is a place of pilgrimage.
+NEW: The gurdwara was kept locked at all times, and the keys were probably with members of the Sikh community at the nearby Gurdwara Rori Sahib.
+
+## Devotion and Pilgrimage
+
+The gurdwara is a place of pilgrimage.
+
+[V1 r1 minor 2]
+OLD: A visitor who looked for signs of attack on them after the destruction of the Babri mosque in 1992 found none, and much of the town's historical architecture had been preserved.
+
+Gujranwala lies in the heart of the Punjab, 75 kilometres from the provincial capital.
+NEW: The same visitor looked for signs of attack on them after the destruction of the Babri mosque in 1992 and found none, and much of the town's historical architecture had been preserved.
+
+Gujranwala lies in the heart of the Punjab, 75 kilometres from the provincial capital.
+

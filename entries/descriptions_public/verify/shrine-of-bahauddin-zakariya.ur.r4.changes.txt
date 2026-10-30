@@ -1,0 +1,9 @@
+Urdu round 4 changes (coordinator, by script) to entries/descriptions_public/shrine-of-bahauddin-zakariya.ur.md: V3 round 3 issue 1 and one taste note. The English is unchanged.
+
+[V3 r3 issue 1]
+OLD: حضرت بہاؤالدین پیشے سے جولاہے شیخ احمد نہروانی کے بھی بڑے مداح تھے۔
+NEW: حضرت بہاؤالدین شیخ احمد نہروانی کے بھی بڑے مداح تھے، جو پیشے سے جولاہے تھے۔
+
+[V3 r3 taste note]
+OLD: عمر کے ابتدائی حصے میں وہ کثرت سے روزے رکھتے تھے، مگر آخری برسوں میں وہ روزانہ روزہ نہیں رکھتے تھے۔
+NEW: عمر کے ابتدائی حصے میں وہ کثرت سے روزے رکھتے تھے، مگر آخری برسوں میں وہ ہر روز روزہ نہیں رکھتے تھے۔

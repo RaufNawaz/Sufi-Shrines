@@ -1,0 +1,14 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+NOTES: All nine changed sentences checked against the English and in context in the current Urdu (lines 11, 15, 29, 45, 47, 71, 99, 101).
+1. "اور انہوں نے راوی کے کنارے ... زمین چنی": the second clause now has its own نے subject; facts and the janamsakhi frame unchanged (V3 r2 #1 answered).
+2. "اور جہاں گرو کا سفرِ حیات تمام ہوا": the referent is now the Guru, as in "he closed his earthly journey" (V3 r2 #2 and V2 note a answered).
+3. "لہنا کا نام بدل کر انگد یعنی "میرے ہی انگ کا" رکھا": gloss now sits before the verb; meaning and the installation as second Guru unchanged (V3 r2 #3 answered).
+4. Bani split into two sentences, with "گرو نانک کی بانی کو" naming what Guru Arjan Dev compiled, 1604 and "fifth Guru" kept; this matches the English "his bani ... which was compiled" (V3 r2 #4 answered).
+5. "ورنہ سارا سال سوکھا پڑا رہتا تھا": ورنہ is the exact and idiomatic equivalent of "otherwise" (the rest of the time), so the self contradiction of اس کے علاوہ is gone and no scope or season is added (V3 r2 #5 answered).
+6. "زائرین کی کثیر تعداد": removes the third بڑا; "great numbers" kept (V3 r2 #6 answered).
+7. "آخرکار وہ یہیں آ بسے": correct collocation with یہیں; "it was there that he finally settled" kept (V3 r2 #7 answered).
+8. "گئے تو یہ بزرگ ان کے لیے سرچشمۂ فیض بن گئے": تو ties the inspiration to the visit as "when Nanak visited" does, and کہا جاتا ہے still governs the whole (V2 note b answered).
+9. "اپنے اسی جاں نثار اور سب سے وفادار مرید": سب سے now governs only وفادار, matching "this devoted disciple, his most loyal student" (V2 note d answered).
+Mechanics in the changed sentences: Urdu punctuation only, no Latin letters, no dashes, Western digits (1604).

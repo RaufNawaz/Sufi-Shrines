@@ -1,0 +1,33 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/garh-maharaja-shorkot.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1]
+OLD: He received instruction, *talqin*, from Sayyid Abd al-Rahman, he from Sayyid Abd al-Jalil, he from Sayyid Abd al-Baqa, he from Sayyid Abd al-Sattar, he from Sayyid Abd al-Fattah, he from Sayyid Najm al-Din Burhanpuri, he from Muhammad Sadiq, he from Sayyid Abd al-Jabbar, he from Sayyid Abd al-Razzaq, and he from Shaykh Abd al-Qadir Jilani.
+
+He founded his own branch of the Qadiri order, the Sarwari Qadiri, which spread widely after him; accounts of the name of his branch differ.
+NEW: It begins with a Sayyid Abd al-Rahman, from whom he received instruction, *talqin*, and each link received it in turn from the next: Sayyid Abd al-Jalil, Sayyid Abd al-Baqa, Sayyid Abd al-Sattar, Sayyid Abd al-Fattah, Sayyid Najm al-Din Burhanpuri, Muhammad Sadiq, Sayyid Abd al-Jabbar, Sayyid Abd al-Razzaq and Shaykh Abd al-Qadir Jilani.
+
+He founded his own branch of the Qadiri order, the Sarwari Qadiri, which spread widely after him; accounts of the name of his branch differ.
+
+[V1 r1 minor a]
+OLD: In Delhi, it is said, he would walk the bazaars, and whoever he looked upon attained God in a moment. His *pir*, his spiritual master, summoned him, the story continues, and told him that he had been given a special blessing and had made that special blessing common.
+NEW: In Delhi, it is said, he would walk the bazaars, and by his glance whoever he looked upon attained God in a moment. His *pir*, his spiritual master, summoned him, the story continues, and told him that he had been given a special blessing and had made that special blessing common.
+
+[V1 r1 minor b]
+OLD: He answered that he had wished to put the blessing he had received to the test, to learn how precious it was and what its nature was, and the *pir*, the story ends, enriched him with further blessing.
+
+A chain of masters runs from him back through ten links to Shaykh Abd al-Qadir Jilani.
+NEW: He answered that he had wished to put the special blessing he had received to the test, to learn how precious it was and what its nature was, and the *pir*, the story ends, enriched him with further blessing.
+
+A chain of masters runs from him back through ten links to Shaykh Abd al-Qadir Jilani.
+
+[V1 r1 minor c]
+OLD: The *Diwan-e Bahu* and the *Abyat-e Bahu* are the memorials of his verse.
+
+His books speak of the world, the kinds of *murshid*, the *faqir*, or Sufi mystic, listening to music, perpetual remembrance, poverty, following the Prophet, sayings and litanies.
+NEW: The *Diwan-e Bahu* and the *Abyat-e Bahu* are his memorials.
+
+His books speak of the world, the kinds of *murshid*, the *faqir*, or Sufi mystic, listening to music, perpetual remembrance, poverty, following the Prophet, sayings and litanies.
+
+[V1 r1 minor d]
+OLD: It is told that Hazrat Ali, the Imam of the saints, presented him there, and that the Prophet honoured him with *bai'at*, the pledge by which a disciple is initiated into a Sufi order, and then gave him into the charge of Abd al-Qadir Jilani, the Ghaus al-Azam, founder of the Qadiri order.
+NEW: It is told that Hazrat Ali, the Imam of the saints, presented him there, and that the Prophet honoured him with *bai'at*, the pledge by which a disciple is initiated into a Sufi order, and then gave him into the charge of Abd al-Qadir Jilani, the Ghaus al-Azam, the greatest helper, founder of the Qadiri order.

@@ -95,15 +95,68 @@ const ALLOW: Record<Lang, RegExp[]> = {
     /^the poet of the east$/i,
     /* "Wasif Ali Wasif — life and career". */
     /—\s*life and career$/i,
+    /* The public descriptions (HANDOVER §9.412) name the figure's section as
+       their brief prescribes, "## The Saint (life, family, teaching, death)",
+       renamed to fit the tradition. Classified 29 October 2026, when copying
+       the new articles in took the archive from 57 entries with a life section
+       on a figure's page to 2. "The Guru's Visit", "The Guru's Verse" and the
+       like are about a site or a text and stay unclassified. */
+    /^the saint$/i,
+    /^the guru$/i,
+    /^guru nanak$/i,
+    /^guru arjan dev$/i,
+    /^the fifth guru$/i,
+    /^the sixth guru$/i,
+    /^the poet saint$/i,
+    /^the poet and saint$/i,
+    /^the poet['’]s life$/i,
+    /^the sultan$/i,
+    /^the maharaja$/i,
+    /^the sant$/i,
+    /* "Life at Multan", "Life at Ajodhan": the saint's life in the town, the
+       second half of the section above. */
+    /^life at\b/i,
+    /^public life and disciples$/i,
   ],
   /* زندگی is "life" and سوانح is "biography"; after the deny list above, either
      in an Urdu heading is always a person's. */
-  ur: [/زندگی/, /سوانح/, /^بزرگ اور روایت$/, /^ولی اور روایت$/],
+  ur: [
+    /زندگی/,
+    /سوانح/,
+    /^بزرگ اور روایت$/,
+    /^ولی اور روایت$/,
+    /* The Urdu headings of the public descriptions' figure section, beside
+       the English ones above (29 October 2026). حیات is "life". */
+    /^حیات/,
+    /^گرو$/,
+    /^گرو نانک$/,
+    /^گرو ارجن دیو$/,
+    /^گرو رام داس$/,
+    /^پانچویں گرو$/,
+    /^چھٹے گرو$/,
+    /^شاعر اور ولی$/,
+    /^صوفی شاعر$/,
+    /^سلطان$/,
+    /^مہاراجہ$/,
+    /^سنت گرپت صاحب$/,
+  ],
+};
+
+/**
+ * Headings that name a person in words the deny list would otherwise read as
+ * the site. صاحبِ مزار, "the one of the shrine", is how the public Urdu
+ * articles head the saint's own section (the English "The Saint"), and مزار in
+ * it would send it to the deny list. Exact matches only, checked first.
+ */
+const PERSON_FIRST: Record<Lang, RegExp[]> = {
+  en: [],
+  ur: [/^صاحبِ مزار$/],
 };
 
 export function classifyBiographyHeading(heading: string, lang: Lang): BiographyVerdict {
   const text = heading.trim();
   if (!text) return 'unclassified';
+  if (PERSON_FIRST[lang].some((pattern) => pattern.test(text))) return 'biography';
   if (DENY[lang].test(text)) return 'site';
   return ALLOW[lang].some((pattern) => pattern.test(text)) ? 'biography' : 'unclassified';
 }

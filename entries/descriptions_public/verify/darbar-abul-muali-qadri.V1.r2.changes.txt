@@ -1,0 +1,51 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/darbar-abul-muali-qadri.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1]
+OLD: He is reported to have had eight sons, who are buried beside him, and one of them is said to have been martyred fighting in a war against the Sikhs. His eldest son was Shah Muhammad Baqir.
+
+He died on 16 Rabi ul Awal, the third month of the Islamic year, in 1024 AH, at the age, it is reported, of sixty five.
+NEW: He is reported to have had eight sons, one of whom is said to have been martyred fighting in a war against the Sikhs. His eldest son was Shah Muhammad Baqir.
+
+He died on 16 Rabi ul Awal, the third month of the Islamic year, in 1024 AH, at the age, it is reported, of sixty five.
+
+[V1 r1 issue 1]
+OLD: Inside, four graves lay on the platform: those of the saint, of his eldest son Shah Muhammad Baqir, of Shah Muhammad Raza and of Haji Muhammad Fazl.
+NEW: In the 1880s four graves lay on the platform inside the tomb: those of the saint, of his eldest son Shah Muhammad Baqir, of Shah Muhammad Raza and of Haji Muhammad Fazl.
+
+[V1 r1 issue 2 (paragraph deleted)]
+OLD: Tellings of the next two stories differ over who received the saint's gifts, but the shrine tells both of Dara Shikoh.
+
+**The rosary.** It is reported that Dara Shikoh wrote that he once accompanied Shah Abul Muali to the court of his teacher, Sheikh Imam Niyamat Ali, where someone presented the saint with a rosary.
+NEW: (deleted)
+
+[V1 r1 issue 2]
+OLD: **The rosary.** It is reported that Dara Shikoh wrote that he once accompanied Shah Abul Muali to the court of his teacher, Sheikh Imam Niyamat Ali, where someone presented the saint with a rosary.
+NEW: **The rosary.** Tellings differ over who received the rosary, but the shrine tells the story of Dara Shikoh. It is reported that Dara Shikoh wrote that he once accompanied Shah Abul Muali to the court of his teacher, Sheikh Imam Niyamat Ali, where someone presented the saint with a rosary.
+
+[V1 r1 issue 2]
+OLD: **The white turban.** In the second story, Dara Shikoh had never disclosed his love for Sheikh Abdul Qadir Jilani. One night, it is reported, the Sheikh came to him in a dream and gave him a white turban.
+NEW: **The white turban.** Here too tellings differ over who received the gift, and the shrine tells it of Dara Shikoh, who had never disclosed his love for Sheikh Abdul Qadir Jilani. One night, it is reported, the Sheikh came to him in a dream and gave him a white turban.
+
+[V1 r1 minor a]
+OLD: The mosque faced east, and its well was built by the saint himself; the well had a platform of red stone that had stood for twenty years.
+
+In the nineteenth century the precinct held the graves of grandsons of the saint, of a *murid*, or disciple, named Muhammad Sufi, and of Muhammad Shah and Shah Hasan, with Hazrat Hasan Shah.
+NEW: In the nineteenth century the mosque faced east, its well had been built by the saint himself, and the well had a platform of red stone that had by then stood for twenty years.
+
+In the nineteenth century the precinct held the graves of grandsons of the saint, of a *murid*, or disciple, named Muhammad Sufi, and of Muhammad Shah and Shah Hasan, with Hazrat Hasan Shah.
+
+[V1 r1 minor b]
+OLD: By the 1880s it was known as a famous and blessed tomb, and for its devotees it is a fountainhead of blessings. Its yearly *ʿurs*, the commemoration of the saint's death, is reported to draw 200,000 to 250,000 people, and construction work at the site is ongoing.
+
+## The Saint
+
+Accounts of the form of his name differ; the name the shrine keeps is Hazrat Syed Muhammad Khair ul Deen.
+NEW: By the 1880s it was known as a famous and blessed tomb, and it is held to be a fountainhead of blessings. Its yearly *ʿurs*, the commemoration of the saint's death, is reported to draw 200,000 to 250,000 people, and construction work at the site is ongoing.
+
+## The Saint
+
+Accounts of the form of his name differ; the name the shrine keeps is Hazrat Syed Muhammad Khair ul Deen.
+
+[V1 r1 minor c]
+OLD: His father, Syed Rehmatullah Kirmani, also called Sayyid Rahmat Allah, was the son of Sayyid Fath Allah Kirmani.
+NEW: His father, Syed Rehmatullah Kirmani, was the son of Sayyid Fath Allah Kirmani.

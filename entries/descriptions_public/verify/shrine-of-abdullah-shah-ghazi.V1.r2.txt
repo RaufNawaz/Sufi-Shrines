@@ -1,0 +1,9 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Change 1, NEW "Karachi is one of two important urban centres of Sufism, the other being Hyderabad in India; in both, members of the same lineage of qawwali musicians, the Qawwal Bachche, actively maintain their special qawwali heritage." Supported. The team version names Karachi as one of "two important urban centres of Sufism", with Hyderabad in India, "where members of the same Qawwal Bachche lineage actively maintain their special Qawwali heritage". So the pair is Karachi and Hyderabad ("the other being"), and "the same lineage" means the heritage is kept up in both cities ("in both"). The qualifiers "important", "actively", "special" and "in India" are all kept, and "qawwali musicians" is the same gloss as before. No new fact. Grammar is sound: a semicolon joins two complete clauses.
+2. Change 2, NEW "fakirs follow other fakirs and go on to shrines in Karachi." Supported, and now closer to the team version's "proceed to shrines in Karachi", with no definite article suggesting all of them. The sentence's opening "The city's shrines are also a stage in the round of the *fakirs*" is unchanged and matches the team version's "Karachi's shrines as a stage in the fakirs' round". No fault introduced.
+3. Nothing else moved. diff of /home/claude/bak/shrine-of-abdullah-shah-ghazi.md against the current file shows only line 31 changed, and the rest of the file (lines 1 to 30 and 32 to the end, Bibliography included) is byte identical. Inside line 31, the only edits are the two listed changes. check_public_description.py --english-only still exits 0 at 0.52.
+4. Taste only, not a change from this round: "qawwali" appears twice in the changed sentence ("qawwali musicians ... qawwali heritage"), roman, not italic. This is the same as in round 1, and the term is italicised and glossed at its first use in Devotion and Festivals.

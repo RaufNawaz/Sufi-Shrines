@@ -1,0 +1,9 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Bibi Jawindi and Her Tomb, para 1: "a great-granddaughter of ... Makhdoom Jahaniyan Jahangasht" | پڑپوتی -> strictly this means a son's son's daughter, so it names the paternal line where the English names no line. It is the usual Urdu word, and the paragraph has just placed her in the Jalali Bukhari line, so the meaning holds and this is not counted as an addition. If a neutral word is wanted, use نسل سے تھیں، تیسری پشت میں.
+2. The Monuments of Uch Sharif, para 1: "the tomb's own builder" | خود بی بی جاوندی کا مقبرہ بنوانے والے سے -> correct, but the phrase is heavy after بہاء الحلیم سے اور. It could read: اور اس شخص سے منسوب ہیں جس نے خود بی بی جاوندی کا مقبرہ بنوایا تھا (do not add the name دلشاد).
+3. The Monuments of Uch Sharif, para 2: "covered, haphazardly, with ... tiles recovered from" | ٹائلیں ... اکٹھی کی گئی ... بے ترتیبی سے لگا دی گئی تھیں -> the sense is right. ڈھانپ دی گئی تھیں would be closer to "covered".
+4. Devotion and Legacy, para 2: "sixty miles" | 60 میل -> this follows the brief's rule on Western digits; the English spells the number out, so urdu_content_qa.py may warn on it.
+5. روایت ہے کہ, روایت کے مطابق and روایت کے مطابق open claims in three consecutive paragraphs (Bibi Jawindi and Her Tomb). Each is correct as a qualifier; varying one, for example روایتاً or بتایا جاتا ہے, would read better.
+6. Headings: all six correspond, in order. All numbers (1493, 1291, 1383, 1960, 1996, 60) match. No verse. Every qualifier is kept: by tradition, tradition holds (twice), accounts differ, about, arguably, is said (Farid ad-Din, Guru Nanak), was shown as, in the author's telling, remembered as. The dropped glosses (sayyids, kashi, Suhrawardi/Sufis, havelis, suba, yogi, khanqah, qawwals/qawwali, Gurdwara, ʿurs, Multani tiles) and the removed italics are deliberate under the brief.

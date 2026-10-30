@@ -1,0 +1,68 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic collocation / calque] "جو آگے بحیرۂ عرب میں جا کھلتے ہیں" -> waters do not "open" (کھلنا) into the sea; that is the English "open into". Waters جا ملتے ہیں. -> ... جو آگے بحیرۂ عرب میں جا ملتے ہیں۔
+OLD: یہ نیٹو جیٹی پل کے نیچے چھنا کریک کے کنارے واقع ہے، اور شہر کا واحد مندر ہے جو براہِ راست جوار بھاٹے کے ان پانیوں پر قائم ہے جو آگے بحیرۂ عرب میں جا کھلتے ہیں۔
+NEW: یہ نیٹو جیٹی پل کے نیچے چھنا کریک کے کنارے واقع ہے، اور شہر کا واحد مندر ہے جو براہِ راست جوار بھاٹے کے ان پانیوں پر قائم ہے جو آگے بحیرۂ عرب میں جا ملتے ہیں۔
+
+2. [category mismatch / agreement] "لکشمی اور نارائن کا ساتھ ... جوڑیوں میں شمار ہوتا ہے" -> a "togetherness" (ساتھ) cannot be counted among "pairs"; the subject must be the pair itself, with feminine agreement. -> لکشمی اور نارائن کی جوڑی ... شمار ہوتی ہے۔
+OLD: لکشمی اور نارائن کا ساتھ ہندو روایت کی محبوب ترین جوڑیوں میں شمار ہوتا ہے، جس میں خوشحالی اور الٰہی رزق کا ملاپ جھلکتا ہے۔
+NEW: لکشمی اور نارائن کی جوڑی ہندو روایت کی محبوب ترین جوڑیوں میں شمار ہوتی ہے، جس میں خوشحالی اور الٰہی رزق کا ملاپ جھلکتا ہے۔
+
+3. [wrong genitive / calque] "اس مندر کی عقیدت کا رنگ ڈھنگ ... سے متعین ہوا ہے" -> the temple does not possess devotion; this is "the temple's devotional life is shaped by". Devotion happens in the temple, and the location is the agent. -> کراچی کے اس مندر میں عقیدت کا رنگ ڈھنگ ... نے متعین کیا ہے۔
+OLD: کراچی میں اس مندر کی عقیدت کا رنگ ڈھنگ پانی کے کنارے اس کے مقام سے متعین ہوا ہے۔
+NEW: کراچی کے اس مندر میں عقیدت کا رنگ ڈھنگ پانی کے کنارے اس کے مقام نے متعین کیا ہے۔
+
+4. [ambiguous word order] "مرکزی مورتیوں کے ساتھ ساتھ عقیدت مند بندر دیوتا ہنومان" -> with عقیدت مند placed directly before بندر دیوتا it first reads as an adjective, "the devoted monkey god Hanuman", and the subject is lost. Put the subject first. -> مندر کے اندر عقیدت مند مرکزی مورتیوں کے ساتھ ساتھ ...
+OLD: مندر کے اندر مرکزی مورتیوں کے ساتھ ساتھ عقیدت مند بندر دیوتا ہنومان اور شردی کے سائیں بابا کی بھی تعظیم کرتے ہیں۔
+NEW: مندر کے اندر عقیدت مند مرکزی مورتیوں کے ساتھ ساتھ بندر دیوتا ہنومان اور شردی کے سائیں بابا کی بھی تعظیم کرتے ہیں۔
+
+5. [calque] "مذہبی سال کے بدلتے موسموں کی نشان دہی کرتے ہیں" -> "mark the turning seasons of the religious year" word for word; مذہبی سال is not an Urdu collocation (the word is تقویم) and نشان دہی کرنا means "to point out", not "to mark a season". -> یہاں کے تہوار مذہبی تقویم کے بدلتے موسموں کی خبر دیتے ہیں۔
+OLD: یہاں کے تہوار مذہبی سال کے بدلتے موسموں کی نشان دہی کرتے ہیں۔
+NEW: یہاں کے تہوار مذہبی تقویم کے بدلتے موسموں کی خبر دیتے ہیں۔
+
+6. [repetition] "رامہ پیر کو رام دیو بھی کہا جاتا ہے۔ رام دیو پیر آج بھی سندھ میں رامہ پیر کے نام سے معروف ہیں" -> two consecutive sentences state the same equation in both directions, which reads as a slip. Join them so the second says something new (the Sindhi usage). -> رامہ پیر کو رام دیو بھی کہا جاتا ہے، مگر سندھ میں رام دیو پیر آج بھی رامہ پیر ہی کے نام سے معروف ہیں۔ ...
+OLD: رامہ پیر کو رام دیو بھی کہا جاتا ہے۔ رام دیو پیر آج بھی سندھ میں رامہ پیر کے نام سے معروف ہیں، اور اب وہاں وہ ان مندروں کا حصہ بن چکے ہیں جو پورے ہندوستان میں پوجے جانے والے دیوی دیوتاؤں کے لیے وقف ہیں۔
+NEW: رامہ پیر کو رام دیو بھی کہا جاتا ہے، مگر سندھ میں رام دیو پیر آج بھی رامہ پیر ہی کے نام سے معروف ہیں۔ اب وہاں وہ ان مندروں کا حصہ بن چکے ہیں جو پورے ہندوستان میں پوجے جانے والے دیوی دیوتاؤں کے لیے وقف ہیں۔
+
+7. [tense consistency] "حاضری دیا کرتی تھی۔ اس سے وہ صوفی تو نہیں بن جاتے ... حصہ ہیں" -> the visits are past habitual, but the consequence sentence switches to the present, so it jars. -> ... نہیں بن جاتے تھے ... حصہ تھے۔
+OLD: اس سے وہ صوفی تو نہیں بن جاتے، البتہ اتنا ضرور ظاہر ہوتا ہے کہ ان کی نظر میں صوفیائے کرام ان کے مذہبی ورثے کا حصہ ہیں۔
+NEW: اس سے وہ صوفی تو نہیں بن جاتے تھے، البتہ اتنا ضرور ظاہر ہوتا ہے کہ ان کی نظر میں صوفیائے کرام ان کے مذہبی ورثے کا حصہ تھے۔
+
+8. [unidiomatic collocation / wrong postposition] "ویشنو مکتب" ، "وشنو کی عقیدت" -> مکتب on its own means a primary school (the phrase is مکتبِ فکر); for a Hindu tradition the word is مسلک, as used for ناتھ پنتھ two sentences earlier. Devotion to someone takes سے. -> ویشنو مسلک ... وشنو سے عقیدت ...
+OLD: سندھ کے مسلمان صوفی زیادہ تر ہندو مت کے ویشنو مکتب کی طرف مائل تھے، یعنی اس روایت کی طرف جو وشنو کی عقیدت پر مبنی ہے۔
+NEW: سندھ کے مسلمان صوفی زیادہ تر ہندو مت کے ویشنو مسلک کی طرف مائل تھے، یعنی اس روایت کی طرف جو وشنو سے عقیدت پر مبنی ہے۔
+
+9. [calque] "ذکر کے حلقے کی قیادت کرتے تھے" -> "led a dhikr circle"; in Urdu a shaykh حلقۂ ذکر کراتا ہے. قیادت belongs to parties and armies. -> ... کراچی میں حلقۂ ذکر کراتے تھے۔
+OLD: اکیسویں صدی کے اوائل میں ایک صوفی سلسلے کے معلم شیخ سراج علی محمد ہر جمعرات کی شام کراچی میں ذکر کے حلقے کی قیادت کرتے تھے۔
+NEW: اکیسویں صدی کے اوائل میں ایک صوفی سلسلے کے معلم شیخ سراج علی محمد ہر جمعرات کی شام کراچی میں حلقۂ ذکر کراتے تھے۔
+
+10. [inconsistent spelling + unidiomatic collocation] "منگو پیر" ، "مگرمچھوں کی ایک کرامت" -> the previous sentence spells the place منگھوپیر; two spellings in consecutive sentences make it look like two places. "مگرمچھوں کی کرامت" makes the crocodiles the miracle-workers; a کرامت belongs to a saint and is only connected with the crocodiles. -> منگھوپیر ... مگرمچھوں سے متعلق ایک کرامت ...
+OLD: کراچی کے قریب منگو پیر کے بارے میں کہا جاتا ہے کہ وہاں مگرمچھوں کی ایک کرامت ظاہر ہوئی تھی۔
+NEW: کراچی کے قریب منگھوپیر کے بارے میں کہا جاتا ہے کہ وہاں مگرمچھوں سے متعلق ایک کرامت ظاہر ہوئی تھی۔
+
+11. [ambiguous pronoun] "صوبے کی جنوبی حد کھارا سمندر تھا، اور اس کی زندگی" -> the nearest antecedent of اس is کھارا سمندر, so it reads "the sea's life revolved around boats"; the province is meant. -> ... اور یہاں کی زندگی کشتیوں کے گرد گھومتی تھی۔
+OLD: صوبے کی جنوبی حد کھارا سمندر تھا، اور اس کی زندگی کشتیوں کے گرد گھومتی تھی۔
+NEW: صوبے کی جنوبی حد کھارا سمندر تھا، اور یہاں کی زندگی کشتیوں کے گرد گھومتی تھی۔
+
+12. [English apposition / number mismatch] "تاجر ذات لوہانوں پر مشتمل" -> "the trading caste of Lohanas"; singular ذات sits in apposition to plural لوہانوں and reads as a translation. -> ... تاجر پیشہ لوہانہ ذات پر مشتمل تھا۔
+OLD: سندھ کے ہندوؤں کا بڑا حصہ تاجر ذات لوہانوں پر مشتمل تھا۔
+NEW: سندھ کے ہندوؤں کا بڑا حصہ تاجر پیشہ لوہانہ ذات پر مشتمل تھا۔
+
+13. [unidiomatic / calque] "اس تخمینے میں بہت فرق پایا جاتا ہے" -> "estimates vary widely"; a single estimate cannot "contain difference". The estimates differ from one another. -> ... مگر اس بارے میں اندازے ایک دوسرے سے بہت مختلف ہیں۔
+OLD: پاکستان میں ہندوؤں کی تعداد 6 سے 10 ملین کے درمیان بتائی جاتی ہے، مگر اس تخمینے میں بہت فرق پایا جاتا ہے۔
+NEW: پاکستان میں ہندوؤں کی تعداد 6 سے 10 ملین کے درمیان بتائی جاتی ہے، مگر اس بارے میں اندازے ایک دوسرے سے بہت مختلف ہیں۔
+
+NOTES:
+- Overall the prose is good: the تعارف and ورثہ sections, "جتنی عبادت کی جگہ ہے، اتنی ہی مل بیٹھنے کی بھی", "دبکا ہوا" and the الن فقیر passage read naturally. The failures are local calques and slips, not structure.
+- "اسے سب سے بڑھ کر ... عزیز رکھا جاتا ہے" (تعارف): the impersonal passive is a little translated ("is cherished"). "اس کی سب سے بڑی قدر و منزلت ان ساحلی رسوم کی وجہ سے ہے ..." would read more naturally. Taste.
+- "پتھورو پیر کے معاملے سے ظاہر ہوتا ہے" reads like "the case of". "پتھورو پیر کی مثال" is the natural phrase, but مثال closes the previous sentence, so I left it.
+- "6 سے 10 ملین" and "کئی ملین": an Urdu magazine would write "60 لاکھ سے ایک کروڑ" and "دسیوں لاکھ". Not changed because it turns digits into number words.
+- "بحری، فضائی یا ریل کے راستے": the three parts are not parallel. "سمندری، ہوائی یا ریل کے راستے" or "بحری جہاز، ہوائی جہاز یا ریل سے" would be smoother.
+- Content check, not changed: "سندھی ہندوؤں کی روانگی خاص طور پر جنوری 1948 ... کے بعد شروع ہوئی" comes straight after a sentence saying 246,000 had already left by November 1947, so "شروع ہوئی" looks contradictory. If the source means "began in earnest", then "نے زور پکڑا" is the Urdu for it. A fix would change the claim, so this goes to the content verifier.
+- Content check, not changed: "نسوانی داستانوں" is opaque. If the source means Shah Latif's heroine tales, "سورمیوں کی داستانوں" would be clearer.
+- Content check: "کراچی کے علاقے منگھوپیر" and, in the next sentence, "کراچی کے قریب منگھوپیر" place the same locality inside the city and then near it.
+- "سیدی برادری" can be misread as سَیّدی. Pakistani usage is mostly شیدی. Left because it is a name.
+- Repetitions: "لہر اٹھی" followed by "یہ لہر ... آئی"; "آج بھی" in the first and third sentences of ورثہ; the Ram Dev Pir picture is told twice (section 3 and ورثہ). "ایک چھوٹی مگر بے مثال یادگار" reads better with ایک.
+- Mixed forms: مہاجرین and مہاجروں; ہندوستان and بھارت for the modern state. Both are acceptable, and consistency would be nicer.
+- "قوالی کے اپنے خاص ورثے کو سرگرمی سے سنبھالے ہوئے تھے": "پوری سرگرمی سے زندہ رکھے ہوئے تھے" is a more natural collocation.
+- Mechanics checked: no Latin letters, no em or en dashes, 18 asterisks (balanced), verse line untouched by any fix, Western digits kept.

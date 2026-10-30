@@ -1,0 +1,17 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. The Temple, paragraph 2. English: "historians date it to the early nineteenth century, likely during or shortly after Ranjit Singh's conquest of Lahore Fort in 1799." Urdu: "مؤرخین اسے انیسویں صدی کے اوائل کی بتاتے ہیں، اور غالباً یہ 1799 میں ... بنی۔" The hedge is kept. The joining اور, though, makes the 1799 clause read slightly more like the narrator's own inference than part of what the historians say. The Overview keeps it with the historians (جو غالباً ... عمل میں آئی), and The Setting says the same thing in the narrator's voice, so no fact or certainty changes. Optional tightening: مؤرخین اسے انیسویں صدی کے اوائل کی، غالباً 1799 میں رنجیت سنگھ کے ہاتھوں قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی عرصے بعد کی تعمیر بتاتے ہیں۔
+2. The Setting, paragraph 5. "the Mughal emperor Aurangzeb" becomes just اورنگزیب. I treated this as a dropped gloss of a name every Urdu reader knows, not an omission. Jahangir keeps شہنشاہ later in the same paragraph.
+3. These glosses are dropped and the italics removed, both deliberate per the brief: ashram/hermitage (آشرم), pakka/solidly built (پختہ), mandir/temple, Moti Masjid/Pearl Mosque, Nigar Khana/picture house, subadar (صوبہ دار), and "the Hindu epic of Rama" (shortened to ہندوؤں کی رزمیہ داستان رامائن).
+4. Things I checked and found faithful:
+   - The verse is byte-identical, and the English has no rendering paragraph after it, so the Urdu correctly adds none.
+   - Headings match: 5 sections in the same order, no bibliography.
+   - Every date and number is present: 1799, 2018, 1880s, 1870s, 2024–2026, 27 January 2026, 6 December 1992, thirty-seventh year, twenty-two days, twenty-nine relics, thirteen gateways.
+   - Ram Chand / بیٹے لو and Ramchandar / ایک بیٹے لوہو stay distinct.
+   - Khusraw Malik (خسرو ملک) and Prince Khusrau (شہزادے خسرو) are clearly separated.
+   - "The gate also carries Sikh memory" is correctly resolved to the Alamgiri Gate.
+   - The hedges and legend markers are all kept: کہا جاتا ہے، روایتی طور پر، کہانی یوں ہے، مانا جاتا ہے، بیانات مختلف ہیں، غالباً، قرینِ قیاس.
+5. Minor, acceptable: لاوا ہی نے (Overview) and ایک خاتون صحافی (gender taken from the English "she") add emphasis or explicitness but no new fact. The 1992 burnings sentence and the Ravi-crossing sentence are split off from their time anchors, but the order of sentences keeps the reference clear.

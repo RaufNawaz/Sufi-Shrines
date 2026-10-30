@@ -1,0 +1,9 @@
+Changes after V1 round 2, applied by the coordinator in V1's own wording (issues, then the precision notes). Nothing else changed.
+
+[V1 r2 optional i]
+OLD: He wrote a Persian poem on the saint's life, the *Haqiqat al-Fuqara*, or Truth of the Saints, in which he set down the wonders he had witnessed; it is the oldest of the histories of the saint, it set the pattern for the lives of him written ever since, and it survives in manuscript at Punjab University in Lahore.
+
+Madho was born in 983 AH and died on 22 Dhu al-Hijja, the twelfth month of the Islamic year, in 1056 AH, or 1646, at the age of seventy three.
+NEW: He wrote a Persian poem on the saint's life, the *Haqiqat al-Fuqara*, or Truth of the Saints, in which he set down the wonders he had witnessed; it set the pattern for the lives of him written ever since, and it survives in manuscript at Punjab University in Lahore.
+
+Madho was born in 983 AH and died on 22 Dhu al-Hijja, the twelfth month of the Islamic year, in 1056 AH, or 1646, at the age of seventy three.

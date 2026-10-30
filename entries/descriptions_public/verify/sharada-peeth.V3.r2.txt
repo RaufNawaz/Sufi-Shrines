@@ -1,0 +1,17 @@
+VERDICT: FAIL
+ISSUES:
+1. [terminology/ambiguity] "اور دیوی کے عظیم استھانوں یعنی *شکتی پیٹھوں* میں سے ایک بھی۔" (para 1) against "یہ دیوی کے اٹھارہ عظیم استھانوں یعنی *مہا شکتی پیٹھوں* میں شامل ہے۔" (para 3) -> the same gloss "عظیم استھان" is given both to the whole class of *شکتی پیٹھ* and to the eighteen *مہا شکتی پیٹھ*, so the distinction that "مہا" marks disappears and the reader cannot tell the two apart -> para 1: "شاردا پیٹھ بیک وقت مندر بھی رہا ہے، افسانوی شہرت رکھنے والی جامعہ بھی، اور دیوی کے مقدس استھانوں یعنی *شکتی پیٹھوں* میں سے ایک بھی۔"
+2. [repetition] "یہ مقام آزاد کشمیر کی وادی نیلم ... کے کنارے واقع ہے۔" followed two sentences later by "یہ مقام سطحِ سمندر سے تقریباً 2,000 میٹر کی بلندی پر کوہِ ہرمکھ کے سائے میں واقع ہے۔" -> two location sentences in quick succession on the identical frame "یہ مقام ... واقع ہے" -> "سطحِ سمندر سے تقریباً 2,000 میٹر کی بلندی پر یہ استھان کوہِ ہرمکھ کے سائے میں ہے۔"
+3. [repetition] "شاردا پیٹھ کا زوال کئی صدیوں میں رفتہ رفتہ آیا۔ بارہویں صدی کے بعد علم کی دنیا میں شاردا پیٹھ کی برتری ماند پڑتی گئی، ..." -> the name is repeated in consecutive sentences; now that کشمیر comes after it, a pronoun is unambiguous -> "بارہویں صدی کے بعد علم کی دنیا میں اس کی برتری ماند پڑتی گئی، اور یہ وہ زمانہ تھا جب کشمیر سیاسی اتھل پتھل کی لپیٹ میں تھا۔"
+4. [repetition/flow] "یہ اسی مرکز میں پروان چڑھا اور یہیں سے پھیلا۔ اس کا نام اسی مندر کی نسبت سے رکھا گیا تھا۔" -> restates para 2's "شاردا پیٹھ کی نسبت سے دیوی کا نام شاردا رسم الخط کو بھی ملا" with the same "کی نسبت سے", and makes three clipped sentences in a row opening on یہ/اس, with "اسی" twice -> "یہ اسی مرکز میں پروان چڑھا، یہیں سے پھیلا اور مندر ہی کے نام پر شاردا کہلایا۔"
+NOTES:
+- All eleven round 1 fixes read well in place; the article is now close to publishable and the four issues above are small, one-phrase fixes.
+- "کشمیر کی ہندو برہمن برادری یعنی کشمیری پنڈت ... تعظیم کرتے ہیں" lets the verb agree with the appositive rather than the feminine singular head "برادری"; acceptable, but "کشمیر کے ہندو برہمن یعنی کشمیری پنڈت اس پہاڑ کو ..." makes the agreement clean.
+- "یہ مذہبی رسوم اور زائچوں کی تحریر میں استعمال ہوتا ہے" lets "کی تحریر" be read as governing both nouns; if the sense is rituals plus horoscope writing, "یہ مذہبی رسوم میں بھی استعمال ہوتا ہے اور زائچے لکھنے میں بھی" is unambiguous.
+- "عظیم" as an epithet appears in paras 1, 3, 4 and 7; after fix 1, "عمارتوں کا ایک عظیم مجموعہ" could become "وسیع مجموعہ" to thin it further.
+- "کشمیر کے ثقافتی اور مذہبی حافظے میں" still reads slightly translated; "کشمیر کی ثقافتی اور مذہبی روایت میں" is more natural.
+- آدی شنکرا is introduced as "عظیم معلم" and re-introduced as "فلسفی"; the second epithet can go.
+- "چنانچہ یہاں دیوی کی پوجا ..." presents as a consequence what is really an elaboration; dropping "چنانچہ" reads more smoothly.
+- "پتھر کی چوکور تراشی ہوئی بڑی بڑی سلوں" piles modifiers in English order; "تراشے ہوئے پتھر کی بڑی بڑی چوکور سلوں" flows better.
+- "راہبانہ درس گاہوں" still carries an ascetic overtone; "زائرین" for Hindu pilgrims is acceptable, though "یاتری" is common in Pakistani Urdu for Hindu and Sikh pilgrims.
+- Mechanics are clean: Urdu punctuation throughout, no em or en dashes, no Latin letters, asterisks balanced (12), Western digits only (the thousands comma in "2,000" belongs to the Western numeral). Spellings are consistent: شنکرا، استھان، درس گاہ، بارہویں، ڈھانچا.

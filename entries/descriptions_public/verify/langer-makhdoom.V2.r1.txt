@@ -1,0 +1,10 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. The Shrine and Its Devotion, langar paragraph: "یہاں کھانا پکتا ہے" follows a sentence about the langar in general, but the paragraph just before ends "لوگ یہاں کھنچے چلے آتے ہیں", where یہاں means the village. A reader could take this یہاں as Langar Makhdoom itself, which would turn the English's general description of a langar into a claim about this shrine. "لنگر میں کھانا پکتا ہے" removes the doubt.
+2. A House of Teaching, last paragraph: "مخدوم عبدالکریم سے دو واسطے اوپر" reads correctly as "two links up". But واسطہ also means an intermediary (دو واسطوں سے = through two intermediaries, i.e. three generations up). "مخدوم عبدالکریم سے دو کڑیاں اوپر" cannot be misread.
+3. The Setting, Langah paragraph: "جنگ کے بعد چنیوٹ میں سلطان حسین کے عامل کو گرفتار کر کے" can read as an arrest that took place at Chiniot, where the English means Sultan Husain's agent stationed at Chiniot. "جنگ کے بعد چنیوٹ میں متعین سلطان حسین کے عامل کو گرفتار کر کے" keeps the English sense.
+4. Legacy, last paragraph: "اسی گھر میں میاں وڈا نے ان کی خدمت کی" says outright that the person served was Abdul Karim, where the English "served and studied" does not name him. This fits the earlier section and is harmless. "میاں وڈا نے خدمت بھی کی اور ان سے علم بھی حاصل کیا" would be closer to the English.
+5. The ʿurs paragraph's "شادی" یعنی وصال adds a gloss to "wedding". The meaning is the same and no fact is added.
+6. Verse: the English quotes only Usborne's English rendering and gives no original-script verse, so nothing has to be copied byte for byte. The Urdu italic meaning paragraph is faithful, and the credit line has been dropped as the brief requires.
+7. Mechanical checks: no Latin letters and no en or em dashes; asterisks balanced (one pair). All six headings correspond. Every figure is present: 1245, 1329, 1337, 16 to 18 March, 1935, five, two floors, some eight centuries, a century later, and the twelfth, thirteenth and fourteenth centuries. Every hedge is kept: روایت کے مطابق، کہا جاتا ہے، بتائی جاتی ہے، مانا جاتا ہے، بیان کیا جاتا ہے، طے نہیں، کوئی متفقہ رائے نہیں، روایتاً، کوئی آٹھ صدیوں.

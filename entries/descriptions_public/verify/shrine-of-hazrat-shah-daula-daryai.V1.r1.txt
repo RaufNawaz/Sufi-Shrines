@@ -1,0 +1,58 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [uncertain reading as fact] "and Sohni belongs to Gujrat, on the river Chenab" -> This clause comes from Usborne's annotator. The team version marks the town's name in that note as garbled ("Usborne's annotator likewise has Sohni belong to Gujrat, 'on the river Chenab', the town's name garbled in the printed edition"), so naming Gujrat here rests on a reading the team version flags. Rule 5 says to leave such a fact out. The writer's own notes say the same ("Usborne's garbled town name (only 'on the river Chenab' kept)"), but the draft still names Gujrat. Nothing important is lost by dropping the clause: Abbas's clean line already ties the tale of Sohni to the Gujrat district. Fix: drop the clause.
+OLD: The tale of Sohni begins with a potter who lived in the Gujrat district of the Punjab, and Sohni belongs to Gujrat, on the river Chenab; Takht Hazara, the home of Ranjha's clan, lies in what is now the Gujrat District of Pakistan.
+NEW: The tale of Sohni begins with a potter who lived in the Gujrat district of the Punjab, and Takht Hazara, the home of Ranjha's clan, lies in what is now the Gujrat District of Pakistan.
+
+NOTES:
+1. (precision) "It was once the custom to leave a child". The team version has "the child", in a passage it introduces as "the vow of a child". The same quotation (same page) begins with the saint procuring the birth of a child for a couple who desired one. "A child" turns this into a general custom of leaving any child at the lodge, which the team version does not say. The fix gives the referent without stating the miracle as fact.
+OLD: It was once the custom to leave a child, as soon as it was weaned, at Shah Daula's *khanqah* as an offering to him.
+NEW: It was once the custom for parents who had sought a child through his intercession to leave the child, as soon as it was weaned, at Shah Daula's *khanqah* as an offering to him.
+
+2. (precision) "It was so solidly built that no man of wealth could raise a building as strong". This is a seventeenth century author's praise, and the team version gives it in his voice. Stated plainly, it becomes the site's own superlative. The draft already frames the same author's other hyperboles (Hatim's generosity, "it was said"; Gujrat never much of a place, "it is said"), and the same frame fits here.
+OLD: It was so solidly built that no man of wealth could raise a building as strong, and it became a landmark: the Deg ran below Shah Daula's bridge, which stood on the highway.
+NEW: It was said to be so solidly built that no man of wealth could raise a building as strong, and it became a landmark: the Deg ran below Shah Daula's bridge, which stood on the highway.
+
+3. (precision) "The takeover could not wholly change the perceptions ...". The team version frames this as one scholar's assessment ("The takeover, in his reading, did not displace the older authority on the spot"). In the narrator's voice it becomes the site's own verdict on a government department. The draft already frames this scholar's other analyses ("has been likened", "One scholar reads"), and the same frame fits here. This also helps the sentence sit beside the reform paragraph in The Chuhas of Shah Daula (judgement call 7).
+OLD: The takeover could not wholly change the perceptions rooted deep in the minds of the rural people, or the authority of the shrine's administrator on the spot, the *mujawir*.
+NEW: The takeover, it has been observed, could not wholly change the perceptions rooted deep in the minds of the rural people, or the authority of the shrine's administrator on the spot, the *mujawir*.
+
+4. (precision) "The shrine's *mujawir* rules through a dream." This sentence opens a paragraph, and "The shrine's" is not in the team version (which has "The mujâwir"). On its own, the sentence reads as a statement about the administrator of the real shrine, not about the story's character. The fix keeps it inside the fiction.
+OLD: The shrine's *mujawir* rules through a dream.
+NEW: In the story, the shrine's *mujawir* rules through a dream.
+
+5. Rulings on the writer's judgement calls:
+   - 1: accepted. The team version files Bhandari's slave and Malik's treasurer, mendicant and labourer as a disagreement over his early life. Giving the site's telling with "Accounts of his early years differ" follows rule 4. Do not use the fallback, which would set variants side by side.
+   - 2: accepted. Lahori's chain starts from Sina Sarmast, not the site's master, and its fourth link is uncertain. Naming only the two anchor links (Rajan Qattal of Uch, Baha al-Din Multani) and no first link keeps the point. It hangs nothing under the named master, and it does not call the chain Suhrawardi, which the team version does not do. This is as on Shah Jamal.
+   - 3: accepted. The team version files Mian Sayyidna as a variant name for the same master. The deathbed glance is framed as tradition and is not made the reason he left Sialkot.
+   - 4: accepted. The team version itself places Malik's twelve years under the dispute over the master's name ("Malik names no master, speaking of twelve years"), not under the early life dispute. So it is the same discipleship, and "it is said" frames it. Nothing is merged.
+   - 5: accepted. The team version's own narrative gives the Nala Dek bridge and the Deg bridge in consecutive paragraphs without identifying them, and the draft does the same.
+   - 6: accepted. Malik gives 1898 plainly, so dropping the site's "traditionally" claims no more than the team version.
+   - 7: accepted. The two statements are compatible: the department forbade the practices, and it could not wholly change perceptions. See precision note 3 for the framing. "Since the middle of the twentieth century" covers Malik's 1960s.
+   - 8: accepted. January 1839 is the team version's (the site's), and its bibliography supports an early printed notice (Shahamat Ali, 1847, "the earliest printed notice"; Miles, "sources from 1839 onward"). So the team version does not show every other source against the site. One clause covers Malik's late dating. The rewording "first described by an observer in January 1839 in the earliest printed notice" fits both the site's date and the 1847 book.
+   - 9: accepted. The meaning of the title is clear from the gloss, the title is clean elsewhere in the chapter, and the site independently derives *Daryai* from his works across streams.
+   - 10: accepted (taste: "seems" puts a 2015 observation in the present).
+   - 11: accepted for V1. The trafficking suspicion is framed as a colonial suspicion, as in the team version. Whether an unsubstantiated allegation belongs on the public page is Rauf's call; it can be deleted without loss.
+   - 12, 13: accepted. Both analyses are framed ("has been likened", "One scholar reads"), and "devotees" for "adepts" is fair.
+   - 14: accepted. Regnal year 40 of Aurangzeb is firm (bibliography). The anchors "By the 1870s" and "In 1875" (Lahori, 1292 AH / 1875 CE) and "By the end of the twentieth century" (Malik, 1998) are also firm.
+   - 15, 16: accepted.
+6. Other checks passed:
+   - Consensus choices: the death year (1675 from the site, one clause), birth around 1581, the master's name, the order ("no settled view", without an unsupported "most often"), the tomb "in the city", and the cause of the condition all follow rule 4.
+   - Descent: the descent sentence keeps Malik's own framing (Afghan ancestors as the given account, the Sayyid line as a claim). Rule 4 is satisfied.
+   - Glosses: Sayyid, *faqir*, the Suhrawardi and Qadiri orders, *khanqah*, *silsila*, *zuhd*, *karamat*, *langar*, *ʿurs*, *dargah* and *pir* match data/glossary.csv.
+   - Verse: the verse paragraph is byte identical to the team version, and its introduction follows the Shah Jamal pilot.
+   - Sources and dashes: no citations, page references, named narrating authors or archive vocabulary survive, and the prose has no dash.
+   - Checker: --english-only exits 0 at 0.47.
+   - Readings left out under rule 5: the Raich, Sayyidnam, Shaikh Shahr Allah, the 1087 AH / 1676 date, the seventeenth regnal year, the pargana's printed name and the slave owner's name are all correctly left out.
+7. Taste only, not required:
+   (a) "Tradition tells that ... on his disciple. Shah Daula's state was transformed: ..." The frame governs the second sentence only by continuation. Writing "..., and that Shah Daula's state was transformed: ..." would keep the treasures of the unseen plainly inside the tradition.
+   (b) Two one sentence paragraphs (the Overview's second paragraph, and "He is also credited with *karamat* ...") could join their neighbours.
+   (c) "the yearly commemoration of the saint's death, which lasts three days": the relative clause sits next to "death". Moving the three days elsewhere in the sentence would avoid the stumble.
+   (d) "The town also has its place in Mughal history." and "Its founding is told this way:" are connective or signposting phrases the team version lacks. They are harmless but could be trimmed.
+   (e) "The *dargah*, the shrine complex, is a female domain ... in contrast to the mosques" may be Malik's general remark about dargahs. The draft reads it of this shrine, as the team version's placement does.
+   (f) "already a place of visitation" in the reign of Aurangzeb is an inference from the dates the draft gives (death 1675). It is fine.
+8. Omission sweep: after reading the team version section by section, I find nothing important missing.
+   - The life, birth name, descent, master, discipleship, transformation, order, chain anchors, Chishti grace, household, generosity, refusal of land, miracle, death and chronogram are all kept.
+   - So are every building work, the town's growth, the two titles, the tomb, its rebuilding and administration, the *ʿurs*, the reputation, the vow and bargain, the whole *chuha* history and its reform, the story, the setting, the literature on the saint and the verse.
+   - What is left out is source apparatus, the rival variants under rule 4, the readings the team version flags, and minor items (the regnal years 37 or 42, Meer Manu, Sain Kanwan Wali, Kunjahi's chemical explanation).

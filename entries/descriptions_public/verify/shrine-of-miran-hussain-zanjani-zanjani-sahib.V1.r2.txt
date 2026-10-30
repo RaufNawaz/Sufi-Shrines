@@ -1,0 +1,23 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. Diff result: `diff /home/claude/bak/shrine-of-miran-hussain-zanjani-zanjani-sahib.md.bak_en1 entries/descriptions_public/shrine-of-miran-hussain-zanjani-zanjani-sahib.md` shows exactly five changed lines (5c5, 19c19, 25c25, 31c31, 39c39), one per listed replacement and nothing else. Applying the five OLD to NEW replacements from V1.r2.changes.txt to the backup (each OLD occurs once in the backup, each NEW once in the current file) reproduces the current file byte for byte.
+
+2. Checker line: `ok    shrine-of-miran-hussain-zanjani-zanjani-sahib  team 25197 -> public 7688 chars (0.31)`
+
+3. Change 1 (Overview): supported. The Tazkirah telling has Hujwiri arrive to find Zanjani's funeral procession already under way; Rizvi's has the saint die during the night. No timing of the arrival is now asserted, the legend stays framed by "Tradition holds", "the city" points back to Lahore in the previous sentence, and "the saint" can only be Zanjani. Grammar intact, no dash, no source talk. It also agrees with the closing sentence of The Saint ("whose funeral Data Ganj Bakhsh is said to have found under way when he reached Lahore").
+
+4. Change 2 (Legends): supported. "On reaching Lahore Data saw Husain Zanjani's bier going past" is the Mufti's telling as his editor reports it; "in the morning ... coffin was carried out for burial, he had died during the night" is Rizvi's. Both are the same funeral (JC10), so nothing is merged across rival accounts, and the morning now sits on the coffin, not on the arrival. The change also gives the following sentence ("On seeing the bier, it is said") a clear antecedent. Framed by "the story continues"; grammar and tense sequence intact; no dash.
+
+5. Change 3 (The Shrine and Its Devotion): supported. Rizvi's "which is now a suburb of Lahore" is anchored to the decade his bibliography item allows (copyright 1975, first published 1978), with no author named. "Today" stays on Miran Husain Park, which the modern edition's appendix gives as the present location. Grammar intact.
+
+6. Change 4 (Keepers): supported. "Holder of the seat" is a plain definition with no claim about how Karam Ali Shah held it, matching the gloss in the Odero Lal row; the team version's "in the possession of Karam Ali Shah, gaddi nashin of Sadr Diwan Sahib" is kept. Grammar and comma pairing intact.
+
+7. Change 5 (The Setting): supported. Without "also" the sentence no longer implies Zanjani bears the title; it now follows the team version's own wording ("gives the title of first caller to Islam in Lahore to another man"). Grammar intact.
+
+8. Taste only (recorded, not to be applied): "died during the night" now appears in both the Overview and the Legends, and "bier" twice in adjacent sentences of the Legends paragraph; both are natural in context and introduce no fault.
+
+9. Length: 7,688 of 25,197 (0.305), within the "L1 exception (V1 round 1)" line now in the notes file, as round 1 supported.

@@ -1,0 +1,101 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic / broken coordination] "یہی پورے احاطے کا تعمیری اور مذہبی رسوم کا مرکز ہے" -> تعمیری means "constructive" (as in تعمیری تنقید), not "architectural", and the adjective is coordinated with a noun phrase, so the line parses as "the centre of constructive and religious rites" -> corrected sentence:
+OLD: یہی پورے احاطے کا تعمیری اور مذہبی رسوم کا مرکز ہے۔
+NEW: یہی فنِ تعمیر اور مذہبی رسوم دونوں کے اعتبار سے پورے احاطے کا مرکز ہے۔
+
+2. [tangled sentence / misplaced relative clause] "ایک ایسے غار میں کسی جانور کا فوسل بھی جس کی چھت سے پتھر کی قلمیں لٹکتی ہیں" -> the relative clause جس کی چھت is cut off from غار by the fossil phrase, so it reads as the animal's roof; the verb of the second clause is also left hanging -> corrected sentence:
+OLD: ثبوت کے طور پر شکیل نے ایک پتے کا فوسل دکھایا، اور احاطے کے سامنے سڑک پار ایک ایسے غار میں کسی جانور کا فوسل بھی جس کی چھت سے پتھر کی قلمیں لٹکتی ہیں۔
+NEW: ثبوت کے طور پر شکیل نے ایک پتے کا فوسل دکھایا، اور احاطے کے سامنے سڑک پار ایک غار میں کسی جانور کا فوسل بھی دکھایا۔ اس غار کی چھت سے پتھر کی قلمیں لٹکتی ہیں۔
+
+3. [subject mismatch / calque of "represent"] "وہ مہریں ... شیو کی ابتدائی صورت ہو سکتی ہیں" -> it is the seated figure, not the seals, that may be an early form of Shiva -> corrected sentence:
+OLD: ایک ماہرِ آثارِ قدیمہ کا خیال ہے کہ موہنجو داڑو سے ملنے والی وہ مہریں جن پر ایک شبیہ یوگ کے آسن میں بیٹھی دکھائی گئی ہے، شیو کی ابتدائی صورت ہو سکتی ہیں۔
+NEW: ایک ماہرِ آثارِ قدیمہ کا خیال ہے کہ موہنجو داڑو سے ملنے والی بعض مہروں پر یوگ کے آسن میں بیٹھی جو شبیہ دکھائی گئی ہے، وہ شیو کی ابتدائی صورت ہو سکتی ہے۔
+
+4. [inconsistent spelling] "کورووں" -> the article writes ہندوؤں، آنسوؤں، سادھوؤں with ؤ; the oblique plural of کورو should match -> corrected sentence:
+OLD: روایت کی رو سے ست گھرہ ہی وہ جگہ ہے جہاں کورووں کے تخت پر قابض ہو جانے کے بعد پانچ پانڈو بھائیوں نے اپنی بارہ برس کی جلاوطنی کا کچھ حصہ گزارا۔
+NEW: روایت کی رو سے ست گھرہ ہی وہ جگہ ہے جہاں کوروؤں کے تخت پر قابض ہو جانے کے بعد پانچ پانڈو بھائیوں نے اپنی بارہ برس کی جلاوطنی کا کچھ حصہ گزارا۔
+
+5. [inconsistent spelling] "پانڈووں کے سامنے" -> same as 4: پانڈوؤں -> corrected sentence:
+OLD: اس قصے میں پانیوں کی نگہبانی کرنے والے یکش نے پانڈووں کے سامنے ایک کے بعد ایک پہیلی رکھی اور یودھشٹھر کی دانائی کو آزمایا۔
+NEW: اس قصے میں پانیوں کی نگہبانی کرنے والے یکش نے پانڈوؤں کے سامنے ایک کے بعد ایک پہیلی رکھی اور یودھشٹھر کی دانائی کو آزمایا۔
+
+6. [inconsistent spelling] "پانڈووں نے تعمیر کیے تھے" -> same as 4: پانڈوؤں -> corrected sentence:
+OLD: یہ عقیدہ بھی ہے کہ یہ مندر خود پانڈووں نے تعمیر کیے تھے، اور یہ کہ مہابھارت میں ان کا ذکر مقدس مقامات کی حیثیت سے آیا ہے۔
+NEW: یہ عقیدہ بھی ہے کہ یہ مندر خود پانڈوؤں نے تعمیر کیے تھے، اور یہ کہ مہابھارت میں ان کا ذکر مقدس مقامات کی حیثیت سے آیا ہے۔
+
+7. [unidiomatic collocation / calque of "squat proportions"] "اس کے تناسب ٹھگنے ہیں" -> ٹھگنا describes a body or a building, not proportions -> corrected sentence:
+OLD: اس کے تناسب ٹھگنے ہیں، سہ برگی محرابوں کے نیچے طاق بنے ہیں، اور اس پر وہ نالی دار سجاوٹ ہے جو نمک کے پہاڑی سلسلے کے مندروں کی پہچان ہے۔
+NEW: یہ قد میں ٹھگنا ہے، سہ برگی محرابوں کے نیچے طاق بنے ہیں، اور اس پر وہ نالی دار سجاوٹ ہے جو نمک کے پہاڑی سلسلے کے مندروں کی پہچان ہے۔
+
+8. [ambiguous reference] "یہ مندر مقامی کنجور پتھر سے بنے ہیں" -> the three preceding sentences use یہ for the single central temple, so یہ مندر reads as "this temple" until the plural verb arrives; the sentence actually moves to the temples in general -> corrected sentence:
+OLD: یہ مندر مقامی *کنجور* پتھر سے بنے ہیں اور کبھی ان پر خوب پلستر کیا گیا تھا۔
+NEW: یہاں کے مندر مقامی *کنجور* پتھر سے بنے ہیں اور کبھی ان پر خوب پلستر کیا گیا تھا۔
+
+9. [inconsistent term] "شیو لنگ ... *لنگم* ... لنگم کو" -> the same object is spelled لنگ and then لنگم in consecutive sentences, so the gloss seems to introduce a different thing; use the Urdu form throughout -> corrected text:
+OLD: *لنگم* مردانہ عضو کی وہ صورت ہے جس میں شیو کو دکھایا جاتا ہے، اور یہ دیوتا کی زبردست قوت کی علامت ہے۔ ہندو مندروں میں لنگم کو *یونی* کے اندر رکھا جاتا ہے،
+NEW: *لنگ* مردانہ عضو کی وہ صورت ہے جس میں شیو کو دکھایا جاتا ہے، اور یہ دیوتا کی زبردست قوت کی علامت ہے۔ ہندو مندروں میں لنگ کو *یونی* کے اندر رکھا جاتا ہے،
+
+10. [calque / tense clash] "2011 تک ... حال ہی میں تجدید ہو چکی تھی" -> "by 2011 ... had recently" rendered word for word; تک (up to) clashes with حال ہی میں -> corrected sentence:
+OLD: 2011 تک حویلی کی تصویروں کی حال ہی میں تجدید ہو چکی تھی۔
+NEW: 2011 میں حویلی کی تصویروں کی حال ہی میں تجدید ہوئی تھی۔
+
+11. [calque of "one of the most ..."] "سب سے زیادہ دہرایا جانے والا ایک قصہ" -> a superlative followed by ایک is not Urdu; the idiom is ... میں سے ایک -> corrected sentence:
+OLD: اس مقام کا سب سے زیادہ دہرایا جانے والا ایک قصہ اسی جامعہ سے وابستہ ہے۔
+NEW: اس مقام کے سب سے زیادہ دہرائے جانے والے قصوں میں سے ایک اسی جامعہ سے وابستہ ہے۔
+
+12. [repetition / English word order] "مسلمان حملہ آور محمود غزنوی کے پنجاب پر حملے کے بعد" -> حملہ آور ... حملے in one phrase; possessive stacked in English order -> corrected sentence:
+OLD: مسلمان حملہ آور محمود غزنوی کے پنجاب پر حملے کے بعد البیرونی اسی صدی کے پہلے نصف میں ہندوستان آئے اور اس مندر تک پہنچے۔
+NEW: مسلمان حملہ آور محمود غزنوی کی پنجاب پر یلغار کے بعد البیرونی اسی صدی کے پہلے نصف میں ہندوستان آئے اور اس مندر تک پہنچے۔
+
+13. [redundancy] "اس منظر میں ... شیو مندر وہاں سب سے اہم ہے" -> وہاں duplicates اس منظر میں -> corrected text:
+OLD: اس منظر میں تالاب کے کنارے کا شیو مندر وہاں سب سے اہم ہے،
+NEW: اس منظر میں تالاب کے کنارے کا شیو مندر سب سے اہم ہے،
+
+14. [ambiguity] "گرو نانک مندر کے اندر" -> reads naturally as the name of a building, "inside the Guru Nanak Mandir" -> corrected sentence:
+OLD: گرو نانک مندر کے اندر بھگتوں کے بیچ بیٹھے ہیں، جبکہ مردانہ ساتھ والے پہاڑ پر انتظار کر رہے ہیں۔
+NEW: گرو نانک بھگتوں کے بیچ مندر کے اندر بیٹھے ہیں، جبکہ مردانہ ساتھ والے پہاڑ پر انتظار کر رہے ہیں۔
+
+15. [ambiguity / clumsy repetition] "باقی عمارتوں کے ساتھ اس کی مرمت نہیں ہوئی" can be read as "it and the other buildings were not repaired"; and "وسط تک اس تک" stacks two تک -> corrected sentence:
+OLD: باقی عمارتوں کے ساتھ اس کی مرمت نہیں ہوئی، اور 2010 کی دہائی کے وسط تک اس تک جانے والا راستہ بے توجہی کا شکار ہو چکا تھا اور عمارت کی چھت باقی نہ رہی تھی۔
+NEW: باقی عمارتوں کی مرمت کے وقت اس کی مرمت نہیں ہوئی، اور 2010 کی دہائی کے وسط تک وہاں جانے والا راستہ بے توجہی کا شکار ہو چکا تھا اور عمارت کی چھت باقی نہ رہی تھی۔
+
+16. [tangled sentence] "جو 2011 میں بھی دیکھے جا سکتے تھے، اور جو گنے چنے ہندو یہاں آتے وہ ..." -> the second جو reads at first as a continuation of the relative clause about the carved names -> corrected text:
+OLD: دیواروں پر نام اور ٹیلی فون نمبر کھود دیے گئے، جو 2011 میں بھی دیکھے جا سکتے تھے، اور جو گنے چنے ہندو یہاں آتے وہ سیاح بن کر آتے تھے۔
+NEW: دیواروں پر نام اور ٹیلی فون نمبر کھود دیے گئے، جو 2011 میں بھی دیکھے جا سکتے تھے۔ جو گنے چنے ہندو یہاں آتے، وہ سیاح بن کر آتے تھے۔
+
+17. [logic slip] "کسی بھی خطے سے زیادہ کٹھن" -> compares central Punjab with every region including itself; Urdu needs دوسرے -> corrected sentence:
+OLD: وسطی پنجاب میں ہندوؤں کے حالاتِ زندگی کو کسی بھی خطے سے زیادہ کٹھن کہا گیا ہے۔
+NEW: وسطی پنجاب میں ہندوؤں کے حالاتِ زندگی کو کسی بھی دوسرے خطے سے زیادہ کٹھن کہا گیا ہے۔
+
+18. [English word order / repetition] "..., بیک وقت نازک بھی اور پائیدار بھی" -> an English trailing appositive with no verb; بیک وقت also appears in paragraph 2 and again in the next paragraph -> corrected sentence:
+OLD: یہ احاطہ نمک کے پہاڑی سلسلے میں ہندو عبادت کی گہری قدامت کا مظہر ہے، اور اب بھی ایک عزیز زیارت گاہ اور ورثے کا مقام ہے، بیک وقت نازک بھی اور پائیدار بھی۔
+NEW: یہ احاطہ نمک کے پہاڑی سلسلے میں ہندو عبادت کی گہری قدامت کا مظہر ہے، اور اب بھی ایک عزیز زیارت گاہ اور ورثے کا مقام ہے جو نازک بھی ہے اور پائیدار بھی۔
+
+19. [word order / wrong attachment] "اس کے موسموں کی مار سہے ہوئے مندر" -> اس کے attaches to موسموں ("its seasons") instead of مندر -> corrected sentence:
+OLD: اس کے موسموں کی مار سہے ہوئے مندر آج بھی شیو کے آنسوؤں میں اپنا عکس دیکھتے ہیں۔
+NEW: موسموں کی مار سہے ہوئے اس کے مندر آج بھی شیو کے آنسوؤں میں اپنا عکس دیکھتے ہیں۔
+
+20. [punctuation / dangling clause] "پشاور اور نوشہرہ، لاہور، بہاولپور اور رحیم یار خان" -> two اور in one list; and "ان برسوں میں بھی جب ..." hangs after the verb as an English afterthought -> corrected sentence:
+OLD: پاکستان کے ہندوؤں کے لیے یہ آج بھی وہ مقام ہے جہاں وہ شیو راتری پر پشاور اور نوشہرہ، لاہور، بہاولپور اور رحیم یار خان سے آتے ہیں، ان برسوں میں بھی جب ان کے خطوط کا کسی نے جواب نہ دیا۔
+NEW: پاکستان کے ہندوؤں کے لیے یہ آج بھی وہ مقام ہے جہاں وہ شیو راتری پر پشاور، نوشہرہ، لاہور، بہاولپور اور رحیم یار خان سے آتے ہیں، اور ان برسوں میں بھی آتے رہے جب ان کے خطوط کا کسی نے جواب نہ دیا۔
+
+21. [unidiomatic collocation] "ایک کھنڈر عمارت" -> کھنڈر is a noun, not an adjective -> corrected sentence:
+OLD: گرو نانک کی آمد کی یاد بھی یہاں ایک کھنڈر عمارت میں محفوظ ہے، جس کا نام خود اس مقام کے گائیڈ بھی نہ بتا سکے۔
+NEW: گرو نانک کی آمد کی یاد بھی یہاں کھنڈر بنی ایک عمارت میں محفوظ ہے، جس کا نام خود اس مقام کے گائیڈ بھی نہ بتا سکے۔
+
+22. [tangled syntax / verbatim repetition] "اس تالاب کے گرد جمع ہیں جو صاف ظاہر ہے کہ اس احاطے کی شہ رگ ہے" -> صاف ظاہر ہے کہ cannot sit inside a جو clause, and the phrase repeats word for word the close of the paragraph on the pond -> corrected text:
+OLD: اور یہ سب اس تالاب کے گرد جمع ہیں جو صاف ظاہر ہے کہ اس احاطے کی شہ رگ ہے۔
+NEW: اور یہ سب اس تالاب کے گرد جمع ہیں جو بلاشبہ اس احاطے کی شہ رگ ہے۔
+
+NOTES:
+- "نمک کے پہاڑی سلسلے" (four times) is clear but descriptive; the established Urdu name is کوہستانِ نمک or سلسلۂ کوہِ نمک, which reads as a proper name. Editor's choice.
+- Paragraph 1: "نمک کے پہاڑی سلسلے کی خشک تہوں کے درمیان" is a slightly odd image (تہیں suggests strata rather than folds of hills); "ایک زمرد رنگ تالاب" would read more smoothly as "زمردی رنگ کے ایک تالاب".
+- Paragraph 3: "*پُران* ... کی پرانی سنسکرت کتابیں" makes an accidental echo پُران/پرانی; قدیم would avoid it. "سنسکرت لفظ *کٹاکش*" would read better as "سنسکرت کے لفظ *کٹاکش*". "اسی لیے یہ تالاب ..." makes the name the cause of the belief; "یوں" or "چنانچہ" would be softer.
+- Paragraph 2: "مقدس مقام چلا آتا ہے" is a little archaic; "چلا آ رہا ہے" is the current form. "تہیں" followed by "تہ در تہ" in the next sentence is a near echo.
+- Query, not an edit: "مندروں کی کھڑکیوں اور گلیوں سے ... چھلانگیں" is hard to picture (گلیاں are lanes at ground level); if galleries or balconies are meant, گیلریوں or چھجوں would be the word. Left untouched because the intended sense cannot be confirmed from the Urdu alone.
+- "شیو راتری ... یعنی شیو کی رات" is glossed in the introduction and again in the festival section; the second gloss could go if the first stays.
+- "گرو نانک" opens three successive sentences in the Sikh section; ان could replace one. "والدہ ترپتا اور ان کے شوہر" is clear in context but "والدہ ترپتا اور والد" would be warmer.
+- "ہمسر پاروتی" is understood, but in Urdu ہمسر leans to "equal, match"; زوجہ or شریکِ حیات is unambiguous.
+- "چھوت چھات پیچھے ہٹ چکی تھی" is a personification Urdu tolerates; "چھوت چھات میں کمی آ چکی تھی" is plainer. "واپس لوٹا دیا گیا" is a common pleonasm; "لوٹا دیا گیا" suffices. "اکہری سڑک" could be "یک رویہ سڑک".
+- Mechanical checks: no Latin letters, no em or en dashes, asterisks balanced (26), Western digits throughout; all fixes above preserve these.

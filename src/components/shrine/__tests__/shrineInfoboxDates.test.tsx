@@ -81,7 +81,9 @@ describe('ShrineInfobox — split date fields (year_built/figure_born/figure_die
     // The values convert to Eastern digits — the (unreviewed, English) source
     // notes are left untranslated by design and keep Western digits.
     expect(screen.getByText(/^۱۴۱۶ AH \(uncertain/)).toBeInTheDocument();
-    expect(screen.getByText('۱۳۴۱ AH')).toBeInTheDocument();
+    /* Born and died read their month and calendar in Urdu too since 29 October
+       2026 (localizeRecordedDate, as on the saint pages), so the era is ہجری. */
+    expect(screen.getByText('۱۳۴۱ ہجری')).toBeInTheDocument();
     expect(screen.getByText(/^۲۰۰۵$/)).toBeInTheDocument();
   });
 
@@ -193,5 +195,84 @@ describe('ShrineInfobox — a qualifying note survives a missing year', () => {
     const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />);
     const notes = [...container.querySelectorAll('.infobox-note')].map((n) => n.textContent ?? '');
     expect(notes.some((n) => n.includes('7th-9th Muharram'))).toBe(true);
+  });
+});
+
+/**
+ * A figure date is recorded with its qualification (RULE 2), and the infobox
+ * used to print the whole cell. Shah Inayat Qadiri's birth put three lines of
+ * English into the Urdu fact panel (Rauf, 29 October 2026: "there is english
+ * leakage"). The founded row's rule now holds here: the public reads the date,
+ * the team reads the date and every word after it.
+ */
+describe('ShrineInfobox — a figure date and its qualification', () => {
+  const inayat = makeShrineRow({
+    figure_born:
+      'c. 1643 (existing sourcing); a 2026 field survey separately gives 1056 AH (~1646 CE) -- the two are consistent within the normal margin of approximate dating',
+    figure_died: 'c. 1728',
+  });
+  const bornRow = (container: HTMLElement, label: string) =>
+    [...container.querySelectorAll('.infobox-row')].find(
+      (row) => row.querySelector('.infobox-label')?.textContent === label,
+    );
+
+  it('shows the public the date alone', () => {
+    const { container } = renderWithProviders(<ShrineInfobox shrine={buildShrine(inayat, 0)!} />);
+    const born = bornRow(container, 'Born')!;
+    expect(born.querySelector('.infobox-value')?.textContent?.trim()).toBe('c. 1643');
+    expect(container.textContent).not.toContain('field survey');
+  });
+
+  it('shows the team the date and, beneath it, every word that followed', () => {
+    asTeam();
+    const { container } = renderWithProviders(<ShrineInfobox shrine={buildShrine(inayat, 0)!} />);
+    const born = bornRow(container, 'Born')!;
+    expect(born.querySelector('.infobox-note')?.textContent).toContain(
+      'a 2026 field survey separately gives 1056 AH',
+    );
+  });
+
+  it('puts no Latin letter in the Urdu public panel for it', () => {
+    const { container } = renderWithProviders(<ShrineInfobox shrine={buildShrine(inayat, 0)!} />, {
+      lang: 'ur',
+    });
+    const born =
+      bornRow(container, 'پیدائش') ?? container.querySelector('.infobox-dates .infobox-row');
+    expect(born?.textContent).toContain('۱۶۴۳');
+    expect(container.querySelector('.infobox-dates')?.textContent ?? '').not.toMatch(/[A-Za-z]/);
+  });
+
+  it('shows the public nothing for a cell with no date in it, and the team the sentence', () => {
+    const noDate = makeShrineRow({
+      figure_born: 'Not given. The only early date is "educated in Georgia in 993 AD" (Q9).',
+    });
+    const pub = renderWithProviders(<ShrineInfobox shrine={buildShrine(noDate, 0)!} />);
+    expect(pub.container.textContent).not.toContain('Not given');
+    pub.unmount();
+    asTeam();
+    const team = renderWithProviders(<ShrineInfobox shrine={buildShrine(noDate, 0)!} />);
+    expect(team.container.textContent).toContain('Not given. The only early date');
+  });
+});
+
+/* Five founded cells are sentences, and three had no Urdu, so the Urdu
+   founded row showed them as an English note (Rauf, 30 October 2026: "Just
+   write the sentence in urdu"). The cell is read through the dictionary now,
+   as the legacy Founded/Opened always was. */
+describe('ShrineInfobox — a founded sentence in Urdu', () => {
+  it('reads Bibi Pak Daman’s founded sentence in Urdu, every Latin letter gone', async () => {
+    const { loadUrduSeed } = await import('../../../lib/i18n/urduFallback');
+    await loadUrduSeed();
+    const shrine = buildShrine(
+      makeShrineRow({
+        year_built:
+          '681 CE / c. 63 AH (popular tradition) — see note; second tradition dates the events to the early 13th century CE',
+      }),
+      0,
+    )!;
+    const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />, { lang: 'ur' });
+    const dates = container.querySelector('.infobox-dates')?.textContent ?? '';
+    expect(dates).toContain('عوامی روایت');
+    expect(dates).not.toMatch(/[A-Za-z]/);
   });
 });

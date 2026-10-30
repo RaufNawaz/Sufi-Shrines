@@ -1,0 +1,43 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [tangled / repetition] "تقویٰ، علم اور مریدوں کی بڑی تعداد کی رہنمائی ان کی وجہِ شہرت ہے، اور پیر شیر محمد نے شرقپور کو عقیدت اور دینی تعلیم کا مرکز بنا دیا۔ ان کا دربار آج بھی وسطی پنجاب کی اہم زیارت گاہوں میں شمار ہوتا ہے۔" -> A comma and اور join two unrelated clauses. Bringing the name back right after "ان کی" makes it read like a second person. "شمار ہوتا ہے" also repeats "ان کا شمار ... میں ہوتا ہے" from the sentence before. -> "تقویٰ، علم اور مریدوں کی بڑی تعداد کی رہنمائی ان کی وجہِ شہرت ہے۔ انہوں نے شرقپور کو عقیدت اور دینی تعلیم کا مرکز بنا دیا۔ ان کا دربار آج بھی وسطی پنجاب کی اہم زیارت گاہوں میں سے ایک ہے۔"
+
+2. [unidiomatic] "ان کی خدمت میں پنجاب بھر سے اور اس سے باہر سے بھی مرید حاضر ہوتے تھے۔" -> "سے اور اس سے باہر سے" stacks سے and is clumsy. -> "ان کی خدمت میں پورے پنجاب اور اس کے باہر سے بھی مرید حاضر ہوتے تھے۔"
+
+3. [unidiomatic / calque] "پیر صاحب کی پہچان دو باتیں ہیں: ... اور عقیدت کا وہ اصلاحی اور متین انداز جس کی انہوں نے تعلیم دی۔" -> A پہچان comes from things, so "پہچان دو باتیں ہیں" does not work. "انداز کی تعلیم دی" is a literal rendering of 'taught' and does not collocate. -> "پیر صاحب کی پہچان دو باتوں سے ہے: عبادت، زہد اور خدمت سے عبارت ان کی زندگی، اور عقیدت کا وہ اصلاحی اور متین انداز جس کی انہوں نے تلقین کی۔"
+
+4. [repetition] "دربار کی تولیت بدستور پیر شیر محمد کے خانوادے کے پاس ہے، اور اس خانوادے کے افراد کا شمار محترم دینی شخصیات میں ہوتا ہے۔" -> خانوادے appears twice in one sentence, and a relative clause is the natural link. -> "دربار کی تولیت بدستور پیر شیر محمد کے خانوادے کے پاس ہے، جس کے افراد کا شمار محترم دینی شخصیات میں ہوتا ہے۔"
+
+5. [repetition] "شیخ محمد سعید چشتی صابری شرقپوری بھی مدفون ہیں، جو اسی قصبے سے تعلق رکھنے والے چشتی صابری صوفی تھے۔" -> The relative clause repeats what the name already says (چشتی صابری twice, and شرقپوری restated as "اسی قصبے"). -> "شرقپور میں پیر شیر محمد سے پہلے کے ایک اور صوفی بزرگ شیخ محمد سعید چشتی صابری شرقپوری بھی مدفون ہیں، جن کا تعلق اسی قصبے سے تھا۔"
+
+6. [redundancy] "اس کا ایک قلمی نسخہ شرقپور ہی میں وہاں کے مولانا نصرت نوشاہی کے پاس محفوظ رہا ہے۔" -> "شرقپور ہی میں وہاں کے" names the place twice. -> "اس کا ایک قلمی نسخہ شرقپور ہی میں مقیم مولانا نصرت نوشاہی کے پاس محفوظ رہا ہے۔"
+
+7. [calque / ambiguous] "ان دونوں خطوں کے دیہات میں بہت سی جگہوں پر مقامی پیر علاقے کے زمیندار کی نمائندگی کرتا ہے، یا کم از کم اس کا قریبی عزیز ہوتا ہے۔" -> "نمائندگی کرتا ہے" is a literal 'represents' and reads in Urdu as 'acts as the landlord's agent'. With that reading the "کم از کم ... قریبی عزیز" scale makes no sense; it only works if the pir is himself the landlord. "دیہات میں بہت سی جگہوں پر" is also wordy. Confirm the sense against the source before applying this fix. -> "ان دونوں خطوں کے بہت سے دیہات میں مقامی پیر خود ہی علاقے کا زمیندار ہوتا ہے، یا کم از کم اس کا قریبی عزیز۔"
+
+8. [gloss / repetition] "حضرت سید محمد غوث اوچی جیلی گیلانی پنجاب آئے، جنہیں اوچ کے سید محمد غوث کہا جاتا ہے۔" -> The clause repeats the name with only اوچی turned into "اوچ کے". It reads as a gloss of the nisba, not as a common name. -> "سلسلۂ قادریہ کے بزرگوں میں سب سے پہلے حضرت سید محمد غوث اوچی جیلی گیلانی پنجاب آئے، جو عام طور پر سید محمد غوث اوچی کے نام سے معروف ہیں۔"
+
+9. [wrong postposition / calque] "سلسلۂ چشتیہ خواجہ معین الدین حسن سجزی سے ہند اور پنجاب میں پھیلا، اور اسے عام طور پر شمالی ہند اور پنجاب کے سب سے بااثر صوفی سلسلوں میں شمار کیا جاتا ہے۔" -> "سے پھیلا" should be "کے ذریعے" or "کے ہاتھوں" (the same paragraph uses "کے ہاتھوں" for Tonsvi). "سب سے بااثر ... سلسلوں میں" copies English 'one of the most'. -> "سلسلۂ چشتیہ خواجہ معین الدین حسن سجزی کے ذریعے ہند اور پنجاب میں پھیلا، اور اسے عام طور پر شمالی ہند اور پنجاب کے بااثر ترین صوفی سلسلوں میں شمار کیا جاتا ہے۔"
+
+10. [ambiguous pronoun] "یہ عروج ان مشائخ کی بدولت تھا جن کے مقامی سیاسی رہنماؤں سے روابط تو تھے، مگر ان کے ساتھ کشیدگی بھی رہتی تھی۔" -> "ان کے ساتھ" can point to the مشائخ or to the رہنماؤں. -> "یہ عروج ان مشائخ کی بدولت تھا جن کے مقامی سیاسی رہنماؤں سے روابط بھی تھے اور کشیدگی بھی رہتی تھی۔"
+
+11. [unidiomatic] "کیونکہ ان کی لے عموماً زور پر قائم ہوتی ہے۔" -> "لے ... زور پر قائم ہوتی ہے" is opaque to a general reader. -> "پنجاب کی قوالی کی دھنیں آہنگ کے اعتبار سے اتر پردیش کی دھنوں سے مختلف ہیں، کیونکہ ان کی لے کا دار و مدار عموماً زور پر ہوتا ہے۔"
+
+12. [collocation / register] "یہاں کی مقبول قوالیوں کے بولوں میں قلندر کا نام آج بھی الاپا جاتا ہے۔" -> In everyday Urdu "نام الاپنا" carries the sense of harping on a name, which is the wrong tone for devotional song. -> "یہاں کی مقبول قوالیوں کے بولوں میں قلندر کا نام آج بھی گونجتا ہے۔"
+
+13. [gloss of a familiar word / collocation] "*دھمال* وہ پُرجوش رقص ہے جو پنجاب اور سندھ کے صوفی مزارات پر رسم کے طور پر کیا جاتا ہے۔" -> This defines a word every Pakistani reader knows, and the natural verb with دھمال is ڈالنا. -> "پنجاب اور سندھ کے صوفی مزارات پر رسم کے طور پر پُرجوش *دھمال* ڈالی جاتی ہے۔"
+
+14. [repetition] "عوام کے لیے تعویذ لکھنے کا دستور تیرہویں صدی سے جوں کا توں چلا آ رہا ہے: ... بھی آج تک عام لوگوں کے لیے تعویذ لکھتے ہیں۔" -> "عوام کے لیے تعویذ لکھنا" is said twice on either side of the colon. -> "تعویذ لکھنے کا دستور تیرہویں صدی سے جوں کا توں چلا آ رہا ہے: پنجاب کے دوسرے مزارات کے گدی نشینوں کی طرح بابا فرید کے جانشین اور ان کے معاونین بھی آج تک عام لوگوں کو تعویذ لکھ کر دیتے ہیں۔"
+
+15. [calque] "اور خطۂ لاہور کے ممتاز اولیاء میں ان کی یاد بدستور زندہ ہے۔" -> This is 'remembered among' rendered literally. As written it says his memory lives among the saints. -> "شرقپور شریف میں ان کا مزار آج بھی اسی عقیدت کا مرکز ہے جو ان کی ذات نے پیدا کی، اور ان کا نام بدستور خطۂ لاہور کے ممتاز اولیاء کی صف میں لیا جاتا ہے۔"
+
+NOTES:
+- The name changes form: "حضرت میاں پیر شیر محمد شرقپوری", "میاں شیر محمد" (once, line 7), "پیر شیر محمد" and "پیر صاحب". "پیر شیر محمد" at line 7 would match the rest of the article.
+- Mixed plurals and spellings: صوفیوں and صوفیہ, سلسلوں and سلاسل, اولیاء (with hamza) but شعرا (without). ابو الفیض is usually written ابوالفیض. The izafat ۂ is consistent throughout.
+- "شمار" recurs (lines 3, 15, 33) and so does "انیسویں صدی کے اواخر اور بیسویں صدی کے اوائل" (lines 3, 27). The closing paragraph largely restates the introduction.
+- Line 33: خواجہ سلیمان is named in four consecutive sentences, and the spread of the Nizami branch in Punjab is stated twice (فخری شاخ ... پھیلی / نظامی شاخ کو ... فروغ ملا).
+- Line 35: فارسی appears twice in one sentence. "جہاں مغل دور میں اور اس کے بعد بھی یہ ..." would avoid it.
+- Line 21: the Rani Jindan jagir sentence sits awkwardly in a paragraph about book history. Line 39 is a run of unconnected statements, and a general reader may not know which قلندر is meant.
+- "پنجابی شاعر وارث شاہ" and "صوفی شاعر بلھے شاہ" describe figures every Pakistani reader knows. This is harmless for a wider readership.
+- Line 23: "صدر مقام" is the more exact word for a provincial seat than "دارالحکومت", though "صوبائی دارالحکومت" is common usage. Line 64: "جدید پنجاب" could be read as present-day Punjab; "دورِ جدید کے پنجاب" is clearer.
+- Mechanics are clean: no Latin letters, no dashes, Western digits only, 10 asterisks (balanced), and the verse lines are untouched.

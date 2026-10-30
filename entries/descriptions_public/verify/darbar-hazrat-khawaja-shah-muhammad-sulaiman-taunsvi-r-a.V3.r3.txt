@@ -1,0 +1,6 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- Round 2 issue 1 is fixed. The sentence now reads دوپہر کے کھانے کے بعد ہمیشہ قیلولہ فرماتے، ظہر کے بعد قرآن کی تلاوت کرتے اور پھر عصر کی نماز پڑھتے۔ Its three clauses end in three different verbs (فرماتے، کرتے، پڑھتے), so the doubled فرماتے is gone. Agreement is right: in the habitual form without نے, کرتے agrees with the saint as subject, not with تلاوت. The sentence still makes him the reciter.
+- The new sentence fits the paragraph around it. The honorific register still holds through قیلولہ فرماتے and the closing استراحت فرماتے, and a plain کرتے in between reads naturally in Urdu prose. کرتے echoes آرام کرتے in the sentence before, and پڑھتے echoes نماز باجماعت پڑھتے in the sentence after. Both echoes cross a sentence boundary, so neither is a fault.
+- Taste: with کرتے now used, عصر کی نماز ادا کرتے would put کرتے twice in one sentence, so پڑھتے is the better choice here, as round 2 noted.

@@ -1,0 +1,17 @@
+# loh-temple-lava-temple: English changes after V1 round 1 (FAIL, 3 issues). Issues 1 to 3 applied in the verifier's wording (issue 3 by deleting the sentence, the verifier's first option; issue 2 at both places, hence one change with two occurrences); the note on 'It is thus' applied in its wording; the other notes are checks or taste. Backup: /home/claude/bak/loh-temple-lava-temple.before_v1r2.md
+
+WHY: V1 r1 issue 1 (merged accounts: Lohu is Chishti's, the brother founding Kasur is Kanhaiya Lal's Lo and Kasho); verifier's wording
+OLD: In the nineteenth century the founder of the city was named Lohu, a son of Raja Ramchandar, and a brother of his was credited with founding Kasur.
+NEW: In the nineteenth century the founder of the city was named Lohu, a son of Raja Ramchandar.
+
+WHY: V1 r1 issue 2 (source talk: an authority named for a claim, and not in the bibliography); verifier's wording, at both places (Overview and The Temple) [2 occurrences]
+OLD: historians including Sir Edward MacLagan date it
+NEW: historians date it
+
+WHY: V1 r1 issue 3 (embellishment: 'has a long history' is not in the team version); sentence deleted, the verifier's first option
+OLD: The Fort beside which the temple stands has a long history of its own. 
+NEW: 
+
+WHY: V1 r1 note (logic: the Sikh period follows from the 'likely' dating); verifier's wording
+OLD: It is a commemorative shrine of the Sikh period to an ancient legend.
+NEW: It is thus a commemorative shrine of the Sikh period to an ancient legend.

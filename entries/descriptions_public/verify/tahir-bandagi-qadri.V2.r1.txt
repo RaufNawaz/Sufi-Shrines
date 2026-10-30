@@ -1,0 +1,22 @@
+VERDICT: FAIL
+ISSUES:
+1. [omission] Legacy, last line. English: "Separately, the year of his death is drawn from a single word, *gham*, grief." | Urdu: "ان کا سالِ وفات ایک ہی لفظ "غم" سے نکلتا ہے۔" -> "Separately" is missing. V1 round 2 added that word on purpose so that the sentence placed straight under the quatrain does not read as the quatrain's key word, or as the quatrain giving his death year. Without it the Urdu joins the two again. -> corrected Urdu: "اس قطعے سے الگ، ان کا سالِ وفات ایک ہی لفظ "غم" سے نکلتا ہے۔"
+OLD: ان کا سالِ وفات ایک ہی لفظ
+NEW: اس قطعے سے الگ، ان کا سالِ وفات ایک ہی لفظ
+
+2. [addition] Legends, paragraph 3. English: "A second, more contested tradition concerns jinn." | Urdu: "دوسری روایت جنات سے متعلق ہے، اور اس پر اختلاف کہیں زیادہ ہے۔" -> کہیں زیادہ means "far more" or "much more"; the English says only "more". The degree is added. -> corrected Urdu: "دوسری روایت جنات سے متعلق ہے، اور اس پر اختلاف نسبتاً زیادہ ہے۔"
+OLD: اس پر اختلاف کہیں زیادہ ہے
+NEW: اس پر اختلاف نسبتاً زیادہ ہے
+
+NOTES:
+1. (precision, relationship) Devotion and Festivals, paragraph 1. English "following their parents and grandparents before them" | Urdu "ان سے پہلے ان کے ماں باپ اور دادا دادی بھی یہیں آتے تھے". دادا دادی names the father's parents only; the English "grandparents" is not limited to one side. Optional fix:
+OLD: ماں باپ اور دادا دادی بھی
+NEW: ماں باپ اور دادا دادی، نانا نانی بھی
+
+2. Checked and in order: all nine headings correspond in order; paragraph counts match section by section; the verse paragraph is byte for byte identical to the English; every figure (475, 1576, 1040, 1630, 8 August, 54, 1264, 1880s, 1,200 to 1,600, 7, 8 and 9 Muharram, 250,000 to 300,000) is present and no other figure appears; no Latin letters, no dashes; no bibliography. Every hedge is carried (کہا جاتا ہے، بیان کیا جاتا ہے، بتایا جاتا ہے، روایت ہے، روایات مختلف ہیں، بیانات مختلف ہیں، زیادہ تر، لگ بھگ، اندازاً), and the legends stay framed as legends (ایک روایت یہ ہے، عام طور پر کہا جاتا ہے، زائرین بتاتے ہیں، عقیدت مندوں کی نظر میں).
+
+3. Checked and accepted: "other graves were located by his wall" is rendered as "دوسری قبروں کا محلِ وقوع بھی اسی دیوار کے حوالے سے بتایا جاتا تھا", which is the sense the English intends (the team version: "Chishti uses the wall to locate other graves"). "Graves near the shrine" as "مزار کے قریب کی کچھ قبریں" keeps the English indefinite plural and does not claim every grave there. The chain of three generations runs in the same order with the same relationships (Tahir, Abu Muhammad Lahori, Afzal Kalanauri, Fazil Qadri Batalvi as murid and khalifa). Ambiguous English "who settled at Lahore in the reign of Akbar" keeps the same open reference in the Urdu جو.
+
+4. Dropped glosses accepted as deliberate (familiar words): madrasa, ʿurs, Muharram, kanal, murid, khalifa, kafir, shariah, silsila, bai'at, zikr, hadith, tafsir, darbar, khanqah, sajjada nashin, Fatiha, langar, naat, jinn, dhol, Taraweeh and Ramadan, fiqh, suluk, faqir, istimdad, khadim, gorkan, maulvi, chronogram (قطعۂ تاریخ), gham. The qutb gloss "the axis or pole of the saints" is dropped and "the highest spiritual station" kept as اولیاء کا سب سے بلند روحانی مقام; the sense holds. *دھمال* keeps no gloss, as in the Shah Jamal pilot, and the next sentence's رقص carries its sense.
+
+5. Style only, no change needed: "asked to be laid to rest near him" as "دفن ہونے کی آرزو کرتے رہے" (wished rather than asked); "rather than something to smooth over" as "چھپایا نہیں جاتا"; "the comforts that came with his following" as "مریدوں کی کثرت سے میسر آنے والی آسائشوں" (consistent with the thousands of murids stated elsewhere); "His memory was kept in verse" as present tense "محفوظ ہے". None changes a fact.

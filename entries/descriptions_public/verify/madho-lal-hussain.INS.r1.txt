@@ -1,0 +1,48 @@
+V1: FAIL
+V2: PASS
+V3: FAIL
+
+Scope: only the two passages inserted on 30 October 2026 (Rauf's ruling to restore left-out verse), checked by diff against poetry/public_before/. English lines 27-31 and 271-273; Urdu lines 27-31 and 271-273. Nothing else in either file changed.
+
+ISSUES
+
+1. (V1, rule 2 "do not narrate the sources", rule 4 "no listing of variants anywhere", rule 5 "nothing about the printed text reaches the public") English line 271:
+   "Another record of the same inscription gives a further line on the building of the mosque and the well:"
+   The subject of the sentence is a source, a second copy of the inscription. That tells the reader there are two records of the inscription and that they differ, which is the side by side apparatus the public version removes everywhere else. It is the same construction as the brief's banned "the shrine's account holds", without a name. Two smaller problems: "record" comes straight after "It records too" (line 266) in a different sense, and "the same inscription" has no antecedent, because the public text speaks only of "the south *mihrab*" and never uses the word "inscription".
+   Basis for the fix: the team version has Chishti copy "the same south-arch inscription ... and gives a further line on the building of the mosque and the well". Nobody says the line is absent; it is only missing from the other copy. Under rule 4 that is a minor variant: give the line and drop the variant silently. The line itself carries no uncertainty flag. The illegible word the team sentence mentions is in the sandals line, not this one.
+   Replace English line 271 with:
+   A further line of the inscription on the south *mihrab* speaks of the building of the mosque and the well:
+   Replace Urdu line 271 with:
+   جنوبی محراب کے کتبے کا ایک اور مصرع بھی مسجد اور کنویں کی تعمیر سے متعلق ہے:
+
+2. (V3) Urdu line 27:
+   "ایک مصرع شیخ بہلول کی آمد کا سال نو سو پچپن بتاتا ہے، مگر یہ نہیں بتاتا کہ کون سا سنہ:"
+   The clause after کہ has no verb. It is a calque of the English "which era" and reads as clipped, not as written Urdu.
+   Replace with:
+   ایک مصرع شیخ بہلول کی آمد کا سال نو سو پچپن بتاتا ہے، مگر یہ نہیں بتاتا کہ کون سا سنہ مراد ہے:
+
+3. (V3. Applies only if issue 1 is NOT applied; if issue 1 is applied, its Urdu supersedes this.) Urdu line 271:
+   "اسی کتبے کی ایک اور نقل میں مسجد اور کنویں کی تعمیر پر ایک اور مصرع بھی ہے:"
+   It has ایک اور twice in one sentence, plus a redundant بھی, and it opens with اسی کتبے like the lead-in two paragraphs above (line 266).
+   Replace with:
+   اس کتبے کی ایک دوسری نقل میں مسجد اور کنویں کی تعمیر کے بارے میں ایک مصرع اور ملتا ہے:
+
+NOTES
+
+a. Verse lines, byte for byte. Both lines have identical UTF-8 bytes in the team version (lines 39 and 368), the public English (29 and 273) and the public Urdu (29 and 273), with no stray marks and no trailing spaces. Each sits alone in its paragraph, with a blank line on both sides.
+
+b. Insertion 1, English lead-in: supported. The team version says "Chishti dates Bahlul's coming ... with a line of verse that gives the year as nine hundred and fifty-five but names no era." The lead-in keeps each element (a line of verse, Bahlol's coming, 955, no era) and adds nothing. It does not rest on an uncertain reading. The flag "(the title uncertain in the printed text)" covers only which book Chishti follows, which the lead-in rightly leaves unnamed. Neither the line nor its use to date Bahlol's coming carries a flag. The lead-in also rightly does not add "AH". The team version's Lahori footnote gives 955 AH from *Haqiqat al-Fuqara*, but tying the two together would need the uncertain title. There is no citation, page or process language.
+
+c. Insertion 1, rendering: accurate. سال (the year) پنجاہ و پنج و نہ صد (fifty and five and nine hundred) بود (was), so "The year was nine hundred and fifty five". It needs no credit, since it is not a published translation. Writing the number in words without a hyphen matches the article's own usage ("thirty six", "one hundred and fifty five thousand").
+
+d. The 955 line and the surrounding text: it creates no new contradiction that the reader is not warned about. The public text gives no age at Bahlol's coming, and the line names no era, so no age can be worked out from the article. A reader who supplies AH gets about 1548: roughly ten for a birth in 1538, which fits "as a boy" and "while still a child". A reader who assumes the Christian era is warned by "without naming the era". ("Era" in the calendar sense is correct English. Its other use at line 250, "names its era, the reign of the emperor Muhammad Shah", does not clash.) One tension does exist: the Quran by heart by seven (line 23) against only six *paras* when Bahlol came (line 25). It predates the insertion, is hedged ("is said", "told as a wonder"), and the insertion neither creates nor sharpens it. It is outside this check.
+
+e. Placement. Both insertions follow the team version's order. The 955 line follows the wonder and Bahlol's making him *imam*, and comes before "Shaykh Bahlol Daryai became his master"; the team version has it at the end of the same wonder paragraph. The further line follows the "firm mosque and firm well" couplet and comes before the sentence on the mosque belonging to the tomb, as in the team version.
+
+f. A possible misreading for Rauf to check (not an issue under the rules). In مسجد و چاہ را انکو تعمیر, "انکو" is not a Persian word as printed. It may be a misreading, perhaps of نکو/نیکو ("finely"). The line also has no verb, so it cannot be rendered with confidence. The team version does not flag it, so rule 5 does not exclude it, and Rauf's ruling requires the original. Leaving it without a rendering is right: the team version gives none, and the "firm mosque" couplet above it also stands without one. It may be worth checking against the printed page (Chishti, p. 441) when the team version is next revised.
+
+g. Fallback for issue 1. If the coordinator prefers to keep a hint that only one copy has the line, this wording does so without making a source the subject: English "The inscription is also given with a further line on the building of the mosque and the well:"; Urdu "یہ کتبہ ایک اور مصرع کے ساتھ بھی ملتا ہے، جو مسجد اور کنویں کی تعمیر سے متعلق ہے:". The wording in issue 1 is the cleaner of the two and is what I recommend.
+
+h. V2 detail. Urdu insertion 1 gives every element of the English (a line, Shaykh Bahlol's coming, 955 in words as the English has it, no era named). The Urdu rendering سال نو سو پچپن تھا matches the English rendering. Urdu insertion 2, as it stands, matches the current English (another copy, the same inscription, a further line, the building of the mosque and the well). No figure is added, and there are no Latin letters, dashes or unbalanced asterisks.
+
+i. Display. Both Urdu lead-ins end in a colon, and neither verse line ends in punctuation, so the renderer's rule for a lone line in the Urdu view (ProseParagraphs.tsx, the web copy, line 76) sets both as verse. Both italic renderings match its rendering pattern. In the English view, a lone Arabic-script line inside Latin prose is set as verse anyway.

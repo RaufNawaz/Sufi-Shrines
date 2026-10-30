@@ -1,0 +1,11 @@
+CHANGE 1
+OLD: Around them lies Uch itself, known as the city of saints.
+NEW: Uch itself is called the city of saints.
+
+CHANGE 2
+OLD: it is placed between the sixteenth and the nineteenth century.
+NEW: it is placed as early as the sixteenth century and as late as the nineteenth.
+
+CHANGE 3
+OLD: and the pursuit led by Khawas Khan went as far as Multan and Uch.
+NEW: and Khawas Khan's pursuit went as far as Multan and Uch.

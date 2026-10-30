@@ -1,0 +1,4 @@
+VERDICT: FAIL
+ISSUES:
+1. [duplicated words, Urdu L47] "لعل باغ قصبے سے چند کلومیٹر جنوب میں درختوں کا درختوں کا جھنڈ ہے" -> the phrase "درختوں کا" is repeated, a slip every reader trips on -> "لعل باغ قصبے سے چند کلومیٹر جنوب میں درختوں کا جھنڈ ہے، جہاں بابا اکرم نے فقیروں کا ٹھکانا قائم کیا تھا۔"
+NOTES: This was a confirming round on the 11 sentences in lal-shahbaz-qalandar.ur.r3.changes.txt; the other ten read naturally in their paragraphs (مزارات کا now agrees with امتیاز, ٹیک reads as the refrain in both places, ادا کرنی شروع کی has the standard agreement, and the Murad Shah, faqirs, Thakur and split tune sentences are clear); taste only: L117 now names چندمل three times in two sentences ("چندمل چندرانی ... چندمل نے ... چندمل کے بیٹے"), and the middle one could be "انہوں نے", though the explicit name before کنیا لال is right.

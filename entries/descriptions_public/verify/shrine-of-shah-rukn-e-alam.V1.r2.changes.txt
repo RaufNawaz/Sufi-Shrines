@@ -1,0 +1,45 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/shrine-of-shah-rukn-e-alam.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1]
+OLD: Accounts differ over whether he was the disciple of his father or of his grandfather, but on his father's death he succeeded him as *sajjada nashin*, the hereditary custodian who sits on the saint's prayer carpet, and he sat on his grandfather's *sajjada*, the prayer carpet of the house, for fifty two years.
+NEW: He was his father's disciple, though accounts of his master differ. On his father's death he succeeded him as *sajjada nashin*, the hereditary custodian who sits on the saint's prayer carpet, and he sat on his grandfather's *sajjada*, the prayer carpet of the house, for fifty two years.
+
+[V1 r1 minor a]
+OLD: By the 1870s his tomb was a place of pilgrimage for the people. It drew high and low alike, and it is a centre of continuous devotion, thronged by pilgrims who come to recite the *Fatiha*, the opening chapter of the Quran, to seek his intercession, and to honour a saint whose *baraka*, or blessing, is felt to guard the city.
+NEW: By the 1870s his tomb was a place of pilgrimage for the people, and in the twentieth century it drew high and low alike. It is a centre of continuous devotion, thronged by pilgrims who come to recite the *Fatiha*, the opening chapter of the Quran, to seek his intercession, and to honour a saint whose *baraka*, or blessing, is felt to guard the city.
+
+[V1 r1 minor b]
+OLD: Purification of the self came only through humility and prayer, as in the verse: "I do not exculpate myself.
+NEW: Purification of the self, he held, came only through humility and prayer, as in the verse: "I do not exculpate myself.
+
+[V1 r1 minor b]
+OLD: Lo! My Lord is Forgiving and Merciful." In the final analysis, he taught, that purification depended on divine grace, as another verse says: "Had it not been for the grace of Allah and His mercy unto you, not one of you would ever have grown pure." The mark of divine grace and mercy lay in an insight into one's own faults.
+
+Two more of his teachings concern form and attribute, and conformity in deeds.
+NEW: Lo! My Lord is Forgiving and Merciful." In the final analysis, he taught, that purification depended on divine grace, as another verse says: "Had it not been for the grace of Allah and His mercy unto you, not one of you would ever have grown pure." The mark of divine grace and mercy, in his view, lay in an insight into one's own faults.
+
+Two more of his teachings concern form and attribute, and conformity in deeds.
+
+[V1 r1 minor c]
+OLD: After a meal at Nizam al-Din's house, Nizam al-Din's servant Iqbal laid several bolts of silk and a hundred *ashrafis*, gold coins, wrapped in a fine cloth, at his feet; he would not accept them, and they were given instead to his brother, Imad al-Din Ismail.
+NEW: After a meal at Nizam al-Din's, Nizam al-Din's servant Iqbal laid several bolts of silk and a hundred *ashrafis*, gold coins, wrapped in a fine cloth, at his feet; he would not accept them, and they were given instead to his brother, Imad al-Din Ismail.
+
+[V1 r1 point 3 and minor d]
+OLD: In a battle, as a ruse to confuse the enemy, Muhammad bin Tughluq placed the shaikh's brother, Shaikh Imad al-Din, who closely resembled the sultan, under the royal canopy, and Imad al-Din was killed; accounts of the brother's end differ.
+
+When Multan rebelled against Muhammad bin Tughluq, the saint is remembered as having saved the city.
+NEW: In a battle, as a ruse to confuse the enemy, Muhammad bin Tughluq placed the shaikh's brother, Shaikh Imad al-Din, who closely resembled the sultan, under the royal canopy, and Imad al-Din was killed; accounts of the brother's fate differ.
+
+When Multan rebelled against Muhammad bin Tughluq, the saint is remembered as having saved the city.
+
+[V1 r1 minor e]
+OLD: He put on that same turban, and he wore the *khirqa*, the patched cloak of the Sufi, of Shaikh Shihab al-Din Suhrawardi, which had come to him from his father.
+NEW: On his accession he put on that same turban, and he wore the *khirqa*, the patched cloak of the Sufi, of Shaikh Shihab al-Din Suhrawardi, which had come to him from his father.
+
+[V1 r1 minor f]
+OLD: Works holding his teaching, among them his *malfuzat*, the record of his discourses, were known, but accounts differ over whether any of them survives; his teaching is also found in the works of his *khalifas*. He urged his disciples to abandon cruelty, oppression, avarice and greed, for he believed that such vices brought human beings down to the level of beasts.
+NEW: Works holding his teaching, among them his *malfuzat*, the record of his discourses, were known, but accounts differ over whether any of them survives; his teaching is also found in the works of his *khalifas*, his deputies. He urged his disciples to abandon cruelty, oppression, avarice and greed, for he believed that such vices brought human beings down to the level of beasts.
+
+[V1 r1 minor f]
+OLD: Among his *khalifas*, his deputies, were Maulana Zahir al-Din, Sultan Hamid al-Din Hakim, Shaikh Fakhr al-Din Iraqi, Makhdum Jahaniyan Jahangasht Bukhari and Shaikh Sama al-Din Dehlvi, though accounts of the list differ.
+NEW: Among his *khalifas* were Maulana Zahir al-Din, Sultan Hamid al-Din Hakim, Shaikh Fakhr al-Din Iraqi, Makhdum Jahaniyan Jahangasht Bukhari and Shaikh Sama al-Din Dehlvi, though accounts of the list differ.

@@ -1,0 +1,21 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. Diff result: `diff /home/claude/bak/gurdwara-panjvi-chati-patshahi.md.bak_en1 entries/descriptions_public/gurdwara-panjvi-chati-patshahi.md` shows exactly five changed lines (19, 33, 41, 51, 67), each a single sentence replaced, and each OLD and NEW matches the five listed replacements in gurdwara-panjvi-chati-patshahi.V1.r2.changes.txt word for word. Nothing else moved.
+
+2. Change 1 (line 19), "On one visit an old Sikh wrote his name on the platform of the *Nishan Sahib*." Supported: the team version frames it as "the devotions of a visit. An old Sikh writes his name on the platform of the *Nishan Sahib*". The act is now told as one moment, not a standing custom; the pilgrims' habitual devotions before it are unchanged. No new fact, no lost fact, grammar intact, no source named, no dash.
+
+3. Change 2 (line 41), "over his alleged support for the rebellion of Prince Khusrau, the emperor's eldest son". Supported by "for his alleged support to Khusro, the eldest son of Jahangir" and "summoned to Lahore by Emperor Jahangir" over his role "during the rebellion of Prince Khusro". It now sits consistently with "it is told" and "Accounts of why he died differ" later in the paragraph. No fault.
+
+4. Change 3 (line 51), "in a saffron gown and the close fitting trousers called *churidar* pyjama". Supported by "churidar pyjama, a saffron gown": two garments, as in the source; the gloss is a plain definition (the term is not in data/glossary.csv), unhyphenated, and the italics are balanced. The order of the two garments is reversed, which changes no fact. No fault.
+
+5. Change 4 (line 67), "under Rai Bhoi". A variant spelling dropped silently under rule 4 (Dhillon's "Rai Bhoe"; the team version's other forms are Rai Bhoi di Talwindi, Rai-Bhoi-Di-Talwandi, Talwandi Rai Bhoi). The sentence asserts nothing new: it does not say the town was named after him, only spells the one name one way. No fault.
+
+6. Change 5 (line 33), "the poetry of the Muslim saint Baba Farid". Supported by the team version's own opening of that paragraph, "The scripture he compiled carries a Muslim saint's poetry. Baba Fareed's poetry ...". The Farid spelling was already in the previous round and is a minor variant. No fault.
+
+7. Taste only (not an issue, not to apply): "On one visit" leaves unsaid whose visit it was; that is the honest limit of the team version without naming the author, so it stands.
+
+8. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-panjvi-chati-patshahi --english-only` printed `ok    gurdwara-panjvi-chati-patshahi  team 35797 -> public 16408 chars (0.46)`, exit 0. No em or en dash in the file (count 0).

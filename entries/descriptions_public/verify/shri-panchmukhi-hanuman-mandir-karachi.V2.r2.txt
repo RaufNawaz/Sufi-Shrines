@@ -1,0 +1,52 @@
+VERDICT: FAIL
+V2: FAIL
+V3: PASS
+REPLAY: All 25 OLD -> NEW pairs of verify/shri-panchmukhi-hanuman-mandir-karachi.ur.r2.changes.txt were applied in order to /tmp/claude-0/bak/shri-panchmukhi-hanuman-mandir-karachi.ur.r1.md. Each OLD occurred exactly once. The result is byte for byte the current entries/descriptions_public/shri-panchmukhi-hanuman-mandir-karachi.ur.md (19240 bytes on both sides), and each NEW occurs exactly once in the current file.
+
+ISSUES:
+1. [V2] Change 8: "ان دریافتوں اور مندر کو حاصل تحفظ نے ... اس کا مقام مزید مستحکم کر دیا ہے" -> "ان دریافتوں اور مندر کو" reads most naturally as two objects sharing کو, as in ان طلبہ اور اساتذہ کو حاصل سہولتیں. That gives "the protection enjoyed by these finds and the temple has strengthened its standing". On that reading the finds stop being one of the two causes and become things that are protected, which the English does not say. The English keeps them apart: "These finds, and the temple's protected status, have strengthened its standing". The old wording, ان دریافتوں اور مندر کی محفوظ حیثیت, had the same fault and round 1 did not catch it, but this is a changed sentence. Putting the temple's protection first leaves no shared postposition for the finds to attach to. Both stay as causes, and nothing is added.
+OLD: ان دریافتوں اور مندر کو حاصل تحفظ نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام مزید مستحکم کر دیا ہے۔
+NEW: مندر کو حاصل تحفظ اور ان دریافتوں نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام مزید مستحکم کر دیا ہے۔
+
+Each of the other 24 changed sentences was checked against the English for fidelity and for fluency in context. All pass:
+- 1 سنسکرت کی رزمیہ داستان رامائن: faithful and idiomatic.
+- 2 ہیاگریوا کا روپ گھوڑے کے سر والا ہے: the agreement is fixed and "the form with the head of a horse" is kept.
+- 3 The festival list: all three festivals and their descriptions are kept. بہار میں منائے جانے والے now goes with Holi alone, and خاص طور پر still covers the list.
+- 4 یہاں سے / جسے رکھنے کے لیے وہیں: عقیدت مندوں کی روایت ہے کہ still covers both clauses. "Whereupon" remains as the order of events.
+- 5 اس سے بھی قدیم: renders "reach back further still".
+- 6 روایت پر مبنی: renders "belong to tradition", and قدامت is no longer repeated.
+- 7 The third بھی is removed and "including the loss of part of its land" is intact.
+- 9 دریائے بہور ... اس کوشش سے وجود میں آیا جو ہنومان نے کی تھی: now causal, as "created by" requires. کہا جاتا ہے governs the claim.
+- 10 The parav sentence: "contested dedication" now sits with the پڑاؤ, and "even" (تک) is kept. No party is named.
+- 11 رکھی ہوئی تھی: stative, rendering "stood".
+- 12 دو قطبوں کی صورت میں سامنے آتے ہیں: correct plural and idiom. ایک جدید تشریح کے مطابق still governs it.
+- 13 ہنومان کے حلقے کی ہستیوں کے نام: a clear rendering of "named Hanuman's circle".
+- 14 سچل کے ہاں / قطب علی شاہ کے ہاں: the names no longer run into رام. Both lists are complete and in the English order.
+- 15 کراچی، جہاں یہ مندر واقع ہے، کبھی کولاچی نام کا ایک گاؤں تھا: faithful. The clause between the commas is short and nothing is cut off from a postposition.
+- 16 The split: کا کہنا تھا stays with the officer's claim, and the comparison with Lahore is left as open as the English leaves it.
+- 17 بدستور آباد تھی: "still lived", with no clash between "now" and the past tense.
+- 18 بہاولنگر: the usual official spelling. The dictionary has no entry for it.
+- 19 مسلمان بزرگوں کے مزاروں پر ہندو جاتے: Hindus are the only visitors and the shrines are Muslim. The 1940 sentence with مشاہدہ کیا گیا is faithful.
+- 20 بحری، ہوائی یا ریل کے راستے; چھوڑ چکے تھے for "already"; شروع ہوا for "started leaving"; جنوری 1948 میں کراچی کے فسادات for "the Karachi riots in January 1948".
+- 21 بیانات میں اختلاف ہے: the hedge is kept and مختلف is no longer repeated.
+- 22 ساٹھ لاکھ سے ایک کروڑ: equal to 6 to 10 million, and written in words like the article's دس لاکھ, so no figure appears that the English lacks. بتائی جاتی ہے and اگرچہ اندازوں میں بڑا فرق ہے stay with the figure, and ان ہندوؤں کی اکثریت is unambiguous.
+- 23 ایک منفرد حیثیت رکھتا ہے: renders "holds a singular place".
+- 24 خود بخود جنم لینے والی مانی جاتی ہے: keeps "born of itself" and "is held to be", and the hedge covers only the image clause, as in the English.
+- 25 ماضیِ بعید: "a distant past".
+
+NOT APPLIED rulings:
+- V3 notes 1, 2, 3, 5, 6, 7 (first half), 9, 10 and 13: sound. They were notes, not issues, and are matters of taste. The reason given for note 2 is also a fidelity reason: عام ہندوؤں would turn "popular Hinduism" into "ordinary Hindus".
+- V3 note 4 (پنچمکھی / پنچمکھ): sound. The English itself uses "panchmukhi" and "Panchamukha".
+- V3 note 8 (the Lahore comparison): sound. V3 left it, and the English leaves it open.
+- V3 note 11 (مہاجر / پناہ گزین): sound. The English uses "Mohajirs" and "Muslim refugees".
+- V2's "also checked" items: sound. V2 accepted them.
+- V2 ruling 2 (منگھو پیر): sound. V2 called it fine as written.
+- Adapted round 1 issues: V3 issue 15 keeps شروع ہوا because the English says "started leaving" (sound). V3 issue 16 uses words to avoid the digit 60, which the English lacks (sound). V3 issue 18 uses جنم لینے والی to keep "born of itself" (sound).
+- Every round 1 ISSUE (V2 issue 1; V3 issues 1 to 19) is applied or soundly adapted. No unapplied issue remains.
+
+NOTES:
+- Change 16: after the split, the new sentence opens with وہاں just after لاہور کے مقابلے میں. The topic, آرام باغ کا مندر, and یہ مندر in the same sentence make Aram Bagh the reading. Optional, not applied.
+- Change 22: ہندوؤں کی اکثریت now appears twice in the paragraph, two sentences apart (ملک کے ہندوؤں کی اکثریت / ان ہندوؤں کی اکثریت). This is not an error. Optional variation only.
+- Change 24: مانی جاتی ہے is followed by تک جاتی ہیں in the next clause, a mild echo that was already there before the change. Not an error.
+
+CHECKER: cd R && python3 pipeline/book_queue/check_public_description.py shri-panchmukhi-hanuman-mandir-karachi --no-verdicts -> "ok    shri-panchmukhi-hanuman-mandir-karachi  team 21572 -> public 11543 chars (0.54), Urdu 10843 chars (0.94)", exit 0.

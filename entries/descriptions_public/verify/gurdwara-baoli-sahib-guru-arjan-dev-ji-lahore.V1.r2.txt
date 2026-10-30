@@ -1,0 +1,22 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [lost fact, widened claim] "and the poets of that century wrote of the ruin of the Punjab" -> The team version says "The poets of that century in the Punjab wrote of its ruin." Change 9 fixed the ambiguous "its" but also dropped "in the Punjab" from the poets. The public sentence now says that the poets of the eighteenth century in general wrote of the Punjab's ruin, which the team version does not say. It gives only poets in the Punjab (Bulleh Shah, Waris Shah). The fix keeps the poets' place and the clear referent. "Their land" echoes the "lament for the land" a few lines below and cannot be read as the well or as the province of Lahore named earlier in The Setting.
+OLD: The well is said to have been lost in the turbulence of the eighteenth century, and the poets of that century wrote of the ruin of the Punjab.
+NEW: The well is said to have been lost in the turbulence of the eighteenth century, and the poets of that century in the Punjab wrote of the ruin of their land.
+
+NOTES:
+1. Diff: `diff /home/claude/bak/gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore.md.bak_en1 entries/descriptions_public/gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore.md` shows nine changed lines (25, 29, 35, 39, 55, 57, 77, 82, 94). Each is exactly the OLD to NEW replacement listed in the changes file (changes 1 to 9 in that order), and nothing else moved.
+2. Checker: `ok    gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore  team 39890 -> public 18016 chars (0.45)` (exit 0).
+3. Changes confirmed as supported and without fault:
+   - Change 1 ("over his role during the rebellion of Prince Khusrau"): this is the team version's own wording (Khalid, "his role during the rebellion of Prince Khusro"). It no longer says the Guru took part in the revolt. The grammar is intact.
+   - Change 2 ("and that he was immersed in a cauldron"): the team version gives the cauldron without placing it in the haveli. With "there" gone, the sentence no longer places it, and it stays inside "it is believed".
+   - Change 3 ("In that tradition, the Guru had a *baoli* sunk"): "that tradition" refers back to "the tradition kept by the community" two sentences earlier, as the team version frames it ("In the tradition preserved by the community, ...; the Guru had a baoli sunk"). The referent is clear.
+   - Change 4 ("It is said that the well suffered"): the team version has "it is said" and does not attribute the account to the gurdwara. Putting the whole sentence under "it is said" claims less certainty, not more, which is right under rule 4 since the team version records other accounts. The names, the governorship and the instigation are unchanged.
+   - Change 5 ("In the 1880s the building's serving officer was ... Bhai Khazan Singh, appointed to its service and care"): this matches "At the time of writing the serving officer was" (Kanhaiya Lal 1884, a firm date). The appointment is no longer dated, and "its" refers to the building.
+   - Change 6 ("Shops belonged to the building"): this keeps only the certain part of a sentence whose figure and one describing word are uncertain in the printed text. The sentence's colon and its continuation are unchanged.
+   - Change 7: 1799 now belongs only to the welcome, and the Punjab coming under his rule stands undated as the team version gives it. Both sentences are grammatical.
+   - Change 8 ("is tied to a scene at the fort of Lahore"): this is supported by "sets one Persian couplet at the fort of Lahore" and the crossing of the Ravi below the fort. No source talk survives.
+   - Change 9: "is said" correctly replaces the misattribution, and naming the Punjab removes the ambiguity. Only the lost "in the Punjab" qualifier on the poets is a fault (issue 1).
+4. No em or en dash, citation, attribution or archive language appears in any NEW sentence.
+5. Outside this round's scope, recorded only: the unchanged end of the line changed by change 6 says "many kept their goods there under lock". The team version has "their cash and goods". This is a minor omission and introduces no unsupported fact.

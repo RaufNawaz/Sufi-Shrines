@@ -1,0 +1,2736 @@
+{
+ "about": "Originals of the verse quoted in English rendering in the public descriptions (entries/descriptions_public). One entry per distinct rendering. status found: the original is identified and is inserted, by pipeline/apply_verse_originals.py, as its own paragraph directly above the rendering in the English and in the Urdu article. status open: not yet identified. Ruling: Rauf, 30 October 2026, every quoted verse shows its original. See README.md.",
+ "entries": [
+  {
+   "id": "open-schimmel-01",
+   "status": "open",
+   "rendering_starts": "The head is sacrificed at the Friend's f…",
+   "rendering_md5": "40fba50d3891",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "bhit-bhit-shah",
+    "dargah-roza-sufi-shah-inayat-shaheed"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 228, folio 228)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-sorley-01",
+   "status": "open",
+   "rendering_starts": "They washed their threads upon the seven…",
+   "rendering_md5": "46710892a1b8",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 359, folio 350)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-02",
+   "status": "open",
+   "rendering_starts": "… / Of all Bairagis practised. Holy shri…",
+   "rendering_md5": "7346f7a01d9a",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 360, folio 351)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-03",
+   "status": "open",
+   "rendering_starts": "Come, let us look on the abodes of them …",
+   "rendering_md5": "9e66a864b541",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, pp. 360–361, folios 351–352)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-04",
+   "status": "open",
+   "rendering_starts": "Why dost thou bore thine ears / If cold …",
+   "rendering_md5": "a51cf45b8052",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 362, folio 353)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-05",
+   "status": "open",
+   "rendering_starts": "For Sanyasis the path's Ali's field. / T…",
+   "rendering_md5": "5d913525b6fc",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 364, folio 355)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-shackle-01",
+   "status": "open",
+   "rendering_starts": "Do not let yourself be worshiped, oh yog…",
+   "rendering_md5": "39cc2fad835d",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Risalo of Shah Abdul Latif*, p. 237)"
+   ],
+   "note": "Shah Abdul Latif. Shackle, The Risalo of Shah Abdul Latif (Murty, 2025): a PDF in Adil Ahsan's Drive folder (file id 1HOEtLylAPFcrkmL5SfOBZnriOl4qMZjW, 824 KB); whether it carries the Sindhi facing text is not yet checked."
+  },
+  {
+   "id": "open-uncredited-01",
+   "status": "open",
+   "rendering_starts": "You are a liar in infidelity, don't call…",
+   "rendering_md5": "13974b730df7",
+   "translator": null,
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": []
+  },
+  {
+   "id": "open-shackle-02",
+   "status": "open",
+   "rendering_starts": "What you consider to be poems are divine…",
+   "rendering_md5": "e83ffd5ffe6e",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Risalo of Shah Abdul Latif*, p. 109)"
+   ],
+   "note": "Shah Abdul Latif. Shackle, The Risalo of Shah Abdul Latif (Murty, 2025): a PDF in Adil Ahsan's Drive folder (file id 1HOEtLylAPFcrkmL5SfOBZnriOl4qMZjW, 824 KB); whether it carries the Sindhi facing text is not yet checked."
+  },
+  {
+   "id": "open-schimmel-02",
+   "status": "open",
+   "rendering_starts": "My Lord, be kind over dear Sind, / Frien…",
+   "rendering_md5": "8e24fb7ab3f0",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "bhit-bhit-shah",
+    "dargah-of-khwaja-muhammad-zaman-luari-sharif"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 259, folio 259)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-sorley-06",
+   "status": "open",
+   "rendering_starts": "Across the Holy Prophet's tomb / The lig…",
+   "rendering_md5": "9fdca1f48cc3",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 343, folio 334)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-07",
+   "status": "open",
+   "rendering_starts": "Let Mecca be thy port or no, / Delay not…",
+   "rendering_md5": "f354d6691930",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 335, folio 326)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-08",
+   "status": "open",
+   "rendering_starts": "No door like Thine is. I have seen / Of …",
+   "rendering_md5": "3fd3a1c37b15",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, pp. 254, 373; folios 245, 364)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-09",
+   "status": "open",
+   "rendering_starts": "Why go ye then and bow yourselves / In f…",
+   "rendering_md5": "fdf9ac4f7018",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 321, folio 312)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-10",
+   "status": "open",
+   "rendering_starts": "But of the Lord alone true worship is . …",
+   "rendering_md5": "a3e2723226e7",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 300, folio 291)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-11",
+   "status": "open",
+   "rendering_starts": "My corse, Lord, convey / To my home that…",
+   "rendering_md5": "b01882cfa84f",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 428, folio 419)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-12",
+   "status": "open",
+   "rendering_starts": "Go with thine heart towards thy love. / …",
+   "rendering_md5": "6d27e45cc53e",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 380, folio 371)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-13",
+   "status": "open",
+   "rendering_starts": "Mother, my caste is a slur / In the mind…",
+   "rendering_md5": "68fedc78d607",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 393, folio 384)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-14",
+   "status": "open",
+   "rendering_starts": "The seas of separation roll / And drown …",
+   "rendering_md5": "a05d780b9cf1",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 292, folio 283)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-15",
+   "status": "open",
+   "rendering_starts": "Time was when God, the One and the Etern…",
+   "rendering_md5": "68646b437b30",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 406, folio 397)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-schimmel-03",
+   "status": "open",
+   "rendering_starts": "O voice in the desert, as if the grouse …",
+   "rendering_md5": "af22cce6975e",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-schimmel-04",
+   "status": "open",
+   "rendering_starts": "One castle, a hundred thousand doors, / …",
+   "rendering_md5": "b8ba13a2fd2b",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *As Through a Veil*, p. 187, folio 169)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-schimmel-05",
+   "status": "open",
+   "rendering_starts": "Those who remember the line which begins…",
+   "rendering_md5": "bae4037cc8aa",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *As Through a Veil*, p. 158, folio 140)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-schimmel-06",
+   "status": "open",
+   "rendering_starts": "Thou makest the leaf drown in the stream…",
+   "rendering_md5": "042b562e6420",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 241, folio 241)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-sorley-16",
+   "status": "open",
+   "rendering_starts": "Muhurram's holy month is come, / The Pri…",
+   "rendering_md5": "724397855338",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 347, folio 338)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-17",
+   "status": "open",
+   "rendering_starts": "They wandered forth to cruel doom / When…",
+   "rendering_md5": "7b9057460896",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 347, folio 338)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-schimmel-07",
+   "status": "open",
+   "rendering_starts": "The houris wind rose chains; flower deco…",
+   "rendering_md5": "7c7a07a14c9a",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *As Through a Veil*, p. 285, folio 267)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-uncredited-02",
+   "status": "open",
+   "rendering_starts": "Not withstanding the spinners / Carded t…",
+   "rendering_md5": "8948bcf1efea",
+   "translator": null,
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 152, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-sorley-18",
+   "status": "open",
+   "rendering_starts": "They tied their boats with hawsers fast,…",
+   "rendering_md5": "852e5dbaa048",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 334, folio 325)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-sorley-19",
+   "status": "open",
+   "rendering_starts": "Abdul Latif it is / Who makes these harm…",
+   "rendering_md5": "02224f7312a6",
+   "translator": "H. T. Sorley",
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 356, folio 347)"
+   ],
+   "note": "Shah Abdul Latif, Shah jo Risalo (Sindhi). Sorley gives translations; the Sindhi needs a Risalo edition and the Sur and bait identified."
+  },
+  {
+   "id": "open-uncredited-03",
+   "status": "open",
+   "rendering_starts": "When he became intoxicated by union from…",
+   "rendering_md5": "8eb8eea28555",
+   "translator": null,
+   "rows": [
+    "bhit-bhit-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, pp. 29–30, folios 25–26)"
+   ]
+  },
+  {
+   "id": "open-browne-01",
+   "status": "open",
+   "rendering_starts": "Why deem it shame a fair one's curls to …",
+   "rendering_md5": "2cb9ae3fba39",
+   "translator": "Edward G. Browne",
+   "rows": [
+    "darbar-malik-ahmad-ayaz"
+   ],
+   "rendering_cited_to": [
+    "(Nizami-i Arudi, *Chahar Maqala*, p. 56, folio 38)"
+   ]
+  },
+  {
+   "id": "open-uncredited-04",
+   "status": "open",
+   "rendering_starts": "Punnu is not in the Kec / Sind is not th…",
+   "rendering_md5": "7133a63b1b70",
+   "translator": null,
+   "rows": [
+    "dargah-of-khwaja-muhammad-zaman-luari-sharif",
+    "guru-gurpat-mandir-db-80-sirey-ghat",
+    "shri-laxmi-narayan-mandir-native-jetty-bridge"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 156, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-nicholson-01",
+   "status": "open",
+   "rendering_starts": "'Tis sweet to be reviled for passion's s…",
+   "rendering_md5": "0fdb9b7fba8d",
+   "translator": "Reynold A. Nicholson",
+   "rows": [
+    "data-darbar"
+   ],
+   "rendering_cited_to": [
+    "(Rizvi, *A History of Sufism in India*, p. 59, folio 43)"
+   ]
+  },
+  {
+   "id": "open-uncredited-05",
+   "status": "open",
+   "rendering_starts": "Alif: Allah is like the jasmine plant wh…",
+   "rendering_md5": "2f5c45b4d57e",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Mystical Dimensions of Islam*, p. 416, folio 385 – p. 417, folio 386)"
+   ]
+  },
+  {
+   "id": "open-alam-01",
+   "status": "open",
+   "rendering_starts": "You read and read, became a learned scho…",
+   "rendering_md5": "ebe93c6715be",
+   "translator": "Naveed Alam",
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 15, folio 15)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-uncredited-06",
+   "status": "open",
+   "rendering_starts": "Ilm paṛhe-e aśrāf na-a thīnḍā / Pītal dā…",
+   "rendering_md5": "83958a65712a",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 102, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-07",
+   "status": "open",
+   "rendering_starts": "One does not become noble from reading b…",
+   "rendering_md5": "ddaa487ea7d6",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 102, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-08",
+   "status": "open",
+   "rendering_starts": "Paṛh paṛh ilm hazār kitāb- ālim hoe sāre…",
+   "rendering_md5": "c74dbb9b2cd9",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 103, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-09",
+   "status": "open",
+   "rendering_starts": "They read books and think they are schol…",
+   "rendering_md5": "0739e8a0458f",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 103, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-10",
+   "status": "open",
+   "rendering_starts": "Lakh nigāh je ālim vekhe kise kandhī na …",
+   "rendering_md5": "d9d222d97ad0",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 103, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-11",
+   "status": "open",
+   "rendering_starts": "Thousands of scholars have we seen but n…",
+   "rendering_md5": "de8efa399479",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 103, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-12",
+   "status": "open",
+   "rendering_starts": "Who has studied the alif, needs not read…",
+   "rendering_md5": "452fffb043ac",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 208, folio 208)"
+   ]
+  },
+  {
+   "id": "open-uncredited-13",
+   "status": "open",
+   "rendering_starts": "True salvation belongs to those who put …",
+   "rendering_md5": "c7cdec3109e2",
+   "translator": null,
+   "rows": [
+    "garh-maharaja-shorkot"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 213, folio 213)"
+   ]
+  },
+  {
+   "id": "open-shackle-03",
+   "status": "open",
+   "rendering_starts": "My Pir gains the approval of guru Gorakh…",
+   "rendering_md5": "efd40732436d",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "gorakhnath-goraknath-temple"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 124, folio 99)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "gn-tilang-78",
+   "status": "found",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਆਵਨਿ ਅਠਤਰੈ …"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": 723,
+    "section": "Raag Tilang, Mahala 1 (the hymn on Babur addressed to Lalo)",
+    "banidb_verses": [
+     30938
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026; the first words of the line, which are what is rendered"
+   },
+   "match": "\"Coming in seventy eight\"; the bracketed year is the translator's gloss.",
+   "rendering_starts": "Coming in seventy-eight (1521 C.E)",
+   "rendering_md5": "68923646e39e",
+   "translator": null,
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-rori-sahib"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, pp. 113–114, folios 95–96)"
+   ]
+  },
+  {
+   "id": "gn-aarti-a",
+   "status": "found",
+   "group": "gn-aarti",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਗਗਨ ਮੈ ਥਾਲੁ",
+    "ਰਵਿ ਚੰਦੁ ਦੀਪਕ ਬਨੇ …"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": 663,
+    "section": "Raag Dhanasari, Mahala 1 (the aarti)",
+    "banidb_verses": [
+     28687
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026; the first half of the line, which is what is rendered"
+   },
+   "match": "The sky as the salver, sun and moon as the lamps.",
+   "rendering_starts": "In the salver of the firmament, / The su…",
+   "rendering_md5": "2f130a199b19",
+   "translator": null,
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sacha-sauda",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, pp. 243–244, folios 217–218)"
+   ]
+  },
+  {
+   "id": "gn-asa-eko",
+   "status": "found",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਸਾਹਿਬੁ ਮੇਰਾ ਏਕੋ ਹੈ ॥",
+    "ਏਕੋ ਹੈ ਭਾਈ ਏਕੋ ਹੈ ॥"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": 350,
+    "section": "Raag Asa, Mahala 1",
+    "banidb_verses": [
+     15909,
+     15910
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026; the closing ॥੧॥ ਰਹਾਉ ॥ (verse number and refrain mark) is left off"
+   },
+   "match": "Word for word: \"my Master is One\", \"He is One, brother (bhai), He is One\".",
+   "rendering_starts": "My Master is One / He is One, brother, t…",
+   "rendering_md5": "3cfd93eef811",
+   "translator": null,
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sacha-sauda",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, p. 60, folio 42)"
+   ]
+  },
+  {
+   "id": "open-uncredited-14",
+   "status": "open",
+   "rendering_starts": "God is One, / The Path is One",
+   "rendering_md5": "464026db60d3",
+   "translator": null,
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sacha-sauda",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, p. 144, folio 126)"
+   ],
+   "note": "Quoted by Khalid, Walking with Nanak, p. 144, in his reconstruction of the meeting with Shaikh Ibrahim near Pakpattan. Not found in the Guru Granth Sahib by a search of BaniDB's English translations (\"One Path\" finds only Ang 1279, \"one path and one door\", which is a different line). It may be a Janamsakhi saying rather than a hymn. Needs Khalid's page to identify; nothing is inserted until it is."
+  },
+  {
+   "id": "gn-asa-janeu",
+   "status": "found",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਦਇਆ ਕਪਾਹ",
+    "ਸੰਤੋਖੁ ਸੂਤੁ …"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": 471,
+    "section": "Asa di Var, salok of Mahala 1 on the sacred thread",
+    "banidb_verses": [
+     21166
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026; only the first half of the line is rendered, so only it is quoted, with … for the rest"
+   },
+   "match": "Compassion the cotton, contentment the thread.",
+   "rendering_starts": "From the cotton of compassion, / Spin th…",
+   "rendering_md5": "0a4139a20ce1",
+   "translator": null,
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sacha-sauda",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, pp. 61–62, folios 43–44)"
+   ]
+  },
+  {
+   "id": "gn-japji-20",
+   "status": "found",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਭਰੀਐ ਹਥੁ ਪੈਰੁ ਤਨੁ ਦੇਹ ॥",
+    "ਪਾਣੀ ਧੋਤੈ ਉਤਰਸੁ ਖੇਹ ॥"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": 4,
+    "section": "Jap (Japji), pauri 20",
+    "banidb_verses": [
+     172,
+     173
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026"
+   },
+   "match": "Both lines: hands, feet and body made dirty; water washes the dirt away.",
+   "rendering_starts": "As hands or feet besmirched with slime, …",
+   "rendering_md5": "ce431aab37d6",
+   "translator": null,
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sacha-sauda",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, p. 192, folio 166)"
+   ]
+  },
+  {
+   "id": "gn-suhi-herons",
+   "status": "found",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਬਗਾ ਬਗੇ ਕਪੜੇ ਤੀਰਥ ਮੰਝਿ ਵਸੰਨਿੑ ॥"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": 729,
+    "section": "Raag Suhi, Mahala 1 (the hymn sung at the house of Sajjan)",
+    "banidb_verses": [
+     31170
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026"
+   },
+   "match": "Herons in white clothes dwelling at places of pilgrimage; the rendering is a standard English translation of this line.",
+   "rendering_starts": "The herons in their white feathers dwell…",
+   "rendering_md5": "0d496cf3420f",
+   "translator": null,
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sri-kiara-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, pp. 123–126, folios 105–108)"
+   ]
+  },
+  {
+   "id": "open-shackle-04",
+   "status": "open",
+   "rendering_starts": "The twelfth century has come with gaping…",
+   "rendering_md5": "f0aa64891016",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 52, folio 27)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-rafat-01",
+   "status": "open",
+   "rendering_starts": "Now hell has opened its bogs. / Punjab h…",
+   "rendering_md5": "adf365cc0b56",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+    "gurdwara-guru-ram-das-ji",
+    "mazar-of-bulleh-shah",
+    "shrine-of-pir-sher-muhammad"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 149, folio 129)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "open-usborne-01",
+   "status": "open",
+   "rendering_starts": "Of all the wretched Punjab I am most con…",
+   "rendering_md5": "2abe870a0c95",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+    "mazar-of-bulleh-shah",
+    "shrine-of-pir-sher-muhammad"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 56, folio 55)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "gn-aarti-b",
+   "status": "found",
+   "group": "gn-aarti",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਗਗਨ ਮੈ ਥਾਲੁ ਰਵਿ ਚੰਦੁ ਦੀਪਕ ਬਨੇ …"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": 663,
+    "section": "Raag Dhanasari, Mahala 1 (the aarti)",
+    "banidb_verses": [
+     28687
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026; the first half of the line, which is what is rendered"
+   },
+   "match": "The same half line as gn-aarti-a. Where a row quotes both renderings one after the other, the original stands once, above the first.",
+   "rendering_starts": "The sky the salver, the sun and moon the…",
+   "rendering_md5": "6750d349b10a",
+   "translator": null,
+   "rows": [
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-sacha-sauda"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, p. 55, folio 37)",
+    "(Khalid, *Walking with Nanak*, p. 55, folio 37; p. 56, folio 38)"
+   ]
+  },
+  {
+   "id": "open-shackle-05",
+   "status": "open",
+   "rendering_starts": "The door of doom and torment has opened,…",
+   "rendering_md5": "3487e6bd9975",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "gurdwara-guru-ram-das-ji"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 52, folio 27)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "gn-tilang-lalo",
+   "status": "found",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਵੇ ਲਾਲੋ"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": "722 to 723",
+    "section": "Raag Tilang, Mahala 1 (the hymn on Babur addressed to Lalo), the refrain that ends its lines",
+    "banidb_verses": [
+     30927,
+     30928,
+     30929,
+     30930,
+     30931,
+     30932,
+     30933
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026"
+   },
+   "match": "The vocative \"ve Lalo\", O Lalo, that closes the lines of the hymn.",
+   "rendering_starts": "O Lalo",
+   "rendering_md5": "3c2287c3ff73",
+   "translator": null,
+   "rows": [
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
+   ],
+   "rendering_cited_to": []
+  },
+  {
+   "id": "open-shackle-06",
+   "status": "open",
+   "rendering_starts": "\"The door of doom and torment has opened…",
+   "rendering_md5": "41a670a5370a",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "gurdwara-shaheed-ganj-singh-singhnian",
+    "shrine-of-pir-sher-muhammad"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 52, folio 27)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-rafat-02",
+   "status": "open",
+   "rendering_starts": "\"Now hell has opened its bogs. / Punjab …",
+   "rendering_md5": "3de834926a11",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "gurdwara-shaheed-ganj-singh-singhnian"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 149, folio 129)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "gn-asa-babur-pirs",
+   "status": "found",
+   "poet": "Guru Nanak",
+   "language": "Punjabi (Sant Bhasha)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਕੋਟੀ ਹੂ ਪੀਰ ਵਰਜਿ ਰਹਾਏ ਜਾ ਮੀਰੁ ਸੁਣਿਆ ਧਾਇਆ ॥",
+    "ਥਾਨ ਮੁਕਾਮ ਜਲੇ ਬਿਜ ਮੰਦਰ ਮੁਛਿ ਮੁਛਿ ਕੁਇਰ ਰੁਲਾਇਆ ॥",
+    "ਕੋਈ ਮੁਗਲੁ ਨ ਹੋਆ ਅੰਧਾ ਕਿਨੈ ਨ ਪਰਚਾ ਲਾਇਆ ॥"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": "417 to 418",
+    "section": "Raag Asa, Mahala 1 (one of the hymns on Babur)",
+    "banidb_verses": [
+     19136,
+     19137,
+     19138
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026; the closing verse number ॥੪॥ is left as ॥"
+   },
+   "match": "Three lines, in order: the pirs who failed to halt the Mir; places and palaces burned, princes cut down; no Mughal went blind, no one worked a miracle.",
+   "rendering_starts": "Millions of priests tried by their mirac…",
+   "rendering_md5": "b6d5afa513ad",
+   "translator": null,
+   "rows": [
+    "gurudwara-janam-asthan-nankana-sahib"
+   ],
+   "rendering_cited_to": [
+    "(Rizvi, *A History of Sufism in India*, p. 410, folio 386)"
+   ]
+  },
+  {
+   "id": "open-uncredited-15",
+   "status": "open",
+   "rendering_starts": "For the sake of the love of the friend /…",
+   "rendering_md5": "8c105b7d1a90",
+   "translator": null,
+   "rows": [
+    "lal-shahbaz-qalandar"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 65, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-16",
+   "status": "open",
+   "rendering_starts": "I am not afraid of this disrepute / To d…",
+   "rendering_md5": "2a2f61c20eb0",
+   "translator": null,
+   "rows": [
+    "lal-shahbaz-qalandar"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 65, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-17",
+   "status": "open",
+   "rendering_starts": "Lāj merī pat rakio bhalā / Jhule Lālan, …",
+   "rendering_md5": "c38eb44024e7",
+   "translator": null,
+   "rows": [
+    "lal-shahbaz-qalandar"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 94, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-18",
+   "status": "open",
+   "rendering_starts": "O, keep my prestige / O Lalan, protector…",
+   "rendering_md5": "096e37cd9381",
+   "translator": null,
+   "rows": [
+    "lal-shahbaz-qalandar"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 94, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-19",
+   "status": "open",
+   "rendering_starts": "Thou giver of children to mothers / Thou…",
+   "rendering_md5": "007ad71a1e28",
+   "translator": null,
+   "rows": [
+    "lal-shahbaz-qalandar"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 57, folio not stated)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-20",
+   "status": "open",
+   "rendering_starts": "also Shahbaz, the generous to his friend…",
+   "rendering_md5": "f4109b15944e",
+   "translator": null,
+   "rows": [
+    "lal-shahbaz-qalandar"
+   ],
+   "rendering_cited_to": [
+    "(Sorley, *Shah Abdul Latif of Bhit*, p. 257, folio 248)"
+   ]
+  },
+  {
+   "id": "open-usborne-02",
+   "status": "open",
+   "rendering_starts": "\"When Shakarganj made his abode at Pakpa…",
+   "rendering_md5": "e5dc9a26c6a5",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "langer-makhdoom",
+    "mausoleum-of-waris-shah",
+    "shrine-of-pir-sher-muhammad"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 2, folio 1)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-alam-02",
+   "status": "open",
+   "rendering_starts": "O Hussein, the weaver! He earned no prof…",
+   "rendering_md5": "2e5c39290310",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 176, folio 176)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-03",
+   "status": "open",
+   "rendering_starts": "Never got engaged, never got married / N…",
+   "rendering_md5": "2c2de02220f2",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 176, folio 176)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-uncredited-21",
+   "status": "open",
+   "rendering_starts": "O Friend, Hussayn is a weaver, no profit…",
+   "rendering_md5": "da445ed9e0ce",
+   "translator": null,
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Kugle, *Sufis and Saints' Bodies*, p. 328, folio 307, ch. 4 n. 26)"
+   ]
+  },
+  {
+   "id": "open-uncredited-22",
+   "status": "open",
+   "rendering_starts": "yours will be a disgraceful death, drive…",
+   "rendering_md5": "4de93d47d519",
+   "translator": null,
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Kugle, *Sufis and Saints' Bodies*, p. 234, folio 213, ch. 4 n. 58)"
+   ]
+  },
+  {
+   "id": "open-uncredited-23",
+   "status": "open",
+   "rendering_starts": "For what reason do you treat me like thi…",
+   "rendering_md5": "6b200e241189",
+   "translator": null,
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Kugle, *Sufis and Saints' Bodies*, p. 233, folio 212)"
+   ]
+  },
+  {
+   "id": "open-uncredited-24",
+   "status": "open",
+   "rendering_starts": "I may be a sinner in respect to the reli…",
+   "rendering_md5": "f75d3ae0510a",
+   "translator": null,
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Kugle, *Sufis and Saints' Bodies*, p. 233, folio 212)"
+   ]
+  },
+  {
+   "id": "open-kugle-01",
+   "status": "open",
+   "rendering_starts": "Basant arrived, the day the world is flo…",
+   "rendering_md5": "0583a43601a5",
+   "translator": "Scott Kugle",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Kugle, *Sufis and Saints' Bodies*, p. 211, folio 190, ch. 4 n. 14)"
+   ],
+   "note": "Shah Hussain (Punjabi) or the Persian hagiography Kugle quotes; check Kugle's page and notes."
+  },
+  {
+   "id": "open-kugle-02",
+   "status": "open",
+   "rendering_starts": "Madho was wondrous in his beauty and his…",
+   "rendering_md5": "da93d6b6e93f",
+   "translator": "Scott Kugle",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Kugle, *Sufis and Saints' Bodies*, p. 209, folio 188, ch. 4 n. 11)"
+   ],
+   "note": "Shah Hussain (Punjabi) or the Persian hagiography Kugle quotes; check Kugle's page and notes."
+  },
+  {
+   "id": "open-alam-04",
+   "status": "open",
+   "rendering_starts": "Dear Lal! How can this life be trusted?",
+   "rendering_md5": "734e9667c61b",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 43, folio 43)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-05",
+   "status": "open",
+   "rendering_starts": "Forest and wilderness she searches / Hav…",
+   "rendering_md5": "fc38aff71b80",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 126, folio 126)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-06",
+   "status": "open",
+   "rendering_starts": "Lal, I am inside out, that's my business…",
+   "rendering_md5": "77f56d4fa290",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 138, folio 138)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-07",
+   "status": "open",
+   "rendering_starts": "O Mother, to whom can I tell / the state…",
+   "rendering_md5": "709f90055538",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 185, folio 185)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-uncredited-25",
+   "status": "open",
+   "rendering_starts": "O my mother, to whom shall I tell? / To …",
+   "rendering_md5": "ff7a1540fb5a",
+   "translator": null,
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Abbas, *The Female Voice in Sufi Ritual*, p. 152)"
+   ],
+   "note": "A song as performed and recorded by Abbas; where the text gives the line in romanized Punjabi or Sindhi above the English, that romanization is the recorded original. Writing it in Shahmukhi would be a transcription, which needs a ruling."
+  },
+  {
+   "id": "open-uncredited-26",
+   "status": "open",
+   "rendering_starts": "I roamed all around searching for my Ran…",
+   "rendering_md5": "62b7da01e40b",
+   "translator": null,
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *In Search of Shiva*, p. 16, ch. 10, folio not stated)"
+   ]
+  },
+  {
+   "id": "open-alam-08",
+   "status": "open",
+   "rendering_starts": "One called Shah Hussein is a fakir, / do…",
+   "rendering_md5": "e5a3c7c4c6b1",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 134, folio 134)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-09",
+   "status": "open",
+   "rendering_starts": "Why such self-importance, Hussein? / Who…",
+   "rendering_md5": "b0347cf110f1",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 59, folio 59)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-10",
+   "status": "open",
+   "rendering_starts": "Shah Hussein, you dotard, / gaps widen b…",
+   "rendering_md5": "64e106683761",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 64, folio 64)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-11",
+   "status": "open",
+   "rendering_starts": "Shah Hussein lies at your doorstep, Sain…",
+   "rendering_md5": "5bc44b15bd82",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 46, folio 46)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-12",
+   "status": "open",
+   "rendering_starts": "Blackbuck, you grazed / the borders of S…",
+   "rendering_md5": "c3d8534de9fb",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 71, folio 71)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-13",
+   "status": "open",
+   "rendering_starts": "A weaver woman tied to the loom / I work…",
+   "rendering_md5": "2a26b95029d7",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 107, folio 107)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-anwar-01",
+   "status": "open",
+   "rendering_starts": "To hell with your white garb/ better is …",
+   "rendering_md5": "78670c862ad6",
+   "translator": "Ghulam Yaqoob Anwar, adapted by Scott Kugle",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Kugle, *Sufis and Saints' Bodies*, p. 329, folio 308, ch. 4 n. 50)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi), from Anwar's translation as Kugle adapts it."
+  },
+  {
+   "id": "open-anwar-02",
+   "status": "open",
+   "rendering_starts": "I have finally found the beloved I sough…",
+   "rendering_md5": "2ad541f462c5",
+   "translator": "Ghulam Yaqoob Anwar, adapted by Scott Kugle",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Kugle, *Sufis and Saints' Bodies*, p. 329, folio 308, ch. 4 n. 50)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi), from Anwar's translation as Kugle adapts it."
+  },
+  {
+   "id": "open-uncredited-27",
+   "status": "open",
+   "rendering_starts": "Mahi mahi kook di mein ape Ranjhan hoyi …",
+   "rendering_md5": "685ad1a8c209",
+   "translator": null,
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *In Search of Shiva*, p. 16, ch. 10, folio not stated)"
+   ]
+  },
+  {
+   "id": "open-uncredited-28",
+   "status": "open",
+   "rendering_starts": "Calling the name of my beloved I myself …",
+   "rendering_md5": "8a6324d16096",
+   "translator": null,
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *In Search of Shiva*, p. 16, ch. 10, folio not stated)"
+   ]
+  },
+  {
+   "id": "open-alam-14",
+   "status": "open",
+   "rendering_starts": "Each thing encompassed, he said, I was t…",
+   "rendering_md5": "34059ebb2e13",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 177, folio 177)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-15",
+   "status": "open",
+   "rendering_starts": "Says Hussein, this the incantation taugh…",
+   "rendering_md5": "af3729bb1238",
+   "translator": "Naveed Alam",
+   "rows": [
+    "madho-lal-hussain"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 177, folio 177)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-usborne-03",
+   "status": "open",
+   "rendering_starts": "Bhag Bhari, help me to meet my Ranjha.",
+   "rendering_md5": "da56911d437a",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 45, folio 44)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-04",
+   "status": "open",
+   "rendering_starts": "Of all the wretched Punjab I am most con…",
+   "rendering_md5": "f7530088ebb6",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 56, folio 55)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-05",
+   "status": "open",
+   "rendering_starts": "My friends came to me and said, 'Write f…",
+   "rendering_md5": "16a3b916fae7",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 2, folio 1)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-06",
+   "status": "open",
+   "rendering_starts": "Oh poet Waris Shah! If I hear that my lo…",
+   "rendering_md5": "cbf625f11e50",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 41, folio 40)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-07",
+   "status": "open",
+   "rendering_starts": "(Poet Waris: 'None can withstand when ey…",
+   "rendering_md5": "475ddd290b3c",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 8, folio 7)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-08",
+   "status": "open",
+   "rendering_starts": "Waris, I shall be called the Hir of Ranj…",
+   "rendering_md5": "e46d29285126",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 17, folio 16)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-09",
+   "status": "open",
+   "rendering_starts": "Poets, you should determine the worth of…",
+   "rendering_md5": "b26b41bbe9aa",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 56, folio 55)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-10",
+   "status": "open",
+   "rendering_starts": "I have no capital of good works. Of what…",
+   "rendering_md5": "15e84b346888",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 56, folio 55)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-11",
+   "status": "open",
+   "rendering_starts": "Oh wise man, you should note that there …",
+   "rendering_md5": "1f1adfc6ad52",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 56, folio 55)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-uncredited-29",
+   "status": "open",
+   "rendering_starts": "Our body is the lover Ranjha, / Our spir…",
+   "rendering_md5": "9a6a5b4e435b",
+   "translator": null,
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Mystical Dimensions of Islam*, p. 420, folio 389)"
+   ]
+  },
+  {
+   "id": "open-uncredited-30",
+   "status": "open",
+   "rendering_starts": "The secret chamber is the grave, / Saida…",
+   "rendering_md5": "029a7c022c2e",
+   "translator": null,
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Mystical Dimensions of Islam*, p. 420, folio 389)"
+   ]
+  },
+  {
+   "id": "open-uncredited-31",
+   "status": "open",
+   "rendering_starts": "Reason is the flute / that to us the mus…",
+   "rendering_md5": "b8bbedc83d0c",
+   "translator": null,
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Mystical Dimensions of Islam*, p. 420, folio 389)"
+   ]
+  },
+  {
+   "id": "open-uncredited-32",
+   "status": "open",
+   "rendering_starts": "Warith Shah says: Those alone cross over…",
+   "rendering_md5": "bc8a60393717",
+   "translator": null,
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Mystical Dimensions of Islam*, p. 420, folio 389)"
+   ]
+  },
+  {
+   "id": "open-usborne-12",
+   "status": "open",
+   "rendering_starts": "May God pardon him who copies these word…",
+   "rendering_md5": "5f182744fbb4",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 57, folio 56)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-shackle-07",
+   "status": "open",
+   "rendering_starts": "May anyone who calls us a Sayyid suffer …",
+   "rendering_md5": "7134df4cb4bc",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 113, folio 88)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-rafat-03",
+   "status": "open",
+   "rendering_starts": "Does sanctity deserve such scorn? / It's…",
+   "rendering_md5": "8e199bb410eb",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 93, folio 73)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "open-shackle-08",
+   "status": "open",
+   "rendering_starts": "The twelfth century has come with gaping…",
+   "rendering_md5": "c7437b6d814d",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 52, folio 27)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-09",
+   "status": "open",
+   "rendering_starts": "I am not a Hindu, nor a Muslim. I have f…",
+   "rendering_md5": "98be93205a21",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 58, folio 33)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-10",
+   "status": "open",
+   "rendering_starts": "I am not twice-born, nor am I thrice-bor…",
+   "rendering_md5": "932b10b16386",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 131, folio 106)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-11",
+   "status": "open",
+   "rendering_starts": "The mullah taught me the lesson, but I c…",
+   "rendering_md5": "1a4750172707",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 102, folio 77)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-12",
+   "status": "open",
+   "rendering_starts": "With the departure of Inayat Qadiri, / m…",
+   "rendering_md5": "935e6ead8e4a",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 104, folio 79)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-13",
+   "status": "open",
+   "rendering_starts": "Bullha, let us go and sit at the gate of…",
+   "rendering_md5": "98e67b24dc40",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 111, folio 86)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-rafat-04",
+   "status": "open",
+   "rendering_starts": "You are gone, friend, far away beyond my…",
+   "rendering_md5": "6cdde7eb7638",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 149, folio 129)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "open-alam-16",
+   "status": "open",
+   "rendering_starts": "The dress / someone carried across the s…",
+   "rendering_md5": "c93bf751a33c",
+   "translator": "Naveed Alam",
+   "rows": [
+    "prahladpuri-temple",
+    "shrine-of-hafiz-muhammad-jamal-multani",
+    "shrine-of-shah-rukn-e-alam",
+    "shrine-of-syed-musa-pak"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 51, folio 51)",
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 51, folio 51, kafi 29)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-shackle-14",
+   "status": "open",
+   "rendering_starts": "When I realized this, I appealed to Ram:…",
+   "rendering_md5": "9c08064ebcbe",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "ram-mandir-saidpur-ram-kund-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 116, folio 91)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-15",
+   "status": "open",
+   "rendering_starts": "Sometimes you utter appeals to Ram, some…",
+   "rendering_md5": "617530475c0d",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "ram-mandir-saidpur-ram-kund-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 59, folio 34)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-16",
+   "status": "open",
+   "rendering_starts": "When Kumbhakaran goes back the way he ca…",
+   "rendering_md5": "8bb5733389f2",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "ram-mandir-saidpur-ram-kund-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 31, folio 6)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-usborne-13",
+   "status": "open",
+   "rendering_starts": "Did not a woman kill Ravana?",
+   "rendering_md5": "1ca18fc2d600",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "ram-mandir-saidpur-ram-kund-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 3, folio 2)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-alam-17",
+   "status": "open",
+   "rendering_starts": "Time to invoke, girl, let's rise and pra…",
+   "rendering_md5": "38d7497060f2",
+   "translator": "Naveed Alam",
+   "rows": [
+    "ram-mandir-saidpur-ram-kund-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 28, folio 28, kafi 7)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-alam-18",
+   "status": "open",
+   "rendering_starts": "What's the joy of life / without the con…",
+   "rendering_md5": "029c560a5f11",
+   "translator": "Naveed Alam",
+   "rows": [
+    "ram-mandir-saidpur-ram-kund-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 160, folio 160)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  },
+  {
+   "id": "open-kasmani-01",
+   "status": "open",
+   "rendering_starts": "Muhammad in one place, Ali in another, a…",
+   "rendering_md5": "de8da36f1f2a",
+   "translator": "Omar Kasmani",
+   "rows": [
+    "ram-mandir-saidpur-ram-kund-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Kasmani, *Queer Companions*, p. 57, folio 40)"
+   ]
+  },
+  {
+   "id": "open-schimmel-08",
+   "status": "open",
+   "rendering_starts": "Those who are happy when sitting, the he…",
+   "rendering_md5": "a635d37e7922",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "shaktipeeth-shri-hinglaj-mata-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 227, folio 227)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-schimmel-09",
+   "status": "open",
+   "rendering_starts": "the Kaparis have not seen Kabul and Kash…",
+   "rendering_md5": "ade717d751ea",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "shaktipeeth-shri-hinglaj-mata-mandir"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 230, folio 230)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-shackle-17",
+   "status": "open",
+   "rendering_starts": "When Ravan the ten-headed abducted poor …",
+   "rendering_md5": "72f2bc88cb69",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shri-panchmukhi-hanuman-mandir-karachi"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 141, folio 116)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-18",
+   "status": "open",
+   "rendering_starts": "Dear friend and sweet beloved, make the …",
+   "rendering_md5": "de7bc4fe1f32",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shri-panchmukhi-hanuman-mandir-karachi"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Risalo of Shah Abdul Latif*, p. 265, folio not stated)"
+   ],
+   "note": "Shah Abdul Latif. Shackle, The Risalo of Shah Abdul Latif (Murty, 2025): a PDF in Adil Ahsan's Drive folder (file id 1HOEtLylAPFcrkmL5SfOBZnriOl4qMZjW, 824 KB); whether it carries the Sindhi facing text is not yet checked."
+  },
+  {
+   "id": "open-uncredited-33",
+   "status": "open",
+   "rendering_starts": "If thou shouldst ask of the world 'Who i…",
+   "rendering_md5": "ec3aa9a23c29",
+   "translator": null,
+   "rows": [
+    "shrine-of-bahauddin-zakariya"
+   ],
+   "rendering_cited_to": [
+    "(Rizvi, *A History of Sufism in India*, p. 225, folio 205)"
+   ]
+  },
+  {
+   "id": "open-shackle-19",
+   "status": "open",
+   "rendering_starts": "Come, Ranjha, let us go to Multan, to pa…",
+   "rendering_md5": "f67ab7ebc2fa",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-bahauddin-zakariya"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 123, folio 98)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-20",
+   "status": "open",
+   "rendering_starts": "The Five Pirs protect my beloved, they s…",
+   "rendering_md5": "fdb86b6f33de",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-bahauddin-zakariya"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 122, folio 97)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-21",
+   "status": "open",
+   "rendering_starts": "I belong to the yogi, after propitiating…",
+   "rendering_md5": "bf0f192d059b",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-bahauddin-zakariya"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 136, folio 111)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-uncredited-34",
+   "status": "open",
+   "rendering_starts": "'Alas! You have no knowledge about me; /…",
+   "rendering_md5": "55c1f13cfe0f",
+   "translator": null,
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": [
+    "(Rizvi, *A History of Sufism in India*, p. 163, folio 145)"
+   ]
+  },
+  {
+   "id": "open-uncredited-35",
+   "status": "open",
+   "rendering_starts": "You give a cap as a mark of initiation, …",
+   "rendering_md5": "2e856f19f0c4",
+   "translator": null,
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": [
+    "(Rizvi, *A History of Sufism in India*, p. 350, folio 328)"
+   ]
+  },
+  {
+   "id": "open-uncredited-36",
+   "status": "open",
+   "rendering_starts": "You shave your head but what you should …",
+   "rendering_md5": "64efec049226",
+   "translator": null,
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": [
+    "(Rizvi, *A History of Sufism in India*, p. 350, folio 328)"
+   ]
+  },
+  {
+   "id": "farid-salok-ajj-na-suti",
+   "status": "found",
+   "poet": "Baba Farid",
+   "language": "Punjabi (Multani)",
+   "script": "Gurmukhi",
+   "original": [
+    "ਅਜੁ ਨ ਸੁਤੀ ਕੰਤ ਸਿਉ",
+    "ਅੰਗੁ ਮੁੜੇ ਮੁੜਿ ਜਾਇ ॥"
+   ],
+   "source": {
+    "work": "Sri Guru Granth Sahib",
+    "ang": 1379,
+    "section": "Salok Sheikh Farid",
+    "banidb_verses": [
+     58606
+    ],
+    "note": "Gurmukhi from BaniDB (api.banidb.com), retrieved 30 October 2026; Farid's verse survives in this script in the Guru Granth Sahib, its earliest written record"
+   },
+   "match": "Tonight I did not sleep with my spouse; my limbs ache and twist.",
+   "rendering_starts": "I did not sleep with my love tonight / A…",
+   "rendering_md5": "ccaf4e009639",
+   "translator": null,
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": [
+    "(Khalid, *Walking with Nanak*, p. 138, folio 120)"
+   ]
+  },
+  {
+   "id": "open-usborne-14",
+   "status": "open",
+   "rendering_starts": "Praise also to the beloved Pir Chishti S…",
+   "rendering_md5": "611c9a2bb0ee",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 2, folio 1)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-qureshi-01",
+   "status": "open",
+   "rendering_starts": "In the name of Ganj-e-Shakar / Protect o…",
+   "rendering_md5": "1346a7c70e3a",
+   "translator": "Regula Burckhardt Qureshi",
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": [
+    "(Qureshi, *Sufi Music of India and Pakistan*, p. 46, folio 26)"
+   ]
+  },
+  {
+   "id": "open-qureshi-02",
+   "status": "open",
+   "rendering_starts": "In the likeness of Ganj-e-Shakar, the de…",
+   "rendering_md5": "5dc145f62b17",
+   "translator": "Regula Burckhardt Qureshi",
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": []
+  },
+  {
+   "id": "open-abbas-01",
+   "status": "open",
+   "rendering_starts": "Give thy head, expect no loyalty in retu…",
+   "rendering_md5": "c959ab1b7204",
+   "translator": "Shemeem Burney Abbas",
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": []
+  },
+  {
+   "id": "open-abbas-02",
+   "status": "open",
+   "rendering_starts": "O lover Farid, alive were those habitati…",
+   "rendering_md5": "b4bb3dfd3c1d",
+   "translator": "Shemeem Burney Abbas",
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ],
+   "rendering_cited_to": []
+  },
+  {
+   "id": "open-schimmel-10",
+   "status": "open",
+   "rendering_starts": "So much gift did I not give to anyone bu…",
+   "rendering_md5": "1474ea7913d8",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "shrine-of-makhdoom-abdul-rahim-girhori"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *As Through a Veil*, p. 224, folio 206)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-schimmel-11",
+   "status": "open",
+   "rendering_starts": "A small quantity only of your love, O Ah…",
+   "rendering_md5": "cb22abb16ad3",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "shrine-of-makhdoom-abdul-rahim-girhori"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *As Through a Veil*, p. 225, folio 207)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-usborne-15",
+   "status": "open",
+   "rendering_starts": "and he grasped the dagger given him by M…",
+   "rendering_md5": "4080d8697da4",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "shrine-of-makhdoom-jahaniyan-jahangasht"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 50, folio 49)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-uncredited-37",
+   "status": "open",
+   "rendering_starts": "Intoxication came from the wine of this …",
+   "rendering_md5": "bb45885fa457",
+   "translator": null,
+   "rows": [
+    "shrine-of-sachal-sarmast"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 202, folio 202)"
+   ]
+  },
+  {
+   "id": "open-schimmel-12",
+   "status": "open",
+   "rendering_starts": "The ordinary men read Kanz Quduri, the l…",
+   "rendering_md5": "b6a39fa2671c",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "shrine-of-sachal-sarmast"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 202, folio 202)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-schimmel-13",
+   "status": "open",
+   "rendering_starts": "Welcome, welcome You are-- / to which pl…",
+   "rendering_md5": "758160dd4c58",
+   "translator": "Annemarie Schimmel",
+   "rows": [
+    "shrine-of-sachal-sarmast"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *As Through a Veil*, p. 174, folio 156)"
+   ],
+   "note": "Various (Shah Abdul Latif's Sindhi, Sachal Sarmast, Persian). Schimmel often gives a transliteration or a Sur and verse number in her notes; check her page."
+  },
+  {
+   "id": "open-uncredited-38",
+   "status": "open",
+   "rendering_starts": "They are a proud people and consider the…",
+   "rendering_md5": "25899b84218b",
+   "translator": null,
+   "rows": [
+    "shrine-of-sachal-sarmast"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 40, folio 20)"
+   ]
+  },
+  {
+   "id": "open-uncredited-39",
+   "status": "open",
+   "rendering_starts": "Nobody ever took with himself / two thin…",
+   "rendering_md5": "99229886db93",
+   "translator": null,
+   "rows": [
+    "shrine-of-shah-abdul-karim-bulri"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 162, folio 162)"
+   ]
+  },
+  {
+   "id": "open-uncredited-40",
+   "status": "open",
+   "rendering_starts": "Like a jar poised on woman-water-carrier…",
+   "rendering_md5": "0c8a2af8be5c",
+   "translator": null,
+   "rows": [
+    "shrine-of-shah-abdul-karim-bulri"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 162, folio 162)"
+   ]
+  },
+  {
+   "id": "open-uncredited-41",
+   "status": "open",
+   "rendering_starts": "A swan feeds on pearls, / he dives deep …",
+   "rendering_md5": "677d65b44ee7",
+   "translator": null,
+   "rows": [
+    "shrine-of-shah-abdul-karim-bulri"
+   ],
+   "rendering_cited_to": [
+    "(Schimmel, *Pain and Grace*, p. 168, folio 168)"
+   ]
+  },
+  {
+   "id": "open-uncredited-42",
+   "status": "open",
+   "rendering_starts": "The beloved is not separated from you, t…",
+   "rendering_md5": "1e9fed071499",
+   "translator": null,
+   "rows": [
+    "shrine-of-shah-abdul-karim-bulri"
+   ],
+   "rendering_cited_to": []
+  },
+  {
+   "id": "open-shackle-22",
+   "status": "open",
+   "rendering_starts": "I have found Shah Inayat.",
+   "rendering_md5": "b3c3e7ff5723",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 44, folio 19)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-23",
+   "status": "open",
+   "rendering_starts": "I got caught in its whirlpools, but Shah…",
+   "rendering_md5": "a8058d51ebb5",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 46, folio 21)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-24",
+   "status": "open",
+   "rendering_starts": "With every breath I have remembered Inay…",
+   "rendering_md5": "70219569ed58",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 52, folio 27)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-25",
+   "status": "open",
+   "rendering_starts": "If Shah Inayat reveals the secret, then …",
+   "rendering_md5": "3316b0c09390",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 62, folio 37)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-26",
+   "status": "open",
+   "rendering_starts": "Bullha, Shah Inayat is a master mystic, …",
+   "rendering_md5": "93f85159cab2",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 73, folio 48)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-27",
+   "status": "open",
+   "rendering_starts": "Baghdad is the place of the Pir of Pirs;…",
+   "rendering_md5": "461dded38b6f",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 122, folio 97)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-28",
+   "status": "open",
+   "rendering_starts": "Shah Inayat has set out his hooks, and w…",
+   "rendering_md5": "ad647bea200e",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 122, folio 97)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-29",
+   "status": "open",
+   "rendering_starts": "Shah Inayat is my religion, the one whom…",
+   "rendering_md5": "8866536a72d3",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 90, folio 65)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-30",
+   "status": "open",
+   "rendering_starts": "My whole being became Inayat; then it go…",
+   "rendering_md5": "2c3dcb0b91a1",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 93, folio 68)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-31",
+   "status": "open",
+   "rendering_starts": "Leaving my parents, I have clung to your…",
+   "rendering_md5": "e5365662bf3c",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 115, folio 90)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-32",
+   "status": "open",
+   "rendering_starts": "With the departure of Inayat Qadiri, my …",
+   "rendering_md5": "85e4ea96023c",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 104, folio 79)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-33",
+   "status": "open",
+   "rendering_starts": "Come, Inayat Qadiri, my heart desires yo…",
+   "rendering_md5": "dbb6c83952e5",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 127, folio 102)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-34",
+   "status": "open",
+   "rendering_starts": "Bullha, let us go and sit at the gate of…",
+   "rendering_md5": "60189a19f6d6",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 111, folio 86)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-rafat-05",
+   "status": "open",
+   "rendering_starts": "The flames engulfing my house, Bulleh, o…",
+   "rendering_md5": "e7ef035d4d1c",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 149, folio 129)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "open-rafat-06",
+   "status": "open",
+   "rendering_starts": "I'm waiting, pass this way once more, In…",
+   "rendering_md5": "c8f369dee543",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 185, folio 165)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "open-rafat-07",
+   "status": "open",
+   "rendering_starts": "Who will lead me to the place of my mast…",
+   "rendering_md5": "9c209355350e",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 185, folio 165)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "open-rafat-08",
+   "status": "open",
+   "rendering_starts": "not Bulleh, but Inayat must steer.",
+   "rendering_md5": "e021d29ae5a8",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 189, folio 169)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "open-rafat-09",
+   "status": "open",
+   "rendering_starts": "Only the proper guide can lead you to Hi…",
+   "rendering_md5": "af6102a182f6",
+   "translator": "Taufiq Rafat",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Rafat, *Bulleh Shah: A Selection*, p. 205, folio 185)"
+   ],
+   "note": "Bulleh Shah. Rafat, Bulleh Shah: A Selection (1982): the PDF in Adil Ahsan's Drive folder (file id 1izCDHloTDmnAq8X7Sl6q1sb6HlELmswr, a copy at 1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw) prints the Shahmukhi original on the verso facing each rendering, and Drive's own text index finds Arabic script in it; the original is there, to be read off the facing page (a vision pass; the Latin OCR of 2026 never read it, HANDOVER §9.204)."
+  },
+  {
+   "id": "open-shackle-35",
+   "status": "open",
+   "rendering_starts": "As Shah Inayat, you show yourself to Bul…",
+   "rendering_md5": "f85e9b1ced53",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 146, folio 121)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-36",
+   "status": "open",
+   "rendering_starts": "See how my lord Shah Inayat flirts with …",
+   "rendering_md5": "9ba36b650ab3",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 148, folio 123)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-37",
+   "status": "open",
+   "rendering_starts": "Bullha, he lets himself be found. Shah I…",
+   "rendering_md5": "d0e2e2c7639b",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "shrine-of-shah-inayat-qadiri"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 150, folio 125)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-usborne-16",
+   "status": "open",
+   "rendering_starts": "Jog means to be dead while alive. One ha…",
+   "rendering_md5": "961b50a397df",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "tilla-jogian"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 31, folio 30)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-usborne-17",
+   "status": "open",
+   "rendering_starts": "God has made his abode in this body of d…",
+   "rendering_md5": "0660f61ec664",
+   "translator": "Charles Frederick Usborne",
+   "rows": [
+    "tilla-jogian"
+   ],
+   "rendering_cited_to": [
+    "(Waris Shah, *Hir and Ranjha*, p. 31, folio 30)"
+   ],
+   "note": "Waris Shah, Hir (Punjabi, Shahmukhi). Usborne's is a free prose version; the original needs a Hir edition and the stanza identified. No Hir text in the corpus."
+  },
+  {
+   "id": "open-shackle-38",
+   "status": "open",
+   "rendering_starts": "Casting aside his drum, he goes toward T…",
+   "rendering_md5": "177005389afc",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "tilla-jogian"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 123, folio 98)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-shackle-39",
+   "status": "open",
+   "rendering_starts": "My Pir gains the approval of guru Gorakh…",
+   "rendering_md5": "4f626b6fde4b",
+   "translator": "Christopher Shackle",
+   "rows": [
+    "tilla-jogian"
+   ],
+   "rendering_cited_to": [
+    "(Shackle, *Sufi Lyrics*, p. 124, folio 99)"
+   ],
+   "note": "Bulleh Shah. The Shackle PDF in the corpus (Drive file id 1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy) is the 2021 Murty paperback, Sufi Lyrics: Selections from a World Classic, English only (Drive's index finds no Arabic or Gurmukhi script in it). The 2015 Murty hardback prints the Shahmukhi facing the English and is not in the corpus. Where Rafat translates the same kafi, his versos give the original."
+  },
+  {
+   "id": "open-alam-19",
+   "status": "open",
+   "rendering_starts": "Let me stand and watch for a few days / …",
+   "rendering_md5": "754bc2997f01",
+   "translator": "Naveed Alam",
+   "rows": [
+    "tomb-of-qutbuddin-aibak"
+   ],
+   "rendering_cited_to": [
+    "(Madho Lal Hussein, *Verses of a Lowly Fakir*, p. 113, folio 113, kafi 90)"
+   ],
+   "note": "Shah Hussain's kafis (Punjabi). Alam, Verses of a Lowly Fakir: whether the book prints the originals is not yet checked."
+  }
+ ]
+}

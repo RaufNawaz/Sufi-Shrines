@@ -1,0 +1,33 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed certainty] Guru Nanak at Talwandi, para 3: "Sikh tradition warmly remembers the chieftain Rai Bular Bhatti as among the first, with the Guru's elder sister, Bebe Nanaki, to perceive in the child an extraordinary spiritual destiny." | "سکھ روایت میں سردار رائے بلار بھٹی کا ذکر گہری محبت سے آتا ہے: وہ گرو کی بڑی بہن بے بے نانکی کے ساتھ ان اولین لوگوں میں تھے جنہوں نے اس بچے میں غیر معمولی روحانی تقدیر کو پہچانا۔" -> in English "tradition remembers ... as" governs the claim that he was among the first to perceive; in Urdu the tradition only "mentions him warmly", and after the colon "وہ ... ان اولین لوگوں میں تھے" stands as the narrator's own statement of fact. -> "سکھ روایت سردار رائے بلار بھٹی کا ذکر گہری محبت سے کرتی ہے اور انہیں گرو کی بڑی بہن بے بے نانکی کے ساتھ ان اولین لوگوں میں شمار کرتی ہے جنہوں نے اس بچے میں غیر معمولی روحانی تقدیر کو پہچانا۔"
+2. [changed certainty] The Massacre of 1921, para 2: "Bhai Lachhman Singh, it is recounted, was tied to a tree and burned, and Bhai Daleep Singh was thrown into a brick kiln that once stood within the premises of the gurdwaras." | "بیان کیا جاتا ہے کہ بھائی لچھمن سنگھ کو ایک درخت سے باندھ کر جلا دیا گیا۔ گوردواروں کے احاطے میں کبھی اینٹوں کا ایک بھٹا ہوا کرتا تھا، اور بھائی دلیپ سنگھ کو اسی میں پھینک دیا گیا۔" -> the English is one sentence under "it is recounted"; the Urdu ends the hedged sentence after Lachhman Singh, so Daleep Singh's death in the kiln becomes a plain assertion. -> "بیان کیا جاتا ہے کہ بھائی لچھمن سنگھ کو ایک درخت سے باندھ کر جلا دیا گیا، اور بھائی دلیپ سنگھ کو اینٹوں کے اُس بھٹے میں پھینک دیا گیا جو کبھی گوردواروں کے احاطے میں ہوا کرتا تھا۔"
+3. [changed certainty] The Journeys and the Succession, para 3: "The Janamsakhis tell that ... Nanak spent time every day with Rai Bhoe, who looked upon him as his Guru." | "اور گرو ہر روز رائے بھوئے کے ساتھ وقت گزارتے۔ رائے بھوئے انہیں اپنا گرو مانتے تھے۔" -> in English the relative clause sits inside the janamsakhi frame; the Urdu splits it into a separate sentence, so it is no longer framed and reads as a fact. -> "اور گرو ہر روز رائے بھوئے کے ساتھ وقت گزارتے، اور رائے بھوئے انہیں اپنا گرو مانتے تھے۔"
+
+NOTES:
+Rulings on doubtful choices.
+(a) "most of them had not yet been baptised" as "اکثر کی ابھی امرت کی رسم نہیں ہوئی تھی": correct. Amrit is the Sikh initiation the English means, so this is not an addition.
+(b) "the place of Baba Nanak" as "بابا نانک کے استھان": acceptable, since استھان means place. "بابا نانک کے مقام پر" would be slightly more neutral.
+(c) "millions" (internet audience; Babur hymn) as "لاکھوں": the accepted Urdu idiom for an indefinite large number. Acceptable.
+(d) "the head priest" as "گوردوارے کے سربراہ مذہبی پیشوا": "of the gurdwara" is implied by the context. Acceptable.
+(e) "the Sikh imagination" as "اس قوم کے تخیل میں": acceptable, since Sikhs use قوم of themselves. "سکھوں کے تخیل میں" would be plainer.
+(f) "his cousin" as "کزن": neutral, and it neither narrows nor widens. "elder sister" as "بڑی بہن", "spiritual descendants" as "روحانی سلسلے کے وارثوں" and "India" as "ہندوستان" in the Babur legend are all correct.
+(g) "concluding the bhog, the communal prayer" as "اختتامی اجتماعی دعا یعنی بھوگ ادا کر رہے تھے": acceptable.
+(h) The 1921 jatha's leadership clause ("اگرچہ اس کی قیادت کے بارے میں روایتیں مختلف ہیں") and the post Partition custody clause ("اگلی دہائیوں کے دوران اس کی دیکھ بھال کے بارے میں روایتیں مختلف ہیں") both keep the hedge on the same part of the claim as the English. Correct.
+(i) The verse renderings appear as short italic Urdu meanings without credits, and familiar glosses (کوس، دوہا، لنگر، سروور) were dropped. Both are deliberate under the brief.
+
+Precision notes (optional).
+1. Overview: "دنیا بھر کے سکھ اسے اپنی مقدس ترین عبادت گاہوں میں شمار کرتے ہیں۔" The English says "holiest of all gurdwaras". -> "دنیا بھر کے سکھ اسے اپنے مقدس ترین گوردواروں میں شمار کرتے ہیں۔"
+2. The tree paragraph: "اُس دن کے تمام شہیدوں کو ایک ہی بڑی چتا میں" adds "all", which the English does not have. -> "اُس دن کے شہیدوں کو ایک ہی بڑی چتا میں"
+3. Muslims and the Birthplace: "تاہم سکھ یہ بات تسلیم نہیں کرتے۔ مانا جاتا ہے کہ ان کے والدین" Here ان can be read as the Sikhs. -> "مانا جاتا ہے کہ نانک کے والدین"
+4. Legends: "کروڑی ان کی دی ہوئی شفا کو کرامت قرار دیتا ہے تو گرو جواب دیتے ہیں کہ "معجزہ نام کی کوئی چیز نہیں ہوتی"" The English "his cure" is ambiguous, and the Urdu decides who gave the cure. Using کرامت and then معجزہ also weakens the point of the reply, where the English uses "miracle" both times. -> "کروڑی اس شفا کو معجزہ قرار دیتا ہے تو گرو جواب دیتے ہیں کہ "معجزہ نام کی کوئی چیز نہیں ہوتی""
+5. The Setting, para 1: "پندرہویں صدی میں پنجاب افغان حکمرانی کے تحت پرامن رہا" makes the whole century peaceful, where the English has "a peaceful period". -> "پندرہویں صدی میں افغان حکمرانی کے تحت پنجاب نے امن کا ایک دور دیکھا"
+6. The Setting, 1985: "سرحد پر یاتریوں کا استقبال کرتا اور گوردواروں میں ان کے ٹھہرنے کا انتظام سنبھالتا تھا" is habitual, where the English describes that one occasion. -> "سرحد پر یاتریوں کا استقبال کیا اور گوردواروں میں ان کے ٹھہرنے کا انتظام کیا"
+7. Devotion and Festivals, para 1: "اس دن کے لیے انہوں نے سفید لباس پہن رکھا تھا اور پانچ ککّے" In the English, "for the day" governs only the five Ks. -> "انہوں نے سفید لباس پہن رکھا تھا اور اس دن کے لیے پانچ ککّے"
+8. Devotion and Festivals, para 1: "اندر گھسنے والے کسی مشکوک شخص کی جانچ نہ کر سکا" implies that someone suspicious did enter. -> "اتنا ٹھٹھرا ہوا تھا کہ یہ نہ دیکھ سکا کہ کوئی مشکوک شخص اندر تو نہیں گھس رہا"
+9. The Keepers: "جنم استھان کے پرانے ترین ملازمین میں سے ایک" can mean the longest serving. The English means age ("at seventy"). -> "جنم استھان کے عمر رسیدہ ترین ملازمین میں سے ایک"
+10. The Journeys: "گرو نانک اور انگد کے نور" drops the title the English gives. -> "گرو نانک اور گرو انگد کے نور"
+11. The Journeys: "لاہور کے راستے اس گاؤں سے ایک سو اسّی کلومیٹر دور" -> "لاہور کے راستے تلونڈی سے ایک سو اسّی کلومیٹر دور" (names the place, as in the English)
+
+Style.
+"راجبیر 1978 میں اپنے ایک کزن کے ساتھ" uses a calqued ایک. -> "اپنے کزن کے ساتھ". "مردانہ نام کا ایک گویّا" follows the English ("a singer named Mardana"), but the brief cautions against making a known person a stranger, and Mardana was introduced earlier. The writer may prefer "گویّا مردانہ ان کا کلام گاتا". The file has no Latin letters and no em or en dashes, and all figures match the English.

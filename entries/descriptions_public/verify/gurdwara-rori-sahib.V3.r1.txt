@@ -1,0 +1,80 @@
+VERDICT: FAIL
+ISSUES:
+1. [wrong postposition, collocation] "عبادت گاہوں پر ضرور حاضری دیتے ... یا کسی بھی اور مذہب کی" -> one pays a visit "میں" a place of worship ("پر حاضری" is the idiom for a mazar or a court), "کسی بھی اور" is clumsy, and "مذہب کی" breaks the parallel with "مسلمانوں کی، ہندوؤں کی" -> use میں, کسی اور, and the followers of the religion.
+OLD: وہ دیہات کے باہر ٹھہرنا پسند کرتے تھے، اور جس علاقے میں بھی جاتے وہاں کی عبادت گاہوں پر ضرور حاضری دیتے، خواہ وہ مسلمانوں کی ہوں، ہندوؤں کی یا کسی بھی اور مذہب کی۔
+NEW: وہ دیہات کے باہر ٹھہرنا پسند کرتے تھے، اور جس علاقے میں بھی جاتے وہاں کی عبادت گاہوں میں ضرور حاضری دیتے، خواہ وہ مسلمانوں کی ہوں، ہندوؤں کی یا کسی اور مذہب کے ماننے والوں کی۔
+
+2. [unidiomatic collocation] "حلال کی محنت" -> the idiom is "حلال کی کمائی / روزی"; "حلال کی محنت" is a half-calque of "honest labour" -> use the phrase the article itself uses later.
+OLD: اچھی زندگی کی بنیاد حلال کی محنت، رحم دلی،
+NEW: اچھی زندگی کی بنیاد دیانت دارانہ محنت، رحم دلی،
+
+3. [calque] "سکھ پنتھ کی عقیدت میں یہ ... تمثیل ہے" -> a calque of "in Sikh devotion"; "پنتھ کی عقیدت" does not read naturally, and the bare "یہ" is better tied to the story -> name the tradition and the referent.
+OLD: سکھ پنتھ کی عقیدت میں یہ حلال کمائی اور دوسروں سے چھینی گئی دولت کے فرق کی تمثیل ہے۔
+NEW: سکھوں کی عقیدت مندانہ روایت میں یہ قصہ حلال کمائی اور دوسروں سے چھینی گئی دولت کے فرق کی تمثیل ہے۔
+
+4. [tangled sentence, gloss placement] "اور پھر تبھی کھائی جب گرو نانک نے اسے *پرشاد* کہا، یعنی نذر کیے جانے سے متبرک ہو جانے والا کھانا۔" -> "پھر تبھی" is clumsy, and the gloss dangles after the verb, cut off from the word it explains -> end the sentence at the verb and give the gloss its own sentence.
+OLD: بیان کیا جاتا ہے کہ مردانہ نے پہلے تو لالو کی باجرے کی روٹی کھانے سے انکار کیا اور پھر تبھی کھائی جب گرو نانک نے اسے *پرشاد* کہا، یعنی نذر کیے جانے سے متبرک ہو جانے والا کھانا۔
+NEW: بیان کیا جاتا ہے کہ مردانہ نے پہلے تو لالو کی باجرے کی روٹی کھانے سے انکار کیا، اور تب جا کر کھائی جب گرو نانک نے اسے *پرشاد* کہا۔ پرشاد اس کھانے کو کہتے ہیں جو نذر کیے جانے سے متبرک ہو جاتا ہے۔
+
+5. [calque] "جن کی سرپرستی نے ... مقامات کو آراستہ کیا" -> English agent structure ("whose patronage adorned"); in Urdu the patronage is the setting, not the doer -> سرپرستی میں with a passive.
+OLD: جن کی سرپرستی نے گروؤں سے وابستہ بہت سے مقامات کو آراستہ کیا؛
+NEW: جن کی سرپرستی میں گروؤں سے وابستہ بہت سے مقامات آراستہ کیے گئے؛
+
+6. [wrong postposition] "ایک شعر اینٹوں سے فن کارانہ انداز میں کندہ کیا گیا" -> "اینٹوں سے کندہ" reads as "carved with bricks" (bricks as the tool); a text is carved in or on a material -> اینٹوں میں.
+OLD: دروازے کے اوپر سکھوں کی مقدس کتاب گرو گرنتھ صاحب کا ایک شعر اینٹوں سے فن کارانہ انداز میں کندہ کیا گیا۔
+NEW: دروازے کے اوپر سکھوں کی مقدس کتاب گرو گرنتھ صاحب کا ایک شعر اینٹوں میں فن کارانہ انداز سے کندہ کیا گیا۔
+
+7. [ambiguous] "اس کے عبادت گزار ... ہجرت میں رخصت ہو گئے" -> "رخصت ہو جانا" is the common euphemism for dying, so a reader can take this as "its worshippers perished in the migration"; the sense is that they left -> say so plainly.
+OLD: اور اس کے عبادت گزار اسی برس کی عظیم اور المناک ہجرت میں رخصت ہو گئے۔
+NEW: اور اس کے عبادت گزار اسی برس کی عظیم اور المناک ہجرت میں یہاں سے چلے گئے۔
+
+8. [tense inconsistency] "یہاں ہر وقت حفاظتی اہل کار تعینات رہنے لگے، اور سکھ یاتری ہر سال آتے رہے۔" -> the paragraph is in the present perfect ("آسان ہوئی ہے", "آنے لگے ہیں", "کی گئی ہیں"), and this closing sentence drops into simple past, as if the change were over -> keep the same frame.
+OLD: یہاں ہر وقت حفاظتی اہل کار تعینات رہنے لگے، اور سکھ یاتری ہر سال آتے رہے۔
+NEW: یہاں ہر وقت حفاظتی اہل کار تعینات رہنے لگے ہیں، اور سکھ یاتری ہر سال آتے رہے ہیں۔
+
+9. [word order, information structure] "بھائی بالا ہندو تھے اور بھائی مردانہ مسلمان، اور یہ دونوں گرو نانک کے ساتھی تھے۔" -> بھائی بالا appears here for the first time, yet the sentence states his religion before saying who he is, and the identifying clause is tacked on at the end -> introduce both as companions first.
+OLD: بھائی بالا ہندو تھے اور بھائی مردانہ مسلمان، اور یہ دونوں گرو نانک کے ساتھی تھے۔
+NEW: بھائی بالا اور بھائی مردانہ دونوں گرو نانک کے ساتھی تھے؛ بالا ہندو تھے اور مردانہ مسلمان۔
+
+10. [connotation, register] "لوگوں کو عقیدت کے دام میں لے آتے تھے" -> "دام" is a snare, and "دام میں لانا" means to entrap; outside a ghazal this gives the wrong colour to Mardana's singing -> a neutral verb.
+OLD: وہ گرو کا کلام راگ اور سُر میں گاتے، اور یوں لوگوں کو عقیدت کے دام میں لے آتے تھے۔
+NEW: وہ گرو کا کلام راگ اور سُر میں گاتے، اور یوں لوگوں کو عقیدت کی راہ پر کھینچ لاتے تھے۔
+
+11. [tangled sentence, unclear reference] "ایک کہانی میں کسی بے مروت گاؤں میں ہر دروازے سے ... دو گاؤں کو ایک دوسرے کے برعکس دعائیں" -> two "میں" phrases stacked at the head of the sentence, and "ایک دوسرے کے برعکس دعائیں" is stiff; also "دو گاؤں" has no antecedent, since only one village has been mentioned. The fix below repairs the wording only; the second village cannot be introduced without adding a fact, so the coordinator should check the source for it.
+OLD: ایک کہانی میں کسی بے مروت گاؤں میں ہر دروازے سے مردانہ کو لوٹا دیا جاتا ہے، اور تب وہ پوچھتے ہیں کہ دو گاؤں کو ایک دوسرے کے برعکس دعائیں کیوں ملیں۔
+NEW: ایک کہانی میں مردانہ کو ایک بے مروت گاؤں کے ہر دروازے سے لوٹا دیا جاتا ہے، اور تب وہ پوچھتے ہیں کہ دو گاؤں کو ایک دوسرے سے متضاد دعائیں کیوں ملیں۔
+
+12. [wrong postposition, ambiguous] "کنگن پور میں دکانوں کی پرانی تصویروں" -> "دکانوں کی تصویریں" means pictures of shops, which the rest of the sentence contradicts (they are pictures of Guru Nanak and Mardana) -> pictures in the shops.
+OLD: کنگن پور میں دکانوں کی پرانی تصویروں پر ایسی عبارت درج تھی جس سے تصدیق ہوتی تھی کہ یہ تصویریں گرو نانک اور بھائی مردانہ کی ہیں۔
+NEW: کنگن پور کی دکانوں میں موجود پرانی تصویروں پر ایسی عبارت درج تھی جس سے تصدیق ہوتی تھی کہ یہ تصویریں گرو نانک اور بھائی مردانہ کی ہیں۔
+
+13. [calque, collocation] "اپنا رباب سُر میں کیا ... سنگت چھیڑ دی" -> "سُر میں کرنا" is a calque of "tuned"; the Urdu idiom is "سُر ملانا"; and one "چھیڑتا" a ساز or a راگ, not a "سنگت".
+OLD: یہ کہانیاں بتاتی ہیں کہ بغداد میں ایک مقبرے پر مردانہ نے اپنا رباب سُر میں کیا اور اپنے گرو کے گانے کے ساتھ سنگت چھیڑ دی۔
+NEW: یہ کہانیاں بتاتی ہیں کہ بغداد میں ایک مقبرے پر مردانہ نے اپنے رباب کے سُر ملائے اور اپنے گرو کے گانے کے ساتھ سنگت شروع کر دی۔
+
+14. [calque] "پُرسکون گرو نانک بھائی مردانہ کے گیت سن رہے ہیں" -> an attributive adjective before a proper name ("a serene Guru Nanak") is English; Urdu puts the quality in the predicate.
+OLD: پُرسکون گرو نانک بھائی مردانہ کے گیت سن رہے ہیں،
+NEW: گرو نانک بڑے سکون سے بھائی مردانہ کے گیت سن رہے ہیں،
+
+15. [ambiguous pronoun] "اور 1992 میں ... ان پر حملے کا کوئی نشان نہیں ملتا تھا" -> the nearest plural is "مہاجرین", so "ان پر" can be read as attacks on the refugees; the temples are meant.
+OLD: اور 1992 میں بابری مسجد کے انہدام کے بعد ان پر حملے کا کوئی نشان نہیں ملتا تھا۔
+NEW: اور 1992 میں بابری مسجد کے انہدام کے بعد ان مندروں پر حملے کا کوئی نشان نہیں ملتا تھا۔
+
+16. [calque, wrong relative] "کی خاموش یادگار کے طور پر قائم ہے جب" -> "کے طور پر قائم ہے" calques "stands as"; and "جب" cannot follow "باب", which is not a time noun -> plain copula and جس میں.
+OLD: گوردوارہ روڑی صاحب سکھ داستان کے اس اولین باب کی خاموش یادگار کے طور پر قائم ہے جب گرو نانک
+NEW: گوردوارہ روڑی صاحب سکھ داستان کے اس اولین باب کی خاموش یادگار ہے جس میں گرو نانک
+
+NOTES:
+- Repetition of the hedge: "اس بارے میں روایات مختلف ہیں" (five times) plus "اقوال مختلف ہیں" (once). The hedges must stay, but the wording could be varied ("اس میں اختلاف ہے", "بیانات ایک دوسرے سے مختلف ہیں", "اس پر روایتیں متفق نہیں").
+- The teaching "نہ کوئی ہندو ہے نہ (کوئی) مسلمان" is stated three times: twice in consecutive sentences in گرو نانک, and again in ایمن آباد میں گرو نانک ("گرو نانک کی تعلیم تھی کہ نہ کوئی ہندو ہے نہ مسلمان۔"). The third could be folded into the next sentence ("کہا جاتا ہے کہ گرو نانک کی اس تعلیم پر ...").
+- "جنم ساکھیوں میں ایمن آباد کو ایک عزیز مقام حاصل ہے" reads a little like "a cherished place"; "ایمن آباد کو خاص اور محبوب مقام حاصل ہے" would sit more naturally.
+- "جنم ساکھیوں کے اس قصے میں بھائی مردانہ کا بھی حصہ ہے": "کردار" would avoid the reading "share".
+- "سکھوں کی یادداشت میں ... نقش ہو گیا": "یادداشت" is mostly an individual faculty or a memo; "سکھوں کے ذہنوں میں" would be smoother.
+- "بابر کے حملے کی ہنگامہ خیزی" is acceptable but "ہنگامہ خیزی" often means sensation or excitement; "اتھل پتھل" or "افراتفری" would fit better.
+- "زیادہ تر" in two adjacent sentences (اداسیوں کی تعداد; پیدل سفر), and "پرتکلف" twice within two sentences (مہمان نوازی; کھانا).
+- "مردانہ کے زمانے سے ان کی اولاد اور ان کے علاوہ دوسرے مسلمان فن کار": "ان کے علاوہ" is redundant beside "دوسرے".
+- The account of the visit ("صدر دروازے تک جانے والا راستہ ... گزرتا تھا", the ماحول section) shifts into a past-tense eyewitness narrative without any marker, after a present-tense description of the building; a reader may wonder whose visit this is. That is a content and framing question, not a language error.
+- "کبھی کبھی گھر کی یاد ان پر غالب آ جاتی ہے، اور وہ اکثر ... سسکیاں بھرتے ہیں": "کبھی کبھی" and "اکثر" in one sentence pull against each other.
+- "دھونے کے بارے میں گرو نانک نے یوں گایا" is a little bare; "دھونے کی مثال دیتے ہوئے" or similar would read better if the source allows.
+- "ان کے بانی سے ایک قیمتی رشتہ" (ورثہ): "اپنے دین کے بانی" would be clearer than "ان کے بانی".
+- Punctuation, digits, asterisks (32, balanced) and verse paragraphs are in order; semicolons are the Urdu ؛; no Latin letters or dashes.

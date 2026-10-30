@@ -1,0 +1,19 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [wrong reference] Boring of the ears, last paragraph of "Ranjha Takes Jog". English: "The boring of the ears is the act that makes a jogi, and the tale returns to it again and again after Ranjha leaves the hill" | Urdu: "رانجھے کے پہاڑی چھوڑنے کے بعد بھی قصہ بار بار اسی کی طرف لوٹتا ہے" -> اسی stands right after پہاڑی in the same sentence, so with بھی it reads naturally as "even after Ranjha leaves the hill, the tale keeps returning to it [the hill]"; in the English "it" is the boring of the ears, which the next clause (the rings taken out of his ears) depends on. -> name the act again.
+OLD: قصہ بار بار اسی کی طرف لوٹتا ہے
+NEW: قصہ بار بار کان چھیدنے کے اسی عمل کی طرف لوٹتا ہے
+
+NOTES:
+1. Gorakhnath, paragraph 1. English "That chronology is best read as legend rather than settled history" | Urdu "اس قدامت کو طے شدہ تاریخ کے بجائے روایت ہی سمجھنا بہتر ہے". The sentence before already opens with روایت ("Tradition traces"), so "best read as tradition" is close to circular and slightly softer than "legend". Optional sharpening:
+OLD: روایت ہی سمجھنا بہتر ہے
+NEW: افسانوی روایت ہی سمجھنا بہتر ہے
+2. Ranjha section, paragraph 2. English "the fourth guru of the hill, which it also calls Tilla Guruan" | Urdu "روایت بال ناتھ کو اس پہاڑی کا چوتھا گرو شمار کرتی ہے، اور اسے ٹلہ گروآں بھی کہتی ہے". The parallel "بال ناتھ کو ... اور اسے" lets اسے be read first as Bal Nath; the name itself resolves it, but the hill can be named:
+OLD: اور اسے ٹلہ گروآں بھی کہتی ہے
+NEW: اور اسی پہاڑی کو ٹلہ گروآں بھی کہتی ہے
+3. Sufi Poetry, last paragraph. English "the mystical sound" | Urdu "وہ پراسرار آواز ہے". پراسرار is "mysterious"; "mystical" is closer to باطنی:
+OLD: وہ پراسرار آواز ہے
+NEW: وہ باطنی آواز ہے
+4. Style only: "پنجاب کے دیہات میں گڑ رسمی نذرانے کے طور پر جانا پہچانا ہے" is near the "کے طور پر جانا" calque the brief warns against; for example "پنجاب کے دیہات میں گڑ کا نذرانہ ایک جانی پہچانی رسم ہے".
+5. Checked and accepted, not omissions or additions: ماتا before ترپتا is the conventional Sikh honorific; dropped glosses of familiar words (اوتار، کوس، دوآب، من، لاکھ، چیلا، مرشد، فقیر، دربار، دھونی) and dropped italics on ordinary words are deliberate per the brief; the two Usborne renderings and the two Shackle renderings are given as short italic Urdu meaning paragraphs without credit lines, as the brief requires; "Hill of the Ascetics" as "جوگیوں کی پہاڑی" matches the name. All hedges ("tradition", "is said", "it is told", "accounts differ", "most often", "about", "some", "it was held", "believed", "is said to have recited") are kept with the same scope. All eight headings correspond. Figures 975, 1947, 1180 match; no Latin letters, no em or en dashes, asterisks balanced (12).

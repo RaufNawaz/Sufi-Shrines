@@ -1,0 +1,13 @@
+# shrine-of-shah-shams-ud-din-sabzwari: English changes after V1 round 1 (FAIL, 1 issue). Issue 1 applied in the verifier's wording; precision notes 1 and 2 applied in the verifier's wording; notes 3 to 8 ask for nothing. Backup: /home/claude/bak/shrine-of-shah-shams-ud-din-sabzwari.before_v1r2.md
+
+WHY: V1 round 1, issue 1 (source talk: an absence of record); the verifier's exact fix
+OLD: Nothing more was told of this Shams al-Din, and the name and the city are the only link between him and the saint of this shrine.
+NEW: The name and the city are the only link between this Shams al-Din and the saint of this shrine.
+
+WHY: V1 round 1, note 1 (a passive pointing back at an author); the verifier's wording
+OLD: Whether the Hazrat Shams Tabrizi honoured at a shrine in Multan is that renowned figure or another local Sufi of the same name has been left open, and as
+NEW: It is not settled whether the Hazrat Shams Tabrizi honoured at a shrine in Multan is that renowned figure or another local Sufi of the same name, and as
+
+WHY: V1 round 1, note 2 (precision: the sentence could read as if another name were already established for this saint); the verifier's wording
+OLD: There is no settled view of the saint's name; the shrine knows him as Shah Shams-ud-Din Sabzwari, of Sabzwar.
+NEW: The shrine knows him as Shah Shams-ud-Din Sabzwari, of Sabzwar, and other names linked with a Shams of Multan have no settled connection with him.

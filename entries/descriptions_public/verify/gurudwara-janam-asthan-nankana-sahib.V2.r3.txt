@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the six sentences in gurudwara-janam-asthan-nankana-sahib.ur.r3.changes.txt; diff of bak4 r2 against the current file shows exactly those six changes and nothing else, and each NEW sentence matches its English (birthplace remembered far from it; one formless God; Mardana as later companion now sits inside the "it is told" hedge as in the English; iconography of Guru Nanak and that of Jhulelal; seventy two). Taste note: in the Karori sentence the English "his cure" names no owner, and "ایک شفا یابی" rightly leaves that open without adding one.

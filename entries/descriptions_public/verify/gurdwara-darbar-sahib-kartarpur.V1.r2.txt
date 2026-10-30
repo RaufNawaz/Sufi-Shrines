@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the sentences in gurdwara-darbar-sahib-kartarpur.V1.r2.changes.txt only; the diff against bak4 shows exactly the two listed precision changes, "of hymns sung at the appropriate times of the day" is Dhillon's wording as the team version gives it, and "Across the border, behind a fence," is the team version's own phrase for Khalid's Indian side scene, no longer tied to the viewing platform; the row passed round 1 and still passes.

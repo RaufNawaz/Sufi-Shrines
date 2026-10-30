@@ -1,0 +1,40 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [scope] I checked the whole of the current file afresh against the team version, sentence by sentence. The file's md5 is c10c15d2. `check_public_description.py --english-only` gives ok, 8010 chars, ratio 0.44, exit 0. Every fact the team version gives about the temple is present:
+   - its hill, the Karoonjhar outcrop, Nagarparkar and Tharparkar;
+   - the bangle origin of the name and the glass and lac bangle craft, still framed with "are said to";
+   - the reverence for the mountains and the Sindhi poetry about them;
+   - Maha Shivratri in the spring, "by some estimates" two hundred thousand pilgrims, the four regions they come from, the night vigils, *bhajans* and rites;
+   - the immersion of ashes and the climb to the temple through the year;
+   - its age, "ancient in the broad sense";
+   - its survival through Partition, and Hindus "by many accounts approaching half" of Tharparkar;
+   - the quarrying threat and the October 2023 Sindh High Court ruling;
+   - both Legacy sentences.
+   The Bibliography matches the team version byte for byte: nine items, same order. There is no em or en dash; the only hyphen is the standard "non-Muslims".
+2. [source talk] There are no citations, page or chapter references, author or informant names, or archive, process or uncertainty wording. The attributive frames ("are said to", "by some estimates", "by many accounts", "As one priest explains", "It is told of Lehna", "There are said to be", "It has been argued") each match an attribution the team version makes. The quoted priest is unnamed, as the brief allows.
+3. [rule 4] These choices are sound:
+   - **Festival:** Maha Shivratri is given on basis (a). Navratri appears only as Durga's festival at "a shrine of Durga". That is not a disagreement about this temple, so no "accounts differ" clause is needed.
+   - **Mount:** the tiger is given. It is in two of the three passages and explains "Sheranwali". The lion is dropped silently as a minor variant.
+   - **Kali:** the line is introduced by "Other goddesses are counted as her forms", so it stays attributive. With Katas Raj dropped, nothing stands beside it.
+   - **Minor variants dropped silently:** chunri/chunni, Navratras, and the census clause on where Hindus are "scattered".
+   - **No merged chains:** the Nanak Panthis and the followers who refused the Khalsa stay in separate sentences, neither said to be the other.
+4. [rule 5] Nothing rests on an uncertain reading. Every Kashmir name is absent (Padmani, Dakdu, Asmaru, Pahnal), and so are the *ashtami* wonder, the revenue figure ("ten", "kror") and "Sabuda". The Jareja line reads "among the peoples", so the Jareja are not made the only people. The time anchors are all firm: "In Aurangzeb's reign" (regnal year 40, from the bibliography), "In October 2023" (bibliography item 3), "the census of 1998" and "6 December 1992". "Now" in the Persian history is correctly made "in Aurangzeb's reign".
+5. [glosses] Each of these defines a word and says nothing about the site: "the great night of Shiva", "or devotional songs", "*Mata*, mother", "the worship of the maiden", "a cloth worn over the head", "an earthen pot", "'Jai', victory", "the order of initiated Sikhs", "Tableeghi, or missionary", "an old measure of distance", "or revenue divisions", "a rope's length, or *tanab*".
+6. [precision, optional, not an issue] "devotees believe that by travelling to the shrine of Durga Mata all their wishes will come true". On a page titled Durga Mata Temple, the definite "the shrine of Durga Mata" could be read as this temple. The team version stresses that it is not ("The shrine of Durga in this passage is not named"). The context mostly prevents that reading: the section opens with worship "far beyond Tharparkar", and the same sentence first says "a shrine of Durga". If wanted: "...devotees believe that by travelling to a shrine of Durga Mata all their wishes will come true."
+7. [taste] "The precise age of the temple is not securely documented." This is the team version's own sentence and passes P3. Another run's draft had "The temple cannot be dated precisely." No change needed.
+8. [omissions, judged not important] The following are dropped. Each concerns another site, duplicates something kept, or rests on uncertain readings, and none is a person, keeper or fact of this temple:
+   - the Durga temple at Bahawalnagar and the Valmiki temple's picture of Durga;
+   - the Naulakha Hazari mound and its lion, and Katas Raj;
+   - the Kashmir temples and their two ordeals (the names are uncertain, and the customs are told of other temples);
+   - the Persian history's Hinglaj line (it repeats the Hinglaj line already kept) and its Bhavani (not equated with Durga);
+   - the Maryabad comparison (Mother Mary and the shawl), the Ram Thamman *chaddars* and the Behlol "Nauratre";
+   - "thousands of such Sikhs" ("very large numbers" is kept);
+   - the census "scattered" clause.
+9. [records, for the coordinator; not a fault in this English] The notes file and the Urdu file belong to the other run's English draft, not to this one:
+   - **Notes file:** it describes six sections, including "The Temple Through Time", at 9339 chars and ratio 0.52. It records Bahawalnagar, Katas Raj, the Kashmir temples, Maryabad, Ram Thamman and Behlol as kept, and Kutch as left out. Its Judgement calls 1 to 24 quote sentences that are not in this file. Its "V1 round 1" paragraph cites a "her shrine" note that `verify/churrio-jabal-durga-mata-temple.V1.r1.txt` does not contain.
+   - **This file:** it has seven sections ("Churrio Hill" and "History and Conservation" among them), ratio 0.44, keeps Kutch, and has none of that material.
+   - **Urdu file** (ur:0d4a304f): it has six `## ` headings against this English's seven, and carries the Kashmir, Bahawalnagar, Katas Raj, Maryabad, Ram Thamman and Behlol material. So U5 will fail, and the V2 PASS stamped en:8099361f does not cover this file.
+   - **To do:** rewrite the notes' Consensus choices, Left out, Glosses and Judgement calls to match this file, then redraft the Urdu from this English before V2 and V3.

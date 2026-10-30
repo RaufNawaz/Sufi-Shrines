@@ -55,6 +55,18 @@ holdings, and the page says so (RULE 2).
   `match` string in `reading-library.json` must actually occur in the new citation. Check after any
   import: `sourceLibrary.test.ts` pins the current hits (`{ 'hadiqat-al-awliya': 1 }`) so a change
   is noticed and each new line is read before it is accepted.
+- **25 Oct 2026: nine read books had no `match` at all**, so they showed "Read · not yet cited" even
+  after the rewritten Descriptions that cite them went live: Tahqiqat-e Chishti, Tarikh-e Lahore,
+  Tazkirah Awliya-e Pak o Hind, Khulasat al-Tawarikh, Sufi Lyrics, Bulleh Shah: A Selection, The
+  Adventures of Hir and Ranjha, Verses of a Lowly Fakir (and Sawaneh, which no entry cites, correctly).
+  Hadiqat's match was `hadiqat al-auliya`, but the rewritten bibliographies spell it *Hadiqat
+  al-Awliya*, so it counted 1 entry instead of ~41. Matches added (`hadiqat al-a` for both spellings);
+  every line each one catches in `data/import_2026-10-15.csv` was read (one bibliography key each, two
+  for Tarikh, Khulasat and Hir and Ranjha, which differ only in the edition note). Measured hits in that
+  file: Khulasat 61, Tahqiqat 44, Hadiqat 41, Tarikh 34, Bulleh Shah: A Selection 18, Sufi Lyrics 17,
+  Tazkirah Pak o Hind 15, Hir and Ranjha 14, Verses of a Lowly Fakir 13. The pinned test stays
+  `{ 'hadiqat-al-awliya': 1 }` on today's built data and must be re-pinned (each line read) at the next
+  `data:build` refresh.
 - **The kind classifier reads form, not the work.** It looks at italics, quoted titles, URLs,
   periodical names, gazetteers. The page says so beside the filter. The order of the tests *is* the
   classification (see the file's header); the archive's own placeholder rule (`sourceKind.ts`)

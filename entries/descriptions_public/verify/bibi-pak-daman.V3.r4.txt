@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the sentence in bibi-pak-daman.ur.r4.changes.txt, read in its paragraph. "جبکہ اس کا باضابطہ انتظام سنی ہے اور اس کے متولی خاندان کا بڑا حصہ بھی سنی ہے۔" is grammatical and idiomatic; "خاندان کا بڑا حصہ" takes a singular verb correctly, the parallel "سنی ہے ... بھی سنی ہے" reads naturally, and both اس refer plainly to the shrine. Taste only: "جبکہ اس کا باضابطہ انتظام اور اس کے متولی خاندان کا بڑا حصہ سنی ہے" would avoid repeating سنی ہے, but the present wording is clear and needs no change.

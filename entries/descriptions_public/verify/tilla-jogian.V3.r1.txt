@@ -1,0 +1,80 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque] دیرینہ نسبت نے اسے اس خطے کی ان بلندیوں میں شامل کر دیا ہے -> English construction ("its long association ... has made it one of"): an abstract noun as agent, with no possessive on نسبت -> recast with کی بدولت and the place as subject.
+OLD: جوگیوں کے ناتھ سلسلے، گرو نانک اور پنجابی لوک کہانیوں کے عاشقوں سے دیرینہ نسبت نے اسے اس خطے کی ان بلندیوں میں شامل کر دیا ہے جن سے سب سے زیادہ قصے وابستہ ہیں۔
+NEW: جوگیوں کے ناتھ سلسلے، گرو نانک اور پنجابی لوک کہانیوں کے عاشقوں سے اپنی دیرینہ نسبت کی بدولت یہ اس خطے کی ان بلندیوں میں شمار ہوتی ہے جن سے سب سے زیادہ قصے وابستہ ہیں۔
+
+2. [tangled] شیو کا ایسا بھگت سیلانی سادھو جو -> two descriptions are stacked onto one noun, with ایسا in the wrong place, so the phrase does not parse smoothly -> separate بھگت from سادھو and move ایسا.
+OLD: جوگی کا لفظ دراصل یوگی کی عوامی شکل ہے، اور عموماً اس سے انہی ناتھوں میں سے کوئی مراد ہوتا ہے: شیو کا ایسا بھگت سیلانی سادھو جو ذاتِ واحد کے دھیان میں رہتا ہے۔
+NEW: جوگی کا لفظ دراصل یوگی کی عوامی شکل ہے، اور عموماً اس سے انہی ناتھوں میں سے کوئی مراد ہوتا ہے، یعنی شیو کا بھگت ایک ایسا سیلانی سادھو جو ذاتِ واحد کے دھیان میں رہتا ہے۔
+
+3. [calque] گورکھ ناتھ کا نام اس پہاڑی سے بہت دور تک پہنچتا ہے -> literal "his name reaches far beyond"; in Urdu a name does not "reach", fame spreads -> idiomatic form.
+OLD: گورکھ ناتھ کا نام اس پہاڑی سے بہت دور تک پہنچتا ہے۔
+NEW: گورکھ ناتھ کی شہرت اس پہاڑی سے کہیں آگے تک پھیلی ہوئی ہے۔
+
+4. [punctuation / pronouns] ناتھ برادری سے، اور خاص طور پر گرو گورکھ ناتھ سے، اتنا لگاؤ ... وہ ... ان کی ... کب وہ -> English parenthetical commas; a chain of وہ / ان / وہ that makes the reader work out who is waiting for whom; the habitual دیکھا کرتیں is clipped in a subordinate clause -> smoother single sentence.
+OLD: ایک اور روایت یہ ہے کہ دیوی ہنگلاج کو ناتھ برادری سے، اور خاص طور پر گرو گورکھ ناتھ سے، اتنا لگاؤ تھا کہ وہ ٹھٹھہ میں روز ان کی راہ دیکھا کرتیں کہ کب وہ ملاقات کو آتے ہیں۔
+NEW: ایک اور روایت یہ ہے کہ دیوی ہنگلاج کو ناتھ برادری اور خاص طور پر گرو گورکھ ناتھ سے اتنا لگاؤ تھا کہ وہ ٹھٹھہ میں روز ان کے ملنے آنے کی راہ دیکھا کرتی تھیں۔
+
+5. [calque / consistency] گورکھ ناتھ نے نانک کے زمانے سے بہت پہلے زندگی گزاری -> "lived and taught long before" rendered literally (زندگی گزاری); also the bare نانک, where the article everywhere else says گرو نانک -> idiomatic ہو گزرے تھے.
+OLD: البتہ تاریخی اعتبار سے دیکھا جائے تو گورکھ ناتھ نے نانک کے زمانے سے بہت پہلے زندگی گزاری اور اپنی تعلیمات کا پرچار کیا۔
+NEW: البتہ تاریخی اعتبار سے دیکھا جائے تو گورکھ ناتھ گرو نانک کے زمانے سے بہت پہلے ہو گزرے تھے اور انہوں نے اپنی تعلیمات کا پرچار بھی اسی دور میں کیا تھا۔
+
+6. [consistency / calque] ان جوگیوں کو کان چِرے اس لیے کہا جاتا ہے -> the name of the order is کنپھٹے (introduced and glossed in paragraph 2); "they are called کان چِرے" carries over the English gloss ("split-eared") as if it were the name -> use the name itself.
+OLD: ان جوگیوں کو کان چِرے اس لیے کہا جاتا ہے کہ سلسلے میں داخلے کے وقت ان کے کانوں کی نرم ہڈی چھید کر اس میں بڑی بڑی بالیاں ڈال دی جاتی ہیں۔
+NEW: ان جوگیوں کو کنپھٹے اس لیے کہا جاتا ہے کہ سلسلے میں داخلے کے وقت ان کے کانوں کی نرم ہڈی چھید کر اس میں بڑی بڑی بالیاں ڈال دی جاتی ہیں۔
+
+7. [repetition] لوگوں کے بڑے بڑے ہجوم اور جوگیوں کے غول جمع ہوتے -> repeats word for word the phrase already used in paragraph 2 (یہاں لوگوں کے بڑے بڑے ہجوم اور جوگیوں کے غول جمع ہوتے تھے) -> vary the wording, with both groups kept as subject.
+OLD: مقررہ دنوں میں یہاں لوگوں کے بڑے بڑے ہجوم اور جوگیوں کے غول جمع ہوتے اور تماشے دکھاتے تھے۔
+NEW: مقررہ دنوں میں یہاں عام لوگوں کی بھیڑ اور جوگیوں کی ٹولیاں جمع ہوتیں اور تماشے دکھاتی تھیں۔
+
+8. [gloss / tense] شیو رات کا تھا، یعنی شیو کا تہوار -> glosses a familiar word, which paragraph 2 has already called شیو رات کا تہوار; ان مواقع میں سب سے بڑا دن is stiff; a recurring event needs the habitual ہوتا تھا -> drop the gloss.
+OLD: ان مواقع میں سب سے بڑا دن شیو رات کا تھا، یعنی شیو کا تہوار۔
+NEW: ان میں سب سے بڑا دن شیو رات کا ہوتا تھا۔
+
+9. [collocation] اس نوجوان جوڑے کی برکت کے لیے ساری رات دعا کی -> "prayed for the couple's blessing" rendered literally; in Urdu one prays for blessing upon someone (کے لیے برکت کی دعا).
+OLD: روایت کے مطابق وہاں میاں بیوی نے ایک دن کے لیے جوگیوں کے کھانے کا خرچ اٹھایا، اور اس کے صلے میں ان سادھوؤں نے اس نوجوان جوڑے کی برکت کے لیے ساری رات دعا کی۔
+NEW: روایت کے مطابق وہاں میاں بیوی نے ایک دن کے لیے جوگیوں کے کھانے کا خرچ اٹھایا، اور اس کے صلے میں ان سادھوؤں نے ساری رات اس نوجوان جوڑے کے لیے برکت کی دعا کی۔
+
+10. [calque] گڑ رسمی نذرانے کے طور پر جانا پہچانا ہے -> calque of "is familiar as a ritual offering", the "known as" pattern the brief names -> make the practice the subject.
+OLD: پنجاب کے دیہات میں گڑ رسمی نذرانے کے طور پر جانا پہچانا ہے۔
+NEW: پنجاب کے دیہات میں گڑ نذرانے کے طور پر پیش کرنا ایک جانی پہچانی رسم ہے۔
+
+11. [ambiguous pronoun] اور اسے ٹلہ گروآں بھی کہتی ہے -> اسے comes straight after بال ناتھ, so on first reading it seems that Bal Nath is called ٹلہ گروآں -> name the hill.
+OLD: روایت بال ناتھ کو اس پہاڑی کا چوتھا گرو شمار کرتی ہے، اور اسے ٹلہ گروآں بھی کہتی ہے، یعنی گروؤں کا ٹیلا۔
+NEW: روایت بال ناتھ کو اس پہاڑی کا چوتھا گرو شمار کرتی ہے، اور خود پہاڑی کو ٹلہ گروآں بھی کہتی ہے، یعنی گروؤں کا ٹیلا۔
+
+12. [calque] رانجھا اپنی طرف سے مانتا ہے کہ جوگ اس کے لیے -> "for his part" rendered as اپنی طرف سے, which in Urdu means "on his own behalf" -> کے نزدیک.
+OLD: رانجھا اپنی طرف سے مانتا ہے کہ جوگ اس کے لیے عشق تک پہنچنے کا وسیلہ ہے:
+NEW: رانجھے کے نزدیک جوگ عشق تک پہنچنے کا وسیلہ ہے:
+
+13. [repetition] جب چیلے بغاوت پر اتر آتے ہیں تو -> restates the previous sentence, which has just told us that the disciples rose against their guru; بال ناتھ and گرو for the same man in one clause also jar -> link the clauses instead.
+OLD: جب چیلے بغاوت پر اتر آتے ہیں تو بال ناتھ کی آنکھوں سے غصے کے شعلے برسنے لگتے ہیں اور گرو انہیں جھڑک دیتے ہیں۔
+NEW: یہ بغاوت دیکھ کر بال ناتھ کی آنکھوں سے غصے کے شعلے برسنے لگتے ہیں اور وہ چیلوں کو جھڑک دیتے ہیں۔
+
+14. [calque / tangled] تقدیر کی لکھنے والی انگلی سے اس کا لکھا ہوا بھی مٹوا سکتے ہیں -> a literal rendering of the English "moving finger" image, which has no resonance in Urdu and makes the sentence hard to parse; the Urdu idiom is تقدیر کا لکھا مٹانا.
+OLD: پنجاب کے دیہات میں عام عقیدہ ہے کہ فقیر اور جوگی اپنی پارسائی کے زور سے تقدیر کی لکھنے والی انگلی سے اس کا لکھا ہوا بھی مٹوا سکتے ہیں۔
+NEW: پنجاب کے دیہات میں عام عقیدہ ہے کہ فقیر اور جوگی اپنی پارسائی کے زور سے تقدیر کا لکھا بھی مٹوا سکتے ہیں۔
+
+15. [word order] قدم بہ قدم ٹلے تک جوگ لینے والے کا ساتھ دیتے ہیں -> reads as "the one who takes jog as far as the Tilla"; the destination belongs with the going.
+OLD: صوفی شاعر بلھے شاہ بھی اپنی ایک نظم میں قدم بہ قدم ٹلے تک جوگ لینے والے کا ساتھ دیتے ہیں:
+NEW: صوفی شاعر بلھے شاہ بھی اپنی ایک نظم میں جوگ لینے والے کے ساتھ قدم بہ قدم ٹلے تک جاتے ہیں:
+
+16. [calque] کلام خود جوگیوں کی دنیا سے رنگ لیتا ہے -> "draws its colour from" rendered literally; سے رنگ لینا is not idiomatic -> کے رنگ میں رنگا ہوا.
+OLD: بلھے شاہ کا کلام خود جوگیوں کی دنیا سے رنگ لیتا ہے۔
+NEW: بلھے شاہ کا کلام جوگیوں کی دنیا کے رنگ میں رنگا ہوا ہے۔
+
+17. [collocation] دلکش اشعار اور طرزیں ترتیب دی جاتیں -> verses are not ترتیب دیے جاتے (that means "compiled"); they are کہے جاتے -> give each noun its own verb.
+OLD: اورنگزیب کے عہد ہی میں صوبۂ لاہور میں ہیر رانجھا کے عشق پر دلکش اشعار اور طرزیں ترتیب دی جاتیں اور گائی جاتی تھیں۔
+NEW: اورنگزیب کے عہد ہی میں صوبۂ لاہور میں ہیر رانجھا کے عشق پر دلکش اشعار کہے جاتے اور طرزیں بنائی جاتیں، اور یہ گائے جاتے تھے۔
+
+NOTES:
+- Ambiguous referent, not fixed here because resolving it could change a fact (check against the English): in the last paragraph of رانجھے کا جوگ, the clause قصہ بار بار اسی کی طرف لوٹتا ہے can mean the hill (رانجھے کے پہاڑی چھوڑنے کے بعد بھی) or the ear-piercing (the preceding sentence). Once the referent is known, name it (اسی پہاڑی کی طرف or اسی عمل کی طرف).
+- Spelling to check: چت آکاس but بھوت کاس and جدا کاس. If the source has آکاس in all three, make them match.
+- پنجاب میں جوگیوں کی سب سے اہم زیارت گاہ appears in paragraph 2 and again in the Mata Tripta paragraph. Acceptable, but the second could be shortened.
+- ماتا ترپتا is not identified as Guru Nanak's mother. Many readers will not know her. Add گرو نانک کی والدہ only if the source says so.
+- Paragraph 2 of گورکھ ناتھ اور ناتھ جوگی: four of its sentences, and the next paragraph, open with گورکھ ناتھ. One could become وہ.
+- گرو ہندوؤں کے ہاں وہ مقدس بزرگ ... مرشد جیسی ہے glosses a word Urdu readers know, and it breaks into the narrative. Consider cutting it or moving it.
+- Taste: دھونی کی جڑیں ... پیوست ہیں is a mixed metaphor (consider دھونی کا تعلق ... سے ہے); المیہ داستانِ عشق (المناک عشقیہ داستان reads better); شاعر وارث شاہ (the word شاعر is unneeded); لفظ اللہ سکھاتے ہیں (لفظِ اللہ, or اللہ کا نام); ایک دعا کا جواب بھی باآوازِ بلند آتا ہے is slightly odd; زوردار سحر (کڑا or پراثر سحر); چنائی کھنڈر بنتی جا رہی تھی (بکھرتی جا رہی تھی); وادی سون (or وادیٔ سون, to match صوبۂ لاہور); پیدائش کی لذتیں is an odd collocation, but its meaning depends on the source.
+- The article uses جوگ for the path and یوگ in the Bulleh Shah glossary (یوگ کے عمل). This is defensible, but a reader may notice the switch.
+- Checks: no Latin letters, no em or en dashes and no ASCII , . ? in the text; 12 asterisks (balanced); the verse paragraphs are untouched by every fix above.

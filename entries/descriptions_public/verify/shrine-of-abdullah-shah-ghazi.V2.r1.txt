@@ -1,0 +1,10 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] Legacy: "whose shrine on the Clifton hill has become the sacred heart of a modern megacity of many millions" | "کلفٹن کی پہاڑی پر ان کا مزار لاکھوں نفوس پر مشتمل ایک وسیع و عریض جدید شہر کا مقدس مرکز بن چکا ہے" -> لاکھوں literally means hundreds of thousands, and وسیع و عریض (vast in extent) drops the population sense of "megacity". Together they shrink "a megacity of many millions" to a large city of some lakhs. -> "کلفٹن کی پہاڑی پر ان کا مزار کئی ملین کی آبادی والے ایک عظیم جدید شہر کا مقدس مرکز بن چکا ہے" (or کروڑوں کی آبادی والے, since a megacity has more than ten million people)
+
+NOTES:
+- Everything else matches paragraph by paragraph. That covers the eighth-century dating and the descent from Imam Hasan, both kept as tradition. It covers the missing birth and death years, teacher and order; merchant, preacher and ghazi; "some traditions hold" martyrdom (بعض بیانات); the quoted "most famous shrine in the city"; 2010, 6 October and eight killed; the belief about protection from cyclones; Thursdays and the urs; the news anchor episode; 710 and 711 to 712; Makran, Baluchistan and Multan; "is not known to have seen" (کوئی سراغ نہیں ملتا); the Mai Kolachi story, kept as "it is said" and then قصہ یوں ہے; Partition and the migrants from India; Hyderabad in India and the Qawwal Bachche; and Sehwan's three-day fair. All six headings correspond. There is no verse.
+- Dropped glosses (darbar, Sayyid, Sufis, ghazi, Fatiha, qawwali, urs, fakirs) and removed italics on ordinary words follow the brief. Keeping the gloss and the italics on دھمال is correct.
+- "مہاجروں اور اجنبیوں سے آباد اس ساحلی شہر": in Karachi, مہاجر usually names the community of Partition migrants, while the English "migrants" is general. "باہر سے آ کر بسنے والوں اور اجنبیوں کے اس ساحلی شہر" would avoid narrowing it. This is optional.
+- "اس کے باوجود" and "بعد میں" are connectives the English only implies. They add no fact.

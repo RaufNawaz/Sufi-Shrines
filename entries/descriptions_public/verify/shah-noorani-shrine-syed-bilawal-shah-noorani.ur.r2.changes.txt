@@ -1,0 +1,72 @@
+Row shah-noorani-shrine-syed-bilawal-shah-noorani, Urdu round 2. Reports: verify/shah-noorani-shrine-syed-bilawal-shah-noorani.V2.r1.txt (FAIL, 2 issues), verify/shah-noorani-shrine-syed-bilawal-shah-noorani.V3.r1.txt (FAIL, 11 issues). Backup: /home/claude/bak/shah-noorani-shrine-syed-bilawal-shah-noorani.ur.before_r2.md. Applied in the verifier's wording: V2 1, V2 2, V3 1, 2, 3, 5, 6, 7, 8, 9. Adapted: V3 4, 10, 11. Rejected: none. Merged: V2 1 and V3 6 (same sentence) into one sentence; V2 2 and V3 10 (same sentence) into one sentence. Notes applied: V2 'کہیں وسیع'; V3 'کٹھن' repetition with 'سفر اختیار کرتے'; V3 'بتایا جاتا ہے' repetition.
+
+WHY: V2 issue 1 + V3 issue 6 (same sentence): one sentence with V3's word order (صوفی بزرگ سے اس جگہ کی نسبت) and V2's conditional (سے اس خیال کو تقویت مل سکتی ہے, no بھی), each in the verifier's wording.
+OLD: یہ دعویٰ بھی کیا گیا ہے کہ اس جگہ کی صوفی بزرگ سے نسبت قائم ہونے سے پہلے اسی پتھر کو *شیو لنگ* یعنی شیو دیوتا کی علامت مان کر پوجا جاتا تھا، اور پتھر کی بناوٹ بھی اس خیال کی تائید کرتی ہے۔
+NEW: یہ دعویٰ بھی کیا گیا ہے کہ صوفی بزرگ سے اس جگہ کی نسبت قائم ہونے سے پہلے اسی پتھر کو *شیو لنگ* یعنی شیو دیوتا کی علامت مان کر پوجا جاتا تھا، اور پتھر کی بناوٹ سے اس خیال کو تقویت مل سکتی ہے۔
+
+WHY: V2 issue 2: applied in the verifier's wording (ایک منزل ... بھی, not the exclusive یہی). V3 issue 10 (same paragraph): adapted. Took ہنگلاج دیوی کے مسکن تک for consistent naming, but kept مرحلہ instead of V3's پڑاؤ, because پڑاؤ already opens this paragraph (پڑاؤ کی حیثیت) and V3's own note warns against repetition there.
+OLD: سیہون کا میلہ ختم ہونے پر وہاں سے نکلنے والے فقیروں کی منزل یہی وادی ہے، اور کبھی یہ ہنگلاج کی دیوی تک جانے والے راستے کا ایک مرحلہ بھی تھی۔
+NEW: سیہون کا میلہ ختم ہونے پر وہاں سے نکلنے والے فقیروں کی ایک منزل یہ وادی بھی ہے، اور کبھی یہ ہنگلاج دیوی کے مسکن تک جانے والے راستے کا ایک مرحلہ بھی تھی۔
+
+WHY: V3 issue 1: applied in the verifier's wording.
+OLD: اس کے علاوہ لنگر اور قوالی بھی اس شہرت کا حصہ ہیں، جن سے یہاں کے اجتماعات پہچانے جاتے ہیں۔
+NEW: لنگر اور قوالی بھی یہاں کے اجتماعات کی پہچان ہیں اور مزار کی شہرت میں ان کا بھی حصہ ہے۔
+
+WHY: V3 issue 2: applied in the verifier's wording.
+OLD: اس مزار کی دنیا کا پس منظر بلوچستان کی عمومی تاریخ اور یہاں کی روحانی زندگی ہے۔
+NEW: اس مزار کا پس منظر بلوچستان کی عمومی تاریخ اور یہاں کی روحانی زندگی ہے۔
+
+WHY: V3 issue 3: applied in the verifier's wording (میں دلچسپی; past perfect اٹھی تھی before سے پہلے).
+OLD: نومبر 2016 کے حملے سے پہلے ہنگلاج کی طرح لاہوت کی طرف بھی لوگوں کی دلچسپی کی نئی لہر اٹھی۔
+NEW: نومبر 2016 کے حملے سے پہلے ہنگلاج کی طرح لاہوت میں بھی لوگوں کی دلچسپی کی نئی لہر اٹھی تھی۔
+
+WHY: V3 issue 4: adapted. Took the postposition fix (لاہوت پہنچ کر). Did not take 'اس راستے کی ایک مثال', which makes the woman an example of the route, a claim the English lacks. The English sets her down as bare as this, so the abruptness is the English's own. The sentence now starts from Sehwan (سیہون سے چلنے والی ایک خاتون), which ties her to the preceding sentence about those leaving Sehwan without adding a claim. شاید still governs only the ending, as 'may have ended' does.
+OLD: ایک خاتون کا سیہون سے شروع ہونے والا سفر شاید لاہوت پر جا کر ختم ہوا تھا۔
+NEW: سیہون سے چلنے والی ایک خاتون کا سفر شاید لاہوت پہنچ کر ختم ہوا تھا۔
+
+WHY: V3 issue 5: applied in the verifier's wording (اکثر after the subject = 'often', not 'most families').
+OLD: اکثر خاندان جذباتی الجھنوں میں مبتلا خواتین کو *دھمال* میں شرکت کے لیے لاتے ہیں۔
+NEW: خاندان اکثر جذباتی الجھنوں میں مبتلا خواتین کو *دھمال* میں شرکت کے لیے لاتے ہیں۔
+
+WHY: V3 issue 7: applied in the verifier's wording (گھاٹیوں for 'confined valleys'; removes the third وادی).
+OLD: دونوں تنگ وادیوں میں گھرے ہوئے چھوٹے چھوٹے نخلستان ہیں، جن میں قدرتی چشمے بھی ہیں اور غار بھی۔
+NEW: دونوں مقامات تنگ گھاٹیوں میں گھرے ہوئے چھوٹے چھوٹے نخلستان ہیں، جن میں قدرتی چشمے بھی ہیں اور غار بھی۔
+
+WHY: V3 issue 8 (first part): applied in the verifier's wording. 'shares ... with Sindh' becomes سندھ سے جڑی ہوئی ہیں. The sharing itself is still stated by the paragraph's closing clause (بعض عناصر مشترک ہیں), so no fact is lost.
+OLD: بلوچستان کی شاعری اور لوک داستانیں سندھ کے ساتھ سانجھی ہیں۔
+NEW: بلوچستان کی شاعری اور لوک داستانیں سندھ سے جڑی ہوئی ہیں۔
+
+WHY: V3 issue 8 (second part): applied in the verifier's wording.
+OLD: سسی کا قصہ سندھ اور بلوچستان دونوں سرزمینوں میں سنایا جاتا ہے
+NEW: سسی کا قصہ سندھ اور بلوچستان دونوں میں سنایا جاتا ہے
+
+WHY: V3 issue 9: applied in the verifier's wording (one sentence; removes the redundant وہاں; the gloss "غوث کی عطا" is kept).
+OLD: غوث بخش کے معنی ہیں "غوث کی عطا"، اور سندھ اور بلوچستان میں ایسے ناموں کا رواج وہاں شیخ جیلانی کی مقبولیت کی نشاندہی کرتا ہے۔
+NEW: سندھ اور بلوچستان میں "غوث کی عطا" کے معنی رکھنے والے غوث بخش جیسے ناموں کا رواج شیخ جیلانی کی مقبولیت کی نشاندہی کرتا ہے۔
+
+WHY: V3 issue 11: adapted. Replaced the calque طاقتور مرکز, but with مضبوط مرکز, not V3's زندہ مرکز: the English says 'powerful centre', and زندہ ('living') would change the adjective's meaning; مضبوط keeps the sense of strength and is idiomatic with مرکز.
+OLD: یہ آستانہ آج بھی وجد آفریں عقیدت کا طاقتور مرکز ہے۔
+NEW: یہ آستانہ آج بھی وجد آفریں عقیدت کا مضبوط مرکز ہے۔
+
+WHY: V2 note (precision): 'wider than Islam' is اسلام سے وسیع تر, not the intensified اسلام سے کہیں وسیع; applied in the verifier's wording.
+OLD: اس کا دائرہ اسلام سے کہیں وسیع ہے۔
+NEW: اس کا دائرہ اسلام سے وسیع تر ہے۔
+
+WHY: V3 note (repetition): کٹھن سفر occurs twice and کٹھن once; the second کٹھن سفر becomes دشوار سفر, and سفر اختیار کرتے ہیں becomes plain سفر کرتے ہیں ('undertake the difficult journey'); no fact changes.
+OLD: یہ کٹھن سفر اختیار کرتے ہیں۔
+NEW: یہ دشوار سفر کرتے ہیں۔
+
+WHY: V3 note (repetition): بتایا جاتا ہے opened two paragraphs; the Lal sentence now opens روایت ہے کہ, which keeps 'is remembered as' as a hedge over the whole journey.
+OLD: بتایا جاتا ہے کہ لعل نامی ایک بزرگ
+NEW: روایت ہے کہ لعل نامی ایک بزرگ
+
+Not applied:
+- No numbered ISSUE was rejected outright. Within adapted issues: V3 4 'اس راستے کی ایک مثال' (adds a claim the English lacks: the woman is not presented as an example of the route); V3 10 'پڑاؤ' (would repeat پڑاؤ, which already opens the same paragraph); V3 11 'زندہ' (changes 'powerful' to 'living').
+- V2 note 'came to the region' without خطے میں: the Urdu already says صوفی ... بلوچستان، مکران، ملتان اور خود سندھ کے راستے آتے رہے; the round 1 notes record the circular 'to the region' as dropped deliberately. Meaning is clear, as V2 says.
+- V3 note سیہون vs سیہون شریف: the English itself has 'Sehwan Sharif' once, in the pilgrim's sentence; kept faithful.
+- V3 note منفرد ترین -> نہایت منفرد: taste.
+- V3 note فضا میں شریک ہونے -> فضا کا حصہ بننے: taste.
+- V3 note پڑاؤ / منزل pulling against each other: mirrors the English 'a station ... a goal'; V2 2 now makes منزل 'ایک منزل', which eases it.
+- V3 note 710ء for years: house rule is Western digits as in the English; the site converts them.
+- V3 note گواٹی or گواتی: English guāṭi has retroflex ṭ, so ٹ is right.
+- V3 note closing line repeating the end of the Shrine section: the English repeats it in the same way ('carry the memory of more than one faith'); kept faithful.

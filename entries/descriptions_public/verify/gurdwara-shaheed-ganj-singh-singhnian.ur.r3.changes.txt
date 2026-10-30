@@ -1,0 +1,7 @@
+1. V2 r2 issue 1 (addition: the English names no opponent for "the governor's war"; the r2 adaptation سکھوں کے ساتھ is withdrawn)
+OLD: سکھوں کے ساتھ صوبے دار کی جنگ کی ایک جدید تعبیر یہ ہے کہ
+NEW: صوبے دار کی جنگ کی ایک جدید تعبیر یہ ہے کہ
+
+2. V2 r2 issue 2 (attribution: after V3's split the second clause must stay inside the modern reading)
+OLD: ابھر آئے تھے، میر منو کو مسلسل تنگ کرتے رہے۔ ان گروہوں کے قبضے میں زیادہ زمین نہیں تھی،
+NEW: ابھر آئے تھے، میر منو کو مسلسل تنگ کرتے رہے۔ اس کی رو سے ان گروہوں کے قبضے میں زیادہ زمین نہیں تھی،

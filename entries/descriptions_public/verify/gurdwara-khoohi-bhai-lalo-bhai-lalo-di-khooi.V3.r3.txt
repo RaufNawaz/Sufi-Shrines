@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 2 issue 1 (gloss between noun and postposition) is fixed. The NEW sentence "خریداری کی رقم بیرونِ ملک کی سکھ *سنگت* نے جمع کی تھی" puts نے directly after سنگت, with no gloss between the noun and its postposition. It is the exact wording proposed in round 2.
+2. Grammar checks out. سنگت is feminine, so "بیرونِ ملک کی" agrees with it. The verb "جمع کی تھی" agrees with the feminine object رقم, which is right with an ergative نے. Word order is natural Urdu (subject phrase, then نے, then the verb). There is no calque, no new ambiguity, and no repetition inside the sentence. Both asterisks of the italic pair stay together on سنگت, and the sentence has no Latin letters or dashes.
+3. Fit with the surrounding sentences: it follows "1989 میں سردار سرجیت سنگھ پنیسر نامی ایک سکھ نے یہ جائیداد خرید کر اس کی بحالی کروائی" and comes before "بحالی کے بعد گوردوارہ عبادت کے لیے کھول دیا گیا". The paragraph reads smoothly. سکھ appears in both of the first two sentences, but they are separate sentences and the word refers to different things (a person, then a congregation), so the repetition does not jar.
+4. Taste only: "بیرونِ ملک مقیم سکھ *سنگت*" or "بیرونِ ملک کی سکھ *سنگت*" are both idiomatic. The current form is correct and was kept as it is.
+5. Unchanged sentences were not reopened. None was broken by the change.

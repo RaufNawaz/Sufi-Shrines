@@ -1,0 +1,16 @@
+# langer-makhdoom: changes applied by the coordinator for V1 round 2 (V1 r1 notes 3 to 7 (precision; note 8 taste, not applied))
+
+OLD: though there is no settled view of how far the saints themselves converted anyone, or of how quickly, and how consciously, the change came.
+NEW: though there is no settled view of how far Baba Farid himself converted anyone, or of how quickly, and how consciously, the change came.
+
+OLD: In Mian Wadda's chain of masters, above Abdul Karim and his own master, stands a Hazrat Makhdum Burhan al-Din, who bears the saint's name.
+NEW: In Mian Wadda's chain of masters, two generations above Abdul Karim, stands a Hazrat Makhdum Burhan al-Din, who bears the saint's name.
+
+OLD: In the fourteenth century that order had spread from Uch to Gujarat, the Punjab and Kashmir.
+NEW: In the fourteenth century that order spread from Uch to Gujarat, the Punjab and Kashmir.
+
+OLD: a fine example of it is the *haveli*, or great mansion, of Omar Hayat, completed in 1935.
+NEW: a fine example of it was the *haveli*, or great mansion, of Omar Hayat, completed in 1935.
+
+OLD: He was first given one task;
+NEW: He was first given a task;

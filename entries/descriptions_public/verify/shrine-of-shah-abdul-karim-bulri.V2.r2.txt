@@ -1,0 +1,13 @@
+VERDICT: V2 PASS, V3 PASS
+REPLAY: identical. All 14 OLD strings occur exactly once in the .bak; replacing each once, in order, reproduces the current .ur.md byte for byte (13847 bytes). diff shows 11 changed lines (lines 3, 9, 11, 15, 21, 23, 43, 47, 51, 53, 57; lines 21, 47 and 57 each carry two changes), and nothing else moved.
+ISSUES V2: none
+ISSUES V3: none
+NOTES:
+- All 14 NEW sentences pass the mechanical checks: no Latin letters, no Eastern digits, no dashes, no doubled word. The numbers 1536, 1940 and 1711 are unchanged. Change 6 has one balanced pair of asterisks (*میرو*), and the file has 12 asterisks, as in round 1.
+- Both adaptations are right. Change 1 keeps both "poet" and "of Bhit" (بھٹ کے شاعر), and the full name شاہ عبداللطیف بھٹائی still appears in صاحبِ مزار and مزار. Change 11 keeps شاہ کریم, the form the English uses at that point.
+- Change 5 ("سیّد عبدالکریم کے نام سے مشہور ہو چکے تھے"): "کے نام سے مشہور" leans towards "known by the name", whereas the English puts the weight on fame ("spoken of as the famous Sayid Abdul Karim"). It is acceptable, because مشہور carries the fame and the perfect follows the brief's rule for "by". "صوبے کے جنوبی حصے یعنی زیریں سندھ" is correct.
+- Change 9: ابیات now appears three times in the paragraph, twice at the end of adjacent sentences (شاہ عبداللطیف ہی کے ابیات میں ہوا۔ / شاہ عبدالکریم کے ابیات میں). This is acceptable as a deliberate parallel between Latif's verses and Karim's.
+- Change 14: شاہ عبدالکریم now appears twice in the closing sentence. This is justified by the contrast that خود sets up ("images he used, and his very own lines"), and it removes the ambiguous ان.
+- Change 7: "وابستہ ایک صوفی تھے" could drop ایک. That word is carried over from round 1 and is not a new fault.
+- Change 6: "شاہ کریم کا *میرو*" is a half Urdu form of a Sindhi name (with Urdu کا), just as the English "the Shah Karim fair, or mero" is half English. It is acceptable.
+- Change 13 echoes the lead ("یہ قصبہ انہی کی نسبت سے بلڑی شاہ کریم کہلاتا ہے") almost word for word. The English echoes itself at the same point ("the town that bears his name").

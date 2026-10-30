@@ -1,0 +1,84 @@
+row ramapir-temple-tando-allahyar | Urdu round 2 | reports: V2.r1 (FAIL), V3.r1 (FAIL) | backup: /home/claude/bak/ramapir-temple-tando-allahyar.ur.before_r2.md | applied in verifier's wording: V3 1, 2, 3, 4, 5, 8; V3 notes (غریبوں و، جبکہ) | adapted: V2 1; V3 6, 7, 9, 10, 11, 12, 13, 14 (with V2 note a) | rejected: none of the issues (see Not applied for notes)
+
+WHY: V3 note (غریبوں و نچلی ذاتوں): applied in the verifier's wording; Persian و between Hindi-derived words, no fact changes.
+OLD: غریبوں و نچلی ذاتوں کے پشت پناہ
+NEW: غریبوں اور نچلی ذاتوں کے پشت پناہ
+
+WHY: V3 note (جبکہ ... بھی): applied in the verifier's wording; the English joins the two clauses with a plain 'and', so the contrastive جبکہ added a contrast the English lacks.
+OLD: سندھ میں وہ آج بھی رامہ پیر کہلاتے ہیں، جبکہ گجرات اور راجستھان میں بھی
+NEW: سندھ میں وہ آج بھی رامہ پیر کہلاتے ہیں، اور گجرات و راجستھان میں بھی
+
+WHY: V3 issue 1: applied in the verifier's wording ('one of the most popular of these deified heroes, alongside Pithoro Pir, Pabuji and Guga Pir' is kept).
+OLD: ان ذاتوں کے ہاں ایسے جو سورما سب سے زیادہ مقبول تھے، ان میں پتھورو پیر، پابوجی اور گوگا پیر کے ساتھ رام دیو پیر بھی شامل تھے۔
+NEW: ان ذاتوں میں سب سے زیادہ مقبول ہونے والے ایسے سورماؤں میں پتھورو پیر، پابوجی اور گوگا پیر کے ساتھ رام دیو پیر بھی شامل تھے۔
+
+WHY: V2 issue 1: adapted. The reverse claim now keeps the English scope (Meghwars, 'most' = بیشتر) as V2 asks; V2's 'اس کے برعکس' is left out because لیکن already carries 'though' and the clause now states the reverse in full, so 'برعکس' would double the contrast and can read as 'on the contrary'.
+OLD: لیکن یہ بات اتنے یقین سے نہیں کہی جا سکتی کہ رام دیو پیر کے ماننے والے بھی پتھورو پیر کو مانتے ہیں۔
+NEW: لیکن یہ بات اتنے یقین سے نہیں کہی جا سکتی کہ رام دیو پیر کو ماننے والے میگھواڑوں میں سے بیشتر پتھورو پیر کو بھی مانتے ہیں۔
+
+WHY: V3 issue 14 and V2 note (a): adapted. The English names 'a Ram Pir temple' in Narayanpur, a different place, so رام پیر is kept and not merged into رامہ پیر (V3 itself allows this if it is the temple's name); written as the compound name رام پیر مندر, with اپنا now tied to the neighbourhood (V2 note a: 'of its own' is the neighbourhood's), and the separate 'different place' sentence joined as a relative clause.
+OLD: اور شہر کے محلے نارائن پور میں رام پیر کا اپنا مندر بھی ہے۔ یہ ٹنڈو الہ یار والے مندر سے الگ ہے۔
+NEW: اور شہر کے محلے نارائن پور کا اپنا ایک رام پیر مندر بھی ہے، جو ٹنڈو الہ یار والے مندر سے الگ ہے۔
+
+WHY: V3 issue 2: applied in the verifier's wording; روایت کے مطابق keeps the English hedge 'traditionally placed', and لگ بھگ keeps 'around'.
+OLD: جہاں تک عمارت کا تعلق ہے، وہ انگریزوں کے نوآبادیاتی دور کی ہے، اور روایتی طور پر اس کی تعمیر انیسویں صدی کے وسط میں، یعنی 1859 کے لگ بھگ، بتائی جاتی ہے۔
+NEW: جہاں تک عمارت کا تعلق ہے، وہ انگریزوں کے نوآبادیاتی دور کی ہے، اور روایت کے مطابق انیسویں صدی کے وسط میں، یعنی 1859 کے لگ بھگ، تعمیر ہوئی۔
+
+WHY: V3 issue 3: applied in the verifier's wording (مدت سے moved to the verb).
+OLD: یہ عقیدت مدت سے حاشیے پر رہنے والی برادریوں کو خاص طور پر اپنی طرف کھینچتی رہی ہے
+NEW: یہ عقیدت حاشیے پر رہنے والی برادریوں کو مدت سے خاص طور پر اپنی طرف کھینچتی رہی ہے
+
+WHY: V3 issue 4: applied in the verifier's wording.
+OLD: اور اجتماعی لنگر بلا امتیاز ہر آنے والے کو کھانا کھلاتا ہے۔
+NEW: اور اجتماعی لنگر سے ہر آنے والے کو بلا امتیاز کھانا ملتا ہے۔
+
+WHY: V3 issue 5: applied in the verifier's wording (چادر is laid over a grave, not spread).
+OLD: ویسی ہی جیسی صوفی بزرگوں کے مزاروں پر بچھائی جاتی ہیں
+NEW: ویسی ہی جیسی صوفی بزرگوں کے مزاروں پر ڈالی جاتی ہیں
+
+WHY: V3 issue 6: adapted. The tautology and the calque بن کر نمایاں ہے are removed as V3 asks; V3's چھوٹی سی adds a diminutive the English 'small' lacks, so plain چھوٹی; and V3's version drops 'stands out', so نمایاں is kept as an adjective of the expression.
+OLD: جس ملک میں ہندو اقلیت تعداد میں کم ہے اور اکثر اندیشوں میں گھری رہتی ہے، وہاں رامہ پیر میلہ عقیدت کی ایسی ثقافت کا نادر اور بھرپور اظہار بن کر نمایاں ہے جسے دونوں مذاہب کے ماننے والے اپنا سکتے ہیں۔
+NEW: جس ملک میں ہندو ایک چھوٹی اقلیت ہیں اور اکثر اندیشوں میں گھرے رہتے ہیں، وہاں رامہ پیر میلہ عقیدت کی ایسی ثقافت کا ایک نمایاں، نادر اور بھرپور اظہار ہے جسے دونوں مذاہب کے ماننے والے اپنا سکتے ہیں۔
+
+WHY: V3 issue 7: adapted. 'An estimate that varies widely' is now 'estimates differ widely' as V3 asks; the English order (figure first, then the variance) is kept, and V3's یہ (which could point to تخمینے) is avoided by leaving the figure with تعداد.
+OLD: ان کی تعداد 6 سے 10 ملین کے درمیان بتائی جاتی ہے، اور اس تخمینے میں بہت فرق پایا جاتا ہے۔
+NEW: ان کی تعداد 6 سے 10 ملین کے درمیان بتائی جاتی ہے، اور اس بارے میں تخمینے ایک دوسرے سے بہت مختلف ہیں۔
+
+WHY: V3 issue 8: applied in the verifier's wording ('such as' kept as جیسے).
+OLD: پاکستان کے 90 فیصد سے زیادہ ہندو پسماندہ ہندو قبیلوں یا ذیلی ذاتوں سے تعلق رکھتے ہیں، جیسے میگھواڑ، بھیل اور کولہی۔
+NEW: پاکستان کے 90 فیصد سے زیادہ ہندو میگھواڑ، بھیل اور کولہی جیسے پسماندہ ہندو قبیلوں یا ذیلی ذاتوں سے تعلق رکھتے ہیں۔
+
+WHY: V3 issue 9: adapted. The unclear ان is resolved to ان ہندو برادریوں (the communities of the previous paragraph). V3's اپنا ناتا جوڑتی ہیں is not used: the English 'look east ... towards' states an orientation, not that the communities claim a tie, so کی طرف دیکھنا is replaced by the neutral کا رخ ... کی طرف ہے.
+OLD: ان میں سے کئی برادریاں موجودہ سرحد کے پار مشرق میں اس راجستھان کی طرف دیکھتی ہیں جو خود رام دیو پیر کی داستان کی سرزمین ہے۔
+NEW: ان ہندو برادریوں میں سے کئی کا رخ موجودہ سرحد کے پار مشرق میں اس راجستھان کی طرف ہے جو خود رام دیو پیر کی داستان کی سرزمین ہے۔
+
+WHY: V3 issue 10: adapted. یہ مشاہدہ کیا گیا and the appositive joined to its head are applied as V3 asks; but V3's تعظیم would soften the English 'worship', so پرستش is kept, and بزرگ (the English 'saints') is kept where V3 had ہستیاں.
+OLD: 1851 ہی میں یہ بات دیکھی گئی تھی کہ ہندوؤں اور مسلمانوں کا مشترکہ مذہبی اسلوب وسیلہ بننے والی ہستیوں کی پرستش تھا، یعنی ان بزرگوں کی جو عقیدت مندوں کے حق میں سفارش کرتے ہیں۔
+NEW: 1851 ہی میں یہ مشاہدہ کیا گیا تھا کہ ہندوؤں اور مسلمانوں کا مشترکہ مذہبی اسلوب ان بزرگوں کی پرستش تھا جو وسیلہ بنتے ہیں، یعنی عقیدت مندوں کے حق میں سفارش کرتے ہیں۔
+
+WHY: V3 issue 11: adapted. V3's structure (سندھ جغرافیائی طور پر ... بھی ... بھی، اور اسی وجہ سے) is applied, keeping the English causal link; V3's سرحدی خطہ ('border region') would drop 'buffer zone', so the earlier حدِ فاصل is kept.
+OLD: سندھ کا جغرافیہ بیک وقت الگ تھلگ بھی ہے اور حدِ فاصل کا کام بھی دیتا ہے، اور اسی جغرافیے کے باعث یہاں
+NEW: سندھ جغرافیائی طور پر بیک وقت الگ تھلگ بھی ہے اور حدِ فاصل بھی، اور اسی وجہ سے یہاں
+
+WHY: V3 issue 12: adapted. The repetition لکھنے والوں ... لکھیں is removed with اہلِ قلم, which keeps the English 'writers' (V3's شاعروں narrows it); V3's اسلامی استعاروں would turn 'the imagery of the Muslims' into religious imagery, so مسلمانوں کے ہاں رائج استعاروں.
+OLD: اور ہندو لکھنے والوں نے مسلمانوں کے استعاروں میں صوفیانہ نظمیں لکھیں۔
+NEW: اور ہندو اہلِ قلم نے مسلمانوں کے ہاں رائج استعاروں میں صوفیانہ نظمیں لکھیں۔
+
+WHY: V3 issue 13: adapted. The three stacked میں phrases become a list as V3 asks; the temple stays the subject that preserves the vision (English 'it preserves'), via ان سب میں, instead of V3's سب مل کر, which made the list the subject and added 'together'.
+OLD: اس لو میں، دروازے تک ننگے پاؤں چل کر آنے والے یاتریوں میں، اور ہندو نذرانوں کے پہلو بہ پہلو رکھی گئی مسلمانوں کی چادروں میں یہ مندر سانجھے تقدس کا وہ تصور سنبھالے ہوئے ہے
+NEW: یہ لو، دروازے تک ننگے پاؤں چل کر آنے والے یاتری، اور ہندو نذرانوں کے پہلو بہ پہلو رکھی گئی مسلمانوں کی چادریں، ان سب میں یہ مندر سانجھے تقدس کا وہ تصور سنبھالے ہوئے ہے
+
+Not applied:
+- V3 issue 14, the merge of رام پیر into رامہ پیر: the English names a separate 'Ram Pir temple' in Narayanpur, so the name stays رام پیر (written as the temple name رام پیر مندر; see the change above).
+- V3 issue 9, اپنا ناتا جوڑتی ہیں: asserts a claimed tie the English 'look east ... towards' does not state; neutral کا رخ used instead.
+- V3 issue 10, تعظیم for پرستش: would soften the English 'worship'.
+- V3 note دوسری سب سے بڑی: pure taste; the phrase is standard Urdu and follows 'second largest' exactly.
+- V3 note past/present jump (آباد تھے ... بسے ہوئے ہیں): the English has the same jump ('there were ... who are mostly settled').
+- V3 note چار سو ساٹھ as 460: the English spells the figure out; the checker allows only figures the English has.
+- V3 note ملین to لاکھ/کروڑ: V3 itself keeps ملین; converting units is a factual edit.
+- V3 note مشترک/مشترکہ: both are correct forms; taste.
+- V3 note گرد و نواح کے ضلع: taste; the suggested wording has the same structure and no fact changes.
+- V3 note نجات کے طرح طرح کے مقامات: the English 'places of salvation' is equally general; making it explicit would add meaning.
+- V3 note کہیں زیادہ کھلی ہوا کرتی تھیں: کہیں adds an intensity the English 'more porous' lacks.
+- V3 note روایت repetition and سے ... سے stacking: taste.
+- V2 notes (b) and (c): V2 marks them acceptable; no change.

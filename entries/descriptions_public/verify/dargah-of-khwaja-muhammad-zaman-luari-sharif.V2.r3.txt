@@ -1,0 +1,15 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: I applied the 2 OLD -> NEW replacements in verify/dargah-of-khwaja-muhammad-zaman-luari-sharif.ur.r3.changes.txt in order, each once, to /home/claude/bak/dargah-of-khwaja-muhammad-zaman-luari-sharif.ur.md.bak_ur2. Each OLD occurred exactly once when its turn came. The result is byte for byte identical to the current .ur.md (19156 bytes each). A plain diff of the backup against the current file shows only lines 3 and 41, the two changed sentences. Nothing else moved.
+2. Checker: `ok    dargah-of-khwaja-muhammad-zaman-luari-sharif  team 23779 -> public 11556 chars (0.49), Urdu 10792 chars (0.93)` (python3 pipeline/book_queue/check_public_description.py <id> --no-verdicts, exit 0). The file has no Latin letters and no em or en dashes.
+3. Change 1 (تعارف, paragraph 1, "every year his ʿurs, the commemoration of the saint's death, draws devotees from across the region"): ہر سال صاحبِ مزار کا عرس پورے علاقے سے عقیدت مندوں کو یہاں کھینچ لاتا ہے is faithful.
+   - Referent: صاحبِ مزار is Khwaja Muhammad Zaman, whose مقبرہ opens the same sentence. The successors' حجرے do not compete for the title, because صاحبِ مزار idiomatically means the principal saint of a shrine. The article uses it the same way: the next heading is ## صاحبِ مزار ("The Saint"), and the Legacy says لواری کے صاحبِ مزار for "the saint of Luari".
+   - Facts: "every year", "from across the region" and "draws" are all kept.
+   - The English gloss of ʿurs is not carried over. That is a dropped gloss of a familiar word, not an omission, and صاحبِ مزار in any case echoes "the saint's".
+4. Change 2 (ماحول, paragraph 1, "it held four sarkars, or districts: Thatta, Siwistan, Nasirpur and Amarkot"): صوبے کے چار اضلاع تھے جنہیں سرکار کہا جاتا تھا: ٹھٹھہ، سیوستان، نصیر پور اور امرکوٹ is faithful.
+   - Facts: the number four, the term sarkar, its equation with districts, and all four names in the English order are kept.
+   - The term and the gloss change places: the English says "sarkars, that is, districts", the Urdu "districts, which were called sarkar". The two say the same thing and add nothing.
+   - Referent: صوبے refers to the province of Thatta, the subject of the two sentences before it (یہ صوبہ، اس کے).
+5. Round 2 V2 had no issues. Its note 5 already checked both of these replacements for fidelity, and the wording now in the file is exactly the wording checked there.
+6. Neither change was adapted or rejected; each is the V3 round 2 wording verbatim.

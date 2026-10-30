@@ -1,0 +1,17 @@
+Changes applied by the coordinator (V1r1), exact replacements, each OLD occurring once.
+
+1. V1 r1 issue 1 (side by side readings, source reliability talk)
+OLD: There is no consensus on whether the Delhi shrine honours the same figure as the Peshawar temple, honours a different figure, or is in fact the Peshawar temple itself, placed in the wrong city.
+NEW: Whether the Delhi shrine honours the same figure as the Peshawar temple is not settled.
+
+2. V1 r1 note 1 (precision: referent)
+OLD: The Hajji and the yogi are sometimes joined into one figure, but there is no consensus that they are one, and Ratannath, the contemporary of Gorakhnath, is also counted
+NEW: The Hajji and the yogi Ratannath are sometimes joined into one figure, but there is no consensus that they are one, and Ratannath is also counted
+
+3. V1 r1 note 2 (precision: Sikh not stated)
+OLD: After the attacks of 1971, one Sikh woman recalled, her family fled
+NEW: After the attacks of 1971, one woman recalled, her family fled
+
+4. V1 r1 note 3 (precision: 'long before')
+OLD: Long before, during his reign, Maharaja Ranjit Singh had captured
+NEW: Earlier, during his reign, Maharaja Ranjit Singh had captured

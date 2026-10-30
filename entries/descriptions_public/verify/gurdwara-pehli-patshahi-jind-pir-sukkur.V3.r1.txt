@@ -1,0 +1,78 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque] "ریلوے لائن کو ... دریائے سندھ کے پار لے جاتا ہے" -> a bridge that "carries the line across" is English imagery; in Urdu the line crosses the river by way of the bridge -> make the railway line the subject of پار کرنا.
+OLD: گوردوارہ پہلی پاتشاہی، جو عام طور پر جِند پیر کہلاتا ہے، اس عظیم پل کے سکھر والے سرے پر واقع ہے جو لاہور سے کراچی جانے والی ریلوے لائن کو سکھر اور روہڑی کے درمیان دریائے سندھ کے پار لے جاتا ہے۔
+NEW: گوردوارہ پہلی پاتشاہی، جو عام طور پر جِند پیر کہلاتا ہے، اس عظیم پل کے سکھر والے سرے پر واقع ہے جس کے ذریعے لاہور سے کراچی جانے والی ریلوے لائن سکھر اور روہڑی کے درمیان دریائے سندھ کو پار کرتی ہے۔
+
+2. [word order, calque] "زندہ پیر یا جِندا پیر کا نام ... ایک پرانے مزار کا بھی ہے" -> English order ("Zinda Pir is also the name of an old shrine"); natural Urdu puts the shrine first and uses کہلانا -> recast, keeping بھی.
+OLD: زندہ پیر یا جِندا پیر کا نام سکھر میں دریا کنارے کے ایک پرانے مزار کا بھی ہے، جہاں انیسویں صدی کے اواخر تک ہندو اور مسلمان مل کر عبادت کرتے تھے۔
+NEW: سکھر میں دریا کنارے ایک پرانا مزار بھی زندہ پیر یا جِندا پیر کہلاتا ہے، جہاں انیسویں صدی کے اواخر تک ہندو اور مسلمان مل کر عبادت کرتے تھے۔
+
+3. [collocation] "بزرگوں کے لباس کا ملاپ تھا" -> ملاپ is a meeting or union of people, not a blend of garments -> امتزاج.
+OLD: جنم ساکھیوں کے مطابق جب نانک نکل کھڑے ہوئے تو انہوں نے ایک عجیب لباس پہن رکھا تھا، جو کم و بیش ہندو اور مسلمان بزرگوں کے لباس کا ملاپ تھا۔
+NEW: جنم ساکھیوں کے مطابق جب نانک نکل کھڑے ہوئے تو انہوں نے ایک عجیب لباس پہن رکھا تھا، جو کم و بیش ہندو اور مسلمان بزرگوں کے لباس کا امتزاج تھا۔
+
+4. [collocation] "اس گاؤں کے پڑوس کے ایک جزیرے تک" -> پڑوس is used of houses and people; an island near a village is قریب -> use قریب.
+OLD: سکھ روایت یہ بھی بتاتی ہے کہ گرو نانک کلاچی گاؤں آئے اور سمندر کے ایک دیوتا کے مندر گئے، جس کے لیے انہیں کشتی میں بیٹھ کر اس گاؤں کے پڑوس کے ایک جزیرے تک جانا پڑا۔
+NEW: سکھ روایت یہ بھی بتاتی ہے کہ گرو نانک کلاچی گاؤں آئے اور سمندر کے ایک دیوتا کے مندر گئے، جس کے لیے انہیں کشتی میں بیٹھ کر اس گاؤں کے قریب ایک جزیرے تک جانا پڑا۔
+
+5. [calque] "کی شناخت اسی عبادت گاہ کے طور پر کی گئی ہے" -> literal "has been identified as" -> قرار دیا گیا ہے keeps the same attribution in natural Urdu.
+OLD: کلفٹن کے مندر کی شناخت اسی عبادت گاہ کے طور پر کی گئی ہے جہاں نانک سندھ کے سفر میں گئے تھے۔
+NEW: کلفٹن کے مندر کو وہی عبادت گاہ قرار دیا گیا ہے جہاں نانک سندھ کے سفر میں گئے تھے۔
+
+6. [calque] "سب سے بڑے بیٹے سری چند" -> the article names exactly two sons; of two, Urdu says بڑا بیٹا, and سب سے بڑا is English "eldest" carried over.
+OLD: اداسی گرو نانک کے سب سے بڑے بیٹے سری چند کی روایت پر چلتے ہیں، جنہیں مرکزی دھارے کی سکھ برادری نے گرو تسلیم نہیں کیا۔
+NEW: اداسی گرو نانک کے بڑے بیٹے سری چند کی روایت پر چلتے ہیں، جنہیں مرکزی دھارے کی سکھ برادری نے گرو تسلیم نہیں کیا۔
+
+7. [calque] "جنم ساکھیوں میں آگے یہ ذکر ہے" -> آگے renders English "further"; the sense is "the janamsakhis also mention" -> یہ ذکر بھی ہے.
+OLD: جنم ساکھیوں میں آگے یہ ذکر ہے کہ بغداد میں نانک اذان دیتے رہے، یہاں تک کہ سننے والے نماز کے لیے جھک گئے۔
+NEW: جنم ساکھیوں میں یہ ذکر بھی ہے کہ بغداد میں نانک اذان دیتے رہے، یہاں تک کہ سننے والے نماز کے لیے جھک گئے۔
+
+8. [construction] "*بانی* کا لفظ ... کلام کو کہتے ہیں" -> blends two patterns ("X کا لفظ ... کے لیے آتا ہے" and "Y کو X کہتے ہیں"); with کہتے ہیں the term stands on its own.
+OLD: *بانی* کا لفظ دراصل گرو نانک کے اشعار جیسے عقیدت بھرے کلام کو کہتے ہیں، یعنی مناجات، التجا، عاجزی اور تعظیم کے اشعار۔
+NEW: *بانی* دراصل گرو نانک کے اشعار جیسے عقیدت بھرے کلام کو کہتے ہیں، یعنی مناجات، التجا، عاجزی اور تعظیم کے اشعار۔
+
+9. [repetition, word order] "ہندو سندھیوں ... مذہبی راستہ ... نانک پنتھ تھا، یعنی نانک کا راستہ" -> the gloss repeats the introduction's "نانک پنتھ کے معنی ہیں نانک کا راستہ"; "ہندو سندھیوں" is English order (natural Urdu: سندھی ہندوؤں); "مذہبی راستہ" exists only to set up the gloss, and the next paragraph already calls Nanakpanth a مسلک.
+OLD: انیسویں صدی کے سندھ میں ہندو سندھیوں کا سب سے نمایاں مذہبی راستہ غالباً نانک پنتھ تھا، یعنی نانک کا راستہ۔
+NEW: انیسویں صدی کے سندھ میں سندھی ہندوؤں کا سب سے نمایاں مسلک غالباً نانک پنتھ تھا۔
+
+10. [agreement, collocation] "کرشن، کالی ماتا اور دوسرے ہندو دیوتاؤں" -> Kali is a goddess, so "دوسرے ... دیوتاؤں" makes her a male deity; the set phrase for the pantheon is دیوی دیوتا.
+OLD: سندھ اور جنوبی پنجاب میں نانک پنتھیوں کے مندروں کے اندر گرو نانک کی تصویریں کرشن، کالی ماتا اور دوسرے ہندو دیوتاؤں کے ساتھ آویزاں ہوتی ہیں۔
+NEW: سندھ اور جنوبی پنجاب میں نانک پنتھیوں کے مندروں کے اندر گرو نانک کی تصویریں کرشن، کالی ماتا اور دوسرے ہندو دیوی دیوتاؤں کے ساتھ آویزاں ہوتی ہیں۔
+
+11. [repetition] "اسی شہر میں سکھر کے فسادات ہوئے" -> "in this city the Sukkur riots took place" says the place twice; the name already carries it.
+OLD: دسمبر 1939 اور فروری 1940 کے درمیان اسی شہر میں سکھر کے فسادات ہوئے، جن کا پہلا شکار بھگت کنور رام بنے۔
+NEW: دسمبر 1939 اور فروری 1940 کے درمیان سکھر کے فسادات ہوئے، جن کا پہلا شکار بھگت کنور رام بنے۔
+
+12. [ambiguity] "دریا کے اس پار روہڑی" -> without vowel marks اس پار reads as اِس پار ("this side"), the opposite of what is meant: the paragraph before is set in Sukkur and Rohri lies across from it -> say the other bank.
+OLD: دریا کے اس پار روہڑی ہندو اور مسلمان عارفوں کا مسکن تھا۔
+NEW: دریا کے دوسرے کنارے پر روہڑی ہندو اور مسلمان عارفوں کا مسکن تھا۔
+
+13. [tangled coordination] "ایک سہروردی صوفی اور اٹھارہویں صدی کے دوسرے نصف میں سندھ کے فارسی شاعر تھے" -> a time phrase with میں sits inside only the second of two coordinated predicate nouns, which reads as English layout -> put the period and the place before both.
+OLD: روہڑی کے جان اللہ ایک سہروردی صوفی اور اٹھارہویں صدی کے دوسرے نصف میں سندھ کے فارسی شاعر تھے۔
+NEW: روہڑی کے جان اللہ اٹھارہویں صدی کے دوسرے نصف میں سندھ کے ایک سہروردی صوفی اور فارسی شاعر تھے۔
+
+14. [stacked genitives] "چشتی صابری سلسلے کے بیسویں صدی کے ایک شیخ" -> two کے phrases in a row, in English order ("a twentieth-century shaykh of the Chishti Sabiri order") -> make the order an adjective.
+OLD: چشتی صابری سلسلے کے بیسویں صدی کے ایک شیخ نے اپنے بعض خطبات میں کرشن، رام، سیتا، لچھمن اور گرو نانک کو خدائے واحد پر ایمان رکھنے والے اور ایسے مذہبی پیشوا قرار دیا جنہیں "الٰہی نسبت" حاصل تھی۔
+NEW: بیسویں صدی کے ایک چشتی صابری شیخ نے اپنے بعض خطبات میں کرشن، رام، سیتا، لچھمن اور گرو نانک کو خدائے واحد پر ایمان رکھنے والے اور ایسے مذہبی پیشوا قرار دیا جنہیں "الٰہی نسبت" حاصل تھی۔
+
+NOTES:
+- Repetition across sections, left alone because each instance introduces a new section: "گرو نانک پہلے گرو ہیں" opens both تعارف and گرو; the third udasi is stated in تعارف and again, with its hedge, under گرو; "کہا جاتا ہے کہ اس گوردوارے کا پہلا متولی اداسی تھا" repeats the گوردوارہ section to lead into the explanation of the Udasis. An editor could trim one of each pair.
+- "یہاں ایک چراغ دن رات جلتا رکھا جاتا ہے" is correct (جلتا رکھنا), but "دن رات روشن رکھا جاتا ہے" or "جلائے رکھا جاتا ہے" reads more smoothly. روشن would then repeat in the next clause.
+- "ایک نام والی دو عمارتیں" would be more polished as "دو ہم نام عمارتیں". The two names given are not quite the same (جِند پیر for the gurdwara, جِندا پیر for the Hindu shrine). Also, "وہ مزار" in that sentence most naturally means the Hindus' separate shrine, but a reader could take it as the older shared one. Making it exact needs the source.
+- In the same paragraph the shared shrine is "سکھر میں دریا کنارے", and the Hindus then build a separate one "دریا کے سکھر والے کنارے پر". A reader will wonder why the bank is named as if it were a different place. This is a question of fact for the source, not of language.
+- "صرف زبانی اور برادری کی روایت میں باقی ہے" joins an adjective and a genitive. "برادری کی زبانی روایت" is smoother if the source allows it.
+- "اس کے باوجود" after a comma (Guru section; also the miracles paragraph) is acceptable, but "لیکن" would be lighter.
+- Hardwar: the quoted first person inside reported speech ("تاکہ اسے "وہاں میرے تازہ ہل چلائے ہوئے کھیتوں" تک پہنچا سکیں") is a little awkward. "تازہ جُتے ہوئے کھیتوں" is the more idiomatic phrase. Neither changed, because the words sit inside a quotation.
+- "مردانہ ... لوگوں کو عقیدت کے دام میں لے آتا": دام (snare) carries a faint sense of entrapment. "لوگوں کو اپنا گرویدہ بنا لیتا" or "دلوں میں عقیدت جگاتا" would be warmer.
+- "کروڑی" reads as a personal name. If it is the title (a revenue official), "ایک کروڑی" would make that clear.
+- "بیٹے کو نہیں بلکہ" is clearer as "اپنے کسی بیٹے کو نہیں بلکہ".
+- "بابا نانک کے مقام پر" and "اڈیرو لال میں" each follow a sentence that uses the same words for a person or deity, so a reader may briefly take the place name as the figure. "نامی مقام" would make each clear, if the source confirms they are place names.
+- "کا حوالہ دیتے ہیں" (high-caste Hindus and Nanak) is a calque of "refer to". The intended sense ("look to", "invoke") needs the source before it can be rephrased.
+- "سندھ کے بعض ہندو پہلے ہی سے" ("already") has no clear reference point until the next paragraph. Similarly, "سندھ کے وسیع تر علاقے میں" renders English "wider Sindh"; "سندھ بھر میں" is natural if that is the sense.
+- "ایک دوسرے سے زیادہ مشابہ ہوتی گئیں" would read better as "ایک دوسرے کے مشابہ ہوتی چلی گئیں".
+- "جن کی دیوار پر" (Rochal Das) would read better as "جن کے ہاں دیوار پر".
+- "تحریک کا سرچشمہ" is acceptable modern usage, though "فیض کا سرچشمہ" or "نانک کو بابا فرید سے تحریک ملی" is more natural.
+- Glosses that a Pakistani reader does not need, all kept because they carry facts: "بابا فرید پنجابی میں عقیدت بھری شاعری کرنے والے مسلمان صوفی بزرگ تھے", the definition of دوہا, and "جزیرۂ سری لنکا".
+- "لوگوں کی یاد میں ... کے طور پر محفوظ ہیں" avoids the passive یاد کیا جانا and is acceptable. "لوگ گرو نانک کو ... یاد رکھتے ہیں" would be more direct.
+- Mechanics are clean: no Latin letters, no dashes, Western digits only, 28 asterisks (balanced), Urdu ، ۔ ؛ throughout. Verse lines are untouched.

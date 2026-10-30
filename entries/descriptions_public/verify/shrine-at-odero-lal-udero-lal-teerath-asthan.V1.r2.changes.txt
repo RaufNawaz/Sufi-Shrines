@@ -1,0 +1,13 @@
+Changes applied by the coordinator (V1r1), exact replacements, each OLD occurring once.
+
+1. V1 r1 note 1 (precision)
+OLD: In Sindh more than in the Punjab, Hindus shared in the Muslim Sufi orders
+NEW: More visibly in Sindh than in the Punjab, Hindus shared in the Muslim Sufi orders
+
+2. V1 r1 note 2 (precision)
+OLD: Before Partition he was already worshipped by some groups among the Hindus of Sindh, though most of them were Nanakpanthis, followers of the path of Guru Nanak.
+NEW: Before Partition, when most Hindus of Sindh were Nanakpanthis, followers of the path of Guru Nanak, he was already worshipped by some groups among them.
+
+3. V1 r1 note 3 (precision)
+OLD: In Ulhasnagar, in Maharashtra, a temple of Jhulelal was recently built by Thakurs from Sehwan, and so the tradition of Jhulelal reaches from Udero Lal in Sindh to Ulhasnagar.
+NEW: The tradition of Jhulelal reaches from Udero Lal in Sindh to Ulhasnagar in Maharashtra, where a temple of Jhulelal was recently built by Thakurs from Sehwan.

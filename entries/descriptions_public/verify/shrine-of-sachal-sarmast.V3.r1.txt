@@ -1,0 +1,80 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque] "ایک استاد سے اگلے کے ہاتھ میں" -> English "from one master to the next" carried over word for word; "اگلے" is unidiomatic here, and "یوں دیکھا جاتا ہے گویا" is a loose rendering of "is seen as" -> corrected sentence below.
+OLD: اس ملاقات کو بڑی محبت سے یوں دیکھا جاتا ہے گویا سندھی شاعری کی مشعل ایک استاد سے اگلے کے ہاتھ میں آ گئی۔
+NEW: اس ملاقات کو بڑی محبت سے اس بات کی علامت سمجھا جاتا ہے کہ سندھی شاعری کی مشعل ایک استاد کے ہاتھ سے دوسرے کے ہاتھ میں آ گئی۔
+
+2. [calque/collocation] "حیرت انگیز حد تک بہت سی زبانوں میں" -> "a surprisingly large number" rendered literally; "حیرت انگیز حد تک بہت سی" is not natural Urdu -> corrected sentence below.
+OLD: سچل سرمست نے حیرت انگیز حد تک بہت سی زبانوں میں شعر کہے۔
+NEW: سچل سرمست نے اتنی زبانوں میں شعر کہے کہ حیرت ہوتی ہے۔
+
+3. [tense] "جا پہنچتا ہے ... نے اظہار کی ہر حد پار کر لی" -> the two coordinated clauses describe the same poetry but switch from present to past within one sentence -> corrected sentence below.
+OLD: ان کا کلام بے خوفی سے راسخ العقیدگی کے سانچے توڑتا ہوا محبوب سے وصال کے بے پردہ اعلان تک جا پہنچتا ہے، اور ان کی وجدانی شاعری نے اظہار کی ہر حد پار کر لی۔
+NEW: ان کا کلام بے خوفی سے راسخ العقیدگی کے سانچے توڑتا ہوا محبوب سے وصال کے بے پردہ اعلان تک جا پہنچتا ہے، اور ان کی وجدانی شاعری اظہار کی ہر حد پار کر جاتی ہے۔
+
+4. [redundancy] "اسی بنا پر ... کیونکہ" -> the cause is marked twice ("for this reason ... because") -> corrected sentence below.
+OLD: اسی بنا پر انہیں "منصورِ ثانی" کہا گیا، کیونکہ حلاج کی طرح انہوں نے بھی عاشق اور معشوق کے ایک ہونے کو بے حجاب گایا۔
+NEW: انہیں "منصورِ ثانی" اسی لیے کہا گیا کہ حلاج کی طرح انہوں نے بھی عاشق اور معشوق کے ایک ہونے کو بے حجاب گایا۔
+
+5. [pronoun ambiguity] "ان کے اشعار میں یہ نام" -> right after حلاج, "ان کے اشعار" can be read as Hallaj's own verses -> corrected sentence below.
+OLD: سچل کو حلاج سے والہانہ عشق تھا، اور ان کے اشعار میں یہ نام سینکڑوں بار آیا ہے۔
+NEW: سچل کو حلاج سے والہانہ عشق تھا، اور وہ اپنے اشعار میں ان کا نام سینکڑوں بار لیتے ہیں۔
+
+6. [calque] "سطح کے نیچے زندہ رہے" -> literal "lived on beneath the surface"; the Urdu idiom is "اندر ہی اندر" -> corrected sentence below.
+OLD: حلاج کے افکار سطح کے نیچے زندہ رہے اور گاہے گاہے سرمد، شاہ عبداللطیف اور سچل کے ہاں وجد آمیز کلام کی صورت میں پھوٹ پڑے، یہاں تک کہ محمد اقبال نے انہیں پھر سے ایک دلکش نظام میں ڈھال دیا۔
+NEW: حلاج کے افکار اندر ہی اندر زندہ رہے اور گاہے گاہے سرمد، شاہ عبداللطیف اور سچل کے ہاں وجد آمیز کلام کی صورت میں پھوٹ پڑے، یہاں تک کہ محمد اقبال نے انہیں پھر سے ایک دلکش نظام میں ڈھال دیا۔
+
+7. [collocation] "کرشن کا ذکر لاتے ہیں" -> "ذکر لانا" is not used on its own in this sense; the standard verb is "ذکر کرنا" -> corrected sentence below.
+OLD: قطب علی شاہ اور بیدل کی طرح سچل بھی اپنی صوفیانہ شاعری میں کرشن کا ذکر لاتے ہیں۔
+NEW: قطب علی شاہ اور بیدل کی طرح سچل بھی اپنی صوفیانہ شاعری میں کرشن کا ذکر کرتے ہیں۔
+
+8. [calque] "سچل کی یاد کو ... آواز کے روپ میں زندہ رکھے ہوئے ہے" -> "keeps his memory alive as the voice of" rendered literally; in Urdu it makes the memory, not Sachal, take the form of a voice -> corrected sentence below.
+OLD: یہ مزار سچل کی یاد کو سندھی تصوف کی وجدانی آواز کے روپ میں زندہ رکھے ہوئے ہے۔
+NEW: یہ مزار سچل کی یاد زندہ رکھے ہوئے ہے، جو سندھی تصوف کی وجدانی آواز ہیں۔
+
+9. [collocation/tangled] "قوالوں میں ان کے ہم منصب مرد گلوکار" -> "ہم منصب" is the term for officials of equal rank (a calque of "counterparts"), and "قوالوں میں ... مرد گلوکار" is roundabout -> corrected sentence below.
+OLD: وہ شاہ عبداللطیف اور سچل سرمست کی شاعری سندھی میں گا سکتی ہیں، جبکہ قوالوں میں ان کے ہم منصب مرد گلوکار ایسا نہیں کر سکتے۔
+NEW: وہ شاہ عبداللطیف اور سچل سرمست کی شاعری سندھی میں گا سکتی ہیں، جبکہ ان کے ہم پلہ مرد قوال ایسا نہیں کر سکتے۔
+
+10. [word order] "اپنی محبت بھارت ساتھ لے گئے" -> "بھارت ساتھ" is broken order; Urdu says "اپنے ساتھ بھارت لے گئے" -> corrected sentence below.
+OLD: تقسیمِ ہند کے بعد جب ان لوگوں نے ہجرت کی تو ان میں سے کچھ سچل کے کلام کی گائیکی سے اپنی محبت بھارت ساتھ لے گئے۔
+NEW: تقسیمِ ہند کے بعد جب ان لوگوں نے ہجرت کی تو ان میں سے کچھ سچل کے کلام کی گائیکی سے اپنی محبت بھی اپنے ساتھ بھارت لے گئے۔
+
+11. [calque] "سچل اس کی مثالی صورت ہیں کہ" -> "a paradigm case of" rendered literally; "مثالی صورت ہیں کہ" is not an Urdu construction -> corrected sentence below.
+OLD: سچل اس کی مثالی صورت ہیں کہ ایک ہندو پنتھ کسی سندھی صوفی کو اپنا کر ساتھ لے چلے، حالانکہ اس صوفی کا اس پنتھ سے کوئی باضابطہ تعلق نہ ہو۔
+NEW: سچل اس بات کی بہترین مثال ہیں کہ ایک ہندو پنتھ کسی سندھی صوفی کو اپنا کر ساتھ لے چلے، حالانکہ اس صوفی کا اس پنتھ سے کوئی باضابطہ تعلق نہ ہو۔
+
+12. [tense] "سونی ... کی قیادت کرتی رہیں" -> the same paragraph says in the present that the satsang is held under Soni's supervision and that she is the lead singer; "کرتی رہیں" implies she no longer leads it -> corrected sentence below.
+OLD: ہری رام نے دربار کا انتظام اور سچل کے کلام کی گائیکی سنبھالی، اور ان کے بعد ان کی بیٹی سونی ہر جمعرات کی شام *ستسنگ* کی قیادت کرتی رہیں۔
+NEW: ہری رام نے دربار کا انتظام اور سچل کے کلام کی گائیکی سنبھالی، اور ان کے بعد ان کی بیٹی سونی ہر جمعرات کی شام *ستسنگ* کی قیادت کرتی آ رہی ہیں۔
+
+13. [pronoun ambiguity] "ان کے ذخیرے میں" -> after "سچل کا کلام", the honorific "ان کے" reads as Sachal's repertoire, which makes the sentence circular -> corrected sentence below.
+OLD: ان کے ذخیرے میں زیادہ تر سچل اور نمانو کی تخلیقات شامل ہیں۔
+NEW: ان محفلوں کے ذخیرے میں زیادہ تر سچل اور نمانو کی تخلیقات شامل ہیں۔
+
+14. [pronoun ambiguity] "اس نام کا مفہوم" -> the nearest name is وڈودرا, so the reader takes "سخی کا ٹھکانا" as the meaning of Vadodara rather than of سخی کٹھیا -> corrected sentence below.
+OLD: اس نام کا مفہوم کم و بیش "سخی کا ٹھکانا" ہے، اور اس میں سندھ کی اصل درگاہ اور اس کے روحانی سربراہ کی طرف اشارہ تھا۔
+NEW: سخی کٹھیا کے نام کا مفہوم کم و بیش "سخی کا ٹھکانا" ہے، اور اس میں سندھ کی اصل درگاہ اور اس کے روحانی سربراہ کی طرف اشارہ تھا۔
+
+15. [calque] "اب نمانو پیش منظر میں ہیں" -> literal "in the foreground" -> corrected sentence below.
+OLD: مگر وڈودرا میں سچل کا مقام گھٹ گیا ہے اور اب نمانو پیش منظر میں ہیں۔
+NEW: مگر وڈودرا میں سچل کا مقام گھٹ گیا ہے اور اب نمانو کو اولیت حاصل ہے۔
+
+16. [calque] "ایسی بلندیوں تک پہنچایا" -> English "to such heights"; "ایسی" dangles with no "کہ" clause to complete it -> corrected sentence below.
+OLD: دڑازہ میں ان کا مزار آج بھی اس سندھی صوفیانہ نغمے کا زندہ الاؤ ہے جسے سچل نے ایسی بلندیوں تک پہنچایا۔
+NEW: دڑازہ میں ان کا مزار آج بھی اس سندھی صوفیانہ نغمے کا زندہ الاؤ ہے جسے سچل نے بلندیوں تک پہنچایا۔
+
+17. [inconsistent spelling] "شاہ لطیف" -> the only place in the article where the name is not written "شاہ عبداللطیف" (18 times elsewhere) -> corrected sentence below.
+OLD: ایک اور کتاب شاہ لطیف اور سچل پر مرکوز ہے۔
+NEW: ایک اور کتاب شاہ عبداللطیف اور سچل پر مرکوز ہے۔
+
+18. [register] "شمالی سندھ والے" -> conversational "والے" in reference prose -> corrected sentence below.
+OLD: بہت سے سندھی صوفی شعرا نے کئی زبانوں میں عارفانہ کلام کہا، اور ان میں شمالی سندھ والے خاص طور پر نمایاں ہیں۔
+NEW: بہت سے سندھی صوفی شعرا نے کئی زبانوں میں عارفانہ کلام کہا، اور ان میں شمالی سندھ کے شاعر خاص طور پر نمایاں ہیں۔
+
+NOTES:
+- Overall the prose is good: punctuation is clean (Urdu ، ۔ ؟ ؛ only, no Latin letters, no dashes, Western digits, asterisks balanced), and the verse paragraphs were left untouched.
+- Not a fluency issue, for the content verifiers: "ان سے بھی اوپر دڑازہ میں سچل سرمست کا دربار ہے۔" literally says the Daraza shrine itself is above the images. It is presumably a picture or model of it; "کی شبیہ" would settle it, but I have not added it because I cannot check what the source says.
+- Not a fluency issue: "ایک سیّد گھرانے ... جو فاروقی سلسلۂ نسب سے تعلق رکھتا تھا" puts Sayyid and Farooqi descent together, which an informed Urdu reader will notice as a contradiction. Also "وہ اپنے مریدوں کو خراجِ عقیدت پیش کرنے کے لیے برابر امرتسر بھیجتے رہے" gives no object for the homage (presumably Bulleh Shah, whose shrine is at Kasur).
+- Repetition: Bedil is introduced as "سچل کے روحانی وارث روہڑی کے بیدل" twice (biography and poetry sections); Sachal's second rank after Shah Abdul Latif is stated in both the introduction and Legacy; Shah Inayat of Jhok is named in two consecutive sentences in the martyr-list paragraph. Not changed, because each fix would drop a fact from the sentence it replaced.
+- Taste: "ایک طویل صورت میں خواجہ صلاح الدین حافظ عبدالوہاب بھی ملتا ہے" reads a little stiffly ("طویل صورت میں" without "ایک" is smoother). "ہمہ جہت صوفی" sits oddly beside "خلوت نشینی"; "کامل صوفی" may be what is meant. In "سیہون شریف میں لعل شہباز قلندر اور حیدرآباد میں ٹنڈو جہانیاں کے ساتھ", a saint and a place are set side by side. "کیلنڈر" (once) sits beside "تقویم" in the same sentence; "ہندو تقویم وکرم سموت" would match. "اولیاء" carries the hamza but "شرکا" does not. "میرا راجانی" can briefly be misread as "my Rajani" until the verb "تھیں" settles it. The Roman "سائی سچل" against "سچل سائیں دربار" is presumably deliberate (transcribing "Sai").

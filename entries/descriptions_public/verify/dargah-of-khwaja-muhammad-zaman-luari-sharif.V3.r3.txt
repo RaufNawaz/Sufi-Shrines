@@ -1,0 +1,19 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Change 1 (تعارف, paragraph 1): "خواجہ محمد زمان کا مقبرہ اور ان کے جانشینوں کے محراب دار چھتوں والے حجرے مل کر یہ درگاہ بناتے ہیں، اور ہر سال صاحبِ مزار کا عرس پورے علاقے سے عقیدت مندوں کو یہاں کھینچ لاتا ہے۔" reads naturally.
+   - صاحبِ مزار کا عرس is the standard idiom. The referent is clear, and the full name is no longer repeated inside the sentence.
+   - The name now appears three times across the paragraph's four sentences. That is normal for an opening paragraph.
+   - The izafat is correct, and the agreement holds: عرس ... کھینچ لاتا ہے.
+   - The paragraph now ends on صاحبِ مزار, and the next section is headed ## صاحبِ مزار. The echo is harmless; it fixes the term for the reader.
+   - Round 2 V3 issue 1 is fixed.
+2. Change 2 (ماحول, paragraph 1): "صوبے کے چار اضلاع تھے جنہیں سرکار کہا جاتا تھا: ٹھٹھہ، سیوستان، نصیر پور اور امرکوٹ۔" is correct and natural.
+   - Oblique صوبے کے: correct.
+   - اضلاع ... تھے agrees with the plural.
+   - The plural relative جنہیں agrees with اضلاع.
+   - The impersonal passive کہا جاتا تھا is right with a جنہیں object, and the singular سرکار is right for a term name.
+   - The gloss no longer sits between a noun and its postposition. The familiar word leads, and the term follows in a relative clause, as asked.
+   - The sentence fits after "... جنوب میں کھارا سمندر تھا۔". The تھے / تھا endings are ordinary past narrative, not a repetition fault.
+   - Round 2 V3 issue 2 is fixed.
+3. Taste, not applied: in this Mughal sense سرکار is a technical term. Some editors would italicise it, as the brief allows for a term an Urdu reader may not take as ordinary Urdu, because in modern Urdu سرکار first means "government". The relative clause already marks it as a term, so the sentence is clear without italics.
+4. Nothing else moved: the replay in the V2 round 3 report shows that only these two sentences changed. The surrounding sentences are unchanged and still read smoothly with the new text.

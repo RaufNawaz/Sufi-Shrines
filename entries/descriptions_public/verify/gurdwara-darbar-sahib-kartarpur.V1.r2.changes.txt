@@ -1,0 +1,21 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/gurdwara-darbar-sahib-kartarpur.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 minor a]
+OLD: He lived as a householder, and it is the householder's life, of work in the fields and hymns at dawn and dusk, that the janamsakhis place at Kartarpur.
+
+## Bibliography
+
+- W.
+NEW: He lived as a householder, and it is the householder's life, of work in the fields and of hymns sung at the appropriate times of the day, that the janamsakhis place at Kartarpur.
+
+## Bibliography
+
+- W.
+
+[V1 r1 minor b]
+OLD: Behind a fence there, hundreds of people gathered every day to perform *darshan*, the devotional viewing of a holy place, looking at the shrine of Guru Nanak through binoculars.
+
+The idea of a corridor was raised as early as 1999, but it was for the 550th anniversary of Guru Nanak's birth that it finally came about.
+NEW: Across the border, behind a fence, hundreds of people gathered every day to perform *darshan*, the devotional viewing of a holy place, looking at the shrine of Guru Nanak through binoculars.
+
+The idea of a corridor was raised as early as 1999, but it was for the 550th anniversary of Guru Nanak's birth that it finally came about.

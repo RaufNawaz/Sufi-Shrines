@@ -1,0 +1,13 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1r1 1
+OLD: Jhok stands at the heart of a network that outlived Partition, for the invocation of Jhok Sharif contributes to the construction of a network of sacred territories which are all located in Sindh. Scholars have turned to him as well. Annemarie Schimmel devoted to him an article whose title calls him 'A Sindhi Mystic of the early 18th century', published at Leiden in 1969 in a volume in honour of C. J. Bleeker, and a study of the Sufi centre of Jhok Sharif by Michel Boivin was published in 2012.
+NEW: Jhok stands at the heart of a network that outlived Partition, for the invocation of Jhok Sharif contributes to the construction of a network of sacred territories which are all located in Sindh.
+
+2. V1r1 2
+OLD: Shah Inayat of Jhok is the famous Sindhi Sufi martyr.
+NEW: Shah Inayat of Jhok is famous as a Sindhi Sufi martyr.
+
+3. V1r1 3
+OLD: Jhok Sharif is one of three seats in Sindh, with Daraza and Tando Jahaniya, whose *sajjada nashins* still keep the lineages of Hindu Sufis now in India.
+NEW: Three seats in Sindh, those of Daraza, Tando Jahaniya and Jhok Sharif, have *sajjada nashins* who still keep the lineages of Hindu Sufis now in India.

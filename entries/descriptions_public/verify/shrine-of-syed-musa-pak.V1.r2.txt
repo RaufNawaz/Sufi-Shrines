@@ -1,0 +1,9 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [diff] `diff /home/claude/bak/shrine-of-syed-musa-pak.before_v1r2.md entries/descriptions_public/shrine-of-syed-musa-pak.md` shows exactly three changed lines (17, 19, 27), each matching an OLD/NEW pair in the changes file. Nothing else in the file moved.
+2. [change 1, caption] "*The chronogram on the saint's death by his disciple Shaikh Abdul Haq Muhaddith Dehlvi, from which he derived the year 998 AH.*" -> supported: the team version has "the year 998 AH, which Shaikh Abdul Haq Muhaddith Dehlvi, the saint's own disciple, derived from a chronogram on his death". "he" refers unambiguously to Abdul Haq. No new fact, no source talk, no dash. The caption now repeats the verb of the sentence above it ("and from it he derived the year 998 AH"); harmless repetition, taste only.
+3. [change 2] "Another work, *Bahr al-Sarair*, is devoted to his conditions and practices." -> supported: the team version has "*Bahr al-Sarair*, on his conditions and practices". "devoted to" is a fair rendering of "on" and adds no fact; the manuscript owner and the further-reading pointers stay rightly dropped. The misleading "also" is gone. Reads correctly in place. Minor: after "a work of his own", "Another work" could for a moment be read as a second work by Musa Pak, though "devoted to his conditions and practices" makes clear it is about him; same as before the change, not a fault.
+4. [change 3] "Great *ulama*, scholars of religion, became his disciples, and Shaikh Abdul Haq Muhaddith Dehlvi, too, was his sincere disciple." -> tracks the team version ("and Shaikh Abdul Haq Muhaddith Dehlvi too was his sincere disciple") exactly, with commas around "too". No new fact; reads correctly.

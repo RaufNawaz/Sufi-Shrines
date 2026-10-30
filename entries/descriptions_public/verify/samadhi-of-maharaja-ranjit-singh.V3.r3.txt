@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the single sentence in samadhi-of-maharaja-ranjit-singh.ur.r3.changes.txt; the sentence is grammatical and reads naturally at the close of its paragraph. Taste note: "ایک نادر بات ہو چکی تھی" is slightly literary; "کسی سکھ سے ملنا نادر ہو چکا تھا" would be a plainer option, though no change is needed.

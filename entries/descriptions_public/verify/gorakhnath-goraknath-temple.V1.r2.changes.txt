@@ -1,0 +1,25 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1r1 1
+OLD: The *Goraksha-Bijay* of the seventeenth century, based on a Sanskrit work said to have been composed by Gorakhnath, was written by Shaikh Faizu'llah. The standard study of his order is George Weston Briggs's *Gorakhnath and the Kanphata Yogis*, first published in 1938.
+NEW: The *Goraksha-Bijay* of the seventeenth century, based on a Sanskrit work said to have been composed by Gorakhnath, was written by Shaikh Faizu'llah.
+
+2. V1r1 2
+OLD: Its rite of initiation, the piercing of the ears, was still current in the late twentieth century.
+NEW: The order has its rite of piercing the ears, and its rite of initiation was still current in the late twentieth century.
+
+3. V1r1 3
+OLD: Their traditions venerate nine Naths and eighty four Siddhas, or perfected ones, though this does not mean that these figures are historical.
+NEW: The Nath tradition venerates nine Naths and eighty four Siddhas, or perfected ones, though this does not mean that these figures are historical.
+
+4. V1r1 4
+OLD: Their goal was mastery of the body: the perfect yogi can transform his body at will and is therefore free of all disease and death.
+NEW: Their goal was mastery of the body: in their teaching, the perfect yogi can transform his body at will and is therefore free of all disease and death.
+
+5. V1r1 5
+OLD: By a boon attributed to Lakhavat, the piled *khichri*, a dish of rice and lentils, turned to limestone, and anyone who returned from Hinglaj wearing a necklace of these limestone pebbles would be freed from the fetters of this world.
+NEW: It is said that by a boon attributed to Lakhavat the piled *khichri*, a dish of rice and lentils, turned to limestone, and that anyone who returned from Hinglaj wearing a necklace of these limestone pebbles would be freed from the fetters of this world.
+
+6. V1r1 6
+OLD: The third, the road of Ali Masjid and the Khyber, was harder going for two *kos*, an old measure of distance, yet easier than the others, and it was the road that armies and caravans used.
+NEW: The third, the road of Ali Masjid and the Khyber, was harder going for two *kos*, an old measure of distance, yet easier than the others, and armies and caravans used it.

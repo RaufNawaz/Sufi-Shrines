@@ -1,0 +1,22 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 20 changes in verify/gurdwara-pehli-patshahi-jind-pir-sukkur.ur.r2.changes.txt, replayed in order on /home/claude/bak/gurdwara-pehli-patshahi-jind-pir-sukkur.ur.md.bak_ur1 (each OLD occurring once and replaced once), give a file byte for byte identical to the current .ur.md (25051 bytes each). Nothing else moved. Every NEW occurs once in the current file and no OLD survives. All 20 replacements are the round 1 verifiers' own OLD/NEW pairs, applied verbatim (V2 r1 issue 1 and notes 1 to 4, V3 r1 issues 1 to 14); none was adapted or rejected.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-pehli-patshahi-jind-pir-sukkur --no-verdicts` prints: ok    gurdwara-pehli-patshahi-jind-pir-sukkur  team 40898 -> public 14710 chars (0.36), Urdu 14142 chars (0.96). No Latin letters, no em or en dashes, 28 asterisks (balanced).
+3. Round 1 V2 issue 1 is fixed: اسی روایت کے مطابق now governs the third udasi, as "By tradition" governs the whole English sentence.
+4. Each change checked against the English sentence it renders, and found faithful:
+   - Change 1 (bridge): the line crossing the Indus between Sukkur and Rohri by way of the bridge says the same as "the bridge that carries the railway across"; Lahore to Karachi, the Sukkur side and the great bridge are kept.
+   - Changes 3 and 19 (شبیہوں): keep the breadth of "images" in both places; the portraits and pictures elsewhere stay تصویریں, as the English has portraits and pictures there.
+   - Change 4 (older shrine): same facts (by the river at Sukkur, also bears the name Zinda Pir or Jinda Pir, Hindus and Muslims worshipped together until the late nineteenth century); بھی keeps "also". پرانا for "older" is unchanged from the earlier text.
+   - Change 5 (وہ الگ مزار): correctly ties "that shrine" to the Hindu congregation's own shrine on the Sukkur bank, which the sentence before calls الگ مزار.
+   - Changes 6, 7, 10 and 11: no change in meaning ("combination", "neighbouring", "the janamsakhis go on", "The word bani itself means"); the attribution to the janamsakhis is kept in change 10.
+   - Change 8 (قرار دیا گیا ہے): keeps the agentless attribution of "has been identified as".
+   - Change 9 (بڑے بیٹے): faithful to "eldest", since the article names exactly two sons.
+   - Change 12 (Nanakpanth): غالباً still governs the claim. The dropped gloss "the path of Nanak" repeats the gloss the introduction already gives (نانک پنتھ کے معنی ہیں نانک کا راستہ), so nothing is lost. مسلک for "religious path" matches the next paragraph's use for Nanakpanth and Daryapanth.
+   - Change 13 (نافذ کرنا): restores "impose".
+   - Change 14 (دیوی دیوتاؤں): "deities", now covering Kali Mata.
+   - Change 15 (اور for اگرچہ): removes a concession the English does not make.
+   - Change 16 (Sukkur riots): dropping اسی شہر میں loses nothing, since the name سکھر کے فسادات places the riots in the city, as "the city was the scene of the Sukkur riots" does. Both dates and Bhagat Kanwar Ram are kept.
+   - Change 17 (other bank): renders "Across the river".
+   - Change 20 (Chishti Sabiri shaykh): "of the Chishti Sabiri order" is fully carried by the adjective.
+5. Taste only, change 18 (Janullah): in the English, "of Sind in the second half of the eighteenth century" attaches to "Persian poet", with "a Suhrawardi mystic" as an apposition. The new order sets the period and Sindh over both nouns. This adds no fact, since a mystic of Rohri active in that period was a mystic of Sindh in that period, so it is not an issue.

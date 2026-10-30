@@ -1,0 +1,82 @@
+VERDICT: FAIL
+ISSUES:
+1. [ambiguous] "خود دشمیش پِتا کے ماضی" -> دشمیش پِتا on its own is the Guru's title (the text has just said so), so a reader takes this as the Guru's past, not the gurdwara's -> name the gurdwara.
+OLD: خود دشمیش پِتا کے ماضی کے بارے میں بہت کم معلوم ہے، لیکن جس گرو کے نام پر یہ گوردوارہ ہے، ان کے بارے میں بہت کچھ بیان کیا جاتا ہے؛ یہی حال سکھر کا ہے اور سندھ میں نانک کے پیروکاروں کا بھی۔
+NEW: خود گوردوارہ دشمیش پِتا کے ماضی کے بارے میں بہت کم معلوم ہے، لیکن جس گرو کے نام پر یہ گوردوارہ ہے، ان کے بارے میں بہت کچھ بیان کیا جاتا ہے؛ یہی حال سکھر کا ہے اور سندھ میں نانک کے پیروکاروں کا بھی۔
+
+2. [collocation] "کے احترام میں رکھا گیا ہے" -> calque of "named in honour of"; Urdu names a thing کی نسبت سے or کے نام پر, not کے احترام میں -> corrected as NEW below.
+OLD: اس کا نام گرو گوبند سنگھ کے احترام میں رکھا گیا ہے، جو سکھوں کے دسویں گرو تھے۔
+NEW: اس کا نام گرو گوبند سنگھ کی نسبت سے رکھا گیا ہے، جو سکھوں کے دسویں گرو تھے۔
+
+3. [calque] "دریائے سندھ میں اپنے جزیرے پر" -> literal "on its island"; unidiomatic, and the same fact is put naturally later in the article (دریائے سندھ کے ایک جزیرے پر) -> corrected as NEW below.
+OLD: ان میں سے ایک سادھ بیلو ہے، جو دریائے سندھ میں اپنے جزیرے پر واقع ہے۔
+NEW: ان میں سے ایک سادھ بیلو ہے، جو دریائے سندھ کے ایک جزیرے پر واقع ہے۔
+
+4. [grammar / punctuation] "دسواں پادشاہ کا گرنتھ" -> before کا the ordinal must be oblique (دسویں), as the article itself writes it in the شہید گنج paragraph; the unmarked title also runs into the sentence and is hard to parse -> oblique form, title in quotation marks as in the وچتر ناٹک paragraph.
+OLD: ان کی ایک کتاب کا نام بھی دسواں پادشاہ کا گرنتھ ہے، یعنی دسویں بادشاہ کی کتاب۔
+NEW: ان کی ایک کتاب کا نام بھی "دسویں پادشاہ کا گرنتھ" ہے، یعنی دسویں بادشاہ کی کتاب۔
+
+5. [grammar / inconsistent spelling] "دسواں پادشاہ کا گرنتھ" -> same error as 4; must match دسویں پادشاہ elsewhere -> corrected as NEW below.
+OLD: وچتر ناٹک ان کی کتاب "دسواں پادشاہ کا گرنتھ" کا ایک حصہ ہے، اور اس میں گرو نے بیان کیا ہے کہ سوڈھیوں نے بیدیوں کی جگہ کیسے لی۔
+NEW: وچتر ناٹک ان کی کتاب "دسویں پادشاہ کا گرنتھ" کا ایک حصہ ہے، اور اس میں گرو نے بیان کیا ہے کہ سوڈھیوں نے بیدیوں کی جگہ کیسے لی۔
+
+6. [grammar] "یا تو عقیدت مندوں کے نذرانوں سے آتے یا" -> habitual past left without تھے at the end of a main clause; reads unfinished -> corrected as NEW below.
+OLD: ان کی کمان میں ایک مستقل فوج تھی، جس کے ہتھیار یا تو عقیدت مندوں کے نذرانوں سے آتے یا آس پاس کے دیہات پر چھاپوں سے۔
+NEW: ان کی کمان میں ایک مستقل فوج تھی، جس کے ہتھیار یا تو عقیدت مندوں کے نذرانوں سے آتے تھے یا آس پاس کے دیہات پر چھاپوں سے۔
+
+7. [word order / inconsistent spelling] "آنند پور صاحب میں جمع ہوئے، جو بھارت کے مشرقی پنجاب میں ہے" -> English-style trailing relative clause at the end of a long sentence, cut off from آنند پور صاحب; also the month is spelt ویساکھ beside بیساکھی in the same sentence (standard Urdu: بیساکھ) -> corrected as NEW below.
+OLD: یکم ویساکھ، یعنی 14 اپریل 1699 کو، بہار کے تہوار بیساکھی کے موقع پر ہزاروں سکھ آنند پور صاحب میں جمع ہوئے، جو بھارت کے مشرقی پنجاب میں ہے۔
+NEW: یکم بیساکھ، یعنی 14 اپریل 1699 کو، بہار کے تہوار بیساکھی کے موقع پر ہزاروں سکھ بھارت کے مشرقی پنجاب میں واقع آنند پور صاحب میں جمع ہوئے۔
+
+8. [calque] "سکھ برادری کو اس کا الگ لباس" -> possessive "its" carried over from English; Urdu does not need اس کا here -> corrected as NEW below.
+OLD: خالصہ نے سکھ برادری کو اس کا الگ لباس اور الگ شناخت عطا کی۔
+NEW: خالصہ نے سکھ برادری کو ایک الگ لباس اور الگ شناخت عطا کی۔
+
+9. [unidiomatic ellipsis] "سنگھ کے معنی ہیں شیر اور کور کے شیرنی" -> the second half drops معنی and reads clipped; idiomatic form is X کے معنی Y کے ہیں -> corrected as NEW below.
+OLD: ذات پات کی شناخت کو کمزور کرنے کے لیے گرو نے مردوں کو سنگھ اور عورتوں کو کور کا خاندانی نام دیا؛ سنگھ کے معنی ہیں شیر اور کور کے شیرنی۔
+NEW: ذات پات کی شناخت کو کمزور کرنے کے لیے گرو نے مردوں کو سنگھ اور عورتوں کو کور کا خاندانی نام دیا؛ سنگھ کے معنی شیر کے ہیں اور کور کے معنی شیرنی کے۔
+
+10. [run-on] "جانشین نہیں بننا تھا، انہوں نے ہدایت کی" -> two independent clauses spliced with a comma; the sentence runs on. A semicolon separates them while keeping the whole under اسی روایت کے مطابق -> corrected as NEW below.
+OLD: اسی روایت کے مطابق ان کے بعد کسی شخص کو ان کا جانشین نہیں بننا تھا، انہوں نے ہدایت کی کہ گرنتھ صاحب کی گرو کی حیثیت سے تعظیم کی جائے، اور ان کے بعد یہ کتاب ہمیشہ کے لیے زندہ گرو بن گئی۔
+NEW: اسی روایت کے مطابق ان کے بعد کسی شخص کو ان کا جانشین نہیں بننا تھا؛ انہوں نے ہدایت کی کہ گرنتھ صاحب کی گرو کی حیثیت سے تعظیم کی جائے، اور ان کے بعد یہ کتاب ہمیشہ کے لیے زندہ گرو بن گئی۔
+
+11. [calque / ambiguous] "اپنی زندگی ہی میں ان چاروں کو مغلوں کے ہاتھوں مرتے دیکھا" -> "saw them die in his lifetime" rendered literally; in Urdu مرتے دیکھا means he watched them die, which is a different claim -> corrected as NEW below.
+OLD: 1705 میں گرو نے اپنی زندگی ہی میں ان چاروں کو مغلوں کے ہاتھوں مرتے دیکھا۔
+NEW: 1705 میں گرو کے جیتے جی ان کے چاروں بیٹے مغلوں کے ہاتھوں مارے گئے۔
+
+12. [collocation / repetition] "جنگی مشقوں کے مناظر دکھا کر" -> مناظر دکھانا is unidiomatic for a display (مظاہرہ کرنا); عقیدت مند followed by خراجِ عقیدت repeats the same word -> corrected as NEW below.
+OLD: گرو گوبند سنگھ کے یومِ پیدائش پر ان کے عقیدت مند جنگی مشقوں کے مناظر دکھا کر انہیں خراجِ عقیدت پیش کرتے ہیں۔
+NEW: گرو گوبند سنگھ کے یومِ پیدائش پر ان کے ماننے والے جنگی مشقوں کا مظاہرہ کر کے انہیں خراجِ عقیدت پیش کرتے ہیں۔
+
+13. [unidiomatic / repetition] "وہ سب گرو کے نام تھا اور خالصہ کی اہمیت کے بیان میں تھا" -> repeats کے نام تھا from the previous sentence and کے بیان میں تھا is awkward -> corrected as NEW below.
+OLD: اس رات جو کچھ پڑھا گیا، وہ سب گرو کے نام تھا اور خالصہ کی اہمیت کے بیان میں تھا۔
+NEW: اس رات جو کچھ پڑھا گیا، وہ سب گرو کے نام تھا اور اس کا موضوع خالصہ کی اہمیت تھا۔
+
+14. [ambiguous] "گرو گوبند سنگھ کی تصویر اور مقامات پر بھی" -> اور directly after تصویر reads first as "and" (the picture and places), not "other" -> corrected as NEW below.
+OLD: گرو گوبند سنگھ کی تصویر اور مقامات پر بھی بار بار نظر آتی ہے۔
+NEW: گرو گوبند سنگھ کی تصویر دوسرے مقامات پر بھی بار بار نظر آتی ہے۔
+
+15. [inconsistent spelling] "بھکر" -> the same place is spelt بکھر two paragraphs later (سکھر، بکھر اور شکارپور); بھکر also suggests the Punjab town -> corrected as NEW below.
+OLD: ان فوجوں کو خبر ملی کہ دارا بھکر سے آگے نکل کر پچیس محرم کو سکھر میں پڑاؤ ڈال چکے ہیں۔
+NEW: ان فوجوں کو خبر ملی کہ دارا بکھر سے آگے نکل کر پچیس محرم کو سکھر میں پڑاؤ ڈال چکے ہیں۔
+
+16. [redundancy] "یہ شہر سکھر کے فسادات کا میدان بنا" -> "this city became the arena of the Sukkur riots", with the city named twice; clumsy -> corrected as NEW below.
+OLD: دسمبر 1939 اور فروری 1940 کے درمیان یہ شہر سکھر کے فسادات کا میدان بنا، جن کا پہلا شکار بھگت کنور رام تھے۔
+NEW: دسمبر 1939 اور فروری 1940 کے درمیان سکھر فسادات کی لپیٹ میں رہا، جن کا پہلا شکار بھگت کنور رام تھے۔
+
+17. [calque] "نوآبادیاتی راج کے ساتھ" -> literal "with colonial rule"; on its own کے ساتھ reads as "alongside" -> corrected as NEW below.
+OLD: نوآبادیاتی راج کے ساتھ سندھ کے مسلمانوں، سکھوں اور ہندوؤں سب میں مذہبی جوش نئے سرے سے ابھرا، اور اس کا اظہار دربار میں ہوتا تھا۔
+NEW: نوآبادیاتی راج کے دور میں سندھ کے مسلمانوں، سکھوں اور ہندوؤں سب میں مذہبی جوش نئے سرے سے ابھرا، اور اس کا اظہار دربار میں ہوتا تھا۔
+
+18. [wrong izafat] "اداسیوں کے ذیلی گروہ سے" -> says "a sub-group of the Udasis", whereas the Udasis are themselves the sub-group (as the following جو clause defines them) -> corrected as NEW below.
+OLD: سندھ میں بہت سے نانک پنتھی اداسیوں کے ذیلی گروہ سے تعلق رکھتے تھے، جو تارکِ دنیا سادھوؤں کا ایک فرقہ ہے۔
+NEW: سندھ میں بہت سے نانک پنتھی اداسی کہلانے والے ذیلی گروہ سے تعلق رکھتے تھے، جو تارکِ دنیا سادھوؤں کا ایک فرقہ ہے۔
+
+19. [ambiguous agent] "زکریا خان کے بیٹے نے ... سکھوں کا قتلِ عام کیا اور ... مزاحمت کو دوام بخشا" -> as written, the persecutor himself is the subject of "gave permanence to the resistance", which reads as nonsense; the massacre is what perpetuated it -> corrected as NEW below.
+OLD: بلھے شاہ کی وفات سے بارہ برس پہلے، 1746 میں، زکریا خان کے بیٹے نے لاہور میں شہید گنج کے مقام پر سکھوں کا قتلِ عام کیا اور گرو کے زمانے میں شروع ہونے والی مزاحمت کو دوام بخشا۔
+NEW: بلھے شاہ کی وفات سے بارہ برس پہلے، 1746 میں، زکریا خان کے بیٹے نے لاہور میں شہید گنج کے مقام پر سکھوں کا قتلِ عام کیا، اور اس واقعے نے گرو کے زمانے میں شروع ہونے والی مزاحمت کو دوام بخشا۔
+
+NOTES:
+- Check against the source (not fixable from the Urdu alone): "اس میں سنگھ کی شجاعت پر خاص زور دیا گیا" (does سنگھ mean the Guru or the Khalsa Singhs? If the Singhs, سنگھوں کی شجاعت); "ایک رائے یہ ہے کہ رنجیت گرو گوبند سنگھ کے سچے پیروکار تھے" (a bare رنجیت is odd for an Urdu reader; if this is the Maharaja, رنجیت سنگھ); "اس احسان کا بدلہ چکائیں گے" (no favour has been mentioned, so the antecedent is missing); "امر داس کی ایک تنبیہ" (گرو امر داس?); "دسنت گرنتھ" (confirm the name's spelling); "اس منصب پر تقرری صف شکن خان نے کی" (made the appointment, or was appointed?).
+- Repetition across the article: جنگجو appears four times (ان کی شہرت ایک جنگجو اور شاعر کی ہے / جنگجو ہونے کے ساتھ شاعر بھی تھے / ایک جنگجو تھے جنہوں نے / گرو خود بھی جنگجو تھے); "روایات مختلف ہیں" three times; the frame "... اس گوردوارے کا پس منظر ہے، خود اس کی ... نہیں" opens two sections.
+- Taste: "کسی تاریخی یا عقیدت کے رشتے" pairs an adjective with a genitive (کسی تاریخی تعلق یا عقیدت کے رشتے is smoother); "دسویں کا جو حوالہ ہے" reads better with دسویں in quotation marks; "بغیر کٹے بال" is more natural as ان کٹے بال; "کل یگ دنیا کے چار زمانوں میں سے آخری زمانہ ہے" could drop the second زمانہ; "تیرتھ یعنی مقدس زیارت گاہ" (مقدس is redundant); "اور وہ اس کے بجائے" (وہ is redundant); the Guru is تھے in the introduction and ہیں in the گرو section; the bracketed "[گھرانے]" in the introduction looks like an editorial mark to a general reader; "جس مندر میں گرو گرنتھ صاحب رکھا ہو اسے" wants a comma before اسے.

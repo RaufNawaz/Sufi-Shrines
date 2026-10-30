@@ -1,0 +1,30 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Replay: the 20 changes listed in verify/dargah-roza-sufi-shah-inayat-shaheed.ur.r2.changes.txt were replayed with a short python script on /home/claude/bak/dargah-roza-sufi-shah-inayat-shaheed.ur.md.bak_ur1, each OLD replaced once and in order. Each OLD occurred exactly once in the backup, and the result is byte for byte identical to the current entries/descriptions_public/dargah-roza-sufi-shah-inayat-shaheed.ur.md. Each NEW occurs once in the current file and no OLD remains. Nothing else moved.
+2. Checker: python3 pipeline/book_queue/check_public_description.py dargah-roza-sufi-shah-inayat-shaheed --no-verdicts printed
+   ok    dargah-roza-sufi-shah-inayat-shaheed  team 27802 -> public 12164 chars (0.44), Urdu 11469 chars (0.94)
+3. Each NEW read against the matching English sentence; meaning, facts, names, numbers, hedges and referents kept, nothing added:
+   - 1 (Overview): "this challenge to the entrenched order of landlords and rulers led, after a long siege, to his execution"; کو للکارنے کے مترادف تھی is the challenge itself, not a softened one; the siege and the execution kept.
+   - 2 (The Saint): "schooled in the Sufi currents of his age" as رجحانات کے زیرِ اثر تربیت پائی; same sense.
+   - 3: Qadiri order founded by Abd al-Qadir al-Jilani; the founder now attaches unambiguously to the order, not the lodge; the next sentence still carries "tied to it through the holders of its seat".
+   - 4: "how far he really aimed at a land reform in the modern sense of the word cannot be known"; "really", "how far", "modern sense" and "cannot be known" all kept.
+   - 5: "much that is told in his favour is strongly mixed with legend"; بڑی آمیزش for "strongly mixed" is right.
+   - 6: "not only Sufi adepts, many of them from the mystical centres of the country, but also labourers, slaves and husbandmen from the neighbouring big farms and villages"; all three groups and both places kept; the "not only ... but also" contrast survives across the two sentences.
+   - 7 (adapted from a V3 r1 note): English "lost large numbers of disciples and workers"; "large numbers" now governs the disciples and workers, not the sheikhs and lords. The adaptation is right, and the V3 note was correct that only the source could settle it.
+   - 8: "an implicit challenge"; درپردہ (veiled) for "implicit" is unchanged from round 1 and acceptable; the Mughal appointed authorities and "provoked their hostility" kept.
+   - 9: "the established rule" as حکومتِ وقت; 1717 and "under the pretext" kept.
+   - 10: "not the first mystical leader in Sindh, or elsewhere in the Muslim world, to engage in politics or social reform"; both scopes and both fields kept, negation intact.
+   - 11: "though accounts describe its exact location in different terms"; hedge kept.
+   - 12: "allowed him to give nam, the initiatory name, to disciples of his own"; اپنے مریدوں rightly belongs to the disciple, the subject of the clause; "highest spiritual degree, that of salvation" kept.
+   - 13: "spoke of jam wahdat jo, 'the cup of unity'"; same.
+   - 14 (V2 r1 note 2): کئی ایسی درگاہوں keeps "several" indefinite, so it no longer reads as all such dargahs; Jhok Sharif among them kept. Right.
+   - 15 (V2 r1 note 1): زیادہ دھیمی is now a plain comparative, as the English "more mellow". Right.
+   - 16: "The poetry of one disciple's own path tells that from his early childhood he had visions of Abd al-Qadir al-Jilani, the founder of the Qadiri order"; the visions now clearly belong to the disciple, not to Bedil of the previous sentence; "own" kept.
+   - 17: "This attempt at creating a Muslim Sufi pilgrimage from Sindh in India is unique, though it does not appear to have been very successful"; زیارت گاہ (the place of pilgrimage) fits, since the attempt was the Bijapur dargah; the hedge بظاہر kept.
+   - 18: "Sachal's litany of the afflicted tells of Inayat killed 'in the fighting arena'"; the list, the name and the quoted phrase kept.
+   - 19: "built round the reverence of the murid for the murshid" as پر استوار; same sense.
+   - 20: "celebrated him as an early martyr for the rights of the peasant and the poor against feudal power"; اولین شہیدوں میں شمار is "counted among the earliest martyrs", which is what "an early martyr" says (one of the early ones, not the first); the paragraph's only "first" claim remains the later, attributed "called the first social reformer".
+4. No fix in the change list was rejected, and none needed adapting for fidelity beyond change 7, which is correct.

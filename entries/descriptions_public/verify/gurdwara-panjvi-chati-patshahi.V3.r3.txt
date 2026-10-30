@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 2 V3 issue 1 is fixed exactly as proposed: آج کے شہر میں ایک بڑی سڑک بیچوں بیچ گزرتی ہے، اور یہاں کی زیادہ تر عمارتیں انگریزی راج کے آخری دور یا پاکستان کے ابتدائی برسوں کی ہیں۔ The sentence now has شہر once, and یہاں کی زیادہ تر عمارتیں is natural, idiomatic Urdu: agreement (زیادہ تر عمارتیں ... کی ہیں) and the postposition are right, the word order is plain, and there is no calque. یہاں cannot be read as "on the road", because سڑک is the subject of a verb of passing (گزرتی ہے) and یہاں picks up the place named by آج کے شہر میں, so the change brings no new ambiguity.
+2. Fit with the paragraph: the next sentence (کسی چھت پر کھڑے ہوں تو ...) continues from a viewpoint inside the town and reads on smoothly from یہاں. شہر now appears twice in the paragraph, at its opening (آج کے شہر میں) and its close (یہی شہر اس کا صدر مقام ٹھہرا), three sentences apart, which is no echo. یہاں occurs once in the paragraph; the next یہاں is inside Kartar's quotation in the following paragraph, which is fine.
+3. The changed paragraph contains no Latin letters and no em or en dashes.
+4. The round 2 notes on قصہ (change 10)، طریقہ (change 3) and the یعنی construction (change 14) were accepted then and are not reopened. موزنگ against مزنگ remains a dictionary wide decision for Rauf, as recorded in round 2 note 2; it does not bear on this round.

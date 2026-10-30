@@ -86,6 +86,25 @@
     U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
 }
 
+/* Noto Sans Gurmukhi, for the Gurmukhi originals quoted above their renderings
+ * (`.article-verse-gurmukhi`, 30 October 2026). Self-hosted, SIL Open Font
+ * License 1.1 (public/fonts/NotoSansGurmukhi-OFL.txt), from @fontsource 5.3.0:
+ * the Gurmukhi subset only, 11 KB, every character the quoted lines use
+ * included, the rare udaat (U+0A51) of the Granth's spelling among them, which
+ * system Gurmukhi faces do not all draw. The unicode-range means a page with
+ * no Gurmukhi never fetches it, and it is kept out of the service worker's
+ * precache (vite.config.ts), so an English reader of a Sufi shrine does not
+ * download it either. */
+@font-face {
+  font-family: 'Noto Sans Gurmukhi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/NotoSansGurmukhi-400.woff2') format('woff2');
+  unicode-range:
+    U+0951-0952, U+0964-0965, U+0A01-0A76, U+200C-200D, U+20B9, U+25CC, U+262C, U+A830-A839;
+}
+
 /* Metric-matched fallback faces for the two Google-hosted webfonts.
  *
  * WHAT THIS IS FOR. Merriweather and Source Sans 3 are fetched from a CDN, so

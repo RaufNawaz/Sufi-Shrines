@@ -1,0 +1,13 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Confirming round, changed sentences only.
+Issue 1 (Overview): "Sikh families have made their homes in its rooms, though accounts of who lives there differ." The one clause is in place, names no rival, and is not repeated in A Refuge and a School. Correct.
+Issue 2 (Devotion and Festivals): "has also been the scene of a festival of the Punjab" no longer claims a standing observance; it fits the single dated Lohri fire that follows. Correct.
+Point 5: "no Sikh was left in the town after Partition" fixes the loose "there"; it fits the next clause, "the gurdwaras of the town". Correct.
+Point 10: "are held to have been conversant" frames Rizvi's generalisation. Correct.
+Point 12: "people are said to have come from every land" frames Bhandari's praise. Correct.
+Point 15: "his *udasis*, his long journeys" gives the plain sense with no added purpose. Correct.
+Minor a: "were not natives" puts the 2013 observation in the past, in line with the paragraph; "where there is a considerable Sikh population" stays a standing statement about the province. Correct.
+Minor b: "and his sons were Sri Chand ..." follows Dhillon's "his sons" with no count or mother added. Correct.
+No L1 exception line is in the notes, and none is needed (round 1 ruled 0.458, inside L1).

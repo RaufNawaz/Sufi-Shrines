@@ -1215,6 +1215,20 @@ const UI_TEXT_EN = {
   statusRuin: 'Ruin',
   statusDestroyed: 'Destroyed',
   sourceNoteLabel: 'Note',
+  /* The colophon under a verse rendering: "tr." before the translator's name,
+     spoken in full to a screen reader (ProseParagraphs, 29 October 2026). */
+  verseTranslatorMark: 'tr.',
+  verseTranslatedBy: 'Translated by',
+  /* The language of a quoted verse, set above it, and of its translation
+     (verseLanguage.ts, 30 October 2026). */
+  verseLangPunjabi: 'Punjabi',
+  verseLangPunjabiGurmukhi: 'Punjabi, in Gurmukhi',
+  verseLangGurmukhi: 'Gurmukhi',
+  verseLangPersian: 'Persian',
+  verseLangUrdu: 'Urdu',
+  verseLangSindhi: 'Sindhi',
+  verseLangSeraiki: 'Seraiki',
+  verseLangEnglish: 'English',
   figurePrecisionLabel: 'Dates',
   figurePrecisionHelp:
     'How precise the record is about this figure\u2019s dates. Shown where the dates themselves do not say — a bare year the archive knows is an approximation would otherwise read as settled.',

@@ -1,0 +1,5 @@
+# golra-sharif: English change after V1 round 2 (FAIL, 1 issue), applied in the verifier's wording. The Urdu already names مرزا غلام احمد in this sentence. Backup: /home/claude/bak/golra-sharif.md.before_v1r3
+
+WHY: V1 round 2, issue 1 (ambiguous 'him' could read as Haydar Ali Shah); the verifier's exact fix
+OLD: most influential in marginalising and stigmatising him.
+NEW: most influential in marginalising and stigmatising Ghulam Ahmad of Qadian.

@@ -1,0 +1,22 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- The diff shows nothing else moved. The backup and the current file differ only in the three listed sentences (lines 15, 29 and 31). Each OLD string occurs exactly once in the backup, and applying the three replacements to the backup gives the current file byte for byte. The read-only checker (--no-verdicts) passes: the Urdu is 4,680 characters, 0.94 of the English prose. There is no Latin and no dash, and the asterisks are balanced (6).
+- (a) The merged attack sentence "پاکستان کے جن بڑے صوفی آستانوں کو تشدد کا نشانہ بنایا گیا ہے، یہ مزار بھی ان میں شامل ہے۔" is faithful (V2). It keeps all three things the English says:
+  - the shrine has been a target of violence (تشدد کا نشانہ بنایا گیا ہے);
+  - other great shrines have been targets too (بڑے with بھی ان میں شامل);
+  - it is counted among the Sufi shrines of Pakistan that have come under attack (پاکستان کے جن ... صوفی آستانوں ... شامل ہے).
+  The round 2 objection in notes.md, that a single clause would drop "counted among the Sufi shrines of Pakistan that have come under attack", does not apply to this wording, because that clause now frames the whole sentence. The one shift is in scope: "other great shrines" now reads as Pakistan's great Sufi shrines. The English names no shrine outside Pakistan or outside the Sufi tradition, and its own second clause names Pakistan's Sufi shrines, so no fact is added or lost. "Come under attack" is covered by تشدد کا نشانہ, and the next sentence names the bombing.
+  It is also fluent (V3). The correlative جن ... ان میں is correct, and so is the agreement in کو ... بنایا گیا ہے. یہ in the next sentence clearly refers back to یہ مزار, and the repetition V3 flagged in rounds 1 and 2 is gone.
+- (b) I accept سمندر پاٹ کر as spelling out what the English implies, not as an addition (V2):
+  - Urdu has no neutral term for "reclaimed land" that a general reader understands. بھرائی کر کے left unsaid what was filled. بازیافتہ زمین would read as land recovered from encroachers.
+  - On this coast, reclaimed land is land won from the sea. The English article itself puts Clifton on the sea ("overlooking the Arabian Sea"), so the English reader understands the same thing.
+  - The phrase is natural Urdu (V3): the object is unmarked, as in پہاڑ کاٹ کر. سمندر سے حاصل کی گئی زمین is a plainer equivalent if a less figurative phrase is preferred, but that is taste.
+  - notes.md line 55 still describes بھرائی کر کے, and line 59 still records the round 2 rejection of both سمندر پاٹ کر and the single attack clause. Those lines should be updated to say round 3 applied both.
+- (c) دیگر فقیروں is faithful to "fakirs follow other fakirs" and restores the referent (V2). فقیر now occurs three times in the last two sentences of پس منظر (فقیروں کے گشت، فقیر دیگر فقیروں). The repetition inside the sentence reproduces the English's own contrast and reads naturally, not as a slip (V3).
+- These points are untouched by round 3 and are recorded only:
+  - In پس منظر, two adjacent sentences both use کراچی کے مزارات.
+  - یہ علاقہ, coming after the Clifton sentence, can at first be read as Clifton. This was a V3 round 2 note, and the English "the area" has the same ambiguity.
+  - The attack paragraph has آستانوں in its first sentence and آستانہ in its last, a mild echo.
+V2: PASS
+V3: PASS

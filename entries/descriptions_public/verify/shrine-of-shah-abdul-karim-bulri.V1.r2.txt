@@ -1,0 +1,14 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff result: `diff .bak current` shows exactly three changed lines (9, 13, 51), and applying the three listed OLD -> NEW replacements once each to the .bak reproduces the current file byte for byte. Nothing else moved.
+
+2. Change 1 (The Saint, paragraph 3): "Accounts differ over how many generations separated the two, but by tradition Shah Abdul Latif was his descendant in the fourth generation. Shah Abdul Latif's father, Shah Habib, was himself a descendant of Shah Abdul Karim, one of the first noted poets in the Sindhi language." Supported: the team version's Schimmel line gives that Shah Abdul Latif's "father, Shah Habib, was a descendant of one of the first noted poets in his mother tongue, Shah Abdul Karim", without a count. It carries out r1 note 2 word for word: "and so" is gone, so Shah Habib's descent no longer follows from the count of four, and naming Shah Abdul Karim before the appositive removes the reading of "one of the first noted poets" as a new person. No new or lost fact, no dash, grammar sound.
+
+3. Change 2 (Legacy): "Shah Abdul Latif kept three books constantly by him: the Qur'an, Jalaluddin Rumi's long mystical poem the *Masnavi*, and the Sindhi verses of Shah Karim." Supported by Sorley and Shackle (three books, "constantly in his hands" / kept "constantly by him", the Qur'an, Rumi's Masnavi, Shah Karim's Sindhi verses). Carries out r1 note 3 word for word: the list now reads as three items. "Long mystical poem" is the same dictionary gloss already passed in round 1. Asterisks balanced, no dash.
+
+4. Change 3 (The Saint, paragraph 1): "born in 1536 into a Sayyid family of Matiari, a family descended from the Prophet Muhammad." Supported: the team version has "born into a Sayyid family of Matiari", and the gloss matches data/glossary.csv ("Descendant of the Prophet Muhammad"). Carries out r1 note 4 word for word, and it keeps "family of Matiari" rather than "born at Matiari". No new fact, no dash.
+
+5. check_public_description.py --english-only exits 0 (team 19,657 to public 8,056 characters, 0.41). No Urdu file exists yet for this row, so there is nothing for these changes to be carried into.

@@ -1,0 +1,5 @@
+Change after round 3, applied by the coordinator in the round 3 verifier's wording. Nothing else changed.
+
+[round 3 issue]
+OLD: لعل باغ قصبے سے چند کلومیٹر جنوب میں درختوں کا درختوں کا جھنڈ ہے، جہاں بابا اکرم نے فقیروں کا ٹھکانا قائم کیا تھا۔
+NEW: لعل باغ قصبے سے چند کلومیٹر جنوب میں درختوں کا جھنڈ ہے، جہاں بابا اکرم نے فقیروں کا ٹھکانا قائم کیا تھا۔

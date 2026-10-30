@@ -1,0 +1,9 @@
+English round 3 changes (coordinator, by script) to entries/descriptions_public/gurdwara-malji-sahib.md: V1 round 2 issue or optional notes in V1's exact wording.
+
+[V1 r2 optional note (hedge over both clauses)]
+OLD: Lakhmi Das, it was said, was a worthy son, but spiritual fortune was not his lot, and on his deathbed the Guru appointed not a son but his most loyal student as his spiritual successor: a man of the Khatri caste named Lehna, to whom he gave the title of Guru Angad.
+NEW: It was said that Lakhmi Das was a worthy son but that spiritual fortune was not his lot, and on his deathbed the Guru appointed not a son but his most loyal student as his spiritual successor: a man of the Khatri caste named Lehna, to whom he gave the title of Guru Angad.
+
+[V1 r2 optional note (gloss)]
+OLD: Talwandi lay in the path of numerous mendicants, holy men and *sadhus*, as Hindu ascetics are called, who camped in a grove of trees on the outskirts of the village.
+NEW: Talwandi lay in the path of numerous mendicants, holy men and *sadhus*, the Hindu ascetics, who camped in a grove of trees on the outskirts of the village.

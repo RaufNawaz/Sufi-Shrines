@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the sentences in lal-shahbaz-qalandar.V1.r3.changes.txt only. Applying the two listed OLD/NEW pairs to the backup reproduces the current file byte for byte, so there is no unlisted change. "known as the Lal Kunwar, the fiancée of the red," keeps only Boivin's rendering, which belongs with the Burton account the paragraph tells, and drops Kasmani's variant, so no second reading stands beside it. "Sufis who live outside the religious law" glosses Schimmel's 'lawless' Sufis in the religious sense and agrees with the article's own wording for the *malamatis* ("beyond the bounds of any religious law"). Both sentences read as grammatical English, keep their framing and add no dash or uncertain reading.

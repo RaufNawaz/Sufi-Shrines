@@ -1,0 +1,50 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Round 1 changes. The diff of /home/claude/bak/shrine-of-hazrat-shah-daula-daryai.md.bak_en1 against the current public file shows exactly the five replacements listed in shrine-of-hazrat-shah-daula-daryai.V1.r2.changes.txt, each applied verbatim, and nothing else changed. Each is supported and introduces no fault:
+   - Sohni: the clause resting on Usborne's garbled town name is gone; Abbas's clean line (the potter of the Gujrat district) and Takht Hazara ("now Gujrat District of Pakistan") stand.
+   - The custom: "parents who had sought a child through his intercession" rests on the team version's "the vow of a child" and the legend's "the first child born in response to his intercession". It says what the parents sought, not that the miracle worked, and it now contrasts cleanly with the next sentence, "After his death, devotees would vow ...".
+   - "It was said to be so solidly built": the seventeenth century praise is now framed, like the Hatim sentence.
+   - "The takeover, it has been observed, could not wholly change ...": the scholar's assessment is framed without naming him, and it sits without conflict beside the reform paragraph.
+   - "In the story, the shrine's *mujawir* rules through a dream.": the dream stays inside the fiction.
+
+2. (precision) "In the early seventeenth century he settled in Gujrat". The team version gives this date only as tradition, inside a sentence that hedges every date of the life: "Reliable dates for Shah Daula are difficult to fix, and the sources differ; he is traditionally said to have lived roughly between 1581 and 1675, and to have settled in Gujrat in the early seventeenth century", and the reign is itself disputed (Jahangir in some accounts, Akbar in others). The draft hedges the birth ("tradition places his birth around 1581") and the death ("though accounts of the year differ") but gives the settling date in the narrator's voice. A time anchor should be only as firm as the source.
+OLD: In the early seventeenth century he settled in Gujrat, and he established his own *khanqah* there, at the place formerly known as Garhi Shah Daula.
+NEW: He is said to have settled in Gujrat in the early seventeenth century, and he established his own *khanqah* there, at the place formerly known as Garhi Shah Daula.
+
+3. Rulings on the writer's judgement calls. The notes file's list is unchanged since round 1, and I re-read each against the current text:
+   - 1 (early life, the site's telling with "Accounts of his early years differ"): accepted. Bhandari's slave and Malik's treasurer, mendicant and labourer are a recorded disagreement, so the fallback would set variants side by side. Do not use it.
+   - 2 (the chain given only by its anchors, Rajan Qattal of Uch and Baha al-Din Multani): accepted. No first link is named, nothing is hung under the site's master, and the chain is not called Suhrawardi.
+   - 3 (the deathbed glance as tradition, not as the reason for leaving Sialkot): accepted.
+   - 4 (twelve years at his feet, "it is said"): accepted. The team version files Malik's twelve years only under the master's name, so this is the same discipleship.
+   - 5 (the Nala Dek and Deg bridges, neither identified nor distinguished): accepted.
+   - 6 (rebuilt in 1898 without "traditionally"): accepted. Malik gives the year plainly.
+   - 7 (the Auqaf takeover in two compatible statements): accepted. The framing from round 1 is now in place.
+   - 8 (January 1839, the earliest printed notice, with one clause for the late dating): accepted.
+   - 9 (*Daryai*, one affiliated to water): accepted.
+   - 10 ("seems to have quite a following"): accepted.
+   - 11 (the colonial suspicion of trafficking): accepted for V1. It is framed as a colonial suspicion. Whether it belongs on the public page remains Rauf's call.
+   - 12, 13 ("has been likened", "One scholar reads"): accepted.
+   - 14 ("In the reign of Aurangzeb" for all Bhandari material): accepted. Regnal year 40 is firm.
+   - 15, 16: accepted.
+
+4. Other checks, re-run on the whole text:
+   - Checker: check_public_description.py --english-only exits 0 at 0.48 (team 35106, public 16731).
+   - Verse and bibliography: the verse paragraph is byte identical to the team version's, and the bibliography matches item for item, in order.
+   - Dashes and hyphens: the prose has no em or en dash. Its only hyphens are inside names (al-Din, al-Qadir, al-Qasim).
+   - Quotations: the prose quotes no English passage of six words or more.
+   - Time anchors: "In the reign of Aurangzeb" (regnal year 40), "By the 1870s" and "In 1875" (1292 AH / 1875 CE), "By the end of the twentieth century" (1998), and January 1839 (the site's account, with the bibliography's earliest printed notice) are all firm. The settling date is the one exception (note 2).
+   - Legends stay framed: the deathbed glance ("Tradition tells"); Hatim ("it was said"); the bridge's strength ("It was said"); the check on infanticide ("it is said"); the town's growth ("it is said"); the two titles ("are said to have earned"); the *chuha* legend ("In the legend as colonial writers told it", "the legend went on", "These are the words of a legend"); and the story ("In the story").
+   - Uncertain readings: none of the readings the team version flags appears, namely the Raich, Sayyidnam, Shaikh Shahr Allah, 1087 AH / 1676, the seventeenth regnal year, the pargana's printed name, the slave owner's name, Malik's uncertain form of the second title and Usborne's garbled town name.
+   - Source talk: no citation, page or folio, named narrating author, signposting or archive language remains. Qasimi is named only as the author of the story set at the shrine, and the 1875 book only to introduce its verse, as on the Shah Jamal pilot.
+
+5. Taste only, not required:
+   (a) As in round 1: "Tradition tells that ... on his disciple. Shah Daula's state was transformed: ..." keeps the treasures of the unseen inside the tradition only by continuation. Joining the two sentences ("..., and that Shah Daula's state was transformed: ...") would make the frame explicit.
+   (b) "It was once the custom for parents who had sought a child through his intercession ...": "his" now comes before the name in its paragraph, after a sentence about men in shrines generally. It resolves within the sentence at "Shah Daula's *khanqah*". "through Shah Daula's intercession ... at his *khanqah*" would read a little more cleanly.
+   (c) Two neighbouring paragraphs of The Shrine in Fiction now open with "In the story".
+   (d) The Builder of Bridges has "Gujrat, it is said, had never been much of a place until Shah Daula settled there", and The Setting has "It is said that Gujrat became an important city under Akbar, having been a small village before". The two sit in mild tension. Both are framed, both are in the team version, and the team version records no disagreement between them, so nothing is required.
+   (e) Round 1 taste notes (b) to (f) still stand as taste.
+
+6. Omission sweep: I read the team version again section by section, and nothing important is missing. Kept: the life, birth name, descent, master, discipleship, transformation, order, chain anchors, Chishti grace, household, generosity, refusal of land, miracles, death and chronogram; every building work, the town's growth, the two titles, the tomb, its rebuilding, endowment and administration, the *ʿurs*, the shrine's reputation, the vow and the bargain; the whole *chuha* history and its reform; the story; the setting; the literature on the saint; and the verse. What is left out is source apparatus, the rival variants under rule 4, the readings flagged under rule 5, and minor items: the regnal years 37 or 42, Amanabad, Meer Manu, Sain Kanwan Wali, Kunjahi's chemical explanation, and "who ideally represents state power".

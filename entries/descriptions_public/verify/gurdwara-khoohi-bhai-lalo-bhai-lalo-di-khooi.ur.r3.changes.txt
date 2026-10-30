@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V3 r2 issue 1
+OLD: خریداری کی رقم بیرونِ ملک کی *سنگت* یعنی سکھ عقیدت مندوں کی جماعت نے جمع کی تھی۔
+NEW: خریداری کی رقم بیرونِ ملک کی سکھ *سنگت* نے جمع کی تھی۔

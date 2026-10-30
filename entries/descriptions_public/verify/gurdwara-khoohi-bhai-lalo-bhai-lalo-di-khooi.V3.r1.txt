@@ -1,0 +1,104 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic / calque] "ملک بھاگو کی ضیافت اور دودھ اور خون کی کہانی ... اور یہ مقام اس سے جدا نہیں کیا جا سکتا" -> three "اور" in a row make the subject read as two separate things, and "جدا نہیں کیا جا سکتا" is a word-for-word "cannot be separated"; "دودھ و خون" binds the pair and "لازم و ملزوم" is the Urdu idiom for "inseparable".
+OLD: ملک بھاگو کی ضیافت اور دودھ اور خون کی کہانی سب سے مشہور ساکھیوں میں شمار ہوتی ہے، اور یہ مقام اس سے جدا نہیں کیا جا سکتا۔
+NEW: ملک بھاگو کی ضیافت اور دودھ و خون کی کہانی سب سے مشہور ساکھیوں میں شمار ہوتی ہے، اور یہ مقام اور یہ کہانی لازم و ملزوم ہیں۔
+
+2. [calque] "سید پور وہ پرانا قصبہ ہے جسے ایمن آباد مانا جاتا ہے" -> "a town that is considered Eminabad" is a literal "identified with"; the idiom is "جس کی شناخت ... سے کی جاتی ہے".
+OLD: سید پور وہ پرانا قصبہ ہے جسے ایمن آباد مانا جاتا ہے۔
+NEW: سید پور وہ پرانا قصبہ ہے جس کی شناخت ایمن آباد سے کی جاتی ہے۔
+
+3. [unidiomatic collocation] "اس اصول کا مرکز چلی آتی ہے" -> "has been central to" rendered as "has come being the centre of"; Urdu says "مرکزی حیثیت رکھتی آئی ہے".
+OLD: یہ ساکھی اسی زمانے سے سکھ اخلاقیات کے اس اصول کا مرکز چلی آتی ہے جسے *کرت کرنی* کہتے ہیں، یعنی ایمان داری کی محنت سے روزی کمانا اور اسے دوسروں کے ساتھ بانٹنا۔
+NEW: یہ ساکھی اسی زمانے سے سکھ اخلاقیات کے اس اصول میں مرکزی حیثیت رکھتی آئی ہے جسے *کرت کرنی* کہتے ہیں، یعنی ایمان داری کی محنت سے روزی کمانا اور اسے دوسروں کے ساتھ بانٹنا۔
+
+4. [tense / aspect] "ہزاروں کلومیٹر کا فاصلہ طے کر لیتے تھے" -> the habitual says he would routinely cover thousands of kilometres (as if on each outing); the thousands of kilometres are the total of the journeys, so simple past is needed.
+OLD: گرو نانک زیادہ تر پیدل چلتے، اور اپنے رفیق مردانہ کے ہمراہ ہزاروں کلومیٹر کا فاصلہ طے کر لیتے تھے۔
+NEW: گرو نانک نے اپنے رفیق مردانہ کے ہمراہ ہزاروں کلومیٹر کا فاصلہ زیادہ تر پیدل طے کیا۔
+
+5. [ambiguous pronoun] "ان کی زندگی کی داستانیں انہی سے بھری پڑی ہیں" -> "انہی" can be read as the religious figures or Guru Nanak himself rather than the miracles; name the miracles.
+OLD: مانا جاتا ہے کہ خود گرو نانک مذہبی شخصیات سے معجزے منسوب کرنے کو سخت ناپسند کرتے تھے، پھر بھی ان کی زندگی کی داستانیں انہی سے بھری پڑی ہیں۔
+NEW: مانا جاتا ہے کہ خود گرو نانک مذہبی شخصیات سے معجزے منسوب کرنے کو سخت ناپسند کرتے تھے، پھر بھی ان کی اپنی زندگی کی داستانیں معجزوں سے بھری پڑی ہیں۔
+
+6. [calque] "اس مقام کی دوسری شخصیت" -> "the site's other figure" is English; a place does not "have" a person in Urdu, a person is associated with it.
+OLD: اس مقام کی دوسری شخصیت بھائی لالو ہیں، اور گوردوارہ انہی کے نام سے موسوم ہے۔
+NEW: اس مقام سے وابستہ دوسری شخصیت بھائی لالو ہیں، اور گوردوارہ انہی کے نام سے موسوم ہے۔
+
+7. [ambiguity] "اس سفر میں گرو نانک جنوب مشرقی راستے سے پنجاب آئے" -> the sentence before brings him from Iran, Kabul, Peshawar and Hasan Abdal, i.e. from the north-west; "by a south-eastern route" then reads as a contradiction. The sense must be that he travelled south-eastwards into Punjab (coordinator: confirm against the source; if a route entering from the south-east really is meant, the itinerary needs reconciling instead).
+OLD: قصے بتاتے ہیں کہ اس سفر میں گرو نانک جنوب مشرقی راستے سے پنجاب آئے، اور یہ لگ بھگ وہی زمانہ تھا جب بابر نے ہندوستان پر تیسری بار چڑھائی کی۔
+NEW: قصے بتاتے ہیں کہ اس سفر میں گرو نانک جنوب مشرق کی سمت بڑھتے ہوئے پنجاب آئے، اور یہ لگ بھگ وہی زمانہ تھا جب بابر نے ہندوستان پر تیسری بار چڑھائی کی۔
+
+8. [ellipsis / ambiguity] "بھائی لالو کی موٹی اور دوسرے میں ملک بھاگو کی نفیس روٹی" -> dropping "روٹی" from the first half leaves "بھائی لالو کی موٹی" standing alone, which a reader first takes as a noun ("Bhai Lalo's fat one"); Urdu does not elide forward like this.
+OLD: بیان کیا جاتا ہے کہ جب گرو نانک کو وضاحت کے لیے طلب کیا گیا تو انہوں نے ایک ہاتھ میں بھائی لالو کی موٹی اور دوسرے میں ملک بھاگو کی نفیس روٹی لے کر دونوں کو دبایا۔
+NEW: بیان کیا جاتا ہے کہ جب گرو نانک کو وضاحت کے لیے طلب کیا گیا تو انہوں نے ایک ہاتھ میں بھائی لالو کی موٹی روٹی اور دوسرے میں ملک بھاگو کی نفیس روٹی لے کر دونوں کو دبایا۔
+
+9. [gloss of a familiar word] "سکھ مذہب کے پیروکار سردار سرجیت سنگھ پنیسر" -> "a Sikh" spelled out as "a follower of the Sikh religion" in front of a Sikh name is a gloss no Urdu reader needs.
+OLD: 1989 میں سکھ مذہب کے پیروکار سردار سرجیت سنگھ پنیسر نے یہ جائیداد خرید کر اس کی بحالی کروائی۔
+NEW: 1989 میں سردار سرجیت سنگھ پنیسر نامی ایک سکھ نے یہ جائیداد خرید کر اس کی بحالی کروائی۔
+
+10. [English word order] "*سنگت* نے جمع کی تھی، یعنی سکھ عقیدت مندوں کی جماعت نے" -> the gloss is tacked on after the verb with a repeated "نے", as in English apposition; also "بیرونِ ملک *سنگت*" needs "کی".
+OLD: خریداری کی رقم بیرونِ ملک *سنگت* نے جمع کی تھی، یعنی سکھ عقیدت مندوں کی جماعت نے۔
+NEW: خریداری کی رقم بیرونِ ملک کی *سنگت* یعنی سکھ عقیدت مندوں کی جماعت نے جمع کی تھی۔
+
+11. [calque] "یہ تالا اس دن کا کوئی اتفاق نہیں تھا" -> "the lock was no accident of that day" is English; in Urdu a lock "is not put on by chance".
+OLD: یہ تالا اس دن کا کوئی اتفاق نہیں تھا۔
+NEW: اس دن تالا اتفاق سے نہیں لگا تھا۔
+
+12. [calque / wrong postposition] "کی یاد کو خراجِ عقیدت پیش کرنے" -> "pay homage to the memory of" taken literally; homage is paid "کی یاد میں".
+OLD: یاترا کے دنوں میں کئی سکھ یہاں گرو نانک اور بھائی لالو کی یاد کو خراجِ عقیدت پیش کرنے آئے۔
+NEW: یاترا کے دنوں میں کئی سکھ یہاں گرو نانک اور بھائی لالو کی یاد میں خراجِ عقیدت پیش کرنے آئے۔
+
+13. [repetition] "عموماً زائرین اسی پھیرے میں قریب ہی واقع چکی صاحب اور روڑی صاحب کے گوردواروں پر بھی حاضری دیتے ہیں" -> repeats almost word for word the last sentence of the introduction ("اسی پھیرے میں قریب ہی واقع چکی صاحب اور روڑی صاحب ... حاضری دیتے ہیں"); same fact, varied wording.
+OLD: عموماً زائرین اسی پھیرے میں قریب ہی واقع چکی صاحب اور روڑی صاحب کے گوردواروں پر بھی حاضری دیتے ہیں۔
+NEW: یہاں آنے والے زائرین عموماً اسی سفر میں قریبی گوردوارہ چکی صاحب اور گوردوارہ روڑی صاحب کی زیارت بھی کرتے ہیں۔
+
+14. [calque] "بھائی لالو سے سب سے گہرا تعلق رکھنے والی نظم" -> a long participial phrase built on "the poem most closely associated with"; Urdu uses a relative clause.
+OLD: بھائی لالو سے سب سے گہرا تعلق رکھنے والی نظم گرو نانک کی *بابر بانی* ہے۔
+NEW: گرو نانک کی جو نظم بھائی لالو سے سب سے زیادہ وابستہ ہے، وہ *بابر بانی* ہے۔
+
+15. [unidiomatic collocation / register] "لوگوں کو ایمان کے دام میں کھینچ لاتے تھے" -> "دام" is a snare or net, so the phrase says Mardana trapped people into faith; the neutral idiom is "حلقۂ ایمان".
+OLD: یہ کلام مردانہ گاتے تھے، جو لوگوں کو ایمان کے دام میں کھینچ لاتے تھے۔
+NEW: یہ کلام مردانہ گاتے تھے، جو لوگوں کو حلقۂ ایمان میں کھینچ لاتے تھے۔
+
+16. [calque] "مصرعوں کا ترجمہ اس شاعری کا کچھ اندازہ دیتا ہے" -> "gives a sense of"; in Urdu an idea "ہوتا ہے" from something, it is not "given".
+OLD: گرو نانک کے بھجنوں کے چند مصرعوں کا ترجمہ اس شاعری کا کچھ اندازہ دیتا ہے۔
+NEW: گرو نانک کے بھجنوں کے چند مصرعوں کے ترجمے سے اس شاعری کا کچھ اندازہ ہوتا ہے۔
+
+17. [wrong postposition] "گرو اسے سرزنش کرتے ہیں" -> "سرزنش کرنا" takes "کی", not "کو/اسے".
+OLD: اس ملاقات میں بابر ہندوستان کی فتح کے لیے دعا کا طالب ہوتا ہے اور گرو اسے سرزنش کرتے ہیں۔
+NEW: اس ملاقات میں بابر ہندوستان کی فتح کے لیے دعا کا طالب ہوتا ہے اور گرو اس کی سرزنش کرتے ہیں۔
+
+18. [ambiguity] "اسی سیاح نے 1992 میں بابری مسجد کے انہدام کے بعد ان مندروں پر حملوں کے آثار تلاش کیے" -> "1992 میں" first attaches to the traveller's search ("in 1992 the traveller looked"), whereas the year belongs to the demolition after which the attacks would have come.
+OLD: اسی سیاح نے 1992 میں بابری مسجد کے انہدام کے بعد ان مندروں پر حملوں کے آثار تلاش کیے، مگر اسے کوئی نشان نہ ملا۔
+NEW: اسی سیاح نے یہ دیکھنا چاہا کہ 1992 میں بابری مسجد کے انہدام کے بعد ان مندروں پر حملوں کے کوئی آثار ہیں یا نہیں، مگر اسے کوئی نشان نہ ملا۔
+
+19. [ambiguity] "امیر آدمی کے دسترخوان پر دیانت کی روٹی کو ترجیح دی" -> "دسترخوان پر" reads first as locative ("at the rich man's table he preferred honest bread"); the comparison needs "کے مقابلے میں", as the article itself says in its second paragraph.
+OLD: گوردوارہ کھوہی بھائی لالو ایک بڑھئی کے اس گھر کی یادگار ہے جس کے بارے میں قصے بتاتے ہیں کہ وہاں سکھ مذہب کے بانی نے امیر آدمی کے دسترخوان پر دیانت کی روٹی کو ترجیح دی۔
+NEW: گوردوارہ کھوہی بھائی لالو ایک بڑھئی کے اس گھر کی یادگار ہے جس کے بارے میں قصے بتاتے ہیں کہ وہاں سکھ مذہب کے بانی نے امیر آدمی کے دسترخوان کے مقابلے میں دیانت کی روٹی کو ترجیح دی۔
+
+20. [tangled construction] "ان کے عقیدت مندوں کے بعد میں تعمیر کیے ہوئے گوردوارے" -> "عقیدت مندوں کے بعد" parses as "after his devotees"; the genitive-agent participle with "بعد میں" wedged inside does not hold together. Use a relative clause.
+OLD: وہاں ان کے عقیدت مندوں کے بعد میں تعمیر کیے ہوئے گوردوارے آج بھی سر بلند کھڑے ہیں۔
+NEW: وہاں وہ گوردوارے آج بھی سر بلند کھڑے ہیں جو بعد میں ان کے عقیدت مندوں نے تعمیر کیے۔
+
+21. [ambiguity] "گرو نانک کے کندہ کیے ہوئے نقشِ قدم" -> the "X کے کیے ہوئے" pattern means "carved by Guru Nanak", not "Guru Nanak's footprints, carved".
+OLD: دیوی ہنگلاج کے مندر میں گرو نانک کے کندہ کیے ہوئے نقشِ قدم ملتے ہیں۔
+NEW: دیوی ہنگلاج کے مندر میں گرو نانک کے نقشِ قدم کندہ ملتے ہیں۔
+
+NOTES:
+- Punctuation after closing quotation marks is inconsistent: the full stop sits inside the quotes in the Sultanpur, Abida Parveen and Sach Khand quotations ("نہ مسلمان۔"، "گاتی ہوں۔"، "روح تھے۔") and outside in the three others ("ہونا چاہیے"۔، "نہیں ہوتی"۔، "نہیں ناپی جاتی"۔). Pick one convention.
+- "روایات مختلف ہیں" occurs five times. For the upkeep of the building after 1947 ("عمارت کی نگہداشت کے بارے میں روایات مختلف ہیں") "بیانات" fits better than "روایات", which suggests traditional narrative; elsewhere some variation ("اس بارے میں مختلف باتیں ملتی ہیں") would read less mechanically.
+- "ذات گیتورا": an unfamiliar form; worth checking the spelling of the clan name against the source (the Tarkhan got is usually written گھٹورا).
+- "روایت ہے کہ لالو گرو کی پیش بینی پر حیران رہ جاتے ہیں": nothing in the passage tells the reader what the Guru foresaw, so "پیش بینی" lands without an antecedent. A content point, not a wording one.
+- "جب کروڑی گرو کے ہاتھوں ...": a general reader may take "کروڑی" for a personal name; "ایک کروڑی" would read more easily if the source has a generic official in mind.
+- "شری گرو نانک" in the Sain Wasan Shah sentence is the only "شری" in the article.
+- "پناہ گزین" / "مہاجرین": the Ram Thaman paragraph says "پناہ گزین" and then "مہاجرین" in the next sentence; the article elsewhere uses "مہاجرین" only.
+- "ایمن آباد" is "قصبہ" throughout but "اس شہر" in "جس کا نام بابر نے اس شہر پر قبضے کے بعد بدل دیا".
+- "گرو نانک نے برسوں جو طویل سفر کیے، وہ *اُداسیاں* کہلاتے ہیں" would sit better as "برسوں پر پھیلے ہوئے گرو نانک کے طویل سفر *اُداسیاں* کہلاتے ہیں".
+- "اپنے سفروں سے پہلے ..." followed at once by "پہلے گرو کی زندگی ..." puts two different "پہلے" side by side.
+- "انہیں سکھوں کا پہلا گرو مانا جاتا ہے ... وہی اس مذہب کے بانی ہیں": "اس مذہب" has no noun to point back to; "سکھ مذہب" is clearer.
+- "شہنشاہ جہانگیر کے پردادا بابر": an odd way to introduce Babur to a Pakistani reader, though it is a stated fact and stays.
+- "1947 میں ویران ہو جانے والا ایک مندر اب بھی مضبوط دکھائی دیتا تھا": "ابھی تک" sits more comfortably with the past tense than "اب بھی".
+- "بازار میں چند بوڑھوں نے": "چند بڑے بوڑھوں" is warmer and more idiomatic.
+- The semicolon in "تالا لگا ہوا تھا؛ یہی بھائی لالو کے گھر کی جگہ تھی" is rare in Urdu prose; a full stop or "اور" reads more naturally.
+- "دھلائی کے مضمون پر": "دھلائی" suggests laundry; "دھونے کے مضمون پر" or "طہارت کے مضمون پر" would suit the verse.
+- "اسی تعمیرِ نو کے دوران": the preceding sentences call it "بحالی", so "اسی" points to a term not yet used.

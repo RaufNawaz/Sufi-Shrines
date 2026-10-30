@@ -1,0 +1,29 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: He is also known simply as Malik Ayaz, and in the nineteenth century he was honoured among the saints as Shaikh Ayaz Lahori, the slave and beloved of Shah Mahmud Ghaznavi, to whom God gave both outward and inward wealth.
+NEW: He is also known simply as Malik Ayaz. In the nineteenth century he was honoured among the saints as Shaikh Ayaz Lahori, the slave and beloved of Shah Mahmud Ghaznavi, and it was said of him that God had given him both outward and inward wealth.
+
+2. V1 r1 change 2
+OLD: The city stayed unpeopled for some years.
+NEW: After Mahmud's sack, the city stayed unpeopled for some years.
+
+3. V1 r1 change 3
+OLD: Another story sets Ayaz's counsel at Somnath.
+NEW: Another story tells of Ayaz's counsel at Somnath.
+
+4. V1 r1 change 4
+OLD: In the history of the city, his settlement of Lahore is the turn from which its later history runs.
+NEW: His settlement of Lahore has also been taken as the turn from which the city's later history runs.
+
+5. V1 r1 change 5
+OLD: At the shrine, what is remembered is the bond between Mahmud Ghaznavi and Malik Ahmad Ayaz, "the love and romance" of king and slave: a slave who would sacrifice his life for his king, and a loyalty so complete that he could answer for it before God on the Day of Judgement.
+NEW: At the shrine it is said that what should be remembered is the bond between Mahmud Ghaznavi and Malik Ahmad Ayaz, "the love and romance" of king and slave: a slave who would sacrifice his life for his king, and a loyalty so complete that he could answer for it before God on the Day of Judgement.
+
+6. V1 r1 change 6
+OLD: As one scholar of Islamic mysticism put it,
+NEW: As the same scholar of Sufism put it,
+
+7. V1 r1 change 7
+OLD: In the words of one scholar of mysticism,
+NEW: In the words of the same scholar,

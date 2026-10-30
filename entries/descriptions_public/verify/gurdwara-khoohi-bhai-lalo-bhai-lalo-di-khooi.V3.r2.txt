@@ -1,0 +1,17 @@
+VERDICT: FAIL
+ISSUES:
+1. [gloss between noun and postposition] Change 13, The Gurdwara para 2: "بیرونِ ملک کی *سنگت* یعنی سکھ عقیدت مندوں کی جماعت نے جمع کی تھی". The round 1 complaint is fixed: the gloss no longer trails the verb with a repeated "نے". But the gloss now sits between "سنگت" and its postposition "نے", which the brief forbids in so many words ("never place it between a noun and its postposition"). Everywhere else this draft keeps that rule (کھوہی, دھرم شالا, کرت کرنی, بانی). The fix: "سکھ" in front of "سنگت" gives the Sikh sense, so the separate gloss is not needed. In Pakistani Urdu, "سکھ سنگت" is the ordinary phrase for a Sikh congregation.
+OLD: خریداری کی رقم بیرونِ ملک کی *سنگت* یعنی سکھ عقیدت مندوں کی جماعت نے جمع کی تھی۔
+NEW: خریداری کی رقم بیرونِ ملک کی سکھ *سنگت* نے جمع کی تھی۔
+
+NOTES:
+- Round 1 issues: all 21 are fixed. Issue 10 (sangat) is fixed for word order only, which leads to the new issue above. Issue 13 was adapted (no "گوردوارہ" before Chakki Sahib). The repetition it targeted is gone: the overview says "اسی پھیرے میں قریب ہی واقع ... کی زیارت گاہوں پر بھی حاضری دیتے ہیں", and this sentence says "اسی سفر میں پاس ہی واقع ... کی زیارت بھی کرتے ہیں". The five round 1 notes that were applied (اس مذہب, بیانات, دھونے, اسی بحالی, روٹی) also read correctly in context.
+- The other 26 changed sentences are correct and natural, and agreement checks out in each: "فاصلہ ... طے کیا", "گوردوارے ... تعمیر کیے", "اس کی سرزنش", "کی یاد میں خراجِ عقیدت", "حلقۂ ایمان میں کھینچ لاتے تھے" (plural verb, so "جو" can only mean Mardana). None adds a new ambiguity.
+- Change 1 (taste): the sentence now has "کہانی" twice and "اور" three times ("ضیافت اور"، "، اور یہ مقام اور یہ کہانی"). A full stop before "یہ مقام اور یہ کہانی لازم و ملزوم ہیں" would read more lightly.
+- Change 6 (taste): "معجزے" and "معجزوں" fall in one sentence, and "معجزہ" comes twice more in the next. "کرامات سے بھری پڑی ہیں" would vary the word and is the term Urdu uses for a holy man's wonders. The repetition is functional, though, and it cured the round 1 ambiguity.
+- Change 17 (taste): "یہاں" opens two consecutive sentences ("کئی سکھ یہاں ... آئے۔ یہاں آنے والے زائرین"). Together with "زیارت گاہ" in the sentence before, the root زیارت comes three times in three sentences. It is acceptable.
+- Change 18 (taste): after the new order ("گرو نانک کی جو نظم بھائی لالو سے ..."), the next sentence's "انہوں نے" follows Bhai Lalo, the nearer name. Authorship is already fixed by "گرو نانک کی جو نظم", so no reader will go wrong. Still, naming the Guru again there would satisfy the brief's rule on ان / انہوں نے to the letter.
+- Change 20 (taste): "گرو نانک کے بھجنوں کے چند مصرعوں کے ترجمے سے" chains four genitives. It is correct but a little heavy.
+- Change 27 (taste): "نقشِ قدم کندہ ہیں" is plainer than "کندہ ملتے ہیں", though both are correct.
+- Change 12 (taste): "نامی" usually introduces a bare name, and in front of the title "سردار" it sounds slightly offhand. It is correct, and since Panesar is new to the reader the brief's warning does not apply.
+- Unchanged sentences were not reopened. None was broken by a change.

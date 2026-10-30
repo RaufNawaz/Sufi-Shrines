@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- The Saint: the English glosses of *pir* and of the titles *Hazrat*, *Haji*, *Syed* and *Sakhi* are dropped. These are familiar words to an Urdu reader, so this is a deliberate dropped gloss, not an omission. The same applies to the dropped glosses of *darbar*, *Sheedi Mela*, *ʿurs* and *fakirs*.
+- Legends, "an association that would tie the shrine to the Hindu pilgrimage to Hinglaj" | ایسی وابستگی مزار کو ہنگلاج کی ہندو یاترا سے جوڑ سکتی ہے: the English already sets this inside a hypothetical, so the meaning holds. سکتی ہے is a shade softer than "would". If you want the exact sense: ایسی وابستگی مزار کو ہنگلاج کی ہندو یاترا سے جوڑ دیتی۔
+- Devotion and Festivals, "draws wide coverage in the press" | اخبارات اسے نمایاں جگہ دیتے ہیں: "prominent" is close to "wide" but not the same. Optional: اخبارات میں اس کا خوب چرچا ہوتا ہے۔
+- The Setting: *قوال بچے* is in italics, but the English leaves Qawwal Bachche in roman. This is acceptable as an unfamiliar term, and it is style only.
+- The Setting, "with Hyderabad in India, where members of the Qawwal Bachche lineage ...": دونوں شہروں میں reads "where" as covering both cities. The English is ambiguous here, and this is the reading the source supports (Qureshi: "the same Qawwal Bachche lineage"), so it is not counted as an addition.

@@ -1,0 +1,92 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque / English word order] "سنسکرت رزمیہ رامائن" -> nouns stacked in English order ("Sanskrit epic Ramayana") with no کی or izafat linking them; the article itself later says "رزمیہ داستان".
+OLD: وہ سنسکرت رزمیہ رامائن کے ہیرو رام کے جاں نثار خادم ہیں۔
+NEW: وہ سنسکرت کی رزمیہ داستان رامائن کے ہیرو رام کے جاں نثار خادم ہیں۔
+
+2. [ambiguity / punctuation] "بہار میں منائے جانے والے رنگوں کے تہوار ہولی اور چراغوں کے تہوار دیوالی پر" -> "بہار میں منائے جانے والے" can be read as covering Diwali as well as Holi, and the comma before "اور" follows English punctuation. Moving Holi to the end of the list removes the ambiguity without changing any facts.
+OLD: ہنومان کے جنم دن *ہنومان جینتی* پر، اور بہار میں منائے جانے والے رنگوں کے تہوار ہولی اور چراغوں کے تہوار دیوالی پر مندر میں خاص طور پر بہت بھیڑ ہوتی ہے۔
+NEW: ہنومان کے جنم دن *ہنومان جینتی*، چراغوں کے تہوار دیوالی اور بہار میں منائے جانے والے رنگوں کے تہوار ہولی پر مندر میں خاص طور پر بہت بھیڑ ہوتی ہے۔
+
+3. [calque / ambiguity] "اس راستے سے گزرے تھے" ... "جس پر اسے رکھنے کے لیے" -> "اس راستے" calques "passed this way", and no road has been mentioned for it to refer to. "جس پر" (whereupon) can also be misread as "on which". The attribution "عقیدت مندوں کی روایت ہے" still covers the whole sentence.
+OLD: عقیدت مندوں کی روایت ہے کہ خود رام اپنے بن باس کے برسوں میں اس راستے سے گزرے تھے، اور بہت عرصے بعد اسی جگہ ہنومان کی مورتی برآمد ہوئی، جس پر اسے رکھنے کے لیے یہاں ایک استھان بنایا گیا۔
+NEW: عقیدت مندوں کی روایت ہے کہ خود رام اپنے بن باس کے برسوں میں یہاں سے گزرے تھے، اور بہت عرصے بعد اسی جگہ ہنومان کی مورتی برآمد ہوئی، جسے رکھنے کے لیے وہیں ایک استھان بنایا گیا۔
+
+4. [collocation] "اسے اس سے بھی پہلے کا بتاتے ہیں" -> "اس" points to an age ("پندرہ سو برس پرانا"), so "پہلے کا" (earlier than) does not match it. "قدیم" does.
+OLD: اور بعض بیانات اسے اس سے بھی پہلے کا بتاتے ہیں۔
+NEW: اور بعض بیانات اسے اس سے بھی قدیم بتاتے ہیں۔
+
+5. [calque / repetition] "قدامت کے یہ اندازے روایت سے تعلق رکھتے ہیں" -> "روایت سے تعلق رکھتے ہیں" calques "belong to tradition". The idiom is "روایت پر مبنی". "قدامت" also appears twice in the same sentence.
+OLD: قدامت کے یہ اندازے روایت سے تعلق رکھتے ہیں،
+NEW: عمر کے یہ اندازے روایت پر مبنی ہیں،
+
+6. [repetition] "اس کی زمین کے ایک حصے کا ہاتھ سے نکل جانا بھی شامل ہے" -> the sentence already has a "بھی ... بھی" frame ("کڑے وقت بھی" / "تجدید بھی"), so this third بھی is one too many.
+OLD: جن میں اس کی زمین کے ایک حصے کا ہاتھ سے نکل جانا بھی شامل ہے،
+NEW: جن میں اس کی زمین کے ایک حصے کا ہاتھ سے نکل جانا شامل ہے،
+
+7. [repetition / ambiguity] "مندر کی محفوظ حیثیت نے ... ورثے کی حیثیت سے" -> "حیثیت" is used twice. Also, "اس کا مقام اور مستحکم" can momentarily be read with "اور" as "and".
+OLD: ان دریافتوں اور مندر کی محفوظ حیثیت نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام اور مستحکم کر دیا ہے۔
+NEW: ان دریافتوں اور مندر کو حاصل تحفظ نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام مزید مستحکم کر دیا ہے۔
+
+8. [tangled sentence] "یاتریوں نے ایک ایسے پڑاؤ پر ہنومان کی ایک چھوٹی سی مورتی تک رکھ دی ہے جس کی نسبت متنازع ہے" -> the relative clause sits after the verb, far from its head "پڑاؤ", so it seems to attach to the مورتی. The fix keeps "نسبت متنازع" open and names no party.
+OLD: اسی راستے پر آگے ہنگلاج کی وادی میں یاتریوں نے ایک ایسے پڑاؤ پر ہنومان کی ایک چھوٹی سی مورتی تک رکھ دی ہے جس کی نسبت متنازع ہے۔
+NEW: اسی راستے پر آگے ہنگلاج کی وادی میں ایک پڑاؤ ہے جس کی نسبت متنازع ہے، اور یاتریوں نے وہاں ہنومان کی ایک چھوٹی سی مورتی تک رکھ دی ہے۔
+
+9. [grammar: double dual / collocation] "دو قطبین ... آتے ہیں" -> "قطبین" is already a dual (two poles), so "دو قطبین" is redundant. "کی صورت میں آتے ہیں" needs "سامنے".
+OLD: راون اور ہنومان معرفت کے دو قطبین کی صورت میں آتے ہیں۔
+NEW: راون اور ہنومان معرفت کے دو قطبوں کی صورت میں سامنے آتے ہیں۔
+
+10. [unclear calque] "ہنومان کے حلقے کے نام بھی لیے" -> this reads as "named Hanuman's circle" or "the circle's names". The meaning is names of figures in Hanuman's circle.
+OLD: دونوں نے اپنی شاعری میں کرشن کو جگہ دی اور ہنومان کے حلقے کے نام بھی لیے۔
+NEW: دونوں نے اپنی شاعری میں کرشن کو جگہ دی اور ہنومان کے حلقے کی ہستیوں کے نام بھی لیے۔
+
+11. [ambiguity: names run together] "سچل رام، ہنومان ..." / "قطب علی شاہ رام کے بھائی" -> in both places the poet's name runs straight into "رام", so the reader can take it as "سچل رام" or "شاہ رام". Using "کے ہاں" separates each poet from the list.
+OLD: سچل رام، ہنومان، سیتا اور خاص طور پر کرشن جیسے ہندو دیوتاؤں کا ذکر کرتے ہیں، اور قطب علی شاہ رام کے بھائی لکشمن کے ساتھ سیتا، رام اور کرشن کے نام لیتے ہیں۔
+NEW: سچل کے ہاں رام، ہنومان، سیتا اور خاص طور پر کرشن جیسے ہندو دیوتاؤں کا ذکر ملتا ہے، اور قطب علی شاہ کے ہاں رام کے بھائی لکشمن کے ساتھ سیتا، رام اور کرشن کے نام آتے ہیں۔
+
+12. [tangled sentence] "یہ مندر جس شہر میں ہے، وہ کراچی کبھی ..." -> the correlative "جس ... وہ" plus a stray "کراچی" after "وہ" is clumsy and unnatural.
+OLD: یہ مندر جس شہر میں ہے، وہ کراچی کبھی کولاچی نام کا گاؤں تھا۔
+NEW: کراچی، جہاں یہ مندر واقع ہے، کبھی کولاچی نام کا ایک گاؤں تھا۔
+
+13. [overlong sentence / repetition] "کہیں زیادہ ... کہیں بڑی تھی، اور وہاں کے ایک عہدیدار ..." -> three clauses joined by two "اور", and the official's statement is a separate point. Split the sentence. The attribution "کا کہنا تھا" stays with its own clause.
+OLD: آرام باغ کا مندر لاہور کے مقابلے میں کہیں زیادہ آراستہ تھا اور اس کی برادری بھی کہیں بڑی تھی، اور وہاں کے ایک عہدیدار کا کہنا تھا کہ یہ مندر تقسیم سے پہلے بھی موجود تھا۔
+NEW: آرام باغ کا مندر لاہور کے مقابلے میں کہیں زیادہ آراستہ تھا اور اس کی برادری بھی کہیں بڑی تھی۔ وہاں کے ایک عہدیدار کا کہنا تھا کہ یہ مندر تقسیم سے پہلے بھی موجود تھا۔
+
+14. [ambiguity / overlong sentence] "ہندو مسلمان بزرگوں کے مزاروں پر جاتے" -> "ہندو مسلمان" reads as the set phrase "Hindus and Muslims" or as "Hindu-Muslim saints". The 1940 observation is a separate fact and gets its own sentence. "مشاہدہ سامنے آیا" becomes the natural "مشاہدہ کیا گیا".
+OLD: بڑے پیمانے پر قبولِ اسلام کے بعد کی صدیوں میں ہندو مسلمان بزرگوں کے مزاروں پر جاتے اور منتیں مان کر نذر نیاز چڑھاتے تھے، اور 1940 میں یہ مشاہدہ سامنے آیا کہ سندھ کے بیشتر موسیقار مسلمان نہیں بلکہ ہندو رہے تھے۔
+NEW: بڑے پیمانے پر قبولِ اسلام کے بعد کی صدیوں میں مسلمان بزرگوں کے مزاروں پر ہندو جاتے اور منتیں مان کر نذر نیاز چڑھاتے تھے۔ 1940 میں یہ مشاہدہ کیا گیا کہ سندھ کے بیشتر موسیقار مسلمان نہیں بلکہ ہندو رہے تھے۔
+
+15. [collocation / logic] "سمندر، ہوا یا ریل کے راستے" ... "انخلا خاص طور پر ... کے بعد شروع ہوا" -> "ہوا کے راستے" is not idiomatic; the usual phrase is "ہوائی راستے". The sentence also says 246,000 had already left by November 1947 and then that the exodus "began" after January 1948, which contradicts itself. "خاص طور پر" points to an intensification ("زور پکڑا"). "جنوری 1948 کے کراچی کے فسادات" also has a clumsy double کے.
+OLD: نومبر 1947 کے اوائل تک 246,000 ہندو سمندر، ہوا یا ریل کے راستے سندھ چھوڑ چکے تھے، اور ہندو سندھیوں کا انخلا خاص طور پر جنوری 1948 کے کراچی کے فسادات کے بعد شروع ہوا۔
+NEW: نومبر 1947 کے اوائل تک 246,000 ہندو بحری، ہوائی یا ریل کے راستے سندھ چھوڑ چکے تھے، اور ہندو سندھیوں کے انخلا نے خاص طور پر کراچی میں جنوری 1948 کے فسادات کے بعد زور پکڑا۔
+
+16. [inconsistency / ambiguous pronoun] "6 سے 10 ملین" ... "اور ان میں سے بیشتر" -> the article uses "دس لاکھ" elsewhere, and educated Urdu counts in لاکھ and کروڑ, not "ملین". "ان" also falls nearest to "اندازوں". The hedge "بتائی جاتی ہے" covers only the figure, and it stays with the figure.
+OLD: پاکستان میں ہندوؤں کی تعداد 6 سے 10 ملین کے درمیان بتائی جاتی ہے، اگرچہ اندازوں میں بڑا فرق ہے، اور ان میں سے بیشتر محروم قبائل اور ذاتوں سے تعلق رکھتے ہیں۔
+NEW: پاکستان میں ہندوؤں کی تعداد 60 لاکھ سے ایک کروڑ کے درمیان بتائی جاتی ہے، اگرچہ اندازوں میں بڑا فرق ہے۔ ان ہندوؤں کی اکثریت محروم قبائل اور ذاتوں سے تعلق رکھتی ہے۔
+
+17. [repetition] "مقدس مقامات میں ایک منفرد مقام" -> "مقام" follows "مقامات" directly.
+OLD: شری پنچمکھی ہنومان مندر پاکستان کے ہندو مقدس مقامات میں ایک منفرد مقام رکھتا ہے۔
+NEW: شری پنچمکھی ہنومان مندر پاکستان کے ہندو مقدس مقامات میں ایک منفرد حیثیت رکھتا ہے۔
+
+18. [inconsistency / collocation] "خود بخود پیدا ہوئی" -> a مورتی is not "born" ("پیدا ہوئی"). Earlier the article says "خود بخود ظاہر ہوئی" and "زمین سے نمودار ہوئی".
+OLD: اس کی مرکزی مورتی کے بارے میں مانا جاتا ہے کہ وہ خود بخود پیدا ہوئی،
+NEW: اس کی مرکزی مورتی کے بارے میں مانا جاتا ہے کہ وہ خود بخود ظاہر ہوئی،
+
+19. [ambiguity / idiom] "دور کے ماضی" -> "دور" can be read as dawr (era) or dur (far). The established idiom for "distant past" is "ماضیِ بعید".
+OLD: دور کے ماضی سے جڑے رہنے کا وسیلہ
+NEW: ماضیِ بعید سے جڑے رہنے کا وسیلہ
+
+NOTES:
+- Paragraph 1 has two "یعنی" in one sentence. The second could become "جس کا مطلب ہے کہ یہ مورتی ...".
+- "عوامی ہندو مت" is a slightly bookish calque of "popular Hinduism". It is acceptable, but "عام ہندوؤں کے محبوب ترین دیوتاؤں میں" reads more naturally.
+- "ہر چہرے کا رخ ایک سمت کی جانب ہے": "رخ" and "جانب" overlap. "ہر چہرہ ایک سمت کی طرف رخ کیے ہوئے ہے" is smoother.
+- *پنچمکھی* (paragraph 1) and *پنچمکھ* (paragraph 2) are both valid forms, but the editor may want to use one throughout.
+- "ماننے والوں کا ایمان ہے" in a Hindu context: "عقیدہ ہے" is more neutral than "ایمان".
+- "مندر کی ابتدا داستانوں میں لپٹی ہوئی ہے" is acceptable modern usage. "داستانوں کے پردے میں چھپی ہوئی ہے" is more idiomatic.
+- "متعدد مزید مورتیاں" would read better as "مزید کئی مورتیاں". "مورتی رکھی تھی" would read better as "رکھی ہوئی تھی" (stative).
+- "لاہور کے مقابلے میں ... آراستہ تھا" compares a temple with a city. If the source means Lahore's temple or temples, it could say so, but I have left it as it stands because the text leaves this open.
+- "دیواری تصویر" here and "دیواروں پر بنی تصویروں" earlier: the editor may want one form throughout.
+- "شعر کہتا ہے" is a mild calque. "جس کے بارے میں شعر میں آیا ہے" is more idiomatic.
+- "مہاجر" and "پناہ گزین" are used for the same group in adjacent sentences. This is acceptable as variation, but the editor may want one term.
+- "اس بارے میں بیانات مختلف ہیں کہ سندھ میں مختلف مذاہب ..." repeats "مختلف". "بیانات میں اختلاف ہے" would avoid this and keep the hedge.
+- "711 میں ... معاشرہ فتح کر کے اپنے قبضے میں لے لیا": "فتح کر کے زیرِ نگیں کر لیا" is more elegant.

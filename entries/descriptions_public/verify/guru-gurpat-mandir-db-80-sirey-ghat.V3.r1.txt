@@ -1,0 +1,82 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque] "ایک ایسے سنت کے گرد تعمیر ہوا ہے" -> English "built around a saint" carried over word for word; in Urdu کے گرد is physical ("round about"), so the dargah seems to encircle the man. The idiomatic link is نسبت -> corrected sentence:
+OLD: یہ دربار ایک ایسے سنت کے گرد تعمیر ہوا ہے جنہیں جاگیاسی سلسلے میں گرو نانک کی بارہویں پشت کی اولاد مانا جاتا ہے، اور اسی حیثیت سے ان کی تعظیم ہوتی ہے۔
+NEW: یہ دربار ایک ایسے سنت کی نسبت سے تعمیر ہوا ہے جنہیں جاگیاسی سلسلے میں گرو نانک کی بارہویں پشت کی اولاد مانا جاتا ہے، اور اسی حیثیت سے ان کی تعظیم ہوتی ہے۔
+
+2. [calque/choppy gloss] "بابا سری چند کے بتائے جانے والے بال ... گرو گوبند سنگھ سکھوں کے دسویں گرو تھے۔" -> "بتائے جانے والے بال" is a stiff rendering of "hair said to be Sri Chand's", and the gloss on Guru Gobind Singh stands as a separate sentence that cuts the relic list off from "دربار میں آج بھی ان چیزوں کا ذکر ہوتا ہے"; Urdu folds such a gloss into the name ("سکھوں کے دسویں گرو گوبند سنگھ") -> corrected sentence (same three relics, same hedges; the following ان چیزوں now follows the list directly):
+OLD: ان تبرکات میں بابا سری چند کے بتائے جانے والے بال، نانک شاہی دور کا ایک روپیہ اور گرو گوبند سنگھ سے منسوب ایک انگوٹھی شامل ہیں۔ گرو گوبند سنگھ سکھوں کے دسویں گرو تھے۔
+NEW: ان تبرکات میں نانک شاہی دور کا ایک روپیہ، سکھوں کے دسویں گرو گوبند سنگھ سے منسوب ایک انگوٹھی اور کچھ بال شامل ہیں جو بابا سری چند کے بتائے جاتے ہیں۔
+
+3. [calque] "یہ بھی گرپت صاحب ہی سے منسوب ہے کہ انہوں نے" -> English "he is also credited with founding"; منسوب is used of a saying, object or work, not of a deed reported in a کہ clause. The Urdu idiom for credit is سہرا ... کے سر باندھنا, which keeps the hedge -> corrected sentence:
+OLD: یہ بھی گرپت صاحب ہی سے منسوب ہے کہ انہوں نے اپنی روحانی خدمت کے دوران حیدرآباد سے باہر کئی جاگیاسی گدیاں قائم کیں۔
+NEW: اپنی روحانی خدمت کے دوران حیدرآباد سے باہر کئی جاگیاسی گدیاں قائم کرنے کا سہرا بھی گرپت صاحب ہی کے سر باندھا جاتا ہے۔
+
+4. [calque/collocation] "ہندوؤں کا ایک تقویمی سن ہے ... عیسوی کیلنڈر میں 1931 کے برابر ہے" -> "تقویمی سن" is a coinage (Urdu says تقویم, or simply سن), and "عیسوی کیلنڈر میں ... کے برابر" is English "equivalent to ... in the Gregorian calendar"; Urdu converts dates with "سنِ عیسوی کے مطابق ... بنتا ہے" -> corrected sentence:
+OLD: وکرم سموت ہندوؤں کا ایک تقویمی سن ہے، اور اس کا سال 1988 عیسوی کیلنڈر میں 1931 کے برابر ہے۔
+NEW: وکرم سموت ہندوؤں کی ایک تقویم ہے، اور اس کا سال 1988 سنِ عیسوی کے مطابق 1931 بنتا ہے۔
+
+5. [unidiomatic] "پرانے زمانے کی تولیت کا ذکر باؤ سنتوک داس کے نام سے ہوتا ہے" -> "the trusteeship is mentioned by the name of" is not how Urdu says that a name appears in the record; it reads as though the trusteeship itself were called Bau Santok Das -> corrected sentence:
+OLD: آج یہ دربار ایک رجسٹرڈ خیراتی ٹرسٹ کی صورت میں قائم ہے، اور پرانے زمانے کی تولیت کا ذکر باؤ سنتوک داس کے نام سے ہوتا ہے۔
+NEW: آج یہ دربار ایک رجسٹرڈ خیراتی ٹرسٹ کی صورت میں قائم ہے، اور ماضی میں اس کی تولیت کے سلسلے میں باؤ سنتوک داس کا نام آتا ہے۔
+
+6. [collocation] "سبزی خور طعام خانہ" -> سبزی خور describes a person or an animal that eats vegetables, not a kitchen; "a vegetarian-eating dining hall" is a calque of "vegetarian kitchen" -> corrected sentence:
+OLD: عبادت کے ہال کے علاوہ دربار آج ایک سادہ سا سبزی خور طعام خانہ بھی چلاتا ہے، اور یہاں زائرین کے ٹھہرنے کی جگہ بھی ہے۔
+NEW: عبادت کے ہال کے علاوہ دربار آج ایک سادہ سا طعام خانہ بھی چلاتا ہے جہاں صرف سبزی کا کھانا ملتا ہے، اور یہاں زائرین کے ٹھہرنے کی جگہ بھی ہے۔
+
+7. [repetition/tangled sentence] "نانک کے پیروکاروں کو نانک پنتھی بھی کہا جاتا ہے ... اور سندھ میں ان کی تعداد بہت زیادہ ہے۔" -> the definition of نانک پنتھی was already given in the introduction ("اس راستے پر چلنے والے نانک پنتھی کہلاتے ہیں") and the word has been used a dozen times since, so repeating it here reads as a slip; and the second sentence bolts a population claim onto a sentence about temple pictures, with وہاں vague between Punjab and Sindh -> corrected sentences (every fact kept; the "also called" definition stays in the introduction):
+OLD: نانک کے پیروکاروں کو نانک پنتھی بھی کہا جاتا ہے، اور ان کا تعلق جنوبی پنجاب اور سندھ سے ہے۔ وہاں ان کے مندروں میں گرو نانک کی تصویریں ہندو دیوی دیوتاؤں کے ساتھ آویزاں ہوتی ہیں، اور سندھ میں ان کی تعداد بہت زیادہ ہے۔
+NEW: نانک پنتھیوں کا تعلق جنوبی پنجاب اور سندھ سے ہے، اور سندھ میں ان کی تعداد بہت زیادہ ہے۔ ان کے مندروں میں گرو نانک کی تصویریں ہندو دیوی دیوتاؤں کے ساتھ آویزاں ہوتی ہیں۔
+
+8. [ambiguous] "اس مقام کے دوسرے نام میں جو لفظ آتا ہے، اس صوبے میں اس لفظ کی ایک الگ تاریخ ہے۔" -> the reader is left to guess which word is meant (the alternative name was given several sections earlier), and "اس لفظ" repeats "لفظ" needlessly -> corrected sentence:
+OLD: اس مقام کے دوسرے نام میں جو لفظ آتا ہے، اس صوبے میں اس لفظ کی ایک الگ تاریخ ہے۔
+NEW: اس مقام کے دوسرے نام میں جو لفظ دربار آتا ہے، اس صوبے میں اس کی ایک الگ تاریخ ہے۔
+
+9. [collocation] "مقدس خطہ" -> خطہ is a region or tract of land (خطۂ پنجاب), far too large for a single shrine; calque of "sacred space" -> corrected sentence:
+OLD: دربار وہ مقدس خطہ تھا جہاں صوفی ثقافت کارفرما تھی۔
+NEW: دربار وہ مقدس مقام تھا جہاں صوفی ثقافت کارفرما تھی۔
+
+10. [calque] "سرکاری مالی امداد ... بحالی کی ایک لہر کی صورت میں سامنے آئی" -> money does not "come forward in the form of a wave of restoration"; English abstract-noun syntax. Urdu makes the funding the means -> corrected sentence:
+OLD: اکیسویں صدی کے اوائل میں سرکاری مالی امداد پورے سندھ میں مندروں کی بحالی کی ایک لہر کی صورت میں سامنے آئی۔
+NEW: اکیسویں صدی کے اوائل میں سرکاری مالی امداد سے پورے سندھ میں مندروں کی بحالی کی ایک لہر آئی۔
+
+11. [inconsistent spelling] "اس آستانو کی ... یہ آستانو زیارت گاہ بن گیا" -> the Sindhi term is rightly introduced once in italics with its gloss, but repeating the Sindhi form unitalicised inside Urdu syntax (an uninflected آستانو before کی) reads as a misspelling of آستانہ, which the article itself uses elsewhere (آستانے, آستانوں). After the first mention, the Urdu form should carry the reference -> corrected sentences:
+OLD: یہ بھی بیان کیا جاتا ہے کہ سندھ کے حکمران تالپور میر اس آستانو کی خبر گیری کرتے تھے۔ دلپت صوفی کی وفات کے بعد ان کے جانشین کیشو رام سپاہی ملانی کے زمانے میں یہ آستانو زیارت گاہ بن گیا اور گرو سہوانی کا مقام کہلانے لگا۔
+NEW: یہ بھی بیان کیا جاتا ہے کہ سندھ کے حکمران تالپور میر اس آستانے کی خبر گیری کرتے تھے۔ دلپت صوفی کی وفات کے بعد ان کے جانشین کیشو رام سپاہی ملانی کے زمانے میں یہ آستانہ زیارت گاہ بن گیا اور گرو سہوانی کا مقام کہلانے لگا۔
+
+12. [agreement/ambiguous] "تین روایتیں تھیں، اور ان میں سے ایک حیدرآباد کا ٹنڈو جہانیہ تھا" -> the subject is one of the روایتیں (feminine) but the verb agrees with the place name, and a tradition is equated with a locality; the reader stumbles on both -> corrected sentence:
+OLD: ہندو صوفیوں میں تصوف کی تین روایتیں تھیں، اور ان میں سے ایک حیدرآباد کا ٹنڈو جہانیہ تھا۔
+NEW: ہندو صوفیوں میں تصوف کی تین روایتیں تھیں، اور ان میں سے ایک حیدرآباد کے ٹنڈو جہانیہ کی روایت تھی۔
+
+13. [English word order/punctuation] "1843 میں، جب تالپور برسرِ اقتدار تھے، سندھ کے معاشرے میں" -> a temporal clause boxed between commas in mid-sentence is English punctuation; Urdu links جب to تو -> corrected sentence:
+OLD: 1843 میں، جب تالپور برسرِ اقتدار تھے، سندھ کے معاشرے میں سب سے اونچا مقام بلوچوں کا تھا۔
+NEW: 1843 میں جب تالپور برسرِ اقتدار تھے تو سندھ کے معاشرے میں سب سے اونچا مقام بلوچوں کا تھا۔
+
+14. [register/inconsistency] "6 سے 10 ملین ... اس تخمینے میں بہت فرق پایا جاتا ہے ... کئی ملین" -> ملین is English counting in Urdu prose, and the same article counts the 1947 migrants in لاکھ ("دس لاکھ", "آٹھ لاکھ"); also a single تخمینہ cannot "contain much difference": what varies is the estimates -> corrected sentences (same figures: 6 to 10 million = 60 لاکھ to ایک کروڑ; several million = دسیوں لاکھ):
+OLD: پاکستان میں ہندوؤں کی تعداد 6 سے 10 ملین کے درمیان بتائی جاتی ہے، مگر اس تخمینے میں بہت فرق پایا جاتا ہے۔ سندھ میں ان کی تعداد کئی ملین ہے اور ان میں سے زیادہ تر شیڈولڈ کاسٹ سے تعلق رکھتے ہیں۔
+NEW: پاکستان میں ہندوؤں کی تعداد 60 لاکھ سے ایک کروڑ کے درمیان بتائی جاتی ہے، مگر اس بارے میں اندازے ایک دوسرے سے بہت مختلف ہیں۔ سندھ میں ان کی تعداد دسیوں لاکھ ہے اور ان میں سے زیادہ تر شیڈولڈ کاسٹ سے تعلق رکھتے ہیں۔
+
+15. [ambiguous reference] "ممکن ہے کہ سندھ کا سماجی تانا بانا اپنی الگ نوعیت کا رہا ہو، جسے نوآبادیاتی حکومت نے ازسرِنو استوار کیا، مگر یہ دعویٰ متنازع ہے۔" -> coming straight after "ممکن ہے کہ ...", "یہ دعویٰ" reads as the possibility just stated, whereas it is the earlier claim that Sindh had no caste system; the next sentence's "یہ" inherits the same confusion -> corrected sentence:
+OLD: ممکن ہے کہ سندھ کا سماجی تانا بانا اپنی الگ نوعیت کا رہا ہو، جسے نوآبادیاتی حکومت نے ازسرِنو استوار کیا، مگر یہ دعویٰ متنازع ہے۔
+NEW: ممکن ہے کہ سندھ کا سماجی تانا بانا اپنی الگ نوعیت کا رہا ہو، جسے نوآبادیاتی حکومت نے ازسرِنو استوار کیا، مگر ذات پات نہ ہونے کا یہ دعویٰ متنازع ہے۔
+
+NOTES:
+- Otherwise the prose is mostly fluent and in places good (the الن فقیر passage, the 1947 migration paragraph, the Hyderabad music paragraph). No em or en dashes, no Latin letters, Western digits throughout, asterisks balanced (10), the verse paragraph untouched by any fix above.
+- Names to check against the source, not changed here because names must stay: the article writes "ٹنڈو جہانیہ" (twice, and "محلے جہانیہ") but a few lines later "ٹنڈو جہانا" for Qutbuddin Darya's mazar. If they are the same place, one spelling should be chosen.
+- "*ٹکانہ*" is defined twice with different meanings: first as the name for the Jagiasi gaddis, later as any temple that houses the Guru Granth Sahib. For the content editor.
+- "پاکستان سے آئے اور دو ہندو صوفیوں کی دستار بندی کی": for a Pakistani reader the destination is unclear (presumably India, but supplying it would add a fact). For the content editor.
+- "ڈی بی-80 کہلانے والے پلاٹ پر" would read more naturally as "پلاٹ نمبر ڈی بی-80 پر"; plots are numbered rather than "called".
+- "برادری کے شمار کے مطابق" (of a date): "برادری کے حساب سے" is the usual phrase for a reckoning.
+- "تعارف اور حمایت کے خطوط": the idiomatic pair is "تعارفی اور سفارشی خطوط".
+- "متروکہ وقف املاک بورڈ کے ہاں درج" (twice): "کے ریکارڈ میں درج" is the more formal register for an institution.
+- "عامل" is glossed at first use ("ہندوؤں کا منشی طبقہ") and glossed again later ("یعنی اہلِ قلم کے طبقے کا"); the second gloss could go.
+- The short gloss sentences in the census paragraph ("سنگھ سبھا سکھوں کی ایک اصلاحی تحریک تھی۔", "خالصہ امرت دھاری سکھوں کی جماعت ہے۔") make it choppy; "سکھوں کی اصلاحی تحریک سنگھ سبھا کے نتیجے میں ..." would read more smoothly.
+- "دربار کو عطیہ دینے والوں کے نام ٹائلوں پر کندہ ہیں۔" sits between the kitchen/lodging sentence and "یوں یہاں لنگر سے ملتی جلتی وہ مہمان نوازی جاری ہے"; moving it after the یوں sentence would let یوں point back to the kitchen.
+- "وسیع جھرمٹ ... جو ... بکھرے ہوئے ہیں": a جھرمٹ is a tight cluster, so "scattered cluster" jars slightly; "سلسلہ" would avoid it.
+- "اینی بیسنٹ نے حیدرآباد میں کئی لیکچر دیے، اور وہاں ان کی تقریر کا موضوع": several lectures, then a singular تقریر; whether one or all were on Hinduism is a content question, so left alone.
+- "1960 کی دہائی سے ... خبریں ... دیتا رہا": with "سے" ("since") the usual tense is "دیتا رہا ہے" or "دیتا آیا ہے", if the source means the coverage continues.
+- "پاکستان کے ہندوؤں کی اکثریت یہیں بستی ہے۔ زیادہ تر ہندو سندھ اور جنوبی پنجاب میں آباد ہیں" says nearly the same thing twice in a row.
+- "سندھ کے اولیاء کی خاک کا کچھ حصہ": "سندھ کے اولیا کی کچھ خاک" is more natural. Hamza practice is also mixed (اولیاء with hamza, شرکا without).
+- "سندھ کو ہمیشہ سے اپنے صوفیانہ ورثے پر ناز تھا": "ہمیشہ سے ... ناز رہا ہے" is the more usual pairing.
+- "اس کی تعبیر سندھ کے بارے میں ایک بیان کے طور پر کی" is acceptable but slightly stiff; "اور اسے سندھ کے حال کا بیان قرار دیا" would be smoother.
+- "پھیلاؤ" recurs often (نانک پنتھ کے پھیلاؤ، تعلیمات کے پھیلاؤ، متوسط طبقے کے پھیلاؤ، صوفی ثقافت کے پھیلاؤ); "رواج" or "اشاعت" here and there would vary it.

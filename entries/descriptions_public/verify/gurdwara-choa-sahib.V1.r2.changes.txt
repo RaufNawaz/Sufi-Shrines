@@ -1,0 +1,29 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: In Aurangzeb's time he was hailed as the caravan leader of the paths of truth and the torch bearer of the mystic way. He travelled through most of the world, it was said, then came to the town of Batala, married, and settled in a village of Batala on the Ravi, and people came in their multitudes from every land to become his disciples.
+NEW: It is said that he travelled through most of the world, then came to the town of Batala, married, and settled in a village of Batala on the Ravi, and that people came in their multitudes from every land to become his disciples.
+
+2. V1 r1 change 2
+OLD: Passing over his worthy son, Lakhmi Das, he made Lahna, a Khatri by caste, his successor, with the title Guru Angad: on his deathbed he appointed not his son but his most loyal student.
+NEW: Passing over his son Lakhmi Das, who was held to be a worthy son, he made Lahna, a Khatri by caste, his successor, with the title Guru Angad: on his deathbed he appointed not his son but his most loyal student.
+
+3. V1 r1 change 3
+OLD: He was a householder in every sense of the word, and he brought a message of peace and harmony to the believers of the mutually hostile religions of Islam and Hinduism.
+NEW: He lived as a householder, and he brought a message of peace and harmony to the believers of Islam and Hinduism.
+
+4. V1 r1 change 4
+OLD: They lived at one with their friends and at peace with their enemies, and devotion such as theirs to their leader was seldom found in other groups.
+NEW: They lived at one with their friends and at peace with their enemies.
+
+5. V1 r1 change 5
+OLD: The Guru composed verses in Hindi on the truth of God, setting out the unity of God in clear words and shining metaphors.
+NEW: The Guru composed verses in Hindi on the truth of God, in which he set out the unity of God.
+
+6. V1 r1 change 6
+OLD: At the shrine of the goddess Hinglaj there are the engraved footsteps of Guru Nanak.
+NEW: At the shrine of the goddess Hinglaj there are engraved footsteps held to be Guru Nanak's.
+
+7. V1 r1 change 7
+OLD: Bodhi trees, the sacred figs of Buddhism, are said to grow near Jhelum and in Islamabad.
+NEW: A bodhi tree, the sacred fig of Buddhism, is said to grow near Jhelum, and another in Islamabad.

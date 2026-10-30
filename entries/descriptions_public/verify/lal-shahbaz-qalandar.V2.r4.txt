@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: This was a confirming round on the sentence in lal-shahbaz-qalandar.ur.r4.changes.txt: the backup and the current file differ only in Urdu L47, the OLD occurs once in the backup and swapping it for the NEW reproduces the current file exactly, and the only change is removing the doubled "درختوں کا"; the NEW sentence now renders English L47's "It is a wooded grove a few kilometres south of the town, where Baba-Akram once founded a dwelling for faqirs" faithfully (درختوں کا جھنڈ for "wooded grove", چند کلومیٹر جنوب, بابا اکرم, فقیروں کا ٹھکانا, "once" carried by the past perfect قائم کیا تھا, "it" resolved to لعل باغ), and "legend has it" stays in the following unchanged sentence, so nothing is lost or added.

@@ -1,0 +1,17 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. All eleven round 1 V3 issues are fixed, each in the verifier's wording or a fidelity adaptation of it, and round 1 note 8 (whose meeting) is fixed too. Each changed sentence was read in its paragraph; none breaks the sentences around it.
+2. Issue 1 (vacant land under cultivation): fixed. وسیع کھلی زمین تھی جس پر کاشت کاری ہوتی تھی is natural and no longer contradicts itself; the relative جس پر sits directly after its noun; the past tense matches the wall and gates described just before.
+3. Issue 2 (hand and fire): fixed. آگ کے اوپر ہاتھ لے جاتے no longer suggests putting the hand on the flame, and انہیں now agrees with the plural hands and cannot be read as the fire. Distributive singular چہرے پر after لوگ is normal Urdu.
+4. Issue 3 (سکھ ضمیر calque): fixed. ایک ایسا سبق ... جو سکھوں کو عزیز ہے is idiomatic, with the correlative ایسا ... جو; عزیز ہے without بہت reads perfectly well and the colon still introduces the lesson cleanly.
+5. Issue 4 (سکھوں کے یاتری): fixed. بیرونِ ملک بسے سکھ یاتری is natural; the یہیں ... یہیں parallel and ان کے عطیات read smoothly.
+6. Issue 5 (ان after صوفیوں): fixed. گرو سے عقیدت is clear and agrees with the article's use of گرو for Guru Nanak; the following sentence's ان now naturally means the Guru. Taste only: گرو appears twice in the sentence (گرو نانک ... گرو سے), but the second is a deliberate renaming for clarity, as the brief asks, not a fault.
+7. Issue 6 (stacked causes): fixed. یہ اس لیے ممکن ہوا کہ ... کے باعث سکھوں کی آبادی بڑھ گئی تھی parses at once; the pluperfect بڑھ گئی تھی correctly places the growth before the celebrations began, and کے باعث avoids repeating سبب.
+8. Issue 7 (bolted on festival clause): fixed. The festival is now named first and described in one extraposed relative clause (جو ... ہے اور ... منایا جاتا ہے), the standard Urdu order; agreement is masculine singular throughout.
+9. Issue 8 (tense clash گاؤں تھا، جو ... واقع ہے): fixed. The prenominal لاہور سے ... میں واقع ننکانہ صاحب is idiomatic reference prose and reads well as the opening of the section; the next sentence's اس still points to Nankana Sahib.
+10. Issue 9 (نسخوں کے درمیان calque): fixed. اور وہ بھی کوئی بیس سے تیس نسخے is natural; کوئی gives the approximation idiomatically. Taste only: کوئی بیس تیس نسخے would be a shade more colloquial, but the present wording is correct and fits the register.
+11. Issue 10 (age tacked on): fixed. اٹھاون سالہ اقبال قیصر is natural and mirrors پینتیس سالہ کانسٹیبل ارشد ملک two sentences later; the two parallel ages in one paragraph read as a pattern, not as repetition.
+12. Issue 11 (head of plural institutions): fixed. مہنت کسی مذہبی ادارے کے سربراہ کو کہتے ہیں is the natural form of a definition.
+13. Note 8 (whose meeting): fixed. ایک بار جب ان سے ملاقات ہوئی تو جتھا سنگھ ... ثالثی کر رہے تھے is correct (جب ... تو), and the impersonal ملاقات ہوئی reads as the visitor's encounter. Taste only: since ان already points to Jatha Singh from the sentence before, تو وہ would be equally clear and a little lighter than repeating the name; the repetition is not a fault.
+14. Mechanics of the changed sentences: Urdu punctuation only, no Latin letters, no em or en dashes, Western digits untouched, asterisks balanced (46). Round 1 notes that were taste only (the repeated cloth sentence, the placement of the mahant gloss, رکھنا three times, حفاظتی گارڈ and the others) were not changed and are not reopened.

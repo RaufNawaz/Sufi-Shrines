@@ -1,0 +1,15 @@
+1. V1 r1 note 1 (count: the team version gives exactly one further stop, its name uncertain)
+OLD: stopping on the way at Dera Chahal and at Jaman, among other places.
+NEW: stopping on the way at Dera Chahal, at Jaman and at one other place.
+
+2. V1 r1 note 2 (implicature: the walled, poverty stricken villages are not said to include Dera Chahal)
+OLD: The Defence Housing Authority, the neatest and most expensive residential area of Lahore,
+NEW: More generally, the Defence Housing Authority, the neatest and most expensive residential area of Lahore,
+
+3. V1 r1 note 3 (inference: the team version does not say the talk was inside)
+OLD: drowned out the talk inside the gurdwara.
+NEW: drowned out a conversation at the gurdwara.
+
+4. V1 r1 note 4 (slight embellishment: "keeps" suggests the custodians maintain it)
+OLD: The gurdwara also keeps a tradition of its own.
+NEW: The gurdwara also has a tradition of its own.

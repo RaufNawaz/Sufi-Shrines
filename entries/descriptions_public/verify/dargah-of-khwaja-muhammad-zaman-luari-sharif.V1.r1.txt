@@ -1,0 +1,44 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. (precision) The endnote explains only the words "Sind is not the amir", not the whole recited line, which also says that Punnu is not in the Kec. OLD: "The line means that Sindh is not in the position of leadership, or amirship." NEW: "Its second half means that Sindh is not in the position of leadership, or amirship."
+
+2. (precision) "the centre's beginnings" reads as the beginnings of the khanqah just named, but the team version's disagreement concerns the dating of Luari as a Naqshbandi centre (the traditional 1737 against Luari scholars writing in the early eighteenth century), not the khanqah's own date. OLD: "The *khanqah* is traditionally dated to 1737, though accounts of the centre's beginnings differ." NEW: "The *khanqah* is traditionally dated to 1737, though accounts of when Luari became a Naqshbandi centre differ."
+
+3. Repetition (taste). The text says three times that his khalifas or deputies carried the order's teaching across the province (Overview paragraph 2, The Saint paragraph 2, Legacy paragraph 1). Legacy paragraph 1 repeats the Overview's first two sentences almost word for word. The Shrine section repeats the Overview's tomb, vaulted chambers and ʿurs sentences and The Saint's burial at Luari. The Overview is meant to stand alone, so some overlap is expected, but the writer may trim, for example by cutting Legacy paragraph 1. The brief says length never comes from repetition.
+
+4. Taste. Shah Abdul Latif first appears ("in the generation of Shah Abdul Latif of Bhit") with no word on who he is. The team version calls him "the poet" ("the poet, coming home, prays"), so "the poet Shah Abdul Latif of Bhit" at first mention is supported and would help a general reader.
+
+5. Taste. "It had several important centres there" turns the team version's present ("has several important centres in Sindh") into a past. In a historical paragraph this is harmless, but "It has" is closer to the source.
+
+6. Taste. The heading "A Master of the Same Name" could suggest a different man. The section's first sentence ("may be the saint of Luari, though the identification is not certain") corrects that, so it can stay.
+
+7. Rulings on the writer's judgement calls:
+   - Call 1 (the Lanwari master kept as a hedged section): accepted. The hedge matches the team version's "a figure who may be this saint", the two grounds given are the team version's own, and Legacy keeps the hedge.
+   - Call 2 (Thattawi): accepted as written. Do not add ", not the master the shrine remembers". The hedged section never ties Thattawi to the saint, and "Among his own masters" already signals other masters. The team record also leaves open whether the master whose printed name is damaged (Abu'l-qasim) is Abul Masakin under another spelling, so a contrast clause would claim more than the source settles. The dropped name is correctly left out (rule 5).
+   - Call 3 (no "early eighteenth century" on the Luari treatises; the southern Sindh dating and Hashim's dates kept): accepted. This is rule 4 applied, with one clause at the 1737 date (see note 2).
+   - Calls 4 and 5 (the site's account for the khanqah; Boivin's material kept as about the place, not the saint): accepted. No place-level material is joined to the saint.
+   - Call 6 ("He has been called", "he has been placed"; Dard unexplained): accepted. Neither names or narrates a source, and the team version gives nothing to explain Dard with.
+   - Call 7 ("praised the eye-glass", "used the image the other way"): accepted as a fair plain rendering of "positive evaluation" and "contradicts".
+   - Call 8 ("In the later twentieth century" for "still in our day"): accepted. The book was first published in 1976, so the anchor is firm.
+   - Calls 9 and 10 (the Aurangzeb anchor; the Setting's Persian material as the team version gives it; the Debal clause dropped; the years marked uncertain dropped, the events kept): accepted. The anchor rests on the bibliography's "composed in regnal year 40 of Aurangzeb".
+   - Call 11 ("Before the British conquest"): accepted. It is the team version's own frame.
+   - Calls 12 and 13 (Malik and Ewing, unattributed): accepted. Both are supported and say "especially in the Punjab and Sindh" as the source does.
+   - Call 14 (Gidumal: the shared core, invader unnamed, "told of more than one invasion", "is said to"): accepted. Every element is in one or both tellings, nothing contradicts either, and the story stays framed as a story.
+   - Call 15 (dropping "some more militant mystically inspired groups"): accepted. The statement stays true of the Naqshbandis, and the shortening adds nothing.
+   - Calls 16, 17 and 18 ("Later Naqshbandi treatises", "labelled", the connectives, "has lived on in performance", "the tales of women"): accepted.
+   - Call 19 (Alam Faqri's names and the new town stated plainly): accepted. The team version reports both without framing them as tradition.
+   - Call 20 (the police post sentence): accepted. It is a reword only, and "since the 1980s" is the source's own anchor.
+
+8. Checks made. Every statement, number and count was checked against the team version: 1713 to 1775, 1737, eighty five poems, January 1775, the 1980s, 1692 to 1762, 1781 (twice), 1595, 1739, 1843, two hundred and fifty and a hundred kos, four sarkars, forty thousand boats, fourteen hundred towers, and more than a hundred thousand shrines. Each is supported. The glosses (dargah, ʿurs, the Naqshbandis, khanqah, wahdat al-wujud, Sayyids, pirs) match data/glossary.csv, and the rest are plain dictionary senses. Legends stay framed ("Tradition holds", "is said to"). No citation, narration of sources, signposting or archive language survives, and no fact rests on a reading the team version marks damaged or [OCR?]. check_public_description.py --english-only exits 0 (ratio 0.49).
+
+9. Omission sweep. I swept the team version and nothing important is missing. What is left out is:
+   - source apparatus and statements of absence;
+   - readings marked illegible, damaged or uncertain: the tazkira's death year, Abu'l-qasim, the Marui lament's OCR text, and the years 927 and 1001;
+   - the Debal clause, which the team record flags for checking;
+   - minor colour: the lonely tiled tomb, Girhori's caution and the two bags.
+
+   The family (the Siddiqi lineage, the father Shaikh Abdul Latif, the successors' chambers), the teacher, the names and titles, the khanqah, the new town, the verse, the death, the shrine and the region-level material are all kept.

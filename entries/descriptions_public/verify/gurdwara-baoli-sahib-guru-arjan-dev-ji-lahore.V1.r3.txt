@@ -1,0 +1,8 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff: `diff /home/claude/bak/gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore.md.bak_en2 entries/descriptions_public/gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore.md` shows one changed line (82c82). It is exactly the OLD to NEW replacement listed in the changes file (change 1, V1 r2 issue 1), and nothing else moved.
+2. Checker: `ok    gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore  team 39890 -> public 18030 chars (0.45)` (exit 0).
+3. Change 1 confirmed as supported and without fault: "and the poets of that century in the Punjab wrote of the ruin of their land" restores the team version's own qualifier ("The poets of that century in the Punjab wrote of its ruin"), so the claim is again limited to poets in the Punjab. "Their land" is the Punjab, the place the team version's "its ruin" refers to and the subject of the Bulleh Shah and Waris Shah verses quoted after it; it cannot be read as the well. No fact is added or lost, the grammar is intact, "is said" still frames the loss of the well, and the sentence carries no source talk, citation or dash.

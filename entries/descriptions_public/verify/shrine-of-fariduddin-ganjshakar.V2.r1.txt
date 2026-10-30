@@ -1,0 +1,54 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] "Seeking distance from the intrigues of the capital, in a politically confused time, he left Delhi" | "دارالحکومت کی سازشوں سے دور رہنے کے لیے، اور اس لیے بھی کہ زمانہ سیاسی انتشار کا تھا، وہ دہلی چھوڑ کر" -> the English gives the political confusion as the setting of the move; the Urdu makes it a second reason for leaving -> "سیاسی انتشار کے اُس زمانے میں وہ دارالحکومت کی سازشوں سے دور رہنے کے لیے دہلی چھوڑ کر پنجاب میں دریائے ستلج کے کنارے اجودھن میں آ بسے۔"
+
+2. [changed fact] "Holiness, he said, could be obtained only by ignoring princes" | "ان کا قول تھا کہ ولایت صرف شہزادوں سے بے نیاز رہ کر ہی حاصل ہو سکتی ہے" -> شہزادہ means a king's son; "princes" here means rulers (the whole paragraph is about kings, nobles and government patronage) -> "ان کا قول تھا کہ ولایت صرف حکمرانوں سے بے نیاز رہ کر ہی حاصل ہو سکتی ہے"
+
+3. [omission] "He is remembered for counselling his disciples to answer harshness with gentleness" | "ان کی یہ نصیحت مشہور ہے کہ سختی کا جواب نرمی سے دو" -> the counsel was given to his disciples; the Urdu drops them -> "مریدوں کو ان کی یہ نصیحت مشہور ہے کہ سختی کا جواب نرمی سے دو، اور جو کانٹے لائے اسے بھی نرم ترین جواب دو۔"
+
+4. [omission] "fasting is the first half of the way along the Sufi path, prayers and pilgrimages the other" | "روزہ راہِ تصوف کا آدھا حصہ ہے اور نماز اور زیارتیں باقی آدھا" -> "first" is dropped -> "اور یہ کہ راہِ تصوف کا پہلا نصف روزہ ہے اور دوسرا نصف نماز اور زیارتیں۔"
+
+5. [changed certainty] "He is also the source of particular formulas of zikr" | "ذکر کے بعض مخصوص کلمات بھی انہی سے منسوب ہیں" -> منسوب (ascribed) hedges what the English states as fact; the English keeps "attributed" for the doubtful works only -> "ذکر کے بعض مخصوص کلمات کا ماخذ بھی وہی ہیں، جن میں سے کچھ ہندوستانی زبانوں میں ہیں:"
+
+6. [changed fact] "Behind it rises a splendid structure, several metres higher" | "اس کے پیچھے کئی میٹر اونچی ایک شاندار عمارت ہے" -> "higher" (than the tomb) has become an absolute height ("several metres tall") -> "اس کے پیچھے ایک شاندار عمارت ہے جو مقبرے سے کئی میٹر اونچی ہے اور جس میں بابا فرید کی اولاد دفن ہے؛"
+
+7. [changed certainty] "Devotees came to see the Pakpattan shrine as one in a network of sacred wilayats ..., ranked in a hierarchy in which the shrine of Baba Farid was the supreme shrine of the Punjab, to which others were subordinate" | "یہ ولایتیں درجہ بدرجہ مرتب تھیں، اور ان میں بابا فرید کا مزار پنجاب کا سب سے بڑا مزار تھا، جس کے ماتحت دوسرے مزار تھے۔" -> starting a new sentence takes the ranking and Pakpattan's supremacy out of "how devotees came to see it" and states them as fact -> "عقیدت مندوں کے نزدیک یہ ولایتیں درجہ بدرجہ مرتب تھیں، اور ان میں بابا فرید کا مزار پنجاب کا سب سے بڑا مزار تھا، جس کے ماتحت دوسرے مزار تھے۔"
+
+8. [changed fact] "a hand was laid on them with the words that this talk had been by way of conversation, not of instruction, and that they should stay where they were" | "کہا گیا کہ یہ باتیں گفتگو کے طور پر ہوئی تھیں، تعلیم کے طور پر نہیں، اس لیے کرسیاں اپنی جگہ ٹھہری رہیں۔" -> اس لیے adds a causal link, and ٹھہری رہیں reads as narration ("so the chairs stayed put") instead of part of what was said -> "کرسیاں اٹھنے لگیں تو ان پر ایک ہاتھ رکھا گیا اور کہا گیا کہ یہ باتیں گفتگو کے طور پر ہوئی تھیں، تعلیم کے طور پر نہیں، اور یہ کہ کرسیاں اپنی جگہ ٹھہر جائیں۔"
+
+9. [omission] "how Islam, the religion above all others 'of the Book', was mediated among common villagers" | "کتاب پر مبنی دین اسلام ایسے عام دیہاتیوں تک کس وسیلے سے پہنچا" -> "above all others" (the religion of the Book par excellence) is lost; "کتاب پر مبنی" makes Islam one book religion among others -> "اور ان کا مزار اس کی نمایاں مثال ہے کہ اسلام، جو سب سے بڑھ کر "کتاب کا دین" ہے، ایسے عام دیہاتیوں تک کس وسیلے سے پہنچا جن میں سے اکثر پڑھنا نہیں جانتے تھے۔"
+
+10. [addition] "His line reaches far." | "ان کا روحانی سلسلہ دور تک پھیلا ہے۔" -> روحانی narrows "line" to the spiritual chain; the English leaves it open (Salim Chishti belongs to "the Faridi line", a phrase this article uses for blood descent) -> "ان کا سلسلہ دور تک پھیلا ہے۔"
+
+NOTES:
+Rulings on the flagged points (line numbers are the same in both files; the 259 lines align paragraph by paragraph):
+- Abbas qawwali lines (137, 141): acceptable. The Urdu script renderings follow Abbas's transliteration faithfully (devĩ دیویں، mangĩ منگیں، ehī ایہی، vaṇ وݨ، jhok جھوک), and since the lines are Punjabi/Saraiki the short italic meaning paragraph after each is right under the brief. Optional: "dāse" may stand for دسے (tells); داسے follows the transliteration and is not a fault. ݨ is already used in other site articles.
+- Zikr syllables (87): acceptable. وُہی ہی، ہی ہی، ہِن ہی render wuhi hi, hi hi, hin hi faithfully, and italics are right for these unfamiliar terms.
+- Khusrau lines (127 to 133) in Urdu script with no meaning paragraph: acceptable. The lines are Hindavi/Purbi that an Urdu reader follows (صدقہ، لاج، روپ، سووت); the English renderings exist for the English reader, and the brief's exception for verse already readable in Urdu applies. Dropping the transliterations from the lead in sentences is correct, since the line itself now stands as the verse paragraph. Translator credits correctly dropped.
+- "uncles" as چچاؤں (239): acceptable. Urdu has no neutral word; the graves are of the father's line (father, grandfather; Qazi Shuaib came with three sons), so paternal uncles is the natural reading.
+- Malaysian pilgrim as ایک زائر (231): acceptable. "Pilgrim" is زائر, and ایک introduces a new person naturally; not the calque the brief warns about.
+- ام المومنین (71): exact for "Mother of the Faithful"; no gloss needed.
+- ولایت for "Holiness" (41): acceptable (sainthood); context keeps it apart from the spiritual domain sense used for Delhi, Kaliyar and Panipat. See issue 2 for the other word in that sentence.
+- روحانی عروج کا حلف (257): acceptable for "oath of ascension" (the ascension is spiritual), and the rest of the sentence (the only South Asian saint; sworn by the Intimacy of Farid al-Din Ajhodani) is faithful.
+- لنگ نما نذرانے (237): acceptable and decorous for "phallic offerings"; "referred to as Aban Shah" is kept.
+- کوٹھیوال (9, 11, 215, 239): acceptable. There is no entry in urdu-dictionary.json and no existing Urdu article for this row, and it is spelled the same all four times. کوٹھے وال is a common alternative and slightly closer to "Kothewal"; optional.
+- "the evening prayer" as شام کی نماز (57): acceptable as the literal equivalent of the English. Note for the team: the team text shows this comes from Ernst and Lawrence's "evening prayers", while the Tahqiqat-e Chishti has the night prayer, and an Urdu reader takes شام کی نماز as مغرب. If the English is ever changed to "night prayer", the Urdu should become عشا کی نماز. No change now.
+
+Style:
+- 5: خالص پاکستانی رنگ means "purely Pakistani"; for "distinctly Pakistani" write ایک منفرد پاکستانی رنگ کے تصوف.
+- 31: چنانچہ وہ انہی لوگوں کے بیچ adds "therefore" where the English has "and"; write اور وہ انہی لوگوں کے بیچ.
+- 55: ان کی اولاد فریدی کہلاتی ہے follows a clause ending on Badr al-Din Ishaq; write بابا فرید کی اولاد فریدی کہلاتی ہے.
+- 151: لاکھوں for "lakhs upon lakhs"; لاکھوں لاکھ is closer.
+- 153: two ان in a row (grandfather, then grandson); write علاء الدین کا مقبرہ بنانے پر.
+- 155: اس کے ماتحت مزاروں میں is unclear; write پاکپتن کے ماتحت مزاروں میں.
+- 161: مقامی قبیلوں کے مقابلے میں means "compared with"; for "among the local clans" write مقامی قبیلوں میں.
+- 165: جس ولی نے ... اس کے مزار پر; use ان کے مزار پر for a consistent honorific.
+- 169, 175: ایک ہزار روپے، ڈیڑھ لاکھ، پندرہ لاکھ are correct values, but the brief asks for Western digits (1,000; 150,000; 1,500,000), and the QA script may miss the figures.
+- 189: دیوان ہی کے ہاتھ سے, the ہی adds exclusivity the topic sentence lacks; drop it. وہاں ان کی نسل کے نمائندے کو leaves ان unclear; write وہاں بدر الدین اسحاق کی اولاد کے نمائندے کو.
+- 193: گویا ان سے معاہدہ کرتے makes Baba Farid the other party, where the English has him as the mediator; write گویا ایک معاہدہ کرتے.
+- 205: لیکن ... مگر بے سود is a double adversative; drop لیکن.
+- 239: "caretaker" is given as مجاور and then متولی; متولی is a custodian or trustee (the article uses it for the Diwans); write مجاور غلام شبیر کا خاندان.
+- 243: سب سے بے تکلف means "most informal"; for "intimate" write سب سے نجی.
+- 249: ایک پائیدار زیارت گاہ for "one of its enduring centres"; write اپنی پائیدار زیارت گاہوں میں سے ایک.
+- Checks passed: no Latin letters, no en or em dashes, ten headings in the same order, all four Punjabi verse lines byte identical, every figure in the Urdu appears in the English, prose length ratio 0.89. On line 97, making Sheikh Ibrahim's scribe the compiler matches the team source (Khalid), so it is not a wrong reference.

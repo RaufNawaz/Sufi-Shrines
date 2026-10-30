@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. The Shrine, paragraph 2: "It remains the great shrine of the Pashto speaking world" | "سب سے بڑا آستانہ". سب سے بڑا can be read as "largest" (a claim about size) as well as "foremost". The English means foremost, so عظیم ترین آستانہ or سب سے نمایاں آستانہ would be closer.
+2. The Poet and Saint, paragraph 1: "legend has it that he led a life of withdrawal and seclusion" | "روایت ہے کہ انہوں نے دنیا سے کنارہ کش ہو کر گوشہ نشینی اختیار کر لی تھی". The claim is still hedged. But اختیار کر لی تھی suggests a turning point in his life, where the English describes a settled way of life. روایت also repeats the word used for "By tradition" two sentences later. A closer wording: کہا جاتا ہے کہ وہ دنیا سے کنارہ کش رہ کر گوشہ نشینی کی زندگی گزارتے تھے۔
+3. The Shrine, paragraph 2: "though accounts of the attack differ" has become its own sentence (تاہم اس حملے کے بارے میں بیانات یکساں نہیں). It still qualifies the account of the attack in the sentence before it, so the hedge is kept. Noted only because the English hangs it on the same sentence.
+4. Deliberate drops, not omissions: the glosses of دیوان، صوفی، چشتی سلسلہ، رباب، عرس، مشاعرہ; the italics on رباب، قلندر، عرس، مشاعرہ. The glosses of قلندر and ناتھ جوگی are kept, as the brief asks. Every heading matches (Overview تعارف, The Poet and Saint شاعر اور ولی, The Poetry شاعری, The Shrine مزار, The Setting پس منظر, Legacy ورثہ). There are 13 paragraphs on each side. Names follow the dictionary (ہزار خوانی، رحمان بابا، عبدالرحمان مہمند).

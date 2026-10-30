@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Style only. ## مزار اور اس کا ماحول, paragraph 2: "قریب کا قصبہ پتھورو ایک اور ولی کی آخری آرام گاہ ہے" makes the town itself the resting place. The meaning is right, but "قریب کے قصبے پتھورو میں ایک اور ولی کا مزار ہے" says "is the seat of another saint's tomb" more exactly.
+2. Paragraph 3 of the same section opens with English "The town has its place in other stories too", which is ambiguous after a paragraph about both Pithoro and Umarkot. The Urdu names عمرکوٹ, and that is the correct reading because every story that follows concerns Umarkot. It is a resolution, not an addition.
+3. Glosses of familiar terms are dropped in line with the brief: khanqah, urs, khalifas, Sultan al-Aulia ("the king of the saints"), "Ahmad, a name of the Prophet" (shown as احمدؐ), and the "archetype of Muhammad" gloss on حقیقتِ محمدیہ. The two Schimmel quotations are given as Urdu italic renderings with no credit line, as the brief requires, because the English carries only an English translation and no verse in the original script.
+4. Qualifiers checked and kept: "it is said" (works composed, Parmar Sodha as rano), "tradition holds" (the death in battle), "accounts differ" (in detail), "accounts are not unanimous" / "most often" (his order), "may have met", "perhaps the finest", "apparently following", "some eight kilometres", "around 600 kilometres", "to a certain extent". All dates (1739, 1778, 1781 twice, 1843, 1907, 1956, 2015) and the reference Sura 57:4 match.

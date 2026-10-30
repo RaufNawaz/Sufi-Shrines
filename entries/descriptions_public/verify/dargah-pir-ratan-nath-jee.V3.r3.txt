@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 2 issue 1 (کٹاس twice inside the joined sentence) is fixed: "پشاور کے ہندو یہ تہوار کٹاس میں بھی مناتے آئے ہیں، اور 2010 میں وہ وہاں گئے تھے۔" now names Katas once, and the second clause refers back with وہاں. With this, round 1 issue 3 (repetition and deixis) is fully fixed.
+2. The new clause is natural, correct educated Urdu. "وہ وہاں گئے تھے" is an ordinary pronoun and adverb sequence ("they had gone there"), not an awkward doubling. Agreement (وہ ... گئے تھے), word order and the past perfect with a stated year are idiomatic. No calque and no new ambiguity: وہ can only be the Hindus of Peshawar and وہاں can only be Katas.
+3. Fit with the sentences around it: the following sentence "2011 کی شیو راتری پر پشاور سے ہندو یاتری دو بڑی بسوں میں وہاں پہنچے" still reads cleanly; a وہاں in each of two consecutive sentences, both pointing to Katas, is normal narrative Urdu, and the paragraph names کٹاس again in its last sentence ("اس شیو راتری پر کٹاس میں چار شادیاں ہوئیں"), so the place is never left unclear.
+4. Taste only: none to add. The round 1 and round 2 taste notes not acted on stand as recorded.

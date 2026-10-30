@@ -1,0 +1,9 @@
+Changes applied by the coordinator (ur2), exact replacements, each OLD occurring once.
+
+1. V3 r2 issue 1 (the saint's full name twice in one sentence)
+OLD: اور ہر سال خواجہ محمد زمان کا عرس
+NEW: اور ہر سال صاحبِ مزار کا عرس
+
+2. V3 r2 issue 2 (gloss between noun and postposition)
+OLD: صوبہ چار سرکاروں یعنی اضلاع پر مشتمل تھا:
+NEW: صوبے کے چار اضلاع تھے جنہیں سرکار کہا جاتا تھا:

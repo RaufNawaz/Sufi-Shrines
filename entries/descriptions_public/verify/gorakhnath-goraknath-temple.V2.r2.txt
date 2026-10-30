@@ -1,0 +1,21 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 14 OLD/NEW pairs of gorakhnath-goraknath-temple.ur.r2.changes.txt, applied in order to /home/claude/bak/gorakhnath-goraknath-temple.ur.md.bak_ur1 (each OLD found exactly once in the backup and exactly once in the working text at its turn, replaced once), give a text byte for byte identical to the current gorakhnath-goraknath-temple.ur.md (23479 bytes both). Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py gorakhnath-goraknath-temple --no-verdicts` printed `ok    gorakhnath-goraknath-temple  team 27950 -> public 14045 chars (0.50), Urdu 13228 chars (0.94)` and exited 0. Independently: no Latin letters, no em or en dashes, 28 asterisks (balanced).
+3. Change by change against the English (all faithful):
+   1 (Gor Khatri, para 1, layers): the range from the Indo-Greeks of the second century BCE through the Hindu Shahi and later periods, and "many civilisations", are all kept; only the order moved.
+   2 (Guru Gorakhnath, para 1): مشہور ہے کہ وہ متسیندر ناتھ کے چیلے تھے renders "He is remembered as the disciple of Matsyendranath" with the wording the brief prescribes for "remembered as"; no hedge added or lost.
+   3 (para 2, trinity): the three names and their order unchanged; meaning as in round 1.
+   4 (para 2, nine Naths and eighty four Siddhas): "this does not mean that these figures are historical" now names its referents correctly (the veneration; the Naths and Siddhas), which is exactly the English's "this" and "these figures". Nothing added.
+   5 (para 3, Siddhas in the Himalayan foothills): "achieved this" now points unambiguously to the state of the perfect yogi described in the previous sentence (body transformed at will, free of disease and death); کمال کا یہ درجہ picks up کامل جوگی and adds no fact. "are believed" kept as عقیدہ ہے کہ.
+   6 (para 4, disciples' treatises): magic, alchemy, left-handed occultism and hatha yoga all present; وام مارگ یعنی بائیں راہ کے مخفی علوم gives the sense of "left-handed occultism" (the tantric left hand path), as V2 r1 note 3 suggested. Faithful.
+   7 (para 4, Goraksha-Bijay): author Shaikh Faizu'llah, seventeenth century, and the next sentence's basis on a Sanskrit work "said to have been composed by" Gorakhnath (بتایا جاتا ہے) all kept; اس کی بنیاد still refers to the book.
+   8 (para 5, bhava/abhava): وجود = bhava, نفی = abhava, in the English order; "lies above" both kept as دونوں سے بالاتر.
+   9 (Legends, para 1, Mahdi): the attribution to the view is kept (اسی خیال کے مطابق), matching the English colon that makes both clauses part of the view; "show the distinctive features" = امتیازی خصوصیات پائی جاتی ہیں. V2 r1 note 4 respected.
+   10 (Legends, para 2, Goga Pir): ان now unambiguously Goga Pir (the only person named before it in the sentence; the preceding sentence's Ranjha is singular وہ); the contest is with Rai Pithora and the help is Gorakhnath's invisible army. V2 r1 note 1 resolved.
+   11 (Sufis, para 1, qalandars): both qalandars and Sufis kept as influenced; the gloss "wandering dervishes" kept. The adaptation (keeping the gloss, which the brief requires for قلندر, rather than V3's سیلانی قلندروں) is right for fidelity and the brief; placing it before the term keeps it out of the noun and postposition.
+   12 (Frontier, para 2, Khyber road): اسے for "used it" removes the exclusivity of اسی کو. V2 r1 note 2 resolved.
+   13 (Frontier, para 3, minorities): "mainly Hindus, who form the largest minority" kept exactly.
+   14 (Legacy): یہ مندر names the temple as the English's "It" intends; "one of the few Hindu temples in the region still in use" and "a rare survival of the Nath tradition in Pakistan" kept.
+4. No change adds or drops a number, date, name, title, relationship or hedge, and no legend is turned into fact.

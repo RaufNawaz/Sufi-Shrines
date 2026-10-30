@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r2 precision 1
+OLD: In the early seventeenth century he settled in Gujrat, and he established his own *khanqah* there, at the place formerly known as Garhi Shah Daula.
+NEW: He is said to have settled in Gujrat in the early seventeenth century, and he established his own *khanqah* there, at the place formerly known as Garhi Shah Daula.

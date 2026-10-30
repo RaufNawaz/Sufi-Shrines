@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 2 issue 1 (the calque X کا اپنا) is fixed: ان کے بھائی کا مزار بھی قریب ہی واقع ہے۔ is plain, natural Urdu; agreement (مزار ... واقع ہے) correct, the referent of ان clear from the preceding وہ، and بھی carries the sense that the brother has a shrine of his own. It reads smoothly after وہ اپنے بھائی حضرت موسیٰ حسین زنجانی کے پہلو میں دفن ہوئے۔ and before صاحبِ مزار کی تاریخوں کے بارے میں بھی روایات میں اختلاف ہے۔
+2. Round 2 issue 2 (قبریں and قبروں in one sentence, doubled partitive) is fixed: سید میراں حسین زنجانی کا مزار لاہور کے خطے کی قدیم ترین معلوم صوفی قبروں میں شمار ہوتا ہے۔ is one clause, the izafat chain لاہور کے خطے کی ... قبروں agrees, and قدیم ترین معلوم is the usual reference work collocation (as in قدیم ترین معلوم تہذیب). It leads naturally into یوں یہ مزار پنجاب میں ...
+3. Taste: in the Legacy paragraph مزار now opens three of the first four sentences (کا مزار، یوں یہ مزار، یہ مزار); across sentences, so harmless. In the Saint paragraph بھائی comes in two consecutive sentences (اپنے بھائی، ان کے بھائی); also harmless, and naming the brother again would only lengthen it.
+4. Mechanical: no Latin letters, no em or en dashes, Urdu full stops in both changed sentences.

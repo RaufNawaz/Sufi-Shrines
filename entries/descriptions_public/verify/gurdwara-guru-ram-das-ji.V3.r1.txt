@@ -1,0 +1,64 @@
+VERDICT: FAIL
+ISSUES:
+1. [hybrid compound] "پاک و پوتر" -> the Persian و of conjunction joins Persian and Arabic words; with the Hindi پوتر the fixed Urdu pair is پاک پوتر, and پاک و پوتر jars on an educated ear. -> ... اس جگہ کو نہایت پاک پوتر مانتے تھے۔
+OLD: سکھ اس متبرک مکان کا انتہائی احترام کرتے تھے، اور ہندوؤں میں سے بھی خاص و عام یہاں آتے اور اس جگہ کو نہایت پاک و پوتر مانتے تھے۔
+NEW: سکھ اس متبرک مکان کا انتہائی احترام کرتے تھے، اور ہندوؤں میں سے بھی خاص و عام یہاں آتے اور اس جگہ کو نہایت پاک پوتر مانتے تھے۔
+
+2. [English word order / inconsistency] "کھتری بھلّا ذات" -> mirrors "Khatri Bhalla caste"; Urdu puts the clan inside the larger group, and two paragraphs earlier the article itself says سوڈھی کھتریوں. -> کھتریوں کی بھلّا ذات
+OLD: گرو امر داس کا تعلق کھتری بھلّا ذات سے تھا۔
+NEW: گرو امر داس کا تعلق کھتریوں کی بھلّا ذات سے تھا۔
+
+3. [calque + repetition] "چوتھے گرو کی حیثیت سے رام داس سب سے بڑھ کر اس بستی کے بانی مانے جاتے ہیں" -> "As the fourth Guru, Ram Das is above all known as ..." rendered word for word; چوتھے گرو کی حیثیت سے reads as "in his capacity as", and the next sentence then says the same thing again (founded the settlement, it became Amritsar). -> recast the first sentence idiomatically and let the second carry the growth.
+OLD: چوتھے گرو کی حیثیت سے رام داس سب سے بڑھ کر اس بستی کے بانی مانے جاتے ہیں جو پھیل کر امرتسر بنی۔ انہوں نے رام داس پور کی بنیاد رکھی، اور یہی بستی وقت کے ساتھ امرتسر کہلائی۔
+NEW: چوتھے گرو رام داس کی سب سے بڑی پہچان یہ ہے کہ انہیں امرتسر کا بانی مانا جاتا ہے۔ انہوں نے رام داس پور کی بنیاد رکھی، اور یہی بستی وقت کے ساتھ پھیل کر امرتسر کہلائی۔
+
+4. [tangled sentence] "...آپس میں الجھ پڑے؛ ان میں ارجن چھوٹے تھے۔" -> the seniority is tacked on after a semicolon like an English "of whom Arjan was the younger"; Urdu folds it into the subject. -> پرتھی چند اور ان سے چھوٹے ارجن
+OLD: البتہ ان کے دو بیٹے پرتھی چند اور ارجن ایک بہت بڑی جائیداد پر آپس میں الجھ پڑے؛ ان میں ارجن چھوٹے تھے۔
+NEW: البتہ ان کے دو بیٹے پرتھی چند اور ان سے چھوٹے ارجن ایک بہت بڑی جائیداد پر آپس میں الجھ پڑے۔
+
+5. [word order] "دونوں بھائیوں کے جھگڑے کی جڑ ارجن کے سفرِ لاہور کو قرار دیتی ہے" -> with قرار دینا the object with کو comes first and the predicate noun next to the verb; the inverted order makes the reader parse twice. -> ارجن کے سفرِ لاہور کو دونوں بھائیوں کے جھگڑے کی جڑ قرار دیتی ہے
+OLD: سکھ روایت دونوں بھائیوں کے جھگڑے کی جڑ ارجن کے سفرِ لاہور کو قرار دیتی ہے۔
+NEW: سکھ روایت ارجن کے سفرِ لاہور کو دونوں بھائیوں کے جھگڑے کی جڑ قرار دیتی ہے۔
+
+6. [calque] "لاہور کے سکھ مقدس مقامات" -> stacked English noun adjunct ("Sikh holy sites"); the article itself later writes سکھوں کے مقدس مقامات. -> لاہور میں سکھوں کے مقدس مقامات
+OLD: 1947 کی تقسیم لاہور کے سکھ مقدس مقامات پر بہت بھاری گزری۔
+NEW: 1947 کی تقسیم لاہور میں سکھوں کے مقدس مقامات پر بہت بھاری گزری۔
+
+7. [calque, participial chain] "گوردوارے کی احتیاط سے کی جانے والی دیکھ بھال" -> English "the careful upkeep of the gurdwara" packed into a heavy participle before the noun. -> state it as a clause.
+OLD: گوردوارے کی احتیاط سے کی جانے والی دیکھ بھال پاکستان کے سکھ ورثے کو محفوظ رکھنے اور بحال کرنے کی اس وسیع تر کوشش کا حصہ ہے جو ہر جگہ یکساں نہیں۔
+NEW: گوردوارے کی دیکھ بھال احتیاط سے کی جاتی ہے، اور یہ پاکستان کے سکھ ورثے کو محفوظ رکھنے اور بحال کرنے کی اس وسیع تر کوشش کا حصہ ہے جو ہر جگہ یکساں نہیں۔
+
+8. [ambiguous pronoun] "تاکہ ان کی جائے پیدائش پر حاضر ہو کر ان کی تعظیم کریں" -> the sentence's subject is سکھ زائرین, so the first ان reads for a moment as the pilgrims; two ان in one clause. -> name the Guru once.
+OLD: گرو رام داس کے یومِ پیدائش پر سکھ زائرین چونا منڈی کی تنگ گلیوں میں آتے ہیں تاکہ ان کی جائے پیدائش پر حاضر ہو کر ان کی تعظیم کریں۔
+NEW: گرو رام داس کے یومِ پیدائش پر سکھ زائرین چونا منڈی کی تنگ گلیوں میں آتے ہیں تاکہ گرو کی جائے پیدائش پر حاضر ہو کر ان کی تعظیم کریں۔
+
+9. [wrong postposition / ambiguity] "گروؤں کے سلسلے میں آگے چل کر" -> کے سلسلے میں is the everyday idiom for "regarding", so this first reads "regarding the Gurus, further on ..."; the intended "later in the line of Gurus" is lost. -> بعد کے گروؤں میں
+OLD: گروؤں کے سلسلے میں آگے چل کر گرو ہر رائے اپنی فوج کے ساتھ لاہور پہنچے۔
+NEW: بعد کے گروؤں میں گرو ہر رائے اپنی فوج کے ساتھ لاہور پہنچے۔
+
+10. [register] "چپکے سے کھسک گئے تھے" -> کھسک جانا is colloquial and faintly comic, out of place in a reference article and applied by comparison to a Guru. -> خاموشی سے کنارہ کش ہو گئے تھے
+OLD: پھر جس طرح دوسرے لوگ چپکے سے کھسک گئے تھے، اسی طرح گرو ہر رائے بھی لاہور میں دارا کا پڑاؤ چھوڑ کر چلے گئے۔
+NEW: پھر جس طرح دوسرے لوگ خاموشی سے کنارہ کش ہو گئے تھے، اسی طرح گرو ہر رائے بھی لاہور میں دارا کا پڑاؤ چھوڑ کر چلے گئے۔
+
+11. [ambiguous pronoun / collocation] "زمین کے وسیع رقبے ان سے وابستہ کر دیے" -> the previous sentence's subject is انہوں (Ranjit Singh), so ان first points to him; and land is not idiomatically وابستہ کیا جاتا to an institution. -> ان گوردواروں کے نام کر دیے
+OLD: ساتھ ہی زمین کے وسیع رقبے ان سے وابستہ کر دیے تاکہ اس زمین کی آمدنی سے ان کا انتظام چلتا رہے۔
+NEW: ساتھ ہی زمین کے وسیع رقبے ان گوردواروں کے نام کر دیے تاکہ اس زمین کی آمدنی سے ان کا انتظام چلتا رہے۔
+
+12. [ambiguity] "جو گنبد پہلے پہل مسلمانوں کی عمارتوں کا حصہ تھے، سکھوں نے انہیں چھوٹا کر دیا۔" -> reads literally as the Sikhs physically shrinking the domes of existing Muslim buildings; the paragraph is about the dome as a borrowed feature made smaller in Sikh buildings. -> name the dome as a feature and say where it was made smaller.
+OLD: جو گنبد پہلے پہل مسلمانوں کی عمارتوں کا حصہ تھے، سکھوں نے انہیں چھوٹا کر دیا۔
+NEW: گنبد پہلے پہل مسلمانوں کی عمارتوں کا حصہ تھا، اور سکھوں نے اپنی عمارتوں میں اسے چھوٹا کر دیا۔
+
+13. [calque, participial chain] "مدتوں سکھ اقتدار اور عقیدت کا عظیم مرکز رہنے والا لاہور" -> a long English-style premodifier hung in front of لاہور; Urdu carries this in a relative clause. -> ... گرو رام داس کا گہوارہ وہی لاہور تھا جو مدتوں ...
+OLD: ساتھ ہی یہ اس بات کی یاد دلاتا ہے کہ مدتوں سکھ اقتدار اور عقیدت کا عظیم مرکز رہنے والا لاہور گرو رام داس کا گہوارہ بھی تھا۔
+NEW: ساتھ ہی یہ اس بات کی یاد دلاتا ہے کہ گرو رام داس کا گہوارہ وہی لاہور تھا جو مدتوں سکھ اقتدار اور عقیدت کا عظیم مرکز رہا۔
+
+NOTES:
+- Repetition between the lead and the body: "کہا جاتا ہے کہ گرو کے بچپن کا گھر سکھ سلطنت کے دور تک ..." appears almost word for word in the second paragraph and at the start of ## گوردوارہ; "امرتسر کے دربار کے نمونے پر" twice; "1880 کی دہائی" four times; "اس بارے میں روایات مختلف ہیں" three times (hedges, so left alone). Varying the wording of the second occurrences would help.
+- "امرتسر کے دربار" (twice) and "ہرمندر صاحب" name the same building but a general reader may not connect them; "دربار صاحب امرتسر" would make the link.
+- Small inconsistencies: "گرو گدی" / "گرو کی گدی"; "سکھ سلطنت" / "سکھ ریاست"; "بیگم شاہی مسجد" (intro) / "مغلوں کی شاہی مسجد" / "شاہی مسجد". If these mosques are one building, unify; if not, the reader cannot tell (a fact question, not for V3).
+- "پناہ گزینوں ... مہاجرین" in one sentence: near synonyms, so the reader wonders whether two groups are meant. Unify if the source means one group (fact question).
+- "کا مطلب ہے جائے پیدائش" is spoken order; "کا مطلب جائے پیدائش ہے" is more bookish, and the previous sentence already uses جائے پیدائش.
+- "نہایت عزیز مقام حاصل ہے": "خاص" or "ممتاز مقام" is the usual collocation. "لنگر کی دیکھ بھال سنبھالی" would read better as "لنگر کا انتظام سنبھالا". "اس قصے میں لاہور کا بھی حصہ ہے" might be "اس قصے سے لاہور کا بھی تعلق ہے".
+- "ہر آٹھویں دن اس سے بڑا اجتماع ہوتا تھا۔ تیسرے پہر ... بڑا مجمع لگتا": بڑا twice in adjacent sentences.
+- "جو شخصیات دکھائی گئی ہیں، ان میں گرو کا نام بھی آتا ہے" mixes "depicted" with "name appears"; "ان میں گرو بھی شامل ہیں" if the figure itself is meant (fact question).
+- "سکھ مذہب بھی ہندو مت اور اسلام سے اثر قبول کرتا ہے" might read better in the perfect: "اثر قبول کیا ہے".

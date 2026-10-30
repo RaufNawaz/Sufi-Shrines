@@ -1,0 +1,39 @@
+VERDICT: FAIL
+ISSUES:
+1. [agreement] "گرو نانک کا وعظ ان کی *بانی* تھی" -> in a nominal sentence the copula agrees with the subject (وعظ, masculine), not with the predicate بانی; as written it reads as a slip, like "اس کا نام زینب تھی" -> corrected sentence:
+OLD: گرو نانک کا وعظ ان کی *بانی* تھی، یعنی عقیدت بھرے اشعار جن میں مناجات، التجا، عاجزی اور تعظیم کا رنگ ہے۔
+NEW: گرو نانک کا وعظ ان کی *بانی* تھا، یعنی عقیدت بھرے اشعار جن میں مناجات، التجا، عاجزی اور تعظیم کا رنگ ہے۔
+
+2. [calque] "پُرسکون نانک" -> an attributive adjective placed before a proper name is English syntax ("a serene Nanak"); Urdu expresses the state adverbially -> corrected sentence:
+OLD: پُرسکون نانک اپنے مغنی بھائی مردانہ کے گیت سن رہے ہیں، مردانہ کے ہاتھ میں رباب ہے، اور بھائی بالا دونوں کے پیچھے چنور لیے کھڑے ہیں۔
+NEW: نانک بڑے سکون سے اپنے مغنی بھائی مردانہ کے گیت سن رہے ہیں، مردانہ کے ہاتھ میں رباب ہے، اور بھائی بالا دونوں کے پیچھے چنور لیے کھڑے ہیں۔
+
+3. [register/agreement] "ایک سیاح ... کر رہا تھا ... ایک مؤرخ اس کے ہمراہ تھے ... لے گئے" -> two unnamed people in the same sentence get different honorific levels (سیاح singular, مؤرخ respectful plural), which reads unevenly in neutral reference prose; "اور اس دوران" is also padding -> corrected sentences:
+OLD: ایک سیاح گرو نانک کے نقشِ قدم پر پاکستان کا سفر کر رہا تھا، اور اس دوران ایک مؤرخ اس کے ہمراہ تھے۔ مؤرخ اسے قصبے کے ایک چھوٹے سے مکان پر لے گئے۔
+NEW: ایک سیاح گرو نانک کے نقشِ قدم پر پاکستان کا سفر کر رہا تھا اور ایک مؤرخ اس کے ہمراہ تھا۔ مؤرخ اسے قصبے کے ایک چھوٹے سے مکان پر لے گیا۔
+
+4. [calque/time reference] "1990 کی دہائی کے اواخر میں ... اب بھی ... تھی" -> اب ("now") clashes with an explicit past date; this is English "still" carried over word for word -> corrected sentence:
+OLD: 1990 کی دہائی کے اواخر میں چودہ *گھماؤں* زمین اب بھی اس گوردوارے کے نام تھی۔
+NEW: 1990 کی دہائی کے اواخر میں بھی چودہ *گھماؤں* زمین اس گوردوارے کے نام تھی۔
+
+5. [collocation] "سندھ کے ہندوؤں میں معظم ہیں" -> معظم is used in titles and fixed phrases (مکہ معظمہ, شاہِ معظم), not as a predicate meaning "revered among"; stiff and unidiomatic -> corrected sentence:
+OLD: جھولے لال سندھ کے ہندوؤں میں معظم ہیں۔
+NEW: سندھ کے ہندو جھولے لال کی بڑی تعظیم کرتے ہیں۔
+
+6. [repetition] "یہ گوردوارہ اس چکی کی یاد بھی سنبھالے ہوئے ہے اور جنگ کی سفاکی کے خلاف گرو کی گواہی کی بھی۔" -> repeats almost word for word the intro sentence "یہ عمارت چکی کی یاد بھی سنبھالے ہوئے ہے اور جنگ کی سفاکی کے خلاف گرو کی گواہی کی بھی۔"; a reader of the whole article meets the same sentence twice -> corrected sentence (same content, new wording; the following "یہ" still refers to the gurdwara):
+OLD: یہ گوردوارہ اس چکی کی یاد بھی سنبھالے ہوئے ہے اور جنگ کی سفاکی کے خلاف گرو کی گواہی کی بھی۔
+NEW: چکی کی یاد ہو یا جنگ کی سفاکی کے خلاف گرو کی گواہی، یہ گوردوارہ دونوں کا امین ہے۔
+
+NOTES:
+- Otherwise the prose is fluent and often good (the chakki scene, the Aurangzeb-era passage on Nanak's followers, the townscape in ماحول). No dashes, no Latin letters, Western digits throughout, asterisks balanced, verse paragraphs untouched.
+- "اس مقصد کے لیے اس نے ابراہیم سے مذاکرات کیے تھے": ابراہیم appears with no introduction, so a general reader cannot tell who he is. Identifying him would add a fact, so this is for the content editor.
+- "اپنے مغنی بھائی مردانہ" can read for a moment as "his singer brother Mardana"; the following "بھائی بالا" resolves it, so it is left alone.
+- "صاحبِ مزار ان کے لیے سرچشمۂ تحریک بن گئے": تحریک has just been used for "movement" ("ان سے جو تحریک شروع ہوئی"); "ترغیب کا سرچشمہ" would avoid the echo.
+- "عبادت میں چراغ لہراتے ہوئے": the usual collocation for aarti is "چراغ (دیا) گھماتے ہوئے".
+- "اور ایک اور گیت میں:" would read more cleanly as "ایک اور گیت میں:".
+- Lead-section echoes: the opening sentence of عقیدت اور زیارت restates the intro's last sentence (both with "اکثر اسی پھیرے میں"), and "اس سرزمین پر ٹوٹنے والی ہولناکیوں کا ماتم" occurs in both سید پور میں اسیری and ورثہ. Tolerable as summary, but could be varied.
+- Intro: "گرو نانک کی زندگی میں جو سب سے ہنگامہ خیز واقعات پیش آئے، ان میں سے ایک ان کی قید تھی" is correct but would be tighter as "گرو نانک کی زندگی کے سب سے ہنگامہ خیز واقعات میں سے ایک ان کی قید تھی".
+- "شہنشاہ جہانگیر کے پردادا بابر کے بارے میں یہ بات بھی مشہور ہے کہ اس نے گرو نانک کو قید کیا تھا" reads like an afterthought, since the section has already narrated the imprisonment.
+- "پہلی بار وہ اپنے اولین سفر کے آغاز ہی میں": پہلی and اولین are mildly redundant.
+- "خود اپنے حساب سے" (of the verse giving the year) is a little opaque; "اپنی تقویم کے حساب سے" would be clearer.
+- Spelling and punctuation consistency: "اداسی" (the Udasi order) has no pesh, while "*اُداسیاں*" does. "کرتارپور" is written as one word, while "سلطان پور" and "سید پور" are written as two (each is a common spelling). The sentence-final ۔ sometimes goes inside the closing quotation mark (after colons, at lines 23, 41 and 87) and sometimes outside (lines 15 and 41).

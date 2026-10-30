@@ -1,0 +1,11 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. All 19 round 1 V3 issues are fixed: 1 (change 1), 2 (2), 3 (3), 4 (5), 5 (6, adapted), 6 (7), 7 (8), 8 (9), 9 (10), 10 (11), 11 (12), 12 (13), 13 (14), 14 (16), 15 (17), 16 (18, adapted), 17 (19, adapted), 18 (20), 19 (21). Each NEW sentence is grammatical, agrees correctly (کا وعظ ... تھا; دکان اور ... دکان ... تھیں; گرو گرنتھ صاحب پڑھایا جاتا تھا; خشک میووں اور لوک گیتوں), uses the right postpositions, and sits well with the sentences around it. No Latin letters, no dashes, asterisks balanced.
+2. The three adaptations read well. Change 6 without ایک avoids the "one or two storeys" reading of ایک دو منزلہ. Change 18 with کا in place of پر is the idiomatic مراقبہ construction, and the ایک ایسا ... جس کا رخ clause is now natural. Change 19 keeps اس کے صحن میں attached to the building.
+3. Taste, change 17: تقسیم and ہجرت now each occur twice in the one sentence (تقسیم کے بعد ... ہجرت کر کے ... تقسیم اور ہجرت کے انہی تجربات). Not failed: تقسیم اور ہجرت کے تجربات is a stock Urdu collocation and the restatement is resumptive after انہی, so it reads as emphasis rather than a slip. A lighter wording would be ترکِ وطن کے انہی تجربات, which keeps an explicit antecedent without doubling either word.
+4. Taste, change 11: the Lohri paragraph now has تہوار in four consecutive sentences (ایک قدیم تہوار، یہ تہوار 13 جنوری، لوک گیتوں کا تہوار، یہ مقامی تہوار). Each sentence is correct; a variant such as لوہڑی ... سے عبارت ہے in the third would thin the run.
+5. Taste, change 6: اندر جائیں تو سامنے ... عمارت تھی is the familiar memoir pattern for a remembered place and reads naturally; with a single dated night, داخل ہوتے ہی سامنے ... تھی would be a shade tighter.
+6. Taste, change 19: three adverbials now precede the subject (جنوری 2011 میں، اس کے صحن میں، لوہڑی کے موقع پر). It reads clearly; placing لوہڑی کے موقع پر before اس کے صحن میں would flow slightly better and still keep اس کے next to صحن.
+7. Taste, change 12: the double کو (مقدس کتاب کو ... پڑھنے کو) was already there and is grammatical; dropping مسلسل removed the real redundancy.
+8. Change 5: زیارتی راستے ... جس پر زائرین چلتے ہیں is now a correct collocation, and the correlative اس ... جس keeps the relative on راستے rather than on پڑاؤ.

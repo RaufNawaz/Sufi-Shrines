@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 2 V3 issue 1 is fixed by change 1, applied verbatim: روایت no longer stands twice in the sentence. ہندو صوفیوں میں تصوف کی تین روایتیں تھیں، اور ان میں سے ایک حیدرآباد کے ٹنڈو جہانیہ کی تھی leaves the noun understood after ان میں سے ایک, the normal Urdu ellipsis, and the genitive کی agrees with the understood feminine روایت. The sentence follows اس شہر میں صوفیوں کے مزار بھی ہیں naturally and leads into قطب علی شاہ ... without a break.
+2. Round 2 V3 issue 2 is fixed by change 2, applied verbatim: نانک پنتھیوں no longer stands twice, and the demonstrative ان نانک پنتھیوں that read as a subset is gone. انہوں نے after the passive with کو is natural Urdu and unambiguous here: the only plural persons in the sentence are the سندھی نانک پنتھی, and خود کو ... قرار دیا settles it. The earlier انہیں (the Lohanas) belongs to the previous sentence, and the following sentence about the Khalsa opens with a fresh noun, so nothing nearby competes for the pronoun.
+3. Both NEW sentences have correct agreement, postpositions and word order, no calque, no Latin letters and no en or em dashes; the replay against the backup is identical, so no unchanged sentence moved.
+4. Taste: none further; both sentences read as a native editor would write them.

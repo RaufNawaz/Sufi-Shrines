@@ -1,0 +1,12 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff result: `diff /home/claude/bak/shrine-of-baba-shah-chiragh.md.bak_en1 entries/descriptions_public/shrine-of-baba-shah-chiragh.md` shows four changed lines only (21c21, 47c47, 53c53, 76c76). Each matches exactly one listed replacement, OLD to NEW, and the rest of each line is unchanged. Nothing else moved.
+2. Change 1 (death date, line 21). The NEW sentence drops only the conversion clause. The twenty second of Dhu al-Qa'da 1068 AH is given by Lahori in the team version, and Kanhaiya Lal gives the same day and month, so "most often" still holds. No fact is lost, since 1657 stays in the Overview as the year of death. The grammar is intact and the sentence still leads into "He was buried in Lahore."
+3. Change 2 (pilgrimage, line 47). The NEW wording "places of pilgrimage for the people" is the team version's own (Chishti, p. 527). Dropping "of Lahore" loses no fact, because the paragraph on the family (line 13) already says that Abdul Qadir Thalith, like Shah Chiragh, lies in a tomb around Lahore. The grammar is intact.
+4. Change 3 (namesakes, line 53). "in Lahore and beyond" is supported. The team version's list includes a Shah Chiragh of Delhi, a Shah Chiragh Qadiri Sultanpuri, and a son of Hazrat Ghaus al-Azam in the chain of Mian Mir, and the public section names all three in its third paragraph (line 57). The sentence now opens a section whose men are not all from Lahore, so the anchor is correct. Nothing new is added. "The Saint" keeps its accurate "Lahore has known other men of both names". The grammar is intact.
+5. Change 4 (Aurangzeb, line 76). Adding "some" follows the study's own sentence, "Aurangzeb gave importance to some other Shari minded Qadri sufi, like Shah Chiragh", which the team version quotes. The claim now covers some of these Sufis rather than the whole class. It stays framed as "it has been said", and the grammar is intact.
+6. Across all four NEW sentences there is no source talk, citation or process language, and no em or en dash (checked by code point). No new fact is introduced and none is lost.
+7. Checker line: `ok    shrine-of-baba-shah-chiragh  team 29301 -> public 12274 chars (0.42)` (exit 0).

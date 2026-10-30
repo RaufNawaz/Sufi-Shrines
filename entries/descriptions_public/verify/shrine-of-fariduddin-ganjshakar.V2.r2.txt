@@ -1,0 +1,63 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [omission] (L75) "Sabir is the founder whose name the Chishti Sabiri order bears." | "چشتی صابری سلسلہ صابر ہی کے نام سے موسوم ہے۔" -> "founder" is dropped; the Urdu only says the order is named after him (the team source has "eponymous founder") -> "چشتی صابری سلسلہ اپنے بانی صابر ہی کے نام سے موسوم ہے۔"
+
+2. [changed fact] (L121) "declares obedience to the Prophet Muhammad and his four companions, and more specifically to Pir Chishti Shakarganj, Baba Farid of Pakpattan:" | "حضرت محمد اور ان کے چار یاروں کی اطاعت کا اقرار ہے، اور خاص طور پر پاکپتن کے بابا فرید یعنی پیر چشتی شکر گنج کی ثنا ہے:" -> "more specifically to" continues "obedience to" (Abbas: "obedience to the prophet Muhammad and to his four companions, and more specifically to Pir Chishti Shakarganj"); the round 1 fluency fix turned obedience into praise -> "یہ ایک روایتی تمہید کا حصہ ہے جس میں اللہ اور عشق کی مدح ہے، حضرت محمد اور ان کے چار یاروں کی اطاعت کا اقرار ہے، اور خاص طور پر پاکپتن کے بابا فرید یعنی پیر چشتی شکر گنج کی اطاعت کا:"
+
+3. [omission] (L104) "The same voice turns the seeker's eye inward, away from the faults of others:" | "یہی آواز سالک کی نظر کو دوسروں سے ہٹا کر اپنے باطن کی طرف پھیرتی ہے:" -> "the faults of" is dropped, so the line says the seeker turns away from other people, not from their faults -> "یہی آواز سالک کی نظر کو دوسروں کے عیبوں سے ہٹا کر اپنے باطن کی طرف پھیرتی ہے:"
+
+4. [changed fact] (L165) "Never were the shrine's affairs more firmly welded to the interests of the court;" | "مزار کے معاملات دربار کے مفادات سے پہلے کبھی اتنی مضبوطی سے نہیں جڑے تھے؛" -> the English (Eaton's wording) makes the Tughluq years the closest tie at any time; "پہلے کبھی ... نہیں" only says it had never happened before -> "مزار کے معاملات دربار کے مفادات سے اس دور سے زیادہ مضبوطی سے کبھی نہیں جڑے؛ اب اس کے سربراہ دہلی کے قابو میں تھے اور مزار شاہی سرپرستی پر پہلے سے بھی زیادہ منحصر ہو گیا۔"
+
+NOTES:
+Round 1 issues: all ten are fixed. 1: سیاسی انتشار کے اُس زمانے میں (L27). 2: حکمرانوں (L41). 3: مریدوں کو (L81). 4: پہلا نصف (L83). 5: ماخذ (L87). 6: مقبرے سے کئی میٹر اونچی (L151). 7: عقیدت مندوں کے نزدیک (L155). 8: the chairs sentence (L223). 9: کتاب کا دین (L249). 10: ان کا سلسلہ (L257). My round 1 style notes were also applied, including Western digits for 1,000, 150,000 and 1,500,000, and the single adversative on L205.
+
+Rulings on the writer's departures from V3 (notes, "Urdu round 1"). All are upheld. In each case the writer's wording follows the English and V3's would have added, dropped or shifted something.
+- 5 (L13) مستقبل کے اس ولی: right. ننھے فرید would add childhood.
+- 7 (L19) باقاعدہ رہنمائی میں: acceptable. The English does not say whose guidance, so انہی کی would identify the guide. باقاعدہ is filler, not a fact.
+- 8 (L19) آگے چل کر عظیم مرتبہ پائے: right. سربلندی would lose "future".
+- 25 (L73): right. One sentence under روایت کے مطابق keeps all three "that" clauses inside the tradition.
+- 30 (L75) پانچ ہستیوں ... جو ستونوں کی مانند تھیں: right. It keeps "human pillars".
+- 31 (L77): right. The passive ہدایت کی گئی matches "was told", and the English does not name who told him.
+- 43 (L145) پیمانے: right. It is "measure", not "touchstone".
+- 45 (L149) روحانی مراتب: right for "hierarchy". مرکزی حیثیت for "central marker" is acceptable.
+- 46 (L151) توجیہ: right for "was explained by". "Origin" would be new.
+- 53 (L161) رسوم میں مرتبہ: right. برتر was not in the English.
+- 62 (L179) یہ موقع: right. یوں would make the gathering a consequence.
+- 77 (L201) چھوٹے سے قصبے: acceptable for "provincial town".
+- 78 (L201) مجسم اور دسترس میں: right. گویا would hedge a statement already inside "for its devotees".
+- 87 (L219) سوار گرا: right. It keeps the English ambiguity over who fell.
+- 90 بہاؤالدین (dictionary form): acceptable. It is spelling only.
+- 96 (L229) باطن: right. It keeps "inner".
+- 97 (L229): right. V3's اللہ کے حضور would add to the English.
+- 104 (L241) مکتبِ فکر: right. The English says "school of thought".
+- 105 (L241) حتیٰ کہ ... دیوان بھی: right. It keeps "even".
+- 112 (L253) خاص طور پر نمایاں: right. It keeps "especially".
+- 117 (L259): right. وفادار covers both "father and husband", while شفیق would add a quality the English does not have.
+- 16, 91, 92 not applied: right. الغ بیگ، بہاء الحق and شکر گنج follow the English, which is the authority, so any identification is a matter for the English.
+- 89 عارف نامی ایک شخص: acceptable. Arif appears nowhere else, so this does not make a known person a stranger.
+- V3 (e) points: بابا فرید کی جس قوالی is right. The English "his" follows "Baba Farid himself", and the team source has "Sheikh Farid's most popular qawwali". The promised sum sentence (L175) is right.
+- Names: making علاء الدین علی احمد صابر uniform (L73, L75) is acceptable, because it is the same man.
+
+Other points checked against the team source, with no change needed. In L35 the delah eater is Nizamuddin ("when I ate delah"), so انہوں نے is right. L65 اس سختی کی وجہ matches Rizvi's "Baba Farid justified it". L195 قوالوں کی ایک ٹولی matches Khalid's "the musicians". L37 شرعی طور پر is a fair reading of "technically". L75 صابر اور نظام الدین ہی resolves "these two disciples" correctly, because the next sentence names them. L75 شجرے for Qureshi's "hierarchy" is acceptable, because the positions given are the chain of succession.
+
+Optional tightening. None of these is a fault on its own.
+- L97: the split leaves the receipt from Sheikh Ibrahim's scribe outside کہا جاتا ہے. The next sentence (Arjan, 1604) is plain fact, so the boundary blurs. Suggested: روایت کے مطابق یہ کلام انہیں بابا فرید کی اولاد میں سے شیخ ابراہیم کے اُس کاتب سے ملا ...
+- L51: کہا جاتا ہے کہ ... اور ان کی مجلسوں میں ... may be read as hedging the Siddha clause, which the English states plainly. Suggested: end the sentence after گفتگو کرتے تھے and begin a new one with ان کی مجلسوں میں.
+- L9: یہ وہ زمانہ تھا جب turns the upheavals into a time setting. یعنی 1150 اور 1151 میں ... غزنی کی تباہی اور اس کے چھ برس بعد غزوں کی یلغار would keep them as the upheavals named.
+- L13: ایک عارفۂ وقت. Drop ایک for "the gnostic of her age".
+- L183: رسمی تجدید means renewal. For "reenactment", write رسمی اعادہ, in line with رسمی نقل later in the paragraph.
+- L237: for "successor to Burhan al-Din Gharib at Khuldabad", write برہان الدین غریب کے خلد آباد میں مرکزی جانشین شیخ زین الدین شیرازی.
+- L255: مسلمانوں کی طرح widens "his Muslim devotees". Write اپنے مسلمان عقیدت مندوں کے ساتھ ساتھ سکھوں کے نزدیک بھی.
+- L93: زیادہ تر جعلی can read as "largely fake". For "most often held to be fabrications", write عموماً جعلی سمجھے جاتے ہیں.
+- L173: for "A point of law", write ایک قانونی نکتہ یہ تھا.
+- L63: آخری دنوں is narrower than "near the end of his life". زندگی کے آخری حصے میں is closer.
+- L69: the "for" link between the rule and the threat is left to the reader. Optional: کیونکہ ایک مرید نے، جسے بابا فرید خلافت نامے کا اہل نہیں سمجھتے تھے، دھمکی دی تھی ...
+
+Checks passed:
+- no Latin letters, no en or em dashes, Western digits only
+- every figure per paragraph matches the English; the late 1400s, the early 1700s and 1 April are written in words
+- ten headings in the English order
+- 129 paragraphs aligned one to one
+- the four Punjabi verse lines are byte identical
+- asterisks balanced (28)

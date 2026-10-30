@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-10-27T21:03:05Z",
+  "expires_at": "2026-10-27T23:33:05Z",
+  "note": "PC scheduled firing, public description stage, shortest end: draft-en through verify-ur [renewing own claim; previous holder scheduled-pc-2026-10-27T2100Z]",
+  "released_at": "2026-10-27T21:51:46Z",
+  "released_by": "scheduled-pc-2026-10-27T2100Z",
+  "session": "scheduled-pc-2026-10-27T2100Z",
+  "slug": "pub__prahladpuri-temple",
+  "status": "released"
+}

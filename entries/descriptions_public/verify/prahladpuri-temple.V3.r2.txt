@@ -1,0 +1,19 @@
+VERDICT V2: PASS
+VERDICT V3: PASS
+ISSUES: none
+NOTES:
+Change 1: faithful, fluent. ملتان کو settles the round 1 ambiguity (اسے after the Chinese traveller), and اس کے سورج مندر now clearly means Multan's temple. Taste only: ملتان now ends one sentence and starts the next ("ملتان آیا۔ ملتان کو"); "اس شہر کو" would avoid the echo.
+Change 2: faithful ("recent past"), fluent. ماضیِ قریب is the right idiom and the izafat is correct inside "خطے کے ماضیِ قریب کے ایک کٹھن باب".
+Change 3: faithful ("Its claim on memory runs both ways"; the ایک طرف / دوسری طرف sentence that follows is untouched and still gives both sides), fluent. The calque یاد کے معاملے میں is gone.
+Change 4: faithful (tradition kept through روایت کے مطابق; "very setting" is عین اسی شہر, and اسی شہر points back to ملتان in the sentence before), fluent. کہانی کے واقعات ... پیش آئے تھے agrees in masculine plural.
+Change 5: faithful ("all but invincible" is قریب قریب ناقابلِ شکست; the boon is still the cause), fluent. جس کی بدولت وہ ... ہو گیا تھا removes the inanimate-agent pattern and joins cleanly to "، اور وہ مطالبہ کرتا تھا".
+Change 6: faithful (the campaign stays Ranjit Singh's, Multan is conquered in it, Kharak Singh is sent against the city; no fact added), fluent. The relative-correlative جس مہم میں ... اس میں puts the events in the right order, and the next sentence's "اس معرکے میں" still joins naturally.
+Change 7: faithful (the story is still among the best known stories of Vishnu devotion and still set down in canonical form in the Bhagavata Purana; داستان still marks it as legend, so dropping اسطورہ loses no fact), fluent. One subject with two predicates, and the redundant second subject is gone.
+Change 8: faithful ("Bound to this is the tradition"), fluent. وابستہ ہے ends the repetition of جڑی/جوڑتی, and وابستہ needs no gender agreement with روایت.
+Change 9: faithful (بھی keeps "including"; Persia, Central Asia and the Arab world are all kept), fluent. The repetition of تجارت and the English-style جس میں ... شامل تھی are gone, and اس کا clearly means یہ شہر.
+Change 10: faithful ("a hall for the langar"; dropping the gloss is allowed by the brief), fluent. The verb بنایا گیا is understood from the first clause and the sentence still reads correctly. Taste only: "اور پھر لنگر خانہ" without ایک would match وضو خانہ.
+Change 11: faithful ("about a hundred" is لگ بھگ سو; "only about ten to twelve" is کوئی دس بارہ ہی, so both "about" and "only" are kept; محلہ correctly names the railway-station locality that the 100 houses belong to, since a community of over a thousand cannot live in 10 to 12 houses), fluent. The double approximation دس بارہ کے قریب is gone, and اس محلے points back to "یہ محلہ" without the misreading بستی allowed.
+Change 12: faithful (now "a place", as V2 note 1 asked; the claim is still credited to عوامی روایت), fluent. ایک ایسا مقام ... جہاں سے is a natural construction that carries the hedge, not a calqued article.
+Change 13: faithful ("thirty odd", as V2 note 4 asked), fluent. تیس سے کچھ اوپر عورتیں ... رہ گئی تھیں agrees in feminine plural.
+Change 14: faithful (the English has no "now"; "has reversed" is the perfective پلٹ گیا), fluent. Without اب, the past-tense illustration after the colon (گمنام پڑا تھا) no longer jars, and the earlier اب تک in "اب تک نہیں ہو سکی" is not doubled.
+Diff: diff against /root/work/bak/prahladpuri-temple.ur.r1.md shows 10 changed paragraph lines (3, 5, 9, 13, 27, 29, 33, 39, 43, 55; lines 9, 33, 39 and 55 each hold two changes) and nothing else. Each of the 14 OLD strings occurs exactly once in the backup. Applying the 14 OLD to NEW replacements to the backup reproduces the current file byte for byte (10295 to 10279 characters), so nothing else moved. The current file has no Latin letters and no em or en dashes, its asterisks are balanced (6), and its md5 is 07e28821.

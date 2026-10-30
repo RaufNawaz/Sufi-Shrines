@@ -1,0 +1,49 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed fact] The Devotion section, "the chiraghi, could no longer be seen by 2013" | "اور 2013ء تک یہ دیکھنے میں نہیں آتی تھی" -> تک with a plain habitual past reads "until 2013 it was not seen", implying it was seen afterwards; the English says it had ceased by 2013 -> پانچ چراغوں کی صفائی اور انہیں روشن کرنے کی رسم چراغی کہلاتی تھی، اور 2013ء تک یہ رسم نظروں سے اوجھل ہو چکی تھی۔
+2. [addition] The Shrine section, "a section of the police force was assigned to protect the shrine" | "پولیس کا ایک دستہ صرف مزار کی حفاظت پر مامور کر دیا گیا" -> صرف ("solely") adds an exclusivity the English does not have -> اور پولیس کا ایک دستہ مزار کی حفاظت پر مامور کر دیا گیا۔
+3. [addition] The Keepers section, "some brought long legal battles with the families affected" | "متاثرہ گروہوں اور خاندانوں کے ساتھ" -> "groups" is added -> بعض کے نتیجے میں متاثرہ خاندانوں کے ساتھ طویل قانونی لڑائیاں ہوئیں،
+4. [changed certainty] The Legends section, "where he is believed to have turned what was once an ancient settlement on its head" | "مانا جاتا ہے کہ یہاں کبھی ایک قدیم بستی تھی جسے انہوں نے تہ و بالا کر دیا" -> the hedge now also covers the existence of the settlement, which the English states as fact; only Lal's overturning of it is believed -> یہاں کبھی ایک قدیم بستی تھی، اور مانا جاتا ہے کہ لعل نے اسے تہ و بالا کر دیا۔
+5. [changed fact] The Poetry section, "most of them from the Punjab and from the neighbourhoods of Sindh itself" | "پنجاب اور خود سندھ کے آس پاس کے علاقوں سے" -> "the areas around Sindh" places the singers outside Sindh; the English means localities within Sindh -> ان میں سے زیادہ تر پنجاب سے اور خود سندھ کی بستیوں سے آتی ہیں،
+6. [changed fact] The Shrine section, "Such constant reshaping, much of it at the hands of the administration" | "مزار میں یہ مسلسل ردوبدل زیادہ تر انتظامیہ کے ہاتھوں ہوا" -> زیادہ تر ("mostly") turns "much of it" into a majority (the brief: "much of" is بڑا حصہ) -> مزار میں اس مسلسل ردوبدل کا بڑا حصہ انتظامیہ کے ہاتھوں ہوا۔
+7. [wrong reference] The Shrine section, "The followers of the Hindu faqir Mulchand, most of whom had migrated to India, arranged a tomb for him" | "ہندو فقیر مول چند کے زیادہ تر پیروکار ہندوستان ہجرت کر چکے تھے؛ انہوں نے مول چند کی زندگی ہی میں ..." -> انہوں نے now points to "most of the followers", the ones who had migrated, instead of the followers as a body -> ہندو فقیر مول چند کی زندگی ہی میں ان کے پیروکاروں نے مزار کے پاس ایک احاطے میں ان کی قبر تیار کر دی تھی؛ ان پیروکاروں میں سے زیادہ تر ہندوستان ہجرت کر چکے تھے۔ (the next sentence, یہ جگہ ... بھی کہلاتی ہے، stays)
+8. [changed fact] The ʿUrs section, "The state relies on its working relationship with the town's elite to organise the great events of the year, among them the town's ritual processions" | "... رسمی جلوس سال کے بڑے مواقع میں شمار ہوتے ہیں، اور ان کے انتظام کے لیے ریاست ... انحصار کرتی ہے" -> the state's reliance is narrowed to the processions alone -> ریاست سال کے بڑے مواقع کے انتظام کے لیے قصبے کی اشرافیہ سے اپنے عملی تعلقات پر انحصار کرتی ہے؛ ولی کے میلے کے دنوں اور محرم کے مقدس مہینے میں قصبے کے رسمی جلوس بھی انہی مواقع میں شامل ہیں۔
+9. [changed certainty] The Keepers section, "The state also made Sehwan national." | "ریاست ہی نے سیہون کو قومی سطح کا مرکز بنایا۔" -> ہی نے ("it was the state that") drops "also" and makes the state the sole cause -> ریاست نے سیہون کو قومی سطح کا مرکز بھی بنایا۔
+10. [changed certainty] The Overview, "and he drew Sindh into the world of Sufi devotion" | "اور انہی نے سندھ کو صوفیانہ عقیدت کی دنیا سے روشناس کرایا" -> انہی نے ("it was he who") adds an exclusivity the English does not claim -> اور انہوں نے سندھ کو صوفیانہ عقیدت کی دنیا سے روشناس کرایا۔
+11. [omission] The Keepers section, "A direct and steady investment in saints' fairs" | "میلوں کے انتظام، ... پر مسلسل سرمایہ کاری" -> "direct" and "saints'" are dropped -> اولیا کے میلوں کے انتظام، مقبروں اور ان کی سہولتوں کی دیکھ بھال، اور زیارت گاہوں تک سڑکوں اور ریلوے پر براہِ راست اور مسلسل سرمایہ کاری نے یہ صورت بدل دی:
+12. [changed fact] The Shrine section, "also known as Mulan Faqir jo asthan" | "مولن فقیر جو آستان" -> آستان is the Persian word for a Sufi's threshold; asthan here is the Hindu استھان, which the dictionary uses for every Asthan name and which this article itself uses for شیو کا استھان -> "مولن فقیر جو استھان"
+
+NOTES:
+Rulings on the flagged points:
+"cast his loins in iron" as اپنا لنگوٹ گویا لوہے میں ڈھال لیا تھا: accepted. لنگوٹ calls up the Urdu idiom for a chaste man (لنگوٹ کا پکا) and fits the burial legend of the cloths tied about his groin. گویا keeps it figurative. Nothing is added.
+"take part in the worship of the saint" as ولی کی تعظیم کی رسوم میں شریک ہوتی ہیں: accepted. In this source "worship" carries the academic sense of devotional veneration. عبادت would tell an Urdu reader that Muslims worship the saint, which is a stronger claim than the English makes. ولی سے عقیدت کی رسوم would serve equally well.
+اوتار: accepted. It is the natural Urdu word and the source of the English "avatar", and the conditional (اگر ... نہیں) keeps the hedge.
+"carefully segregated" as men and women kept apart: accepted. The same sentence gives women their own section, so the sense is fixed by the context.
+"reed and drum" as شہنائی اور نقارہ: accepted. It is the idiomatic pair, and "drum and reed" later as ڈھول اور شہنائی is consistent with it.
+"classic procession of a marriage" as بارات: accepted. It is the exact equivalent.
+کثیر الٰہی ہندو ماضی: accepted. It is neutral and descriptive, and it avoids the pejorative مشرکانہ.
+The nikah sentence: accepted. کسی ... وہ شخص ... ہو جاتا ہے keeps "someone" unmarked, so the point survives that whoever Lal weds, man or woman, becomes his wife.
+The German film title transliterated: accepted. Latin letters are barred, and the rendering is accurate, as are ویسٹ ڈوئچر رُنڈفُنک and یورگن ڈبلیو فریمبگن.
+Dropping "the Red" and "royal falcon": accepted as familiar glosses. لعل and شہباز are ordinary Urdu, and the robe and freedom explanations still read clearly.
+پچیس سے زیادہ: correct, and it keeps "more than".
+سوا لاکھ for 125,000: correct and idiomatic. It has no digits, so the QA figure check is unaffected.
+دسیوں لاکھ for "millions": correct. It also stays distinct from لاکھوں, which is used correctly for "hundreds of thousands" at the ʿurs.
+بیسیوں for "scores": correct.
+بہاؤالدین زکریا: matches urdu-dictionary.json.
+
+Mechanical checks passed. Both verse blocks (حیدریم قلندرم مستم and دَمادَم مست قلندر) are byte identical to the English. The Siraiki lines, which are in Latin transliteration in the English, are rendered faithfully in Urdu script. Each verse that is not in Urdu has its meaning paragraph. The ten headings correspond, and the paragraph count matches in every section. There are no Latin letters, no em or en dashes and no Eastern digits. Every figure in the English appears in the Urdu, with 125,000 as سوا لاکھ.
+
+Style (no change of fact, optional):
+(a) A few small intensifiers could be dropped: ترکِ دنیا کے ایک خاص آدرش (ایک آدرش); مقام بہت اہم ہے for "an important figure" (اہم); کہیں بڑا حصہ for "a greater role" (بڑا حصہ); ایک اور قصہ اس سے کہیں سخت ہے (زیادہ سخت); سب سے بڑی منڈی for "the great market" (ایک بڑی منڈی); قیمتی زیور for "ornaments" (زیور).
+(b) نقصان اٹھانے والوں میں ... بھی تھے opens up the English closed list. اس سے نقصان سید خاندانوں کو پہنچا، ... keeps it closed.
+(c) 1980 کی دہائی تک for "well into the 1980s" would read better as 1980 کی دہائی میں بھی دیر تک.
+(d) خالص سنی نوعیت کی تحریریں: "explicitly" is واضح طور پر سنی.
+(e) ایک طویل دعا for "an elaborate prayer": مفصل or پُراہتمام دعا.
+(f) کچھ فاصلے پر for "not far from": تھوڑے ہی فاصلے پر.
+(g) ایسے مریضوں کے لیے narrows "the emotionally disturbed" to the women and makes it medical: جذباتی طور پر پریشان لوگوں کے لیے.
+(h) شیو کے پجاریوں for "followers of Shiva" can read as "priests", since the article also uses پجاری for the priestly Thakurs: شیو کے بھگتوں or ماننے والوں.
+(i) اسلامی شدت پسندوں: "Islamist" is اسلام پسند, as the article itself has it in the 2017 paragraph.
+(j) تقدس کی خوشبو میں calques "odour of sanctity": بزرگی کی شہرت کے ساتھ دنیا سے رخصت ہوئے.
+(k) ایک سپاہی could be read as a soldier: پولیس کا ایک سپاہی.
+(l) رش is colloquial: بھیڑ.
+(m) پیرل اور غوثل جیسے turns the two named diminutives into examples. پیرل اور غوثل جیسے پیار بھرے ناموں is acceptable, but پیرل اور غوثل کے پیار بھرے ناموں سے is closer.

@@ -1,0 +1,18 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed fact] English "He is said to have settled first at Khairpur, in the reign of the Talpur ruler Mir Murad Ali Khan" (The Sant, first paragraph) | Urdu "اور پہلے خیرپور میں آباد ہوئے، جہاں ان دنوں تالپور فرماں روا میر مراد علی خان کا دور تھا۔" -> in the English "in the reign of" only dates the settling. The Urdu جہاں ان دنوں ... کا دور تھا places Mir Murad Ali Khan's reign at Khairpur, a claim about where he ruled that the English does not make (he is usually counted among the Mirs of Hyderabad). Keep it a dating phrase.
+OLD: اور پہلے خیرپور میں آباد ہوئے، جہاں ان دنوں تالپور فرماں روا میر مراد علی خان کا دور تھا۔
+NEW: اور تالپور فرماں روا میر مراد علی خان کے دور میں پہلے خیرپور میں آباد ہوئے۔
+
+2. [changed certainty] English "He is said to have brought relics with him and enshrined them, including hair said to be from Baba Sri Chand, a rupee of the Nanak Shahi era, and a ring attributed to Guru Gobind Singh ... These objects are still spoken of at the darbar today." (The Sant, second paragraph) | Urdu "ان تبرکات میں ... ایک انگوٹھی شامل ہیں۔" -> the present tense شامل ہیں, in a sentence standing outside the کہا جاتا ہے, says the relics are still there now. The English avoids that claim and says only that the objects are still spoken of. A past tense keeps the list inside the story of what he brought.
+OLD: اور گرو گوبند سنگھ سے منسوب ایک انگوٹھی شامل ہیں۔
+NEW: اور گرو گوبند سنگھ سے منسوب ایک انگوٹھی شامل تھے۔
+
+NOTES:
+1. [style, slight added causation] English "As an outcome of the Singh Sabha, a movement of Sikh reform, the Sindhi Nanakpanthis were not included in the Sikh community, and they identified themselves as a Hindu religious sect." (The Path of Nanak in Sindh, second paragraph) | Urdu "چنانچہ انہی نانک پنتھیوں نے خود کو ہندوؤں کا ایک مذہبی فرقہ قرار دیا۔" -> چنانچہ makes their calling themselves Hindu a consequence of their exclusion. The English sets both side by side as outcomes of the Singh Sabha. A plain و keeps them coordinate.
+OLD: سکھ برادری کا حصہ نہیں مانا گیا۔ چنانچہ انہی نانک پنتھیوں نے
+NEW: سکھ برادری کا حصہ نہیں مانا گیا، اور ان نانک پنتھیوں نے
+
+2. [verse] The English verse "Punnu is not in the Kec / Sind is not the amir" is itself an English rendering with no original script line, so it cannot be copied byte for byte into a file that admits no Latin. The Urdu *پنوں کیچ میں نہیں / سندھ امیر نہیں* renders it faithfully, line for line, and keeps the slash. Acceptable.
+
+3. Every other heading corresponds (تعارف، سنت گرپت صاحب for The Sant, دربار، سندھ میں نانک کا راستہ، سندھ کے دربار، حیدرآباد، سندھ). Every name, number and date (DB-80, 1830, 1877, about seventy, Vikram Samvat 1988 and 1931, 595 square yards, 1881, 1891, 1887, class 6, 1901, 22, 1957, 1980, 1960 to 1962, 1889, the 1960s, 28 March 2014, 1843, 1783 to 1843, 1829 to 1831, 1857, 1739, November 1947, 246,000, 1 January 1948, 500,000, a million to 800,000 or fewer, 6 to 10 million, 1998) and every hedge (tradition holds, is said to, is credited with, by the community's reckoning, some, probably, it has been argued, seems to, may have, it is told, has been dated, were estimated, estimates differ, an estimate that varies widely, it is often claimed, the claim is contested) checked paragraph by paragraph and present with the same meaning. Molchand and Mulchand are given as one person, مول چند, as the English evidently intends. Dropped glosses (holy man, shrine, langar, gaddi nashin, sajjada nashin, pir, melas, ʿurs, panchayat, Muhajirs and others) are of familiar words and are deliberate. No Latin letters, no em or en dashes, asterisks balanced.

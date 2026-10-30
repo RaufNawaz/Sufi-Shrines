@@ -1,0 +1,17 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. [changes confirmed] Each of the five NEW sentences appears in the article exactly as listed, and each OLD sentence is gone. All five are supported by the team version and add nothing to it:
+   (a) "though there is no settled view of how far Baba Farid himself converted anyone, or of how quickly, and how consciously, the change came." The team version says the earliest sources on Baba Farid "make no mention of his having converted anyone", while Punjabi tribes still claim conversion by him. It also judges conversion among Punjabi clans "very slow" and "probably unconscious". The claim is now narrowed to Farid, as the source narrows it.
+   (b) "In Mian Wadda's chain of masters, two generations above Abdul Karim, stands a Hazrat Makhdum Burhan al-Din, who bears the saint's name." The team version gives this measure twice in its own words ("two generations above Abdul Karim"). The genealogy "traces the masters of Mian Wadda upward". The ambiguous "his own master" is gone. The count rests on the existence of the intermediate link, not on its uncertain second name, so rule 5 is not engaged.
+   (c) "In the fourteenth century that order spread from Uch to Gujarat, the Punjab and Kashmir." This matches the team version's "spread from Uch to Gujarat, the Panjab and Kashmir" in the fourteenth century. The pluperfect is gone.
+   (d) "Chiniot is known for its woodwork, and a fine example of it was the *haveli*, or great mansion, of Omar Hayat, completed in 1935." This matches the source's "this was a fine example".
+   (e) "He was first given a task;" The task is still left unnamed, which is right because the printed word for it is uncertain. "One" no longer reads as a count.
+   None of the five adds a fact, raises certainty, creates an ambiguity, introduces source talk or contains an em or en dash.
+
+2. [nothing else changed] A plain diff of the article against the pre-edit copy (/tmp/claude-0/bak/langer-makhdoom.md, md5 886df5d2, identical to /mnt/user-data/outputs/pub/langer-makhdoom.md) shows exactly these five lines changed (10 diff lines) and nothing else. The round 1 quotations not touched by notes 3 to 7 still read as quoted: "Tradition holds ... that he died in 1245." and "is also remembered as a seat of Sufi teaching". The article under review has md5 4cf7f96e. The prose before the bibliography has no em or en dash. `check_public_description.py langer-makhdoom --english-only` exits 0 at 0.41 (team 18,518 to public 7,625 characters, down from 7,636), so it is still at or above 0.40 and needs no L1 exception line.
+
+3. [carried forward, not a fault of this round] Round 1 note 1 still stands. The death year 1245 is a holding choice. The team version pairs it with 666 AH, which does not correspond. Under RULE 5 it is a question for Rauf in chat, and the Urdu must carry whichever figure the English settles on.

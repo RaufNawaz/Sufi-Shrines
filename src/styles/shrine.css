@@ -1267,6 +1267,157 @@
   display: block;
 }
 
+/* A Gurmukhi original (Guru Nanak's verse, and Baba Farid's as the Guru Granth
+   Sahib keeps it), quoted above its rendering in both articles. Punjabi in its
+   own script runs left to right and has no Nastaliq to borrow, so it takes the
+   self-hosted Noto Sans Gurmukhi (global.css) with the sans prose face behind
+   it for the ellipsis. Centred like every other original; the line height is
+   for the vowel signs above and below the headline. */
+.article-verse-gurmukhi {
+  font-family: 'Noto Sans Gurmukhi', var(--font-sans);
+  font-size: 1.12em;
+  line-height: 1.9;
+  direction: ltr;
+}
+
+/* The Urdu article is set larger for the Nastaliq, which has a small body; the
+   Gurmukhi above an Urdu rendering would tower over it at the same em. */
+[dir='rtl'] .article-verse-gurmukhi {
+  font-size: 0.9em;
+}
+
+/* A verse quotation as one figure: the original as above, its rendering under
+   it, and the translator as a colophon (ProseParagraphs, 29 October 2026). The
+   rendering was italic prose run flush left with "(translated by …)" on the
+   end of its last line; it is verse, so it is set as verse. */
+.article-verse-figure {
+  margin: var(--space-6) auto;
+  padding: 0 var(--space-4);
+  max-width: 34em;
+  text-align: center;
+}
+
+.article-verse-figure > .article-verse {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.article-verse-figure > .article-verse + .article-verse-rendering {
+  margin-top: var(--space-3);
+}
+
+/* The language of the original, and of its translation, as a caption between
+   two short hairlines: "پنجابی" over the kafi, "اردو" over its translation
+   (Rauf, 30 October 2026: "For the differentiation between the urdu and
+   punjabi make it more obvious"). Both scripts were Nastaliq, centred, one over
+   the other; the caption says which is which. Small capitals in the English
+   article, the Nastaliq at a step down in the Urdu. */
+.article-verse-lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin: 0 auto var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-variant-caps: all-small-caps;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.article-verse-lang::before,
+.article-verse-lang::after {
+  content: '';
+  flex: 0 1 2.5rem;
+  border-top: var(--hairline) solid var(--color-border-light);
+}
+
+.article-verse-lang[dir='rtl'] {
+  font-family: var(--font-urdu);
+  font-size: 0.9em;
+  font-variant-caps: normal;
+  letter-spacing: normal;
+  line-height: var(--leading-urdu);
+}
+
+/* The second caption, over the translation, stands clear of the verse above
+   it; the gap the rendering kept from the original is the caption's now. */
+.article-verse-figure > .article-verse + .article-verse-lang {
+  margin-top: var(--space-4);
+}
+
+.article-verse-figure > .article-verse-lang + .article-verse-rendering {
+  margin-top: 0;
+}
+
+/* Stanzas of one passage: renderings quoted one after another from the same
+   translator share a figure and a credit, a stanza break apart. */
+.article-verse-figure > .article-verse-rendering + .article-verse-rendering {
+  margin-top: var(--space-4);
+}
+
+/* The English is set in the serif italic, the book face of the site's
+   headings, so it reads as a quoted poem beside the sans prose and sits a
+   step quieter than the original above it. One line per line of the verse. */
+.article-verse-rendering {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.94em;
+  line-height: 1.7;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+/* The Urdu rendering keeps Nastaliq upright (an oblique Nastaliq is a
+   synthesised slant, not a face) and takes the secondary colour instead, so
+   the original still leads. */
+.article-verse-rendering[dir='rtl'] {
+  font-family: var(--font-urdu);
+  font-style: normal;
+  /* A step under the original (1.06em), so the Urdu translation of a Punjabi
+     or Persian verse reads as the gloss and not as a second verse in the same
+     script (30 October 2026). */
+  font-size: 0.92em;
+  line-height: var(--leading-urdu);
+  color: var(--color-text-secondary);
+}
+
+/* The colophon: a short rule, then "tr." and the translator's name in small
+   capitals, centred under the verse like an anthology's credit. */
+.article-verse-credit {
+  margin-top: var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.article-verse-credit::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  margin: 0 auto var(--space-2);
+  border-top: var(--hairline) solid var(--color-border-light);
+}
+
+.article-verse-credit-mark {
+  margin-inline-end: 0.35em;
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.article-verse-credit-name {
+  font-variant-caps: all-small-caps;
+  letter-spacing: var(--tracking-wide);
+}
+
 /* A verse/couplet quoted in its original Arabic/Urdu/Persian script, embedded
    inside otherwise-Latin prose — isolated so it renders in the Nastaliq font
    and RTL direction regardless of the surrounding page's own language mode

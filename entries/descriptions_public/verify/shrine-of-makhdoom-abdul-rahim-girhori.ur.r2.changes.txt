@@ -1,0 +1,90 @@
+Row shrine-of-makhdoom-abdul-rahim-girhori, Urdu revision round 2, against V3 r1 (FAIL, 14 issues) and V2 r1 (PASS, notes only). Backup: /home/claude/bak/shrine-of-makhdoom-abdul-rahim-girhori.ur.before_r2.md. V3 issues applied in the verifier's wording: 1, 3, 6, 7, 8, 9, 11, 14 (8). Adapted: 2, 4, 5, 10, 12, 13 (6). Rejected: none. Notes applied: V3 note 2 (adapted), V3 note 4, V2 note 1.
+
+WHY: V3 r1 issue 3; applied in the verifier's wording (the three items no longer hang off شہرت; scholar and ascetic stay in the sentence before, and every item of the English is kept).
+OLD: ان کی شہرت نامور نقشبندی مرشد محمد زمان کے مرید، سندھی نظم میں قرآن کے مفسر، اور ایسے ولی کی بھی ہے جو ہندوؤں کے ایک مقدس مقام پر حملہ کرتے ہوئے جاں بحق ہوئے۔
+NEW: انہیں نامور نقشبندی مرشد محمد زمان کے مرید اور سندھی نظم میں قرآن کے مفسر کی حیثیت سے بھی شہرت ملی، اور ان کا ذکر ایک ایسے ولی کے طور پر بھی ہوتا ہے جو ہندوؤں کے ایک مقدس مقام پر حملہ کرتے ہوئے جاں بحق ہوئے۔
+
+WHY: V3 r1 note 4; applied in the verifier's wording (کو نشانہ بناتے ہوئے), because beside the inkstand story پر حملہ could be read as a physical attack on the school; the English "attacking" is figurative here, and the same verb is already used for Muhammad Hashim's attack on the Sufis.
+OLD: مکتب کے "خشک درختوں" پر حملہ کرتے ہوئے
+NEW: مکتب کے "خشک درختوں" کو نشانہ بناتے ہوئے
+
+WHY: V3 r1 note 2; adapted: the verifier's lighter wording, but with بیانات (accounts) kept instead of روایات, so that "accounts" stays distinct from "tradition" (روایت ہے کہ) in the next sentence and روایت is not repeated.
+OLD: ان کی وفات کے بارے میں بیانات کی تفصیلات میں اختلاف ہے۔
+NEW: ان کی وفات کی تفصیلات کے بارے میں بیانات مختلف ہیں۔
+
+WHY: V3 r1 issue 2; adapted. The English says "He was a good writer, who commented ... and composed ...", so the verifier's «انہوں نے بہت کچھ لکھا» (he wrote a great deal) would change the claim from quality to quantity. Kept the sense of "good writer" with the unambiguous اچھے مصنف and the English's relative clause, so the list is no longer read as proof of quantity.
+OLD: وہ خوب لکھتے تھے: انہوں نے اپنے مرشد کے سندھی اقوال کی عربی میں شرح لکھی، اور قرآن کی کئی سورتوں کی منظوم تفسیریں قلم بند کیں۔
+NEW: وہ اچھے مصنف تھے، جنہوں نے اپنے مرشد کے سندھی اقوال کی عربی میں شرح لکھی اور قرآن کی کئی سورتوں کی منظوم تفسیریں قلم بند کیں۔
+
+WHY: V3 r1 issue 9; applied in the verifier's wording.
+OLD: اور گرہوڑی کی تفسیر پہلے سے چلے آتے بہت سے عناصر کو اپناتی ہے۔
+NEW: اور گرہوڑی نے اپنی تفسیر میں پہلے سے چلے آ رہے بہت سے عناصر برتے ہیں۔
+
+WHY: V3 r1 issue 12; adapted. The English says Kapari is "Yogis, a special group of Sanyasin": Kapari is identified with the Yogis, and the Yogis are a group of Sanyasin. The verifier's «ہندو جوگیوں اور سنیاسیوں کا ایک خاص گروہ» would make Kapari a group of both and drop the identification, so یعنی جوگی is kept (it is a fact of the English, not a gloss of a familiar word) and only the agreement is fixed (گروہ ہے).
+OLD: *کاپڑی* یعنی جوگی کہا، جو ہندو سنیاسیوں کا ایک خاص گروہ ہیں؛
+NEW: *کاپڑی* یعنی جوگی کہا، جو ہندو سنیاسیوں کا ایک خاص گروہ ہے؛
+
+WHY: V3 r1 issue 11; applied in the verifier's wording (سورۃ, as in سورۃ الکوثر and the others).
+OLD: سورۂ 57 کی آیت 4
+NEW: سورۃ 57 کی آیت 4
+
+WHY: V3 r1 issue 6; applied in the verifier's wording ("both faiths" named, since the section has no antecedent for دونوں مذاہب).
+OLD: آج درگاہ کے احاطے میں دونوں مذاہب کے زائرین آتے ہیں،
+NEW: آج درگاہ کے احاطے میں مسلمان اور ہندو دونوں زائرین آتے ہیں،
+
+WHY: V2 r1 note 1; applied in the verifier's wording ("is the seat of another saint's tomb": the town holds the tomb, it is not itself the resting place).
+OLD: قریب کا قصبہ پتھورو ایک اور ولی کی آخری آرام گاہ ہے۔
+NEW: قریب کے قصبے پتھورو میں ایک اور ولی کا مزار ہے۔
+
+WHY: V3 r1 issue 10; adapted: the verifier's word order, but سومرا (the repo spelling, oblique plural سومروں in the previous draft) instead of سومرو. The two named groups are the English's "two groups of Rajputs", so no fact is lost.
+OLD: عمرکوٹ کا علاقہ کبھی راجپوتوں کے دو گروہوں سومروں اور سوڈھوں کے درمیان سخت معرکوں کا میدان تھا،
+NEW: عمرکوٹ کا علاقہ کبھی سومرا اور سوڈھا راجپوتوں کے درمیان سخت معرکوں کا میدان تھا،
+
+WHY: V3 r1 issue 13; adapted. The verifier's order (welcome, then service) is kept, but its «خوب» is dropped, since the English "received them with the duties of service" says nothing of the degree of service; خدمت گزاری کے فرائض انجام دیے keeps "the duties of service".
+OLD: قلعے کے حاکم نے خدمت گزاری کے فرائض بجا لا کر قافلے کا استقبال کیا،
+NEW: قلعے کے حاکم نے قافلے کا استقبال کیا اور خدمت گزاری کے فرائض انجام دیے،
+
+WHY: V3 r1 issue 4; adapted. The English is "Makhdum Muhammad Hashim of Thatta and his relatives ... and this group": the verifier's «محمد ہاشم کے اس حلقے» could be read as his school or disciples, so the group is named as the English names it, him and his relatives.
+OLD: اس گروہ نے زیادہ متین صوفیانہ دینداری کے فروغ میں ہاتھ بٹایا۔
+NEW: محمد ہاشم اور ان کے رشتہ داروں پر مشتمل اس گروہ نے زیادہ متین صوفیانہ دینداری کے فروغ میں ہاتھ بٹایا۔
+
+WHY: V3 r1 issue 5 (first sentence); adapted: the verifier's نذر ہوئیں, but ان instead of «انہی», since the troubles have not been mentioned before and انہی would point back to something that is not there.
+OLD: گرہوڑی کی کتابیں ان ہنگاموں میں ضائع ہوئیں جن پر کلہوڑو عہد ختم ہوا۔
+NEW: گرہوڑی کی کتابیں ان ہنگاموں کی نذر ہوئیں جن پر کلہوڑو عہد ختم ہوا۔
+
+WHY: V3 r1 issue 5 (second sentence); applied in the verifier's wording (one sentence, یوں kept for the English "thus").
+OLD: کلہوڑو حکمرانوں کا تختہ ان کے ولی صفت جدِ امجد آدم شاہ کلہوڑو کے سابق مریدوں نے الٹا۔ یوں 1781 میں تالپور برسرِ اقتدار آئے، اور 1843 میں انگریزوں کی فتح تک اس سرزمین پر حکومت کرتے رہے۔
+NEW: کلہوڑو حکمرانوں کا تختہ ان کے ولی صفت جدِ امجد آدم شاہ کلہوڑو کے سابق مریدوں نے الٹا، اور یوں 1781 میں تالپور برسرِ اقتدار آئے، جو 1843 میں انگریزوں کی فتح تک اس سرزمین پر حکومت کرتے رہے۔
+
+WHY: V3 r1 issue 5 (third sentence); adapted. The knotted clause and weak ہوئیں are fixed as the verifier asks, but the English's "in that same year, 1781" keeps its year (the verifier's wording dropped it), and the relative clause comes first in plain Urdu order rather than between commas. The repetition of the loss of the books is the English's own (it says so in Writings and again here), so it is kept.
+OLD: گرہوڑی کی بیشتر کتابیں بالائی سندھ پر افغانوں کی جن یورشوں میں تلف ہوئیں، وہ بھی اسی سال یعنی 1781 میں ہوئیں۔
+NEW: جن یورشوں میں گرہوڑی کی بیشتر کتابیں تلف ہوئیں، بالائی سندھ پر افغانوں کی وہ یورشیں بھی اسی سال یعنی 1781 میں پیش آئیں۔
+
+WHY: V3 r1 issue 7; applied in the verifier's wording.
+OLD: مخدوم عبدالرحیم گرہوڑی کی یاد عقیدت کے اس وسیع نقشبندی حلقے کا حصہ ہے
+NEW: مخدوم عبدالرحیم گرہوڑی کا نام عقیدت کے اس وسیع نقشبندی حلقے سے وابستہ ہے
+
+WHY: V3 r1 issue 14; applied in the verifier's wording.
+OLD: 1956 میں عمر محمد داؤد پوتہ کی تدوین کے ساتھ
+NEW: 1956 میں عمر محمد داؤد پوتہ کی تدوین سے
+
+WHY: V3 r1 issue 8; applied in the verifier's wording (اپنی جگہ، مگر keeps the concession of "for all his militant zeal" without adding or dropping a contrast).
+OLD: اپنے تمام تر جنگجویانہ جوش کے باوجود گرہوڑی کو سندھی تصوف کی نمائندہ مثال سمجھنا درست نہ ہوگا۔
+NEW: گرہوڑی کا جنگجویانہ جوش اپنی جگہ، مگر انہیں سندھی تصوف کی نمائندہ مثال سمجھنا درست نہ ہوگا۔
+
+WHY: V3 r1 issue 1; applied in the verifier's wording (بھی was already in the sentence, so the English "and a number of Hindus" gains no new emphasis; it only moves so ہندو is no longer read with مسلمان as one phrase).
+OLD: متعدد ہندو مسلمان اولیاء کے عقیدت مند مرید بھی بنے۔
+NEW: متعدد ہندو بھی مسلمان اولیاء کے عقیدت مند مرید بنے۔
+
+Not applied:
+- V3 r1 issue 2, the sense «بہت کچھ لکھا» (wrote a great deal): the English says "a good writer"; the sentence was recast with اچھے مصنف instead (see above).
+- V3 r1 issue 12, the merged gloss «ہندو جوگیوں اور سنیاسیوں کا ایک خاص گروہ»: it would drop the English's identification of Kapari with Yogis and change who is the group of Sanyasin; only the agreement was fixed.
+- V3 r1 issue 13, «خوب»: the English does not say the service was lavish.
+- V3 r1 issue 5, dropping the year from the last sentence and «انہی»: the English repeats 1781, and the troubles have no antecedent.
+- V3 r1 note 1 (drop the second «عالم/زاہد ... مشہور» and the second statement on Surat al-Kauthar's popularity): both repetitions are the English's own ("remembered for his religious scholarship and his ascetic life"; "the favourite theme" and "always a favourite of poets"), so cutting either would drop a statement.
+- V3 r1 note 3 (attach «جو شاہ عبداللطیف کے ہاں نہیں ملتا»): taste, and «نہیں ملتا» (is not found in him) is softer than the English "did not do".
+- V3 r1 note 5 (قصبہ / بستی): the English itself uses two words, "town" and "hamlet".
+- V3 r1 note 6 (مغل شہنشاہ): taste; the sentence already opens «مغل تاریخ میں», and the English says only "the emperor".
+- V3 r1 note 7 (محمدؐ beside نبی کریمؐ): the English names "Muhammad" there; taste.
+- V3 r1 note 8 (tense shifts): taste; the verifier calls them tolerable.
+- V2 r1 notes 2 to 4: confirmations, nothing to apply.

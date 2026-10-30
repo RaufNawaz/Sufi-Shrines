@@ -1,0 +1,12 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the one change in verify/gurdwara-babay-de-ber.ur.r3.changes.txt was replayed on /home/claude/bak/gurdwara-babay-de-ber.ur.md.bak_ur2. Its OLD occurred exactly once in the backup and was replaced once. The result is byte for byte identical to the current gurdwara-babay-de-ber.ur.md. In the current file the NEW occurs once and the OLD does not survive. Nothing outside the change list moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-babay-de-ber --no-verdicts` printed "ok    gurdwara-babay-de-ber  team 40212 -> public 16039 chars (0.40), Urdu 15238 chars (0.95)" and exited 0.
+3. Change 1 (V3 r2 issue 1), Legacy (ورثہ) paragraph 1, checked against the English "For the city of Sialkot, the shrine and its ancient tree are a reminder of a plural past in which, as tradition tells, the founder of the Sikh faith and a Muslim saint of the city met beneath the same sky":
+   - Dropping شہر after سیالکوٹ loses nothing. "The city of Sialkot" is simply Sialkot, and the later شہر کے ایک مسلمان بزرگ still names the city and now refers back to سیالکوٹ without doubt.
+   - Dropping the ایک before ایسے removes only the calqued English article. ایسے کثیر المذاہب ماضی ... جب still renders "a plural past in which".
+   - Both persons (سکھ مذہب کے بانی، شہر کے ایک مسلمان بزرگ), the hedge روایت کے مطابق (still governing only the meeting, as "as tradition tells" does) and ایک ہی آسمان تلے ("beneath the same sky") are unchanged. Subject and referents are right: یہ گوردوارہ اور اس کا قدیم درخت is "the shrine and its ancient tree".
+   - No fact, name, number, hedge or qualifier is added or lost.
+4. The change was applied in V3's own wording with no adaptation, so there is no adapted or rejected fix to judge.
+5. The NEW text has no Latin letters, no em or en dashes and no figures.

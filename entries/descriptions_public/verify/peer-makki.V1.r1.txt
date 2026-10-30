@@ -1,0 +1,57 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) The location clause. "have varied over time" is not in the team version. The team version records that the site's account, the nineteenth century survey, the modern edition's appendix and the 1884 contents list describe the location differently. It does not say that the location, or the way it was described, changed over time. Read with the next sentence ("In the nineteenth century it lay ..."), the draft suggests that the tomb or its address moved. The plain rule 4 clause fixes this. The rest of judgement call 3 is accepted.
+OLD: Accounts of exactly where the tomb stands have varied over time.
+NEW: Accounts differ on exactly where the tomb stands.
+
+2. (precision) A list with a gloss inside it. In "two masonry wells, a *ghusl-khana*, a bathing room, and a platform marking a mosque" a reader can count four structures, taking the *ghusl-khana* and "a bathing room" as two things. The team version has three: two wells, a *ghusl-khana* and a platform marking a mosque. Putting the glossed term last removes the ambiguity.
+OLD: There were two masonry wells, a *ghusl-khana*, a bathing room, and a platform marking a mosque.
+NEW: There were two masonry wells, a platform marking a mosque, and a *ghusl-khana*, a bathing room.
+
+3. (precision) An ambiguous referent. "He died in Lahore" directly follows "while Sultan Mas'ud I, who reigned from 1031 to 1041, ruled in Ghazna", so the nearest man is Mas'ud I. The team version (Schimmel) says that Hujwiri died there and that his shrine is the place of pilgrimage.
+OLD: He died in Lahore, and his shrine is still a popular place of pilgrimage there.
+NEW: Hujwiri died in Lahore, and his shrine is still a popular place of pilgrimage there.
+
+4. (precision) Certainty. The team version gives the Junaidi teaching only inside "Hagiographical accounts hold that he arrived in Lahore in 575 AH ... and remained for some thirty-six years as a teacher of both the exoteric sciences of Islamic law and the esoteric path of the Junaidi Sufi lineage". The 575 AH arrival and the thirty six years of preaching also appear plainly in the survey account, so they need no hedge elsewhere. The Junaidi lineage does not, so the hedge should cover this sentence.
+OLD: For some thirty six years he taught both the outward sciences of Islamic law and the inward path of the Junaidi Sufi lineage, which traces back to the classical Baghdad master Junayd.
+NEW: For some thirty six years, it is said, he taught both the outward sciences of Islamic law and the inward path of the Junaidi Sufi lineage, which traces back to the classical Baghdad master Junayd.
+
+5. Rulings on the writer's judgement calls. All are accepted, with notes 1, 3 and 4 above applied where they touch a call.
+   - 1: accepted. Alam Faqri's first visit to Data Ganj Bakhsh's shrine is filed in the team version under the disagreement "Peer Makki and Data Ganj Bakhsh". Placed beside the funeral tradition it would contradict that tradition, so it would set two accounts side by side. Rule 4 basis (a) gives the shrine's own tradition, and the item is not obviously important on its own.
+   - 2: accepted. "the one most accounts give" holds. The site, the survey, Lahori's text and the editor's preference give 612 AH. Against them stand 796 AH (a footnote whose year is an uncertain reading) and 1048 AH (attributed to Chishti by the editor but absent from Chishti's pages as read). The single clause covers both identity and year, and the variants are rightly not named.
+   - 3: accepted, with note 1. Keeping the Committee Bagh as the nineteenth century setting is right, because it belongs to the description of the fabric (wall, grave, platform, wells). Dropping "west of the *takia*", Ravi Road as an address and "outside the city" is also right.
+   - 4: accepted. The team version itself joins the site's anecdote to the survey's fuller account ("The fuller account reported of the two sieges ... is given above"). Under "Ghori and Lahore" it also puts the 1178 siege and the return six years later in one item. This is one event told at two lengths, not two merged chains, and the whole story is framed as a story.
+   - 5: accepted. "submitted and was taken to Ghazni" does not contradict the story's "taken prisoner and later killed". Leaving out Bhandari's place of death avoids a second, rival account of his end.
+   - 6: accepted. The team version files Bhandari's Shihab al-Din campaigns under "Ghori and Lahore", which supports "Shahab-ud-Din Ghori". Mu'izzu'd-Din Muhammad bin Sam is left unidentified with Ghori, as in the team version.
+   - 7: accepted. In a Persian chronicle's account of the Ghaznavids, the bare 555 is a Hijri year, and "AH" is an era label, not a new fact.
+   - 8: accepted. Only the word for the fair is marked uncertain, not "fewer people came in his own time", and the comparison with earlier days is the team version's own.
+   - 9: accepted, but it is the weakest sentence in the draft. It reports that a piece of writing exists rather than anything about the saint, which comes close to the "who wrote what" the brief removes. It stands because the team version's Legacy treats writing about the saint as part of his legacy and because it carries "the name by which Lahore knows him". The editor is not named, and nothing rests on his identification beyond the heading "Pir Makki" itself. The writer's fallback, deleting the sentence, would also lose nothing important.
+   - 10: accepted. The team version's first passage gives Pir Zaki and the Zaki Gate without doubt, and only the later passage flags them. "belong to other people" is the team version's own voice. Dropping "thirteenth" keeps the twelve gates from standing beside a second count. See taste point (a).
+   - 11: accepted. "Tradition holds" carries the site's "by what tradition describes as divine instruction", and the survey's command follows under "it is said".
+   - 12: accepted. Schimmel's sentence concerns Hujwiri, so "In Hujwiri's day" is supported. The gloss "the house of Mahmud of Ghazni" rests on "the last of Mahmud of Ghazni's line" and on the end of the Ghaznavids at Khusrau Malik's surrender. See note 3 for the referent.
+   - 13: accepted. Chishti's characterisation is framed with "it is said".
+   - 14: accepted. "In that century" is anchored to Chishti's day at the century, correctly not to a decade. The keeper's age (59, uncertain) is rightly out, and both sons are named.
+   - 15: accepted.
+   - 16: accepted. "outward" and "inward" are the team version's own terms ("outward sciences", "hidden knowledge"). Junaid Baghdadi and Junayd are not equated.
+   - 17: accepted. Under rule 3, survey material stays plain reported fact, and hedging the kings ("it is said") is more cautious than the team version, which is allowed.
+   - 18: accepted. The four precision changes alter the length by a few characters only.
+
+6. Other checks passed.
+   - No citation, page reference, narration of an author, signposting, or archive or process language survives.
+   - The only time anchors are "In the nineteenth century" and "In that century" (Chishti, correctly not a decade) and "In Hujwiri's day". No material from Lahori 1875 or Kanhaiya Lal 1884 carries a date.
+   - Every reading the team version marks uncertain is out: 796 AH, the Sa'd al-Din identification, the name on the grave, the keeper's age, the *kanals*, the day and month of Chishti's *ʿurs*, the word for the fair, the Zeb-un-Nisa passage, Abd al-Razzaq Makki, Bhandari's three years, and Kanhaiya Lal's page 325. Calling the grave "the saint's grave" is right, because the team version in its own voice treats the passage as Chishti's description of this tomb.
+   - Legends stay legends: "Tradition holds", "it is said", "A well loved story tells", "The one told at the shrine itself holds". The quotation "Peer Makki is present there, who is enough for Lahore" is verbatim from the team version.
+   - Each disagreement that matters to a visitor (identity and death year, location, the bond with Data Ganj Bakhsh, the years of the campaigns) carries one clause and no side by side variants. Dhillon's 1192 statement is rightly dropped under basis (b).
+   - Glosses are definitional. The bibliography is the team version's, item for item and in order.
+
+7. Taste (no change required).
+   (a) The Zaki Gate passage says twice that Pir Zaki is someone else ("is named for another man" and "Pir Zaki is a different man from Peer Makki"). Once would do.
+   (b) "the knowledge of the soul and of the sect" drops the team version's "what is reported as", which marks the phrase as the survey's own label. This is harmless, since the whole paragraph is the survey's account.
+   (c) "Devotion binds Peer Makki to his great neighbour" is a connective the team version does not use word for word. It rests on the team version's "the two saints' bond" and on the custom of honouring him as a spiritual forerunner, so it is acceptable.
+   (d) Rabi-ul-Awal could take a short gloss (a month of the Islamic calendar), as the other terms do.
+   (e) "south-eastern", as the team version spells it, is the usual British form and is not a coined hyphen. "southeastern" is not wrong.
+
+Omission sweep: after a sweep of the team version, nothing important is missing. Kept: the father and the family's kin, the whole life and journey, the prophecy story, the mosque, the Auqaf and the shrine's tradition, the nineteenth century wall, grave, wells, keeper and her two sons, and the land, the pilgrim figures, the Thursday gatherings and the *ʿurs*, the Ghaznavid and Ghurid setting, the gates and the Legacy. Everything left out is apparatus, a rival account resolved under rule 4, or a reading the team version marks uncertain.

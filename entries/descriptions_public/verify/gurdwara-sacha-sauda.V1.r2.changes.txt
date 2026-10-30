@@ -1,0 +1,13 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: He brought a message of peace and harmony to the believers of Islam and Hinduism, religions hostile to each other, and taught that all men and women were equal, irrespective of caste, creed, wealth, social standing and gender, and that a good life rested on honest labour, compassion, selfless service and prayer.
+NEW: He brought a message of peace and harmony to the believers of Islam and Hinduism, and taught that all men and women were equal, irrespective of caste, creed, wealth, social standing and gender, and that a good life rested on honest labour, compassion, selfless service and prayer.
+
+2. V1 r1 change 2
+OLD: The renovation is dated to 1993 and 1994, though accounts of its timing differ, and Qaiser himself played a major part in it.
+NEW: The renovation is dated to 1993 and 1994, though accounts of its timing differ, and Qaiser himself has said that he played a major part in it.
+
+3. V1 r1 change 3
+OLD: On that visit, before the Guru Granth Sahib, Qaiser placed a ten rupee note, walked round the palanquin and fanned the scripture with a whisk, and his fellow visitor did the same.
+NEW: On that visit in Ramzan, before the Guru Granth Sahib, Qaiser placed a ten rupee note, walked round the palanquin and fanned the scripture with a whisk, and his fellow visitor did the same.

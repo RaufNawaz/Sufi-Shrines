@@ -1,0 +1,36 @@
+V1: PASS
+V2: PASS
+V3: PASS
+
+Round 2 (confirming) of the focused check on the verse restored on 30 October 2026 (Rauf's ruling). Files read: the brief (docs/prompts/PUBLIC_DESCRIPTION_BRIEF.md), the team version (poetry/team/madho-lal-hussain.md), the before copies (poetry/public_before/madho-lal-hussain.md and .ur.md), the current files (entries/descriptions_public/madho-lal-hussain.md and .ur.md), and the round 1 report (verify/madho-lal-hussain.INS.r1.txt).
+
+Files verified: madho-lal-hussain.md md5 df89cadf55aa20ad696d767a9c8716a6; madho-lal-hussain.ur.md md5 bffc7b01c0d68b45d8dde830de449784.
+
+ISSUES: none
+
+NOTES
+
+a. Round 1 issues, all applied exactly as proposed (each checked as a string match against the current line):
+   - Issue 1 (V1). English line 271 is now "A further line of the inscription on the south *mihrab* speaks of the building of the mosque and the well:". Urdu line 271 is now "جنوبی محراب کے کتبے کا ایک اور مصرع بھی مسجد اور کنویں کی تعمیر سے متعلق ہے:". Both are the round 1 wording, character for character.
+   - Issue 2 (V3). Urdu line 27 now ends "... کہ کون سا سنہ مراد ہے:". This is the round 1 wording.
+   - Issue 3 (V3). Superseded by issue 1, as round 1 said it would be. Its text was correctly not applied.
+
+b. Nothing else changed. Diff against public_before shows exactly two insertions in each file: lines 27 to 32 (lead-in, verse, italic rendering) and lines 270 to 273 (lead-in, verse). There are no other added, removed or altered lines.
+
+c. V1. Insertion 1: "A line of verse dates Bahlol's coming to the year nine hundred and fifty five, without naming the era:". It is supported by the team version (line 37: Chishti "dates Bahlul's coming ... with a line of verse that gives the year as nine hundred and fifty-five but names no era"). The uncertain title of the work Chishti follows stays out. No age, no AH and no source name is added. Nothing rests on a flagged reading: the "(the reading uncertain)" flags in that part of the team version cover Chishti's "ten years" and a word of the majzub's order, which the article does not use. The rendering "*The year was nine hundred and fifty five*" restates what the team version says the line gives. It is not a published translation, so it correctly has no credit.
+   Insertion 2: the "further line" belongs to the south-arch inscription in Chishti's copy (team line 366). Under rule 4 (minor variant, dropped silently), it is right to state it as a line of the south *mihrab* inscription without saying that the other copy lacks it. The line carries no uncertainty flag in the team version: the illegible word that line 366 mentions is in the sandals line. "Speaks of the building of the mosque and the well" is the team version's own description. The verse has no rendering, which is correct because the team version gives none.
+   There is no citation, source narration, archive language or dash. Placement follows the team version's order. The verse paragraphs are byte for byte identical across the team version, the English and the Urdu (checked as UTF-8: 47 and 43 bytes, no ZWNJ, bidi marks, NBSP or trailing spaces). Each verse paragraph is alone, with a blank line on both sides.
+
+d. V2. Insertion 1: "A line of verse" = ایک مصرع. "dates Bahlol's coming to the year nine hundred and fifty five" = شیخ بہلول کی آمد کا سال نو سو پچپن بتاتا ہے (the number in words, as the English has it). "without naming the era" = مگر یہ نہیں بتاتا کہ کون سا سنہ مراد ہے. The italic سال نو سو پچپن تھا matches the English rendering, with no credit and no Latin.
+   Insertion 2: "A further line of the inscription on the south mihrab" = جنوبی محراب کے کتبے کا ایک اور مصرع. "speaks of the building of the mosque and the well" = مسجد اور کنویں کی تعمیر سے متعلق ہے. The English has no rendering after the second verse, and the Urdu adds none.
+   Nothing is added or dropped, and no figure appears in either insertion.
+
+e. V3. Both lead-ins read as natural Urdu. "کون سا سنہ مراد ہے" is clear in context: سال has just given the year, so سنہ reads as the era. In "ایک اور مصرع بھی" the بھی is idiomatic, and it points back to "اسی کتبے کے یہ مصرعے" at line 266. Agreement is correct (مصرع masculine: بتاتا ہے، متعلق ہے). Both lead-ins end in a colon, and neither verse line ends in punctuation.
+   Taste only, not a fault: lines 266 and 271 both say "مسجد اور کنویں کی تعمیر" five lines apart. The English repeats the phrase in the same way, and "ایک اور ... بھی" makes the repetition read as deliberate.
+
+f. Checker. The repository checker cannot see this row, because there is no entries/descriptions/madho-lal-hussain.md. I therefore ran an unmodified copy of pipeline/book_queue/*.py and pipeline/*.py in a scratch mirror, with poetry/team/madho-lal-hussain.md as the team version and the current public files: "ok madho-lal-hussain team 149689 -> public 56751 chars (0.38), Urdu 49386 chars (0.87)", exit 0, --no-verdicts. Nothing was written in the repository.
+
+g. For the coordinator, outside the scope of the verdicts:
+   (i) The verdict lines at the top of madho-lal-hussain.notes.md still carry the pre-insertion stamps (en:b1e7838a, ur:dbb65978), so they are stale until re-stamped.
+   (ii) Two older notes lines still say the 955 line is left out: line 19 ("so the 955 chronogram line is left out") and the "Left out" list. The appended section "Verse restored (Rauf, 30 October 2026)" records the change and overrides them. A one-word "(restored 30 October)" beside each would remove any doubt.
+   (iii) Round 1 note f still stands: "انکو" in مسجد و چاہ را انکو تعمیر is not a Persian word as printed. Check it against Chishti p. 441 when the team version is next revised. Under the rules this is not an issue here, because the team version does not flag the line.

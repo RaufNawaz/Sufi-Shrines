@@ -1,0 +1,53 @@
+Changes applied by the coordinator (ur1), exact replacements, each OLD occurring once.
+
+1. V3 r1 issue 10 (repeated gloss of پاتشاہی, already glossed in the introduction)
+OLD: دس پاتشاہیوں یعنی بادشاہیوں کے شمار میں چھٹی گرو ہرگوبند کی ہے، اور گوردوارے کا نام اسی سے ماخوذ ہے۔
+NEW: دس پاتشاہیوں کے شمار میں چھٹی پاتشاہی گرو ہرگوبند کی ہے، اور گوردوارے کا نام اسی سے ماخوذ ہے۔
+
+2. V3 r1 issue 9 (gloss of the familiar word سبیل dropped)
+OLD: جس میں اینٹوں کا رہٹ والا کنواں اور پانی پلانے کی سبیل تھے،
+NEW: جس میں اینٹوں کا رہٹ والا کنواں اور سبیل تھے،
+
+3. V3 r1 issue 4 (پھٹکار is sent, not said)
+OLD: اور جب کبھی اس کا ذکر آئے تو پہلے تین بار پھٹکار کہے۔
+NEW: اور جب کبھی اس کا ذکر آئے تو پہلے تین بار اس پر پھٹکار بھیجے۔
+
+4. V3 r1 issue 5 (spelling made consistent with سمادھ elsewhere in the article)
+OLD: گرو ہرگوبند نے اپنے والد کی سمادھی کے مقام پر ایک چھوٹی سی عمارت بنوائی۔
+NEW: گرو ہرگوبند نے اپنے والد کی سمادھ کے مقام پر ایک چھوٹی سی عمارت بنوائی۔
+
+5. V2 r1 note 1 (keeps the English qualifier 'at the Guru's court')
+OLD: دربار میں ہتھیار نذر کرنے کی یہ رسم گرو ہرگوبند ہی نے شروع کی
+NEW: گرو کے دربار میں ہتھیار نذر کرنے کی یہ رسم ہرگوبند ہی نے شروع کی
+
+6. V3 r1 note 8 (one English word 'rajas' rendered in two paradigms, راجے then راجاؤں; راجا with راجاؤں made consistent)
+OLD: اس قلعے میں کچھ راجے بھی قید تھے۔
+NEW: اس قلعے میں کچھ راجا بھی قید تھے۔
+
+7. V3 r1 issue 7 (redundant pronoun ان after the emperor is named)
+OLD: اور گرو نے شہنشاہ کی دو ایک فوجی مہموں میں ان کی مدد کی۔
+NEW: اور گرو نے دو ایک فوجی مہموں میں شہنشاہ کی مدد کی۔
+
+8. V3 r1 issue 6 (مقرر کرنا given its complement; the English 'sat in the place of his grandfather' already states the succession)
+OLD: گرو نے بابا گردتا کے چھوٹے بیٹے ہر رائے کو مقرر کیا، جو یوں اپنے دادا کی جگہ بیٹھے۔
+NEW: گرو نے بابا گردتا کے چھوٹے بیٹے ہر رائے کو اپنا جانشین مقرر کیا، اور یوں ہر رائے اپنے دادا کی جگہ بیٹھے۔
+
+9. V3 r1 issue 2 (adapted: the English says Hargobind was the pir, the spiritual guide, of the seventh Guru, so دادا would replace a stated spiritual relation with kinship; پیر و مرشد keeps the English meaning and makes the spiritual sense unmistakable beside والد)
+OLD: ہرگوبند ساتویں گرو کے پیر بھی تھے اور نویں کے والد بھی۔
+NEW: ہرگوبند ساتویں گرو کے پیر و مرشد بھی تھے اور نویں کے والد بھی۔
+
+10. V3 r1 issue 1 (جو in the direct case cannot govern the transitive سنبھالے رکھی)
+OLD: نویں گرو ان کے چھوٹے بیٹے تیغ بہادر تھے، جو والد کے نقشِ قدم پر چلے اور گرو ہرگوبند کی تلوار سنبھالے رکھی۔
+NEW: نویں گرو ان کے چھوٹے بیٹے تیغ بہادر تھے، جو والد کے نقشِ قدم پر چلے اور گرو ہرگوبند کی تلوار سنبھالے رہے۔
+
+11. V3 r1 issue 8 (سابقہ with past tense تھی; 'former settlement' rendered as پہلے ... بستی تھی)
+OLD: یہ لاہور کے باہر واقع ایک سابقہ بستی تھی، اور شہر کے محلوں میں بھی اس کا شمار ہوتا تھا۔
+NEW: یہ پہلے لاہور کے باہر واقع ایک بستی تھی، اور شہر کے محلوں میں بھی اس کا شمار ہوتا تھا۔
+
+12. V3 r1 note 11 (رخصتی suggests a bride's departure, which the English 'departure' does not carry)
+OLD: ان کی رخصتی پر ماتم کیا گیا۔
+NEW: ان کے جانے پر ماتم کیا گیا۔
+
+13. V3 r1 note 4 (ambiguous referent: after ایک سکھ, ان could read as an honorific for the one ruler; the English 'their' is the Sikhs')
+OLD: جو ان کی سیاسی قوت کا مرکز تھا
+NEW: جو سکھوں کی سیاسی قوت کا مرکز تھا

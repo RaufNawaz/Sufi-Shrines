@@ -1,0 +1,47 @@
+VERDICT: FAIL
+ISSUES:
+1. [gloss of a familiar word] "ایک مدرسہ یعنی دارالعلوم" -> مدرسہ is an everyday word and needs no gloss; the یعنی clause reads like a translator's note. -> خواجہ سلیمان تونسوی نے تونسہ میں ایک دارالعلوم قائم کیا۔
+OLD: خواجہ سلیمان تونسوی نے تونسہ میں ایک مدرسہ یعنی دارالعلوم قائم کیا۔
+NEW: خواجہ سلیمان تونسوی نے تونسہ میں ایک دارالعلوم قائم کیا۔
+
+2. [unidiomatic collocation / calque] "جس سے آئندہ علمی تحقیق فائدہ اٹھا سکتی ہے" -> an abstract noun (تحقیق) cannot be the agent of فائدہ اٹھانا; this is a word-for-word rendering of "from which future scholarship may benefit". -> ... جو آئندہ علمی تحقیق میں کام آ سکتا ہے۔
+OLD: تونسہ میں واقع خواجہ سلیمان تونسوی کی مرکزی خانقاہ میں کتابوں کا ایک ذخیرہ جمع کیا گیا اور سنبھال کر رکھا گیا، جس سے آئندہ علمی تحقیق فائدہ اٹھا سکتی ہے۔
+NEW: تونسہ میں واقع خواجہ سلیمان تونسوی کی مرکزی خانقاہ میں کتابوں کا ایک ذخیرہ جمع کیا گیا اور سنبھال کر رکھا گیا، جو آئندہ علمی تحقیق میں کام آ سکتا ہے۔
+
+3. [ambiguous reference] "انہی جانشینوں کی بدولت" -> انہی points back to "خواجہ صاحب کے جانشین" across two intervening sentences (the pilgrimage and the town's name), so the reader has to hunt for the referent. -> name them again.
+OLD: انہی جانشینوں کی بدولت یہ آستانہ چشتی تعلیم و عقیدت کا مرکز چلا آ رہا ہے۔
+NEW: خواجہ صاحب کے جانشینوں کی بدولت یہ آستانہ چشتی تعلیم و عقیدت کا مرکز چلا آ رہا ہے۔
+
+4. [ambiguous pronoun] "اگرچہ وہ ان کے سکھ ہمسایوں کے مخالف تھے" -> وہ is the Khwaja and ان (honorific plural) can equally be the Khwaja, so "ان کے سکھ ہمسایوں" first reads as "his Sikh neighbours" rather than the Hindus'. -> make the owner explicit.
+OLD: تاہم خواجہ سلیمان تونسوی نے پنجابی ہندوؤں سے خوشگوار تعلقات برقرار رکھنے کی کوشش بھی کی، اگرچہ وہ ان کے سکھ ہمسایوں کے مخالف تھے۔
+NEW: تاہم خواجہ سلیمان تونسوی نے پنجابی ہندوؤں سے خوشگوار تعلقات برقرار رکھنے کی کوشش بھی کی، اگرچہ وہ ان ہندوؤں کے سکھ ہمسایوں کے مخالف تھے۔
+
+5. [name run-on / English word order] "نافع السالکین امام الدین غلام شاہ نے" -> the book title runs straight into the compiler's name and reads as one long name; the second clause then switches to a passive "کی ترتیب دی ہوئی ہے" construction. -> put each compiler first as the subject.
+OLD: اسی طرح نافع السالکین امام الدین غلام شاہ نے 1267 ہجری (1851 تا 1852) میں جمع کی، اور منتخب المناقب یار محمد ذوقی بن تاج محمد پاکپتنی کی ترتیب دی ہوئی ہے۔
+NEW: اسی طرح امام الدین غلام شاہ نے 1267 ہجری (1851 تا 1852) میں نافع السالکین جمع کی، اور یار محمد ذوقی بن تاج محمد پاکپتنی نے منتخب المناقب ترتیب دی۔
+
+6. [name run-on] "صوفی صاحب چشتی نظامی سلیمانیہ کو" -> the person's name runs into the order's name with nothing between them, so "صوفی صاحب چشتی نظامی سلیمانیہ" reads as one person's full name and the object of لے گئے disappears. -> mark the order as an order.
+OLD: 1916 میں وفات پانے والے صوفی صاحب چشتی نظامی سلیمانیہ کو جنوبی افریقہ لے گئے۔
+NEW: 1916 میں وفات پانے والے صوفی صاحب سلسلۂ چشتیہ نظامیہ سلیمانیہ کو جنوبی افریقہ لے گئے۔
+
+7. [tangled / ambiguous] "رازِ حضرتِ خواجہ محمد سلیمان کے اکہتر اشعار میں" -> because the title ends in the saint's name, "خواجہ محمد سلیمان کے اکہتر اشعار" reads as "the saint's seventy-one verses". -> put the count before the title.
+OLD: محمد حسین پشاوری نے رازِ حضرتِ خواجہ محمد سلیمان کے اکہتر اشعار میں ان کی زندگی بیان کی، اور خدا بخش تونسوی نے منظوم مناقبِ سلیمانی تصنیف کی۔
+NEW: محمد حسین پشاوری نے اکہتر اشعار پر مشتمل رازِ حضرتِ خواجہ محمد سلیمان میں ان کی زندگی بیان کی، اور خدا بخش تونسوی نے منظوم مناقبِ سلیمانی تصنیف کی۔
+
+8. [calque / English compounding] "مصنف کی بعد کی تونسہ حاضریوں" -> "تونسہ حاضریاں" is an English noun-noun compound ("Taunsa visits"); Urdu needs the postposition. -> تونسہ میں مصنف کی بعد کی حاضریوں.
+OLD: اس کا قلمی نسخہ بہاولنگر میں ہے اور اس کے ساتھ 1287 ہجری (1870) کا ایک ضمیمہ بھی ہے، جس میں مصنف کی بعد کی تونسہ حاضریوں اور خواجہ صاحب کی وفات کا حال درج ہے۔
+NEW: اس کا قلمی نسخہ بہاولنگر میں ہے اور اس کے ساتھ 1287 ہجری (1870) کا ایک ضمیمہ بھی ہے، جس میں تونسہ میں مصنف کی بعد کی حاضریوں اور خواجہ صاحب کی وفات کا حال درج ہے۔
+
+9. [ambiguous pronoun] "ان میں غلام محمد چھاچھڑی کی مناقبِ سلیمانی شامل ہے" -> the nearest plural before ان میں is "چشتیوں" in the previous sentence, not the biographies two sentences back, so ان میں first reads as "among the Chishtis". -> name the referent.
+OLD: ان میں غلام محمد چھاچھڑی کی مناقبِ سلیمانی شامل ہے، جو 1256 ہجری (1840) میں مرتب ہوئی۔
+NEW: ان سوانح عمریوں میں غلام محمد چھاچھڑی کی مناقبِ سلیمانی شامل ہے، جو 1256 ہجری (1840) میں مرتب ہوئی۔
+
+NOTES:
+- Overall the prose is fluent and mostly idiomatic; the miracle stories and the daily-routine paragraph read particularly well. The failures are clarity faults (names and titles running into each other, pronouns with distant or wrong-looking referents), one gloss and two calques, not grammar.
+- Taste: "نظامی چشتیوں کی ایک اور شاخ ... اس لیے اس سلسلے کے مرشد کو" could read "اس شاخ کے مرشد کو", since the reader may briefly take "اس سلسلے" as the whole Chishti order.
+- Taste: "آگے چل کر" occurs three times (Sahib-e-mazar, Silsila, Mazar sections) and "بڑے جانشین" twice; "بڑے" can also be read as "eldest". "نمایاں" or "اہم" would avoid that, if it fits the source.
+- Taste: "1901 (1319 ہجری) میں فوت ہوئے" is acceptable Pakistani Urdu, but elsewhere the article uses وفات پانا / انتقال / وصال for saints; "وفات پائی" would match the register.
+- Taste: "کوئی اللہ کی بارگاہ میں قبول نہیں ہو سکتا" would be more idiomatic as "مقبول نہیں ہو سکتا"; "اگر چڑھاوے آنا بند ہو جائیں" is colloquial, literary Urdu prefers "آنے بند ہو جائیں"; "مدت تک جیتا رہا" reads better as "مدتوں جیتا رہا".
+- Taste: the two sentences on Nur Muhammad Maharvi's chain (line 17) repeat "کلیم اللہ جہان آبادی" and "خود" twice each; they could be merged, but the facts are fine as they stand.
+- For the coordinator to check against the source, not a fluency fix: (a) "مقامی سکھوں، ہندوؤں اور مسلمان مصلحین کی رقابت" can be read as "Sikhs, Hindus, and Muslim reformers" or as "Sikh, Hindu and Muslim reformers"; if the source means reformers of all three communities, "مقامی سکھ، ہندو اور مسلمان مصلحین کی رقابت" would say so unambiguously. (b) "جعفریہ قبیلے" evokes فقہِ جعفریہ to an Urdu reader; the Pathan tribe is usually written جعفر. (c) The article measures one distance in "کروہ" (تین کروہ) and another in "کوس" (40 کوس); these are the same unit under two names, which a reader may take for two units.
+- Mechanical checks pass: no Latin letters, no em or en dashes, Urdu punctuation throughout, Western digits only, no asterisks, no verse paragraphs.

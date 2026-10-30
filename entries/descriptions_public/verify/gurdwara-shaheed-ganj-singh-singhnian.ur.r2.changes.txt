@@ -1,0 +1,59 @@
+1. V3 r1 issue 1, adapted: 'ان میں سب سے بڑھ کر عورتوں اور بچوں' in place of V3's 'سب سے بڑھ کر ان عورتوں اور بچوں', so the women and children stay a subset of the Sikhs and the relative clause (tortured and killed here) still governs all of them, as in the English 'the many Sikhs, above all the women and children, who were tortured and killed here'
+OLD: یہ نام ان بہت سے سکھوں کی یادگار ہے جنہیں اٹھارہویں صدی کے وسط میں بڑے پیمانے پر ہونے والی ایذا رسانی کے دوران یہاں اذیتیں دے کر قتل کیا گیا، اور ان میں بھی سب سے بڑھ کر عورتوں اور بچوں کی۔
+NEW: یہ نام ان بہت سے سکھوں کی، اور ان میں سب سے بڑھ کر عورتوں اور بچوں کی یادگار ہے جنہیں اٹھارہویں صدی کے وسط میں بڑے پیمانے پر ہونے والی ایذا رسانی کے دوران یہاں اذیتیں دے کر قتل کیا گیا۔
+
+2. V3 r1 issue 2 (checked against the English 'its history is contested as well as sacred': both qualities kept, equal weight, no change in strength; applied as given)
+OLD: اسے صرف گوردوارہ شہید گنج بھی کہا جاتا ہے، اور اس کی تاریخ مقدس بھی ہے اور متنازع بھی۔
+NEW: اسے مختصراً گوردوارہ شہید گنج بھی کہا جاتا ہے، اور اس کی تاریخ تقدس اور تنازع دونوں سے عبارت ہے۔
+
+3. V3 r1 issue 3, adapted: V3's calqued 'ایک' dropped, since 'ایک بھاری مقررہ مقدار' would make the English plural 'heavy quotas' a single quota; 'مجبور کیا گیا' kept (the English itself calls it 'forced labour')
+OLD: جہاں انہیں اپنے ہاتھوں سے اناج کی بھاری مقررہ مقداریں پیسنے پر لگایا گیا،
+NEW: جہاں انہیں اپنے ہاتھوں سے اناج کی بھاری مقررہ مقدار پیسنے پر مجبور کیا گیا،
+
+4. V2 r1 note and V3 r1 note (دیکشا): the English says only 'the community of initiated Sikhs' and names no rite, so neither the Hindu term دیکشا nor V3's امرت چھکنے (a rite the English does not name); a plain phrase for 'initiated' instead
+OLD: مگر باقاعدہ دیکشا پانے والے سکھوں کی جماعت
+NEW: مگر باقاعدہ شمولیت اختیار کرنے والے سکھوں کی جماعت
+
+5. V3 r1 issue 4, adapted: V3's sentence order kept, but 'سزائے موت دینے سے پہلے' replaced by 'موت کے گھاٹ اتارنے سے پہلے', because 'سزائے موت دینا' is also read as 'to sentence to death', the very ambiguity V3 flagged; the English is 'before their execution', and the article already renders 'put to death' as موت کے گھاٹ اتارنا
+OLD: وہ ایک ایسے کمرے کا ذکر بھی کرتے ہیں جو قیدیوں کو موت کی سزا سے پہلے رکھنے کے لیے بنایا گیا تھا۔
+NEW: وہ ایک ایسے کمرے کا ذکر بھی کرتے ہیں جو اس لیے بنایا گیا تھا کہ قیدیوں کو موت کے گھاٹ اتارنے سے پہلے اس میں رکھا جائے۔
+
+6. V3 r1 issue 5 (the gloss 'treasury of martyrs' is already given in the introduction, so no fact is lost)
+OLD: لوگ اس جگہ کو شہید گنج یعنی شہیدوں کا خزانہ مان کر اس کی تعظیم کرنے لگے۔
+NEW: لوگ اس جگہ کو شہید گنج مان کر اس کی تعظیم کرنے لگے۔
+
+7. V3 r1 issue 6
+OLD: یاتری اس گوردوارے کے ساتھ پڑوس میں واقع
+NEW: یاتری اس گوردوارے کے پڑوس میں واقع
+
+8. V3 r1 issue 7
+OLD: اور یہ تعمیری شان و شوکت کا نمونہ کم اور یاد منانے کا مقام زیادہ ہے۔
+NEW: اور یہ فنِ تعمیر کی شان و شوکت کا نمونہ کم اور یاد تازہ کرنے کا مقام زیادہ ہے۔
+
+9. V3 r1 note (consistency): the English 'the scripture was read' refers back to 'the Guru Granth Sahib, the Sikh scripture' in the previous sentence, so the same name as elsewhere in the Urdu
+OLD: شہید گنج میں گرنتھ صاحب پڑھا جاتا تھا
+NEW: شہید گنج میں گرو گرنتھ صاحب پڑھا جاتا تھا
+
+10. V3 r1 issue 8
+OLD: اور ان کے ساتھ زمین کے وسیع رقبے وابستہ کر دیے
+NEW: اور زمین کے وسیع رقبے ان کے نام کر دیے
+
+11. V2 r1 issue 1
+OLD: اوتار سنگھ پنگھیڑا کے کہنے پر اقبال قیصر نے تعمیر کی نگرانی کی، اور وہ بتاتے ہیں کہ
+NEW: اوتار سنگھ پنگھیڑا نے اقبال قیصر سے تعمیر کی نگرانی کرنے کو کہا، اور اقبال قیصر بتاتے ہیں کہ
+
+12. V3 r1 issue 9, adapted: 'سکھوں کے ساتھ' kept after checking the English (the 'governor's war' that the reading describes is his conflict with the Sikh misls, the persecution of the Martyrs section; the war with Ahmad Shah had ended with his return to Kabul); the split and 'مروجہ نظام' applied; but after the split the new sentence's 'ان کے قبضے میں' could point to Mir Mannu, the last-named person, so 'ان گروہوں کے' names the groups, as the English 'they' means
+OLD: صوبے دار کی جنگ کی ایک جدید تعبیر یہ ہے کہ سکھ باغیوں کے وہ گروہ جو *مسلیں* کہلاتے تھے اور پورے پنجاب میں جگہ جگہ ابھر آئے تھے، میر منو کو مسلسل تنگ کرتے رہے؛ ان کے قبضے میں زیادہ زمین نہیں تھی، لیکن قائم نظام کے خلاف
+NEW: سکھوں کے ساتھ صوبے دار کی جنگ کی ایک جدید تعبیر یہ ہے کہ سکھ باغیوں کے وہ گروہ جو *مسلیں* کہلاتے تھے اور پورے پنجاب میں جگہ جگہ ابھر آئے تھے، میر منو کو مسلسل تنگ کرتے رہے۔ ان گروہوں کے قبضے میں زیادہ زمین نہیں تھی، لیکن مروجہ نظام کے خلاف
+
+13. V3 r1 issue 10
+OLD: انہیں سالانہ محصول ادا کرے گا۔
+NEW: انہیں سالانہ محصول ادا کریں گے۔
+
+14. V3 r1 issue 11
+OLD: اس یاد کا ٹھوس اور زمینی مرکز ہے۔
+NEW: اس یاد کا ٹھوس اور مادّی مرکز ہے۔
+
+15. V3 r1 issue 12
+OLD: اور سکھ برادری کے لیے آج بھی مقدس سرزمین ہے۔
+NEW: اور سکھ برادری کے لیے آج بھی ایک مقدس مقام ہے۔

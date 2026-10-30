@@ -1,0 +1,32 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 1 V3 issues: all 14 are fixed, each in the corrected sentence V3 r1 proposed, applied verbatim:
+   - 1: the line is now the subject of پار کرنا.
+   - 2: the shrine comes first, with کہلاتا ہے.
+   - 3: امتزاج.
+   - 4: قریب.
+   - 5: قرار دیا گیا ہے.
+   - 6: بڑے بیٹے.
+   - 7: یہ ذکر بھی ہے.
+   - 8: *بانی* ... کو کہتے ہیں.
+   - 9: سندھی ہندوؤں، مسلک, and the repeated gloss removed.
+   - 10: دیوی دیوتاؤں.
+   - 11: اسی شہر میں removed.
+   - 12: دوسرے کنارے پر.
+   - 13: the period and the place now stand before both nouns.
+   - 14: چشتی صابری as an adjective.
+2. The six fidelity edits, read for fluency:
+   - Changes 3 and 19 (شبیہوں): correct oblique plural of the feminine شبیہ. شبیہوں کی تعظیم is idiomatic.
+   - Change 5 (وہ الگ مزار): echoes الگ مزار in the previous sentence and removes the ambiguity V3 r1 noted. It reads naturally.
+   - Change 13 (نافذ کرنے کی سعی): idiomatic for imposing a script.
+   - Change 15 (محفوظ رہے، اور ان کے انتظام کی صورتیں مختلف تھیں): reads smoothly and leads into the next sentence about payment of the keepers.
+   - Change 2 (اسی روایت کے مطابق): clear, because روایت کے مطابق stands two sentences earlier. See the taste note on repetition below.
+3. Every changed sentence was checked for agreement, postpositions, izafat, word order, calque, new ambiguity and in-sentence repetition, and found clean. Each still fits the sentences around it:
+   - The bridge sentence keeps its correlative اس عظیم پل ... جس کے ذریعے, the same extraposed layout as before.
+   - The Zinda Pir sentence's present کہلاتا ہے sits well before اسی زمانے میں.
+   - Rohri's دریا کے دوسرے کنارے پر follows the Sukkur paragraph without the اِس / اُس misreading.
+4. Taste only, روایت repeated across sentences (change 2): the opening paragraph now has روایت کے مطابق، اسی روایت کے مطابق and روایت یہ بھی ہے in four consecutive sentences. The repetition runs across sentences, not inside one, and mirrors the English "By tradition ... the tradition holds", so it is acceptable.
+5. Taste only, the homograph بانی (change 11): بانی also means "founder" twice elsewhere in the article (سکھ مذہب کا بانی). The italics and the defining construction ... کو کہتے ہیں make clear that the term is meant, so dropping کا لفظ creates no real ambiguity.
+6. Taste only, اشعار in change 11: it occurs twice, once in the comparison and once in the یعنی apposition. Repeating the head noun after یعنی is normal Urdu specification. This was already in the earlier text.
+7. Taste only, change 12: انیسویں صدی کے سندھ میں سندھی ہندوؤں has سندھ and سندھی side by side. It mirrors the English ("in nineteenth century Sindh ... among the Hindu Sindhis"), and سندھی ہندو is a community name, so the place phrase is not redundant in meaning.

@@ -1,0 +1,95 @@
+1. V3 issue 2 applied
+OLD: روہی یعنی چولستان کے صحرا کی ویرانیوں میں گزرے ہوئے ان کے برس مشہور ہیں؛ اس صحرا کے ٹیلے، چرواہے اور اونٹوں کے قافلے ان کی شاعری کو ایک مقامی حسن سے بھر دیتے ہیں۔
+NEW: مشہور ہے کہ انہوں نے روہی یعنی چولستان کے صحرا کی ویرانیوں میں برسوں گزارے؛ اس صحرا کے ٹیلے، چرواہے اور اونٹوں کے قافلے ان کی شاعری کو ایک مقامی حسن عطا کرتے ہیں۔
+
+2. V3 issue 3 applied
+OLD: ان کی یہ بات مشہور ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا۔
+NEW: ان کے بارے میں یہ بات مشہور ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا۔
+
+3. V3 issue 1 applied
+OLD: اور وہ ایک دوسرے شہر یعنی لاہور کے میانی قبرستان میں دفن ہیں۔
+NEW: اور وہ ایک اور شہر میں، یعنی لاہور کے میانی قبرستان میں دفن ہیں۔
+
+4. V3 issue 4 applied
+OLD: یہ سینکڑوں مختصر صوفیانہ نظمیں ہیں، اور اپنے پیش رو شاہ حسین اور بلھے شاہ کی کافیوں کی طرح یہ بھی زیادہ تر ایک ایسی عورت کی زبان میں کہی گئی ہیں جو اپنے غائب محبوب کے لیے تڑپتی ہے۔
+NEW: یہ سینکڑوں مختصر صوفیانہ نظمیں ہیں، اور خواجہ غلام فرید کے پیش روؤں شاہ حسین اور بلھے شاہ کی کافیوں کی طرح یہ بھی زیادہ تر ایک ایسی عورت کی زبان میں کہی گئی ہیں جو اپنے محبوب کی جدائی میں تڑپتی ہے۔
+
+5. V3 issue 5 applied
+OLD: ان کے کلام کا ایک اور مضمون روحانی ریاضت اور باطنی زیارت کا امتزاج ہے؛ اور زیارت اپنے مقدس جغرافیے سمیت بجائے خود ان کی شاعری کا موضوع ہے۔
+NEW: ان کے کلام کا ایک اور مضمون روحانی ریاضت اور باطنی زیارت کا امتزاج ہے، اور زیارت اپنے مقدس جغرافیے سمیت بجائے خود ان کی شاعری کا موضوع ہے۔
+
+6. V3 issue 6 applied
+OLD: اکیسویں صدی کے اوائل میں بھی اکثر پنجابیوں اور سندھیوں کے بارے میں زیادہ امکان یہی تھا کہ انہوں نے کافی پڑھی نہیں بلکہ سنی ہوگی۔
+NEW: اکیسویں صدی کے اوائل میں بھی زیادہ امکان یہی تھا کہ اکثر پنجابیوں اور سندھیوں نے کافی پڑھی نہیں بلکہ سنی ہوگی۔
+
+7. V2 note a applied
+OLD: ہیر کی زبان میں بھی بات کرتے ہیں، اور عشقِ مجازی کے استعاروں میں عشقِ حقیقی کا بیان کرتے ہیں۔
+NEW: ہیر کی زبان بھی اختیار کرتے ہیں تاکہ عشقِ مجازی کے استعاروں میں عشقِ حقیقی کا بیان کر سکیں۔
+
+8. V3 issue 7 applied
+OLD: تڑپتی ہوئی روح کو عورت کے روپ میں پیش کرنے کا انداز پنجاب کی طرح سندھ میں بھی ہے، جبکہ عالمِ اسلام میں کہیں اور یہ شاذ ہی دکھائی دیتا ہے۔
+NEW: تڑپتی ہوئی روح کو عورت کے روپ میں پیش کرنے کا انداز پنجاب کی طرح سندھ میں بھی پایا جاتا ہے، جبکہ عالمِ اسلام میں کہیں اور یہ شاذ ہی دکھائی دیتا ہے۔
+
+9. V3 issue 8 applied
+OLD: ہیر، سسی، سوہنی اور سندھی و پنجابی لوک داستانوں کی بہت سی دوسری المناک ہیروئنیں محبوب کی تلاش میں سرگرداں انسانی روح کی علامت ہیں۔
+NEW: ہیر، سسی، سوہنی اور سندھی و پنجابی لوک داستانوں کے بہت سے دوسرے المناک نسوانی کردار محبوب کی تلاش میں سرگرداں انسانی روح کی علامت ہیں۔
+
+10. V2 note d applied (italic meaning paragraph only; the Seraiki verse line is untouched)
+OLD: *تو ہی میرا عشق ہے اور تو ہی میرا محبوب؛ بس تو ہی سب کچھ ہے۔*
+NEW: *تو میرا عشق بھی ہے اور میرا محبوب بھی؛ بس تو ہی سب کچھ ہے۔*
+
+11. V3 issue 9 applied
+OLD: شاعری کے ساتھ ساتھ خواجہ غلام فرید کی گفتگو کی ایک کتاب بھی ہے۔
+NEW: شاعری کے ساتھ ساتھ خواجہ غلام فرید کی گفتگو پر مشتمل ایک کتاب بھی ہے۔
+
+12. V2 note c applied
+OLD: مترجم ہی کی بدولت
+NEW: مترجم کی بدولت
+
+13. V3 issue 10 applied
+OLD: اس طرزِ تحریر میں قصبے کے نام کے ساتھ شریف کا لفظ جوڑا گیا ہے، جو مقدس مقامات کے نام کے ساتھ تعظیماً لگایا جاتا ہے۔
+NEW: اس طرزِ تحریر میں قصبے کے نام کے ساتھ شریف کا لفظ جوڑا گیا ہے، جو مقدس مقامات کے ناموں کے ساتھ تعظیماً لگایا جاتا ہے۔
+
+14. V3 issue 11 applied
+OLD: اور اس کنسرٹ کے پروگرام میں دو کلام انہی کے تھے، دونوں سرائیکی میں۔
+NEW: اور اس کنسرٹ کے پروگرام میں دو کلام انہی کے تھے اور دونوں سرائیکی میں تھے۔
+
+15. V3 note (مزار اور عقیدت, recording title) applied: the English 'His name also stands in the full title of a recording' follows 'two items ... were his' and the English calls Abida Parvin 'Her', so 'His' is plainly Ghulam Farid; the Urdu ان could be read as Abida Parvin, so the name is given
+OLD: اے ٹریبیوٹ ٹو گریٹ مسٹکس نامی ایک ریکارڈنگ کے پورے عنوان میں بھی ان کا نام آتا ہے۔
+NEW: اے ٹریبیوٹ ٹو گریٹ مسٹکس نامی ایک ریکارڈنگ کے پورے عنوان میں بھی خواجہ غلام فرید کا نام آتا ہے۔
+
+16. V3 issue 12 applied (انہی here is resumptive, 'that same teacher', not exclusive)
+OLD: اس قصبے میں قاضی محمد عاقل کا ایک مدرسہ تھا، جہاں خواجہ سلیمان تونسوی نے اپنے ابتدائی دنوں میں قاضی محمد عاقل سے تعلیم پائی اور علومِ ظاہری حاصل کیے۔
+NEW: اس قصبے میں قاضی محمد عاقل کا ایک مدرسہ تھا، جہاں خواجہ سلیمان تونسوی نے اپنے ابتدائی دنوں میں انہی سے تعلیم پائی اور علومِ ظاہری حاصل کیے۔
+
+17. V2 note b applied
+OLD: بہاولپور سے جنوب کی طرف جانے والی سڑک پر
+NEW: بہاولپور سے ہو کر جنوب کی طرف جانے والی سڑک پر
+
+18. V3 issue 13 applied: the English 'an amalgamation of the two languages' follows 'Sindh and Punjab' and the colon clause names Punjabi and Sindhi as the two poles, so the two languages are plainly Sindhi and Punjabi; the attribution کہا گیا ہے is kept
+OLD: سرائیکی کو ان دونوں زبانوں کا آمیزہ کہا گیا ہے:
+NEW: سرائیکی کو سندھی اور پنجابی کا آمیزہ کہا گیا ہے:
+
+19. V3 issue 14 applied (بھٹائی kept, as the English says Bhittai here)
+OLD: سرائیکی کے لیے خواجہ غلام فرید وہی حیثیت رکھتے ہیں جو سندھی کے لیے بھٹائی اور پنجابی کے لیے بلھے شاہ: یعنی وہ شاعر جس نے
+NEW: سرائیکی میں خواجہ غلام فرید کی وہی حیثیت ہے جو سندھی میں بھٹائی اور پنجابی میں بلھے شاہ کی ہے، یعنی وہ شاعر جس نے
+
+20. V3 issue 15 applied
+OLD: ملتان سے چھپنے والے ان کی تصانیف کے ایڈیشنوں میں کیفی جام پوری کا مرتب کردہ کلامِ فرید، کشفی ملتانی کا ترجمہ کردہ نغمۂ صحرا اور ایم عبدالواسع کا دیوانِ فرید مع ڈوہڑہ جات بھی شامل ہیں۔
+NEW: ان کی تصانیف کے جو ایڈیشن ملتان سے چھپے، ان میں کیفی جام پوری کا مرتب کردہ کلامِ فرید، کشفی ملتانی کا ترجمہ کردہ نغمۂ صحرا اور ایم عبدالواسع کا دیوانِ فرید مع ڈوہڑہ جات بھی شامل ہیں۔
+
+Not applied:
+- V2 note e: no change asked (V2 says both points are clear as they stand).
+- V3 note (صاحبِ مزار, اس کے باوجود -> مگر): taste; the English 'nonetheless' is carried as written.
+- V3 note (صاحبِ مزار, روحانی معاملات میں ... ناقد): V3 proposes no fix; the Urdu follows the English 'in matters of the spirit he was their critic'.
+- V3 note (شاعری, tense of استوار ہوتی ہے / آسان تھا): the English has the same shift (is a stanzaic poem / was easy); V3 calls it readable.
+- V3 note (شاعری, کا بیان -> کو بیان; بلند ترین اظہار عطا کیا): V3 calls both acceptable; taste. V2 note a keeps کا بیان کر سکیں in its own wording.
+- V3 note (ملفوظات, یعنی -> جس کا مطلب ہے): taste; the gloss does not sit between a noun and its postposition.
+- V3 note (ملفوظات, 225 صفحات): rejected; the English 'more than a third of 225 pages' does not say whose 225 pages, so the Urdu must not resolve it.
+- V3 note (ملفوظات, زندہ حلقہ -> فعال حلقہ): taste; زندہ follows the English 'living readership' and is not a wrong word.
+- V3 note (مزار اور عقیدت, بڑے بڑے ہجوم; متن -> کلام): taste; V3 itself notes کلام would then repeat.
+- V3 note (مزار اور عقیدت, بنتا تھا / پڑھے جاتے ہیں): rejected; the English has the same mix (sometimes played ... is quoted), and V3 left it alone for that reason.
+- V3 note (شاہ باہو -> سلطان باہو): rejected; the English names him Shah Bahu, and a different name would change a name.
+- V3 note (ماحول, دریائے ستلج کے راستے ... دریائی سفر; عبوری کڑی): taste; both follow the English (a voyage by the river Satlaj; forms the transition).
+- V3 note (ورثہ, بھٹائی / شاہ عبداللطیف): rejected; the English uses Shah Abdul Latif in one section and Bhittai in the other, and joining them into one name is taste.
+- V3 note (ورثہ, ففٹی پوئمز ... کا ترجمہ): rejected; the English says Shackle 'translated Fifty Poems of Khawaja Farid', which the Urdu follows, and V2 accepted it.

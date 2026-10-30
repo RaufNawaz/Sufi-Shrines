@@ -1,0 +1,13 @@
+VERDICT: FAIL
+ISSUES:
+1. "انیسویں صدی کے اواخر تک شاہ کمال کی شہرت ایک متقی بزرگ کی تھی جن پر جذب کی کیفیت غالب رہتی تھی۔" -> "تک" with a simple stative past ("تھی") reads in Urdu as "until", so the sentence implies his reputation lasted up to the late nineteenth century and then ended. This is a calque of English "by". The sense of "by" needs a perfect form, as the text itself does correctly in "1880 کی دہائی تک ... گر چکی تھی". -> "انیسویں صدی کے اواخر تک شاہ کمال ایک ایسے متقی بزرگ کے طور پر شہرت پا چکے تھے جن پر جذب کی کیفیت غالب رہتی تھی۔"
+2. "انیسویں صدی کے اواخر تک ان کی کرامات اور خوارق کا شہرہ تھا، تاہم یہ کرامات کیا تھیں، اس کی تفصیل شاذ ہی کہیں ملتی ہے۔" -> Same problem: "تک ... شہرہ تھا" reads as "their miracles were famous until the late nineteenth century", which implies the fame then faded. Also, "ان کی" comes right after "زائرین", the nearest plural noun. Naming the saint removes that slip. -> "انیسویں صدی کے اواخر تک شاہ کمال کی کرامات اور خوارق کا شہرہ ہو چکا تھا، تاہم یہ کرامات کیا تھیں، اس کی تفصیل شاذ ہی کہیں ملتی ہے۔"
+NOTES:
+1. Mechanical checks are clean. There are no em or en dashes, no hyphens and no Latin letters. Only Western digits are used (1880 twice), the asterisks around دھمال are balanced, and Urdu ہ, ی and ک are used throughout with no Arabic variants.
+2. "بیرونِ کشمیری دروازہ کے سید کمال شاہ چشتی": "دروازہ" stays in the direct form before "کے". This is defensible because it works as a locality name, like بیرون موچی دروازہ, but "کشمیری دروازے کے باہر کے سید کمال شاہ چشتی" or keeping it as is are both acceptable.
+3. "لاہور کے اس علاقے کی اس مذہبی شناخت کو پختہ کرنے میں مدد دیتے ہیں کہ": "پختہ کرنے میں مدد دیتے ہیں" has a slightly translated feel. "اس مذہبی شناخت کو تقویت دیتے ہیں کہ" would read more naturally.
+4. "اور بعد میں یہ بھائی ایک ساتھ لاہور کے علاقے اچھرہ میں آباد ہو گئے": "دونوں بھائی" would read more smoothly than "یہ بھائی".
+5. "جس قبرستان میں یہ ہے اس میں اب بھی تدفین ہوتی ہے": a comma after "یہ ہے" would help the reader. "جس قبرستان میں یہ واقع ہے، اس میں" is smoother.
+6. "یہ قصہ ایک سے زیادہ طرح سے سنایا جاتا ہے": "کئی طرح سے" is more idiomatic. The current wording is acceptable modern Urdu.
+7. "مقبرہ تاریخی شاہ کمال قبرستان میں واقع ہے": a section opening with "یہ مقبرہ" would read more naturally.
+8. "ہر سال ان کے عرس پر بھی حاضری دیتے ہیں": "عرس کے موقع پر" is slightly more polished, and the closing paragraph already uses it.

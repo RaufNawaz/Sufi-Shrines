@@ -1,0 +1,20 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [wrong reference] The Setting: "after the annual fair of Sehwan, which lasts three days, fakirs follow other fakirs and go on to shrines in Karachi" | "سیہون میں ہر سال تین دن کا میلہ لگتا ہے، جس کے بعد فقیر دوسروں کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔" -> Without a noun, دوسروں means "other people" in general (compare بچے دوسروں کی نقل کرتے ہیں). Right after a sentence about a fair, it reads as fakirs following the crowd or other pilgrims. The English says specifically that fakirs follow other fakirs. The round 2 change dropped the noun to avoid repeating فقیر, and the specific referent went with it. -> "سیہون میں ہر سال تین دن کا میلہ لگتا ہے، جس کے بعد فقیر دیگر فقیروں کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔"
+
+NOTES:
+- Everything else matches paragraph by paragraph, including all 21 round 2 changes:
+  - Overview: the eighth century CE and the descent through Imam Hasan, both still governed by روایت. The protection from storm and calamity sits under اہلِ کراچی کے نزدیک. سرِفہرست in both حاضری and عقیدت و محبت gives "among the most visited and most beloved".
+  - The Saint: no years, teacher or order. Sayyid and descent from Imam Hasan are hedged (مانا جاتا ہے، عام بیان کے مطابق). "Tradition sets his coming" is بتایا جاتا ہے. Merchant, preacher and ghazi; کہا جاتا ہے governs both the settling and the death; بعض بیانات for the martyrdom.
+  - The Shrine: the quotation is intact. 6 October 2010, suicide bombing, eight killed. The shrine is still listed among Pakistan's attacked Sufi shrines, and is rebuilt, expanded and thronged.
+  - Devotion and Festivals: the belief about cyclones and the sea is under یہ عقیدہ عام ہے. Fatiha, vows, food, qawwali and dhamal; خصوصاً keeps "above all" non-exclusive. The news anchor episode is complete.
+  - The Setting: 710 and 711 to 712. "Is not known to have seen" is کوئی سراغ نہیں ملتا. Baluchistan, Makran, Multan and Sindh itself. The Kolachi story is kept as legend (کہا جاتا ہے، قصہ یہ ہے), and ماں now clearly refers to the mother. نقل مکانی کر کے آنے والوں keeps "migrants" general. Hyderabad in India and the Qawwal Bachche; Sehwan's three-day fair.
+  - Legacy: کئی ملین now gives "many millions" correctly.
+- All six headings correspond (عقیدت اور عرس is the brief's standard heading for Devotion and Festivals). There is no verse, no Latin and no dash, and the asterisks are balanced. The numbers are only those the English has.
+- Dropped glosses (darbar, Sayyid, Sufis, ghazi, Fatiha, qawwali, urs, fakirs) and the dropped "dance" after دھمال follow the brief.
+- I accepted these as idiomatic, with no change in fact:
+  - اخلاقی محتسب for "vigilante": the moral framing fits the episode.
+  - منتیں مانتے ہیں for "tie vows".
+  - چرس پیتے for "consuming hashish".
+  - ان کے بعد after محمد بن قاسم: the parallel with محمد بن قاسم کے ذریعے fixes the reference, even though ان meant the saint earlier in that sentence.

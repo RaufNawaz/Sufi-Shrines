@@ -1,0 +1,32 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed fact] The Shah Jo Risalo, Sur Sorath paragraph: "the figure of the mendicant minstrel, the charan, is dominant throughout his poetry" | "اور سیلانی گویّے یعنی چارن کا کردار ان کی پوری شاعری پر چھایا ہوا ہے۔" -> سیلانی means a wanderer, but "mendicant" means one who lives by begging (Bijal, the charan of Sur Sorath, is a begging minstrel). So the Urdu loses the English qualifier and adds one the English does not give. Elsewhere the Urdu renders "mendicants" as فقیر (Among the Yogis, paras 1 and 7) and "religious mendicants" as گداگر سادھوؤں. -> "شاعر بیجل کو ایک طرح کی جادوئی قوت عطا کرتے ہیں، اور گداگر گویّے یعنی چارن کا کردار ان کی پوری شاعری پر چھایا ہوا ہے۔" (فقیر گویّے is an acceptable alternative.)
+NOTES:
+Rulings on the writer's and coordinator's choices (all acceptable):
+(1) Cotton spinners: "باوجود اس کے کہ کاتنے والیوں نے / ریشے خوب دھنکے / اور بہت باریک سوت کاتا / دولت جمع کی، اے ماں" is faithful. The spinners are the ergative subject of all three verbs, and the main clause is left unsupplied, as in the English. Round 1 issue 1 is fixed.
+(2) Qur'an comparison: "اپنے بیتوں کے لیے قرآن کی آیتوں سے ملتے جلتے درجے کا دعویٰ کرتے ہیں" gives both "claims" and "comparable". Round 1 issue 3 is fixed.
+(3) "outward powers" as دنیا کی ظاہری طاقتوں: ظاہری keeps the English word, and دنیا کی only makes explicit the worldly sense that "outward" has against an inward mysticism. It names no particular power. The sentence now ends "نہ کوئی مضبوطی سے بندھی صوفی جماعت بنانے کی", so round 1 issue 2 is fixed.
+(4) سنگم for "the parting of the ways between" the Mughal and Kalhoro eras: it marks the juncture of the two eras, which is the English sense, and it avoids دوراہا's implied choice. "زندگی ... گزری" for "stood" fits, because the next sentence anchors him at ages 18 and 50 across the transition.
+(5) V3 30 not applied: correct. The English has the poet coming closer and closer, and the Urdu keeps that.
+(6) "مزار سے وابستہ ایک مقامی سجادہ نشین بھی ہیں": ایک mirrors the English "a local sajjada nashin", and the honorific plural is right. The gloss of a familiar word may be dropped.
+(7) Lid image: keep it. "ان رازوں کا ڈھکن کھول دے گا جنہیں انہوں نے ڈھانپ کر رکھا تھا" carries the quoted English image and its echo in Panjwani's kettle and lid. انہوں نے resolves to the saint, because the boy is یہ بچہ.
+(8) 1940 sentence: "لوگ ان نظموں کے خیالات پر تب بھی ایمان رکھتے تھے" is right. The English passive "were still believed" names no believer, and V3's وہ would have narrowed the believers to the modern readers.
+(9) شوق for "passion": fine. It sits naturally with مشترک and اشتراک.
+(10) Heroines: نسوانی کرداروں for "tragic heroines", then سورمیاں and سورمی, and "سورمی دراصل سورما کا مؤنث ہے" are fine. دراصل is a discourse marker and adds no certainty beyond the English statement. Dropping the gloss of سورما is allowed.
+(11) Malir ("شاید موت میں بھی مجھے زندگی ملے") and "One castle" ("جدھر دیکھوں، محبوب ہی میرے سامنے ہے") now keep the "I" without marking gender. ہی is a light emphasis that the verse supports.
+(12) "روایت میں یہ اضافہ بھی ملتا ہے" for "Tradition likes to add": اضافہ keeps the sense of an embellishment, and the hedge governs the whole claim.
+(13) کولہی everywhere, including Mangi's "کولہی بھیل": fine. It is the same community.
+(14) آگے چل کر for "at a later stage of his life": fine. In a biographical sequence it means later in his life, and it implies no date.
+(15) (سورۃ 89/17) stays as the English has it. Whether the verse number is right (V3 note l: "ارجعی" is 89:28 in the standard numbering) is a question for the English file and NOTES, not an Urdu fault.
+Round 1: issues 1 to 6 are all fixed (خوب آراستہ؛ پیشانی باوقار؛ تھرپارکر کے اوپر اٹھتا ہے). Style notes a to c are applied (باہمی تعلق؛ بیجل کے چنگ؛ کولہی).
+Checks passed: the Sindhi line (line 101) is byte identical to the English file's. The nine headings correspond in order, and there is no bibliography. There are no Latin letters, no em or en dashes and no Eastern digits, and asterisks and quotation marks are balanced on every line. Every digit figure matches the English: 1689, 1752, 1623, 1940, 1711, 1713, 1207, 1792, 1866, 1200, 1850, 1754, 1765, 1165, 1882, 1960, 1970, 23 مئی 1957, اپریل 2016, 350, 89/17. Numbers written as words are words. Every hedge is present and governs the same part of the claim: it is said, the story goes, the legend goes on and ends, accounts differ, most, seems, may, tradition, some 350. All legends stay framed. Paragraphs correspond one to one.
+Style (not fidelity faults; optional):
+a) Devotion, para 5: "یا صرف مقبرے کو چھو کر اور چوم کر صاحبِ مزار سے برکت حاصل کرتے ہیں" is the usual Urdu way to describe the practice. But the English gives a purpose ("to obtain blessings"), and a stricter wording would be: "یا صاحبِ مزار سے برکت پانے کے لیے صرف مقبرے کو چھوتے اور چومتے ہیں۔"
+b) The Poet Saint, para 7: "کسی جانور کو مارنا" most naturally means "beat" here, but it can be read as "kill". "کسی جانور کو پیٹنا" removes the doubt.
+c) The Poet Saint, para 12: "شاہ لطیف سے عقیدت کا اظہار" is a shade stronger than "admiration"; "شاہ لطیف کی تحسین" would be exact.
+d) The Poet Saint, para 9: "ایک اور ساتھی عنایت": in the English Inayat is "another" great friend, so "ایک اور دوست عنایت" keeps the relationship exactly.
+e) Legends, para 4: in "کی پیدائش انہی کی دعا کی برکت تھی", انہی sits nearer to غلام شاہ کلہوڑو than to the poet. "شاہ لطیف ہی کی دعا کی برکت تھی" names the poet.
+f) Legends, para 1: "شاہ لطیف کی بہت سی کرامات کے قصے بیان کیے جاتے ہیں" moves "many" from the stories to the wonders and makes the wonders his. "شاہ لطیف کے بارے میں کرامات کے بہت سے قصے بیان کیے جاتے ہیں" follows the English "Many stories of wonders are told of him".
+g) The Poet Saint, last para: "جو انہوں نے اپنی آنکھوں سے دیکھے" is an accepted Urdu idiom for events lived through, so it is not a fault. "جو ان کی زندگی میں پیش آئے" would avoid any literal eyewitness reading of the sack of Delhi.
+h) The Shah Jo Risalo, para 4: in "یہی قصے شاہ لطیف کے پسندیدہ موضوعات میں شامل ہیں", یہی can sound exclusive. "اور یہ قصے" matches "these".
+i) Legacy, para 1: "1940 میں بھی یہ نظمیں" makes explicit the 1940 anchor that the English "still" carries from earlier in the paragraph. That is acceptable, and no new figure is introduced.

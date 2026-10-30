@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r2 issue 1
+OLD: The well is said to have been lost in the turbulence of the eighteenth century, and the poets of that century wrote of the ruin of the Punjab.
+NEW: The well is said to have been lost in the turbulence of the eighteenth century, and the poets of that century in the Punjab wrote of the ruin of their land.

@@ -1,0 +1,5 @@
+# shri-panchmukhi-hanuman-mandir-karachi: Urdu changes applied after round 2 (V2 FAIL, 1 issue; V3 PASS)
+
+1. V2 r2 issue 1 (the finds read as sharing کو with the temple, so they became protected things rather than a cause), applied in V2's wording by the coordinator.
+OLD: ان دریافتوں اور مندر کو حاصل تحفظ نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام مزید مستحکم کر دیا ہے۔
+NEW: مندر کو حاصل تحفظ اور ان دریافتوں نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام مزید مستحکم کر دیا ہے۔

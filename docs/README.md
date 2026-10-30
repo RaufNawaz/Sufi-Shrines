@@ -142,6 +142,7 @@ Point-in-time documents. Useful as history; **do not read them as current state*
 | [`PROPOSAL_Shrines_Data_Quality.md`](PROPOSAL_Shrines_Data_Quality.md) | Data-quality proposal                               |
 | [`CLEANUP_2026-10.md`](CLEANUP_2026-10.md) | Performance, Safari/mobile stability, security and repository cleanup pass (October 2026): the three audits' plan, ticked as items land, with a progress log |
 | [`TEAM_ACCESS_PLAN.md`](TEAM_ACCESS_PLAN.md) | Team view: what was shaky about `?team=1`, the Phase 1 fixes, and the Phase 2 sign-in options awaiting Rauf's ruling |
+| [`DATA_SOURCE_OPTIONS.md`](DATA_SOURCE_OPTIONS.md) | Replacing the Google Sheet as the data source: what it costs today, four options (repository files, a web editor over them, a hosted database, the sheet read only at build time) and a three step recommendation awaiting Rauf's ruling (30 October 2026) |
 | [`DOMAIN_AND_HOSTING_2026-09-11.md`](DOMAIN_AND_HOSTING_2026-09-11.md) | Domain names (availability measured), registrars, hosting for a static site; three decisions for Rauf at the top |
 | [`STATUS_AND_ROADMAP.md`](STATUS_AND_ROADMAP.md)               | Status and roadmap write-up                                |
 | [`OPERATING_PLAN.md`](OPERATING_PLAN.md)                       | Operating plan                                             |
@@ -174,6 +175,8 @@ Prompts written for Claude Code or other agents (RULE 0: they live here, not in 
 | [`prompts/JOIN_CHECK_BRIEF.md`](prompts/JOIN_CHECK_BRIEF.md) | Join check: the proposed new rows against the archive rows (ORDER box step 2, §9.344) |
 | [`prompts/QUOTE_BLOCKS_BRIEF.md`](prompts/QUOTE_BLOCKS_BRIEF.md) | Original-script quotations into `> ` blocks (§9.366) — superseded by the next brief |
 | [`prompts/URDU_OUT_OF_PROSE_BRIEF.md`](prompts/URDU_OUT_OF_PROSE_BRIEF.md) | English-only prose; Urdu only as poetry (ruled 18 October 2026, §9.368) |
+| [`prompts/PUBLIC_DESCRIPTION_BRIEF.md`](prompts/PUBLIC_DESCRIPTION_BRIEF.md) | The public descriptions: a shorter reader facing English and a full Urdu article for each row, from its team version, checked by V1, V2 and V3 (§9.382 to §9.412) |
+| [`prompts/public_description_workers_2026-10-28/README.md`](prompts/public_description_workers_2026-10-28/README.md) | The worker briefs of the run that finished the public descriptions (§9.411, §9.412): [writer EN](prompts/public_description_workers_2026-10-28/WRITER_EN.md), [writer UR](prompts/public_description_workers_2026-10-28/WRITER_UR.md), [V1](prompts/public_description_workers_2026-10-28/V1.md), [V1 confirm](prompts/public_description_workers_2026-10-28/V1_CONFIRM.md), [V2](prompts/public_description_workers_2026-10-28/V2.md), [V3](prompts/public_description_workers_2026-10-28/V3.md), [UR fixer](prompts/public_description_workers_2026-10-28/FIXER_UR.md), [UR confirm](prompts/public_description_workers_2026-10-28/CONFIRM_UR.md) |
 
 Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu dictionary +
 content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provenance, exports).
@@ -215,3 +218,23 @@ content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provena
 - [`_APPEND_365.md`](_APPEND_365.md)
 - [`_APPEND_366.md`](_APPEND_366.md)
 - [`_APPEND_368.md`](_APPEND_368.md)
+- [`_APPEND_381.md`](_APPEND_381.md)
+- [`_APPEND_382.md`](_APPEND_382.md)
+- [`_APPEND_383.md`](_APPEND_383.md)
+- [`_APPEND_400.md`](_APPEND_400.md)
+- [`_APPEND_401.md`](_APPEND_401.md)
+- [`_APPEND_402.md`](_APPEND_402.md)
+- [`_APPEND_403.md`](_APPEND_403.md)
+- [`_APPEND_404.md`](_APPEND_404.md)
+- [`_APPEND_405.md`](_APPEND_405.md)
+- [`_APPEND_406.md`](_APPEND_406.md)
+- [`_APPEND_407.md`](_APPEND_407.md)
+- [`_APPEND_408.md`](_APPEND_408.md)
+- [`_APPEND_409.md`](_APPEND_409.md)
+- [`_APPEND_410.md`](_APPEND_410.md)
+- [`_APPEND_411.md`](_APPEND_411.md)
+- [`_APPEND_412.md`](_APPEND_412.md)
+- [`_APPEND_413.md`](_APPEND_413.md)
+- [`_APPEND_414.md`](_APPEND_414.md)
+- [`_APPEND_415.md`](_APPEND_415.md)
+- [`_APPEND_416.md`](_APPEND_416.md)

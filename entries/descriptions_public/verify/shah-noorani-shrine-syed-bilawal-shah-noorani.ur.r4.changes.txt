@@ -1,0 +1,5 @@
+# shah-noorani-shrine-syed-bilawal-shah-noorani: change applied by the coordinator after the round 3 confirming worker (V2 FAIL, 1 issue; V3 PASS), by exact replacement once. Backup of the round 3 file: /home/claude/bak/shah-noorani-shrine-syed-bilawal-shah-noorani.ur.before_r4.md
+
+WHY: round 3 V2 issue 1, the verifier's second option: 'اسی راہ پر' stood outside the scope of شاید and stated as fact that she travelled the road to Lahut; it is dropped, keeping the simple past with شاید (the V3 round 2 fix) and the English's single hedge on the ending
+OLD: اسی راہ پر سیہون سے چلنے والی ایک خاتون کا سفر شاید لاہوت پہنچ کر ختم ہوا۔
+NEW: سیہون سے چلنے والی ایک خاتون کا سفر شاید لاہوت پہنچ کر ختم ہوا۔

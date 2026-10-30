@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1r2 1
+OLD: The disciples of Gorakhnath and other Siddhas are believed to have achieved this in the foothills of the Himalayas, and they came to be known as *jivan-mukta*, liberated while living.
+NEW: Siddhas such as the disciples of Gorakhnath are believed to have achieved this in the foothills of the Himalayas, and they came to be known as *jivan-mukta*, liberated while living.

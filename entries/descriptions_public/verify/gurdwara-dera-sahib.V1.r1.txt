@@ -1,0 +1,48 @@
+VERDICT: FAIL
+ISSUES:
+1. [unsupported claim / more certainty than the source] "More than a hundred *slokas*, verses, of the Sufi saint Baba Farid Ganj-i Shakar are in it" -> The team version counts "more than a hundred slokas ascribed to Baba Farid Ganj-i Shakar". Writing "of" instead of "ascribed to" turns an attribution into settled authorship. The team version also never calls Baba Farid a Sufi or a saint: it uses "Sufi" only for Shah Hussein and Mian Mir. "The Sufi saint" is a description of a person that the team version does not give, not a definition of a term. -> Replace with: "More than a hundred *slokas*, verses, ascribed to Baba Farid Ganj-i Shakar are in it:"
+2. [unsupported claim] "The Indians stayed for three days, after which some returned home while others went on to the sacred shrines of Nankana Sahib and Hassan Abdal." -> The team version reports a plan as it stood on the day: some return "while others will visit sacred shrines in Nankana Sahib and Hassan Abdal". The draft states that the visit happened, which the team version does not say. -> Replace with: "The Indians were to stay for three days, after which some would return home while others would go on to the sacred shrines of Nankana Sahib and Hassan Abdal."
+
+NOTES:
+Rulings on the writer's Points for V1:
+1. Length: ruled under the L1 ruling below. The sweep found no important omission.
+2. The succession: accepted. The team version itself calls Chishti's telling "the same story with more detail" and records no disagreement about it. The joined narrative therefore says nothing that either telling contradicts, and dropping "A few days later" was right. The fallback is not needed. One precision fix is under minor point a.
+3. Bhai Jetha and the five Sikhs: accepted. Every account agrees on the summons to Lahore. Chishti's companions are a detail that no other source contradicts, and the draft does not carry over his grounds for the summons (Chandu Lal's report) or his "ruler of Amritsar". "Five" is clean ("renowned" and "Amritsar" are the words marked uncertain), and Bhai Jetha is the one clean name in the list. The draft says "five of his Sikhs, Bhai Jetha among them" and so does not repeat the team version's mismatch of five against six printed names. That wording is correct. This is not a merged account under rule 4, because nothing is hung under a rival.
+4. The Sikh reciting the *bani*: accepted. The sentence is framed "it is told", and it does not bring in Chishti's place or his month.
+5. Chandu's end: accepted. The qualifier ("the word illegible in the printed text") sits in the middle of the sentence and names its own object, the substance that was poured. The killing does not rest on it. Rendering "whom he had used in tormenting the Guru" is a fair paraphrase, since the pouring belongs to the torture, and the sentence is framed "it is said".
+6. The refused match: accepted. The match explains the enmity of the Chandu Shah of the established account and does not set a rival cause beside it. It also keeps family information (Arjan's son and his marriage). One precision fix is under minor point c.
+7. Kanhaiya Lal's *samadh*: accepted. The open identification is stated once, under basis (d), with no choice made, and every later sentence is told of "that *samadh*" in the 1880s. This follows the standing ruling that a qualifier at the end of a sentence covers the whole sentence only when it does not say what it qualifies (Surkh-Posh V1 r1, point 4). Here the qualifier on the eastern door names its own object, "a word before it, perhaps 'picture'". The platform qualifier marks where the text breaks off. So the enclosure, the doors, the domed *samadh* and the three bay hall stand, and the Gurmukhi letters and the platform were rightly dropped. The words *baoli*, *deg* and *wand* are rightly left out. Using "a great well" with a stair down to the water, rather than the uncertain word *baoli*, as the reason the site might be Baoli Sahib keeps the team version's doubt without resting anything on the marked word. Dropping that doubt would claim more than the team version does. The fallback is not needed.
+8. Chishti's *samadh*: accepted. The team version places it in The Gurdwara without doubt, and the anchor "the nineteenth century" matches its unconfirmed date. The reader meets Guru Arjan's *samadh* and then "a *samadh* of Guru Arjan" in the same spot with an unsettled identification. This mirrors the team version and is not a fault.
+9. "That small structure was still there in 2011.": accepted. The book of 2013 says "still present there to this day", so 2011 is safe.
+10. "It is believed that he lost his life at the place where the gurdwara stands.": accepted. The source is *Walking with Nanak*, the same book that gives the Ravi dip, so it does not join two rival accounts.
+11. The Mughal *diwan*: accepted. He is kept apart from Chandu, and "an enemy of the Guru" is the only reading of "himself an enemy" in context.
+12. The officer near Ambala: accepted. It is told once, with the rumour framed as a rumour.
+13. Shah Hussein: accepted. "It is said" carries "According to some sources", and Alam's verdict is rightly dropped as source talk.
+14. Verse: all three verse paragraphs are byte identical to the team version (checked by script). The rendering paragraphs add nothing. The first restates the team version's subject without "as Chishti prints them", and the second and third restate the team version's own introductions ("longing for the sight of the Guru", "in praise of the Guru's face"). Keeping the letters apart from the hidden letters of the succession is correct.
+15. Masands as "the Guru's deputies": accepted as the plain dictionary sense.
+16. Legacy wording: accepted. "It has been called the Karbala of Sikh history" is a quotation with no name attached, which the brief allows, and it is not narrator voice. The other two framings are also correct.
+17. Glosses: all accepted as definitions. None asserts a fact about the site. (Issue 1 is a description of a person, not a gloss.)
+
+L1 ruling: the exception does not apply. The draft measures 18,355 to 45,249 characters of prose (0.406). Issue 1 removes about 10 characters and issue 2 adds about 20, so the ratio stays above 0.40. My sweep of the team version found no important, certain fact missing that is not a rejected variant. The rest of what is left out is accounted for:
+- Bhandari's imperial halt and petition: the identity of Arjan is marked uncertain, and the rest of the episode hangs on it.
+- The hymn count "2218 [OCR?]".
+- The fragments of Chishti's "Dera" section, and the figure in the niche, whose meaning is unclear.
+- The third verse letter: its qualifier ends the sentence and does not say what it qualifies.
+- "Fixed some rules": in a sentence with an unspecified qualifier.
+- The *pujari* and the Mozang house: the team version leaves the place open on top of the open identification, so leaving them out claims nothing.
+- "Arjan becomes the fourth Nanak": unclear without explanation.
+- Jahangir's dates: minor.
+- "Teeming with visitors": it contradicts "deserted" in the same chapter.
+- Kartar Singh as "most highly qualified": an evaluation.
+- Grewal's militarisation: a scholar's view set against the turn after the death.
+
+If later changes ever take the ratio below 0.40, the cause sentence is: "L1 exception (V1 round 1): about a third of the team version is inline citation and its Where the Sources Disagree section, and most of the rest narrates who says what, retells the Khusrau meeting, the penalty, the torture and the body source by source, or rests on readings marked uncertain (Chishti's Dera fragments, dates and companions, Bhandari's imperial halt, Kanhaiya Lal's marked words), which rules 1, 2, 4 and 5 remove with nothing important lost."
+
+Minor points (precision fixes, in exact wording):
+a. "When Arjan produced two of the letters that had been withheld" -> "When Arjan produced two letters that had been withheld". Chishti says "two letters". "Two of the letters" implies there were more.
+b. "accounts of the year are not unanimous, but 1606 is the year generally given" -> "accounts of the year of his death are not unanimous, but 1606 is the year generally given". As written, "the year" could also refer to 1581.
+c. "Sikh tradition traces Chandu's enmity to a refused marriage:" -> "Chandu's enmity is traced to a refused marriage:". Only the core motive is given as Sikh belief ("The Sikhs believe"). The declined match after the Sikhs wrote against it, and the marriage to the daughters of two Sikhs, are Chishti's details and are not presented as Sikh tradition. The framing stays hedged.
+d. "The city's Sikhs have thinned too, and it had become rare to meet a Sikh" -> "The city's Sikhs had thinned too, and by 2011 it had become rare to meet a Sikh". This fixes the mixed tenses and anchors the observation to the 2011 chapter.
+e. "the whole congregation bowed before the Granth Sahib as the living Guru" -> "the whole congregation prostrated itself before the Granth Sahib as the living Guru". The team version has "prostates [as printed]", which is "prostrates".
+f. "His death anniversary draws Sikhs far beyond Lahore:" -> "His memory reaches far beyond Lahore:". This is the team version's own framing. The draft turns one gathering into a general present tense claim.
+g. Taste only: the martyrdom section now has six "accounts differ" clauses. "Accounts of where the prince and the Guru met differ." disclaims a place that the draft never gives. It is harmless and may be dropped. "It is told that Guru Hargobind later told Jahangir" repeats "told".

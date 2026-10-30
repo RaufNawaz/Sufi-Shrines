@@ -1,0 +1,13 @@
+# sadh-belo-sadh-belo-island-temple: changes applied by the coordinator for V1 round 2 (V1 r1 issues 1 and 2; notes on 'too' and 'broke out' (precision) applied)
+
+OLD: It has continued to be maintained by its custodians and to draw devotees, and its survival has made it a cherished anchor for the Hindu community of the region, a rare instance of continuity across the rupture of Partition.
+NEW: It has continued to be maintained by its custodians and to draw devotees, and its survival has made it a cherished anchor for the Hindu community of the region. Accounts differ over what Partition meant for Sadh Belo, but on its island it is counted a rare instance of continuity across that rupture.
+
+OLD: places of worship dedicated to the Hindu deities Annapurna, Hanuman, Ganesh and Shiv Shankar
+NEW: places of worship dedicated to Hindu deities including Annapurna, Hanuman, Ganesh and Shiv Shankar
+
+OLD: Shaikh Mir, too, stayed a day at Sukkur,
+NEW: Shaikh Mir stayed a day at Sukkur,
+
+OLD: Between December 1939 and February 1940 riots broke out at Sukkur,
+NEW: Between December 1939 and February 1940 there were riots at Sukkur,

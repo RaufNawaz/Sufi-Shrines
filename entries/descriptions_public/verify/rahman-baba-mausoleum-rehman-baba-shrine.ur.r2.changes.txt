@@ -1,0 +1,79 @@
+Row rahman-baba-mausoleum-rehman-baba-shrine, Urdu round 2. Reports: verify/rahman-baba-mausoleum-rehman-baba-shrine.V3.r1.txt (FAIL, 13 issues) and verify/rahman-baba-mausoleum-rehman-baba-shrine.V2.r1.txt (PASS; notes 1 and 2). Backup: /home/claude/bak/rahman-baba-mausoleum-rehman-baba-shrine.ur.before_r2.md. Applied in the verifier's wording: V3 issues 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 (12); adapted: V3 issue 2 (1); rejected: none of the 13 issues. Notes applied: V2 notes 1 and 2, V3 notes 4, 5 and 7 (note 7 together with V2 note 1). Notes not applied: V3 notes 1, 2, 3, 6, 8, 9, 10 (see the end).
+
+WHY: V3 r1 issue 1; applied in the verifier's wording ('voice' and 'heart' calques become ترجمان and مرکز).
+OLD: وہ پشتو زبان کے سب سے محبوب شاعر اور پشتونوں کی عظیم صوفیانہ آواز ہیں۔ ان کا مزار پشتو بولنے والی دنیا کا روحانی اور ادبی دل ہے،
+NEW: وہ پشتو زبان کے سب سے محبوب شاعر اور پشتونوں میں تصوف کے عظیم ترجمان ہیں۔ ان کا مزار پشتو بولنے والی دنیا کا روحانی اور ادبی مرکز ہے،
+
+WHY: V3 r1 issue 2; adapted: the English colon is removed and نہ ... نہ is paired as the verifier asks, but as a second sentence rather than with کیونکہ, because the English only implies the reason (a colon) and کیونکہ would state a causal link the English does not state (the round 1 notes record the same choice).
+OLD: ان کی ظاہری زندگی کے بہت کم حالات ضبطِ تحریر میں آئے ہیں: وہ درباری نہیں تھے، اور نہ انہوں نے اپنی کوئی سرگزشت چھوڑی۔
+NEW: ان کی ظاہری زندگی کے بہت کم حالات ضبطِ تحریر میں آئے ہیں۔ نہ وہ درباری تھے اور نہ انہوں نے اپنی کوئی سرگزشت چھوڑی۔
+
+WHY: V3 r1 issue 3; applied in the verifier's wording (the dangling appositive ایسے درویش gets its own predicate; مشہور ہے کہ still governs the whole description).
+OLD: مشہور ہے کہ وہ معمولی حیثیت کے کم آمیز انسان تھے، ایسے درویش جو اہلِ اقتدار سے دور رہتے اور فقر و عبادت میں زندگی بسر کرتے تھے۔
+NEW: مشہور ہے کہ وہ معمولی حیثیت کے کم آمیز انسان اور ایسے درویش تھے جو اہلِ اقتدار سے دور رہتے اور فقر و عبادت میں زندگی بسر کرتے تھے۔
+
+WHY: V2 r1 note 2; applied in the verifier's wording (a settled way of life, as the English 'led a life of withdrawal and seclusion', not a turning point; the 'legend has it' hedge is kept as کہا جاتا ہے, and روایت is no longer repeated two sentences before 'By tradition').
+OLD: روایت ہے کہ انہوں نے دنیا سے کنارہ کش ہو کر گوشہ نشینی اختیار کر لی تھی۔
+NEW: کہا جاتا ہے کہ وہ دنیا سے کنارہ کش رہ کر گوشہ نشینی کی زندگی گزارتے تھے۔
+
+WHY: V3 r1 issue 4; applied in the verifier's wording (the verbless list after a colon becomes predicates of the relative clause).
+OLD: جو گہری صوفیانہ عقیدت سے سرشار تھی: نرم خو، منکسر اور ہمہ تن خدا کی طرف متوجہ۔
+NEW: جو گہری صوفیانہ عقیدت سے سرشار، نرم خو اور منکسر تھی اور ہمہ تن خدا کی طرف متوجہ رہتی تھی۔
+
+WHY: V3 r1 issue 5; applied in the verifier's wording (trailing اگرچہ becomes البتہ; 'around' and the hedge on the year are unchanged).
+OLD: ان کا انتقال تقریباً 1711 میں ہوا، اگرچہ سالِ وفات
+NEW: ان کا انتقال تقریباً 1711 میں ہوا، البتہ سالِ وفات
+
+WHY: V3 r1 issue 6; applied in the verifier's wording (زبانی یاد کر لینا for 'carry in memory'; the generic 'the mystic' as plural صوفیوں).
+OLD: ان پڑھ لوگ بھی اسے حافظے میں محفوظ رکھ لیتے ہیں، اور اتنی گہری کہ صوفی کو بھی روحانی غذا دیتی ہے۔
+NEW: ان پڑھ لوگ بھی اسے زبانی یاد کر لیتے ہیں، اور اتنی گہری کہ صوفیوں کو بھی روحانی غذا دیتی ہے۔
+
+WHY: V3 r1 issue 7; applied in the verifier's wording (the comparison now holds: no other Pashto poet's name is spoken with that affection, as the English 'an affection given to no other Pashto poet'). Only the changed clause is replaced; the first half of the sentence was already as the verifier gives it.
+OLD: اور ان کا نام جس محبت سے لیا جاتا ہے وہ کسی اور پشتو شاعر کو نصیب نہیں ہوئی۔
+NEW: اور جس محبت سے ان کا نام لیا جاتا ہے، اس محبت سے کسی اور پشتو شاعر کا نام نہیں لیا جاتا۔
+
+WHY: V3 r1 issue 8; applied in the verifier's wording (مدت سے ... ہے keeps 'has long been'; پشتو ادب کی سرگرمیوں for the calque پشتو ادبی زندگی).
+OLD: مدت سے زیارت گاہ بھی چلا آ رہا ہے اور پشتو ادبی زندگی کا مرکز بھی۔
+NEW: مدت سے زیارت گاہ بھی ہے اور پشتو ادب کی سرگرمیوں کا مرکز بھی۔
+
+WHY: V2 r1 note 1 with V3 r1 note 7 (same phrase); applied in V2's second wording, سب سے نمایاں, which both notes allow: the English 'the great shrine' means foremost, and سب سے بڑا can be read as a claim about size.
+OLD: سب سے بڑا آستانہ ہے۔
+NEW: سب سے نمایاں آستانہ ہے۔
+
+WHY: V3 r1 issue 10; applied in the verifier's wording (ویسے ہی ... جیسے, so the fruit are compared with Turan's fruit, not with Turan; 'in Central Asia' is kept).
+OLD: ضلع پشاور میں وسطی ایشیا کے توران جیسے انگور، آڑو اور خربوزے ہوتے تھے،
+NEW: ضلع پشاور میں ویسے ہی انگور، آڑو اور خربوزے ہوتے تھے جیسے وسطی ایشیا میں توران کے،
+
+WHY: V3 r1 issue 9; applied in the verifier's wording (rice compared with Bengal's rice, as the English 'better than Bengal's').
+OLD: یہاں کا چاول بنگال سے بہتر تھا،
+NEW: یہاں کا چاول بنگال کے چاول سے بہتر تھا،
+
+WHY: V3 r1 note 4; applied in the verifier's wording (an ambiguous referent: جو could attach to نکشاب rather than to the road; now matches the third road's یہ).
+OLD: ایک راستہ نکشاب سے ہو کر جاتا تھا، جو دشوار بھی تھا اور طویل بھی۔
+NEW: ایک راستہ نکشاب سے ہو کر جاتا تھا؛ یہ دشوار بھی تھا اور طویل بھی۔
+
+WHY: V3 r1 note 5; applied in the verifier's wording (کے لیے calques 'stands to'; میں is the native framing; the comparison of the three poets is unchanged).
+OLD: پشتو کے لیے رحمان بابا کی وہی حیثیت ہے جو سندھی کے لیے بھٹائی اور پنجابی کے لیے بلھے شاہ کی ہے۔
+NEW: پشتو میں رحمان بابا کی وہی حیثیت ہے جو سندھی میں بھٹائی اور پنجابی میں بلھے شاہ کی ہے۔
+
+WHY: V3 r1 issue 11; applied in the verifier's wording (the 'gave a language its voice' figure and the hybrid superlative گہری ترین go; the claim is the same: his verse is his people's language at its deepest and most beloved). Only the changed clause is replaced; the rest of the sentence was already as the verifier gives it.
+OLD: جنہوں نے اپنی قوم کی زبان کو اس کی گہری ترین اور محبوب ترین آواز عطا کی،
+NEW: جن کے کلام میں ان کی قوم کی زبان کو اپنا سب سے گہرا اور سب سے محبوب اظہار ملا،
+
+WHY: V3 r1 issue 12; applied in the verifier's wording ('moral compass' as اخلاق کے باب میں ... مشعلِ راہ). Only the changed clause is replaced.
+OLD: وہ تین صدیوں سے پشتونوں کے لیے اخلاقی قطب نما بنا ہوا ہے،
+NEW: وہ تین صدیوں سے اخلاق کے باب میں پشتونوں کے لیے مشعلِ راہ بنا ہوا ہے،
+
+WHY: V3 r1 issue 13; applied in the verifier's wording (نرمی کی راہ سکھاتا ہے for the calque نرم تر راہ کی تعلیم دیتا ہے; ایک ایسے is the ordinary Urdu construction, not a calqued article).
+OLD: یہ ایسے ولی کی آرام گاہ ہے جن کا کلام آج بھی نرم تر راہ کی تعلیم دیتا ہے۔
+NEW: یہ ایک ایسے ولی کی آرام گاہ ہے جن کا کلام آج بھی نرمی کی راہ سکھاتا ہے۔
+
+Not applied:
+- V3 r1 note 1 (passive then active in the Overview's second paragraph): the verifier calls it acceptable; pure taste.
+- V3 r1 note 2 (تاہم اس حملے کے بارے میں بیانات یکساں نہیں after the sentence interpreting the blast): checked against the English, which hangs 'though accounts of the attack differ' at the end of the same sentence, after the interpretation, with the same scope. V2 (which sees the English) confirms the hedge is kept. Moving or narrowing it would change which claim the hedge governs, and the English does not say what the accounts differ on, so the Urdu cannot either.
+- V3 r1 note 3 (repetition across sections of پشتو بولنے والی دنیا، تین صدیوں سے، poets and singers gathering, birth into the Mohmand tribe): each repeats a repetition in the English (Overview and Shrine; Overview and Legacy; Overview and Shrine; The Poet and Saint and The Setting). Dropping any would drop a statement the English makes in that section.
+- V3 r1 note 6 (a linking phrase into the Nath yogi paragraph): the paragraph's first sentence already announces Peshawar's religious past; any link (for example 'one instance is') would add a claim the English does not make, and the only alternative, the gloss between commas, is the English parenthesis the brief forbids.
+- V3 r1 note 8 (اینیولڈسن as اینےوولڈسن): a spelling of a foreign surname, chosen in round 1 for the Danish pronunciation and recorded there; the proposed form puts ے in medial position, which is not standard Urdu orthography. Taste, not error.
+- V3 r1 note 9 (the quoted saying): the English itself uses two verbs ('Sow flowers', 'the thorns you plant'), so بوؤ and لگاؤ گے follow it; تمہارے گرد for تمہارے چاروں طرف is pure taste and does not remove the repeated تمہارا.
+- V3 r1 note 10 (بیان کرنے کی کوشش کی suggests an attempt that may have failed): the English says 'also tried to express', so کوشش کی is faithful; removing it would change the English's own wording of the claim.
+- V2 r1 notes 3 and 4: observations only (the hedge kept; deliberate drops), no change asked.

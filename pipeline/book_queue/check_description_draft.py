@@ -15,7 +15,7 @@ and the row's current Description from --sheet (default: the 8 Oct post-import s
 Checks, per draft:
   F1  single newlines only inside a verse paragraph (every line Arabic-script, no Latin, no list
       marker — the exact shape src/components/shrine/ProseParagraphs.tsx renders as verse), a
-      run of "- " list items, or an original-script block ("> " lines, §9.366)
+      run of "- " list items; no "> " blocks (withdrawn, §9.369)
   F2  headings are "## " lines opening a paragraph; no "#", "###"
   F3  asterisks balanced in every paragraph
   F4  no HTML, footnote syntax or tables
@@ -59,7 +59,21 @@ OCR_TOKEN = "⟪q⟫"
 ILL_TOKEN = "⟪i⟫"
 
 
+# The Urdu footnote word in a citation locator ("folio 44, حاشیہ 1") is written in English in the
+# English prose ("folio 44, note 1"); both checkers compare citations through this mapping
+# (Rauf, 18 Oct 2026: prose is English only; HANDOVER §9.369).
+_EAST = str.maketrans('۰۱۲۳۴۵۶۷۸۹', '0123456789')
+
+
+def note_en(s):
+    s = re.sub(r'بقیہ حاشیہ\s*([0-9۰-۹]+)', lambda m: 'continued note %s' % m.group(1).translate(_EAST), s)
+    s = re.sub(r'حواشی\s*([0-9۰-۹]+[–-][0-9۰-۹]+)', lambda m: 'notes %s' % m.group(1).translate(_EAST), s)
+    s = re.sub(r'حاشیہ\s*([0-9۰-۹]+)', lambda m: 'note %s' % m.group(1).translate(_EAST), s)
+    return re.sub(r'حاشیہ', 'note', s)
+
+
 def norm(s: str) -> str:
+    s = note_en(s)
     s = s.replace("**", "").replace("’", "'").replace("‘", "'")
     s = s.replace("“", '"').replace("”", '"').replace("‌", "")
     s = s.replace("[OCR?]", OCR_TOKEN)
@@ -88,8 +102,17 @@ def paragraphs(text: str) -> list:
     return [p for p in re.split(r"\n\s*\n", text.strip()) if p.strip()]
 
 
+GURMUKHI = re.compile(r"[\u0A00-\u0A7F]")
+
+
 def is_verse(p: str) -> bool:
     lines = [l.strip() for l in p.split("\n") if l.strip()]
+    # A Gurmukhi original (Guru Nanak's verse, Baba Farid's as the Guru Granth
+    # Sahib keeps it), quoted above its rendering since 30 October 2026
+    # (pipeline/apply_verse_originals.py). Gurmukhi is never the prose of
+    # either article, so one line of it is verse too.
+    if lines and all(GURMUKHI.search(l) and not LATIN.search(l) and not re.match(r"^[-*•#]", l) for l in lines):
+        return True
     return len(lines) >= 2 and all(
         ARABIC.search(l) and not LATIN.search(l.replace("[OCR?]", "")) and not re.match(r"^[-*•#]", l)
         for l in lines
@@ -176,10 +199,10 @@ def check(id_: str, sheet: dict, quiet: bool, draft_dir: str = "") -> list:
                 continue
             p = "\n".join(lines[1:])
             lines = lines[1:]
-        if p.startswith(">") and not is_original_block(p):
-            errs.append("F1 paragraph %d: a '> ' block must be '> ' + Arabic-script text "
-                        "[+ ' \u2014 (source)'] on every line: %r" % (n, p[:80]))
-        if len(lines) > 1 and not (is_verse(p) or is_list(p) or is_original_block(p)):
+        if p.startswith(">"):
+            errs.append("F1 paragraph %d: '> ' original-script blocks were withdrawn (Rauf, 18 Oct 2026, "
+                        "HANDOVER §9.369): prose is English only, Urdu only as verse: %r" % (n, p[:80]))
+        if len(lines) > 1 and not (is_verse(p) or is_list(p)):
             errs.append("F1 paragraph %d has a single newline and is neither verse nor a list: %r" % (n, p[:80]))
         if p.count("*") % 2:
             errs.append("F3 paragraph %d: unbalanced asterisks: %r" % (n, p[:80]))

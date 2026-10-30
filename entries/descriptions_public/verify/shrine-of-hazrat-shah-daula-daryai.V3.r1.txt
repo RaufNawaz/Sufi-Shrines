@@ -1,0 +1,130 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic collocation] "ان کے مرشد کا نام بھی ایک سے زیادہ طرح لیا جاتا ہے" -> "نام لینا" means to utter or mention a name; "ایک سے زیادہ طرح لیا جاتا ہے" is a word-for-word "is given in more than one form". Urdu says the name "ملتا ہے" in several forms.
+OLD: ان کی ابتدائی زندگی کے بارے میں روایات مختلف ہیں، اور ان کے مرشد کا نام بھی ایک سے زیادہ طرح لیا جاتا ہے۔
+NEW: ان کی ابتدائی زندگی کے بارے میں روایات مختلف ہیں، اور ان کے مرشد کا نام بھی ایک سے زیادہ صورتوں میں ملتا ہے۔
+
+2. [unidiomatic collocation] "ان کا گھرانا کسی بادشاہ کے دربار جیسا تھا" -> "گھرانا" means family or lineage, not an establishment; a family is not "like a king's court". The next sentence (servants, horses, palanquins) is about his household establishment, which Urdu expresses with "ان کے ہاں".
+OLD: شاہ دولہ کی زندگی میں ان کا گھرانا کسی بادشاہ کے دربار جیسا تھا۔
+NEW: شاہ دولہ کی زندگی میں ان کے ہاں کسی بادشاہ کے دربار کا سا سماں رہتا تھا۔
+
+3. [calque] "ضرب المثل سخی حاتم" -> English "the proverbially generous Hatim"; Urdu uses "ضرب المثل" predicatively ("جس کی سخاوت ضرب المثل ہے"), not as an adjective before a name. "اس کے دسویں حصے" also becomes ambiguous once Hatim's generosity is the nearest noun, so the referent is made explicit.
+OLD: کہا جاتا تھا کہ ان کی فیاضی کا یہ عالم تھا کہ ضرب المثل سخی حاتم کی عمر بھر کی سخاوت بھی اس کے دسویں حصے کے دسویں حصے کو نہ پہنچتی۔
+NEW: کہا جاتا تھا کہ ان کی فیاضی کا یہ عالم تھا کہ حاتم کی عمر بھر کی سخاوت بھی، جو ضرب المثل ہے، ان کی دریا دلی کے دسویں حصے کے دسویں حصے کو نہ پہنچتی۔
+
+4. [unidiomatic collocation] "مادۂ تاریخ بھی کہا گیا" -> a verse chronogram is "کہا" (تاریخ کہنا), but a مادۂ تاریخ (here a two-word phrase) is "نکالا" جاتا ہے.
+OLD: ان کی وفات پر ایک مادۂ تاریخ بھی کہا گیا: "خدا دوست"۔
+NEW: ان کی وفات پر ایک مادۂ تاریخ بھی نکالا گیا: "خدا دوست"۔
+
+5. [agreement / English structure] "جو بات ... وہ ... رفاہِ عامہ کے کام ہیں" -> a cleft sentence copied from English ("What is most consistently told is not ... but ..."); the singular "بات" is equated with plural "کام ہیں", which jars. A plain Urdu sentence says the same.
+OLD: شاہ دولہ کے بارے میں جو بات سب سے زیادہ تواتر سے بیان ہوتی آئی ہے، وہ کوئی تعلیم یا عقیدہ نہیں بلکہ رفاہِ عامہ کے کام ہیں۔
+NEW: شاہ دولہ کے بارے میں سب سے زیادہ تواتر سے کسی تعلیم یا عقیدے کا نہیں بلکہ ان کے رفاہِ عامہ کے کاموں کا ذکر ہوتا آیا ہے۔
+
+6. [inconsistent spelling] "نالہ دیک" -> the same stream is spelled "دیگ" twice in the next paragraph ("دریائے دیگ کے اوپر"، "دریائے دیگ بہتا تھا"); the reader is left to wonder whether these are two streams.
+OLD: موسمی ندی نالوں پر بنے پل ان سے منسوب ہیں، جن میں روایت کے مطابق نالہ دیک کا پل بھی شامل ہے۔
+NEW: موسمی ندی نالوں پر بنے پل ان سے منسوب ہیں، جن میں روایت کے مطابق نالہ دیگ کا پل بھی شامل ہے۔
+
+7. [calque] "مشکلیں ٹھوس طور پر آسان کیں" -> "in concrete ways" rendered word for word; "ٹھوس طور پر" does not collocate with easing hardships. "حقیقی معنوں میں" is the natural phrase.
+OLD: ان کی بزرگی عملی خدمت سے عبارت تھی، اور ان کی تعظیم اس لیے کی جاتی ہے کہ انہوں نے لوگوں کی مشکلیں ٹھوس طور پر آسان کیں۔
+NEW: ان کی بزرگی عملی خدمت سے عبارت تھی، اور ان کی تعظیم اس لیے کی جاتی ہے کہ انہوں نے حقیقی معنوں میں لوگوں کی مشکلیں آسان کیں۔
+
+8. [gloss of familiar word / repetition] "دریائی ملا، یعنی پانی سے نسبت رکھنے والا" -> no Urdu reader needs "دریائی" explained, and the introduction has already said "دریا کی نسبت سے ان کا لقب دریائی ہے".
+OLD: اور خاص طور پر پلوں کے سبب دوسرا لقب دریائی ملا، یعنی پانی سے نسبت رکھنے والا۔
+NEW: اور خاص طور پر پلوں کے سبب دوسرا لقب دریائی ملا۔
+
+9. [calque / ambiguous] "گہری جڑیں رکھنے والے تصورات" and "جو اسے موقع پر حاصل تھا" -> the first is "deep-rooted notions" word for word (Urdu: "راسخ تصورات"); "موقع پر" can be read as "on occasion" rather than "on site". "نہ تو ... اور نہ" also balances the two halves.
+OLD: تاہم دیکھا گیا ہے کہ سرکاری تحویل دیہی لوگوں کے ذہنوں میں گہری جڑیں رکھنے والے تصورات کو پوری طرح نہ بدل سکی، اور نہ مجاور کے اس اختیار کو جو اسے موقع پر حاصل تھا۔
+NEW: تاہم دیکھا گیا ہے کہ سرکاری تحویل نہ تو دیہی لوگوں کے ذہنوں میں راسخ تصورات کو پوری طرح بدل سکی اور نہ مجاور کے اس اختیار کو جو اسے مزار پر حاصل تھا۔
+
+10. [gloss of familiar word] "پنجابی میں بھی "چوہا" چوہے ہی کو کہتے ہیں" -> the English gloss "chuha, Punjabi for rat" carried into Urdu becomes a tautology ("in Punjabi too a chuha is a chuha"). The fact that the name is Punjabi can stay without the gloss.
+OLD: پنجابی میں بھی "چوہا" چوہے ہی کو کہتے ہیں، اور یہی نام مدت سے ان بچوں کو دیا جاتا رہا ہے جو مائیکروسیفلی کا شکار تھے اور جنہیں دربار سے وابستہ سمجھا جاتا تھا۔
+NEW: پنجابی میں مدت سے ان بچوں کو "چوہا" کہا جاتا رہا ہے جو مائیکروسیفلی کا شکار تھے اور جنہیں دربار سے وابستہ سمجھا جاتا تھا۔
+
+11. [calque] "اس کیفیت کے حامل لوگ ایک لوک عقیدے کے ذریعے" -> "people with the condition" and "through a belief"; "کا حامل" is for qualities and attainments, not for an illness, and "کے ذریعے" reads as instrumental.
+OLD: گجرات میں اس کیفیت کے حامل لوگ ایک لوک عقیدے کے ذریعے مزار سے جڑ گئے۔
+NEW: گجرات میں اس کیفیت میں مبتلا لوگ ایک لوک عقیدے کی وجہ سے مزار سے جڑ گئے۔
+
+12. [unidiomatic] "اس عقیدے کا پہلا بیان ... ایک مبصر نے کیا" -> "the first description was made by" is English structure; Urdu says the belief was first described.
+OLD: اس عقیدے کا پہلا بیان جنوری 1839 میں ایک مبصر نے کیا، اور یہی "چوہوں" کا قدیم ترین مطبوعہ ذکر ہے۔
+NEW: اس عقیدے کو سب سے پہلے جنوری 1839 میں ایک مبصر نے بیان کیا، اور یہی "چوہوں" کا قدیم ترین مطبوعہ ذکر ہے۔
+
+13. [ambiguous term] "افسانے کے مطابق" -> in Urdu "افسانہ" first means a short story, and the article later has a whole section on a real افسانہ (قاسمی کا "بین"). Using it for "legend" here and in the next paragraph invites confusion; "قصہ" (as in "اس کی بنیاد کا قصہ" later) is unambiguous. Same fix in issues 14, 15 and 17.
+OLD: افسانے کے مطابق ایسا پہلا بچہ مزار کی نذر کرنا لازم تھا، اور وہ مخصوص چھوٹا سر لے کر پیدا ہوتا۔
+NEW: قصے کے مطابق ایسا پہلا بچہ مزار کی نذر کرنا لازم تھا، اور وہ مخصوص چھوٹا سر لے کر پیدا ہوتا۔
+
+14. [ambiguous term / unidiomatic collocation] "یہ افسانہ" and "جوڑے کے ہاں بچے کی پیدائش کرا سکتے تھے" -> see issue 13; and "پیدائش کرانا" sounds like a midwife delivering a baby, not a saint granting a child. The idiom is "گود ہری کرنا".
+OLD: نوآبادیاتی دور کے لکھنے والوں نے یہ افسانہ جس طرح بیان کیا، اس کے مطابق شاہ دولہ دوسرے اولیاء کی طرح اولاد کو ترسنے والے جوڑے کے ہاں بچے کی پیدائش کرا سکتے تھے، مگر ان کے وسیلے سے پیدا ہونے والا پہلا بچہ "چوہا" ہوتا۔
+NEW: نوآبادیاتی دور کے لکھنے والوں نے یہ قصہ جس طرح بیان کیا، اس کے مطابق شاہ دولہ دوسرے اولیاء کی طرح اولاد کو ترسنے والے جوڑے کی گود ہری کر سکتے تھے، مگر ان کے وسیلے سے پیدا ہونے والا پہلا بچہ "چوہا" ہوتا۔
+
+15. [ambiguous term] "افسانہ آگے بتاتا ہے" -> see issue 13.
+OLD: افسانہ آگے بتاتا ہے کہ ان کی وفات کے بعد بھی یہ کرامت بدلی ہوئی صورت میں جاری رہی۔
+NEW: قصہ آگے بتاتا ہے کہ ان کی وفات کے بعد بھی یہ کرامت بدلی ہوئی صورت میں جاری رہی۔
+
+16. [tense / tangled] "جس نذرانے کا وعدہ کیا گیا ہو، وہ اگر روک لیا جاتا ... یہاں تک کہ اصل منت پوری کر دی جاتی" -> the subjunctive "ہو" clashes with the past habitual "جاتا"، and "until" is rendered "یہاں تک کہ" where Urdu uses "جب تک ... نہ".
+OLD: اس کے مطابق جس نذرانے کا وعدہ کیا گیا ہو، وہ اگر روک لیا جاتا تو ناراض بزرگ کی روح والدین پر یوں اثر کرتی کہ اگلا بچہ "چوہا" پیدا ہوتا، اور اس کے بعد ہر بچہ بھی، یہاں تک کہ اصل منت پوری کر دی جاتی۔
+NEW: اس کے مطابق اگر وعدہ کیا ہوا نذرانہ روک لیا جاتا تو ناراض بزرگ کی روح والدین پر یوں اثر کرتی کہ اگلا بچہ "چوہا" پیدا ہوتا، اور اس کے بعد بھی ہر بچہ، جب تک اصل منت پوری نہ کر دی جاتی۔
+
+17. [ambiguous] "یہ ایک افسانے کے الفاظ ہیں، کسی انسان کا بیان نہیں۔" -> "کسی انسان کا بیان" reads first as "a statement made by a person", which makes no sense here; the point is that the words are the legend's, not a description of any real person's condition. Also "افسانے" as in issue 13.
+OLD: یہ ایک افسانے کے الفاظ ہیں، کسی انسان کا بیان نہیں۔
+NEW: یہ ایک قصے کے الفاظ ہیں، کسی انسان کی حقیقی کیفیت کا بیان نہیں۔
+
+18. [repetition] "کبھی" three times in two sentences ("کبھی ثابت نہیں ہوا۔ نہ ایسا کوئی آلہ کبھی ملا، نہ کسی نے ایسا عمل ہوتے کبھی دیکھا") -> one "نہ کبھی" at the head covers both clauses.
+OLD: نہ ایسا کوئی آلہ کبھی ملا، نہ کسی نے ایسا عمل ہوتے کبھی دیکھا، اور طبی ماہرین کے نزدیک یہ بات قرینِ قیاس نہیں کہ مہلک چوٹ پہنچائے بغیر اس طرح جان بوجھ کر مائیکروسیفلی پیدا کی جا سکے۔
+NEW: نہ کبھی ایسا کوئی آلہ ملا، نہ کسی نے ایسا عمل ہوتے دیکھا، اور طبی ماہرین کے نزدیک یہ بات قرینِ قیاس نہیں کہ مہلک چوٹ پہنچائے بغیر اس طرح جان بوجھ کر مائیکروسیفلی پیدا کی جا سکے۔
+
+19. [unidiomatic collocation / calque] "کی نظر سے سمجھا گیا" and "مزار کی معیشت میں کھینچ لیا گیا" -> "نظر سے" goes with "دیکھنا", not "سمجھنا"; "drawn into the shrine economy" rendered word for word.
+OLD: ان کی کیفیت کو مقامی مذہبی عقیدے کی نظر سے سمجھا گیا، اور انہیں مزار کی معیشت میں کھینچ لیا گیا۔
+NEW: ان کی کیفیت کو مقامی مذہبی عقیدے کی نظر سے دیکھا گیا، اور انہیں مزار کی معیشت کا حصہ بنا لیا گیا۔
+
+20. [calque / wrong word] "یہ واقعہ ... المناک طور پر ایک دوسرے میں الجھ گئے" -> a phenomenon lasting two centuries is not a "واقعہ" (an event); "المناک طور پر" is "tragically" rendered with "طور پر".
+OLD: آج یہ واقعہ زیادہ تر طب، معذوری اور عوامی مذہب کے مورخین کے لیے ایک عبرت آموز مطالعے کی حیثیت رکھتا ہے، جس میں ایک حقیقی طبی کیفیت، انسانی بے بسی، استحصال اور لوک عقیدت المناک طور پر ایک دوسرے میں الجھ گئے۔
+NEW: آج یہ معاملہ زیادہ تر طب، معذوری اور عوامی مذہب کے مورخین کے لیے ایک عبرت آموز مطالعے کی حیثیت رکھتا ہے، جس میں ایک حقیقی طبی کیفیت، انسانی بے بسی، استحصال اور لوک عقیدت کی ایک المناک الجھن دکھائی دیتی ہے۔
+
+21. [calque] "کہانی کا بحران" -> "crisis" in the narrative sense; in Urdu "بحران" is a political or economic crisis. The literary term is "نقطۂ عروج".
+OLD: کہانی کا بحران عرس کے موقع پر آتا ہے۔
+NEW: کہانی کا نقطۂ عروج عرس کے موقع پر آتا ہے۔
+
+22. [gloss of familiar word / overlong] "بزرگ کی برسی سے آ ملتا ہے، جو خدا سے ان کے وصال کا دن ہے، اور عرس ہی کے دوران" -> the aside explains what an عرس is to Urdu readers, in a sentence that already has three clauses; the previous sentence has just named the عرس.
+OLD: رانو کے جوان ہونے اور اس کے لیے رشتہ آنے کا زمانہ بزرگ کی برسی سے آ ملتا ہے، جو خدا سے ان کے وصال کا دن ہے، اور عرس ہی کے دوران رانو ایک بگڑے ہوئے معاشرے کا شکار ہو جاتی ہے۔
+NEW: رانو کے جوان ہونے اور اس کے لیے رشتہ آنے کا زمانہ بزرگ کے عرس کے دنوں سے آ ملتا ہے، اور انہی دنوں رانو ایک بگڑے ہوئے معاشرے کا شکار ہو جاتی ہے۔
+
+23. [tangled / ambiguous] "ہر طرح کے تصوف سے خالی ایک جھوٹ اور بدعنوان سیاسی طاقت کا اظہار بن چکی ہے" -> a stacked noun phrase that can be parsed as "the expression of a lie and of corrupt power" or "a lie, and an expression of corrupt power"; splitting it gives one clear reading with both claims kept.
+OLD: ایک محقق کے نزدیک یہ افسانہ دکھاتا ہے کہ مزار سے وابستہ عقیدت ہر طرح کے تصوف سے خالی ایک جھوٹ اور بدعنوان سیاسی طاقت کا اظہار بن چکی ہے۔
+NEW: ایک محقق کے نزدیک یہ افسانہ دکھاتا ہے کہ مزار سے وابستہ عقیدت ہر طرح کے تصوف سے خالی ہو کر ایک جھوٹ بن چکی ہے، جس سے بدعنوان سیاسی طاقت کا اظہار ہوتا ہے۔
+
+24. [inconsistent naming / ambiguous] "دریائے بہت" -> the introduction calls the same river "دریائے جہلم"; most readers will not know the old name, and "بہت" is first read as the everyday word "very". Keep the old name and add the familiar one.
+OLD: گجرات چج دوآب میں واقع ہے، یعنی چناب اور دریائے بہت کے درمیان کی سرزمین میں۔
+NEW: گجرات چج دوآب میں واقع ہے، یعنی چناب اور دریائے بہت (جہلم) کے درمیان کی سرزمین میں۔
+
+25. [unidiomatic collocation] "ایک چھوٹا قلعہ اور ایک قصبہ آباد کیا گیا" -> a town is "آباد" but a fort is built; one verb cannot serve both.
+OLD: پھر گوجروں کی زمینداری کے گاؤں الگ کر کے ایک پرگنہ بنا دیا گیا، اور ایک چھوٹا قلعہ اور ایک قصبہ آباد کیا گیا۔
+NEW: پھر گوجروں کی زمینداری کے گاؤں الگ کر کے ایک پرگنہ بنا دیا گیا، ایک چھوٹا قلعہ تعمیر کیا گیا اور ایک قصبہ آباد کیا گیا۔
+
+26. [calque] "مغل تاریخ میں بھی اس قصبے کا ایک مقام ہے۔" -> "has a place in Mughal history" word for word; without an adjective "ایک مقام" reads as "a location".
+OLD: مغل تاریخ میں بھی اس قصبے کا ایک مقام ہے۔
+NEW: مغل تاریخ میں بھی اس قصبے کا نام آتا ہے۔
+
+27. [tangled] "نے بغاوت کی اور انہیں ... پسپا کر دیا گیا تو صبح سویرے وہ گھاٹ پر دکھائی دیے" -> the "تو" clause stacks two events before the main one and the sequence is hard to follow; Urdu narrates them in order.
+OLD: شہزادہ خسرو نے بغاوت کی اور انہیں چناب پر روک کر پسپا کر دیا گیا تو صبح سویرے وہ گھاٹ پر دکھائی دیے۔
+NEW: شہزادہ خسرو نے بغاوت کی تو انہیں چناب پر روک کر پسپا کر دیا گیا، اور صبح سویرے وہ گھاٹ پر دکھائی دیے۔
+
+28. [calque] "دربار ... اپنا سالانہ عرس مناتا ہے" -> English personification ("the shrine holds its annual urs"); in Urdu the عرس is "منایا جاتا ہے" at a shrine, and the shrine does not feed people itself but people are fed from its لنگر.
+OLD: دربار بدستور زائرین کو اپنی طرف کھینچتا ہے، اپنے لنگر سے غریبوں کو کھانا کھلاتا ہے، اور محکمۂ اوقاف کے زیرِ انتظام اپنا سالانہ عرس مناتا ہے۔
+NEW: دربار بدستور زائرین کو اپنی طرف کھینچتا ہے، اس کے لنگر سے غریبوں کو کھانا ملتا ہے، اور یہاں محکمۂ اوقاف کے زیرِ انتظام سالانہ عرس منایا جاتا ہے۔
+
+NOTES:
+- "کچھ گاؤں الگ کر کے اسے ایک مستقل پرگنہ بنا دیا گیا": the singular "اسے" after plural "گاؤں" leaves it unclear whether the villages or the town became the pargana. "انہیں" would fix the agreement, but it may narrow the meaning, so it is left for an editor who can check the source.
+- "رانو نام کی لڑکی تین دن تک درگاہ پر پڑھتی رہے": "پڑھتی رہے" (read, recite, study) is unclear here. If "remain at the shrine" is meant, the idiom is "پڑی رہے". Not changed, because the meaning cannot be checked from the Urdu alone.
+- "یہ مزار خاص طور پر اولاد عطا ہونے، انصاف اور سزا کے حوالے سے شہرت رکھتا ہے": a verbal noun is listed with two plain nouns, and "کے حوالے سے" is journalistic. The "ورثہ" section says it more cleanly ("اولاد، انصاف اور سزا").
+- "کم از کم تعداد کے لحاظ سے درگاہ عورتوں کی دنیا ہے" is understandable but English in shape ("at least numerically").
+- "یہ پل ایک پہچان بن گیا": "پہچان" usually takes an owner ("شہر کی پہچان"); "ایک مشہور نشانی" would read better.
+- "ان کے پلوں اور کنوؤں سے زندہ انسانوں کو فائدہ پہنچا": "زندہ انسانوں" sounds odd; "جیتے جاگتے انسانوں" is the idiom if the contrast with veneration after death is intended.
+- "اس کی سربراہی کی جانشینی کا کوئی تسلیم شدہ حق نہیں تھا": a chain of three genitives; "اس میں سربراہی کی جانشینی کا کوئی مسلمہ حق نہیں تھا" is lighter.
+- "مزار کے پیروکاروں": a shrine has devotees or attendants rather than "followers"; "مزار سے وابستہ لوگوں" or "مزار کے عقیدت مندوں" depending on what is meant.
+- "پنجاب میں شاہ دولہ دریائی خدمت اور رحم دلی کے ولی مانے جاتے ہیں": "خدمت ... کے ولی" has an English flavour ("a saint of service"); "خدمتِ خلق اور رحم دلی کے پیکر" is the usual phrase.
+- "ناداروں پر خیرات" is acceptable; "ناداروں میں خیرات" is more usual.
+- "متاثرہ لوگوں کے لیے ہمدردی": "متاثرہ لوگوں سے ہمدردی" is the older idiom; the current form is common in modern prose.
+- Repetition: "سب سے بڑھ کر" (introduction and "پلوں کے معمار")، "جنس کی صورت میں" twice in one paragraph, "آج" twice in "آج کی متفقہ رائے یہ ہے کہ "چوہے" ایسے لوگ تھے، اور آج بھی ہیں"، and "ضلع گجرات" twice in the last sentence of "ماحول" (where "آج کے پاکستان کے" is also unnecessary for a Pakistani reader). "زمین کی جاگیریں" is redundant, since a جاگیر is a grant of land.
+- Gujrat is called both "شہر" and "قصبہ" throughout. This is defensible (historical town, modern city), but "اس تاریخی شہر" right after "اس قصبے سے" in the same paragraph stands out.
+- "اور جب سندھ میں ایک دھماکا ہوا تو ..." is joined by "اور" to an unrelated fact about devotees of a crow saint under one "معلوم ہوتا ہے". A full stop would read better, but it would move the second fact out of the hedge, so it is left alone.
+- Punctuation is clean: Urdu ، ۔ ؛ throughout, no em or en dashes, Western digits, asterisks balanced (one pair round *جمدھر*). The verse lines at the end are untouched.

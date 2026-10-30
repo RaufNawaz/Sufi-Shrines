@@ -1,0 +1,25 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: He combined the Qadiri and Shattari orders in his own practice, and his full name carries both, though he is most often counted simply a Qadiri, a follower of the order of Sheikh Abdul Qadir of Baghdad.
+NEW: He combined the Qadiri and Shattari orders in his own practice, and his full name carries both, though he is often counted simply a Qadiri, a follower of the order of Sheikh Abdul Qadir of Baghdad.
+
+2. V1 r1 change 2
+OLD: His learning in Arabic and Persian was overlaid with an acceptance of the mystical traditions of the people of the subcontinent, an openness that one writer has called ironical, since the creed of the order's Hanbali founder was originally opposed to innovative adjustments of that kind.
+NEW: His learning in Arabic and Persian was overlaid with an acceptance of the mystical traditions of the people of the subcontinent, an openness that one writer has called ironical, since the creed of the Qadiri order's Hanbali founder was originally opposed to innovative adjustments of that kind.
+
+3. V1 r1 change 3
+OLD: Accounts of his origins differ, but most tie him to Kasur, and he is remembered as "of Kasur, then of Lahore".
+NEW: Accounts of his origins differ, but most tie him to Kasur, and he is described as "of Kasur, then of Lahore".
+
+4. V1 r1 change 4
+OLD: One of his lyrics casts the master as Ranjha of the romance of Hir: just as Ranjha was despised by Hir's family, so Shah Inayat was disparaged for being an Arain.
+NEW: One of his lyrics has been read as casting the master as Ranjha of the romance of Hir: just as Ranjha was despised by Hir's family, so Shah Inayat was disparaged for being an Arain.
+
+5. V1 r1 change 5
+OLD: These were hard times for the Qadiri order: in Aurangzeb's time, it has been argued, the Qadiri mystics of Lahore were on the defensive, careful not to offend an orthodoxy inclined to take severe punitive measures against heretics.
+NEW: These were, it has been argued, hard times for the Qadiri order: in Aurangzeb's time the Qadiri mystics of Lahore were on the defensive, careful not to offend an orthodoxy inclined to take severe punitive measures against heretics.
+
+6. V1 r1 change 6
+OLD: The poems also play on his name: *Inayat* means grace or favour in Arabic.
+NEW: One poem also plays on his name: *Inayat* means grace or favour in Arabic.

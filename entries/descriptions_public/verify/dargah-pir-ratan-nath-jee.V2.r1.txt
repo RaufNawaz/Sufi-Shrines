@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Style, optional (A Name with Many Identities, paragraph 3). The English "devoted to a Pir Baba Ratannath" uses the indefinite article to mean "a certain" Pir Baba Ratannath, which keeps him apart from the Peshawar saint. The Urdu drops it, so on first reading the Delhi shrine's figure looks like the same Ratan Nath. The paragraph's last sentence (یہ طے نہیں کہ دہلی کا آستانہ اسی ہستی سے منسوب ہے جس سے پشاور کا مندر۔) still gives the uncertainty, so the meaning survives. Adding کسی would keep the distinction from the start.
+OLD: جو پیر بابا رتن ناتھ سے منسوب ایک درگاہ مندر ہے
+NEW: جو کسی پیر بابا رتن ناتھ سے منسوب ایک درگاہ مندر ہے
+2. Checked and found faithful: all seven headings correspond; every figure the English has (1947, 2010 twice, 2011, 1300, 1923, 1951, 1985, 2000, 1971) appears with the same meaning and no other figures are added; there are no Latin letters and no em or en dashes; the hedges are kept (کسی حد تک افسانوی، کم و بیش، لگ بھگ، کہا گیا کہ، روایت کے مطابق، کہا جاتا ہے، بتائی جاتی ہے، یہ طے نہیں، اتفاقِ رائے نہیں، اکثر، شمار کیا جاتا ہے). The dropped glosses (kos, gurdwara, Sufis, FATA spelled out) and the removed italics are as the brief allows. Some sentences are reordered (Dara and Mahabat Khan; the Janamsakhis) but say the same thing, and "the order of initiated Sikhs" is rightly given as امرت دھاری سکھوں کی جماعت.

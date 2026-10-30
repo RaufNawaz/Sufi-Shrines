@@ -1,0 +1,13 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: Two of his *khalifas* are counted among the saints of Lahore: Shaikh Haji Ramzan Lahori, and another whose line in the city ran through Haidar Shah and Khair Shah.
+NEW: Two of his *khalifas* are counted among the saints of Lahore, one of them Shaikh Haji Ramzan Lahori.
+
+2. V1 r1 change 2
+OLD: He urged his followers to take part in resistance against Sikh aggression in the Punjab, and so, apparently for the first time in Chishti history, spiritual biographies were drawn into partisanship for one political group, the Muslims, against another, those who were not Muslim.
+NEW: He urged his followers to take part in what has been called "resistance against Sikh aggression in the Punjab", and so, apparently for the first time in Chishti history, spiritual biographies were drawn into partisanship for one political group, the Muslims, against another, those who were not Muslim.
+
+3. V1 r1 change 3
+OLD: He won such acceptance as no one else had in that age: more than a *lakh* of people, that is, over a hundred thousand, became his disciples, and hundreds of unbelievers and sinners repented.
+NEW: He is said to have won such acceptance as no one else had in that age: more than a *lakh* of people, that is, over a hundred thousand, became his disciples, and hundreds of unbelievers and sinners repented.

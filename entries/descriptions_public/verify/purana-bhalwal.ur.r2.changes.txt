@@ -1,0 +1,98 @@
+purana-bhalwal | Urdu round 2 | reports: verify/purana-bhalwal.V2.r1.txt (FAIL, 1 issue), verify/purana-bhalwal.V3.r1.txt (FAIL, 17 issues) | backup: /home/claude/bak/purana-bhalwal.ur.before_r2.md | applied in the verifier's wording: V2 1; V3 1, 3, 4, 6, 7, 9, 10, 11, 12, 14 (second half), 15, 16 | adapted: V3 2, 5 (with V2 note a), 8, 13, 14 (first half), 17; V3 note طالبوں | rejected: none of the issues
+
+WHY: V2 issue 1 (changed fact: villages of the Chaj Doab, not around it); applied in the verifier's wording.
+OLD: جہلم اور چناب کے درمیان پھیلے ہوئے زرخیز چاج دوآب کے آس پاس کے دیہات سے عقیدت مند یہاں حاضری دینے آتے ہیں۔
+NEW: عقیدت مند آس پاس کے دیہات سے یہاں حاضری دینے آتے ہیں۔ یہ دیہات چاج دوآب میں واقع ہیں، جو جہلم اور چناب کے درمیان پھیلا ہوا زرخیز علاقہ ہے۔
+
+WHY: V3 issue 15 (inconsistent naming: سلسلۂ نوشاہیہ vs نوشاہی طریقہ); applied in the verifier's wording.
+OLD: روحانی نسبتوں کی جس لڑی سے پنجاب میں سلسلۂ نوشاہیہ کا آغاز ہوا
+NEW: روحانی نسبتوں کی جس لڑی سے پنجاب میں نوشاہی طریقے کا آغاز ہوا
+
+WHY: V3 issue 12 (afterthought after the verb); applied in the verifier's wording.
+OLD: عقیدت مند ان کے مزار پر جمع ہوتے ہیں، خاص طور پر ان کے عرس کے موقع پر۔
+NEW: عقیدت مند خاص طور پر عرس کے موقع پر ان کے مزار پر جمع ہوتے ہیں۔
+
+WHY: V3 issue 14 (repeated کہا جاتا ہے); adapted: the verifier's روایت ہے would repeat روایت from the sentence just before (روایت میں ان کے والد کا نام), so the hedge is varied as منقول ہے, an equal hedge for 'is said'.
+OLD: یہ بھی کہا جاتا ہے کہ ان کے والد بھلوال نامی گاؤں میں رہتے تھے۔
+NEW: ان کے والد کے بارے میں یہ بھی منقول ہے کہ وہ بھلوال نامی گاؤں میں رہتے تھے۔
+
+WHY: V3 issue 10 (calque of 'is also known as'); applied in the verifier's wording.
+OLD: شاہ سلیمان نوری کو شاہ سلیمان قادری کے نام سے بھی پہچانا جاتا ہے۔
+NEW: شاہ سلیمان نوری، شاہ سلیمان قادری کے نام سے بھی معروف ہیں۔
+
+WHY: V3 issue 7 (collocation: a لقب is not نکلتا); applied in the verifier's wording.
+OLD: لوگوں میں عام خیال ہے کہ ان کا لقب "سخی بادشاہ" اسی فیاضانہ مہمان نوازی سے نکلا ہے۔
+NEW: لوگوں میں عام خیال ہے کہ انہیں "سخی بادشاہ" کا لقب اسی فیاضانہ مہمان نوازی کی بدولت ملا۔
+
+WHY: V3 issue 8 (unidiomatic حالتِ موت تک جا پہنچنا); adapted: the verifier's موت کے قریب ('near death') would soften the English 'reached the condition of death', so the condition of death is kept with the idiomatic طاری ہونا.
+OLD: وجد میں اس قدر بے سدھ ہو جاتے کہ حالتِ موت تک جا پہنچتے تھے۔
+NEW: وجد میں اس قدر بے سدھ ہو جاتے کہ ان پر حالتِ موت طاری ہو جاتی تھی۔
+
+WHY: V3 note (word sense: طالبوں carries a modern echo); adapted: the verifier's سالکوں or طالبانِ حق would add a sense the English 'students' lacks, so شاگردوں, the plain word for students.
+OLD: ان کی ساری عمر طالبوں کی رہنمائی میں گزری۔
+NEW: ان کی ساری عمر شاگردوں کی رہنمائی میں گزری۔
+
+WHY: V3 issue 17 (stiff ہجری سال 1012 میں پڑتا ہے); adapted: کے مطابق would state an exact equivalence where the English says 'falls in', and مزار کی روایت میں would repeat روایت from the paragraph's opening (روایت کے مطابق), so only the stiff phrase is replaced, keeping 'falls in'.
+OLD: جو ہجری سال 1012 میں پڑتا ہے۔
+NEW: جو 1012 ہجری میں آتا ہے۔
+
+WHY: V3 issue 14 (repeated کہا جاتا ہے); applied in the verifier's wording.
+OLD: کہا جاتا ہے کہ ان کا وصال پیرانہ سالی میں
+NEW: بتایا جاتا ہے کہ ان کا وصال پیرانہ سالی میں
+
+WHY: V3 issue 1 (postposition: عقیدت takes سے, not کے لیے); applied in the verifier's wording.
+OLD: اس بات سے ان کے لیے لوگوں کی عقیدت اور بھی گہری ہو گئی ہے۔
+NEW: اس بات نے ان سے لوگوں کی عقیدت کو اور بھی گہرا کر دیا ہے۔
+
+WHY: V3 issue 3 (settling told before arriving, then a pluperfect); applied in the verifier's wording.
+OLD: سید محمد غوث خراسان کے راستے ملتان پہنچے اور پھر اوچ میں آباد ہوئے، جہاں وہ 887 ہجری میں وارد ہوئے تھے۔
+NEW: سید محمد غوث خراسان کے راستے ملتان پہنچے اور پھر 887 ہجری میں اوچ آ کر وہیں آباد ہو گئے۔
+
+WHY: V3 issue 2 (ambiguous ان کا; زیادہ تر); adapted: the verifier's تاہم adds a contrast the English (a plain semicolon) does not state, so the two claims stay two sentences with no connective, and the ambiguity is removed by naming شاہ سلیمان; مزار کی روایت میں and عام طور پر are the verifier's wording.
+OLD: مزار پر ان کے پیر شاہ معروف خوشابی بتائے جاتے ہیں۔ ان کا روحانی سلسلہ زیادہ تر شاہ معروف چشتی سے جوڑا جاتا ہے،
+NEW: مزار کی روایت میں ان کے پیر شاہ معروف خوشابی بتائے جاتے ہیں۔ شاہ سلیمان کا روحانی سلسلہ عام طور پر شاہ معروف چشتی سے جوڑا جاتا ہے،
+
+WHY: V3 issue 11 (English word order; bare سلیمان); applied in the verifier's wording.
+OLD: روایت ہے کہ سلیمان ابھی بچے تھے جب شاہ معروف چشتی نے انہیں ممتاز جان لیا تھا۔
+NEW: روایت ہے کہ شاہ معروف چشتی نے شاہ سلیمان کو بچپن ہی میں دوسروں سے ممتاز جان لیا تھا۔
+
+WHY: V3 issue 15 (معروف چشتی without شاہ); applied in the verifier's wording.
+OLD: معروف چشتی سے شاہ سلیمان نوری اور پھر نوشہ گنج بخش تک کی یہ ترتیب
+NEW: شاہ معروف چشتی سے شاہ سلیمان نوری اور پھر نوشہ گنج بخش تک کی یہ ترتیب
+
+WHY: V3 issue 9 (calque of 'whitewashed'; یہ حجرہ repeated); applied in the verifier's wording.
+OLD: قبر چونے سے سفید کیے گئے حجرے میں ہے، اور یہ حجرہ ایک صحن کے اندر واقع ہے۔
+NEW: قبر ایک چونا پھرے حجرے میں ہے جو ایک صحن کے اندر واقع ہے۔
+
+WHY: V3 issue 5 with V2 note (a) (redundant وفات کی برسی; doubled سے; 'his death' generalised to death); adapted: the verifier's کیونکہ adds a causal link the English lacks (the English only glosses the death as the soul's union), so the clause becomes its own sentence, and, per V2 note (a), it speaks of his death (ان کی وفات), not death in general.
+OLD: صاحبِ مزار کا عرس ان کی وفات کی برسی پر ہوتا ہے، اور صوفیانہ فکر میں موت کو روح کے ذاتِ الٰہی سے وصال سے تعبیر کیا جاتا ہے۔
+NEW: صاحبِ مزار کا عرس ان کی برسی پر ہوتا ہے۔ صوفیانہ فکر میں ان کی وفات کو روح کا ذاتِ الٰہی سے وصال سمجھا جاتا ہے۔
+
+WHY: V3 issue 6 (wrong sense: اپنا کلام means their own poetry); applied in the verifier's alternative wording (قوال کلام پڑھتے ہیں), which avoids پیش twice in one sentence.
+OLD: اس تقریب میں قوال اپنا کلام سناتے ہیں
+NEW: اس تقریب میں قوال کلام پڑھتے ہیں
+
+WHY: V3 issue 16 (opaque collocations; وزن suggests poetic metre); applied in the verifier's wording.
+OLD: پنجابی دھنوں میں لے کی ترتیب بالعموم زور پر قائم ہوتی ہے، اور اتر پردیش کے مقابلے میں یہاں ڈھول وزن کی ضربوں کو زیادہ ابھارتا ہے۔
+NEW: پنجابی دھنوں میں لے کی بنیاد بالعموم زور پر ہوتی ہے، اور اتر پردیش کے مقابلے میں یہاں ڈھول تال کی ضربوں کو زیادہ ابھارتا ہے۔
+
+WHY: V3 issue 4 (جب ... تو makes the shrine's continuity a result); applied in the verifier's wording.
+OLD: جب نیا شہر ریلوے کے اردگرد پھیلنے لگا تو مزار پرانا بھلوال کی قدیم بستی کا مرکز بنا رہا۔
+NEW: نیا شہر ریلوے کے اردگرد پھیلتا گیا، جبکہ مزار پرانا بھلوال کی قدیم بستی کا مرکز بنا رہا۔
+
+WHY: V3 issue 13 (نوشہ گنج بخش سے نوشاہی طریقے کا آغاز ہوا repeated word for word); adapted: the verifier's 'نوشاہی طریقے کے بانی' (founder) is a stronger claim than the English 'with whom the Naushahi way began', so the clause is kept as a relative clause in different words (ابتدا, not آغاز).
+OLD: صوفی سلسلوں کی تاریخ میں وہ شاہ معروف چشتی اور نوشہ گنج بخش کی درمیانی کڑی مانے جاتے ہیں، اور نوشہ گنج بخش سے نوشاہی طریقے کا آغاز ہوا۔
+NEW: صوفی سلسلوں کی تاریخ میں وہ شاہ معروف چشتی اور ان نوشہ گنج بخش کی درمیانی کڑی مانے جاتے ہیں جن سے نوشاہی طریقے کی ابتدا ہوئی۔
+
+Not applied:
+- V3 issue 2, the word تاہم: adds a contrast the English (a semicolon) does not state; the rest of the fix applied.
+- V3 issue 5, the word کیونکہ: adds a causal link the English lacks; the rest of the fix applied as a separate sentence.
+- V3 issue 8, موت کے قریب: would soften 'reached the condition of death'; rendered حالتِ موت طاری ہو جاتی تھی instead.
+- V3 issue 13, بانی: 'founder' is a stronger claim than 'with whom the Naushahi way began'; reworded without it.
+- V3 issue 17, کے مطابق and مزار کی روایت میں: an exact equivalence where the English says 'falls in', and روایت repeated within the paragraph; only the stiff phrase replaced.
+- V3 issue 14, روایت ہے for the father: would repeat روایت from the previous sentence; منقول ہے used instead.
+- V3 note پرانے بھلوال: taste; the uninflected proper name is acceptable and consistent.
+- V3 note on the Uch paragraph's missing link: adding a link would add a claim the English lacks.
+- V3 note مزاروں / مزارات: taste.
+- V3 note on سالکوں / طالبانِ حق: both add a sense 'students' lacks; شاگردوں used instead (applied as adapted above).
+- V2 note (b) to (d): observations, no change asked.

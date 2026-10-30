@@ -1,0 +1,12 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Para "شاہ جمال دو بھائی تھے": "کہا جاتا ہے کہ شاہ جمال بھائی سے ملنے اچھرہ آئے اور ان کے گھر سے تھوڑے فاصلے پر ڈیرا ڈال دیا۔" The reader will take "ان کے گھر" to mean the brother's house, but since "ان" is used for Shah Jamal throughout, "بھائی کے گھر سے تھوڑے فاصلے پر" would rule out any momentary doubt.
+2. "شاہ جمال دو بھائی تھے" is idiomatic spoken Urdu. "وہ دو بھائی تھے" reads a little more smoothly in written prose. Optional.
+3. "اور ان کے سہروردی سلسلے کو اوپر جا کر اکثر ملتان کے بہاؤالدین زکریا سے ملایا جاتا ہے۔" Pairing "اوپر جا کر" with a passive verb is acceptable but slightly loose. "اور ان کے سہروردی سلسلے کا سرا اکثر ملتان کے بہاؤالدین زکریا سے جا ملایا جاتا ہے" or similar would be tighter. Optional.
+4. "شہر کے باہر واقع مسلمانوں کے مقامات" reads a little flat. "شہر سے باہر مسلمانوں کے مقدس مقامات" would be more natural if "مقدس" is acceptable to the source; otherwise leave it.
+5. "اس چار دیواری کی پیمائش سوا چھ ضرب سوا پانچ گز تھی" is understandable, but "ضرب" for dimensions has a technical feel. If the source supports it, "لمبائی سوا چھ گز اور چوڑائی سوا پانچ گز" is more natural. Do not change it unless the length and width are known, since that would add a fact.
+6. "میری نامی ایک تراسی سالہ بیوہ": "نامی" shows that the name is Mary and not "my", so the phrase is correct. Some readers may still pause for a moment. Leave it.
+7. "10,000 سے 15,000" and "200,000 سے 250,000" are correct under the Western digits rule. A Pakistani reader would find lakh grouping ("2,00,000") or words ("دو سے ڈھائی لاکھ") more familiar. This is a house style choice only.
+8. Quotations use straight ASCII quotation marks. Urdu typesetting often uses curly quotation marks, but straight marks are consistent throughout the text and are not an error.
+9. Mechanical checks passed: there are no Latin letters and no hyphens or dashes. The 32 asterisks are balanced on every line. No Arabic yeh, kaf or heh code points appear in place of the Urdu forms. The two line verse, including "عیان", is untouched.

@@ -1,0 +1,46 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [wrong word / calque] «سندھیوں میں ذات کی ابتدا کی ایک کہانی سنائی جاتی ہے جس کے مطابق لوہانہ برادری رام کے بیٹے لاوا سے موسوم ہے اور لفظ لوہانہ آخرکار انہی کے نام سے بنا۔» -> «آخرکار» is about time ("in the end, eventually"), but the sense here is where the word comes from, so the sentence suggests the word took a long time to form. «ذات کی ابتدا کی ایک کہانی» is also a stacked-کی calque of "caste origin story". -> «سندھیوں میں لوہانہ ذات کی ابتدا کے بارے میں ایک کہانی سنائی جاتی ہے جس کے مطابق یہ برادری رام کے بیٹے لاوا سے موسوم ہے اور لفظ لوہانہ اصل میں انہی کے نام سے بنا ہے۔»
+
+2. [calque / ambiguous pronoun] «مندر کی تعمیر کا قرینِ قیاس زمانہ اسے 1799 میں رنجیت سنگھ کے ہاتھوں لاہور کی تسخیر سے جوڑتا ہے۔» -> This is English "its likely date ties it to". In Urdu an abstract «زمانہ» does not «جوڑنا» something, and «اسے», coming straight after «زمانہ», can be read as pointing back to «زمانہ» itself. -> «مندر کی تعمیر کا قرینِ قیاس زمانہ 1799 میں رنجیت سنگھ کے ہاتھوں لاہور کی تسخیر سے جا ملتا ہے۔»
+
+3. [unidiomatic collocation] «...کے اشتراک سے مندر کی احتیاط سے بحالی کی، جس کے لیے...» -> The adverb «احتیاط سے» is attached to the noun «بحالی» inside «بحالی کرنا», so it reads like "did a carefully restoration". -> «2024 سے 2026 کے دوران والڈ سٹی آف لاہور اتھارٹی نے آغا خان کلچرل سروس پاکستان کے اشتراک سے مندر کو احتیاط سے بحال کیا، جس کے لیے مالی معاونت امریکی سفیروں کے فنڈ برائے ثقافتی تحفظ نے فراہم کی۔»
+
+4. [calque, English apposition] «پرسونی راوی کا پرانا نام ہے، وہی دریا جو لاہور کے ساتھ ساتھ بہتا ہے۔» -> An English appositive ("..., the river that flows past Lahore") is tacked on after the comma. Urdu ties the relative clause in through a correlative. -> «پرسونی اسی راوی کا پرانا نام ہے جو لاہور کے ساتھ ساتھ بہتا ہے۔»
+
+5. [dangling reference and comparison] «مندر پر چھائی یہ خاموشی لاہور کے ہندو مقامات کی اس تاریخ کا حصہ ہے جو کہیں زیادہ کٹھن رہی ہے۔» -> «یہ خاموشی» has no antecedent, because the paragraph before is about the gate, the river and the tourists. «کہیں زیادہ کٹھن» also has nothing to be compared with. Both are English carry-overs ("part of a harsher history"). -> «مندر پر چھائی خاموشی لاہور کے ہندو مقامات کی ایک ایسی تاریخ کا حصہ ہے جو اس سے کہیں زیادہ کٹھن رہی ہے۔»
+
+6. [awkward construction / calque] «مگر لاہور کی باقی ماندہ مذہبی عمارتوں میں اس کا شمار ان میں ہوتا ہے جن سے سب سے زیادہ داستانیں وابستہ ہیں۔» -> The double locative «...میں اس کا شمار ان میں» is a literal rendering of "one of the most storied" and is clumsy. -> «مگر لاہور کی باقی ماندہ مذہبی عمارتوں میں کم ہی ایسی ہیں جن سے اتنی داستانیں وابستہ ہوں۔»
+
+7. [collocation / inconsistency] «...قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی بعد عمل میں آئی۔» -> «کچھ ہی بعد» is missing its noun. The same phrase in the مندر section correctly reads «کچھ ہی عرصے بعد». -> «مؤرخین اسے انیسویں صدی کے اوائل کی تعمیر قرار دیتے ہیں، جو غالباً 1799 میں مہاراجہ رنجیت سنگھ کے ہاتھوں قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی عرصے بعد عمل میں آئی۔»
+
+8. [repetition] «یوں یہ سکھ دور کا ایک یادگاری مندر ہے جو ایک قدیم داستان کی یاد میں بنایا گیا۔» -> «یادگاری» and «کی یاد میں» say the same thing twice. «ایک قدیم داستان» also repeats the paragraph's first sentence word for word, which puts «قدیم» in three consecutive sentences. -> «یوں یہ سکھ دور کا ایک مندر ہے جو اسی داستان کی یاد میں بنایا گیا۔»
+
+9. [ambiguous reflexive] «...تو شہر کے بزرگوں نے رنجیت سنگھ کو لاہور آنے اور اسے اپنے قبضے میں لینے کی دعوت دی۔» -> «اپنے» defaults to the subject, so it can be read as the elders' own possession. «شہر» also appears twice in the sentence. -> «جب شہر کے اس وقت کے حاکم لہنا سنگھ نے سابق بادشاہوں کی یادگاریں ڈھانی شروع کیں تو شہر کے بزرگوں نے رنجیت سنگھ کو لاہور آ کر اس پر قبضہ کرنے کی دعوت دی۔»
+
+10. [punctuation] «...کس نے اور کب بنایا، اس میں پہلے کیا رکھا جاتا تھا، اور یہاں کبھی پوجا ہوئی بھی یا نہیں۔» -> This is an English serial comma before the last «اور» in a list. -> «انہوں نے دو مؤرخین سے رجوع کیا، مگر دونوں میں سے کوئی بھی نہ بتا سکا کہ مندر کس نے اور کب بنایا، اس میں پہلے کیا رکھا جاتا تھا اور یہاں کبھی پوجا ہوئی بھی یا نہیں۔»
+
+NOTES:
+- Spellings that may be deliberate source forms (keep them if so, otherwise make them consistent):
+  - «راجہ رام چند» and «راجہ رام چندر» appear in consecutive sentences.
+  - «والمیکی مندر» and «بالمیکی ہندوؤں» appear in the same sentence.
+  - In the closing list «لو ... لوہو ... لَو ... لاوا», «لو» and «لَو» differ only by a zabar. If the font does not show the zabar clearly, a reader will think the same name is listed twice.
+- Restatement:
+  - The second paragraph of «مندر» (dating, 1799, «کچھ ہی عرصے بعد») repeats the second paragraph of «تعارف» almost word for word.
+  - The last two sentences of the restoration paragraph also repeat the introduction.
+  - «باہم جڑے ہوئے حجروں» appears twice in one paragraph.
+  - A magazine editor would trim these, but trimming is outside this round's "no removing facts" rule.
+- Smoother options, all optional:
+  - «بیسویں صدی کے بڑے حصے میں ... بڑی حد تک» could become «بیسویں صدی کا بیشتر حصہ یہ مندر ... رہا».
+  - «لوہ مندر کو قلعے کی ایک اور عمارت سے خلط ملط نہیں کرنا چاہیے جو مندر کہلاتی تھی» could become «قلعے کی ایک اور عمارت بھی مندر کہلاتی تھی، جسے لوہ مندر سے خلط ملط نہیں کرنا چاہیے».
+  - «زمانۂ دراز میں لاہور ایسا اجڑا» is an unusual collocation. «ایک طویل عرصے میں» or «مدتوں» would be clearer, depending on the intended sense.
+  - «نادر اور ٹھوس کڑی» could become «نادر مادی کڑی».
+  - «انار کلی» is normally written «انارکلی».
+  - «شہزادے اور شہزادی کے لیے مخصوص» reads as one prince and one princess. If a class of people is meant, use «شہزادوں اور شہزادیوں».
+  - In «اپنے عہد کے سینتیسویں سال اکبر دوسری بار کشمیر کے سفر پر برسات کے موسم میں لاہور سے روانہ ہوئے», the time phrases are scattered through the sentence. Putting «برسات کے موسم میں» first would read better.
+- Coherence:
+  - The «نگار خانہ» sentence sits at the end of the paragraph about sieges, where it does not belong.
+  - In «نیلا گنبد کے ایک برآمدے میں», it is unclear whether «نیلا گنبد» means the neighbourhood or a building.
+- Left untouched, as instructed: the verse line «کلاه» uses the Arabic ه (U+0647) instead of the Urdu ہ.
+- Content, not language, for whoever owns the facts: «انیسویں صدی کے اوائل» sits next to «1799», which is in the eighteenth century, and this happens in both places where the dating appears.

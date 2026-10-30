@@ -1,0 +1,21 @@
+# ramapir-temple-tando-allahyar: English changes after V1 round 1 (PASS, ISSUES: none). Precision notes 1, 3 and 4 applied in the verifier's wording, and the two omissions note 5 says could be restored at no cost; note 2 not applied (the verifier: defensible, and its fix needs a reordering), notes 6 to 9 are checks. Backup: /home/claude/bak/ramapir-temple-tando-allahyar.before_v1r2.md
+
+WHY: V1 r1 note 1 (precision: 'outlying' adopted the author's distanced word in the narrator's voice); verifier's wording
+OLD: Hindus living in the outlying regions of southern Punjab, inner Sindh and Baluchistan.
+NEW: Hindus living in southern Punjab, inner Sindh and Baluchistan.
+
+WHY: V1 r1 note 3 (clarity: Pithoro Pir had been only a name in a list); verifier's wording
+OLD: Pithoro Pir is most often associated with figures of salvation,
+NEW: Pithoro Pir, another of these heroes, is most often associated with figures of salvation,
+
+WHY: V1 r1 note 4 (precision: the team version has 'large majority'); verifier's wording
+OLD: and the great majority used to visit the Sufi shrines
+NEW: and the large majority used to visit the Sufi shrines
+
+WHY: V1 r1 note 5, first omission restored (team: 'Contrary to popular belief')
+OLD: There were many untouchables in Sindh,
+NEW: Contrary to popular belief, there were many untouchables in Sindh,
+
+WHY: V1 r1 note 5, third omission restored (team: 'coinciding with changes in the political landscape')
+OLD: and many temples across Sindh were renovated.
+NEW: and many temples across Sindh were renovated, coinciding with changes in the political landscape.

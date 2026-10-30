@@ -1,0 +1,7 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+NOTES: Both changed sentences checked against the English and in context in the current Urdu (lines 19 and 94).
+1. "جس گلی میں درگاہ واقع ہے وہ صاحبِ مزار کے نام سے موسوم ہے: گوالمنڈی کی شاہ ابو المعالی اسٹریٹ۔" The subject is now named, so it can no longer be read as the Khanqah of Abdi Shah; درگاہ matches "The street on which it stands" (the shrine, as opened in the paragraph's first sentence), and the street name and Gowalmandi are kept (V3 r2 #1 answered).
+2. "شاہ ابو المعالی امیر اور غریب میں کبھی فرق نہیں کرتے تھے": the contrastive خود is removed, so the clause is exactly "he never distinguished between rich and poor", and it still sits inside عقیدت مند بیان کرتے ہیں کہ together with the kings and the chillas, as "Devotees relate that ..." governs all three in the English (V2 r2 note c answered).
+Mechanics in the changed sentences: Urdu punctuation only, no Latin letters, no dashes.

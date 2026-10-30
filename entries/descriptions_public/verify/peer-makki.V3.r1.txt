@@ -1,0 +1,71 @@
+VERDICT: FAIL
+ISSUES:
+1. [pronoun] "جن کی بدولت انہیں مکی کا لقب ملا" -> plural جن has no fitting antecedent: it reads as "بارہ سال" or as people, while what earned the title is the seclusion as a whole. -> singular جس.
+OLD: کہا جاتا ہے کہ وہ بارہ سال مکہ میں گوشہ نشین رہے، جن کی بدولت انہیں مکی کا لقب ملا، اور پھر 575 ہجری، یعنی تقریباً 1178 عیسوی میں لاہور آ کر کوئی چھتیس برس درس دیتے رہے۔
+NEW: کہا جاتا ہے کہ وہ بارہ سال مکہ میں گوشہ نشین رہے، جس کی بدولت انہیں مکی کا لقب ملا، اور پھر 575 ہجری، یعنی تقریباً 1178 عیسوی میں لاہور آ کر کوئی چھتیس برس درس دیتے رہے۔
+
+2. [calque / collocation] "مزار کی روایت سید اور اہلِ سنت کی ہے" -> English "the shrine's tradition is Sayyid and Sunni" copied word for word; سید used as an adjective of روایت does not work in Urdu. -> سادات، وابستہ.
+OLD: مزار کی روایت سید اور اہلِ سنت کی ہے۔
+NEW: مزار کی روایت سادات اور اہلِ سنت سے وابستہ ہے۔
+
+3. [calque] "سب سے زیادہ زیارت کی جانے والی درگاہوں میں سے ایک کے قریب ہونے کے باوجود ... نمایاں طور پر کم لوگ" -> "most-visited" rendered as a passive participle chain, and "significantly fewer" as نمایاں طور پر کم; both read as translation, and the long participial opener delays the subject. -> two clauses.
+OLD: پاکستان کی سب سے زیادہ زیارت کی جانے والی درگاہوں میں سے ایک کے قریب ہونے کے باوجود خود پیر مکی کے مقبرے پر نمایاں طور پر کم لوگ آتے ہیں۔
+NEW: یہ مزار پاکستان کی ان درگاہوں میں سے ایک کے قریب ہے جہاں سب سے زیادہ زائرین آتے ہیں، پھر بھی خود پیر مکی کے مقبرے پر زائرین کی تعداد کہیں کم ہے۔
+
+4. [collocation] "روح اور مسلک کا علم" -> روح کا علم reads as knowledge of the soul (a metaphysical subject), not spiritual learning. -> روحانیت.
+OLD: سید عزیز الدین نے ابتدائی تعلیم والد ہی سے پائی: پہلے قرآن حفظ کیا، پھر روح اور مسلک کا علم حاصل کیا۔
+NEW: سید عزیز الدین نے ابتدائی تعلیم والد ہی سے پائی: پہلے قرآن حفظ کیا، پھر روحانیت اور مسلک کا علم حاصل کیا۔
+
+5. [calque] "ظاہری علوم کو ان کی آخری حد تک حاصل کر لینے کے بعد" -> "having mastered them to their furthest limit" copied with the English possessive (ان کی آخری حد); Urdu says کمال حاصل کرنا. -> as below.
+OLD: ظاہری علوم کو ان کی آخری حد تک حاصل کر لینے کے بعد سید عزیز الدین اس نتیجے پر پہنچے کہ اب انہیں علمِ باطن کی تلاش میں نکلنا ہوگا۔
+NEW: ظاہری علوم میں انتہائی کمال حاصل کر لینے کے بعد سید عزیز الدین اس نتیجے پر پہنچے کہ اب انہیں علمِ باطن کی تلاش میں نکلنا ہوگا۔
+
+6. [ambiguity / word order] "ان پر آنے والے حالات کھلنے لگے تھے" -> read first as "the circumstances that befell him" (ان پر آنے والے), not "coming events were revealed to him". -> move ان پر to the verb.
+OLD: کہا جاتا ہے کہ انہیں بارہا نبی کریمؐ کی برکت نصیب ہوئی، اور یہ بھی کہ ان پر آنے والے حالات کھلنے لگے تھے، مگر وہ انہیں کسی پر ظاہر نہیں کرتے تھے۔
+NEW: کہا جاتا ہے کہ انہیں بارہا نبی کریمؐ کی برکت نصیب ہوئی، اور یہ بھی کہ آنے والے حالات ان پر کھلنے لگے تھے، مگر وہ انہیں کسی پر ظاہر نہیں کرتے تھے۔
+
+7. [tangled sentence / ambiguous reference] "حاضری کے دستور میں انہیں اسی مقدس مقام کا روحانی پیش رو مان کر" -> the nearest place is پیر مکی کا مزار, so اسی مقدس مقام reads as Pir Makki's own shrine, which makes him his own forerunner; "دستور میں ... تعظیم کی جاتی ہے" is also heavy. -> relative clause and اُس.
+OLD: داتا دربار جانے سے پہلے پیر مکی کے مزار پر حاضری کے دستور میں انہیں اسی مقدس مقام کا روحانی پیش رو مان کر ان کی تعظیم کی جاتی ہے۔
+NEW: داتا دربار جانے سے پہلے پیر مکی کے مزار پر حاضری دینے کا جو دستور ہے، اس میں انہیں اُس مقدس مقام کا روحانی پیش رو مان کر ان کی تعظیم کی جاتی ہے۔
+
+8. [collocation] "نذرانے بانٹے جاتے ہیں" -> نذرانہ is what is presented to the shrine or the saint, not what is handed out; what is distributed at an urs is نذر نیاز.
+OLD: مزار کو غسل دینے کی رسم ادا کی جاتی ہے اور نذرانے بانٹے جاتے ہیں۔
+NEW: مزار کو غسل دینے کی رسم ادا کی جاتی ہے اور نذر نیاز بانٹی جاتی ہے۔
+
+9. [calque / pronouns] "ان سے کہا کہ اسے ان کی یہاں موجودگی کا علم تھا، اور یہ کہ ان کی ہر بات سچ نکلی" -> English indirect speech ("told him that he had known of his presence, and that...") with three third-person pronouns for two men and "اور یہ کہ"; Urdu reports speech in the speaker's own persons after کہ. -> مجھے، آپ.
+OLD: بیان کیا جاتا ہے کہ پھر غوری پیر مکی کے دروازے پر آیا اور ان سے کہا کہ اسے ان کی یہاں موجودگی کا علم تھا، اور یہ کہ ان کی ہر بات سچ نکلی۔
+NEW: بیان کیا جاتا ہے کہ پھر غوری پیر مکی کے دروازے پر آیا اور ان سے کہا کہ مجھے معلوم تھا کہ آپ یہاں موجود ہیں، اور آپ کی ہر بات سچ نکلی۔
+
+10. [postposition] "لاہور ہجرت کا حکم" -> ہجرت takes a direction (کی طرف); without it the phrase is clipped. -> لاہور کی طرف ہجرت.
+OLD: خود مزار پر جو قصہ سنایا جاتا ہے، اس کے مطابق داتا گنج بخش علی ہجویری کو جب لاہور ہجرت کا حکم ملا تو انہوں نے عذر پیش کیا۔
+NEW: خود مزار پر جو قصہ سنایا جاتا ہے، اس کے مطابق داتا گنج بخش علی ہجویری کو جب لاہور کی طرف ہجرت کا حکم ملا تو انہوں نے عذر پیش کیا۔
+
+11. [collocation] "تاریخوں سے بس واجبی سا میل کھاتا ہے" -> واجبی سا means ordinary or so-so and does not pair with میل کھانا; the idiom for "fits only loosely" is کم ہی میل کھاتا ہے.
+OLD: یہ قصہ تاریخوں سے بس واجبی سا میل کھاتا ہے، کیونکہ ہجویری کی وفات عام طور پر 1072 کے لگ بھگ مانی جاتی ہے، جو خود پیر مکی کی آمد سے ایک صدی پہلے کا زمانہ ہے۔
+NEW: یہ قصہ تاریخوں سے کم ہی میل کھاتا ہے، کیونکہ ہجویری کی وفات عام طور پر 1072 کے لگ بھگ مانی جاتی ہے، جو خود پیر مکی کی آمد سے ایک صدی پہلے کا زمانہ ہے۔
+
+12. [calque] "سلطنت کا ہندوستانی دارالحکومت" -> English "Indian capital" as an adjective; in Urdu it suggests a capital that is Indian in character. What is meant is the capital of the empire's Indian territories.
+OLD: ہجویری کے زمانے میں لاہور محمود غزنوی کے خاندان کی سلطنت کا ہندوستانی دارالحکومت تھا۔
+NEW: ہجویری کے زمانے میں لاہور محمود غزنوی کے خاندان کی سلطنت کے ہندوستانی علاقوں کا دارالحکومت تھا۔
+
+13. [agreement / calque] "اپنا نام بھی قائم رکھا ہے اور ... اپنی جگہ بھی" -> the elided verb is رکھا (masculine, for نام) but جگہ is feminine, so the second half dangles; "kept its place" is also English. -> برقرار، اپنا مقام.
+OLD: مزار نے اپنا نام بھی قائم رکھا ہے اور داتا دربار کے پہلو میں اپنی جگہ بھی۔
+NEW: مزار نے اپنا نام بھی برقرار رکھا ہے اور داتا دربار کے پہلو میں اپنا مقام بھی۔
+
+NOTES:
+On the whole the article reads well: the journey and the Ghori prophecy narrative are lively and idiomatic, hedges (کہا جاتا ہے، روایت ہے، بیان کیا جاتا ہے) sit in the right places, and the mechanics are clean (Western digits, no Latin, no dashes, one balanced pair of asterisks, no verse). Taste and points for a content check, not counted as issues:
+- "اندرونِ شہر لاہور کے بھاٹی دروازے والے علاقے میں": والے is a shade colloquial; "بھاٹی دروازے کے علاقے میں" is the reference-work register.
+- "لاہور میں عقیدت کا دستور ہے": "لاہور کے عقیدت مندوں میں دستور ہے" is more natural.
+- "خلوت آمیز" is an unusual coinage (آمیز normally takes رنج، طنز، محبت); "خلوت کی سی" or "نسبتاً خاموش" would sound more native.
+- ہند (twice in the hijra paragraph, once in the Ghori paragraph) alternates with ہندوستان (twice in the journey paragraph, once in the Ghaznavid paragraph). Both are correct; one form in narrative passages would be tidier.
+- "عبد اللہ" is spaced while "عبدالقادر" is joined; pick one convention.
+- Name forms for a general reader: Khusrau Malik's father is "بادشاہ خسرو" in the legends section and "خسرو شاہ" in the setting section; Ghori appears as "محمد شہاب الدین غوری"، "سلطان شہاب الدین غوری" and "معز الدین محمد بن سام". A reader will not know these are the same men. Making that explicit would add an identification, so it is a content decision, not a fluency fix.
+- The origin of the title مکی is explained three times (تعارف، صاحبِ مزار، ورثہ) and the stay in the adjoining mosque twice (صاحبِ مزار، مزار); a reader notices, though the closing recap may be intended.
+- "400,000 سے 500,000": Urdu readers count in lakhs; "4 سے 5 لاکھ" keeps Western digits and reads more naturally.
+- Gloss punctuation varies: "575 ہجری، یعنی تقریباً 1178 عیسوی میں" (no closing comma) against "612 ہجری، یعنی 1215 عیسوی، تسلیم" (closing comma). Either convention is fine if consistent.
+- "پیر مکی کے بعد بادشاہ": "پیر مکی کی وفات کے بعد" would be clearer, if the source supports it.
+- "ایک ہر دل عزیز قصہ ہے": "ایک مقبول قصہ ہے" is the usual collocation for a story.
+- "مسجد کے طور پر نشان زد ایک چبوترا" is slightly translationese; acceptable.
+- "مکی کا لقب اپنے نام میں لیے ہوئے ہے" is acceptable literary Urdu; "کے ناموں میں بھی مکی کا لقب موجود ہے" would be plainer.
+- "خدا نے جو لکھ دیا ہے ... اللہ کی طرف رجوع کرے": خدا and اللہ in one sentence; harmless, but one would be smoother.
+- "اپنے بیٹے کو ایک ہاتھی سمیت خراج کے طور پر بھیج کر" can read as the son himself being sent as tribute; check against the source whether he went as a hostage.

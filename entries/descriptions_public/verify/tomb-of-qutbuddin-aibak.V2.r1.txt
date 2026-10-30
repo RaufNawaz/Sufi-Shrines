@@ -1,0 +1,24 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed fact] Sultan in His Own Right, para 1: "Ghori was assassinated in 1206 and died without a son." | "اور وہ لاولد دنیا سے رخصت ہوئے" -> لاولد means childless, without any offspring at all; the English says only that he left no son, so the Urdu widens the claim -> اور وہ کوئی بیٹا چھوڑے بغیر دنیا سے رخصت ہوئے
+OLD: اور وہ لاولد دنیا سے رخصت ہوئے
+NEW: اور وہ کوئی بیٹا چھوڑے بغیر دنیا سے رخصت ہوئے
+
+2. [changed certainty] Overview, para 2: "the structure visitors see today is essentially a reconstruction of the 1970s" | "وہ دراصل 1970 کی دہائی میں ازسرِنو تعمیر ہوئی" -> دراصل means "in fact, actually" and drops the hedge "essentially" (basically, substantially), so the Urdu asserts outright that the building was rebuilt; The Tomb section already renders the same phrase correctly as بنیادی طور پر -> وہ بنیادی طور پر 1970 کی دہائی کی ازسرِنو تعمیر ہے
+OLD: وہ دراصل 1970 کی دہائی میں ازسرِنو تعمیر ہوئی
+NEW: وہ بنیادی طور پر 1970 کی دہائی کی ازسرِنو تعمیر ہے
+
+3. [changed fact] Legacy, para 1: "held Aibak's grave to be older than any other building near Lahore" | "شہر کے آس پاس کی ہر دوسری عمارت سے قدیم قرار دیا" -> in Urdu ہر دوسری عمارت most naturally reads as "every second building" (as in ہر دوسرا شخص), which turns "older than any other building" into "older than half the buildings"; the English claim is that the grave is older than all the rest -> شہر کے آس پاس کی باقی تمام عمارتوں سے قدیم قرار دیا
+OLD: شہر کے آس پاس کی ہر دوسری عمارت سے قدیم قرار دیا
+NEW: شہر کے آس پاس کی باقی تمام عمارتوں سے قدیم قرار دیا
+
+NOTES:
+1. Sultan in His Own Right, para 1: "had coins struck and the khutba read in his own name" | "انہوں نے اپنے نام کا سکہ جاری کیا اور خطبہ پڑھوایا" -> "in his own name" in the Urdu attaches only to the coin; the khutba is left without a name, and the contrast with the earlier khutba in Ghori's name is the point of the passage. A reader will probably infer it, but it is cleaner stated.
+OLD: اپنے نام کا سکہ جاری کیا اور خطبہ پڑھوایا
+NEW: اپنے نام کے سکے ڈھلوائے اور خطبہ بھی اپنے ہی نام کا پڑھوایا
+
+2. Sultan in His Own Right, para 2: "another of Ghori's special slaves" | "جو محمد غوری کے خاص غلاموں میں سے تھے" -> "another" is not carried, so the Urdu loses the parallel that Yildiz, like Aibak, was one of Ghori's favoured slaves. Minor.
+OLD: جو محمد غوری کے خاص غلاموں میں سے تھے
+NEW: جو ایبک ہی کی طرح محمد غوری کے خاص غلاموں میں سے تھے
+
+3. Everything else checks out. Headings match one for one (Bibliography deliberately omitted). The Persian couplet is byte identical. The Madho Lal Hussein rendering is a faithful italic Urdu paragraph with the credit line correctly dropped. Every "accounts differ", "it is said", "is said to have", "about/around 1150", "at least 150,000" and "legendary" is present. Dropped glosses (Delhi Sultanate, kos, Doab, Khwaja, amirs, amir al-umara, Rabiʿ al-Awwal, lakhs, kafi, muftis) and the removed italics are deliberate per the brief. Pronoun resolutions are correct: "His rise to prominence" goes to Iltutmish, and "In his reign" goes to Iltutmish. The honorifics حضرت and خواجہ are conventional. No Latin letters and no em or en dashes in the file.

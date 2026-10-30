@@ -1,0 +1,11 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 1 V3 issues: all 23 fixed. Issues 1 to 5 and 8 to 23 are applied in V3's own wording and read naturally in their paragraphs. Issue 6 is applied in adapted wording ("اس کتاب کے سلسلے میں"); the fault V3 named (the Meherban rumours reading as a cause of the separate identity) is gone, since the reasons are now tied to the book. Issue 7 is applied in adapted wording ("رواج اور انتظامات"); the calque ادارے is gone, and رواج sits well before the next sentence's "رائج کیا".
+2. Agreement and grammar checked in every NEW sentence: قصہ ... سنایا جاتا ہے، کرایہ ... آتا تھا، اخراجات ... پورے کرنے ہوتے تھے، اراضی ... مقرر کر دی، تعمیر ... ہوئی، اس واقعے نے ... پیدا کیا، بلھے شاہ ... جدا ہو گئے تھے، باؤلی صاحب ... رکھتا ہے are all correct. The shared subject across نے and a nominative verb in change 13 (گرو نے ... مامور کیے اور ... قیام کرتے تھے) is accepted educated usage, and it removes the round 1 ambiguity with the five Sikhs.
+3. Taste, not applied. Change 10 names گرو ارجن twice in one sentence; that is the price of the fix, and a version keeping Guru Arjan as the subject of both verbs ("... مقرر کیا اور اس کے بعد خود شہید کر دیے گئے") would avoid the repeated name.
+4. Taste. Change 6: "کئی اور رواج اور انتظامات" has اور twice in different senses; "کئی دوسرے" would avoid it. Common in Urdu and not a fault.
+5. Taste. Change 15: "عمارت بھی ... اور اس کا کرایہ بھی آتا تھا" has بھی twice; the two scopes differ and the sentence reads clearly.
+6. Taste. Change 5: کتاب occurs twice in the sentence ("اس کتاب کے سلسلے میں" and "اپنی الگ مقدس کتاب"); the contrast between the two books is deliberate and reads well.
+7. Taste. Change 24: "اب بھی" now stands in two consecutive sentences of the first Legacy paragraph (1880s and 2015), as "still" does in the English; "ابھی تک" in the second would vary it. "اب بھی" with a past verb in narrative is idiomatic.
+8. Taste. Change 14: "یہ کنواں" opens two consecutive sentences, and "پھر سے دریافت ہوا" is followed by "دوبارہ ... سامنے آیا"; clear, slightly redundant.

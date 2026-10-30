@@ -1,0 +1,73 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [ambiguity / stiff gloss] "ایک دوسرے شہر یعنی لاہور" -> "ایک دوسرے" first reads as "each other" (ایک دوسرے کا شہر), and the bare یعنی apposition is stiff ->
+OLD: اور وہ ایک دوسرے شہر یعنی لاہور کے میانی قبرستان میں دفن ہیں۔
+NEW: اور وہ ایک اور شہر میں، یعنی لاہور کے میانی قبرستان میں دفن ہیں۔
+
+2. [calque / collocation] "گزرے ہوئے ان کے برس مشہور ہیں" ... "ان کی شاعری کو ایک مقامی حسن سے بھر دیتے ہیں" -> English "his years in the wilderness are famous" and "fill his poetry with a local beauty"; neither is natural Urdu ->
+OLD: روہی یعنی چولستان کے صحرا کی ویرانیوں میں گزرے ہوئے ان کے برس مشہور ہیں؛ اس صحرا کے ٹیلے، چرواہے اور اونٹوں کے قافلے ان کی شاعری کو ایک مقامی حسن سے بھر دیتے ہیں۔
+NEW: مشہور ہے کہ انہوں نے روہی یعنی چولستان کے صحرا کی ویرانیوں میں برسوں گزارے؛ اس صحرا کے ٹیلے، چرواہے اور اونٹوں کے قافلے ان کی شاعری کو ایک مقامی حسن عطا کرتے ہیں۔
+
+3. [misleading construction] "ان کی یہ بات مشہور ہے کہ" -> in Urdu this introduces a famous saying of his, but what follows is a report about something he did ->
+OLD: ان کی یہ بات مشہور ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا۔
+NEW: ان کے بارے میں یہ بات مشہور ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا۔
+
+4. [reflexive / inflection / collocation] "اپنے پیش رو شاہ حسین اور بلھے شاہ" ... "اپنے غائب محبوب کے لیے تڑپتی ہے" -> the first اپنے attaches to the clause subject یہ (the poems), not to the poet. پیش رو, in apposition to two names, needs the plural form پیش روؤں. غائب محبوب is a calque of "absent beloved" (in Urdu غائب means vanished or missing) ->
+OLD: یہ سینکڑوں مختصر صوفیانہ نظمیں ہیں، اور اپنے پیش رو شاہ حسین اور بلھے شاہ کی کافیوں کی طرح یہ بھی زیادہ تر ایک ایسی عورت کی زبان میں کہی گئی ہیں جو اپنے غائب محبوب کے لیے تڑپتی ہے۔
+NEW: یہ سینکڑوں مختصر صوفیانہ نظمیں ہیں، اور خواجہ غلام فرید کے پیش روؤں شاہ حسین اور بلھے شاہ کی کافیوں کی طرح یہ بھی زیادہ تر ایک ایسی عورت کی زبان میں کہی گئی ہیں جو اپنے محبوب کی جدائی میں تڑپتی ہے۔
+
+5. [punctuation] "امتزاج ہے؛ اور زیارت" -> a semicolon followed by اور doubles the link; a comma is enough ->
+OLD: ان کے کلام کا ایک اور مضمون روحانی ریاضت اور باطنی زیارت کا امتزاج ہے؛ اور زیارت اپنے مقدس جغرافیے سمیت بجائے خود ان کی شاعری کا موضوع ہے۔
+NEW: ان کے کلام کا ایک اور مضمون روحانی ریاضت اور باطنی زیارت کا امتزاج ہے، اور زیارت اپنے مقدس جغرافیے سمیت بجائے خود ان کی شاعری کا موضوع ہے۔
+
+6. [calque / tangled] "اکثر پنجابیوں اور سندھیوں کے بارے میں زیادہ امکان یہی تھا کہ انہوں نے" -> English "most Punjabis and Sindhis were more likely to have..."; the کے بارے میں ... انہوں نے frame is clumsy. The hedge is kept ->
+OLD: اکیسویں صدی کے اوائل میں بھی اکثر پنجابیوں اور سندھیوں کے بارے میں زیادہ امکان یہی تھا کہ انہوں نے کافی پڑھی نہیں بلکہ سنی ہوگی۔
+NEW: اکیسویں صدی کے اوائل میں بھی زیادہ امکان یہی تھا کہ اکثر پنجابیوں اور سندھیوں نے کافی پڑھی نہیں بلکہ سنی ہوگی۔
+
+7. [collocation] "پیش کرنے کا انداز پنجاب کی طرح سندھ میں بھی ہے" -> a bare ہے with انداز is flat and unidiomatic ("the manner is in Sindh") ->
+OLD: تڑپتی ہوئی روح کو عورت کے روپ میں پیش کرنے کا انداز پنجاب کی طرح سندھ میں بھی ہے، جبکہ عالمِ اسلام میں کہیں اور یہ شاذ ہی دکھائی دیتا ہے۔
+NEW: تڑپتی ہوئی روح کو عورت کے روپ میں پیش کرنے کا انداز پنجاب کی طرح سندھ میں بھی پایا جاتا ہے، جبکہ عالمِ اسلام میں کہیں اور یہ شاذ ہی دکھائی دیتا ہے۔
+
+8. [register] "المناک ہیروئنیں" -> an English loan that in Urdu suggests film heroines (and is a homograph of the drug). The standard literary term is نسوانی کردار ->
+OLD: ہیر، سسی، سوہنی اور سندھی و پنجابی لوک داستانوں کی بہت سی دوسری المناک ہیروئنیں محبوب کی تلاش میں سرگرداں انسانی روح کی علامت ہیں۔
+NEW: ہیر، سسی، سوہنی اور سندھی و پنجابی لوک داستانوں کے بہت سے دوسرے المناک نسوانی کردار محبوب کی تلاش میں سرگرداں انسانی روح کی علامت ہیں۔
+
+9. [unidiomatic] "خواجہ غلام فرید کی گفتگو کی ایک کتاب" -> a stacked کی ... کی chain ("a book of his conversation") ->
+OLD: شاعری کے ساتھ ساتھ خواجہ غلام فرید کی گفتگو کی ایک کتاب بھی ہے۔
+NEW: شاعری کے ساتھ ساتھ خواجہ غلام فرید کی گفتگو پر مشتمل ایک کتاب بھی ہے۔
+
+10. [agreement] "مقدس مقامات کے نام کے ساتھ" -> the plural possessor needs the plural ناموں ->
+OLD: اس طرزِ تحریر میں قصبے کے نام کے ساتھ شریف کا لفظ جوڑا گیا ہے، جو مقدس مقامات کے نام کے ساتھ تعظیماً لگایا جاتا ہے۔
+NEW: اس طرزِ تحریر میں قصبے کے نام کے ساتھ شریف کا لفظ جوڑا گیا ہے، جو مقدس مقامات کے ناموں کے ساتھ تعظیماً لگایا جاتا ہے۔
+
+11. [calque / fragment] "دو کلام انہی کے تھے، دونوں سرائیکی میں۔" -> the English tag "both in Seraiki" is left as a fragment with no verb ->
+OLD: اور اس کنسرٹ کے پروگرام میں دو کلام انہی کے تھے، دونوں سرائیکی میں۔
+NEW: اور اس کنسرٹ کے پروگرام میں دو کلام انہی کے تھے اور دونوں سرائیکی میں تھے۔
+
+12. [repetition] "قاضی محمد عاقل کا ایک مدرسہ ... قاضی محمد عاقل سے تعلیم پائی" -> the name is repeated within one sentence; a pronoun is clear here ->
+OLD: اس قصبے میں قاضی محمد عاقل کا ایک مدرسہ تھا، جہاں خواجہ سلیمان تونسوی نے اپنے ابتدائی دنوں میں قاضی محمد عاقل سے تعلیم پائی اور علومِ ظاہری حاصل کیے۔
+NEW: اس قصبے میں قاضی محمد عاقل کا ایک مدرسہ تھا، جہاں خواجہ سلیمان تونسوی نے اپنے ابتدائی دنوں میں انہی سے تعلیم پائی اور علومِ ظاہری حاصل کیے۔
+
+13. [reference] "ان دونوں زبانوں کا آمیزہ" -> no antecedent: the preceding sentences name regions (سندھ، پنجاب), not languages. The fix names the two languages that the next clause names anyway, and keeps the attribution کہا گیا ہے ->
+OLD: سرائیکی کو ان دونوں زبانوں کا آمیزہ کہا گیا ہے:
+NEW: سرائیکی کو سندھی اور پنجابی کا آمیزہ کہا گیا ہے:
+
+14. [calque / punctuation] "سرائیکی کے لیے ... وہی حیثیت رکھتے ہیں جو سندھی کے لیے بھٹائی ...: یعنی" -> the English pattern "X is to Seraiki what Bhittai is to Sindhi" (Urdu uses میں ... کی حیثیت), and a colon followed by یعنی doubles the link ->
+OLD: سرائیکی کے لیے خواجہ غلام فرید وہی حیثیت رکھتے ہیں جو سندھی کے لیے بھٹائی اور پنجابی کے لیے بلھے شاہ: یعنی وہ شاعر جس نے
+NEW: سرائیکی میں خواجہ غلام فرید کی وہی حیثیت ہے جو سندھی میں بھٹائی اور پنجابی میں بلھے شاہ کی ہے، یعنی وہ شاعر جس نے
+
+15. [word order] "ملتان سے چھپنے والے ان کی تصانیف کے ایڈیشنوں میں" -> the participle is cut off from its noun (ایڈیشنوں) by ان کی تصانیف کے, so it first reads as qualifying تصانیف ->
+OLD: ملتان سے چھپنے والے ان کی تصانیف کے ایڈیشنوں میں کیفی جام پوری کا مرتب کردہ کلامِ فرید، کشفی ملتانی کا ترجمہ کردہ نغمۂ صحرا اور ایم عبدالواسع کا دیوانِ فرید مع ڈوہڑہ جات بھی شامل ہیں۔
+NEW: ان کی تصانیف کے جو ایڈیشن ملتان سے چھپے، ان میں کیفی جام پوری کا مرتب کردہ کلامِ فرید، کشفی ملتانی کا ترجمہ کردہ نغمۂ صحرا اور ایم عبدالواسع کا دیوانِ فرید مع ڈوہڑہ جات بھی شامل ہیں۔
+
+NOTES:
+- صاحبِ مزار, para 2: "عالم تھے، اس کے باوجود وہ سر تا پا شاعر اور صوفی تھے" sets scholarship against poetry more sharply than needed; "عالم تھے، مگر سر تا پا شاعر اور صوفی تھے" would read more smoothly. Also "روحانی معاملات میں وہ ان نوابوں کے ناقد تھے" reads oddly (a critic "in spiritual matters"). Check the intended sense; I propose no fix, because the text does not say more.
+- شاعری, para 2: a tense jump between "استوار ہوتی ہے" and "اسے سمجھنا بھی آسان تھا". Readable, because the narrative moves into the past.
+- شاعری, para 1 and line after verse: "عشقِ حقیقی کا بیان کرتے ہیں" (better: کو بیان کرتے ہیں) and "سرائیکی کو اس کا بلند ترین ادبی اور روحانی اظہار عطا کیا" are slightly translated in feel but acceptable.
+- ملفوظات: "نام مقابیس المجالس رکھا گیا، یعنی روحانی مجلسوں کے اسباق" leaves the gloss trailing after the verb. "رکھا گیا، جس کا مطلب ہے روحانی مجلسوں کے اسباق" is tidier. "225 صفحات کا ایک تہائی سے زیادہ حصہ" would be clearer as "اپنے 225 صفحات کے طویل اردو مقدمے کا ایک تہائی سے زیادہ حصہ", but only if that is the intended reading. "چشتی قارئین کا ایک زندہ حلقہ" is a mild calque of "living readership"; "فعال حلقہ" is more idiomatic.
+- مزار اور عقیدت: "بڑے بڑے ہجوم جمع ہوتے ہیں" is acceptable, though "بڑا ہجوم جمع ہوتا ہے" is more usual. "خواجہ غلام فرید کے متن بھی" would read better as کلام, but کلام then repeats in the next clause. "ریکارڈنگ کے پورے عنوان میں بھی ان کا نام آتا ہے": ان could be read as Abida Parveen (the subject of the paragraph). If Farid is meant, write "خواجہ غلام فرید کا نام", but confirm against the source first, so as not to resolve the reference by guesswork.
+- مزار اور عقیدت, last para: there is a tense mix, "عبادت کی رسم کا حصہ بنتا تھا" next to "اشعار بھی پڑھے جاتے ہیں". Check the intended tense; I left it alone because changing it would change the time the claim refers to. "شاہ باہو": the poet is usually called سلطان باہو in Urdu. Check whether this is a name slip.
+- ماحول: "دریائے ستلج کے راستے ... دریائی سفر کیا" is mildly redundant. "سرائیکی پنجابی کی طرف ایک عبوری کڑی ہے" is understandable but slightly translated.
+- ورثہ: "بھٹائی" here and "شاہ عبداللطیف" in مزار اور عقیدت are the same poet named two ways. A general reader may not connect them, so consider "شاہ عبداللطیف بھٹائی" at one point. "ففٹی پوئمز آف خواجہ فرید کا ترجمہ بھی کیا" treats the English title as the original's title; "ففٹی پوئمز آف خواجہ فرید کے نام سے ان کے کلام کا ترجمہ بھی کیا" would be more precise if the source supports it.
+- Mechanics are clean: no Latin letters, no dashes, Urdu punctuation throughout, Western digits, and balanced asterisks (2). The verse line is untouched by every fix above. All 15 OLD strings occur exactly once in the file.

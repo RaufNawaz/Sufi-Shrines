@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V3 r2 issue 1
+OLD: اور اس سلسلے میں وہ اپنے زمانے کے قطب مانے جاتے ہیں
+NEW: اور وہ اپنے زمانے میں اس سلسلے کے قطب مانے جاتے ہیں

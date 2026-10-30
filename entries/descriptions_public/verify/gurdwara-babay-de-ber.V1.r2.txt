@@ -1,0 +1,51 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Scope of round 2. The diff of /home/claude/bak/gurdwara-babay-de-ber.md.bak_en1 against the public file shows exactly six changed lines (paragraphs at lines 5, 23, 29, 39, 81 and 103), and each is the OLD to NEW replacement listed in gurdwara-babay-de-ber.V1.r2.changes.txt, with the NEW text in place word for word. Nothing else moved.
+
+2. Each applied change, checked against the team version. None introduces a fault.
+   - Change 1 (Pir Bairi). The man's legend (Guru Nanak coming to the saint, staying with him and finding him powerful) is gone. The name he gave the grave stays as his statement. The paragraph still reads in order: grave, new grave, the man's name for it, invocations, mosque.
+   - Change 2 (Salbahan). "Accounts of its founding differ." now stands over one account, Raja Sela and Raja Satya Vachan. That is the established position plus one clause that rule 4 asks for, basis (b). Khalid's Salivahan and Bhandari's uncertain Raja Shal stay out.
+   - Change 3 (Baba Bair). "The gurdwara is held to be the place known in Sialkot as Baba Bair" matches the team version's certainty ("his Baba Bair is taken to be this gurdwara on the strength of the name and the city"). The quarter clause stands plainly, as intended. The observations in The Gurdwara can then be given as of this place without a second hedge.
+   - Change 4 ("since then" removed). No time anchor now goes beyond the source, which dates neither the reopening nor the visit.
+   - Change 5. The verdict "two mutually hostile religions" is gone. What is left is Dhillon's supported statement.
+   - Change 6. "is held to go back to Guru Nanak" keeps Khalid's derivation at the source's certainty and agrees with the Overview's "beneath which the Guru is remembered to have sat".
+
+3. L1 exception. The line in the notes ("L1 exception (V1 round 1): over a third of the team version is citations and the disagreement section, ...") matches the line round 1 proposed word for word, and there is only one such line. The checker (--english-only) measures 40,212 to 16,039 characters, which is 0.399, and exits 0 with the line in place. I checked the cause the line gives. The inline citations (about 8,390 characters) and the disagreement section (about 6,340) together make 0.37 of the team prose, so "over a third" holds. The rest of the gap is as the line says: the reconstruction, the narration of the books, authors' verdicts, filed rivals, and readings marked damaged or uncertain. This round's own sweep also finds no important omission (note 8), so the exception stands and nothing should be restored to reach 0.40.
+
+4. The notes file is out of date in a few places. This is a record matter for the coordinator and does not affect the verdict. These are not changes to the public file, so there are no OLD/NEW lines. Some lines still describe the text as it was before round 2:
+   - The checker line near the top (16293 chars, 0.41).
+   - The consensus line "Why the tree is holy" (it says the man's claim that Guru Nanak came to visit Pir Bairi is kept; only the name is kept now).
+   - The consensus line "The state of the gurdwara" and the "For Rauf" bullet (both quote "since then differ").
+   - The consensus line "Who founded Sialkot" (basis (d), with both founders). It should now read basis (b): Raja Sela with Raja Satya Vachan's rebuilding, with Raja Salbahan dropped silently, as round 1 issue 2 said.
+   - Judgement call 1 ("Length 0.41, inside L1; no exception line claimed").
+   The name line could also record that the identification is now hedged at its first mention.
+
+5. Rulings on the writer's judgement calls. They are unchanged since round 1, and the round 1 rulings stand.
+   - Accepted: 1 (length, now under the L1 exception, note 3), 3, 5, 6, 7, 8, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 22 and 23.
+   - Settled by the applied changes: 2 (the writer's fallback hedge, now in place), 4 (only the name kept), 9 (basis (b), Salbahan dropped), 12 (the verdict dropped) and 21 (framed).
+   - Two cautions for the Urdu still apply. On 11, do not say he came by way of Jammu on his second journey. On 14, do not turn "his shrine" into this gurdwara.
+
+6. The whole text, checked again sentence by sentence. All checks passed.
+   - Every statement, number and count is supported by the team version. The glosses are definitions.
+   - Legends stay framed ("remembered to have sat", "held by tradition", "Tradition tells", "Tradition holds", "is said", "in the telling", "some tellings", "it is said", "In the janamsakhis", "is held to", "is believed", "as tradition tells").
+   - No reading marked uncertain or damaged is used: no Raja Shal, Nazar Muhammad, "kissed", Jamin, second name for Lehna, damaged central room clause or roof tops view. The Auqaf Department is accepted, as in round 1.
+   - There is no citation, narration of a source, signposting, or archive or process language.
+   - Every time anchor is firm (In Aurangzeb's time, In the Guru's day, 1947, 1992, 6 December 1992, around 2012, 2012, 1604, 1487, 1494, 1497, 322 BC, 971 AH).
+   - The checker's own tests pass: Q2 (quotations verbatim), B1 (the bibliography item for item), and no em or en dash in the prose. The seven italic lines are verbatim from the team version.
+
+7. Taste only. No change is required, and none is proposed.
+   - "Today Sialkot has become" (as in round 1): "Sialkot has become" alone would carry Khalid's statement.
+   - Mardana appears as "Bhai Mardana" in Guru Nanak and as "a singer named Mardana" in Devotion and Verse, as in the team version. A reader may take them for two people. The team version does not join them in so many words, so the text should stay as it is, and the Urdu should not join them either.
+   - "Lines from the Guru's other hymns" calls the lines that follow hymns, though they include poems. This is harmless.
+   - "The Udasis ... were counted then as a fourth class" turns Bhandari's own classification into a statement anchored in time. That is the brief's method for avoiding narration of sources, and it is acceptable.
+
+8. Omission sweep. After a sweep of the whole team version, nothing important is missing. The public version keeps the following:
+   - The site: its names, its location and the site's account, Natha Singh and the complex, 1947, 1992 and 2012, the Auqaf board, the reopening, the tree and the sanctum, and the observed building, tiles, pictures, grave, flag, invocations and mosque.
+   - The legends: Hamza Ghaus and his shrine, and Mian Mitha at Pasrur.
+   - The Guru: his dates and journeys, his wife and her parents, his sons with their dates, Lakhmi Das passed over, Lehna as Guru Angad, the miracles, Bhai Bala and Bhai Mardana, and the Muslim regard for him.
+   - Devotion and verse: Bhandari's followers and the Udasis, the langar, Mardana the singer, the Adi Granth and 1604, Abida Parvin, Sain Vasan Shah, the Babur Bani and the six other italic lines.
+   - The city: its founding, history, crafts, learning and modern state.
+   What this round's changes removed (the man's legend, the Salbahan variant with its fort of fired brick, and Dhillon's verdict) is rival or verdict material, as rules 4 and 7 require.

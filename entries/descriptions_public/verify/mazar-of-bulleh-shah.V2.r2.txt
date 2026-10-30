@@ -1,0 +1,36 @@
+VERDICT: FAIL
+ISSUES:
+1. [wrong reference] "Jiwan Khan then made over the whole field to the boy's father as an offering." | اس کے بعد جیون خان نامی ایک شخص نے پورا کھیت نذرانے کے طور پر لڑکے کے والد کے نام کر دیا۔ -> "نامی ایک شخص" brings Jiwan Khan in as a new, unknown man, so the Urdu reader takes him to be someone other than the field's owner who is already in the story. The English, like the team version (from Sharib), gives only the bare name and leaves the identification to the reader. The most natural reading is that the man who makes over "the whole field" is its owner. The writer was right not to write "کھیت کے مالک جیون خان", since the English does not say that. But this introduction pushes the reading the other way. The bare name is faithful and reads naturally in a hagiographic tale. -> اس کے بعد جیون خان نے پورا کھیت نذرانے کے طور پر لڑکے کے والد کے نام کر دیا۔
+NOTES:
+Round 1 issues: all four are fixed. (1) The dance lines now open with "بلھے شاہ گاتے ہیں". (2) "ضبطِ تحریر میں آیا" means written down, not composed. (3) "بھتیجا یا بھانجا" leaves the nephew's side of the family open. (4) "غالباً" now governs the cause of the hijras' link to the shrine.
+
+Rulings on the writer's departures from the fluency editor:
+(a) کُشو kept apart from کُش: upheld. The English keeps Kush (Khalid's "Luv and Kush") and Kushu (Chishti's founder of Kashur) as two spellings from two sources. Merging them would state an identity that the English leaves to the reader.
+(b) حضرت only where the English has "Hazrat": upheld. It now stands exactly twice, in the opening line and in Abida Parvin's list. شیخ before عبدالقادر جیلانی is the dictionary's own form ("Sheikh Abdul Qadir Gilani"), so it is not an added honorific. The sign ؐ after نبی is the customary formula.
+(c) کڑی، راسخ العقیدہ طرز کی دینی تعلیم: upheld. It keeps "orthodox" (V3's روایتی would have weakened it to "traditional"), and طرز کی answers V3's point about collocation. Strictness now attaches to the training rather than to the orthodoxy, but the meaning is the same rigorous orthodox schooling. Optional: "کڑی اور راسخ العقیدہ طرز کی", without the comma in the English style.
+(d) The kalma kept: upheld. Dropping it would be an omission (Shackle: "received the word (kalmā) of his Sufi teaching"). However, "سلوک کی تلقین پائی، اور اپنی صوفیانہ تعلیم کا کلمہ بھی" turns one thing received into two. I do not count this as an addition, because the bai'at and the khilafat already establish that he received instruction in the path from Shah Inayat. A single item is still closer to the English and keeps V3's تلقین: شاہ عنایت سے انہیں اپنی صوفیانہ تعلیم کے کلمے کی تلقین ملی۔
+(e) Only Hashim Shah as the younger contemporary: upheld. The English is singular ("his own younger contemporary Hashim Shah of Amritsar and Waris Shah"), as is Schimmel in the team version. Abbas calls Waris Shah only "a contemporary". V3's plural would have added a fact.
+(f) دریافت کر لیا گیا ہے: upheld. The perfect matches "an age that has rediscovered him". V3's progressive "کیا جا رہا ہے" would have turned a completed rediscovery into one still under way.
+(g) صورت دیتے ہیں for "create": upheld. The myths are "of his lyrics" (Abbas: "create the female myths in their lyrics"), and the qawwals give them form in performance. V3's "زندہ کرتے ہیں" (revive) would imply that the myths had died.
+(h) شام کی نماز: upheld, as in round 1. The English "the evening prayers" names no particular prayer, and مغرب would name one.
+(i) خسرو کے کلام کی طرح: upheld. "Like Khusrau's" stands for Khusrau's mystical poetry, which کلام matches. گیتوں would narrow it, and V3's point (a poet compared with poetry) is met either way.
+(j) جیون خان نامی ایک شخص: not upheld; see issue 1.
+(k) "... میں عوامی بول چال کی زبان اپنانے کا بھی دخل ہے" for "has helped": upheld. "Has helped to ensure" names a contributing cause, and "کا دخل ہے" says exactly that. بھی only makes explicit that it is not the sole cause, which "helped" already implies. V3's "کی بدولت" would make it the cause.
+(l) خواجہ سرا for hijras: upheld. The English glosses hijras as "eunuchs". خواجہ سرا is the classical Urdu word for a eunuch, and in current Pakistani usage (courts, press, the community's own organisations) it is also the standard respectful name for the hijra community. It therefore carries both senses of the English. ہیجڑا is now felt as pejorative in print.
+
+Also checked:
+The verse lines are byte identical to the English file.
+All eight headings correspond.
+The figures form the same multiset as the English (27 numbers).
+There are no Latin letters and no em or en dashes. The asterisks are balanced (34).
+Every legend is still marked as tradition (روایت ہے، کہا جاتا ہے، بیان کیا جاتا ہے), including the refused burial, the founding of Kasur and the whole Legends section.
+"ان کے بقول شاید" is correct for the qawwals' "perhaps a century ago": in Abbas's quotation, "Perhaps" is inside their own words.
+The dropped glosses of familiar words, the dropped prose paraphrases before verses, the removed italics and the dropped translator credits are deliberate under the brief, and I have not counted them.
+Every paragraph was reread against the English. All the facts, names, titles, numbers, dates, places, relationships and qualifiers are present with the same meaning, except issue 1.
+
+Style (optional):
+"یہ مختلف طریقوں سے بیان کیا جاتا ہے۔ بیان کیا جاتا ہے کہ وہ ایک درخت" repeats the verb on both sides of a full stop. "روایت ہے کہ وہ ایک درخت" avoids that.
+In the first paragraph of the Shrine section, آج opens two sentences in a row ("مگر آج یہ ایک محترم درگاہ ہے۔ آج جب"). "اب جب بلھے شاہ کو نئے سرے سے دریافت کر لیا گیا ہے،" avoids the repetition.
+"انہوں نے نسوانی لب و لہجے کے چھ کلام سنائے" comes right after "پچاس مرد و زن", so "قوالوں نے" would be clearer.
+"وجدانی رقص" leans "devotional dance" towards "ecstatic". That is acceptable in a sama context, but "سماع اور رقص کی روایت" is closer.
+"محض عوامی گھڑنت" and "بہت مقبول" each add a mild intensifier to "a popular fabrication" and "a popular one". "عوامی گھڑنت ہے" and "مقبول ہے" are closer.

@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the 7 changes in shrine-of-makhdoom-jahaniyan-jahangasht.ur.r3.changes.txt; every NEW sentence is grammatical and clear: "اسماعیلی سمیرہ برادری نے" now reads as the name of a community, with correct agreement; the Kalpi sentence no longer offers "کالپی صاحبِ مزار"; "بڑی بڑی حویلیاں" is natural; the three sons are plainly Surkh Posh's; the commas set off Nanak's settling; "تاریخ کے افق پر" is idiomatic; taste only: a pesh (سُمیرہ) would steer readers off the girl's name سمیرہ, the order paragraph now names مخدوم جہانیاں seven times (for the Kashmir Sufi, "اسی سلسلے کے صوفی" would lighten one without changing the fact), and سرخ پوش بخاری now stands in four consecutive sentences.

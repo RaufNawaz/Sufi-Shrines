@@ -1,0 +1,9 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff against /home/claude/bak/shah-noorani-shrine-syed-bilawal-shah-noorani.md.before_v1r3: exactly one line changed (27), and it is the listed change, word for word as the changes file gives the NEW sentence. Nothing else in the file moved. The bibliography is untouched.
+2. The change, "Before the attack of November 2016, Lahut, like Hinglaj, saw a new wave of interest, mainly because a newly constructed road leading to the shrine had made the journey through the mountainous area easier.": supported. The team version says Lahut "is currently experiencing a new wave of interest mainly due to a newly constructed road leading to the shrine thus making the journey through the mountainous area easier", and that the blast of November 2016 "has curbed the growing influx of visitors". Anchoring the wave to the period before the November 2016 attack is exactly as precise as the team version allows and adds no span of years. "Attack" is the team version's own word ("one of the deadliest attacks on a Pakistani shrine"). The past perfect "had made" now agrees with "saw". It adds no fact, no embellishment and no source talk, and it has no em or en dash. This is the round 2 verifier's exact fix, applied verbatim.
+3. Reads correctly in place. The sentence names the attack one paragraph before the heading "## The Attack of 2016" introduces it; as a forward reference to a dated event this reads naturally and leads straight into that section, which then says the blast "curbed the growing influx of visitors". Not an issue.
+4. "The journey itself has changed." (present perfect) followed by a past-tense account of a change that was later curbed is acceptable: the road and the easier journey remain. Style only, not required.

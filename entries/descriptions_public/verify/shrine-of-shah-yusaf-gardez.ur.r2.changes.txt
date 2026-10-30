@@ -1,0 +1,62 @@
+# shrine-of-shah-yusaf-gardez: Urdu round 2, after V2 round 1 (PASS, optional note 1) and V3 round 1 (FAIL, 9 issues). Every V3 issue applied or adapted (none rejected); V3 notes applied only where they are plainly better Urdu and change no fact. Each OLD string occurred exactly once and was replaced once; nothing else in the file moved (diff against bak/shrine-of-shah-yusaf-gardez.ur.before_r2.md). The English file is unchanged.
+# Not applied (V3 notes): ء after years (not used on the site); قبولِ اسلام for تبدیلیِ مذہب (the English says only 'conversion'); فاطمی خلفاء (adds a title); ممتاز مقام for باعزت مقام (shifts 'honoured' to 'distinguished'; taste).
+
+WHY: V3 round 1, note on بانی شخصیات (a modern calque with no object), adapted: V3's اولین بزرگوں would weaken 'founding figure' to 'first saint' and repeat بزرگوں from the clause before; داغ بیل ڈالنے والوں keeps 'founding figure in the Islamisation', and روایت کے مطابق still opens the clause and governs the whole claim (§ تعارف)
+OLD: اور روایت کے مطابق وہ ان بانی شخصیات میں سے تھے جن کے ہاتھوں ملتان میں اسلام پھیلا۔
+NEW: اور روایت کے مطابق ملتان میں اسلام کی داغ بیل ڈالنے والوں میں وہ بھی شامل تھے۔
+
+WHY: V3 round 1, note on کم بلند (reads as a translation of 'low') and on the tautology یہ مزار ایک ... مقبرہ ہے (§ تعارف); 'famed for' as کے سبب مشہور, not the calque کے لیے مشہور
+OLD: یہ مزار ایک کم بلند مقبرہ ہے جس کی نفیس نیلی کاشی کاری مشہور ہے۔
+NEW: یہ کم اونچا مزار اپنی نفیس نیلی کاشی کاری کے سبب مشہور ہے۔
+
+WHY: V3 round 1, issue 8 (محترم is said of persons; منفرد ترین puts an absolute adjective in the superlative), adapted minimally: منفرد و متبرک ترین instead of V3's منفرد اور متبرک ترین, so that the one ترین plainly governs both adjectives as the English 'most distinctive and revered' does (§ تعارف)
+OLD: "شہرِ اولیاء" ملتان کی منفرد ترین اور محترم ترین یادگاروں میں اس کا نام آتا ہے،
+NEW: "شہرِ اولیاء" ملتان کی منفرد و متبرک ترین یادگاروں میں اس کا نام آتا ہے،
+
+WHY: V3 round 1, issue 9 (calque of 'in the years around 1088', double کے), in V3's wording; لگ بھگ keeps the approximation (§ صاحبِ مزار)
+OLD: روایت کے مطابق ان کی آمد 1088 کے آس پاس کے برسوں میں ہوئی
+NEW: روایت کے مطابق ان کی آمد 1088 کے لگ بھگ ہوئی
+
+WHY: V3 round 1, issue 6 (gloss of سید), in V3's wording; the gloss is dropped as the brief allows, and the fact that he was a sayyid by descent stays (نسباً سید) (§ صاحبِ مزار)
+OLD: وہ نبی کریمؐ کے خاندان سے تعلق رکھنے والے سید تھے،
+NEW: وہ نسباً سید تھے،
+
+WHY: V3 round 1, issue 3 (English word order, abstract agent with نے, tangled اس وقت بھی ... جب ... ابھی نہیں), combined with V2 round 1, note 1 (the hedge must govern the whole claim): V3's order and wording, with V2's ایسے مبلغ تھے جن ... in place of V3's وہ مبلغ تھے، اور ..., so that مشہور ہے کہ covers 'a preacher whose presence helped' as one claim; ہی keeps 'even before' (§ صاحبِ مزار)
+OLD: مشہور ہے کہ وہ مبلغ تھے، اور ان کی موجودگی نے ملتان کو دین کا مرکز بنانے میں اس وقت بھی مدد دی جب شہاب الدین سہروردی کے قائم کردہ سہروردی سلسلے کے بڑے مشائخ ابھی یہاں نہیں آئے تھے۔
+NEW: مشہور ہے کہ وہ ایسے مبلغ تھے جن کے دم سے شہاب الدین سہروردی کے قائم کردہ سہروردی سلسلے کے بڑے مشائخ کی آمد سے پہلے ہی ملتان کو دین کا مرکز بننے میں مدد ملی۔
+
+WHY: V3 round 1, notes on کم بلند and on the redundant ملتانی کاشی کی ... روغنی ٹائلوں (کاشی is itself glazed tile, so 'glazed tilework of Multan known as kashi' is fully carried by ملتانی کاشی); the calqued ایک dropped (§ مزار)
+OLD: یہ ایک کم بلند اور مستطیل مقبرہ ہے جو ملتانی کاشی کی شوخ نیلی اور سفید روغنی ٹائلوں سے ڈھکا ہوا ہے۔
+NEW: یہ کم اونچا مستطیل مقبرہ شوخ نیلی اور سفید ملتانی کاشی سے ڈھکا ہوا ہے۔
+
+WHY: V3 round 1, issue 2 (calque of 'founding saints': ملتان کے بانی reads as the founders of the city; clumsy میں سے ایک کی; the sentence ran on into the ʿurs), adapted: V3's sentence structure and split are kept, but V3's ملتان میں اسلام کی داغ بیل ڈالنے والوں is not used, because it adds Islam and states as fact the Islamisation claim that the English gives only 'by tradition' (Overview); the English here says only 'one of Multan's founding saints', so ملتان کی روحانی بنیاد رکھنے والوں (the saints at the foundation of the city's sacred life, not of the city). V3's ان کے سالانہ عرس is given as صاحبِ مزار کے سالانہ عرس, so that ان cannot be read as the devotees (§ مزار)
+OLD: عقیدت مند یہاں فاتحہ پڑھنے اور ملتان کے بانی بزرگوں میں سے ایک کی برکت حاصل کرنے آتے ہیں، اور شاہ یوسف گردیز کے سالانہ عرس پر حسبِ دستور معتقدین جمع ہوتے ہیں۔
+NEW: عقیدت مند یہاں فاتحہ پڑھنے اور ان بزرگ کی برکت حاصل کرنے آتے ہیں جن کا شمار ملتان کی روحانی بنیاد رکھنے والوں میں ہوتا ہے۔ صاحبِ مزار کے سالانہ عرس پر حسبِ دستور معتقدین جمع ہوتے ہیں۔
+
+WHY: V3 round 1, note on the doubled آسودۂ خاک ... مدفون, adapted: V3's wording would attach 'whose tombs were places of pilgrimage' to all the many saints at rest; the English attaches it only to the saints among whom Shah Yusuf Gardez was counted, so the relative clause stays on ان بزرگوں, with وہاں کے for 'buried there'; ایسا شہر تھا جہاں (a calque of 'was a city where') becomes ملتان میں; گنے جاتے تھے for 'was counted', so that شمار is not repeated from the sentence before (§ مزار)
+OLD: مغل بادشاہ اورنگزیب کے عہد میں ملتان ایسا شہر تھا جہاں بہت سے اولیاء آسودۂ خاک تھے، اور شاہ یوسف گردیز بھی وہاں مدفون ان بزرگوں میں شمار ہوتے تھے جن کے مزار زیارت گاہ بنے ہوئے تھے۔
+NEW: مغل بادشاہ اورنگزیب کے عہد میں ملتان میں بہت سے اولیاء آسودۂ خاک تھے، اور شاہ یوسف گردیز بھی وہاں کے ان بزرگوں میں گنے جاتے تھے جن کے مزار زیارت گاہ بنے ہوئے تھے۔
+
+WHY: V3 round 1, issue 7 (three stacked modifiers around a bare تک کے), in V3's wording (§ ماحول)
+OLD: 711 میں عربوں نے سندھ اور اس کے شمال میں ملتان تک کے ہمسایہ صوبے فتح کر لیے۔
+NEW: 711 میں عربوں نے سندھ اور اس کے شمال میں ملتان تک پھیلے ہوئے ہمسایہ صوبے فتح کر لیے۔
+
+WHY: V3 round 1, note that this sentence joins two unrelated facts with اور; split, and اس کے گرد و نواح (which could be read as Egypt's surroundings) given as ملتان کے گرد و نواح; یہ شہر for 'the city', as the English has it. V3's فاطمی خلفاء not applied (it adds a title the English does not have) (§ ماحول)
+OLD: ایک زمانے میں ملتان مصر کے فاطمیوں کے ماتحت رہا، اور گیارہویں صدی کے وسط تک تصوف اس کے گرد و نواح میں پہنچ چکا تھا۔
+NEW: ایک زمانے میں یہ شہر مصر کے فاطمیوں کے ماتحت رہا۔ گیارہویں صدی کے وسط تک تصوف ملتان کے گرد و نواح میں پہنچ چکا تھا۔
+
+WHY: V3 round 1, note on the fourfold روایت کے مطابق / روایت ہے; منقول ہے کہ (it is handed down) keeps the 'tradition holds' hedge at the head of the sentence (§ ماحول)
+OLD: روایت ہے کہ شاہ یوسف گردیز اسی فضا میں یہاں وارد ہوئے۔
+NEW: منقول ہے کہ شاہ یوسف گردیز اسی فضا میں یہاں وارد ہوئے۔
+
+WHY: V3 round 1, issue 5 (اس کی شاعری can be read as Multan's poetry; زیارتوں میں مقام is loose), adapted: V3's wording, with اپنا ایک مقام for the English 'its place' in place of V3's ایک خاص مقام, which raises it to 'a special place' (§ ماحول)
+OLD: اس خطے کی زیارتوں میں بھی ملتان کا اپنا مقام تھا اور اس کی شاعری میں بھی۔
+NEW: اس خطے کی زیارت گاہوں اور شاعری، دونوں میں ملتان کو اپنا ایک مقام حاصل تھا۔
+
+WHY: V3 round 1, issue 4 (calque of 'helped turn Multan towards the faith it would later embody as the City of Saints'; convoluted جس کا مظہر ... کی صورت میں بنا), adapted: V3's ان کی آمد کا ہاتھ تھا is kept, but V3's split into two clauses joined by اور would leave the second (the city's later embodiment of the faith) outside روایت ہے کہ, and its کہلایا adds 'was called'; a جس ... اسی correlative keeps the whole claim inside روایت ہے کہ and keeps the City of Saints (§ ورثہ)
+OLD: روایت ہے کہ ان کی آمد نے ملتان کا رخ اس دین کی طرف موڑنے میں مدد دی جس کا مظہر یہ شہر آگے چل کر "شہرِ اولیاء" کی صورت میں بنا۔
+NEW: روایت ہے کہ جس دین کا مظہر ملتان آگے چل کر "شہرِ اولیاء" کے روپ میں بنا، اسی کی طرف شہر کا رخ موڑنے میں ان کی آمد کا ہاتھ تھا۔
+
+WHY: V3 round 1, issue 1 (کاشی کار is the tile maker, not a tiled building), in V3's wording (§ ورثہ)
+OLD: ان کا کاشی کار مزار آج بھی
+NEW: ان کا کاشی کاری سے آراستہ مزار آج بھی

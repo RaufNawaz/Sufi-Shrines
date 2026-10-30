@@ -1,0 +1,13 @@
+# shrine-of-syed-musa-pak: English changes after V1 round 1 (PASS, ISSUES: none). Precision notes 1 to 3 applied in the verifier's wording; note 4 ('now', taste) and notes 5 to 10 (checks) not applied. Backup: /home/claude/bak/shrine-of-syed-musa-pak.before_v1r2.md
+
+WHY: V1 r1 note 1 (certainty: the yield is Abdul Haq's derivation, not the narrator's); verifier's wording
+OLD: *The chronogram on the saint's death by his disciple Shaikh Abdul Haq Muhaddith Dehlvi, which gives the year 998 AH.*
+NEW: *The chronogram on the saint's death by his disciple Shaikh Abdul Haq Muhaddith Dehlvi, from which he derived the year 998 AH.*
+
+WHY: V1 r1 note 2 (precision: 'also' implied the other work was on the same subject); verifier's wording
+OLD: His conditions and practices are also the subject of another work, *Bahr al-Sarair*.
+NEW: Another work, *Bahr al-Sarair*, is devoted to his conditions and practices.
+
+WHY: V1 r1 note 3 (precision: tracks the team version exactly); verifier's wording
+OLD: and among them Shaikh Abdul Haq Muhaddith Dehlvi was his sincere disciple.
+NEW: and Shaikh Abdul Haq Muhaddith Dehlvi, too, was his sincere disciple.

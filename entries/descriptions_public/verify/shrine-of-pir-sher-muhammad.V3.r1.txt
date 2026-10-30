@@ -1,0 +1,37 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [word order / collocation] "تقویٰ، علم اور کثیر تعداد میں مریدوں کی رہنمائی ان کی وجہِ شہرت ہے" -> "کثیر تعداد میں" is adverbial (as in "کثیر تعداد میں آئے") and sits awkwardly as a modifier inside a genitive phrase. It reads as English "guidance of large numbers of disciples" -> تقویٰ، علم اور مریدوں کی کثیر تعداد کی رہنمائی ان کی وجہِ شہرت ہے، اور انہوں نے شرقپور کو عقیدت اور دینی تعلیم کا مرکز بنا دیا۔
+
+2. [collocation] "جن کے نور نے پنجاب کے صوفیوں کی اگلی نسل کو سنوارا" -> "نور نے سنوارا" is a mixed metaphor. The idiomatic word for a master's formative influence is فیض -> پیر شیر محمد ان اساتذہ میں سے تھے جن کے فیض سے پنجاب کے صوفیوں کی اگلی نسل نے تربیت پائی۔
+
+3. [tangled sentence / calque] "پیر صاحب کی پہچان عبادت، زہد اور خدمت سے عبارت زندگی ہے، اور عقیدت کا وہ اصلاحی اور متین انداز بھی جو انہوں نے سکھایا۔" -> This follows the English "remembered for X, and for Y" structure. A long elliptical tail with a relative clause hangs off the sentence after ہے -> پیر صاحب کی پہچان دو باتیں ہیں: عبادت، زہد اور خدمت سے عبارت ان کی زندگی، اور عقیدت کا وہ اصلاحی اور متین انداز جس کی انہوں نے تعلیم دی۔
+
+4. [collocation / calque] "شمالی ہند پر مسلمانوں کی فتح کے ساتھ فارسی زبان کی تہذیب پنجاب تک آ پہنچی۔" -> "فارسی زبان کی تہذیب" is a literal rendering of "Persian-language culture". The Urdu idiom is فارسی زبان و تہذیب -> شمالی ہند پر مسلمانوں کی فتح کے ساتھ فارسی زبان و تہذیب پنجاب تک آ پہنچی۔
+
+5. [calque] "خواجہ سلیمان نے اداروں کے قیام کے ذریعے علم پر زور دیا اور یوں سلسلے کو مستحکم کیا۔" -> "کے قیام کے ذریعے ... پر زور دیا" copies "emphasized learning through institutions" word for word. In Urdu, "زور دینا" does not take "کے قیام کے ذریعے" -> خواجہ سلیمان نے ادارے قائم کر کے علم کو خاص اہمیت دی اور یوں سلسلے کو مستحکم کیا۔
+
+6. [ambiguity] "نظامی شاخ بالائی پنجاب میں اور آگے بڑھی" -> اور can be read as the conjunction "and" ("in upper Punjab and moved ahead"). "Further" needs مزید -> انیسویں صدی میں خواجہ سلیمان کے مریدوں کے ذریعے نظامی شاخ بالائی پنجاب میں مزید پھیلی۔
+
+7. [calque] "پنجاب میں قوالی کی دھنیں اپنے آہنگ میں اتر پردیش کی دھنوں سے مختلف ہیں، اور ان کی لے کی بنیاد عموماً زور پر ہوتی ہے۔" -> "اپنے آہنگ میں مختلف" renders "differ in their rhythm" literally, where Urdu says آہنگ کے اعتبار سے. "لے کی بنیاد ... پر ہوتی ہے" is also stiff -> مجموعی طور پر پنجاب کی قوالی کی دھنیں آہنگ کے اعتبار سے اتر پردیش کی دھنوں سے مختلف ہیں، اور ان کی لے عموماً زور پر قائم ہوتی ہے۔
+
+8. [calque / loose relative] "شرقپور ایک اور بزرگ کا قصبہ بھی ہے جو پیر شیر محمد سے پہلے گزرے۔" -> "X بزرگ کا قصبہ" is a calque of "the town of another saint". Because قصبہ sits between بزرگ and جو, the clause at first seems to describe the town -> شرقپور سے ایک اور بزرگ کی نسبت بھی ہے، جو پیر شیر محمد سے پہلے گزرے۔
+
+9. [misplaced particle] "رانی جنداں نے بھی شرقپور کے علاقے میں بھائی بدھ سنگھ کو جاگیر دی تھی، تاکہ" -> بھی after رانی جنداں means "Rani Jindan too (like someone else) granted a jagir", which the text never says. The comma before تاکہ is also unnecessary -> شرقپور کے علاقے میں رانی جنداں نے بھائی بدھ سنگھ کو جاگیر دی تھی تاکہ جواہر سنگھ کی سمادھی پر آنے والے مسافروں کو کھانا کھلایا جائے۔
+
+10. [ambiguity] "اور 1880 کی دہائی تک لاہور صوبے کا دارالحکومت بن چکا تھا" -> "لاہور صوبے" reads as a compound ("Lahore Province"), so the clause first reads "had become the capital of Lahore Province" -> پیر شیر محمد جس پنجاب میں پیدا ہوئے، اسے انگریز 1840 کی دہائی میں فتح کر چکے تھے، اور 1880 کی دہائی تک لاہور اس صوبے کا دارالحکومت بن چکا تھا۔
+
+11. [calque] "جن کی تعلیم نے قادری اور چشتی طریقوں کو ملا دیا اور جن کے مرید ان کے اثر کو آگے لے گئے" -> "تعلیم نے ... ملا دیا" and "اثر کو آگے لے گئے" are literal renderings of "combined" and "carried his influence forward". طریقوں also departs from سلسلوں, the term the article uses for the same two orders in its opening -> ان کی شہرت ہزارہا لوگوں کے ایسے رہنما کی ہے جن کی تعلیم میں قادری اور چشتی سلسلوں کا امتزاج تھا اور جن کے مریدوں نے ان کے اثر کو آگے بڑھایا۔
+
+12. [repetition] "ان کا مزار آج بھی اسی عقیدت کا مرکز ہے ... ان کا نام اب بھی زندہ ہے" -> آج بھی and اب بھی appear in the same sentence -> شرقپور شریف میں ان کا مزار آج بھی اسی عقیدت کا مرکز ہے جو ان کی ذات نے پیدا کی، اور خطۂ لاہور کے ممتاز اولیاء میں ان کا نام بدستور زندہ ہے۔
+
+NOTES:
+- یکجا appears three times (نسبتیں یکجا تھیں، سلسلے یکجا ہوئے، مجموعوں کی صورت میں یکجا ہوا). In the publishing sentence, جمع ہوا would vary it.
+- "آگے چل کر وہ بڑے نامور مرشد بنے": "ایک نامور مرشد بنے" or "نامور مرشد ہوئے" reads more literary than the conversational intensifier بڑے.
+- "ابو الفیض" is usually written joined, "ابوالفیض", which matches "عبدالقادر" in the same article.
+- "طاقتور ترین صوفی سلسلوں" is serviceable, but "سب سے بااثر" is the more usual collocation for a Sufi order.
+- As a musical term in the qawwali sentence, "زور" is opaque to a general reader. Leave it if it is the source's term.
+- "سکھ مذہب کے بانی گرو نانک": the gloss is arguably unnecessary for an Urdu reader but harmless.
+- "1911 میں ... لکھتے ہوئے ایک مصنف نے ... کہا کہ": "لکھا کہ" would be more exact, but it would repeat لکھ.
+- مہاراجہ occurs three times across the two Duleep Singh sentences. "اس قطعے میں انہیں" could replace the third.
+- Digits are Western throughout, the text has no Latin letters or dashes, asterisks are balanced on all four italic verse lines, and the two-line verse is untouched by these suggestions.

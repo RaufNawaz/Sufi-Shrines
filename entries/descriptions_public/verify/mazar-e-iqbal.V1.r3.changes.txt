@@ -1,0 +1,14 @@
+Changes to entries/descriptions_public/mazar-e-iqbal.md after V1 round 2 (its optional notes 4a, 4b, 4c, in the verifier's wording). Nothing else changed.
+
+4a
+OLD: He reacted sharply, too, to the poetry of *wahdat al-wujud*, the unity of being, with its imagery of indifference to ritual and its sweeping generalisations that seemed to leave no room for truly Islamic values, and he took over Hali's verdict that mystical poetry after Hafiz might prove utterly dangerous for the morals of a people.
+NEW: He reacted sharply, too, to the poetry of *wahdat al-wujud*, the unity of being, with its imagery of indifference to ritual and its sweeping generalisations that seemed to leave no room for truly Islamic values, and, taking over Hali's verdict on mystical poetry, he claimed that mystical poetry after Hafiz might prove utterly dangerous for the morals of a people.
+
+4b
+OLD: In his modern reading of mystical symbols he understood the Prophet's saying "I have a time with God in which no created being has access, not even Gabriel who is pure spirit" as a reference to the moment at which serial time, "the infidel's girdle", is torn and the mystic establishes direct contact with God in a personal encounter.
+NEW: In his modern reading of mystical symbols he understood the Prophet's saying "I have a time with God in which no created being has access, not even Gabriel who is pure spirit" as a reference to the moment at which serial time, "the infidel's girdle", is torn and the mystic establishes direct contact with God in an encounter of person with person.
+
+4c
+OLD: Iqbal has a second memorial far from Lahore.
+NEW: Iqbal has a second memorial.
+

@@ -1,0 +1,27 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [calque / collocation] "ان کے ہندو یاتری انہیں ماتا کہہ کر پکارتے ہیں۔" -> This copies the English "her pilgrims". In Urdu یاتری belong to a place, not to a deity. Using ان کے and انہیں together in one short clause is also clumsy. -> "ہندو یاتری انہیں ماتا کہہ کر پکارتے ہیں۔"
+
+2. [ambiguous pronoun] "دوسری دیویاں بھی درگا کے روپ شمار ہوتی ہیں۔ کالی ماتا انہی کا ایک اوتار ہیں" -> انہی comes right after the plural دوسری دیویاں. It can be read as "one of those goddesses" instead of "one form of Durga". -> "کالی ماتا درگا ہی کا ایک اوتار ہیں، اور ہنگلاج کے مندر میں بھی انہی کے ایک اوتار کی پوجا ہوتی ہے۔"
+
+3. [unidiomatic / vague] "جشن میں بھی درگا کا نام بلند آواز سے پکارا جاتا ہے۔" -> The bare singular جشن reads as "in the celebration", and no celebration has been mentioned. It copies the English "in celebration". -> "جشن کے موقعوں پر بھی درگا کا نام بلند آواز سے پکارا جاتا ہے۔"
+
+4. [repetition / tangled sentence] "نوراتری کے دنوں میں ہندو یاتری ایک جیسی قمیصیں پہن کر درگا کے کسی مندر کا رخ کرتے ہیں، اور عقیدت مند مانتے ہیں کہ درگا ماتا کے مندر تک یہ سفر کرنے سے ان کی ساری مرادیں بر آئیں گی۔" -> The sentence says درگا and مندر twice. Its subject also changes from یاتری to عقیدت مند although both mean the same people. -> "نوراتری کے دنوں میں ہندو یاتری ایک جیسی قمیصیں پہن کر درگا ماتا کے کسی مندر کا رخ کرتے ہیں اور مانتے ہیں کہ اس سفر سے ان کی ساری مرادیں بر آئیں گی۔"
+
+5. [calque / ambiguous pronoun] "اور اسی کے ذریعے پورے خطے کے خاندان پہاڑی والی دیوی سے بندھے رہتے ہیں۔" -> اسی کے ذریعے copies the English "through it". اسی could also refer to چڑیو جبل or to مقام instead of the rite. -> "اس رسم کے سبب چڑیو جبل صرف تہوار کی خوشیوں کا نہیں بلکہ آخری رخصت کا مقام بھی ہے، اور یہی رسم پورے خطے کے خاندانوں کو پہاڑی والی دیوی سے جوڑے رکھتی ہے۔"
+
+6. [redundancy] "دوسری جگہوں کے مقدس مقامات نے جو نقصانات اٹھائے ہیں" -> جگہوں کے مقامات says "places" twice. -> "دوسرے علاقوں کے مقدس مقامات نے جو نقصانات اٹھائے ہیں، ان کے پس منظر میں اس مندر کی برقرار رونق اور کارونجھر کے پہاڑوں کے تحفظ کے حالیہ اقدامات امید کی ایک کرن ہیں۔"
+
+NOTES:
+- Spelling query: the text has "برہمن آباد کے بعد دیول کا دور آیا" and then "ٹھٹھہ اور دیبل حکومت کا صدر مقام تھے". If دیول and دیبل are the same port, use one spelling. If the source names two separate places, leave both and ignore this note. Please check against the source; I could not, because I read only the Urdu.
+- "چوڑی کے لیے بولے جانے والے لفظ سے نکلا ہے" is a roundabout phrase. "چوڑی کے لیے مستعمل لفظ سے نکلا ہے" is shorter and more literary.
+- "نچلی اور اونچی دونوں ذاتیں متناسب تعداد میں موجود ہیں" is stiff and reads like a translation, although the meaning comes through. Rephrase if the English wording allows.
+- "صوبے کا سب سے بڑا دریا سندھ تھا": in a paragraph where سندھ is also the region (for example "اس کے مغرب میں سندھ تھا"), "دریائے سندھ صوبے کا سب سے بڑا دریا تھا۔" would rule out a misreading.
+- Some facts appear twice, apparently because the English does the same: that Hindus are a large share of Tharparkar's population (in تعارف and in تاریخ اور تحفظ), and the scattering of ashes in sacred waters (in تعارف and in یاترا اور عقیدت). This is acceptable, but a tighter edit could vary or trim the second mention.
+- "سندھ میں ایک ایسی برادری بھی بستی ہے جس کا مقام ہندوؤں اور سکھوں کے بین بین ہے۔ نانک پنتھی سکھوں کا تعلق..." The reader has to infer that the community in the first sentence is the Nanakpanthis. Make the link explicit only if the English does.
+- "درگا کے ایک مندر میں یہ چنریاں خود مندر کے اندر..." repeats مندر. "مندر کے اندر اور آس پاس ہی سے خریدی جاتی ہیں" reads more lightly.
+- "کنواری پوجا اسی اوتار کی پرستش ہے" would sound more natural as "کنواری پوجا میں اسی اوتار کی پرستش ہوتی ہے".
+- The comma before تاکہ in "...سے بھی آتے ہیں، تاکہ رات بھر" is not needed.
+- Tense: "جہاں ایسے مذہب کا غلبہ رہا تھا" uses the past perfect, while the next sentence uses the present ("ثقافت ہر طرف پھیلی ہوئی ہے"). If the English means the influence continues, "رہا ہے" fits better.
+- Checked and clean: no Latin letters, no em or en dashes, Western digits kept, asterisks balanced (*سرکار*, *محال*), and Urdu punctuation used throughout.

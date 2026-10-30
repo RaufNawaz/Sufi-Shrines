@@ -1,0 +1,10 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [scope checked] `diff /home/claude/bak/purana-bhalwal.before_v1r2.md /home/claude/repo/entries/descriptions_public/purana-bhalwal.md` shows changes on two lines only: line 19 (change 1) and line 31 (changes 2 and 3). Each changed span matches the OLD to NEW pair in the changes file exactly. Nothing else in the file moved, and the Bibliography is untouched.
+2. [change 1, supported] "Of the Qadiri order in the Punjab, the first master to arrive is held to have been Hazrat Sayyid Muhammad Ghaus Uchchi Jili Gilani, ..." -> The team version (Setting) says "the first of the Qadiri line to come to Punjab was Hazrat Sayyid Muhammad Ghaus Uchchi Jili Gilani". The hedge "is held to have been" is kept. The new opening presents him as context for the order in the Punjab, not as the head of Shah Sulaiman's chain, so the implied chain that round 1 flagged is gone. The following paragraph still gives the shrine's pir and where the line is most often traced, with no merging. "Master" is a fair way to say "of the Qadiri line" and adds no new relationship. Taste only: the source's "line" could be kept ("the first of the Qadiri line to arrive"), but no change is needed.
+3. [change 2, supported] "with the drum stressing the beats of the metre more strongly than in Uttar Pradesh" -> This matches the source's "more strongly accentual than in Uttar Pradesh", where accentual means stressed. "Beats" is a plain gloss and adds no fact. The sentence reads correctly. Taste only: "by stress, with the drum stressing" repeats the word stress within one sentence. This is acceptable, and the confirming round does not apply it.
+4. [change 3, supported] "especially ʿAbd al-Qadir Gilani" -> This matches the source's "particularly" and reads correctly in place.
+5. [faults checked] The three new spans contain no em or en dashes, no citations, no source or archive talk, no new date, count or name, and no embellishment.

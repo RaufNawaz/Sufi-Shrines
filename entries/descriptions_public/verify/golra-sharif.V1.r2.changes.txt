@@ -1,0 +1,17 @@
+# golra-sharif: English changes after V1 round 1 (PASS, ISSUES: none). Precision notes 1, 2, 3 and 5 applied in the verifier's wording; notes 4 (the name Mama Ji, optional and supported), 6 (no change asked), 7 and 8 (taste) not applied. Backup: /home/claude/bak/golra-sharif.before_v1r2.md
+
+WHY: V1 round 1, note 1 (attribution: 'sectarian and messianic' and 'latter day prophet' are an author's characterisations, quoted in the team version, and must not stand in the site's voice); the verifier's wording, with 'him' for the repeated name
+OLD: Haydar Ali Shah, too, opposed the sectarian and messianic Ahmadi movement, but Meher Ali Shah was said to be one of those most influential in marginalising and stigmatising its latter day prophet, Ghulam Ahmad of Qadian.
+NEW: Haydar Ali Shah, too, opposed the Ahmadi movement, but Meher Ali Shah was said to be one of those most influential in marginalising and stigmatising him.
+
+WHY: V1 round 1, note 2 (precision: the team version's quotation ends 'among others'); the verifier's wording
+OLD: the classical Hindi of Amir Khusrau.
+NEW: the classical Hindi of Amir Khusrau, among others.
+
+WHY: V1 round 1, note 3 (precision: a gloss inside a list made the roles ambiguous); the verifier's wording
+OLD: Pir Meher Ali Shah united the roles of *shaykh*, or spiritual master, scholar and poet.
+NEW: Pir Meher Ali Shah united the roles of scholar, poet and *shaykh*, or spiritual master.
+
+WHY: V1 round 1, note 5 (ambiguous referent: 'his successor' could read as succession at Golra); the verifier's supported wording
+OLD: Meher Ali Shah initiated him and in time appointed him his successor, or *khalifa*.
+NEW: Meher Ali Shah initiated him and in time made him a *khalifa*, one of his successors.

@@ -1,0 +1,105 @@
+VERDICT: FAIL
+ISSUES:
+1. [word order / calque] "یہ گوردوارہ 1599 میں گرو ارجن دیو کے لاہور آنے کی یادگار ہے، جو سکھوں کے پانچویں گرو تھے۔" -> English-style trailing appositive relative ("..., who was the fifth Sikh Guru"); its antecedent is buried as a possessor inside "کے لاہور آنے کی یادگار" and is cut off from it by the main verb. Urdu puts the title before the name. -> corrected:
+OLD: یہ گوردوارہ 1599 میں گرو ارجن دیو کے لاہور آنے کی یادگار ہے، جو سکھوں کے پانچویں گرو تھے۔
+NEW: یہ گوردوارہ سکھوں کے پانچویں گرو ارجن دیو کی 1599 میں لاہور آمد کی یادگار ہے۔
+
+2. [calque] "سکھ لاہور کے نقشے پر" -> "Sikh Lahore" is an English noun-adjunct compound (adjective before a proper name); an Urdu reader stumbles on "سکھ لاہور". -> corrected:
+OLD: انہی سے نسبت کے سبب باؤلی صاحب بھی سکھ لاہور کے نقشے پر ایک اہم مقام رکھتا ہے۔
+NEW: انہی سے نسبت کے سبب باؤلی صاحب بھی لاہور کے سکھ ورثے میں ایک اہم مقام رکھتا ہے۔
+
+3. [calque] the same "سکھ لاہور کے نقشے پر" in the closing sentence -> same problem; keep the two sentences consistent. -> corrected:
+OLD: گوردوارہ ڈیرہ صاحب کے ساتھ سکھ لاہور کے نقشے پر اپنی جگہ برقرار رکھے ہوئے ہے۔
+NEW: گوردوارہ ڈیرہ صاحب کے ساتھ لاہور کے سکھ ورثے میں اپنی جگہ برقرار رکھے ہوئے ہے۔
+
+4. [unidiomatic collocation] "اس جانشینی کی جڑ لاہور ہی میں ہے۔" -> "جڑ" collocates with troubles and quarrels (فساد کی جڑ), not with a succession; calque of "has its roots in Lahore". -> corrected:
+OLD: اس جانشینی کی جڑ لاہور ہی میں ہے۔
+NEW: اس جانشینی کا قصہ لاہور ہی سے شروع ہوتا ہے۔
+
+5. [calque / English ellipsis] "گرو ارجن نے اس شہر میں بہت وقت گزارا، اور گرو ہرگوبند نے بھی۔" -> tacked-on "and so did Guru Hargobind" is English sentence shape. -> corrected:
+OLD: گرو ارجن نے اس شہر میں بہت وقت گزارا، اور گرو ہرگوبند نے بھی۔
+NEW: گرو ارجن اور گرو ہرگوبند دونوں نے اس شہر میں بہت وقت گزارا۔
+
+6. [ambiguous reference] "اس سلسلے میں جو اسباب بیان کیے جاتے ہیں" -> coming straight after the sentence on separate Sikh identity, "اس سلسلے میں" makes the Meharban rumours read as a cause of that identity; they are a reason given for compiling the book. -> corrected:
+OLD: اس سلسلے میں جو اسباب بیان کیے جاتے ہیں، ان میں یہ افواہیں بھی ہیں کہ پرتھی چند کے بیٹے مہربان اپنی الگ مقدس کتاب مرتب کر رہے تھے۔
+NEW: اس کتاب کی تدوین کے جو اسباب بیان کیے جاتے ہیں، ان میں یہ افواہیں بھی ہیں کہ پرتھی چند کے بیٹے مہربان اپنی الگ مقدس کتاب مرتب کر رہے تھے۔
+
+7. [calque / wrong word] "کئی اور ادارے بھی گرو ارجن سے منسوب ہیں۔" -> "ادارے" means organisations or establishments to a general reader; what follows are practices and arrangements (دسوندھ، مسند). Calque of "institutions". -> corrected:
+OLD: کئی اور ادارے بھی گرو ارجن سے منسوب ہیں۔
+NEW: کئی اور روایات اور انتظامات بھی گرو ارجن سے منسوب ہیں۔
+
+8. [ambiguous pronoun] "گرو نے اسے اپنے لیے اعزاز جانا" -> the nearest antecedents of "اسے" are the verses and the Guru's own recitation; what the Guru counted an honour is the meeting. -> corrected:
+OLD: گرو نے اسے اپنے لیے اعزاز جانا اور بادشاہ کے حضور شایانِ شان پیشکش نذر کی۔
+NEW: گرو نے اس ملاقات کو اپنے لیے اعزاز جانا اور بادشاہ کے حضور شایانِ شان پیشکش نذر کی۔
+
+9. [ambiguous pronoun] "اب غلہ سستا ہو گیا ہے اور کسان اسے ادا نہیں کر سکتے۔" -> "اسے" grammatically points to the nearest noun, غلہ; the farmers cannot pay the revenue. -> corrected:
+OLD: اب غلہ سستا ہو گیا ہے اور کسان اسے ادا نہیں کر سکتے۔
+NEW: اب غلہ سستا ہو گیا ہے اور کسان وہ لگان ادا نہیں کر سکتے۔
+
+10. [tangled sentence] "کہا جاتا ہے کہ گرو ارجن جو گرنتھ صاحب مرتب کر رہے تھے، صوفی شاعر شاہ حسین اس میں..." -> garden path: the fronted "گرو ارجن جو..." first reads as "Guru Arjan, who was compiling..." and the real subject (شاہ حسین) arrives only after the comma. -> corrected:
+OLD: کہا جاتا ہے کہ گرو ارجن جو گرنتھ صاحب مرتب کر رہے تھے، صوفی شاعر شاہ حسین اس میں اپنا کلام شامل کروانے کے لیے امرتسر گئے اور اس غرض سے اپنی ایک کافی پیش کی۔
+NEW: کہا جاتا ہے کہ جب گرو ارجن گرنتھ صاحب مرتب کر رہے تھے تو صوفی شاعر شاہ حسین اس میں اپنا کلام شامل کروانے کے لیے امرتسر گئے اور اس غرض سے اپنی ایک کافی پیش کی۔
+
+11. [ambiguous pronoun] "گرو ارجن نے ہرگوبند کو چھٹا گرو مقرر کیا، اور اس کے بعد انہیں شہید کر دیا گیا۔" -> both men take the honorific plural, and "انہیں" most naturally picks up the nearer name, ہرگوبند. -> corrected:
+OLD: گرو ارجن نے ہرگوبند کو چھٹا گرو مقرر کیا، اور اس کے بعد انہیں شہید کر دیا گیا۔
+NEW: گرو ارجن نے ہرگوبند کو چھٹا گرو مقرر کیا، جس کے بعد خود گرو ارجن کو شہید کر دیا گیا۔
+
+12. [repetition] "گرو ارجن کی موت کے اسباب کے بارے میں اقوال مختلف ہیں، مگر زیادہ تر..." -> word for word the formula already used for his death year ("کے بارے میں اقوال مختلف ہیں، مگر زیادہ تر"), and the same section ends with "روایات مختلف ہیں"; "مختلف ہیں" occurs six times in the article. -> corrected:
+OLD: گرو ارجن کی موت کے اسباب کے بارے میں اقوال مختلف ہیں، مگر زیادہ تر اسے خسرو کی بغاوت سے جوڑا جاتا ہے۔
+NEW: گرو ارجن کی موت کے اسباب پر آرا میں اختلاف ہے، مگر زیادہ تر اسے خسرو کی بغاوت سے جوڑا جاتا ہے۔
+
+13. [repetition / collocation] "یہ کس طرح منظرِ عام پر آیا، اس بارے میں روایتیں مختلف ہیں؛" -> third "..., اس بارے میں ... مختلف ہیں" in three consecutive paragraphs of the باؤلی section; "منظرِ عام پر آنا" suits news or secrets rather than a buried well. -> corrected:
+OLD: یہ کس طرح منظرِ عام پر آیا، اس بارے میں روایتیں مختلف ہیں؛
+NEW: یہ کنواں دوبارہ کیسے سامنے آیا، اس کا قصہ کئی طرح سے سنایا جاتا ہے؛
+
+14. [ambiguous pronoun] "پانچ سکھ مامور کیے، اور وہ خود بھی کبھی کبھی وہاں قیام کرتے تھے۔" -> after "پانچ سکھ", "وہ" (honorific plural) can be read as the five Sikhs. -> corrected:
+OLD: یہ بھی کہا جاتا ہے کہ گرو نے اپنے کنویں کی حفاظت پر پانچ سکھ مامور کیے، اور وہ خود بھی کبھی کبھی وہاں قیام کرتے تھے۔
+NEW: یہ بھی کہا جاتا ہے کہ گرو نے اپنے کنویں کی حفاظت پر پانچ سکھ مامور کیے اور کبھی کبھی خود بھی وہاں قیام کرتے تھے۔
+
+15. [unidiomatic] "روغن منڈی کی عمارت ... کرایہ ادا کرتی تھی۔" -> a building does not "pay rent" in Urdu; one says rent came from it. -> corrected:
+OLD: روغن منڈی کی عمارت بھی اسی کے متعلقات میں شامل تھی اور کرایہ ادا کرتی تھی۔
+NEW: روغن منڈی کی عمارت بھی اسی کے متعلقات میں شامل تھی اور اس کا کرایہ بھی آتا تھا۔
+
+16. [grammar, aspect] "سارے اخراجات اسی سے پورے کرنے تھے۔" -> a standing, habitual obligation in the past needs "کرنے ہوتے تھے"; "کرنے تھے" reads as a single pending task. -> corrected:
+OLD: اور فرش سمیت سارے اخراجات اسی سے پورے کرنے تھے۔
+NEW: اور فرش سمیت سارے اخراجات اسی سے پورے کرنے ہوتے تھے۔
+
+17. [unidiomatic] "ہندو مذہب میں جب بھی کسی قسم کا اجتماع ہوتا" -> a gathering does not take place "in the Hindu religion"; it takes place among Hindus. -> corrected:
+OLD: ہندو مذہب میں جب بھی کسی قسم کا اجتماع ہوتا، اس کے لیے یہی عمارت چنی جاتی۔
+NEW: ہندوؤں میں جب بھی کسی قسم کا اجتماع ہوتا، اس کے لیے یہی عمارت چنی جاتی۔
+
+18. [calque] "سمجھا جاتا ہے کہ اس نے سکھ برادری کو یکجا کرنے والا ایک جذبہ عطا کیا" -> English participial "a unifying spirit" rendered as "یکجا کرنے والا ایک جذبہ عطا کیا"; "اس نے" for موت is also vague. -> corrected:
+OLD: سمجھا جاتا ہے کہ اس نے سکھ برادری کو یکجا کرنے والا ایک جذبہ عطا کیا اور خالصہ کی تشکیل کا عمل تیز کر دیا۔
+NEW: سمجھا جاتا ہے کہ اس واقعے نے سکھ برادری میں یکجہتی کا جذبہ پیدا کیا اور خالصہ کی تشکیل کا عمل تیز کر دیا۔
+
+19. [ambiguous word] "اپنی داستانِ ہیر رانجھا کا سن 1180 ہجری بتاتے ہیں" -> bare "سن" can also mean age; the year meant is the year of composition. -> corrected:
+OLD: وارث شاہ اپنی داستانِ ہیر رانجھا کا سن 1180 ہجری بتاتے ہیں،
+NEW: وارث شاہ اپنی داستانِ ہیر رانجھا کا سنِ تصنیف 1180 ہجری بتاتے ہیں،
+
+20. [calque] "باؤلی کی ازسرِنو تعمیر سکھ مہاراجہ کے لاہور میں ہوئی۔" -> "in the Sikh Maharaja's Lahore" carried over literally; not an Urdu way of naming a period. -> corrected:
+OLD: باؤلی کی ازسرِنو تعمیر سکھ مہاراجہ کے لاہور میں ہوئی۔
+NEW: باؤلی کی ازسرِنو تعمیر اس دور میں ہوئی جب لاہور پر سکھ مہاراجہ کی حکومت تھی۔
+
+21. [unidiomatic collocation] "ان گوردواروں کے ساتھ وسیع اراضی بھی وابستہ کر دی" -> land is not "وابستہ کرنا" with a shrine; it is assigned in its name. -> corrected:
+OLD: انہوں نے ان گوردواروں کے ساتھ وسیع اراضی بھی وابستہ کر دی تاکہ اس زمین کی آمدنی سے ان کے اخراجات پورے ہوں۔
+NEW: انہوں نے ان گوردواروں کے نام وسیع اراضی بھی مقرر کر دی تاکہ اس زمین کی آمدنی سے ان کے اخراجات پورے ہوں۔
+
+22. [grammar] "سکھ مذہب ہندو مت اور اسلام دونوں سے اخذ کرتا ہے" -> "اخذ کرنا" is transitive and needs an object (اخذ کیا کرتا ہے؟); calque of "draws on". -> corrected:
+OLD: جس طرح سکھ مذہب ہندو مت اور اسلام دونوں سے اخذ کرتا ہے،
+NEW: جس طرح سکھ مذہب ہندو مت اور اسلام دونوں سے استفادہ کرتا ہے،
+
+23. [ambiguous pronoun] "اس کے پہلو میں لگنے والا لنگر؛ اس کا ناپید ہو جانا؛" -> the second "اس کا" now points to the nearest noun, لنگر; it is the well that disappeared. -> corrected:
+OLD: اس کے پہلو میں لگنے والا لنگر؛ اس کا ناپید ہو جانا؛
+NEW: اس کے پہلو میں لگنے والا لنگر؛ کنویں کا ناپید ہو جانا؛
+
+NOTES:
+- Structural repetition (content, not language): the 18th-century filling of the well is told three times (intro, باؤلی section, ماحول section), "largest by area in the 1880s" twice (intro and گوردوارہ), and the first paragraph of عقیدت اور رسوم repeats the غلاف، کڑاہ پرشاد and ڈھولچی details from the two paragraphs before it. Not fixable here without removing statements.
+- "خالصہ یعنی ریاست کی ایک ماہ کی تنخواہ کاٹ لی جائے" reads as "the state's salary", which a reader cannot parse. Whose pay was docked (the Khalsa's, i.e. the state's servants?) should be checked against the source; not rewritten here to avoid guessing.
+- "برادری میں محفوظ روایت": bare "برادری" reads in Pakistan as a clan or biradari; "سکھ برادری" if that is what is meant.
+- Spelling consistency: "کوٹھڑے" (1834 paragraph) beside "کوٹھری / کوٹھریاں" elsewhere; "محکمہ خفیفہ" without ۂ while "صوبۂ لاہور" and "ضابطۂ قانون" carry it; "روایات" and "روایتیں" both used. Defensible, but a house style would pick one.
+- Bazaar names: the intro has "لوہا بازار"; the گوردوارہ section has "لوہاٹی بازار" and, to the east, "لوہا فروشوں کا بازار". If these are the same bazaar the names should match; worth a content check.
+- Verse (left untouched per rule): the familiar couplet reads "بہ ہر کل کی رسد" (کل = bald, the pun on کلاه / کلا); "بہر گل" looks like a misreading, and "کلاه" uses Persian ه. Flag for the content reviewer.
+- "اس مصرعے کی پوری تلخی" follows a three-line quotation; which line is meant is unclear.
+- "گرو ارجن کی شہادت کی سب سے بڑی یادگاری تقریب لاہور میں ان سے وابستہ دوسرے مقام گوردوارہ ڈیرہ صاحب میں ہوتی ہے" would read more easily as "...تقریب گوردوارہ ڈیرہ صاحب میں ہوتی ہے، جو لاہور میں ان سے وابستہ دوسرا مقام ہے۔"
+- Taste: "دوسری دنیا کو سدھار گئے" > "اگلے جہان کو سدھار گئے"; "غداری شمار کیا" > "غداری قرار دیا"; "1849 کے برطانوی الحاق" > "1849 میں انگریزوں کے الحاقِ پنجاب"; "بارہویں صدی ہجری، اٹھارہویں صدی عیسوی کے مطابق ہے" has a comma between subject and predicate; "2018 تک ... انہدام ایسی شکایت بن چکا تھا جس کا کوئی ازالہ نہیں ہوا تھا" is translated in feel; "اندرونِ شہر میں رنگ محل کے قریب ایک جگہ ہے جہاں ایک کنواں ہے" is wordy; "تیسرے مغل بادشاہ اکبر" glosses a figure every Pakistani reader knows (kept, as it is a fact).
+- Content, not language: Khusrau is said to have stopped at the Guru's langar "in Amritsar", while the Jahangir quotation in the same paragraph places Arjan at Goindwal.

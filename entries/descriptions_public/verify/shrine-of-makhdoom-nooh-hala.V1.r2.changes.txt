@@ -1,0 +1,5 @@
+# shrine-of-makhdoom-nooh-hala: English change after V1 round 1 (PASS, ISSUES: none). Optional note 2 corrects a word the source does not have and is applied in the verifier's wording; note 8 (taste: 'stands' repeated) is not applied. Backup: /home/claude/bak/shrine-of-makhdoom-nooh-hala.before_v1r2.md
+
+WHY: V1 round 1, note 2 (a word the team version does not have: 'glazed'); the verifier's closer wording, losing nothing
+OLD: with the celebrated *Kashi* pottery of the region, glazed in blue and white.
+NEW: with the celebrated blue and white *Kashi* pottery of the region.

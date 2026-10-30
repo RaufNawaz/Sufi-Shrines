@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 2 V3 issue 1 is fixed. The clause now reads اور وہ اپنے زمانے میں اس سلسلے کے قطب مانے جاتے ہیں. With the order as the possessor of قطب, the stock idiom اس سلسلے میں ("in this regard") is gone, and the sentence has one reading only: he is held to be the qutb of the Qadiri order in his time.
+2. Grammar: agreement is right (وہ ... قطب مانے جاتے ہیں, honorific plural, matching the rest of the article); the izafat-free genitive اس سلسلے کے قطب is correct, with سلسلہ in the oblique; word order is natural Urdu (subject, time adverbial, possessor phrase, predicate). No calque.
+3. Fit: the NEW clause follows the first half of the sentence (سلسلۂ قادریہ کے وابستگان میں ہوتا ہے) smoothly, and اس سلسلے picks up سلسلۂ قادریہ without doubt. It also sits well after the previous paragraph's لاہور کی قطبیت، یعنی شہر کے قطب کا مرتبہ: there he is the qutb of the city, here the qutb of the order, and the two are kept apart. The next sentence (زیادہ تر انہیں نقشبندی سلسلے کی ...) still follows naturally.
+4. Taste only: سلسلہ appears twice in this sentence (سلسلۂ قادریہ، اس سلسلے) and twice in the next (نقشبندی سلسلے twice). The anaphoric اس سلسلے is the natural way to refer back, and this was the same in the old text, so it is not a fault.

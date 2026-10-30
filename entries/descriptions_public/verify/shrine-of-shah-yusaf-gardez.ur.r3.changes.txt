@@ -1,0 +1,13 @@
+# shrine-of-shah-yusaf-gardez: changes applied by the coordinator after V3 round 2 (FAIL, 3 issues); V2 round 2 PASS, by exact replacement of each OLD string once (late round procedure of the brief). Backup of the round 2 file: /home/claude/bak/shrine-of-shah-yusaf-gardez.ur.before_r3.md
+
+WHY: V3 r2 issue 1, applied in the verifier's wording
+OLD: مشہور ہے کہ وہ ایسے مبلغ تھے جن کے دم سے شہاب الدین سہروردی کے قائم کردہ سہروردی سلسلے کے بڑے مشائخ کی آمد سے پہلے ہی ملتان کو دین کا مرکز بننے میں مدد ملی۔
+NEW: مشہور ہے کہ وہ مبلغ تھے، اور ملتان کو دین کا مرکز بنانے میں ان کا بھی حصہ تھا۔ یہ اس وقت کی بات ہے جب شہاب الدین سہروردی کے قائم کردہ سہروردی سلسلے کے بڑے مشائخ ابھی یہاں نہیں آئے تھے۔
+
+WHY: V3 r2 issue 2, applied in the verifier's wording (کہلایا adds no fact: the English Overview already names Multan 'the City of Saints'; روایت ہے کہ still governs the whole claim)
+OLD: روایت ہے کہ جس دین کا مظہر ملتان آگے چل کر "شہرِ اولیاء" کے روپ میں بنا، اسی کی طرف شہر کا رخ موڑنے میں ان کی آمد کا ہاتھ تھا۔
+NEW: روایت ہے کہ ملتان آگے چل کر جس دین کا مظہر بنا اور "شہرِ اولیاء" کہلایا، اسی کی طرف شہر کا رخ موڑنے میں ان کی آمد کا ہاتھ تھا۔
+
+WHY: V3 r2 issue 3, applied in the verifier's wording
+OLD: شہر میں مزار بہت سے ہیں، اور ان میں اس کا شمار حسین ترین مقابر میں ہوتا ہے۔
+NEW: یوں تو شہر میں مزاروں کی کمی نہیں، مگر حسین ترین مقبروں میں اس کا شمار ہوتا ہے۔

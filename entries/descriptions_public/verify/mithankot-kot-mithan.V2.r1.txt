@@ -1,0 +1,41 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Checks run: all 7 headings correspond (Overview تعارف, The Saint صاحبِ مزار, The Poetry شاعری, The Discourses ملفوظات, The Shrine and Its Devotion مزار اور عقیدت, The Setting ماحول, Legacy ورثہ). Paragraph count matches (31 blocks each, headings included). The Seraiki verse line is byte-identical to the English. All 20 figures match in order: 1845, 1901, 1893, 1979, 1216, 1978, 225, 14 Rajab 1229, 1184, 1267, 1832 to 1833, 1983. There are no Latin letters, no em or en dashes, and one balanced italic pair. The prose length ratio is 0.94.
+Qualifiers are all carried: accounts differ (اقوال مختلف ہیں), it has been said (کہا گیا ہے کہ, governing the whole claim, with "in effect" as عملاً), most famous, largely (twice, زیادہ تر), mainly, sometimes, rarely elsewhere, most Punjabis, more likely, has been called, is identified as, has been advertised as, has said, attributing.
+The people the English keeps apart stay apart. Khwaja Muhammad Aqil and the Faruqi family are not linked to Ghulam Farid's family, and Maulvi Ghulam Farid Lahori is only a namesake. Pronouns resolve correctly: Hasan Nizami's brother, Wahid Bakhsh as the وہ who should spread the silsila, and Surraiya Multanikar's pir. The black Layla line is omitted as agreed ("گیت کے ایک مصرعے میں وہ اپنا نام بھی لیتے ہیں").
+
+Rulings on the writer's questions:
+(1) ڈوہڑہ جات: accepted. "Ma Dhorājāt" is the romanisation of an Urdu/Seraiki title, "with dohṛās". ڈوہڑا is the Seraiki verse form, and ڈوہڑہ جات is the normal Urdu form of the -جات plural (like رسالہ جات). A phonetic ڈھوراجات would be a meaningless word. This renders the title and adds no gloss or fact.
+(2) کوریجہ: accepted. It is the usual Urdu spelling of the family name, and the English "Koreja" has neither an aspirate kh nor a retroflex ṛ. The existing short article's کھوڑیجہ looks like a mistransliteration: the same article also writes میتھن کوٹ. urdu-dictionary.json has no entry for the name. Keep کوریجہ, and consider correcting the short article if it stays in use.
+(3) لدھیانہ and ستلج: accepted. Lodiana and Satlaj are the 1830s British spellings of Ludhiana and the Sutlej, and these are the same place and river. A phonetic Urdu form would be an archaism with no meaning for the reader. دریائے ستلج is right.
+(4) کیفی جام پوری، کشفی ملتانی، ایم عبدالواسع: accepted.
+  - Kefi Jampuri is Kaifi Jampuri, the Seraiki scholar from Jampur.
+  - "Kashafi" carries an extra roman vowel in the takhallus کشفی.
+  - ایم keeps the initial as the English gives it. Expanding it to محمد would be an addition.
+(5) سرائیکی وسیب / خطہ / علاقہ: accepted, and applied consistently:
+  - belt ×3 → وسیب
+  - "across it" → اس پورے خطے
+  - region → سرائیکی خطے
+  - country → سرائیکی علاقے
+  - "Seraiki speaking area" → سرائیکی بولنے والے علاقے
+  None of these changes the extent described. وسیب is the established Urdu word and avoids the calque پٹی.
+(6) Dropped glosses: all accepted under the brief. These are Sayyid, Sufi/Muslim mystics, عشقِ حقیقی/مجازی, سماع, ذکر, سلسلہ, سُر, قصبہ, مدرسہ and شریف ("noble"). The explanation that شریف is the honorific given to holy places is kept. The writer's list leaves out some glosses that were also dropped, and these are equally acceptable: kafi ("short mystical lyric", whose content still appears as مختصر صوفیانہ نظمیں in the Poetry section), wahdat al-wujud, sajjada nashin, Nawabs, murid, urs, qawwali, langar, pir and Zauq-i samaʿ.
+(7) مقابیس المجالس with یعنی روحانی مجلسوں کے اسباق: accepted. The Arabic title is unfamiliar, so keeping the English's own rendering is right, and the gloss does not sit between a noun and its postposition. Transliterating the English titles (دی ٹیچنگز آف خواجہ فرید، ففٹی پوئمز آف خواجہ فرید، اے ٹریبیوٹ ٹو گریٹ مسٹکس) is right under the no-Latin rule, and each is marked as a title (انگریزی ترجمہ ... کے نام سے، کا ترجمہ، نامی ایک ریکارڈنگ). No italics on titles is fine under the brief.
+
+Optional wording points (style only, none changes a fact; exact strings for scripting):
+a. In The Poetry, the English has him take up Hir's voice "to speak of" ishq-e haqiqi. The Urdu coordinates the two clauses and so loosens that purpose link.
+   OLD: ہیر کی زبان میں بھی بات کرتے ہیں، اور عشقِ مجازی کے استعاروں میں عشقِ حقیقی کا بیان کرتے ہیں۔
+   NEW: ہیر کی زبان بھی اختیار کرتے ہیں تاکہ عشقِ مجازی کے استعاروں میں عشقِ حقیقی کا بیان کر سکیں۔
+b. In The Setting, "on the road south through Bahawalpur" means a road that passes through Bahawalpur, not one that starts there.
+   OLD: بہاولپور سے جنوب کی طرف جانے والی سڑک پر
+   NEW: بہاولپور سے ہو کر جنوب کی طرف جانے والی سڑک پر
+c. In The Discourses, "Through their translator" has no "only". ہی adds a slight exclusivity.
+   OLD: مترجم ہی کی بدولت
+   NEW: مترجم کی بدولت
+d. In the meaning paragraph, the English is "You are my love, and You are my beloved". "Alone" belongs only to the last clause, and the Seraiki has وی ("also"). This change follows both more closely.
+   OLD: *تو ہی میرا عشق ہے اور تو ہی میرا محبوب؛ بس تو ہی سب کچھ ہے۔*
+   NEW: *تو میرا عشق بھی ہے اور میرا محبوب بھی؛ بس تو ہی سب کچھ ہے۔*
+e. For V3 (no change needed for fidelity), two points:
+   - In The Poetry, اسی خطے (meaning the Punjab) is followed at once by پورے خطے (meaning the wider region). The next sentence names Sindh, which settles the meaning.
+   - In The Saint, اس سے ایک صدی پہلے points back two sentences to the 1901 death. That is clear enough, since the English is just as unspecific.

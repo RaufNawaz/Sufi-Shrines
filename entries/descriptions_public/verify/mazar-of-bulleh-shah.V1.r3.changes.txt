@@ -1,0 +1,16 @@
+Precision notes from verify/mazar-of-bulleh-shah.V1.r2.txt (PASS), applied in the verifier's wording after the pass. Nothing else in the English changed.
+
+OLD: Accounts of the quarrel and of how long it lasted differ, but most tell that, knowing Shah Inayat's fondness for music and dancing, Bulleh Shah went away to learn music and dance and came back to win his master over. He is said to have taken lessons with a dancing girl, then reappeared in Lahore one day dressed as a dancing girl himself, and danced and sang in front of Shah Inayat, who was won over by his performance and took him back into his favour.
+NEW: Accounts of the quarrel and of how long it lasted differ, but most tell that Bulleh Shah went away to learn music and dance and came back to win his master over. Knowing Shah Inayat's fondness for music and dancing, he is said to have taken lessons with a dancing girl, then reappeared in Lahore one day dressed as a dancing girl himself, and danced and sang in front of Shah Inayat, who was won over by his performance and took him back into his favour.
+
+OLD: His poems lament the separation:
+NEW: His poems lament a separation from his master:
+
+OLD: "Teray Ishq nachaya" is among the most popular of his *kafis* today, and another is known above all by its refrain ending in the syllables *thaia thaia*, which teachers of dancing use to mark the rhythm of the steps.
+NEW: "Teray Ishq nachaya" is among the most popular of his *kafis* today. One *kafi* is known above all by the second verse of its refrain, ending in the syllables *thaia thaia*, which teachers of dancing use to mark the rhythm of the steps.
+
+OLD: and the routines differ from shrine to shrine
+NEW: and the routines may differ from shrine to shrine
+
+OLD: He calls himself a *faqir*, a poor man of God: "Bullhe Shah is a fakir of the lord;
+NEW: He calls himself a *faqir*: "Bullhe Shah is a fakir of the lord;

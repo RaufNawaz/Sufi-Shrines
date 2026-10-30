@@ -1,0 +1,25 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic/ambiguous] "اس کی بلندی تقریباً 2,000 میٹر ہے، اور یہ کوہِ ہرمکھ کے سائے میں واقع ہے۔" -> without "سطحِ سمندر سے" the word "بلندی" can be read as the height of the structure, and opening a new paragraph on a bare "اس" is loose -> "یہ مقام سطحِ سمندر سے تقریباً 2,000 میٹر کی بلندی پر کوہِ ہرمکھ کے سائے میں واقع ہے۔"
+2. [calque] "شاردا پیٹھ نے دیوی کا نام شاردا رسم الخط کو بھی دیا اور خود کشمیر کو بھی" -> English "lent its name to"; a shrine "giving" the goddess's name reads oddly in Urdu -> "شاردا پیٹھ ہی کی نسبت سے دیوی کا نام شاردا رسم الخط کو بھی ملا اور خود کشمیر کو بھی، جو مدتوں *شاردا دیش* یعنی "شاردا کی سرزمین" کہلاتا رہا۔"
+3. [calque/tense] "اسی داستان کی رو سے شاردا پیٹھ اس جگہ کی نشان دہی کرتا ہے جہاں ستی کے جسم کا ایک حصہ زمین پر گرا۔" -> "marks the spot" rendered literally; also "گرا" clashes with "گرا تھا" in the next sentence -> "اسی داستان کی رو سے شاردا پیٹھ وہ مقام ہے جہاں ستی کے جسم کا ایک حصہ زمین پر گرا تھا۔"
+4. [calque] "سرسوتی سے نسبت نے شاردا پیٹھ میں عقیدت اور علم کو اس طرح یکجا کر دیا جس کی مثال ان استھانوں میں کم ہی ملتی ہے۔" -> an abstract noun as the agent of a transitive verb is an English pattern -> "سرسوتی سے نسبت کے باعث شاردا پیٹھ میں عقیدت اور علم اس طرح یکجا ہو گئے کہ اس کی مثال ان استھانوں میں کم ہی ملتی ہے۔"
+5. [calque/ambiguity] "دیوی کے اٹھارہ استھانوں کو گنوانے والے اپنے بھجن میں" -> participial calque of "his hymn listing the eighteen"; unvocalised "گنوانے" is first read as "to lose" -> "اس مقام کی شہرت کا یہ عالم تھا کہ عظیم معلم آدی شنکرا نے دیوی کے اٹھارہ استھانوں کے ذکر پر مشتمل اپنے بھجن میں کانچی پورم کی کاماکشی اور وارانسی کی وشالاکشی کے ساتھ کشمیر کی شاردا کا نام بھی لیا۔"
+6. [calque] "لوگوں کی یادوں میں اس مقام کا نام ... جڑا ہوا ہے۔" -> literal "in popular memory" -> "عوامی روایت میں اس مقام کا نام فلسفی آدی شنکرا، مؤرخ کلہن اور عالم ویروتسانہ جیسی نامور ہستیوں سے وابستہ ہے۔"
+7. [calque] "اس کا نام اس مندر کے اعزاز میں رکھا گیا تھا۔" -> "in honour of"; Urdu names a thing after or by association with something, "کے اعزاز میں" belongs to ceremonies -> "اس کا نام اسی مندر کی نسبت سے رکھا گیا تھا۔"
+8. [ambiguous pronoun] "اور اسی دوران علم کی دنیا میں اس کی برتری ماند پڑتی گئی۔" -> the nearest antecedent is کشمیر, not the shrine -> "بارہویں صدی کے بعد کشمیر سیاسی اتھل پتھل کی لپیٹ میں آیا، اور اسی دوران علم کی دنیا میں شاردا پیٹھ کی برتری ماند پڑتی گئی۔"
+9. [calque] "جس کے لیے یہ بدستور ایک روحانی قطبی ستارے کی حیثیت رکھتا رہا۔" -> the English "lodestar/pole star" metaphor is not an Urdu figure -> "عملاً یہ کشمیری پنڈت برادری سے کٹ کر رہ گیا، جس کے لیے یہ بدستور ایک روحانی قطب نما کی حیثیت رکھتا رہا۔"
+10. [calque] "برصغیر کے سب سے دل گداز اور یادیں جگا دینے والے مقدس مقامات میں سے ایک ہے۔" -> "evocative" rendered as a clumsy participle stacked on an adjective -> "شاردا پیٹھ بدستور برصغیر کے ان مقدس مقامات میں سے ایک ہے جو دل کو سب سے زیادہ گداز کرتے اور یادیں جگاتے ہیں۔"
+11. [calque] "یوں یہ آج بھی اس قدیم پہچان کی ایک طاقتور علامت ہے جس میں کشمیر "شاردا کی سرزمین" کہلاتا تھا۔" -> "powerful symbol" plus "an identity in which" relative clause, both English -> "یوں یہ آج بھی کشمیر کی اس قدیم پہچان کی ایک مضبوط علامت ہے کہ وہ "شاردا کی سرزمین" کہلاتا تھا۔"
+NOTES:
+- "کشمیر کے ثقافتی اور مذہبی حافظے میں" reads slightly translated; "کشمیر کی ثقافتی اور مذہبی روایت میں" is more natural.
+- "کا شمار ... میں ہوتا ہے/تھا" appears three times (paras 1, 3, 5); vary one of them.
+- آدی شنکرا is introduced as "عظیم معلم" and later re-introduced as "فلسفی"; the second epithet can go. The spelling "شنکرا" is consistent throughout, though "شنکر" is the commoner Urdu form.
+- The standalone sentence "کلہن کی تصنیف *راجترنگنی* کشمیر کے راجاؤں کی تاریخ ہے۔" interrupts the flow between the names and the next claim; it could be folded in: "...جڑا ہوا ہے، جن میں کلہن کشمیر کے راجاؤں کی تاریخ *راجترنگنی* کے مصنف ہیں۔"
+- "راہبانہ درس گاہوں" carries an ascetic overtone; "راہبوں کی بڑی درس گاہوں" is plainer.
+- Near repetition: "تحفظ کے لیے آوازیں" followed by "حفاظت کے لیے مہم"; "بدستور" in paras 8 and 10.
+- "ایک نئے شاردا مندر کی تقدیس کی گئی" is bookish; "مذہبی رسوم کے ساتھ افتتاح کیا گیا" is more usual. "پھر سے تازہ کرنا" is pleonastic; "پھر سے جوڑنا" is cleaner.
+- "علم و پارسائی" leans towards personal abstinence; "علم و عقیدت" or "علم و روحانیت" suits a temple better.
+- "اسے *شکتی پیٹھ* مان کر اس کی تعظیم کی جاتی رہی ہے" doubles the pronoun; "*شکتی پیٹھ* کی حیثیت سے اس کی تعظیم ہوتی رہی ہے" is tighter.
+- "بارہویں" (rather than the purist "بارھویں") is used consistently and is acceptable. The present tense in "یہاں ان کی پوجا شاردا کے روپ میں ہوتی ہے" against the past "ہوتی تھی" in the next paragraph is acceptable as the generic present of the tradition.
+- Mechanics are clean: Urdu punctuation throughout, no dashes, no Latin letters, asterisks balanced (12), and Western digits.

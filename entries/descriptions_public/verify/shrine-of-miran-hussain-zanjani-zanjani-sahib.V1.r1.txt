@@ -1,0 +1,53 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. (precision) Overview, the death and the arrival. "died in the night before Data Ganj Bakhsh reached the city" reads as "on the night before the day he arrived", a timing the team version does not give. It has the death during the night (Rizvi's morning funeral), the death preceding the arrival and the funeral under way when Data arrived (the Tazkira), and the bier going past as he reached Lahore (the Mufti's telling), but never says when Data arrived.
+OLD: Tradition holds that Zanjani died in the night before Data Ganj Bakhsh reached the city, so that Data arrived to find his funeral under way.
+NEW: Tradition holds that Data Ganj Bakhsh reached the city to find Zanjani's funeral under way, the saint having died during the night.
+
+2. (precision) Legends, "reached Lahore in the morning". The team version puts the morning on the coffin (in the morning the coffin was carried out for burial; he had died during the night), not on Hujwiri's arrival, which it gives only as "on reaching Lahore Data saw Husain Zanjani's bier going past".
+OLD: When Hujwiri reached Lahore in the morning, the story continues, he found Zanjani's coffin being carried out for burial: the saint had died during the night.
+NEW: When Hujwiri reached Lahore, the story continues, he saw Zanjani's bier going past: the saint had died during the night, and in the morning his coffin was carried out for burial.
+
+3. (precision) The Shrine and Its Devotion, "now a suburb of Lahore". The "now" is Rizvi's, in a book of 1975/1978 (a firm bibliography date); set after "Today" it carries a 1970s description into the present, while the nineteenth century paragraphs that follow show the place was then a village a mile outside the city. Anchor it.
+OLD: Today it lies in Miran Husain Park, in Chah Miran, now a suburb of Lahore.
+NEW: Today it lies in Miran Husain Park, in Chah Miran, which by the 1970s was a suburb of Lahore.
+
+4. (precision) Keepers, "or hereditary holder of the seat". The team version says only that the mazar was in the possession of Karam Ali Shah, gaddi nashin of Sadr Diwan Sahib. "Hereditary" is a word it does not have, and here it turns the gloss into a claim about how Karam Ali Shah held the seat (the brief: a gloss is a definition, never a fact about this site). Another public row glosses the term as "the holder of the seat".
+OLD: In the nineteenth century the shrine was in the possession of Karam Ali Shah, the *gaddi nashin*, or hereditary holder of the seat, of the line of Sadr Diwan Sahib, the saint said to have come to Lahore with Zanjani, and only a few faqirs lived there.
+NEW: In the nineteenth century the shrine was in the possession of Karam Ali Shah, the *gaddi nashin*, or holder of the seat, of the line of Sadr Diwan Sahib, the saint said to have come to Lahore with Zanjani, and only a few faqirs lived there.
+
+5. (precision) The Setting, "has also been given to another man". "Also" implies that Zanjani himself bears the title of the first to call Lahore to Islam. The team version never gives him that title (he is one of the earliest missionary figures, the elder of the two missionary saints credited with Lahore's early Islamization, the first of a company of saints from abroad); it says only that Lahori's text gives the title "to another man".
+OLD: The title of the first to call Lahore to Islam has also been given to another man
+NEW: The title of the first to call Lahore to Islam has been given to another man
+
+Rulings on the writer's judgement calls:
+
+- JC1 (length 0.30): supported; see the sweep and the length sentence at the end. Neither of the writer's two candidates needs restoring. Shaikh Ahmad Zanjani is a namesake the team version expressly does not connect with the saint. Kanhaiya Lal's "outside Shah Alami Gate" for Yaqub's shrine, set beside the appendix's Hospital Road, would give the reader two locations for one grave that the team version never relates, which is side by side material, not an important fact. For the coordinator's exception line, "most of the rest" slightly overstates: after the citations and the disagreement section about 14,500 characters remain and the public keeps about 7,700, so "much of the rest" is the accurate wording.
+- JC2 (identity): accepted. One man dying in 1042 is basis (a): the team version does not show every other source against the site (Rizvi's c. 1035 is close to it). The shrine and most accounts (the Tazkira, Chishti, Rizvi, and the Mufti's own telling as his editor reports it) identify the man of the grave with the man of the bier; only the editor divides them, and the one clause covers that. Khizr Khan is rightly left out: he is a grandson of "Sayyid Husain" only inside the editor's Waqai-e Sialkot argument for the later man, alive in 758 AH, and hanging him under a saint who died in 1042 would merge the two accounts that rule 4 keeps apart. Not an omission.
+- JC3 (Khwaja Muin al-Din): accepted. The shrine is silent; a count of authorities would favour a meeting that cannot stand beside the established 1042 without joining the later chronology to it, so basis (d), both possibilities in one sentence in the team version's own Legacy terms with one "accounts differ" clause, is right.
+- JC4 (the chain): accepted. It is the pattern rule 4 itself gives (the shrine's master, and where the line is traced), with no link invented between Khatil and Junaid and "is said to" for a single source; "meets" rendered as "lead back to" is fair.
+- JC5 (the portrait): accepted; it follows from the one man position, and every trait (guidance, austerity, piety, nobility, the ancient elders, the earliest elders of Lahore) is in the team version, given without its rival date.
+- JC6 (Ghaznavid clause): accepted. Rizvi's order to move to the Punjab and the later sending of Hujwiri concern the same master the site names and agree with it; Rizvi's timing is dropped, so no chronology is merged. The Setting's Mahmud sentence is about the province.
+- JC7 (Yaqub): accepted; "from Zanjan", "known as Sadr Diwan" and Hospital Road are each certain in the team version.
+- JC8 (brother and companion): accepted; they do not exclude each other, and the Waqai-e Sialkot "brother" (the editor's argument) is rightly not used.
+- JC9 (bier story as tradition): accepted, with notes 1 and 2 on the morning.
+- JC10 (shrouding and burial at Chah Miran): accepted; the same funeral in two tellings that agree, not two chains joined.
+- JC11 (fatiha left out): accepted. The team version marks the sense of that sentence uncertain, so leaving it out is rule 5 applied conservatively, not an important omission.
+- JC12 (fabric in two periods): accepted; the khanqah on the south side of Khoi Miran carries no uncertainty marker, and the east doorway and "a man's height" are minor variants rightly dropped.
+- JC13 (Miran Husain Park, suburb): the park as today's location is accepted; the suburb clause needs its anchor (note 3).
+- JC14 (Fateh Shah Mast): accepted.
+- JC15 (Ismail Muhaddith): accepted except "also" (note 5); "though that account, and the year it gives for his death, have been disputed" states the editor's rejection fairly and without side by side years.
+- JC16 (Shah Gada): accepted.
+- JC17 (Legacy): accepted; the first of a company of saints from abroad and the master of masters stand outside the sentence the team version marks partly illegible, and the uncertain fifth century is dropped.
+- JC18 (names): accepted; Shah Husain Zanjani rests on Kanhaiya Lal's contents, which carry no uncertainty mark.
+- JC19 (karamat in the nineteenth century): accepted; Chishti's date is unconfirmed, so the century is the right precision.
+
+Taste only (no change needed): the Overview and The Shrine and Its Devotion both describe the raised platform without a dome, and both say that the Auqaf department maintains the shrine and that the ʿurs still draws local devotees; "the land of Hind" could take a short gloss (India) for the general reader.
+
+Omission sweep: after a sweep of every section of the team version and all twelve disagreement bullets, nothing important and certain is missing; what is absent is citations and source narration, rival variants that rule 4 removes (600 AH, 604, c. 1035 under Sultan Masud, the coming in Ghurid times, the editor's two men case with Khizr Khan and the 585 AH meeting, the authorities on the Khwaja set side by side), readings the team version marks uncertain (rule 5), statements of absence, minor variants (the east door, a man's height, Rizvi's name forms, Shah Alami Gate) and the unconnected namesake Shaikh Ahmad Zanjani.
+
+Length: with no restoration needed, the honest length is still below 0.40 but not below 0.30: the public prose is 7,673 of 25,197 characters (0.305), and 7,688 (0.305) with notes 1 to 5 applied, so the "L1 exception (V1 round 1)" form applies, not the below 0.30 form.

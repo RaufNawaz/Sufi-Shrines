@@ -42,7 +42,9 @@ describe('batch-1 Urdu content (18 tour-featured shrines)', () => {
       const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />, { lang: 'ur' });
 
       // Literal on purpose: asserts the rendered Urdu heading ("Overview") verbatim.
-      expect(container.textContent).toContain('خلاصہ');
+      // تعارف since 29 October 2026, when the public Urdu articles replaced the
+      // old ones (their brief heads the opening section تعارف, not خلاصہ).
+      expect(container.textContent).toContain('تعارف');
       const leaks = findLatinLeaks(container);
       expect(
         leaks,
@@ -72,7 +74,7 @@ describe('batch-1 Table of Contents', () => {
 
     // Literals on purpose: assert the rendered Urdu ToC labels ("Overview",
     // "Legacy") verbatim.
-    expect(container.textContent).toContain('خلاصہ');
+    expect(container.textContent).toContain('تعارف');
     expect(container.textContent).toContain('ورثہ');
     const leaks = findLatinLeaks(container);
     expect(leaks).toEqual([]);

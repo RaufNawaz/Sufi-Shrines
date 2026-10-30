@@ -1,0 +1,26 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Style only. Round 2 changes checked one by one against the English. None of them changes a fact, a hedge or a reference:
+   - "اچھے مصنف تھے، جنہوں نے..." keeps "a good writer, who commented ... and composed ..." (quality, not quantity). Rejecting V3's «بہت کچھ لکھا» was correct.
+   - "*کاپڑی* یعنی جوگی کہا، جو ہندو سنیاسیوں کا ایک خاص گروہ ہے" keeps "Kapari, that is Yogis, a special group of Sanyasin". Only the agreement changed.
+   - "محمد ہاشم اور ان کے رشتہ داروں پر مشتمل اس گروہ" names "this group" exactly as the English sets it up ("Makhdum Muhammad Hashim of Thatta and his relatives"). Nothing is added.
+   - "مسلمان اور ہندو دونوں زائرین" resolves "pilgrims of both faiths" to the two faiths the Overview names. It is a resolution, not an addition.
+   - "سومرا اور سوڈھا راجپوتوں" still carries "two groups of Rajputs, the Somras and the Sodhas". The number two follows from the two names.
+   - "قلعے کے حاکم نے قافلے کا استقبال کیا اور خدمت گزاری کے فرائض انجام دیے" keeps "received them with the duties of service" and adds no degree. Dropping «خوب» was correct.
+   - The 1781 paragraph keeps both "thus" (یوں) and "that same year, 1781". The Talpurs' rule still runs to the British conquest in 1843.
+   - "گرہوڑی کا جنگجویانہ جوش اپنی جگہ، مگر..." keeps the concession of "for all his militant zeal".
+   - "متعدد ہندو بھی مسلمان اولیاء کے..." keeps the subject (Hindus) and the claim.
+   - "کو نشانہ بناتے ہوئے" keeps the figurative "attacking" of the "dry trees".
+   - "ان کی وفات کی تفصیلات کے بارے میں بیانات مختلف ہیں" keeps "Accounts of his death differ in detail", and بیانات still stands apart from روایت ہے کہ ("Tradition holds") in the next sentence.
+   - "سورۃ 57 کی آیت 4" keeps the reference Sura 57:4.
+   - "قریب کے قصبے پتھورو میں ایک اور ولی کا مزار ہے" says "is the seat of another saint's tomb" exactly.
+   - "کا نام ... سے وابستہ ہے" and "کی تدوین سے" carry "His memory forms part of" and "in an edition by" without loss.
+2. Whole current Urdu re-read paragraph by paragraph:
+   - Headings correspond in the same order (Overview, The Saint, Writings and Teaching, The Shrine and Its Setting, His Times, Legacy), and there is no bibliography.
+   - All figures match: some eight kilometres (کوئی آٹھ), 1739, 1778 (twice), 1781 (three times), 1843, 1907, 1956, 2015, around 600 (تقریباً 600) and 57:4.
+   - All qualifiers are present with the same reach: it is said (twice), tradition holds, accounts differ, not unanimous / most often, may have met, perhaps the finest, apparently following, in some ways, to a certain extent, as Shah Abdul Latif often did, and something Shah Abdul Latif did not do.
+   - The legend of his death stays a legend. روایت ہے کہ governs the clause after the colon too, as "Tradition holds" does in the English.
+   - Pronouns resolve to the same people: وہ in "بچپن ہی میں ... مل چکے ہوں" is Girhori, and ان کے in "ان کے ولی صفت جدِ امجد" is the Kalhoros.
+   - The two Schimmel quotations are rendered as Urdu italic paragraphs with no credit line, as the brief directs.
+3. Style only. "ان کا ذکر ایک ایسے ولی کے طور پر بھی ہوتا ہے" (Overview, paragraph 2) uses the کے طور پر construction the brief lists among calques to avoid ("remembered as"). The meaning is right. «ان کا ذکر ایک ایسے ولی کی حیثیت سے بھی ہوتا ہے» or «وہ ایک ایسے ولی کی حیثیت سے بھی مشہور ہیں» would avoid it, though حیثیت سے already appears twice in that paragraph.

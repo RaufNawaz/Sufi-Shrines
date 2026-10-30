@@ -1,0 +1,62 @@
+VERDICT: FAIL
+ISSUES:
+1. [tense] "مندر کے بزرگ رتن ناتھ *ناتھ سمپردایہ* سے تعلق رکھتے ہیں۔" -> a historical saint is put in the present tense, while the introduction says of him "جوگی بھی تھے اور سنت بھی" in the past; the tense should match -> past tense.
+OLD: مندر کے بزرگ رتن ناتھ *ناتھ سمپردایہ* سے تعلق رکھتے ہیں۔
+NEW: مندر کے بزرگ رتن ناتھ *ناتھ سمپردایہ* سے تعلق رکھتے تھے۔
+
+2. [unidiomatic collocation] "کریم پورہ اور جھنڈا بازار کے محلے میں" -> two named places followed by a singular "محلے" reads as a slip; "علاقے" covers both naturally.
+OLD: اس کی تعمیر پشاور کی پرانی فصیل کے اندر کریم پورہ اور جھنڈا بازار کے محلے میں اس زمانے میں ہوئی جب شہر کی ہندو تاجر برادری بڑی تعداد میں آباد اور خوشحال تھی۔
+NEW: اس کی تعمیر پشاور کی پرانی فصیل کے اندر کریم پورہ اور جھنڈا بازار کے علاقے میں اس زمانے میں ہوئی جب شہر کی ہندو تاجر برادری بڑی تعداد میں آباد اور خوشحال تھی۔
+
+3. [repetition / deixis] "پشاور کے ہندو یہ تہوار کٹاس میں بھی مناتے آئے ہیں۔ 2010 میں پشاور کے ہندو کٹاس آئے تھے۔" -> two choppy sentences repeat "پشاور کے ہندو" and "کٹاس"; "کٹاس آئے" speaks from Katas, while the next sentence ("وہاں پہنچے") speaks from Peshawar -> join them and use "گئے".
+OLD: پشاور کے ہندو یہ تہوار کٹاس میں بھی مناتے آئے ہیں۔ 2010 میں پشاور کے ہندو کٹاس آئے تھے۔
+NEW: پشاور کے ہندو یہ تہوار کٹاس میں بھی مناتے آئے ہیں، اور 2010 میں وہ کٹاس گئے تھے۔
+
+4. [agreement / unidiomatic] "چار شادیوں کی رسم ادا ہوئی، اور کہا گیا کہ یہ ... کی تھیں" -> the singular subject is "رسم", but "یہ ... تھیں" refers to the weddings, so the pronoun has no proper antecedent; "شادیوں کی رسم ادا ہوئی" is also stiff for "شادیاں ہوئیں".
+OLD: اس شیو راتری پر کٹاس میں چار شادیوں کی رسم ادا ہوئی، اور کہا گیا کہ یہ خیبر پختونخوا اور وفاق کے زیرِ انتظام قبائلی علاقوں کی ان لڑکیوں کی تھیں جو 2010 کے سیلاب سے متاثر ہوئی تھیں۔
+NEW: اس شیو راتری پر کٹاس میں چار شادیاں ہوئیں، اور کہا گیا کہ یہ خیبر پختونخوا اور وفاق کے زیرِ انتظام قبائلی علاقوں کی ان لڑکیوں کی تھیں جو 2010 کے سیلاب سے متاثر ہوئی تھیں۔
+
+5. [calque] "یہ بات کہی گئی ہے:" -> a word-for-word rendering of "It has been said:"; the idiomatic Urdu is "کہا گیا ہے کہ" (the same hedge).
+OLD: یہ بات کہی گئی ہے: "اگر دیوالی کی روشنیاں دیکھنی ہوں تو پشاور جائیے۔"
+NEW: کہا گیا ہے کہ "اگر دیوالی کی روشنیاں دیکھنی ہوں تو پشاور جائیے۔"
+
+6. [repetition] "ناتھ جوگیوں میں رتن ناتھ نام کے ایک جوگی بھی ہو گزرے ہیں، جو ناتھ تحریک سے وابستہ ہستیوں میں شمار ہوتے ہیں۔" -> the same sentence says twice that he was a Nath yogi ("ناتھ جوگیوں میں" and "ناتھ تحریک سے وابستہ"); the opening phrase can go without losing anything.
+OLD: ناتھ جوگیوں میں رتن ناتھ نام کے ایک جوگی بھی ہو گزرے ہیں، جو ناتھ تحریک سے وابستہ ہستیوں میں شمار ہوتے ہیں۔
+NEW: رتن ناتھ نام کے ایک جوگی بھی ہو گزرے ہیں، جو ناتھ تحریک سے وابستہ ہستیوں میں شمار ہوتے ہیں۔
+
+7. [gloss of familiar words / repetition] "درگاہ مسلمانوں کے ہاں کسی ولی کے مزار کو کہتے ہیں اور مندر ہندوؤں کی عبادت گاہ کو؛" -> no Urdu reader needs "درگاہ" or "مندر" explained, and the section "مندر" has already explained "درگاہ"; the point (one shrine bearing both names) can be made without the dictionary gloss.
+OLD: درگاہ مسلمانوں کے ہاں کسی ولی کے مزار کو کہتے ہیں اور مندر ہندوؤں کی عبادت گاہ کو؛ یہ ترکیب ایک ہی آستانے کو بیک وقت دونوں نام دیتی ہے۔
+NEW: یوں یہ ترکیب ایک ہی آستانے کو بیک وقت مسلمانوں کے ہاں کسی ولی کا مزار بھی کہتی ہے اور ہندوؤں کی عبادت گاہ بھی۔
+
+8. [ambiguous / tangled] "یہ جمرود کہلانے والے جمشید کے چشمے سے" -> the participle "جمرود کہلانے والے" sits directly before "جمشید", so it can be read as "Jamshid, who is called Jamrud" rather than the spring; move the name into a clause after the spring.
+OLD: یہ جمرود کہلانے والے جمشید کے چشمے سے نیلاب کے کنارے ایک مقام تک اٹھارہ کوس لمبا تھا۔
+NEW: یہ جمشید کے اس چشمے سے، جو جمرود کہلاتا ہے، نیلاب کے کنارے ایک مقام تک اٹھارہ کوس لمبا تھا۔
+
+9. [calque / dangling reference] "صوفیانہ شاعری ایسی وحدت دیکھتی ہے" -> poetry that "sees" a unity is an English personification ("envisions"); also the next sentence says "اس تصور میں" when no "تصور" has been named. Saying "وحدت کا تصور ملتا ہے" fixes both.
+OLD: پنجاب اور سندھ کی سب سے بے باک صوفیانہ شاعری ایسی وحدت دیکھتی ہے جس میں نسل اور عقیدے کی ہر حد مٹ جاتی ہے۔
+NEW: پنجاب اور سندھ کی سب سے بے باک صوفیانہ شاعری میں ایسی وحدت کا تصور ملتا ہے جس میں نسل اور عقیدے کی ہر حد مٹ جاتی ہے۔
+
+10. [English word order] "گرو نانک کے پیروکار ہزاروں نانک پنتھی ہندو" -> the noun "پیروکار" placed before "ہزاروں" reads as a second subject ("Guru Nanak's followers, thousands of ..."); a participial phrase reads naturally.
+OLD: گرو نانک کے پیروکار ہزاروں نانک پنتھی ہندو خیبر پختونخوا، پنجاب اور سندھ میں آباد ہیں۔
+NEW: گرو نانک کو ماننے والے ہزاروں نانک پنتھی ہندو خیبر پختونخوا، پنجاب اور سندھ میں آباد ہیں۔
+
+11. [calque] "پشاور کا نام ... کے ساتھ آتا ہے" -> a literal "is associated with"; Urdu does not say a name "comes with" something. The rewrite keeps "زیادہ تر".
+OLD: آج کے عام تصور میں پشاور کا نام زیادہ تر درۂ خیبر اور سرحد کی شورش کے ساتھ آتا ہے۔
+NEW: آج پشاور کا نام سن کر زیادہ تر لوگوں کا دھیان درۂ خیبر اور سرحد کی شورش کی طرف جاتا ہے۔
+
+12. [inconsistent spelling / tangled] "ہندو دھرم اور جوگ" -> the article spells the word "یوگ" elsewhere ("یوگ کے کڑے نظم"، "جسمانی یوگ"); also "یعنی ان ناتھ جوگیوں کی" leaves the reader to supply the noun after "کی". Restoring "یاد" makes the clause clear.
+OLD: ایسے شہر میں یہ درگاہ ہندو دھرم اور جوگ کی گہری اور قدیم موجودگی کی یاد سنبھالے ہوئے ہے، یعنی ان ناتھ جوگیوں کی جن کی ریاضتوں کی گونج کبھی ان پہاڑیوں میں سنائی دیتی تھی۔
+NEW: ایسے شہر میں یہ درگاہ ہندو دھرم اور یوگ کی گہری اور قدیم موجودگی کی یاد سنبھالے ہوئے ہے، یعنی ان ناتھ جوگیوں کی یاد جن کی ریاضتوں کی گونج کبھی ان پہاڑیوں میں سنائی دیتی تھی۔
+
+NOTES:
+- Repetition: the gloss of Maha Shivratri appears twice, in the introduction ("مہا شیو راتری ہے، یعنی شیو کی عظیم رات") and again in reverse in "عقیدت اور تہوار" ("شیو کی عظیم رات یعنی مہا شیو راتری"). It is not left as an ISSUE only because the fix would drop the gloss from a sentence; an editor may simply delete it from the second place.
+- Terminology for the Nath tradition varies: سلسلہ، سمپردایہ، فرقہ، تحریک. "ناتھ تحریک" (twice) reads like "Nath movement"; "ناتھ سلسلہ" or "ناتھ پنتھ" would match the rest of the article.
+- "انہیں یقین کے ساتھ کسی خاص صدی سے نہیں جوڑا جا سکتا": the nearest plural is "تفصیلات"، though Ratan Nath is meant. Both readings say much the same; "ان کا زمانہ" would be clearer.
+- "عملاً ہندو دیوتا شیو سے منسوب" and "باقاعدگی سے استعمال میں ہیں" (of temples) have an English flavour; "جہاں باقاعدگی سے پوجا ہوتی ہے" would be more natural for the second.
+- "کم و بیش قرونِ وسطیٰ کی ابتدائی صدیوں سے": "کم و بیش" sits better with quantities; "غالباً" or "لگ بھگ" reads more easily with a period.
+- "ایک مقدس یاد"، "فعال عبادت گاہ"، "اس کے بچ رہنے کی اہمیت اس کے حجم سے کہیں بڑھ کر ہے" are understandable but slightly translated in feel ("آباد عبادت گاہ" for the second).
+- "کرشماتی کہانیاں": "کرامات کے قصے" is the more usual phrase.
+- "دیوالی ... جو روشنیوں کا جشن ہے" glosses a word most Urdu readers know, though it sets up the quotation that follows.
+- The same Muslim figure is named "حاجی بابا رتن" and then "بابا رتن حاجی"; "حاجی اور جوگی رتن ناتھ" could be read as one person, and "حاجی رتن اور جوگی رتن ناتھ" would remove that.
+- "ایک سکھ کے بڑے بوڑھے" is abrupt and colloquial for a reference article.
+- "ان پہاڑیوں" in the last section has no nearby antecedent.

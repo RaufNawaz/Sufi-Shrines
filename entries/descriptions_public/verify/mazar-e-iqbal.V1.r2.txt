@@ -1,0 +1,36 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. I checked each of the round 1 fixes (6a to 6j) against the team version. All ten are supported, and none adds a fact.
+   a. Line 117: "In his thought, longing is the highest state..." The team version gives the line as part of Iqbal's philosophy of unfulfilled union and longing, so it is now framed as his.
+   b. Line 15: "Dagh is said to have marvelled" names the right man. In the team version, "that connoisseur of Urdu" is Dagh.
+   c. Line 127: "and before the Muslim League presented in Lahore, in March 1940, the Lahore Resolution" keeps only the dates the team version gives (1938 and March 1940). There is no longer a worked out interval.
+   d. Line 111: "for he himself followed the Sufi thought of the classical period quite closely" keeps the team version's claim and drops only the scholarly framing.
+   e. Line 77: "In Iqbal's thought Muhammad is both..." matches the team version's "Iqbal's prophetology".
+   f. Line 77: "calling the Prophet by his title Mustafa, the Chosen One" is a definitional gloss.
+   g. Line 27: "His books of verse followed one another:" is accurate. Every title listed is verse in the team version: the Lahore printings of the poems, plus Zarb-e-Kalim, 1936, from the site's account. No span is claimed, and "from 1915 until 1935" stays dropped as minor.
+   h. Line 155: the Setting now opens at the Roshani Gate. Nothing was lost.
+   i. Line 125: "also" is gone from the Shaheed Ganj sentence, and the sentence states no date.
+   j. Line 79: "whose copies were still being sold in the shops of Lahore in the 1970s" uses a firm anchor (Mystical Dimensions of Islam, 1975), and the present tense is gone.
+2. I re-read the whole text, sentence by sentence.
+   a. Every statement traces to the team version.
+   b. Legends keep their framing: "Devotional tradition tells", "it is said", "is said to have", "traditionally said", "he says", "is told by".
+   c. The two rule 4 choices each take one clause and name no variant. Sialkot is "generally given", and 21 April is "the date the nation observes". Neither claims more certainty than the source allows.
+   d. No chain or account is merged. The mard-e-momin and the Perfect Man stay separate, and the Perfect Man is stated only in the negative, as "not derived from the Nietzschean superman".
+   e. The team version marks nothing uncertain or [OCR?].
+   f. There is no citation, page reference, author narration, signposting, archive or process language. "The tomb's records" (line 9) is a fact about the site, not source talk.
+   g. The time anchors are firm. "By the 1970s" and "in the 1970s" both rest on the 1975 book, and "By the 1970s" follows the brief's own "By the 1870s" convention. Every other date is the date of the event itself, as the team version gives it.
+   h. The text has no em or en dash. Every hyphen belongs to a name or a title.
+   i. All eight verse paragraphs are byte identical to the team version. The renderings differ from it only where an em dash became a comma or colon. Every English quotation of six or more words occurs in the team version.
+   j. The bibliography is identical to the team version's, line for line. check_public_description.py --english-only returns ok, with a prose ratio of 0.58.
+3. No important omission. The text names Sheikh Noor Muhammad, Karim Bibi, Sardar Begum, Mukhtar Begum, Javid, Mir Hassan, Arnold, Ali Baksh, Dagh, Hasan Nizami, Sir Sayyid Ahmad Khan, Jinnah and Zaffarullah Khan. It keeps the tomb's platform, the date of about 1951, the style, the materials, the gifts from Afghanistan, the inscribed verses, the keepers, the Rangers' guard and the visitor numbers. It keeps the wreaths, the chadar, the parade and the salami, Iqbal Day, all three stories, the setting, and the translators and studies. What is dropped is source talk, scholars' verdicts or minor asides.
+4. Optional precision points. None changes a fact, and applying any of them makes this verdict stale.
+   a. Line 109: "he took over Hali's verdict that mystical poetry after Hafiz might prove utterly dangerous for the morals of a people" makes the Hafiz claim Hali's own. The team version says Iqbal took over and emphasised Hali's verdict on mystical poetry, and that Iqbal claimed the part about Hafiz. Suggested: "and, taking over Hali's verdict on mystical poetry, he claimed that mystical poetry after Hafiz might prove utterly dangerous for the morals of a people."
+   b. Line 103: "in a personal encounter" softens the team version's "person-to-person encounter". Suggested: "in an encounter of person with person".
+   c. Line 135: "far from Lahore" is not in the team version, which never says where Konya lies. It is harmless geography. Suggested if wanted: "Iqbal has a second memorial."
+5. Matters of taste, with no change needed:
+   a. Line 15 repeats "Dagh" ("Dagh Dehlvi, a connoisseur of Urdu, Dagh is said"). It is correct, just a little heavy.
+   b. The Shaheed Ganj sentence (line 125) still sits after "In the last years of his life". It states no date, so it is acceptable as it stands.
+   c. Hujwiri's shrine as a place of pilgrimage appears twice (lines 149 and 159).
+   d. The Setting calls the mosque "the Royal Mosque" and "the Badshahi Masjid", and elsewhere the text says "the Badshahi Mosque". The team version uses the same three forms.
+6. The V1 line in the notes file (en:72428fb3) is stale. The current English md5 begins 0cbe3aea.

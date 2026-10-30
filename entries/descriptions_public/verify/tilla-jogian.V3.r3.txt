@@ -1,0 +1,9 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Round 2 V3 issue 1 fixed. یعنی ایسا سیلانی سادھو جو شیو کا بھگت ہو اور ذاتِ واحد کے دھیان میں رہے: the two stacked noun phrases are gone, the devotion now sits inside the relative clause, and ایسا ... جو with the subjunctive ہو / رہے is the ordinary Urdu way of describing a type. Agreement is right (کوئی ... سادھو ... ہو ... رہے, all masculine singular), there is no repetition inside the sentence, and it closes the paragraph smoothly after مراد ہوتا ہے. شیو also appears in the paragraph's second sentence (شیو کی بھگتی), as Shiva does twice in the English paragraph; that sentence is unchanged and the echo is not a fault.
+- Round 2 V3 issue 2 fixed. گورکھ ناتھ نے جس دور میں زندگی بسر کی اور اپنی تعلیمات کا پرچار کیا، وہ گرو نانک کے زمانے سے بہت پہلے گزر چکا تھا: the period is named once, so nothing points back to Nanak's time; the padding clause is gone. Agreement under نے is right (زندگی بسر کی, feminine; پرچار کیا, masculine), دور ... گزر چکا تھا agrees, the جس ... وہ correlative is clean, and the pluperfect suits "long before". It follows naturally from the preceding sentence about the Janamsakhis.
+- Taste, not applied: in change 2, گزر جانا said of a person also means to pass away, so a hurried reader could for a moment take وہ as Gorakhnath; the correlative جس دور ... وہ and the non-honorific singular چکا تھا (Gorakhnath is plural throughout) settle it at once, so this is not an ambiguity. Round 2 taste notes (کان three times near change 16, the heavy wording of change 20, ان کے ملنے آنے کی in change 5) remain as recorded and were rightly not applied.
+- Scope: unchanged sentences were not reopened. The file has no Latin letters and no em or en dashes.

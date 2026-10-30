@@ -1,0 +1,56 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) Judgement call 8, the Lahore khalifas. The team version's sentence ("Shaikh Haji Ramzan Lahori, and, through Haidar Shah and Khair Shah, the Lahore line of the following entry") does not make clear who the second khalifa is, or how Haidar Shah and Khair Shah stand to him. They may be his successors, as the draft reads it. They may also be the links through which a later Lahore line reaches the saint, and then one of them may be the khalifa himself. The draft picks the first reading and creates an unnamed khalifa with successors that the team version does not clearly give. The fix keeps the team version's count and the one clear name (the writer's own fallback, with the count kept).
+OLD: Two of his *khalifas* are counted among the saints of Lahore: Shaikh Haji Ramzan Lahori, and another whose line in the city ran through Haidar Shah and Khair Shah.
+NEW: Two of his *khalifas* are counted among the saints of Lahore, one of them Shaikh Haji Ramzan Lahori.
+
+2. (precision) Judgement call 16, in part. "Sikh aggression" is the evaluative word of the two historians whom the team version quotes. In the narrator's voice it becomes the site's own verdict on another tradition that the archive maps. Rule 2 lets a person's words stay as a quotation without the surname, and the phrase is verbatim in the team version, so Q2 holds. The rest of the sentence and of the paragraph is accepted: "spiritual standing" for "spiritual valence", "apparently" kept, and "the Muslims ... those who were not Muslim" for "(Muslim) ... (non-Muslim)".
+OLD: He urged his followers to take part in resistance against Sikh aggression in the Punjab, and so, apparently for the first time in Chishti history, spiritual biographies were drawn into partisanship for one political group, the Muslims, against another, those who were not Muslim.
+NEW: He urged his followers to take part in what has been called "resistance against Sikh aggression in the Punjab", and so, apparently for the first time in Chishti history, spiritual biographies were drawn into partisanship for one political group, the Muslims, against another, those who were not Muslim.
+
+3. (precision) "such acceptance as no one else had in that age" is Lahori's superlative judgement. The team version itself frames it as his: "Lahori, writing in 1875, judged that he had won such acceptance as no one else in his age". Stated plainly, it becomes the narrator's own claim. The draft already frames the editor's credit to Allah Bakhsh ("has been credited") and Sharib's words on the *mazar* ("is held to be"), and the same framing fits here. The framing governs the whole sentence, including the lakh of disciples.
+OLD: He won such acceptance as no one else had in that age: more than a *lakh* of people, that is, over a hundred thousand, became his disciples, and hundreds of unbelievers and sinners repented.
+NEW: He is said to have won such acceptance as no one else had in that age: more than a *lakh* of people, that is, over a hundred thousand, became his disciples, and hundreds of unbelievers and sinners repented.
+
+4. Rulings on the other judgement calls. All are accepted.
+   - 1: "around 1770, in 1184 AH". The year 1184 AH falls in 1770 to 1771, so the site's approximate year and the books' Hijri year do not conflict, and no new date is given. An "accounts differ" clause would invent a conflict. The place (a village in the hills, three *kuroh* from Taunsa) is what the team version says the printed texts agree on. Only the village's name is flagged uncertain, and it is left out.
+   - 2: "generally" rests on four accounts against one, and Ernst and Lawrence themselves pair 1267 with 1850. Safar is common to both day variants. Dropping both days (7 and 9 Safar, one source each) follows rule 4 on minor variants and claims no more than the team version allows.
+   - 3: dropping "in eighteenth century North India" makes the statement less specific but adds nothing new. It also avoids setting a second period and region beside the site's position.
+   - 4: the team version's own words are "name a Sulaymaniyya sub-branch after him".
+   - 5: Lahori's "among the renowned khalifas of his pir" stands. Only his printing of the pir's nisba is flagged, and the pir is the established Nur Muhammad Maharvi.
+   - 6: neither the team version nor the draft identifies Fakhr al-Din Fakhr-e Jahan with Fakhr al-Din Dihlawi, so nothing is merged. "al-Din" for "ad-Din" is a transliteration choice, not a new name.
+   - 7: the team version's own reading, framed as tradition.
+   - 9: the khalifa Muhammad Allah Bakhsh Tawnsawi is neither identified with the grandson nor distinguished from him, which matches the team version.
+   - 10: the team version itself joins the editor's Hafiz Muhammad Ali, known as Muharram Ali Khairabadi, to Ernst and Lawrence's Khayrabadi.
+   - 11, 12: accepted.
+   - 13: accepted. See taste point (a).
+   - 14: accepted. These are present-tense statements in a 2002 book, and the draft states them without the authors.
+   - 15: "in the 1870s" is firm, from the bibliography's 1875 for Lahori. The editor's claim is framed.
+   - 16: accepted except the phrase in note 2.
+   - 17, 18: accepted.
+   - 19: the reordering joins two passages about one incident and adds no fact. The frames ("A story is told", "it is said", "Another story tells") cover both legends.
+   - 20: the team version states that both Lahori's entry and the *Tahqiqat-e Chishti* carry a chronogram on his death. What it flags is Lahori's figure and the *Tahqiqat*'s names and year, and the draft gives none of these.
+   - 21, 22, 23: accepted.
+   - 24: accepted for V1. The team version prints 1256/1840 and 1287/1870 unmarked, so nothing rests on a reading it marks uncertain. Whether the corrected text layer stands is Rauf's decision (team notes, decision 3). If he rejects it, both dates come out.
+   - 25: the editor's "various collections" supports "several".
+5. Other checks passed:
+   - Consensus choices (rule 4): death year, birth, order name (the three names nest; they are not rival variants), revival, the pir's name, the two khalifa lists (kept apart, not merged), the grandson's dates, and the Taunsa manuscript all follow the rule. Each disagreement that matters to a visitor carries at most one clause.
+   - The chain is given link by link from the team version's one clear chain and ends in the established pir. Nothing is hung under another master.
+   - Muhammad 'Aqil (d. 1814) and Gul Muhammad Ahmadpuri are rightly left out. The team version leaves open whether he is the Kot Mithan teacher, and the "his" in Ernst and Lawrence's sentence is ambiguous.
+   - Source talk: there are no citations, page references, named authors in the narrative, signposting, archive language or uncertainty vocabulary.
+   - Time anchors: 1875 (Lahori), "of about 1875" (Ernst and Lawrence's ca. 1292/1875), 1965 and 1979 are all firm. Nothing is anchored to Chishti's unconfirmed 1867.
+   - Glosses are definitions. The Chishti gloss is the sense data/glossary.csv gives.
+   - The checker is clean, at a ratio of 0.44. The three precision fixes change the length by only a few characters.
+6. Taste only, not required:
+   (a) "Today it is a large complex" follows straight after "the shrine is remote and difficult of access". "Today" is not in the team version and can read as a contrast between past and present. "It is a large complex" would avoid that.
+   (b) *kuroh* and *kos* are both glossed "an old measure of distance". The second gloss could be dropped.
+   (c) 1267 AH is paired with 1850 for his death and with 1851 to 1852 for the *Nafi' al-salikin*. Both pairings are the team version's, but a reader may stumble. Giving "in 1267 AH" alone in the *malfuzat* sentence would avoid it.
+   (d) The hut and Taunsa's growing prosperity are told three times: in the Overview, The Saint and The Shrine. The Overview's telling is by design, but The Shrine's sentence could go.
+   (e) Sharib's 7 Safar goes with the established year 1267, while Lahori's 9 Safar goes with the rejected 1260. Giving the month alone is still the safe reading of rule 4.
+7. Omission sweep: after reading the team version through paragraph by paragraph, I find nothing important missing.
+   - The family is all kept: great grandfather, grandfather, father, mother, both sons and the grandson.
+   - Also kept: the teachers, initiation, chain, khalifas, school, library, calendar, succession, devotion, discipline, teaching, politics, legends, verse lives and literature.
+   - What is left out is citation apparatus and statements of absence; readings the team version marks uncertain (the village name, Langh, Majheel and Mahl, the chronogram year, the *Tahqiqat* passage); pointers the team version itself hedges; the undated or ambiguous figures (Hafiz Muhammad Ali's 1192 to 1266, the 1312 printing); and the ambiguous Muhammad 'Aqil passage.

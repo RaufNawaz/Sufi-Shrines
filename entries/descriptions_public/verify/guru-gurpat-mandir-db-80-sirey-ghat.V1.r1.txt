@@ -1,0 +1,55 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. (precision) [relics presented as a complete list] "He is said to have brought relics with him and enshrined them: hair ..., a rupee ..., and a ring ..." -> the team version says "Among the relics he is said to have carried and enshrined were ...", so the three objects are some of the relics, not all of them; the colon list reads as exhaustive. Fix:
+OLD: He is said to have brought relics with him and enshrined them: hair said to be from Baba Sri Chand, a rupee of the Nanak Shahi era, and a ring attributed to Guru Gobind Singh, the tenth Guru of the Sikhs.
+NEW: He is said to have brought relics with him and enshrined them, including hair said to be from Baba Sri Chand, a rupee of the Nanak Shahi era, and a ring attributed to Guru Gobind Singh, the tenth Guru of the Sikhs.
+
+2. (precision) [a word the source does not have] "remembered under the name of Bao Santokdas" -> the team version has "whose historic trusteeship is remembered under Bao Santokdas", i.e. the trusteeship was under him. "Under the name of" adds a different sense (that the trusteeship bore or was registered in his name). This is judgement call 6; keep the source's own phrase. Fix:
+OLD: Today it is kept as a registered charitable trust, and its trusteeship in former times is remembered under the name of Bao Santokdas.
+NEW: Today it is kept as a registered charitable trust, and its trusteeship in former times is remembered under Bao Santokdas.
+
+3. (precision) [a word the source does not have] "one of the better known sites in this cluster" -> the team version says "better-attested", which means better documented (named founder, dated building, preserved lineage); "better known" reads as more famous, which the team version does not say. This is judgement call 3; the rest of that sentence is accepted. Fix:
+OLD: With a named founder, a dated building and a preserved lineage, it is one of the better known sites in this cluster, though little of its history can be traced beyond the memory of its own community.
+NEW: With a named founder, a dated building and a preserved lineage, it is one of the better documented sites in this cluster, though little of its history can be traced beyond the memory of its own community.
+
+4. (precision) [more certainty than the source] "British colonisation brought a renewal of religious life ..." -> the team version frames this as an argument ("British colonization, he argues, brought ..."); stated flatly it becomes settled fact. The writer already frames the comparable arguments this way ("has been dated to", "it has been argued", judgement call 14). Fix:
+OLD: British colonisation brought a renewal of religious life, tied to the spread of a composite middle class and marked by the emergence of the *darbars*, which spread a *darbar* culture.
+NEW: British colonisation, it has been argued, brought a renewal of religious life, tied to the spread of a composite middle class and marked by the emergence of the *darbars*, which spread a *darbar* culture.
+
+5. (precision) [ambiguous referent] "five volumes by Baloch" -> the only Baloch the public text has introduced is Sikander Baloch, director of Radio Pakistan Hyderabad, a few sentences earlier, so a reader will take him to be the author of these 1960 to 1962 volumes; the team version gives only the bare surname ("five Baloch volumes") in a bibliographic listing and does not connect it with Sikander Baloch. No wording from the source can disambiguate, and a bare surname is not important information, so drop it; the paragraph's point (Hyderabad as a place of Sindhi publishing) stands. Fix:
+OLD: The Sindhi Adabi Board of Hyderabad published five volumes by Baloch between 1960 and 1962, and Lilaram Watanmal's biography of Shah Abdul Latif was published in Hyderabad in 1889.
+NEW: The Sindhi Adabi Board of Hyderabad published five volumes between 1960 and 1962, and Lilaram Watanmal's biography of Shah Abdul Latif was published in Hyderabad in 1889.
+
+6. Judgement calls for V1, rulings:
+   1 (the identification): accepted. The team version's own Overview states the identification flatly; the closing note's caution is about cross-confirmation in a single source, which is source talk, and the public text carries the remaining caution through framing (the darbar's tradition, "is said to", "By the community's reckoning", "little of its history can be traced beyond the memory of its own community"). The proposed hedge sentence is not needed.
+   2: accepted.
+   3: accepted except "better known" (note 3).
+   4: accepted; "also called the Darbar of Baba Gurpat Sahib" supports *darbar*, and the Nanakpanth gloss is the team version's own.
+   5: accepted; "akin to" for "-adjacent" is close enough.
+   6: raised as note 2.
+   7: accepted; dropping the "Sikhs" label keeps rule 4 (no variants side by side) after the one clause that there is no settled view; "Baptised Sikhs look down upon them" is the team version's content and does not choose a side.
+   8: accepted; the team heading "The Talpur capital" and the Talpur dates support it, and leaving "late" unrendered avoids a wrong "last".
+   9: accepted; the hedge is the author's on the facts, and keeping it separate avoids merging the place with the *astano*.
+   10: accepted; the team version itself calls the figures Boivin follows "Boivin's Hindu Sufis".
+   11: accepted; "a temple in Hyderabad" in the city section does not tie the attack to this mandir.
+   12: accepted; "temple" rests on the bibliography title and the team version's "the goddess Hinglaj".
+   13: accepted.
+   14: accepted.
+   15: accepted; "a renaissance of the Nanakpanthi darbars" presupposes earlier Nanakpanthi darbars.
+   16: accepted.
+   17: accepted; the team version names "Molchand Kripalani" and "Molchand" from the same book in the same way, and the public text adds no identification of its own.
+   18: accepted; every gloss listed is definitional and none is a fact about this site (see the taste note on *ʿīd* below).
+   19: accepted; "Under the emperor Aurangzeb" anchors on the firm composition date (regnal year 40) and the passage is not tied to Hyderabad.
+   20: accepted.
+   21: accepted.
+   22: accepted.
+   23: accepted.
+7. Consensus choices: all follow rule 4. The Partition count (no figure chosen, a range from around a million to 800,000 or fewer) matches the Karachi row and is accepted; giving "around a million" as the generally cited figure with "though estimates differ" would also be defensible, since the team version calls it "a kind of consensus", but this is not required. Tando Jahaniyya is kept as separate sentences with no merge; caste and communal strife each have one clause of difference.
+8. Taste: "at *ʿīd*, the Muslim festival": there are two such festivals, so "a Muslim festival" would be more exact as a gloss.
+9. Taste: "a printing house founded in Hyderabad was named Blavatsky Printing" drops that it was founded by one of the figures the team version follows (by the logic of judgement call 10, one of the Hindu Sufis); not wrong, and optional to restore.
+10. Taste: "By the community's reckoning" for "dated by community record"; "By the community's record" would be a shade closer, but the meaning holds.
+11. Taste: "a hospitality akin to the *langar*, the free communal kitchen, that has long been associated with ..." lets "that" attach to the kitchen rather than the hospitality; harmless either way.
+12. Record only (notes file, not the public text): the notes' "Spellings normalised" line says Waliullah follows "the Academy's name in the same sentence", but the team version spells the Academy "Shah Waliul-lah Academy". The public text's "Shah Waliullah Academy" normalises a hyphen that is most likely a print line-break artefact rather than an established spelling, which is acceptable; the notes line should say so accurately.
+13. No citation, page reference, narration of sources, signposting, archive or process language survives; legends ("tradition holds", "is said to", "it is told") stay framed; time anchors ("Today", "In the early twenty first century", "From the 1960s") rest on firm bibliography dates (2018, 2019, 2022 and the dated events themselves); no statement rests on a reading the team version marks uncertain.
+14. Omission sweep: after sweeping the team version section by section, nothing important is missing; what is left out (Brahmashankar Mishra's residence and the absence of a Naqshbandi link, Burton on the Lohanas, Jatt's endnote and label, the variant *tikkano*, Besant's unnamed "this city", and all source apparatus) is apparatus, a rule 4 variant, or minor.

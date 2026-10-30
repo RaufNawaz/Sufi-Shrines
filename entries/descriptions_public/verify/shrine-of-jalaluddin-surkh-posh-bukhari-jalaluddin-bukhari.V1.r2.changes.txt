@@ -1,0 +1,81 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1]
+OLD: The camel halted in the middle of a desert, and there the Shaikh founded a town later called Uch. Another legend of Uch tells of a contest in flight with a yogi, a Hindu ascetic, and all the stories of three generations of the Sufis of Uch tell of conflicts with Hindu yogis.
+
+Uch was also a seat of the Gilani Qadiris, Sufis of the Qadiri order, which was founded by Abd al-Qadir Gilani.
+NEW: In the legend, the camel halted in the middle of a desert, and there the Shaikh founded a town later called Uch. Another legend of Uch tells of a contest in flight with a yogi, a Hindu ascetic, and all the stories of three generations of the Sufis of Uch tell of conflicts with Hindu yogis.
+
+Uch was also a seat of the Gilani Qadiris, Sufis of the Qadiri order, which was founded by Abd al-Qadir Gilani.
+
+[V1 r1 issue 2]
+OLD: He has been called "the forefather of a long line of devout mystics and theologians". In the nineteenth century the sayyids of Uch were famous for their authority in questions of descent: where a dispute over a man's descent arose and they accepted him as of sound descent, the matter was closed, and no one then dared say a word.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- General established histories of the Suhrawardi order and of Uch Sharif.
+- Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن).
+- Zahur ul-Hasan Sharib, *Tazkirah Awliya-e Pak o Hind* (تذکرہ اولیائے پاک و ہند, *Khum Khana-e Tasawwuf*; first edition October 1999, preface signed 4 April 1965 at Ajmer Sharif; Progressive Books, Lahore).
+- Annemarie Schimmel, *Mystical Dimensions of Islam* (Chapel Hill: The University of North Carolina Press, 1975; 35th Anniversary Edition, with a new Foreword by Carl W.
+NEW: He has been called "the forefather of a long line of devout mystics and theologians". He is also counted as the third of three figures said to have met Lal at Chothanbi, and their shrines are spread across southern Punjab. In the nineteenth century the sayyids of Uch were famous for their authority in questions of descent: where a dispute over a man's descent arose and they accepted him as of sound descent, the matter was closed, and no one then dared say a word.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- General established histories of the Suhrawardi order and of Uch Sharif.
+- Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن).
+- Zahur ul-Hasan Sharib, *Tazkirah Awliya-e Pak o Hind* (تذکرہ اولیائے پاک و ہند, *Khum Khana-e Tasawwuf*; first edition October 1999, preface signed 4 April 1965 at Ajmer Sharif; Progressive Books, Lahore).
+- Annemarie Schimmel, *Mystical Dimensions of Islam* (Chapel Hill: The University of North Carolina Press, 1975; 35th Anniversary Edition, with a new Foreword by Carl W.
+
+[V1 r1 minor a]
+OLD: In full he was Sayyid Jalal al-Din Sher Shah, titled Mir Surkh Bukhari Uchi, *Uchi* meaning "of Uch".
+
+Accounts of his sons differ, but he is most often said to have had three: Sayyid Ahmad Kabir, Sayyid Baha al-Din, and Sayyid Sadr al-Din, known as Muhammad Ghaus.
+
+He died at Uch, full of years, on the nineteenth day of Jumada al-Awwal, the fifth month of the Islamic year, in 690 of the Hijri calendar, the year that corresponds to 1291; accounts of the year of his death differ.
+NEW: He is also known by the fuller name Sayyid Jalal al-Din Sher Shah, titled Mir Surkh Bukhari Uchi, *Uchi* meaning "of Uch".
+
+Accounts of his sons differ, but he is most often said to have had three: Sayyid Ahmad Kabir, Sayyid Baha al-Din, and Sayyid Sadr al-Din, known as Muhammad Ghaus.
+
+He died at Uch, full of years, on the nineteenth day of Jumada al-Awwal, the fifth month of the Islamic year, in 690 of the Hijri calendar, the year that corresponds to 1291; accounts of the year of his death differ.
+
+[V1 r1 minor b]
+OLD: In that age the Qalandari and Jawaliqi dervishes, wandering ascetics who passed through Multan, often came into conflict with Bahauddin Zakariya.
+
+He is remembered as Surkh-Posh, the Red-Robed, for the red garment he habitually wore, and he is also called simply Surkh, the Red.
+NEW: In Bahauddin Zakariya's time the Qalandari and Jawaliqi dervishes, wandering ascetics who passed through Multan, often came into conflict with him.
+
+He is remembered as Surkh-Posh, the Red-Robed, for the red garment he habitually wore, and he is also called simply Surkh, the Red.
+
+[V1 r1 minor c]
+OLD: On one visit the group of shrines of the thirteenth and fourteenth centuries was reached through the market, and the saint's shrine was also situated on the mound there. It was protected by a thick wall with barbed wire on top, built shortly before to protect it from terrorist attacks.
+NEW: On one visit the group of shrines of the thirteenth and fourteenth centuries, which stood on a mound, was reached through the market, and the saint's shrine was also situated on that mound. It was protected by a thick wall with barbed wire on top, built shortly before to protect it from terrorist attacks.
+
+[V1 r1 minor d]
+OLD: On the mound were graves covered arbitrarily with the blue and white Multani tiles that had been recovered from these historical shrines. The river Sutlej, the lost river of Pakistan, used to flow here, before it was lost after the Indus Water Treaty was signed between India and Pakistan in 1960.
+
+## Legacy
+
+Jalaluddin Surkh-Posh Bukhari holds a foundational place in the spiritual history of the Punjab and Sindh: the Bukhara-born saint who rooted the Suhrawardi way at Uch and fathered a dynasty of saints whose influence endured for centuries.
+NEW: On the mound were graves covered arbitrarily with the blue and white Multani tiles that had been recovered from the historical shrines there. The river Sutlej, the lost river of Pakistan, used to flow here, before it was lost after the Indus Water Treaty was signed between India and Pakistan in 1960.
+
+## Legacy
+
+Jalaluddin Surkh-Posh Bukhari holds a foundational place in the spiritual history of the Punjab and Sindh: the Bukhara-born saint who rooted the Suhrawardi way at Uch and fathered a dynasty of saints whose influence endured for centuries.
+
+[V1 r1 minor e]
+OLD: ## Guru Nanak at Uch
+
+Sikh tradition holds that Guru Nanak was invited to Uch Sharif by the saint himself, when the two met at Kandahar on the way back from the Hajj, the pilgrimage to Mecca.
+NEW: ## Guru Nanak and Uch
+
+Sikh tradition holds that Guru Nanak was invited to Uch Sharif by the saint himself, when the two met at Kandahar on the way back from the Hajj, the pilgrimage to Mecca.
+
+[V1 r1 optional ii (family line)]
+OLD: Sayyid Ali Asghar, his seventh ancestor, had two sons, Sayyid Abd Allah and Sayyid Ismail, and from the descendants of Abd Allah came the family of the Bukhari sayyids. In Hindustan his standing rested on that lineage: all the sayyids, shaikhs, *amirs*, or nobles, and sultans treated him with deference because of the soundness of his descent.
+
+He migrated southward in the age of the Mongol upheavals.
+NEW: Sayyid Ali Asghar, his seventh ancestor, had two sons, Sayyid Abd Allah and Sayyid Ismail, and from the descendants of Abd Allah came the family of the Bukhari sayyids, and from those of Ismail another family of sayyids. In Hindustan his standing rested on that lineage: all the sayyids, shaikhs, *amirs*, or nobles, and sultans treated him with deference because of the soundness of his descent.
+
+He migrated southward in the age of the Mongol upheavals.

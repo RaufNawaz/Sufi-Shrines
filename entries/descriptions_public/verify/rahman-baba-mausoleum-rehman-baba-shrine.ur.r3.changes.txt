@@ -1,0 +1,11 @@
+# rahman-baba-mausoleum-rehman-baba-shrine: changes applied by the coordinator after V3 round 2 (FAIL, 1 issue); V2 round 2 PASS, by exact replacement of each OLD string once (late round procedure of the brief). Backup of the round 2 file: /home/claude/bak/rahman-baba-mausoleum-rehman-baba-shrine.ur.before_r3.md
+
+WHY: V3 r2 issue 1, applied in the verifier's wording (two hedged sentences in a row closing on the same verb phrase; کنارہ کش رہ کر and گوشہ نشینی کی زندگی said the same thing twice; the idiom is کنارہ کش ہو کر). The hedge 'legend has it' stays as کہا جاتا ہے کہ, and گوشہ نشین رہے keeps a settled way of life (V2 r1 note 2), not a turning point
+OLD: کہا جاتا ہے کہ وہ دنیا سے کنارہ کش رہ کر گوشہ نشینی کی زندگی گزارتے تھے۔
+NEW: یہ بھی کہا جاتا ہے کہ وہ دنیا سے کنارہ کش ہو کر گوشہ نشین رہے۔
+
+WHY: V3 r2 note (also V3 r1 note 2), applied by the coordinator as a precision fix of scope: placed after the sentence that interprets the blast and opened with تاہم, the hedge 'though accounts of the attack differ' read as disputing the interpretation; it now follows the sentence that reports the attack, without تاہم, as the verifier proposed, so it governs the attack. With it, the verifier's note that ایک بم دھماکے is the usual compound (بم کے ایک دھماکے)
+OLD: مارچ 2009 میں بم کے ایک دھماکے سے مزار کو شدید نقصان پہنچا۔ یہ دھماکا اس روادار اور موسیقی سے رچی بسی عقیدت پر حملہ تھا جس کا یہ مزار مظہر ہے۔ تاہم اس حملے کے بارے میں بیانات یکساں نہیں۔
+NEW: مارچ 2009 میں ایک بم دھماکے سے مزار کو شدید نقصان پہنچا۔ اس حملے کے بارے میں بیانات یکساں نہیں۔ یہ دھماکا اس روادار اور موسیقی سے رچی بسی عقیدت پر حملہ تھا جس کا یہ مزار مظہر ہے۔
+
+Not applied (V3 r2 notes, taste or already decided): the Nath yogi link sentence (would add a claim); اس دیوان کا for اس کلام کا; اقوال for تعلیمات; بوؤ گے for لگاؤ گے (the English has two verbs, sow and plant); مہمند پشتون قبیلے; بنیادی موضوعات; the passive and active switch; محبوب on اظہار; repetition across sections (it follows the English); the راستے میں گھاٹیاں پڑتی تھیں wording; the spelling اینیولڈسن (kept, round 2); کوشش کی (the English says tried).

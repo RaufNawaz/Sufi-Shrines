@@ -1,0 +1,5 @@
+# loh-temple-lava-temple: English change after V1 round 3 (PASS, ISSUES: none). V1 r3 optional precision 3 applied in the verifier's wording, because 'Mughal' is not in the team version (it quotes 'their power and wealth' and never says whose), so the word is unsupported under RULE 2. The other r3 notes (precision 1 and 2, taste 1 to 3) are recorded in the notes file and not applied, per the brief's stopping rule. Backup: /home/claude/bak/loh-temple-lava-temple.before_v1r4.md
+
+WHY: V1 r3 optional precision 3 (an inferred qualifier the team version does not have); verifier's wording
+OLD: the Fort, once the emblem of Mughal power and wealth
+NEW: the Fort, once an emblem of power and wealth

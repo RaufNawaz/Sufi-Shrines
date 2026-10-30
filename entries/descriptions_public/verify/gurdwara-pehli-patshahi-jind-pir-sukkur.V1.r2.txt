@@ -1,0 +1,14 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Confirming round, changed sentences only.
+Issue 1 (restored sentence): in place in The Guru, first paragraph, after the father sentence, in the round 1 wording. It rests on Khalid's "born into a Hindu household and was then educated in a Muslim milieu; however, he was neither a practising Muslim nor a Hindu", and the second half is framed ("is held to have been"). The paragraph's subject throughout is the Guru, and the following "He died" already uses the same pattern, so it reads correctly. Optional only, not a fault: "Nanak was born into a Hindu household" in place of "He was born into a Hindu household" would remove any chance of reading "He" as the father and avoid the echo of "He was born in 1469" two sentences earlier.
+Issue 2 (the jai): now its own sentence, set among the Hindu Sufis of Sindh, no longer on Rochaldas's wall. Matches Boivin's darbars of the Sindhi Hindu Sufis. Correct.
+Issue 3 (the Nanak Panthis): "belong to South Punjab and Sindh ... found in very large numbers in the province of Sindh" matches Khalid's two sentences; very large numbers now for Sindh only, present tense agrees with "still live". "Sikhs" is rightly not carried over. Correct.
+Minor a ("an approximate combination"): Dhillon's word, inside the janamsakhi frame. Correct.
+Minor b (Sain Vasan Shah "Among the Hindu Sufis of Sindh"): matches Boivin's setting. Correct.
+Minor c (saffron as its own sentence): matches Khalid's separate remark. Correct.
+Minor d ("the Hindus of Sindh were for the most part Nanakpanthis"): matches Boivin's "they were in majority Nanakpanthis"; the ambiguity is gone. Correct.
+Minor e ("The verse is sung beyond the gurdwaras too."): deleted; the paragraph now opens on the Abida Parvin sentence and stands. Nothing lost or duplicated at the edit point.
+Minor f (Alan Faqir): matches Abbas's two sentences; the dargahs are no longer limited to his youth. Correct.
+L1 exception line in the notes matches the line approved in round 1 word for word ("a rival identity for the shrine (a darbar of Khwaja Khizr)").

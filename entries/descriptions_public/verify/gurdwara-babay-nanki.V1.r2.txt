@@ -1,0 +1,9 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Diff (.md.bak against .md): exactly 4 changed lines (17, 41, 45, 47), one for each listed change, with nothing else moved.
+2. Change 1, "stopping on the way at Dera Chahal, at Jaman and at one other place.": supported by the team version ("at Dera Chahal, at 'Jaman' and at a third place whose printed name is damaged"). This is r1 note 1 in its own wording. The count is now exact, the uncertain name stays out (rule 5) and the point still stands. Grammar is fine and nothing was added or lost.
+3. Change 2, "More generally, the Defence Housing Authority, ...": supported by the team version ("describes the same suburban advance in general terms ... He does not name Dera Chahal there"). This is r1 note 2 in its own wording. It removes the implication that Dera Chahal is one of the walled villages, adds no fact and is not source talk.
+4. Change 3, "drowned out a conversation at the gurdwara.": supported by the team version ("As they talked, a sermon from the mosque's loudspeaker drowned the conversation", during the visit to the gurdwara). This is r1 note 3 in its own wording, and the unsupported "inside" is gone. "its" still refers clearly to the mosque. Grammar is fine.
+5. Change 4, "The gurdwara also has a tradition of its own.": supported by the team version ("one further tradition of the gurdwara"). This is r1 note 4 in its own wording, and the "keeps" embellishment is gone. Grammar is fine.
+6. The changed lines contain no dashes, no coined or hyphenated compounds, no citations and no source talk. The English checker (check_public_description.py --english-only) exits 0 (team 20408 -> public 11123 chars, 0.55). I have no optional notes of my own.

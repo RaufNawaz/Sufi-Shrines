@@ -1,0 +1,55 @@
+VERDICT: PASS
+V2: PASS
+V3: FAIL
+REPLAY: I applied all 20 OLD -> NEW pairs of mithankot-kot-mithan.ur.r2.changes.txt in order to /tmp/claude-0/bak/mithankot-kot-mithan.ur.r1.md. Each OLD occurred exactly once. The result is byte for byte identical to the current mithankot-kot-mithan.ur.md. The Seraiki verse line is untouched; change 10 touches only the italic meaning line.
+
+Fidelity, every changed sentence (V2): all 20 changes are faithful.
+- 1 (Rohi years): "famous for the years he spent" becomes مشہور ہے کہ ... برسوں گزارے. It keeps the fame and the fact and adds no hedge.
+- 2: "remembered for counselling" is kept.
+- 3: "in another city" is kept, and Lahore and Miani are unchanged.
+- 4: پیش روؤں carries "before him". "Absent beloved" becomes محبوب کی جدائی, which keeps the sense, and زیادہ تر is kept.
+- 5: punctuation only.
+- 6: only the word order changed. "Most", "still" (بھی) and "more likely" are all kept.
+- 7: تاکہ ... بیان کر سکیں restores the English purpose link "to speak of".
+- 8: unchanged in sense.
+- 9: Hir, Sassui, Sohni and "many others" are kept. نسوانی کردار agrees with the earlier ایک المناک کردار for Hir.
+- 10: follows "You are my love, and You are my beloved; You alone are all" and the Seraiki وی ... وی.
+- 11, 12 and 13: sound. Change 12 removes the ہی that the English has no word for.
+- 14: unchanged in sense.
+- 15: correct. In the English, "His" can only be Ghulam Farid, since the paragraph calls Abida Parvin "Her". The notes give the full title as "A Tribute to Great Mystics: ... Khawaja Farid", so naming him adds nothing.
+- 16: انہی سے is resumptive ("from that same teacher"). It does not mean "only from him".
+- 17: "south through Bahawalpur" is now right.
+- 18: the "two languages" are Sindhi and Punjabi, which the English colon clause names itself. The attribution کہا گیا ہے is kept.
+- 19: Bhittai and Bulleh Shah are kept. The appositive describes the poet as in the English.
+- 20: "Multan editions ... also include" is carried in full, with بھی.
+
+ISSUES:
+1. [V3] New repetition from changes 1 and 2 together. In صاحبِ مزار paragraph 2, sentence 2 now opens "مشہور ہے کہ انہوں نے ..." and the next sentence ends "ان کے بارے میں یہ بات مشہور ہے کہ انہوں نے ...". The same frame comes twice within three lines. The English varies it ("famous for" / "remembered for"), and معروف keeps the sense exactly.
+OLD: ان کے بارے میں یہ بات مشہور ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا۔
+NEW: ان کے بارے میں یہ بات معروف ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا۔
+
+2. [V3] Change 14 turns the verbless tag into a full clause. The مزار اور عقیدت sentence is now a chain of four clauses joined by اور three times: "... شامل تھی اور ... متن بھی، اور ... انہی کے تھے اور دونوں سرائیکی میں تھے". The brief says to split any sentence of more than three clauses. Splitting it after بھی leaves انہی resuming the name that closes the previous sentence.
+OLD: اور خواجہ غلام فرید کے متن بھی، اور اس کنسرٹ کے پروگرام میں دو کلام انہی کے تھے اور دونوں سرائیکی میں تھے۔
+NEW: اور خواجہ غلام فرید کے متن بھی۔ اس کنسرٹ کے پروگرام میں دو کلام انہی کے تھے اور دونوں سرائیکی میں تھے۔
+
+3. [V3] Ambiguous ان in change 20. The sentence now opens "ان کی تصانیف کے جو ایڈیشن ملتان سے چھپے" right after a sentence whose subject is کرسٹوفر شیکل and which also ends with ملتان سے شائع ہوا. The reader first takes ان to mean Shackle and only corrects this at کلامِ فرید. The English "his" here crosses a sentence, and the brief says to name the person again in that case. Doing so also removes the two ان with different referents (Farid, then the editions).
+OLD: ان کی تصانیف کے جو ایڈیشن ملتان سے چھپے، ان میں
+NEW: خواجہ غلام فرید کی تصانیف کے جو ایڈیشن ملتان سے چھپے، ان میں
+
+NOT APPLIED rulings: all 14 are sound. No round 1 ISSUE was left unapplied: V3's issues 1 to 15 and V2's notes a to d were all applied.
+- V2 note e asked for no change.
+- These V3 notes are taste or follow the English, and V3 proposed no fix for them: اس کے باوجود, روحانی معاملات میں ناقد, the tense shift in شاعری, کا بیان / عطا کیا, یعنی in ملفوظات, زندہ حلقہ, ہجوم / متن, دریائی سفر / عبوری کڑی, and بھٹائی / شاہ عبداللطیف.
+- These V3 notes were rejected for fidelity, rightly:
+  - 225 صفحات: the English does not say whose 225 pages, so the Urdu must not resolve it.
+  - The بنتا تھا / پڑھے جاتے ہیں tense mix: the English has the same mix.
+  - شاہ باہو -> سلطان باہو: this would change a name the English gives.
+  - ففٹی پوئمز: the English says Shackle translated a work by that title.
+
+NOTES:
+- Change 19: the poet is now in the genitive (خواجہ غلام فرید کی وہی حیثیت ہے ...). This leaves ", یعنی وہ شاعر جس نے" hanging off حیثیت. It is readable as an ellipsis, but "، یعنی وہ ایسے شاعر ہیں جنہوں نے" would tie it back to the poet. This is optional and does not change the sense.
+- Change 16: انہی سے is fine as resumptive. ان سے would also be unambiguous here, because the Qazi is the only other person in the clause. Optional.
+- Change 1: عطا کرتے ہیں is a little weaker than "fill" (بھر دیتے ہیں was V3's calque complaint). It is acceptable as it stands.
+- Change 9: نسوانی کردار loses the "lead" sense of "heroine". It matches ایک المناک کردار for Hir earlier in the same paragraph and is acceptable.
+- I checked all three proposed OLD strings: each occurs exactly once in the current file. With the three NEW strings applied, the file has no Latin letters or dashes.
+
+CHECKER: python3 pipeline/book_queue/check_public_description.py mithankot-kot-mithan --no-verdicts -> "ok mithankot-kot-mithan team 22723 -> public 10532 chars (0.46), Urdu 9932 chars (0.94)", exit 0.

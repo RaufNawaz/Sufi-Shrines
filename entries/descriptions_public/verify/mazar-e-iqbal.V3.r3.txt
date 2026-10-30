@@ -1,0 +1,17 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: All the round 2 fixes read naturally in place. "مغربی فلسفے سے براہِ راست واقفیت حاصل کی"، "عمومیات"، "کردار ادا کیا"، "آتے نہ دیکھ سکے" and "افراد کی آمد ہوتی ہے" resolve the earlier problems without introducing new ones. The mechanics are clean: there are no Latin letters and no dashes, only Western digits are used, and the two asterisk pairs (*طواسین*، *جبرِ محمود*) are balanced. Quotation marks and brackets balance on every line, and the verse paragraphs are untouched. The wordings kept for meaning read acceptably on fluency. In line 39, "اس کے سب سے زیادہ زبان زد اظہارات میں سے ایک ... میں ملتا ہے" is grammatical and clear, although "اظہارات" is a less common plural and this is the heaviest sentence in the section. The Shaheed Ganj sentence without "بھی" (line 109) is natural.
+
+The following points are matters of taste only:
+Line 34: "اسی ابتدائی مجموعے میں" reaches back past the dua sentence, which names a period rather than a collection, to "بانگِ درا" in line 27. Writing "بانگِ درا" ہی میں would make the reference explicit.
+Line 25: "اول و آخر" sits a little oddly beside "میں سے ایک"; "بنیادی طور پر" is plainer.
+Line 44: "ایک مومن مسلمانوں کی زبوں حالی پر" still invites a momentary "مومن مسلمانوں" parse, as noted in round 2.
+Line 65: "رہنما تھے، ایسے سیاسی قائد جو ... لے جا سکتے ہیں" mixes past and present tense. "لے جا سکتے تھے" would match, unless the timeless present is intended.
+Line 73: "تاکہ وہ ... مخاطب ہو سکے" is the normal purpose clause referring to the object, and it reads correctly.
+Line 97: "حلاج کے کام سے" is slightly flat when the subject is a mystic; "حلاج کے احوال و افکار سے" is more idiomatic.
+Line 117: "محلِ وقوع سوچا سمجھا ... ہے" leans towards the English "deliberate siting". "یہ جگہ سوچ سمجھ کر چنی گئی ہے اور معنی خیز ہے" would sound more native.
+Line 127: "اگرچہ ... قوالی ہی وہ واحد صنفِ موسیقی بنی ... تھی" has a weak concessive link and shifts tense from بنی to تھی. Readers will understand it, but "البتہ" or "تاہم" would join the clauses more naturally.
+Line 131: Iqbal asks for lassi for "آنے والے مہمانوں" in the plural, and the story then names a single "وہ مہمان". "آنے والے مہمان کے لیے" would make the two agree, if the source allows it.
+Line 15: The sentence now carries a long chain, "جو ایک ایسے استاد تھے جن کے ... اور جنہوں نے ...". It parses, but splitting it after "زیرِ اثر آئے" would make it lighter.
+
+Repetition flagged in earlier rounds remains: the پکار family, "کہا جاتا ہے ... کہا" in line 131, and "منایا جانے والا ... منائے جاتے ہیں" in line 127. These are matters of house style.

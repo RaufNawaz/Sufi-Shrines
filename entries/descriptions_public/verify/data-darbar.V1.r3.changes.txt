@@ -1,0 +1,60 @@
+Changes after V1 round 2, applied by the coordinator in V1's own wording (issues, then the precision notes). Nothing else changed.
+
+[V1 r2 issue 1]
+OLD: The saint's own mosque, at the southwest corner of the enclosure, has been rebuilt. In the nineteenth century Gulzar Shah rebuilt it anew on the same foundation. By 1974 the old mosque had been pulled down to enlarge it and a new one built, and a stone marks the line of the old *mihrab*.
+
+In the nineteenth century the very elaborately built enclosure of Nawab Shaikh Imam-ud-Din stood beside the saint's, wall to wall with it on the east and the south, and was reached by a path from the northern *dalan*.
+NEW: The saint's own mosque stood at the southwest corner of the enclosure. In the nineteenth century Gulzar Shah rebuilt it anew on the same foundation. By 1974 the old mosque had been pulled down to enlarge it and a new one built, and a stone marked the line of the old *mihrab*.
+
+In the nineteenth century the very elaborately built enclosure of Nawab Shaikh Imam-ud-Din stood beside the saint's, wall to wall with it on the east and the south, and was reached by a path from the northern *dalan*.
+
+[V1 r2 minor a]
+OLD: Yet he is not merely a compiler.
+NEW: (deleted)
+
+Its teaching is of a piece with the man: a sober mysticism that weds spiritual devotion to ethical conduct, prayer, humility and restraint, and holds that inward transformation matters more than any outward display of piety.
+NEW: (deleted)
+
+[V1 r2 minor a]
+OLD: Of his many works only this, his greatest, has survived.
+
+Reynold A.
+NEW: Of his many works only this one has survived.
+
+Reynold A.
+
+[V1 r2 minor a]
+OLD: The patched cloak of the Sufis, he held, was worn by Muhammad and his companions, and he read it as an allegory: "Its collar is annihilation of intercourse [with men], its two sleeves are observance and continence, its two gussets are poverty and purity, its belt is persistence in contemplation, its hem is tranquillity in [God's] presence, and its fringe is settlement in the abode of union." Yet he made biting remarks about those who make their patched frocks almost an object of worship.
+NEW: The patched cloak of the Sufis, he held, was worn by Muhammad and his companions, and he read it as an allegory: "Its collar is annihilation of intercourse [with men], its two sleeves are observance and continence, its two gussets are poverty and purity, its belt is persistence in contemplation, its hem is tranquillity in [God's] presence, and its fringe is settlement in the abode of union." Yet he made remarks about those who make their patched frocks almost an object of worship.
+
+[V1 r2 minor a]
+OLD: He summarised the conflicting views of earlier and contemporary Sufis, but severely criticised sensual gratification through empathetic ecstasy; when a traditionist of his day told him that he had written a book on its permissibility, he replied: "It is a great calamity to religion that the Imam should have made lawful an amusement which is the root of all immorality." Yet he admitted that he practised it himself, and so far as he affirmed ecstasy he was bound by the well attested *hadith*, a saying of the Prophet, that bids the reciter of the Qur'an weep, "and if you cannot weep, then you should try to weep".
+
+He records a rebuke to himself from a venerable shaykh who had indulged his desire for music and then told him: "A time will come when this music will be no more to you than the croaking of a raven", and "Take care not to accustom yourself to this, lest it grow (to be) part of your nature and keep you back from higher things." He was himself the disciple of a shaykh disinclined to samaʿ, and he closed his book with a prayer asking God's forgiveness for his past sins in samaʿ.
+NEW: He summarised the conflicting views of earlier and contemporary Sufis, but severely criticised sensual gratification through empathetic ecstasy; when a traditionist of his day told him that he had written a book on its permissibility, he replied: "It is a great calamity to religion that the Imam should have made lawful an amusement which is the root of all immorality." Yet he admitted that he practised it himself, and so far as he affirmed ecstasy he was bound by the *hadith*, a saying of the Prophet, that bids the reciter of the Qur'an weep, "and if you cannot weep, then you should try to weep".
+
+He records a rebuke to himself from a venerable shaykh who had indulged his desire for music and then told him: "A time will come when this music will be no more to you than the croaking of a raven", and "Take care not to accustom yourself to this, lest it grow (to be) part of your nature and keep you back from higher things." He was himself the disciple of a shaykh disinclined to samaʿ, and he closed his book with a prayer asking God's forgiveness for his past sins in samaʿ.
+
+[V1 r2 minor a]
+OLD: He was the first witness, too, to a long lament, quoting the truism of Abu al-Hasan of Fushanja that Sufism was in the beginning a reality without a name, but had become over time a name without a reality; he offered no commentary on it.
+
+His book is still read in a set order among living Sufis.
+NEW: He was the first witness, too, to a long lament, quoting the saying of Abu al-Hasan of Fushanja that Sufism was in the beginning a reality without a name, but had become over time a name without a reality; he offered no commentary on it.
+
+His book is still read in a set order among living Sufis.
+
+[V1 r2 minor b]
+OLD: Shah Husain, the saint of the shrine of Madho Lal Hussain at Baghbanpura, kept several *chillas* at the "pearl-scattering" tomb and reached completion.
+NEW: Shah Husain, the saint of the shrine of Madho Lal Hussain at Baghbanpura, kept several *chillas* at the "pearl-scattering" tomb and, it is told, reached completion.
+
+[V1 r2 minor b]
+OLD: Mian Wadda, on the advice of Sayyid Mahmud, kept one *chilla* there in retreat and attained complete purity, and Fakhr-ud-Din spent most of his time at the *khanqah*.
+NEW: Mian Wadda, on the advice of Sayyid Mahmud, kept one *chilla* there in retreat and, it is said, attained complete purity, and Fakhr-ud-Din spent most of his time at the *khanqah*.
+
+[V1 r2 minor c]
+OLD: From this verse comes the title *Ganj Bakhsh*, Bestower of Treasure, and the affectionate *Data*, the Giver, by which the Punjab has called him ever since; some call him simply Ganj Bakhsh, and his devotees speak of him as Data Sahib.
+NEW: From this verse, by tradition, comes the title *Ganj Bakhsh*, Bestower of Treasure, and the affectionate *Data*, the Giver, by which the Punjab has called him ever since; some call him simply Ganj Bakhsh, and his devotees speak of him as Data Sahib.
+
+[V1 r2 minor d]
+OLD: More than any other figure, Ali Hujwiri made Lahore a holy city, and the whole sacred landscape of the Punjab is bound, in devotion, to his threshold.
+NEW: More than any other figure, Ali Hujwiri made Lahore a holy city, and the whole later sacred landscape of the Punjab is bound, in devotion, to his threshold.

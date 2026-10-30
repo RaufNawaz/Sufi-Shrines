@@ -1,0 +1,49 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. (precision) [attribution widened] "In the nineteenth century his grave was held to be older than any other building near Lahore, and one historian of the city wrote that before him the land of Hindustan had been without a lamp." -> Both statements are one man's (Chishti's): the team version has him judge that no building near Lahore was older than this grave, and has the "without a lamp" line from him too. "was held to be" turns one historian's judgement into a general nineteenth century view, and the split makes the reader think of two sources. Give both to the one historian, naming Aibak so that "his" cannot be read as the historian's own grave.
+OLD: In the nineteenth century his grave was held to be older than any other building near Lahore, and one historian of the city wrote that before him the land of Hindustan had been without a lamp.
+NEW: In the nineteenth century one historian of the city held Aibak's grave to be older than any other building near Lahore, and wrote that before the Sultan the land of Hindustan had been without a lamp.
+
+2. (precision) [claim moved outside its frame] "...as a graveyard for at least 150,000 dead; this was the origin of the present Miani Sahib graveyard." -> The team version gives the whole statement, the origin of Miani Sahib included, as one newspaper column's claim ("Aibak, according to Dawn's column, had also wanted ..., the origin of the present Miani Sahib graveyard"). After the semicolon the origin is stated in the narrator's own voice, outside "is also said to". Keep it inside the hedged sentence, as the team version does, with an appositive.
+OLD: Aibak is also said to have wanted Lahore's dead buried together, setting aside land south of the village of Mozang as a graveyard for at least 150,000 dead; this was the origin of the present Miani Sahib graveyard.
+NEW: Aibak is also said to have wanted Lahore's dead buried together, setting aside land south of the village of Mozang as a graveyard for at least 150,000 dead, the origin of the present Miani Sahib graveyard.
+
+3. (precision) [ambiguous word] "as one Persian chronicler put it" -> The team version calls the book Persian ("Sujan Rai Bhandari's Persian Khulasat al-Tawarikh"), not the man, and its bibliography names him "of Batala". A general reader will take "a Persian chronicler" as a chronicler from Persia. Say he wrote in Persian.
+OLD: He was playing *chaugan* when he fell from his horse; as one Persian chronicler put it, he carried the ball of his life to the field of the hereafter.
+NEW: He was playing *chaugan* when he fell from his horse; as one chronicler writing in Persian put it, he carried the ball of his life to the field of the hereafter.
+
+4. Taste: the article carries seven "accounts differ" clauses. Each answers a disagreement the team version records, but two of them (where Aibak was first posted; what followed the battle with Yildiz) are close to the "minor" end of rule 4 and could have been dropped silently. Not required.
+
+5. Taste: "A general who sent his booty from Bihar to his master at Delhi is remembered too, in a story that..." "is remembered" is a little warmer than the team version's plain "tells of"; "There is also a story of a general who..." would be closer. Not required.
+
+6. Taste: "at the order of Prime Minister Zulfiqar Ali Bhutto, given after the Bangladesh war" reads awkwardly ("given after"); "ordered by Prime Minister Zulfiqar Ali Bhutto after the Bangladesh war" is the team version's own wording. "twenty eight" without its hyphen looks odd; "twenty-eight" is the normal spelling of the number, not a coined compound. Neither is a fidelity point.
+
+7. Checked and sound: the Sikh period sentence keeps "the bricks of old tombs and houses were pulled out" from a Chishti sentence the team version calls partly uncertain. The team notes put the [OCR?] marks on the words for the old mansions and the verb of the "were lost" clause, both of which the public text drops, so the bricks clause does not rest on an uncertain reading. Both verse paragraphs (the Persian couplet and the italic kafi) match the team version byte for byte. No citations, page references, narration of named authors, archive or process language survive. The time anchors are sound: "In the nineteenth century" for Chishti (date unconfirmed), "By the 1880s" for Kanhaiya Lal (1884), "In the early twenty first century" for Khalid (2013).
+
+Judgement calls for V1 (writer's notes), rulings:
+- 1 (length 0.41): accepted. The three precision notes above barely change the length.
+- 2 (Tomb, first paragraph: only the grave, Iltutmish's room, Akbar's bricking, the marble tomb pulled down by Ranjit Singh): accepted. The sequence ("Earlier still") is the team version's own current site text, which is basis (a). Each stage is framed ("Accounts differ", "it is said", "is said to"), and "historians dispute" is kept.
+- 3 ("the Maharaja" left unnamed): accepted. It is faithful to the team version, which does not equate him with Ranjit Singh. "Under Sikh rule" gives the reader enough.
+- 4 (one clause naming Delhi and Kuhram; Delhi dropped from the forts taken): accepted as rule 4(d): one source each, no site position, given without choosing.
+- 5 ("for a time Aibak's power reached as far as Ghazni itself"): accepted. Bhandari's four years of the sultanate of Ghazni, Kanhaiya Lal's pursuit to Ghazni and Chishti's coronation there all support it, and none of the variants is listed.
+- 6 (twenty years of governing Hindustan, and reigning as sultan from 1206 to 1210): accepted. "In all" renders the team version's "the whole of his government". The span 1206 to 1210 rests on the site's own accession and death years, and these are two measures, not rival figures.
+- 7 (Aram Shah son or adopted son; deposed after a year; the flight): accepted. A lineage point gets one clause under rule 4(d), and the deposition and flight do not conflict.
+- 8 (purchase of Iltutmish told from both accounts; "the Sultan" for the manumission): accepted. The two accounts complement each other rather than compete, and "the Sultan" is as unspecific as the team version.
+- 9 (the Khwaja, with only the title glossed): accepted.
+- 10 (the Bihar general): accepted. He is not equated with Bakhtiyar; see taste note 5 on "is remembered".
+- 11 ("Bought by ... Muhammad Ghori, also known as Sultan Shihab al-Din and as Muʿizz al-Din Muhammad bin Sam"): accepted. The team version equates them (Kanhaiya Lal's "Shahab-ud-Din Ghori"; "Where Ghori left him" over Rizvi's Muhammad bin Sam).
+- 12 (the Delhi Sultanate gloss): accepted as definitional.
+- 13 (Muʿinuddin without a description): accepted. The team version gives none.
+- 14 ("one Persian chronicler", "one historian of the city"): the device is accepted, as the brief allows. "Persian" is corrected in precision note 3, and the Legacy sentence is recast in precision note 1.
+- 15 (Iltutmish a slave king; muftis appointed for Lahore under him; rule from Delhi): accepted. Leaving out Abbas's own ancestors is right.
+- 16 (built in 1972 at Bhutto's order, after "though accounts of its date differ"): accepted. 1972 sits inside the established 1970s, and only the Directorate's 1990, which is not named, stands against it.
+- 17 (the "simple, informal grave" sentence closing the nineteenth century paragraph): accepted.
+- 18 (555 and 582 dropped): accepted. Writing "AH" would add a calendar the team version does not print, and the years are minor.
+- 19 (the eleventh of Rabiʿ al-Awwal without the uncertain year): accepted. Only the year is flagged.
+- 20 (kafi framed as polo verse that does not name the Sultan): accepted.
+- 21 ("many of its monuments"): accepted. It is a fair rendering of "the loss of old Lahore's monuments", and the uncertain "thousands" is not given.
+- 22 ("His troops" for troops under Aibak): accepted.
+- 23 ("not the shrine of a Sufi, or Muslim mystic"): accepted.
+
+Omission sweep: after a sweep of the team version (the life and campaigns, the accession, Yildiz, the household and succession with the daughter, the son-in-law Iltutmish, Aram Shah and Ghori's nephew Ghiyas al-Din, the names and the couplet, the death, the tomb through time, the 1970s rebuilding, the setting and the legacy), nothing important is missing. The only things left out are source apparatus, rival variants and readings the team version marks uncertain or illegible.

@@ -1,0 +1,49 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) The death date, ruling on judgement call 2. "The year that corresponds to the 1657 of the account above" is the team writer's own conversion, not a book's. Set beside a named day it says more than it can. 1068 AH runs from the autumn of 1657 into 1658, and the twenty second of Dhu al-Qa'da 1068 falls in 1658, as the writer's note says. Dropping the clause loses nothing: 1657 stays in the Overview as the established year, and the clause "Accounts of the date of his death differ" covers the gap. "Most often" still holds, since the day is given by both legible books and the year by Lahori, and the site's 1657 does not stand against it.
+OLD: Accounts of the date of his death differ, but he is most often said to have died on the twenty second of Dhu al-Qa'da, the eleventh month of the Islamic year, in 1068 AH, the year that corresponds to 1657.
+NEW: Accounts of the date of his death differ, but he is most often said to have died on the twenty second of Dhu al-Qa'da, the eleventh month of the Islamic year, in 1068 AH.
+2. (precision) The team version says the tombs around Lahore "are places of pilgrimage for the people". It does not have "of Lahore", which narrows who came.
+OLD: In the nineteenth century the tombs of Shah Chiragh and of his grandfather Abdul Qadir Thalith were places of pilgrimage for the people of Lahore.
+NEW: In the nineteenth century the tombs of Shah Chiragh and of his grandfather Abdul Qadir Thalith were places of pilgrimage for the people.
+3. (precision) A wrong anchor. The section's list includes a Shah Chiragh of Delhi and the son of Hazrat Ghaus al-Azam in the chain of Mian Mir. The team version does not place either of them in Lahore. Its own "Lahore's books know several men" is about the books, not about where the men lived. The sentence in The Saint, "Lahore has known other men of both names", is accurate and stays.
+OLD: Lahore has known several other men called Chiragh or Abd al-Razzaq, remembered separately from the saint of the Mall.
+NEW: Several other men called Chiragh or Abd al-Razzaq, in Lahore and beyond, are remembered separately from the saint of the Mall.
+4. (precision) The study's sentence is "Aurangzeb gave importance to some other Shari minded Qadri sufi, like Shah Chiragh". Without "some", the public sentence says Aurangzeb favoured that whole class of Sufis.
+OLD: Aurangzeb, it has been said, gave importance to Qadiri Sufis who were mindful of the *sharia*, the religious law, and Shah Chiragh, whose tomb the emperor had built, was one of them.
+NEW: Aurangzeb, it has been said, gave importance to some Qadiri Sufis who were mindful of the *sharia*, the religious law, and Shah Chiragh, whose tomb the emperor had built, was one of them.
+5. Rulings on the judgement calls:
+   - 1 accepted. Rule 4 (a) gives way here. Every source other than the site that names a grandfather (Lahori's chain, Chishti p. 108) names Abdul Qadir Thalith, and Chishti's other chain is an uncertain reading. Keeping the site's naming by "his grandfather Hazrat Abdul Qadir Sani" beside Lahori's chain would merge two accounts. The lamp story is the only telling of the naming, and it is framed "it is said", with one clause that accounts differ. Lahori's chain matches the team version link by link.
+   - 2: see note 1.
+   - 3 accepted. The count of eight is common to the site and Kanhaiya Lal, and "his family" is their common ground. Neither the site's father and grandfather nor Kanhaiya Lal's seven offspring is given as settled. Chishti's two named graves sit in the team version's paragraph on the graves inside the tomb, so "one of the graves" is supported.
+   - 4 accepted. The team version itself places this passage under The Shrine as "another reading of the site", whose place "answers to the shrine's own location". The public text does not add "Abdul Razzaq" to that man, so nothing is merged.
+   - 5 accepted. It is a definitional gloss of the title and translates no line of the verse.
+   - 6 accepted. The team version records no disagreement over the material. The site's limestone and Kanhaiya Lal's plan, door, roof and dome describe one building.
+   - 7 accepted for this stage, because the sentence is the team version's own (the current site account) and the team version gives no rival year. A point for Rauf and the team version, outside this check and from general knowledge only: Muhammad Shah came to the throne in 1719, and Zakariya Khan governed Lahore from 1726, so 1716 fits neither. The year is worth checking in the team version. It is not something to change in this stage.
+   - 8 accepted. Both accounts describe the mosque at this tomb, with its builder's mother buried there, and the legible "Nawab Khan Bahadur" fits Khan Bahadur Zakariya Khan. The identification does not rest on the unreadable part of the name.
+   - 9 accepted. The legible verb and the team version's own "what was played" support "music". No instrument is named.
+   - 10 accepted. The sentence keeps only what the team version states plainly.
+   - 11, 12 and 13 accepted.
+   - 14 accepted. The grandfather follows call 1. See note 2 for "of Lahore".
+   - 15 accepted. Both joins rest on facts stated in sequence and claim no mechanism: the Accountant's office, the Aiwan-e-Auqaf built by the British administration, the Gilani Sayyids in the 1880s, and the Auqaf Department since 1973.
+   - 16 accepted. Kanhaiya Lal's account of the quarters is the only one that keeps the names apart, so "most often ... though accounts differ" is right.
+   - 17 accepted, with note 3. Chishti's Abd al-Razzaq and Lahori's Shah Abd al-Razzaq Makki are listed one after the other without being identified, as in the team version. "1084 AH" is a fair reading of a date in a Hijri book.
+   - 18 accepted. It is framed "is said", and Chishti's damaged sentence is rightly left out.
+   - 19 accepted, with note 4.
+   - 20 accepted. After notes 1 to 4 the ratio stays at about 0.42, inside L1.
+6. Other checks passed:
+   - Legends stay framed: the lamp story ("it is said"), the entry into Uch in 887 AH ("is said to have entered"), Mauj Darya's grave ("is said") and the view of Aurangzeb ("it has been said").
+   - The time anchors are firm. Kanhaiya Lal (1884) appears as "the 1880s". Chishti appears only as "the nineteenth century". The dates 1875 to 1880 and 1973 come from the site account, and Khalid appears as "Today". Lahori's life facts are left unanchored.
+   - There is no citation, page reference, narration of sources, signposting, uncertainty or process language.
+   - Each "accounts differ" is a single clause, and no variants stand side by side.
+   - The two histories of a mosque stay with their two buildings, and Lahori's chain is given on its own, so nothing is merged.
+   - The three verse lines are byte for byte the team version's.
+   - The bibliography is verbatim, and the English checker exits 0 (0.42).
+7. Taste only, not required:
+   - "and the British emptied both buildings" does not say what the buildings held, because the gunpowder (an uncertain reading) is rightly left out. The words are the team version's legible ones, but the clause reads a little oddly on its own.
+   - The last sentence of the Legacy retells facts given above: Aurangzeb's order, Shah Jahan's devotion, the residence and the office, the Aiwan-e-Auqaf, and the passage from the Gilani Sayyids to the Auqaf Department. It works as a close, but it is repetition.
+   - "both men descended from Abdul Qadir Sani, a son of Muhammad Ghaus Uchi" repeats what the chain one paragraph earlier already shows.
+8. Omission sweep: after reading the team version through, nothing important is missing. The family is named: the father, the line to Muhammad Ghaus Uchi, the son Sayyid Mustafa, the sahibzada Zain al-Abidin, Langar Khan Baloch and Zakariya Khan's mother. The building, the graves, the mosque and the bequest are kept, along with the colonial history, the keepers, the land, the fair, the Thursday music, the namesakes, the setting and the legacy. What is left out is source apparatus, the rival variants resolved under rule 4, and readings marked uncertain or illegible, among them the sultans' offerings, which rest on the uncertain verb. Also left out are small items: Humayun's time for the Nila Gumbad Abd al-Razzaq Makki, the road beside the tomb, the tenth enclosure, and Mohalla Shah Chiragh in Kanhaiya Lal's contents.

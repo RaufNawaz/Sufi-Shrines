@@ -1,0 +1,5 @@
+Urdu round 3 changes (coordinator, by script) to entries/descriptions_public/samadhi-of-maharaja-ranjit-singh.ur.md: V2 and V3 round 2 issues and selected notes, in the verifiers' wording. The English is unchanged.
+
+[V2 r2 issue 1]
+OLD: اس وقت تک اس لاہور میں، جس پر کبھی ایک سکھ کی حکومت تھی اور جو سکھوں کی سیاسی طاقت کا مرکز تھا، کسی سکھ سے ملاقات شاذ و نادر ہی ہوتی تھی۔
+NEW: اس وقت تک اس لاہور میں، جس پر کبھی ایک سکھ کی حکومت تھی اور جو سکھوں کی سیاسی طاقت کا مرکز تھا، کسی سکھ سے ملاقات ایک نادر بات ہو چکی تھی۔

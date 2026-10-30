@@ -1,0 +1,50 @@
+Coordinator fixes from V1 round 1 (exact wording from the report). Each item: the V1 point, then the old and new sentence.
+
+[V1 r1 minor a1]
+OLD: Mardana has his own part in the janamsakhi telling of the story. At first, it is told, he refused Lalo's millet *roti*, the flat bread, and ate it only when Nanak called it *prasad*, food made holy by being offered; later it was Mardana who carried Lalo's *roti* to Bhago's house.
+NEW: In the janamsakhis, Mardana has his own part in the story. At first, it is told, he refused Lalo's millet *roti*, the flat bread, and ate it only when Nanak called it *prasad*, food made holy by being offered; later it was Mardana who carried Lalo's *roti* to Bhago's house.
+
+[V1 r1 minor a2]
+OLD: The Guru's teaching that there was no Hindu and no Muslim was questioned at the court of Nawab Daulat Khan Lodhi at Sultanpur, at the court of Malik Bhago in Eminabad, and at Rai Bhoi di Talwandi.
+
+The town is also associated with the turbulence of Babur's invasion.
+NEW: The Guru's teaching that there was no Hindu and no Muslim is said to have been questioned at the court of Nawab Daulat Khan Lodhi at Sultanpur, at the court of Malik Bhago in Eminabad, and at Rai Bhoi di Talwandi.
+
+The town is also associated with the turbulence of Babur's invasion.
+
+[V1 r1 minor b1]
+OLD: Turned away from house to house in an inhospitable village, he asks why two villages received opposite blessings.
+NEW: In one of them, turned away from house to house in an inhospitable village, he asks why two villages received opposite blessings.
+
+[V1 r1 minor b2]
+OLD: His parents settled at Kartarpur, and he and Nanak spent a lifetime on the road.
+
+Stories of Mardana are told at other shrines too.
+NEW: In the same stories, his parents settled at Kartarpur, and he and Nanak spent a lifetime on the road.
+
+Stories of Mardana are told at other shrines too.
+
+[V1 r1 minor c]
+OLD: The gurdwara that survives today owes its grandeur to the era of the Sikh Empire: it was built during the reign of Maharaja Ranjit Singh (1801 to 1839), whose patronage adorned so many of the sites connected with the Gurus, though accounts of when it was built differ. The central building is an imposing structure of finely cut brickwork rising through several storeys, crowned by a large central dome, the *gumbad*, flanked by smaller domed pavilions, the *chhatris*, in the manner characteristic of Sikh sacred architecture.
+NEW: The gurdwara that survives today owes its grandeur to the era of the Sikh Empire: it was built during the reign of Maharaja Ranjit Singh (1801 to 1839), whose patronage adorned so many of the sites connected with the Gurus, though accounts of its date and its form differ. The central building is an imposing structure of finely cut brickwork rising through several storeys, crowned by a large central dome, the *gumbad*, flanked by smaller domed pavilions, the *chhatris*, in the manner characteristic of Sikh sacred architecture.
+
+[V1 r1 minor d1]
+OLD: In the janamsakhis, Mardana, the *rubab* player, set out with Nanak on his travels. He went with him east all the way to Assam, to Haridwar and Prayag, to Lahore, Sialkot and Multan, to Mecca, Medina and Baghdad, and to Tilla Balnath and Katasraj.
+NEW: In the janamsakhis, Mardana, who played the *rubab*, a traditional stringed instrument, set out with Nanak on his travels. He went with him east all the way to Assam, to Haridwar and Prayag, to Lahore, Sialkot and Multan, to Mecca, Medina and Baghdad, and to Tilla Balnath and Katasraj.
+
+[V1 r1 minor d2]
+OLD: In the janamsakhis Mardana would take up his *rubab*, a traditional stringed instrument, and provide an accompaniment for the divinely inspired verses that Nanak sang, and the Guru's call to him was "Mardana, Bani aaye hai", "I have inspiration for a Bani".
+NEW: In the janamsakhis Mardana would take up his *rubab* and provide an accompaniment for the divinely inspired verses that Nanak sang, and the Guru's call to him was "Mardana, Bani aaye hai", "I have inspiration for a Bani".
+
+[V1 r1 minor e]
+OLD: His own poetry is in the Guru Granth Sahib, which contains the poetry of several non-Sikh saints, among them Baba Farid, Bhai Mardana and Bhagat Kabir.
+
+In the janamsakhis, Mardana, who played the *rubab*, a traditional stringed instrument, set out with Nanak on his travels.
+NEW: His own poetry is in the Guru Granth Sahib, which contains the poetry of several saints who were not Sikhs, among them Baba Farid, Bhai Mardana and Bhagat Kabir.
+
+In the janamsakhis, Mardana, who played the *rubab*, a traditional stringed instrument, set out with Nanak on his travels.
+
+[V1 r1 minor f]
+OLD: The tradition of *kirtan*, the singing of hymns in the gurdwaras, comes from Bhai Mardana.
+NEW: The tradition of *kirtan*, the devotional singing of hymns, comes from Bhai Mardana.
+

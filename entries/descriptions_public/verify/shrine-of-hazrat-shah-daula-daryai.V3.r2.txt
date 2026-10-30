@@ -1,0 +1,20 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. All 30 changed sentences were read in their paragraphs. Each is correct, natural Urdu: agreement, postpositions, izafat and word order are sound, and none adds a calque, an ambiguity or a repetition inside the sentence that would count as a fault. Each also fits the sentences around it.
+2. Round 1 V3 issues:
+   - Fixed with V3's wording: issues 1 to 5 and 7 to 16 (changes 1 to 8 and 11 to 17), issues 18 to 23 (changes 19 to 24), and issues 25 to 28 (changes 27 to 30). The r1 note on اولاد عطا ہونے is fixed by change 9.
+   - Issue 17, merged with V2: fixed. ان سے کسی انسان کا حال بیان نہیں ہوتا removes the reading of a statement made by a person, and قصے replaces افسانے.
+   - Issue 24, adapted: the misreading of بہت as very is fixed by the zer on بِہت. The naming difference with جہلم in the Overview is left as the English has it, which I accept.
+   - Issue 6 (نالہ دیک against دریائے دیگ) was not applied and is not listed in the changes file. I withdraw it. The English deliberately keeps Nala Dek and Deg as separate names (notes.md, judgement call 5), so spelling both دیگ would merge two streams the English does not identify. The Urdu correctly follows the English. The changes file should have recorded the rejection.
+   - Every افسانہ that meant legend is now قصہ. The remaining افسانہ and افسانے all refer to Qasimi's story, as intended.
+3. Taste only, not faults:
+   - Change 3: the short جو ضرب المثل ہے clause set between commas after سخاوت بھی is a little English in shape, but it is grammatical and clear. دریا دلی after فیاضی varies the word well and echoes دریائی.
+   - Change 11: this sentence quotes the term as "چوہا", while two sentences later the plural "چوہے" is used for the same children. Both are acceptable, one as the citation form and one as a plural label.
+   - Change 13: یہی now has no noun antecedent, since the noun بیان became a verb. Readers will still take it as that account, so it is not ambiguous.
+   - Change 17: the gapped ending اور اس کے بعد بھی ہر بچہ, followed by a trailing جب تک ... نہ clause, is acceptable modern prose. Putting the جب تک clause first would read more traditionally.
+   - Change 18: یہ ایک قصے کے الفاظ ہیں keeps the English a. After یہ قصہ and قصہ آگے بتاتا ہے, a plain قصے would also do. The paragraph now uses قصہ three times across its sentences, which is acceptable.
+   - Change 21: the sentence now has ایک three times (عبرت آموز مطالعے، حقیقی طبی کیفیت، المناک الجھن). الجھن in its sense of tangle reads correctly with دکھائی دیتی ہے, though الجھاؤ would be the more exact word.
+   - Change 27: کیا گیا comes twice in the closing pair (تعمیر کیا گیا اور ... آباد کیا گیا). The parallel is acceptable.
+   - Change 15: گود ہری کرنا said of a جوڑا is a common figurative extension and reads naturally.
+4. Unchanged sentences were not reopened. None of the 30 edits broke a neighbouring sentence.

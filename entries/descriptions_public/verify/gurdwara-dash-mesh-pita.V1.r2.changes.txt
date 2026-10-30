@@ -1,0 +1,17 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: It is a separate place from Sukkur's two much better documented gurdwaras, Sadhu Bela, on its island in the Indus, and Gurdwara Pehli Patshahi, or Jind Pir, near the bridge between Sukkur and Rohri, whose detailed histories are tied to the travels of Guru Nanak, the first Guru.
+NEW: It is a separate place from Sukkur's two much better documented gurdwaras, Sadhu Bela, on its island in the Indus, and Gurdwara Pehli Patshahi, or Jind Pir, near the bridge between Sukkur and Rohri, both with detailed histories tied to the travels of Guru Nanak, the first Guru.
+
+2. V1 r1 change 2
+OLD: Before heading to Delhi, his father appointed him his heir, and it was the young Gobind Singh who had urged his father to aid the Pandits, the learned Brahmins.
+NEW: Before heading to Delhi, his father appointed him his heir, and it was the young Gobind Singh who urged his father to aid the Pandits, the learned Brahmins.
+
+3. V1 r1 change 3
+OLD: Guru Gobind Singh is seen as the one who completed Nanak's mission.
+NEW: Guru Gobind Singh is seen as having completed Nanak's mission.
+
+4. V1 r1 change 4
+OLD: There is a view that Ranjit was a true follower of Guru Gobind Singh, and Bhindranwale passionately claimed that the new generation of Sikhs did not respect the Sikh way of life as taught by him.
+NEW: There is a view that Ranjit was a true follower of Guru Gobind Singh, and Bhindranwale passionately claimed that the new generation of Sikhs did not respect the Sikh way of life as taught by the Guru.

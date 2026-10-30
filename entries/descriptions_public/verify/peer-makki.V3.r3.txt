@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Confirming round 3 (V3 fluency), the one changed sentence read in its paragraph. The replay against the backup proved nothing else moved (see the V2 r3 report).
+
+Round 2 issue 1 (زائرین twice in one sentence): fixed. The sentence now has زائرین once, in the first clause, and the second clause reads پھر بھی خود پیر مکی کے مقبرے پر حاضری دینے والے کہیں کم ہیں. حاضری دینا is the natural idiom for visiting a shrine; حاضری دینے والے (masculine plural) agrees with کم ہیں; the postposition پر sits right; خود پیر مکی کے مقبرے keeps the contrast with the great neighbour without a calqued اپنا. No new ambiguity, no calque, no repetition inside the sentence, and it leads naturally into اسی لیے یہاں کی فضا ... in the next sentence.
+
+Taste only: the previous paragraph ends its devotional sentence with پیر مکی کے مزار پر حاضری دی جائے, so حاضری returns two sentences into the next paragraph with a similar frame (پیر مکی کے مقبرے پر حاضری دینے والے). It is across paragraphs, not inside one sentence, and reads acceptably; آنے والے would avoid the echo if the writer ever wished.

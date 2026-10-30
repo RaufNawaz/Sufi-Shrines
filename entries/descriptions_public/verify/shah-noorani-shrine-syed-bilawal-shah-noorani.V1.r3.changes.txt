@@ -1,0 +1,5 @@
+# shah-noorani-shrine-syed-bilawal-shah-noorani: English change after V1 round 2 (FAIL, 1 issue), applied in the verifier's wording. The Urdu draft (not yet verified) carries the same change. Backup: /home/claude/bak/shah-noorani-shrine-syed-bilawal-shah-noorani.md.before_v1r3
+
+WHY: V1 round 2, issue 1 (time anchor: 'In the years before 2016' gave a span the team version lacks; tense of 'has made'); the verifier's exact fix
+OLD: In the years before 2016, Lahut, like Hinglaj, saw a new wave of interest, mainly because a newly constructed road leading to the shrine has made the journey through the mountainous area easier.
+NEW: Before the attack of November 2016, Lahut, like Hinglaj, saw a new wave of interest, mainly because a newly constructed road leading to the shrine had made the journey through the mountainous area easier.

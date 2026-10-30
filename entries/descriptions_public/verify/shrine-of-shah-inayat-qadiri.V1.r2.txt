@@ -1,0 +1,20 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff result. `diff /home/claude/bak/shrine-of-shah-inayat-qadiri.md.bak_en1 entries/descriptions_public/shrine-of-shah-inayat-qadiri.md` shows five changed lines (9, 13, 21, 27, 97), and they hold exactly the six listed replacements: line 13 carries changes 1 and 2. I also checked this in code. Each OLD occurs once in the backup. Each NEW occurs once in the current file, and no OLD is left in it. Applying the six replacements to the backup gives a file identical to the current one, byte for byte. Nothing else moved. The file has no em or en dashes.
+
+2. Change 1, "though he is often counted simply a Qadiri". This is supported. Rafat's book names only the Qadiriya, Sharib gives only the nisba Qadiri, and Shackle's notes and glossary name the Qadiri. Three accounts give both orders, so "often" is right and no longer claims a majority. Grammar is intact.
+
+3. Change 2, "the creed of the Qadiri order's Hanbali founder". This is supported. The team version has "the creed of Sheikh Abdul Qadir of Baghdad, the Hanbali founder of the School", meaning the Qadiriya. The founder can no longer be read as the Shattari order's, which the sentence before discusses, and it agrees with "the order of Sheikh Abdul Qadir of Baghdad" earlier in the paragraph. "one writer has called ironical" still frames the verdict. No new fact is added.
+
+4. Change 3, "he is described as "of Kasur, then of Lahore"". This is supported. The team version gives the phrase from the title of a life of the saint in the edition's book list. The passive names no source and claims no more than one description. The quotation is verbatim.
+
+5. Change 4, "One of his lyrics has been read as casting the master as Ranjha". This is supported. In the team version, "A note to another lyric makes the master a figure from the romance of Heer", and the comparison of Ranjha with Shah Inayat is the note's own sentence. The reading now belongs to a reader, as elsewhere in the draft, and not to the lyric itself. "his" still refers to Bulleh Shah, the subject of the sentence before. Grammar is intact.
+
+6. Change 5, "These were, it has been argued, hard times for the Qadiri order: in Aurangzeb's time the Qadiri mystics of Lahore were on the defensive". This is supported. Both halves are Rafat's argument in the team version: "The times of Shah Enayat and Bulleh Shah were therefore hard times for the Qadiriya order", and "its argument that 'During Aurangzeb's period, the Qadiriya mystics in Lahore were on the defensive ...'". The frame now governs the main claim, and the clause after the colon explains that claim, so the frame covers it too. Nothing was added or lost.
+
+7. Change 6, "One poem also plays on his name". This is supported. The team version records one play on the name, in a note to one lyric (n. 7 on 59), and the glossary's meaning, "favor". The general claim about the poems is gone. "grace or favour" is unchanged and supported by the note and the glossary. Grammar is intact, and "also" follows on from the verse paragraphs before it.
+
+8. Checker line: `ok    shrine-of-shah-inayat-qadiri  team 36485 -> public 14984 chars (0.41)` (exit 0). This matches the r1 report's L1 ruling: a ratio of 0.411, inside L1, so no exception line is needed.

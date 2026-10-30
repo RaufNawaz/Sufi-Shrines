@@ -1,0 +1,77 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [source talk] "The standard study of his order is George Weston Briggs's *Gorakhnath and the Kanphata Yogis*, first published in 1938." -> This names a modern scholarly book in the prose only as a pointer to further reading. Rule 2 lets a source be named only where it is itself part of the story (a poet's verse, a text the site is known for), and this book is not. It is already item 3 of the Bibliography. In the team version the sentence belongs to a wholly bibliographic paragraph ("stands in the bibliographies of two of the books consulted"), and the writer rightly dropped the paragraph's other two items (Raghaw, Banerjea) as apparatus. This is judgement call 20, which I raise. The fix is the writer's own fallback: delete the sentence. The OLD/NEW pair keeps the sentence before it, so the deletion is applied exactly once. -> Delete the sentence.
+OLD: The *Goraksha-Bijay* of the seventeenth century, based on a Sanskrit work said to have been composed by Gorakhnath, was written by Shaikh Faizu'llah. The standard study of his order is George Weston Briggs's *Gorakhnath and the Kanphata Yogis*, first published in 1938.
+NEW: The *Goraksha-Bijay* of the seventeenth century, based on a Sanskrit work said to have been composed by Gorakhnath, was written by Shaikh Faizu'llah.
+
+NOTES:
+1. (precision) Judgement call 8. The team version has two separate statements. The first says the *Kanphata* initiation rite is "still current" (Rizvi). The second glosses "the *Kanphat* ear-piercing rite" (Shackle). It never says the initiation rite is the ear piercing, and it never says what the initiation rite consists of. The apposition "Its rite of initiation, the piercing of the ears" makes that identification. The fix keeps both facts without equating them, and it keeps the time anchor on the initiation rite only. The writer's fallback would drop the ear piercing altogether, and this fix keeps it. The anchor "the late twentieth century" for Rizvi's "still current" is accepted, because the book was first published in 1978 with a copyright line of 1975.
+OLD: Its rite of initiation, the piercing of the ears, was still current in the late twentieth century.
+NEW: The order has its rite of piercing the ears, and its rite of initiation was still current in the late twentieth century.
+
+2. (precision) Ambiguous referent, connected to judgement call 11. "Their traditions" comes straight after "... is the Shiva of the Hindus.", so its nearest antecedent is "the Hindus". The sentence can then be read as a claim about Hindu tradition at large. In the team version, "The traditions" is part of Rizvi's account of the Naths. The rest of the writer's wording in judgement call 11 ("this does not mean that these figures are historical") is accepted.
+OLD: Their traditions venerate nine Naths and eighty four Siddhas, or perfected ones, though this does not mean that these figures are historical.
+NEW: The Nath tradition venerates nine Naths and eighty four Siddhas, or perfected ones, though this does not mean that these figures are historical.
+
+3. (precision) Belief stated as fact. The words "the perfect yogi can transform his body at will and is therefore free of all disease and death" are in the narrator's own voice. In the team version they are a quotation describing the Naths' philosophy, and the next sentence there calls it "this philosophy". The fix frames the words as the Naths' teaching. The sentence after it already does the same ("are believed to have achieved this").
+OLD: Their goal was mastery of the body: the perfect yogi can transform his body at will and is therefore free of all disease and death.
+NEW: Their goal was mastery of the body: in their teaching, the perfect yogi can transform his body at will and is therefore free of all disease and death.
+
+4. (precision) Legend stated as fact. The sentence before this one is framed ("Tradition has it"). This one is not: it says in the narrator's voice that the *khichri* turned to limestone and that the necklace frees whoever wears it. "Attributed" covers only who gave the boon. The team version frames it as something Schaflechner "tells of". The fix restores the framing, as rule 3 requires.
+OLD: By a boon attributed to Lakhavat, the piled *khichri*, a dish of rice and lentils, turned to limestone, and anyone who returned from Hinglaj wearing a necklace of these limestone pebbles would be freed from the fetters of this world.
+NEW: It is said that by a boon attributed to Lakhavat the piled *khichri*, a dish of rice and lentils, turned to limestone, and that anyone who returned from Hinglaj wearing a necklace of these limestone pebbles would be freed from the fetters of this world.
+
+5. (precision) A word the source does not have. "It was the road that armies and caravans used" reads as if this were the one road they used. That clashes with two sentences earlier, where armies pass along the Nikshab road, with difficulty. The team version says only that the road was "used by armies and caravans".
+OLD: The third, the road of Ali Masjid and the Khyber, was harder going for two *kos*, an old measure of distance, yet easier than the others, and it was the road that armies and caravans used.
+NEW: The third, the road of Ali Masjid and the Khyber, was harder going for two *kos*, an old measure of distance, yet easier than the others, and armies and caravans used it.
+
+6. Rulings on the judgement calls. Number 8 is precision note 1 above and number 20 is issue 1. All the others are accepted:
+   - 1: "Is identified with" presents an identification, not a fact. Its basis (the name, the city, the location in Peshawar) is the team version's own, and the team version tells all of Rizvi's Gorakhtari material inside its Gor Khatri section. The writer's alternative is not needed, and its "of earlier times" is a phrase the team version does not have. The doubt that remains is Rauf's (Doubt 6), and the notes file records it correctly.
+   - 2: The site's account of Babur's visit and Rizvi's "Babur mentions his visit" agree and describe one event, so joining them is not a merged chain. "He mentions the visit himself" is about Babur's own testimony, which is part of the story. It does not narrate this row's sources. "Founder of the Mughal dynasty" is a fair rendering of "the Mughal founder".
+   - 3: "Seems" is kept, and it governs the visits as well.
+   - 4: Kor Khatri is told the way the team version tells it. It is not identified with the present temple, and setting it in a separate paragraph keeps any causal link to the sarai out.
+   - 5: "Or yogis" is a plain dictionary gloss, and "Shaiva" for "Shivaite" is only a spelling.
+   - 6: No clause is needed. Dhillon's eleventh century falls inside the traditional range, Rizvi gives no date, and the Janamsakhi meeting is told as tradition with the historical caveat.
+   - 7: "It is told" lowers the certainty. "He is known to have written" matches Rizvi's "we know he wrote".
+   - 9: The [OCR?] flag concerns only the spelling of the subject's name, and both readings name the same man. The team version places the passage in its summary of Gorakhnath's teaching, so the point stands and nothing rests on the uncertain letters.
+   - 10, 12, 14, 16 and 18: accepted as written.
+   - 11: accepted, apart from the referent (note 2).
+   - 13: The flagged word is dropped and the point stands. "Through him" is clearly Baba Ratan. No link to Pir Ratan Nath of Jhanda Bazaar is drawn, and the two stay in different sections.
+   - 15: "The valley" in the team version is the valley of the Hinglaj pilgrimage. "A stone" and "there" say no more than the team version does.
+   - 17: Rizvi's view of the exchange and his "strongest evidence" are stated as content. Nothing in the team version contradicts them.
+   - 19: This follows the Pir Ratan Nath row, and the 2010 visit is not tied to the festival.
+   - 21: "Older books" is the content of Bhandari's sentence, not narration of this row's sources. There is a taste point under 9(a).
+   - 22: "Then" points back to Aurangzeb's reign. "Afghan raids" is not flagged in this team version.
+7. Consensus choices and the other checks. All are accepted:
+   - Disagreements 1 to 8 are handled under rule 4.
+     - Gor Khatri is used throughout.
+     - Trumpp's doubt is dropped as superseded; the team version itself calls McLeod's location "rightly" made.
+     - The pre-yogi and Mughal material is told in sequence without merging.
+     - The traditional date range is used.
+     - Shackle's "head of the Kanphat yogis" is dropped as repeating the founder.
+     - The city and the province are kept at their own scales, as on the Pir Ratan Nath row.
+     - Neither cause of the calmer Partition is chosen. Only the point the two passages share is kept.
+     - No side by side variants remain, and no chains are merged.
+   - Rule 5:
+     - Bhandari's "today" clause is rightly left out. The team version marks its first word uncertain and says its reference is unclear.
+     - The uncertain name of the *tuman* is dropped, and "the district known as Peshawar" is kept.
+     - "Haijji [Hajji]" is dropped.
+   - Time anchors:
+     - "In Aurangzeb's reign" is firm (regnal year 40).
+     - "The late twentieth century" is firm (Rizvi, 1975 and 1978).
+     - Khalid's 2010 and 2011 keep their own years.
+     - Khalid's "Since Partition ... has been home" keeps his present perfect, in the same wording V1 passed on the Pir Ratan Nath row.
+   - Source talk: apart from issue 1, none. "Older books", "In Persian writing" and "In the Janamsakhis", the *Gorakh Caritra* and the *Gorakhpurana*, and "as one scholar of Sufism put it" are content, or a quotation the brief allows.
+   - Glosses: all are definitional. The Chishti gloss is the glossary's own.
+   - Checker and length: the --english-only checker exits 0 at a ratio of 0.51, and there are no em or en dashes. Applied together, the fixes above shorten the prose by about 75 characters, which leaves the ratio at about 0.50.
+8. Leaving out Prem Gupta's name (team notes, decision 4) is accepted. He is an informant, not a family member, and the quotation is kept.
+9. Taste only, not required:
+   - (a) "Peshawar is an ancient city, which older books also write as Parshawar and Farshawar": books write the name, not the city. "An ancient city whose name older books also write as Parshawar and Farshawar" reads better.
+   - (b) "With its emphasis on *hatha yoga*, the yoga of bodily discipline, on asceticism and on esoteric discipline" uses "discipline" twice.
+   - (c) "His name reaches as far as the cult": "as far as" is a small intensifier that the team version ("reaches the cult") does not have. It is harmless.
+   - (d) The "Peshawari" line closes "Gorakhnath and the Sufis" but is not about Gorakhnath. It would sit as well at the end of "Peshawar and the Frontier".
+10. Notes file, not the public text: when issue 1 is applied, move the Briggs sentence into "Left out" (source apparatus) and update judgement call 20 and the remark "Briggs is kept as the standard study of his order".
+11. Omission sweep: I read the team version section by section: the Overview, Gor Khatri, the Nath tradition, Gorakhnath in the Books, the Sufis, In Verse, Closure and Reopening, Setting, the disagreements and Significance Today. Nothing important is missing.
+   - Every person it names clearly is kept: Matsyendranath, Jahan Ara Begum and her father Shah Jahan, Babur, Akbar, Jahangir, Avitabile, Durrani, Guru Nanak, Guru Angad, Shaikh Faizu'llah, Baba Ratan, Hir and Ranjha, Goga Pir and Rai Pithora, Lakhavat, 'Abdu'l-Quddus, Ibn al-'Arabi, Bulleh Shah, Baba Farid and Pir Ratan Nath.
+   - What is dropped is apparatus, statements of absence, hedged or minor variants, and readings the team version marks uncertain.

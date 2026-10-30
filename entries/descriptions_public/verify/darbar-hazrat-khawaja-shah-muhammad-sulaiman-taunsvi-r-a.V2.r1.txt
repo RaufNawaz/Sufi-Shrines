@@ -1,0 +1,16 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. [style, reference] English "even while he opposed their Sikh neighbours" (Devotion and Teaching, last paragraph) | Urdu "اگرچہ وہ ان کے سکھ ہمسایوں کے مخالف تھے" -> in this article ان کے stands for the saint almost everywhere, so a reader may take it as "his Sikh neighbours" and not the Hindus' Sikh neighbours. The English means the Hindus' neighbours; naming them makes that clear.
+OLD: وہ ان کے سکھ ہمسایوں کے مخالف تھے
+NEW: وہ ہندوؤں کے سکھ ہمسایوں کے مخالف تھے
+
+2. [style, slight emphasis] English "In the Punjab the wider spread of the Chishtiya Nizamiya Fakhriya order came about through him." | Urdu "خواجہ سلیمان تونسوی ہی کے ذریعے ہوئی" -> the emphatic ہی can read as "through him alone", which is a little stronger than the English. Optional: drop it.
+OLD: ہی کے ذریعے ہوئی
+NEW: کے ذریعے ہوئی
+
+3. [style, agent] English "after the noon prayer he recited the Quran; then came the afternoon prayer" | Urdu "ظہر کے بعد قرآن کی تلاوت ہوتی اور پھر عصر کی نماز" -> the impersonal ہوتی leaves open who recited; the English says he did. Optional fix that keeps the sentence shape.
+OLD: ظہر کے بعد قرآن کی تلاوت ہوتی اور پھر عصر کی نماز
+NEW: ظہر کے بعد قرآن کی تلاوت فرماتے اور پھر عصر کی نماز پڑھتے
+
+All seven headings correspond (تعارف، صاحبِ مزار، سلسلہ اور مریدین، مزار، عقیدت اور تعلیمات، روایات، ورثہ); every name, date, number, Hijri and Common Era pair and hedge (it is said, accounts differ, generally given, apparently, is held to be, has been credited, have been traced, of about, around) checked paragraph by paragraph and present with the same meaning. Both legends stay framed as stories (ایک قصہ بیان کیا جاتا ہے، کہا جاتا ہے، دوسرا قصہ). Dropped glosses (kuroh, kos, khirqa, fatiha, kashf, karamat, ashrafi, gaddi nishin, sajjada nashin and others) are of familiar words and are deliberate. No verse in this article. File has no Latin letters, no dashes, no asterisks.

@@ -1,0 +1,68 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque / unidiomatic collocation] خود رام کی تعظیم سید پور سے کہیں آگے تک ہوتی ہے: ہندو سال کے تہواروں میں -> "تعظیم ... آگے تک ہوتی ہے" is a literal rendering of "venerated far beyond", and "ہندو سال کے تہوار" calques "festivals of the Hindu year"; Urdu says "تک محدود نہیں، بلکہ" and "ہندوؤں کے سالانہ تہوار" -> corrected sentence:
+OLD: خود رام کی تعظیم سید پور سے کہیں آگے تک ہوتی ہے: ہندو سال کے تہواروں میں، ہنگلاج دیوی کی یاترا میں، اور ان صوفی شاعروں کے کلام میں بھی جنہوں نے رام کو خدا کے ایک نام کی حیثیت سے اپنایا۔
+NEW: خود رام کی تعظیم سید پور تک محدود نہیں، بلکہ ہندوؤں کے سالانہ تہواروں میں، ہنگلاج دیوی کی یاترا میں، اور ان صوفی شاعروں کے کلام میں بھی کی جاتی ہے جنہوں نے رام کو خدا کے ایک نام کی حیثیت سے اپنایا۔
+
+2. [ambiguity / word order] رام سیتا اور لکشمن کو ساتھ لیے -> "رام سیتا" reads at first as the familiar pair "Ram-Sita", so the reader stumbles over who is the subject; the subject must be cut off from the list -> corrected sentence:
+OLD: روایت ہے کہ رامائن میں بیان کی گئی جلاوطنی کے برسوں میں رام سیتا اور لکشمن کو ساتھ لیے اس علاقے سے گزرے تھے۔
+NEW: روایت ہے کہ رامائن میں بیان کی گئی جلاوطنی کے برسوں میں رام اپنے ساتھ سیتا اور لکشمن کو لیے اس علاقے سے گزرے تھے۔
+
+3. [unidiomatic collocation] چشموں کو پہاڑی ندیاں سیراب کرتی ہیں -> "سیراب کرنا" is said of land, fields or the thirsty, not of springs; for "springs fed by streams" Urdu says the stream water comes into them -> corrected sentence:
+OLD: گاؤں کے قدرتی چشموں کو پہاڑی ندیاں سیراب کرتی ہیں، اور یہ چشمے مقدس تالاب مانے جاتے تھے۔
+NEW: گاؤں کے قدرتی چشموں میں پہاڑی ندیوں کا پانی آتا ہے، اور یہ چشمے مقدس تالاب مانے جاتے تھے۔
+
+4. [English word order] دیوتا وشنو -> appositive "the god Vishnu" in English order; Urdu puts the title after the name: وشنو دیوتا -> corrected sentence:
+OLD: ہندو رام کو دیوتا وشنو کا ساتواں اوتار مان کر پوجتے ہیں، اور رامائن کے الوہی ہیرو بھی وہی ہیں جنہوں نے راکشسوں کے راجا راون کو مارا۔
+NEW: ہندو رام کو وشنو دیوتا کا ساتواں اوتار مان کر پوجتے ہیں، اور رامائن کے الوہی ہیرو بھی وہی ہیں جنہوں نے راکشسوں کے راجا راون کو مارا۔
+
+5. [inconsistent spelling] *بن واس* -> the same term is spelled *بن باس* two paragraphs later (جنگل کی وہ جلاوطنی ... جسے *بن باس* کہتے ہیں); use the usual Urdu form بن باس in both places -> corrected sentence:
+OLD: رام نے سیتا کو دیس نکالا دیا، جسے *بن واس* کہا گیا ہے۔
+NEW: رام نے سیتا کو دیس نکالا دیا، جسے *بن باس* کہا گیا ہے۔
+
+6. [ambiguous relative clause / register] ٹیکا لگا دیا، جسے یہاں *ملیچھ* کہا گیا ہے -> "جسے" follows "ٹیکا" and reads as if the tilak mark were called ملیچھ; the colloquial "بس" also slips register -> corrected sentence:
+OLD: قصہ یوں ہے کہ رام کو پجاری کی ضرورت تھی، اور جب بلوچستان میں کوئی نہ ملا تو انہوں نے بس ایک وحشی کے ماتھے پر ٹیکا لگا دیا، جسے یہاں *ملیچھ* کہا گیا ہے۔
+NEW: قصہ یوں ہے کہ رام کو پجاری کی ضرورت تھی، اور جب بلوچستان میں کوئی نہ ملا تو انہوں نے ایک وحشی ہی کے ماتھے پر ٹیکا لگا دیا۔ روایت میں اس وحشی کو *ملیچھ* کہا گیا ہے۔
+
+7. [ambiguity / clumsy list] اور رام پوجا کرتے ہیں -> the second clause can be read with رام as its subject ("and Ram worships"); also "ان میں ... ہے ... اور ... ہے" is a stiff way to list examples -> corrected sentence:
+OLD: ان میں رام کی آرام گاہ ہے، جسے سندھی میں *رام جھروکو* کہتے ہیں، اور کھاری ندی ہے، جہاں لوگ سمندر میں نہاتے ہیں اور رام پوجا کرتے ہیں۔
+NEW: ان میں رام کی آرام گاہ بھی شامل ہے، جسے سندھی میں *رام جھروکو* کہتے ہیں، اور کھاری ندی بھی، جہاں لوگ سمندر میں نہاتے اور رام کی پوجا کرتے ہیں۔
+
+8. [pronoun reference] اس کا بڑا حصہ اب کراچی کے پھیلاؤ کی نذر -> "اس" points to "سفر", but a journey cannot be swallowed by urban sprawl; what has been swallowed is its route -> corrected sentence:
+OLD: رام اور ان کے ہمراہیوں کا یہ سفر کچھ دیومالا ہے اور کچھ تاریخ، اور اس کا بڑا حصہ اب کراچی کے پھیلاؤ کی نذر ہو چکا ہے۔
+NEW: رام اور ان کے ہمراہیوں کا یہ سفر کچھ دیومالا ہے اور کچھ تاریخ، اور اس کے راستے کا بڑا حصہ اب کراچی کے پھیلاؤ کی نذر ہو چکا ہے۔
+
+9. [ambiguous reference] یہ داستان ایک عدالت میں تشبیہ بن کر لوٹتی ہے -> the nearest "داستان" is "داستانِ عشق ہیر رانجھا", so "یہ داستان" reads as Heer Ranjha returning as a simile inside itself; the story meant is the Ramayana -> corrected text:
+OLD: نظم میں آگے چل کر یہ داستان ایک عدالت میں تشبیہ بن کر لوٹتی ہے:
+NEW: نظم میں آگے چل کر رامائن کی داستان ایک عدالت میں تشبیہ بن کر لوٹتی ہے:
+
+10. [ambiguity] مادھو لال حسین کے دوسرے مصرعے -> in Urdu prosody "دوسرا مصرع" means the second line of a couplet; here "other lines" is meant -> corrected text:
+OLD: مادھو لال حسین کے دوسرے مصرعے یوں ہیں:
+NEW: مادھو لال حسین کے کچھ اور مصرعے یوں ہیں:
+
+11. [word order / name cut off] صوفیوں میں سچل ہندو دیوی دیوتاؤں -> "سچل ہندو" runs together and reads as a single phrase before the reader finds the verb; give the name its postposition -> corrected sentence:
+OLD: صوفیوں میں سچل ہندو دیوی دیوتاؤں کا ذکر کرتے ہیں، جیسے رام، ہنومان، سیتا اور خاص طور پر کرشن۔
+NEW: صوفیوں میں سچل کے ہاں ہندو دیوی دیوتاؤں کا ذکر ملتا ہے، جیسے رام، ہنومان، سیتا اور خاص طور پر کرشن۔
+
+12. [name run-on / punctuation] قطب علی شاہ لکشمن اور سیتا، رام اور کرشن -> "قطب علی شاہ لکشمن" reads as one name, and the comma splits a four-name list into two pairs; list with ، and separate the subject -> corrected sentence:
+OLD: قطب علی شاہ لکشمن اور سیتا، رام اور کرشن کے نام لیتے ہیں، اور کہا جاتا ہے کہ جوگی رام کے شیدائی ہیں۔
+NEW: قطب علی شاہ بھی لکشمن، سیتا، رام اور کرشن کے نام لیتے ہیں، اور کہا جاتا ہے کہ جوگی رام کے شیدائی ہیں۔
+
+13. [pronoun reference] راولپنڈی اس کا جڑواں شہر ہے -> "اس" refers back to the subject of the previous sentence, سید پور, but Rawalpindi is the twin city of Islamabad -> corrected sentence:
+OLD: راولپنڈی اس کا جڑواں شہر ہے۔
+NEW: راولپنڈی اسلام آباد کا جڑواں شہر ہے۔
+
+NOTES:
+- "رامائن کے الوہی ہیرو" appears twice (تعارف and رام اور رامائن), and "ایک محفوظ یادگار ... اسلام آباد آنے والوں میں مقبول" is repeated from the introduction at the end of مندر; acceptable as summary and restatement, but a second wording would read better. "الوہی ہیرو" itself is a little bookish; "رامائن کا مرکزی کردار" would be smoother if the editor prefers.
+- "روایتاً ان میں سے چار رام، سیتا، لکشمن اور ہنومان کے نام سے موسوم ہیں" would be more exact as "کے ناموں سے موسوم".
+- "رامائن میں رام کی بیوی سیتا" right after "ان کی زوجہ سیتا" re-introduces Sita; "رامائن میں سیتا راجا جنک کی بیٹی تھیں" would be enough. "کامل عورت" might read better as "مثالی عورت".
+- "گاؤں کے افق پر ایک مسجد اور یہ ہندو مندر نمایاں تھے" is acceptable modern usage; "گاؤں کے منظر میں" is a plainer alternative.
+- "ہنومان رام کے پیروکار تھے": "پیروکار" is usually said of followers of a faith; "بھکت" or "جاں نثار" would suit Hanuman better, if the facts allow.
+- "انگاکھیرا بھیرم لک کے درے پر دیوی کی فوج نے رام کو شکست دی، اور وہ بارہ برس تک جنگ لڑتے رہے" gives defeat before the twelve years of fighting; the order reads oddly, though it may follow the source.
+- "خدا کو دیے گئے ناموں پر بحث کرتے ہوئے": "بحث" is heavy for a two-line poem; "کا ذکر کرتے ہوئے" or "پر غور کرتے ہوئے" would be lighter.
+- "وہاں کے بزرگ کی یاد "محمد، علی یا رام" پر محیط ہے" is understandable but slightly opaque; "محیط" collocates more naturally with spans of time or space.
+- "بلھے شاہ کے کلام میں ایسا ہی ایک حوالہ کمبھکرن کی آمد کو الٹ کر دکھاتا ہے" may be read as a different reference from the verse just quoted; "یہ حوالہ" would be clearer if the same verse is meant.
+- "رامائن کے اس واقعے کا حوالہ بھی دیتے ہیں جب رام ایودھیا لوٹے" would be tighter as "جس میں رام ایودھیا لوٹتے ہیں" or "رام کی ایودھیا واپسی کا حوالہ".
+- "حساب" occurs three times in the رام چندر paragraph (ہندو حساب سے، مؤرخوں کے حساب سے، اسی حساب سے); one could become "شمار" or "تخمینے".
+- "رام چندر" and "رام چند" alternate between paragraphs; this appears to follow the sources (names kept as given), so it is not flagged.
+- Punctuation is clean: Urdu ، and ۔ throughout, no em or en dashes, no Latin letters, Western digits, asterisks balanced.

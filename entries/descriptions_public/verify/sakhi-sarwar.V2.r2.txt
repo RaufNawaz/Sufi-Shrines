@@ -1,0 +1,17 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 11 OLD/NEW pairs of verify/sakhi-sarwar.ur.r2.changes.txt, applied in order to /home/claude/bak/sakhi-sarwar.ur.md.bak_ur1 (each OLD found exactly once and replaced once), give a result byte for byte identical to the current entries/descriptions_public/sakhi-sarwar.ur.md. Nothing else moved. Each NEW occurs once in the current file and no OLD survives. All 8 V3 r1 issues and the V2 r1 issue were applied verbatim in the verifiers' own wording.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py sakhi-sarwar --no-verdicts` printed: ok    sakhi-sarwar  team 26463 -> public 12230 chars (0.46), Urdu 11055 chars (0.90)
+3. Change 1 (Overview, para 1): "honoured across an extraordinary breadth of communities" is rendered as devotees drawn from so many communities that the like is rarely found. Same claim, same strength; nothing added. The present tense is as before and suits the English's tenseless participle.
+4. Change 2: لاکھوں دینے والا now makes the lakhs what he gives, as "the giver of hundreds of thousands" does. V2 r1 issue 1 fixed.
+5. Change 3: عام رہی for "most widespread" keeps the meaning (prevalent, widely held) and the "one of" framing; "for centuries" is kept.
+6. Change 4: زائرین for "pilgrims" is now the exact word, and the subject (the tomb, English "It") is unchanged. V2 r1 note 1 applied.
+7. Change 5: naming سخی سرور again resolves the referent to the saint, as the English "with whom he owned half the village" intends; "maternal cousins" and "half the village" are kept. The joint or split ownership question is equally open in the English, so leaving it is right.
+8. Change 6: درجۂ کمال کو پہنچ کر for "perfected" is the same meaning; no hedge is lost (the English sets "it is said" on the Baghdad sentence only, as the Urdu does).
+9. Change 7: لنگاہ خاندان کے دورِ حکومت میں now names the Langahs as the English does (V2 r1 note 3 met), and سلطان کے پاس fixes "come to him" on Sultan Husain Langah, the right referent. Karorkot to Mankot, jagir, Malik Sohrab, the other Baloch and Kech Makran all kept.
+10. Change 8: the devotees and their two names, Sultanias or Sarwarias, carrying his banners in seasonal pilgrimages: all kept; ان کے پرچم correctly points at the saint, not the devotees.
+11. Change 9: "great occasions of music, offering and celebration in the regional manner" is kept in full; "in the regional manner" moves into a second clause (regional colour shows in them all) without adding a claim.
+12. Change 10: date 3 April 2011, suicide bombing, at the shrine, a procession of pilgrims as the target, "around fifty" killed: all kept. English "its pilgrims" is carried by زائرین at the مزار; nothing lost.
+13. Change 11: "embodied the shared sacred world of the region before the divisions of modern times" is now مظہر تھا with the cult (یہی حلقہ) as an explicit subject, which is the English referent. Nothing added or dropped.
+14. No Latin letters, no en or em dashes, asterisks balanced (4) in the current Urdu file.

@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the 15 changes in bhit-bhit-shah.ur.r3.changes.txt; every NEW sentence is grammatical and idiomatic in place: the passive verse line no longer lacks a subject and reads as what happened on the eleventh day after "مراد بر آئی" (accepted over "پوری ہوئی"), قدموں removes the pirs reading, "اصرار کیا ... اور یوں انہیں اس ارادے سے باز رکھا" is smooth, "وائی گانے کے لیے مشہور" and "دوسرے عقائد کے بارے میں روادار" read naturally, "ڈھکن اٹھا دے گا" now echoes "سچل اس کا ڈھکن اٹھاتے ہیں", and تِرا rules out "your"; taste only: گداگر is a little blunt for a bard, but it matches "گداگر سادھوؤں" earlier and keeps the charan apart from the shrine's فقیر.

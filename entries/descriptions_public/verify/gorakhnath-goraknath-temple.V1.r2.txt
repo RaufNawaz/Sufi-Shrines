@@ -1,0 +1,55 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) Ambiguous subject. "The disciples of Gorakhnath and other Siddhas" can be read two ways: as "the disciples of Gorakhnath, and other Siddhas", or as "the disciples of Gorakhnath and of other Siddhas". The second reading moves the belief from the Siddhas to the Siddhas' disciples. The team version has "Siddhas, such as the disciples of Gorakhnath and others are believed to have achieved the practical aspects of this philosophy". Here the Siddhas are the ones believed to have achieved it, and the disciples of Gorakhnath are one example of them. The fix follows the source's own structure, and "such as" already covers "and others". Nothing else in the sentence changes.
+OLD: The disciples of Gorakhnath and other Siddhas are believed to have achieved this in the foothills of the Himalayas, and they came to be known as *jivan-mukta*, liberated while living.
+NEW: Siddhas such as the disciples of Gorakhnath are believed to have achieved this in the foothills of the Himalayas, and they came to be known as *jivan-mukta*, liberated while living.
+
+2. The six round 1 changes in V1.r2.changes.txt. I diffed the public file against the backup (bak_en1). Exactly these six paragraphs changed, each in the listed wording, and nothing else moved. I checked each change against the team version:
+   - (1) Deleting the Briggs sentence leaves the paragraph on the writings complete. No other "standard study" or 1938 remains in the prose, and Briggs stays in the Bibliography.
+   - (2) "The order has its rite of piercing the ears, and its rite of initiation was still current in the late twentieth century." This is supported. "The order" refers back to the *Kanphata* order in the previous sentence. The ear piercing comes from the team version's *Kanphat* ear-piercing rite. "Still current" is the team version's description of the initiation rite, and it is anchored firmly by Rizvi's dates (1975 copyright, first published 1978). The sentence no longer equates the two rites.
+   - (3) "The Nath tradition venerates ..." is supported. It removes the "the Hindus" antecedent.
+   - (4) "in their teaching" frames the claim about the body as the Naths' doctrine, as the team version's "this philosophy" does.
+   - (5) "It is said that ... and that ..." keeps the Lakhavat boon and the necklace framed as legend.
+   - (6) "armies and caravans used it" matches "used by armies and caravans", and it no longer implies that this was the only road.
+   None of the six introduces a fault.
+3. Rulings on the writer's judgement calls. I accept all 22 and raise none as an issue.
+   - 1: "is identified with" is the team version's identification, on its stated basis.
+   - 2: the site's account and Babur's own mention describe one event, so joining them is not a merged chain.
+   - 3: "seems" is kept.
+   - 4: Kor Khatri is told as the team version tells it. It is not identified with the present temple, and it is set apart from the sarai.
+   - 5: "or yogis" is a dictionary gloss, and Shaiva is a spelling of Shivaite.
+   - 6: no "accounts differ" clause is needed. The only other date, the eleventh century, falls inside the traditional range.
+   - 7: "it is told" and "he is known to have written" are within the source.
+   - 8: superseded by the round 1 wording, now in the text and accepted above. The notes file still quotes the old sentence under call 8.
+   - 9: the [OCR?] concerns only the spelling of the name, so nothing rests on an uncertain reading.
+   - 10: accepted.
+   - 11: accepted as amended in round 1. The notes file still quotes "Their traditions venerate".
+   - 12: accepted.
+   - 13: the flagged word is dropped and the point stands. Baba Ratan comes three sentences after Pir Ratan Nath of Jhanda Bazaar, across a section break. The text draws no link between them, and any wording added to keep them apart would need words the team version does not have, so none is proposed.
+   - 14, 15, 16 and 17: accepted.
+   - 18: dropping "only" removes a statement of limitation. It does not change the claim.
+   - 19: accepted, following the Pir Ratan Nath precedent. The 2010 visit is not tied to the festival.
+   - 20: resolved by round 1 issue 1. The deletion is clean.
+   - 21 and 22: accepted.
+4. Consensus choices and the other checks, re-checked:
+   - Rule 4: there are no side by side variants and no merged chains. The cause of the calmer Partition (Congress or Abdul Ghaffar Khan) is still left unchosen, and only the point the two passages share is kept. That is acceptable for a province-level aside in a temple article.
+   - Rule 5: Bhandari's "today" clause, the uncertain name of the *tuman* and "Haijji [Hajji]" all stay out.
+   - Time anchors are firm: Aurangzeb's reign, the late twentieth century, and 2010 and 2011.
+   - There is no citation, narration of sources, signposting, or archive or process language.
+   - Glosses are definitional. The Chishti gloss is the glossary's own (Chishtiyya: "Sufi order prominent in South Asia; founded by Moinuddin Chishti").
+   - The quotations ("the tower of Buddha's bowl", the Schimmel line, the Diwali line) are verbatim from the team version.
+   - The Bibliography matches the team version's item for item.
+   - `check_public_description.py --english-only` exits 0, at team 27950 -> public 14047 characters (0.50). There are no em or en dashes.
+5. Housekeeping for the notes file only, not the public text. The notes header still gives 14121 characters and a ratio of 0.51 (it is now 14047 and 0.50). Judgement calls 8 and 11 still quote the pre-round-1 sentences. "Reworded only" lists "ear-piercing rite" as becoming "the piercing of the ears", and the text now has "piercing the ears".
+6. Taste only, not required:
+   - (a) Round 1's point stands. A book writes the city's name, not the city, so "an ancient city whose name older books also write as Parshawar and Farshawar" reads better.
+   - (b) "The city's own name appears in the mystical poetry ..." is clear in context, since Peshawar is the only city in that section. "Peshawar's own name" would be plainer.
+   - (c) "His name reaches as far as the cult": "as far as" is a mild intensifier.
+   - (d) Eight headings precede the Bibliography, one more than the brief's usual three to seven.
+7. Omission sweep. I read the team version again, section by section. Nothing important is missing:
+   - Every clearly named person is kept: Matsyendranath, Babur, Akbar, Jahangir, Shah Jahan and his daughter Jahan Ara Begum, Avitabile, Durrani, Guru Nanak, Guru Angad, Faizu'llah, Baba Ratan, Hir and Ranjha, Goga Pir, Rai Pithora, Lakhavat, 'Abdu'l-Quddus, Ibn al-'Arabi, Bulleh Shah, Baba Farid and Pir Ratan Nath.
+   - Every fact about the site, the temple, its closure and reopening, the teaching, the legends, the Sufi exchange, the verse, the city and the province, and the legacy is kept.
+   - What is left out is source apparatus (including the Babur plate, the illustration list, the index, Dani, the *Dabistan* and the Briggs, Raghaw and Banerjea items), statements of absence, minor or hedged variants, and readings marked uncertain.

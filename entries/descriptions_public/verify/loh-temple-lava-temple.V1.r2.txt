@@ -1,0 +1,11 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Diff against /home/claude/bak/loh-temple-lava-temple.before_v1r2.md: exactly four lines moved (5, 13, 21, 31), and each carries only the listed change. Line 5 has the MacLagan removal and "It is thus"; line 13 has the Kasur clause removed; line 21 has the MacLagan removal; line 31 has the "long history" sentence deleted. Nothing else in the file changed, including the bibliography.
+- Change 1, "In the nineteenth century the founder of the city was named Lohu, a son of Raja Ramchandar.": supported by the team version (Chishti p. 795, Raja Ramchandar's son Lohu founds Lahore). It is anchored only to "the nineteenth century", which is correct for Chishti. It no longer merges his account with Kanhaiya Lal's Lo and Kasho, and Kasur stays covered by the Kusha tradition in the Overview and in "Lava, Son of Rama". It reads correctly between the Aurangzeb sentence and "Not every account of the city's name agrees".
+- Change 2, "historians date it" (Overview and The Temple): supported, since the team version says "historians including Sir Edward MacLagan date ...". Removing the name drops an authority and adds nothing. Both sentences still read correctly. No other mention of MacLagan is left in the file.
+- Change 3, deletion of "The Fort beside which the temple stands has a long history of its own.": the embellishment is gone. The paragraph under "## The Setting" now opens "Lahore fell into ruin over long ages, ...", which follows naturally under that heading, and the Fort appears by the third sentence. No orphaned reference results.
+- Change 4, "It is thus a commemorative shrine of the Sikh period to an ancient legend.": supported. It matches the team version's "making it a Sikh-period commemorative shrine ...", and "thus" ties it to the preceding "likely" dating as the team version's "making it" does. No new fact is added.
+- No changed sentence contains a dash or any source or process talk. The file's only dash is the em dash inside the Walled City of Lahore Authority bibliography title (line 55), which is verbatim and must stay.

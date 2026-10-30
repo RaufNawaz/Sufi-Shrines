@@ -1,0 +1,41 @@
+# churrio-jabal-durga-mata-temple: Urdu changes after V2 round 2 (PASS) and V3 round 2 (FAIL, 6 issues). Backup: /home/claude/bak/churrio-jabal-durga-mata-temple.ur.before_r3.md
+
+WHY: V3 r2 issue 1 (calque, ان کے with انہیں); V3's wording
+OLD: ان کے ہندو یاتری انہیں ماتا کہہ کر پکارتے ہیں۔
+NEW: ہندو یاتری انہیں ماتا کہہ کر پکارتے ہیں۔
+
+WHY: V3 r2 issue 2 (ambiguous انہی after دوسری دیویاں); V3's wording. Checked against the English: Kali Mata is still an incarnation of Durga and the Hinglaj temple still honours an incarnation of Durga (انہی now follows درگا ہی), and the sentence "Other goddesses are counted as her forms" is untouched
+OLD: کالی ماتا انہی کا ایک اوتار ہیں، اور ہنگلاج کے مندر میں بھی درگا کے ایک اوتار کی پوجا ہوتی ہے۔
+NEW: کالی ماتا درگا ہی کا ایک اوتار ہیں، اور ہنگلاج کے مندر میں بھی انہی کے ایک اوتار کی پوجا ہوتی ہے۔
+
+WHY: V3 r2 issue 3 (bare جشن copies "in celebration"); V3's wording
+OLD: جشن میں بھی درگا کا نام بلند آواز سے پکارا جاتا ہے۔
+NEW: جشن کے موقعوں پر بھی درگا کا نام بلند آواز سے پکارا جاتا ہے۔
+
+WHY: V3 r2 issue 4 (repetition, tangled sentence); adapted: V3's sentence made the pilgrims the believers, dropped "the shrine of Durga Mata" from the belief (اس سفر) and turned "a shrine of Durga" into درگا ماتا. The English has two subjects ("Hindu pilgrims travel to a shrine of Durga" and "devotees believe that by travelling to the shrine of Durga Mata"), so the sentence is split in two with both subjects kept, the first clause keeps درگا کے کسی مندر (a shrine, not this temple), the second keeps درگا ماتا, the repeated مندر becomes استھان, and یہ, which tied the belief to this one journey, is dropped
+OLD: نوراتری کے دنوں میں ہندو یاتری ایک جیسی قمیصیں پہن کر درگا کے کسی مندر کا رخ کرتے ہیں، اور عقیدت مند مانتے ہیں کہ درگا ماتا کے مندر تک یہ سفر کرنے سے ان کی ساری مرادیں بر آئیں گی۔
+NEW: نوراتری کے دنوں میں ہندو یاتری ایک جیسی قمیصیں پہن کر درگا کے کسی مندر کا رخ کرتے ہیں۔ عقیدت مند مانتے ہیں کہ درگا ماتا کے استھان تک سفر کرنے سے ان کی ساری مرادیں بر آئیں گی۔
+
+WHY: V3 r2 issue 5 (اسی کے ذریعے calques "through it" and its referent is unclear); V3's wording
+OLD: اس رسم کے سبب چڑیو جبل صرف تہوار کی خوشیوں کا نہیں بلکہ آخری رخصت کا مقام بھی ہے، اور اسی کے ذریعے پورے خطے کے خاندان پہاڑی والی دیوی سے بندھے رہتے ہیں۔
+NEW: اس رسم کے سبب چڑیو جبل صرف تہوار کی خوشیوں کا نہیں بلکہ آخری رخصت کا مقام بھی ہے، اور یہی رسم پورے خطے کے خاندانوں کو پہاڑی والی دیوی سے جوڑے رکھتی ہے۔
+
+WHY: V3 r2 issue 6 (جگہوں کے مقامات says places twice); V3's wording. Checked against the English: "sacred sites elsewhere" is unqualified, and دوسرے علاقوں adds no place (no پاکستان), as in the earlier rendering of "elsewhere" in تاریخ اور تحفظ
+OLD: دوسری جگہوں کے مقدس مقامات نے جو نقصانات اٹھائے ہیں، ان کے پس منظر میں
+NEW: دوسرے علاقوں کے مقدس مقامات نے جو نقصانات اٹھائے ہیں، ان کے پس منظر میں
+
+WHY: V3 r2 note on the river (meaning: سندھ could be read as the region); V3's wording. The English "The greatest river was the Sind" means the river
+OLD: صوبے کا سب سے بڑا دریا سندھ تھا۔
+NEW: دریائے سندھ صوبے کا سب سے بڑا دریا تھا۔
+
+NOT APPLIED:
+Note on دیول and دیبل: the English keeps Dewal and Debal apart ("after it came Dewal" and "Thatta and Debal were the seat of government"), so both names stay.
+Note on the tense of غلبہ رہا تھا: the English says "held sway", a past tense, and does not say the sway continues, so رہا ہے would add a claim; رہا تھا is kept.
+Note on the Nanakpanthi link: the English does not make it explicit either ("a community that stands between Hindu and Sikh" is followed by a new sentence on Nanak Panthi Sikhs), so the Urdu keeps the same order.
+Note on چوڑی کے لیے مستعمل لفظ: taste.
+Note on نچلی اور اونچی دونوں ذاتیں متناسب تعداد میں: taste; the meaning is kept, as V3 says.
+Note on facts mentioned twice (Hindu share of Tharparkar, ashes in sacred waters): the English repeats them, and V3 calls it acceptable.
+Note on مندر repeated in the chunri sentence: taste; the current wording also carries the English "itself" (خود مندر).
+Note on کنواری پوجا میں اسی اوتار کی پرستش ہوتی ہے: taste; the current wording follows the English "is the worship of that incarnation".
+Note on the comma before تاکہ: punctuation taste.
+Last note (checked and clean): it proposes no change.

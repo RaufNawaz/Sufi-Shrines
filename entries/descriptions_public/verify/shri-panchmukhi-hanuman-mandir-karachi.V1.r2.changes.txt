@@ -1,0 +1,9 @@
+# shri-panchmukhi-hanuman-mandir-karachi: precision notes applied after V1 round 1 (PASS)
+
+1. V1 r1 note N1 (a causal connective the source does not make), in V1's wording.
+OLD: and Abu Hanifa and Hanuman, so that there is no longer Turk, Hindu or Peshawari.
+NEW: and Abu Hanifa and Hanuman; there is no longer Turk, Hindu or Peshawari.
+
+2. V1 r1 note N2 (time anchor: the observation is from a book first published in 1940), in V1's wording.
+OLD: and most of the musicians in Sindh, it has been observed, have been Hindus and not Muslims.
+NEW: and in 1940 it was observed that most of the musicians in Sindh had been Hindus and not Muslims.

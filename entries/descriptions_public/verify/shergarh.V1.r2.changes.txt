@@ -1,0 +1,7 @@
+# shergarh: changes applied by the coordinator for V1 round 2 (V1 r1 issue 1; note 5 (precision) applied; notes 4, 8, 13 not applied (taste or already within house practice))
+
+OLD:  In 1875 a book on the saints of the Punjab gave him a full notice of his own among the Qadiri masters.
+NEW: (sentence deleted)
+
+OLD: was already a place of pilgrimage for God's creatures
+NEW: was a place of pilgrimage for God's creatures

@@ -1,0 +1,56 @@
+1. V2 issue 1 applied
+OLD: اور تاریخی طور پر یہی شہر پنجاب کو کشمیر سے ملاتا تھا۔
+NEW: اور تاریخی طور پر یہ شہر پنجاب کو کشمیر سے ملاتا تھا۔
+
+2. V3 issue 1 applied
+OLD: جنہیں مقامی روایت بالائی پنجاب کے اس گوشے میں اسلام کی آمد کا سہرا دیتی ہے
+NEW: جن کے سر مقامی روایت بالائی پنجاب کے اس گوشے میں اسلام کی آمد کا سہرا باندھتی ہے
+
+3. V3 issue 2 applied
+OLD: جنہیں سیالکوٹ میں اسلام لے کر آنے کا سہرا دیا جاتا ہے
+NEW: جن کے سر سیالکوٹ تک اسلام پہنچانے کا سہرا باندھا جاتا ہے
+
+4. V3 issue 3 applied
+OLD: مقامی طور پر زیادہ دہرائی جانے والی روایت
+NEW: مقامی طور پر زیادہ رائج روایت
+
+5. V3 issue 4 applied (decision recorded: the English variant 'Ali al-Haq' differs from 'Ali-ul-Haq' only in Latin transliteration; both are written علی الحق in Urdu script, so the clause repeated the article's own spelling and could only be read as 'also written without امام', which the English does not say; V2 r1 ruled this a V3 question, not fidelity; علی الحق سیالکوٹی and its بھی are kept)
+OLD: ان کا نام علی الحق بھی لکھا جاتا ہے، اور انہیں علی الحق سیالکوٹی بھی کہا جاتا ہے۔
+NEW: انہیں علی الحق سیالکوٹی بھی کہا جاتا ہے۔
+
+6. V3 issue 5 adapted: قدیم شہروں instead of V3's پرانے شہروں, so that the English 'a city of the ancients' keeps its sense of antiquity ('ancient', not merely 'old'); قدما removed as V3 asked
+OLD: اس کا شمار قدما کے شہروں میں ہوتا تھا۔
+NEW: اس کا شمار قدیم شہروں میں ہوتا تھا۔
+
+7. V3 issue 6 adapted: V3's merge شالکوٹ یا سالکوٹ under کسی زمانے میں would extend the English 'once' to Salkot and turn 'also called' into 'or'; the English gives Shalkot as 'was once called' and Salkot as 'was also called' (both past). Kept the English order, kept مانا جاتا ہے on the Mahabharata claim only, and gave Salkot its own sentence in the past with بھی and the city named, which removes the loose اسے V3 flagged
+OLD: کسی زمانے میں اسے شالکوٹ کہا جاتا تھا، اور مانا جاتا ہے کہ سنسکرت کی رزمیہ داستان مہابھارت میں اسی شالکوٹ کا ذکر ہے؛ اسے سالکوٹ بھی کہتے تھے۔
+NEW: کسی زمانے میں اسے شالکوٹ کہا جاتا تھا، اور مانا جاتا ہے کہ سنسکرت کی رزمیہ داستان مہابھارت میں اسی شالکوٹ کا ذکر ہے۔ سیالکوٹ کا ایک نام سالکوٹ بھی تھا۔
+
+8. V3 issue 7 applied
+OLD: یہ بھی بیان کیا جاتا ہے کہ جب پورن سیالکوٹ آئے تو ان کی آمد پر ایک سوکھا ہوا باغ پھر سے ہرا بھرا ہو گیا۔
+NEW: یہ بھی بیان کیا جاتا ہے کہ سیالکوٹ میں پورن کی آمد پر ایک سوکھا ہوا باغ پھر سے ہرا بھرا ہو گیا۔
+
+9. V3 issue 8 adapted: V3's fix dropped the English 'old' (the city's old fort) and weakened 'ancient' to بہت پرانی; kept پرانے قلعے for 'old fort' and turned 'whose foundation was ancient' into بنیاد زمانۂ قدیم میں پڑی تھی (founded in ancient times), which removes the tautology without losing either word of the English
+OLD: شہر کے پرانے قلعے کی بنیاد قدیم تھی؛
+NEW: شہر کے پرانے قلعے کی بنیاد زمانۂ قدیم میں پڑی تھی؛
+
+10. V3 issue 9 applied (no new agent: the English 'whose curse' already makes Hamza Ghaus the one who cursed; the stories frame سنائے جاتے ہیں still governs through the colon)
+OLD: ان کی بددعا بازار کے چوک کے عین بیچ میں دی گئی تھی،
+NEW: انہوں نے بازار کے چوک کے عین بیچ میں بددعا دی تھی،
+
+11. V3 issue 10 applied ('his standing in local devotion' kept as his standing among local devotees; perfect tense kept)
+OLD: مگر اس سے مقامی عقیدت میں ان کے مرتبے میں ذرا بھی کمی نہیں آئی۔
+NEW: مگر اس سے مقامی عقیدت مندوں کی نظر میں ان کا مرتبہ ذرا بھی کم نہیں ہوا۔
+
+Not applied:
+- V3 note (بس امام صاحب): taste; 'simply' is in the English.
+- V3 note (حلقۂ اسلام / دائرۂ اسلام; مسلم اکثریت کا قصبہ): taste; both phrasings are standard Urdu.
+- V3 note (present/past switch in the Setting's first paragraph): the English itself switches ('lies' / 'It was a bustling city' / 'It is located'); recasting would change its tense.
+- V3 note (drop قدیم before یونانی متون): would remove the English qualifier 'ancient'.
+- V3 note (پرانے زمانے / ابتدائی زمانے, دارالحکومت / پایۂ تخت): the English has two sentences, 'In former times' and 'In early times'; merging would blur them.
+- V3 note (یاد repeated in the Devotion section; دعا مانگنے ... فیض کی طلب میں not parallel; restates the introduction): taste and repetition, not a wrong word or misleading construction; the English repeats the visit too.
+- V3 note (ایسے موقعوں پر): the English says 'On such occasions'.
+- V3 note (شہر میں داخل ہونے والے راستے پر; آثارِ قدیمہ کے کھنڈر): taste; the English says 'archaeological ruins'.
+- V3 note (comma before اور in the paper types): V3 itself calls it harmless.
+- V3 note (italics on کارچکن but not on وقائعِ سیالکوٹ): taste; the brief italicises only unfamiliar terms.
+- V2 notes (یہیں تعلیم پائی; بڑے لطف سے): V2 passed both as style.

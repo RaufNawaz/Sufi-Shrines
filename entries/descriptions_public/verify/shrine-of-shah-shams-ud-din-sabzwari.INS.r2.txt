@@ -1,0 +1,41 @@
+V1: PASS
+V2: PASS
+V3: PASS
+
+Round 2 (confirming) of the focused check on the verse restored on 30 October 2026 (Rauf's ruling). Files read: the brief (docs/prompts/PUBLIC_DESCRIPTION_BRIEF.md), the team version (poetry/team/shrine-of-shah-shams-ud-din-sabzwari.md), the before copies (poetry/public_before/shrine-of-shah-shams-ud-din-sabzwari.md and .ur.md), the current files (entries/descriptions_public/shrine-of-shah-shams-ud-din-sabzwari.md and .ur.md), and the round 1 report (verify/shrine-of-shah-shams-ud-din-sabzwari.INS.r1.txt).
+
+Files verified: shrine-of-shah-shams-ud-din-sabzwari.md md5 e32f1896f70995722a8f9e364f5d7996; shrine-of-shah-shams-ud-din-sabzwari.ur.md md5 cfbcde19fab1425ba4e64004d79bfbec.
+
+ISSUES: none
+
+NOTES
+
+a. Round 1 issues, all applied exactly as proposed (each checked as a string match against the current line):
+   - Issue 1 (V1). English line 33 is now "A book of the saints of the Punjab carries a chronogram, a poem in which letters, read as numbers, give a year:".
+   - Issue 2 (V3/V2). Urdu line 33 is now "پنجاب کے اولیاء پر ایک کتاب میں قطعۂ تاریخ شامل ہے، یعنی ایسی نظم جس میں حروف کے اعداد سے سال نکلتا ہے:".
+   - Issue 3 (V3/V2). Urdu line 38 is now "*قطعۂ تاریخ کا ایک شعر، جو مصنف کے بیٹے نے کتاب کے لیے کہا؛ اس کا موضوع پنجاب کے وہ اولیاء ہیں جن کے حالات کتاب میں بیان ہوئے ہیں*".
+
+b. Nothing else changed. Diff against public_before shows exactly one insertion in each file, lines 33 to 39 (lead-in, couplet, italic line), at the end of "The Setting" and before the Legacy heading.
+
+c. V1. "A book of the saints of the Punjab carries a chronogram" comes from the team version (line 51: "Mufti Ghulam Sarwar Lahori's book of the saints of the Punjab, carries a chronogram by the author's son"). The book may be mentioned here because it is part of the story: the verse was written for the book and its subject is the book's saints, so the verse cannot be introduced without it. Leaving out the title, the author and Mufti Ghulam Safdar's name follows rule 2.
+   "A poem in which letters, read as numbers, give a year" is a definition of chronogram. It no longer implies that the quoted couplet itself encodes a year, and it agrees with the rendering "A verse of the chronogram". No year is given, and the team version gives none. Nothing says or implies that the book speaks of Shah Shams; the team version shows that it does not.
+   The rendering is the team version's italic line without its citation. It states the verse's subject and is not a translation, so it correctly has no credit.
+   There is no citation, page, archive language or dash. The couplet is byte for byte identical across the team version, the English and the Urdu: 100 bytes, no ZWNJ, bidi marks, NBSP or trailing spaces. It stands as two lines alone in its paragraph, with a blank line on both sides.
+
+d. V2. "A book of the saints of the Punjab" = پنجاب کے اولیاء پر ایک کتاب. "carries a chronogram" = میں قطعۂ تاریخ شامل ہے. "a poem in which letters, read as numbers, give a year" = یعنی ایسی نظم جس میں حروف کے اعداد سے سال نکلتا ہے.
+   Italic line: "A verse of the chronogram" = قطعۂ تاریخ کا ایک شعر. "written for the book by the author's son" = جو مصنف کے بیٹے نے کتاب کے لیے کہا. "its subject is the saints of the Punjab whom the book describes" = اس کا موضوع پنجاب کے وہ اولیاء ہیں جن کے حالات کتاب میں بیان ہوئے ہیں. The "mentions" nuance that round 1 raised is now fixed.
+   The Urdu italic line is kept although the couplet is already Urdu. That is right, because the line carries a fact (the son's authorship) that would otherwise be lost. Nothing is added, and there is no figure.
+
+e. V3. Both lines read as natural Urdu. اولیاء is now spelled as in the rest of the article. نظم (feminine) takes ایسی, and سال takes نکلتا ہے. The calqued ایک before قطعۂ تاریخ is gone. The lead-in ends in a colon, and the couplet ends in no punctuation.
+
+f. Taste and consistency, recorded only and not grounds for FAIL. Under the brief's stopping rule these are not to be applied:
+   (i) The Urdu keeps a gloss of قطعۂ تاریخ (یعنی ایسی نظم جس میں ...). The brief asks for glosses of familiar terms to be dropped, and the Mauj Darya Urdu dropped this same gloss in round 1. Here, though, the gloss is accurate, reads naturally, and is the only content of the lead-in, since no year follows to make the term self-explanatory. I judge it borderline and do not fail on it. If the coordinator wants the two rows consistent, the replacement is:
+       پنجاب کے اولیاء پر ایک کتاب میں قطعۂ تاریخ شامل ہے، جس کا ایک شعر یہ ہے:
+   This wording does not bring back the calqued ایک that round 1 removed. It does overlap with the italic line's opening, قطعۂ تاریخ کا ایک شعر. That change would make the Urdu stale again and need one more confirming V2/V3 pass, so I do not recommend it for its own sake.
+   (ii) Placement. In both languages the passage follows the Tableeghi devotee's complaint with no transition, and the lead-in does not say why the verse matters here. The brief's "Introduce each verse with a sentence that tells the reader why it matters" is met only thinly. The team version itself gives no further reason, though, and V1 must not invent one. Round 1 note d already offered the one supportable alternative: move the passage, unchanged, to follow paragraph 3 of The Setting (ending "... a sacred space for people of all religious denominations." / "... ایک مقدس مقام تھا۔"), where "the shrines of Muslim saints" and "the Punjab" lead into it. Either position is acceptable.
+
+g. Checker. The repository checker cannot see this row, because there is no entries/descriptions/shrine-of-shah-shams-ud-din-sabzwari.md. I therefore ran an unmodified copy of pipeline/book_queue/*.py and pipeline/*.py in a scratch mirror, with poetry/team/shrine-of-shah-shams-ud-din-sabzwari.md as the team version: "ok shrine-of-shah-shams-ud-din-sabzwari team 13813 -> public 6458 chars (0.47), Urdu 5928 chars (0.92)", exit 0, --no-verdicts. Nothing was written in the repository.
+
+h. For the coordinator, outside the scope of the verdicts:
+   (i) The verdict lines at the top of the notes file still carry the pre-insertion stamps (en:e8ccb5d6, ur:9d559c51), so they are stale until re-stamped.
+   (ii) Two older notes lines are superseded by the appended section "Verse restored (Rauf, 30 October 2026)": line 25 ("neither context item is kept") and line 48 ("no verse (the English has none)").

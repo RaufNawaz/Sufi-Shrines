@@ -1,0 +1,31 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 26 changes in verify/gurdwara-babay-de-ber.ur.r2.changes.txt were replayed in order on /home/claude/bak/gurdwara-babay-de-ber.ur.md.bak_ur1. Each OLD occurred exactly once in the running text and was replaced once. The result is byte for byte identical to the current gurdwara-babay-de-ber.ur.md. In the current file every NEW occurs once and no OLD survives. Nothing outside the change list moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-babay-de-ber --no-verdicts` printed "ok    gurdwara-babay-de-ber  team 40212 -> public 16039 chars (0.40), Urdu 15246 chars (0.95)" and exited 0.
+3. Round 1 V2 issue 1 (whose words turn anger to compassion) is fixed by change 7: گرو کی باتیں now names the Guru, as the English "his words" means. The four round 1 V2 notes were all applied and are faithful: change 3 (انہی لوگوں کی سفارش, the people of Sialkot), change 5 (سختی سے پوچھا for "demanded to know"), change 13 (تصویریں تھیں for "bore pictures") and change 15 (آستانے for "shrine").
+4. Each changed sentence checked against the English, with the meaning unchanged:
+   - Change 1: "a venerable tree, held by tradition to be more than five centuries old ... as the sacred focus of the shrine". The hedge روایت ... بتاتی ہے is kept. یہی مقدس درخت یہاں عقیدت کا مرکز ہے moves "sacred" onto the tree, which the English itself calls "the sacred ber tree". No fact changes.
+   - Change 2: یہ گوردوارہ is the right referent of the English "It".
+   - Change 4: جس جگہ ... اس کے قریب is "close to the place where".
+   - Change 6: the episode "belongs to the recurring pattern of the sakhis". ایک ہی سانچہ بار بار دہرایا جاتا ہے جس میں یہ واقعہ بھی ڈھلا ہوا ہے says the same thing.
+   - Change 7: "his travels bring him into dialogue with the ... holy men of the places he visits" is kept as جہاں جہاں جاتے ہیں، وہاں کے ... بزرگوں سے.
+   - Change 8: یہ قصہ یوں آتا ہے only makes explicit that the janamsakhi details are their telling of this episode, which the English implies. The three details and "almost the entire city" (تقریباً سارا شہر) are kept.
+   - Change 9: بعد کی عمارت is "in its later form", and Natha Singh is a first introduction in the English, so نامی ایک شخص is right here.
+   - Change 10: the hedge عقیدت مندوں کی نظر میں governs the whole. جو انہیں ... جوڑتی ہے only spells out what a "living link to the very afternoon" links, and adds no fact.
+   - Change 11: تعظیم بجا لاتے ہیں and اس اندرونی مقدس حصے are "pay their respects" and "the sanctum".
+   - Change 12: the split keeps the hedge "accounts of exactly where in the city it lies differ" (ٹھیک محلِ وقوع ... بیانات مختلف ہیں). Only the English "though" is lost. That is a connective, not a fact.
+   - Change 14: خود گرو نانک adds the title, as everywhere else in the article. The hedge مانا جاتا ہے is kept.
+   - Change 17: مرتب کر کے اسی میں شامل کی is "compiled as part of" the Adi Granth, with Arjan Dev, the fifth Guru and 1604 kept. بانی ... شامل کی agrees.
+   - Change 18: جن کا زمانہ 322 قبل مسیح تک جاتا ہے is "going back to 322 BC".
+   - Change 20: تعینات کر دی is "left his army there" in the sense of a garrison after the fort was repaired.
+   - Change 21: شہر کے نشیب میں is "below the city". The English is open in the same way (below in level, or beside and below), so no new reading is introduced.
+   - Change 23: اخلاقی اہمیت is "moral weight".
+   - Change 24: the hedge روایت کے مطابق still governs only the meeting, as "as tradition tells" does, and "a plural past in which" becomes ایسے ... ماضی ... جب. Both persons are kept. (V3 r2 proposes dropping شہر after سیالکوٹ and the ایک before ایسے. That loses nothing, because شہر کے ایک مسلمان بزرگ still names the city, and "the city of Sialkot" is simply Sialkot.)
+   - Change 25: "a cherished station on the map of the Guru's travels" becomes a stop on the route of those travels. The map image goes but the meaning stays, and یہ گوردوارہ is the right referent of "it".
+   - Change 26: the hedge "seemed to know" stays یوں لگتا تھا جیسے ... جانتا ہو. After the split, اس نام کی ابتدا بھی ... گرو نانک ہی سے مانی جاتی ہے keeps "is held" and gives "the name itself" through بھی and ہی.
+5. The fidelity decisions on adapted fixes are right:
+   - Change 19 (V3 r1 issue 16): the English says "was counted a city of the ancients", a statement about the past. V3's present ہوتا ہے would have made a present-day claim that the English does not make. Keeping ہوتا تھا and splitting the sentence is faithful.
+   - Change 22 (V3 r1 issue 18): V3's بہت سے means "many" and would strengthen "several". متعدد keeps "several".
+6. Change 16 replaces ایمان کے دام میں with حلقۂ ایمان میں, although the English says "snare of faith". The English image is a carried-over Persian figure in which the snare is benign, as in دامِ محبت. Today دام میں لانا reads as "to entrap", which would have added a negative sense the English does not intend. حلقۂ ایمان keeps the meaning, "drew people into the faith", and loses only the figure. No fact or qualifier is lost, so it is not counted as an omission.
+7. No changed sentence adds a figure, a name or a claim. No Latin letters, no em or en dashes, digits Western, asterisks balanced.

@@ -1,0 +1,17 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [tangled / collocation] "مشہور ہے کہ وہ ایسے مبلغ تھے جن کے دم سے شہاب الدین سہروردی کے قائم کردہ سہروردی سلسلے کے بڑے مشائخ کی آمد سے پہلے ہی ملتان کو دین کا مرکز بننے میں مدد ملی۔" -> The round 1 fix is still one overloaded sentence. Between "جن کے دم سے" and its subject "ملتان کو" sits a twelve-word time phrase of stacked genitives (کے قائم کردہ ... سلسلے کے ... مشائخ کی آمد سے), so the reader loses the thread. "کے دم سے" means "entirely thanks to", which does not sit well with the weaker "مدد ملی". -> "مشہور ہے کہ وہ مبلغ تھے، اور ملتان کو دین کا مرکز بنانے میں ان کا بھی حصہ تھا۔ یہ اس وقت کی بات ہے جب شہاب الدین سہروردی کے قائم کردہ سہروردی سلسلے کے بڑے مشائخ ابھی یہاں نہیں آئے تھے۔"
+2. [tangled / word order] "روایت ہے کہ جس دین کا مظہر ملتان آگے چل کر "شہرِ اولیاء" کے روپ میں بنا، اسی کی طرف شہر کا رخ موڑنے میں ان کی آمد کا ہاتھ تھا۔" -> The clause round 1 called convoluted is still here, only moved to the front. "جس دین کا مظہر ملتان" puts the predicate before its subject, and "مظہر ... کے روپ میں بنا" says the same thing twice ("became the embodiment in the guise of"). -> "روایت ہے کہ ملتان آگے چل کر جس دین کا مظہر بنا اور "شہرِ اولیاء" کہلایا، اسی کی طرف شہر کا رخ موڑنے میں ان کی آمد کا ہاتھ تھا۔"
+3. [unidiomatic] "شہر میں مزار بہت سے ہیں، اور ان میں اس کا شمار حسین ترین مقابر میں ہوتا ہے۔" -> "ان میں ... مقابر میں" uses "among" twice. This is a calque of "one of the most beautiful of the city's many shrines" and reads clumsily. -> "یوں تو شہر میں مزاروں کی کمی نہیں، مگر حسین ترین مقبروں میں اس کا شمار ہوتا ہے۔"
+
+NOTES:
+- His arrival is told three times in the same frame: in the introduction ("اس زمانے میں ملتان میں آباد ہوئے جب وہاں اسلام ابھی قدم جما رہا تھا"), in صاحبِ مزار ("اس دور میں ملتان آئے جب اس خطے میں اسلام ابھی جڑ پکڑ رہا تھا"), and again in ماحول ("اسی فضا میں یہاں وارد ہوئے"). A summary in the introduction is normal, but the second sentence could be recast so that the two are not near copies.
+- "ایک باعزت مقام" is understood, but "ممتاز مقام" or "بلند مقام" is the usual collocation. باعزت belongs more with روزگار and زندگی.
+- "مکہ اور مدینہ دل کے اندر ہیں" would match the next clause better as "دل ہی میں ہیں", since that clause says "ملتان بھی دل ہی میں بستا ہے". "سندھی و پنجابی شاعروں" avoids the double اور in "اور سندھی اور پنجابی".
+- "منفرد و متبرک ترین" still puts منفرد under ترین. This is common in journalism and acceptable.
+- "نسباً سید" comes three sentences after "نام سید یوسف تھا" in the same paragraph. It is slightly redundant but keeps a fact.
+- "شمار" appears three times and "گنا جانا" twice. One of them could be varied.
+- "مغل بادشاہ اورنگزیب" lightly glosses a name every Urdu reader knows. It does no harm.
+- "تبدیلیِ مذہب کا عمل" is in an official register. If the sense is conversion to Islam, "قبولِ اسلام کا سلسلہ" is more natural, as round 1 also noted.
+- Checked: no Latin letters, no em or en dashes or hyphens, no asterisks, Western digits only (711, 1088, 1175), and Urdu ، and ۔ throughout. The quotation marks around شہرِ اولیاء are balanced (4). The izafat spellings (تبدیلیِ، وادیِ، آسودۂ) are correct, and ordinal spellings (گیارہویں، بارہویں، تیرہویں) are consistent.

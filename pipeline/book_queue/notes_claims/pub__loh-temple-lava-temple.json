@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-10-27T17:05:52Z",
+  "expires_at": "2026-10-27T19:05:52Z",
+  "note": "PC scheduled firing: resolve the mixed files (English from one run, notes/Urdu from another), V1 r3, new Urdu, V2/V3 [taking over a released or expired claim; previous holder scheduled-pc-2026-10-27T1100Z]",
+  "released_at": "2026-10-27T17:45:14Z",
+  "released_by": "scheduled-pc-2026-10-27T1700Z",
+  "session": "scheduled-pc-2026-10-27T1700Z",
+  "slug": "pub__loh-temple-lava-temple",
+  "status": "released"
+}

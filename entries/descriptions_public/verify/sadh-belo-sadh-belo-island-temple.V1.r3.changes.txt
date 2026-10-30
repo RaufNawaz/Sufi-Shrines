@@ -1,0 +1,10 @@
+# sadh-belo-sadh-belo-island-temple: changes applied by the coordinator for the V1 confirming round 3 (V1 round 2 PASS; its three optional notes on precision applied in the verifier's wording; the single sentence paragraph note is style and not applied)
+
+OLD: Rohri is the birthplace of two Sufis: Rochaldas, born there in 1879 to a family remembered as modest, and the poet Bedil, who died in 1872, a prolific writer in five languages.
+NEW: Rohri was the birthplace of the Sufi Rochaldas, born there in 1879 to a family remembered as modest, and of the poet Bedil, also a Sufi, who died in 1872, a prolific writer in five languages.
+
+OLD: on the 6th of Safar, the following month
+NEW: on the 6th of Safar, the second month of the Islamic year
+
+OLD: the Lohanas of Shikarpur and Hyderabad were counted as Sikhs
+NEW: Lohanas from Shikarpur and Hyderabad were counted as Sikhs

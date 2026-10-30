@@ -1,0 +1,11 @@
+1. V1 r1 note 1 (precision: no naming in the 1870s is stated; "cannot be settled" was universal)
+OLD: In the 1870s the name Shahid Ganj was given, too, to a tomb in Mohalla Sadhwan, the mass grave of Muslim martyrs of the Ghaznavid period; whether that place and the Sikh Shahid Ganj at Naulakha are one and the same cannot be settled.
+NEW: In the 1870s a tomb in Mohalla Sadhwan, the mass grave of Muslim martyrs of the Ghaznavid period, also bore the name Shahid Ganj; it may or may not be the same place as the Sikh Shahid Ganj at Naulakha.
+
+2. V1 r1 note 2 (precision: the team version says he was asked to supervise it)
+OLD: The historian Iqbal Qaiser, who supervised the rebuilding of the gurdwara,
+NEW: The historian Iqbal Qaiser, who was asked to supervise the rebuilding of the gurdwara,
+
+3. V1 r1 note 3 (attribution: the second half is the writer's judgement, not the narrator's; recast in V1's sense so the sentence stays grammatical)
+OLD: Seen from the side of the Punjab's peasantry, these were years in which, as one modern writer put it, "Marauding Sikh bands formed themselves into robber baronies and imposed their own system of extortion on the Punjab farmer", while Abdali's treatment of the Punjab weakened the government in Lahore and delivered the various *doabs*, the lands between its rivers, into the hands of the Sikh confederacy.
+NEW: One modern writer, looking at these years from the side of the Punjab's peasantry, wrote that "Marauding Sikh bands formed themselves into robber baronies and imposed their own system of extortion on the Punjab farmer", and that Abdali's treatment of the Punjab weakened the government in Lahore and delivered the various *doabs*, the lands between its rivers, into the hands of the Sikh confederacy.

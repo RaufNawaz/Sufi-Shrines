@@ -1,0 +1,19 @@
+CHANGE 1
+OLD: Hindus who were well known in the cities of the Punjab had to hide for several months afterwards.
+NEW: Hindus who were well known in the cities of the Punjab had to hide for several months after the demolition at Ayodhya.
+
+CHANGE 2
+OLD: A mob that had destroyed the Valmiki temple near her house wanted to burn her alive; afterwards she took up
+NEW: She recalls that a mob which had destroyed the Valmiki temple near her house wanted to burn her alive; afterwards she took up
+
+CHANGE 3
+OLD: The society has also petitioned that the temple be handed back
+NEW: The society has petitioned that the temple be handed back
+
+CHANGE 4
+OLD: The festival that tradition ties to this temple is still kept in Multan, though not at the temple itself: in the early twenty first century the celebrations were held in a Hindu locality and in front of the city's press club.
+NEW: In the early twenty first century the festival that tradition ties to this temple was kept in Multan, though not at the temple itself: the celebrations were held in a Hindu locality and in front of the city's press club.
+
+CHANGE 5
+OLD: together with two sahibs, as European gentlemen were called.
+NEW: together with two sahibs, men of rank.

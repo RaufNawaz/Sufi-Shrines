@@ -1,0 +1,9 @@
+Changes applied by the coordinator (V1r1), exact replacements, each OLD occurring once.
+
+1. V1 r1 note 1 (precision)
+OLD: The line means that Sindh is not in the position of leadership, or amirship.
+NEW: Its second half means that Sindh is not in the position of leadership, or amirship.
+
+2. V1 r1 note 2 (precision)
+OLD: The *khanqah* is traditionally dated to 1737, though accounts of the centre's beginnings differ.
+NEW: The *khanqah* is traditionally dated to 1737, though accounts of when Luari became a Naqshbandi centre differ.

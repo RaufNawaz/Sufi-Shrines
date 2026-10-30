@@ -1,0 +1,10 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff: `diff /home/claude/bak/shri-laxmi-narayan-mandir-native-jetty-bridge.md.bak_en1 entries/descriptions_public/shri-laxmi-narayan-mandir-native-jetty-bridge.md` shows three changed lines (15, 27, 51), and on each line the only difference is exactly the listed replacement (changes 1, 2 and 3 of V1.r2.changes.txt). Nothing else moved.
+2. Change 1 (A Painting of Ramdeo Pir, line 15): supported. The team version gives "still known in Sindh as Rama Pir … In Sindh, he is today integrated into the temples dedicated to the pan-Indian divinities"; the new sentence restores the second "in Sindh" scope and keeps "today" and the gloss of pan-Indian. No new or lost fact, grammar intact, no source talk, no dash. The repeated "in Sindh" mirrors the source and is a matter of taste only.
+3. Change 2 (Under Threat, line 27): supported. Dropping "many of them" leaves the coinciding with changes in the political landscape attached to the decade's restorations as a whole, as in the team version ("renovated within the past decade, coinciding with changes in the political landscape"). The participle reads cleanly after "across Sindh". No new or lost fact, no source talk, no dash.
+4. Change 3 (Sindh and Its Hindus, line 51): supported. The census of 1998 now governs only the largest minority statement; the distribution is a separate, undated present tense sentence, matching the team version's "The majority of the Hindu community is based in Sindh and Southern Punjab". "them" refers unambiguously to the Hindus of the preceding sentence, and the shift from "were" to "are" correctly marks the two statements as separate. No new or lost fact, no source talk, no dash.
+5. Checker: `python3 pipeline/book_queue/check_public_description.py shri-laxmi-narayan-mandir-native-jetty-bridge --english-only` printed `ok    shri-laxmi-narayan-mandir-native-jetty-bridge  team 23805 -> public 13698 chars (0.58)` and exited 0. A separate count found 0 en dashes and 0 em dashes in the public file.

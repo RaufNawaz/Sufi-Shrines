@@ -1,0 +1,13 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: He is also said to have taken *bai'at*, the oath of initiation into a Sufi order, in the Qadiri, Naqshbandi and Suhrawardi orders.
+NEW: He is also said to have initiated others into the Qadiri, Naqshbandi and Suhrawardi orders, receiving their *bai'at*, the oath of initiation into a Sufi order.
+
+2. V1 r1 change 2
+OLD: By the 1880s thousands of graves had been made there and many enclosures of fired brick built, among them the unfinished enclosure of Rani Gul Begum, a courtesan.
+NEW: By the 1880s thousands of graves had been made there and many enclosures of fired brick built, and the unfinished enclosure of Rani Gul Begum, a woman of the courtesan caste, stood there too.
+
+3. V1 r1 change 3
+OLD: The year of his death is also drawn from a single word, *gham*, grief.
+NEW: The year of his death is drawn from a single word, *gham*, grief.

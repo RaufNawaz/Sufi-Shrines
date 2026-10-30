@@ -1,0 +1,82 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) Wording stronger than the source. The team version has Khalid's "his role during the rebellion of Prince Khusro". "His part in the rebellion" says the Guru took part in the revolt, in the narrator's voice, two sentences before the text says that accounts of why he died differ. This rules on judgement call 15, which is otherwise accepted.
+OLD: He was summoned to the city by the emperor Jahangir over his part in the rebellion of Prince Khusrau, the emperor's son; he appointed Hargobind as the sixth Guru, and was then martyred.
+NEW: He was summoned to the city by the emperor Jahangir over his role during the rebellion of Prince Khusrau, the emperor's son; he appointed Hargobind as the sixth Guru, and was then martyred.
+
+2. (precision) A word the source does not have. The team version says he was believed to be kept in the room by the well, and separately that he was immersed in a cauldron. It does not say where the cauldron was. "There" places it in the Diwan's haveli, and two sentences later the text places his death near Lahore Fort. This rules on judgement call 17, which is otherwise accepted.
+OLD: in what was the *haveli*, the mansion, of the Mughal Diwan of Lahore, and that there he was immersed in a cauldron.
+NEW: in what was the *haveli*, the mansion, of the Mughal Diwan of Lahore, and that he was immersed in a cauldron.
+
+3. (precision) Framing. The team version gives the Guru's sinking of the baoli only inside "In the tradition preserved by the community" (and in the Overview as "is remembered as having had sunk"). Here it stands as a sentence of its own in the narrator's voice, after the frame has closed.
+OLD: The Guru had a *baoli* sunk at this spot to provide water for the people of the quarter.
+NEW: In that tradition, the Guru had a *baoli* sunk at this spot to provide water for the people of the quarter.
+
+4. (precision) Wrong attribution. The team version does not say the gurdwara or its keepers hold this account. It gives it as "it is said" (and its disagreement section calls it the current text's account, not the shrine's tradition). The same text later reports the gurdwara structure demolished by 2018.
+OLD: Tradition at the gurdwara holds that it suffered in the turbulence of the eighteenth century, when it was filled in and built over during the governorship of Nawab Yahya Khan, at the instigation of Diwan Jaspat Rai.
+NEW: It is said that the well suffered in the turbulence of the eighteenth century, when it was filled in and built over during the governorship of Nawab Yahya Khan, at the instigation of Diwan Jaspat Rai.
+
+5. (precision) Wrong anchor. The team version says that at the time of writing (1884) the serving officer was Bhai Khazan Singh, "appointed to the service and care of the building". It does not date the appointment, and the public sentence dates it to the 1880s.
+OLD: In the 1880s a Sikh with a white beard, Bhai Khazan Singh, was appointed to the service and care of the building.
+NEW: In the 1880s the building's serving officer was a Sikh with a white beard, Bhai Khazan Singh, appointed to its service and care.
+
+6. (precision) Possibly an uncertain reading. The team version has "One hundred shops on both bazaar sides belonged to the building, the figure and one word describing the shops uncertain in the printed text". The writer rightly dropped the hundred. But "on both bazaar sides" is the only description of the shops in that sentence, so it may be the uncertain word. The fix keeps only what is certain, and it costs nothing a visitor needs.
+OLD: Shops on both sides of the bazaar belonged to the building, and the enclosure itself served the bazaar as a warehouse:
+NEW: Shops belonged to the building, and the enclosure itself served the bazaar as a warehouse:
+
+7. (precision) Wrong anchor. The year 1799 belongs only to the welcome ("In 1799 Ranjit Singh was greeted enthusiastically"). The whole Punjab coming under his rule is a separate, undated statement in the team version. Joined by "and", the sentence reads as if the Punjab came under him in 1799.
+OLD: In 1799 he was greeted with enthusiasm by a population sick of the lawlessness of that time, and the whole region of the Punjab came under his rule.
+NEW: In 1799 he was greeted with enthusiasm by a population sick of the lawlessness of that time. The whole region of the Punjab came under his rule.
+
+8. (precision) A word the source does not have. The team version says only that Bhandari "sets one Persian couplet at the fort of Lahore": the emperor asked about the verse while crossing the Ravi below the fort. "Belongs to the fort" suggests the couplet is the fort's own, for example an inscription on it.
+OLD: A Persian couplet belongs to the fort of Lahore.
+NEW: A Persian couplet is tied to a scene at the fort of Lahore.
+
+9. (precision) Ambiguous referent and attribution. In "the loss of the well ... wrote of its ruin", the reader can take "its" as the well. The verses that follow speak of the Punjab. "Tradition sets" replaces the team version's "The site's account sets", which is the same misattribution as note 4.
+OLD: Tradition sets the loss of the well in the turbulence of the eighteenth century, and the poets of that century in the Punjab wrote of its ruin.
+NEW: The well is said to have been lost in the turbulence of the eighteenth century, and the poets of that century wrote of the ruin of the Punjab.
+
+10. Rulings on the writer's judgement calls:
+   - 1 (Kanhaiya Lal's 1880s description as this gurdwara's): accepted. The team version gives the first passage throughout as "the house of Baoli Sahib", matches its bazaars to the Loha and Kesera bazaars, uses it for this baoli in its own Legacy, and keeps its doubt for the second (Kashmiri Bazaar) passage, which is left out. "By the 1880s" is firm (1884).
+   - 2 (Qaiser's dispute and Sheikh's 282 mohars woven into the community's story): accepted. The team version calls Qaiser's "the same origin story" and Sheikh's figure "the disputed purse", so these are details of one account, not two accounts merged. Samvat 1616 is rightly dropped under the founding clause.
+   - 3 (the five guards, the Guru's stays and the langar to the south): accepted. They do not depend on the treasure story, contradict nothing, and are set apart by "It is told, too". "Five" is the team version's own count (one named Sikh and four others; "its five guards"), and only the name is uncertain.
+   - 4 (the loss, basis (a)): accepted. The team version calls the 1962 memoir's mosque "not reconciled" with the Yahya Khan account, not contrary to it, so it does not show every other source against the current text's position.
+   - 5 (recovery, "most often"): accepted, two accounts against one.
+   - 6 (1834 joined to Kanhaiya Lal's undated rebuilding details): accepted. The team version itself says the current text "dates the work differently", so both describe the same work. With the two uncertain Bikrami years gone, no date stands against 1834. Leaving out "five years" and the demolished mosque is right.
+   - 7 (death year 1606, "most often"): accepted. Both Khalid books, Dhillon's end of guruship and Bhandari's twenty five years from 1581 agree; only Alam differs.
+   - 8 (Khusrau's revolt as the reason most often given; Chandu Lal dropped): accepted as a rule 4 choice. The count in the team version supports "most often". Restoring the Chandu Lal tradition would put a second account side by side, so it is for Rauf only if he wants the Sikh tradition named at a Sikh shrine.
+   - 9 (the samadhi near Lahore Fort): accepted. The [OCR?] marks the printed spelling "Agjan", which the team version itself restores as [Arjan]. The next sentence, which is clean ("the Guru lost his life there"), fixes the referent. No fact rests on the misprinted letters.
+   - 10 (the meeting with an emperor): accepted. The uncertainty concerns the printed form of the name at its first occurrence. The team version's lead sentence ("a meeting between an emperor and the Guru") and its two later mentions of Guru Arjan are unflagged, and the public text does not name him in the flagged clause.
+   - 11, 12, 13, 16, 18, 19, 20: accepted as reasoned.
+   - 14 (the commemoration at Dera Sahib): accepted. See the taste note on "the other shrine of his".
+   - 15 and 17: accepted apart from notes 1 and 2.
+
+11. Other checks passed:
+   - Legends are framed: the founding purse ("In the tradition kept by the community", "it is said"; with note 3), the succession letters ("It is told"), the Shah Hussain story ("It is said"), the folk tales of Mian Mir, Khusrau at the langar ("it is told"), the torture ("it is said", "it is believed"), the Ravi and Mian Mir ("Sikh belief holds"), the samadhi ("it is believed"), and the astrologers ("it is most often told").
+   - Authors' verdicts are kept only as unattributed views: the Karbala, the Khalsa, the cohesive motivation, the troubled relation, the bitterness of the line, and Qaiser's view on architecture as "one historian".
+   - Jahangir's memoir is quoted as the words of a figure in the story, not as narration of a source.
+   - Every English quotation, the three italic renderings and the Persian couplet occur verbatim in the team version. The translator credits replace the citations.
+   - There are no citations, page numbers, archive or process words, and no em or en dash in the prose. The checker (English only) returns ok at 0.45, inside L1, and no exception is needed.
+   - Time anchors are firm: 1599, 1604, 1594, 1834, 1849, 1927, 1799, "the 1880s" (Kanhaiya Lal 1884), "In Aurangzeb's time" (regnal year 40), 2015 and 2018 (the dated articles).
+   - Every gloss is definitional.
+   - Readings marked uncertain are all left out: Langahiya, the step counts, the threshold, the matting, the third bazaar and the north direction, the sums of money, the Bikrami years, 2218, 1015 AH, eight lakh, the fourteenth year, "every two kos", the word for irrigation, the red well's name and "sand".
+
+12. Taste only (no change required):
+   - "*pujaris*, the priests who served there": a gloss is a definition, so "the temple priests" would be cleaner.
+   - "*kos*, the old measure of distance on the road": "on the road" is unnecessary.
+   - "at the other shrine of his in the city" implies he has only two shrines in Lahore. "at his principal memorial in the city, Gurdwara Dera Sahib" would echo the Overview.
+   - "The full bitterness of that line" follows a rendering of three lines. Naming the line ("Punjab has gone to the dogs") would be clearer.
+   - "Shah Hussain", "Baba Farid" and "Pakpattan" are spellings the team version does not use (it has Hussein, Fareed, Pak Pattan). As minor variants they are acceptable, and they match the archive's own rows.
+   - "of Guru Nanak and the writings of all the earlier Sikh Gurus" counts Nanak twice. This is harmless.
+   - The karah prashad and the drummers at dawn are told in both The Gurdwara and Devotion and Practice, as in the team version.
+
+13. Omission sweep: after reading the team version through, nothing important is missing.
+   - The source apparatus is left out.
+   - So are the rule 4 variants: Kanhaiya Lal's treasure story, Samvat 1616 and "the time of Jahangir", the two mosque accounts of the loss and the mosque's demolition, the dream, the Chandu Lal and Chandu Shah tradition, the body thrown into the river or "interred", and Alam's 1605.
+   - So are the readings marked uncertain and the statements of absence.
+   - So is the Kashmiri Bazaar mosque story, which the team version says may concern another Baoli Sahib.
+   - So are marginal items: Operation Blue Star at an unnamed shrine, Abbas's ancestors, Fakir Azizudin's family, "the fourth Nanak", and the "elephants" and "low point" verdicts.
+   - Every named person and family is kept: Ram Das, Prithi Chand, Meherban, Hargobind, Bhai Bannu, Bhai Gurdas, Mian Mir and Bibi Jamal, Bhai Chhajju Bhagat, Nihal Singh, Jawahar Singh Kartarpuria, Khazan Singh and the Sodhi family.

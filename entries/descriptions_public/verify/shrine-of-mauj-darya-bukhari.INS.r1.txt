@@ -1,0 +1,93 @@
+V1: FAIL
+V2: PASS
+V3: FAIL
+
+Scope: only the inserted passage, which is English lines 29 to 36 and Urdu lines 29 to 36 of the current files. Running diff against poetry/public_before/ shows that nothing else changed in either file.
+
+ISSUES
+
+1. [V1, rule 4: more certainty than the source. This issue alone FAILS V1]
+English line 29: "a verse whose letters, read as numbers, give the year; the year 1014 of the Hijri calendar is printed twice within it:"
+Problem: The team version records 1014 AH as a rival to 1604. Its Where the Sources Disagree entry on "The year and day of his death" reads: "The site's account gives 1604. The Hadiqat al-Awliya gives 1014 AH." The public notes left the verse out for exactly that reason (Left out, Verse; Points for V1, 3). The new lead-in names that rival year two sentences after "He died in 1604; accounts of the year and day of his death differ". It says the verse "gives the year" of his death, but it never says that 1014 AH is one of the differing accounts.
+Most readers of the English cannot convert a Hijri year. They will take 1014 AH as the Hijri form of the 1604 they have just read, so the verse appears to confirm 1604. It does not. For context only (this is not from the team version): 1014 AH ran from about 19 May 1605 to 8 May 1606, entirely after 1604.
+Is the reader misled? Yes, as the text stands. Either the page sets a rival year beside the established one without comment, which rule 4 forbids ("no listing of variants anywhere"), or, more likely, the reader infers an agreement that the team version does not record.
+Rauf's ruling puts the year into the page through the verse, so it cannot be removed. The brief's tool for a disagreement that matters is one clause saying that accounts differ. The house precedent for a chronogram whose year differs is bhit-bhit-shah: "Accounts of the year of his death by the Hijri calendar differ, and this chronogram gives it as 1165". The fix is to tie the verse's year to that clause.
+Fix. RECOMMENDED: replace the whole of English line 29 with the text below. It also resolves issues 2, 3 and 4.
+By the 1870s his death had been set in a Persian chronogram, a verse whose letters, read as numbers, give a year. The year it gives, written twice within it, is 1014 of the Hijri, or Islamic, calendar, one of the differing accounts of the year of his death:
+FALLBACK, if the coordinator keeps the book framing (see issue 2): replace the whole of English line 29 with:
+A book on the saints of the Punjab, written in 1875, closes its notice of him with a Persian chronogram on his death, a verse whose letters, read as numbers, give a year. The year it gives, written twice within it, is 1014 of the Hijri, or Islamic, calendar, one of the differing accounts of the year of his death:
+Support in the team version:
+- In Verse: "a Persian chronogram on the saint's death, printing the year 1014 AH twice within it".
+- Life: "The Hadiqat al-Awliya gives his death as the year 1014 AH, and closes with a chronogram on it".
+- The disagreement entry quoted above.
+- Bibliography: "composed 1292 AH / 1875 CE". The brief treats Lahori's 1875 as firm, so "By the 1870s" is an allowed anchor. "had been set by the 1870s" claims only that the chronogram existed when the 1875 book was written, which the team version shows.
+The matching Urdu is in issue 6.
+
+2. [V1, rules 2 and 6: narration of a source. Covered by the issue 1 fix]
+"A book on the saints of the Punjab, written in 1875, closes its notice of him with a Persian chronogram"
+Problem: This sentence narrates what a source does ("closes its notice of him") instead of stating the content. Rule 2 asks for the date to be anchored in time ("By the 1870s ..."), not in a source. This article already dropped the source of its other verse as book talk (notes, Left out, Minor: "the Khazinat al-Asfiya as the source of the quatrain (book talk)").
+The Shah Jamal and Purana Bhalwal rows do say "In 1875 a book on the saints of the Punjab gave X a notice of his own". In those rows, though, the verse quoted is the book's own closing chronogram, so the book is part of the story, which is the brief's exception. Here the book only carries the verse.
+A time anchor is still worth having. Without one, a bare "His death was set in a chronogram" could be read as a verse written in 1604. The team version does not say who wrote the chronogram or when, so the article must not say either; "By the 1870s" states only what is known.
+Fix: use the recommended text in issue 1. If the coordinator rules that the pilot precedent covers this framing, the fallback in issue 1 is supported:
+- "Mufti Ghulam Sarwar closes his notice with a Persian chronogram on the saint's death".
+- The book's "chapter on the holy women of the Punjab" supports calling it "a book on the saints of the Punjab".
+I would not fail the fallback on this point alone.
+
+3. [V1, minor: a term not explained at first use. Does not fail V1 on its own]
+"Hijri" now first appears in the inserted lead-in without a gloss. The gloss comes later, at English line 40 ("the year 1016 of the Hijri, or Islamic, calendar").
+Fix: the gloss is already in both texts in issue 1. Then, at English line 40, replace
+"She died in the year 1016 of the Hijri, or Islamic, calendar, and she rests"
+with
+"She died in the year 1016 of the Hijri calendar, and she rests".
+The Urdu glosses neither occurrence, so no Urdu change is needed.
+
+4. [V1, minor, rule 5: talk about the printed text]
+"is printed twice within it" refers to the printed book. The team version's "printing ... twice within it" describes the verse as given, so the public text should say "written twice within it". This is already in both texts in issue 1.
+
+5. [V3: calque, unclear pronoun, gloss of a familiar term, overlong sentence. FAILS V3]
+Urdu line 29: "1875 میں پنجاب کے اولیا پر لکھی گئی ایک کتاب ان کا تذکرہ ان کی وفات پر ایک فارسی قطعۂ تاریخ پر ختم کرتی ہے، یعنی ایسے شعر پر جس کے حروف کے اعداد سے سال نکلتا ہے؛ اس میں سنہ 1014 ہجری دو بار درج ہے:"
+Read as a native editor would read it, it has these problems:
+(a) "ایک کتاب ان کا تذکرہ ... ختم کرتی ہے" makes the book the subject of ختم کرنا. This is a calque of "a book closes its notice". Idiomatic Urdu is "کتاب میں ... کا تذکرہ ... پر ختم ہوتا ہے", which is what this project's Shah Jamal and Purana Bhalwal Urdu use ("یہ کتاب ... قطعۂ تاریخ پر ختم ہوتی ہے").
+(b) "ان کا تذکرہ ان کی وفات" opens a paragraph, and the last person named, two sentences earlier, is the son: "ان کے بیٹے سید صفی الدین ان کی میت لاہور لائے". The brief asks for ان to be resolved to a named person, so name میراں محمد شاہ.
+(c) "وفات پر ایک فارسی قطعۂ تاریخ پر" puts two پر close together. "وفات کے ... قطعۂ تاریخ" is the natural collocation.
+(d) "یعنی ایسے شعر پر جس کے حروف کے اعداد سے سال نکلتا ہے" glosses قطعۂ تاریخ, a term an Urdu reader knows. The Purana Bhalwal notes drop the same gloss as familiar, and the Data Darbar Urdu uses قطعاتِ تاریخ without one. The gloss is also inaccurate: شعر means a single couplet, but the quoted قطعہ is two couplets.
+(e) The sentence has four clauses joined by ، and ؛, and the brief says to split sentences of more than three clauses. "اس میں" could mean either the book or the verse.
+(f) Minor consistency point: "اولیا" here, but "اولیاء" in the Shah Jamal and Purana Bhalwal Urdu and "خلفاء" in this same article.
+Fix: see issue 6.
+
+6. [V2 and V3: matching Urdu for whichever English is adopted]
+Replace the whole of Urdu line 29 with one of the following.
+(i) For the RECOMMENDED English in issue 1:
+1870 کی دہائی تک میراں محمد شاہ کی وفات پر فارسی کا ایک قطعۂ تاریخ کہا جا چکا تھا۔ اس قطعے سے سنہ 1014 ہجری برآمد ہوتا ہے، جو اس میں دو بار درج بھی ہے۔ یہ سنہ ان کے سالِ وفات کے مختلف اقوال میں سے ایک ہے:
+(ii) For the FALLBACK English in issue 1:
+1875 میں پنجاب کے اولیاء پر لکھی گئی ایک کتاب میں میراں محمد شاہ کا تذکرہ ان کی وفات کے ایک فارسی قطعۂ تاریخ پر ختم ہوتا ہے۔ اس قطعے سے سنہ 1014 ہجری برآمد ہوتا ہے، جو اس میں دو بار درج بھی ہے۔ یہ سنہ ان کے سالِ وفات کے مختلف اقوال میں سے ایک ہے:
+(iii) Only if issue 1 is rejected and the English lead-in stays exactly as it is now (this fixes V3 alone):
+1875 میں پنجاب کے اولیاء پر لکھی گئی ایک کتاب میں میراں محمد شاہ کا تذکرہ ان کی وفات کے ایک فارسی قطعۂ تاریخ پر ختم ہوتا ہے۔ اس قطعے میں سنہ 1014 ہجری دو بار درج ہے:
+Notes on all three versions:
+- The English glosses of "chronogram" and "Hijri" are dropped because both terms are familiar to an Urdu reader. The brief allows this and V2 does not count it as an omission.
+- "مختلف اقوال" repeats the previous paragraph's "اقوال مختلف ہیں", so the reader connects the two.
+- "1870 کی دہائی تک ... کہا جا چکا تھا" uses the perfect, which the brief requires for "by the 1870s".
+- All three use Western digits, no Latin letters and no dashes. The verse and the italic rendering stay as they are.
+
+NOTES
+
+- Verse, byte for byte: PASS in all three files. Compared as UTF-8 bytes, the four lines are identical in the team version (lines 109 to 112), the public English (31 to 34) and the public Urdu (31 to 34). There are no trailing spaces and no CR characters. The paragraph contains only the four lines, as ProseParagraphs expects. The Eastern digits ۱۰۱۴ and the ھ appear exactly as in the team version.
+- English rendering: "*A chronogram on the death of Muhammad Shah*" is the team version's own statement of the verse's subject, minus the citation and the printed-text clause. It is not a published translation, so leaving out a credit line is correct.
+- Urdu rendering: "*محمد شاہ کی وفات کا قطعۂ تاریخ*" is faithful and idiomatic.
+- Optional, for consistency with the article's other rendering and with the writer's own fallback: end both renderings with a full stop ("*A chronogram on the death of Muhammad Shah.*" / "*محمد شاہ کی وفات کا قطعۂ تاریخ۔*"). This is taste and fails nothing.
+- V2 (current pair) maps cleanly:
+  - "A book on the saints of the Punjab, written in 1875" = "1875 میں پنجاب کے اولیا پر لکھی گئی ایک کتاب"
+  - "closes its notice of him with a Persian chronogram on his death" = "ان کا تذکرہ ان کی وفات پر ایک فارسی قطعۂ تاریخ پر ختم کرتی ہے"
+  - the gloss = "یعنی ... سال نکلتا ہے"
+  - "the year 1014 of the Hijri calendar is printed twice within it" = "اس میں سنہ 1014 ہجری دو بار درج ہے"
+  - The verse is identical, and the rendering is a faithful match.
+  Nothing has been added or left out, and the certainty is unchanged. The Urdu carries the same year problem as the English (issue 1), and that is fixed through the English. Once the English changes, V2 must run again on the new pair.
+- Checker (I ran it read-only; no file was written). Command: "check_public_description.py shrine-of-mauj-darya-bukhari --no-verdicts".
+  - English: ok, 0.32 under the notes' L1 exception.
+  - Urdu: FAIL on U9 only, "Eastern digits in the Urdu; store Western digits", caused by the ۱۰۱۴ in the verse.
+  - U8 requires that verse paragraph to be verbatim, so the row cannot pass both checks. U9 is wrong for verse paragraphs. Under RULE 4, fix the check, not the verse: exempt verse paragraphs (cdd.is_verse) from U9's EASTERN test. Do not convert the verse's digits.
+- Context I worked out myself, for the coordinator only, never for the article:
+  - The abjad values of حضور and مرد حق پرست are both 1014, so the chronogram gloss and the year agree.
+  - On the tabular calendar, 1 Muharram 1013 fell on 30 May 1604 and 1 Muharram 1014 on 19 May 1605.
+  - The fourth line's "نیز سرور گفت" ("Sarwar too said") is the usual way a poet with the pen name Sarwar signs, which suggests the chronogram is the 1875 author's own, about 270 years after the death. The team version does not say this, so the article must not. It is the reason to keep a date anchor (recommended text or fallback) rather than an undated "His death was set in a chronogram".
+- Not checked here, for the coordinator: the public notes still list the chronogram as left out ("Left out, Verse"; "Points for V1, 3"). They need a line recording Rauf's ruling of 30 October and how the year was handled (the chosen lead-in). Any edit makes the V1, V2 and V3 stamps stale.

@@ -1,0 +1,10 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 1 V3 issues: all five are fixed. Issue 1 (دادا ... نام لیا جاتا ہے calque) now reads دادا کا نام زیادہ تر ... بتایا جاتا ہے, natural. Issue 2 (نام کے پیچھے قصہ) now reads نام سے بھی ایک قصہ وابستہ ہے, idiomatic. Issue 3 (دوسروں کے ساتھ ساتھ) now reads جس کے مکینوں میں ڈپٹی کمشنر بھی شامل تھے, natural, and جس correctly takes کوٹھی. Issue 4 (فنِ تعمیر کے طریقے) is fixed in the adapted form تعمیر کے یورپی اور مشرقی طریقے, a sound collocation; the adaptation away from طرزِ تعمیر does no harm to the Urdu. Issue 5 (باقی and حصہ echoing) is fixed: the land is the subject and تھوڑی ہی رہ گئی تھی agrees in the feminine with the understood زمین.
+2. Round 1 V3 notes 1 and 2 (the ambiguous محلہ and اس شہر) are also resolved by changes 5 and 2.
+3. Change 6: narrative اب with the past perfect (اب ... رہ گئی تھی) is standard Urdu for "by then" and matches the narrative اب of اس کی جگہ اب چیف کورٹ کی عمارت اٹھنے لگی تھی in the paragraph before. A more explicit time phrase would also work, but the sentence is correct as it stands.
+4. Change 5: سید چراغ شاہ appears in three of the four sentences of that paragraph (twice with گیلانی). Naming the quarter again is what removes the wrong referent, and the repetition runs across sentences, not inside one, so it is acceptable; a lighter second mention is a matter of taste.
+5. Change 2: اوچ now ends one sentence and appears again in the next (اوچ میں آ بسے، then اوچ شہر میں داخل ہوئے). This is acceptable across two sentences; اوچ شہر is natural usage.
+6. Change 7: عمارت and تعمیر sit close together in one clause, but they are different words and the clause reads smoothly.
+7. No changed sentence has Latin letters, em or en dashes, or a new ambiguity, and each fits the sentences around it.

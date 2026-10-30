@@ -1,0 +1,32 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Round 1 changes, each confirmed against the team version (the diff against /home/claude/bak/dargah-pir-ratan-nath-jee.md.bak_V1r1 shows exactly these four replacements and nothing else):
+   - Issue 1, "Whether the Delhi shrine honours the same figure as the Peshawar temple is not settled.": supported. The team version's own narrative treats the endnote as speaking "of a shrine in Delhi and not of this one", and the question stays open, as it is in the source. The sentence lists no variants and says nothing about how reliable a book is.
+   - Note 1, "The Hajji and the yogi Ratannath are sometimes joined into one figure ... and Ratannath is also counted": the referent is now unambiguous and matches "Some traditions join the two figures into one". "A contemporary of Gorakhnath" is still given once, in the paragraph above. No fault introduced.
+   - Note 2, "one woman recalled": supported ("another informant, Tarvinder Kaur"), and the paragraph still makes the Sikh setting clear through "a considerable Sikh population".
+   - Note 3, "Earlier, during his reign": supported by "Reaching further back", and it no longer claims a length of time.
+2. Rulings on the judgement calls: the rulings of round 1 stand. Calls 8, 9, 18 and 20 are now settled by the applied changes above. Calls 1 to 7, 10 to 17, 19, 21 and 22 are accepted, for the reasons given in round 1.
+3. Notes file only, not the public text. Two lines of dargah-pir-ratan-nath-jee.notes.md still describe the wording before round 1, and judgement calls 8, 9, 18 and 20 still quote it. Suggested updates, so that the record matches the text:
+   OLD: The Delhi *dargah mandir* of a Pir Baba Ratannath is given as a shrine of that name, with no consensus on the three readings the team version leaves open (a second shrine of the same figure, a different figure, or the Peshawar temple placed in the wrong city), basis (d), the range given without a choice.
+   NEW: The Delhi *dargah mandir* of a Pir Baba Ratannath is given as a shrine of that name, and whether it honours the same figure as the Peshawar temple is given as not settled, basis (d); the three readings the team version leaves open are not listed (V1 round 1, issue 1).
+   OLD: Surjeet Singh and Tarvinder Kaur become "one Sikh man" and "one Sikh woman";
+   NEW: Surjeet Singh and Tarvinder Kaur become "one Sikh man" and "one woman" (the team version does not call her Sikh; V1 round 1, note 2);
+4. Whole text re-checked sentence by sentence, not only the changes:
+   - Every statement, number and count rests on the team version.
+   - Legends stay framed: "remembered in tradition", "Tradition makes him", "said to", "it was said", "In the Janamsakhis".
+   - The temple's saint and the figures of "A Name with Many Identities" are kept apart. No chains are merged and no variants stand side by side.
+   - Nothing rests on a reading marked uncertain. Kharpa, the raids, the Nilab place name, Dakka and the halts, Bangram, the rice's name and "whole" are all left out.
+   - There are no citations, page references, narration of sources or archive language.
+   - Every time anchor is firm: 1947, 2010, 2011, 1923, 1951, 1985, 2000, 1971, "In Aurangzeb's reign", and "Today" for the present of the source.
+   - The quotations occur verbatim in the team version: the Diwali line, the woman's two sentences and the Schimmel line.
+   - The bibliography is item for item the team version's, in the same order.
+   - The text has no em or en dashes. check_public_description.py --english-only exits 0 at 10335/23277 characters (0.44).
+5. Taste only, not required:
+   - The section "A Name with Many Identities" now says "not settled" in its first and last sentences. This is acceptable, but the last sentence could vary the wording.
+   - "counted in his own right a very important figure" reads more easily as "counted, in his own right, a very important figure".
+   - "Earlier, during his reign," is slightly redundant.
+   - The taste points of round 1 are unchanged and still optional: the commas in the Tilla Jogian sentence, the circular gloss of *Dargah*, "a *farman*, a royal order, of counsel", and "followers of Guru Nanak" twice.
+6. Omission sweep: after reading the team version through again, nothing obviously important is missing from the public text. What is left out is source apparatus, statements of what the books lack, readings marked uncertain, the year 391 with no era, and minor items. Leaving out Abdul Ghaffar Khan remains defensible under rule 4, as round 1 said.

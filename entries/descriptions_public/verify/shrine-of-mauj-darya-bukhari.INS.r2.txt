@@ -1,0 +1,41 @@
+V1: PASS
+V2: PASS
+V3: PASS
+
+Round 2 (confirming) of the focused check on the verse restored on 30 October 2026 (Rauf's ruling). Files read: the brief (docs/prompts/PUBLIC_DESCRIPTION_BRIEF.md), the team version (poetry/team/shrine-of-mauj-darya-bukhari.md, identical by md5 to entries/descriptions/shrine-of-mauj-darya-bukhari.md), the before copies (poetry/public_before/shrine-of-mauj-darya-bukhari.md and .ur.md), the current files (entries/descriptions_public/shrine-of-mauj-darya-bukhari.md and .ur.md), and the round 1 report (verify/shrine-of-mauj-darya-bukhari.INS.r1.txt).
+
+Files verified: shrine-of-mauj-darya-bukhari.md md5 136e5b75c4da2f55d10aa047f4c302b1; shrine-of-mauj-darya-bukhari.ur.md md5 401facf07d6ddae008b902a5e974c104.
+
+ISSUES: none
+
+NOTES
+
+a. Round 1 issues, as applied (each checked as a string match against the current line):
+   - Issue 1 (V1, RECOMMENDED text). English line 29 is the recommended text, character for character: "By the 1870s his death had been set in a Persian chronogram, a verse whose letters, read as numbers, give a year. The year it gives, written twice within it, is 1014 of the Hijri, or Islamic, calendar, one of the differing accounts of the year of his death:".
+   - Issues 2 and 4. Resolved by the issue 1 text: no book is the subject of the sentence, and "printed" is now "written".
+   - Issue 3. English line 40 now reads "She died in the year 1016 of the Hijri calendar, and she rests". The gloss "or Islamic" was removed there, and the gloss now sits at the first use (line 29). There is no other "Hijri" or "AH" before line 29 in the prose; the only "AH" is in the bibliography. The Urdu line 40 is unchanged, which is correct.
+   - Issues 5 and 6(i). Urdu line 29 is the 6(i) text, character for character: "1870 کی دہائی تک میراں محمد شاہ کی وفات پر فارسی کا ایک قطعۂ تاریخ کہا جا چکا تھا۔ اس قطعے سے سنہ 1014 ہجری برآمد ہوتا ہے، جو اس میں دو بار درج بھی ہے۔ یہ سنہ ان کے سالِ وفات کے مختلف اقوال میں سے ایک ہے:".
+   - The optional full stop on the renderings was not applied. That is taste, and leaving it is correct.
+
+b. Nothing else changed. Diff against public_before shows the English insertion at lines 29 to 37 and the one-clause change at line 40 (issue 3), and in the Urdu only the insertion at lines 29 to 37.
+
+c. V1. Each element of line 29 is supported by the team version:
+   - "By the 1870s" is anchored on the *Hadiqat al-Awliya*, composed 1292 AH / 1875 CE according to the bibliography, which the brief treats as firm. The article uses the same anchor at lines 42 and 56.
+   - "his death had been set in a Persian chronogram": "closes his notice with a Persian chronogram on the saint's death" (line 107).
+   - "The year it gives ... is 1014": the book "gives his death as the year 1014 AH, and closes with a chronogram on it" (line 37). A chronogram on a death in 1014 gives 1014 by definition, and the year is "set against it twice" (line 114).
+   - "written twice within it": "printing the year 1014 AH twice within it" (line 107). The ۱۰۱۴ھ is visible twice in the verse.
+   - "one of the differing accounts": the disagreement entry "The year and day of his death" (line 137) lists 1604 (the site) against 1014 AH (the *Hadiqat*). The disagreement holds even without the two 1013 AH readings that the team version flags as uncertain, and the article uses neither.
+   The established position (1604, basis (a)) stays at line 27 with its "accounts differ" clause. The verse's year is marked as one of those accounts, so the reader can no longer take 1014 AH for the Hijri form of 1604. This is the bhit-bhit-shah pattern, and given Rauf's ruling it is the honest handling. The gloss "a verse whose letters, read as numbers, give a year" is a definition (the house gloss). It fits here because the quoted text is the whole date-bearing chronogram.
+   The rendering "*A chronogram on the death of Muhammad Shah*" is the team version's statement of the subject without the citation and without the printed-text clause. It is not a translation, so it correctly has no credit.
+   There is no source narration, citation, archive language or dash. The verse is byte for byte identical across the team version, the English and the Urdu: 193 bytes, Eastern digits and ھ included, no ZWNJ, bidi marks, NBSP or trailing spaces. The paragraph holds only its four lines, with a blank line on both sides.
+
+d. V2. "By the 1870s ... had been set in" = 1870 کی دہائی تک ... کہا جا چکا تھا (a perfect, as the brief requires for "by the 1870s"). "his death" = میراں محمد شاہ کی وفات (named, which resolves the pronoun). "Persian chronogram" = فارسی کا ایک قطعۂ تاریخ. The gloss of chronogram and the gloss of Hijri are dropped deliberately, because both are familiar to an Urdu reader. "The year it gives ... is 1014" = اس قطعے سے سنہ 1014 ہجری برآمد ہوتا ہے. "written twice within it" = جو اس میں دو بار درج بھی ہے. "one of the differing accounts of the year of his death" = یہ سنہ ان کے سالِ وفات کے مختلف اقوال میں سے ایک ہے. The Urdu ان کے refers to میراں محمد شاہ, named in the first sentence, and مختلف اقوال points back to line 27's اقوال مختلف ہیں.
+   The rendering محمد شاہ کی وفات کا قطعۂ تاریخ matches the English. The only figure added is 1014, and the English has it.
+
+e. V3. The paragraph reads as natural Urdu. قطعۂ تاریخ کہنا and تاریخ / سنہ برآمد ہونا are the idiomatic collocations. Agreement is correct (سنہ masculine: برآمد ہوتا ہے). The paragraph is three sentences of comfortable length, with no repeated ایک, no stacked پر, and no gloss of a familiar term. سنہ 1014 ہجری sits beside line 40's bare 1016 ہجری. Both forms are standard, so this is taste and not a fault.
+
+f. Checker. Run in the repository, read-only: `python3 pipeline/book_queue/check_public_description.py shrine-of-mauj-darya-bukhari --no-verdicts` gave "ok shrine-of-mauj-darya-bukhari team 42579 -> public 13713 chars (0.32), Urdu 12631 chars (0.92)", exit 0. The U9 failure from round 1 is gone. I read the checker change against poetry/check_public_description.before.py. U9 now drops only paragraphs that cdd.is_verse() recognises as verse before it searches for Eastern digits, so Eastern digits in Urdu prose are still refused. The fix is sound and narrow, and it follows RULE 4: the check was wrong, not the verse.
+
+g. For the coordinator, outside the scope of the verdicts:
+   (i) The verdict lines at the top of the notes file still carry the pre-insertion stamps (en:bfb14e35, ur:0060aad6), so they are stale until re-stamped.
+   (ii) The notes' "Left out" > Verse line (47) and "Points for V1" item 3 (54) still describe the chronogram as left out. The appended section "Verse restored (Rauf, 30 October 2026)" records the change and overrides them.

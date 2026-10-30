@@ -1,0 +1,24 @@
+VERDICT: PASS
+V2: PASS
+V3: PASS
+REPLAY: I applied the 3 OLD -> NEW pairs of mithankot-kot-mithan.ur.r3.changes.txt in order to /tmp/claude-0/bak/mithankot-kot-mithan.ur.r2.md. Each OLD occurred exactly once. The result is byte for byte identical to the current mithankot-kot-mithan.ur.md.
+
+Fidelity, every changed sentence (V2): all 3 changes are faithful.
+- 1 (صاحبِ مزار, paragraph 2, last clause): "he is remembered for counselling the ruler in the interest of the people" becomes ان کے بارے میں یہ بات معروف ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا. معروف carries "remembered for" as well as مشہور did. "The ruler" (singular) and "in the interest of the people" are kept. Nothing is added and no hedge is lost or gained.
+- 2 (مزار اور عقیدت, paragraph 2): the English "...drew on Shah Abdul Latif's poetry and on Ghulam Farid's texts, and two items on the programme of that concert were his, both in Seraiki" is now two sentences. Both halves are complete: Islamabad, improvised, Shah Abdul Latif's poetry, Ghulam Farid's texts, two items, "that concert", "his" and "both in Seraiki". The English "and" between the halves marks no causal or contrastive link, so the full stop loses no relation. انہی resumes خواجہ غلام فرید, the name that closes the previous sentence, which matches the English "his".
+- 3 (ورثہ, last sentence): the English "his work" can only be Ghulam Farid's. The previous sentence is about Shackle's translations, and the list itself is of editions of Farid's work (کلامِ فرید، دیوانِ فرید). Naming him resolves nothing the English leaves open. "Multan editions" and "also include" (بھی شامل ہیں) are kept, and the three titles, the editor, the translator and the compiler are unchanged.
+
+Fluency, every changed sentence (V3): all 3 changes are correct and idiomatic in context.
+- 1: ان کے بارے میں یہ بات معروف ہے کہ is standard Urdu. The مشہور ہے کہ ... مشہور ہے کہ frame two sentences apart is gone. The only other معروف in the file is in ملفوظات (اشاراتِ فریدی کے نام سے بھی معروف ہے), several paragraphs away, so the change creates no new repetition.
+- 2: The first sentence now ends "...شامل تھی اور خواجہ غلام فرید کے متن بھی۔". The verbless second member with بھی is a normal literary ellipsis, and the gender change from شاعری (شامل تھی) to متن (masculine plural, understood شامل تھے) is acceptable under ellipsis in Urdu. Each sentence now has two clauses, so the over-long chain is gone. انہی picks up the name that closes the previous sentence and cannot be read as Abida Parvin, since کلام of someone means poetry they wrote. اس کنسرٹ points to the Islamabad performance just described. The only other concert (Open University) is in the شاعری section, far away.
+- 3: The sentence opens on the poet's name, so the reader no longer takes ان as Christopher Shackle, who is the subject of the previous sentence. The resumptive ان میں now has a single referent (the editions). The sentence keeps تصانیف from the paragraph's first sentence (ان کی تصانیف کی اشاعت), but that was already there before the change and two sentences apart is acceptable.
+
+ISSUES: none
+
+NOT APPLIED rulings: the changes file has no "Not applied" section. All 3 round 2 ISSUES (V3 issues 1 to 3) were applied, in the round 2 verifier's own wording.
+
+NOTES:
+- Change 2: اسلام آباد کے اس کنسرٹ would tie "that concert" to the performance more explicitly, but the English has the same performance/concert shift and اس کنسرٹ is clear as it stands. Optional, not proposed.
+- The whole file has no Latin letters and no en or em dashes, and the asterisks are balanced (one italic pair, the verse meaning line).
+
+CHECKER: python3 pipeline/book_queue/check_public_description.py mithankot-kot-mithan --no-verdicts -> "ok mithankot-kot-mithan team 22723 -> public 10532 chars (0.46), Urdu 9941 chars (0.94)", exit 0.

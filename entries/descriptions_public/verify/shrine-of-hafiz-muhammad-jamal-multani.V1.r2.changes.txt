@@ -1,0 +1,23 @@
+CHANGE 1
+OLD: and his contemporary Sulaiman Taunsvi urged his followers to take part
+NEW: and his contemporary Sulaiman Taunsvi urged his own followers to take part
+
+CHANGE 2
+OLD: Multan is also remembered as the place where Qutbuddin Bakhtiyar Kaki, coming from Baghdad, met Shaikh Bahauddin Zakariya.
+NEW: It was also in Multan that Qutbuddin Bakhtiyar Kaki, coming from Baghdad, met Shaikh Bahauddin Zakariya.
+
+CHANGE 3
+OLD: Around shrines in Multan, as in Sahiwal, performers of Sufi music sing to earn a living, and in an earlier age
+NEW: Some performers of Sufi music sing around shrines in Multan, as in Sahiwal, to earn a living, and in an earlier age
+
+CHANGE 4
+OLD: the holy cities lie within: "Mecca and Medina (and for the Sindhi and Panjabi, also Multan) are inside the heart".
+NEW: the holy cities lie within; as one scholar of mystical poetry put it, "Mecca and Medina (and for the Sindhi and Panjabi, also Multan) are inside the heart".
+
+CHANGE 5
+OLD: The saints of the Punjab, among whom Hafiz Jamal is counted, are the subject of the *Hadiqat al-Awliya*, a Persian book completed in 1875.
+NEW: The saints of the Punjab are the subject of the *Hadiqat al-Awliya*, a Persian book completed in 1875, whose modern edition names Hafiz Jamal among Noor Muhammad's *khalifas*.
+
+CHANGE 6
+OLD: Under the Sikhs, the notables of the Punjab suffered, and the tombs of its shaikhs fell into ruin.
+NEW: The notables of the Punjab suffered under the Sikhs, and the tombs of its shaikhs fell into ruin.

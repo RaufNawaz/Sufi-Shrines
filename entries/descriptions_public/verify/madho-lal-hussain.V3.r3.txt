@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: This was a confirming round on the 7 sentences in madho-lal-hussain.ur.r3.changes.txt; all seven read naturally in their paragraphs ("سائیں نہ کہیں تو", "مقامات یعنی", "اور ان دنوں چراغ", "پانچ گز لمبی اور تین گز چوڑی", "مزید پچیس", "بالائے طاق رکھی جا سکتی تھی"); taste only: in L45 "ان کے اقوال ایک ایک حرف کی تشریح کے ساتھ محفوظ ہیں" can for a moment suggest a commentary attached to the sayings, until the next sentence ("اس کی ف ...") shows the letters are those of فقر, and "فقر کے بارے میں ان کے اقوال محفوظ ہیں، جن میں اس لفظ کے ایک ایک حرف کی تشریح ہے۔" would remove that flicker.

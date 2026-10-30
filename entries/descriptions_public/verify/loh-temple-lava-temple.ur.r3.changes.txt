@@ -1,0 +1,63 @@
+# loh-temple-lava-temple: Urdu changes after V2 round 2 (PASS) and V3 round 2 (FAIL, 10 issues). Backup: /home/claude/bak/loh-temple-lava-temple.ur.before_r3.md
+
+WHY: V3 issue 1 (آخرکار; stacked کی). Adapted: V3's sentence names the caste as لوہانہ ذات at the start and then says یہ برادری; the English says only "a story of the origins of a caste" and names "the Lohana community" inside the story, so the caste stays ایک ذات and the name stays with برادری. To avoid a second ایک, the story is introduced as یہ کہانی ... کہ, which keeps it framed as a story. Otherwise V3's wording (کے بارے میں, اصل میں ... بنا ہے).
+OLD: سندھیوں میں ذات کی ابتدا کی ایک کہانی سنائی جاتی ہے جس کے مطابق لوہانہ برادری رام کے بیٹے لاوا سے موسوم ہے اور لفظ لوہانہ آخرکار انہی کے نام سے بنا۔
+NEW: سندھیوں میں ایک ذات کی ابتدا کے بارے میں یہ کہانی سنائی جاتی ہے کہ لوہانہ برادری رام کے بیٹے لاوا سے موسوم ہے اور لفظ لوہانہ اصل میں انہی کے نام سے بنا ہے۔
+
+WHY: V3 issue 2 (زمانہ ... جوڑتا ہے; ambiguous اسے). V3's wording.
+OLD: مندر کی تعمیر کا قرینِ قیاس زمانہ اسے 1799 میں رنجیت سنگھ کے ہاتھوں لاہور کی تسخیر سے جوڑتا ہے۔
+NEW: مندر کی تعمیر کا قرینِ قیاس زمانہ 1799 میں رنجیت سنگھ کے ہاتھوں لاہور کی تسخیر سے جا ملتا ہے۔
+
+WHY: V3 issue 3 (احتیاط سے on the noun بحالی). V3's wording.
+OLD: مندر کی احتیاط سے بحالی کی، جس کے لیے
+NEW: مندر کو احتیاط سے بحال کیا، جس کے لیے
+
+WHY: V3 issue 4 (English apposition after the comma). V3's wording.
+OLD: پرسونی راوی کا پرانا نام ہے، وہی دریا جو لاہور کے ساتھ ساتھ بہتا ہے۔
+NEW: پرسونی اسی راوی کا پرانا نام ہے جو لاہور کے ساتھ ساتھ بہتا ہے۔
+
+WHY: V3 issue 5 (یہ خاموشی without antecedent; comparison without a standard). Adapted: V3's wording, which makes the history harder than the temple's quiet (اس سے), but without کہیں, since the English says "a harder history", not a far harder one. No fact added.
+OLD: مندر پر چھائی یہ خاموشی لاہور کے ہندو مقامات کی اس تاریخ کا حصہ ہے جو کہیں زیادہ کٹھن رہی ہے۔
+NEW: مندر پر چھائی خاموشی لاہور کے ہندو مقامات کی ایک ایسی تاریخ کا حصہ ہے جو اس سے زیادہ کٹھن رہی ہے۔
+
+WHY: V3 issue 6 (double locative ... میں اس کا شمار ان میں). V3's wording; it keeps "one of the most storied" as few others, not a claim of first place.
+OLD: مگر لاہور کی باقی ماندہ مذہبی عمارتوں میں اس کا شمار ان میں ہوتا ہے جن سے سب سے زیادہ داستانیں وابستہ ہیں۔
+NEW: مگر لاہور کی باقی ماندہ مذہبی عمارتوں میں کم ہی ایسی ہیں جن سے اتنی داستانیں وابستہ ہوں۔
+
+WHY: V3 issue 7 (کچھ ہی بعد missing its noun). V3's wording; the only change is عرصے. The 1799 clause stays a relative clause on the historians' dating, which V2 round 2 (note 1) reads as kept with the historians, as in the English.
+OLD: مؤرخین اسے انیسویں صدی کے اوائل کی تعمیر قرار دیتے ہیں، جو غالباً 1799 میں مہاراجہ رنجیت سنگھ کے ہاتھوں قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی بعد عمل میں آئی۔
+NEW: مؤرخین اسے انیسویں صدی کے اوائل کی تعمیر قرار دیتے ہیں، جو غالباً 1799 میں مہاراجہ رنجیت سنگھ کے ہاتھوں قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی عرصے بعد عمل میں آئی۔
+
+WHY: V3 issue 8 (یادگاری beside کی یاد میں; ایک قدیم داستان repeated word for word). Adapted: V3's wording drops قدیم, and with it the English contrast of "a commemorative shrine of the Sikh period to an ancient legend"; قدیم is kept after اسی, so the sentence no longer repeats the paragraph's opening phrase but still says the legend is ancient. "Commemorative" is carried by کی یاد میں بنایا گیا.
+OLD: یوں یہ سکھ دور کا ایک یادگاری مندر ہے جو ایک قدیم داستان کی یاد میں بنایا گیا۔
+NEW: یوں یہ سکھ دور کا ایک مندر ہے جو اسی قدیم داستان کی یاد میں بنایا گیا۔
+
+WHY: V3 issue 9 (اپنے read as the elders' own possession). V3's wording.
+OLD: تو شہر کے بزرگوں نے رنجیت سنگھ کو لاہور آنے اور اسے اپنے قبضے میں لینے کی دعوت دی۔
+NEW: تو شہر کے بزرگوں نے رنجیت سنگھ کو لاہور آ کر اس پر قبضہ کرنے کی دعوت دی۔
+
+WHY: V3 issue 10 (English serial comma before the last اور). V3's wording.
+OLD: اس میں پہلے کیا رکھا جاتا تھا، اور یہاں کبھی پوجا ہوئی بھی یا نہیں۔
+NEW: اس میں پہلے کیا رکھا جاتا تھا اور یہاں کبھی پوجا ہوئی بھی یا نہیں۔
+
+WHY: V2 note 1 (the joining اور made the 1799 clause read as the narrator's inference). V2's wording: the 1799 clause now sits inside what the historians say, as in the English and as in the Overview.
+OLD: مؤرخین اسے انیسویں صدی کے اوائل کی بتاتے ہیں، اور غالباً یہ 1799 میں رنجیت سنگھ کے ہاتھوں قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی عرصے بعد بنی۔
+NEW: مؤرخین اسے انیسویں صدی کے اوائل کی، غالباً 1799 میں رنجیت سنگھ کے ہاتھوں قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی عرصے بعد کی تعمیر بتاتے ہیں۔
+
+NOT APPLIED:
+1. V3 note, راجہ رام چند and راجہ رام چندر: kept apart, because the English keeps "Raja Ram Chand" and "Raja Ramchandar" distinct.
+2. V3 note, والمیکی and بالمیکی: kept apart, because the English has the Valmiki temple and Balmiki Hindus.
+3. V3 note, لو against لَو: kept. They render the English Lo and Luv, two names; the zabar on لَو is what tells them apart, and ordinary Urdu script has no surer mark for Lo (decided in round 1, see the notes).
+4. V3 note, restatement of the dating, of the restoration and of باہم جڑے ہوئے حجروں: the English repeats the same material, and trimming would remove facts; V3 itself puts this outside the round.
+5. V3 note, بیسویں صدی کا بیشتر حصہ: taste; the brief also keeps بیشتر for "most of", not "much of".
+6. V3 note, reordering the خلط ملط sentence: taste.
+7. V3 note, زمانۂ دراز میں لاہور ایسا اجڑا: taste; the phrase says what the English says ("over long ages").
+8. V3 note, نادر مادی کڑی for نادر اور ٹھوس کڑی: taste; ٹھوس renders "tangible" correctly.
+9. V3 note, انارکلی: the dictionary (PLACE_TOKENS "Anarkali") and the sibling articles write انار کلی.
+10. V3 note, شہزادوں اور شہزادیوں: the English has the singular "the prince and the princess".
+11. V3 note, moving برسات کے موسم میں to the front of the Akbar sentence: taste.
+12. V3 note, the نگار خانہ sentence at the end of the sieges paragraph: it stands there in the English.
+13. V3 note, نیلا گنبد as neighbourhood or building: the English "at Neela Gumbad" leaves the same open.
+14. V3 note, کلاه with the Arabic ه in the verse: the verse is copied byte for byte from the English and is not touched.
+15. V3 note, انیسویں صدی کے اوائل beside 1799: a matter for the English, which says the same; the Urdu follows it.
+16. V2 notes 2 to 5: observations that the Urdu is faithful (the dropped glosses, the checks made, لاوا ہی نے and ایک خاتون صحافی); none proposes a change.

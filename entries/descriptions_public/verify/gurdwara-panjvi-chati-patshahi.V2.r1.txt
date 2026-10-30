@@ -1,0 +1,19 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [addition] The Fifth Guru, paragraph 5. English: "A meeting with an emperor is also remembered." | Urdu: "ایک بادشاہ سے گرو ارجن کی ملاقات کا ذکر بھی ملتا ہے۔" -> The Urdu names Guru Arjan as the Guru of this episode. The English deliberately never names him here: it says only "the Guru, the successor of Baba Nanak" (notes, judgement call 5: the team version prints the Guru's name uncertainly, so the public text leaves him unnamed and names no emperor). Naming Guru Arjan adds an identification and a certainty that the English withholds. The rest of the paragraph correctly keeps "بابا نانک کے جانشین گرو". -> corrected Urdu below.
+OLD: ایک بادشاہ سے گرو ارجن کی ملاقات کا ذکر بھی ملتا ہے۔
+NEW: ایک بادشاہ سے ملاقات کا ذکر بھی ملتا ہے۔
+
+NOTES:
+
+1. Headings correspond one to one (eight sections: تعارف، گوردوارہ، عقیدت اور تہوار، پانچویں گرو، گرو ارجن کی شہادت، چھٹے گرو، ننکانہ صاحب، ورثہ); no bibliography, as the brief requires. No verse in the English, none in the Urdu. Every figure in the Urdu (1670، 1613، 1563، 1581، 1606، 1594، 1604، 24 جولائی 1606، 1644، 1469، 2005، 2011، 1947، 1985) is in the English prose, and every count in words (seven hundred metres, ten to fifteen thousand, three thousand, three days, twenty five years, fifty two, five hundred, twenty two hundred, forty miles, thirteen times, about two hundred households) is carried. No Latin letters, no em or en dashes, asterisks balanced.
+
+2. All hedges are carried and none hardened: "is remembered to have visited" (بتایا جاتا ہے), "are said to have established" (کہا جاتا ہے), "Accounts of the Gurus' visits differ", "It is told that ... In this telling" for the Waan tree relic, "is said to have hidden", "it has been said", "is credited with", "is held to have been" (Bhai Bannu's house), "it is told" (Khusrau at the langar, extended correctly over the mark of blessing), "it is believed" (covering both the haveli and the cauldron), "Sikh belief tells the end as a miracle", "the tradition continues", "Accounts of his end differ", "is held to have given", "most often held ... though accounts differ", "it is told" (Bibi Kaulan), "Tradition tells ... the story goes ... it is said" (Talwandi), "Official estimates", "were reported". Legends stay legends.
+
+3. Dropped glosses that are deliberate under the brief, not omissions: "a fair" after گر میلہ, "saint soldiers" after سنت سپاہی, "bands of pilgrims" after جتھے, "a memorial shrine" after سمادھی, "the free communal kitchen" after لنگر, "the mansion" after حویلی. Italics correctly removed from گرو گرنتھ صاحب، لنگر، حویلی، سمادھی، مسند.
+
+4. Style only, no change needed: "the unbroken reading of the scripture" is rendered صحیفے کو شروع سے آخر تک بلا توقف پڑھا گیا; "شروع سے آخر تک" spells out what an unbroken reading of the scripture already means and adds no new fact. "gone back to being religious festivals" as پھر سے خالص مذہبی رنگ اختیار کر لیا ہے, and "under Rai Bhoi" as رائے بھوئی کی سرپرستی میں, are fair renderings of the English sense.
+
+5. Names: the Urdu name "گوردوارہ پنجویں اور چھٹی پاتشاہی" follows the dictionary entry (گوردوارہ پنجویں چھٹی پاتشاہی) with اور added to match the English "Panjvin and Chhevin Patshahi"; موزنگ follows the dictionary's spelling of Mozang. Both are consistent with the English; noted only so the coordinator knows they were checked.

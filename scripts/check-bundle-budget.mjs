@@ -195,7 +195,20 @@ const BUDGETS_KB = {
      static import carried `data/provenance.json` (127 KB) to every public
      reader of every entry; it is a lazy import now and the route measured 408.
      If this jumps by ~127 KB, that import went static again. */
-  'src/pages/ShrinePage.tsx': 445, // measured 442 on 17 Oct 2026, council round 7
+  /* 445 → 451 on 29 October 2026, deliberately, after looking at what came in
+     (as the note above asks). The infobox now reads a figure's birth and death
+     through localizeRecordedDate, so the Urdu page shows ہجری and the month in
+     Urdu rather than the recorded English, and splits the date from its
+     qualification (splitRecordedDate): the month and calendar tables are about
+     4 KB, in a chunk Rollup now shares with the saint page, which already
+     loaded them. The verse figure in ProseParagraphs is under 2 KB. Nothing else
+     joined the closure; measured 448. */
+  /* 451 → 454 on 30 October 2026, deliberately. The language caption over a
+     quoted verse (verseLanguage.ts: "پنجابی" over Shah Hussain's kafi, "اردو"
+     over its translation, Rauf's "make it more obvious") carries a 1.2 KB map
+     of 63 verse hashes to their languages and the 1 KB that reads it; nothing
+     else joined the closure. Measured 451. */
+  'src/pages/ShrinePage.tsx': 454, // measured 451 on 30 Oct 2026
   /* Raised 675 → 680 on 30 August 2026 and **put back the same morning**, which
      is the useful half of the story.
 
@@ -214,7 +227,11 @@ const BUDGETS_KB = {
 
      The structural point is still open and is worth more than either number:
      `/saint/:slug` downloads the whole graph to render one figure. */
-  'src/pages/SaintPage.tsx': 703, // measured 700 on 17 Oct 2026, council round 7
+  /* 703 → 708 on 30 October 2026: the saint page prints a figure's verse
+     through the same ProseParagraphs, so the verse language caption and its map
+     (about 2.5 KB with the Gurmukhi rules of 30 October) came with it. Measured
+     705. */
+  'src/pages/SaintPage.tsx': 708, // measured 705 on 30 Oct 2026
   'src/pages/OrderPage.tsx': 687, // measured 684 on 17 Oct 2026, council round 7
   'src/pages/GraphPage.tsx': 631, // measured 629 on 25 Oct 2026: +1 KB, useTeamAccess, TeamViewBadge and safeStorage (was 628, round 5: ?order= and #lineage)
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
@@ -529,6 +546,36 @@ for (const [manifestKey, key] of routes) {
     failures.push(`${key}: ${kb} KB eager JS exceeds its ${budget} KB budget`);
   }
   rows.push({ key, kb, budget, files: files.size });
+}
+
+/*
+ * The lazy payloads must stay out of the service worker's precache too, or the
+ * worker downloads them in the background for every visitor and undoes the
+ * lazy import one layer down (vite.config.ts, workbox.globIgnores). The 170
+ * per-article Urdu chunks were named by slug alone and slipped past the
+ * ignore patterns for twelve days: 2.9 MB fetched by every phone once the full
+ * public Urdu articles landed (29 October 2026). Measured from the built
+ * sw.js, so a renamed chunk cannot slip past again.
+ */
+const SW = join(DIST, 'sw.js');
+if (existsSync(SW)) {
+  const sw = readFileSync(SW, 'utf8');
+  const precached = new Set([...sw.matchAll(/url:"([^"]+)"/g)].map((m) => m[1]));
+  const lazyPayloads = Object.entries(manifest)
+    .filter(([key]) => key.startsWith('virtual:urdu-article/') || /urdu-content\.json$/.test(key))
+    .map(([, entry]) => entry.file);
+  for (const file of lazyPayloads) {
+    if (precached.has(file)) {
+      failures.push(`${file} is in the service worker precache: add its pattern to globIgnores`);
+    }
+  }
+  /* The Gurmukhi face is for a handful of articles (30 October 2026); in the
+     precache it would be downloaded by every visitor. */
+  for (const file of precached) {
+    if (/NotoSansGurmukhi/.test(file)) {
+      failures.push(`${file} is in the service worker precache: add its pattern to globIgnores`);
+    }
+  }
 }
 
 const width = Math.max(...rows.map((r) => r.key.length));

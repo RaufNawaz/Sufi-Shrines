@@ -1,0 +1,55 @@
+1. V3 r1 note 2 (bhattai doubling), adapted: V3 noted that بھٹائی already means 'of Bhit'; dropped بھٹائی rather than 'بھٹ کے شاعر' so that both facts of the English 'Shah Abdul Latif Bhittai, the poet of Bhit' (poet, of Bhit) stay; the full name شاہ عبداللطیف بھٹائی recurs in صاحبِ مزار and مزار
+OLD: کہ وہ بھٹ کے شاعر شاہ عبداللطیف بھٹائی کے جدِ امجد تھے
+NEW: کہ وہ بھٹ کے شاعر شاہ عبداللطیف کے جدِ امجد تھے
+
+2. V3 r1 issue 1
+OLD: وہ 1536 میں مٹیاری کے ایک سیّد گھرانے میں پیدا ہوئے، لیکن زندگی کا بیشتر حصہ بلڑی میں گزارا، اور ان کا لقب اسی مقام سے ماخوذ ہے۔
+NEW: وہ 1536 میں مٹیاری کے ایک سیّد گھرانے میں پیدا ہوئے، لیکن انہوں نے زندگی کا بیشتر حصہ بلڑی میں گزارا، اور ان کا لقب اسی مقام سے ماخوذ ہے۔
+
+3. V3 r1 issue 2 (checked against the English 'In the generations just before the birth': same sense)
+OLD: شاہ عبداللطیف کی ولادت سے عین پہلے کی پشتوں میں یہ خاندان مٹیاری کے نواح میں لوٹ آیا تھا۔
+NEW: شاہ عبداللطیف کی ولادت سے پہلے کی آخری پشتوں میں یہ خاندان مٹیاری کے نواح میں لوٹ آیا تھا۔
+
+4. V2 r1 note 2 (precision): 'اس بنا پر بھی کہ' made the lack of parallels a stated ground; the English 'set aside as too far fetched, with no parallels' does not, so plain اور as V2 proposed
+OLD: اس تعبیر کو بہت دور کی کوڑی قرار دے کر رد کیا جا چکا ہے، اس بنا پر بھی کہ شاہ عبداللطیف کی شاعری میں اس کی کوئی نظیر نہیں ملتی۔
+NEW: اس تعبیر کو بہت دور کی کوڑی قرار دے کر رد کیا جا چکا ہے، اور شاہ عبداللطیف کی شاعری میں اس کی کوئی نظیر نہیں ملتی۔
+
+5. V3 r1 issue 3 (also settles V2 r1 note 1: plain perfect for 'By 1940'; 'spoken of as the famous Sayid Abdul Karim' kept as مشہور + the name; 'Lower Sind, the south of the province' kept)
+OLD: 1940 تک صاحبِ مزار کا ذکر مشہور سیّد عبدالکریم کے نام سے ہونے لگا تھا، اور اس وقت بھی صوبے کے جنوبی علاقے زیریں سندھ میں ان کا نام عقیدت سے لیا جاتا تھا۔
+NEW: 1940 تک صاحبِ مزار سیّد عبدالکریم کے نام سے مشہور ہو چکے تھے، اور اس وقت بھی صوبے کے جنوبی حصے یعنی زیریں سندھ میں ان کا نام عقیدت سے لیا جاتا تھا۔
+
+6. V3 r1 issue 4 (checked against the English: same facts kept, a Sindhi name, Shah Karim, fair, mero, held on the day of the saint's urs; only 'its own' (اپنا) dropped as calque)
+OLD: زیارت کے اس سالانہ اجتماع کا اپنا سندھی نام تھا: شاہ کریم کا میلہ، یعنی *میرو*، جو بزرگ کے عرس کے دن لگتا تھا۔
+NEW: زیارت کا یہ سالانہ اجتماع بزرگ کے عرس کے دن ہوتا تھا، اور اس کا سندھی نام شاہ کریم کا *میرو* یعنی میلہ تھا۔
+
+7. V3 r1 issue 5 (checked against the English: Qalandariyya and 'wandering dervishes' both kept)
+OLD: وہاں کے گدی نشین محسن شاہ تھے، جو قلندری سلسلے سے وابستہ ایک صوفی تھے۔ یہ سلسلہ قلندروں کا ہے، یعنی سیلانی درویشوں کا۔
+NEW: وہاں کے گدی نشین محسن شاہ تھے، جو سیلانی درویشوں کے قلندری سلسلے سے وابستہ ایک صوفی تھے۔
+
+8. V3 r1 issue 6 (checked against the English: the second line of one of Latif's verses is a quotation from Karim; 'also' kept as بھی)
+OLD: شاہ عبداللطیف کے ایک بیت میں بھی شاہ عبدالکریم کا ایک مصرع محفوظ ہے: اس بیت کا دوسرا مصرع انہی سے لیا گیا ہے۔
+NEW: شاہ عبداللطیف کا ایک بیت ایسا بھی ہے جس کا دوسرا مصرع شاہ عبدالکریم سے لیا گیا ہے۔
+
+9. V3 r1 issue 7
+OLD: چور کا مضمون بھی شاہ عبدالکریم کی نظموں میں پہلے سے موجود ہے۔
+NEW: چور کا مضمون بھی شاہ عبدالکریم کے ابیات میں پہلے سے موجود ہے۔
+
+10. V3 r1 issue 8
+OLD: شاہ عبدالکریم اور شاہ عنات کی نظمیں شاہ عبداللطیف کی شاعری سے گہری قربت رکھتی ہیں۔
+NEW: شاہ عبدالکریم اور شاہ عنات کا کلام شاہ عبداللطیف کی شاعری سے گہری قربت رکھتا ہے۔
+
+11. V3 r1 issue 9, adapted: gloss of the Masnavi and the comma before اور dropped as V3 proposed; 'شاہ کریم' kept rather than changed to شاہ عبدالکریم, because the English names him 'Shah Karim' here and introduces that name in The Saint (شاہ کریم also stands in the fair's name)
+OLD: شاہ عبداللطیف تین کتابیں ہمیشہ اپنے پاس رکھتے تھے: قرآن مجید، جلال الدین رومی کی طویل صوفیانہ نظم مثنوی، اور شاہ کریم کے سندھی ابیات۔
+NEW: شاہ عبداللطیف تین کتابیں ہمیشہ اپنے پاس رکھتے تھے: قرآن مجید، جلال الدین رومی کی مثنوی اور شاہ کریم کے سندھی ابیات۔
+
+12. V3 r1 issue 10
+OLD: شاہ عبدالکریم اور 1711 میں وفات پانے والے شاہ عنات رضوی، دونوں شاہ عبداللطیف کے پیش روؤں میں سے تھے۔
+NEW: شاہ عبدالکریم اور 1711 میں وفات پانے والے شاہ عنات رضوی دونوں شاہ عبداللطیف کے پیش روؤں میں سے تھے۔
+
+13. V3 r1 issue 11 (checked: the English Overview says the town 'bears his name as Bulri Shah Karim', so the full name is kept)
+OLD: بلڑی کا قصبہ شاہ عبدالکریم ہی کے نام سے موسوم ہے، اور وہاں ان کا مزار آج بھی ان کے سالانہ عرس پر زائرین کو اپنی طرف کھینچتا ہے۔
+NEW: بلڑی کا قصبہ شاہ عبدالکریم ہی کی نسبت سے بلڑی شاہ کریم کہلاتا ہے، اور وہاں ان کا مزار آج بھی ان کے سالانہ عرس پر زائرین کو اپنی طرف کھینچتا ہے۔
+
+14. V3 r1 note 7 (ambiguous referent): 'خود ان کے' named as شاہ عبدالکریم ('some of his own lines')
+OLD: اور خود ان کے کچھ مصرعے بھی۔
+NEW: اور خود شاہ عبدالکریم کے کچھ مصرعے بھی۔

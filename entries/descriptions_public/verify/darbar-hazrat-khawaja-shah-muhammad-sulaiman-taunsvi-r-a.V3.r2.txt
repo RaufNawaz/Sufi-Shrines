@@ -1,0 +1,13 @@
+VERDICT: FAIL
+ISSUES:
+1. [repetition inside one sentence, introduced by change 7] "دوپہر کے کھانے کے بعد ہمیشہ قیلولہ فرماتے، ظہر کے بعد قرآن کی تلاوت فرماتے اور پھر عصر کی نماز پڑھتے۔" -> the new تلاوت فرماتے repeats the فرماتے of the clause just before it (قیلولہ فرماتے), so two of the three clauses end in the same verb. The paragraph keeps its honorific register through قیلولہ فرماتے and استراحت فرماتے, so plain کرتے is enough here and still makes him the reciter.
+OLD: ظہر کے بعد قرآن کی تلاوت فرماتے اور پھر عصر کی نماز پڑھتے
+NEW: ظہر کے بعد قرآن کی تلاوت کرتے اور پھر عصر کی نماز پڑھتے
+
+NOTES:
+- Round 1 issues: all nine are fixed in the verifier's wording (1 دارالعلوم, 2 کام آ سکتا ہے, 3 خواجہ صاحب کے جانشینوں, 4 ان ہندوؤں کے, 5 compilers as subjects, 6 سلسلۂ چشتیہ نظامیہ سلیمانیہ, 7 count before the title, 8 تونسہ میں مصنف کی بعد کی حاضریوں, 9 ان سوانح عمریوں میں). The round 1 taste note (اس شاخ کے مرشد) is applied too. All of the new sentences are grammatical and fit their neighbours. Agreement is checked: ذخیرہ ... جو ... کام آ سکتا ہے (masculine), نافع السالکین ... جمع کی and منتخب المناقب ترتیب دی (feminine, with ترتیب).
+- Taste: change 8 repeats ہندوؤں inside the sentence (پنجابی ہندوؤں ... ان ہندوؤں کے), and change 2 repeats شاخ (ایک اور شاخ ... اس شاخ کے مرشد). Both are deliberate anaphora that buys clarity, and they read naturally, so they are not faults. For the record, since the subject وہ is the saint, his own neighbours would be اپنے, so the old ان کے could only have meant the Hindus'. The fix is still clearer for a quick reader.
+- Taste: after change 5 the institution is introduced as دارالعلوم and called مدرسے in the very next sentence (then درس گاہ, then تونسہ کے دارالعلوم). The reader understands them as the same place, and the variation is acceptable. اس ادارے کا مقصد would keep the reference tighter.
+- Taste: after change 7, نماز پڑھتے ends this sentence and نماز باجماعت پڑھتے ends the next one. They are in different sentences, so this is not a fault. عصر کی نماز ادا کرتے would vary it, but only if issue 1's کرتے is not used, so the fix above leaves it alone.
+- Taste: in change 11, تونسہ میں stands before both conjuncts. The natural reading attaches it to حاضریوں only, so it does not make the saint's death a Taunsa fact by implication. That is fine as it stands.
+- Change 4 now names خواجہ صاحب کے جانشین twice within three sentences (جس کی دیکھ بھال ... and ... کی بدولت). That is across sentences and reads as a deliberate resumption, so it is acceptable.

@@ -1,0 +1,13 @@
+# shrine-of-abdullah-shah-ghazi: changes applied by the coordinator after V2 round 2 (FAIL, 1 issue) and V3 round 2 (FAIL, 3 issues), by exact replacement of each OLD string once (late round procedure of the brief). Backup of the round 2 file: /home/claude/bak/shrine-of-abdullah-shah-ghazi.ur.before_r3.md
+
+WHY: V2 r2 issue 1 and V3 r2 issue 3 (same sentence), applied in V2's wording: V3's ایک دوسرے would change 'fakirs follow other fakirs'; دیگر فقیروں names the referent
+OLD: جس کے بعد فقیر دوسروں کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔
+NEW: جس کے بعد فقیر دیگر فقیروں کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔
+
+WHY: V3 r2 issue 1 (raised in round 1 too), applied in the verifier's wording: the one sentence carries both English clauses ('a target of violence' and 'counted among the Sufi shrines of Pakistan that have come under attack'), and بھی ... شامل keeps 'like other great shrines'; for the confirming check
+OLD: دوسرے بڑے مزارات کی طرح یہ مزار بھی تشدد کا نشانہ بن چکا ہے، اور پاکستان کے جن صوفی آستانوں پر حملے ہوئے ہیں ان میں اس کا نام بھی آتا ہے۔
+NEW: پاکستان کے جن بڑے صوفی آستانوں کو تشدد کا نشانہ بنایا گیا ہے، یہ مزار بھی ان میں شامل ہے۔
+
+WHY: V3 r2 issue 2, applied in the verifier's wording: 'reclaimed land' on the Karachi coast is land reclaimed from the sea, and the article already places Clifton by the sea; for the confirming check
+OLD: بھرائی کر کے حاصل کی گئی زمین
+NEW: سمندر پاٹ کر حاصل کی گئی زمین

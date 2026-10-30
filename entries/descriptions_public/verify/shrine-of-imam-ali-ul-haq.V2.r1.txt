@@ -1,0 +1,27 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed certainty] English (The Setting, paragraph 1) "It is located right on the border, and historically it gave the Punjab a connection to Kashmir." | Urdu "یہ عین سرحد پر واقع ہے، اور تاریخی طور پر یہی شہر پنجاب کو کشمیر سے ملاتا تھا۔" -> the emphatic یہی (یہ + ہی, "it was this very city that") makes Sialkot the link between the Punjab and Kashmir. The English says only that it gave the Punjab a connection to Kashmir, not that it was the only or main one. -> corrected Urdu:
+   OLD: اور تاریخی طور پر یہی شہر پنجاب کو کشمیر سے ملاتا تھا۔
+   NEW: اور تاریخی طور پر یہ شہر پنجاب کو کشمیر سے ملاتا تھا۔
+
+NOTES:
+Everything else matches the English paragraph by paragraph. I checked these:
+- Numbers and dates: 322 قبلِ مسیح، 1192ء، 580ھ، 971ھ، 1071ھ، 1977ء، تین چار صدیاں، تیرہویں یا چودہویں صدی، انیسویں صدی، دو تین کوس، اکیسویں صدی.
+- Every name and title.
+- Every hedge, each in the right place: روایت کے مطابق، مقامی روایت کے مطابق، کہا جاتا ہے، روایت ہے، اکثر کے مطابق، مشہور ہے، بعض بیانات، مانا جاتا ہے، داستان کے مطابق، یہ بھی بیان کیا جاتا ہے، غالباً، ممکن ہے.
+- The headings correspond. There is no verse.
+- The glosses that were dropped are of words an Urdu reader knows, so I do not count them as omissions: shahid, darbar, pirs, baraka, urs, langar, Auqaf, doab, kos, faujdar, jagirdar, suba, kalabatun, qanungos, madrasa, faqir, "a year of the Islamic calendar".
+- Naming the raja as راجا سالباہن in the Puran paragraph only makes clear who is meant, and it is the same person. It is not an addition.
+
+Rulings on the writer's seven questions:
+(1) Accepted. Both spellings become علی الحق in Urdu script, so ان کا نام علی الحق بھی لکھا جاتا ہے keeps the English sentence without adding anything. An Urdu reader takes it to mean the name is also written without امام, and the English variant "Ali al-Haq" also lacks the title. Dropping the gloss "Ali al-Haq of Sialkot" is correct. It only explains the nisba to the English reader, and an Urdu reader understands سیالکوٹی at once, so this is not an omission. The clause may look redundant to an Urdu reader, but that is a question for V3, not for fidelity.
+(2) Accepted. Keeping the colon leaves the naming of the graves inside what visitors describe, as in the English. روایت کے مطابق stands where "by tradition" stands. The clause اور یہیں ... آسودۂ خاک ہیں stays under the same colon, so its scope is the same as the English "together with". A full stop would turn the naming of the graves into the author's own statement.
+(3) Accepted. 580ھ stands next to the failure at Lahore, as in the English, so it attaches to the same thing. بھی renders "also". The gloss "a year of the Islamic calendar" is rightly dropped, since ھ already says it. The English gives 580 AH after 1192 out of date order, and the Urdu keeps that order.
+(4) Accepted. خود اٹھایا carries "its own": the city's business community paid the cost itself. سیالکوٹ کے ہوائی اڈے keeps the airport as the city's. The verb covers both the airport and the highway, and "which handles international flights" stays in the present tense in a clause of its own. Nothing is added.
+(5) Accepted. "It" is the scene of the whole town playing in the flood water, and اس سماں کو names exactly that. بڑے لطف سے is the idiomatic way to say "with pleasure". The slight extra emphasis is a matter of style, not a change of fact. If V3 wants something closer, لطف لے کر یاد کرتا تھا would also do.
+(6) Accepted. جس پر 1071ھ کا سنہ درج ہے says the work bears the date 1071 AH, which is what "is dated" means. It does not turn that date into the year the work was written or the year of the martyrdom. A version such as جو 1071ھ میں لکھی گئی would add certainty the English does not have.
+(7) Accepted. پورن بھگت is the standard Urdu spelling of the hero of the qissa. The dictionary has no entry for him; its پران in محلہ پران نگر is an unrelated place name. The short form پورن in the sentences that follow matches the English "Puran".
+
+Style only:
+- احمد سرہندی نے یہیں تعلیم پائی: یہیں points back to the city and does not claim that all his education took place there, so it passes. The plainer یہاں تعلیم حاصل کی is available if V3 prefers it.

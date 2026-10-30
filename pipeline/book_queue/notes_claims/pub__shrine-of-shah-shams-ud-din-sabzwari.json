@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-10-27T12:14:59Z",
+  "expires_at": "2026-10-27T13:44:59Z",
+  "note": "[renewing own claim; previous holder scheduled-pc-2026-10-27T1100Z]",
+  "released_at": "2026-10-27T12:20:54Z",
+  "released_by": "scheduled-pc-2026-10-27T1100Z",
+  "session": "scheduled-pc-2026-10-27T1100Z",
+  "slug": "pub__shrine-of-shah-shams-ud-din-sabzwari",
+  "status": "released"
+}

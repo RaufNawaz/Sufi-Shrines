@@ -1,0 +1,57 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [agreement/case] جو والد کے نقشِ قدم پر چلے اور گرو ہرگوبند کی تلوار سنبھالے رکھی -> the relative pronoun جو is in the direct case, which fits چلے but not سنبھالے رکھی (a transitive perfect that needs جنہوں نے); the two verbs cannot share this subject -> نویں گرو ان کے چھوٹے بیٹے تیغ بہادر تھے، جو والد کے نقشِ قدم پر چلے اور گرو ہرگوبند کی تلوار سنبھالے رہے۔
+OLD: نویں گرو ان کے چھوٹے بیٹے تیغ بہادر تھے، جو والد کے نقشِ قدم پر چلے اور گرو ہرگوبند کی تلوار سنبھالے رکھی۔
+NEW: نویں گرو ان کے چھوٹے بیٹے تیغ بہادر تھے، جو والد کے نقشِ قدم پر چلے اور گرو ہرگوبند کی تلوار سنبھالے رہے۔
+
+2. [wrong word] ساتویں گرو کے پیر -> پیر means spiritual master, not a kinship term. Set against نویں کے والد, it reads as a muddled relation. The two sentences before it say that Har Rai, the seventh Guru, took his دادا's place, so the word needed is دادا -> ہرگوبند ساتویں گرو کے دادا بھی تھے اور نویں کے والد بھی۔
+OLD: ہرگوبند ساتویں گرو کے پیر بھی تھے اور نویں کے والد بھی۔
+NEW: ہرگوبند ساتویں گرو کے دادا بھی تھے اور نویں کے والد بھی۔
+
+3. [wrong word] گرو ارجن کا ایک مصرع پڑھا -> a مصرع is a single line, yet the next sentence says اس کا آغاز یوں ہوتا ہے and quotes one line followed by an ellipsis. The piece recited is longer than one line, so مصرع is the wrong term -> جواب میں گرو ہرگوبند نے گرو ارجن کا ایک بند پڑھا، جس میں ان مختلف ناموں کا ذکر ہے جن سے لوگ خدا کو پکارتے ہیں۔
+OLD: جواب میں گرو ہرگوبند نے گرو ارجن کا ایک مصرع پڑھا، جس میں ان مختلف ناموں کا ذکر ہے جن سے لوگ خدا کو پکارتے ہیں۔
+NEW: جواب میں گرو ہرگوبند نے گرو ارجن کا ایک بند پڑھا، جس میں ان مختلف ناموں کا ذکر ہے جن سے لوگ خدا کو پکارتے ہیں۔
+
+4. [unidiomatic collocation] تین بار پھٹکار کہے -> پھٹکار is a noun (curse, reproach) and is not "said"; Urdu sends it (پھٹکار بھیجنا), and the verb needs an object (اس پر) -> گرو نے حکم دیا کہ کوئی سکھ چندو لال کا نام زبان پر نہ لائے، اور جب کبھی اس کا ذکر آئے تو پہلے تین بار اس پر پھٹکار بھیجے۔
+OLD: اور جب کبھی اس کا ذکر آئے تو پہلے تین بار پھٹکار کہے۔
+NEW: اور جب کبھی اس کا ذکر آئے تو پہلے تین بار اس پر پھٹکار بھیجے۔
+
+5. [inconsistent spelling] اپنے والد کی سمادھی -> everywhere else the article uses سمادھ (سمادھیں, سمادھ کسی کی یاد میں, گرو ارجن کی سمادھ کے پجاری), and this is the same Guru Arjan memorial named in the second of those -> گرو ہرگوبند نے اپنے والد کی سمادھ کے مقام پر ایک چھوٹی سی عمارت بنوائی۔
+OLD: گرو ہرگوبند نے اپنے والد کی سمادھی کے مقام پر ایک چھوٹی سی عمارت بنوائی۔
+NEW: گرو ہرگوبند نے اپنے والد کی سمادھ کے مقام پر ایک چھوٹی سی عمارت بنوائی۔
+
+6. [incomplete construction] ہر رائے کو مقرر کیا -> مقرر کرنا needs a complement (appointed as what?). Also the tacked-on جو یوں clause is awkward. The succession is already stated in the sentence (اپنے دادا کی جگہ بیٹھے), so جانشین only names it -> گرو نے بابا گردتا کے چھوٹے بیٹے ہر رائے کو اپنا جانشین مقرر کیا، اور یوں ہر رائے اپنے دادا کی جگہ بیٹھے۔
+OLD: گرو نے بابا گردتا کے چھوٹے بیٹے ہر رائے کو مقرر کیا، جو یوں اپنے دادا کی جگہ بیٹھے۔
+NEW: گرو نے بابا گردتا کے چھوٹے بیٹے ہر رائے کو اپنا جانشین مقرر کیا، اور یوں ہر رائے اپنے دادا کی جگہ بیٹھے۔
+
+7. [redundant pronoun / tangled] گرو نے شہنشاہ کی دو ایک فوجی مہموں میں ان کی مدد کی -> the emperor is named and then referred to again with ان in the same clause ("helped him in the emperor's campaigns"). Put the emperor directly after مدد -> شروع میں گرو ہرگوبند اور جہانگیر کے درمیان کشمکش رہی، مگر بعد میں دونوں کے تعلقات خوشگوار ہو گئے، اور گرو نے دو ایک فوجی مہموں میں شہنشاہ کی مدد کی۔
+OLD: اور گرو نے شہنشاہ کی دو ایک فوجی مہموں میں ان کی مدد کی۔
+NEW: اور گرو نے دو ایک فوجی مہموں میں شہنشاہ کی مدد کی۔
+
+8. [tense/logic] ایک سابقہ بستی تھی -> "was a former settlement" puts سابقہ (former) together with past tense تھی inside a sentence already set in the nineteenth century, so the time reference does not make sense. The sense of "former" is "it used to be a settlement outside Lahore" -> یہ پہلے لاہور کے باہر واقع ایک بستی تھی، اور شہر کے محلوں میں بھی اس کا شمار ہوتا تھا۔
+OLD: یہ لاہور کے باہر واقع ایک سابقہ بستی تھی، اور شہر کے محلوں میں بھی اس کا شمار ہوتا تھا۔
+NEW: یہ پہلے لاہور کے باہر واقع ایک بستی تھی، اور شہر کے محلوں میں بھی اس کا شمار ہوتا تھا۔
+
+9. [gloss of a familiar word] پانی پلانے کی سبیل -> سبیل is an everyday word for a Pakistani reader, and the gloss reads as padding -> اس کے اندر ایک دوسرا احاطہ تھا جس میں اینٹوں کا رہٹ والا کنواں اور سبیل تھے، اور اس کے پہلو میں ایک چھوٹا سا باغیچہ تھا۔
+OLD: جس میں اینٹوں کا رہٹ والا کنواں اور پانی پلانے کی سبیل تھے،
+NEW: جس میں اینٹوں کا رہٹ والا کنواں اور سبیل تھے،
+
+10. [repetition / repeated gloss] دس پاتشاہیوں یعنی بادشاہیوں -> پاتشاہی was already glossed in the introduction (چھٹی بادشاہی), and the elliptical چھٹی leaves its noun unstated -> دس پاتشاہیوں کے شمار میں چھٹی پاتشاہی گرو ہرگوبند کی ہے، اور گوردوارے کا نام اسی سے ماخوذ ہے۔
+OLD: دس پاتشاہیوں یعنی بادشاہیوں کے شمار میں چھٹی گرو ہرگوبند کی ہے، اور گوردوارے کا نام اسی سے ماخوذ ہے۔
+NEW: دس پاتشاہیوں کے شمار میں چھٹی پاتشاہی گرو ہرگوبند کی ہے، اور گوردوارے کا نام اسی سے ماخوذ ہے۔
+
+NOTES:
+- Structural repetition, for an editor to decide rather than a mechanical fix: "پہلے گرو تھے جنہوں نے دو تلواریں باندھیں" appears almost word for word in the second paragraph and at the end of the درشن paragraph. "سکھ برادری کو عسکری رنگ دینے کا آغاز ... انہی نے کیا" appears in the second paragraph and again in the paragraph on the سپاہی سنت. The protected-heritage sentence appears in the introduction and again under ورثہ, and the closing paragraph repeats the nineteenth-century description. This is acceptable as intro and summary, but the two verbatim echoes inside the body stand out.
+- چبوترے کے اوپر جنگلے والا ایک محرابی در: a در (doorway) that has walls with pictures and a vaulted ceiling is hard to picture. Check the source term (perhaps a دالان or a chamber) before publication. Not changed here because the right word cannot be settled from the Urdu alone.
+- وہاں کے تھانے دار: for the keeper of a fort, قلعہ دار would be the expected word, unless the source means a thanedar. Check against the source.
+- In the quotation in the ورثہ section, جو ان کی سیاسی قوت کا مرکز تھا: after ایک سکھ, the pronoun ان can be read as an honorific for that one ruler or as "the Sikhs'". Writing سکھوں کی would remove the ambiguity, if that is the intended sense.
+- In the critics sentence, "ناقدین نے ... انحراف قرار دیا، اور وہ پہلے گرو تھے جنہوں نے ایک بھی بھجن نہیں لکھا" joins a judgement and a separate fact with اور. Two sentences would read more cleanly.
+- گرو ارجن کی طرف سے نامزدگی کے بعد is journalistic. گرو ارجن کے نامزد کرنے کے بعد would be lighter.
+- اس مقام پر گرو ہرگوبند کی یاد کے احترام میں: کی یاد میں alone is more natural.
+- راجے and then راجاؤں in consecutive sentences: both forms are current, but راجے with راجوں, or راجا with راجاؤں, would be more consistent.
+- پناہ گزینوں and مہاجرین are used for the same group in consecutive sentences, which is acceptable variation. In the second sentence the order "کئی گوردوارے اور مندر مہاجرین نے" (object first) would read more smoothly as "مہاجرین نے کئی گوردوارے اور مندر".
+- چومالا/بھاٹی دروازہ: a slash is foreign to Urdu prose. Parentheses or یعنی would read better once it is clear whether these are two names for one site.
+- ان کی رخصتی پر ماتم: رخصتی strongly suggests a bride's departure. ان کے جانے پر would avoid that association.
+- گولڈن ٹیمپل is current in Pakistani Urdu, but دربار صاحب or ہرمندر صاحب would be the more native-register choice if house style permits.

@@ -1,0 +1,22 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 1 issues, all fixed:
+   1 (word order, layers): fixed; the range now precedes محیط ہیں.
+   2 (word order, trinity): fixed; the names sit in apposition with یعنی before سے.
+   3 (ambiguous اس سے / یہ سب): fixed; اس تعظیم and یہ سب ناتھ اور سدھ point clearly back to the veneration of the nine Naths and eighty four Siddhas.
+   4 (مقام read as a place): fixed; کمال کا یہ درجہ picks up کامل جوگی from the sentence before and reads naturally.
+   5 (calque بائیں ہاتھ کے): fixed; وام مارگ یعنی بائیں راہ کے مخفی علوم avoids the بائیں ہاتھ کا کھیل association. The یعنی apposition before کے is ordinary Urdu, not the English comma parenthesis the brief forbids.
+   6 (title and name run together): fixed; شیخ فیض اللہ نے سترہویں صدی میں گورکش وجے نامی کتاب لکھی is clear, and اس کی بنیاد in the next sentence refers cleanly to the book.
+   7 (trailing relative clause): fixed; وجود اور اس کی نفی یعنی *بھاو* اور *ابھاو* دونوں سے بالاتر ہے is natural.
+   8 (an idea that "sees"): fixed; اسی خیال کے مطابق ... پائی جاتی ہیں is idiomatic.
+   9 (separate defining sentence for قلندر): fixed as adapted; the gloss is folded into the clause as سیلانی درویشوں یعنی *قلندروں* کو, so no sentence talks down to the reader and no gloss stands between noun and postposition. The adaptation keeps the brief's required gloss and reads well.
+   10 (یہ pointing to پشاور): fixed with یہ مندر.
+   11 (calque and repeated کی حیثیت سے): fixed; مشہور ہے کہ وہ متسیندر ناتھ کے چیلے تھے.
+   12 (genitive اقلیت انہی کی ہے): fixed; یہی سب سے بڑی اقلیت ہیں, agreement with the plural subject correct.
+   Changes 10 (Goga Pir) and 12 (Khyber road) from V2 are also natural: جب ... ان کا مقابلہ ہوا تو ... ان کی مدد keeps both ان on Goga Pir, and اسے اختیار کرتے تھے is idiomatic for taking a road.
+2. Taste, Guru Gorakhnath para 1: the new مشہور ہے کہ opens three consecutive sentences of the same shape (مشہور ہے کہ، عقیدہ ہے کہ، یہ بھی بیان کیا جاتا ہے کہ). Not a fault, since each renders a different English hedge, but a reviser could vary one.
+3. Taste, Legends para 1: اس خیال کی رو سے and اسی خیال کے مطابق open consecutive sentences, so خیال is repeated across two sentences (not inside one). Acceptable, as the attribution is wanted in both.
+4. Taste, Legacy: یہ مندر ... ہندو مندروں is the standard "one of the few" construction and is fine, but مندر now appears in four of the paragraph's five sentences.
+5. Taste, Sufis para 1: italics on *قلندروں* are pre-existing; قلندر is arguably ordinary Urdu and could lose them, but that is outside the changed text.
+6. Mechanics of the changed sentences: no Latin letters, no em or en dashes, asterisks balanced (28 in the file), postpositions and agreement correct throughout.

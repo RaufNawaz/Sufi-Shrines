@@ -1,0 +1,9 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [scope check] `diff /home/claude/bak/shrine-of-pir-sher-muhammad.before_v1r2.md /home/claude/repo/entries/descriptions_public/shrine-of-pir-sher-muhammad.md` shows exactly two changed lines (21 and 54), each matching the OLD and NEW sentences in the changes file. Nothing else in the file moved; the Bibliography is untouched.
+2. [change 1, supported] "Sharaqpur has its place in the history of books as well." -> Supported by the team version: one work, the *Khazina-e Marifat*, printed at Sharaqpur (Lahori, p. 156 and p. 303) and one manuscript, the *Thamarat al-Quds*, held there (p. 294). It no longer implies a plural of printed and kept books, which fixes the round 1 count note. It adds no new fact, no source talk and no dash. In place, "as well" follows the paragraph on the earlier saint and reads naturally. Minor, and not new: the paragraph's last sentence (Rani Jindan's *jagir*) is not about books, so the topic sentence covers only two of the paragraph's three sentences. The old opener had the same mismatch. Optional: move the *jagir* sentence to a paragraph of its own, or keep it as is.
+3. [change 2, supported] "The Sufi poet Bulleh Shah's verse speaks of the Punjab ..." -> "Sufi poet" is supported by the team version's bibliography (Bullhe Shah as the poet of *Sufi Lyrics*) and by its Shackle material, which places him among the Punjab's Sufi poets and ties him to Shah Inayat. It introduces no new fact and no dash. It parallels "The Punjabi poet Waris Shah" a few lines earlier, and Rani Jindan correctly stays unglossed. The stacked possessive ("The Sufi poet Bulleh Shah's verse") is a little heavy. Taste only; "The verse of the Sufi poet Bulleh Shah speaks of ..." would read more lightly.
+4. [Urdu] If the Urdu file was written before these two changes, V2 should confirm that it carries both.

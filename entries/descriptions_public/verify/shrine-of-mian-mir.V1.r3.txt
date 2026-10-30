@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round (brief, "Stopping, so polish does not loop"), run by the coordinator, who wrote none of the text. Scope: the sentences listed in verify/shrine-of-mian-mir.V1.r3.changes.txt, which apply the optional notes of V1 round 2 (PASS) in that verifier's own wording. Checked by script that every NEW sentence is present in the current English and every OLD sentence is gone, and by reading that each NEW sentence matches the wording V1 round 2 proposed and supported against the team version. Each change narrows or clarifies an attribution, a referent or a tense and adds no fact. The rest of the text is as V1 round 2 passed it. Optional notes of this round: none.

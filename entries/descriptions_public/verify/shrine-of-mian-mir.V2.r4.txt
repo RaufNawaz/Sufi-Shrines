@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the sentence in shrine-of-mian-mir.ur.r4.changes.txt; script check: the NEW occurs exactly once in shrine-of-mian-mir.ur.md, the OLD is gone, no Latin letters, no dashes, asterisks still 4. "تو ان کے مسلمان دوست میاں میر غصے کے عالم میں ان کے پاس آئے" against "his Muslim friend came to him, incensed": the friend is now definite and singular, and naming him makes explicit what the English identifies by context (the preceding sentence says the Sikh memory of the Gurus' ordeals tells of Mian Mir), so it adds no identification; ان کے is still the Guru's, "incensed" (غصے کے عالم میں), the question about destroying the oppressors and the Guru's refusal are unchanged.

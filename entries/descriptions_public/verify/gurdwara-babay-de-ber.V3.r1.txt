@@ -1,0 +1,112 @@
+VERDICT: FAIL
+ISSUES:
+1. [collocation] یہی درخت اس مقام کی عقیدت کا مقدس مرکز ہے -> "the site's devotion" is not an Urdu collocation: people have عقیدت, a place is its مرکز. مقدس belongs to the tree, not to the centre.
+OLD: آج بھی گوردوارے کے احاطے میں بیری کا ایک قدیم درخت موجود ہے جسے روایت پانچ صدیوں سے زیادہ پرانا بتاتی ہے، اور یہی درخت اس مقام کی عقیدت کا مقدس مرکز ہے۔
+NEW: آج بھی گوردوارے کے احاطے میں بیری کا ایک قدیم درخت موجود ہے جسے روایت پانچ صدیوں سے زیادہ پرانا بتاتی ہے، اور یہی مقدس درخت یہاں عقیدت کا مرکز ہے۔
+
+2. [ambiguous pronoun] یہ پاکستان کے ان تاریخی سکھ مقامات میں شامل ہے -> comes straight after یہی درخت, so یہ first reads as the tree being one of the restored sites.
+OLD: یہ پاکستان کے ان تاریخی سکھ مقامات میں شامل ہے جنہیں حالیہ برسوں میں بحال کر کے زیارت کے لیے دوبارہ کھولا گیا ہے۔
+NEW: یہ گوردوارہ پاکستان کے ان تاریخی سکھ مقامات میں شامل ہے جنہیں حالیہ برسوں میں بحال کر کے زیارت کے لیے دوبارہ کھولا گیا ہے۔
+
+3. [ambiguous pronoun] گرو انہی کی سفارش کے لیے -> the nearest honorific antecedent of انہی is حمزہ غوث, so the Guru seems to intercede for the saint rather than for the frightened people.
+OLD: روایت ہے کہ سیالکوٹ کے لوگ شہر کے ایک مسلمان بزرگ حمزہ غوث کے غضب سے خوف زدہ تھے، اور گرو انہی کی سفارش کے لیے اس درخت کے نیچے آ بیٹھے تھے۔
+NEW: روایت ہے کہ سیالکوٹ کے لوگ شہر کے ایک مسلمان بزرگ حمزہ غوث کے غضب سے خوف زدہ تھے، اور گرو انہی لوگوں کی سفارش کے لیے اس درخت کے نیچے آ بیٹھے تھے۔
+
+4. [correlative] حمزہ غوث جہاں عبادت میں محو تھے، اس کے قریب ہی -> جہاں supplies no noun for اس کے to refer to; polished prose pairs جس جگہ with اس کے قریب.
+OLD: حمزہ غوث جہاں عبادت میں محو تھے، اس کے قریب ہی گرو ایک بیری کے نیچے بیٹھ گئے اور بلند آواز سے الٰہی کلام گانے لگے۔
+NEW: حمزہ غوث جس جگہ عبادت میں محو تھے، اس کے قریب ہی گرو ایک بیری کے نیچے بیٹھ گئے اور بلند آواز سے الٰہی کلام گانے لگے۔
+
+5. [calque] یہ واقعہ ان میں بار بار آنے والے ایک سانچے کا حصہ ہے -> English "part of a recurring pattern"; a سانچہ does not "come" in Urdu, and an event is cast in a mould, not part of it.
+OLD: *ساکھیاں* گرو کے بارے میں سنائی جانے والی کہانیاں ہیں، اور یہ واقعہ ان میں بار بار آنے والے ایک سانچے کا حصہ ہے۔
+NEW: *ساکھیاں* گرو کے بارے میں سنائی جانے والی کہانیاں ہیں، اور ان میں ایک ہی سانچہ بار بار دہرایا جاتا ہے جس میں یہ واقعہ بھی ڈھلا ہوا ہے۔
+
+6. [calque / ambiguous pronoun] گرو کے سفر انہیں جن مقامات پر لے جاتے ہیں -> English "his travels take him to places"; and in ان کی باتیں the nearest plural is بزرگوں, so it is unclear whose words turn anger to compassion.
+OLD: ان کہانیوں میں گرو کے سفر انہیں جن مقامات پر لے جاتے ہیں، وہاں کے مسلمان اور ہندو بزرگوں سے ان کا مکالمہ ہوتا ہے، اور ان کی باتیں غصے اور تفرقے کو ہمدردی کی طرف موڑ دیتی ہیں۔
+NEW: ان کہانیوں میں گرو اپنے سفروں میں جہاں جہاں جاتے ہیں، وہاں کے مسلمان اور ہندو بزرگوں سے ان کا مکالمہ ہوتا ہے، اور گرو کی باتیں غصے اور تفرقے کو ہمدردی کی طرف موڑ دیتی ہیں۔
+
+7. [ambiguity] ان میں گرو بیری کے ایک پرانے درخت کی جڑ میں ڈیرا ڈالتے ہیں -> follows a bare definition of جنم ساکھیاں, so it reads as a statement about the janamsakhis in general rather than about their telling of this episode.
+OLD: ان میں گرو بیری کے ایک پرانے درخت کی جڑ میں ڈیرا ڈالتے ہیں، فقیر بازار کے چوک کے عین وسط میں اپنی بددعا سناتے ہیں، اور جب گرو رخصت ہوتے ہیں تو تقریباً سارا شہر انہیں الوداع کہنے کو موجود ہوتا ہے۔
+NEW: ان میں یہ قصہ یوں آتا ہے کہ گرو بیری کے ایک پرانے درخت کی جڑ میں ڈیرا ڈالتے ہیں، فقیر بازار کے چوک کے عین وسط میں اپنی بددعا سناتے ہیں، اور جب گرو رخصت ہوتے ہیں تو تقریباً سارا شہر انہیں الوداع کہنے کو موجود ہوتا ہے۔
+
+8. [unidiomatic] اس کی بعد کی صورت ... نے تعمیر کی -> a صورت (form) is not built; English "its later form was built". A building is.
+OLD: مقدس بیری کے گرد جو گوردوارہ وجود میں آیا، اس کی بعد کی صورت ناتھا سنگھ نامی ایک شخص نے تعمیر کی۔
+NEW: مقدس بیری کے گرد جو گوردوارہ وجود میں آیا، اس کی بعد کی عمارت ناتھا سنگھ نامی ایک شخص نے تعمیر کی۔
+
+9. [tangled sentence] ... پہنچا جاتا ہے، اگرچہ یہ شہر میں ٹھیک کس جگہ واقع ہے، اس بارے میں بیانات مختلف ہیں -> اگرچہ yokes the route and an unrelated hedge on location as if one conceded the other, with an embedded question between commas; the reader stumbles. Split.
+OLD: گوردوارے تک محلے کی تنگ گلیوں سے ہو کر پہنچا جاتا ہے، اگرچہ یہ شہر میں ٹھیک کس جگہ واقع ہے، اس بارے میں بیانات مختلف ہیں۔
+NEW: گوردوارے تک محلے کی تنگ گلیوں سے ہو کر پہنچا جاتا ہے۔ شہر میں اس کے ٹھیک محلِ وقوع کے بارے میں بیانات مختلف ہیں۔
+
+10. [calque] یہ درخت عین اس سہ پہر سے ایک زندہ رشتہ ہے -> English "a living link to the very afternoon"; a thing is not a رشتہ "to" a moment in Urdu.
+OLD: عقیدت مندوں کی نظر میں یہ درخت عین اس سہ پہر سے ایک زندہ رشتہ ہے جب گرو اس کے سائے میں بیٹھے تھے۔
+NEW: عقیدت مندوں کی نظر میں یہ درخت ایک زندہ کڑی ہے جو انہیں عین اس سہ پہر سے جوڑتی ہے جب گرو اس کے سائے میں بیٹھے تھے۔
+
+11. [collocation] تعظیم پیش کرتے ہیں -> calque of "pay respects"; the idiom is تعظیم بجا لانا (خراجِ عقیدت پیش کرنا). The relative clause جہاں also needs its correlative اس.
+OLD: زائرین درخت کے سامنے حاضر ہو کر تعظیم پیش کرتے ہیں، اور اندرونی مقدس حصے میں عبادت کرتے ہیں جہاں گرو گرنتھ صاحب رکھا ہے۔
+NEW: زائرین درخت کے سامنے حاضر ہو کر تعظیم بجا لاتے ہیں، اور اس اندرونی مقدس حصے میں عبادت کرتے ہیں جہاں گرو گرنتھ صاحب رکھا ہے۔
+
+12. [inconsistent naming / register] خود نانک -> everywhere else the article says گرو نانک or بابا نانک; the bare name is a register slip in a reverent article.
+OLD: مانا جاتا ہے کہ خود نانک مذہبی شخصیات سے معجزے منسوب کرنے کو سخت ناپسند کرتے تھے، پھر بھی ان کی زندگی کے قصے معجزوں سے بھرے پڑے ہیں۔
+NEW: مانا جاتا ہے کہ خود گرو نانک مذہبی شخصیات سے معجزے منسوب کرنے کو سخت ناپسند کرتے تھے، پھر بھی ان کی زندگی کے قصے معجزوں سے بھرے پڑے ہیں۔
+
+13. [connotation] لوگوں کو ایمان کے دام میں لے آتے تھے -> دام is a snare; in modern prose دام میں لانا means to entrap, which casts Mardana as a trickster. The intended sense is drawing people into the faith.
+OLD: گرو نانک نے خدا کی حقیقت پر ہندی میں اشعار کہے جن میں وحدتِ الٰہی کا بیان ہے، اور گویّے مردانہ یہ کلام گا کر لوگوں کو ایمان کے دام میں لے آتے تھے۔
+NEW: گرو نانک نے خدا کی حقیقت پر ہندی میں اشعار کہے جن میں وحدتِ الٰہی کا بیان ہے، اور گویّے مردانہ یہ کلام گا کر لوگوں کو حلقۂ ایمان میں لے آتے تھے۔
+
+14. [calque] گرو نانک کی بانی کو اسی کے حصے کے طور پر مرتب کیا -> English "compiled as part of it".
+OLD: آدی گرنتھ سکھوں کے مقدس صحیفے کی پہلی تدوین تھی، اور پانچویں گرو ارجن دیو نے 1604 میں گرو نانک کی بانی کو اسی کے حصے کے طور پر مرتب کیا۔
+NEW: آدی گرنتھ سکھوں کے مقدس صحیفے کی پہلی تدوین تھی، اور پانچویں گرو ارجن دیو نے 1604 میں گرو نانک کی بانی مرتب کر کے اسی میں شامل کی۔
+
+15. [calque] متون ... جو 322 قبل مسیح تک جاتے ہیں -> English "texts that go back to 322 BC"; in Urdu it is a text's زمانہ that goes back.
+OLD: اس کا سب سے پرانا تحریری ذکر ان قدیم یونانی متون میں ملتا ہے جو 322 قبل مسیح تک جاتے ہیں۔
+NEW: اس کا سب سے پرانا تحریری ذکر ان قدیم یونانی متون میں ملتا ہے جن کا زمانہ 322 قبل مسیح تک جاتا ہے۔
+
+16. [tense] واقع ہے، اور اس کا شمار قدیم شہروں میں ہوتا تھا -> present and past clash in one sentence, and "used to be counted among the ancient cities" implies it no longer is.
+OLD: یہ شہر رچنا دوآب میں واقع ہے، اور اس کا شمار قدیم شہروں میں ہوتا تھا۔
+NEW: یہ شہر رچنا دوآب میں واقع ہے، اور اس کا شمار قدیم شہروں میں ہوتا ہے۔
+
+17. [collocation] اپنی فوج یہاں چھوڑ دی -> چھوڑ دینا suggests abandoning the army; a garrison is posted, تعینات کرنا.
+OLD: غوری نے اس کے پرانے قلعے کی مرمت کی اور اپنی فوج یہاں چھوڑ دی؛ خسرو ملک اور کھوکھروں نے کچھ عرصے تک قلعے کا محاصرہ کیا مگر کامیاب نہ ہو سکے۔
+NEW: غوری نے اس کے پرانے قلعے کی مرمت کی اور اپنی فوج یہاں تعینات کر دی؛ خسرو ملک اور کھوکھروں نے کچھ عرصے تک قلعے کا محاصرہ کیا مگر کامیاب نہ ہو سکے۔
+
+18. [unidiomatic] ان کئی تاریخی گوردواروں میں سے ایک -> ان کئی is not idiomatic ("these several"); Urdu says ان بہت سے.
+OLD: گوردوارہ بابے دی بیر پاکستانی پنجاب کے ان کئی تاریخی گوردواروں میں سے ایک ہے جو گرو نانک سے منسوب ہیں اور جن پر زیارت گاہوں اور ورثے کے مقامات کی حیثیت سے نئے سرے سے توجہ دی جانے لگی ہے۔
+NEW: گوردوارہ بابے دی بیر پاکستانی پنجاب کے ان بہت سے تاریخی گوردواروں میں سے ایک ہے جو گرو نانک سے منسوب ہیں اور جن پر زیارت گاہوں اور ورثے کے مقامات کی حیثیت سے نئے سرے سے توجہ دی جانے لگی ہے۔
+
+19. [calque] ایک خاص اخلاقی وزن رکھتی ہے -> English "carries a particular moral weight"; Urdu speaks of اخلاقی اہمیت.
+OLD: اس گوردوارے کی کہانی ایک خاص اخلاقی وزن رکھتی ہے۔
+NEW: اس گوردوارے کی کہانی ایک خاص اخلاقی اہمیت رکھتی ہے۔
+
+20. [calque / choppy] سیالکوٹ شہر کے لیے ... یاد دلاتے ہیں۔ روایت کے مطابق اسی ماضی میں -> یاد دلانا takes کو, not کے لیے ("for the city"); and the second sentence is an English relative clause ("a past in which...") cut off as its own sentence with the stiff اسی ماضی میں. Join them.
+OLD: سیالکوٹ شہر کے لیے یہ گوردوارہ اور اس کا قدیم درخت ایک کثیر المذاہب ماضی کی یاد دلاتے ہیں۔ روایت کے مطابق اسی ماضی میں سکھ مذہب کے بانی اور شہر کے ایک مسلمان بزرگ ایک ہی آسمان تلے ملے تھے۔
+NEW: یہ گوردوارہ اور اس کا قدیم درخت سیالکوٹ شہر کو ایک ایسے کثیر المذاہب ماضی کی یاد دلاتے ہیں جب روایت کے مطابق سکھ مذہب کے بانی اور شہر کے ایک مسلمان بزرگ ایک ہی آسمان تلے ملے تھے۔
+
+21. [collocation / ambiguous pronoun] گرو کے سفروں کے نقشے پر ایک عزیز پڑاؤ -> a پڑاؤ lies on a route, not on a map (English "a stop on the map"); یہ after a sentence ending on two people needs its noun.
+OLD: زائرین کے لیے یہ پانچ دریاؤں کی سرزمین میں گرو کے سفروں کے نقشے پر ایک عزیز پڑاؤ ہے۔
+NEW: زائرین کے لیے یہ گوردوارہ پانچ دریاؤں کی سرزمین میں گرو کے سفروں کی راہ کا ایک عزیز پڑاؤ ہے۔
+
+22. [mood / yoked clauses] یوں لگتا تھا جیسے ... جانتا ہے، اور اس نام کی ابتدا ... مانی جاتی ہے -> after یوں لگتا تھا جیسے Urdu needs the subjunctive جانتا ہو; and a past impression and an unrelated present belief are chained with اور. Split.
+OLD: یوں لگتا تھا جیسے سیالکوٹ میں ہر شخص جانتا ہے کہ بابا بیر کہاں ہے، اور اس نام کی ابتدا بھی گرو نانک ہی سے مانی جاتی ہے۔
+NEW: یوں لگتا تھا جیسے سیالکوٹ میں ہر شخص جانتا ہو کہ بابا بیر کہاں ہے۔ اس نام کی ابتدا بھی گرو نانک ہی سے مانی جاتی ہے۔
+
+NOTES:
+- Overall the prose is educated and often fine, with good idiom in places (گوردوارے کے دن پھرے، دل پسیج گیا، the monsoon river passage, the Aurangzeb-era passages). The failures are scattered calques, a few ambiguous pronouns and some loose sentence joins, not systemic.
+- Tense without an anchor (cannot be fixed without adding who saw it and when): the description of the building and grave (عمارت کھلی وضع کی تھی، درخت عمارت کے پیچھے تھا، یہ قبر نئی تھی؛ پہلے کی ایک حاضری، گوردوارے کے پہلو میں حال ہی میں ایک مسجد ...) and یوں لگتا تھا are a visitor's past observations. The reader cannot tell whether they still hold, and درخت عمارت کے پیچھے تھا sits oddly beside آج بھی ... درخت موجود ہے. The same applies to دروازے پر لگے ایک بورڈ پر درج تھا.
+- Repetition (structural, left as taste): the introduction retells the Hamza Ghaus episode, and شہر کے ایک مسلمان بزرگ حمزہ غوث appears verbatim in both places; the meaning of بیر/بیری is explained twice in the first paragraph (نام کا مطلب, then نام بیر سے نکلا ہے); the hedge روایات/بیانات مختلف ہیں occurs seven times, twice in consecutive sentences under گرو نانک, and could be varied (روایتیں متفق نہیں، اختلاف ہے); عبادت three times in two sentences in عقیدت اور کلام; Sialkot as a centre of learning is stated twice in a row.
+- سکھوں کا یہ گوردوارہ is redundant (a gurdwara is Sikh). سکھ مقدس مقامات reads better as سکھوں کے مقدس مقامات.
+- اپنے بڑے سفروں کے دوران: طویل سفروں is the usual phrase. سیاحت کے برسوں میں ... جو طویل سفر کیے is redundant, and سیاحت now carries a tourism sense.
+- رحم اور توازن کی اس تعلیم: توازن is an odd word for the Guru's lesson; this may be a sense question rather than a language one, so not changed.
+- حمزہ غوث ایک صوفی فقیر تھے is a bare one-line reintroduction of someone already introduced as مسلمان بزرگ; it could be folded into the next sentence.
+- یہ قصہ ایک سے زیادہ طرح سے سنایا جاتا ہے is acceptable but a little English; مختلف صورتوں میں would be smoother.
+- میاں مٹھا ... کو نیچا دکھایا، جنہوں نے انہیں "بلو ڈالنے" کی دھمکی دی تھی: the extraposed relative is grammatical, though putting the threat first would read more naturally.
+- اس واقعے کا خیر مقدم: for a reopening, اس اقدام is better than واقعہ.
+- ایک ندی شہر کے نیچے سے بہتی تھی can momentarily suggest a river under the city; شہر کے نشیب میں would be clearer.
+- پناہ گزینوں and مہاجرین alternate in one sentence; a reader may take them for two groups.
+- گویّے مردانہ is grammatical as an honorific but abrupt.
+- شری گرو نانک کی بانیاں: شری and the plural بانیاں appear only here (elsewhere گرو نانک کی بانی), perhaps deliberately reflecting Sindhi usage.
+- کتاب تاریخ گرو خالصہ: the title is not set off; and the sentence about its author sits as a non sequitur at the end of a paragraph about present-day Sialkot.
+- فارسی شاعروں عطار، رومی اور سعدی is an English-shaped apposition; acceptable.
+- اور ایک دوسرے گیت میں: ایک اور گیت میں is more natural, since ایک دوسرے can momentarily read as "each other". دھونے کے بارے میں is flat.
+- آدھی رات کو کوئی ... آ پہنچتا would gain from اگر ... بھی, but that is taste.
+- اپنے بیٹے کو نہیں comes right after two sons are named; the singular is slightly puzzling but may follow the source.
+- کروڑی and اداسی فرقہ (beside اداسیاں as journeys) presuppose context the reader has not been given; cannot be fixed without adding facts.
+- Punctuation is clean: Urdu ، ۔ ؛ throughout, no dashes, no Latin letters, Western digits, asterisks balanced; verse paragraphs untouched.

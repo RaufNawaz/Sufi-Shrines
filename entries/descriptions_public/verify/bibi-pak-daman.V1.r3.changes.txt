@@ -1,0 +1,4 @@
+V1 round 2, note 4 (optional), applied in the verifier's exact wording. No other change.
+
+OLD: Its door opens inside the shrine's *khanqah*, and in the nineteenth century people called it the tomb of the Bibis' teacher.
+NEW: In the nineteenth century its door opened inside the shrine's *khanqah*, and people called it the tomb of the Bibis' teacher.

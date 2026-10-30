@@ -1,0 +1,54 @@
+VERDICT: FAIL
+ISSUES:
+1. [ambiguous pronoun / tangled order] "سلطان نے انہیں اپنے لیے چن لیا تھا، اور اس سے پہلے وہ یہی پہنا کرتے تھے" -> انہیں comes straight after "گھسے ہوئے جوتے اور بوسیدہ کپڑے", so the reader first takes it as the Sultan choosing the clothes; the clauses also run backwards (the choosing is told first, the earlier wearing second). -> put the time clause first and name Ayaz.
+OLD: سلطان نے انہیں اپنے لیے چن لیا تھا، اور اس سے پہلے وہ یہی پہنا کرتے تھے۔
+NEW: جب تک سلطان نے ایاز کو اپنے لیے چن نہیں لیا تھا، وہ یہی جوتے اور کپڑے پہنا کرتے تھے۔
+
+2. [ambiguity] "بادشاہ کے گھر والے اور وزرا دونوں کی اس قربت کا مذاق اڑاتے تھے" -> دونوں is read with "کی اس قربت" ("the closeness of the two") instead of as "both the family and the ministers", and "اس قربت" has no antecedent after the melon story. -> بھی ... بھی for "both", and name whose closeness it was.
+OLD: کہا جاتا ہے کہ بادشاہ کے گھر والے اور وزرا دونوں کی اس قربت کا مذاق اڑاتے تھے۔
+NEW: کہا جاتا ہے کہ بادشاہ کے گھر والے بھی اور وزرا بھی ایاز سے ان کی اس قربت کا مذاق اڑاتے تھے۔
+
+3. [calque / awkward anaphor] "اور یہ افسر خدمت گزاری کا نمونہ ٹھہرے" -> "یہ افسر" is English "the officer" used as a pronoun; it repeats افسر from the same sentence and reads like a translation. -> use the name.
+OLD: اس روایت میں محمود اور ان کے افسر ایاز کے گہرے تعلق کو سراہا گیا، اور یہ افسر خدمت گزاری کا نمونہ ٹھہرے۔
+NEW: اس روایت میں محمود اور ان کے افسر ایاز کے گہرے تعلق کو سراہا گیا، اور ایاز خدمت گزاری کا نمونہ ٹھہرے۔
+
+4. [inconsistent spelling] "محمود غزنہ کے" -> the city is غزنی in the Mawdud paragraph ("ایاز ان کے ساتھ غزنی چلیں") and غزنہ here. -> one form throughout.
+OLD: محمود غزنہ کے عظیم جنگجو بادشاہ اور شمال مغربی ہندوستان کے فاتح تھے، مگر ادبی روایت میں وہ مثالی عاشق کے روپ میں ڈھل گئے۔
+NEW: محمود غزنی کے عظیم جنگجو بادشاہ اور شمال مغربی ہندوستان کے فاتح تھے، مگر ادبی روایت میں وہ مثالی عاشق کے روپ میں ڈھل گئے۔
+
+5. [inconsistent spelling] "اولیاء" -> the article otherwise drops the final hamza in such plurals (وزرا، علما، امرا). -> اولیا.
+OLD: انیسویں صدی میں شیخ ایاز لاہوری کے نام سے ان کا ذکر اولیاء کی صف میں ہوتا تھا، اور انہیں شاہ محمود غزنوی کا غلام اور محبوب کہا جاتا تھا۔
+NEW: انیسویں صدی میں شیخ ایاز لاہوری کے نام سے ان کا ذکر اولیا کی صف میں ہوتا تھا، اور انہیں شاہ محمود غزنوی کا غلام اور محبوب کہا جاتا تھا۔
+
+6. [mismatched coordination] "آج بھی لاہور میں اور پنجاب کے لوگوں کے لیے مقبول زیارت گاہ ہے" -> a place adverbial (لاہور میں) is yoked to a beneficiary phrase (کے لوگوں کے لیے); English structure, it limps in Urdu. -> one genitive for both.
+OLD: داتا گنج بخش کا یہ دربار آج بھی لاہور میں اور پنجاب کے لوگوں کے لیے مقبول زیارت گاہ ہے۔
+NEW: داتا گنج بخش کا یہ دربار آج بھی لاہور اور پنجاب کے لوگوں کی مقبول زیارت گاہ ہے۔
+
+7. [tangled sentence / repetition] "اس اہمیت کا ایک سبب یہ بھی ہے کہ ...، اور یہ بھی کہ ..." -> announces one reason and then gives two, with یہ بھی twice. -> announce two and number them.
+OLD: اس اہمیت کا ایک سبب یہ بھی ہے کہ محمود غزنوی کی وفات کے بعد ایاز نے اپنی رہائش گاہ چھوڑ دی، اور یہ بھی کہ راتیں یادِ الٰہی میں گزارنا ان کا معمول تھا۔
+NEW: اس اہمیت کے دو سبب اور بھی ہیں: ایک یہ کہ محمود غزنوی کی وفات کے بعد ایاز نے اپنی رہائش گاہ چھوڑ دی، اور دوسرے یہ کہ راتیں یادِ الٰہی میں گزارنا ان کا معمول تھا۔
+
+8. [calque / inconsistent term] "جہاں سے شہر کی بعد کی تاریخ چلتی ہے" -> تاریخ چلتی ہے renders "from which the later history runs" word for word; also "ازسرِنو آبادی" can be read as "a new population", while the section heading and body use آبادکاری. -> شروع ہوتی ہے، آبادکاری.
+OLD: ان کے ہاتھوں لاہور کی ازسرِنو آبادی کو وہ موڑ بھی قرار دیا گیا ہے جہاں سے شہر کی بعد کی تاریخ چلتی ہے۔
+NEW: ان کے ہاتھوں لاہور کی ازسرِنو آبادکاری کو وہ موڑ بھی قرار دیا گیا ہے جہاں سے شہر کی بعد کی تاریخ شروع ہوتی ہے۔
+
+9. [calque] "بادشاہ ایک حیرت انگیز کایا پلٹ میں اپنے غلام کے غلام بن جاتے ہیں" -> "کایا پلٹ میں" copies "in an amazing reversal"; کایا پلٹ is something that happens (کایا پلٹ ہوتی ہے), not a container for an action. -> make it a clause.
+OLD: بادشاہ ایک حیرت انگیز کایا پلٹ میں اپنے غلام کے غلام بن جاتے ہیں۔
+NEW: ایک حیرت انگیز کایا پلٹ ہوتی ہے اور بادشاہ اپنے غلام کے غلام بن جاتے ہیں۔
+
+NOTES:
+Overall the prose is good: the Mahmud succession paragraph, the huma story and the Rumi paragraph read naturally, hedges are kept, and punctuation is clean (no Latin, no dashes, asterisks balanced, verse untouched). Taste and points to check against the source, not counted as issues:
+- "جو ان کے دو بیٹوں میں سے ایک تھے": after "ایاز نے انکار کیا" the reader takes ان کے as Ayaz's sons. If Saad is meant as Mahmud's son, name him (محمود کے دو بیٹوں). Resolve against the source; I could not fix it without guessing.
+- "جلد باز" in a list of virtues reads as a fault (rash). If the source means quick or alert, مستعد would fit; if it means impulsive, leave it.
+- "جب وزیر نے آزمانے کے لیے": which vizier, and testing whom, is not said; "ایک بار" or "سب کو آزمانے کے لیے" would help if the source supports it.
+- "ان کا ایمان ایسا پختہ تھا" (روایات, first paragraph): main subject is محمود, so ان could be either man; probably Ayaz.
+- "وہ گویا ایاز سمجھے جاتے اور بیٹا کہلاتے تھے": whose son is not said; reads incomplete.
+- Melon story: "ان کی خاموشی" has no prior mention; "ایاز نے چپ چاپ کھا لیا" in the first sentence would set it up.
+- "1030 میں" has no era marker while 993 عیسوی and 450 ہجری do; "1030 عیسوی" would be consistent.
+- "جواہر" (twice) and "جواہرات" (once): pick one.
+- "سدا غنی" is unusual; "بے نیاز" is the familiar rendering of the divine attribute.
+- "ایاز سے اپنی محبت کے ساتھ بڑی کشمکش" leans on English "struggled with"; acceptable inside the quotation.
+- "بعض جگہ ان کی موت طبعی بتائی جاتی ہے": "بعض روایات میں" is more precise than جگہ.
+- "آج یہ مقام مختصر سا ہے": "چھوٹا سا رہ گیا ہے" is more usual for a physical site.
+- "ایاز کی یادگارِ فتح" can suggest Ayaz's own victory; the next sentence clears it up.
+- The two resettlement paragraphs (لاہور کی ازسرِنو آبادکاری) retell plunder, desertion and the Sultan's permission twice; tolerable as two accounts, but a reader notices.

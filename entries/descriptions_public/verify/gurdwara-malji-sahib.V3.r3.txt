@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the two sentences in gurdwara-malji-sahib.ur.r3.changes.txt; both are grammatical and unambiguous, and "تینوں کو سکھ چلاتے تھے" now plainly makes the three businesses the object. Taste note: "بابا فرید کا کلام ان کی اولاد سے جمع کرنے کے لیے" would avoid naming Baba Farid and then "ان بزرگ" in the same clause, though the current wording reads fine.

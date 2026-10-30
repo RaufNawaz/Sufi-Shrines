@@ -1,0 +1,44 @@
+VERDICT: FAIL
+ISSUES:
+1. [grammar, missing postposition] "سولہویں صدی اور اس کے بعد ... سندھ میں آیا" -> "سولہویں صدی" has no postposition of its own; only "اس کے بعد" is complete, so the time phrase reads as broken English order ("in and after the sixteenth century") -> add میں.
+OLD: نقشبندی سلسلہ سولہویں صدی اور اس کے بعد ارغونوں اور ترخانوں کے ساتھ سندھ میں آیا۔
+NEW: نقشبندی سلسلہ سولہویں صدی میں اور اس کے بعد ارغونوں اور ترخانوں کے ساتھ سندھ میں آیا۔
+
+2. [ambiguous pronoun, calque] "اور ان کے مرکزی مصنف مخدوم محمد ہاشم" -> "ان کے" can be read as the scholars' rather than the treatises', and "مرکزی مصنف" is a calque of "central author" -> name the treatises and use a natural collocation.
+OLD: لواری شریف کے نقشبندی علماء نے سندھ میں رسالے لکھے، اور ان کے مرکزی مصنف مخدوم محمد ہاشم (1692 تا 1762) تھے، جو ٹھٹھہ میں قاضی تھے۔
+NEW: لواری شریف کے نقشبندی علماء نے سندھ میں رسالے لکھے، اور ان رسالوں کے سب سے اہم مصنف مخدوم محمد ہاشم (1692 تا 1762) تھے، جو ٹھٹھہ میں قاضی تھے۔
+
+3. [ambiguous] "ان سے یہ نتیجہ نکلا کہ اہلِ سندھ ... پر عمل نہیں کرتے تھے" -> "نتیجہ نکلنا" also means "the result was", so the sentence can be read as saying the treatises caused Sindhis not to practise orthodox Islam; the intended sense is what the treatises imply -> use an inferential verb.
+OLD: بعد میں نقشبندیوں نے اسلامی احکام کی پیروی کے بارے میں جو رسالے لکھے، ان سے یہ نتیجہ نکلا کہ اہلِ سندھ رسمی طور پر مسلمان ہوتے ہوئے بھی "راسخ العقیدہ اسلام" پر عمل نہیں کرتے تھے۔
+NEW: بعد میں نقشبندیوں نے اسلامی احکام کی پیروی کے بارے میں جو رسالے لکھے، ان سے یہ ظاہر ہوتا تھا کہ اہلِ سندھ رسمی طور پر مسلمان ہوتے ہوئے بھی "راسخ العقیدہ اسلام" پر عمل نہیں کرتے تھے۔
+
+4. [punctuation, English structure] "نام میل کھاتا ہے؛ ہو سکتا ہے ...؛ اور ..." -> a semicolon-separated list of evidence with no connective is English layout; the reader is not told that these three points are the grounds for the identification just called possible -> introduce the list and use Urdu commas.
+OLD: نام میل کھاتا ہے؛ ہو سکتا ہے لنواری اسی مقام کے نام کی کوئی شکل ہو؛ اور یہ شیخ شاہ عبداللطیف بھٹائی کے زمانے میں سندھ ہی میں رہے۔
+NEW: اس امکان کی بنیاد یہ ہے کہ نام میل کھاتا ہے، لنواری اسی مقام کے نام کی کوئی شکل ہو سکتی ہے، اور یہ شیخ شاہ عبداللطیف بھٹائی کے زمانے میں سندھ ہی میں رہے۔
+
+5. [ambiguous reference] "سندھ میں اس سلسلے کی کوئی ہندو شاخ" -> "اس سلسلے" also reads as the idiom "in this connection", and the nearest order named in the paragraph is the Chishti one; the next sentence shows the Naqshbandi order is meant -> name it.
+OLD: سندھ میں اس سلسلے کی کوئی ہندو شاخ مشکل ہی سے ملتی ہے۔
+NEW: سندھ میں نقشبندی سلسلے کی کوئی ہندو شاخ مشکل ہی سے ملتی ہے۔
+
+6. [agreement, register] "چار سرکاریں یعنی ضلعے تھے" -> feminine "سرکاریں" and masculine "ضلعے" share one verb "تھے", which agrees with neither cleanly; "ضلعے" is colloquial where the plural in written Urdu is "اضلاع" -> recast with مشتمل.
+OLD: صوبے میں چار سرکاریں یعنی ضلعے تھے: ٹھٹھہ، سیوستان، نصیر پور اور امرکوٹ۔
+NEW: صوبہ چار سرکاروں یعنی اضلاع پر مشتمل تھا: ٹھٹھہ، سیوستان، نصیر پور اور امرکوٹ۔
+
+7. [word order] "نے اقتدار سنبھالا، پہلے بالائی سندھ میں اور بعد میں زیریں سندھ میں" -> adverbials tacked on after the verb follow English order -> put them before the verb.
+OLD: اورنگزیب کی وفات کے بعد مقامی کلہوڑا خاندان نے اقتدار سنبھالا، پہلے بالائی سندھ میں اور بعد میں زیریں سندھ میں۔
+NEW: اورنگزیب کی وفات کے بعد مقامی کلہوڑا خاندان نے پہلے بالائی سندھ میں اور بعد میں زیریں سندھ میں اقتدار سنبھالا۔
+
+8. [word order, ambiguous] "پنجاب اور سندھ میں خاص طور پر انگریزوں کی حکمتِ عملی" -> "خاص طور پر" placed after the place names and right before "انگریزوں" reads as "especially the British's policy" -> move it before the places it qualifies.
+OLD: پنجاب اور سندھ میں خاص طور پر انگریزوں کی حکمتِ عملی یہ تھی کہ موروثی پیروں سے بنیادی طور پر ویسا ہی سلوک کیا جائے جیسا زمینداروں اور قبائلی سرداروں سے کیا جاتا تھا۔
+NEW: خاص طور پر پنجاب اور سندھ میں انگریزوں کی حکمتِ عملی یہ تھی کہ موروثی پیروں سے بنیادی طور پر ویسا ہی سلوک کیا جائے جیسا زمینداروں اور قبائلی سرداروں سے کیا جاتا تھا۔
+
+NOTES:
+- Repetition: the founding of the khanqah and the spread of the order by his khalifas is told three times in nearly the same words ("اسی خانقاہ سے ان کے خلفاء نے سلسلے کی تعلیم پورے صوبے میں پھیلائی" in تعارف, "اسی سے ان کے خلفاء نے سلسلے کی تعلیم سارے سندھ میں پھیلائی" in صاحبِ مزار, and again in ورثہ), and the tomb plus arched cells sentence appears in both تعارف and مزار اور عقیدت. A summary in the intro and the legacy section is by design, but the body sentence could be varied in wording.
+- "خلیفہ حضرت ابوبکر" reads like "the caliph Abu Bakr"; "حضرت ابوبکر صدیق" is the usual form in Urdu, and "خلیفۂ اول" would be more idiomatic still if the editor is content to say "first".
+- "ہر سال ان کا عرس" (تعارف): "ان" follows "ان کے جانشینوں" directly; the singular "عرس" makes the saint the natural referent, but "ہر سال خواجہ محمد زمان کا عرس" would remove any pause.
+- "شاہ عبداللطیف نے اپنے کلام میں عینک کی تعریف کی ہے، مگر محمد زمان لنواری نے یہی تشبیہ الٹے معنوں میں برتی": "یہی تشبیہ" has no simile before it to point back to, only "تعریف"; "نے عینک کی مثال الٹے معنوں میں دی" would read more smoothly.
+- "گرہوڑی اور درد کے ساتھ": "درد" appears here for the first and only time with no first name, and a general reader can take it as the common noun "pain". If the source names him in full, giving the full name would fix this; I have not added it, since it is not in the Urdu.
+- "حقیقتِ محمدیہ کے واسطہ ہونے کا" is correct but opaque for general readers; "واسطہ" can also be read as "for the sake of". A specialist editor may prefer "وسیلہ و واسطہ" or a short rephrasing.
+- "جنگل اور پانی کی کمی کے سبب": "کمی" can be read as covering both nouns ("lack of jungle and water"). If the source means jungles and a lack of water, "پانی کی کمی اور جنگلوں کے سبب" removes the doubt; the editor should check against the source before changing it.
+- "نسوانی داستانوں" is understandable but unusual; "سورمیوں کی داستانوں" (the heroines of Shah Latif's tales) is the term Sindhi and Urdu readers know, if the editor accepts it as equivalent.
+- Minor: "الن فقیر نے اس کا یہ مصرع پڑھا" could be "گایا" for a singer; "سادات زمیندار تھے، مگر وہ پیر بھی تھے" would read more naturally with "اور ساتھ ہی پیر بھی"; "اس طرح نہ پھیل سکا جیسے" is more correct as "جس طرح". Western digits, balanced asterisks, verse lines, and the absence of Latin letters and dashes are all in order.

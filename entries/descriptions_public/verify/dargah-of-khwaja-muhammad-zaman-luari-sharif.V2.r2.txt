@@ -1,0 +1,25 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 14 OLD -> NEW replacements in verify/dargah-of-khwaja-muhammad-zaman-luari-sharif.ur.r2.changes.txt were applied in order, each once, to /home/claude/bak/dargah-of-khwaja-muhammad-zaman-luari-sharif.ur.md.bak_ur1. Every OLD was found exactly once when its turn came. The result is byte for byte identical to the current .ur.md (19155 bytes each), so nothing else moved.
+2. Checker: `ok    dargah-of-khwaja-muhammad-zaman-luari-sharif  team 23779 -> public 11556 chars (0.49), Urdu 10791 chars (0.93)` (python3 pipeline/book_queue/check_public_description.py <id> --no-verdicts, exit 0).
+3. Each change checked against the English:
+   - 1 (Overview, "is counted among"): the hedge is back (گنا جاتا ہے), and the Overview now agrees with the Legacy rendering of the same sentence. Faithful.
+   - 2 (Overview, "his ʿurs"): the referent is right, Khwaja Muhammad Zaman. Faithful.
+   - 3 (A Master of the Same Name, paragraph 1): all three grounds are kept, and "may be" is kept as ہو سکتی ہے. اس امکان کی بنیاد یہ ہے کہ only says outright what the English implies by listing the points straight after "the identification is not certain". It adds no fact and does not raise the certainty, because امکان keeps the identification a possibility.
+   - 4 ("used the image the other way"): عینک کی مثال الٹے معنوں میں دی is faithful. The Legacy's تشبیہ for the same image is unchanged and still right.
+   - 5 ("the vaulted chambers of his successors"): this now matches the Overview's rendering. Faithful.
+   - 6 ("from the sixteenth century onwards, with the Arghuns and the Tarkhans"): سولہویں صدی میں اور اس کے بعد keeps "onwards". Faithful.
+   - 7 ("the main author among them"): with ان رسالوں کے سب سے اہم مصنف, the anaphor now points to the treatises, not the scholars. The meaning is the same: the chief writer among the Luari scholars who wrote them. سب سے اہم is a fair rendering of "main".
+   - 8 ("led to the conclusion"): the adaptation is right. V3's ظاہر ہوتا تھا ("it was evident from them") would state the claim as a fact the treatises showed. نتیجہ اخذ کیا گیا keeps it an inference drawn from them and names no agent, as the English does.
+   - 9 ("A Hindu branch of the order"): the order is the Naqshbandi one. The paragraph opens with "The order stands apart in Sindh", and the sentence after it ends on the wujudi school "which leaves out the Naqshbandis". Naming the order is correct and adds nothing.
+   - 10 ("it held four sarkars, or districts"): the number four, the gloss and all four names are kept.
+   - 11 ("because of the jungle and the lack of water"): this is now correct and unambiguous, because the lack governs water only, as in the English. The plural جنگلوں for the mass noun "the jungle" and the reversed order change nothing.
+   - 12 ("The diet rested on"): خوراک کا دار و مدار ... پر تھا means exactly "rested on".
+   - 13 ("first in Upper and later in Lower Sindh"): only the word order changed. Faithful.
+   - 14 ("British policy, especially in the Punjab and Sindh"): خاص طور پر now governs the places, as in the English. Faithful.
+4. Round 1 V2 issue 1 and notes 1 and 2 are applied in my own wording and are correct.
+5. I also checked the two replacements proposed in the V3 round 2 report for fidelity, and both keep the meaning:
+   - صاحبِ مزار کا عرس for "his ʿurs": the English itself glosses the ʿurs as "the commemoration of the saint's death", and the article already uses صاحبِ مزار for "the saint of Luari".
+   - صوبے کے چار اضلاع تھے جنہیں سرکار کہا جاتا تھا for "it held four sarkars, or districts".
+6. Taste: ان میں سرِفہرست would sit a little closer to "main" than سب سے اہم, but the current wording is fine.

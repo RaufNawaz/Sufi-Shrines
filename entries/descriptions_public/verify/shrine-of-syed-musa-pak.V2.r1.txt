@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. The Setting, paragraph 2: "and Langah sultans followed him" | "اور ان کے بعد لنگاہ سلاطین تخت پر بیٹھے" -> the meaning is right, but ان could be read as "the Langahs" rather than "the chief". For clarity: "اور اس سردار کے بعد لنگاہ سلاطین تخت پر بیٹھے".
+2. The Setting, paragraph 4: "(and for the Sindhi and Panjabi, also Multan)" | "(اور سندھی اور پنجابی شاعر کے لیے ملتان بھی)" -> adding شاعر is a fair reading, since the sentence is about vernacular poets, and it changes no fact. It is noted only because the quotation itself has no noun there. If you want the Urdu as close to the quotation as possible: "(اور سندھی اور پنجابی کے لیے ملتان بھی)".
+3. The Setting, the Madho Lal Hussein verse: the English verse is itself an English translation, credited to Naveed Alam, so it cannot be copied byte for byte into a file with no Latin letters. The Urdu gives a faithful Urdu rendering and leaves out the credit line, which is consistent with the brief because the English page carries the credit. "all the way from Kashmir" is made shorter as "کشمیر سے اٹھا لایا", which is acceptable.
+4. Glosses of familiar words were dropped as the brief intends: darbar, Fatiha, Pak and Shaheed, Ghaus al-Azam, masnad, bai'at, khalifa, faiz, chronogram (مادۂ تاریخ), qawwali, langar, urs, rauza. None of these drops counts as an omission.
+5. All seven headings match, in order. The chronogram "شمع جمع سیادت" is byte-identical. Every date and number (sixteenth century, 6 Shawwal 985ھ / 1577ء, 1309ھ, 998ھ to 1001ھ, 998ھ, 1870s, fifteenth century, 887ھ) appears unchanged. All hedges are kept: کہا جاتا ہے، یہ بھی بیان کیا جاتا ہے، منقول ہے، روایتیں مختلف ہیں، مشہور ہے، بیانات مختلف ہیں، شاید.

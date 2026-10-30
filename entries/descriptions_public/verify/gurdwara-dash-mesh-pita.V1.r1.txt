@@ -1,0 +1,68 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) Overview, judgement call 3. In "..., and Gurdwara Pehli Patshahi, or Jind Pir, near the bridge between Sukkur and Rohri, whose detailed histories are tied to ...", the relative clause follows the second gurdwara and the bridge, so it can be read as Jind Pir's histories alone, or even as those of Sukkur and Rohri. The team version gives the histories to both gurdwaras ("both of which have detailed, independently recorded histories tied to Guru Nanak's travels"). The fix costs no characters.
+OLD: It is a separate place from Sukkur's two much better documented gurdwaras, Sadhu Bela, on its island in the Indus, and Gurdwara Pehli Patshahi, or Jind Pir, near the bridge between Sukkur and Rohri, whose detailed histories are tied to the travels of Guru Nanak, the first Guru.
+NEW: It is a separate place from Sukkur's two much better documented gurdwaras, Sadhu Bela, on its island in the Indus, and Gurdwara Pehli Patshahi, or Jind Pir, near the bridge between Sukkur and Rohri, both with detailed histories tied to the travels of Guru Nanak, the first Guru.
+
+2. (precision) The Guru, judgement call 10. "had urged" puts the urging before the appointment as heir. The team version gives no such order. It says only that it was "actually the young Gobind Singh" who urged his father to aid the Pandits, and it does not connect that urging to the journey to Delhi. The simple past keeps the fact and drops the sequence.
+OLD: Before heading to Delhi, his father appointed him his heir, and it was the young Gobind Singh who had urged his father to aid the Pandits, the learned Brahmins.
+NEW: Before heading to Delhi, his father appointed him his heir, and it was the young Gobind Singh who urged his father to aid the Pandits, the learned Brahmins.
+
+3. (precision) Legacy. "the one who completed" makes him the one and only completer of Nanak's mission. The team version's words are "Guru Gobind is seen as someone who completed Nanak's mission".
+OLD: Guru Gobind Singh is seen as the one who completed Nanak's mission.
+NEW: Guru Gobind Singh is seen as having completed Nanak's mission.
+
+4. (precision) Legacy, last sentence. In "Bhindranwale passionately claimed that the new generation of Sikhs did not respect the Sikh way of life as taught by him", the nearest and most natural antecedent of "him" is Bhindranwale, the subject of the clause. That turns the claim into one about his own teaching. The team version has "as taught by Guru Gobind Singh". The fix adds 5 characters.
+OLD: There is a view that Ranjit was a true follower of Guru Gobind Singh, and Bhindranwale passionately claimed that the new generation of Sikhs did not respect the Sikh way of life as taught by him.
+NEW: There is a view that Ranjit was a true follower of Guru Gobind Singh, and Bhindranwale passionately claimed that the new generation of Sikhs did not respect the Sikh way of life as taught by the Guru.
+
+5. Rulings on the writer's judgement calls (accepted unless stated):
+   - 1, length: see the L1 ruling (point 9). The exception is not needed.
+   - 2: accepted. "on the Indus" is supported by Schaflechner's island in the Indus "in the city of Sukkur", and "northern Sindh" by Boivin's "other cities in Northern Sindh, for instance, Sukkur".
+   - 3: accepted. Dropping "independently recorded" is right, and "near" is the team version's own word. The referent is fixed in note 1.
+   - 4: accepted. "are not known" simplifies "No published account explains" without adding a fact. "await a local or community account" renders "remain undocumented pending a local or community source". It names no book, entry or "sources consulted", so it is not the archive talk that rule 6 bans. The fallback is not needed.
+   - 5: accepted. The board's register is the official listing, as with the Auqaf listing on Baba Shah Kamal. It is not a book being narrated.
+   - 6: accepted. "Guru Nanak, the first Guru" is a definition.
+   - 7: accepted. "the ninth incarnation of Guru Nanak" agrees with "the tenth Guru", since it counts Nanak and nine after him. It is introduced among "the names he is given" and is not set beside the dropped "tenth successor". "The prince of princes" is rightly out. The fallback is not needed.
+   - 8: accepted. Patna is not marked uncertain in the table. The table's year, day, month and the mother's name are all marked uncertain, and all are out.
+   - 9: accepted.
+   - 10: changed, see note 2.
+   - 11: accepted. Khalid's own "can be seen" hedge is kept.
+   - 12, death: accepted, and the fallback is not needed. The year 1708 is basis (b): Boivin and both Khalid books give it, and Chishti's Samvat year is marked uncertain. On the manner of death, two passages say he was killed (Khalid; Chishti's "killed in the end"), against one passage of Chishti's that says he went mad from grief and died. Khalid's Pathan horse trader is the only account that says how the killing happened. The text gives it with "it is said", after the clause that accounts differ, so it carries no more certainty than the team version. Neither of Chishti's accounts is set beside it. "a Pathan horse trader" over "traders" is a minor variant, rightly dropped silently.
+   - 13, sons: accepted. "his sons, Jujhar Singh and Fateh Singh" (the Jhaman dome) states the kinship plainly, and rule 7 keeps family names. 1705 is the only year any source gives. "accounts of their deaths differ" covers both the manner (martyred fighting or assassinated) and Chishti's two sons killed. The text gives one clause and no variants.
+   - 14: accepted. This is the only sensible reading of Khalid's sentence. "On Lohri" stands in the team version as a time ("On Lohri, he writes, 'the Sikhs were able to defeat ...'"), not as "Of Lohri".
+   - 15: accepted. The tradition is plainly the Sikh one. The date of "no person would succeed him" is carried by the clause on when.
+   - 16: accepted. "In the nineteenth century" follows the brief's ruling on Chishti's unconfirmed 1867. The other *granth* is kept without its uncertain name, and the Shahid Ganj *darbar* is not equated with Shaheed Ganj in Lahore. The Urdu must keep the two apart as well.
+   - 17: accepted.
+   - 18: accepted. Rule 2 allows a quotation of a person without the surname. "one writer on Pakistan's religious minorities" rests on the subtitle of *A White Trail*. Placed with the birthday, it does not read as a statement about this gurdwara.
+   - 19: accepted. Tying the songs to the 2011 celebration narrows the team version's present tense, but it adds nothing and does not make a timeless claim out of one night.
+   - 20: accepted. The two descriptions do not conflict, and *baaz* (flagged in the team notes) is out while the eagle is kept.
+   - 21: accepted. This is the framing that §9.336 asks for.
+   - 22: accepted. "In the janamsakhis" frames the journey as tradition. With the janamsakhis glossed as tales of Guru Nanak's life, the traveller is implied without being named, as in the team version. This team version files no rival route. The Urdu should not name Guru Nanak as the traveller either.
+   - 23: accepted. Dara gets no year and no further identification, as in the team version. The flagged distances, the partly illegible "ten-odd *kos*" and the uncertain name of the *faujdar* are all out.
+   - 24: accepted. The sentence keeps "following the Manzilgah riots" and does not equate those riots with the Sukkur riots of 1939 to 1940.
+   - 25, 26: accepted. These are unnamed frames for figures and a summary that the team version attributes. They carry no year that the team version lacks.
+   - 27: accepted. The census reclassification shows both sides and takes neither. Boivin's Singh Sabha sentence, "thousands of such Sikhs", "Nanak Panthi Sikhs" and the "heterodox Sikh tradition" endnote are rightly out. The fallback is not needed.
+   - 28: accepted. It is a plain rendering of "recomposition of the religious scene".
+   - 29: accepted. The sentence states the Guru's conclusion as the team version reports it. It is not the website's own verdict on either religion.
+   - 30, 31: accepted. "Ranjit", Zakaria Khan and Bulleh Shah stay as the team version gives them. No identification is added.
+   - 32: accepted. Eight headings, each filled.
+   - For Rauf: whatever Rauf rules on the team version, the bhang passage stays out of the public text under rule 5 ("much damaged"), and Chishti's "went mad from grief" stays out under rule 4. Only Bhandari's Gobind Rai depends on his ruling. It is rightly out now, because the team version does not identify him with the Guru and Makhowal is an uncertain reading.
+6. Other checks, all passed.
+   - Legends and traditions keep their frames: "Sikh tradition holds", "devout Sikhs believe", "is said to refer", "it is said" (the death), "The tale names", "In the janamsakhis", "has been identified", "There is a view", "can be seen as", "was held able". The Panj Pyare, the founding of the Khalsa and the Muktsar battle are given plainly, as the team version gives them. Khalid tells them as history, not as legend.
+   - No author is named in the prose, and there is no citation, page reference, signposting or archive language. The unnamed frames ("one writer on Pakistan's religious minorities", "one summary", "one count", "one religious and historical reading") are the form the brief allows for an attributed view or quotation.
+   - Time anchors are firm: 1666, 1675, 14 April 1699, 1705, 1708, January 2011, 1872, 1881, 1891, 1925, 1746, December 1939 to February 1940, "towards the second half of the eighteenth century", "in the late eighteenth century", "in the second half of the nineteenth century", "Before Partition", and "In the nineteenth century" both for Chishti's *granth* and for Boivin's nineteenth century Sindh. The pursuit of Dara and Nadir Shah's invasion are anchored only by events, as in the team version.
+   - Every number, count and name checks against the team version: 300 square yards, roughly 100 kilometres, nine years old, five volunteers, thousands of Sikhs, four sons, five readers, two pictures at Panja Sahib, twenty fifth of Muharram, the sixth of Safar, twenty five *kos*, the four large towns and the five displaced ones, the four census figures, ten years between the censuses, twelve years before Bulleh Shah's death.
+   - No reading marked uncertain, illegible, damaged or [OCR?] is used. That rules out the Samvat dates, Gujri, the father's name on p. 686, Amadpur, Makhowal and Gobind Rai, the requital, the ceremonies and the iron, the bhang passage, Mani Singh's verse, Granth Adi, the Shabd passage, the Sodhi verses, the damaged list of the five Ks, *baaz*, Ali Beg and the partly illegible distances. The bracketed letters in Khalid's quotations ("Nana[k]", "yea[r]") restore obvious words and are not marked as doubtful.
+   - Rule 4: of the eight disagreement items, the sons, the death and the closing of the line each get one clause. The Nanakpanthi question gets "no settled view". The name and the place in the line are resolved silently (both minor). The birthday is minor and given without a day. Where he lived is settled by rule 5. No chains are merged, and no variants stand side by side.
+7. Taste only (no change required).
+   - "Of Dash Mesh Pita's own past little is known, but much is told of the Guru whose name it bears, and of Sukkur and the followers of Nanak in Sindh." is a preview of the article, but it is the §9.336 framing. It names no source and points nowhere "below", so it may stay.
+   - Repetitions: "codified ... codified" (Legacy, first paragraph) and "defined ... defined" (Legacy, second paragraph).
+   - *masands* is italic on first use, then appears as "Masand system" in roman.
+   - "Because the Nanakpanth was so widespread" is a shade stronger than the team version's "Due to the spread of the Nanakpanth"; "Because of the spread of the Nanakpanth" would be closer. The team version supports widespread practice elsewhere ("probably the dominant religious path"), so this is not a precision fault.
+   - "completing the legacy that Guru Hargobind had begun" hangs on "founded the Khalsa". The team version says only that the legacy Hargobind began "was completed by Guru Gobind Singh". The participle implies no more than that.
+8. Omission sweep. After a sweep of the team version paragraph by paragraph, nothing important is missing. The public text keeps every certain fact about the gurdwara, the Jacobabad distinction, the Guru's birth, father, uncle, sons by name, companions, court, Khalsa, scripture, wars, death and memory, and all of the Sukkur and Sindh setting. What it leaves out is source apparatus, statements of what the books lack, filed rival accounts, readings marked uncertain, Bhandari's unidentified Gobind Rai, and minor or trivial items (the calendar dispute over the birthday, the orphanage, Dadi Dhan, Inderjit's garb, the unexplained "rehabilitation" sentence).
+9. L1 ruling. My count matches the checker: 14,947 characters of prose against 37,041 (0.4035). The four precision notes above come to a net change of minus 4 characters, which gives 14,943 (0.4034). My fixes do not take the row below 0.40, so the L1 exception does not apply and no exception line is needed. If a later round does take it under 0.40, this sweep found nothing important cut, and it would support the writer's proposed exception.

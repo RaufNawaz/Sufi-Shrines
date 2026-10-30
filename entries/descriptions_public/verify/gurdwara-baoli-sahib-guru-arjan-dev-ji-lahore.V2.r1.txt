@@ -1,0 +1,16 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed certainty] The Setting, paragraph after the first Bulleh Shah rendering. English: "the poem's allusive verses appear to refer to a separation of Bulleh Shah from his master "due to the troubled conditions then prevailing in Panjab"" | Urdu: "اس نظم کے رمزیہ اشعار بظاہر بلھے شاہ کی اپنے مرشد سے اس جدائی کی طرف اشارہ کرتے ہیں جو ... پیش آئی" -> the hedge بظاہر governs only the reference; the relative clause "اس جدائی ... جو ... پیش آئی" presents the separation and its cause as established fact, while in the English the separation itself is only what the verses appear to refer to (and "a separation" is indefinite, not "that separation") -> put the whole claim under بظاہر:
+OLD: اس نظم کے رمزیہ اشعار بظاہر بلھے شاہ کی اپنے مرشد سے اس جدائی کی طرف اشارہ کرتے ہیں جو "اس وقت پنجاب میں پھیلے ہوئے پُرآشوب حالات کے سبب" پیش آئی۔
+NEW: اس نظم کے رمزیہ اشعار سے بظاہر یہ اشارہ ملتا ہے کہ "اس وقت پنجاب میں پھیلے ہوئے پُرآشوب حالات کے سبب" بلھے شاہ اپنے مرشد سے جدا ہو گئے تھے۔
+
+2. [omission] The Setting, sentence before the first Bulleh Shah rendering. English: "the poets of that century in the Punjab wrote of the ruin of their land" | Urdu: "اسی صدی کے شاعروں نے پنجاب کی تباہی پر قلم اٹھایا" -> the restriction "in the Punjab" on the poets is dropped, so the Urdu says the poets of that century in general wrote of the Punjab's ruin; "their land" (their own land) is also lost -> restore both:
+OLD: اسی صدی کے شاعروں نے پنجاب کی تباہی پر قلم اٹھایا۔
+NEW: اسی صدی میں پنجاب کے شاعروں نے اپنی دھرتی کی تباہی پر قلم اٹھایا۔
+
+NOTES:
+1. Legacy, first paragraph. English "with only a few traditional healers still drawing water from it as the water table fell": "still" (continuation of an older use) is not rendered. Small meaning correction:
+OLD: صرف چند روایتی حکیم ہی اس سے پانی بھرتے تھے۔
+NEW: صرف چند روایتی حکیم ہی اب بھی اس سے پانی بھرتے تھے۔
+2. The Guru, last paragraph. The English deliberately leaves "together with his sister Bibi Jamal" attachable to either "was represented by" or "had come there from Sind". The Urdu splits it into two sentences, "قادری سلسلے کی نمائندگی میاں میر کرتے تھے۔ وہ سندھ سے یہاں آئے تھے، اور ان کے ساتھ ان کی بہن بی بی جمال تھیں"; "ان کے ساتھ ... تھیں" is loose enough to keep both readings, so this is acceptable and needs no change.
+3. Checked and in order: all eight headings correspond (## The Guru as ## گرو ارجن دیو is a fair equivalent); the Persian couplet is byte identical and, as in the English, has no rendering paragraph; every figure in the English prose (1599, 1880s, 1563, 1581, 1606, 1604, 1594, 282, 1834, 1927, 1849, 1180, 1799, 2015, 2018) is present and no other; no Latin letters and no em or en dashes; all hedges elsewhere ("it is said", "it is told", "it is believed", "Sikh belief holds", "accounts differ", "most often", "it has been said", "in his view") are carried and govern their whole claims, including the tilak sentence (روایت کے مطابق) and Mian Mir's request (اسی عقیدے کے مطابق); the unnamed emperor of the Deccan meeting and of the couplet stays unnamed (ایک بادشاہ); refugees (پناہ گزین) and migrants (مہاجرین) stay distinct. Dropped glosses (roofed stepwell, peshkash, kafi, samadhi, Roghan Mandi as oil market) and the dropped translator credit lines are deliberate per the brief.

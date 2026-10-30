@@ -1,0 +1,5 @@
+# loh-temple-lava-temple: Urdu change after V2 round 3 (PASS) and V3 round 3 (FAIL, 1 issue, in the confirming round). Applied by the coordinator in V3's corrected wording (the part after the semicolon; the clause before it is unchanged). Backup: /home/claude/bak/loh-temple-lava-temple.ur.before_r4.md
+
+WHY: V3 r3 issue 1 (the genitive کی left hanging before a comma, its head تعمیر 18 words later); V3's wording, which keeps the 1799 hedge on the historians' dating as V2 r2 note 1 asked
+OLD: مؤرخین اسے انیسویں صدی کے اوائل کی، غالباً 1799 میں رنجیت سنگھ کے ہاتھوں قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی عرصے بعد کی تعمیر بتاتے ہیں۔
+NEW: مؤرخین اسے انیسویں صدی کے اوائل کی تعمیر بتاتے ہیں، غالباً 1799 میں رنجیت سنگھ کے ہاتھوں قلعہ لاہور کی فتح کے دوران یا اس کے کچھ ہی عرصے بعد کی۔

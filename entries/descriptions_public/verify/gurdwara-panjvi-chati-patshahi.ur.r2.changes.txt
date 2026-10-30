@@ -1,0 +1,57 @@
+Changes applied by the coordinator (ur1), exact replacements, each OLD occurring once.
+
+1. V3 r1 issue 9 (as given; عیسوی only names the era the English 'corresponding to 1613' already means, 1613 CE in the bibliography, so no new fact)
+OLD: بتایا جاتا ہے کہ گرو ہرگوبند کشمیر کے سفر سے لوٹتے ہوئے سموت 1670 میں ہاڑ کے مہینے میں ننکانہ صاحب آئے۔ سموت کا یہ سال 1613 کے مطابق ہے۔
+NEW: بتایا جاتا ہے کہ گرو ہرگوبند کشمیر کے سفر سے لوٹتے ہوئے سموت 1670 کے ہاڑ کے مہینے میں ننکانہ صاحب آئے۔ سموت کا یہ سال 1613 عیسوی کے مطابق ہے۔
+
+2. V3 r1 issue 8
+OLD: احاطے کے اندر دو مقدس عمارتیں ایک ہی چار دیواری میں ساتھ ساتھ کھڑی ہیں۔
+NEW: احاطے کی ایک ہی چار دیواری کے اندر دو مقدس عمارتیں ساتھ ساتھ کھڑی ہیں۔
+
+3. V3 r1 note (روایت here means practice while the article uses روایت as its hedge word; verifier's طریقہ, which keeps the English 'a tradition that he began')
+OLD: اور وصولی کی یہ روایت بھی گرو ارجن ہی نے شروع کی۔
+NEW: اور وصولی کا یہ طریقہ بھی گرو ارجن ہی نے شروع کیا۔
+
+4. V2 r1 issue 1 (the English leaves the Guru of this episode unnamed)
+OLD: ایک بادشاہ سے گرو ارجن کی ملاقات کا ذکر بھی ملتا ہے۔
+NEW: ایک بادشاہ سے ملاقات کا ذکر بھی ملتا ہے۔
+
+5. V3 r1 issue 6
+OLD: جہانگیر نے اپنی یادداشتوں میں دریائے بیاس کے کنارے گوئندوال کے "ارجن نامی ایک ہندو" کا ذکر کیا ہے، جہاں باغی شہزادہ "اتفاقاً ٹھہر گیا"۔
+NEW: جہانگیر نے اپنی یادداشتوں میں دریائے بیاس کے کنارے واقع گوئندوال کے "ارجن نامی ایک ہندو" کا ذکر کیا ہے، جہاں باغی شہزادہ "اتفاقاً ٹھہر گیا"۔
+
+6. V3 r1 issue 5 (the English 'He ... ordered' is Jahangir, whom the paragraph already calls بادشاہ)
+OLD: انہوں نے یہ حکم بھی دیا کہ گرو پر یاسا کے تعزیری قوانین نافذ کیے جائیں اور انہیں موت کی سزا دی جائے۔
+NEW: بادشاہ نے یہ حکم بھی دیا کہ گرو پر یاسا کے تعزیری قوانین نافذ کیے جائیں اور انہیں موت کی سزا دی جائے۔
+
+7. V3 r1 issue 2
+OLD: ان کے بیٹے نے ان کی سمادھی کی جگہ ایک چھوٹی سی عمارت بنوائی۔
+NEW: ان کے بیٹے نے ان کی سمادھی کے مقام پر ایک چھوٹی سی عمارت بنوائی۔
+
+8. V3 r1 issue 10
+OLD: گرو ارجن اور ان کے بیٹے گرو ہرگوبند، دونوں نے لاہور میں بہت وقت گزارا۔
+NEW: گرو ارجن اور ان کے بیٹے گرو ہرگوبند دونوں نے لاہور میں بہت وقت گزارا۔
+
+9. V3 r1 issue 3
+OLD: ہرگوبند آج بھی سب سے زیادہ متنازع سکھ گروؤں میں شمار ہوتے ہیں، اور سکھ مت کے موجودہ چہرے کی بنیاد انہی نے رکھی۔
+NEW: ہرگوبند آج بھی سب سے زیادہ متنازع سکھ گروؤں میں شمار ہوتے ہیں، اور سکھ مذہب کی موجودہ صورت کی بنیاد انہی نے رکھی۔
+
+10. V3 r1 issue 7
+OLD: چھٹے گرو کا ایک اور قصہ بھی گھوڑے کے گرد گھومتا ہے، مگر وہ ایک دوسرے مقدس مقام سے وابستہ ہے۔
+NEW: چھٹے گرو کے ایک اور قصے کا محور بھی ایک گھوڑا ہے، مگر وہ قصہ ایک دوسرے مقدس مقام سے وابستہ ہے۔
+
+11. V3 r1 issue 1 REJECTED, no change (OLD = NEW, listed only to record the reason): the brief requires names as urdu-i18n/urdu-dictionary.json spells them, and the dictionary gives Mozang as موزنگ (also in موزنگ چونگی and the row name گوردوارہ چھیویں پاتشاہی، موزنگ, shown elsewhere on the site); V2 note 5 checked it against the dictionary. Changing one article would set it against the site. If مزنگ is right, as V3 says, the dictionary and every article using it should change together, which is Rauf's call.
+OLD: کہا جاتا ہے کہ بی بی کولاں موزنگ کے ایک مسلمان سوداگر کی بندھوا خادمہ تھیں۔
+NEW: کہا جاتا ہے کہ بی بی کولاں موزنگ کے ایک مسلمان سوداگر کی بندھوا خادمہ تھیں۔
+
+12. V3 r1 note (ambiguous referent: اس کی could take سڑک; the English 'most of its buildings' is the town's)
+OLD: بیچوں بیچ گزرتی ہے، اور اس کی زیادہ تر عمارتیں
+NEW: بیچوں بیچ گزرتی ہے، اور شہر کی زیادہ تر عمارتیں
+
+13. V3 r1 issue 4
+OLD: یہ شہر صرف گرو نانک کا گہوارہ نہیں، بلکہ اسے ان بعد کے گروؤں کے قدم چومنے کا شرف بھی ملا جنہوں نے بانی کا پیغام آگے بڑھایا، یعنی ارجن دیو اور ہرگوبند۔
+NEW: یہ شہر صرف گرو نانک کا گہوارہ نہیں، بلکہ اسے بعد کے گروؤں ارجن دیو اور ہرگوبند کے قدم چومنے کا شرف بھی ملا، جنہوں نے بانی کا پیغام آگے بڑھایا۔
+
+14. V3 r1 note (referent: the Urdu splits off the English relative clause 'the tree to which ... father and son tied their horses', so the verifier's وَن کے اس درخت recalls which tree; the Waan tree is the one named earlier, no new fact)
+OLD: یعنی اس درخت کے ایک ٹکڑے میں۔
+NEW: یعنی وَن کے اس درخت کے ایک ٹکڑے میں۔

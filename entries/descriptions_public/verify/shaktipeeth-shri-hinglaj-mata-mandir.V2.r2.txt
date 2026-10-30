@@ -1,0 +1,34 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Round 1 follow up. Issues 1 to 4 are fixed: پندرہ دن سے زیادہ; چند برس کی تلاش; یہ شعلہ ہمارے دوست جیسا ہے; آمد کو دھچکا لگا. Precision notes a to g are all applied: a وہاں کے لوگ، جو شیو کے بھگت تھے; b سر سے لے کر نیچے تک; c اختیار نہیں تھا; d دیوی کے راج میں داخلے کے راستے پر ان کی فوج پہرا دیتی ہے (ان now has دیوی as its nearest antecedent in the same clause); e این 10 کہلانے والی مکران کوسٹل ہائی وے; f پوری سڑک 2003ء میں مکمل ہوئی; g *ہنگولا* for both the word and the place.
+
+Rulings on the writer's departures from V3. I uphold all of them, because in each case the writer's wording matches the English:
+V3 4: ان کی مصیبتوں is right. The English has the plural "their afflictions". V3 objected to the demonstrative in the old ان مصیبتوں ("those troubles"), and the possessive ان کی removes that problem. اس مصیبت would narrow the English.
+V3 6: پوجا کی بہت سی صورتوں keeps "many forms of Goddess worship". V3's اوتاروں کی پوجا would make her the centre of the worship of incarnations, which the English says only in the next clause. The step from "forms of worship" to "these local incarnations" is in the English itself, and دیوی کے یہ مقامی اوتار follows it. مزید تعبیر کی گئی means "further interpreted"; نئی تعبیر would mean "interpreted anew".
+V3 12: Upheld. The English "has not merely survived but is venerated" has one subject. نہ صرف قائم رہا ہے بلکہ ... قابلِ احترام ہے keeps that one subject (یہ مندر) with matching tenses. It also keeps the contrast, which V3's version dropped.
+V3 28: یاد ہیں is right for "remembered" and is not the یاد کیا جاتا ہے calque the brief warns against. درج ہیں ("recorded") would narrow the claim to a written record.
+V3 38: Upheld. The English gives two figures, the spring weekend and the April 2010 ticket sales, without saying they are the same count. یہی تعداد would make them the same. The writer's sentence keeps each figure with its own source.
+V3 39: Upheld. In the English, "broadcasting all over the country" qualifies both the local and the national channels, so V3's split would change it. دیکھے جانے والے for "broadcasting" is fine.
+V3 48: Upheld. The English "who had followed them" is plural (the pilgrims), and یاتریوں کے پیچھے پیچھے آنے والے keeps the plural. اسے still names the one pilgrim who is garlanded.
+V3 49: Upheld. "The rite" points back to the shrine's central rite (The Womb of the Goddess, paragraph 3), and the next sentence of the same English paragraph has the pilgrims preparing "to enter the womb of the Mother". کوکھ میں داخلے کی رسم therefore names only what the English already names and adds nothing.
+V3 57: Upheld. سب سے زیادہ ہلا دینے والی means "most disruptive"; V3's سب سے بڑی would add "biggest". میں سے کئی is a fair partitive for "some of".
+"Latent insurgency": اندر ہی اندر سلگتی شورش is right. It describes an insurgency that is present but not open, which is what "latent" means, while دبی ہوئی could read as "suppressed".
+Inscription: keep تو میرے گناہوں کو محفوظ رکھ. It renders the English "You keep my sins safe" exactly. V3's مجھے میرے گناہوں سے محفوظ رکھ guesses at the source and would change the quoted text. If the coordinator doubts the English, that is a V1 or source check, not a change for V2.
+I also accept these V3 changes that the writer took. بنوایا for "ordered to build": the causative says the throne was built at her order. دن رات کا زیادہ تر حصہ، یعنی سات پہر: seven pahars fit only the full day of eight watches, which is what the English "day" means here. جانور کی نذر: the English "the offering" is the rooster or goat of the next sentence. رسم الخط is acceptable for the list of names on the walls. ان کا یہ بھی کہنا ہے keeps the Charan saying attributed.
+
+Sharan Kund: the Urdu matches each of the three English accounts. The Temple, paragraph 10, has "جو سوکھنے سے پہلے مندر کے عین سامنے تھا" (dried up). The Womb of the Goddess, paragraph 4, has "2011ء تک یہ جگہ کنکریٹ سے ڈھکی جا چکی تھی" (covered with concrete). Legends, paragraph 7, has "ایک بہت بڑے تودے نے تالاب کو بھر دیا" (filled by a landslide; see j below). The English itself is inconsistent: the pond dried up, was concreted over by 2011, and in the priest's miracle story was filled by a landslide. That is for V1 or the coordinator and is not a V2 fault.
+
+Optional precision notes (about meaning, not taste), continuing the round 1 letters:
+h. The Pilgrimage, paragraph 6: the English says "those who came home were a divine gift", so the returnees themselves are the gift. Following V3 34, the Urdu makes their return the gift: "چارنوں کے نزدیک گھر لوٹنے والوں کی واپسی دیوی کی عطا تھی". In context this is close, because the "since" clause is about their safe return, but the English wording can be kept in idiomatic Urdu. Replace "چارنوں کے نزدیک گھر لوٹنے والوں کی واپسی دیوی کی عطا تھی، کیونکہ ان کے بقول" with "چارنوں کے نزدیک گھر لوٹ آنے والے یاتری دیوی کی عطا تھے، کیونکہ ان کے بقول".
+i. Legends, paragraph 1: the English says "their descendants would all ... come back", so "all" governs the descendants. In "ان سب کی اولاد" the سب attaches to Rama's companions instead. Replace "دیوی نے ان سے وعدہ کیا کہ ان سب کی اولاد کبھی نہ کبھی" with "دیوی نے ان سے وعدہ کیا کہ ان کی ساری اولاد کبھی نہ کبھی".
+j. Legends, paragraph 7, inside the priest's quotation: the English says "a huge landslide filled the pond". A bare تودہ is only a heap or mass and does not say that it slid. Replace "صرف پندرہ دن بعد اتنی بارش ہوئی کہ ایک بہت بڑے تودے نے تالاب کو بھر دیا" with "صرف پندرہ دن بعد اتنی بارش ہوئی کہ ایک بہت بڑا تودہ کھسک کر آیا اور اس نے تالاب کو بھر دیا".
+
+Checked and fine:
+Both texts have twelve headings in the same order, and every section has the same number of paragraphs in each language (2, 8, 7, 10, 4, 7, 6, 8, 10, 11, 2, 2). The Urdu has no Latin letters and no em or en dashes, and its asterisks are balanced (64, none split across a line). Every figure in the Urdu also appears in the English, the same as in round 1.
+Every hedge (روایت ہے، کہا جاتا ہے، کتھا کے مطابق، مانا جاتا ہے، معلوم ہوتا ہے، روایتیں مختلف ہیں) still governs the same part of its claim, and the legends stay framed. The new کتھا کے مطابق in Legends, paragraph 3 only repeats the frame. Splitting the long sentences in round 2 moved no qualifier into a different clause. The pronouns this revision resolved all point to the right person: ان کی فوج، دیوی کے غار، وہ انہیں پاک کر دیں، دوست محمد کے بیٹے حسین.
+
+Style (V3's remit, for information only):
+"راستے میں اور مندر پر" (The Pilgrimage, paragraph 1) still uses مندر پر, which V3 suggested changing to مندر میں.
+In The Womb of the Goddess, paragraph 1, گربھ is now unitalicised, but it is italic in The Temple, paragraph 6. That is fine if the intent is to treat it as a known term from then on.
+The English itself spells the community Kapri (کاپری) and Latif's ascetics Kapari (کاپڑی), so the two Urdu spellings are faithful to it.

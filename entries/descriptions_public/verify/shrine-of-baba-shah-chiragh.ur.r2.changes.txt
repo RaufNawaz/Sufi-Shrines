@@ -1,0 +1,29 @@
+Changes applied by the coordinator (ur1), exact replacements, each OLD occurring once.
+
+1. V3 r1 issue 1
+OLD: نسب کی تفصیلات میں روایات مختلف ہیں، تاہم شاہ چراغ کے دادا کے طور پر زیادہ تر سید عبدالقادر ثالث ہی کا نام لیا جاتا ہے۔
+NEW: نسب کی تفصیلات میں روایات مختلف ہیں، تاہم شاہ چراغ کے دادا کا نام زیادہ تر سید عبدالقادر ثالث ہی بتایا جاتا ہے۔
+
+2. V3 r1 note 2 (ambiguous referent: naming the city, which the English gives as Uch)
+OLD: کہا جاتا ہے کہ وہ 887 ہجری میں اس شہر میں داخل ہوئے۔
+NEW: کہا جاتا ہے کہ وہ 887 ہجری میں اوچ شہر میں داخل ہوئے۔
+
+3. V3 r1 issue 2
+OLD: شاہ چراغ کے نام کے پیچھے بھی ایک قصہ ہے۔
+NEW: شاہ چراغ کے نام سے بھی ایک قصہ وابستہ ہے۔
+
+4. V3 r1 issue 3
+OLD: انگریزی عہد میں مسجد کو کوٹھی بنا دیا گیا، جہاں دوسروں کے ساتھ ساتھ ڈپٹی کمشنر بھی رہائش پذیر رہے۔
+NEW: انگریزی عہد میں مسجد کو کوٹھی بنا دیا گیا، جس کے مکینوں میں ڈپٹی کمشنر بھی شامل تھے۔
+
+5. V2 r1 issue 1 (same as V3 r1 note 1)
+OLD: یہ محلہ جاگیر کے طور پر بسایا گیا تھا
+NEW: سید چراغ شاہ گیلانی کا محلہ جاگیر کے طور پر بسایا گیا تھا
+
+6. V3 r1 issue 5 merged with V2 r1 note 1 (اب for the time of the account, so the clause no longer reads as by the Sikh period; the land as subject)
+OLD: مگر تب تک اس میں سے تھوڑا ہی حصہ باقی رہ گیا تھا۔
+NEW: مگر اب اس میں سے تھوڑی ہی رہ گئی تھی۔
+
+7. V3 r1 issue 4 (adapted: the English says architectural techniques, not styles, so طرزِ تعمیر would change the meaning; تعمیر کے طریقے keeps techniques and drops the faulty فنِ تعمیر کے طریقے)
+OLD: اس کی عمارت میں یورپی اور مشرقی فنِ تعمیر کے طریقے یکجا ہیں۔
+NEW: اس کی عمارت میں تعمیر کے یورپی اور مشرقی طریقے یکجا ہیں۔

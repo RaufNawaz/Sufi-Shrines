@@ -1,0 +1,78 @@
+Coordinator fixes from V1 round 1 (exact wording from the report). Each item: the V1 point, then the old and new sentence.
+
+[V1 r1 #1]
+OLD: The onlookers took this for a miracle, and the plot was thereafter revered as *Kiara Sahib*, "the honoured field".
+NEW: The onlookers, it is told, took this for a miracle, and the plot was thereafter revered as *Kiara Sahib*, "the honoured field".
+
+[V1 r1 #2]
+OLD: On a later return, after Pak Pattan, Nanak found that Talwandi was no longer an obscure little village but had become a place of pilgrimage, and he sat by Rai Bular, who was sick and dying.
+
+## The Gurdwara
+
+A shrine was raised in later times to mark the sacred field, and the present building is associated with the great works of gurdwara construction carried out in the decades before Partition.
+NEW: On a later return, after Pak Pattan, they go on, Talwandi was no longer an obscure little village but had become a place of pilgrimage, and Nanak sat by Rai Bular, who was sick and dying.
+
+## The Gurdwara
+
+A shrine was raised in later times to mark the sacred field, and the present building is associated with the great works of gurdwara construction carried out in the decades before Partition.
+
+[V1 r1 #3]
+OLD: In Aurangzeb's reign Baba Nanak, as the Guru was also known, was called the leader of the caravan on the paths of truth and the bearer of the torch of the mystic way, and people came in multitudes from every land to become his disciples. In the same reign the place of Baba Nanak lay twelve *kos*, an old measure of distance, from Batala, on the bank of the Ravi, and his descendants lived there.
+NEW: People are said to have come in multitudes from every land to become disciples of Baba Nanak, as the Guru was also known. In Aurangzeb's reign the place of Baba Nanak lay twelve *kos*, an old measure of distance, from Batala, on the bank of the Ravi, and his descendants lived there.
+
+[V1 r1 #4a]
+OLD: They lasted more than twenty years and took him, mostly on foot, east to Bengal, south to Sri Lanka, north to Kashmir, Nepal and Tibet, and west to Mecca.
+NEW: In the tellings of his life they lasted more than twenty years and took him, mostly on foot, east to Bengal, south to Sri Lanka, north to Kashmir, Nepal and Tibet, and west to Mecca.
+
+[V1 r1 #4b]
+OLD: Whenever he visited an area he would visit its religious shrines, Muslim, Hindu and of any other denomination.
+NEW: Whenever he visited an area, it is said, he would visit its religious shrines, Muslim, Hindu and of any other denomination.
+
+[V1 r1 #4c]
+OLD: When at last he settled at Kartarpur, he sent to Talwandi for his family.
+
+People are said to have come in multitudes from every land to become disciples of Baba Nanak, as the Guru was also known.
+NEW: When at last he settled at Kartarpur, the story goes, he sent to Talwandi for his family.
+
+People are said to have come in multitudes from every land to become disciples of Baba Nanak, as the Guru was also known.
+
+[V1 r1 #5]
+OLD: Nanak Panthis, Hindus who believe in the teachings of Guru Nanak but not in the Khalsa, the order of initiated Sikhs, keep portraits of Guru Nanak in their temples in Sindh and southern Punjab, along with Krishna, Kali Mata and other Hindu deities, and many Lohanas in Sindh follow his teachings; in Sindh, too, the iconography of Guru Nanak has grown more and more like that of Jhulelal. Many Muslims acquainted with his teachings are devoted to him too and visit his shrine.
+NEW: Nanak Panthis, Hindus who believe in the teachings of Guru Nanak but not in the Khalsa, the order of initiated Sikhs, keep portraits of Guru Nanak in their temples in Sindh and southern Punjab, along with Krishna, Kali Mata and other Hindu deities, and many Lohanas in Sindh follow his teachings; in Sindh, too, the iconography of Guru Nanak and that of Jhulelal have grown more and more alike. Many Muslims acquainted with his teachings are devoted to him too and visit his shrine.
+
+[V1 r1 #6]
+OLD: In the valley of the goddess Hinglaj, the engraved footsteps of Guru Nanak connect that temple to the Sikh and Nanak *panth*, or sect, traditions.
+
+The field of Kiara Sahib is one miracle among many told of the Guru.
+NEW: In the valley of the goddess Hinglaj, engraved footsteps held to be Guru Nanak's connect that temple to the Sikh and Nanak *panth*, or sect, traditions.
+
+The field of Kiara Sahib is one miracle among many told of the Guru.
+
+[V1 r1 minor a]
+OLD: As a boy, Nanak was set to tend the family's cattle, and, as the stories tell, he would let the animals graze while he sat absorbed in meditation, heedless of the world about him.
+NEW: As a boy, the stories tell, Nanak was set to tend the family's cattle, and he would let the animals graze while he sat absorbed in meditation, heedless of the world about him.
+
+[V1 r1 minor b]
+OLD: Shiv Ram, head of a Bedi family, was accountant to Rai Bhoe, and he was succeeded by his son Kalyan Chand Das Bedi, or Mehta Kalu as he was affectionately called, the Guru's father, who kept the accounts of the Bhatti family under Rai Bular.
+
+The same stories return to the family in the Guru's later life.
+NEW: In the same telling, Shiv Ram, head of a Bedi family, was accountant to Rai Bhoe, and he was succeeded by his son Kalyan Chand Das Bedi, or Mehta Kalu as he was affectionately called, the Guru's father, who kept the accounts of the Bhatti family under Rai Bular.
+
+The same stories return to the family in the Guru's later life.
+
+[V1 r1 minor c]
+OLD: It lay too in the path of numerous mendicants, holy men and *sadhus*, as Hindu ascetics are called, who camped in a grove of trees on the outskirts of the village.
+NEW: It lay too, the same tradition tells, in the path of numerous mendicants, holy men and *sadhus*, as Hindu ascetics are called, who camped in a grove of trees on the outskirts of the village.
+
+[V1 r1 minor d1]
+OLD: Kartar, a Sikh of the town, remembered those years: "There was no Sikh left here after partition.
+NEW: Kartar, who spoke of the town's gurdwaras as his own, remembered those years: "There was no Sikh left here after partition.
+
+[V1 r1 minor d2]
+OLD: Our Gurdwaras became barren and were in a bad state." Giani Pratap came with a pilgrimage party from India sometime in the 1960s, and when he saw the dilapidated condition of the shrines he decided to stay and look after these holy buildings.
+NEW: Our Gurdwaras became barren and were in a bad state." Giani Pratap, Kartar recalled, came with a pilgrimage party from India sometime in the 1960s, and when he saw the dilapidated condition of the shrines he decided to stay and look after these holy buildings.
+
+[V1 r1 minor e]
+OLD: He passed over his sons when he chose his successor. Lakhmi Das, it was said, was a worthy son, but on his deathbed the Guru appointed not a son but his most loyal student as his spiritual successor: a Khatri named Lehna, to whom he gave the title of Guru Angad.
+NEW: (deleted)
+

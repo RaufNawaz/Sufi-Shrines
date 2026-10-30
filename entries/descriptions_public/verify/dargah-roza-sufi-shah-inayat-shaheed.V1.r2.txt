@@ -1,0 +1,59 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) Poetry, third paragraph. "his litany" follows directly on "speaks of him", whose referent is Shah Inayat, so the nearest antecedent of "his" is Shah Inayat, not Sachal Sarmast. The team version is clear that the litany is Sachal's ("her translation of Sachal's litany of the afflicted"). Naming him removes the ambiguity, which the Urdu writer would otherwise have to resolve (the brief's rule on ان).
+OLD: The Sindhi poet Sachal Sarmast speaks of him too, and his litany of the afflicted tells of ʿInayat killed 'in the fighting arena'.
+NEW: The Sindhi poet Sachal Sarmast speaks of him too, and Sachal's litany of the afflicted tells of ʿInayat killed 'in the fighting arena'.
+
+2. (precision) Devotion and Song, first paragraph. The team version says Dalpat Sufi's kalam is sung "in several dargahs located in Sindh and run by Muslim sajjada nashins, as for example in Jhok Sharif": Jhok is one of the several. "several other dargahs" is a word the source does not have and makes the several dargahs additional to Jhok. The fix keeps every fact and drops "other".
+OLD: The *kalam*, or poetry, of Dalpat Sufi is sung at Jhok Sharif too, as it is in several other dargahs of Sindh run by Muslim *sajjada nashins*.
+NEW: The *kalam*, or poetry, of Dalpat Sufi is sung in several dargahs of Sindh run by Muslim *sajjada nashins*, Jhok Sharif among them.
+
+3. The round 1 changes (V1.r2.changes.txt), checked against the backup bak_en1 by diff: exactly the three listed replacements were made and nothing else moved.
+   - V1r1 issue 1 (the two sentences on Schimmel's article and Boivin's study deleted): applied correctly. The Legacy paragraph now ends on the network sentence, which is supported by the team version ("in his book Jhok stands at the heart of a network that outlived Partition", and Boivin's sentence on the invocation of Jhok Sharif). Both works remain in the Bibliography only through their authors' books, as before; no scholar is named in the prose.
+   - V1r1 note 1 ("is famous as a Sindhi Sufi martyr"): supported by "the famous Sindhi" Sufi "martyr Shah Inayat of Jhok"; no longer claims he is the one famous martyr of Sindh.
+   - V1r1 note 2 (seats in the order Daraza, Tando Jahaniya, Jhok Sharif): supported by "They are the sajjada nashin of Daraza, of Tando Jahaniya and of Jhok Sharif ... Sachal Sarmast, Qutub Ali Shah and Nasir Faqir"; the two lists now stand in the team version's own order and are not paired explicitly, which is the team version's position.
+
+4. Rulings on the writer's judgement calls (all accepted; none needs a change beyond notes 1 and 2 above, which touch no judgement call).
+   - 1, location (Sujawal region of lower Sindh; far south of Sindh; one clause that accounts differ): accepted. Basis (a), with Boivin's "extreme South" agreeing; Taluqa Mirpur Bathoro and "not far from Hyderabad" are neither set side by side nor joined to Sujawal.
+   - 2, the followers in one sentence: accepted. One author's two complementary lists, every element in the team version; not a merge of rival accounts.
+   - 3, the land distribution after the attack: accepted. An event in the team version's narrative, placed before the charge as there; "a group of Sayyids" withholds only the place name flagged "printed so".
+   - 4, the end of the siege: accepted. Basis (a), framed "is remembered as", one clause that accounts differ; "Jhok held out for four months" keeps the length without the surrender variant.
+   - 5, "executed by the Mughal governor in January 1718": accepted. January is within "early 1718"; the governor stays unnamed as in the team version.
+   - 6, denunciation and accusation joined; the 1717 sentence: accepted. Both are Schimmel's and complementary; the team version itself dates the persecution of Shah Inayat to 1717.
+   - 7, the armies from Sindh and Hind: accepted; "or India" is a dictionary gloss.
+   - 8, "in the 1590s": accepted. It covers 1592 and 1595 without choosing or averaging; Akbar is Sorley's and not contradicted.
+   - 9, the two context-only identifications left out (Boivin's three great teachers; Kasmani's annual fairs): accepted. Each rests by the team version's own words only on the company the name keeps; neither is obviously important.
+   - 10, the castanet style: accepted.
+   - 11, the English line not identified with either Persian line: accepted; that is exactly the team version's position.
+   - 12, "a second Persian verse in the *Risalo* is also his" and "a work with very few Persian quotations": accepted.
+   - 13, the scholars in Legacy: resolved by V1r1 issue 1; the deletion is verified above.
+   - 14, one website: accepted; the team version's Bijapur item treats the two descriptions of the website as one.
+   - 15, "One of them, Sufi Abd al-Sattar Shah" and "his master's mare": accepted; the ambiguity of "his Master's" is the team version's own.
+   - 16, the lodge belongs to the Qadiri order: accepted; no chain is invented.
+   - 17, the seats and poets: accepted as corrected by V1r1 note 2.
+   - 18, "a search was made": accepted; the team version speaks of "the search for the Bijapur grave".
+   - 19, "most of the Hindu Sufis": accepted; Boivin's own phrase.
+   - 20, the Overview: accepted as corrected by V1r1 note 1. "the great classic of Sindhi poetry" for "that great Sindhi classic" is also accepted: as an appositive it reads as a description of the *Risalo*, not as a claim that no other classic exists.
+   - 21, the vision framed as the telling of the disciple's own path: accepted.
+   - 22, "which marked eighteenth century Sindh above all" and "Hindu writers of Sindh, too": accepted; both sit in The Setting and are not tied to Jhok.
+   - 23, "He was not the first mystical leader ...": accepted.
+   - 24, the network sentence: accepted.
+
+5. Other checks on the whole text, all passed.
+   - Sentence by sentence, every statement traces to the team version; numbers, dates and counts all trace (1718 and January 1718, 1717, four months, 1623 to 1712, about the age of forty, three seats and three poets, four masters, the 17th to the 19th of Muharram, shortly after 900, the 1590s, 1701, the early eighteenth century, the second half of the eighteenth century). Glosses (Sufi, darbar, Hind, *khanqah*, *dargah*, *ʿurs*, *kafis*, *kalam*, *melo*, *ghazals*, *versi*, *nam*, *murshid*, *murid*, *pirs*, Sayyids, and the Qadiri, Suhrawardi and Naqshbandi founders) are definitions, matching data/glossary.csv where it has the term.
+   - Legends and traditions stay framed ("is remembered as", "much that is told in his favour is strongly mixed with legend", "tells that", "claiming that", "usually connected with", "may have alluded", "is known as", "claims"). The unframed commune in the Overview and Legacy is the shrine's own account (basis (a)), as in the team version.
+   - Rule 4: no merged chains or accounts. The master and the Qadiri tie are given without a chain; Shah Inat is kept apart; the two men named Abdul Sattar are not identified; the grave of Shah Inayat's master at Bijapur is not identified with Abdul Malik's dargah; the Muharram days are not called the ʿurs; the four *versi* days are not paired with masters; the unnamed poet of the kafis is not identified with Rakhiyyal Shah; Nasir Faqir and Nasir Muhammad Faqir stand in successive sentences, as in the team version, without an identification the team version does not make.
+   - Rule 5: Bulrri, the *fdā* line, "Sohn. II" and the damaged Kasmani citation are gone; nothing rests on a flagged reading.
+   - No citation, page, folio, author as narrator, signposting, archive or process language; "the official website" and the disciple's path's own poetry are actors in the story, not cited sources. Time anchors are firm. No em or en dash in the prose. The italic verse paragraph matches the team version byte for byte, credited "(translated by Annemarie Schimmel)". Checker (--english-only): ok, 0.44.
+
+6. Taste only (no change required).
+   - "remembered" three times in The Commune and the Martyrdom; and "Shaheed, the martyr" is glossed both in The Saint and at the execution.
+   - "This attempt ... does not appear to have been very successful": the team version's "does not look to be very successful" is present tense; harmless either way.
+   - "cannot be known" for "cannot be detected from the sources": an acceptable plain rendering once the source talk goes.
+   - Hallaj and Bishr al-Hafi appear without introduction; the team version gives no more about them than the text keeps, so nothing can be added.
+   - Notes file housekeeping for the coordinator: the header still gives about 12,470 characters and 0.45 (now 12,170 and 0.44); the "Left out" bullet still says the description of the two scholarly works is "kept in Legacy as scholarship on him"; and the consensus item "Boivin's article on Jhok" still says the subject and the year 2012 are given. All three are stale after V1r1 issue 1. The four "For Rauf" questions should be put to Rauf in the chat (CLAUDE.md RULE 5).
+
+7. Omission sweep: after a sweep of the team version, nothing important is missing; the life, master, disciple Rohal Faqir and namesake Shah Inat, the commune and followers, the attack and land distribution, the persecution, siege, execution and their politics, the location, every named holder of the seat, the three seats and poets, the ʿurs and the songs, the castanet tradition, every Hindu Sufi tied to Jhok, the vision, the Bijapur affiliation and melo, the Persian verse and the poems about him, the setting and the legacy are all present, and the team version names no family members of the saint to keep.

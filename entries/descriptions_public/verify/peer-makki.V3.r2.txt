@@ -1,0 +1,22 @@
+VERDICT: FAIL
+ISSUES:
+1. [repetition, introduced by change 3] The new sentence uses زائرین twice inside one short sentence (جہاں سب سے زیادہ زائرین آتے ہیں، پھر بھی ... زائرین کی تعداد کہیں کم ہے); round 1 issue 3 is otherwise fixed (two clauses, no participle chain, no نمایاں طور پر), but the echo is exactly the in-sentence repetition the brief lists. Vary the second half; حاضری دینے والے keeps the contrast and the meaning.
+OLD: یہ مزار پاکستان کی ان درگاہوں میں سے ایک کے قریب ہے جہاں سب سے زیادہ زائرین آتے ہیں، پھر بھی خود پیر مکی کے مقبرے پر زائرین کی تعداد کہیں کم ہے۔
+NEW: یہ مزار پاکستان کی ان درگاہوں میں سے ایک کے قریب ہے جہاں سب سے زیادہ زائرین آتے ہیں، پھر بھی خود پیر مکی کے مقبرے پر حاضری دینے والے کہیں کم ہیں۔
+
+NOTES:
+Confirming round 2 (V3 fluency), the 13 changed sentences read in their paragraphs. The replay against the backup proved nothing else moved (see the V2 r2 report). Round 1 issues, one by one:
+1. Fixed: جس کی بدولت now takes the whole clause (the seclusion) as its antecedent; natural.
+2. Fixed: سادات اور اہلِ سنت سے وابستہ ہے is good Urdu and no longer uses سید as an adjective.
+3. Fixed except for the repeated زائرین (issue 1 above). The rest of the sentence reads well and leads naturally into اسی لیے in the next sentence.
+4. Fixed: روحانیت اور مسلک کا علم reads as spiritual learning.
+5. Fixed: ظاہری علوم میں انتہائی کمال حاصل کر لینے کے بعد is idiomatic; درجۂ کمال would be a slightly more classical alternative, taste only.
+6. Fixed: آنے والے حالات ان پر کھلنے لگے تھے is unambiguous now. Taste: with ان پر now standing next to مگر وہ انہیں, the two ان forms (the saint, then the events) sit close together; یہ باتیں for انہیں would be a touch smoother. Pre-existing pronoun, not a fault of the change.
+7. Fixed, and the adaptation reads fine: the relative clause untangles the sentence, and اُسی with its pesh reads as that same place, pointing past the saint's own tomb to Data Darbar, which is also the only sensible sense since no one is his own forerunner. Taste: the reference rests partly on that sense, because اُسی is also the ordinary anaphoric form; naming the place again would remove all doubt, but that is a content choice for the writer, not a fault.
+8. Fixed: نذر نیاز بانٹی جاتی ہے, feminine agreement correct. Taste: the written form نذر و نیاز is a shade more formal.
+9. Fixed: direct speech after کہ in the speaker's own persons (مجھے، آپ) is the natural Urdu form; tense sequence (معلوم تھا کہ ... موجود ہیں) is correct.
+10. Fixed: لاہور کی طرف ہجرت کا حکم.
+11. Fixed: کم ہی میل کھاتا ہے is idiomatic.
+12. Fixed: the adjectival calque is gone. Taste: the phrase is now a chain of four genitives (محمود غزنوی کے خاندان کی سلطنت کے ہندوستانی علاقوں کا دارالحکومت), heavy though correct; putting ہندوستان میں before the subject phrase and ending with سلطنت کا دارالحکومت would lighten it.
+13. Fixed: نام and مقام are both masculine, so the elided رکھا now serves both halves; برقرار رکھنا is the right verb.
+No new agreement, postposition or izafat error, no calque and no Latin or dash in any changed sentence. Each change fits the sentences around it.

@@ -1,0 +1,15 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 1 V3 issues: all eight are fixed, each applied verbatim in the round 1 wording (issue 1 by change 1, 2 by change 3, 3 by change 6, 4 by change 7, 5 by change 8, 6 by change 9, 7 by change 10, 8 by change 11). Round 1 note 7 (وہ pointing at لوگ) is resolved by change 5.
+2. Change 1: the correlative جتنی ... اس کی مثال کم ملتی ہے is natural Urdu and follows the mazar sentence cleanly; ان still points at Sultan Sakhi Sarwar. Taste: کم ہی ملتی ہے would add a touch of emphasis.
+3. Change 2: لاکھوں دینے والا is idiomatic and reads as the meaning of لکھ داتا.
+4. Changes 3 and 6: عام رہی now matches صدیوں تک in aspect; درجۂ کمال کو پہنچ کر removes the doubled پانا and is the standard idiom.
+5. Change 4: زائرین now stands in two consecutive sentences (... زائرین کو اپنی طرف کھینچتا رہا ہے۔ ... راستہ زائرین سے بھرا رہتا تھا۔). Not inside one sentence and not a fault; a reader will hardly notice it.
+6. Change 5: naming سخی سرور fixes the referent, but the name now opens this sentence and also stands in the next (آخرکار سخی سرور گاؤں چھوڑ کر چلے گئے). The second naming is still needed after یہ رشتے دار, so this is acceptable as it stands.
+7. Change 7: inside the sentence لنگاہ appears twice (the dynasty and Sultan Husain Langah, as in the English) and سلطان twice (the second resolving ان کے پاس). Both repetitions are names doing referential work, not stylistic slips; the sentence reads clearly.
+8. Change 8: a short relative clause between commas; acceptable here, and ان کے پرچم correctly reads as the saint's banners against the reflexive اپنے.
+9. Change 9: agreement (زیارت اور عرس ... مواقع ہوتے ہیں) is right, and the second clause reads naturally. Taste: ان سب most naturally points at music, offerings and celebration; if it is read as the two occasions, دونوں would be the exact word, but neither reading is wrong.
+10. Change 10: the passive کا نشانہ بنایا گیا is idiomatic, and جس میں attaches correctly to the blast. It now echoes the §تعارف sentence (2011 میں مزار کو بم دھماکے کا نشانہ بنایا گیا), a summary echo already noted in round 1.
+11. Change 11: the resumptive یہی حلقہ after a long first clause is good Urdu and removes the dangling اسی میں; مظہر تھا agrees with حلقہ. Taste only: حلقہ now appears twice in the sentence (حلقۂ ارادت ... یہی حلقہ); a version ending مشترکہ مقدس دنیا کا مظہر بھی یہی تھا would avoid that.
+12. The NEW sentences contain no Latin letters, no en or em dashes, and no calques; the surrounding sentences were not disturbed (replay identical).

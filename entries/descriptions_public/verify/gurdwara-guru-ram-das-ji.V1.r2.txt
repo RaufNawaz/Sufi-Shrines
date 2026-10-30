@@ -1,0 +1,52 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. The round 1 changes. A diff of the public file against the backup (/home/claude/bak/gurdwara-guru-ram-das-ji.md.bak_en1) shows exactly the five replacements listed in the changes file and nothing else. Each is supported and introduces no fault.
+   - "The Maharaja agreed and acquired the surrounding plots, the houses of Mohalla Saudagran that adjoined the spot." This keeps the site's verb "acquired" (basis (a)) and adds only which land it was. The team version's disagreement on the land is over how it was obtained (acquired against taken), not over which land it was. The enlarging, the foundation and "within one year" belong to the late founding account and are gone, so no completion date follows from 1801 and no rival account hangs under the tradition. This settles round 1 Issue 1 and judgement call 2.
+   - "In the 1880s" for the custodians matches "at present" in the 1884 history. It no longer reads as the time of the Holi assembly.
+   - "it has been observed" frames Iqbal Qaiser's lecture without "historian", a word this team version does not use.
+   - "Ranjit Singh, who ruled the Punjab for forty years, came to Lahore in 1799 ..." no longer counts the forty years from 1801.
+   - "in the nineteenth century he was pictured" is the anchor the brief allows for Chishti's material. The Jhaman frescoes, from a 2016 book, rightly stay in the present tense.
+
+2. Full sweep, sentence by sentence (the whole text was checked again, not only the changed sentences).
+   - Every statement, number and count is in the team version: 1534, 1574, 1581 (his death rests on the life dates 1534 to 1581), the seven years, Kartik, Har Das, the Sodhi and Khatri Bhalla castes, Khadur and Goindwal, the twelve years in the *langar*, the two sons-in-law and two sons, the Sodhi succession, Ramdaspur and Akbar's grant to Bibi Bhani, the pool and the Harmandir Sahib, the *masands*, the quarrel of Prithi Chand and Arjan, the Lahore wedding, the Bedian road, the 1801 tradition, Mohalla Saudagran, the full fabric of the 1880s (the gateway, the *deorhi* stair, the upper courtyard, the well in the north west corner, the *bel*, the flag, the stepped *jharokha*, the pattern of the Darbar of Amritsar, the four doors, no central dome, the four *shah-nashins* of two storeys), the worship and custodians, 1947 and the eighteen Sikhs, the Evacuee Trust Property Board, Tara Singh, the Lahore and Punjab context, 1758, 1799 and 1801, the forty years, Kharak Singh and Dalip Singh. Every gloss is definitional.
+   - Legends and views stay framed: the childhood home ("is said"), the founding ("Tradition relates"), Amar Das's wife's recommendation ("it is said"), the Akbar grant ("is said"), Arjan's recall ("It is told", "Sikh tradition traces"), Nanak and Duni Chand ("Tradition tells"), Kharak Singh's birth ("tradition ties"), the eighteen killed ("are reported"), and the authors' views ("has been called", "it has been said" twice, "it has been observed", "has been taken as an allusion").
+   - The disagreements follow rule 4, with one clause where they matter and no side by side variants: the bazaar (Chuna Mandi), what stood on the spot (the childhood home, with the small house left out), the founding ("Accounts differ over when the gurdwara was built and at whose wish"), the land (acquired), the boyhood ("Accounts of his boyhood differ"), his relation to Amar Das (son-in-law), the number of sons ("Accounts differ", no number), the Ramdaspur land (the grant, framed "is said") and the gates ("most often" twelve, two sources against one). No chains or accounts are merged.
+   - Nothing rests on a reading the team version marks uncertain. The *gharis*, the day and year of birth, the table's Hardas, Kanwar, Bibi Bhani's request, the garbled marriage, Mohar, "Sodhi [Guru]", *khalaf* and the p. 686 passage, the K[...] town, the feudalisation sentence, "famous as Guru Ram Das's", the death at Goindwal, the bazaar's name, "prostration", the day's name, "recently", "members", the custodians' verdict, December 1849 and the *qita* are all out.
+   - The text has no citation, page or folio reference, narration of sources, signposting, or archive or process words. Its time anchors are firm: "By the 1880s" and "In the 1880s" (1884), "In Aurangzeb's time" (regnal year 40), "in the nineteenth century" for Chishti only, and "now" from a 2013 book. The English only checker returns ok at 0.42 (team 28973, public 12305), and the text has no em or en dash.
+
+3. Rulings on the writer's judgement calls:
+   - 1 (the founding, 1801 and Datar Kaur, basis (a)): accepted. One dissenting source is not "every other source". The story is framed "Tradition relates" with the one clause that accounts differ, so it claims no more certainty than the team version.
+   - 2 (the 1880s building details): accepted in its present form, the round 1 fallback (see note 1).
+   - 3 (the *qita* left out): accepted. Its first hemistich carries a word marked [OCR?], it has no rendering, and it concerns Dalip Singh's departure, not the Guru or the site. With the marker it would break the checker's P3. Without the marker it would present the uncertain word as certain. Rule 5 governs.
+   - 4 (raised by his grandmother): accepted. She is family and places him nowhere. Basarke and the selling of grain, which carry the rival place, are out.
+   - 5 (the marriage at Goindwal): accepted. No source contradicts the place, and Khalid also brings Jetha to Goindwal.
+   - 6 (Kartik): accepted. Only the *ghari*, the day and the year are flagged. "Is placed" is the right hedge.
+   - 7 (Khadur, Goindwal, and the twelve years): accepted. The twelve years stand as their own sentence and are not made the length of the Khadur service.
+   - 8 (the eldest son unnamed): accepted. Only the name is flagged.
+   - 9 (1574 to 1581 joined with the seven years): accepted. They agree, and no disagreement is recorded.
+   - 10 (Sodhi Khatris): accepted. The fact rests on Khalid's clean phrase, and "has been called" frames the remark about kings.
+   - 11 (Ramdaspur and the grant to Bibi Bhani): accepted. The team version's own disagreement entry treats the p. 274 and p. 292 grants as the land of Ramdaspur, and only the town name on p. 274 is flagged. Dropping the *jagir* as a minor variant is right.
+   - 12 (the *masands* to fund the pool): accepted.
+   - 13 (the Overview's founding sentence with no date): accepted. Both accounts make the building the Maharaja's.
+   - 14 and 15: accepted.
+   - 16 (the Partition context): accepted. Tara Singh comes before the killings but is not given as their cause, and the province context is not tied to this gurdwara.
+   - 17 (Qaiser's lecture): accepted in its corrected form, "it has been observed".
+   - 18 (the worship of the 1880s): accepted. The team notes flag ممبرون (members), not the Singh Sabha, so "the Singh Sabha" stands. "Every eighth day" renders "comes round regularly: on the eighth day" and leaves out the uncertain day name. "Once" replaces the uncertain "recently".
+   - 19 (In Aurangzeb's time): accepted. Regnal year 40 is firm.
+   - 20 and 21: accepted.
+
+4. Taste only (no change required):
+   - "He is named among the later Gurus whose stewardship Baba Budha witnessed" still describes a text rather than the event. "Tradition counts him among the later Gurus whose stewardship Baba Budha witnessed" would match the "Tradition tells" that The Setting uses for the same retelling. This is not source talk in the brief's sense, since no author or book is named.
+   - "Across Pakistani Punjab, ... and some were taken over and destroyed by the migrants": the team version does not place the second observation in the Punjab. This is harmless, as round 1 found.
+   - "In the 1880s" now opens three paragraphs close together (The Gurdwara, paragraph 3; Devotion and Festivals, paragraphs 1 and 3).
+   - "the gathering was held to be worth seeing" slightly generalises one writer's verdict. It is acceptable as an unattributed form.
+   - The Overview and The Gurdwara both open with the surviving childhood home. This is acceptable between the map card summary and the body.
+
+5. Housekeeping for the coordinator (not a change to the public text): the notes file still quotes the wording from before round 1. Under Consensus choices, "How the land was obtained" quotes the removed sentence and "Time anchors" lists "At that time". Judgement calls 2 and 17 also quote the old sentences. Bring these entries into line with the public text so that the record matches the page.
+
+6. Omission sweep: after reading the team version through, nothing important is missing.
+   - Left out, and rightly: the source apparatus and the statements of absence; the rival accounts that rule 4 removes (Basarke, the parents' move to Goindwal, the small house and the late founding with "within one year", the *jagir*, the move to Ramdaspur, *khalaf*); the readings marked uncertain, the *qita* among them; and marginal items (Chandu Lal, Ram Thamman, the "eclectic religious preachers", Arjan's intercepted letters).
+   - Kept: every family member the team version names cleanly (Har Das, the mother and father, the grandmother, Amar Das, his wife and his eldest son, Bibi Bhani, Prithi Chand, Arjan), and the whole fabric, worship and custodians of the 1880s.

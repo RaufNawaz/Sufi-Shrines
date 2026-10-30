@@ -1,0 +1,5 @@
+Urdu round 3 changes (coordinator, by script) to entries/descriptions_public/shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.ur.md: V2 and V3 round 2 issues and selected notes, in the verifiers' wording. The English is unchanged.
+
+[V3 r2 issue 1]
+OLD: اس علاقے کی زبان سرائیکی سندھی اور پنجابی کا امتزاج ہے، اور یہاں کی سرائیکی سندھی سے زیادہ ملتی جلتی تھی، جبکہ ملتان کی سرائیکی پنجابی کے قریب تھی۔
+NEW: اس علاقے کی زبان سرائیکی ہے، جو سندھی اور پنجابی کا امتزاج ہے، اور یہاں کی سرائیکی سندھی سے زیادہ ملتی جلتی تھی، جبکہ ملتان کی سرائیکی پنجابی کے قریب تھی۔

@@ -1,0 +1,9 @@
+English round 3 changes (coordinator, by script) to entries/descriptions_public/shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.md: V1 round 2 issue or optional notes in V1's exact wording.
+
+[V1 r2 issue 1]
+OLD: In Bahauddin Zakariya's time the Qalandari and Jawaliqi dervishes, wandering ascetics who passed through Multan, often came into conflict with him.
+
+He is remembered as Surkh-Posh, the Red-Robed, for the red garment he habitually wore, and he is also called simply Surkh, the Red.
+NEW: The Qalandari and Jawaliqi dervishes, wandering ascetics who passed through Multan, often came into conflict with Bahauddin Zakariya in his lifetime.
+
+He is remembered as Surkh-Posh, the Red-Robed, for the red garment he habitually wore, and he is also called simply Surkh, the Red.

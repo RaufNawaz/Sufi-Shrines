@@ -1,0 +1,10 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 2 V3 issue 1 is fixed by change 1. The sentence now reads یہ گوردوارہ اور اس کا قدیم درخت سیالکوٹ کو ایسے کثیر المذاہب ماضی کی یاد دلاتے ہیں جب روایت کے مطابق سکھ مذہب کے بانی اور شہر کے ایک مسلمان بزرگ ایک ہی آسمان تلے ملے تھے۔
+   - شہر now comes once in the sentence, and شہر کے ایک مسلمان بزرگ reads cleanly as Sialkot.
+   - The calqued ایک before ایسے is gone. ایسے ... ماضی کی یاد ... جب is the natural Urdu correlative. The two remaining ایک (ایک مسلمان بزرگ، ایک ہی آسمان) do different work, the second being the idiom ایک ہی "the same". They do not read as repetition.
+   - Grammar is correct: the compound subject گوردوارہ اور ... درخت takes the plural دلاتے ہیں; ایسے is the oblique of ایسا before ماضی کی; یاد دلانا takes کو on سیالکوٹ.
+2. The change sits well in the sentences around it. The sentence before ends with ... مرکز ہے۔ and the one after opens with زائرین کے لیے ..., and neither is disturbed.
+3. Taste only: سیالکوٹ کو ... یاد دلاتے ہیں treats the city as the one reminded, as the English "for the city of Sialkot" does. This is ordinary in Urdu prose. اہلِ سیالکوٹ کو would make the people explicit, but the current wording is natural and need not change. The earlier taste note about یہ گوردوارہ in two consecutive sentences (this one and the next) stands as recorded and is not reopened.
+4. The changed text uses Urdu punctuation only, with no Latin letters and no em or en dashes.

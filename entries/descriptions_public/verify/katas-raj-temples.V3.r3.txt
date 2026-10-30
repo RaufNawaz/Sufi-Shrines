@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Change 1 (V3 r2 issue 1): fixed. باقی عمارتوں کے برعکس اس کی مرمت نہیں ہوئی is natural, educated Urdu (the same pattern as دوسروں کے برعکس وہ نہیں آیا), and مرمت now occurs once in the sentence, so the echo کی مرمت کے وقت اس کی مرمت is gone. Agreement is right (feminine مرمت ... ہوئی), the postposition کے برعکس takes the oblique plural عمارتوں correctly, and اس points unambiguously to گوردوارے کی عمارت in the sentence before. The contrast reads at once: the other buildings were repaired, this one was not.
+2. Fit with its neighbours: the sentence follows گوردوارے کی عمارت احاطے سے کچھ فاصلے پر ہے smoothly, and the simple past نہیں ہوئی followed by the perfects ہو چکا تھا and باقی نہ رہی تھی after تک is the right sequence; the next sentence اب وہاں بس ایک بڑی عمارت رہ گئی تھی continues without a jolt. No new ambiguity, no calque, no Latin letters, no em or en dashes.
+3. Round 2 status: the one round 2 V3 issue is fixed in the round 2 wording; no round 2 issue is left open.
+4. Taste only: عمارتوں and عمارت both stand in this sentence (the other buildings, then this building's roof), and عمارت recurs through the paragraph as "building" does in the English. This was already so before the change, the referents are distinct, and it reads acceptably; اس کی چھت would vary it at the end of the sentence, but it is not a fault.

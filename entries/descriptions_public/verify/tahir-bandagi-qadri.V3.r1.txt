@@ -1,0 +1,97 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic collocation] "اس کی سب سے قدیم نشست انہی کا مقبرہ ہے" -> نشست is a seat or a sitting; it is not said of a tomb or of the oldest point of a graveyard, and it reads as a rendering of English "seat". -> اس قبرستان کا سب سے قدیم مقبرہ انہی کا ہے۔
+OLD: اس کی سب سے قدیم نشست انہی کا مقبرہ ہے۔
+NEW: اس قبرستان کا سب سے قدیم مقبرہ انہی کا ہے۔
+
+2. [grammar / calque] "انہوں نے ... تعمیر کیا، اور 1630 میں وفات پا کر ... دفن ہوئے" -> the ergative انہوں نے is carried over to the intransitive دفن ہوئے, and "وفات پا کر دفن ہوئے" (having died, was buried) is a stiff participle chain. -> split and give the second clause its own subject.
+OLD: انہوں نے اپنی زندگی ہی میں اس زمین پر مسجد، مدرسہ اور کتب خانہ تعمیر کیا، اور 1630 میں وفات پا کر اپنی مسجد کے پہلو میں دفن ہوئے۔
+NEW: انہوں نے اپنی زندگی ہی میں اس زمین پر مسجد، مدرسہ اور کتب خانہ تعمیر کیا۔ 1630 میں ان کا انتقال ہوا اور وہ اپنی مسجد کے پہلو میں دفن ہوئے۔
+
+3. [register slip] "اعلیٰ تعلیم کے لیے" -> in current Urdu اعلیٰ تعلیم means college or university education; for a sixteenth century scholar it is anachronistic, and "مرید ہوئے" for higher education jars. -> اعلیٰ علوم کی تحصیل کے لیے
+OLD: اعلیٰ تعلیم کے لیے وہ پیر کمال کیتھلی کے بیٹے حضرت شاہ سکندر کے مرید ہوئے۔
+NEW: اعلیٰ علوم کی تحصیل کے لیے وہ پیر کمال کیتھلی کے بیٹے حضرت شاہ سکندر کے مرید ہوئے۔
+
+4. [calque] "ایک حقیقی آزمائش" -> English "a real trial"; حقیقی (genuine, actual) sits oddly beside the hedge بیان کیا جاتا ہے and is not how Urdu intensifies آزمائش. -> ایک کڑی آزمائش
+OLD: بیان کیا جاتا ہے کہ شیخ طاہر کی زندگی میں ایک حقیقی آزمائش بھی آئی۔
+NEW: بیان کیا جاتا ہے کہ شیخ طاہر کی زندگی میں ایک کڑی آزمائش بھی آئی۔
+
+5. [calque] "ایک روایت اسے پیش گوئی کے پورا ہونے کا واقعہ بنا دیتی ہے" -> English "one version makes it a story of prophecy fulfilled"; a روایت does not "make" an event into something in Urdu. -> ایک روایت میں اسے ... واقعہ بتایا گیا ہے
+OLD: یہ قصہ ایک سے زیادہ طرح سے بیان ہوتا ہے، اور ایک روایت اسے پیش گوئی کے پورا ہونے کا واقعہ بنا دیتی ہے۔
+NEW: یہ قصہ ایک سے زیادہ طرح سے بیان ہوتا ہے، اور ایک روایت میں اسے ایک پیش گوئی کے پورا ہونے کا واقعہ بتایا گیا ہے۔
+
+6. [tangled sentence] "حضرت مجدد نے دعا کی، جو قبول ہوئی، اور" -> a relative clause boxed between commas inside a یہاں تک کہ clause, followed by a third clause; it reads as translated punctuation. -> یہاں تک کہ حضرت مجدد کی دعا قبول ہوئی اور شیخ طاہر تائب ہو گئے
+OLD: وہ وہیں رہے، یہاں تک کہ حضرت مجدد نے دعا کی، جو قبول ہوئی، اور شیخ طاہر تائب ہو گئے۔
+NEW: وہ وہیں رہے، یہاں تک کہ حضرت مجدد کی دعا قبول ہوئی اور شیخ طاہر تائب ہو گئے۔
+
+7. [tense clash] "شمار ہوتے ہیں اور ... نہایت سخت تھے" -> a present generic and a past description are yoked by one اور with a single subject; the second half reads as if it were still true. -> split into two sentences.
+OLD: وہ حضرت مجدد کے خلفا میں شمار ہوتے ہیں اور شریعت کی پابندی میں نہایت سخت تھے۔
+NEW: وہ حضرت مجدد کے خلفا میں شمار ہوتے ہیں۔ شریعت کی پابندی میں وہ نہایت سخت تھے۔
+
+8. [tangled sentence / inconsistent spelling] "قطبیت عطا کی، یعنی شہر کے قطب کا مرتبہ، جو اولیاء کا" -> the gloss is tacked on after the verb between commas, so the sentence ends in a chain of appositions; and اولیاء carries a hamza while the article writes خلفا، علما، فضلا، آرا without one. -> put the gloss before the verb and write اولیا.
+OLD: کہا جاتا ہے کہ حضرت مجدد نے انہیں لاہور کی قطبیت عطا کی، یعنی شہر کے قطب کا مرتبہ، جو اولیاء کا سب سے بلند روحانی مقام ہے۔
+NEW: کہا جاتا ہے کہ حضرت مجدد نے انہیں لاہور کی قطبیت، یعنی شہر کے قطب کا مرتبہ عطا کیا، جو اولیا کا سب سے بلند روحانی مقام ہے۔
+
+9. [gloss of a familiar word / tangled sentence] "کا شمار قادریوں میں ہوتا ہے، یعنی ... کے پیروکاروں میں، اور" -> قادری needs no یعنی gloss for an Urdu reader (the article has already called him a قادری صوفی), and the trailing appositive "کے پیروکاروں میں" breaks the sentence in two. -> fold the founder into the noun phrase.
+OLD: حضرت طاہر بندگی کا شمار قادریوں میں ہوتا ہے، یعنی شیخ عبدالقادر جیلانی کے قائم کردہ صوفی سلسلے کے پیروکاروں میں، اور سلسلۂ قادریہ میں وہ اپنے زمانے کے قطب مانے جاتے ہیں۔
+NEW: حضرت طاہر بندگی کا شمار شیخ عبدالقادر جیلانی کے قائم کردہ سلسلۂ قادریہ کے وابستگان میں ہوتا ہے، اور اس سلسلے میں وہ اپنے زمانے کے قطب مانے جاتے ہیں۔
+
+10. [ambiguity / tangled sentence] "مریدوں کی کثرت سے میسر آنے والی آسائشوں کے بجائے ان راتوں میں ذکر میں" -> کثرت سے first reads as the adverb "frequently", the long participial phrase delays the subject, and "میں ذکر میں" stacks two postpositions. -> unpack the participle into a relative clause.
+OLD: کہا جاتا ہے کہ وہ مریدوں کی کثرت سے میسر آنے والی آسائشوں کے بجائے ان راتوں میں ذکر میں محو رہتے تھے۔
+NEW: کہا جاتا ہے کہ مریدوں کی کثرت کے باعث جو آسائشیں انہیں میسر تھیں، ان کے بجائے وہ یہ راتیں ذکر میں محو رہ کر گزارتے تھے۔
+
+11. [unidiomatic / agreement] "مزار پر 54 برس مانے جاتے ہیں، جو ... میل کھاتے ہیں" -> the years themselves are made the subject of مانے جاتے ہیں; Urdu says that an age is held to be so many years. -> مزار پر 54 برس کی عمر مانی جاتی ہے، جو ... میل کھاتی ہے
+OLD: وفات کے وقت ان کی عمر کتنی تھی، اس بارے میں روایات مختلف ہیں؛ مزار پر 54 برس مانے جاتے ہیں، جو 1576 کے سالِ پیدائش سے میل کھاتے ہیں۔
+NEW: وفات کے وقت ان کی عمر کتنی تھی، اس بارے میں روایات مختلف ہیں؛ مزار پر 54 برس کی عمر مانی جاتی ہے، جو 1576 کے سالِ پیدائش سے میل کھاتی ہے۔
+
+12. [unidiomatic] "مصنف کا کوئی اور پتا نہیں ملتا" -> کوئی اور پتا reads as "some other address"; the sense "nothing further is known of the author" is اور کوئی سراغ نہیں ملتا.
+OLD: تذکرۂ مجددیہ نامی کتاب کے مصنف کا کوئی اور پتا نہیں ملتا، البتہ محمد دین فوق نے یہ کتاب شیخ طاہر سے منسوب کی ہے۔
+NEW: تذکرۂ مجددیہ نامی کتاب کے مصنف کا اور کوئی سراغ نہیں ملتا، البتہ محمد دین فوق نے یہ کتاب شیخ طاہر سے منسوب کی ہے۔
+
+13. [unidiomatic collocation] "بڑی احتیاط کے ساتھ اس کا انتظام" -> احتیاط is caution or precaution; "with great care" in the sense of devoted upkeep is اہتمام.
+OLD: حضرت طاہر بندگی کی وفات پر مسجد کے پہلو میں ان کی آرام گاہ ہی ان کا مزار بنی، اور کہا جاتا ہے کہ اس زمانے کے حکمران اور مرید شروع ہی سے بڑی احتیاط کے ساتھ اس کا انتظام کرتے رہے۔
+NEW: حضرت طاہر بندگی کی وفات پر مسجد کے پہلو میں ان کی آرام گاہ ہی ان کا مزار بنی، اور کہا جاتا ہے کہ اس زمانے کے حکمران اور مرید شروع ہی سے بڑے اہتمام کے ساتھ اس کا انتظام کرتے رہے۔
+
+14. [gender agreement] "کے مزار کے طرز پر" -> طرز is feminine in standard usage (کی طرز پر).
+OLD: کہا جاتا ہے کہ نئی تعمیر کے لیے جب پرانے مقبرے کی کھدائی کی گئی تو پتا چلا کہ وہ ہو بہو حضرت مجدد الف ثانی کے مزار کے طرز پر بنا تھا۔
+NEW: کہا جاتا ہے کہ نئی تعمیر کے لیے جب پرانے مقبرے کی کھدائی کی گئی تو پتا چلا کہ وہ ہو بہو حضرت مجدد الف ثانی کے مزار کی طرز پر بنا تھا۔
+
+15. [calque] "ایک ہمسایہ احاطہ" -> English "a neighbouring enclosure"; ہمسایہ is said of people and countries, not of an enclosure, and پہلو میں already gives the adjacency. -> ایک اور احاطہ
+OLD: انیسویں صدی میں دوسری قبروں کا محلِ وقوع بھی اسی دیوار کے حوالے سے بتایا جاتا تھا: ایک قطار اس سے ملی ہوئی تھی، ایک قبر اس کے مشرقی کونے میں تھی اور ایک اس کے شمال میں، اور اس کے پہلو میں ایک ہمسایہ احاطہ بھی تھا۔
+NEW: انیسویں صدی میں دوسری قبروں کا محلِ وقوع بھی اسی دیوار کے حوالے سے بتایا جاتا تھا: ایک قطار اس سے ملی ہوئی تھی، ایک قبر اس کے مشرقی کونے میں تھی اور ایک اس کے شمال میں، اور اس کے پہلو میں ایک اور احاطہ بھی تھا۔
+
+16. [ambiguous pronoun] "جن کے پاس ان کے مقبرے کی سجادگی تھی" -> the nearest honorific antecedent of ان is سید منصور, so the line first reads as "Syed Mansur's tomb". -> شیخ کے مقبرے
+OLD: اسی صدی میں یہ منصب سنبھالنے والوں میں سید منصور تھے، جو شیخ محمد طاہر کی خانقاہ کے سجادہ نشین تھے، اور سید شہسوار، جن کے پاس ان کے مقبرے کی سجادگی تھی۔
+NEW: اسی صدی میں یہ منصب سنبھالنے والوں میں سید منصور تھے، جو شیخ محمد طاہر کی خانقاہ کے سجادہ نشین تھے، اور سید شہسوار، جن کے پاس شیخ کے مقبرے کی سجادگی تھی۔
+
+17. [grammar] "جو ... لاہور میں آباد ہوئے اور نواب میر کفایت خان کی ایک بیٹی سے شادی کی" -> one relative pronoun جو is made the subject of both an intransitive verb and a transitive perfective (شادی کی), which needs جنہوں نے. -> اور جنہوں نے ... شادی کی
+OLD: سید شہسوار ایک گیلانی خاندان سے تھے جس کا نسب سید عبدالقادر لاہوری بن سید جلال الدین بغدادی تک پہنچتا ہے، جو اکبر کے عہد میں لاہور میں آباد ہوئے اور نواب میر کفایت خان کی ایک بیٹی سے شادی کی۔
+NEW: سید شہسوار ایک گیلانی خاندان سے تھے جس کا نسب سید عبدالقادر لاہوری بن سید جلال الدین بغدادی تک پہنچتا ہے، جو اکبر کے عہد میں لاہور میں آباد ہوئے اور جنہوں نے نواب میر کفایت خان کی ایک بیٹی سے شادی کی۔
+
+18. [ambiguous word order] "گاؤں کے سردار حضرت ابو محمد قادری کے والد حافظ جان محمد تھے" -> reads equally as "the father of the village chief Abu Muhammad was Hafiz Jan Muhammad"; the next sentence shows the chief was the father. -> put the predicate last.
+OLD: گاؤں کے سردار حضرت ابو محمد قادری کے والد حافظ جان محمد تھے۔
+NEW: حضرت ابو محمد قادری کے والد حافظ جان محمد گاؤں کے سردار تھے۔
+
+19. [ambiguous word order] "شاہ محمد مقیم لاہور جاتے ہوئے" -> مقیم لاہور runs together as "مقیمِ لاہور" (resident of Lahore), so the reader loses both the name and the destination. -> شاہ محمد مقیم جب لاہور جا رہے تھے تو
+OLD: شاہ محمد مقیم لاہور جاتے ہوئے میانی قبرستان میں شیخ محمد طاہر کے مقبرے کے قریب ٹھہرے تھے۔
+NEW: شاہ محمد مقیم جب لاہور جا رہے تھے تو میانی قبرستان میں شیخ محمد طاہر کے مقبرے کے قریب ٹھہرے تھے۔
+
+20. [unidiomatic collocation] "اس کی سب سے قدیم نشست ... کا مقبرہ ہی ہے" -> same نشست as issue 1. -> اس کا سب سے قدیم مقبرہ ... ہی کا ہے
+OLD: میانی صاحب قبرستان کی ابتدا کیسے ہوئی، اس بارے میں روایات مختلف ہیں، لیکن اس کی سب سے قدیم نشست حضرت طاہر بندگی قادری کا مقبرہ ہی ہے۔
+NEW: میانی صاحب قبرستان کی ابتدا کیسے ہوئی، اس بارے میں روایات مختلف ہیں، لیکن اس کا سب سے قدیم مقبرہ حضرت طاہر بندگی قادری ہی کا ہے۔
+
+21. [inconsistent spelling] "اولیاء کے تذکروں" -> hamza here, none on خلفا، علما، فضلا، آرا elsewhere in the article. -> اولیا
+OLD: اولیاء کے تذکروں میں حضرت طاہر بندگی کی بے شمار کرامات لکھی جا چکی تھیں۔
+NEW: اولیا کے تذکروں میں حضرت طاہر بندگی کی بے شمار کرامات لکھی جا چکی تھیں۔
+
+NOTES:
+- کہا جاتا ہے occurs 19 times; every hedge has to stay, but a later pass could vary some of them with روایت ہے، بیان کیا جاتا ہے، بتایا جاتا ہے so the rhythm is less mechanical.
+- The saint is called حضرت طاہر بندگی in some paragraphs and شیخ طاہر in others, often switching mid-paragraph. Both are introduced, so it is not an error, but settling on one per section would read more smoothly. Likewise گدی نشین (today) beside سجادہ نشین (nineteenth century), and پختہ اینٹوں beside پکی اینٹوں in consecutive sentences.
+- The meaning of میانی is explained three times in quick succession (میانیوں یعنی علما و فضلا، the *میانا* sentence, and "جہاں صرف اہلِ علم رہتے تھے"); each carries a fact, so it is left, but it reads as repetition.
+- "حضرت مجدد کو اسلام کے دوسرے ہزارے میں دین کی تجدید کرنے والی ہستی کا مقام حاصل ہے" is correct but wordy; "اسلام کے دوسرے ہزارے کا مجدد مانا جاتا ہے" is the idiomatic phrasing.
+- "اپنی راہ پر لوٹ آئے، ... مرید بھی ہوئے، اور آگے چل کر انہی کی اولاد کو پڑھایا" drops نے before پڑھایا; this is accepted tazkira style, so not flagged. راہِ راست پر آ گئے would be the stock idiom for اپنی راہ پر لوٹ آئے.
+- "اس بڑی دیوار کے اندر پکی اینٹوں کا ایک اور وسیع چبوترا تھا": ایک اور (another) has no earlier platform to refer to; if the source means "a further" platform this is fine, otherwise ایک وسیع چبوترا.
+- "انہیں نذر کر کے روزی پاتے" is unclear about how presenting books as an offering earned a living; a fact question for V1/V2, not a fluency fix.
+- "جن کے نام کا جزو طاہری خود صاحبِ مزار سے لیا گیا ہے" would read more clearly with طاہری in quotation marks and "صاحبِ مزار کے نام سے".
+- "زیادہ تر انہیں ... بھی منسوب کیا جاتا ہے": اکثر sits better with بھی than زیادہ تر. "ایک سے زیادہ بار" could be کئی بار. "بھیڑ" is slightly colloquial beside the surrounding register; ہجوم would match.
+- Punctuation is clean: Urdu ، ۔ ؛ throughout, no Latin letters, no dashes, asterisks balanced; the Latin commas are only digit-group separators in 1,200 / 250,000. Verse lines untouched.

@@ -1,0 +1,619 @@
+{
+ "about": "The language of each original verse the articles quote, for the label the site sets above it (Rauf, 30 October 2026: \"For the differentiation between the urdu and punjabi make it more obvious\"). One entry per distinct verse paragraph, keyed by its exact text. lang: pa Punjabi, pa-Guru Punjabi in Gurmukhi, Guru Gurmukhi (script only), fa Persian, ur Urdu, sd Sindhi, skr Seraiki; null where the language is not certain, which sets no label. pipeline/verse_languages.py writes src/data/verse-languages.json from this file and checks that every verse paragraph in the articles is here.",
+ "entries": [
+  {
+   "verse": "جي تُو بيت ڀانئين، سي آيتون آهِن",
+   "lang": "sd",
+   "basis": "Shah Abdul Latif's Sindhi bait (Sindhi letters ڀ and the Sindhi grammar of \"آهِن\")",
+   "rows": [
+    "bhit-bhit-shah"
+   ]
+  },
+  {
+   "verse": "بہ تخت فقر بنشینم چو حاصل گشت مقصودم\nسلیمانی کنم کزجان غلام شیخ داؤدم",
+   "lang": "fa",
+   "basis": "Persian: the article calls the diwan Persian verse, and the grammar is Persian (بنشینم، گفتا)",
+   "rows": [
+    "darbar-abul-muali-qadri"
+   ]
+  },
+  {
+   "verse": "رحلتنش گفتا معالی خیر دین",
+   "lang": "fa",
+   "basis": "Persian: the article calls the diwan Persian verse, and the grammar is Persian (بنشینم، گفتا)",
+   "rows": [
+    "darbar-abul-muali-qadri"
+   ]
+  },
+  {
+   "verse": "شیخ طاہر پاک باز و پاک دین\nاوج عرفان پر تھے مثل آفتاب",
+   "lang": "ur",
+   "basis": "Urdu by its grammar (\"پر تھے\")",
+   "rows": [
+    "tahir-bandagi-qadri"
+   ]
+  },
+  {
+   "verse": "عیاں تاریخ او چوں ماہ گفتم\nعلی ہجویری عالی جاہ گفتم",
+   "lang": "fa",
+   "basis": "the article: \"Persian chronograms\"",
+   "rows": [
+    "data-darbar"
+   ]
+  },
+  {
+   "verse": "چو جستم از خرد تاریخ سالش\nعیاں شد کاشف دین ارتحالش",
+   "lang": "fa",
+   "basis": "the article: \"Persian chronograms\"",
+   "rows": [
+    "data-darbar"
+   ]
+  },
+  {
+   "verse": "گنج بخشِ فیضِ عالم، مظہرِ نورِ خدا\nناقصاں را پیرِ کامل، کاملاں را رہنما",
+   "lang": "fa",
+   "basis": "the article: \"a Persian couplet\"",
+   "rows": [
+    "data-darbar"
+   ]
+  },
+  {
+   "verse": "دریغا کہ بے ما بسے روزگار",
+   "lang": "fa",
+   "basis": "the article: \"Persian couplets on its southern wall\"",
+   "rows": [
+    "data-darbar"
+   ]
+  },
+  {
+   "verse": "چونکہ نواب شیخ امام الدین\nشد ز دنیا و رو بخلد نہاد…",
+   "lang": "fa",
+   "basis": "Persian by its grammar (شد ز دنیا و رو بخلد نهاد), part of the same Persian inscriptions",
+   "rows": [
+    "data-darbar"
+   ]
+  },
+  {
+   "verse": "اَلف اللہ چنبے دی بُوٹی، مُرشد مَن وِچ لائی ھُو",
+   "lang": "pa",
+   "basis": "the article: Sultan Bahu's abyat \"are in Punjabi\"",
+   "rows": [
+    "garh-maharaja-shorkot"
+   ]
+  },
+  {
+   "verse": "ਆਵਨਿ ਅਠਤਰੈ …",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-rori-sahib"
+   ]
+  },
+  {
+   "verse": "ਗਗਨ ਮੈ ਥਾਲੁ\nਰਵਿ ਚੰਦੁ ਦੀਪਕ ਬਨੇ …",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ]
+  },
+  {
+   "verse": "ਸਾਹਿਬੁ ਮੇਰਾ ਏਕੋ ਹੈ ॥\nਏਕੋ ਹੈ ਭਾਈ ਏਕੋ ਹੈ ॥",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sacha-sauda",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ]
+  },
+  {
+   "verse": "ਦਇਆ ਕਪਾਹ\nਸੰਤੋਖੁ ਸੂਤੁ …",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sacha-sauda",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ]
+  },
+  {
+   "verse": "ਭਰੀਐ ਹਥੁ ਪੈਰੁ ਤਨੁ ਦੇਹ ॥\nਪਾਣੀ ਧੋਤੈ ਉਤਰਸੁ ਖੇਹ ॥",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-darbar-sahib-kartarpur",
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-patti-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sacha-sauda",
+    "gurdwara-sri-kiara-sahib",
+    "gurdwara-tambo-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ]
+  },
+  {
+   "verse": "ਬਗਾ ਬਗੇ ਕਪੜੇ ਤੀਰਥ ਮੰਝਿ ਵਸੰਨਿੑ ॥",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurdwara-babay-de-ber",
+    "gurdwara-balila-sahib-bal-lila-sahib",
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-malji-sahib",
+    "gurdwara-panja-sahib",
+    "gurdwara-pehli-patshahi-jind-pir-sukkur",
+    "gurdwara-rori-sahib",
+    "gurdwara-sri-kiara-sahib",
+    "gurudwara-janam-asthan-nankana-sahib"
+   ]
+  },
+  {
+   "verse": "کلاه خسروی و تاج شاہی\nبہر گل کی رسد حاشا و کلا",
+   "lang": "fa",
+   "basis": "the article: \"A Persian couplet\"",
+   "rows": [
+    "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+    "loh-temple-lava-temple"
+   ]
+  },
+  {
+   "verse": "ਗਗਨ ਮੈ ਥਾਲੁ ਰਵਿ ਚੰਦੁ ਦੀਪਕ ਬਨੇ …",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurdwara-chakki-sahib",
+    "gurdwara-choa-sahib",
+    "gurdwara-sacha-sauda"
+   ]
+  },
+  {
+   "verse": "کوئی بولے رام رام کوئی بولو خدا …",
+   "lang": null,
+   "basis": "Guru Arjan's line, given in Arabic script; its language is not named and is a mixed one, so no label",
+   "rows": [
+    "gurdwara-chhevin-patshahi-mozang"
+   ]
+  },
+  {
+   "verse": "بھاگ ہویا گر سنت ملایا …\nجن نانک داس تمہارے جی",
+   "lang": "pa",
+   "basis": "Guru Arjan's Punjabi letters and pauri, Punjabi by their grammar (ہویا، تائین، مکھ سہاوا)",
+   "rows": [
+    "gurdwara-dera-sahib"
+   ]
+  },
+  {
+   "verse": "میرا من لوچے گورو درشن تائین",
+   "lang": "pa",
+   "basis": "Guru Arjan's Punjabi letters and pauri, Punjabi by their grammar (ہویا، تائین، مکھ سہاوا)",
+   "rows": [
+    "gurdwara-dera-sahib"
+   ]
+  },
+  {
+   "verse": "تیرا مکھ سہاوا جی",
+   "lang": "pa",
+   "basis": "Guru Arjan's Punjabi letters and pauri, Punjabi by their grammar (ہویا، تائین، مکھ سہاوا)",
+   "rows": [
+    "gurdwara-dera-sahib"
+   ]
+  },
+  {
+   "verse": "ਵੇ ਲਾਲੋ",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
+   ]
+  },
+  {
+   "verse": "ਕੋਟੀ ਹੂ ਪੀਰ ਵਰਜਿ ਰਹਾਏ ਜਾ ਮੀਰੁ ਸੁਣਿਆ ਧਾਇਆ ॥\nਥਾਨ ਮੁਕਾਮ ਜਲੇ ਬਿਜ ਮੰਦਰ ਮੁਛਿ ਮੁਛਿ ਕੁਇਰ ਰੁਲਾਇਆ ॥\nਕੋਈ ਮੁਗਲੁ ਨ ਹੋਆ ਅੰਧਾ ਕਿਨੈ ਨ ਪਰਚਾ ਲਾਇਆ ॥",
+   "lang": "Guru",
+   "basis": "Guru Nanak's verse in the Gurmukhi of the Guru Granth Sahib; labelled by script, since the articles call his language Hindi in one place and do not name it elsewhere",
+   "rows": [
+    "gurudwara-janam-asthan-nankana-sahib"
+   ]
+  },
+  {
+   "verse": "حیدریم قلندرم مستم\nبندۂ مرتضیٰ علی ہستم",
+   "lang": "fa",
+   "basis": "the article: \"the Persian verses attributed to him\"",
+   "rows": [
+    "lal-shahbaz-qalandar"
+   ]
+  },
+  {
+   "verse": "دَمادَم مست قلندر،\nعلی دَم دَم دے اندر",
+   "lang": "pa",
+   "basis": "Punjabi by its grammar (\"دم دے اندر\")",
+   "rows": [
+    "lal-shahbaz-qalandar"
+   ]
+  },
+  {
+   "verse": "اوّل حمد خُدا دا ورد کیجے،\nعشق کیتا سُو جگ دا مُول میاں",
+   "lang": "pa",
+   "basis": "Waris Shah's Heer, which the article calls Punjabi verse",
+   "rows": [
+    "mausoleum-of-waris-shah"
+   ]
+  },
+  {
+   "verse": "بُلھیا! کی جاݨاں میں کوݨ\nنہ میں مومن وِچ مسیتاں، نہ میں وِچ کُفر دِیاں ریتاں",
+   "lang": "pa",
+   "basis": "Bulleh Shah's kafis, which the article calls Punjabi",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ]
+  },
+  {
+   "verse": "عِلموں بس کریں او یار",
+   "lang": "pa",
+   "basis": "Bulleh Shah's kafis, which the article calls Punjabi",
+   "rows": [
+    "mazar-of-bulleh-shah"
+   ]
+  },
+  {
+   "verse": "میڈا عشق وی توں، میڈا یار وی توں",
+   "lang": "skr",
+   "basis": "Khwaja Ghulam Farid's kafis, which the article calls Seraiki",
+   "rows": [
+    "mithankot-kot-mithan"
+   ]
+  },
+  {
+   "verse": "جو خدا کے دوست تھے پنجاب میں\nحال ان کا اس سے ہوتا ہے عیان",
+   "lang": "ur",
+   "basis": "Urdu by its grammar (تھے، ہوتا ہے)",
+   "rows": [
+    "purana-bhalwal",
+    "shah-jamal",
+    "shrine-of-hafiz-muhammad-jamal-multani",
+    "shrine-of-hazrat-shah-daula-daryai",
+    "shrine-of-pir-sher-muhammad",
+    "shrine-of-shah-rukn-e-alam",
+    "shrine-of-shah-shams-ud-din-sabzwari"
+   ]
+  },
+  {
+   "verse": "حضرت حاجی محمد پیر نوشہ گنج بخش\nآنکہ شد مشہور در اہل جہاں اجلال او\nکرد چوں آخر عروج از فرش بر عرش بریں\nپیر فیاض است ہم اہل سخاوت سال او",
+   "lang": "fa",
+   "basis": "the article: \"A Persian chronogram\"",
+   "rows": [
+    "ranmal-sharif"
+   ]
+  },
+  {
+   "verse": "سید و سرور و سخی احمد\nبود در ملک سروری والی\nرفت چوں از جہاں بخلد بریں\nشد زمین از وجود او خالی\nسال تاریخ وصل آں سرور\nگفت سرور کہ سرور عالی",
+   "lang": "fa",
+   "basis": "the article: \"A Persian chronogram\"",
+   "rows": [
+    "sakhi-sarwar"
+   ]
+  },
+  {
+   "verse": "پیر حق پرست",
+   "lang": null,
+   "basis": "a chronogram phrase of two words, no language to name",
+   "rows": [
+    "shergarh"
+   ]
+  },
+  {
+   "verse": "مشتاق منان",
+   "lang": null,
+   "basis": "a chronogram phrase of two words, no language to name",
+   "rows": [
+    "shergarh"
+   ]
+  },
+  {
+   "verse": "گفت سرور میر شمس العارفین",
+   "lang": "fa",
+   "basis": "Persian by its grammar (\"گفت\")",
+   "rows": [
+    "shrine-of-baba-shah-chiragh"
+   ]
+  },
+  {
+   "verse": "زبدۂ بارگاہ او نواب\nزکریا خان صوبہ پنجاب",
+   "lang": "fa",
+   "basis": "Persian by its grammar (\"بارگاه او\")",
+   "rows": [
+    "madho-lal-hussain",
+    "shrine-of-baba-shah-chiragh"
+   ]
+  },
+  {
+   "verse": "مدد یا شاہ جیلانی بریں افتادہ حیرانی",
+   "lang": "fa",
+   "basis": "Persian by its grammar (\"بریں افتادہ\")",
+   "rows": [
+    "shrine-of-bahauddin-zakariya"
+   ]
+  },
+  {
+   "verse": "خوشا آنان کہ در خاک و خون غلطیدند",
+   "lang": "fa",
+   "basis": "the article: \"the old Persian line\"",
+   "rows": [
+    "bibi-pak-daman"
+   ]
+  },
+  {
+   "verse": "سیّد احمد، شہِ برنا و پیر\nپیرِ ہادی، میرِ عالی جاہ",
+   "lang": "fa",
+   "basis": "the article: \"A Persian chronogram\"",
+   "rows": [
+    "bibi-pak-daman"
+   ]
+  },
+  {
+   "verse": "کاگا سب تن کھائیو، چُن چُن کھائیو ماس\nدوے نیناں مت کھائیو، مینوں پِیا ملن دی آس",
+   "lang": "pa",
+   "basis": "Baba Farid's Punjabi verse, which the article calls Punjabi",
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ]
+  },
+  {
+   "verse": "فریدا جے تُوں عقل لطیف ہیں، کالے لِکھ نہ لیکھ\nآپنڑے گریوان مہ سِر نیواں کر ویکھ",
+   "lang": "pa",
+   "basis": "Baba Farid's Punjabi verse, which the article calls Punjabi",
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ]
+  },
+  {
+   "verse": "ਅਜੁ ਨ ਸੁਤੀ ਕੰਤ ਸਿਉ\nਅੰਗੁ ਮੁੜੇ ਮੁੜਿ ਜਾਇ ॥",
+   "lang": "pa-Guru",
+   "basis": "Baba Farid's Punjabi verse in the Gurmukhi of the Guru Granth Sahib, as the article says it is preserved",
+   "rows": [
+    "shrine-of-fariduddin-ganjshakar"
+   ]
+  },
+  {
+   "verse": "سال پنجاہ و پنج و نہ صد بود",
+   "lang": "fa",
+   "basis": "Persian by its grammar (\"بود\")",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "مائے نی میں کینوں آکھاں، دردِ وچھوڑے دا حال نی",
+   "lang": "pa",
+   "basis": "Shah Hussain's kafis, which the article calls Punjabi",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "رَبّا میرے حال دا محرم توں\nاندر توں ہیں، باہر توں ہیں، رومَ رومَ وِچ توں",
+   "lang": "pa",
+   "basis": "Shah Hussain's kafis, which the article calls Punjabi",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "سجّݨ بِن راتاں ہوئیاں وڈّیاں",
+   "lang": "pa",
+   "basis": "Shah Hussain's kafis, which the article calls Punjabi",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "منہ آئی بات نہ رہندی اے",
+   "lang": "pa",
+   "basis": "Shah Hussain's kafis, which the article calls Punjabi",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "گفت ہاتف کہ مستِ عشقِ ازل",
+   "lang": "fa",
+   "basis": "Persian by its grammar (\"گفت ہاتف\", \"سال ترحیل\")",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "سال ترحیل شمع عشق حسین",
+   "lang": "fa",
+   "basis": "Persian by its grammar (\"گفت ہاتف\", \"سال ترحیل\")",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "نزد درگاہ صاحب عرفان\nواقف سر حضرت رحمان\nآنکہ معروف شدہ بہ لال حسین\nخاک نعلین اوست سرمہ عین",
+   "lang": "fa",
+   "basis": "Persian inscription, Persian by its grammar (\"شدہ بہ\", \"کرد احداث\", \"را\")",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "کرد احداث مسجد محکم\nنیز خویش دو در چاہ مستحکم",
+   "lang": "fa",
+   "basis": "Persian inscription, Persian by its grammar (\"شدہ بہ\", \"کرد احداث\", \"را\")",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "مسجد و چاہ را انکو تعمیر",
+   "lang": "fa",
+   "basis": "Persian inscription, Persian by its grammar (\"شدہ بہ\", \"کرد احداث\", \"را\")",
+   "rows": [
+    "madho-lal-hussain"
+   ]
+  },
+  {
+   "verse": "سہروردی پیر شیخ با صفا",
+   "lang": "fa",
+   "basis": "the article: \"A Persian quatrain\"",
+   "rows": [
+    "shrine-of-mauj-darya-bukhari"
+   ]
+  },
+  {
+   "verse": "چوں محمد شاہ ملک عاقبت\nدر مقام قرب حقانی نشست\nاز حضور ۱۰۱۴ھ آمد عیان تاریخ او\nنیز سرور گفت مرد حق پرست ۱۰۱۴ھ",
+   "lang": "fa",
+   "basis": "the article: \"a Persian chronogram\"",
+   "rows": [
+    "shrine-of-mauj-darya-bukhari"
+   ]
+  },
+  {
+   "verse": "صورتِ قبرم ز بعدِ مرگ ویرانہ خوشتر است\nنیستی مانندِ من با خاک یکساں خوشتر است",
+   "lang": "fa",
+   "basis": "the article: \"a Persian couplet\"",
+   "rows": [
+    "shrine-of-mian-mir"
+   ]
+  },
+  {
+   "verse": "میر دنیا و دیں میاں میر ست",
+   "lang": "fa",
+   "basis": "the article: \"a Persian chronogram\"",
+   "rows": [
+    "shrine-of-mian-mir"
+   ]
+  },
+  {
+   "verse": "شمع جمع سیادت",
+   "lang": null,
+   "basis": "a chronogram phrase of three words, no language to name",
+   "rows": [
+    "shrine-of-syed-musa-pak"
+   ]
+  },
+  {
+   "verse": "لب پہ آتی ہے دعا بن کے تمنا میری\nزندگی شمع کی صورت ہو خدایا میری",
+   "lang": "ur",
+   "basis": "Iqbal's Urdu verse, named in the article (Bang-e-Dara, Bal-e-Jibril, Tarana-e-Hindi, Tulu-e-Islam)",
+   "rows": [
+    "mazar-e-iqbal"
+   ]
+  },
+  {
+   "verse": "سارے جہاں سے اچھا ہندوستاں ہمارا\nہم بلبلیں ہیں اس کی، یہ گلستاں ہمارا",
+   "lang": "ur",
+   "basis": "Iqbal's Urdu verse, named in the article (Bang-e-Dara, Bal-e-Jibril, Tarana-e-Hindi, Tulu-e-Islam)",
+   "rows": [
+    "mazar-e-iqbal"
+   ]
+  },
+  {
+   "verse": "کبھی اے حقیقتِ منتظر نظر آ لباسِ مجاز میں\nکہ ہزاروں سجدے تڑپ رہے ہیں مری جبینِ نیاز میں",
+   "lang": "ur",
+   "basis": "Iqbal's Urdu verse, named in the article (Bang-e-Dara, Bal-e-Jibril, Tarana-e-Hindi, Tulu-e-Islam)",
+   "rows": [
+    "mazar-e-iqbal"
+   ]
+  },
+  {
+   "verse": "یقیں محکم، عمل پیہم، محبت فاتحِ عالم\nجہادِ زندگانی میں ہیں یہ مردوں کی شمشیریں",
+   "lang": "ur",
+   "basis": "Iqbal's Urdu verse, named in the article (Bang-e-Dara, Bal-e-Jibril, Tarana-e-Hindi, Tulu-e-Islam)",
+   "rows": [
+    "mazar-e-iqbal"
+   ]
+  },
+  {
+   "verse": "نہیں تیرا نشیمن قصرِ سلطانی کے گنبد پر\nتو شاہیں ہے، بسیرا کر پہاڑوں کی چٹانوں میں",
+   "lang": "ur",
+   "basis": "Iqbal's Urdu verse, named in the article (Bang-e-Dara, Bal-e-Jibril, Tarana-e-Hindi, Tulu-e-Islam)",
+   "rows": [
+    "mazar-e-iqbal"
+   ]
+  },
+  {
+   "verse": "ستاروں سے آگے جہاں اور بھی ہیں\nابھی عشق کے امتحاں اور بھی ہیں",
+   "lang": "ur",
+   "basis": "Iqbal's Urdu verse, named in the article (Bang-e-Dara, Bal-e-Jibril, Tarana-e-Hindi, Tulu-e-Islam)",
+   "rows": [
+    "mazar-e-iqbal"
+   ]
+  },
+  {
+   "verse": "خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے\nخدا بندے سے خود پوچھے، بتا تیری رضا کیا ہے",
+   "lang": "ur",
+   "basis": "Iqbal's Urdu verse, named in the article (Bang-e-Dara, Bal-e-Jibril, Tarana-e-Hindi, Tulu-e-Islam)",
+   "rows": [
+    "mazar-e-iqbal"
+   ]
+  },
+  {
+   "verse": "ہاتھ ہے اللہ کا بندۂ مومن کا ہاتھ\nغالب و کار آفریں، کار کشا، کار ساز",
+   "lang": "ur",
+   "basis": "Iqbal's Urdu verse, named in the article (Bang-e-Dara, Bal-e-Jibril, Tarana-e-Hindi, Tulu-e-Islam)",
+   "rows": [
+    "mazar-e-iqbal"
+   ]
+  },
+  {
+   "verse": "باهمت او حوصله دریا تنگ\nبارفعت او مرتبه گردون پست",
+   "lang": "fa",
+   "basis": "the article: \"praised at length in Persian\"",
+   "rows": [
+    "tomb-of-qutbuddin-aibak"
+   ]
+  }
+ ]
+}

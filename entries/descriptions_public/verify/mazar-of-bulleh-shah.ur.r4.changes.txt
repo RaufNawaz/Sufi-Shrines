@@ -1,0 +1,9 @@
+Changes after Urdu round 3, applied by the coordinator in the verifiers' wording (or as noted). Nothing else changed.
+
+[V3 r3 issue 1 (agreement)]
+OLD: سارنگی اٹھا لی، جو سیلانی درویشوں کا ساز سمجھا جاتا ہے،
+NEW: سارنگی اٹھا لی، جو سیلانی درویشوں کا ساز سمجھی جاتی ہے،
+
+[V2 r3 issue 1 (غالباً now governs the whole predicate, link and cause; subject is خواجہ سرا, not the link), worded to avoid the comma parenthesis and the "بلھے شاہ کے رقاصاؤں" misreading V3 r2 flagged]
+OLD: غالباً خواجہ سراؤں کا اس مزار سے روایتی تعلق اس کہانی کی وجہ سے ہے جس کے مطابق بلھے شاہ نے رقاصاؤں کے درمیان برسوں گزارے تھے۔
+NEW: غالباً رقاصاؤں کے درمیان بلھے شاہ کے گزارے ہوئے برسوں کی کہانی کے سبب خواجہ سرا روایتی طور پر اس مزار سے وابستہ ہیں۔

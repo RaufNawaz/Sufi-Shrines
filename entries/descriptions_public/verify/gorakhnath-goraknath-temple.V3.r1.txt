@@ -1,0 +1,59 @@
+VERDICT: FAIL
+ISSUES:
+1. [English word order] "یہ تہیں بہت سی تہذیبوں پر محیط ہیں، دوسری صدی قبلِ مسیح ..." -> the "from X to Y" range is tacked on after the verb behind a comma, as in English; in Urdu the range comes before محیط ہیں -> corrected sentence below.
+OLD: یہ تہیں بہت سی تہذیبوں پر محیط ہیں، دوسری صدی قبلِ مسیح کے ہند یونانیوں سے لے کر ہندو شاہی اور بعد کے ادوار تک۔
+NEW: یہ تہیں دوسری صدی قبلِ مسیح کے ہند یونانیوں سے لے کر ہندو شاہی اور بعد کے ادوار تک بہت سی تہذیبوں پر محیط ہیں۔
+
+2. [English word order] "ناتھ تعلیم کا سلسلہ تین ہستیوں سے آگے چلتا ہے، یعنی شیو، ..." -> the three names dangle after the full stop of the clause, cut off from their postposition سے -> corrected sentence below.
+OLD: ناتھ تعلیم کا سلسلہ تین ہستیوں سے آگے چلتا ہے، یعنی شیو، متسیندر ناتھ اور گورکھ ناتھ۔
+NEW: ناتھ تعلیم کا سلسلہ تین ہستیوں یعنی شیو، متسیندر ناتھ اور گورکھ ناتھ سے آگے چلتا ہے۔
+
+3. [ambiguous pronoun] "تاہم اس سے یہ لازم نہیں آتا کہ یہ سب تاریخی شخصیات تھیں" -> coming straight after the definition of سدھ, "اس سے" and "یہ سب" read as referring to that definition, not to the veneration of the nine Naths and eighty-four Siddhas -> corrected sentence below.
+OLD: تاہم اس سے یہ لازم نہیں آتا کہ یہ سب تاریخی شخصیات تھیں۔
+NEW: تاہم اس تعظیم سے یہ لازم نہیں آتا کہ یہ سب ناتھ اور سدھ تاریخی شخصیات تھیں۔
+
+4. [ambiguity] "ہمالیہ کے دامن میں یہ مقام حاصل کر لیا تھا" -> next to a geographical phrase, مقام reads as a physical place, whereas the sense is the state of perfection just described (freedom from disease and death) -> corrected sentence below.
+OLD: عقیدہ ہے کہ گورکھ ناتھ کے چیلوں جیسے سدھوں نے ہمالیہ کے دامن میں یہ مقام حاصل کر لیا تھا۔
+NEW: عقیدہ ہے کہ گورکھ ناتھ کے چیلوں جیسے سدھوں نے ہمالیہ کے دامن میں کمال کا یہ درجہ حاصل کر لیا تھا۔
+
+5. [calque] "بائیں ہاتھ کے مخفی علوم" -> literal rendering of "left-hand occultism"; in Urdu "بائیں ہاتھ کا" suggests something trivial or easy (بائیں ہاتھ کا کھیل), so the phrase is opaque or misleading; the established term is وام مارگ -> corrected sentence below.
+OLD: ان کے چیلوں نے جادو، کیمیا گری، بائیں ہاتھ کے مخفی علوم اور ہٹھ یوگ پر رسالے لکھے۔
+NEW: ان کے چیلوں نے جادو، کیمیا گری، وام مارگ یعنی بائیں راہ کے مخفی علوم اور ہٹھ یوگ پر رسالے لکھے۔
+
+6. [names run together] "سترہویں صدی کی کتاب گورکش وجے شیخ فیض اللہ نے لکھی" -> the title and the author's name follow each other with nothing between them and read as one name (گورکش وجے شیخ فیض اللہ) -> corrected sentence below.
+OLD: سترہویں صدی کی کتاب گورکش وجے شیخ فیض اللہ نے لکھی۔
+NEW: شیخ فیض اللہ نے سترہویں صدی میں گورکش وجے نامی کتاب لکھی۔
+
+7. [English word order] "وہ وجود اور اس کی نفی دونوں سے بالاتر ہے، جنہیں *بھاو* اور *ابھاو* کہا جاتا ہے" -> the relative clause trails after the verb, far from its antecedent, as in English -> corrected sentence below.
+OLD: وہ وجود اور اس کی نفی دونوں سے بالاتر ہے، جنہیں *بھاو* اور *ابھاو* کہا جاتا ہے۔
+NEW: وہ وجود اور اس کی نفی یعنی *بھاو* اور *ابھاو* دونوں سے بالاتر ہے۔
+
+8. [calque] "یہی خیال گورکھ اور سدھوں دونوں میں مہدی کی امتیازی خصوصیات دیکھتا ہے" -> an idea that "sees" is an English construction ("this view sees in ..."); unidiomatic in Urdu -> corrected sentence below.
+OLD: یہی خیال گورکھ اور سدھوں دونوں میں مہدی کی امتیازی خصوصیات دیکھتا ہے۔
+NEW: اسی خیال کے مطابق گورکھ اور سدھوں دونوں میں مہدی کی امتیازی خصوصیات پائی جاتی ہیں۔
+
+9. [gloss of a familiar word] "قلندر سیلانی درویشوں کو کہتے ہیں" -> قلندر is a household word for Pakistani readers; a separate defining sentence talks down to them. Fold the descriptor into the noun -> corrected sentences below.
+OLD: انہوں نے *قلندروں* کو بھی متاثر کیا اور صوفیوں کو بھی۔ قلندر سیلانی درویشوں کو کہتے ہیں۔
+NEW: انہوں نے سیلانی *قلندروں* کو بھی متاثر کیا اور صوفیوں کو بھی۔
+
+10. [ambiguous pronoun] "یہ اس خطے کے ان چند ہندو مندروں میں سے ہے" -> the subject of the previous sentence is پشاور, so یہ grammatically points to the city, not the temple -> corrected sentence below.
+OLD: یہ اس خطے کے ان چند ہندو مندروں میں سے ہے جو اب بھی استعمال میں ہیں، اور پاکستان میں ناتھ روایت کی ایک نادر باقی ماندہ نشانی ہے۔
+NEW: یہ مندر اس خطے کے ان چند ہندو مندروں میں سے ہے جو اب بھی استعمال میں ہیں، اور پاکستان میں ناتھ روایت کی ایک نادر باقی ماندہ نشانی ہے۔
+
+11. [calque, repetition] "وہ متسیندر ناتھ کے چیلے کی حیثیت سے مشہور ہیں" -> "کی حیثیت سے مشہور" renders "known as", and repeats کی حیثیت سے from the sentence before -> corrected sentence below.
+OLD: وہ متسیندر ناتھ کے چیلے کی حیثیت سے مشہور ہیں۔
+NEW: مشہور ہے کہ وہ متسیندر ناتھ کے چیلے تھے۔
+
+12. [unidiomatic collocation] "سب سے بڑی اقلیت انہی کی ہے" -> the genitive ("the largest minority is theirs") renders English "that of the Hindus"; Urdu says the people are the minority -> corrected sentence below.
+OLD: ان میں زیادہ تر ہندو ہیں، اور سب سے بڑی اقلیت انہی کی ہے۔
+NEW: ان میں زیادہ تر ہندو ہیں، اور یہی سب سے بڑی اقلیت ہیں۔
+
+NOTES:
+- Spelling and names, for whoever checks against the sources (not changed here, because a fix would alter a name): the site is spelled گورکھتری eleven times, گورکھ تری twice and کورکھتری once. To an Urdu reader, "گورکھتری کی شناخت پشاور کے مقام گورکھ تری سے کی جاتی ہے، اور دونوں کے نام آپس میں میل کھاتے ہیں" reads as circular, because the two forms differ only by a space. If the source's variant is the Sikh name Gorakh Hatri, it should be written گورکھ ہٹڑی here and in the Guru Nanak sentence. If it is not, a different wording is needed. کورکھتری (Mughal paragraph) looks like a typo for گورکھتری unless the source spells it with k.
+- "جس کے مقدس ترین نام برہما، شیو، پرماتما اور پرمیشور ہیں": for the formless Absolute the usual Urdu form is برہم (Brahman). برہما is the creator god. Worth checking against the source.
+- "خواجہ معین الدین چشتی" as founder of the Chishti order: they established it in South Asia, but the order began at Chisht. This is a content point for the accuracy check, not a fluency one.
+- Taste: "جو مسلسل مقدس چلی آتی ہیں" would be smoother as "جن کا تقدس مسلسل قائم رہا ہے". "وسیع تر شمال مغرب" is a mild calque ("پورا شمال مغربی خطہ"). "گورکھ ناتھ کی تعلیم میں ... نہیں پہنچا جا سکتا تھا" reads better as "گورکھ ناتھ کی تعلیم کے مطابق ...". "اطالوی اجرتی جرنیل" is understandable but unusual.
+- Taste: in the Hinglaj paragraph, "ناتھ برادری سے، اور ان میں بھی سب سے بڑھ کر گرو گورکھ ناتھ سے، بڑی محبت تھی" is an English-style parenthesis. It could become "ناتھ برادری سے بڑی محبت تھی، اور ان میں بھی سب سے بڑھ کر گرو گورکھ ناتھ سے". "کہ وہ ملنے آئیں گے" repeats what راہ تکتی رہیں already says.
+- Taste: "شہر کے قریب جوگیوں کا مندر کورکھتری مشہور تھا، اور شاہ جہاں کے عہد میں اسے ڈھا دیا گیا" would be smoother with a relative clause ("... مشہور مندر ...، جسے ... ڈھا دیا گیا"). "2010 میں بھی پشاور کے ہندو کٹاس آئے تھے" shifts the point of view after "وہاں پہنچے"; "گئے تھے" fits better. "یہاں کا چاول بنگال سے بہتر تھا" is colloquial; "بنگال کے چاول سے بہتر" is more polished.
+- Taste, repetition: کھدائی appears three times in three sentences in the excavation passage. جہاں آرا بیگم and مسافروں are repeated in consecutive sentences in the caravanserai passage. پشاور appears five times in the Katas paragraph. "صوفی شاعر بلھے شاہ" and the sentence on who founded the Chishti order explain names that every Pakistani reader knows.
+- Mechanics are clean: Western digits throughout, no Latin letters, no em or en dashes, 28 asterisks (balanced), and the verse line is untouched by every fix above.

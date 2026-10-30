@@ -1,0 +1,24 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [wrong word] "ان کا کاشی کار مزار آج بھی پرانے شہر کا نگینہ" -> کاشی کار means the tile-maker (the craftsman), not a tiled building, so "کاشی کار مزار" says the wrong thing -> "ان کا کاشی کاری سے آراستہ مزار آج بھی پرانے شہر کا نگینہ اور عقیدت کا جیتا جاگتا مرکز ہے۔"
+2. [calque / ambiguity] "عقیدت مند یہاں فاتحہ پڑھنے اور ملتان کے بانی بزرگوں میں سے ایک کی برکت حاصل کرنے آتے ہیں" -> a calque of 'founding saints'. In Urdu "ملتان کے بانی" reads as the founders of the city itself, and "میں سے ایک کی برکت" is clumsy. The sentence then runs straight on into the ʿurs clause -> "عقیدت مند یہاں فاتحہ پڑھنے اور ان بزرگ کی برکت حاصل کرنے آتے ہیں جن کا شمار ملتان میں اسلام کی داغ بیل ڈالنے والوں میں ہوتا ہے۔ ان کے سالانہ عرس پر حسبِ دستور معتقدین جمع ہوتے ہیں۔"
+3. [calque / tangled] "اور ان کی موجودگی نے ملتان کو دین کا مرکز بنانے میں اس وقت بھی مدد دی جب شہاب الدین سہروردی کے قائم کردہ سہروردی سلسلے کے بڑے مشائخ ابھی یہاں نہیں آئے تھے" -> this follows English word order ('his presence helped make ... even before ...'). An abstract agent takes نے, and "اس وقت بھی ... جب ... ابھی نہیں" makes the sentence hard to follow -> "مشہور ہے کہ وہ مبلغ تھے، اور شہاب الدین سہروردی کے قائم کردہ سہروردی سلسلے کے بڑے مشائخ کی آمد سے پہلے ہی ان کے دم سے ملتان کو دین کا مرکز بننے میں مدد ملی۔"
+4. [calque / tangled] "روایت ہے کہ ان کی آمد نے ملتان کا رخ اس دین کی طرف موڑنے میں مدد دی جس کا مظہر یہ شہر آگے چل کر "شہرِ اولیاء" کی صورت میں بنا۔" -> a calque of 'helped turn Multan towards the faith it would later embody as the City of Saints'. The clause "جس کا مظہر ... کی صورت میں بنا" is convoluted -> "روایت ہے کہ ملتان کا رخ اس دین کی طرف موڑنے میں ان کی آمد کا ہاتھ تھا، اور آگے چل کر یہی شہر اس دین کا مظہر بنا اور "شہرِ اولیاء" کہلایا۔"
+5. [ambiguous pronoun] "اس خطے کی زیارتوں میں بھی ملتان کا اپنا مقام تھا اور اس کی شاعری میں بھی۔" -> "اس کی شاعری" can be read as Multan's poetry rather than the region's. "زیارتوں میں مقام" is also loose -> "اس خطے کی زیارت گاہوں اور شاعری، دونوں میں ملتان کو ایک خاص مقام حاصل تھا۔"
+6. [gloss] "وہ نبی کریمؐ کے خاندان سے تعلق رکھنے والے سید تھے" -> this glosses سید, which every Urdu reader understands, and the paragraph has already named him سید یوسف -> "وہ نسباً سید تھے، اور ملتان کے اولین جلیل القدر اولیاء میں ان کا نام بڑے احترام سے لیا جاتا ہے۔"
+7. [word order / unidiomatic] "711 میں عربوں نے سندھ اور اس کے شمال میں ملتان تک کے ہمسایہ صوبے فتح کر لیے۔" -> "اس کے شمال میں ملتان تک کے ہمسایہ صوبے" stacks three modifiers in English order around a bare "تک کے" -> "711 میں عربوں نے سندھ اور اس کے شمال میں ملتان تک پھیلے ہوئے ہمسایہ صوبے فتح کر لیے۔"
+8. [collocation] "ملتان کی منفرد ترین اور محترم ترین یادگاروں میں اس کا نام آتا ہے" -> محترم is said of persons, not monuments. "منفرد ترین" puts an absolute adjective in the superlative -> ""شہرِ اولیاء" ملتان کی منفرد اور متبرک ترین یادگاروں میں اس کا نام آتا ہے، اور یہاں زیارت کا سلسلہ برابر جاری رہتا ہے۔"
+9. [calque] "روایت کے مطابق ان کی آمد 1088 کے آس پاس کے برسوں میں ہوئی" -> a calque of 'in the years around 1088', with a clumsy double کے -> "روایت کے مطابق ان کی آمد 1088 کے لگ بھگ ہوئی اور وفات بارہویں صدی کے نصفِ اول میں۔"
+
+NOTES:
+- "کم بلند مقبرہ" (used twice) reads like a translation of 'low'. "پست" or "کم اونچا" is more natural. "یہ مزار ایک ... مقبرہ ہے" is also faintly tautological.
+- "بانی شخصیات" (§ تعارف) has no object, which is a modern calque. The relative clause rescues it, but "وہ ان اولین بزرگوں میں سے تھے جن کے ہاتھوں ..." flows better.
+- "روایت کے مطابق / روایت ہے" appears four times. Vary it with "کہا جاتا ہے" or "منقول ہے" where the hedge allows.
+- "آسودۂ خاک ... مدفون" in the Aurangzeb sentence states the burial twice. It could be compressed: "... جہاں بہت سے اولیاء آسودۂ خاک تھے جن کے مزار زیارت گاہ بنے ہوئے تھے، اور شاہ یوسف گردیز بھی انہی میں شمار ہوتے تھے۔"
+- "تبدیلیِ مذہب کا عمل" has a legal or official register. If the sense is conversion to Islam, "قبولِ اسلام کا سلسلہ" is more natural.
+- "ملتانی کاشی کی ... روغنی ٹائلوں": کاشی already means glazed tile, so the phrase is slightly redundant.
+- "ایک باعزت مقام" is acceptable. "ایک ممتاز مقام" is the more usual collocation here.
+- "مصر کے فاطمیوں" could be "مصر کے فاطمی خلفاء". That sentence also joins two unrelated facts with اور.
+- Urdu reference prose customarily marks years with ء (711ء، 1088ء، 1175ء). Adopt it only if it is applied across the whole archive.
+- Checked: no Latin letters, no Latin punctuation or dashes, no asterisks, Western digits throughout, Urdu ، and ۔ used consistently.

@@ -1,0 +1,25 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: A man who showed visitors round called it the grave of Pir Bairi, "the saint of berries", and said that Guru Nanak too had come to this saint and stayed with him, and had realised that Pir Bairi was a powerful saint.
+NEW: A man who showed visitors round called it the grave of Pir Bairi, "the saint of berries".
+
+2. V1 r1 change 2
+OLD: Legend gives it to Raja Sela, the uncle of the Pandavas, the heroes of the Mahabharata, and its rebuilding to Raja Satya Vachan, when it became part of the kingdom of Kashmir; under the name Salkot it is also attributed to Raja Salbahan, of whom a fort of fired brick was held to be the memorial.
+NEW: Legend gives it to Raja Sela, the uncle of the Pandavas, the heroes of the Mahabharata, and its rebuilding to Raja Satya Vachan, when it became part of the kingdom of Kashmir.
+
+3. V1 r1 change 3
+OLD: In Sialkot the place is also known as Baba Bair, "the shrine of the Berry saint", and the quarter in which it stands as the *mohalla*, or locality, of Baba Bair.
+NEW: The gurdwara is held to be the place known in Sialkot as Baba Bair, "the shrine of the Berry saint", and the quarter in which it stands is known as the *mohalla*, or locality, of Baba Bair.
+
+4. V1 r1 change 4
+OLD: After renovation the shrine was formally reopened for worship, an event widely welcomed in the Sikh world as part of a wider effort to restore Pakistan's Sikh heritage, though accounts of its condition since then differ.
+NEW: After renovation the shrine was formally reopened for worship, an event widely welcomed in the Sikh world as part of a wider effort to restore Pakistan's Sikh heritage, though accounts of its condition differ.
+
+5. V1 r1 change 5
+OLD: He was no unworldly mystic but a householder, and he brought a message of peace and harmony to the believers of Islam and Hinduism, two mutually hostile religions.
+NEW: He was no unworldly mystic but a householder, and he brought a message of peace and harmony to the believers of Islam and Hinduism.
+
+6. V1 r1 change 6
+OLD: Everyone in Sialkot seemed to know where Baba Bair was, and the name itself goes back to Guru Nanak.
+NEW: Everyone in Sialkot seemed to know where Baba Bair was, and the name itself is held to go back to Guru Nanak.

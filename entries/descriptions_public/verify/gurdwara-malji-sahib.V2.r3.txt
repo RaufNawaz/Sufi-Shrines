@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the two sentences in gurdwara-malji-sahib.ur.r3.changes.txt; the diff shows only those two changes, "تینوں کو سکھ چلاتے تھے" keeps "all run by Sikhs", and the Pakpattan sentence now carries the purpose ("to collect ... from his descendants") with "مانا جاتا ہے" still governing both the discipleship and the journey, as "is held to have" does in the English.

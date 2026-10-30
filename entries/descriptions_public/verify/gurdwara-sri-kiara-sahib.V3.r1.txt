@@ -1,0 +1,81 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic collocation] "ایک نہایت محبوب معجزہ" -> "محبوب" is said of a person (or a beloved thing one possesses), not of a story or miracle; it reads as a word-for-word "much-loved". The natural word for a miracle story that people cherish and retell is "مقبول".
+OLD: یہ نام اس لیے پڑا کہ گرودوارہ اس کھیت کی نشان دہی کرتا ہے جہاں کہا جاتا ہے کہ گرو نانک کے بچپن کا ایک نہایت محبوب معجزہ رونما ہوا تھا۔
+NEW: یہ نام اس لیے پڑا کہ گرودوارہ اس کھیت کی نشان دہی کرتا ہے جہاں کہا جاتا ہے کہ گرو نانک کے بچپن کا ایک نہایت مقبول معجزہ رونما ہوا تھا۔
+
+2. [tangled sentence] "اس گاؤں کے ہیں جو اس وقت ... کہلاتا تھا اور بعد میں گرو کے احترام میں اس کا نام ننکانہ صاحب رکھا گیا" -> the relative clause opened by "جو" is joined by "اور" to a new main clause with a resumptive "اس کا نام", so the sentence changes construction halfway; it also strings a definition of ساکھیاں and the village's history into one sentence. Split it and make the second half a proper relative clause ("اور جس کا نام").
+OLD: ساکھیاں گرو نانک کی زندگی کے روایتی احوال ہیں، اور بچپن کے یہ قصے اس گاؤں کے ہیں جو اس وقت رائے بھوئی دی تلونڈی کہلاتا تھا اور بعد میں گرو کے احترام میں اس کا نام ننکانہ صاحب رکھا گیا۔
+NEW: ساکھیاں گرو نانک کی زندگی کے روایتی احوال ہیں۔ بچپن کے یہ قصے اس گاؤں کے ہیں جو اس وقت رائے بھوئی دی تلونڈی کہلاتا تھا اور جس کا نام بعد میں گرو کے احترام میں ننکانہ صاحب رکھا گیا۔
+
+3. [ambiguous pronoun] "ان کے مطابق لڑکپن میں نانک کو" -> the previous sentence ends on "گرو کے احترام میں"، so the honorific "ان" first reads as the Guru ("according to him"); the intended antecedent is the tales. Name it.
+OLD: ان کے مطابق لڑکپن میں نانک کو خاندان کے مویشی چرانے پر لگایا گیا، اور وہ جانوروں کو چرنے کے لیے چھوڑ کر خود دنیا و مافیہا سے بے خبر دھیان میں ڈوبے بیٹھے رہتے۔
+NEW: ان قصوں کے مطابق لڑکپن میں نانک کو خاندان کے مویشی چرانے پر لگایا گیا، اور وہ جانوروں کو چرنے کے لیے چھوڑ کر خود دنیا و مافیہا سے بے خبر دھیان میں ڈوبے بیٹھے رہتے۔
+
+4. [unidiomatic collocation / word order] "گرو نانک کی بعد کی زندگی میں بھی یہی حکایتیں اس خاندان کا ذکر چھیڑتی ہیں" -> "ذکر چھیڑنا" means to raise a subject in conversation, not for a written source to mention something ("ذکر کرنا"); and opening with "گرو نانک کی بعد کی زندگی میں" makes it sound as if the tales were told during his later life rather than about it.
+OLD: گرو نانک کی بعد کی زندگی میں بھی یہی حکایتیں اس خاندان کا ذکر چھیڑتی ہیں۔
+NEW: یہی حکایتیں گرو نانک کی بعد کی زندگی کے سلسلے میں بھی اس خاندان کا ذکر کرتی ہیں۔
+
+5. [wrong postposition / calque] "پوسٹر انہیں ... زیارت کا وعدہ کرتے تھے" -> "وعدہ کرنا" takes "سے" (کسی سے وعدہ کرنا), not "کو/انہیں"; posters that themselves "promise" is also an English personification. Put the promise in the posters.
+OLD: برطانیہ، امریکہ اور کینیڈا کے زیادہ خوشحال یاتری چارٹرڈ طیاروں سے آتے اور کرائے کی بسیں لیتے تھے، اور سیاحتی کمپنیوں کے پوسٹر انہیں پاکستان کے "تمام" گرودواروں کی زیارت کا وعدہ کرتے تھے۔
+NEW: برطانیہ، امریکہ اور کینیڈا کے زیادہ خوشحال یاتری چارٹرڈ طیاروں سے آتے اور کرائے کی بسیں لیتے تھے، اور سیاحتی کمپنیوں کے پوسٹروں میں ان سے پاکستان کے "تمام" گرودواروں کی زیارت کا وعدہ کیا جاتا تھا۔
+
+6. [repetition] "زیادہ تر نئے آنے والے تھے۔ وہ اس شہر کے پرانے باشندے نہیں تھے بلکہ حال ہی میں ... آ کر بسے تھے" -> the second sentence restates the first (newcomers = not old residents = recently settled), and "شہر ... اس شہر" echoes. One sentence carries every fact.
+OLD: شہر میں رہنے والے سکھ زیادہ تر نئے آنے والے تھے۔ وہ اس شہر کے پرانے باشندے نہیں تھے بلکہ حال ہی میں خیبر پختونخوا سے آ کر بسے تھے، جہاں سکھوں کی خاصی آبادی ہے۔
+NEW: شہر میں رہنے والے سکھوں میں سے زیادہ تر یہاں کے پرانے باشندے نہیں تھے بلکہ حال ہی میں خیبر پختونخوا سے آ کر بسے تھے، جہاں سکھوں کی خاصی آبادی ہے۔
+
+7. [ambiguous] "یہاں پیدا ہونے والے سکھوں کے پہلے گرو" -> the participle sits directly before "سکھوں", so it reads first as "the first Guru of the Sikhs born here" rather than "the first Guru of the Sikhs, who was born here". Give the birth its own clause.
+OLD: یہاں پیدا ہونے والے سکھوں کے پہلے گرو کے احترام میں اس کا نام بدل کر ننکانہ صاحب رکھا گیا۔
+NEW: سکھوں کے پہلے گرو یہیں پیدا ہوئے تھے، اور انہی کے احترام میں اس کا نام بدل کر ننکانہ صاحب رکھا گیا۔
+
+8. [repetition] "گرو نانک کی پیدائش کیسے ہوئی، اس بارے میں بیانات مختلف ہیں۔" -> three sentences after "گرو نانک کی پیدائش کی تفصیلات کے بارے میں روایات مختلف ہیں" the paragraph closes on a near-identical sentence. Keep the hedge but mark it as a second point and vary the wording.
+OLD: گرو نانک کی پیدائش کیسے ہوئی، اس بارے میں بیانات مختلف ہیں۔
+NEW: گرو نانک کی ولادت کس طرح ہوئی، اس کے بیان میں بھی اختلاف پایا جاتا ہے۔
+
+9. [English word order] "...سلکھنی سے ہوئی، اگرچہ اس شادی کے بارے میں بیانات مختلف ہیں۔" -> a trailing "اگرچہ" clause after the main clause is English "..., though accounts differ"; in Urdu "اگرچہ" opens a concession that the main clause then answers. A following "تاہم" gives the same hedge naturally.
+OLD: ان کی شادی 24 ستمبر 1487 کو قصبہ بٹالہ کے مول چند اور چندو رانی کی بیٹی سلکھنی سے ہوئی، اگرچہ اس شادی کے بارے میں بیانات مختلف ہیں۔
+NEW: ان کی شادی 24 ستمبر 1487 کو قصبہ بٹالہ کے مول چند اور چندو رانی کی بیٹی سلکھنی سے ہوئی، تاہم اس شادی کے بارے میں بیانات مختلف ہیں۔
+
+10. [English word order] "...کو وفات پائی، اگرچہ اس تاریخ کے بارے میں روایات مختلف ہیں۔" -> the same trailing "اگرچہ" as in 9.
+OLD: گرو نانک نے 22 ستمبر 1539 کو وفات پائی، اگرچہ اس تاریخ کے بارے میں روایات مختلف ہیں۔
+NEW: گرو نانک نے 22 ستمبر 1539 کو وفات پائی، البتہ اس تاریخ کے بارے میں روایات مختلف ہیں۔
+
+11. [calque / punctuation] "ان کے دوران ... شمال میں کشمیر، نیپال اور تبت اور مغرب میں مکہ تک گئے" -> "ان کے دوران" is a literal "during them"; and with two "اور" and no comma the list can be read as "Kashmir, Nepal, and Tibet-and-the-West". "اس عرصے میں" picks up the twenty years of the previous sentence, and a comma closes the northern group.
+OLD: ان کے دوران وہ زیادہ تر پیدل چل کر مشرق میں بنگال، جنوب میں سری لنکا، شمال میں کشمیر، نیپال اور تبت اور مغرب میں مکہ تک گئے۔
+NEW: اس عرصے میں وہ زیادہ تر پیدل چل کر مشرق میں بنگال، جنوب میں سری لنکا، شمال میں کشمیر، نیپال اور تبت، اور مغرب میں مکہ تک گئے۔
+
+12. [ambiguous pronoun] "اس بزرگ کے روحانی جانشینوں سے ملاقات کی اور ان کا کلام اکٹھا کیا" -> the nearest plural is "جانشینوں", so "ان کا کلام" reads as the successors' verse, while the next sentence ("بابا فرید کا کلام سکھوں کے ہاں متبرک...") shows Baba Farid's verse is meant. Name it. (If the source in fact means the successors' verse, write "ان جانشینوں کا کلام" instead; either way the pronoun must go.)
+OLD: مانا جاتا ہے کہ نانک باطنی طور پر بابا فرید کے پیرو تھے، اور یہ کہ وہ پاکپتن گئے جہاں انہوں نے اس بزرگ کے روحانی جانشینوں سے ملاقات کی اور ان کا کلام اکٹھا کیا۔
+NEW: مانا جاتا ہے کہ نانک باطنی طور پر بابا فرید کے پیرو تھے، اور یہ کہ وہ پاکپتن گئے، جہاں انہوں نے اس بزرگ کے روحانی جانشینوں سے ملاقات کی اور اس بزرگ کا اپنا کلام اکٹھا کیا۔
+
+13. [construction] "ایک سوداگر نے نانک کو بتایا کہ ... لدی ہے، تو اس کی شکر اور گڑ مٹی ہو گئے" -> "تو" has no "جب" to answer, so the sentence reads as a plain report with a stray "تو"; the second half of the same sentence ("پھر جب اس نے توبہ کی تو") shows the intended pattern.
+OLD: یہ بھی بیان کیا جاتا ہے کہ ایک سوداگر نے نانک کو بتایا کہ اس کے خچروں پر "بس کچھ مٹی" لدی ہے، تو اس کی شکر اور گڑ مٹی ہو گئے؛ پھر جب اس نے توبہ کی تو وہ مٹی دوبارہ شکر اور گڑ بن گئی۔
+NEW: یہ بھی بیان کیا جاتا ہے کہ جب ایک سوداگر نے نانک کو بتایا کہ اس کے خچروں پر "بس کچھ مٹی" لدی ہے تو اس کی شکر اور گڑ مٹی ہو گئے؛ پھر جب اس نے توبہ کی تو وہ مٹی دوبارہ شکر اور گڑ بن گئی۔
+
+14. [calque] "کروڑی ایک شفا کو معجزہ کہتا ہے" -> "ایک شفا" counts an uncountable noun, word for word from "a healing"; Urdu speaks of someone's recovery. It also removes the echo "ایک حکایت ... ایک شفا".
+OLD: ایک حکایت میں کروڑی ایک شفا کو معجزہ کہتا ہے تو نانک جواب دیتے ہیں کہ "معجزہ نام کی کوئی چیز نہیں ہوتی"۔
+NEW: ایک حکایت میں کروڑی کسی کے شفا پانے کو معجزہ کہتا ہے تو نانک جواب دیتے ہیں کہ "معجزہ نام کی کوئی چیز نہیں ہوتی"۔
+
+15. [inconsistent spelling] "شری گرو نانک" -> the article spells this honorific "سری" everywhere else, starting with its own title word "گرودوارہ سری کیارہ صاحب".
+OLD: سندھ میں سائیں وسن شاہ نے شری گرو نانک کی بانیاں اور صوفیوں کا کلام سنا کر شہرت پائی۔
+NEW: سندھ میں سائیں وسن شاہ نے سری گرو نانک کی بانیاں اور صوفیوں کا کلام سنا کر شہرت پائی۔
+
+16. [calque] "کرتارپور کے چھوٹے سے گاؤں میں" -> English "the small village of Kartarpur"; in Urdu "X کے گاؤں" reads as "a village belonging to X". The appositive order ("چھوٹے سے گاؤں کرتارپور میں", like "قصبہ بٹالہ" earlier) is the idiom.
+OLD: گرو نانک اس شہر میں پیدا ہوئے جو اب ننکانہ صاحب کہلاتا ہے، اور ان کا انتقال کرتارپور کے چھوٹے سے گاؤں میں ہوا۔
+NEW: گرو نانک اس شہر میں پیدا ہوئے جو اب ننکانہ صاحب کہلاتا ہے، اور ان کا انتقال چھوٹے سے گاؤں کرتارپور میں ہوا۔
+
+NOTES:
+- The hedge "روایات مختلف ہیں / بیانات مختلف ہیں" closes six sentences across the article (sections کھیت کا معجزہ، گرودوارہ، گرو نانک); only the one doubled inside a paragraph is an ISSUE. An editor might vary a few more ("اس میں اختلاف ہے"، "روایتیں ایک سی نہیں").
+- "قصہ آگے بتاتا ہے"، "حکایتیں آگے بتاتی ہیں"، "جنم ساکھیاں آگے بتاتی ہیں": three uses of a translated "goes on to say"; "قصے میں آگے آتا ہے کہ" or simply "ان کے مطابق" would read more naturally.
+- "جنم ساکھیاں" is used from the third paragraph on but defined only in the section "گرو نانک" ("انہیں *جنم ساکھیاں* کہا جاتا ہے"); the first section glosses only "ساکھیاں". A structural point, not a language error.
+- Names: "جیتا سنگھ" (Manora, Karachi) and "جتھا سنگھ" (head of the community) in consecutive paragraphs. If these are the same person, one spelling is wrong; if two people, fine. Cannot be settled from the Urdu alone.
+- "ریوڑ" is normally used of sheep and goats; for buffaloes "مویشیوں" or "گلہ" is more usual ("کم سن نانک کے مویشیوں نے").
+- "اس کے بعد سے کیارہ صاحب ... ایسی سرزمین میں واقع ہے": a place does not come to be located somewhere "since" 1947; the point is that local worshippers have been few since then. Readable, but a recast would help.
+- "زیارت کی غرض سے سیاحت کرنے والے" is wordy; "مذہبی سیاح" or "زائرین" is the usual term.
+- "عقیدت کے دام میں کھینچ لاتے تھے": "دام" (snare) can carry a sense of entrapment to some readers; "عقیدت کی طرف کھینچ لاتے تھے" is safer.
+- "پورے شہر میں گرو نانک کا چرچا تھا" and "گرو نانک کپڑے کی دکان": the shop names would read more clearly in quotation marks or as "گرو نانک کے نام پر ... دکان".
+- "کریر صحرا کا ایک کانٹے دار پودا ہے": many readers know the plant as "کریل"; the gloss is harmless.
+- "خالصہ پر ایمان نہیں رکھتے" is a translated "do not believe in the Khalsa"; "خالصہ کو نہیں مانتے" is more idiomatic.
+- Number style mixes words and digits for the same kind of quantity ("چالیس میل"، "بیس میٹر" but "60 کلومیٹر"، "120 برس"). Taste.
+- "جنم دن" is used throughout, but "یومِ پیدائش" once in the paragraph on foreign pilgrims; either is fine, consistency would be better.
+- "یہ کہ ... اور یہ کہ" in the ورثہ section is stiff but acceptable in formal prose.

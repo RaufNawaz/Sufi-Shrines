@@ -1,0 +1,17 @@
+VERDICT: FAIL
+ISSUES:
+1. [new ambiguity, round 1 issue 3 not fully fixed] Fronting شاہ کو removed "الیاس گھمن شاہ" but put the name straight before another noun: "ان کے ساتھی الیاس گھمن ہسپتال لے گئے" can be read as "he and his companions took him to Ilyas Ghuman Hospital" (hospitals in Pakistan are commonly named after people, and ساتھی can be plural). The same fault V3 r1 flagged, moved one word along. Put a pronoun, not a noun, after the name; اسے is clearly Shah (the man just named, and the same non-honorific اسے as in اسے مارا پیٹا), and وہ with ان کے is clearly Qaiser, the subject of the sentence before.
+OLD: شاہ کو وہ اور ان کے ساتھی الیاس گھمن ہسپتال لے گئے اور پولیس میں رپورٹ درج کرائی۔
+NEW: وہ اور ان کے ساتھی الیاس گھمن اسے ہسپتال لے گئے اور پولیس میں رپورٹ درج کرائی۔
+
+2. [repetition, round 1 issue 10 only half fixed] The relative clause fixes "کندہ قدموں" (good), but the sentence still says footprints twice in one breath: قدموں کے ... نشان ... نقشِ قدم, with قدم twice. V3 r1 asked for both to go. The English "are held to be Guru Nanak's" needs no second noun.
+OLD: دیوی ہنگلاج کے مندر میں قدموں کے جو نشان کندہ ہیں، انہیں گرو نانک کے نقشِ قدم مانا جاتا ہے۔
+NEW: دیوی ہنگلاج کے مندر میں قدموں کے جو نشان کندہ ہیں، وہ گرو نانک کے مانے جاتے ہیں۔
+
+NOTES:
+- Round 1 V3 issues: 1 fixed (head noun first, short relative clause, reads naturally); 2 fixed (devotees as subject, the principle named before the noun, حیثیت ... ہوئی agrees); 3 not fully fixed (issue 1 above); 4 fixed (age now attaches to Boota Singh; the unchanged وہ سبز شلوار قمیص ... that follows keeps Boota Singh as its subject by continuity, so nothing broke); 5 fixed; 6 fixed (فضائی فاصلہ); 7 fixed (چھوٹے سے احاطے, masculine oblique correct); 8 fixed (یاد دلانے والے گوردواروں, and it does not repeat the یاد میں of the sentence before); 9 fixed (correlative جس گفتگو ... وہ ... ہوئی تھی, feminine agreement right, no longer a copy of the overview's sentence); 10 half fixed (issue 2 above). Round 1 notes 3 and 4 as applied (صرف شاہ, اس دہائی) read well; keeping اقبال قیصر کو rather than انہیں was right.
+- Changes 1, 12, 13, 14 (from V2) read naturally: فقیروں کو کھلانا after the colon flows; مردانہ نام کا ایک گویّا ... گاتا اور ... کھینچ لاتا تھا agrees throughout; ان کے مذہب کے بانی is clear; بڑے احترام کی نظر سے دیکھا جاتا ہے is idiomatic with کلام.
+- Taste: پنتھ کے عقیدت مند is fine by analogy with سلسلے کے عقیدت مند, though عقیدت مند سکھ would avoid "devotees of the community" for a reader who takes کے literally.
+- Taste: change 10 gives اس کا twice in one sentence, and the next sentence opens with اس کا again (three in a row); acceptable as parallel structure.
+- Taste: کوئی چالیس برس کے بوٹا سنگھ نے is correct; لگ بھگ would clash with دس برس کے لگ بھگ two sentences on, so کوئی is the better choice.
+- Unchanged by this round and still as in V3 r1 notes: سیوا italicised on its second mention only (its first mention is now inside the changed sentence 3, unitalicised, as before).

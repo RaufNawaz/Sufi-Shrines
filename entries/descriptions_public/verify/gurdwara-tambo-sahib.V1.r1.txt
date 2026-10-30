@@ -1,0 +1,70 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. (precision) [a word the source does not have: "the"] "his early years there account for the several gurdwaras of the town" -> The team version has Nanak's early years accounting for "several Gurdwaras in the city", and elsewhere "seven Gurdwaras in Nankana Sahib, most of which are associated with incidents from the life of Baba Guru Nanak". "The several gurdwaras" makes every gurdwara of the town a memorial of his early years, which the same public text contradicts (the gurdwara of the fifth and sixth Gurus).
+OLD: Originally called Rai Bhoi di Talwandi, it was renamed Nankana Sahib in honour of Guru Nanak, the first Sikh Guru, who was born there, and his early years there account for the several gurdwaras of the town.
+NEW: Originally called Rai Bhoi di Talwandi, it was renamed Nankana Sahib in honour of Guru Nanak, the first Sikh Guru, who was born there, and his early years there account for several of the town's gurdwaras.
+
+2. (precision) [gloss reads across a list; a word the source does not have] "a board by the road in English, Shahmukhi and Gurmukhi, the scripts in which Punjabi is written" -> Set after a list of three, the gloss reads as covering English too. And "painted blue" is not in the source, which has "a second, blue gate". Judgement call 15 (the gloss itself) is accepted; only its placement changes.
+OLD: A tall wall with barbed wire ran round it on all sides, with one gate from the main market and a board by the road in English, Shahmukhi and Gurmukhi, the scripts in which Punjabi is written; a second gate, painted blue, was kept permanently locked for security reasons.
+NEW: A tall wall with barbed wire ran round it on all sides, with one gate from the main market and a board by the road in English and in the Punjabi scripts Shahmukhi and Gurmukhi; a second, blue gate was kept permanently locked for security reasons.
+
+3. (precision) [ambiguous attachment] "with a single storey building used by farmers and a tractor" -> Reads as a building used by farmers and by a tractor. The source lists them separately ("a single-storey building used by farmers, a tractor").
+OLD: Vast land lay vacant on both sides of the shrine and was used for farming, with a single storey building used by farmers and a tractor.
+NEW: Vast land lay vacant on both sides of the shrine and was used for farming, with a tractor and a single storey building used by farmers.
+
+4. (precision) [an informant's claim moved into the narrator's voice] "Such celebrations were new." -> The team version has this only as what Kartar told the author ("have only begun in the last couple of years"). As its own sentence it states his claim as the narrator's fact; folding it into his explanation keeps it his (judgement call 10, first part).
+OLD: Such celebrations were new. Kartar explained that Lohri and Guru Gobind Singh's birthday had begun only in the last couple of years, made possible by the increase in the Sikh population through migration from the tribal areas; earlier there had been only a prayer at the gurdwara.
+NEW: Such celebrations, Kartar explained, were new: Lohri and Guru Gobind Singh's birthday had begun only in the last couple of years, made possible by the increase in the Sikh population through migration from the tribal areas, and earlier there had been only a prayer at the gurdwara.
+
+5. (precision) [changed meaning of the remark] "So, as one writer observed with some irony" -> The source calls the situation ironical ("It is ironical though ... that this Punjabi tradition shunned by Punjab is now being revived"); "observed with some irony" puts the irony in the writer's tone instead, and "So" adds a causal step the team version does not make. The unnamed "one writer" is accepted (judgement call 10, second part), as on the Shah Jamal and Shah Inayat pages.
+OLD: So, as one writer observed with some irony, a Punjabi tradition shunned by the Punjab was being revived by a group of Pathan men living in the Punjab.
+NEW: As one writer observed, it was ironical that a Punjabi tradition shunned by the Punjab was being revived by a group of Pathan men living in the Punjab.
+
+6. Rulings on the writer's judgement calls (accepted unless a note above says otherwise):
+   1 (one tree): accepted. The site and A White Trail give one tree; "a group of waan trees" is a minor variant dropped under rule 4, and "outside the town" and "still exist ... held sacred by Sikh devotees" carry over to the one tree without adding a fact. A White Trail's present description of the fenced tree also supports "it still stands".
+   2 ("until his family found him and brought him home"): accepted. The site's "found and brought home" and A White Trail's "his family found him there" do not conflict; the reconstruction's father and Rai Bular are rightly left out as fiction with flagged readings.
+   3 (the legend's frames): accepted. Every sentence of the episode carries its own frame. Joining the site's telling with A White Trail's compatible details (eighteen, twenty rupees, Bhai Mardana) tells one story, not two rival accounts, and no detail of one contradicts the other; "turned for home" fits the next sentence.
+   4 (the building): accepted. A small yellow building of one storey with a white dome does not stand against a domed sanctum within a square hall; the "mango coloured" and "small dome" variants are minor.
+   5 (keepers): accepted. Maintenance by the heritage authorities and a self appointed caretaker in charge of the property and donations do not exclude each other; Jatha Singh is told in the past, without a year, as observation. No clause needed.
+   6 (the Sikh community): accepted. Basis (a) yields because both books stand against "has been gone"; the change is told over time (Kartar's "no Sikh left", then the growth), and "In the early twenty first century" rests on A White Trail (2013) and its "ten years ago" and "In about ten years". Same anchor V1 accepted on the Panjvin and Chhevin Patshahi page.
+   7 (the 1921 background): accepted. The team version itself calls Khalid's province sentence "the background"; nothing is added about the walk or the accusation.
+   8 ("making the gurdwara ... second most popular destination"): accepted; the source's own causal "making it".
+   9 (the Lohri prayer): accepted. No building is named; the Thara Sahib, which the same page of the team version places inside the gurdwara, lets the reader place it without the hedged claim being made. January 2011 rests on the team version's Overview.
+   10 (Kartar; the irony): see notes 4 and 5.
+   11 (locked gurdwaras): accepted; said of the town's gurdwaras, not of Tambu Sahib.
+   12 (Kar Seva, Shaheed Hall, the university): accepted; "near" stands for "in the vicinity of", which is what it means.
+   13 (Jatha Singh): accepted; "That property" is the property the team version says he had in charge; the flagged bread is rightly gone.
+   14 (Ranjit Singh): accepted. "across the province" keeps the renovation and land grants general, and the allotment to this gurdwara is the team version's own (Walking with Nanak, nineteenth century). The fallback is not needed.
+   15 (Shahmukhi and Gurmukhi): accepted as a definitional gloss; placement corrected in note 2.
+   16 (Mal Ji Sahib legend): accepted; the site's own parenthesis, made a sentence.
+   17 (the Guru's father): accepted; the full name and post sit inside "in the janamsakhi telling", and the site independently names Mehta Kalu as his father.
+   18 (the teaching): accepted (rule 7: the teaching is kept as teaching).
+   19 (miracles): accepted; "is held to" hedges both, and the quotation is introduced without the surname as the brief allows.
+   20 (Sufi ties): accepted; every link is hedged, the picture is placed "At one of the shrines", and the Hinglaj footsteps follow the Kiara Sahib V1 wording.
+   21 (Legacy): accepted; it restates the team version's closing paragraph without "Khalid's two books show", and "Sikh and Muslim" rests on the Lohri passage.
+   22 (Arshad Malik's words): accepted; reportage at this gurdwara, quoted verbatim.
+   23 (eight headings): accepted. One over the usual range, as on the Kiara Sahib and Panjvin and Chhevin Patshahi pages; no section is thin. The fallback is not needed.
+   24 (length): 0.48 by the checker, inside L1; no exception line needed. The notes above change it by a few characters.
+
+7. Rule 4 choices checked and accepted: the name (Tambu Sahib, basis a, "also written Tambo Sahib"); van, not waan; one tree; the site's distance and direction, with "a few hundred metres" and the reconstruction's "about two furlongs" dropped; no hostel count, since "two large hostels" and "Three hostel blocks" are set against each other in the team version; "several" for six or seven gurdwaras; 1469 at Talwandi with one clause that accounts differ (basis b, with 20 October, 14 April, Samvat 1526, 880 Hijri and Dera Chahal dropped); 22 September 1539 with one clause that accounts differ (Khalid's 1539 agrees on the year); Rai Bhoi for Rai Bhoe as a spelling variant; Bhai Mardana of the bargain and the minstrel Mardana of Bhandari kept apart with no link. No side by side variants, no merged chain.
+
+8. Uncertain readings: nothing rests on a flagged reading. Gone, rightly: "fambu [OCR?]", "growe [OCR?] ... wax [OCR?]", "rotts [OCR?]", "Bhatti Rajpur [text-layer?]", and Bhandari's Talwandi Rai Bhoi "(the last word uncertainly read)" with the grandfather's house, consistent with the Janam Asthan, Malji Sahib, Patti Sahib and Panjvin and Chhevin Patshahi rulings (the Kiara Sahib team version gives it unflagged, this one does not).
+
+9. Source talk sweep: no citation, page, folio or plate number; no author narrated by name; no "the books", "consulted", "records" or uncertainty vocabulary; "one writer" twice, each time for a remark of Khalid's, as the brief permits. Time anchors (during the period of Sikh rule, the nineteenth century, the end of the eighteenth century, 20 February 1921, Partition in 1947, January 2011, 2011 and 8 to 10 November, the early twenty first century, Aurangzeb's reign for Bhandari's present tense observations, 1469, 1539, 1604) all rest on dates the team version or its bibliography gives firmly. Every English quotation of six or more words occurs in the team version. No em or en dash (count 0). Bibliography identical to the team version, all 15 items in order. check_public_description.py gurdwara-tambo-sahib --english-only: ok, team 35560 -> public 17028 chars (0.48), exit 0.
+
+10. Taste only (no change asked):
+   (a) "*sadhus*, or Hindu ascetics, and holy men": the gloss sits inside a list; "numerous mendicants, holy men and the Hindu ascetics called *sadhus*, who camped" would read more cleanly.
+   (b) *mahant* is first met in "accused the *mahant*" and glossed only in the next sentence.
+   (c) The Overview and the first sentence of Devotion and Festivals both say pilgrims tie cloth to the branches as a supplication.
+   (d) "pilgrim *jathas*, bands of pilgrims" repeats "pilgrim".
+   (e) "On the oneness of God he sang" and "Of washing he sang": the team version has no verb; harmless, since these are hymns.
+   (f) "with the other three doors closed" has no stated building; the team version gives no more, so it stands.
+   (g) Mal Ji Sahib is named twice in one sentence of The Gurdwara.
+   (h) Giani Pratap is named without why he matters; leaving out "That was the first time someone had taken the initiative" matches the sibling rows.
+   (i) *arti* (the lamp tray) and *aarti* (the hymn) keep the team version's two spellings for two senses; the Urdu writer should not merge them.
+
+Omission sweep: after a sweep of the team version, nothing important is missing; what is left out is source apparatus, the plate captions, the fictionalised reconstruction, variants resolved under rule 4, readings flagged uncertain, and marginal or province level details (the list of verse openings, the second aarti translation, Kasmani's trope, Kar Seva's dustbins, "after the war", the Muslim friends' hands at their sides).

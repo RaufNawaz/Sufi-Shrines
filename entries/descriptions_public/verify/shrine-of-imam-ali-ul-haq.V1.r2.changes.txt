@@ -1,0 +1,9 @@
+# shrine-of-imam-ali-ul-haq: changes applied after V1 round 1 (FAIL, 1 issue; 1 precision note)
+
+1. V1 r1 issue 1 (rule 4: only one telling names the local Hindu ruler), in V1's wording.
+OLD: most tell that he fell in battle against the local Hindu ruler, and companions are remembered as having fallen with him.
+NEW: most tell that he fell in battle, and companions are remembered as having fallen with him.
+
+2. V1 r1 precision note (the team version says 'sometimes associated with'), in V1's wording.
+OLD: and sometimes in the reign of the Delhi sultan Firuz Shah Tughlaq.
+NEW: and sometimes associates him with the reign of the Delhi sultan Firuz Shah Tughlaq.

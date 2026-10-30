@@ -1,0 +1,11 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Scope, round 4 (confirming). There is one change, in the Setting paragraph that begins "The Alamgiri Gate": OLD "the Fort, once the emblem of Mughal power and wealth" became NEW "the Fort, once an emblem of power and wealth".
+- Support. The team version has "which was once the emblem of their power and wealth" (Setting: The Fort and the Alamgiri Gate) and never says who "their" refers to. The new wording removes the inferred "Mughal" and adds nothing. "An emblem" in place of "the emblem" only weakens the claim. It brings in no new fact, count or relationship. This applies V1 r3 optional precision 3 in the verifier's own wording, as the brief's stopping rule allows for a precision note.
+- Fault check. There is no source talk and no attribution. There is no dash anywhere in the changed line. The sentence still reads correctly in place: "and the Fort, once an emblem of power and wealth, is now a tourist destination, where visitors can tour even the private chambers of the Emperor Jahangir." Whose power is left implicit, but the same paragraph names the Mughal emperor Aurangzeb just before it and the Emperor Jahangir in the same sentence, so the reader is not misled.
+- Nothing else moved. `diff` against /home/claude/bak/loh-temple-lava-temple.before_v1r4.md reports only line 42. A character-level comparison of that line shows exactly two edits: "the" became "an", and "Mughal " was deleted. The file went from 9582 to 9574 characters, a difference of 8. That equals the 1 character saved by the first edit plus the 7 characters of "Mughal ". All other lines are identical, including the bibliography.
+- Mechanical: `check_public_description.py loh-temple-lava-temple --english-only` exits 0 at 0.48 (team 17688, public 8425 characters).
+- Outside V1's remit, recorded for the coordinator: the Urdu file /home/claude/repo/entries/descriptions_public/loh-temple-lava-temple.ur.md does not match the current English at its line 40. Its corresponding sentence reads اپنے حکمرانوں کی طاقت اور دولت کی علامت, and then adds "in the early 2010s" (2010 کی دہائی کے اوائل) and the twenty-rupee entry fee (بیس پاکستانی روپے). The public English has neither, so V2 should treat both as additions. The Urdu needs to be brought into line with this English before V2 and V3 run.

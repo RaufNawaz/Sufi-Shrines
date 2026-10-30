@@ -1,0 +1,69 @@
+sial-sharif, Urdu round 2. Reports: verify/sial-sharif.V2.r1.txt (FAIL, 1 issue), verify/sial-sharif.V3.r1.txt (FAIL, 14 issues). Backup: /home/claude/bak/sial-sharif.ur.before_r2.md. Applied in the verifier's wording: V3 1, 2, 4, 6, 8, 9, 10, 11, 13, 14. Adapted: V3 3, 5, 7; V2 1 with V3 12 (one sentence for both). Rejected: none. Notes applied: none (see Not applied).
+
+WHY: V3 issue 3; adapted. 'دونوں' now names its noun (دونوں خطوں) and takes ایک دوسرے سے, and the stress clause becomes its own sentence with لے کا دار و مدار, as V3 proposed. Kept from the English: 'can be told apart' stays جا سکتی ہیں (V3's پہچانی جاتی ہیں drops 'can'); V3's ہی is dropped because it would harden 'mainly' into 'only by'; کی بنا پر replaces V3's سے so that two سے do not stand side by side; and V3's ضرب کے زور is not taken, because it narrows the English 'stress' to the force of a drum stroke, so 'organised rhythmically by stress' stays لے کا دار و مدار بالعموم زور پر ('tend to' = بالعموم).
+OLD: دونوں کی دھنیں زیادہ تر اپنی لے کی بندش سے الگ پہچانی جا سکتی ہیں، اور پنجابی دھنوں میں لے کی ترتیب بالعموم زور پر مبنی ہوتی ہے۔
+NEW: دونوں خطوں کی دھنیں زیادہ تر اپنی لے کی بندش کی بنا پر ایک دوسرے سے الگ پہچانی جا سکتی ہیں۔ پنجابی دھنوں میں لے کا دار و مدار بالعموم زور پر ہوتا ہے۔
+
+WHY: V3 issue 13; applied in the verifier's wording.
+OLD: سیال شریف میں اپنی خانقاہ سے وہ مریدوں کو تعلیم دیتے
+NEW: سیال شریف کی اپنی خانقاہ میں وہ مریدوں کو تعلیم دیتے
+
+WHY: V3 issue 10; applied in the verifier's wording (the revival is historical; the line was part of it, as the English 'is part of' classifies it).
+OLD: وہ پنجاب میں چشتی احیا کا حصہ ہے۔
+NEW: وہ پنجاب میں چشتی احیا کا حصہ تھا۔
+
+WHY: V3 issue 7; adapted. طاقتور ترین is replaced as V3 asks, but with سب سے زیادہ اثر و رسوخ رکھنے والے rather than V3's سب سے بااثر: the English says 'most powerful', and اثر و رسوخ keeps the clout that plain بااثر ('influential') softens; it also avoids repeating the Overview's سب سے بااثر مراکز.
+OLD: پنجاب کے طاقتور ترین صوفی سلسلوں میں
+NEW: پنجاب کے سب سے زیادہ اثر و رسوخ رکھنے والے صوفی سلسلوں میں
+
+WHY: V3 issue 8; applied in the verifier's wording.
+OLD: جن کے مقامی سیاسی رہنماؤں سے تعلقات تو تھے
+NEW: جن کے مقامی اہلِ اقتدار سے تعلقات تو تھے
+
+WHY: V3 issue 9; applied in the verifier's wording.
+OLD: پنجاب میں چشتی نظامی فخری سلسلے کا وسیع تر پھیلاؤ حضرت خواجہ سلیمان تونسوی کے ذریعے ہوا،
+NEW: پنجاب میں چشتی نظامی فخری سلسلہ بڑے پیمانے پر حضرت خواجہ سلیمان تونسوی کے ذریعے پھیلا،
+
+WHY: V3 issue 4; applied in the verifier's wording ('their Sikh neighbours' stays the Hindus' neighbours: ہندوؤں کے ہمسایہ سکھوں).
+OLD: لیکن وہ پنجابی ہندوؤں سے خوشگوار تعلقات قائم رکھنے کے لیے کوشاں رہے، حالانکہ ان ہندوؤں کے سکھ ہمسایوں کی مخالفت بھی کرتے تھے۔
+NEW: تاہم وہ پنجابی ہندوؤں سے خوشگوار تعلقات برقرار رکھنے کے لیے کوشاں رہے، حالانکہ ہندوؤں کے ہمسایہ سکھوں کی وہ مخالفت بھی کرتے تھے۔
+
+WHY: V3 issue 2; applied in the verifier's wording. The sentence is split, the calque 'its history includes' goes, and مزارات کی خاطر makes the battles struggles over shrines, so the next sentence (تونسہ بھی ان مزارات میں سے ایک تھا) follows. بھی keeps 'included' partial, as the English's closing 'only part of its story' requires.
+OLD: خواجہ سلیمان تونسوی کا یہ سلسلہ چشتی نظامی سلیمانیہ کہلاتا ہے، اور نوآبادیاتی دور میں اس کی تاریخ میں پنجاب کے مزارات پر ہونے والی لڑائیاں بھی شامل ہیں۔
+NEW: خواجہ سلیمان تونسوی کا یہ سلسلہ چشتی نظامی سلیمانیہ کہلاتا ہے۔ نوآبادیاتی دور میں اس کی تاریخ پنجاب کے مزارات کی خاطر ہونے والی لڑائیوں سے بھی عبارت ہے۔
+
+WHY: V3 issue 1; applied in the verifier's second wording ('only the Muslims'). The English reads 'local Sikhs, Hindus and Muslim reformers': Sikhs and Hindus are plural nouns, and 'reformers' qualifies the Muslims only (the team version's source sentence reads the same: 'local Sikhs, Hindus, and Muslim reformers').
+OLD: اور مقامی سکھوں، ہندوؤں اور مسلمان مصلحین کی رقابت میں بھی۔
+NEW: اور مقامی سکھوں، ہندوؤں اور اصلاح پسند مسلمانوں کی رقابت میں بھی۔
+
+WHY: V3 issue 6; applied in the verifier's wording.
+OLD: سیال شریف ضلع سرگودھا کی ایک بستی ہے اور سرگودھا شہر سے الگ ہے۔
+NEW: سیال شریف ضلع سرگودھا کی ایک بستی ہے جو سرگودھا شہر سے الگ واقع ہے۔
+
+WHY: V3 issue 5; adapted. The clash of عمومی طور پر and خاص طور پر in one clause is removed, and 'particularly evident' becomes V3's زیادہ نمایاں. But V3's بالعموم is not taken: it would turn the English's discourse marker 'More generally' (a widening of scope after Sial Sharif, added at V1 round 1) into a hedge on the claim itself ('usually more evident'). 'More generally' is kept as a framing clause, عمومی سطح پر بات کی جائے تو (not دیکھا جائے تو, which the qawwali paragraph already uses).
+OLD: عمومی طور پر پیر کی تعظیم اور اس سے وابستہ عوامی دین داری دیہی علاقوں میں خاص طور پر نمایاں ہے۔
+NEW: عمومی سطح پر بات کی جائے تو پیر کی تعظیم اور اس سے وابستہ عوامی دین داری دیہی علاقوں میں زیادہ نمایاں ہے۔
+
+WHY: V3 issue 11; applied in the verifier's wording.
+OLD: وہاں کے ایک فقیر کا حال بیان کیا ہے، جو سارا دن
+NEW: وہاں کے ایک ایسے فقیر کا حال بیان کیا ہے جو سارا دن
+
+WHY: V2 issue 1 and V3 issue 12, one sentence for both; adapted. V2: سیال شریف now says where the khanqah is (سیال شریف میں واقع خانقاہ, V2's own phrase), not where the tradition advanced, so the tradition is not confined to Sial Sharif. V3: the relative clause has one subject, the khanqah, which (as in the English 'whose khanqah ... carried the tradition forward and trained saints') carries the tradition forward and trains the saints, and the doubled سیال شریف میں / وہاں is gone. V3's own sentence is not taken as it stood: it kept سیال شریف میں on the verb (the narrowing V2 flags), and its کئی ('several') is a quantity the English does not give. بزرگوں is kept so that the next sentence's ان بزرگوں میں still points back.
+OLD: وہ ایسے مرشد تھے جن کی خانقاہ کے ذریعے سیال شریف میں سلسلے کی روایت آگے بڑھی اور وہاں بزرگوں نے تربیت پائی۔
+NEW: وہ ایسے مرشد تھے جن کی سیال شریف میں واقع خانقاہ نے سلسلے کی روایت کو آگے بڑھایا اور بزرگوں کی تربیت کی۔
+
+WHY: V3 issue 14; applied in the verifier's wording ('remains' kept as continuity: اب تک ... چلا آ رہا ہے).
+OLD: شمس الدین سیالوی کا مزار آج بھی وسطی پنجاب کا ایک عظیم چشتی مرکز ہے۔
+NEW: شمس الدین سیالوی کا مزار اب تک وسطی پنجاب کا ایک عظیم چشتی مرکز چلا آ رہا ہے۔
+
+Not applied:
+- V3 NOTE (ایک وسیع حلقۂ ارادت): taste, and the brief asks the writer to drop a calqued ایک for English 'a'.
+- V3 NOTE (1883 as بتایا جاتا ہے): changes a certainty. The English states 'died in 1883' and then hedges with 'though accounts of the year of his death differ'; بتایا جاتا ہے would add a second hedge the English does not have.
+- V3 NOTE (merge the جانشین / سجادہ نشین sentences): not plainly better. The two-sentence version is deliberate (یہ جانشین resolves the referent), and the proposed merge scopes بدستور to one of the two roles, while the English 'have continued as prominent religious figures and as its sajjada-nashins' has it govern both.
+- V3 NOTE (بہت سی صورتوں میں to اکثر): changes a hedge; اکثر can read as 'mostly', stronger than 'In many cases'.
+- V3 NOTE (پیروکاروں to مریدوں / متوسلین): taste, and the English distinguishes 'followers' (Taunsvi's call to resistance) from 'disciples' (the spread through the upper Punjab), which the Urdu keeps as پیروکاروں / مریدوں.
+- V3 NOTE (1184ھ house style): the brief and checker require Western digits with ہجری written out as the English has 'of the Hijri calendar'; no house style says otherwise.
+- V3 NOTE (move Taunsvi's dates and حضرت to his first mention): structural; it would depart from the English's order.
+- V3 NOTE (the qawwali, faqir, arches and procession material drifts from Sial Sharif): content, not Urdu; the English places it so. For the coordinator / content editor.
+- V3 NOTE (fact check 'founded by Moinuddin Chishti'): outside the Urdu writer's remit; the Urdu follows the English, which is the authority. For the coordinator (an English / V1 matter).
+- V2 NOTES: confirmations only; nothing to apply.

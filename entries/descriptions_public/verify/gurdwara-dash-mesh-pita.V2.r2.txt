@@ -1,0 +1,26 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 19 OLD to NEW pairs of verify/gurdwara-dash-mesh-pita.ur.r2.changes.txt were applied in order to /home/claude/bak/gurdwara-dash-mesh-pita.ur.md.bak_ur1, each OLD found exactly once and replaced once. The result is byte for byte identical to the current entries/descriptions_public/gurdwara-dash-mesh-pita.ur.md (25,911 bytes against 25,911; backup 25,894). Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-dash-mesh-pita --no-verdicts` printed `ok    gurdwara-dash-mesh-pita  team 37041 -> public 14943 chars (0.40), Urdu 14631 chars (0.98)`, exit 0.
+3. Each change against the English (all faithful):
+   - 1 (کی نسبت سے): "Its name honours Guru Gobind Singh, the tenth Sikh Guru"; naming after him is kept, and the reverence is carried by the next sentence (تعظیمی لقب). Faithful.
+   - 2 (دریائے سندھ کے ایک جزیرے پر): "on its island in the Indus"; same place, same fact. Faithful.
+   - 3 (خود گوردوارہ دشمیش پِتا): "Of Dash Mesh Pita's own past little is known"; the gurdwara is now the clear referent, which is what the English means. Faithful.
+   - 4 and 11 ("دسویں پادشاہ کا گرنتھ"): the title Daswan Padshah ka Granth in correct Urdu oblique; gloss "the book of the Tenth King" kept. Faithful.
+   - 5 (آتے تھے): grammar only; "from the offerings of devotees or from raids upon neighbouring villages" intact.
+   - 6 (یکم بیساکھ ... بھارت کے مشرقی پنجاب میں واقع آنند پور صاحب): first of Vaisakh, 14 April 1699, Baisakhi, thousands of Sikhs, Anandpur Sahib in East Punjab, India: every element kept.
+   - 7 (الگ لباس اور الگ شناخت): "its distinct attire and identity". The adaptation is right: the English has "its", not "a", so adding ایک would have been an addition (and a calque); dropping اس کا loses nothing.
+   - 8 (سنگھ کے معنی شیر کے ہیں اور کور کے معنی شیرنی کے): Singh lion, Kaur lioness, purpose "to dilute caste identities" unchanged. Faithful.
+   - 9 (بدعنوانی سے پاک): "purged Sikhism of corruption", now general as in the English (my round 1 note 1). Faithful.
+   - 10 (semicolon): "no person would succeed him, he instructed ..., and after him the book became the living Guru for eternity", still all under "Sikh tradition holds" via اسی روایت کے مطابق; the hedge governs the whole. Faithful.
+   - 12 (گرو کے جیتے جی ان کے چاروں بیٹے مغلوں کے ہاتھوں مارے گئے): "he saw all of them die at the hands of the Mughals in his own lifetime, in 1705"; all four, the Mughals, 1705 and "in his lifetime" kept; it no longer claims he watched them die. Faithful.
+   - 13 (ماننے والے ... جنگی مشقوں کا مظاہرہ کر کے): "his devotees pay tribute to him by enacting scenes of war exercises"; ماننے والے for devotees and مظاہرہ for enacting scenes are fair. Faithful.
+   - 14 (اس کا موضوع خالصہ کی اہمیت تھا): the English is elliptical ("all the recitations of that night [dedicated] to the Guru and the significance of the Khalsa"); dedicated to the Guru, with the Khalsa's significance as subject, is a fair reading and adds nothing. Faithful.
+   - 15 (دوسرے مقامات پر بھی): "His image recurs elsewhere". Faithful.
+   - 16 (سکھر کے فسادات ہوئے): "the city was the scene of the Sukkur riots", dates and first victim kept; the place stays in the event's name. The adaptation is right: the proposed "سکھر فسادات کی لپیٹ میں رہا" dropped the name "the Sukkur riots" and made the rioting continuous over the whole period.
+   - 17 (نوآبادیاتی راج کے آنے سے ... مذہبی رجحان): "Colonial rule brought a renewed religiosity"; کے آنے سے keeps the causal "brought" that the proposed کے دور میں would have lost, and رجحان is closer to "religiosity" than جوش. Both decisions right.
+   - 18 (اداسی کہلانے والے ذیلی گروہ): "a subgroup known as the Udasis, an order of ascetics"; now the Udasis are the subgroup, as in the English. Faithful.
+   - 19 (قتلِ عام کیا، اور یوں ... دوام بخشا): the English keeps the son of Zakaria Khan as subject of both "carried out" and "perpetuated", joined by "and"; یوں only makes explicit the relation that the English's "and" carries (the massacre is how he perpetuated it). The adaptation is right on fidelity; moving the agent to the event, as proposed, would have changed the English's subject.
+4. Not a changed sentence, recorded for the coordinator: V3 round 1 issue 15 (بھکر to بکھر in the Dara sentence of سکھر اور سندھ) is neither applied nor listed as adapted or rejected in the change list. From the fidelity side there is no bar to it: the English "Bhakkar" (the team version's Persian is از بهکر گذشته, the stage just before Sukkur on Dara's route) and the English "Bukkar" two paragraphs later (Sukkur, Bukkar and Shikarpur) are the same Indus fort at Sukkur, so one Urdu spelling, بکھر, for both is faithful, as one Urdu spelling of Shahid Ganj and Shaheed Ganj was accepted in round 1. V3 round 2 re-raises it; its other new fix (جس گرو کے نام سے یہ موسوم ہے for "the Guru whose name it bears") is also exact to the English.
+5. No Latin letters, no em or en dashes and no figures beyond the English in any changed sentence.

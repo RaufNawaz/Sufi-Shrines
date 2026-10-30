@@ -1,0 +1,15 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 1 V3 issues, all fixed in the wording proposed:
+   - Issue 1 (کی governing both titles): fixed by change 7. ثواقب المناقب ... بھی انہی کتابوں میں سے ہے، اور تذکرۂ نوشاہی (1146 ہجری) بھی reads naturally; the paired بھی is idiomatic, and the possessive now governs one title only, so the sentence no longer clashes with the later paragraph on the author of تذکرۂ نوشاہی.
+   - Issue 2 (reason clause on the wrong clause): fixed by change 6. باقی سب کو گندم مل گئی، مگر غلہ ختم ہو جانے کے باعث حافظ طاہر کو نہ مل سکی is clear and correct; نہ مل سکی agrees with the feminine گندم, and the next sentence (تب بزرگ نے اس اجنبی کو ...) follows on smoothly.
+   - Issue 3 (inanimate agent laying a foundation): fixed by change 9. اپنی ... کی بدولت انہوں نے ... کی بنیاد رکھی is natural; the reflexive اپنی correctly takes انہوں نے as antecedent, and انہوں نے can only be the saint after the sentence about یہ سلسلہ.
+   - Issue 4 (bare یہ, hybrid order name): fixed by change 8. سلسلۂ نوشاہیہ قادریہ is correct izafat and matches the earlier نوشاہیہ قادریہ; یہ سلسلہ makes the subject explicit.
+   - Issue 5 (death said twice): fixed by change 3. مزار پر مانا جاتا ہے کہ وہ 1654 میں بھرپور عمر پا کر دنیا سے رخصت ہوئے says it once, keeps the hedge, and sits well between the sentence on differing accounts and وہ رانمل شریف میں آسودۂ خاک ہیں.
+   - Issue 6 (list read as what they were called): fixed by change 4. The colon now follows مجذوب تھے, and یہ چاروں نوشاہی کہلاتے تھے stands as its own short sentence before the Shaikh Mittha sentence.
+2. The other three changes read well in their paragraphs: change 1 (the brother split off with نوشہ گنج بخش کے بھائی) removes the her-brother reading; change 2 (جن کے ہاتھ پر محمد نوشہ نے بیعت کی) removes the Mulla Karim al-Din reading and also anchors the following وہ; change 5 (وہ بڑے ہو کر طاقتور نکلے) is natural.
+3. No Latin letters, no em or en dashes, Western digits, punctuation Urdu. No change introduced an agreement, postposition or izafat error, a calque, a new ambiguity, or a repeated word inside a sentence.
+4. Taste: after change 1 the full name نوشہ گنج بخش opens two consecutive sentences (بھائی, then بیٹی کی شادی), and a third time at the paragraph's head. Replacing either with ان would bring back the ambiguity (the mother, or Shaikh Ismail), so the repetition is the lesser cost; a writer could later recast the pair as one sentence.
+5. Taste: مزار پر مانا جاتا ہے could be the slightly more precise مزار کی روایت کے مطابق, but the wording is natural and was already in the earlier text.
+6. Taste: باقی سب in change 6 points forward to حافظ طاہر, who was named at the head of the paragraph; it reads fine, and سب کو گندم مل گئی، مگر ... would be an equally natural variant.

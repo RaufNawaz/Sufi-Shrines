@@ -1,0 +1,9 @@
+# shrine-of-pir-sher-muhammad: English changes after V1 round 1 (PASS, ISSUES: none). Precision note 1 applied in the verifier's first wording, and note 6's supported gloss for Bulleh Shah (the team version's bibliography calls him a Sufi poet); notes 2 to 5 and 7 to 8 are checks or taste. Backup: /home/claude/bak/shrine-of-pir-sher-muhammad.before_v1r2.md
+
+WHY: V1 r1 note 1 (count: one work printed and one manuscript held, not 'books ... printed and kept'); verifier's wording
+OLD: Books, too, have been printed and kept at Sharaqpur.
+NEW: Sharaqpur has its place in the history of books as well.
+
+WHY: V1 r1 note 6 (reader gloss: 'the Sufi poet Bulleh Shah' would be supported); verifier's wording
+OLD: Bulleh Shah's verse speaks of the Punjab
+NEW: The Sufi poet Bulleh Shah's verse speaks of the Punjab

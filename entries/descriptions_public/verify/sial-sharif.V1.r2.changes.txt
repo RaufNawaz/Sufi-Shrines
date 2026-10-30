@@ -1,0 +1,9 @@
+# sial-sharif: English changes after V1 round 1 (PASS, ISSUES: none). Optional notes 6 and 7 correct precision and are applied in the verifier's wording; note 8 (the Chishti gloss is the data/glossary.csv wording, which the brief allows) and note 9 (taste) are not applied. Backup: /home/claude/bak/sial-sharif.before_v1r2.md
+
+WHY: V1 round 1, note 6 (precision: the qawwali paragraph is about the music of the region as a whole, not this shrine's own qawwali); the verifier's wording
+OLD: The Punjab is one of the two principal regions of the *qawwali* tradition, the other being Uttar Pradesh, and the tunes of the two can be told apart mainly by their rhythmic setting: Punjabi tunes tend to be organised rhythmically by stress.
+NEW: More widely, the Punjab is one of the two principal regions of the *qawwali* tradition, the other being Uttar Pradesh; the tunes of the two can be told apart mainly by their rhythmic setting, and Punjabi tunes tend to be organised rhythmically by stress.
+
+WHY: V1 round 1, note 7 (precision: the sentence on rural pirs is general and must not be read as about Sial Sharif's custodians); the verifier's wording
+OLD: The cult of the holy man, the *pir*, and the folk piety
+NEW: More generally, the cult of the holy man, the *pir*, and the folk piety

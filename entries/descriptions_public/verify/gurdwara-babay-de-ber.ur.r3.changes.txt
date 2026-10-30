@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V3 r2 issue 1
+OLD: یہ گوردوارہ اور اس کا قدیم درخت سیالکوٹ شہر کو ایک ایسے کثیر المذاہب ماضی کی یاد دلاتے ہیں
+NEW: یہ گوردوارہ اور اس کا قدیم درخت سیالکوٹ کو ایسے کثیر المذاہب ماضی کی یاد دلاتے ہیں

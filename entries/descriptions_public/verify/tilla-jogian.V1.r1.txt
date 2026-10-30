@@ -1,0 +1,39 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. (precision) [ambiguous referent] "from the slightly elevated plateau of the Potwar, a land where there is no irrigation" -> as written, the appositive "a land where there is no irrigation" attaches to the Potwar plateau, but the team version (Werth) says it of "the salt range where there is no irrigation"; the sentence now tells the reader something about the Potwar that the source does not say. Split it so the claim stays on the range.
+OLD: The Salt Range, on whose eastern heights the hill stands, is the line of mountains dividing the plains of the Punjab from the slightly elevated plateau of the Potwar, a land where there is no irrigation.
+NEW: The Salt Range, on whose eastern heights the hill stands, is the line of mountains dividing the plains of the Punjab from the slightly elevated plateau of the Potwar. There is no irrigation in the range.
+
+2. (precision) [word the source does not have] "the 'circle of nectar' is the ecstatic state that is the goal of yoga" -> the team version (Shackle) says the 'circle of nectar' is "another traditional image for the ecstatic state that is the goal of yoga", an image for the state, not the state itself.
+OLD: The 'unstruck music' is the mystical sound heard at the climax of the yogic process, the 'circle of nectar' is the ecstatic state that is the goal of yoga, and the 'tenth door' is the hidden aperture in the skull that is opened at that climax.
+NEW: The 'unstruck music' is the mystical sound heard at the climax of the yogic process, the 'circle of nectar' is a traditional image for the ecstatic state that is the goal of yoga, and the 'tenth door' is the hidden aperture in the skull that is opened at that climax.
+
+3. Rulings on the writer's "Judgement calls for V1" (all accepted; no fix lines):
+   JC1 accepted. The team version itself states plainly that Bhandari "places the hill on the salt mountain" and treats the passage as about this hill throughout; only the jogi's name and the place name are marked uncertain, and both are dropped. With them gone the point still stands (a jogi's place of austerity on the salt mountain, seven kos from the fort of Rohtas, with Shivrat gatherings of jogis), as rule 5 requires for a list with uncertain names. The Overview's Shivrat sentence may stay.
+   JC2 accepted. "In the reign of Aurangzeb" is coarser than the bibliography item's "composed in regnal year 40 of Aurangzeb", so it is no more precise than the source allows even with the Source line's hedge on the exact year. "The Mughal emperor" is a definitional gloss of the name.
+   JC3 accepted. Bal Nath is named by the site's account, Usborne's Waris Shah and its annotator; Gorakhnath only by Shackle's glossary; Bulleh Shah's lyric names no one. "Most often" is earned, and basis (a) points the same way. No chains merged.
+   JC4 accepted. The annotator's undated present tense note is the only contrary account; one clause plus the site's position (basis a) is rule 4 as written.
+   JC5 accepted. "It is told that" correctly keeps Khalid's reconstruction from reading as fact, and Tripta is rightly left unidentified (the team version does not say who she is).
+   JC6 accepted. The Janamsakhis are part of the tradition being told, not source narration, and the historical correction is the team version's own.
+   JC7 accepted. "Organiser" (site) and "head of the Kanphat yogis" (Shackle) do not conflict; "founded" is a minor wording variant.
+   JC8 accepted. The team version's heading and its Nath tradition treat Naths and Nathpanthis as one body.
+   JC9 accepted, subject to note 1 above: Werth sets the village "in the mountains dividing the plains of the Punjab from ... the Potwar" and the village is in the range, so the description is of the range.
+   JC10 accepted. The team version's "there" is ambiguous between Thatta and Hinglaj, so not placing the fireplace is the right call.
+   JC11 accepted. The team version itself joins them ("When the chelas rebel"), and the scene stays inside the tale.
+   JC12 accepted. "Last of all he teaches him the word Allah" matches the team version's "last he taught him the word Allah".
+   JC13 accepted. Dropping "Pirs" is conservative given the team notes' corrected reading, and the belief keeps its point; "fakirs, the wandering mystics" follows the glossary's "wandering Sufi".
+   JC14 accepted. An unnamed commentator's reading and quoted remark are the form the brief allows ("as one historian ... put it"), and they keep an interpretation from being stated as fact.
+   JC15 accepted. Dropping "still" is right; the gloss of Jats is definitional and drawn from the team version's own "ploughing" and "Jat pastoral tribes".
+   JC16 accepted. "Of the Punjab" is the evident sense of Shackle's "these local legends" in context; Kugle's sentence in the narrator's voice is what rule 2 asks.
+   JC17 accepted. "Already" is the team version's word.
+   JC18 accepted. "The people of his own speech" is a fair plain rendering of "his speech communities".
+
+4. Taste only (no fix lines): there are eight headings before the bibliography, one over the usual seven; "the most important place of pilgrimage for jogis in the Punjab" appears twice (Overview and the Tripta paragraph); "fakirs, the wandering mystics, and jogis" can momentarily read as three groups; "the *Darbar*, the court, of God" splits the phrase with its gloss; "Though accounts of its later state differ, deprived of care the buildings fell into decay" reads a little stiffly.
+
+5. Checks run: every number and count (975 metres, 1947, two thousand years, eleventh or twelfth century, hundreds of ascetics, forty days, 1180, eighteen years, fourth guru, seven kos, three maunds, two tunnels, two eyes, three planes, three gunas, two texts, more than a hundred versions) is in the team version; the four italic verse passages match the team version byte for byte with translator credits only; the bibliography is identical to the team version's, item for item and in order; no em or en dash in the prose; no citation, page, folio, uncertainty, archive or process language; check_public_description.py tilla-jogian --english-only exits 0 (0.53).
+
+Omission sweep: after a sweep of the team version, nothing important is missing; what is left out is apparatus, readings marked uncertain (all Bhandari's), the minority variants of rule 4, regional statements not about the hill (Khalid on Partition, Eaton, Boivin on Persian sources), and minor commentator asides (the annotator's two denials of Bal Nath's powers, the drugs kand, mul and post, the height of four kos).

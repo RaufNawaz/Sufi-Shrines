@@ -1,0 +1,13 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed certainty] Overview, paragraph 1: "Luari Sharif is counted among the oldest and most important Sufi sites of southern Sindh." | "لواری شریف جنوبی سندھ کے قدیم ترین اور اہم ترین صوفی مقامات میں سے ہے۔" -> The English gives this as a reputation ("is counted among"); the Urdu states it as plain fact ("is among"). The Legacy paragraph keeps the hedge (میں گنا جاتا ہے), so the two Urdu statements of the same English sentence also disagree. -> "لواری شریف جنوبی سندھ کے قدیم ترین اور اہم ترین صوفی مقامات میں گنا جاتا ہے۔"
+OLD: صوفی مقامات میں سے ہے۔
+NEW: صوفی مقامات میں گنا جاتا ہے۔
+NOTES:
+1. (precision) The Shrine and Its Devotion, paragraph 1: "the vaulted chambers of his successors" is rendered محراب دار حجرے (arched chambers, which can be read as chambers with arched openings), while the Overview renders the same English phrase, correctly, as محراب دار چھتوں والے حجرے. Use the Overview wording here too.
+OLD: جانشینوں کے محراب دار حجرے
+NEW: جانشینوں کے محراب دار چھتوں والے حجرے
+2. (precision) The Setting, paragraph 2: "The diet rested on rice, curds and fish" means these were its staples; پر مشتمل تھی says the diet consisted of them (only). دار و مدار keeps "rested on" and avoids repeating انحصار from the sentence before.
+OLD: لوگوں کی خوراک چاول، دہی اور مچھلی پر مشتمل تھی۔
+NEW: لوگوں کی خوراک کا دار و مدار چاول، دہی اور مچھلی پر تھا۔
+3. Everything else checked and faithful: all seven headings correspond; every date and figure matches (1713, 1775, 1737, January 1775, eighty five, 1781, 1980s, 1692, 1762, 250 and 100 kos, four sarkars, forty thousand boats, fourteen hundred towers, 1595, 1739, 1843, a hundred thousand shrines); the hedges "tradition holds", "traditionally dated", "accounts differ", "said to survive", "some", "may be", "not certain", "probably", "perhaps", "is said" (twice), "can be called" and "if he is the saint of Luari" are all kept; Makhdum Muhammad Zaman Lanwari stays a possible, not an established, identification; "his own masters" (Lanwari's) and "their saintly ancestor" (the Kalhoros') resolve to the right people. Dropped glosses (dargah, ʿurs, khanqah, khalifas, Sayyids, qazi, Khankhanan, haqiqa muhammadiyya, Sultan al-Aulia) and removed italics are deliberate per the brief. The two verse paragraphs in the English are themselves English renderings in Latin script, so the Urdu rightly gives their meaning in Urdu italics and drops the Schimmel credit line; both renderings are faithful.

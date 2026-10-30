@@ -1,0 +1,14 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+All fourteen changes checked against the team version and in their paragraphs.
+#1 "The onlookers, it is told, took this for a miracle": framed; content unchanged from the team version.
+#2 "On a later return, after Pak Pattan, they go on, Talwandi was no longer an obscure little village ...": framed ("they go on" picks up "they tell" in the previous sentence); the narrator statement is no longer made the Guru's perception; matches Dhillon's retelling.
+#3 "People are said to have come in multitudes from every land to become disciples of Baba Nanak, as the Guru was also known.": the chronicler's praise and the Aurangzeb time anchor are gone; "In Aurangzeb's reign the place of Baba Nanak lay twelve *kos* ..." now carries its own anchor and is supported by Bhandari.
+#4a, #4b, #4c: the journeys, the shrine visits and the sending for his family are each framed ("In the tellings of his life", "it is said", "the story goes"); "they" in #4a still refers to the *udasis* of the previous sentence.
+#5 "the iconography of Guru Nanak and that of Jhulelal have grown more and more alike": no direction, matching Boivin's "growing similarity".
+#6 "engraved footsteps held to be Guru Nanak's": a devotional attribution, no visit implied.
+minor a, b, c: frames placed as asked ("the stories tell" now governs the herding; "In the same telling" keeps the Shiv Ram sentence inside the janamsakhi frame; "the same tradition tells" follows "Tradition tells that" in the preceding sentence).
+minor d1, d2: "Kartar, who spoke of the town's gurdwaras as his own" and "Giani Pratap, Kartar recalled, came ..." rest on his own words; quotation intact.
+minor e: the deleted sentence leaves "... and his descendants lived there. Lakhmi Das, it was said, was a worthy son, but on his deathbed the Guru appointed not a son but his most loyal student ..."; Lakhmi Das is introduced earlier in The Guru, so nothing dangles and nothing is lost.
+No dashes, no source talk, no repeated words at any edit point. The notes carry no L1 exception line, which matches round 1 (0.44, no exception needed).

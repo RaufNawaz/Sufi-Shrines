@@ -1,0 +1,17 @@
+# shrine-of-makhdoom-abdul-rahim-girhori: changes applied by the coordinator after V3 round 2 (FAIL, 4 issues); V2 round 2 PASS; exact replacement of each OLD once (late round procedure). V3 notes (taste, or content the English has, such as 'a good writer') not applied. Backup of the round 2 file: /home/claude/bak/shrine-of-makhdoom-abdul-rahim-girhori.ur.before_r3.md
+
+WHY: V3 r2 issue 1, applied in the verifier's wording: the round 2 fix repeated the whole phrase in two sentences; اس خاندانی حلقے ('this family circle') still names exactly Muhammad Hashim and his relatives, the English 'this group'
+OLD: محمد ہاشم اور ان کے رشتہ داروں پر مشتمل اس گروہ نے
+NEW: اس خاندانی حلقے نے
+
+WHY: V3 r2 issue 2, applied in the verifier's wording: the English 'came in that same year, 1781' is kept by اسی سال, with 1781 in the sentence just before; ان کتابوں refers to Girhori's books named at the paragraph's start
+OLD: جن یورشوں میں گرہوڑی کی بیشتر کتابیں تلف ہوئیں، بالائی سندھ پر افغانوں کی وہ یورشیں بھی اسی سال یعنی 1781 میں پیش آئیں۔
+NEW: بالائی سندھ پر افغانوں کی وہ یورشیں بھی، جن میں ان کتابوں کا بیشتر حصہ تلف ہوا، اسی سال پیش آئیں۔
+
+WHY: V3 r2 issue 3, applied in the verifier's wording: two sentences said the same thing; every fact (nearby, the other saint's tomb, Pithoro Pir, the hamlet, its place on the railway) is kept
+OLD: قریب کے قصبے پتھورو میں ایک اور ولی کا مزار ہے۔ پتھورو پیر کا مقبرہ پتھورو کی چھوٹی سی بستی میں ہے، جو میرپور خاص
+NEW: قریب کی چھوٹی سی بستی پتھورو میں ایک اور ولی پتھورو پیر کا مقبرہ ہے۔ یہ بستی میرپور خاص
+
+WHY: V3 r2 issue 4, applied in the verifier's wording: زاہدانہ زندگی repeated three sentences on; 'led a perfectly ascetic life' kept
+OLD: اور وہ کامل زاہدانہ زندگی بسر کرتے تھے۔
+NEW: اور ان کا زہد کامل تھا۔

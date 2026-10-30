@@ -1,0 +1,5 @@
+Changes applied by the coordinator (ur2), exact replacements, each OLD occurring once.
+
+1. V3 r2 issue 1 (کٹاس twice in the joined sentence)
+OLD: پشاور کے ہندو یہ تہوار کٹاس میں بھی مناتے آئے ہیں، اور 2010 میں وہ کٹاس گئے تھے۔
+NEW: پشاور کے ہندو یہ تہوار کٹاس میں بھی مناتے آئے ہیں، اور 2010 میں وہ وہاں گئے تھے۔

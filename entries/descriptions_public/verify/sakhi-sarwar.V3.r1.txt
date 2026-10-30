@@ -1,0 +1,43 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic / calque] "غیر معمولی طور پر بہت سی مختلف برادریوں" -> stacked modifiers rendering "an unusually wide range of communities" word for word; reads as translation in the article's third sentence -> ان کے عقیدت مند جتنی مختلف برادریوں سے تعلق رکھتے ہیں، اس کی مثال کم ملتی ہے۔
+OLD: ان کے عقیدت مند غیر معمولی طور پر بہت سی مختلف برادریوں سے تعلق رکھتے ہیں۔
+NEW: ان کے عقیدت مند جتنی مختلف برادریوں سے تعلق رکھتے ہیں، اس کی مثال کم ملتی ہے۔
+
+2. [aspect / collocation] "صدیوں تک ... سب سے زیادہ پھیلی" -> a duration phrase (صدیوں تک) paired with a one-time perfective (پھیلی); the state should be continuous -> صدیوں تک مغربی پنجاب میں جن اولیاء کی عقیدت سب سے زیادہ عام رہی، سلطان سخی سرور ان میں سے ایک تھے۔
+OLD: صدیوں تک مغربی پنجاب میں جن اولیاء کی عقیدت سب سے زیادہ پھیلی، سلطان سخی سرور ان میں سے ایک تھے۔
+NEW: صدیوں تک مغربی پنجاب میں جن اولیاء کی عقیدت سب سے زیادہ عام رہی، سلطان سخی سرور ان میں سے ایک تھے۔
+
+3. [repetition] "باطنی فیض پایا۔ پھر وہ درجۂ کمال پا کر" -> پانا twice in consecutive sentences -> پھر وہ درجۂ کمال کو پہنچ کر ہند واپس آئے۔
+OLD: پھر وہ درجۂ کمال پا کر ہند واپس آئے۔
+NEW: پھر وہ درجۂ کمال کو پہنچ کر ہند واپس آئے۔
+
+4. [ambiguous pronoun / unidiomatic] "اپنے خاندان کے دورِ حکومت میں ... ان کے پاس آئے تھے" -> "in his own family's reign" is awkward for the ruler himself, and ان کے پاس can be read as "came to Malik Sohrab and the others" since ان دوسرے بلوچوں immediately precedes it -> لنگاہ خاندان کے دورِ حکومت میں سلطان حسین لنگاہ نے کروڑ کوٹ سے مان کوٹ تک کا علاقہ ملک سہراب اور ان دوسرے بلوچوں کو جاگیر میں دیا جو کیچ مکران سے سلطان کے پاس آئے تھے۔
+OLD: سلطان حسین لنگاہ نے اپنے خاندان کے دورِ حکومت میں کروڑ کوٹ سے مان کوٹ تک کا علاقہ ملک سہراب اور ان دوسرے بلوچوں کو جاگیر میں دیا جو کیچ مکران سے ان کے پاس آئے تھے۔
+NEW: لنگاہ خاندان کے دورِ حکومت میں سلطان حسین لنگاہ نے کروڑ کوٹ سے مان کوٹ تک کا علاقہ ملک سہراب اور ان دوسرے بلوچوں کو جاگیر میں دیا جو کیچ مکران سے سلطان کے پاس آئے تھے۔
+
+5. [ambiguous attachment] "سلطانیے یا سرواریے کہلانے والے سخی سرور کے عقیدت مند" -> the participle sits directly before سخی سرور, so the reader first takes Sakhi Sarwar himself to be "called Sultaniye or Sarwariye" -> سخی سرور کے عقیدت مند، جو سلطانیے یا سرواریے کہلاتے تھے، موسمی زیارتوں میں ان کے پرچم اٹھا کر چلتے تھے۔
+OLD: سلطانیے یا سرواریے کہلانے والے سخی سرور کے عقیدت مند موسمی زیارتوں میں ان کے پرچم اٹھا کر چلتے تھے۔
+NEW: سخی سرور کے عقیدت مند، جو سلطانیے یا سرواریے کہلاتے تھے، موسمی زیارتوں میں ان کے پرچم اٹھا کر چلتے تھے۔
+
+6. [unidiomatic collocation] "علاقائی رنگ میں موسیقی، نذر و نیاز اور جشن کے بڑے مواقع ہوتے ہیں" -> "occasions in regional colour" does not hold together in Urdu; the phrase floats between subject and predicate -> سالانہ زیارت اور عرس موسیقی، نذر و نیاز اور جشن کے بڑے مواقع ہوتے ہیں، اور ان سب میں علاقائی رنگ جھلکتا ہے۔
+OLD: سالانہ زیارت اور عرس علاقائی رنگ میں موسیقی، نذر و نیاز اور جشن کے بڑے مواقع ہوتے ہیں۔
+NEW: سالانہ زیارت اور عرس موسیقی، نذر و نیاز اور جشن کے بڑے مواقع ہوتے ہیں، اور ان سب میں علاقائی رنگ جھلکتا ہے۔
+
+7. [calque] "خودکش دھماکا ہوا جس نے زائرین کے ایک جلوس کو نشانہ بنایا" -> English syntax ("a blast that targeted"); in Urdu a target is made the نشانہ of a blast, passively -> 3 اپریل 2011 کو مزار پر زائرین کے ایک جلوس کو خودکش دھماکے کا نشانہ بنایا گیا، جس میں تقریباً پچاس افراد جاں بحق ہوئے۔
+OLD: 3 اپریل 2011 کو مزار پر خودکش دھماکا ہوا جس نے زائرین کے ایک جلوس کو نشانہ بنایا، اور تقریباً پچاس افراد جاں بحق ہوئے۔
+NEW: 3 اپریل 2011 کو مزار پر زائرین کے ایک جلوس کو خودکش دھماکے کا نشانہ بنایا گیا، جس میں تقریباً پچاس افراد جاں بحق ہوئے۔
+
+8. [calque / tangled clause] "اس خطے کی مشترکہ مقدس دنیا اسی میں مجسم تھی" -> word-for-word "embodied the shared sacred world", with the subject inverted and اسی میں left to point back across a long clause -> فیاض لکھ داتا کا حلقۂ ارادت مسلمان، ہندو اور سکھ کی تفریق سے بالاتر رہا، اور جدید دور کی تقسیموں سے پہلے یہی حلقہ اس خطے کی مشترکہ مقدس دنیا کا مظہر تھا۔
+OLD: فیاض لکھ داتا کا حلقۂ ارادت مسلمان، ہندو اور سکھ کی تفریق سے بالاتر رہا، اور جدید دور کی تقسیموں سے پہلے اس خطے کی مشترکہ مقدس دنیا اسی میں مجسم تھی۔
+NEW: فیاض لکھ داتا کا حلقۂ ارادت مسلمان، ہندو اور سکھ کی تفریق سے بالاتر رہا، اور جدید دور کی تقسیموں سے پہلے یہی حلقہ اس خطے کی مشترکہ مقدس دنیا کا مظہر تھا۔
+
+NOTES:
+- Overall the article is in good, educated Urdu; the tazkira register in صاحبِ مزار (عنفوانِ شباب، نفسِ امّارہ، معرفت کا چراغ) is well judged. Digits are Western, no Latin, no dashes, asterisks balanced (4), verse untouched.
+- Hedge inconsistency inside the Urdu (content, not fluency, so not fixed here): §عقیدت says "کہا جاتا تھا کہ ہر گاؤں میں سخی سرور کا ایک گھر بن چکا ہے" but §ورثہ states it flatly, "ہر گاؤں میں سخی سرور کا ایک گھر موجود تھا". The coordinator or the fidelity verifier should decide which one the source supports.
+- Repetition by design: the Aurangzeb-era road crowded from Multan (§تعارف, §عقیدت, §ورثہ), the 2011 bombing with "عقیدت کا سلسلہ جاری ہے" (§تعارف and §عقیدت), and "بلوچستان کے پہاڑوں کے دامن میں ... واقع ہے" (twice in §مزار). Each is a summary echo, but three tellings of the road crowd is one too many for a magazine reader.
+- §روایات reads as a list of ballad episodes strung into sentences ("جب زمین تقسیم ہوئی تو سخی سرور نے جواب دیا" with no question before it; "یہ لوگ جادوگر ہیں" with no antecedent; "ایسے بادشاہ کو ٹھکرا دیا"). It is grammatical but jerky; smoothing it would need context the text does not give.
+- "وہ خوب پھلی پھولی" for wheat held in trust is odd (stored grain does not پھلنا پھولنا); "اس میں خوب برکت ہوئی" would be the idiom if the source means it multiplied.
+- "اس عمارت کی وضع کوٹھے کی سی تھی، یعنی ایک مکان جیسی" doubles the comparison; "کوٹھے یعنی مکان کی سی تھی" is neater. The gloss itself is worth keeping, since کوٹھا carries another sense in Urdu.
+- "وہ اپنے ننھیالی رشتے کے بھائیوں کے ساتھ آدھے گاؤں کے مالک تھے" follows "لوگ جوق در جوق ان کے پاس آنے لگے", so وہ briefly points at لوگ; it is also unclear whether he and his cousins jointly held half the village or split it between them.
+- Taste: "مادر زاد ولی" is the established idiom for "پیدائشی ولی"; "کی حیثیت سے مشہور ہیں" (twice) could simply be "... مشہور ہیں"; "رشتہ دار" is the more standard spelling than "رشتے دار" (used consistently twice); "انارکلی" is usually written as one word; "تب وہ" opening a sentence in §شہادت would read more smoothly merged ("خبر ملی تو وہ ..."); "سلطان سرور" in §عقیدت is a variant of the name used nowhere else, presumably from the source.

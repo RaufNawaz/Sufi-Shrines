@@ -1,0 +1,10 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- Hinglaj paragraph (ماحول): "یہ روایت قصبے کے بارے میں ہے" pulls slightly against the opening "ہنگلاج کی ابتدا سے متعلق ایک روایت", and روایت appears in three sentences in a row (with قصبہ/قصبے three times as well). The meaning is still clear. "اس روایت کا تعلق قصبے سے ہے، اور اس میں دیوی کا مخدوم نوح کے مزار سے کوئی ربط بیان نہیں کیا گیا۔" would read more cleanly.
+- "اور ان کے سالانہ عرس کے موقع پر بھی" (تعارف, ورثہ) comes right after عقیدت مند / زائرین, so for a moment ان کے could point to the visitors. Context settles it. "صاحبِ مزار کے سالانہ عرس کے موقع پر بھی" would remove even that pause.
+- "زرخیز زرعی پٹی کے قلب میں": زرخیز and زرعی overlap, and "پٹی کا قلب" mixes two images. "ایک زرخیز زرعی علاقے کے بیچوں بیچ" is more natural.
+- "یہی قصبہ ... شاہ عبداللطیف کی جائے پیدائش بھی ہے۔ وہ 1689 میں ... پیدا ہوئے۔" puts پیدائش and پیدا back to back. "ان کی ولادت 1689 میں اہلِ تصوف کے ایک سید گھرانے میں ہوئی۔" varies it.
+- "تقریباً 1500 سے 1505 کے درمیان": with a range, تقریباً is slightly redundant, though common.
+- "سب سے بڑھ کر وہ اس خطے کے پہلے عالمِ دین مانے جاتے ہیں" is acceptable. "سب سے بڑھ کر یہ کہ وہ ..." is the more settled form.
+- Carried over from round 1, all taste: "محترم ترین" twice (تعارف, ورثہ). تعارف and ورثہ overlap almost clause for clause, as section structure requires. "وابستہ تھے ... شرف بھی حاصل ہے" mixes tenses. "کسی ایسے مرشد ... جن سے" (جس is smoother). The passive "ان کی تحریر میں ... کہا گیا ہے". "ٹائلوں" next to the earlier کاشی. "چھپن" is in words while other numbers are digits. Quotations use straight double quotes.

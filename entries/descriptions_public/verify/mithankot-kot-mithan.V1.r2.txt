@@ -1,0 +1,29 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+A. Diff result (nothing else moved)
+
+- `diff /tmp/claude-0/bak/mithankot-kot-mithan.r1.md entries/descriptions_public/mithankot-kot-mithan.md` changes exactly four lines: 45, 47, 53 and 55. Both files have 79 lines and a trailing newline.
+- A word-level diff shows only these edits: "names its author" -> "has been advertised ... the work of"; "adding" -> "a style that adds"; "+full"; "Later, on" -> "On"; "this area" -> "the southern Punjab".
+- I replayed the four OLD -> NEW pairs from V1.r2.changes.txt on the backup. Each OLD occurs once in the backup and each NEW once in the current file, and the result is byte-identical to the current file. The Bibliography section is byte-identical to the backup.
+- md5 of the current file: 7eff77ab18aba6583d1e434d5a974c9a. md5 of the backup: 60a6db63ebc8f25d417d995d9571a486.
+- The changed sentences contain no em or en dashes. The file's only dash is the em dash in the first bibliography item, which is copied verbatim from the team version and did not change. Asterisks are balanced.
+
+B. The changed sentences
+
+1. "On his mission to Lahore and Bahawalpur of 1832 to 1833, Captain C. M. Wade made a voyage from Lodiana to Mithankot by the river Satlaj."
+   SUPPORTED. The team version gives the journal title "Journal of Captain C.M. Wade's Voyage from Lodiana to Mithankot by the River Satlaj on His Mission to Lahore and Bahawalpur in 1832–1833". Removing "Later" removes the false order after Taunsvi's death in 1267 AH. No new fact, no source talk, grammatical. Optional note (not applied): the fronted "his" comes straight after a sentence about Sulaiman Taunsvi, whose spreading of the line could be read as a "mission", so for a moment a reader may take "his" to mean Taunsvi. The same pattern was in the old sentence, so this change did not introduce it. Placing the name first would remove the doubt: "Captain C. M. Wade, on his mission to Lahore and Bahawalpur of 1832 to 1833, made a voyage from Lodiana to Mithankot by the river Satlaj."
+
+2. "... and also in northern Sindh; in the Middle Ages the southern Punjab was a part of Sindh."
+   SUPPORTED. The source says: "The Siraiki language is mainly spoken in Southern Punjab, with Multan as capital. Interestingly, this area was a part of Sindh during the Middle Ages". There, "this area" refers back to Southern Punjab. The new wording resolves the referent the same way. No new fact, no fault, grammatical. Taste only: "the southern Punjab" now appears twice in one sentence, which is acceptable for clarity.
+
+3. "A book of his verse, *Kalam-e Khwaja Ghulam Farid*, has been advertised as the work of Khwaja Ghulam Farid of Kot Mithan Sharif, a style that adds to the town's name *Sharif*, noble, the honorific given to holy places."
+   SUPPORTED. The source mentions a publisher's list "which advertises *Kalam-e Khwaja Ghulam Farid* by Khwaja Ghulam Farid of Kot Mithan Sharif". "Has been advertised as the work of" states that fact without claiming that the book itself names its author that way. It names no source, describes no printed text and uses no archive words, so it is not source talk under rules 2, 5 or 6. "A style" is an appositive for the form of the name and reads grammatically. The gloss of *Sharif* is unchanged from round 1. Optional taste notes (not applied): "A book of his verse ... advertised as the work of Khwaja Ghulam Farid" is slightly redundant, because the sentence's point is the "of Kot Mithan Sharif" form. A general reader might take "style" to mean literary style, and "a form of his name that adds to the town's name *Sharif*" would be plainer.
+
+4. "His name also stands in the full title of a recording, *A Tribute to Great Mystics*."
+   SUPPORTED. The source gives the title as "*A Tribute to Great Mystics: … Khawaja Farid*". "Full title" correctly signals that the italic title is cut at the source's ellipsis, so the sentence no longer contradicts itself. No new fact, no fault, grammatical. Optional taste note (not applied): "a recording whose full title begins *A Tribute to Great Mystics*" would make the shortening plainer still.
+
+C. None of the notes above names an unsupported fact. All of them are optional and are recorded only.

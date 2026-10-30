@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Setting, para 2: "شرقپور کے علاقے میں رانی جنداں نے بھائی بدھ سنگھ کو جاگیر دی" puts the place at the head of the sentence, where it can be read as where the grant was made rather than where the jagir lay. The English says the jagir lay "in the Sharaqpur area". Moving the place next to the grant is clearer: رانی جنداں نے بھائی بدھ سنگھ کو شرقپور کے علاقے میں جاگیر دی تاکہ ...
+2. The Saint, para 2: "whose light" is rendered "جن کے نور و فیض سے". فیض adds to the metaphor but adds no fact. "جن کے نور سے" would be closer, though نور و فیض is idiomatic.
+3. Setting, para 4: "in many cases" is rendered "بہت سی جگہوں پر" ("in many places"). The sense is close enough. "بہت سی صورتوں میں" would follow the English more closely.
+4. Checks done: all headings match the English in order, and there is no bibliography section. The Hadiqat al-Awliya couplet is byte-identical to the English. Every date and number in the English appears (1865, 1928, 1214 AH, 1017 AH, the 1840s, 1880s and 1870s, 1800, 1292 AH, 1180 AH), and the Urdu adds none. The qualifiers ("is remembered as", "he argued", "usually considered", "tend to", "for the most part", "chiefly", "principally", "has been held") are all kept with the same force. The Urdu has no Latin letters and no en or em dashes. The dropped glosses (naat, qawwali, free kitchen, ʿurs, jagir, samadhi, pir, faqirs, chronogram, taʿwidh, the Islamic calendar), the dropped credit lines, and the italics removed from familiar words follow the brief.

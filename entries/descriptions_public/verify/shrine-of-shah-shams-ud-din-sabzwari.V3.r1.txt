@@ -1,0 +1,42 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [ambiguous relative clause] "ملتان میں حضرت شاہ شمس الدین سبزواری کا مزار واقع ہے، جو شاہ شمس یا پیر شمس کے نام سے بھی معروف ہیں۔" -> "جو" stands right after "مزار واقع ہے" and so first reads as referring to the shrine; only the plural "ہیں" shows that the saint is meant. -> "قدیم "شہرِ اولیاء" ملتان میں حضرت شاہ شمس الدین سبزواری کا مزار واقع ہے۔ وہ شاہ شمس یا پیر شمس کے نام سے بھی معروف ہیں۔ وہ تیرہویں صدی کے بزرگ تھے، اور اس خطے کی سب سے پُرجلال اور رنگا رنگ روحانی شخصیات میں ان کا شمار ہوتا ہے۔"
+
+2. [calque] "روایت میں ان کا نام اسماعیلی دعوت کے ذریعے دین کی ایک صورت کی اشاعت سے وابستہ ہے" -> "دین کی ایک صورت کی اشاعت" is a word-for-word rendering of 'spreading a form of the faith', with a clumsy chain of "کی ... کی". -> "شاہ شمس اپنی حیرت انگیز کرامات کے سبب مشہور ہیں، اور روایت ان کا نام اسماعیلی دعوت کی راہ سے دین کی ایک خاص صورت کی تبلیغ سے جوڑتی ہے۔"
+
+3. [word order] "اور داستانوں کے اعتبار سے بھی جس کا شمار نمایاں ترین مزارات میں ہوتا ہے" -> the relative pronoun "جس" must open its clause; English word order has pushed it into the middle. -> "انہی کی بدولت ملتان کو وہ مزار ملا جو شہر کی قدیم ترین زیارت گاہوں میں سے ہے، اور جس کا شمار داستانوں کے اعتبار سے بھی نمایاں ترین مزارات میں ہوتا ہے۔"
+
+4. [calque / agreement] "یہاں تک کہ ملتان کا سورج اور اس کی تپش بھی شاہ شمس کی یاد سے جڑی ہوئی ہے۔" -> "کی یاد سے جڑی" renders 'tied to the memory of'; and with two subjects (سورج، تپش) the singular feminine verb is loose. -> "یہاں تک کہ ملتان کے سورج اور اس کی تپش کا تعلق بھی شاہ شمس ہی سے جوڑا جاتا ہے۔"
+
+5. [wrong pronoun] "ان کی زندگی تاریخ سے زیادہ داستان ہے، اور اس کی شہرت سب سے بڑھ کر اس کرامت کے سبب ہے" -> "اس کی" points to "زندگی", but it is the saint who is famous. -> "ان کی زندگی تاریخ سے زیادہ داستان ہے، اور ان کی شہرت سب سے بڑھ کر اس کرامت کے سبب ہے جسے عام طور پر ان کے نام "شمس" یعنی سورج کی وجۂ تسمیہ بتایا جاتا ہے۔"
+
+6. [calque] "ایسی ہی داستانوں کے سبب عوام کے تخیل میں ان کا شمار بڑے اولیاء میں ہونے لگا" -> "عوام کے تخیل میں" is 'in the popular imagination' rendered word for word; it is not natural Urdu. -> "ایسی ہی داستانوں کے سبب عوام انہیں بڑے اولیاء میں شمار کرنے لگے، اور وہ صاحبِ کرامت بزرگ کی حیثیت سے مشہور ہوئے۔"
+
+7. [register / inconsistent terminology] "شاہ شمس کا نام سندھ اور ملتان میں اسماعیلی مشن سے وابستہ ہے" -> "مشن" is an English loan in a formal register, and the introduction already says "اسماعیلی دعوت" for the same thing. -> "شاہ شمس کا نام سندھ اور ملتان میں اسماعیلی دعوت سے وابستہ ہے، جو قرونِ وسطیٰ میں وادیِ سندھ کے پیچیدہ مذہبی دھاروں کا حصہ تھی۔"
+
+8. [ambiguous / tangled] "ملتان کے کسی شمس سے منسوب دوسرے ناموں کا ان سے کوئی مسلّمہ تعلق نہیں۔" -> it is unclear what "دوسرے ناموں" means here (other names? other mentions?). The paragraph goes on to list other mentions of a Shams at Multan, so that is what the sentence seems to mean. -> "ملتان میں شمس نام کی کسی شخصیت کے جو دوسرے حوالے ملتے ہیں، ان کا ان سے کوئی مسلّمہ تعلق نہیں۔"
+
+9. [calque] "مغل بادشاہ اورنگزیب کے عہد ہی میں ملتان میں شمس نام کے ایک بزرگ کی تعظیم کی جاتی تھی۔" (and again in the last section: "اورنگزیب کے عہد ہی میں شمس نام کے ایک بزرگ ...") -> "عہد ہی میں" renders 'already in the reign of'; the emphatic "ہی" is ambiguous here (it can mean "only in that reign"). -> "مغل بادشاہ اورنگزیب کے عہد تک ملتان میں شمس نام کے ایک بزرگ کی تعظیم ہونے لگی تھی۔" / "اورنگزیب کے عہد تک شمس نام کے ایک بزرگ ان اولیاء میں گنے جانے لگے تھے جن کے مزاروں کی بدولت ملتان زیارت گاہ بنا ہوا تھا۔"
+
+10. [wrong postposition] "شہر کے مدفون اولیاء میں ایک شمس الدین کو بھی شمار کیا گیا ہے" -> "شہر کے مدفون" is wrong; the right form is "شہر میں مدفون". -> "اسی عہد میں لکھی گئی ایک فارسی تاریخ میں شہر میں مدفون اولیاء میں ایک شمس الدین کو بھی شمار کیا گیا ہے، البتہ سبزواری نہیں بلکہ تبریزی کے نام سے۔"
+
+11. [inconsistent spelling] "مولانا رومی کے روحانی محبوب شمس تبریز" beside "جن حضرت شمس تبریزی کی تعظیم کی جاتی ہے" and "تبریزی کے نام سے" -> the same name is spelled two ways within two sentences, even though the next sentence asks whether this is the same person "اسی نام کے". -> "ہندوستان میں ایک روایت چلی آتی ہے کہ ملتان میں ملاؤں نے مولانا رومی کے روحانی محبوب شمس تبریزی کی زندہ حالت میں کھال اتار دی تھی، اور وہیں ان کا مزار آج بھی عقیدت کا مرکز ہے۔"
+
+12. [agreement / izafat] "اسماعیلی تحریک قرامطہ کا اقتدار ... بلکہ شمالی سندھ اور ملتان پر بھی ان کی حکومت تھی۔" -> "تحریک قرامطہ" has no izafat and reads as an English apposition; the singular subject "تحریک" then takes the plural "ان کی". -> "قرامطہ کی اسماعیلی تحریک کا اقتدار صرف بحرین تک محدود نہ تھا بلکہ شمالی سندھ اور ملتان پر بھی اس کی حکومت تھی۔"
+
+13. [agreement] "وہ اسے شرک قرار دے کر اس کی مذمت کرتے ہیں۔" -> the pronoun refers to the practices just quoted (چراغ جلانا، نذرانے چڑھانا، سجدہ), which are plural. -> "وہ انہیں شرک قرار دے کر ان کی مذمت کرتے ہیں۔"
+
+14. [punctuation] "کوئی انوکھی بات نہیں۔"" beside "سجدہ بھی کرتے ہیں"۔" -> the full stop goes inside the closing quotation mark in one place and outside it in the other; make them the same. -> "ایک محقق کو اس مزار پر لے جایا گیا تھا، اور ان کے بقول "ایک ہی شخصیت کے کئی مزار ہونا کوئی انوکھی بات نہیں"۔"
+
+15. [unidiomatic collocation] "ملتان کی قدیم عقیدت میں ان کا دربار ایک مستقل حوالہ ہے۔" -> "ملتان کی قدیم عقیدت" is not a natural collocation. -> "شاہ شمس کا تعلق وادیِ سندھ میں تصوف کی بنیاد پڑنے کے زمانے سے ہے، اور ملتان کی قدیم روایتِ عقیدت میں ان کا دربار ایک مستقل حوالہ ہے۔"
+
+NOTES:
+- Repetition: "شمار" comes up again and again (twice in the introduction; then "ان کا شمار بڑے اولیاء میں"، "شمار کیا گیا ہے"، "شمار ہوتے ہیں"). Vary it where you can (گنے جاتے ہیں، میں سے ہیں).
+- "اس شہر میں بہت سے اولیاء اللہ راحت و سعادت کے ساتھ آرام فرما ہیں" and "انوارِ الٰہی کی جلوہ گاہ" carry the Persian chronicle's devotional voice. As written, they can be read as the article's own claims. Something like "اس تاریخ کے بقول" at the start of that sentence would make it clear whose words these are.
+- "مبلغ اور داعی" are near-synonyms; one would do.
+- "رنگا رنگ روحانی شخصیات" and "مذہبی دھاروں" (used twice) read a little like translations, but they are acceptable.
+- "مچھلی پکانے کو آگ میسر نہ تھی تو": "جب مچھلی پکانے کو آگ میسر نہ آئی تو" would read more smoothly.
+- "اُس موسم میں" in the paragraph on Sultan Mahmud's campaign does not say which season is meant. It also carries a pesh that "اس" does not carry anywhere else in the article.
+- Years are written without "ء" (711 میں، 1175 میں). This is consistent within the article, but many Urdu reference works write "711ء".
+- "گنبد دار مقبرہ ہے" reads better with an article: "ایک گنبد دار مقبرہ ہے".

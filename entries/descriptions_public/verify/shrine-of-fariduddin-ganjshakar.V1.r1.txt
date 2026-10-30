@@ -1,0 +1,103 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [side by side variant, rule 4] "He died at Ajodhan in the month of Muharram, the first month of the Islamic year, in 1266, though most accounts place his death a year earlier, in 664 of the Hijri calendar, which corresponds to 1265." -> Basis (a) does apply (1266 is the site's year, and Qureshi, Kasmani and Dhillon agree, so not every other source is against it), but the clause names the rival year, gives its Hijri form, and tells the reader that most accounts hold it. That is the side by side presentation Rauf ruled out ("say there is no consensus but the generally established position is this"), and the brief's model sentence gives the kept year with only "accounts differ". -> Replace with: "He died at Ajodhan in the month of Muharram, the first month of the Islamic year, in 1266; accounts of the year of his death differ."
+
+2. [source talk / apparatus] Legacy, last paragraph: "A long literature has gathered around him, among it Khaliq Ahmad Nizami's biography, published at Aligarh in 1955 and at Delhi in 1973; Muslim Nizami's *Anwar al-Faridiya*, printed at Pakpattan in 1965; Gurbachan Singh Talib's *Baba Sheikh Farid Shakar Ganj*, published in New Delhi in 1974; and Muhammad Asaf Khan's study of the provenance of his poetry, published in Lahore in 1978. For the Chishti Sabiri order the book about him is Wahid Bakhsh Sial Rabbani's *Maqam-i Ganj-i Shakkar*, published in Lahore in 1994, in which the saint's discourses were translated into Urdu." -> This is a list of books about him with places and years of publication. It is bibliography, built in the team version from other authors' reading lists, and it is not narrative. -> Delete both sentences, from "A long literature has gathered around him" to "translated into Urdu.", so that the paragraph runs: "...it has been said that "no saint excelled him in his devotions and penances." Compassion, poverty, and the sweetness that gave him his name remain the marks of his memory."
+
+3. [source talk / apparatus] "The record of the appeal, *Dewan Ghulam Rasul vs. Ghulam Qutab-ud-din*, before the Lahore High Court in 1939, fills five volumes." -> The case title and the number of volumes describe the archival record (the source of Eaton's footnote), not what happened. The one fact for the reader is that there was an appeal in 1939. -> Replace with: "The case went on appeal to the Lahore High Court in 1939."
+
+4. [unsupported claim, wrong referent] "Most of these "daughter" shrines were founded by Baba Farid's own descendants, and so looked on Pakpattan as their spiritual superior" -> "these" points back to the one witness's list just given (Hansi, Nizamuddin Auliya's shrine in Delhi, Piran Kaler, Golra Sharif, Taunsa Sharif, Uch Sharif, Kasur, Panipat), so the sentence says that most of those were founded by his descendants. The team version says this only of "most of the 'daughter' shrines of Baba Farid in the Punjab". -> Replace with: "Most of Baba Farid's "daughter" shrines in the Punjab were founded by his own descendants, and so looked on Pakpattan as their spiritual superior"
+
+5. [time anchor not in source] "In 2001 their cry was "Ya Farid, Haq Farid!"" -> The team version gives this cry ("Rozehnal heard the pilgrims' cry as ...") with no year. 2001 is the writer's inference. -> Replace with: "The pilgrims' cry has also been heard as "Ya Farid, Haq Farid!""
+
+6. [source talk, rule 4] "Later authorities give a long list of Baba Farid's *khalifas*, but he is most often said to have invested seven with spiritual power." -> "Later authorities give" narrates the sources, and it sets the long list beside the seven. -> Replace with: "The number of his *khalifas* is not settled, but he is most often said to have invested seven with spiritual power."
+
+7. [more certainty than the source, rule 4] "Farid's father is most often named Shaikh Jamal al-Din Sulaiman, and his mother was Qursum Khatun, daughter of Mulla Wajih al-Din Khujandi." -> The team version records a disagreement over his mother's name ("His mother's name, and who Bibi Sharifa was": in another account his mother is Bibi Sharifa). The balance of sources is the same as for the father (two against one), but the father is given "most often" and the mother is stated as certain. -> Replace with: "Farid's father is most often named Shaikh Jamal al-Din Sulaiman, and his mother Qursum Khatun, daughter of Mulla Wajih al-Din Khujandi."
+
+8. [belief stated as fact, check 2] "To pass through it is a direct encounter, bringing salvation, with Baba Farid's living grace, his *baraka*, and a ritual reenactment of the saint's eternal union with God." -> This describes the devotees' understanding, but it reads as the narrator's own claim that the Gate brings salvation. The site's own sentence frames the same belief ("Pilgrims believe"). -> Replace with: "For devotees, to pass through it is a direct encounter, bringing salvation, with Baba Farid's living grace, his *baraka*, and a ritual reenactment of the saint's eternal union with God."
+
+9. [tradition stated as fact, check 2] "in imitation of the moment when Baba Farid went into ecstasy on realising that Nizamuddin Auliya had just attained a status rare even among the great ones" -> This states a hagiographic moment (Farid's ecstasy, and Nizamuddin becoming the beloved of God) in the narrator's voice. -> Replace with: "in imitation of the moment when, it is told, Baba Farid went into ecstasy on realising that Nizamuddin Auliya had just attained a status rare even among the great ones"
+
+10. [belief stated as fact, check 2] "A superlative heaven was allotted to those who were first to enter the tomb on the day" -> This is a pilgrims' belief told as a fact. -> Replace with: "A superlative heaven was believed to await those who were first to enter the tomb on the day"
+
+11. [belief stated as fact, check 2] "Within easy reach, only several days' travel in the Punjab, Pakpattan was a place where God's grace was made concrete and accessible, where Heaven and Earth met." -> This is the devotees' perception in the team version ("Local Perceptions"), told as fact. -> Replace with: "For its devotees, Pakpattan, within easy reach, only several days' travel in the Punjab, was a place where God's grace was made concrete and accessible, where Heaven and Earth met."
+
+12. [belief stated as fact, check 2] "Because only the Diwan opened the Gate, it was only through him that devotees gained access to Baba Farid, and only through the saint that they gained access to heaven." -> This states access to heaven as fact. -> Replace with: "Because only the Diwan opened the Gate, devotees held that it was only through him that they gained access to Baba Farid, and only through the saint that they gained access to heaven."
+
+NOTES:
+
+Rulings on the writer's Points for V1:
+
+1. Death year. Basis (a) applies, and 1266 is the right year to keep. The clause naming 664 AH and 1265 and "most accounts" is not allowed (issue 1). Keeping the fifth of Muharram only as the day of the ʿurs is right. So are the consistency changes: Badr al-Din Sulaiman "until 1281", "With his death began", and dropping the "fiftieth anniversary". None of them adds anything the team version does not support.
+
+2. Kothewal for Kahtwal: accepted. The team version itself treats Kahtwal as a form of the birthplace's name (Lahori's annotation corrects Kahtwal to Kothewal, and the disagreement item lists Sharib's and Rizvi's Kahtwal under the name of his birthplace). This is a variant spelling, so it is minor.
+
+3. Qazi Shuaib as grandfather, with the Ghaznavid appointment: accepted. The man and the appointment are the same in both accounts (both make Qazi Shuaib qazi of Kahtwal after Lahore and Kasur). Only his relation to Farid differs, and the text takes that from the site's grandfather with Sharib and the editor's sequence. This is not a merged chain.
+
+4. Hansi: two compatible reasons, not variants. Rizvi gives fame as an obstacle to prayer. Lahori's majzub gives the crowds keeping the majzub from him. Both turn on the crowds in Delhi. Keep "Tradition adds".
+
+5. The stay at Ajodhan without a range: accepted. The only figures are Eaton's sixteen or twenty four years and Rizvi's "from about 1236", and a span would have to be computed, which the brief forbids. "Accounts differ ... but it was his home for the rest of his life" is right.
+
+6. Najib al-Din's nineteen visits: accepted. Rizvi's own sentence ends with Najib al-Din's death after the withheld prayer, which makes him the visitor, and the episode is framed ("it is told").
+
+7. Khwaja Yaqub's saying: accepted as placed. The team version sets it among the sons, and the public text goes no further than the team version (it says "Khwaja Yaqub", not "his son").
+
+8. Zakat parable: keep. The [OCR?] tag sits on the spelling of one word ("Sharia'a"), which the team version itself corrects to Shari'a, and the parallel Shari'a, Tariqa, Haqiqa fixes the sense. Nothing rests on the doubtful spelling.
+
+9. Blame for 2001: acceptable as written. The two positions are what the parties to the event said (the authorities and the Diwan's family), not rival accounts by sources, and the sentence tells the dispute itself in one sentence.
+
+10. The literature sentence: source talk and apparatus. Delete it (issue 2).
+
+11. Renderings: accepted. The quotation marks and dashes are handled correctly, "[see note 6 above]" is gone, and credits appear only for Usborne, Qureshi and Abbas, whom the team version names as translators. No credit for Rizvi's doha senses, Khalid's qawwali lines or the Sher Khan verse.
+
+12. The Tahqiqat verse and chronogram line left out: correct under rule 5.
+
+13. Identifications not made: correct, and keep them all unmade. That covers Sultan Muhammad of the tomb, Ulugh Beg, the two Badr al-Dins, Gharib Nawaz and the two grandsons named Ala al-Din.
+
+14. Amir Khurd as "author of the *Siyar al-Auliya*": supported (the team version has "Amir Khurd's *Sair al-Auliya*"). It is a family link, not citation, so keep it.
+
+15. The land legend's ambiguity over who fell: correctly kept.
+
+16. The Chishti Sabiri twelve years: acceptable where it stands. The sentence does not place the training in Delhi or equate it with the twelve years at Hansi.
+
+Other consensus choices checked and accepted: birth year and birthplace; the mid twelfth century migration; the father's name; Bibi Sharifa as a daughter; the name Farid al-Din; initiation at Multan or Delhi and the Qandahar question (basis d, given as the matter in doubt, not as two narratives); the inverted chilla at Uch; the pebbles as the story most often told (four sources against two for the next); villages from Ulugh Khan or Nasir al-Din (d); Balban's daughter doubted; two to four wives; five sons and three daughters; Nizam al-Din's death (c); age ninety to ninety five (d); the tokens of succession; Sabir framed sentence by sentence; his writings; the Punjabi poetry with "no settled view"; the shloka transmission and the authorship clause; the renaming; the Gate; Ibn Battuta "in the fourteenth century"; Chistian; the Tibba Haji Deen graves; and the conversion claim "doubted".
+
+Qutbuddin's successor is acceptable, but the notes give the wrong basis. "He became the head, or *qutb*, of the Chishti order" is the site's statement (with Schimmel's "successor"), not Rizvi's. The composite still stands, because Rizvi himself says the relics implied the succession while the Delhi seat went to Badr al-Din without conflict, and the public text drops only Rizvi's "in Delhi" from the implication. Correct the basis line in the notes.
+
+I checked the uncertain readings. No [OCR?], illegible or "uncertain in print" reading is used as fact. Kathwal, the Jhawli, Nahirza, Sharo, Sakre, Abd Allah, vela, the thirty stages, the door's name, the radiant word, the Abdullah Khokhar episode and the Lahore chilla and takiya are all left out. Azz al-Din Mahmud and Wajih al-Din Khujandi are taken from their clean readings. Two cases are acceptable on inspection. The karir tree comes from a Tahqiqat sentence whose qualifier attaches only to the spelling of Ajodhan, and "now famous as Pak Pattan" fixes the place. The prophecy of crown and throne rests on the clean "he did become king, as Ghiyath al-Din Balban", not on Sharib's doubtful name.
+
+Omission sweep: I compared every paragraph of the team version against the public text and found no important omission. The family members by name, the sons, daughters, brothers, sister, sons in law, keepers, Diwans and disciples are all present. Two items dropped silently are minor and need not return: the "Ibrahim b. Adham" line of the ancestral chain (genealogy rejected by the editor) and Khalid's shop names.
+
+Time anchors: all are firm, except issue 5 and "the mound now called Farid Astana" (see below).
+
+Minor points (meaning or precision, in my wording, for the writer to apply after this round):
+
+a. "sat on the mound now called Farid Astana": "now" is the present of a nineteenth century source whose date is unconfirmed. Use "sat on the mound that came to be called Farid Astana".
+
+b. "Behind the place where the *qawwals* sit, the *langar* hall still offers free food to all." This turns one visit into a fixed arrangement. Use "On one visit the *langar* hall stood behind the *qawwals*, offering free food to all."
+
+c. "allowed *qawwali* only because": the team version has no "only". Use "allowed *qawwali* because".
+
+d. "and in the shrine he received illuminations and fell, sensing that he was unconscious and yet still able to hear the people talking around him." The pilgrim's sex is not given in the team version. Use "and in the shrine received illuminations and fell, aware of being unconscious and yet still able to hear the people talking all around."
+
+e. "Disciples told that Baba Farid, too, had met his future wife in a prescient dream." "too" has no antecedent in the public text. Use "Disciples told that Baba Farid had met his future wife in a prescient dream."
+
+f. "At Uch he was seen on a banner at Jalaludin's shrine, in a simple white dress with a green shawl on his shoulders." This reads like an apparition. Use "At Uch a banner at Jalaludin's shrine shows him in a simple white dress with a green shawl on his shoulders."
+
+g. "lived a *kaniz*, a chaste woman," The italic term followed by a comma reads as a gloss, and *kaniz* means a maidservant. Use "lived a *kaniz*, a maidservant, and a chaste woman,".
+
+h. "The son of Shihab al-Din the sorcerer worked magic against him" Use "The son of Shihab al-Din the sorcerer is said to have worked magic against him".
+
+i. "in what seems to be the earliest reference to the court's assigning local revenues to its support." "reference" is source language. Use "which seems to be the earliest known instance of the court assigning local revenues to its support."
+
+j. "his *khilafat-nama*, the written warrant of his succession": the earlier gloss makes a *khalifa* a deputy, so use "his *khilafat-nama*, the written warrant of his *khilafat*".
+
+k. Shrine, first paragraph: "and a Persian chronogram written in his honour, a verse whose letters, read as numbers, give a year, ended both its couplets on words that name him peerless" describes what a printed notice is followed by, with no year and no poet. It reads as apparatus, and the reader gains nothing. Consider ending the sentence at "was a place of pilgrimage." ("written in his honour" is also slightly more than the team version says.)
+
+l. "That year, a newspaper reported, the Diwan argued" is acceptable as a hedge on a news report. "That year the Diwan is reported to have argued" would avoid naming the medium.
+
+m. The khirqa appears twice: before Hansi as the mark of khilafat (Lahori) and as the master's cloak after his death (Sharib, Rizvi, Bhandari). These can be two different gifts, and the text does not equate them, so no change is needed.
+
+n. Reader: once issues 2 and 3 are applied, the text reads as narrative. The heavier passages that remain are the size of the 1930s case (159 and 172 depositions, 836 pages) and the three collections of sayings. Both carry content (the scale of the dispute; whether he wrote books), so keep them. Length after the deletions is about 0.45, inside L1, with no exception needed.

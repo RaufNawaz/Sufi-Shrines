@@ -1,0 +1,24 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 17 OLD/NEW pairs of verify/shri-laxmi-narayan-mandir-native-jetty-bridge.ur.r2.changes.txt, applied in order to /home/claude/bak/shri-laxmi-narayan-mandir-native-jetty-bridge.ur.md.bak_ur1 (each OLD occurred exactly once and was replaced once), give a result byte for byte identical to the current .ur.md. Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py shri-laxmi-narayan-mandir-native-jetty-bridge --no-verdicts` printed: ok    shri-laxmi-narayan-mandir-native-jetty-bridge  team 23805 -> public 13698 chars (0.58), Urdu 13176 chars (0.96)
+3. Each change read in its paragraph against the English:
+   - 1 (جا ملتے ہیں): "open onto the Arabian Sea", same meaning.
+   - 2 (لکشمی اور نارائن کی جوڑی ... شمار ہوتی ہے): "the pairing ... is one of the most beloved", same; the union of prosperity and divine sustenance kept.
+   - 3 (کراچی کے اس مندر میں ... اس کے مقام نے متعین کیا ہے): "At Karachi the temple's devotion has been shaped by its place at the water's edge", same; اس refers to the temple.
+   - 4 (subject moved first): Hanuman, the monkey god, Sai Baba of Shirdi, "alongside the principal images" and "also" all kept.
+   - 5 (اس کے لیے خطرے کا باعث بھی): renders "vulnerability" as exposure to danger, which is what the English means and what Under Threat then develops; not stronger than the English.
+   - 6 (مذہبی تقویم کے بدلتے موسموں کی خبر دیتے ہیں): "mark the turning of the devotional year"; the seasons image was already in the round 1 text and V2 r1 accepted it; no fact added.
+   - 7 (adapted): the decision is right. The English says only that Ramdeo Pir "is still known in Sindh as Rama Pir"; مگر would add a contrast and ہی an exclusivity ("only as Rama Pir") that the English does not state. The joined sentence keeps the alias, "still", "in Sindh", and the next sentence keeps "today integrated into the temples dedicated to the divinities worshipped throughout India"; وہ and وہاں refer correctly to Ramdeo Pir and Sindh.
+   - 8 (adapted): the decision is right. The English "for them the Sufis are a part of their religious legacy" is present; حصہ تھے would have moved that claim into the past. نہیں بن جاتے تھے for "does not make them Sufis" follows the past habitual of the visits and keeps the meaning (visiting did not make them Sufis).
+   - 9 (ویشنو مسلک ... وشنو سے عقیدت): "the Vishnuite school ..., the tradition devoted to Vishnu", same.
+   - 10 (یہ ہندو مندر تھا): now matches "it is thought to have been a Hindu temple already in the time of Guru Nanak"; the hedge خیال کیا جاتا ہے and "like the temple at Clifton" kept; یہ is the Ram Bagh temple.
+   - 11 (حلقۂ ذکر کراتے تھے): "led weekly halqa ... on Thursday evenings in Karachi"; weekly and Thursday evening carried by ہر جمعرات کی شام; teaching shaykh and "one Sufi order" kept.
+   - 12 (منگھوپیر ... مگرمچھوں سے متعلق ایک کرامت): dictionary spelling (پیر منگھو); "near Karachi" and the hedge "is said" kept as the change note says; "a miracle of alligators" rendered without making the animals the miracle workers, no fact added. The in Karachi / near Karachi pairing of the two sentences comes from the English itself (two sources, two spellings) and is kept, as the archive's rule on contradictory data requires.
+   - 13 (یہاں کی زندگی): "its life", the province's; referent now right.
+   - 14 (تاجر پیشہ لوہانہ ذات): "the trading caste that formed the great body of the Hindus of Sindh", same.
+   - 15 (روچل داس کے مطابق): fixes V2 r1 issue 1; the Muhajirs' wish to take over Hindu houses, "at least in Karachi", is again inside Rochaldas's account and no longer in the article's own voice.
+   - 16 (ساخت میں زبردست تبدیلی آئی): "dramatically altered", no longer the stronger "entirely".
+   - 17 (اندازے ایک دوسرے سے بہت مختلف ہیں): "an estimate that varies widely", same; 6 and 10 million unchanged.
+4. Mechanics of the current file: no Latin letters, no em or en dashes, 18 asterisks (balanced), Western digits.

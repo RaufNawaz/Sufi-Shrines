@@ -1,0 +1,13 @@
+# churrio-jabal-durga-mata-temple: English changes after V1 round 1 (PASS, ISSUES: none). Precision notes 1 to 3 applied in the verifier's wording; note 4 (a temple at another site) not applied; notes 5 to 9 are checks. Backup: /home/claude/bak/churrio-jabal-durga-mata-temple.before_v1r2.md
+
+WHY: V1 r1 note 1 (connective: 'Yet' drew a contrast the team version does not draw); verifier's wording
+OLD: Yet after the demolition
+NEW: After the demolition
+
+WHY: V1 r1 note 2 (merge: 'in the belief that' made the belief the reason for the shirted journey); verifier's wording
+OLD: Hindu pilgrims travel to a shrine of Durga during Navratri wearing uniform shirts, in the belief that by travelling to the shrine of Durga Mata all their wishes will come true.
+NEW: Hindu pilgrims travel to a shrine of Durga during Navratri, wearing uniform shirts, and devotees believe that by travelling to the shrine of Durga Mata all their wishes will come true.
+
+WHY: V1 r1 note 3 (precision: the team version says 'Hindu devotees'); verifier's wording
+OLD: Devotees offer the goddess a
+NEW: Hindu devotees offer the goddess a

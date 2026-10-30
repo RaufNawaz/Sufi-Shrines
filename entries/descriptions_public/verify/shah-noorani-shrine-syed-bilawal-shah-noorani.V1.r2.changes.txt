@@ -1,0 +1,17 @@
+# shah-noorani-shrine-syed-bilawal-shah-noorani: English changes after V1 round 1 (PASS, ISSUES: none). Precision notes 3, 5 and 7a applied in the verifier's wording; 7b (would drop the hedge 'seems'), 7d (Gujarat kept; the context is the Indian state, recorded here), 7c, 7e, 7f and note 4 not applied. Backup: /home/claude/bak/shah-noorani-shrine-syed-bilawal-shah-noorani.before_v1r2.md
+
+WHY: V1 round 1, note 3 (precision: a firm time anchor makes the order of the new road and the 2016 blast explicit); the verifier's wording
+OLD: Like Hinglaj, Lahut has seen a new wave of interest,
+NEW: In the years before 2016, Lahut, like Hinglaj, saw a new wave of interest,
+
+WHY: V1 round 1, note 5 (precision: 'on the valley' infers the book's subject from its title); the verifier's wording
+OLD: at the end of an Urdu book on the valley, *Lāhūṭ lā Makān*,
+NEW: at the end of an Urdu book named after the valley, *Lāhūṭ lā Makān*,
+
+WHY: V1 round 1, note 7a (the brief: explain a term the first time it appears); the verifier's wording, first occurrence
+OLD: who come in great numbers for its *dhamal* and its blessing,
+NEW: who come in great numbers for its *dhamal*, the ecstatic trance dance of its pilgrims, and its blessing,
+
+WHY: V1 round 1, note 7a, second occurrence (the gloss now given at first use is not repeated); the verifier's wording
+OLD: It is famous above all for its *dhamal*, the ecstatic trance dance, driven by the drum, that crowds of pilgrims perform,
+NEW: It is famous above all for its *dhamal*, driven by the drum and performed by crowds of pilgrims,

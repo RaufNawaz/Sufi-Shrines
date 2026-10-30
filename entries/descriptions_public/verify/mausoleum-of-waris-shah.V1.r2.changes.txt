@@ -1,0 +1,49 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/mausoleum-of-waris-shah.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1 (paragraph deleted)]
+OLD: Two lines of the poem name Jandiala. One cries "God save Jandiala (the birthplace of the poet)", and near its close the poet says of himself that "Waris Shah lives at Jandiala and is the pupil of the Saint of Kasur".
+
+It was to the fort of Sheikhupura that Rani Jindan was first sent, and then to the fort of Chunar Garh.
+NEW: (deleted)
+
+[V1 r1 issue 1]
+OLD: It was to the fort of Sheikhupura that Rani Jindan was first sent, and then to the fort of Chunar Garh. The Ghazi Pir is buried at the foot of the hillock near Shah Kot in the district, and the people of five districts, Sheikhupura among them, congregated annually at his shrine.
+NEW: Rani Jindan was first sent to the fort of Sheikhupura, and then to the fort of Chunar Garh. The Ghazi Pir is buried at the foot of the hillock near Shah Kot in the Sheikhupura district, and the people of five districts, Sheikhupura among them, congregated annually at his shrine.
+
+[V1 r1 point 4 (optional precision)]
+OLD: He belonged in spirit to the Chishti Sufi tradition, the order prominent in South Asia, and traced his discipleship to the line of the saint Makhdoom of Kasur, though accounts of his allegiance and of his teacher differ. He is said to have studied religion together with the poet Bulleh Shah under the same teacher. Bulleh Shah was his older contemporary, who also took up the tale of Heer and Ranjha in Punjabi.
+
+Little of his life is recorded with certainty, and much is woven from legend.
+NEW: He belonged in spirit to the Chishti Sufi tradition, the order prominent in South Asia, and traced his discipleship to the line of the saint Makhdoom of Kasur, though accounts of his allegiance and of his teacher differ. Bulleh Shah was his older contemporary, who also took up the tale of Heer and Ranjha in Punjabi, and the two are said to have studied religion together under the same teacher.
+
+Little of his life is recorded with certainty, and much is woven from legend.
+
+[V1 r1 point 13]
+OLD: Waris Shah composed it as an epic poem to be sung to music in public, and he is said to have recited it with great emotion among his listeners in the Punjab.
+NEW: Waris Shah composed it as an epic poem to be sung to music in public, and he is said to have recited it with great emotion among the people who shared his speech in the Punjab.
+
+[V1 r1 minor a (sentence moved)]
+OLD: In Aurangzeb's reign the people of the Punjab composed wonderful verses and designs on the love of Heer and Ranjha and sang them. A historian of Lahore called it the story that was on the tongue of good and bad, small and great, rich and poor in the land of the Punjab.
+
+By the 1970s a visitor who stayed in a Punjabi village would certainly find somebody to sing the old romance of Heer and Ranjha in the classical form given it by Waris Shah, and a Punjabi would be deeply touched when the story was sung.
+NEW: (deleted)
+
+[V1 r1 minor a (sentence moved)]
+OLD: By the 1970s a visitor who stayed in a Punjabi village would certainly find somebody to sing the old romance of Heer and Ranjha in the classical form given it by Waris Shah, and a Punjabi would be deeply touched when the story was sung.
+NEW: A historian of Lahore called it the story that was on the tongue of good and bad, small and great, rich and poor in the land of the Punjab. By the 1970s a visitor who stayed in a Punjabi village would certainly find somebody to sing the old romance of Heer and Ranjha in the classical form given it by Waris Shah, and a Punjabi would be deeply touched when the story was sung.
+
+[V1 r1 minor b]
+OLD: He wrote in the *bait*, the stanza of four lines adopted in Punjabi Sufi poetry, the form the Sufi poet Sultan Bahu used in his *Abiat*.
+NEW: He wrote in the *bait*, the stanza of four lines adopted in Punjabi Sufi poetry, the form the form Sultan Bahu also used in his *Abiat*.
+
+[V1 r1 minor c]
+OLD: Of himself and the Kheras he says: "There are none so fortunate as the Kheras," "no one so full of sin as the Poet Waris and there is no spell like that of his poetry." He tells himself, "Waris Shah, your name will be famous, if God be kind.", and he adds at the close that "Waris Shah has shed the light of his genius over all the faithful in the world." Beside the boast stands the penitent:
+
+*I have no capital of good works.
+NEW: Of himself and the Kheras he says: "There are none so fortunate as the Kheras, no one so full of sin as the Poet Waris and there is no spell like that of his poetry." He tells himself, "Waris Shah, your name will be famous, if God be kind.", and he adds at the close that "Waris Shah has shed the light of his genius over all the faithful in the world." Beside the boast stands the penitent:
+
+*I have no capital of good works.
+
+[V1 r1 minor d]
+OLD: Devotees recite the *Fatiha*, the opening chapter of the Quran recited as a prayer, and seek blessing; singers come to perform *Heer* and *qawwali*, the devotional music of the Sufis; and the annual *ʿurs*, the yearly commemoration of the saint's death, gathers crowds who honour the poet saint with music and remembrance.
+NEW: Devotees recite the *Fatiha*, the opening chapter of the Quran recited as a prayer, and seek blessing; singers come to perform *Heer* and *qawwali*, the devotional music of the Sufis; and the *ʿurs*, the yearly commemoration of the saint's death, gathers crowds who honour the poet saint with music and remembrance.

@@ -1,0 +1,19 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 12 OLD/NEW pairs of verify/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.ur.r2.changes.txt were applied in order to /home/claude/bak/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.ur.md.bak_ur1, each OLD found exactly once and replaced once. The result is byte for byte identical to the current .ur.md (True). Every NEW occurs once in the current file and no OLD remains. Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a --no-verdicts` printed `ok    darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a  team 37870 -> public 16607 chars (0.44), Urdu 15469 chars (0.93)` (exit 0). No Latin letters, no en or em dashes in the file.
+3. Change by change against the English:
+   - 1 (ہی dropped): "the wider spread ... came about through him" is now rendered without the "through him alone" emphasis. Same meaning. Round 1 note 2 is fixed.
+   - 2 (اس شاخ کے مرشد): "a master of that line" means the Sulaymaniyya branch just named, and the Urdu now refers to that branch, not the whole Chishti order. Referent right.
+   - 3 (سلسلۂ چشتیہ نظامیہ سلیمانیہ): "brought the Chishti Nizami Sulaymaniyya to South Africa". Sufi Saheb, 1916, the order and South Africa are all kept. Marking it as a silsila adds no fact.
+   - 4 (خواجہ صاحب کے جانشینوں کی بدولت): "which has remained, through those successors, a seat of Chishti teaching and devotion". The successors are the saint's, as in the sentence before. Faithful.
+   - 5 (ایک دارالعلوم): the English "a madrasa ..., a dar al-ulum or house of learning" glosses a familiar word for the English reader. The next sentence still says مدرسے, and the dropped gloss is not an omission under the brief. Purpose, select students and growth are all unchanged.
+   - 6 (جو آئندہ علمی تحقیق میں کام آ سکتا ہے): "a collection from which future scholarship stands to benefit". The potential modal (سکتا) keeps the hedge, and جو refers to ذخیرہ. Faithful.
+   - 7 (تلاوت فرماتے ... نماز پڑھتے): "after the noon prayer he recited the Quran; then came the afternoon prayer". He is now the agent of the recitation, as in the English. پڑھتے is needed to give عصر کی نماز a verb, and within a list of his daily discipline it adds nothing. Round 1 note 3 is fixed.
+   - 8 (ان ہندوؤں کے سکھ ہمسایوں): "even while he opposed their Sikh neighbours". The neighbours are now unambiguously the Hindus'. Round 1 note 1 is fixed (merged with V3 issue 4).
+   - 9 (اکہتر اشعار پر مشتمل رازِ حضرتِ خواجہ محمد سلیمان): "told his life in seventy one verses in the Raz-i ...". The team source (entries/descriptions/...md, Ernst and Lawrence p. 237) calls it "a biography in seventy-one verses", so describing the work as made up of 71 verses is exact. ان کی زندگی is the saint's, since Pishawari's own life would be اپنی.
+   - 10 (ان سوانح عمریوں میں): "They include" means the biographies. Referent right.
+   - 11 (تونسہ میں مصنف کی بعد کی حاضریوں): "telling of the author's later visits to Taunsa and of the saint's death". Both items, 1287 AH (1870) and Bahawalnagar are kept.
+   - 12 (امام الدین غلام شاہ نے ... نافع السالکین جمع کی، اور یار محمد ذوقی ... نے منتخب المناقب ترتیب دی): each compiler, title and date (1267 AH, 1851 to 1852) matches the English. اسی طرح after "ان میں ... بھی ہے" still places both among the collections of his sayings.
+4. No fix was adapted or rejected in this round. The coordinator applied each verifier's own wording, merging V3 issue 4 with V2 note 1, which were the same fix. That merge is right.

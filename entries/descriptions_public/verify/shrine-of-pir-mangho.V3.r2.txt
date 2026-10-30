@@ -1,0 +1,13 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- All sixteen round 1 issues have been resolved: "کراچی کے نواح کی پہاڑیوں", "مقبرے سے نیچے کی جانب", "زمینی حرارت کے ان متعدد مقامات میں شامل ہیں جو اسی ابھار پر واقع ہیں جس پر چندرکوپ ہے", "روایات میں ... کرامات سے جوڑا جاتا ہے", the two-sentence Lalu Jasraj passage, "یہ بات بھی واضح نہیں", "سِدّی یا سیّدی", "یکے بعد دیگرے", the split Kolachi sentence and "یہ قدیم، نرالا اور ہر دلعزیز دربار" all read naturally now.
+- Location repetition: the introduction says "کراچی کے شمالی مضافات میں واقع", "صاحبِ مزار" has "کراچی کے نواح کی پہاڑیوں میں" and "مزار" repeats "مزار کراچی کے نواح کی پہاڑیوں میں واقع ہے". The third mention could be shortened, for example to "یہ جگہ اب شہر کے شمالی حصے میں شامل ہے۔"
+- The mela is praised twice in similar words: "شہر کی سب سے منفرد روایات میں سے ہے" in the introduction and "کراچی کے سب سے نمایاں تہواروں میں ہوتا ہے" in "عقیدت اور تہوار". This is taste.
+- "افریقی جڑیں رکھنے والی ثقافت کا یہ جیتا جاگتا نشان" is acceptable. "جیتا جاگتا مظہر" or "افریقی الاصل ثقافت کی یہ زندہ علامت" would be smoother, and the latter matches the wording used in "ورثہ".
+- "زائرین گوشت نذر کرتے ہیں" leaves the recipient implicit. "زائرین مگرمچھوں کو گوشت نذر کرتے ہیں" would be clearer, though the context already makes it plain.
+- The closing image "ان دھاگوں میں ہنگلاج کی ہندو یاترا سے تعلق شامل ہے" is slightly loose, since a thread does not "include" a connection. "ان دھاگوں میں ایک دھاگا ہنگلاج کی ہندو یاترا سے تعلق کا بھی ہے" would keep the metaphor whole. "دھاگوں کا مظہر" is acceptable, but "مظہر" was already used for the springs ("ایک قدرتی مظہر").
+- "آزاد ہونے کے باوجود ان میں سے بعض صوبے کے جاگیردار گھرانوں سے وابستہ ہیں" would read more naturally with "آج بھی": "... بعض آج بھی صوبے کے جاگیردار گھرانوں سے وابستہ ہیں". Similarly, "شیدی عورتیں صوبے کے گھرانوں میں" could be "سندھی گھرانوں میں".
+- The paragraph beginning "خود کراچی تصوف کے دو اہم شہری مراکز میں سے ایک ہے" moves through four topics: the Sufi centres, Sehwan, the name legend and Partition. It is grammatical, but it could be broken in two after the Sehwan sentence.
+- The remaining points carried from round 1 are all taste: "ہر جگہ سے" (better "دور دور سے"), "صدیوں کے دوران" (better "صدیوں میں"), the full parenthesis "(حضرت حاجی سید سخی سلطان)" appearing twice, the switch between "سڑک" and "راستہ" for the Hinglaj route, and "عوامی مذہب" (an academic usage, acceptable).
+- Mechanics: no Latin letters, no em or en dashes and no Eastern digits ("240" is Western). The asterisks are balanced (6). The Latin colon in the introduction and the Latin double quotes around "مگرمچھوں کا پیر" are acceptable in Urdu typography.

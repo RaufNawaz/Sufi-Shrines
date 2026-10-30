@@ -1,0 +1,21 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: The tale of Sohni begins with a potter who lived in the Gujrat district of the Punjab, and Sohni belongs to Gujrat, on the river Chenab; Takht Hazara, the home of Ranjha's clan, lies in what is now the Gujrat District of Pakistan.
+NEW: The tale of Sohni begins with a potter who lived in the Gujrat district of the Punjab, and Takht Hazara, the home of Ranjha's clan, lies in what is now the Gujrat District of Pakistan.
+
+2. V1 r1 change 2
+OLD: It was once the custom to leave a child, as soon as it was weaned, at Shah Daula's *khanqah* as an offering to him.
+NEW: It was once the custom for parents who had sought a child through his intercession to leave the child, as soon as it was weaned, at Shah Daula's *khanqah* as an offering to him.
+
+3. V1 r1 change 3
+OLD: It was so solidly built that no man of wealth could raise a building as strong, and it became a landmark: the Deg ran below Shah Daula's bridge, which stood on the highway.
+NEW: It was said to be so solidly built that no man of wealth could raise a building as strong, and it became a landmark: the Deg ran below Shah Daula's bridge, which stood on the highway.
+
+4. V1 r1 change 4
+OLD: The takeover could not wholly change the perceptions rooted deep in the minds of the rural people, or the authority of the shrine's administrator on the spot, the *mujawir*.
+NEW: The takeover, it has been observed, could not wholly change the perceptions rooted deep in the minds of the rural people, or the authority of the shrine's administrator on the spot, the *mujawir*.
+
+5. V1 r1 change 5
+OLD: The shrine's *mujawir* rules through a dream.
+NEW: In the story, the shrine's *mujawir* rules through a dream.

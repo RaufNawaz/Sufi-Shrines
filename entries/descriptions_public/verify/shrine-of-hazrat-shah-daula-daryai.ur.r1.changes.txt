@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. sync with the English: V1 r3 change 1 (He is said to have settled), applied by the coordinator after the Urdu was written and before V2 and V3 round 1; the hedge governs the settling only, as in the English
+OLD: سترہویں صدی کے اوائل میں شاہ دولہ گجرات آ کر بس گئے، اور وہاں اس جگہ اپنی خانقاہ قائم کی جو پہلے گڑھی شاہ دولہ کہلاتی تھی۔
+NEW: کہا جاتا ہے کہ سترہویں صدی کے اوائل میں شاہ دولہ گجرات آ کر بس گئے۔ وہاں انہوں نے اس جگہ اپنی خانقاہ قائم کی جو پہلے گڑھی شاہ دولہ کہلاتی تھی۔

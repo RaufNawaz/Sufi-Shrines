@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. sync with the English: V1 r2 precision note 1 (Siddhas such as the disciples of Gorakhnath), applied by the coordinator after the Urdu was written and before V2 and V3 round 1
+OLD: عقیدہ ہے کہ گورکھ ناتھ اور دوسرے سدھوں کے چیلوں نے ہمالیہ کے دامن میں یہ مقام حاصل کر لیا تھا۔ یہ چیلے *جیون مکت* کہلائے،
+NEW: عقیدہ ہے کہ گورکھ ناتھ کے چیلوں جیسے سدھوں نے ہمالیہ کے دامن میں یہ مقام حاصل کر لیا تھا۔ یہ سدھ *جیون مکت* کہلائے،

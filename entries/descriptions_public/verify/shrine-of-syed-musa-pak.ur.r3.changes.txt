@@ -1,0 +1,13 @@
+# shrine-of-syed-musa-pak: changes applied by the coordinator after V3 round 2 (FAIL, 2 issues); V2 round 2 PASS; exact replacement of each OLD once (late round procedure). Other V3 notes (taste, or content the English does not have) not applied. Backup of the round 2 file: /home/claude/bak/shrine-of-syed-musa-pak.ur.before_r3.md
+
+WHY: V3 r2 issue 1, ADAPTED by the coordinator: V3 merged the two sentences and put the date on the bai'at, but the English dates only his becoming attached and states the bai'at separately (round 2 writer's point). وابستہ ہوئے replaces the office word منسلک, and the bai'at follows as a second verb with no fronted بیعت, so the contrast reading is gone; the shaikh's attention stands as its own sentence
+OLD: شیخ عبدالحق 6 شوال 985ھ (1577ء) کو ان سے منسلک ہوئے۔ بیعت انہوں نے موسیٰ پاک کے ہاتھ پر کی، اور مرشد نے اپنے مرید پر خاص توجہ فرمائی۔
+NEW: شیخ عبدالحق 6 شوال 985ھ (1577ء) کو ان سے وابستہ ہوئے اور انہی کے ہاتھ پر بیعت کی۔ مرشد نے اپنے مرید پر خاص توجہ فرمائی۔
+
+WHY: V3 r2 issue 2, applied in the verifier's wording (English: 'settled at Uch, which he entered in 887 AH')
+OLD: سید محمد غوث خراسان کے راستے ملتان آئے اور اوچ میں آباد ہوئے، جہاں ان کا ورود 887ھ میں ہوا۔
+NEW: سید محمد غوث خراسان کے راستے ملتان آئے اور 887ھ میں اوچ پہنچ کر وہیں آباد ہو گئے۔
+
+WHY: V3 r2 note, applied in the verifier's wording: the bare opening مدح میں was abrupt; the English 'a father praised as the exemplar of the noble Sayyids and the choicest of the great shaikhs' is kept
+OLD: مدح میں سید حامد گنج بخش کو ساداتِ کرام کا نمونہ اور مشائخِ عظام میں برگزیدہ ترین کہا گیا ہے۔
+NEW: سید حامد گنج بخش کی تعریف میں کہا گیا ہے کہ وہ ساداتِ کرام کا نمونہ اور مشائخِ عظام میں برگزیدہ ترین تھے۔

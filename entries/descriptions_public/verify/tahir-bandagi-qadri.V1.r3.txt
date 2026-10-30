@@ -1,0 +1,12 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff result. `diff /home/claude/bak/tahir-bandagi-qadri.md.bak_en2 entries/descriptions_public/tahir-bandagi-qadri.md` shows exactly one changed line, 86c86: "The year of his death is drawn from a single word, *gham*, grief." became "Separately, the year of his death is drawn from a single word, *gham*, grief." That is the one replacement listed in V1.r3.changes.txt, word for word. Nothing else moved.
+
+2. Change 1 confirmed. The NEW sentence is supported by the team version's In Verse section: the year of his death comes out of a single word, *gham*, grief (Kanhaiya Lal, p. 85). The rival reading *'am* is marked uncertain and stays out under rule 5. "Separately" adds no fact. It only keeps the word apart from Lahori's quatrain, which the team version also keeps apart: the quatrain's year "is not stated with these opening lines", the word *gham* is a different statement from a different place, and "No fuller chronogram phrase is printed in either place." The sentence does not say what year the quatrain encodes, and it does not say that *gham* is or is not part of the quatrain. No fact is lost. The death year itself is given earlier in the article (8 Muharram 1040 AH), so the sentence still points to it. The grammar is intact, there is no source talk, and there is no em or en dash in the file (0 and 0).
+
+3. Checker line: `ok    tahir-bandagi-qadri  team 35745 -> public 14914 chars (0.42)`, exit 0.
+
+4. Record only, no public English change. The notes file still quotes the earlier wording in two places. Line 20 (His Sufi order) has "He is also said to have taken *bai'at* ... in the Qadiri, Naqshbandi and Suhrawardi orders", and line 57 (Verse) has "The year of his death is also drawn from a single word". Both should be brought in line with the current text. For the Urdu: line 86 of the .ur.md file reads "ان کا سالِ وفات ایک ہی لفظ "غم" سے نکلتا ہے۔" and does not yet carry the separation, so the Urdu verifiers should check that it gets a matching opening such as "اس سے الگ،".

@@ -1,3 +1,5 @@
+> **WITHDRAWN 18 October 2026 (HANDOVER §9.369).** Rauf: prose is English only; the only Urdu is poetry. Use `docs/prompts/URDU_OUT_OF_PROSE_BRIEF.md` and `check_urdu_out.py`. Kept for the record.
+
 # Brief: original-script quotations out of English sentences, into blocks (HANDOVER §9.366)
 
 **Ruling (Rauf, 18 October 2026, via the question tool): "B everywhere".** Every Urdu, Persian, Punjabi,

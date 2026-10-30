@@ -1,0 +1,9 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. The one change ("most influential in marginalising and stigmatising Ghulam Ahmad of Qadian.") is confirmed. The team version says Meher Ali Shah "was said to be one of those most influential in marginalizing and stigmatizing its latter-day prophet, Ghulam Ahmad of Qadian", so the person named is the one the team version names, and the ambiguous "him" from round 2 is gone. The legend framing "was said to be" is kept, "sectarian and messianic" and "latter-day prophet" stay dropped, and the sentence adds no new fact, embellishment, source talk, em dash or en dash.
+2. The diff against /home/claude/bak/golra-sharif.md.before_v1r3 shows exactly one changed line (17), and the only difference on that line is the listed OLD -> NEW replacement. Nothing else in the file moved.
+3. Taste only, not to be applied: the same paragraph first names him "Mirza Ghulam Ahmad of Qadian" and now ends with "Ghulam Ahmad of Qadian", so "of Qadian" appears twice in three sentences. This matches the team version's own wording and reads correctly in place. "Ghulam Ahmad" alone would also be unambiguous.
+4. As the changes file says, the Urdu already names مرزا غلام احمد in this sentence, so English and Urdu now agree on the referent.

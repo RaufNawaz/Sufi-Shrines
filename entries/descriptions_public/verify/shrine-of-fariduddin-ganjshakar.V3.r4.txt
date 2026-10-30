@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: This was a confirming round on the sentence in shrine-of-fariduddin-ganjshakar.ur.r4.changes.txt: "صاحبِ مزار کے دائمی وصال کا رسمی اعادہ بھی" now agrees with masculine اعادہ, the oblique کے correctly governs وصال before کا, the elided ہے after بھی is standard in this paired construction, جو نجات کا باعث بنتا ہے agrees with the masculine infinitive subject, the line has no stray characters or double spaces, and the sentence reads naturally between the preceding sentence about the Diwan and the following one about the Diwan unlocking the Gate.

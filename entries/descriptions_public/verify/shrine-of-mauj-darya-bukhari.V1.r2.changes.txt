@@ -1,0 +1,78 @@
+Coordinator fixes from V1 round 1 (exact wording from the report). Each item: the V1 point, then the old and new sentence.
+
+[V1 r1 #1]
+OLD: Accounts of when the tomb was built differ too, but most hold that it was raised in his lifetime by Akbar, who insisted on building it for him and gave the order.
+
+Architecturally the tomb is unusual among Lahore's shrines for its octagonal plan, with a low dome, corner towers at each of its eight angles, and a mixture of recessed blind arches and plain panelled facades, a style thought to echo Multani funerary tradition.
+
+In the 1880s the octagonal tomb stood on a platform of baked brick, with its door on the south.
+NEW: Accounts of when the tomb was built differ too, but most hold that it was raised in his lifetime by order of Akbar.
+
+Architecturally the tomb is unusual among Lahore's shrines for its octagonal plan, with a low dome, corner towers at each of its eight angles, and a mixture of recessed blind arches and plain panelled facades, a style thought to echo Multani funerary tradition.
+
+In the 1880s the octagonal tomb stood on a platform of baked brick, with its door on the south.
+
+[V1 r1 #2]
+OLD: Among the saint's line who held his seat as *sajjada nashin*, the head of the shrine, were Hazrat Shams Shah and Sayyid Hayat Shah.
+
+## Devotion and Festivals
+
+Daily devotion includes the recitation of the *Fatiha*, the opening chapter of the Quran, the lighting of *diyas*, small oil lamps, the making of vows, or *mannat*, and the presentation of *niyaz*, consecrated offerings.
+NEW: Among those who later held his seat as *sajjada nashin*, the head of the shrine, were Hazrat Shams Shah and Sayyid Hayat Shah.
+
+## Devotion and Festivals
+
+Daily devotion includes the recitation of the *Fatiha*, the opening chapter of the Quran, the lighting of *diyas*, small oil lamps, the making of vows, or *mannat*, and the presentation of *niyaz*, consecrated offerings.
+
+[V1 r1 #3]
+OLD: He slapped his teacher and recited the whole Quran, and his father was greatly pleased and offered two *rakʿat*, cycles of prayer, in thanks.
+
+The division in the household outlived the saint.
+NEW: He is said to have slapped his teacher and recited the whole Quran, and his father, greatly pleased, offered two *rakʿat*, cycles of prayer, in thanks.
+
+The division in the household outlived the saint.
+
+[V1 r1 #4]
+OLD: When local landowners brought him brackish irrigation water, he prayed over it, it is told, and it turned sweet; tellings differ over whose prayer it was.
+NEW: He is said to have prayed over brackish irrigation water for local landowners, and it turned sweet; tellings differ over whose prayer it was.
+
+[V1 r1 #5]
+OLD: He was a saint of the Suhrawardi order of the Sufis, the mystics of Islam, and came of the Sadaat of Uch Sharif, the *sayyids*, or descendants of the Prophet, of that town, and in Lahore he is remembered above all as a spiritual confidant of the Mughal emperor Akbar.
+NEW: He was a saint of the Suhrawardi order and came of the Sadaat of Uch Sharif, the *sayyids*, or descendants of the Prophet, of that town, and in Lahore he is remembered above all as a spiritual confidant of the Mughal emperor Akbar.
+
+[V1 r1 #6 (omission)]
+OLD: The saint lies in a small graveyard in the company of his family, his spiritual successors and *gaddi nasheen*, and his cook, Allahu Samad. Outside the tomb, on a platform, lies a great-grandson of the saint, a son of Sayyid Abd al-Rahim, son of Safi-ud-Din, of whom too people said that he was a saint and a man of God.
+
+In the 1880s the enclosure held a mosque of baked brick, dwellings for the servants of the *khanqah*, a well and other buildings, all of baked brick.
+NEW: The saint lies in a small graveyard in the company of his family, his spiritual successors and *gaddi nasheen*, and his cook, Allahu Samad. In the 1880s the tomb itself held, beside the saint's own grave, the graves of his sons, Safi-ud-Din among them, and of others of his offspring. Outside the tomb, on a platform, lies a great-grandson of the saint, a son of Sayyid Abd al-Rahim, son of Safi-ud-Din, of whom too people said that he was a saint and a man of God.
+
+In the 1880s the enclosure held a mosque of baked brick, dwellings for the servants of the *khanqah*, a well and other buildings, all of baked brick.
+
+[V1 r1 #7 (omission)]
+OLD: Outside the tomb, on a platform, lies a great-grandson of the saint, a son of Sayyid Abd al-Rahim, son of Safi-ud-Din, of whom too people said that he was a saint and a man of God.
+
+In the 1880s the enclosure held a mosque of baked brick, dwellings for the servants of the *khanqah*, a well and other buildings, all of baked brick.
+NEW: Outside the tomb, on a platform, lies a great-grandson of the saint, a son of Sayyid Abd al-Rahim, son of Safi-ud-Din, of whom too people said that he was a saint and a man of God. The small tomb of the servant Mian Murid was built by order of Akbar.
+
+In the 1880s the enclosure held a mosque of baked brick, dwellings for the servants of the *khanqah*, a well and other buildings, all of baked brick.
+
+[V1 r1 minor i]
+OLD: His son Sayyid Safi-ud-Din brought his body to Lahore, and people regard as blessed the mosque where the body was washed.
+
+## His Family
+
+He married twice.
+NEW: His son Sayyid Safi-ud-Din brought his body to Lahore, and in the nineteenth century people regarded as blessed the mosque where the body was washed.
+
+## His Family
+
+He married twice.
+
+[V1 r1 minor iii]
+OLD: Sayyid Safi al-Din, named for his grandfather, and Sayyid Baha al-Din were born of his first wife, and Shah Shihab al-Din of the second, of whom tradition tells that he could take the form of a lion. By the 1870s Shihab al-Din's descendants lived at Tibala, where he had settled, and Safi al-Din's in Lahore; accounts of the town where Shihab al-Din's line settled differ.
+
+It is told that Shihab al-Din was put to school at four years, four months and four days, by the custom of the law of Muhammad.
+NEW: Sayyid Safi al-Din, named for his grandfather, and Sayyid Baha al-Din were born of his first wife, and Shah Shihab al-Din of the second; tradition tells that Shihab al-Din could take the form of a lion. By the 1870s Shihab al-Din's descendants lived at Tibala, where he had settled, and Safi al-Din's in Lahore; accounts of the town where Shihab al-Din's line settled differ.
+
+It is told that Shihab al-Din was put to school at four years, four months and four days, by the custom of the law of Muhammad.
+

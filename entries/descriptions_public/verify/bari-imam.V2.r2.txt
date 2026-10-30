@@ -1,0 +1,18 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Whole current Urdu checked paragraph by paragraph against the English (Bibliography ignored). Headings still correspond one to one (تعارف، صاحبِ مزار، مزار اور عرس، مزار سے باہر عقیدت، ماحول، ورثہ); no verse in either text. No Latin letters or dashes; asterisks balanced (20). Every figure in the English is present and no other: 1617, 1705 (twice), 1875, 1116 AH, 2005, 1883, 1990, May 1994, 1989 (twice), 1970; five days, a week, fourteen to sixteen, about ten or twelve, five lamps.
+2. All round 2 changes checked with care; none changes a fact, hedge or reference:
+   - "established tradition gives 1705" | عام طور پر مانی جانے والی روایت کے مطابق: keeps a tradition, not a certainty, and no longer clashes with اقوال مختلف ہیں.
+   - "a meeting with the saint in the Pothohar" | ایک ملاقات: indefinite, as in the English; no meeting chosen.
+   - "met him with complete courtesy" | اپنے ملاقاتی کے ساتھ کمالِ ادب سے پیش آئے: ملاقاتی is Hasan Peshawari; no hospitality added.
+   - "the descendants of the repentant Chan Agha and the later pir ..." | انہی چن آغا اور ... کی اولاد: "the repentant" is carried by انہی after the legend of his repentance; the English's open scope of "descendants" is kept (no دونوں added). "who died in 1883" stays with Agha Sayyid Mir Jani Shah, as in round 1.
+   - "the capital's patron darbar" | دارالحکومت کے سرپرست ولی کا آستانہ ہونے کے ناطے: same meaning.
+   - "yet the devotion endured, and the shrine remains thronged" | مگر عقیدت برقرار رہی، اور مزار آج بھی لوگوں سے بھرا رہتا ہے: both clauses kept.
+   - "who belongs like him to the Qadiri order" | تعلق رکھتے تھے: tense harmonised with the past narrative of Mama Ji; no change of fact.
+   - "keeps lamps for him" | باری امام کے نام کے چراغ: referent now explicit and correct; the following ان کے مزار refers to Bari Imam.
+   - "His ʿurs is a defining festival ... his memory endures as that of a saint ..." | ایک امتیازی تہوار ... آج بھی لوگ انہیں ... ولی مانتے ہیں: "festival" restored; مانتے is the brief's rendering of "remembered as".
+   - "about ten or twelve years" | لگ بھگ دس بارہ برس; "a life of prayer" | عبادت: same meaning.
+   - "based in Islamabad" now attaches to the journal (جو اسلام آباد سے نکلتا ہے), as in the English; "once" moved to the Open University concert sentence without change of sense; "in the life of the Sufi orders and in religious publishing" | صوفی سلسلوں کی سرگرمیوں اور مذہبی کتب و رسائل کی اشاعت: same sense; the Persian research centre loses only a gloss its own name carries; the bodhi tree "is said" still governs both trees.
+3. Hedges throughout remain intact: روایت کے مطابق (descent), کہا جاتا ہے (Aurangzeb contemporary), مشہور ہے (honouring), کہا جاتا ہے / بیان کیا جاتا ہے / شمار کیا جاتا ہے / مانا جاتا ہے (masters), کوئی متفقہ رائے نہیں, بتایا جاتا ہے (father and son), اقوال مختلف ہیں, the Chan Agha legend as حکایت with کہا جاتا ہے and روایت کے مطابق, کوئی / لگ بھگ (ages and years).
+4. Style only: "the Imams" | ائمہ and "Abd al-Qadir Gilani" | شیخ عبدالقادر جیلانی (conventional honorific) are acceptable. حجروی for "Hajrawi" should match the dictionary spelling of the Hujra Shah Muqim nisba; not a fidelity issue.

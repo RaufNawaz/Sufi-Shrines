@@ -1,0 +1,50 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. (precision) [legend in the narrator's voice] The sentence on his states and his *karamat* is the 1875 author's praise, but in the public text the narrator states it as fact, including that he had no equal in miracles. Rule 3 needs it framed, as the sentence before it ("He is remembered as a *wali*") is.
+OLD: States of *jazb* and *sukr*, the rapture of a soul drawn towards God and spiritual intoxication, of love and longing, dominated him, and he had no equal in asceticism, in piety and in *karamat*, the miraculous deeds of a saint.
+NEW: It is said that states of *jazb* and *sukr*, the rapture of a soul drawn towards God and spiritual intoxication, of love and longing, dominated him, and that he had no equal in asceticism, in piety and in *karamat*, the miraculous deeds of a saint.
+
+2. (precision) [legend in the narrator's voice] The father's vision of the Prophet is a hagiographic claim, but the narrator states it as fact. The Hajj made seven times can stay plain.
+OLD: His father, Haji Ala al-Din, was himself a great elder, who performed the Hajj, the pilgrimage to Mecca, seven times and was honoured with a vision of the Prophet.
+NEW: His father, Haji Ala al-Din, was himself a great elder, who performed the Hajj, the pilgrimage to Mecca, seven times and, it is said, was honoured with a vision of the Prophet.
+
+3. (precision) [ambiguous referent and time anchor] "his radiant tomb" comes right after "his master" and can be read as the saint's own tomb, which is the shrine. The statement also comes from the 1875 author, but the present tense carries it into today. Name the man and anchor the statement, as the article does with the author's other present-tense statements.
+OLD: Pak Rahman was his great *khalifa*, and it is said that his master showed him a favour shown to no one else; his radiant tomb is a place of pilgrimage.
+NEW: Pak Rahman was his great *khalifa*, and it is said that his master showed him a favour shown to no one else. In the 1870s Pak Rahman's own radiant tomb was a place of pilgrimage.
+
+4. (precision) [a word the source does not have] The team version says only that the nineteenth century account speaks of the Naushahi followers and of their qawwali and hal. "Were noted for" claims a reputation that the source does not give (this rules on judgement call 14).
+OLD: In the nineteenth century, too, the Naushahi followers were noted for their *qawwali* and their *hal*, the state of ecstasy.
+NEW: In the nineteenth century, too, the Naushahi followers had their *qawwali* and their *hal*, the state of ecstasy.
+
+5. (precision) [misleading date] "dated 1355 to 1394" carries no calendar, while every other date in the list is marked AH. A general reader will take the years as Common Era, a fourteenth century date for a modern author's work. The team version gives no calendar either, so the safe fix is to drop the years instead of adding AH.
+OLD: Sayyid Sharafat Naushahi's own *Sharif al-Tawarikh*, dated 1355 to 1394, three volumes of seven thousand pages kept in manuscript by its author.
+NEW: Sayyid Sharafat Naushahi's own *Sharif al-Tawarikh*, three volumes of seven thousand pages kept in manuscript by its author.
+
+6. Taste: the stacked glosses ("*sama*, spiritual listening, the Sufi session of music, and of longing ..."; "the *qutb* of the age, the axis of the saints in his time"; one gloss covering both *jazb* and *sukr*) read heavily. The great crowds at the *ʿurs* are said twice, in the Overview and in The Shrine and Its Devotion. "Wonders are told of his birth" could be the plainer "Stories are told of his birth". The list of works in Writings and Chronicles reads close to a source list for a general reader. "In modern times ... have been kept" could be "were kept", since the team version says only "in the editor's time". None of these changes a fact.
+
+7. Rulings on the writer's judgement calls:
+   1 (burial at Ranmal Sharif under basis (a), with "as do accounts of where he lies"): accepted. Only one legible source, the editor's, is against the site. The nineteenth century passage is damaged and does not say whose mazar each clause names, so under rule 5 it cannot count. The team version therefore does not show "every other source" against the site, and the one clause meets rule 4.
+   2 (chronogram without its year): accepted. The sentence names no year and follows the clause that accounts of the year differ, so it does not assert 1654.
+   3 (birth 1552 with no clause): accepted. The team version sets no rival Common Era year against 1552, only the editor's Hijri date, which the team version does not convert. A clause would claim a dispute the team version does not show.
+   4 ("also known as Haji Muhammad", "Syed" kept): accepted. Basis (a), and no claim of descent is added.
+   5 (founder with no clause): accepted. The rival passage is about the line flourishing, not about who founded it, and it rests on an ambiguous pronoun.
+   6 ("the Sandal Bar or the Gondal Bar, for accounts differ over which"): accepted as a basis (d) range in one clause.
+   7 (two accounts of his youth kept apart, the second as tradition): accepted. Nothing is merged and no sequence is invented. "He grew up strong" is supported without the uncertain number.
+   8 (both called Shah Sulaiman): accepted. The public text claims no identity that the team version does not imply.
+   9 (two renowned khalifas, with Sachyar's name taken from the clean chain): accepted. "Pir Muhammad" is certain in both books, and the full name is printed cleanly elsewhere in the team version.
+   10 (Pak Rahman as "great khalifa", the favour as "it is said"): accepted. The tomb clause is note 3.
+   11 (Hafiz Tahir told as one story, "the man's shirt"): accepted. The team version itself joins the grain and the calling by name, and the thread at his neck settles whose shirt it is.
+   12 (Shah Abdullah at Alamgir's court, without the rank number): accepted. The appositive does not date his office, so the text makes no claim that contradicts 1654. "The emperor" is a definitional gloss. The tension stays with Rauf, as the notes say.
+   13 ("In the 1870s it was said ..."): accepted.
+   14: see note 4.
+   15 (the chain written downwards): accepted. The links and their order are exact, and Rahman Shah is kept distinct from Pak Rahman.
+   16 (Shah Kamaita's pedigree "leads back to"): accepted.
+   17 (Lahore tomb, with the uncertain links and the uncertain year dropped): accepted. "Passed through ... up to" claims no gap as a link, and the 1880s anchor is firm (1884).
+   18 ("also a poet", 1975): accepted. The 1975 date is given cleanly. The list entry's "Lahore, 1971" is ambiguous and is rightly not used.
+   19 ("written history", the last three as family manuscripts, "In modern times"): accepted. See note 5 for the bare dates and note 6 for the tense.
+   20 (Phalia: the story framed as said, the dispute without a name, the early twenty first century anchor from 2015): accepted.
+   21 (*lagan* as "customary wedding dues"): accepted as a dictionary gloss.
+   22 (Overview and Legacy in the site's own wording): accepted. All of it is in the team version's unattributed paragraphs.
+
+8. Omission sweep: after a sweep of the whole team version, nothing important is missing. The family (father, mother, brother, daughter), the training and the master, the founding, the death and burial with their clause, the khalifas, the chain, the four majzubs and their stories, the devotions, the shrine, the chronicles, the town and the Lahore pedigree are all kept. What was left out is uncertain readings, rival variants (including every disciple's disputed death year, left for Rauf), or thin apparatus.

@@ -1,0 +1,49 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Round 2 scope. The diff of /home/claude/bak/gurdwara-choa-sahib.md.bak_en1 against the current public file shows exactly six changed paragraphs (lines 33, 35, 39, 43, 45 and 91). They carry the seven replacements listed in verify/gurdwara-choa-sahib.V1.r2.changes.txt, each in the round 1 wording, word for word. Nothing else in the file moved. The English checker (--english-only) exits 0 at 0.50 (team 29487, public 14722 characters). The file has no em or en dash.
+
+2. The seven changes, each checked against the team version. None introduces a fault.
+   - Round 1 Issue 1 (Batala). The chronicler's epithet is gone. "It is said that ... and that ..." now governs the whole sentence: the travels, the coming to Batala, the marriage, the settling on the Ravi and the multitudes of disciples. The Bhandari passage supports it. "he" resolves to the Guru from the paragraph before.
+   - Round 1 note 1 (Lakhmi Das). "who was held to be a worthy son" frames the chronicler's characterisation. The passing over, Lahna, the Khatri caste and the title Guru Angad stand as the team version gives them, and Trehan stays out. The colon joining Khalid's deathbed appointment of "his most loyal student" stays acceptable, because the team version itself joins the two with "Khalid, too, writes".
+   - Round 1 note 2. "He lived as a householder ... the believers of Islam and Hinduism" keeps Dhillon's content. His "mutually hostile" verdict and his "in every sense of the word" are gone.
+   - Round 1 note 3. The followers living "at one with their friends and at peace with their enemies" stays. The chronicler's comparative praise is gone.
+   - Round 1 note 4. "in which he set out the unity of God" keeps Bhandari's content. His "clear words and shining metaphors" are gone.
+   - Round 1 note 5. "engraved footsteps held to be Guru Nanak's" frames the attribution, so the footprints no longer read as proof of the janamsakhi route through Hinglaj.
+   - Round 1 note 6. "A bodhi tree ... is said to grow near Jhelum, and another in Islamabad" now matches Salman Rashid's one tree in each place.
+
+3. The whole text, checked again sentence by sentence. All checks pass.
+   - Statements and counts. Each of these is in the team version: twenty seven *ghumaon* and 260 rupees, 1834, Charat Singh, 1780 to 1839, 1801, seven *kos*, two *kos*, two horses at each *sarai*, two or three days, ten thousand horse, three attempts at the spring, the two companions, the 550th anniversary, January and August 2019, seventy two years, 2020, 1520, two minor raids and Sialkot. "more than twenty years" adds no new figure. It is the lower bound shared by Khalid's about twenty four years and Dhillon's twenty three.
+   - Legends stay framed. "Sikhs hold", "it is told", "is said to have", "it is said", "A further Sikh legend tells", "the legend tells", "The gurdwara's tradition", "In the janamsakhis" and "On it", "is held to have", "is believed", "A Muslim tradition holds", "held to be", "said to be Alexander's" and "is said to grow".
+   - Rule 4. The four disagreements are resolved as round 1 confirmed. "Most often" appears twice, each time where most of the team version's sources agree. No variants stand side by side, and no chain is merged. No sentence joins the janamsakhi return route to Rohtas, and Tilla Balnath is not identified with Tilla Jogian.
+   - Uncertain readings. None is used. The team notes' [OCR?] list confirms which phrase on p. 268 is uncertain: "and to deal with the Gakhars", not the "ten thousand horse ... to bar the road to the imperial army" that the public text keeps. The striving on p. 239, the 1,500 *kos*, the *dak chauki* (hence "two horses kept at each", not "for the post"), the drum relay, the crossing at Jhelum, Balna, 947, the halt near a Rohtas, Guru Arjan, Trehan, the Babur Bani's departure year and Khalid's kilometres all stay out. The team notes also list an [OCR?] token at the head of the founding passage that the team version does not mark. No public statement visibly rests on it, so no change.
+   - Source talk. None. The new frames are unnamed. There is no citation, page, folio, named author, signposting or archive language. "In Aurangzeb's time" is firm (regnal year 40), and the other anchors are the team version's own.
+
+4. Rulings on the writer's judgement calls. All 23 are accepted, as in round 1. No fallback is needed.
+   - 1: the length is now 0.50, inside L1, so no exception line is needed.
+   - 18: accepted in its present form, which carries the round 1 correction to the bodhi sentence.
+   - 2 to 17 and 19 to 23: accepted for the reasons round 1 gave. Nothing in round 2 touched them.
+
+5. Notes file, for the coordinator. These are not changes to the public file.
+   - Round 1 Issue 1 asked that the epithet ("caravan leader of the paths of truth", "torch bearer of the mystic way") be recorded under Left out. It is not there yet. Record there too "devotion such as theirs ... seldom found in other groups", "clear words and shining metaphors", "mutually hostile" and "in every sense of the word".
+   - Judgement call 18 still quotes the old plural bodhi sentence.
+   - "Reworded only" still mentions "caravan-leader" and "torch-bearer".
+   - The Verse section still says "Nine" italic renderings where there are eight (the round 1 slip).
+   - The ratio line still says 0.51. It is now 0.50.
+
+6. Taste only. No change is required.
+   - "Passing over his son Lakhmi Das, who was held to be a worthy son" repeats "son".
+   - "on the truth of God, in which he set out the unity of God" repeats "God".
+   - Round 1's taste notes still stand: "beautiful"; "he sang"; "though" in the Legacy; the unframed "where Nanak stayed" in the Legacy; Mardana named twice in the Granth sentence; "clearly and emphatically".
+   - "In the janamsakhis" before the fourth journey's route stands for Dhillon's retelling, which follows the four journey scheme the previous sentence has just called the most common. It stays acceptable, as round 1 ruled.
+
+7. For the Urdu writer. Carry the round 2 frames:
+   - "It is said that ... and that ..." over the whole Batala sentence, the multitudes included.
+   - "who was held to be a worthy son".
+   - "held to be Guru Nanak's" for the Hinglaj footprints.
+   - One bodhi tree near Jhelum and another in Islamabad.
+   Do not bring back the epithet, "mutually hostile", the "seldom found" praise or the "shining metaphors". Round 1's other notes for the Urdu writer still stand.
+
+8. Omission sweep. I swept the team version section by section: Overview, The Guru at Rohtas, Bhai Mardana, The Gurdwara, Devotion and Practice, Partition and Restoration, Rohtas Fort, In Verse, Setting, Guru Nanak in the Wider Record, the disagreement section and Legacy. Nothing important is missing. Round 2 removed only an epithet and three pieces of authors' praise, none of them a fact about the site, the Guru's life or his family, and Lakhmi Das, Lahna and Guru Angad all stay.

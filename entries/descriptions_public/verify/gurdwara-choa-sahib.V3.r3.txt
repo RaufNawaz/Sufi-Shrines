@@ -1,0 +1,10 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- Round 2 issue 1 (سفر three times in one sentence) is fixed, in V3's own wording. The sentence now reads انہی برسوں میں مؤرخ اقبال قیصر اس گوردوارے تک گئے، اور اس سفر کو وہ اپنے تمام سفروں میں سب سے کٹھن شمار کرتے تھے۔ سفر is left only where the meaning needs it, the anaphor and the comparison set.
+- The new sentence is natural, correct Urdu:
+  - گئے agrees with the honorific plural subject اقبال قیصر, and the subject correctly drops نے with the intransitive verb.
+  - اس سفر کو naturally picks up the journey implied by گئے, and وہ can only be Iqbal Qaiser.
+  - There is no calque, no new ambiguity and no repetition inside the sentence.
+- Fit with the paragraph: اس گوردوارے follows گوردوارہ چوآ صاحب in the sentence before. گئے keeps the arrival verb پہنچے free for جب دونوں گوردوارے تک پہنچے two sentences later. The construction تک recurs there, but in a different sentence, and the first is "went to" while the second is "reached". Taste only.
+- اقبال قیصر is named again at the start of the next sentence, as in round 2. It is unchanged and reads as a fresh start for the anecdote. Taste only.

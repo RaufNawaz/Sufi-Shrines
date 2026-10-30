@@ -1,0 +1,14 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. [precision, corrects meaning] The Shrine, paragraph 4: Nimano Faqir's own master was a Sakhi Qabul Muhammad of Daraza | خود نمانو فقیر کے مرشد دڑازہ کے سخی قبول محمد تھے۔ -> the English "a" deliberately marks this man as one Sakhi Qabul Muhammad among several (the notes keep him apart from the early twenty first century sajjada nashin Sakhi Qabul Muhammad Faruqi, named two sentences later, and from the 2002 author). Without ایک the Urdu reads as a known, definite figure and invites the reader to take him for the Faruqi of the next sentences. Restore the indefinite, as the Urdu already does in the Radha Krishin Lal paragraph (دڑازہ کے ایک مرشد سخی قبول محمد).
+OLD: خود نمانو فقیر کے مرشد دڑازہ کے سخی قبول محمد تھے۔
+NEW: خود نمانو فقیر کے مرشد دڑازہ کے ایک بزرگ سخی قبول محمد تھے۔
+
+2. [precision, ambiguous reading] The Poetry, Bedil's line: The ordinary men read Kanz Quduri, the lovers wisdom from God | عام لوگ کنز قدوری پڑھتے ہیں، عاشق خدا سے حکمت -> with the verb elided, عاشق خدا can be read as the izafat عاشقِ خدا ("the lover of God"), which breaks the contrast between the two groups. Supplying the verb keeps the English sense (the lovers read wisdom from God).
+OLD: عام لوگ کنز قدوری پڑھتے ہیں، عاشق خدا سے حکمت
+NEW: عام لوگ کنز قدوری پڑھتے ہیں، اور عاشق خدا سے حکمت پڑھتے ہیں
+
+3. [style only] The Poetry, second Kanz verse: the English sets two italic spans on either side of the ellipsis; the Urdu sets one span that includes it. No change of meaning; either is fine.
+
+4. [style only] Checked and found faithful, recorded so the next round need not recheck: all 25 distinct figures match the English exactly; the eleven names of the litany of slain lovers plus Shah Inayat are all present and in order; the deliberate omissions (glosses of سیّد، فقیر، گدی، سجادہ نشین، سخی، حق موجود، انا الحق، روحانی راہ, and the two Schimmel credit lines) follow the brief; hedges are kept (بظاہر for "seems", کہا جاتا ہے for both legends and for the Sikh painter, روایات مختلف ہیں ... زیادہ تر 1826, اقوال مختلف ہیں for the languages, یاد دلا سکتی ہے for "could recall", کوئی سات برس, کوئی بیس لوگ, کم و بیش); the two Ranipuri editors keep their distinct titles (مولوی حکیم and مولانا); headings correspond one to one.

@@ -1,0 +1,57 @@
+V1: FAIL
+V2: PASS
+V3: FAIL
+
+Scope: only the passage inserted at the end of "## The Setting" (English lines 33 to 38, Urdu lines 33 to 38), checked against the team version (/home/claude/poetry/team/shrine-of-shah-shams-ud-din-sabzwari.md, lines 51 to 56) and the brief (What changes from the team version; Verse; The Urdu version). `diff` against public_before confirms the insertion is the only change in both files.
+
+ISSUES
+
+1. [V1] The lead-in's gloss makes the quoted couplet itself the verse that gives the year, which the team version does not say.
+
+   Current (English line 33):
+   A book of the saints of the Punjab carries a chronogram, a verse whose letters, read as numbers, give a year:
+
+   The team version says the book "carries a chronogram by the author's son ... on the friends of God of the Punjab", and its italic line calls the quoted couplet "A verse of the chronogram". So the couplet is one verse of the chronogram. The team version never says that this couplet carries the year, and it gives no year. Glossing "chronogram" as "a verse whose letters ... give a year" and then printing a couplet tells the reader that these two lines encode a year. It also clashes with the rendering two lines below, where the chronogram has verses ("A verse of the chronogram"), so the same passage calls the chronogram "a verse" and also something made of verses. (Supporting caution only, not a source: a standard abjad count of the couplet gives about 1687 for the first hemistich and 800 for the second, and neither is an obvious year, so the implied claim is probably false as well as unsupported.) The house gloss "a verse whose letters, read as numbers, give a year" is fine on rows where the quoted text is itself the date-bearing chronogram. It does not fit here.
+
+   Proposed replacement for English line 33:
+   A book of the saints of the Punjab carries a chronogram, a poem in which letters, read as numbers, give a year:
+
+   (Couplet and rendering paragraph unchanged. "A poem" fits the team version's "A verse of the chronogram". "In which letters" does not claim that every letter of the poem counts.)
+
+2. [V3; also carries issue 1 into the Urdu for V2] The Urdu lead-in misdefines قطعۂ تاریخ, breaks the article's spelling of اولیاء, and calques the English article.
+
+   Current (Urdu line 33):
+   پنجاب کے اولیا پر ایک کتاب میں ایک قطعۂ تاریخ ہے، یعنی ایسا شعر جس کے حروف کے اعداد سے ایک سال نکلتا ہے:
+
+   (a) A قطعہ is by definition a short poem of more than one شعر, so "قطعۂ تاریخ ... یعنی ایسا شعر" is a terminological error an educated reader will notice. It also contradicts the italic line, which calls the couplet "قطعۂ تاریخ کا ایک شعر". The sibling rows use قطعہ in its proper sense ("اس قطعے کا یہ شعر", shah-jamal.ur.md). (b) اولیا: this article spells the word اولیاء nine times elsewhere (شہرِ اولیاء, مدفون اولیاء, اولیاء اللہ, صاحبِ کرامت اولیاء and others), and urdu-i18n/urdu-dictionary.json has only اولیاء. (c) The sentence has three uses of ایک (ایک کتاب، ایک قطعۂ تاریخ، ایک سال), two of them calqued from the English "a". (d) "جس کے حروف" says all the letters of the poem give the year, which mirrors the English flaw in issue 1.
+
+   Proposed replacement for Urdu line 33:
+   پنجاب کے اولیاء پر ایک کتاب میں قطعۂ تاریخ شامل ہے، یعنی ایسی نظم جس میں حروف کے اعداد سے سال نکلتا ہے:
+
+3. [V3 spelling; V2 minor nuance] The Urdu italic line also has the اولیا spelling, renders "describes" as "mentions", and repeats اس.
+
+   Current (Urdu line 38):
+   *قطعۂ تاریخ کا ایک شعر، جو مصنف کے بیٹے نے کتاب کے لیے کہا؛ اس کا موضوع پنجاب کے وہ اولیا ہیں جن کا اس کتاب میں ذکر ہے*
+
+   اولیا should be اولیاء, as in issue 2. "جن کا ... ذکر ہے" (who are mentioned) is weaker than the English "whom the book describes" (the team version's own lead-in says "whose lives the book records"). "اس کا ... اس کتاب" repeats اس within a short line.
+
+   Proposed replacement for Urdu line 38:
+   *قطعۂ تاریخ کا ایک شعر، جو مصنف کے بیٹے نے کتاب کے لیے کہا؛ اس کا موضوع پنجاب کے وہ اولیاء ہیں جن کے حالات کتاب میں بیان ہوئے ہیں*
+
+NOTES
+
+a. Couplet: byte for byte identical in all three files (team lines 53 to 54, English 35 to 36, Urdu 35 to 36). The UTF-8 is the same, with no ZWNJ, bidi marks, NBSP or trailing spaces. The verse paragraph has the correct shape: two lines, nothing else in the paragraph, and a blank line before and after.
+
+b. English rendering: identical to the team version's italic line with only the citation "(Lahori, *Hadiqat al-Awliya*, p. 282, folio 270)" removed. It has no translator credit, which is correct under the brief because it is a plain statement of the verse's subject, not a published translation. Asterisks are balanced, and the insertion has no dashes in either language and no Latin in the Urdu.
+
+c. Fidelity otherwise: "A book of the saints of the Punjab" and "carries" come from the team version. Dropping the title, the author and the son's name (Mufti Ghulam Safdar) follows rule 2: the son is source apparatus, not the saint's family under rule 7. There is no citation, page or source narration. Nothing in the passage says or implies that the book speaks of Shah Shams. This matters, because the team Overview says only two of the books consulted name a Shah Shams at Multan, and both are other books (Bhandari, Chishti). So the Hadiqat does not name him.
+
+d. Placement: end of "The Setting", before "## Legacy". This is the right section and an acceptable spot. The Setting is the only section whose material is explicitly about the region rather than the saint. Legacy or The Shams of Multan would tie the book to Shah Shams, which is the implication V1 must avoid (note c). A separate Poetry section would be a thin one-paragraph section, which the brief forbids. The move from the Tableeghi devotee's complaint is abrupt, but The Setting is a run of self-contained context paragraphs, and the reader has already been told in paragraph 3 that Multan is "in the Punjab". I do not recommend a bridge that names Multan ("the region in which Multan stands" and similar). Such a bridge is supportable, but it would push the reader to assume Multan's saints, and so Shah Shams, are in the book, and note c shows they are not. Optional only, not a FAIL ground: the passage could instead sit directly after paragraph 3 (ending "a sacred space for people of all religious denominations"). There, "the shrines of Muslim saints" and "in the Punjab" lead naturally into "a book of the saints of the Punjab", and the section would close as it did before the insertion. Either position is acceptable.
+
+e. Urdu italic kept although the couplet is Urdu: the brief's exception ("a verse already in Urdu needs no Urdu meaning") covers a meaning paragraph. This paragraph also carries a fact, the son's authorship, which V2 would lose if it were dropped, so keeping it is right. In "جو مصنف کے بیٹے نے ... کہا", جو attaches to the شعر rather than to the chronogram as in the English. That is harmless, since whoever wrote the chronogram wrote its verse.
+
+f. If issue 1 is applied, the Urdu lead-in must follow it, and issue 2's replacement already does.
+
+g. Not checked, outside scope, for the coordinator: (i) the notes file is now stale. Its top verdict lines carry the old md5s; "Left out" > "Verse" says "neither context item is kept"; and the Urdu section says "No verse (the English has none)". All of these need updating to record Rauf's 30 October ruling and the insertion. (ii) The Madho Lal Hussein trousseau lines from the team version's "In Verse" section remain left out. Confirm whether Rauf's "Restore the 4 left-out lines" covers them for this row. (iii) Sibling rows (for example shrine-of-hafiz-muhammad-jamal-multani, shrine-of-pir-sher-muhammad) present this same couplet as the verse from which 1292 AH is derived. If their team versions say only that the closing chronogram gives 1292 AH, the abjad caution in issue 1 applies there too.
+
+h. The repository checker (pipeline/book_queue/check_public_description.py --no-verdicts) could not run: it looks for the team version at entries/descriptions/shrine-of-shah-shams-ud-din-sabzwari.md, which is not present in this checkout. Format was checked by hand instead (note b).

@@ -1,0 +1,21 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. Diff: `diff /home/claude/bak/gurdwara-tambo-sahib.md.bak_en1 entries/descriptions_public/gurdwara-tambo-sahib.md` shows three changed lines (19, 35, 43) and nothing else. Line 19 carries changes 2 and 3, line 35 carries changes 4 and 5, line 43 carries change 1. In each, the old text is exactly the listed OLD and the new text exactly the listed NEW; the rest of each line is byte for byte unchanged. Nothing else moved.
+
+2. Change 1, "his early years there account for several of the town's gurdwaras": supported by the team version's "Nanak's early years there account for 'several Gurdwaras in the city'". No longer implies that every gurdwara of the town remembers his early years. No new or lost fact; grammar intact.
+
+3. Change 2, "a board by the road in English and in the Punjabi scripts Shahmukhi and Gurmukhi; a second, blue gate was kept permanently locked for security reasons": supported by the team version's board in "English, Shahmukhi ... and Gurmukhi" and "a second, blue gate 'kept permanently locked for security reasons'". The gloss (judgement call 15, accepted in r1) now covers only the two Punjabi scripts, not English; "painted" is gone and the source's own "a second, blue gate" stands. No new or lost fact; grammar intact.
+
+4. Change 3, "with a tractor and a single storey building used by farmers": supported by the team version's "a single-storey building used by farmers, a tractor". The building and the tractor are now two items, and "used by farmers" naturally attaches to the building. No new or lost fact.
+
+5. Change 4, "Such celebrations, Kartar explained, were new: ... and earlier there had been only a prayer at the gurdwara": supported by Kartar's words in the team version ("have only begun in the last couple of years", the increase in the Sikh population through migration from the tribal areas, "Earlier, there was only a prayer at the Gurdwara."). The claim that the celebrations were new is now his, not the narrator's, as rule 3's spirit and r1 note 4 asked. "Such celebrations" refers back to the Lohri keeping and prayer of the two preceding paragraphs. "after the war" stays left out, as accepted in r1. Grammar intact; no source talk.
+
+6. Change 5, "As one writer observed, it was ironical that a Punjabi tradition shunned by the Punjab was being revived by a group of Pathan men living in the Punjab": supported by the team version's "It is ironical though ... that this Punjabi tradition shunned by Punjab is now being revived by a group of Pathan men residing in Punjab". The irony is now the situation's, as in the source, and the causal "So" is gone. "one writer" is unnamed, as rule 2 permits for a quoted person. No new or lost fact.
+
+7. Each NEW string occurs exactly once in the current file. No em or en dash in the file (em 0, en 0).
+
+8. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-tambo-sahib --english-only` printed `ok    gurdwara-tambo-sahib  team 35560 -> public 17004 chars (0.48)`, exit 0.

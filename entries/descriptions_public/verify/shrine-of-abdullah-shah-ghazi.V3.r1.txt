@@ -1,0 +1,41 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [repetition / calque] "سبز گنبد والا یہ دربار پاکستان کے سب سے بڑے شہر کے اُن مقدس مقامات میں سے ہے جہاں سب سے زیادہ حاضری ہوتی ہے اور جو لوگوں کے دلوں کو سب سے زیادہ عزیز ہیں۔" -> "سب سے" three times in one sentence; "most visited and most beloved" rendered word for word, and "دلوں کو عزیز" is a stiff collocation -> سبز گنبد والا یہ دربار پاکستان کے سب سے بڑے شہر کے اُن مقدس مقامات میں سے ہے جو حاضری اور عقیدت، دونوں اعتبار سے سرِفہرست ہیں۔
+
+2. [collocation / register] "لیکن جہاں تک روایت کا تعلق ہے، وہ مضبوط بھی ہے اور پرانی بھی۔" -> "strong and old" calqued; "مضبوط روایت" reads translated and colloquial "پرانی" is below reference register -> عبداللہ شاہ غازی کے بارے میں تاریخی معلومات بہت کم ہیں اور وہ بھی داستانوں میں لپٹی ہوئی ہیں، لیکن جہاں تک روایت کا تعلق ہے، وہ قدیم بھی ہے اور مستحکم بھی۔
+
+3. [redundancy / pronoun] "جب اس خطے میں اسلام پہلے پہل محمد بن قاسم کے ذریعے اور پھر اس کے بعد پھیل رہا تھا۔" -> "پھر" and "اس کے بعد" say the same thing twice, and "اس" leaves unclear whether it means after Muhammad bin Qasim or after that time -> ان کی آمد کا زمانہ آٹھویں صدی بتایا جاتا ہے، جب اس خطے میں اسلام پہلے پہل محمد بن قاسم کے ذریعے اور پھر ان کے بعد پھیل رہا تھا۔
+
+4. [repetition] "دوسرے بڑے مزارات کی طرح یہ مزار بھی تشدد کا نشانہ بن چکا ہے، اور اس کا شمار پاکستان کے ان صوفی آستانوں میں ہوتا ہے جن پر حملے ہوئے ہیں۔" -> the second clause restates the first -> پاکستان کے دوسرے بڑے صوفی آستانوں کی طرح یہ مزار بھی تشدد کا نشانہ بن چکا ہے۔
+
+5. [English structure] "2010 میں یہ ایک خودکش دھماکے کی زد میں آیا۔ 6 اکتوبر کو ہونے والے اس حملے میں آٹھ افراد جان سے گئے۔" -> year and day split across two sentences as in English; Urdu gives the full date once -> 6 اکتوبر 2010 کو یہ ایک خودکش دھماکے کی زد میں آیا جس میں آٹھ افراد جان سے گئے۔
+
+6. [calque] "اور اپنے نمایاں سبز گنبد کے ساتھ یہ آج بھی زائرین سے کھچا کھچ بھرا رہتا ہے۔" -> "with its distinctive green dome" ties the dome to the crowding, which makes no sense in Urdu -> بعد میں مزار کی ازسرِنو تعمیر اور توسیع ہوئی، اور نمایاں سبز گنبد والا یہ آستانہ آج بھی زائرین سے کھچا کھچ بھرا رہتا ہے۔
+
+7. [calque] "لوگ بڑی تعداد میں اور مسلسل آتے رہتے ہیں۔" -> "in large numbers and constantly" coordinated as in English; "آتے رہتے" already carries the continuity -> ان کے مزار پر شہر کے کونے کونے سے امیر و غریب، ہر مسلک اور ہر شعبۂ زندگی سے تعلق رکھنے والے لوگ جوق در جوق آتے رہتے ہیں۔
+
+8. [gloss / collocation] "اور قوالی کی محفلوں اور *دھمال* کے اس پُرجوش رقص میں شریک ہوتے ہیں جو پنجاب اور سندھ کے صوفی مزارات پر عقیدت کی رسم کے طور پر کیا جاتا ہے۔" -> "دھمال کا رقص" glosses a word every Urdu reader knows, and دھمال is "ڈالی جاتی" not "کیا جاتا" -> وہ یہاں فاتحہ پڑھتے ہیں، منتیں مانتے ہیں، کھانا بانٹتے ہیں، اور قوالی کی محفلوں اور اس پُرجوش *دھمال* میں شریک ہوتے ہیں جو پنجاب اور سندھ کے صوفی مزارات پر عقیدت کی رسم کے طور پر ڈالی جاتی ہے۔
+
+9. [word order] "یہاں کی شامیں قوالی اور *دھمال* سے گونجتی رہتی ہیں، خصوصاً جمعرات کو اور عرس کے دنوں میں۔" -> qualifier tacked on after the verb in English order -> خصوصاً جمعرات کو اور عرس کے دنوں میں یہاں کی شامیں قوالی اور *دھمال* سے گونجتی رہتی ہیں۔
+
+10. [ambiguity] "بلوچستان، مکران، ملتان اور خود سندھ سے ہوتے ہوئے اس خطے میں آئے۔" -> "اس خطے" has meant Sindh earlier in the article, so "through Sindh itself into this region" reads circular -> صوفیانہ روایات سندھ کے راستے برصغیر میں داخل ہوئیں، اور فتح کے بعد بہت سے صوفی یکے بعد دیگرے بلوچستان، مکران، ملتان اور خود سندھ کے راستے آئے۔
+
+11. [calque / repetition] "کبھی یہ علاقہ مائی کولاچی کے نام سے مشہور ایک بڑھیا کی نسبت سے "مائی کولاچی کا علاقہ" کہلاتا تھا۔" -> "کے نام سے مشہور" is a calque of "known as" and doubles the name inside one clause -> کراچی کے نام کے بارے میں کہا جاتا ہے کہ کبھی یہ علاقہ ایک بڑھیا مائی کولاچی کی نسبت سے "مائی کولاچی کا علاقہ" کہلاتا تھا۔
+
+12. [pronoun / repetition] "قصہ یوں ہے کہ اس بڑھیا کے بیٹے کو ایک مچھلی نے مار ڈالا تو اس نے مچھلی کو چیر پھاڑ کر بیٹے کو نکال لیا، اور یوں یہ شہر کولاچی کہلانے لگا۔" -> "اس نے" grammatically points to the nearest noun, مچھلی; "یوں" used twice -> قصہ یہ ہے کہ ایک مچھلی نے اس بڑھیا کے بیٹے کو مار ڈالا تو ماں نے مچھلی کو چیر پھاڑ کر بیٹے کو نکال لیا، اور یوں یہ شہر کولاچی کہلانے لگا۔
+
+13. [ambiguity / repetition] "شہر کے مزارات فقیروں کے گشت کی ایک منزل بھی ہیں۔ ... جس کے بعد فقیر دوسرے فقیروں کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔" -> after a sentence about two cities, "شہر" is unclear; "فقیر دوسرے فقیروں کے پیچھے پیچھے" is clumsy -> کراچی کے مزارات فقیروں کے گشت کی ایک منزل بھی ہیں۔ سیہون میں ہر سال تین دن کا میلہ لگتا ہے، جس کے بعد فقیر ایک دوسرے کے پیچھے پیچھے یہاں کے مزارات کا رخ کرتے ہیں۔
+
+14. [inconsistent spelling / collocation] "مہاجروں اور اجنبیوں سے آباد اس ساحلی شہر کے لیے" -> "مہاجرین" in پس منظر, "مہاجروں" here; "اجنبیوں سے آباد" is an odd rendering of "strangers" -> مہاجرین اور پردیسیوں سے آباد اس ساحلی شہر کے لیے وہ ایک مشترکہ سرپرست بھی ہیں اور جائے پناہ بھی، اور ان کا دربار آج بھی پاکستان میں عوامی عقیدت کے سب سے پُررونق آستانوں میں سے ایک ہے۔
+
+NOTES:
+- "آٹھویں صدی" appears twice without "عیسوی". A reader may briefly take it as Hijri until محمد بن قاسم settles it.
+- "لاکھوں نفوس پر مشتمل" for Karachi will strike a Pakistani reader as understated, because the city's population is counted in crores. Since that is a question of fact, I left it for the editor.
+- The ورثہ section opens with "روایت انہیں ... بزرگ بتاتی ہے", which echoes the intro's wording almost word for word. Varying it would help.
+- "شروع کے عرب فاتحین" and "مزید شمال اور مغرب" would read more polished as "اوّلین عرب فاتحین" and "شمال اور مغرب کی جانب آگے کے علاقوں".
+- "عام بیان کے مطابق" and "بعض بیانات میں یہ بھی آیا ہے" are slightly translated. "روایت" would be natural, but the article already uses it heavily.
+- "بھرائی کر کے حاصل کی گئی زمین" would be more natural as "سمندر پاٹ کر حاصل کی گئی زمین". This sentence also sits oddly in the paragraph about the city's name.
+- "قوال بچے" could be italicised so that it reads clearly as a family name. "سرگرمی سے زندہ رکھے ہوئے ہیں" is mildly translated.
+- "ایک مرتبہ ... ایک نیوز اینکر" uses "ایک" twice. For the deaths, "جاں بحق ہوئے" is the more usual news register than "جان سے گئے".
+- "نیچی پہاڑی" would be more usual as "چھوٹی سی پہاڑی". Calling a person "جائے پناہ" is acceptable but a little forced.

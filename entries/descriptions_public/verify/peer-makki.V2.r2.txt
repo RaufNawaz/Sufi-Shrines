@@ -1,0 +1,25 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Confirming round 2 (V2 fidelity, changed sentences only), against entries/descriptions_public/peer-makki.md as the authority.
+
+Replay: the 13 OLD/NEW pairs of verify/peer-makki.ur.r2.changes.txt were applied in order to /home/claude/bak/peer-makki.ur.md.bak_ur1 (md5 14cc2ca4, the same ur stamp the round 1 verdicts carry), each OLD found exactly once and replaced once; the result is byte for byte identical to the current peer-makki.ur.md (md5 ee9f23c1). Nothing else moved.
+
+Checker: python3 pipeline/book_queue/check_public_description.py peer-makki --no-verdicts printed: ok    peer-makki  team 24647 -> public 10068 chars (0.41), Urdu 9604 chars (0.95) (exit 0). The file still has no Latin letters and no en or em dashes.
+
+Change by change:
+1. جس کی بدولت (Overview): the twelve years of seclusion still give the title Makki, the hedge کہا جاتا ہے still governs the whole sentence as is said governs the English one, and 575 AH, about 1178 CE and some thirty six years are unchanged. Faithful.
+2. سادات اور اہلِ سنت سے وابستہ (Overview, para 2): its tradition is Syed and Ahl-e-Sunnat; سادات is the plural of سید, and وابستہ ہے states the same affiliation. Like Data Darbar still governs only the administration. Faithful.
+3. Nearness to one of Pakistan's most visited shrines and markedly fewer pilgrims: the concession (despite) is kept as پھر بھی, one of the most visited is ان درگاہوں میں سے ایک ... جہاں سب سے زیادہ زائرین آتے ہیں, and the great neighbour stays unnamed as in the English. کہیں کم (far fewer) is a shade stronger than markedly (the old نمایاں طور پر کم was the literal match), but it states the same clear difference and the article's own figures bear it out; not an issue. The V3 round 2 fix to this sentence (حاضری دینے والے for the second زائرین) would not change the meaning either.
+4. روحانیت اور مسلک کا علم: the knowledge of the soul and of the sect; in this Sufi context the knowledge of the soul is spiritual learning, so روحانیت keeps the sense. Faithful.
+5. ظاہری علوم میں انتہائی کمال: having taken the outward sciences as far as they went. Same meaning, no addition.
+6. آنے والے حالات ان پر کھلنے لگے تھے: he came to know what was to come; did not show it is kept, and the it is said hedge still governs both clauses through اور یہ بھی کہ. Faithful.
+7. Adapted fix (اُسی rather than V3's اُس): the decision is right for fidelity. The English honours him as a spiritual forerunner in the same sacred place; plain اُس would have dropped same, while اُسی keeps it and the pesh keeps V3's distal pointer. The relative clause (حاضری دینے کا جو دستور ہے، اس میں) changes no fact. The Urdu says forerunner of that same sacred place where the English says forerunner in it; the English leaves unsaid whose forerunner he is, and the Urdu adds no name, so the sense is kept.
+8. نذر نیاز بانٹی جاتی ہے: offerings are given out; this is the right word for what a shrine distributes, and it also settles V2 round 1 note 1. Faithful.
+9. Direct speech مجھے معلوم تھا کہ آپ یہاں موجود ہیں، اور آپ کی ہر بات سچ نکلی: the English indirect speech (he had known he was there; everything he had said had been true) resolves to the only sensible referents, Ghori speaking of the saint; بیان کیا جاتا ہے keeps it is said. Faithful, and clearer than round 1.
+10. لاہور کی طرف ہجرت کا حکم: ordered to migrate to Lahore. Faithful.
+11. تاریخوں سے کم ہی میل کھاتا ہے: fits loosely with the dates. کم ہی (scarcely) is a touch firmer than loosely, but the very next clause gives the century gap and the paragraph still frames the story as devotional tradition, not chronology; the hedge is not turned into a denial. Acceptable.
+12. سلطنت کے ہندوستانی علاقوں کا دارالحکومت: the Indian capital of the Ghaznavids means the capital of their Indian dominions, which is what the Urdu now says; the house of Mahmud of Ghazni is kept. Faithful.
+13. اپنا نام بھی برقرار رکھا ہے اور داتا دربار کے پہلو میں اپنا مقام بھی: has kept its name and its place beside Data Darbar; مقام carries the same double sense (location and standing) as place. Faithful.
+
+No change adds or drops a fact, name, number, hedge or qualifier, and every referent is right.

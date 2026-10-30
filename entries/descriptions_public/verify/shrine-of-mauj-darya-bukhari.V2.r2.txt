@@ -1,0 +1,21 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 15 OLD/NEW pairs of verify/shrine-of-mauj-darya-bukhari.ur.r2.changes.txt, applied in order to /home/claude/bak/shrine-of-mauj-darya-bukhari.ur.md.bak_ur1 (each OLD found exactly once before its replacement, each replaced once), give a text byte for byte identical to the current shrine-of-mauj-darya-bukhari.ur.md (21726 bytes both). Nothing else moved.
+2. Checker: python3 pipeline/book_queue/check_public_description.py shrine-of-mauj-darya-bukhari --no-verdicts printed: ok    shrine-of-mauj-darya-bukhari  team 42579 -> public 13311 chars (0.31), Urdu 12281 chars (0.92). No Latin letters and no em or en dashes in the Urdu file.
+3. Each change checked against the English (the authority):
+   - 1 (شجرۂ نسب without ان کا): the list itself opens with میراں محمد شاہ, so "His line" keeps its referent; nothing lost.
+   - 2 (first settler, Akbar's reign): the adaptation is right. The English ties Akbar's reign to his coming ("the first to settle ..., coming there in Akbar's reign"), and the NEW keeps اکبر کے عہد میں with آ کر بسے تھے, not with the founding of the quarter. "first", "where his tomb stands" and "a whole quarter of the city" all kept.
+   - 3 (ٹھکانا for "second household"): the clause still says his second wife lived there and that there were havelis, so the household sense is carried; no fact changed.
+   - 4 (miracles once): the English says "miracles" twice in one sentence ("famous as ... a man of sanctity and miracles" and "counted an elder possessed of miracles, devout and ascetic"); the fact is kept once, with God-fearing, sanctity, devout and ascetic all present. Not an omission.
+   - 5 (خود سید عبدالرزاق کا مقبرہ): matches "his own tomb" = the Sayyid Abdul Razzaq who worshipped nightly; "it is said" (کہا جاتا ہے) and "ordered in a dream" kept. The referent is now unambiguous.
+   - 6 (سیدہ for Syedna): same person, same honorific of sayyid descent, gender corrected; the row's urdu-i18n/content article writes سیدہ بی بی فاطمہ ثانی, and the team version records the Hadiqat's form Bibi Fatima Sayyida. Decision right. For the coordinator: urdu-i18n/urdu-dictionary.json (saints) still maps "Syedna Bibi Fatima Sani" to سیدنا بی بی فاطمہ ثانی, which now disagrees with this article and with the content file.
+   - 7 (جب ... تو ... شریعتِ محمدی کے دستور کے مطابق): "by the custom of the law of Muhammad" now governs his being put to school, as in the English; four years, four months and four days and "It is told" kept.
+   - 8 (سادہ خانوں): "plain panelled facades" is rendered as plain panels in the walls; meaning kept.
+   - 9 (سرنگ ... کھودی گئی): "reported" (اطلاعات کے مطابق) and "apparent" (بظاہر) both kept; one event, as in the English; یہ refers to the tunnelling near the grave.
+   - 10 (بحث کو گرما دیا): "became a flashpoint in Lahore's debates over balancing ..." is rendered as inflaming the debate in Lahore; the two poles of the balance kept exactly. Faithful.
+   - 11 (ذمہ داری ... ایک ہاتھ سے دوسرے ہاتھ میں منتقل ہوتی رہی): "ran down a long line" becomes passing from hand to hand over a long time; the chain itself (Akbar, the rulers after him, Maharaja Ranjit Singh, the saint's own descendants) and "It is reported" are kept, so the sense of a long succession survives.
+   - 12 (مہاراجہ restored): matches the English title on this mention.
+   - 13 (شبِ جمعہ): "Jummay Raat" is only the spoken form of جمعرات, so dropping it as a name is right; شبِ جمعہ names the same night (the night before Friday, i.e. Thursday night). "remain the busiest of the week" kept.
+   - 14 (روایت about Allahu Samad): "one of the shrine's most striking tales" kept; the emphatic "himself" carries no fact; the following sentence (sceptics, burning cauldron, unharmed) is unchanged.
+   - 15 (ber tree): the adaptation is right. The English keeps "A tree at her house could be seen from the khanqah" as a separate sentence after the exchange and never says it is the ber tree, so merging the two trees (as V3 round 1 proposed) would have added an identification the English does not make. The NEW keeps the ber tree in the wife's courtyard, the saint in the khanqah courtyard at that time (قصے کے مطابق only frames what the English already presents as "One story"), the question about the bounty and her answer that it was her ancestral inheritance.

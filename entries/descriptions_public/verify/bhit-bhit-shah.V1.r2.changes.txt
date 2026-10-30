@@ -1,0 +1,65 @@
+Changes after V1 round 1, applied by the coordinator in V1's own wording (issues, then precision notes). Nothing else changed.
+
+[V1 r1 issue 1]
+OLD: Among the Hindu Sufis of India his poetry is praised by everyone as the quintessence of Sindhi poetry and literature, and it is sung during *satsangs*, devotional gatherings, yet it has no ritual use in their ceremonies and supplies no prayer, and his darbar at Bhit Shah is not a reference point for them. On 23 May 1957, at Poona, Sadhu Vaswani asked Rochaldas to deliver a sermon, and Rochaldas gave a commentary on Shah Abdul Latif's verses, completed with quotations from the *Jap Sahib*, a Sikh prayer.
+NEW: Among the Hindu Sufis of India his poetry is praised by everyone as the quintessence of Sindhi poetry and literature, and it is sung during *satsangs*, devotional gatherings, yet it has no ritual use in their ceremonies and supplies no prayer. On 23 May 1957, at Poona, Sadhu Vaswani asked Rochaldas to deliver a sermon, and Rochaldas gave a commentary on Shah Abdul Latif's verses, completed with quotations from the *Jap Sahib*, a Sikh prayer.
+
+[V1 r1 issue 2]
+OLD: Besides the nightly singing there is a weekly gathering for his poetry, though accounts differ on its day.
+NEW: Besides the nightly singing there was also a weekly gathering for his poetry, though accounts differ on its day.
+
+[V1 r1 minor a]
+OLD: His shrine was at Bulri, and in 1940 his name was still held in reverence in Lower Sindh.
+NEW: Shah Abdul Karim's shrine was at Bulri, and in 1940 his name was still held in reverence in Lower Sindh.
+
+[V1 r1 minor b]
+OLD: One of the Surs makes a little joke about his friend and servant, who, though called stinking, a glutton and ugly, is purified in the company of his master, which is like rose water.
+NEW: One of the Surs makes a little joke about the poet's friend and servant, who, though called stinking, a glutton and ugly, is purified in the company of his master, which is like rose water.
+
+[V1 r1 minor c]
+OLD: It is told, too, that a Kalhoro prince who had become estranged from the poet won back his favour by presenting him with a fine copy of Rumi's *Masnavi*.
+
+A friend of his younger days, Mirza Moghul Beg, died an untimely death at the hands of robbers in 1713, and the poet eventually married his daughter.
+NEW: It is told, too, that a Kalhoro prince from whom the poet had become estranged won back his favour by presenting him with a fine copy of Rumi's *Masnavi*.
+
+A friend of his younger days, Mirza Moghul Beg, died an untimely death at the hands of robbers in 1713, and the poet eventually married his daughter.
+
+[V1 r1 minor d]
+OLD: One verse calls the reader to admire Iblis, the fallen angel, as the one true lover and to follow his example; another advises the true Sufi to throw his cap into the fire instead of boasting of it; and he compares the Prophet to the cloud that sends down life giving rain to the thirsty fields, quickening what seemed to be dead.
+NEW: One verse calls the reader to admire Iblis, the fallen angel, as the one true lover and to follow his example; another advises the true Sufi to throw his cap into the fire instead of boasting with it; and he compares the Prophet to the cloud that sends down life giving rain to the thirsty fields, quickening what seemed to be dead.
+
+[V1 r1 minor e]
+OLD: It was close to the Kirar lake, which was fed by the Ali Ganj or Pahar canal, and there were several small sheets of water nearby, with trees and a richness of greenery not common in the arid land of Sindh except close to the river or its large branches.
+NEW: It was close to the Kirar lake, which was fed by the Ali Ganj or Pahar canal, and there were several small sheets of water nearby, with trees and a certain richness of greenery not common in the arid land of Sindh except close to the river or its large branches.
+
+[V1 r1 minor f]
+OLD: Another verse on the same theme cries: "Do not let yourself be worshiped, oh yogi, curses on people's devotion… keep your mouth from pretense".
+
+A verse of *Sur Asa* measures Muslim and Hindu alike by sincerity: whether Muslim or Hindu, monotheist or idol worshipper, a man has to be sincere and make no claim to a sanctity he cannot realise.
+
+*You are a liar in infidelity, don't call yourself an infidel: / … / The caste-mark is for those, who are true in their paganism*
+
+Like his Punjabi contemporaries and his successors in Sindh, he accepted the Hindus who were striving on the way to perfection as true pilgrims in the eternal Light.
+
+## The Shah Jo Risalo
+
+His poetry, gathered after his death as the *Shah Jo Risalo*, is organised into *surs*, chapters named for the musical modes, the *raags*, to which they are sung, and each name also points to the chapter's contents.
+NEW: Another verse on the same theme reads: "Do not let yourself be worshiped, oh yogi, curses on people's devotion… keep your mouth from pretense".
+
+A verse of *Sur Asa* measures Muslim and Hindu alike by sincerity: whether Muslim or Hindu, monotheist or idol worshipper, a man has to be sincere and make no claim to a sanctity he cannot realise.
+
+*You are a liar in infidelity, don't call yourself an infidel: / … / The caste-mark is for those, who are true in their paganism*
+
+Like his Punjabi contemporaries and his successors in Sindh, he accepted the Hindus who were striving on the way to perfection as true pilgrims in the eternal Light.
+
+## The Shah Jo Risalo
+
+His poetry, gathered after his death as the *Shah Jo Risalo*, is organised into *surs*, chapters named for the musical modes, the *raags*, to which they are sung, and each name also points to the chapter's contents.
+
+[V1 r1 minor g]
+OLD: One of the Persian chronograms composed at his death, verses whose letters, read as numbers, give a year, is inscribed on its northern side.
+NEW: One of the Persian chronograms composed at his death, a phrase or verse whose letters, read as numbers, give a year, is inscribed on its northern side.
+
+[V1 r1 minor l]
+OLD: In 1940 his poetry, while itself in the true tradition of Islamic mysticism, held the Hindus of Sindh in a spell almost as complete as the one it held over Muslims, and its message lay deep in the hearts of all classes of Sindh's people, Muslim and Hindu, lettered and unlettered.
+NEW: In 1940 his poetry held the Hindus of Sindh in a spell almost as complete as the one it held over Muslims, and its message lay deep in the hearts of all classes of Sindh's people, Muslim and Hindu, lettered and unlettered.

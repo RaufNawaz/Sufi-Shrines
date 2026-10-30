@@ -1,0 +1,28 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+SCOPE: The diff against /home/claude/bak/shrine-of-pir-sher-muhammad.ur.before_r3.md changes 11 lines: 3, 7, 9, 15, 19, 21, 25, 31, 33, 39 and 64. The changes file lists 17 OLD/NEW pairs: one each on lines 3, 7, 9, 15, 19, 25 and 31, two each on lines 21, 33 and 64, and four on line 39. I applied all 17 to the backup in order. Each OLD occurred exactly once, and the result matches the current file byte for byte, so nothing else moved. Mechanics of the current file: no Latin letters, no en or em dashes, no Eastern digits, and 10 asterisks (balanced). The italics on دھمال are kept.
+Fidelity and fluency of each change:
+(1) Overview: splitting the sentence and using انہوں نے is clear, because only one person is in play. "remains an important place of pilgrimage" is rendered "اہم زیارت گاہوں میں سے ایک ہے", which says the same.
+(2) "from across the Punjab and beyond" is rendered "پورے پنجاب اور اس کے باہر سے بھی". It is faithful, and the stacked سے is gone.
+(3) "remembered for" is rendered "پہچان دو باتوں سے ہے", which is correct. "taught" is rendered "تلقین کی", the standard word for a shaikh's teaching. It makes the teaching no stronger.
+(4) The relative جس کے refers to خانوادے, and افراد settles the referent. The fact is unchanged.
+(5) "an earlier saint ... a Chishti Sabiri of the same town": the affiliation stays in the name, as the writer says. صوفی is supported by the dropped appositive, and "جن کا تعلق اسی قصبے سے تھا" keeps "of the same town". Nothing is added or lost.
+(6) "held at Sharaqpur in the possession of Maulana Nusrat Naushahi of Sharaqpur" is rendered "شرقپور ہی میں مقیم ... کے پاس". The location of the manuscript and his link to Sharaqpur both survive. مقیم is entailed by the English, not added to it.
+(7) The jagir sentence: the place now sits next to the grant, as in the English. The sentence is natural.
+(8) Adaptation judged sound. The English source context, Malik's sentence on landlords and large holdings, means that the pir often is or stands as the landlord. "زمیندار کی حیثیت رکھتا ہے" carries that without claiming outright identity, and it removes the "agent" misreading. "بہت سی صورتوں میں" governs both halves. The idiom is natural.
+(9) Adaptation judged sound. The English gives both name forms, and "کے نام سے معروف ہیں" is the normal Urdu way to give the short form. Dropping عام طور پر is correct.
+(10) Adaptation judged sound. "سے چل کر" keeps "from" without making the Khwaja the agent of the spread, and it reads idiomatically: a silsila runs from its master. "بااثر ترین" is good.
+(11) "related to ... but in tension with them" is rendered "روابط بھی تھے اور کشیدگی بھی رہتی تھی". The gapped "مقامی سیاسی رہنماؤں سے" serves both clauses, so the referent is now fixed. جن کے agrees with the nearest conjunct, which is grammatical.
+(12) "tend to be organised according to stress" is rendered "لے کا دار و مدار عموماً زور پر ہوتا ہے". It is faithful, and عموماً keeps "tend to".
+(13) "continues to be intoned" is rendered "آج بھی گونجتا ہے". The meaning is kept, and the tone is now right.
+(14) Location, "vigorous" and "ritual" are all kept. Only the gloss "dance" goes, and دھمال is familiar to an Urdu reader, so this is not an omission. دھمال is feminine, so ڈالی جاتی ہے is correct.
+(15) "for the people" survives once, as "عام لوگوں کو". No fact is lost, and "تعویذ لکھ کر دیتے ہیں" is idiomatic.
+(16) "دورِ جدید کے پنجاب" correctly renders "modern Punjab".
+(17) "his memory endures among the notable saints" is rendered "ان کا نام بدستور ... کی صف میں لیا جاتا ہے". It is faithful, and it echoes the standard idiom "ان کا نام صفِ اول کے ... میں لیا جاتا ہے". Every ان in the sentence refers to Pir Sher Muhammad.
+No changed sentence has a new fault: no agreement or postposition error, no doubled phrase, and no new repetition.
+ISSUES: none
+NOTES:
+1. Change 2: "پنجاب سے باہر" is the more usual idiom than "اس کے باہر". "پورے پنجاب بلکہ اس سے باہر سے بھی" or "پنجاب بھر اور بیرونِ پنجاب سے بھی" are alternatives. Taste.
+2. Change 11: dropping رہتی تھی ("جن کے مقامی سیاسی رہنماؤں سے روابط بھی تھے اور کشیدگی بھی") would turn the clause pair into a noun pair and remove even the appearance of a gender mismatch. Taste; the current form is grammatical.
+3. Change 14: "مزارات پر رسم کے طور پر پُرجوش" puts three phrases in a row. "بطورِ رسم" would lighten it. Taste.
+4. Change 8, for the record, across rows: sial-sharif renders the same source sentence as "نمائندہ ہوتا ہے". It also keeps "closely related" open between kinship and connection, while this row's unchanged "قریبی عزیز" reads it as kinship. V2 passed that reading in round 2. Record only.

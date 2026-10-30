@@ -1,0 +1,14 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed fact] Legacy, para 3: "Many Muslims acquainted with the teachings of Guru Nanak are devoted to him and visit his shrine" | "ان کی تعلیمات سے واقف بہت سے مسلمان ان کے عقیدت مند ہیں اور ان کے مزار پر حاضری دیتے ہیں" -> مزار names a tomb, so the Urdu asserts a grave of Guru Nanak that the English does not; the English "shrine" is neutral -> use زیارت گاہ.
+OLD: ان کے مزار پر حاضری دیتے ہیں
+NEW: ان کی زیارت گاہ پر حاضری دیتے ہیں
+
+NOTES:
+1. Malik Bhago's Feast, para 1: "From the honest man's bread, the story goes, there flowed milk, and from the oppressor's, blood." The elided noun is bread (the Guru pressed two breads); the Urdu says کھانے, which loosens the parallel with دیانت دار آدمی کی روٹی.
+OLD: ظالم کے کھانے سے خون
+NEW: ظالم کی روٹی سے خون
+2. Devotion and Pilgrimage, para 1: "the nearby Chakki Sahib and Rori Sahib shrines" is rendered گوردواروں here but زیارت گاہوں in the overview for the same English phrase; the English does not itself call Chakki Sahib a gurdwara. For consistency and to avoid the identification:
+OLD: روڑی صاحب کے گوردواروں پر
+NEW: روڑی صاحب کی زیارت گاہوں پر
+3. Everything else checked paragraph by paragraph and found faithful: all names, titles, numbers (1452, 1469, 1539, 60, 1947, 1989, 1521, 1992, 75, twelve kos, four udasis, more than twenty years, three courts), places, relationships (Babur as Jahangir's great grandfather, Lehna as Guru Angad, Lakhmi Das), and every hedge (tradition holds, it is said, most often, accounts differ, about, probably, is believed) carry over with the same scope. Headings correspond. The translated verse lines match the English renderings. Dropped glosses of kos and langar and removed italics on ordinary words are deliberate per the brief. No Latin letters, no dashes, no figures beyond the English's.

@@ -1,0 +1,20 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- All thirteen round 1 V3 issues are fixed, each in the wording round 1 proposed, and each NEW sentence reads naturally in its paragraph:
+  1. پاک پوتر: the fixed pair, hybrid و gone. Fixed.
+  2. کھتریوں کی بھلّا ذات: Urdu order, consistent with سوڈھی کھتریوں two paragraphs up. Fixed.
+  3. چوتھے گرو رام داس کی سب سے بڑی پہچان یہ ہے کہ انہیں امرتسر کا بانی مانا جاتا ہے: idiomatic; the calque کی حیثیت سے is gone and the second sentence now adds something (Ramdaspur, its growth) instead of repeating. انہوں نے in the second sentence clearly means Ram Das. Fixed.
+  4. پرتھی چند اور ان سے چھوٹے ارجن: the tacked on clause is gone. The two ان in the sentence point to different men (Ram Das, then Prithi Chand), but a son cannot be "younger than" his father, so no reader stumbles. Taste: ان کے چھوٹے بھائی ارجن is the more everyday phrasing. Fixed.
+  5. ارجن کے سفرِ لاہور کو ... کی جڑ قرار دیتی ہے: normal order with قرار دینا. Fixed.
+  6. لاہور میں سکھوں کے مقدس مقامات: Fixed.
+  7. گوردوارے کی دیکھ بھال احتیاط سے کی جاتی ہے، اور یہ ...: the participial chain is now a clause; یہ reads as the upkeep. Fixed.
+  8. تاکہ گرو کی جائے پیدائش پر حاضر ہو کر ان کی تعظیم کریں: the first ان is now named, and the remaining ان can only be the Guru. Fixed.
+  9. بعد کے گروؤں میں گرو ہر رائے: the misleading کے سلسلے میں is gone. Taste: since Arjan and Hargobind, just named, are also "later Gurus" in the sense of the paragraph's opening sentence, a plain آگے چل کر would carry "later in the line" a shade more exactly; not a fault. Fixed.
+  10. خاموشی سے کنارہ کش ہو گئے تھے: register now suits a reference article. Fixed.
+  11. ان گوردواروں کے نام کر دیے: referent clear, collocation idiomatic; ان کا انتظام now points to the gurdwaras. Fixed.
+  12. گنبد پہلے پہل مسلمانوں کی عمارتوں کا حصہ تھا، اور سکھوں نے اپنی عمارتوں میں اسے چھوٹا کر دیا: the literal "shrank the Muslims' domes" reading is gone; generic singular گنبد with تھا and اسے agrees. عمارتوں twice is a deliberate contrast (theirs and the Muslims'), not careless repetition; taste: اپنے ہاں would avoid it. Fixed.
+  13. گرو رام داس کا گہوارہ وہی لاہور تھا جو مدتوں سکھ اقتدار اور عقیدت کا عظیم مرکز رہا: the premodifier is now a relative clause; وہی ... جو reads well. Fixed.
+- The V2 change: ان کی جدّہ نے انہیں پالا is correct, side neutral and of the article's register (جدّہ = grandmother, as in جدّہ ماجدہ); with ان کی before it there is no confusion with the city. It is more bookish than دادی or نانی, which is acceptable in a reference article.
+- No NEW text broke a neighbouring sentence: the follow on یہ وہ وسیع قطعۂ زمین تھا after change 3, یہ جائیداد عملاً ... after change 4, and سکھوں کے مقدس مقامات میں ... after change 12 all still connect. No Latin letters or dashes in any NEW text.
+- Round 1 notes (lead and body repetition, دربار صاحب امرتسر, گرو گدی / گرو کی گدی, پناہ گزینوں / مہاجرین, etc.) were taste and remain unapplied, as recorded.

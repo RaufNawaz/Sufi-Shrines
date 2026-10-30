@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. sync with the English: V1 r2 precision note 2 (Jhok Sharif one of the several dargahs, not additional to them), applied by the coordinator after the Urdu was written and before V2 and V3 round 1; V1 r2 note 1 (Sachal's litany) needed no change, since the Urdu already names سچل
+OLD: دلپت صوفی کا کلام بھی جھوک شریف میں گایا جاتا ہے، اور سندھ کی ان کئی دوسری درگاہوں میں بھی جن کے سجادہ نشین مسلمان ہیں۔
+NEW: دلپت صوفی کا کلام سندھ کی ان کئی درگاہوں میں گایا جاتا ہے جن کے سجادہ نشین مسلمان ہیں، اور جھوک شریف بھی ان میں شامل ہے۔

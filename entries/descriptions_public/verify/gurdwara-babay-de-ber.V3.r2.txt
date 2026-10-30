@@ -1,0 +1,29 @@
+VERDICT: FAIL
+ISSUES:
+1. [repetition inside the sentence, introduced by change 24] ورثہ, paragraph 1: "یہ گوردوارہ اور اس کا قدیم درخت سیالکوٹ شہر کو ایک ایسے کثیر المذاہب ماضی کی یاد دلاتے ہیں جب روایت کے مطابق سکھ مذہب کے بانی اور شہر کے ایک مسلمان بزرگ ایک ہی آسمان تلے ملے تھے۔" -> The merge fixes both round 1 complaints: یاد دلانا now takes کو, and the stiff اسی ماضی میں is gone. But joining the two sentences has put شہر twice in one sentence (سیالکوٹ شہر کو ... شہر کے ایک مسلمان بزرگ). It has also put ایک three times in it (ایک ایسے، ایک مسلمان، ایک ہی آسمان). In سیالکوٹ شہر, شہر adds nothing, and the second شہر then reads cleanly as Sialkot. The ایک before ایسے is the calqued English "a"; ایسے ... ماضی کی یاد ... جب is the natural Urdu.
+OLD: یہ گوردوارہ اور اس کا قدیم درخت سیالکوٹ شہر کو ایک ایسے کثیر المذاہب ماضی کی یاد دلاتے ہیں
+NEW: یہ گوردوارہ اور اس کا قدیم درخت سیالکوٹ کو ایسے کثیر المذاہب ماضی کی یاد دلاتے ہیں
+
+NOTES:
+1. Round 1 V3 issues: all 22 are fixed.
+   - Mapping: 1 (change 1), 2 (2), 3 (3), 4 (4), 5 (6), 6 (7), 7 (8), 8 (9), 9 (12), 10 (10), 11 (11), 12 (14), 13 (16), 14 (17), 15 (18), 16 (19, adapted), 17 (20), 18 (22, adapted), 19 (23), 20 (24, fixed but see issue 1), 21 (25), 22 (26).
+   - Each NEW is grammatical, idiomatic and agrees correctly. Some examples: یہی مقدس درخت ... مرکز ہے; ایک ہی سانچہ ... دہرایا جاتا ہے ... یہ واقعہ ... ڈھلا ہوا ہے; ایک زندہ کڑی ہے جو ... جوڑتی ہے; گرو نانک کی بانی مرتب کر کے ... شامل کی; ہر شخص جانتا ہو. Each also fits the sentences around it.
+   - The round 1 note on شہر کے نیچے سے is applied as change 21. شہر کے نشیب میں no longer suggests a stream under the city.
+2. The two adaptations read well:
+   - Change 19: یہ شہر رچنا دوآب میں واقع ہے۔ اس کا شمار قدیم شہروں میں ہوتا تھا۔ The split removes the present and past clash inside one sentence. The ہوتا تھا sentence now leads the past-tense run that follows (پرانے وقتوں میں یہ ... تھا), so it reads as "it was already reckoned an ancient city in those days". The "no longer" sense that issue 16 feared has faded. The English itself is past, so the issue is fixed as far as fidelity allows.
+   - Change 22: ان متعدد ... میں سے ایک is idiomatic written Urdu and removes the unidiomatic ان کئی.
+3. The round 1 V2 notes that were applied (changes 3, 5, 13, 15) read naturally:
+   - انہی لوگوں کی سفارش repeats لوگ on purpose, to fix the referent. It is resumptive, not a slip.
+   - سختی سے پوچھا carries the anger.
+   - تصویریں تھیں is plain and correct.
+   - آستانے پر حاضری is the usual collocation.
+4. Taste only:
+   - Change 6: سانچہ is a mould, and a mould is used rather than "repeated". ایک ہی سانچہ بار بار برتا جاتا ہے would be a shade more exact. The existing wording is still understood at once, and ڈھلا ہوا ہے completes the image well.
+   - Change 7: ان کہانیوں میں گرو اپنے سفروں میں has two میں close together. اپنے سفروں کے دوران would lighten it. گرو now comes twice in the sentence, but the second is the deliberate V2 fix for "his words", so it is not a slip.
+   - Change 8: قصوں (the sentence before) and یہ قصہ (this sentence) fall in consecutive sentences, and یہ قصہ also opens the paragraph. واقعہ would vary it here. Acceptable.
+   - Change 12: ٹھیک ٹھیک محلِ وقوع or صحیح محلِ وقوع would be a little smoother than ٹھیک محلِ وقوع. محلے and محلِ وقوع in consecutive sentences look alike but do not clash.
+   - Change 25: یہ گوردوارہ now comes in two consecutive sentences (change 24 opens with it). Together with اس گوردوارے کی کہانی and the row name, the paragraph names the gurdwara five times in six sentences. زائرین کے لیے یہ مقام ... would vary it and keep the referent clear.
+   - Change 26: after the split, بھی in اس نام کی ابتدا بھی reads as "the name too, like the place". That is a fair rendering of "the name itself", and ہی already carries the emphasis.
+5. Changes 2, 4, 9, 10, 11, 14, 16, 17, 18, 20, 21 and 23 read naturally and need nothing. Some examples: یہ گوردوارہ resolves the یہ; the جس جگہ ... اس کے قریب correlative is good Urdu; تعظیم بجا لانا is the idiom; حلقۂ ایمان میں لے آتے تھے has no trickster sense; تعینات کر دی and اخلاقی اہمیت are the right collocations.
+6. Unchanged sentences were not reopened. No change broke a neighbouring sentence. The round 1 taste notes that were not acted on (tense of the visitor's observations, سکھوں کا یہ گوردوارہ, سیاحت, توازن, the seven بیانات/روایات مختلف ہیں, etc.) stand as recorded notes.
+7. Punctuation in all changed sentences is Urdu (، ۔ ؛), with no Latin letters and no em or en dashes.

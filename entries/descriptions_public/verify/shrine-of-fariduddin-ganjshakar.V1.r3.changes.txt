@@ -1,0 +1,85 @@
+Changes after V1 round 2, applied by the coordinator in V1's own wording (issues, then the precision notes). Nothing else changed.
+
+[V1 r2 issue 1]
+OLD: More than a hundred *shlokas* bear his name there, more than any other of the poets selected for it, and some of his best Punjabi poetry is preserved to this day in the Gurmukhi script in the sacred texts of the Sikhs, though there is no consensus over whether they were composed by Farid himself or by descendants who wrote under his name. Their tone is unmistakable: the ache of the soul for God, and the memory of death that makes the world small.
+
+کاگا سب تن کھائیو، چُن چُن کھائیو ماس
+دوے نیناں مت کھائیو، مینوں پِیا ملن دی آس
+
+*O crow, eat all my flesh, pick and eat it piece by piece, but do not eat these two eyes, for I still long to see my Beloved.*
+
+The same voice turns the seeker's eye inward, away from the faults of others:
+
+فریدا جے تُوں عقل لطیف ہیں، کالے لِکھ نہ لیکھ
+آپنڑے گریوان مہ سِر نیواں کر ویکھ
+
+*Farid, if you are of subtle wit, write not against another’s account; bow your head into your own collar, and look there instead.*
+
+Two of his *dohas*, or couplets, are preserved with a Persian rendering, and both attack false initiation and outward asceticism.
+NEW: More than a hundred *shlokas* bear his name there, more than any other of the poets selected for it, and some of his best Punjabi poetry is preserved to this day in the Gurmukhi script in the sacred texts of the Sikhs, though there is no consensus on the authorship of the *shlokas*. Their tone is unmistakable: the ache of the soul for God, and the memory of death that makes the world small.
+
+کاگا سب تن کھائیو، چُن چُن کھائیو ماس
+دوے نیناں مت کھائیو، مینوں پِیا ملن دی آس
+
+*O crow, eat all my flesh, pick and eat it piece by piece, but do not eat these two eyes, for I still long to see my Beloved.*
+
+The same voice turns the seeker's eye inward, away from the faults of others:
+
+فریدا جے تُوں عقل لطیف ہیں، کالے لِکھ نہ لیکھ
+آپنڑے گریوان مہ سِر نیواں کر ویکھ
+
+*Farid, if you are of subtle wit, write not against another’s account; bow your head into your own collar, and look there instead.*
+
+Two of his *dohas*, or couplets, are preserved with a Persian rendering, and both attack false initiation and outward asceticism.
+
+[V1 r2 issue 2]
+OLD: His third daughter was married to one of his disciples, Shaikh Badr al-Din Ishaq, and Bibi Fatima is remembered as a prominent daughter through whose elder son the Faridi line of blood descent runs. His descendants, the Faridis, have shaped the continuation of Chishti identity, and so numerous did his line become that even in the seventeenth century Baba Farid himself was called "the Second Adam".
+
+He died at Ajodhan in the month of Muharram, the first month of the Islamic year, in 1266; accounts of the year of his death differ.
+NEW: Bibi Fatima is remembered as a prominent daughter through whose elder son the Faridi line of blood descent runs, and one of Baba Farid's daughters was married to his disciple Shaikh Badr al-Din Ishaq. His descendants, the Faridis, have shaped the continuation of Chishti identity, and so numerous did his line become that even in the seventeenth century Baba Farid himself was called "the Second Adam".
+
+He died at Ajodhan in the month of Muharram, the first month of the Islamic year, in 1266; accounts of the year of his death differ.
+
+[V1 r2 issue 3]
+OLD: The stanza that names him is certain to bring offerings, for it appeals to Nizamuddin in the very name of his own spiritual guide, Baba Farid; and the song, words and music alike, is part of the special heritage of the Qawwal Bachche, and is widely sung throughout the Chishti order.
+
+A *qawwali* performed in the United Kingdom opens by invoking him, with the line "Sir devĩ te vafā na mangĩ-ehī pīr Farīd dā dāse":
+
+*Give thy head, expect no loyalty in return, / O, this is Farid, the Saint's wisdom* (translated by Shemeem Burney Abbas)
+
+Another line of the same performance, "Yār Farīd ābād thī vaṇ o jhok-rab phir vīrān basāe", runs:
+
+*O lover Farid, alive were those habitations once: may God bring the wilderness to life again!* (translated by Shemeem Burney Abbas)
+
+But for the sacred frame of its opening, when the ensemble invoked Baba Farid, the performance might have been taken for a secular love song in which a lover seeks a beloved and serenades her.
+NEW: The stanza that names him is certain to bring offerings, for it appeals to Nizamuddin in the very name of his own spiritual guide, Baba Farid; and Amir Khusrau's song, words and music alike, is part of the special heritage of the Qawwal Bachche, and is widely sung throughout the Chishti order.
+
+A *qawwali* performed in the United Kingdom opens by invoking him, with the line "Sir devĩ te vafā na mangĩ-ehī pīr Farīd dā dāse":
+
+*Give thy head, expect no loyalty in return, / O, this is Farid, the Saint's wisdom* (translated by Shemeem Burney Abbas)
+
+Another line of the same performance, "Yār Farīd ābād thī vaṇ o jhok-rab phir vīrān basāe", runs:
+
+*O lover Farid, alive were those habitations once: may God bring the wilderness to life again!* (translated by Shemeem Burney Abbas)
+
+But for the sacred frame of its opening, when the ensemble invoked Baba Farid, the performance might have been taken for a secular love song in which a lover seeks a beloved and serenades her.
+
+[V1 r2 minor a]
+OLD: In the early twenty first century a blast at its entrance killed six people, and women were searched by policewomen. At such shrines photography is strictly prohibited, and where they once stayed open throughout the night as a shelter to all, they are now shut at midnight on the government's order.
+NEW: By the 2010s a blast at its entrance had killed six people, and women were searched by policewomen. At such shrines photography is strictly prohibited, and where they once stayed open throughout the night as a shelter to all, they are now shut at midnight on the government's order.
+
+[V1 r2 minor b]
+OLD: Stairs lead up to an open courtyard, with a new mosque on one side and the shrine of Baba Farid in front, where a long line of men waits.
+NEW: Stairs lead up to an open courtyard, with a new mosque on one side and the shrine of Baba Farid in front, where, on one visit, a long line of men stood waiting.
+
+[V1 r2 minor c]
+OLD: The *dastar* of succession is a special saffron turban reserved for the Diwan alone, which is touched to the saint's tomb before it is placed on the candidate's head.
+NEW: The *dastar* of succession is a special saffron turban reserved for the Diwan alone, which was touched to the saint's tomb before it was placed on the candidate's head.
+
+[V1 r2 minor d]
+OLD: The boy's father had placed a turban on his head during the Bahishti *mela*, the fair of the Gate of Paradise, in 1933, and on the fortieth day after his father's death the *sajjada nishin* of the shrine at Ajmer placed the turban on his head again; the rival claimant was turbaned instead by representatives of the whole clan, but since he was not given access to the shrine, that part of his *dastar bandi*, his turbaning, had to be left out.
+NEW: The boy's father had placed a turban on his head during the Bahishti *mela*, the fair of the Gate of Paradise, in 1933, and on the fortieth day after his father's death the *sajjada nishin* of the shrine at Ajmer placed the turban on his head again; the rival claimant was turbaned instead by representatives of the whole clan, but since he was not given access to the shrine, the part of his *dastar bandi*, his turbaning, that needed the shrine had to be left out.
+
+[V1 r2 minor e]
+OLD: For its devotees the shrine was Baba Farid: disciples spoke of the saint and his shrine in the same terms, calling themselves sometimes disciples of Baba Farid and sometimes disciples of the *gaddi*, the seat, that is, the shrine, which has sustained the saint's *baraka* all along through its line of Diwans.
+NEW: For its devotees the shrine was Baba Farid: disciples spoke of the saint and his shrine in the same terms, calling themselves sometimes disciples of Baba Farid and sometimes disciples of the *gaddi*, the seat, that is, the shrine, which, in their eyes, has sustained the saint's *baraka* all along through its line of Diwans.

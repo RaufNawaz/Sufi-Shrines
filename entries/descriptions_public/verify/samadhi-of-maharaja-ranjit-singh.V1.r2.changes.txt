@@ -1,0 +1,9 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/samadhi-of-maharaja-ranjit-singh.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 minor a]
+OLD: Immediately beside Lahore Fort and the Badshahi Mosque, on the spot where his body was cremated, stands the samadhi, or memorial shrine, of Maharaja Ranjit Singh, one of the grandest funerary monuments of the Sikh Empire.
+NEW: Immediately beside Lahore Fort and the Badshahi Mosque, on the spot where, by most accounts, his body was cremated, stands the samadhi, or memorial shrine, of Maharaja Ranjit Singh, one of the grandest funerary monuments of the Sikh Empire.
+
+[V1 r1 minor b]
+OLD: Ranjit Singh's line began with one Kalu, and the family kept shops in salt and tobacco. One of the family became the *chela*, or disciple, of a Sikh and stopped shaving, and Budh Singh took the *pahul*, the Sikh rite of initiation, at Amritsar; he rode a piebald mare and died in 1716.
+NEW: Ranjit Singh's family is traced back to one Kalu, and it kept shops in salt and tobacco. One of the family became the *chela*, or disciple, of a Sikh and stopped shaving, and Budh Singh took the *pahul*, the Sikh rite of initiation, at Amritsar; he rode a piebald mare and died in 1716.

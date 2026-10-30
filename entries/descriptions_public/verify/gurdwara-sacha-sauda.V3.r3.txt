@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- Round 2 V3 issue 1: fixed. وہ اور ان کے ساتھی الیاس گھمن اسے ہسپتال لے گئے now puts a pronoun, not a noun, after the name, so "Ilyas Ghuman Hospital" can no longer be read. وہ with ان کے is clearly Qaiser after اقبال قیصر کو ... یاد رہا، and اسے is clearly Shah (اس آدمی of the sentence before, the same non-honorific اسے as in اسے مارا پیٹا). لے گئے agrees with the compound subject; the sentence sits naturally between the sentence naming Shah and یہ معاملہ چند قومی اخباروں تک بھی جا پہنچا۔
+- Round 2 V3 issue 2: fixed. قدموں کے جو نشان کندہ ہیں، وہ گرو نانک کے مانے جاتے ہیں is a correct correlative (جو ... وہ), نشان masculine plural agrees with مانے جاتے ہیں, the elliptical گرو نانک کے (with نشان understood) is idiomatic, and قدم now appears once. The paragraph ends cleanly.
+- Taste: in change 1 the second verb, رپورٹ درج کرائی، shares the nominative subject of لے گئے rather than taking نے. This is the common journalistic pattern and was in the old sentence too; a stricter reader might prefer ... اسے ہسپتال لے گئے، اور انہوں نے پولیس میں رپورٹ درج کرائی، but that would bring back a pronoun pile up and is not needed.
+- Taste: change 2 gives the paragraph a second مانا جاتا (مانا جاتا ہے کہ گرو نانک ... پیرو تھے, four sentences earlier). The two are far apart and the old sentence had the same verb, so nothing new; کہے جاتے ہیں would vary it if wanted.
+- No Latin letters, no em or en dashes in either changed sentence.

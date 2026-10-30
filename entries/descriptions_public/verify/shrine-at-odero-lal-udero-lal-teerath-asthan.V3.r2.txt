@@ -1,0 +1,45 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Each of the 19 changed sentences was read in its paragraph. Every one is natural, correct, educated Urdu. Agreement, postpositions and izafat are right, there is no calque and no new ambiguity, and each fits the sentences around it:
+   1 جس میں دونوں شریک ہیں follows جس کا ... احترام کرتے ہیں in a clean parallel and drops the flat "use" wording.
+   2 The two short sentences read well. انہیں clearly means the saint, and یہ نام ... محترم ہے leaves nothing dangling.
+   3 The restored head noun removes the ellipsis. The correlative اس احترام ... جو, together with the masculine پایا جاتا, ties the relative clause to احترام and not to علامت. The verb is left implicit after "، اور ... بھی", which is normal Urdu.
+   4 Now a single sentence that does not state the birthday twice. ان is Jhulelal and اس is Cheti Chand.
+   5 Apposition with یعنی and the postposition کو after the name is standard Urdu and does not cut the name off. The اور/دوسرے redundancy is gone.
+   6 خضر کو ... اڈیرو لال ہی سے ملا کر ایک ہستی سمجھا جاتا ہے is idiomatic (ملا کر ایک سمجھنا), and the calque یکجا is gone.
+   7 نظریۂ is written with U+06C2, the same as شجرۂ elsewhere in the file.
+   8 The repeated اونٹ is deliberate. It is what removes the misreading "ran after God".
+   9 The date phrase now qualifies زمانہ, so the time is no longer given twice.
+   10 زیادہ سے زیادہ is gone, and رفتہ رفتہ ... ہوتی گئی carries "more and more".
+   11 X کی تعظیم is the right construction, and شریک تھے reads well.
+   12 ... کا دیوتا ہی سمجھا جانے لگا replaces the calque کے ساتھ ایک سمجھا.
+   13 The apposition comes before the postposition, so the relative clause no longer floats.
+   14 Fronting the place phrase removes the false pair ہندو مسلمان.
+   15 قرآنی روایت کے ... اور ہندوستانی روایت کا is a balanced parallel. The repeated روایت is the parallel itself, not the careless repetition the brief warns about.
+   16 مرد is dropped, and ایک دیوتا is the right indefinite for a figure that is identified in the next sentence.
+   17 یہ مشہور ہندو دیوتا جھولے لال ہیں، جن کی ... is idiomatic and leaves no fragment.
+   18 سانجھی عقیدت removes the doubled مشترک and echoes سب کے سانجھے ہیں earlier in the article. It is in the register of سانجھی تہذیب and not too colloquial.
+   19 سب سے بڑے دیوتا is plain and idiomatic, and it removes the second سب سے بڑھ کر, which round 1 noted in two consecutive paragraphs.
+2. Round 1 V3 issues, now:
+   1 Fixed.
+   2 Fixed.
+   3 Fixed.
+   4 Fixed: the redundancy and the afterthought order are gone. The removal of the قلندر gloss was rejected, and rightly: the brief names قلندر as a term to keep glossed.
+   5 Fixed in adapted wording. یکجا is gone, and the adaptation reads naturally.
+   6 Fixed.
+   7 Fixed.
+   8 Fixed.
+   9 Fixed.
+   10 Fixed: the wrong collocation is gone, and the referent of اس میں is now narrowed to the تعظیم (see note 4).
+   11 Fixed.
+   12 Fixed.
+   13 Fixed.
+   14 Fixed.
+   15 Fixed.
+   16 Fixed.
+   17 The repetition is fixed. The spelling change was rejected, and I accept that: the dictionary gives the shrine's name as اوڈیرو لال کا مقام, the English opens this paragraph with "The shrine at Odero Lal", and the Overview's first sentence already tells the reader that both spellings name the place. So the variant here does not read as a slip.
+   Round 1 note 1 (مل کر) was applied as change 1 and reads well.
+3. Taste, change 2. After the split, کے نزدیک appears in three consecutive sentences (سندھی ہندوؤں کے نزدیک، مسلمانوں کے نزدیک، دونوں برادریوں کے نزدیک), and محترم is followed at once by احترام in the next sentence. The first two are a deliberate pair. The third could vary, for example: اور یہ نام دونوں برادریوں میں عزت کی نگاہ سے دیکھا جاتا ہے۔ Recorded, not to be applied.
+4. Taste, change 11. اس میں most naturally takes the subject of the clause, خواجہ خضر کی تعظیم. A reader who looks back to the nearer پرستش loses nothing real, since the two are joined in the same sentence. Left as is.
+5. Taste, change 6. ایک ہی ہستی would make "one and the same being" slightly more explicit than ایک ہستی. Not needed.

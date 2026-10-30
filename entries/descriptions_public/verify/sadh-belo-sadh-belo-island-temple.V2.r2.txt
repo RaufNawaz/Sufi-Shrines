@@ -1,0 +1,12 @@
+V2 VERDICT: PASS
+V2 ISSUES: none
+V3 VERDICT: PASS
+V3 ISSUES: none
+DIFF: Only the 17 listed changes moved. All 12 changed lines (9, 11, 13, 23, 27, 29, 37, 45, 51, 53, 59, 61) are listed changes, each OLD string occurs exactly once in the r1 backup, and applying the 17 OLD -> NEW replacements to the backup gives the current file byte for byte; check_public_description.py --no-verdicts passes (Urdu 0.93).
+NOTES:
+- [14] Sehwan: the meaning is right (the other northern Sindh cities, post-Manzilgah Sukkur among them, are the contrast and Sehwan is the exception), but the sentence opens with eleven words and five stacked کے before its subject. A lighter version, if wanted: سیہون میں فرقہ وارانہ تشدد کا کبھی کوئی واقعہ درج نہیں ہوا تھا، جبکہ شمالی سندھ کے دوسرے شہروں میں، مثلاً منزل گاہ کے فسادات کے بعد کے سکھر میں، صورت حال اس کے برعکس تھی۔
+- [16] "یوں ہی" can also be read in speech as "idly, for no reason"; "اسی طرح" cannot: ... اور اس کی مقدس عمارتیں دو صدیوں سے دریا کے بیچ اسی طرح سر اٹھائے کھڑی ہیں۔
+- [15] repeats the shape of the sentence before it ("... بھی یہی شہر ہے؛ وہ ..." then "... بھی روہڑی ہی کے تھے؛ وہ ..."), and "تھے" closes three clauses in a row.
+- [9] "یاترا پر جانے والا ایک یاتری" pairs یاترا and یاتری (carried over from r1; not new).
+- [12] "کی بدولت" is a shade more causal than English "under"; it is a fair reading of "preserved under ... arrangements" and not a change of fact.
+- [2] and [8]: line 11 now has "دیوی دیوتاؤں", while lines 21 and 29 (unchanged) keep "ہندو دیوتاؤں"; line 29's new sentence on "نانک پنتھی برادریاں" is followed at once by "جن برادریوں".

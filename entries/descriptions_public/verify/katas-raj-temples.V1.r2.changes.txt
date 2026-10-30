@@ -1,0 +1,9 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: Later the water level of the sacred pond fell alarmingly, a drop attributed to the cement factories around the site drawing out the groundwater, and the controversy reached the country's Supreme Court.
+NEW: The water level of the sacred pond also fell alarmingly, a drop attributed to the cement factories around the site drawing out the groundwater, an issue that reached the country's Supreme Court.
+
+2. V1 r1 change 2
+OLD: The same reconstruction has Nanak's mother Tripta and her husband stop at Katas Raj on their way home from Tilla Jogian, and both of them take a dip in the holy pond.
+NEW: A reconstruction of the lives of Nanak's parents likewise has his mother Tripta and her husband stop at Katas Raj on their way home from Tilla Jogian, and both of them take a dip in the holy pond.

@@ -1,0 +1,79 @@
+VERDICT: FAIL
+ISSUES:
+1. [wrong postposition / tangled opening] "باغ میں گھرا" -> گھرا takes سے, not میں; the opening subject also stacks three locatives before its verb, so the first sentence of the article is hard to parse. -> لاہور کے علاقے انار کلی میں ایبک روڈ کی پُرہجوم گلیوں کے بیچ باغ سے گھرا ایک سادہ سا مقبرہ ہے، جو سلطان قطب الدین ایبک کی آخری آرام گاہ ہے۔
+OLD: لاہور کے علاقے انار کلی میں ایبک روڈ کی پُرہجوم گلیوں کے بیچ باغ میں گھرا ایک سادہ سا مقبرہ سلطان قطب الدین ایبک کی آخری آرام گاہ ہے۔
+NEW: لاہور کے علاقے انار کلی میں ایبک روڈ کی پُرہجوم گلیوں کے بیچ باغ سے گھرا ایک سادہ سا مقبرہ ہے، جو سلطان قطب الدین ایبک کی آخری آرام گاہ ہے۔
+
+2. [calque] "اس کی قدر اس لیے ہے کہ ... اس لمحے کی نشانی" -> word for word from "it is valued because ... marks the moment"; Urdu does not speak of a century's لمحہ, and قدر اس لیے ہے is stiff. -> اس کی اہمیت یہ ہے کہ یہ تیرہویں صدی کے اس زمانے کی نشانی ہے ...
+OLD: اس کی قدر اس لیے ہے کہ یہ تیرہویں صدی کے اس لمحے کی نشانی ہے جب جنوبی ایشیا میں مسلمانوں کی خاندانی حکومت کی بنیاد پڑی، اور کچھ عرصے کے لیے اس حکومت کا مرکز خود لاہور تھا۔
+NEW: اس کی اہمیت یہ ہے کہ یہ تیرہویں صدی کے اس زمانے کی نشانی ہے جب جنوبی ایشیا میں مسلمانوں کی خاندانی حکومت کی بنیاد پڑی، اور کچھ عرصے کے لیے اس حکومت کا مرکز خود لاہور تھا۔
+
+3. [tacked-on gloss] "؛ چوگان پولو کا ابتدائی روپ تھا" -> the explanation is bolted on after a semicolon like a translator's footnote and interrupts the account of the death; fold it into the noun. -> وہ پولو کی ابتدائی شکل چوگان کھیل رہے تھے کہ گھوڑے سے گر پڑے۔
+OLD: وہ چوگان کھیل رہے تھے کہ گھوڑے سے گر پڑے؛ چوگان پولو کا ابتدائی روپ تھا۔
+NEW: وہ پولو کی ابتدائی شکل چوگان کھیل رہے تھے کہ گھوڑے سے گر پڑے۔
+
+4. [agreement: ergative subject with intransitive verb] "انہوں نے اس ملک کو تاراج کیا، دہلی لوٹ آئے" -> انہوں نے cannot also be the subject of لوٹ آئے; the chain "، اور ... اور" is also English serial-comma word order. -> انہوں نے اس ملک کو تاراج کیا، پھر دہلی لوٹ کر ...
+OLD: انہوں نے اس ملک کو تاراج کیا، دہلی لوٹ آئے، اور محمد غوری کے نام کا خطبہ پڑھوایا اور سکے ڈھلوائے۔
+NEW: انہوں نے اس ملک کو تاراج کیا، پھر دہلی لوٹ کر محمد غوری کے نام کا خطبہ پڑھوایا اور سکے ڈھلوائے۔
+
+5. [calque / unclear] "مہرولی میں ان کا سادہ سا احاطہ" -> "his simple enclosure" does not say what the enclosure is; in Urdu the احاطہ belongs to the مزار. -> ان کے مزار کا سادہ سا احاطہ
+OLD: خواجہ صاحب کا انتقال 1235 میں ہوا، اور دہلی کے قطب مینار کے نزدیک مہرولی میں ان کا سادہ سا احاطہ عموماً عقیدت مند زائرین سے بھرا رہتا ہے۔
+NEW: خواجہ صاحب کا انتقال 1235 میں ہوا، اور دہلی کے قطب مینار کے نزدیک مہرولی میں ان کے مزار کا سادہ سا احاطہ عموماً عقیدت مند زائرین سے بھرا رہتا ہے۔
+
+6. [wrong postposition / calque] "غوری سلطنت کی وراثت پر ایبک کے حریف" -> "rival over the inheritance"; حریف does not take پر. -> غوری سلطنت کی وراثت کے دعوے میں ایبک کے حریف ...
+OLD: غوری سلطنت کی وراثت پر ایبک کے حریف تاج الدین یلدوز تھے، جو محمد غوری کے خاص غلاموں میں سے تھے۔
+NEW: غوری سلطنت کی وراثت کے دعوے میں ایبک کے حریف تاج الدین یلدوز تھے، جو محمد غوری کے خاص غلاموں میں سے تھے۔
+
+7. [repetition] "روایات مختلف ہیں" -> the same formula closes six sentences (plus one بیانات مختلف ہیں), four of them in the last three sections, and starts to read mechanically; vary it without dropping the hedge. -> اگرچہ ان کے سالِ وفات پر روایات متفق نہیں۔
+OLD: قطب الدین ایبک کا انتقال نومبر 1210 میں لاہور میں ہوا، اگرچہ ان کے سالِ وفات کے بارے میں روایات مختلف ہیں۔
+NEW: قطب الدین ایبک کا انتقال نومبر 1210 میں لاہور میں ہوا، اگرچہ ان کے سالِ وفات پر روایات متفق نہیں۔
+
+8. [register slip] "پولو کے میچ" -> میچ is an English sports-page loan in a literary sentence about a Sufi کافی; the verse translation below itself says مقابلہ. -> پولو کے ایک مقابلے کا منظر
+OLD: شاعر مادھو لال حسین کی ایک کافی میں پولو کے میچ کا منظر باندھا گیا ہے، اگرچہ اس میں سلطان کا نام نہیں آتا:
+NEW: شاعر مادھو لال حسین کی ایک کافی میں پولو کے ایک مقابلے کا منظر باندھا گیا ہے، اگرچہ اس میں سلطان کا نام نہیں آتا:
+
+9. [repetition] "اس بارے میں روایات مختلف ہیں" -> second variation of the same formula (see 7), hedge kept. -> اس میں روایات کا اختلاف ہے۔
+OLD: آرام شاہ ایبک کے سگے بیٹے تھے یا منہ بولے، اس بارے میں روایات مختلف ہیں۔
+NEW: آرام شاہ ایبک کے سگے بیٹے تھے یا منہ بولے، اس میں روایات کا اختلاف ہے۔
+
+10. [agreement: ergative subject with intransitive verb; repetition] "یلدوز نے ملتان لے لیا، لاہور آئے" -> یلدوز نے cannot govern آئے, and the name is repeated at the head of two consecutive sentences. -> one sentence with a conjunctive participle.
+OLD: التتمش ہی کے زمانے میں یلدوز نے پھر سر اٹھایا۔ یلدوز نے ملتان لے لیا، لاہور آئے اور پنجاب کو بے روک ٹوک لوٹا۔
+NEW: التتمش ہی کے زمانے میں یلدوز نے پھر سر اٹھایا، ملتان لے لیا اور لاہور آ کر پنجاب کو بے روک ٹوک لوٹا۔
+
+11. [unidiomatic / ambiguous] "ان کی قبر پر کیا تعمیر تھی" -> تعمیر as a count noun here is stiff and the clause can be heard as an exclamation ("what a building it was"). -> ان کی قبر پر کیا کچھ تعمیر ہوا
+OLD: ایبک کی وفات کے بعد کی صدیوں میں ان کی قبر پر کیا تعمیر تھی، اس بارے میں روایات مختلف ہیں۔
+NEW: ایبک کی وفات کے بعد کی صدیوں میں ان کی قبر پر کیا کچھ تعمیر ہوا، اس بارے میں روایات مختلف ہیں۔
+
+12. [illogical collocation] "ان سب کو گرا کر امرتسر بھجوا دیا" -> buildings cannot be sent to Amritsar; what was sent was their stone, and a ruler has buildings demolished (گروا کر), he does not pull them down himself. -> ان سب کو گروا کر ان کا پتھر امرتسر بھجوا دیا
+OLD: سکھ عہد میں اس مقام پر پتھر کی بلند و بالا عمارتیں کھڑی تھیں، یہاں تک کہ مہاراجہ نے ان سب کو گرا کر امرتسر بھجوا دیا اور اونچے چبوترے پر بس ایک قبر باقی رہ گئی۔
+NEW: سکھ عہد میں اس مقام پر پتھر کی بلند و بالا عمارتیں کھڑی تھیں، یہاں تک کہ مہاراجہ نے ان سب کو گروا کر ان کا پتھر امرتسر بھجوا دیا اور اونچے چبوترے پر بس ایک قبر باقی رہ گئی۔
+
+13. [repetition] "ایک طویل عرصے تک یہ مقام بس ایک سادہ سی قبر رہا جس کا کوئی باقاعدہ اہتمام نہ تھا" -> near word-for-word echo of the introduction ("مدتوں یہاں بس ایک سادہ سی قبر تھی جس کا کوئی باقاعدہ اہتمام نہ تھا ..."); same facts, recast so the reader does not meet the same sentence twice.
+OLD: ایک طویل عرصے تک یہ مقام بس ایک سادہ سی قبر رہا جس کا کوئی باقاعدہ اہتمام نہ تھا، اور انار کلی بازار کے مکانات اسے گھیرے ہوئے تھے۔
+NEW: ایک طویل عرصے تک یہاں انار کلی بازار کے مکانات میں گھری ایک سادہ سی قبر کے سوا کچھ نہ تھا، اور اس کا کوئی باقاعدہ اہتمام نہ تھا۔
+
+14. [ambiguous genitive] "محکمۂ آثارِ قدیمہ و عجائب گھر کی ازسرِنو تعمیر ہے" -> کی can be read as "a reconstruction of the Department" rather than "by" it; make the department the agent. -> اسے ... محکمۂ آثارِ قدیمہ و عجائب گھر نے ازسرِنو تعمیر کیا
+OLD: آج یہاں آنے والے جو مقبرہ دیکھتے ہیں، وہ بنیادی طور پر 1970 کی دہائی میں پاکستان کے محکمۂ آثارِ قدیمہ و عجائب گھر کی ازسرِنو تعمیر ہے، اگرچہ اس کے سنِ تعمیر کے بارے میں بیانات مختلف ہیں۔
+NEW: آج یہاں آنے والے جو مقبرہ دیکھتے ہیں، اسے بنیادی طور پر 1970 کی دہائی میں پاکستان کے محکمۂ آثارِ قدیمہ و عجائب گھر نے ازسرِنو تعمیر کیا، اگرچہ اس کے سنِ تعمیر کے بارے میں بیانات مختلف ہیں۔
+
+15. [calque] "یہ عمارت دانستہ طور پر ... کی یاد دلاتی ہے" -> "deliberately evokes": a building cannot act دانستہ طور پر; the intention belongs to its makers. -> اس عمارت کو دانستہ طور پر ایسا بنایا گیا ہے کہ ...
+OLD: یہ عمارت دانستہ طور پر ابتدائی دورِ سلاطین کے طرزِ تعمیر کی یاد دلاتی ہے۔
+NEW: اس عمارت کو دانستہ طور پر ایسا بنایا گیا ہے کہ یہ ابتدائی دورِ سلاطین کے طرزِ تعمیر کی یاد دلائے۔
+
+16. [ambiguous time reference] "اس زمانے میں وہ بھی ٹائروں کی ایک اور دکان بننے کی راہ پر تھا" -> coming straight after "کبھی ... مشہور تھا", اس زمانے reads as the tea house's literary heyday, which reverses the sense; tie it to the early twenty-first century of the sentence before. -> ... مگر اکیسویں صدی کے انہی ابتدائی برسوں میں یہ بھی ...
+OLD: پاک ٹی ہاؤس یہاں سے چند ہی دکانیں دور ہے اور کبھی شہر کے چوٹی کے دانشوروں کی محفلوں کی وجہ سے مشہور تھا۔ اس زمانے میں وہ بھی ٹائروں کی ایک اور دکان بننے کی راہ پر تھا۔
+NEW: پاک ٹی ہاؤس یہاں سے چند ہی دکانیں دور ہے۔ کبھی یہ شہر کے چوٹی کے دانشوروں کی محفلوں کی وجہ سے مشہور تھا، مگر اکیسویں صدی کے انہی ابتدائی برسوں میں یہ بھی ٹائروں کی ایک اور دکان بننے کی راہ پر تھا۔
+
+17. [calque that changes the meaning] "ہر دوسری عمارت سے قدیم" -> English "every other building" means "all other buildings", but Urdu ہر دوسری عمارت means "every second building, half of them", so the historian's claim is shrunk. -> باقی تمام عمارتوں سے قدیم تر
+OLD: انیسویں صدی میں لاہور کے ایک مورخ نے ایبک کی قبر کو شہر کے آس پاس کی ہر دوسری عمارت سے قدیم قرار دیا، اور لکھا کہ سلطان سے پہلے ہندوستان کی سرزمین بے چراغ تھی۔
+NEW: انیسویں صدی میں لاہور کے ایک مورخ نے ایبک کی قبر کو شہر کے آس پاس کی باقی تمام عمارتوں سے قدیم تر قرار دیا، اور لکھا کہ سلطان سے پہلے ہندوستان کی سرزمین بے چراغ تھی۔
+
+NOTES:
+- Not fixable at V3, needs the coordinator: "سید حسین مشہدی بڑی عقیدت سے خواجہ کی خدمت کرتے تھے۔" The word خواجہ has no referent anywhere before it (حضرت معین الدین is first named two paragraphs later), so a general reader cannot tell who is meant. Naming him would add a fact, so it is left for a check against the source.
+- Outside V3's remit, flagged only: the text calls Bhutto وزیرِ اعظم when giving the 1972 order. He was President in 1972 and became Prime Minister in August 1973; worth a fact check. Separately, Pakistani readers usually say "1971 کی جنگ" or "سقوطِ ڈھاکہ" rather than "بنگلہ دیش کی جنگ"; not changed because it would add a date.
+- Structural repetition the V3 pass cannot remove without dropping facts: the introduction's points come back almost verbatim later (care "ایک محفوظ تاریخی یادگار کے طور پر" in lines 3 and 44; the 1970s rebuild in lines 5 and 44; the Bhutto quotation in lines 44 and 60; the symbolic significance in lines 3 and 56). Worth trimming at the English or structural stage.
+- Taste: "سرخ، سیاہ اور مرمر کے پتھر" mixes two colour adjectives with a material; "سرخ اور سیاہ پتھر اور سنگِ مرمر" is smoother.
+- Taste: "دوسرے سال ... اور دوسرے قلعے بھی سر کیے" repeats دوسرے in one sentence; "دیگر قلعے" avoids it.
+- Taste: "کہا گیا کہ ان کی سخاوت کے ہاتھ نے" reads better as "کہا گیا ہے کہ"; likewise "سراہا گیا" at the end as "سراہا گیا ہے".
+- Taste: "غوری مقبوضات کی کمان" (کمان goes with an army; "انتظام" or "باگ ڈور" sits better with territories); "داستانی محبوبہ" (افسانوی is the usual word); "اندرپرستھ" (Urdu usually writes اندرپرست); "ایک پرانی یاد بھی قائم ہے۔ یہ لکھ بخش کی یاد ہے" (یاد twice; "زندہ ہے" is warmer than "قائم ہے").
+- Checked and clean: no Latin letters in the prose, no em or en dashes, Urdu ، ۔ ؟ throughout, Western digits, asterisks balanced (one italic verse paragraph), Persian couplet and italic kafi translation left untouched, spellings of انار کلی، التتمش، خود مختار، ازسرِنو consistent.

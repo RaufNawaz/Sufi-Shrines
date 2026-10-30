@@ -1,0 +1,9 @@
+English round 3 changes (coordinator, by script) to entries/descriptions_public/mausoleum-of-waris-shah.md: V1 round 2 issue and minor point in V1's wording.
+
+[V1 r2 issue 1 (doubled words)]
+OLD: He wrote in the *bait*, the stanza of four lines adopted in Punjabi Sufi poetry, the form the form Sultan Bahu also used in his *Abiat*.
+NEW: He wrote in the *bait*, the stanza of four lines adopted in Punjabi Sufi poetry, the form Sultan Bahu also used in his *Abiat*.
+
+[V1 r2 minor point]
+OLD: A historian of Lahore called it the story that was on the tongue of good and bad, small and great, rich and poor in the land of the Punjab.
+NEW: A historian of Lahore called the tale the story that was on the tongue of good and bad, small and great, rich and poor in the land of the Punjab.

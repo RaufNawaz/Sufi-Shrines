@@ -1,0 +1,76 @@
+VERDICT: FAIL
+ISSUES:
+1. [wrong postposition / meaning reversed] "اور ساری عمر انہی کی رہنمائی میں گزار دی" -> "X کی رہنمائی میں عمر گزارنا" means to live under X's guidance, so the sentence says he spent his life being guided by Lahore's people, the opposite of what is meant. "ساری عمر" also clashes with the article's own dates (born 958, came to Lahore about 998); he spent the rest of his life there. -> make him the one who guides.
+OLD: تاہم مشہور ہے کہ انہوں نے کوئی چھتیس برس اس شہر میں تبلیغ کی، غزنوی اور بعد کے مغل ادوار سے بہت پہلے اس کے باشندوں کی بڑی تعداد کو حلقۂ اسلام میں داخل کیا، اور ساری عمر انہی کی رہنمائی میں گزار دی۔
+NEW: تاہم مشہور ہے کہ انہوں نے کوئی چھتیس برس اس شہر میں تبلیغ کی، غزنوی اور بعد کے مغل ادوار سے بہت پہلے اس کے باشندوں کی بڑی تعداد کو حلقۂ اسلام میں داخل کیا، اور باقی عمر انہی لوگوں کی رہنمائی کرتے گزار دی۔
+
+2. [gloss of a familiar word / calque] "حسینی سید یعنی نبی کریمؐ کی اولاد" -> every Urdu reader knows what a سید is; the یعنی clause reads like a translator's note. "زنجان کی شاخ" is the English "Zanjan branch": a city has no branch, the lineage does. -> drop the gloss, say زنجانی شاخ.
+OLD: وہ حسینی سید یعنی نبی کریمؐ کی اولاد تھے، اور ان کے خاندان کا نسب زنجان کی شاخ کے واسطے سے امام موسیٰ کاظم سے ملایا جاتا ہے۔
+NEW: وہ حسینی سید تھے، اور ان کے خاندان کا نسب زنجانی شاخ کے واسطے سے امام موسیٰ کاظم سے ملایا جاتا ہے۔
+
+3. [gloss of a familiar word] "قدیم مشائخ یعنی اگلے وقتوں کے اولیاء" -> قدیم مشائخ is self-explanatory; the second یعنی gloss in two consecutive sentences makes the paragraph read like a glossary. -> drop the gloss.
+OLD: ان کا شمار قدیم مشائخ یعنی اگلے وقتوں کے اولیاء میں ہوتا ہے، اور وہ ہدایت، زہد، تقویٰ اور شرافت کا پیکر تھے۔
+NEW: ان کا شمار قدیم مشائخ میں ہوتا ہے، اور وہ ہدایت، زہد، تقویٰ اور شرافت کا پیکر تھے۔
+
+4. [spelling of a name] "شیخ ابو الفضل خطیل" -> Ali Hujwiri's and Zanjani's murshid is known to Urdu readers (from every Urdu Kashf al-Mahjub) as ابو الفضل ختلی; خطیل looks like a back-transliteration from an English spelling and an Urdu reader will not recognise the man. Same person, standard spelling.
+OLD: کہا جاتا ہے کہ میراں حسین زنجانی تقریباً 998 میں اپنے مرشد شیخ ابو الفضل خطیل کے حکم پر لاہور آئے۔
+NEW: کہا جاتا ہے کہ میراں حسین زنجانی تقریباً 998 میں اپنے مرشد شیخ ابو الفضل ختلی کے حکم پر لاہور آئے۔
+
+5. [calque] "خود ان کے بھائی کا مزار" -> a word-for-word "whose own shrine"; خود here attaches to the brother ("the brother himself's shrine") and reads oddly. -> ان کے بھائی کا اپنا مزار بھی.
+OLD: خود ان کے بھائی کا مزار قریب ہی واقع ہے۔
+NEW: ان کے بھائی کا اپنا مزار بھی قریب ہی واقع ہے۔
+
+6. [repetition] "روایات مختلف ہیں" -> the same three words close a sentence three times in ten lines (arrival, dates, Khwaja Chishti). -> vary the second.
+OLD: صاحبِ مزار کی تاریخوں کے بارے میں روایات مختلف ہیں۔
+NEW: صاحبِ مزار کی تاریخوں کے بارے میں بھی روایات میں اختلاف ہے۔
+
+7. [repetition] "اس بارے میں روایات مختلف ہیں کہ" -> third occurrence, and the same "اس بارے میں" opener as the first. -> vary the third.
+OLD: اس بارے میں روایات مختلف ہیں کہ خواجہ صاحب نے زنجانی کو زندہ پایا یا نہیں۔
+NEW: خواجہ صاحب نے زنجانی کو زندہ پایا یا نہیں، اس پر بھی روایات متفق نہیں۔
+
+8. [calque] "کا نام ... کے اعزاز میں رکھا گیا ہے" -> "named in honour of"; in Urdu کے اعزاز میں goes with a reception or a ceremony, and a place gets its name کسی کی نسبت سے.
+OLD: لاہور میں دریا کنارے کے پرانے علاقے چاہ میراں کا نام سید میراں حسین زنجانی کے اعزاز میں رکھا گیا ہے، اور یہیں ان کا مقبرہ واقع ہے۔
+NEW: لاہور میں دریا کنارے کے پرانے علاقے چاہ میراں کو یہ نام سید میراں حسین زنجانی کی نسبت سے ملا ہے، اور یہیں ان کا مقبرہ واقع ہے۔
+
+9. [calque] "صاحبِ مزار ہی کے اعزاز میں اس نام سے پکارا جاتا ہے" -> same calque as 8, in the closing sentence.
+OLD: قبر کے گرد آباد چاہ میراں کا محلہ صاحبِ مزار ہی کے اعزاز میں اس نام سے پکارا جاتا ہے۔
+NEW: قبر کے گرد آباد محلے کو چاہ میراں کا نام صاحبِ مزار ہی کی نسبت سے ملا ہے۔
+
+10. [calque] "اتنے قدیم مقام کے لیے یہ بات غیر معمولی ہے" -> "unusual for a site this old"; کے لیے here first reads as purpose ("for the sake of"). -> کے لحاظ سے.
+OLD: اتنے قدیم مقام کے لیے یہ بات غیر معمولی ہے کہ قبر سادہ اونچے چبوترے پر بنی ہے اور اس پر کوئی گنبد نہیں۔
+NEW: اتنے قدیم مقام کے لحاظ سے یہ بات غیر معمولی ہے کہ قبر سادہ اونچے چبوترے پر بنی ہے اور اس پر کوئی گنبد نہیں۔
+
+11. [calque / dangling comparative] "جن کی بدولت لاہور زیادہ مشہور ہے" -> "for which Lahore is better known"; زیادہ مشہور has nothing to be compared with, and بدولت makes the tombs the cause of Lahore's fame rather than what it is known for.
+OLD: یہ مغل دور کے ان شاندار مزارات سے صدیوں پرانا ہے جن کی بدولت لاہور زیادہ مشہور ہے۔
+NEW: یہ مغل دور کے ان شاندار مزارات سے صدیوں پرانا ہے جن سے لاہور کی شہرت زیادہ وابستہ ہے۔
+
+12. [unidiomatic collocation] "رقبے میں مختصر" -> مختصر is used of length, time or text, not of area; a building is رقبے میں چھوٹا.
+OLD: مقبرہ رقبے میں مختصر ہے اور دیکھنے سے اس کی تاریخی اہمیت کا اندازہ نہیں ہوتا: سادہ اونچے چبوترے پر ایک قبر ہے، جس پر کوئی گنبد نہیں۔
+NEW: مقبرہ رقبے میں چھوٹا ہے اور دیکھنے سے اس کی تاریخی اہمیت کا اندازہ نہیں ہوتا: سادہ اونچے چبوترے پر ایک قبر ہے، جس پر کوئی گنبد نہیں۔
+
+13. [redundancy] "سال میں ایک بار عرس ... سالانہ عرس" -> an عرس is annual by definition, and the sentence says so twice in two clauses.
+OLD: انیسویں صدی میں قبر پر سال میں ایک بار عرس ہوتا تھا، اور سالانہ عرس آج بھی مقامی عقیدت مندوں کو یہاں کھینچ لاتا ہے۔
+NEW: انیسویں صدی میں قبر پر ہر سال عرس ہوتا تھا، اور یہ عرس آج بھی مقامی عقیدت مندوں کو یہاں کھینچ لاتا ہے۔
+
+14. [redundancy / incomplete construction] "اس صوبے کا الحاق کر کے اسے اپنی سلطنت کا حصہ بنایا" -> الحاق needs "سے" (کا ... سے الحاق) and already means making it part of the empire, so the sentence says the same thing twice to cover the missing postposition.
+OLD: جہاں تک پورے پنجاب کا تعلق ہے، محمود غزنوی نے اس صوبے کا الحاق کر کے اسے اپنی سلطنت کا حصہ بنایا، اور اسی کے نتیجے میں بہت سے صوفیہ وہاں آ بسے۔
+NEW: جہاں تک پورے پنجاب کا تعلق ہے، محمود غزنوی نے اس صوبے کو اپنی سلطنت میں شامل کر لیا، اور اسی کے نتیجے میں بہت سے صوفیہ وہاں آ بسے۔
+
+15. [ellipsis] "قدیم ترین میں شمار ہوتا ہے" -> the superlative is left without its noun; Urdu needs "قدیم ترین قبروں میں".
+OLD: لاہور کے خطے میں جتنی صوفی قبریں معلوم ہیں، ان میں سید میراں حسین زنجانی کا مزار قدیم ترین میں شمار ہوتا ہے۔
+NEW: لاہور کے خطے میں جتنی صوفی قبریں معلوم ہیں، ان میں سید میراں حسین زنجانی کا مزار قدیم ترین قبروں میں شمار ہوتا ہے۔
+
+16. [tangled sentence / distant relative pronoun] "داتا گنج بخش کے قصے کے ساتھ بھی دور دور تک پہنچا ہے، جن کی لاہور آمد" -> جن must reach back past the main verb to a name buried inside a postpositional phrase, and could also be Zanjani; "کے حوالے سے سنائی جاتی ہے" is "told with reference to". -> lead with the story, then say what it did for Zanjani's name.
+OLD: زنجانی کا نام داتا گنج بخش کے قصے کے ساتھ بھی دور دور تک پہنچا ہے، جن کی لاہور آمد کی کہانی صاحبِ مزار ہی کے جنازے کے حوالے سے سنائی جاتی ہے۔
+NEW: داتا گنج بخش کی لاہور آمد کی کہانی صاحبِ مزار ہی کے جنازے سے جڑی ہوئی ہے، اور اسی قصے کے ساتھ زنجانی کا نام بھی دور دور تک پہنچا ہے۔
+
+NOTES:
+- Overall the prose is clear, and the Legends and nineteenth century description paragraphs read well. It fails on one sentence whose postposition reverses its meaning (1), two glosses (2, 3), a misspelt name (4), and a run of calques and redundancies. None of the problems is a grammar or agreement error.
+- Taste: "زنجانی ان دونوں میں بڑے مانے جاتے ہیں" is read first as "the greater of the two", and the next sentence (داتا صاحب کی شہرت کہیں زیادہ ہے) then seems to contradict it. If the source means the elder or senior, as "میرے بڑے پیر بھائی" later suggests, "عمر میں بڑے" or "پیش رو" would say so; for the coordinator to check against the source.
+- Taste: "صاحبِ مزار" occurs eight times and "بزرگ" thirteen. In "داتا گنج بخش شہر پہنچے تو زنجانی کا جنازہ اٹھ رہا تھا؛ بزرگ رات ہی کو..." the bare بزرگ could for a moment be Data Sahib. Some instances could be زنجانی or وہ.
+- Taste: the article repeats several facts across sections: the plain raised platform with no dome (Introduction and Shrine), the death in the night before Data Sahib arrived (Introduction and Legends, almost word for word), Sadr Diwan coming with Zanjani (Saint and Shrine), and the neighbourhood named after him (three times). Fluency edits cannot remove these; the coordinator may want to trim them.
+- Taste: "بعد میں علی ہجویری کو بھی زنجانی کے پیچھے بھیجا" can sound like Hujwiri was sent to chase him; "زنجانی کے بعد وہیں بھیجا" is smoother. "انہوں نے عذر کیا" is right in meaning, though "عرض کیا کہ" is the usual deferential verb towards a murshid.
+- Taste: "کھوئی میراں گاؤں کی جنوبی سمت واقع تھی" reads better as "گاؤں کے جنوب میں", matching "گاؤں کے مشرق میں" later. "پھر تین محرابوں والا ایک دالان" uses پھر as an English "Then there were"; "نیز" or "ان کے علاوہ" fits a description better. "ایک دوسرا مزار بھی تھا، جو ... کا تھا" would be cleaner as "فقیر سائیں قطب شاہ قادری کا مزار بھی تھا".
+- Taste: "محکمۂ اوقاف ... اس مزار کو باضابطہ طور پر تسلیم کرتا ہے" is a slightly English collocation (one recognises a state or a degree); "اوقاف کے ریکارڈ میں باضابطہ طور پر درج ہے" is the usual phrasing, if the source supports it. "سکھ راج" and "سکھ سلطنت" alternate in adjacent sentences; one term would read better. "سلاطینِ دہلی اور مغلیہ سلطنت" mixes rulers with a state; "دہلی سلطنت اور مغلیہ سلطنت" would be parallel.
+- For the coordinator: issue 1 changes "ساری عمر" to "باقی عمر" because the article's own dates make "his whole life" impossible; check against the English if in doubt. Issue 4 corrects the spelling of a name, not the person.
+- Mechanical checks pass: no Latin letters, no em or en dashes, Urdu comma, semicolon and question mark throughout (three colons, which is normal Urdu usage), Western digits only, no asterisks, no verse paragraphs.

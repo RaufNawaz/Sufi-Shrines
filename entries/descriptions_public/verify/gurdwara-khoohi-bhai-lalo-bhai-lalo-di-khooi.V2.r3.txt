@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the change list verify/gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi.ur.r3.changes.txt has 1 OLD/NEW pair. Applied to /home/claude/bak/gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi.ur.md.bak_ur2, the OLD occurred exactly once and was replaced once. The result is byte for byte identical to the current .ur.md. The NEW occurs exactly once in the current file and the OLD no longer occurs. A plain diff of backup against current shows only line 37 (The Gurdwara, paragraph 2) changed. Nothing else moved.
+2. Checker: python3 pipeline/book_queue/check_public_description.py gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi --no-verdicts printed "ok    gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi  team 41175 -> public 13961 chars (0.34), Urdu 13735 chars (0.98)" (exit 0).
+3. Change 1 (V3 r2 issue 1), against English line 37, "with funds raised by the *Sangat*, the Sikh congregation, abroad": the NEW sentence "خریداری کی رقم بیرونِ ملک کی سکھ *سنگت* نے جمع کی تھی" keeps every element. The funds (رقم), their purpose (خریداری, matching "bought the property with funds"), the raising (جمع کی), the agent (the Sangat), its being Sikh (سکھ) and its being abroad (بیرونِ ملک) are all there. The referent is right: the congregation abroad raised the money, and Panesar, named in the sentence before, bought the property. Nothing is added.
+4. The dropped gloss "یعنی سکھ عقیدت مندوں کی جماعت" is not an omission. Its two contents, Sikh and congregation, survive as سکھ and as the word سنگت itself, which an Urdu reader takes as a gathering of devotees once سکھ stands before it. This is the outcome my round 2 note 6 anticipated.
+5. Round 2 of V2 passed with no issues, so no V2 issue was outstanding.

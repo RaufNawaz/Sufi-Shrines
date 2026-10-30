@@ -1,0 +1,96 @@
+Urdu round 2 changes for shrine-of-abdullah-shah-ghazi.ur.md
+Source reports: verify/shrine-of-abdullah-shah-ghazi.V2.r1.txt (FAIL, 1 issue) and verify/shrine-of-abdullah-shah-ghazi.V3.r1.txt (FAIL, 14 issues).
+Backup of the round 1 text: /home/claude/bak/shrine-of-abdullah-shah-ghazi.ur.before_r2.md
+V3 notes are numbered in the order the report lists them (1 عیسوی, 2 لاکھوں, 3 ورثہ echo, 4 شروع کے / مزید شمال, 5 عام بیان, 6 بھرائی, 7 قوال بچے, 8 ایک twice and جاں بحق, 9 نیچی پہاڑی and جائے پناہ).
+
+1. WHY: V3 note 1 (applied): add عیسوی, since the English century is CE (Muhammad bin Qasim, 710 to 712), so a reader cannot take it as Hijri
+   OLD: روایت انہیں آٹھویں صدی کا بزرگ بتاتی ہے
+   NEW: روایت انہیں آٹھویں صدی عیسوی کا بزرگ بتاتی ہے
+
+2. WHY: V3 issue 1 (adapted): three سب سے and the stiff دلوں کو عزیز removed with V3's سرِفہرست construction; V3's bare عقیدت is widened to عقیدت و محبت so that 'most beloved' keeps its sense of affection (only one سب سے, for 'largest metropolis', remains)
+   OLD: سبز گنبد والا یہ دربار پاکستان کے سب سے بڑے شہر کے اُن مقدس مقامات میں سے ہے جہاں سب سے زیادہ حاضری ہوتی ہے اور جو لوگوں کے دلوں کو سب سے زیادہ عزیز ہیں۔
+   NEW: سبز گنبد والا یہ دربار پاکستان کے سب سے بڑے شہر کے اُن مقدس مقامات میں سے ہے جو حاضری اور عقیدت و محبت، دونوں اعتبار سے سرِفہرست ہیں۔
+
+3. WHY: V3 issue 2 (applied, V3 wording): 'strong and old' as قدیم بھی ہے اور مستحکم بھی
+   OLD: لیکن جہاں تک روایت کا تعلق ہے، وہ مضبوط بھی ہے اور پرانی بھی۔
+   NEW: لیکن جہاں تک روایت کا تعلق ہے، وہ قدیم بھی ہے اور مستحکم بھی۔
+
+4. WHY: V3 issue 3 (applied, V3 wording) and V3 note 1 (عیسوی): پھر اس کے بعد becomes پھر ان کے بعد, i.e. after Muhammad bin Qasim, as the English 'through Muhammad bin Qasim and after'
+   OLD: ان کی آمد کا زمانہ آٹھویں صدی بتایا جاتا ہے، جب اس خطے میں اسلام پہلے پہل محمد بن قاسم کے ذریعے اور پھر اس کے بعد پھیل رہا تھا۔
+   NEW: ان کی آمد کا زمانہ آٹھویں صدی عیسوی بتایا جاتا ہے، جب اس خطے میں اسلام پہلے پہل محمد بن قاسم کے ذریعے اور پھر ان کے بعد پھیل رہا تھا۔
+
+5. WHY: V3 issue 4 (adapted): V3's single clause would drop the English second clause ('counted among the Sufi shrines of Pakistan that have come under attack') and would narrow 'other great shrines' to 'other great Sufi shrines of Pakistan'. Both clauses are kept; the second is recast as a listing (ان میں اس کا نام بھی آتا ہے) with a جن ... ان correlative, so it no longer restates the first with a second subject
+   OLD: دوسرے بڑے مزارات کی طرح یہ مزار بھی تشدد کا نشانہ بن چکا ہے، اور اس کا شمار پاکستان کے ان صوفی آستانوں میں ہوتا ہے جن پر حملے ہوئے ہیں۔
+   NEW: دوسرے بڑے مزارات کی طرح یہ مزار بھی تشدد کا نشانہ بن چکا ہے، اور پاکستان کے جن صوفی آستانوں پر حملے ہوئے ہیں ان میں اس کا نام بھی آتا ہے۔
+
+6. WHY: V3 issue 5 (applied, V3 wording) and V3 note 8 (جاں بحق ہوئے, the usual register for deaths in an attack): one full date, same facts (2010, 6 October, suicide bombing, eight killed)
+   OLD: 2010 میں یہ ایک خودکش دھماکے کی زد میں آیا۔ 6 اکتوبر کو ہونے والے اس حملے میں آٹھ افراد جان سے گئے۔
+   NEW: 6 اکتوبر 2010 کو یہ ایک خودکش دھماکے کی زد میں آیا جس میں آٹھ افراد جاں بحق ہوئے۔
+
+7. WHY: V3 issue 6 (applied, V3 wording): the dome no longer tied to the crowding
+   OLD: اور اپنے نمایاں سبز گنبد کے ساتھ یہ آج بھی زائرین سے کھچا کھچ بھرا رہتا ہے۔
+   NEW: اور نمایاں سبز گنبد والا یہ آستانہ آج بھی زائرین سے کھچا کھچ بھرا رہتا ہے۔
+
+8. WHY: V3 issue 7 (applied, V3 wording): the English does say 'in great and constant numbers', so جوق در جوق carries 'great numbers' and آتے رہتے carries 'constant'; 'from right across the city, rich and poor, of every sect and background' is unchanged
+   OLD: لوگ بڑی تعداد میں اور مسلسل آتے رہتے ہیں۔
+   NEW: لوگ جوق در جوق آتے رہتے ہیں۔
+
+9. WHY: V3 issue 8 (applied, V3 wording): دھمال is feminine and ڈالی جاتی ہے; the gloss 'dance' of a word every Urdu reader knows is dropped (brief: not an omission), while 'vigorous', 'ritual' and 'at Sufi shrines in Punjab and Sindh' stay; italics on دھمال kept
+   OLD: اور قوالی کی محفلوں اور *دھمال* کے اس پُرجوش رقص میں شریک ہوتے ہیں جو پنجاب اور سندھ کے صوفی مزارات پر عقیدت کی رسم کے طور پر کیا جاتا ہے۔
+   NEW: اور قوالی کی محفلوں اور اس پُرجوش *دھمال* میں شریک ہوتے ہیں جو پنجاب اور سندھ کے صوفی مزارات پر عقیدت کی رسم کے طور پر ڈالی جاتی ہے۔
+
+10. WHY: V3 issue 9 (applied, V3 wording): qualifier before the verb
+   OLD: یہاں کی شامیں قوالی اور *دھمال* سے گونجتی رہتی ہیں، خصوصاً جمعرات کو اور عرس کے دنوں میں۔
+   NEW: خصوصاً جمعرات کو اور عرس کے دنوں میں یہاں کی شامیں قوالی اور *دھمال* سے گونجتی رہتی ہیں۔
+
+11. WHY: V3 note 4 (applied in part): مزید شمال is a calque of 'further north'; same meaning. اوّلین for 'early' not applied (the English says early, not earliest)
+   OLD: جو مزید شمال اور مغرب کے علاقوں میں دیکھنے میں آیا۔
+   NEW: جو شمال اور مغرب کی جانب آگے کے علاقوں میں دیکھنے میں آیا۔
+
+12. WHY: V3 issue 10 (applied, V3 wording): the English does say 'came to the subcontinent through Sindh', so برصغیر stays; the four places (Baluchistan, Makran, Multan and Sindh itself) all stay; the circular اس خطے میں is removed, the English 'the region' being unspecified and the destination carried by آئے after برصغیر
+   OLD: اور فتح کے بعد بہت سے صوفی یکے بعد دیگرے بلوچستان، مکران، ملتان اور خود سندھ سے ہوتے ہوئے اس خطے میں آئے۔
+   NEW: اور فتح کے بعد بہت سے صوفی یکے بعد دیگرے بلوچستان، مکران، ملتان اور خود سندھ کے راستے آئے۔
+
+13. WHY: V3 issue 11 (applied, V3 wording): the calque کے نام سے مشہور and the doubled name go; the name in apposition says she was known by it, and کہا جاتا ہے still governs the whole account
+   OLD: کبھی یہ علاقہ مائی کولاچی کے نام سے مشہور ایک بڑھیا کی نسبت سے
+   NEW: کبھی یہ علاقہ ایک بڑھیا مائی کولاچی کی نسبت سے
+
+14. WHY: V3 issue 12 (applied, V3 wording): اس نے could point to the fish; the mother is named, and only one یوں remains
+   OLD: قصہ یوں ہے کہ اس بڑھیا کے بیٹے کو ایک مچھلی نے مار ڈالا تو اس نے مچھلی کو چیر پھاڑ کر بیٹے کو نکال لیا،
+   NEW: قصہ یہ ہے کہ ایک مچھلی نے اس بڑھیا کے بیٹے کو مار ڈالا تو ماں نے مچھلی کو چیر پھاڑ کر بیٹے کو نکال لیا،
+
+15. WHY: V3 issue 14 and V2 note 3 (adapted): the English 'migrants' is general, and مہاجر/مہاجرین in Karachi names the Partition community; one general phrase is now used in both places the English says 'migrants' (here and in ورثہ), which also ends the مہاجرین/مہاجروں inconsistency
+   OLD: ہندوستان سے آنے والے مہاجرین نے اسے پاکستان کا سب سے بڑا شہر بنا دیا۔
+   NEW: ہندوستان سے نقل مکانی کر کے آنے والوں نے اسے پاکستان کا سب سے بڑا شہر بنا دیا۔
+
+16. WHY: V3 note 7 (applied in part): قوال بچے italicised so that it reads as the lineage's name, not as 'qawwal children'. سرگرمی سے not changed (taste)
+   OLD: قوال بچے کہلانے والے
+   NEW: *قوال بچے* کہلانے والے
+
+17. WHY: V3 issue 13 (applied, first sentence, V3 wording): شہر was unclear after a sentence about two cities
+   OLD: شہر کے مزارات فقیروں کے گشت کی ایک منزل بھی ہیں۔
+   NEW: کراچی کے مزارات فقیروں کے گشت کی ایک منزل بھی ہیں۔
+
+18. WHY: V3 issue 13 (adapted, second sentence): V3's ایک دوسرے کے پیچھے ('each other') would change 'fakirs follow other fakirs', and یہاں کے مزارات reads as 'the shrines here'; kept 'other fakirs' as دوسروں (the only persons in the sentence are fakirs), which removes the repeated فقیر, and kept کراچی کے مزارات, the V1-approved wording for 'shrines in Karachi', with no word for all
+   OLD: جس کے بعد فقیر دوسرے فقیروں کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔
+   NEW: جس کے بعد فقیر دوسروں کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔
+
+19. WHY: V3 note 3 (applied): the ورثہ opening no longer echoes the introduction's روایت انہیں ... بزرگ بتاتی ہے; same claim, same hedge ('a saint whom tradition places in the earliest Islamic centuries')
+   OLD: روایت انہیں اسلام کی اوّلین صدیوں کا بزرگ بتاتی ہے، اور
+   NEW: روایت کے مطابق ان کا تعلق اسلام کی اوّلین صدیوں سے ہے، اور
+
+20. WHY: V2 issue 1 (applied, V2 wording) and V3 note 2: لاکھوں (hundreds of thousands) and وسیع و عریض (vast in extent) shrank 'a modern megacity of many millions'; کئی ملین is 'many millions' exactly and عظیم keeps the 'mega'
+   OLD: لاکھوں نفوس پر مشتمل ایک وسیع و عریض جدید شہر
+   NEW: کئی ملین کی آبادی والے ایک عظیم جدید شہر
+
+21. WHY: V3 issue 14 (adapted) and V2 note 3: V3's مہاجرین is replaced by the general نقل مکانی کر کے آنے والوں (see the پس منظر change); V3's پردیسیوں for 'strangers' applied
+   OLD: مہاجروں اور اجنبیوں سے آباد اس ساحلی شہر
+   NEW: نقل مکانی کر کے آنے والوں اور پردیسیوں سے آباد اس ساحلی شہر
+
+Not applied (reasons also in the notes file):
+- V3 note 4, اوّلین for شروع کے: the English says "early", not "earliest"; اوّلین is already used in ورثہ for "earliest".
+- V3 note 5, عام بیان / بعض بیانات: V3 itself says روایت is already used heavily; taste.
+- V3 note 6, سمندر پاٹ کر: the English says only "reclaimed land", not reclaimed from the sea; the placement of the sentence follows the English.
+- V3 note 7, سرگرمی سے زندہ رکھے ہوئے ہیں: taste.
+- V3 note 8, ایک مرتبہ ... ایک نیوز اینکر: the second ایک introduces a new, unnamed man; without it he would read as a known one.
+- V3 note 9, نیچی پہاڑی to چھوٹی سی پہاڑی: the English says low, not small. جائے پناہ: the English says "a place of refuge"; V3 calls it acceptable.

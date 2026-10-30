@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the single sentence in shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.ur.r3.changes.txt; the diff shows only that change, Siraiki is now named as the language of the area and described as the blend of the two languages (explicitly Sindhi and Punjabi, as the context of the two provinces requires), and the present "is" against the past "was ... was" matches the English.

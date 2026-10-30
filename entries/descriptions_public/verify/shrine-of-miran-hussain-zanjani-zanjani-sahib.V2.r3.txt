@@ -1,0 +1,9 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 2 OLD and NEW pairs in verify/shrine-of-miran-hussain-zanjani-zanjani-sahib.ur.r3.changes.txt were applied in order to /home/claude/bak/shrine-of-miran-hussain-zanjani-zanjani-sahib.ur.md.bak_ur2 with a short python script, each OLD found exactly once and replaced once; the result is byte for byte identical to the current .ur.md (also confirmed with cmp). Nothing else moved.
+2. Checker: python3 pipeline/book_queue/check_public_description.py shrine-of-miran-hussain-zanjani-zanjani-sahib --no-verdicts printed "ok    shrine-of-miran-hussain-zanjani-zanjani-sahib  team 25197 -> public 7688 chars (0.31), Urdu 7085 chars (0.92)" and exited 0.
+3. Change 1 against "He was buried alongside his brother, Hazrat Musa Hussain Zanjani, whose own shrine lies nearby.": same meaning. ان کے بھائی can only be Zanjani's brother (the وہ of the sentence before), the brother's name stays in that preceding sentence, and بھی still says that the brother has a shrine of his own nearby, distinct from Zanjani's grave, which is all that "own" carries here. Dropping اپنا loses no fact, name or qualifier; V2 r2 had already judged this wording faithful.
+4. Change 2 against "As one of the earliest known Sufi graves in the Lahore region, the shrine bears valuable witness ...": same meaning. Every element is kept: "one of" (میں شمار ہوتا ہے), "earliest" (قدیم ترین), "known" (معلوم), "Sufi graves" (صوفی قبروں), "the Lahore region" (لاہور کے خطے), the shrine as subject; the next sentence's یوں still carries the "as" link to "bears valuable witness". Nothing added. The shift from a two clause partitive to one clause changes only the form.
+5. No change in this round was adapted or rejected: both NEW strings are V3 r2's corrected sentences word for word, and both are faithful.
+6. Mechanical: the current .ur.md has no Latin letters and no em or en dashes.

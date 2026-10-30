@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 2 V3 issues, status: 1 fixed (the Dara sentence now spells the fort بکھر, matching سکھر، بکھر اور شکارپور two paragraphs later, and no longer reads as the Punjab district town; this also closes round 1 issue 15); 2 fixed (the second گوردوارہ is gone from the sentence, so it now occurs once, and جس گرو کے نام سے یہ موسوم ہے is the plain Urdu for "whose name it bears").
+2. Change 1 in its paragraph: دارا بکھر سے آگے نکل کر پچیس محرم کو سکھر میں پڑاؤ ڈال چکے ہیں is correct and natural (honorific plural with دارا as in the rest of the paragraph, perfect ڈال چکے ہیں after خبر ملی کہ is right for reported news); the spelling change touches nothing else and the sentence still reads smoothly into شیخ میر، دلیر خان اور قباد خان.
+3. Change 2 in its paragraph: موسوم agrees with the masculine گوردوارہ that یہ stands for; یہ cannot be misread as ماضی, the only other masculine noun in reach, since a past cannot be named after a Guru; the relative and correlative (جس گرو ... ان کے بارے میں) are idiomatic with the honorific ان. It sits well after the opening paragraph's کی نسبت سے رکھا گیا ہے without echoing it word for word, and the semicolon clause یہی حال سکھر کا ہے is undisturbed.
+4. Taste only, not applied: the round 2 taste notes (the گرو کے نام echo near change 13, نانک پنتھی اداسی, دوام بخشا, بیٹے / بیٹوں across three sentences) concern sentences not changed in this round and are left as recorded.
+5. No Latin letters and no em or en dashes in either changed sentence or anywhere in the file.

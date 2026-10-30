@@ -1,0 +1,4 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+NOTES: All three changed sentences checked against the English (paras 49, 57, 101) and found in place in the current Urdu. (1) "جن لوگوں کی وضع قطع میں مسلمانوں کی سی جھلک زیادہ ہوتی" attaches the comparative to the resemblance, not to the noun (V3 r2 #1), so "looked more Muslim" can no longer read as "like most Muslims"; the rest of the sentence ("only if they were Muslim", the 2011 tightening, the Special Branch card) is unchanged. (2) "سرجیت سنگھ اسی طرح سیوا کرتے تھے۔" removes the "serve himself" reading of اپنی سیوا (V2 r2 note 5); "his way of performing sewa" is kept through the subject and اسی طرح. (3) "وہاں سے یہاں آئے تھے" restores the origin "from the tribal areas" (V2 r2 note a); وہاں clearly points back to قبائلی علاقوں, and the cause, the timing ("in the few years before") and the 2011 frame are kept. Script, punctuation and digits clean; no dashes, no Latin letters.

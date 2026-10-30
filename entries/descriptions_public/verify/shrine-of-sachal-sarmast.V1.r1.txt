@@ -1,0 +1,50 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) "Until the late 1960s" implies that the state's Sindhi publications stopped featuring Sachal after the late 1960s. The team version says only that Sehwan was "hardly" mentioned until then, while Sachal and the others "were regularly featured during this time". This rules on judgement call 19: the reading of "during this time" is right, and only "Until" needs to change.
+OLD: Until the late 1960s the Sindhi publications of the state regularly featured Sachal Sarmast, with Shah Abdul Latif Bhittai and Shah Inayat, and marked their annual fairs with special editions.
+NEW: In the years before the late 1960s the Sindhi publications of the state regularly featured Sachal Sarmast, with Shah Abdul Latif Bhittai and Shah Inayat, and marked their annual fairs with special editions.
+2. (precision) The team version's "found here the proof" points to one saying that it does not identify ("The hadith occurs very frequently"). "The Prophetic tradition" can be read as the whole body of hadith, which widens the claim. This rules on judgement call 8. The rest of the joined sentence is accepted.
+OLD: and in the Prophetic tradition he found proof of his ecstatic experience of union with God and of God's all embracing Unity.
+NEW: and in one of these sayings he found proof of his ecstatic experience of union with God and of God's all embracing Unity.
+3. (precision) "In India two *versis* are celebrated over the year" is followed by a different pair at the Sachal Sain *darbar*. The sentence therefore reads as a contradiction: India keeps two *versis*, and then a third (Pratap's) appears. The fix keeps "In India" and every name and date. It drops only the count that clashes, and it names no *darbar* the team version does not name. This rules on judgement call 21. The other half of that call, "Their repertoire", is accepted.
+OLD: In India two *versis* are celebrated over the year, Sachal's on the 14th of Ramazan and Hari Ram's at the beginning of November, and at the Sachal Sain *darbar* the two are Sachal's and Pratap's.
+NEW: In India Sachal's *versi* is celebrated on the 14th of Ramazan and Hari Ram's at the beginning of November, while at the Sachal Sain *darbar* the two *versis* celebrated are Sachal's and Pratap's.
+4. (precision) The team version treats the Rohani Rah as a named path ("In the Rohani Rah he is worshipped in an image"). Set in apposition, the gloss "the spiritual path" can read as a general definition, as if the statue were the core of worship on the Hindu Sufi path at large. Keep the gloss, but as the meaning of the name.
+OLD: In the Rohani Rah, the spiritual path, the core of worship is
+NEW: In the Rohani Rah, whose name means the spiritual path, the core of worship is
+5. Rulings on the other judgement calls. All are accepted.
+   - 1: Every other source that gives a year (Schimmel in three books, and Rafat) is against the site's 1827. Basis (a) therefore gives way, as on shrine-of-mauj-darya-bukhari. Two authors of the three that give a year support 1826, so "most often" is true. The Overview's dates without the clause follow the Mithankot precedent.
+   - 2: Schimmel, one author, gives the only other count. Her four languages all fall within the site's seven, so not every other source is against the site. The clause is present, and her count is not set beside it. "In seven languages" in the Overview is the site's own sentence and follows the same precedent.
+   - 3: Both forms contain Abd al-Wahhab, so this is one name in two forms, not two accounts. "Is also given" names no source.
+   - 4: Every element is framed ("told as a legend", "it is said", "is cherished"). None of Boivin's details contradicts the site's "passed through". Schimmel's plain "met him when still a boy" is rightly not used as fact.
+   - 5: The team version gives the sentence cleanly. A correction recorded in its notes is not a reading that the team version marks uncertain.
+   - 6: Only the name's diacritics are damaged, and "has been placed" keeps this a ranking.
+   - 7: A definitional rendering of the inscription.
+   - 9: The two hyphens after "You are" are the book's punctuation inside a quoted translation, not an em or en dash character. The site's markdown renderer has no typographer step that would turn them into a dash. If the coordinator reads Rauf's dash rule as covering them, the writer's fallback (end the first line at "You are") is safe.
+   - 10, 11, 12: Each sentence joins statements that the team version makes about the same matter, and nothing moves from one person to another. The Sarmad of call 11 is Dara Shikoh's friend, as the martyrs paragraph says.
+   - 13: Othman or Ashman is a minor spelling variant, so dropping the variant silently is right.
+   - 14, 15: The team version keeps Nimano Faqir ("his ashes") and the woman of 1963 apart, under its own plural "Hindu Sufis". The public text does the same and asserts nothing beyond it. The writer's For Rauf point stands. Note also that the team version cites the woman of 1963 and the woman who edited the *kalam* in 1955 to the same page (p. 60), so Rauf may want to settle both identities together.
+   - 16, 17, 18: The relative clause in call 18 refers to Sachal on the team version's own reading. In call 17, "in the early twenty first century" is firm from the bibliography's 2019.
+   - 20, 22, 23, 26, 27, 28, 29: accepted as written.
+   - 24: "Obviously" is Boivin's statement of certainty, so dropping it does not add certainty.
+   - 25: "Handled" goes, and the boat and its oarsmen stand.
+   - "Sassul" (For Rauf): The team version does not mark the name, but leaving out a probable misreading loses nothing important. "Their heroines, Sohni among them" is a fair compression of the team version's two named heroines.
+6. Checks passed.
+   - Legends stay framed: the meeting with Shah Abdul Latif, the swords and the maker of the picture.
+   - Rule 4: the choices on the death year, the languages, the name, the meeting, Daraza, the day of the *ʿurs*, the masters, the editor's spelling and Dalpat Sufi follow the brief. The masters carry no numerals, and the three men named Sakhi Qabul Muhammad stay in separate sentences. Dalpat Sufi is left out. Nothing is merged.
+   - Readings marked uncertain or damaged are out: Sorley's second birth year, the name of the editor of the large edition (only "by 1940 a large edition" is kept), the *Kafiya* line and "handled".
+   - No citations, page references, narration of sources or archive language. The Legacy quotation uses the brief's unnamed form and is verbatim in the team version. Vaswani and the anthologies are part of the story.
+   - Time anchors are firm: the 1970s (*Mystical Dimensions of Islam*, 1975), "by 1940" (Sorley, first published 1940), the early twenty first century (Boivin, 2019) and the late 1960s (the team version's own date).
+   - Every quotation and every italic rendering is verbatim from the team version. The English-only checker passes at 0.51, inside L1, so no exception line is needed.
+7. Taste only (no change required).
+   - "Tando Jahaniyya" in the Overview and "Tando Jahaniya" in Daraza Across the Border: one spelling would be tidier.
+   - "Another book focuses on Shah Latif and Sachal" (Legacy) keeps "Shah Latif", although the writer's notes say Shah Abdul Latif is used throughout.
+   - The gloss "Sufi, or Muslim mystic" comes in The Saint, after "Sufi" has already appeared several times in the Overview.
+   - "Daraza is one of the three main Sufi traditions of Sindh" could take the previous sentence's "is counted", so that the ranking stays framed as a ranking.
+   - Shah ʿInayat of Jhok is named in two consecutive sentences of the martyrs paragraph.
+   - "Nimano Faqir's shrine" in Daraza Across the Border has no place, as in the team version. Coming two sections after the tomb at Daraza, it may be read as that tomb.
+   - A point for Rauf, not for this text: the gloss of Sayyid stands right after "of the Farooqi line". Both are the team version's, but a reader who takes Farooqi as descent from the caliph Umar may stumble.
+8. Omission sweep: after reading the team version section by section, including its disagreement list, I find nothing important missing. The family, the keepers, the Indian *darbars* and their households, the editions and the legends are all present.

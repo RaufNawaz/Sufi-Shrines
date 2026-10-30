@@ -1,0 +1,13 @@
+# bari-imam: English changes after V1 round 1 (FAIL, 2 issues). Issues 1 and 2 applied in the verifier's wording; the notes are checks or taste and need no change. Backup: /home/claude/bak/bari-imam.before_v1r2.md
+
+WHY: V1 r1 issue 1 (source talk and an added description of the book); verifier's wording for the first sentence
+OLD: In 1875 a book on the saints of the Punjab gave a notice to a Shah Latif Bari Qadiri, counting him sixth among the Qadiri saints and calling his holy tomb famous, though without naming the place where it stands.
+NEW: By 1875 he was counted among the Qadiri saints under the name Shah Latif Bari Qadiri, and his holy tomb was famous.
+
+WHY: V1 r1 issue 1, second part; verifier's wording for the opening of the following sentence (the hedge on the identification stays here)
+OLD: This Shah Latif is linked with the saint of Nurpur Shahan through a later book on Shah Latif that bears the name Bari Imam in its title, and through a meeting with the saint in the Pothohar.
+NEW: That Shah Latif is identified with the saint of Nurpur Shahan through a later life of him, *Hayat-e Bari Imam*, and through a meeting with the saint in the Pothohar.
+
+WHY: V1 r1 issue 2 (narration of the source and a statement of what it omits); verifier's wording for the whole paragraph
+OLD: That notice holds him in high praise. Among the elders of the Punjab, it is said, he was famous as a great elder. Thousands of *khawariq* and *karamat*, wonders and miraculous deeds, were famous of him, though none is told there. He was a great worshipper, an ascetic and a recluse, *mast* and *majzub*, one lost in ecstasy and absorbed in divine love, and thousands of his *murids*, his pledged disciples, reached the stages of spiritual completion.
+NEW: He was held in high praise: famous among the elders of the Punjab as a great elder, a great worshipper, an ascetic and a recluse, *mast* and *majzub*, one lost in ecstasy and absorbed in divine love. Thousands of *khawariq* and *karamat*, wonders and miraculous deeds, were famous of him, and thousands of his *murids*, his pledged disciples, reached the stages of spiritual completion.

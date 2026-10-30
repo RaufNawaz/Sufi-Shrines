@@ -1,0 +1,19 @@
+VERDICT: FAIL
+ISSUES:
+1. [repetition] "کہا جاتا ہے کہ وہ دنیا سے کنارہ کش رہ کر گوشہ نشینی کی زندگی گزارتے تھے۔" -> comes straight after a sentence that already ends "...فقر و عبادت میں زندگی بسر کرتے تھے"; two hedged sentences in a row ("مشہور ہے کہ" / "کہا جاتا ہے کہ") close on the same verb phrase, and inside the sentence "کنارہ کش رہ کر" and "گوشہ نشینی کی زندگی" say the same thing twice (the idiom is also "کنارہ کش ہو کر", not "رہ کر") -> یہ بھی کہا جاتا ہے کہ وہ دنیا سے کنارہ کش ہو کر گوشہ نشین رہے۔
+NOTES:
+- All thirteen round-1 fixes are in and read naturally; the article as a whole now reads as good magazine Urdu. Punctuation is clean (Urdu ، ۔ ؛ throughout, no dashes, no Latin letters, asterisks balanced).
+- "تاہم اس حملے کے بارے میں بیانات یکساں نہیں۔" Placed right after the sentence that interprets the blast, تاہم makes that interpretation look like the disputed point, and the reader cannot tell what the accounts differ on. If the dispute is about the incident itself, the sentence belongs straight after "مارچ 2009 میں ... شدید نقصان پہنچا۔" without تاہم. Check against the source rather than guess.
+- "بم کے ایک دھماکے سے" -> "ایک بم دھماکے سے" is the usual compound.
+- The Nath Jogi paragraph still turns abruptly from "پشاور کی مذہبی تاریخ ..." to a definition of the sect. A link that adds nothing new would help: "اس تاریخ کا ایک باب ناتھ جوگیوں سے وابستہ ہے، جو یوگ کے لیے وقف تارکینِ دنیا کا ایک فرقہ ہیں۔"
+- "جتنا حصہ اس کلام کا ہے، اتنا کسی اور کتاب کا نہیں" -> "اس دیوان کا" keeps the comparison like with like (book with book).
+- "ان کی جو تعلیمات سب سے زیادہ زبان زد ہیں" -> زبان زد sits more naturally with اقوال، باتیں or اشعار than with تعلیمات.
+- In the quoted saying, "پھول بوؤ" against "جو کانٹے تم لگاؤ گے": "جو کانٹے تم بوؤ گے" keeps the parallel and is the familiar idiom; "تمہارے گرد" is lighter than "تمہارے چاروں طرف" after "تمہارا باغ".
+- "پشتونوں کے مہمند قبیلے میں" -> "مہمند پشتون قبیلے میں" reads more naturally.
+- "ان کے بڑے موضوعات" -> "بنیادی موضوعات" is the more usual term in criticism.
+- "ضرب المثل کی طرح دہرائے جاتے ہیں اور موسیقار انہیں گاتے ہیں" still switches from passive to active mid-sentence; acceptable.
+- "سب سے گہرا اور سب سے محبوب اظہار" -> محبوب sits a little oddly on اظہار; acceptable.
+- Repetition across sections remains noticeable but tolerable in a sectioned article: "پشتو بولنے والی دنیا" (تعارف and مزار), poets and singers gathering (تعارف and مزار), "تین صدیوں سے" (تعارف and ورثہ), the rebuilding (مزار and ورثہ), and birth into the Mohmand tribe restated in پس منظر.
+- "دوسرا ... اس پر تنگ گھاٹیاں تھیں" -> "اس راستے میں تنگ گھاٹیاں پڑتی تھیں" is the more natural way to put it.
+- "اینیولڈسن" is an unsteady rendering of the Danish surname ("اینےوولڈسن" is closer).
+- "خواجہ محمد بنگش نے بھی ... بیان کرنے کی کوشش کی" faintly suggests an attempt that may not have succeeded.

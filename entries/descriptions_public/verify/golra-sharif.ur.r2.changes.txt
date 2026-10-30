@@ -1,0 +1,73 @@
+Row golra-sharif, Urdu round 2. Reports: verify/golra-sharif.V3.r1.txt (FAIL, 15 issues) and verify/golra-sharif.V2.r1.txt (PASS, notes only). Backup: /home/claude/bak/golra-sharif.ur.before_r2.md. V3 issues applied in the verifier's wording: 1, 4, 6, 7, 8, 11, 13, 15 (8). Adapted: 2, 3, 5, 9, 10, 12, 14 (7). Rejected: none. Notes applied: none.
+
+WHY: V3 issue 5; adapted: verifier's wording, but its second آج بھی becomes بدستور so that آج بھی is not repeated in one sentence (English: "a living Sufi centre whose successors remain prominent to this day").
+OLD: اور ایک زندہ صوفی مرکز کا بانی مانا جاتا ہے، جس کے جانشین آج بھی نمایاں مقام رکھتے ہیں۔
+NEW: اور ایک ایسے صوفی مرکز کا بانی مانا جاتا ہے جو آج بھی آباد ہے اور جہاں ان کے جانشین بدستور نمایاں مقام رکھتے ہیں۔
+
+WHY: V3 issue 4; applied in the verifier's wording. The hedge now has the birth year as its only subject (اس بارے میں = the year of birth), so it governs the year, as in the English "born at Golra in 1859, though accounts of the year differ".
+OLD: مہر علی شاہ 1859 میں گولڑہ میں سادات کے ایک ایسے گھرانے میں پیدا ہوئے جو علم و تقویٰ میں ممتاز تھا، اگرچہ ان کے سالِ ولادت کے بارے میں اقوال مختلف ہیں۔
+NEW: مہر علی شاہ گولڑہ میں سادات کے ایک ایسے گھرانے میں پیدا ہوئے جو علم و تقویٰ میں ممتاز تھا۔ ان کا سالِ ولادت 1859 ہے، اگرچہ اس بارے میں اقوال مختلف ہیں۔
+
+WHY: V3 issue 2; adapted. The English says he "took spiritual allegiance in the line of Khwaja Shamsuddin Sialvi of Sial Sharif, his direct pir, who died in 1882": both facts (the line, and Sialvi as direct pir) are kept. The verifier's کے ہاتھ پر بیعت کی would drop "the line", so the ambiguous کے سلسلے میں becomes کے سلسلے سے وابستہ ہوئے (joined the line), and the repeated full name is folded into one sentence with the verifier's relative clause.
+OLD: روحانی بیعت انہوں نے سیال شریف کے خواجہ شمس الدین سیالوی کے سلسلے میں کی۔ مہر علی شاہ کے براہِ راست پیر و مرشد خواجہ شمس الدین سیالوی تھے، جنہوں نے 1882 میں وفات پائی۔
+NEW: روحانی بیعت کے ذریعے وہ سیال شریف کے خواجہ شمس الدین سیالوی کے سلسلے سے وابستہ ہوئے، جو ان کے براہِ راست پیر و مرشد تھے اور جنہوں نے 1882 میں وفات پائی۔
+
+WHY: V3 issue 3; adapted: verifier's wording, except that مہر علی شاہ کو is kept instead of انہیں, because after the new Sialvi sentence (issue 2) the last person named is Sialvi and انہیں would be ambiguous (brief: resolve every ان to a clear person).
+OLD: اس کے علاوہ مہر علی شاہ کو محمد علی سے بھی نسبت حاصل تھی۔ محمد علی کے مریدوں میں حبیب علی شاہ بھی تھے، اور حبیب علی شاہ آگے صوفی صاحب کے مرشد تھے۔ صوفی صاحب کی وفات 1916 میں ہوئی۔
+NEW: اس کے علاوہ مہر علی شاہ کو محمد علی سے بھی نسبت حاصل تھی۔ محمد علی کے مریدوں میں حبیب علی شاہ تھے، جو صوفی صاحب کے مرشد ہوئے۔ صوفی صاحب نے 1916 میں وفات پائی۔
+
+WHY: V3 issue 13; applied in the verifier's wording.
+OLD: تونسہ کی گدی پر ایک تنازع کے دوران شیخ سلیمان کی جانشینی دو شاخوں میں بٹ گئی،
+NEW: تونسہ کی گدی پر ایک تنازع کے دوران شیخ سلیمان کا سلسلۂ جانشینی دو شاخوں میں بٹ گیا،
+
+WHY: V3 issue 1; applied in the verifier's wording.
+OLD: مہر علی شاہ خاص طور پر اپنے دور کے مذہبی مباحث میں اپنے کردار کے سبب مشہور ہیں۔
+NEW: اپنے دور کے مذہبی مباحث میں مہر علی شاہ کا کردار خاص طور پر مشہور ہے۔
+
+WHY: V3 issue 7; applied in the verifier's wording.
+OLD: یہ تحریک عثمانی خلیفہ کے گرد منظم ہوئی تھی،
+NEW: یہ تحریک عثمانی خلیفہ کو مرکز بنا کر منظم ہوئی تھی،
+
+WHY: V3 issue 6; applied in the verifier's wording.
+OLD: مہر علی شاہ نے تاریخ میں ایک ایسے صوفی پیر کا کردار اپنایا جو اپنے عہد کی علاقائی اور بین الاقوامی، دونوں طرح کی سیاست میں پوری طرح شریک تھا۔
+NEW: تاریخ میں مہر علی شاہ ایک ایسے صوفی پیر کے طور پر سامنے آتے ہیں جو اپنے عہد کی علاقائی اور بین الاقوامی، دونوں طرح کی سیاست میں پوری طرح شریک تھے۔
+
+WHY: V3 issue 9; adapted: the verifier's structure (main clause, then انہیں یقین تھا as its own clause, with the Urdu semicolon ؛), but without its اس کا ("a sign for this"), which the English does not say: the English has only "believing he had a spiritual sign from Baba Farid".
+OLD: حسن نظامی 24 برس کی عمر میں اپنی مرضی سے مہر علی شاہ کے مرید ہوئے، اس یقین کے ساتھ کہ انہیں بابا فرید کی طرف سے روحانی اشارہ ملا ہے۔
+NEW: حسن نظامی 24 برس کی عمر میں اپنی مرضی سے مہر علی شاہ کے مرید ہوئے؛ انہیں یقین تھا کہ بابا فرید کی طرف سے انہیں روحانی اشارہ ملا ہے۔
+
+WHY: V3 issue 8; applied in the verifier's wording (خلفا, matching the English "made him a khalifa, one of his successors" and the Legacy section's مرید اور خلیفہ).
+OLD: مہر علی شاہ نے حسن نظامی کو بیعت کیا اور آگے چل کر انہیں خلافت عطا کر کے اپنے جانشینوں میں شامل کیا۔
+NEW: مہر علی شاہ نے انہیں بیعت کیا اور آگے چل کر خلافت عطا کر کے اپنے خلفا میں شامل کیا۔
+
+WHY: V3 issue 14; adapted: the verifier's کی بنیاد ... کی یکجائی پر تھی, with پختہ added so that the English "held firmly to" keeps its firmness (the verifier's sentence drops it).
+OLD: ان کی تعلیم شریعت اور طریقت کے اتحاد پر مضبوطی سے قائم تھی۔
+NEW: ان کی تعلیم کی پختہ بنیاد شریعت اور طریقت کی یکجائی پر تھی۔
+
+WHY: V3 issue 12; adapted: the verifier's wording (گاتے, the closing member brought into the کبھی series), with the last کلام left understood (کبھی دوسرے شعرا کا) so that کلام is not repeated, the fault the verifier itself named.
+OLD: اپنی محفلوں میں قوال کبھی جامی، حافظ اور رومی کے فارسی اشعار پڑھتے ہیں، کبھی مہر علی شاہ اور خواجہ غلام فرید کی پنجابی شاعری اور کبھی امیر خسرو کا کلاسیکی ہندی کلام، اور ان کے علاوہ دوسرے شعرا کا کلام بھی۔
+NEW: قوال اپنی محفلوں میں کبھی جامی، حافظ اور رومی کے فارسی اشعار گاتے ہیں، کبھی مہر علی شاہ اور خواجہ غلام فرید کی پنجابی شاعری، کبھی امیر خسرو کا کلاسیکی ہندی کلام اور کبھی دوسرے شعرا کا۔
+
+WHY: V3 issue 11; applied in the verifier's wording.
+OLD: پورے پوٹھوہار اور اس سے باہر سے بھی زائرین
+NEW: پورے پوٹھوہار اور اس کے باہر کے علاقوں سے بھی زائرین
+
+WHY: V3 issue 10; adapted. The English says "the controversy with Qadian"; the verifier's مرزا غلام احمد کے دعووں پر تنازع would replace the English's term, so Qadian is kept and only the collocation is fixed: قادیان سے ہونے والے تنازع (the dispute had with Qadian), the idiomatic سے of a dispute in place of کے ساتھ.
+OLD: یہی اثر و رسوخ قادیان کے ساتھ تنازع اور تحریکِ خلافت کی سیاست تک پھیلا۔
+NEW: یہی اثر و رسوخ قادیان سے ہونے والے تنازع اور تحریکِ خلافت کی سیاست تک پھیلا۔
+
+WHY: V3 issue 15; applied in the verifier's wording.
+OLD: قوالوں کے ذخیرۂ کلام میں زندہ ہے
+NEW: قوالوں کے ذخیرے میں زندہ ہے
+
+Not applied:
+- V3 NOTE, اس خطے without a near antecedent: the English has the same "the region"; naming it would add a fact (the verifier says so itself).
+- V3 NOTE, گولڑہ اور جلال پور شریف sentence, حیدر علی شاہ, ماما جی, صوفی صاحب without introduction: content gaps that follow the English; adding an introduction would add facts.
+- V3 NOTE, drop the Islamabad capital and twin city gloss: the English states it (V2 and the English are the authority on facts); dropping it would drop a fact.
+- V3 NOTE, ہجویری کی سوانحِ حیات: the English says "a biography of Hujwiri", which is what the Urdu says; ہجویری کی لکھی ہوئی سوانح would change the fact.
+- V3 NOTE, تعلیمی مشن to تعلیمی سرگرمیاں: the English says "teaching mission"; سرگرمیاں (activities) changes the sense.
+- V3 NOTE, اثر / اثر و رسوخ three times; عزیز and محبوب near doublet: taste, not a fault (the verifier did not number them).
+- V3 NOTE, حاشیے پر دھکیلنے: the verifier accepts it.
+- V2 NOTE 1, the descent clause after سادات: V2 itself rules it a dropped gloss of a familiar word, not an omission.
+- V2 NOTE 2, اس روایت for "the tradition": V2 calls the current reading fair; a bare اس روایت would have no clear referent in the Urdu paragraph.
+- V2 NOTES 3 and 4: observations, no change asked.

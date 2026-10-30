@@ -1,0 +1,22 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- Replay: the 14 OLD/NEW pairs of verify/gurdwara-guru-ram-das-ji.ur.r2.changes.txt, applied in order to /home/claude/bak/gurdwara-guru-ram-das-ji.ur.md.bak_ur1 (each OLD found exactly once and replaced once), give a file byte for byte identical to the current entries/descriptions_public/gurdwara-guru-ram-das-ji.ur.md. Each NEW occurs once in the current file and no OLD survives. Nothing else moved.
+- Checker: python3 pipeline/book_queue/check_public_description.py gurdwara-guru-ram-das-ji --no-verdicts printed: ok    gurdwara-guru-ram-das-ji  team 28973 -> public 12305 chars (0.42), Urdu 11743 chars (0.95)
+- Round 1 V2 issue 1 (نانی adds the maternal side) is fixed: جدّہ is side neutral, like the English "grandmother" (and the team version, Khalid). Better than the fallback دادی یا نانی, which would read as a hedge the English does not have.
+- Change by change against the English (all faithful):
+  1. پاک پوتر = "held the place extremely pure"; wording only.
+  2. جدّہ = "his grandmother"; see above.
+  3. کھتریوں کی بھلّا ذات = "the Khatri Bhalla caste"; same claim, consistent with سوڈھی کھتریوں.
+  4. "As the fourth Guru, Ram Das is remembered above all as the founder of the settlement that grew into Amritsar. He laid the foundation of Ramdaspur, which in time became Amritsar." The first sentence now says امرتسر کا بانی, but the growth of the settlement is carried intact by the second (یہی بستی وقت کے ساتھ پھیل کر امرتسر کہلائی), so the pair still says founder of Ramdaspur, which grew into Amritsar; and the English itself calls him "the founder of the city of Amritsar" in the Overview. "remembered above all" as سب سے بڑی پہچان ... مانا جاتا ہے keeps the commemorative framing. No fact added or lost.
+  5. پرتھی چند اور ان سے چھوٹے ارجن = "Prithi Chand and the younger Arjan" (younger of the two, not a claim about the eldest son); the "two of them" after "accounts differ on how many sons" is kept by البتہ ان کے دو بیٹے.
+  6. Word order only; "Sikh tradition traces the quarrel between the brothers to Arjan's trip to Lahore" exactly.
+  7. لاہور میں سکھوں کے مقدس مقامات = "the Sikh shrines of Lahore".
+  8. گرو کی جائے پیدائش پر حاضر ہو کر ان کی تعظیم کریں = "to honour the Guru at the place of his birth"; referent now right.
+  9. "Its careful upkeep forms part of the wider, if uneven, effort": the clause form states the care as a fact, as the English presupposes it; وسیع تر and جو ہر جگہ یکساں نہیں keep "wider" and "if uneven". یہ reads as the upkeep, not the gurdwara.
+  10. بعد کے گروؤں میں = "Later in the line"; nothing added (it does not claim Har Rai came directly after Hargobind).
+  11. خاموشی سے کنارہ کش ہو گئے تھے = "had slipped away"; the جس طرح ... اسی طرح frame matches the team version's "in the same way as others had slipped away".
+  12. ان گوردواروں کے نام کر دیے = "attached vast tracts of land to them" (team version: "to these gurdwaras"); the purpose clause unchanged.
+  13. The adapted reading (the dome as a feature first found in Muslim buildings, made smaller by the Sikhs in their own buildings) is the right one: the English sentence follows "Sikh building ... draws inspiration from ... Muslim architecture", and the team version quotes domes "initially part of the Muslim buildings" being made "smaller" by the Sikhs in a passage on Sikh architecture. اپنی عمارتوں میں resolves the English's ambiguity in the direction its paragraph intends; it adds no fact. Generic singular گنبد for "the domes" is normal Urdu.
+  14. The English "also" (Lahore ... was also his cradle) is no longer a بھی, but وہی لاہور ... جو carries the same point: the one city was both the long centre of Sikh power and devotion and his cradle. "for so long" = مدتوں; "great centre" = عظیم مرکز. Faithful.
+- No Latin letters, dashes or new figures in any NEW text.

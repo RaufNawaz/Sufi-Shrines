@@ -1,0 +1,41 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/gurudwara-janam-asthan-nankana-sahib.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1]
+OLD: On 20 February 1921 a peaceful *jatha*, or band, of Akali reformers led by Bhai Lachhman Singh Dharowali gathered at Gurdwara Tambu Sahib and entered the Janam Asthan, unarmed, to protest against the control of the *mahants* over the great gurdwaras. Mahant Narayan Das had armed retainers waiting, though accounts of who they were differ, and the reformers were fired upon and cut down.
+NEW: On 20 February 1921 a peaceful *jatha*, or band, of Akali reformers gathered at Gurdwara Tambu Sahib to protest against the control of the *mahants* over the great gurdwaras, and entered the Janam Asthan unarmed. It was led by Bhai Lachhman Singh Dharowali, though accounts of its leadership differ. Mahant Narayan Das had armed retainers waiting, though accounts of who they were differ, and the reformers were fired upon and cut down.
+
+[V1 r1 issue 2a]
+OLD: After the Partition of 1947, when the newly drawn border left Nankana Sahib within Pakistan and the great mass of Sikhs on the Indian side, the shrine passed into the care of the state. Today it is administered through the Evacuee Trust Property Board and the Pakistan Sikh Gurdwara Prabandhak Committee, the PSGPC, which oversee its upkeep and the reception of pilgrims.
+
+Kartar, whose father settled inside the Janam Asthan, remembered an empty town: no Sikh was left after Partition, and the gurdwaras became barren and fell into a bad state.
+NEW: After the Partition of 1947, when the newly drawn border left Nankana Sahib within Pakistan and the great mass of Sikhs on the Indian side, the shrine passed into the care of the state, though accounts of its care in the decades that followed differ. Today it is administered through the Evacuee Trust Property Board and the Pakistan Sikh Gurdwara Prabandhak Committee, the PSGPC, which oversee its upkeep and the reception of pilgrims.
+
+Kartar, whose father settled inside the Janam Asthan, remembered an empty town: no Sikh was left after Partition, and the gurdwaras became barren and fell into a bad state.
+
+[V1 r1 issue 2b]
+OLD: In the 1960s Giani Pratap came with a party of pilgrims from India and, seeing the dilapidated condition of the shrines, decided to stay and look after these holy buildings; it was the first time since Partition that anyone had taken the initiative to care for the gurdwaras of Nankana Sahib. Kartar's father moved from the Tirat Valley, in the tribal areas, after the war of 1971 between India and Pakistan.
+NEW: In the 1960s Giani Pratap came with a party of pilgrims from India and, seeing the dilapidated condition of the shrines, decided to stay and look after these holy buildings. Kartar's father moved from the Tirat Valley, in the tribal areas, after the war of 1971 between India and Pakistan.
+
+[V1 r1 issue 2c]
+OLD: The PSGPC had not yet been formed, and the SGPC, the gurdwara committee based in Amritsar, managed the Pakistani gurdwaras through the Indian High Commission in Islamabad, whose staff received the pilgrims at the border and arranged their stay inside the gurdwaras. After the *Akhand Path* and the *bhog*, an American Sikh, Sardar Ganga Singh Dhillion, spoke for a separate Sikh state at one of the town's gurdwaras.
+NEW: The PSGPC had not yet been formed, and the staff of the Indian High Commission in Islamabad received the pilgrims at the border and arranged their stay inside the gurdwaras. After the *Akhand Path* and the *bhog*, an American Sikh, Sardar Ganga Singh Dhillion, spoke for a separate Sikh state at one of the town's gurdwaras.
+
+[V1 r1 minor a]
+OLD: It is told that when Nanak turned eighteen his father asked him to take up a trade and gave him twenty rupees, and that Nanak left the town with Bhai Mardana, who would travel with him on his journeys. The tale is remembered as the *Sacha Sauda*, the "true bargain".
+
+Behind the gurdwara, away from the hub of the town, rises an archaeological mound.
+NEW: It is told that when Nanak turned eighteen his father asked him to take up a trade and gave him twenty rupees, and that Nanak left the town with Bhai Mardana, who would later travel with him. The tale is remembered as the *Sacha Sauda*, the "true bargain".
+
+Behind the gurdwara, away from the hub of the town, rises an archaeological mound.
+
+[V1 r1 minor b]
+OLD: On the second journey, after Pak Pattan, he travelled back to Talwandi again; it was no longer an obscure little village but had become a place of pilgrimage, and he sat by Rai Bular, who was sick and dying.
+NEW: In the same stories, on the second journey, after Pak Pattan, he travelled back to Talwandi again; it was no longer an obscure little village but had become a place of pilgrimage, and he sat by Rai Bular, who was sick and dying.
+
+[V1 r1 minor c]
+OLD: A group of newly appointed government officials who once came to sit with the head priest told him that Muslims had always liked the Sikhs, who were closer to their religion, and that the Hindus were the ones they could never be friends with.
+NEW: A group of newly appointed government officials once came to sit with the head priest, and one of them told him that Muslims had always liked the Sikhs, who were closer to their religion, and that the Hindus were the ones they could never be friends with.
+
+[V1 r1 minor d]
+OLD: Most of the town's Muslims had migrated from the other side of the border after Partition, and their attitudes were shaped by those experiences. Some shopkeepers kept one set of glasses for Muslim customers and another for the rest.
+NEW: Most of the town's Muslims had migrated from the other side of the border after Partition, and their attitudes are said to have been shaped by those experiences. Some shopkeepers kept one set of glasses for Muslim customers and another for the rest.

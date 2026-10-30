@@ -1,0 +1,23 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 1 V3 issues, all thirteen now fixed:
+   - 1 fixed: جا ملتے ہیں is the natural verb for waters reaching the sea.
+   - 2 fixed: the pair itself is the subject, feminine agreement (جوڑی ... شمار ہوتی ہے) correct. جوڑی and جوڑیوں in one sentence is the normal Urdu frame for "one of the most beloved pairs", not a slip.
+   - 3 fixed: devotion now happens in the temple (کراچی کے اس مندر میں) and the location is the agent (اس کے مقام نے متعین کیا ہے); رنگ ڈھنگ with کیا ہے agrees. It still contrasts cleanly with the Valmiki temple and Saidpur in the paragraph before.
+   - 4 fixed: subject first; عقیدت مند can no longer be read as an adjective of ہنومان.
+   - 5 fixed: مذہبی تقویم and خبر دیتے ہیں replace the calque. Taste: a calendar having seasons is a little loose; مذہبی تقویم کی گردش would sit closer to "the turning of the year", but the present wording is acceptable and clear.
+   - 6 fixed (adapted): the two sentences no longer state the same equation twice; with سندھ میں fronted, the joined sentence carries the Sindhi usage as the new point, and the coordinator was right that مگر and ہی would add meaning. وہ in the following sentence is unambiguous.
+   - 7 fixed (adapted): نہیں بن جاتے تھے now follows حاضری دیا کرتی تھی. The remaining present (ظاہر ہوتا ہے، حصہ ہیں) is the author's present inference about a standing view, which Urdu allows and the English requires; it does not jar.
+   - 8 fixed: ویشنو مسلک and وشنو سے عقیدت are correct.
+   - 9 fixed: حلقۂ ذکر کراتے تھے is the idiomatic Pakistani usage.
+   - 10 fixed: one spelling, منگھوپیر, as the dictionary has it (پیر منگھو); مگرمچھوں سے متعلق ایک کرامت no longer makes the crocodiles the miracle workers. With one spelling, the reader now sees the same place given as کراچی کے علاقے and then کراچی کے قریب in consecutive sentences; that tension is the English's own and must stay for fidelity, already logged as a content check in round 1.
+   - 11 fixed: یہاں کی زندگی points to the province, not the sea. یہاں recurs two sentences later (یہاں کے لوگوں کی خوراک), across sentences only.
+   - 12 fixed: تاجر پیشہ لوہانہ ذات reads as Urdu; لوہانے and لوہانوں in the following sentences agree with it.
+   - 13 fixed: اندازے ایک دوسرے سے بہت مختلف ہیں is natural and says what is meant.
+2. Changes from V2 r1:
+   - 5 (اس کے لیے خطرے کا باعث بھی): parallel with اس کی شان بھی and natural after محلِ وقوع ہی; it anticipates the heading خطرے کی زد میں without repeating inside the sentence.
+   - 10 (یہ ہندو مندر تھا): correct and clear; the two بھی in the sentence (اس کے بارے میں بھی ... زمانے میں بھی) were already there in round 1 and read naturally.
+   - 15 (روچل داس کے مطابق): correct. Taste: two consecutive sentences now open on روچل داس کے بقول and روچل داس کے مطابق; joining them with اور under one attribution would avoid naming him twice, but naming him again is clear and the verbs are varied.
+   - 16 (ساخت میں زبردست تبدیلی آئی): correct and natural; غیر معمولی or نمایاں would be a shade more formal than زبردست. Taste.
+3. Mechanics of the current file: no Latin letters, no em or en dashes, 18 asterisks (balanced), Western digits, verse line untouched.

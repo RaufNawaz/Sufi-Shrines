@@ -1,0 +1,12 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+NOTES: All changed sentences checked against the English and in context in the current Urdu (lines 9, 11, 23, 64, 90, 108, 112, 114).
+1. "عمدہ اشعار اور نقش ترتیب دیتے اور انہیں گاتے تھے": verses and designs are again two coordinate products, both on the love of Heer and Ranjha, both sung, with عمدہ over both as "wonderful" is in the English; the added naqsh relation is gone (V2 r2 #1 answered).
+2. Line 64 quotations: the full stops inside the first two quotations are removed, so ؛ alone separates the asides; the last quotation closes the sentence with ۔ inside the quote marks, as V3 r2 #1 proposed. Wording of all three asides unchanged and faithful (V3 r2 #1a and #1b answered). Taste only: the preceding sentence ends "بچھایا ہے"۔" with the stop outside the quote, while this one ends with the stop inside; harmless, but the coordinator may wish to make the placement uniform across the paragraph.
+3. "ہیر قرار دیا گیا ہے، اور آگے چل کر کہا گیا ہے": repetition removed; "Our soul is the tragic heroine Heer" kept (V3 r2 #2 answered).
+4. Italic meaning, line 112: "اپنی عطا سے ان لوگوں کو نوازے جو یہ کلام پڑھ کر سنائیں۔ اس کتاب کے پڑھنے والے اس سے لطف اٹھائیں۔" The three groups (copyist, reciters, readers) stay distinct, "it" is now explicit as یہ کلام, and "its readers enjoy the book" is exact; the doubled reference is gone (V3 r2 #3 answered).
+5. "ہیر کے ایک مصرعے میں براہِ راست کسی عورت کو پکارا گیا ہے": natural Urdu, same fact as "One line of the poem calls on a woman directly" (V3 r2 #4 answered).
+6. "خراجِ تحسین پیش کرنے کا مقام": the collocation is now complete; "a place of pilgrimage for the devout and of homage for the lovers of Punjabi letters" kept, with the shared ہے correctly gapped (V3 r2 #5 answered).
+7. "اور وہ دوسرے صوفی شعرا کی طرح" and "اور وہ اپنے آبائی وطن ... دفن ہوئے": each second clause now has its own nominative subject; facts (Kasur, Persian and Arabic, about 1798, Jandiala Sher Khan) unchanged (V3 r2 #6a and #6b answered).
+Mechanics in the changed sentences: Urdu punctuation only, no Latin letters, no dashes, Western digits (1798), asterisks on line 112 balanced.

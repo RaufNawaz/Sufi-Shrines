@@ -1,0 +1,19 @@
+VERDICT: PASS
+V2: PASS
+V3: PASS
+REPLAY: The one OLD -> NEW pair in verify/shri-panchmukhi-hanuman-mandir-karachi.ur.r3.changes.txt was applied to /tmp/claude-0/bak/shri-panchmukhi-hanuman-mandir-karachi.ur.r2.md. The OLD occurred exactly once. The result is byte for byte the current entries/descriptions_public/shri-panchmukhi-hanuman-mandir-karachi.ur.md (19240 bytes on both sides). The NEW occurs once in the current file and the OLD no longer occurs. The changes file has no "Not applied" section.
+
+ISSUES: none
+
+Changed sentence checked (paragraph 15, last sentence):
+"مندر کو حاصل تحفظ اور ان دریافتوں نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام مزید مستحکم کر دیا ہے۔"
+English: "These finds, and the temple's protected status, have strengthened its standing as a heritage site of national importance."
+- V2 (fidelity): The round 2 fault is gone. With مندر کو حاصل تحفظ first, کو belongs to the temple alone, and the single نے after ان دریافتوں makes the finds and the protection joint agents, which is what the English says. The finds are no longer read as things that are protected. Both causes are kept and nothing is added. ان دریافتوں (plural) renders "These finds" and follows اس دریافت ("The discovery") in the sentence before, as the English moves from "The discovery" to "These finds". مندر کو حاصل تحفظ renders "the temple's protected status". قومی اہمیت کے حامل ورثے کی حیثیت سے renders "as a heritage site of national importance". اس کا مقام refers to the temple, and no party is named. The bracketing مندر کو حاصل [تحفظ اور ان دریافتوں] is not a live reading: the demonstrative ان opens a new noun phrase, and "finds held by the temple" would make no sense here.
+- V3 (fluency): The sentence is correct and idiomatic. With نے and an unmarked object, کر دیا ہے agrees with the masculine singular مقام. قومی اہمیت کے حامل and ورثے کی حیثیت سے are both correct. اس کا (not اپنا) correctly points to the temple and not to the subject. مندر was in this sentence before the change too, so the change adds no new repetition. The sentence has one clause and a comfortable length. The punctuation is correct.
+
+NOT APPLIED rulings: none. The changes file has no "Not applied" section, and the one round 2 ISSUE (V2 issue 1) was applied in V2's own wording.
+
+NOTES:
+- The two causes are now in the opposite order to the English, where the finds come first and the protected status is an aside set off by commas. This changes no fact, qualifier or attribution, and it is the simplest way to stop the finds sharing a postposition with the temple. Optional, not applied.
+
+CHECKER: cd R && python3 pipeline/book_queue/check_public_description.py shri-panchmukhi-hanuman-mandir-karachi --no-verdicts -> "ok    shri-panchmukhi-hanuman-mandir-karachi  team 21572 -> public 11543 chars (0.54), Urdu 10843 chars (0.94)", exit 0.

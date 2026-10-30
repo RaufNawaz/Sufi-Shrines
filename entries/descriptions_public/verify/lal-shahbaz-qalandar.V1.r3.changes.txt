@@ -1,0 +1,13 @@
+Changes after V1 round 2, applied by the coordinator in V1's own wording (issues, then the precision notes). Nothing else changed.
+
+[V1 r2 optional a]
+OLD: The custom, known as the Lal Kunwar, the fiancée of the red, or the bride of Lal, was part of the fair's ceremonies until it disappeared at Partition in 1947.
+NEW: The custom, known as the Lal Kunwar, the fiancée of the red, was part of the fair's ceremonies until it disappeared at Partition in 1947.
+
+[V1 r2 optional b]
+OLD: Groups of *malangs*, Sufis who live outside the law, dressed in black, gathered around his sanctuary.
+
+Pilgrims kissing the tomb, women singing to the saint, men flagellating their bare torsos, the sick and the seemingly possessed screaming, losing their composure and then regaining it: all of these are daily sights in Sehwan, along with the making of offerings, the touching of relics and dealings with spirits.
+NEW: Groups of *malangs*, Sufis who live outside the religious law, dressed in black, gathered around his sanctuary.
+
+Pilgrims kissing the tomb, women singing to the saint, men flagellating their bare torsos, the sick and the seemingly possessed screaming, losing their composure and then regaining it: all of these are daily sights in Sehwan, along with the making of offerings, the touching of relics and dealings with spirits.

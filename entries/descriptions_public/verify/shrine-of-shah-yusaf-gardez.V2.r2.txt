@@ -1,0 +1,20 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. The Shrine, paragraph 2 (Aurangzeb sentence): "شاہ یوسف گردیز بھی وہاں کے ان بزرگوں میں گنے جاتے تھے جن کے مزار زیارت گاہ بنے ہوئے تھے". 'Buried there' is carried by implication. وہاں کے refers back to آسودۂ خاک in the first clause, and جن کے مزار says the tombs are there. The relative clause stays on the saints among whom he was counted, as in the English. Acceptable. Writing "وہاں مدفون" would be more explicit, but it would bring back the doubling V3 removed. No change needed.
+2. The Shrine, paragraph 2: "جن کا شمار ملتان کی روحانی بنیاد رکھنے والوں میں ہوتا ہے" for 'one of Multan's founding saints'. روحانی interprets 'founding saints' and does not add a fact. It removes the misreading 'founders of the city' and adds no Islamisation claim or certainty beyond the English. Acceptable.
+3. The Setting, paragraph 2: the connective 'also' is not carried, and 'the region's pilgrimage' becomes زیارت گاہوں. Neither changes a fact, and اس خطے now plainly governs both زیارت گاہوں and شاعری, as in the English. Acceptable.
+4. Correctly handled and not counted as omissions: the glosses of صوفی، سید/سادات (family of the Prophet)، فاتحہ، عرس and مشائخ are dropped. کاشی is not italicised, and 'glazed tilework ... known as kashi' is carried by ملتانی کاشی.
+5. All hedges correspond and govern the whole claim:
+   - روایت کے مطابق for the Islamisation claim and the dates
+   - بتایا جاتا ہے for 'remembered as having come'
+   - مشہور ہے کہ ... ایسے مبلغ تھے جن کے دم سے for 'remembered as a preacher whose presence helped'
+   - منقول ہے for 'tradition holds'
+   - روایت ہے کہ for the Legacy claim, including the later 'City of Saints'
+   - لگ بھگ for 'around'
+6. Other details correspond:
+   - Dates and periods: 711، 1088، 1175, the first half of the 1100s as بارہویں صدی کے نصفِ اول, and the eleventh, twelfth and thirteenth centuries.
+   - Names, places and relationships: Gardez in present-day Afghanistan, the Fatimids of Egypt, معز الدین محمد بن سام, the Suhrawardi order founded by شہاب الدین سہروردی, Aurangzeb, the Indus valley, Sindhi and Punjabi poets, and the Gardezi custodianship.
+   - Pronouns and headings: the pronouns resolve to the same people, and the five headings correspond in order (تعارف، صاحبِ مزار، مزار، ماحول، ورثہ).
+   - Spelling: the name follows urdu-dictionary.json (شاہ یوسف گردیز), not the older content file's گردیزی.
+7. The article has no verse. The file contains no Latin letters, dashes, asterisks or Eastern digits. Urdu prose runs to about 0.90 of the English prose in characters.

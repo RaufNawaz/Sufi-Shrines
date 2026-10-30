@@ -1,0 +1,26 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. The round 1 fixes are all applied correctly, and each says only what the team version supports.
+   a. Issue 1: the Anarkali house sentence now ends at "trees and a well". Nothing else in that paragraph rests on the damaged sentence. The sajjada nashin's nights and garden, and Fazl Gada's visit, come from clear sentences, and the death at the house stays out.
+   b. Issue 2: "Another wonder is told of his sister." now frames the wheat story as something told, like the other wonders in the section.
+   c. Note 4: the downward chain follows Lahori's no. 152 in order: Mullah Shah, then Shaikh Muhsin Shah, then Shah Abd al-Rashid Lahori, then "further down" (covering the dropped Shah Bilaq) to Sayyid Bhawan Shah, reaching 1213 AH.
+   d. Note 5: the hour and day now stand with the cell. The year sentence ("He died in the reign of Shah Jahan, in 1635 (1045 AH) ... though a few place his death in 1645") rests on the shrine, the majority of sources and Kanhaiya Lal's clear words on the reign. No year is implied for Chishti.
+   e. Notes 7a, 7b and 7c: "some eighty eight years", "built at Dera Sahib in 1996" and "Ordinarily he was not eager even for visitors" all match the team version.
+2. Fresh read, sentence by sentence:
+   a. Every statement, number and count traces to the team version, and the glosses are definitional.
+   b. Legends and traditions are framed throughout ("tradition holds", "it is said", "devotees tell", "One tells", "is told of", "It is believed").
+   c. Each disagreement that matters gives the established position with one clause that accounts differ: the birth year, the initiation and master, the death year, Dara Shikoh's bond, the tomb's stone, and Bibi Jamal's year and grave. No variants are set side by side, and no chain is merged.
+   d. Nothing rests on a reading the team version marks uncertain or illegible.
+   e. There is no citation, narration of sources, signposting or process language. The time anchors are those ruled in round 1: "By the 1870s" for Lahori; "in the nineteenth century" for Chishti and Kanhaiya Lal; 1974 from the editor's column; "Late in the twentieth century" from Abbas.
+   f. All three verse lines are byte identical to the team version. Every English quotation occurs in the team version. The bibliography is identical, all 17 items in order. The English only checker reports ok (0.43).
+   g. No important omission. The family is kept by name, along with the disciples, the chain, the keepers, the building and its parts, the offices, the fairs, the legends and the setting. What is left out is apparatus, rejected variants or uncertain readings, as the notes file records.
+3. Optional precision: "and the shrine holds that the prince himself was laid to rest close to his master." The previous section names Mullah Shah as the prince's own guide, and the next sentence names Mullah Shah's tomb, so "his master" could be read as Mullah Shah. The team version says "close to Mian Mir". Suggested: "and the shrine holds that the prince himself was laid to rest close to the saint."
+4. Optional: "who drew him into the Qadiri way and introduced him to the saint, so that Mian Mir was his *dada murshid*". "Introduced him to the saint" is Schimmel's detail. In her account it leads to Mian Mir becoming the prince's first guide, which is the variant behind "Accounts describe the bond in different ways". This is not a merge: nothing in the team version contradicts the introduction, and no link is added to any chain. But "so that" can make the introduction read as a cause of the *dada murshid* relation. If wanted: "the prince's own guide is most often named as Mullah Shah, who drew him into the Qadiri way and introduced him to the saint, and Mian Mir was his *dada murshid*, his guide's guide."
+5. Very minor: "from Mian Mir and Shah Bilawal, the elders of Lahore" can read as if they were Lahore's only elders. The team version has "the Lahore elders Mian Mir and Shah Bilawal". Suggested: "from Mian Mir and Shah Bilawal, elders of Lahore."
+6. Checked and accepted, no change needed:
+   a. In the Guru story, "came to him, incensed" takes one small detail from each of Khalid's two tellings of the same episode. Nothing is contradicted, and "bury alive" is rightly dropped.
+   b. The present tense for the tomb locations (Miskin Shah Amri, Sayyid Jan Muhammad Huzuri, the disciples and keepers) is acceptable for graves in place.
+   c. Dropping "a man's height tall" loses nothing important, because it belongs to the "the tomb itself is of marble" variant sentence. Dropping "by a man of the same family" also loses nothing important, because "the same family" has no clear antecedent.
+   d. "Lahore was then a seasonal capital" stands as ruled in round 1.
+   e. The two chilla places, Data Darbar and the Anarkali house, are not given as rival accounts, and the two do not exclude each other.

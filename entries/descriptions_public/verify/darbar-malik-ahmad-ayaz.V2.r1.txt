@@ -1,0 +1,22 @@
+VERDICT: FAIL
+ISSUES:
+1. [wrong reference] English (Legends, obedience anecdote): "he looked at the curls of Ayaz and drew him to himself" | Urdu: "محمود نے ایاز کی زلفوں پر نظر ڈالی اور انہیں اپنی طرف کھینچ لیا۔" -> the nearest antecedent of انہیں is the plural زلفوں, so the Urdu reads "he pulled the curls toward himself"; the English says Mahmud drew Ayaz to himself. -> corrected Urdu: محمود نے ایاز کی زلفوں پر نظر ڈالی اور ایاز کو اپنی طرف کھینچ لیا۔
+OLD: اور انہیں اپنی طرف کھینچ لیا۔
+NEW: اور ایاز کو اپنی طرف کھینچ لیا۔
+
+2. [changed certainty] English (Devotion and Festivals, para 3): "He is remembered as generous, intelligent, ... kind and honest, a soldier who was also a good and devoted man" | Urdu: "... دیانت دار مانا جاتا ہے؛ وہ سپاہی بھی تھے اور ساتھ ہی نیک اور مخلص انسان بھی۔" -> in the English the appositive "a soldier who was also a good and devoted man" is part of what he is remembered as; after the semicolon the Urdu states it in the narrator's own voice as fact, so the hedge no longer governs the evaluative claim. -> corrected Urdu: ملک ایاز کو سخی، ذہین، وفادار، جلد باز، جری، بہادر، مہربان اور دیانت دار مانا جاتا ہے، اور بتایا جاتا ہے کہ وہ سپاہی ہونے کے ساتھ ساتھ نیک اور مخلص انسان بھی تھے۔
+OLD: دیانت دار مانا جاتا ہے؛ وہ سپاہی بھی تھے اور ساتھ ہی نیک اور مخلص انسان بھی۔
+NEW: دیانت دار مانا جاتا ہے، اور بتایا جاتا ہے کہ وہ سپاہی ہونے کے ساتھ ساتھ نیک اور مخلص انسان بھی تھے۔
+
+3. [changed certainty] English (Legacy, para 1): "At the shrine it is said that what should be remembered is the bond ... 'the love and romance' of king and slave: a slave who would sacrifice his life for his king, and a loyalty so complete that he could answer for it before God on the Day of Judgement." | Urdu: "... "محبت اور رومان"۔ اس رشتے میں غلام اپنے آقا پر جان قربان کرنے کو تیار ہے، اور اس کی وفاداری ایسی کامل ہے کہ روزِ قیامت وہ خدا کے حضور اس کا جواب دے سکتا ہے۔" -> in the English the colon keeps the elaboration inside "At the shrine it is said"; the Urdu makes it a new sentence with no attribution, so the claim that his loyalty would answer for him before God on the Day of Judgement becomes the article's own assertion. "his king" is also rendered آقا. -> corrected Urdu: وہاں کے بیان کے مطابق اس رشتے میں غلام اپنے بادشاہ پر جان قربان کرنے کو تیار ہے، اور اس کی وفاداری ایسی کامل ہے کہ روزِ قیامت وہ خدا کے حضور اس کا جواب دے سکتا ہے۔
+OLD: اس رشتے میں غلام اپنے آقا پر
+NEW: وہاں کے بیان کے مطابق اس رشتے میں غلام اپنے بادشاہ پر
+
+NOTES:
+1. Life, para 4: "کہا جاتا ہے کہ بادشاہ کے گھر والے اور وزرا دونوں کی اس قربت کا مذاق اڑاتے تھے۔" Because دونوں directly follows "گھر والے اور وزرا", a reader first takes it as "both the family and the ministers" and has to reparse to find that the closeness is that of Mahmud and Ayaz. Naming the pair removes the ambiguity (meaning clarification, same facts).
+OLD: بادشاہ کے گھر والے اور وزرا دونوں کی اس قربت
+NEW: بادشاہ کے گھر والے اور وزرا محمود و ایاز کی اس قربت
+2. Heading "The Restorer of Lahore" is rendered "لاہور کی ازسرِنو آبادکاری" (the resettlement of Lahore). The section is the same and the content matches, so this is acceptable; no change required.
+3. Life, para 1: "slave dealing being then the norm" is rendered with کیونکہ, which makes the clause explicitly causal; the English absolute construction allows that reading, so it is acceptable.
+4. The Shrine, para 3: "said to be the largest market in Asia, and extremely crowded" becomes "جسے ایشیا کا سب سے بڑا اور نہایت پُرہجوم بازار بتایا جاتا ہے", where the hedge also covers "crowded". The English is ambiguous on this scope and the Overview already calls the market crowded plainly, so it is acceptable.
+5. Dropped glosses (ʿurs, silsila, faqir, faiz, dhikr, atalik, hakim, farman, ulama, mazār, diyas, prasād, amirs, crores, Shah i gada, niyaz, naz, Darbar), the removed italics on ordinary words, the dropped credit line under ʿUnsuri's quatrain, and the Urdu meaning given in place of Browne's English rendering all follow the brief. All figures (993, 1030, 450, 700 to 800, 12, 13 and 14, 40,000 to 50,000) match the English; no Latin letters, no em or en dashes, asterisks balanced.

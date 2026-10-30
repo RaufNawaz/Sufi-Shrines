@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- Change 1 (اور وہ قادری بزرگ شامل تھے جنہوں نے اس خطے کو اپنی سرگرمیوں کا سب سے بڑا مرکز بنا لیا تھا): natural, educated Urdu. The correlative وہ ... جنہوں نے is the idiomatic way to tie a relative clause to one member of a list, and dropping the comma before جنہوں نے is correct with the correlative. Agreement is right (بزرگ plural with شامل تھے and جنہوں نے ... بنا لیا تھا), اپنی resolves to the Qadiris, and no word is repeated inside the sentence. The relative clause can no longer be read as qualifying the whole list. Round 2 V3 issue 1 is fixed.
+- The sentence still fits its neighbours: اسی رائے کے مطابق follows on from ایک رائے یہ ہے کہ, and the next sentence (کہا جاتا ہے کہ اپنے سفروں کے دوران گرو نانک ...) is untouched and reads on naturally.
+- Taste: اور وہ قادری بزرگ بھی شامل تھے would add a little rhythm to the end of the list, but it is not needed.
+- Taste: the round 2 notes that were not applied (گرو نانک twice in change 7's sentence, ترغیب کا سرچشمہ, عقیدت مندانہ سوانحی ادب, and others) stand as before; they are outside this round.

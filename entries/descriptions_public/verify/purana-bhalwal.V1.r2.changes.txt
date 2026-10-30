@@ -1,0 +1,13 @@
+# purana-bhalwal: English changes after V1 round 1 (PASS, ISSUES: none). Precision notes 1 to 3 applied in the verifier's wording; note 4 (acceptable as is) and the caste question (note 5, for Rauf) not applied. Backup: /home/claude/bak/purana-bhalwal.before_v1r2.md
+
+WHY: V1 r1 note 1 (implied chain: the placement suggested Ghaus Gilani heads Shah Sulaiman's chain); verifier's wording
+OLD: The first of the Qadiri line to come to the Punjab is held to have been
+NEW: Of the Qadiri order in the Punjab, the first master to arrive is held to have been
+
+WHY: V1 r1 note 2 (precision: 'more strongly accentual'); verifier's wording
+OLD: with the drum marking the metre more strongly than in Uttar Pradesh.
+NEW: with the drum stressing the beats of the metre more strongly than in Uttar Pradesh.
+
+WHY: V1 r1 note 3 (precision: 'particularly'); verifier's wording
+OLD: above all ʿAbd al-Qadir Gilani,
+NEW: especially ʿAbd al-Qadir Gilani,

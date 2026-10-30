@@ -1,0 +1,92 @@
+VERDICT: FAIL
+ISSUES:
+1. [tangled sentence] جنم استھان وہ مرکزی گوردوارہ ہے ... البتہ اس سے پٹی صاحب کے ٹھیک فاصلے کے بارے میں بیانات مختلف ہیں -> a definition of Janam Asthan and a hedge about Patti Sahib's distance are yoked by البتہ, which implies a contrast that is not there; the reader stumbles. Split into two sentences.
+OLD: جنم استھان وہ مرکزی گوردوارہ ہے جو گرو نانک کی جائے پیدائش کی نشان دہی کرتا ہے، البتہ اس سے پٹی صاحب کے ٹھیک فاصلے کے بارے میں بیانات مختلف ہیں۔
+NEW: جنم استھان وہ مرکزی گوردوارہ ہے جو گرو نانک کی جائے پیدائش کی نشان دہی کرتا ہے۔ پٹی صاحب اس سے ٹھیک کتنے فاصلے پر ہے، اس بارے میں بیانات مختلف ہیں۔
+
+2. [unidiomatic] اب اس لڑکے کے سیکھنے کو ان کے پاس کچھ نہیں رہا -> "اس لڑکے کے سیکھنے کو" is a strained construction; the natural phrasing is that the teacher had nothing left to teach the boy.
+OLD: قصہ آگے بتاتا ہے کہ استاد اس پر ایسے ششدر ہوئے کہ انہوں نے اعتراف کر لیا: اب اس لڑکے کے سیکھنے کو ان کے پاس کچھ نہیں رہا۔
+NEW: قصہ آگے بتاتا ہے کہ استاد اس پر ایسے ششدر ہوئے کہ انہوں نے اعتراف کر لیا: اب ان کے پاس اس لڑکے کو سکھانے کے لیے کچھ نہیں رہا۔
+
+3. [ambiguity] یہی نظم پٹی لکھی ہے -> the title پٹی لکھی is unmarked, so the clause first reads as "this poem is written on the patti" (پٹی + لکھی ہے). The title must be set off as a name.
+OLD: روایت ہے کہ یہی نظم پٹی لکھی ہے، جو سکھوں کی مقدس کتاب گرو گرنتھ صاحب میں گرو نانک کے نام سے درج ہے۔
+NEW: روایت ہے کہ یہی وہ نظم ہے جو *پٹی لکھی* کہلاتی ہے اور سکھوں کی مقدس کتاب گرو گرنتھ صاحب میں گرو نانک کے نام سے درج ہے۔
+
+4. [collocation] اس زیارتی سلسلے کا ایک فطری پڑاؤ ہے جس پر زائرین چلتے ہیں -> one does not walk "on" a سلسلہ (series); a پڑاؤ belongs to a route. Use راستے.
+OLD: جنم استھان اور بال لیلا کے درمیان سڑک پر ہونے کی وجہ سے یہ گرو کے بچپن سے وابستہ مقامات کے اس زیارتی سلسلے کا ایک فطری پڑاؤ ہے جس پر زائرین چلتے ہیں۔
+NEW: جنم استھان اور بال لیلا کے درمیان سڑک پر ہونے کی وجہ سے یہ گرو کے بچپن سے وابستہ مقامات کے اس زیارتی راستے کا ایک فطری پڑاؤ ہے جس پر زائرین چلتے ہیں۔
+
+5. [tense / English word order] جنوری 2011 میں لوہڑی کی رات ایک محرابی دروازہ اندر دو منزلہ زرد عمارت کی طرف لے جاتا تھا -> habitual لے جاتا تھا clashes with a single dated night, and the loose اندر is English "led inside to". Recast as an Urdu scene description.
+OLD: جنوری 2011 میں لوہڑی کی رات ایک محرابی دروازہ اندر دو منزلہ زرد عمارت کی طرف لے جاتا تھا۔
+NEW: جنوری 2011 میں لوہڑی کی رات ایک محرابی دروازے سے اندر جائیں تو سامنے ایک دو منزلہ زرد عمارت تھی۔
+
+6. [English word order] ..., اور 1992 میں بابری مسجد کے انہدام کے نتیجے میں بھی -> the second cause is tacked on after the verb as an English afterthought; Urdu pairs the two causes with بھی ... بھی before the verb.
+OLD: یہ خاندان 1965 اور 1971 کی جنگوں کے بعد پھیلنے والی بیگانگی کے سبب یہاں آئے، اور 1992 میں بابری مسجد کے انہدام کے نتیجے میں بھی۔
+NEW: یہ خاندان 1965 اور 1971 کی جنگوں کے بعد پھیلنے والی بیگانگی کے سبب بھی یہاں آئے اور 1992 میں بابری مسجد کے انہدام کے نتیجے میں بھی۔
+
+7. [English word order] اس نقل مکانی کے ابتدائی دنوں میں، 1965 اور 1971 کی جنگوں کے بعد، -> an English parenthetical set between commas; fold the time phrase into the sentence.
+OLD: اس نقل مکانی کے ابتدائی دنوں میں، 1965 اور 1971 کی جنگوں کے بعد، خیبر پختونخوا اور قبائلی علاقوں کے بہت سے سکھ خاندانوں نے گوردوارہ پٹی صاحب میں پناہ لی۔
+NEW: 1965 اور 1971 کی جنگوں کے بعد اس نقل مکانی کے ابتدائی دنوں میں خیبر پختونخوا اور قبائلی علاقوں کے بہت سے سکھ خاندانوں نے گوردوارہ پٹی صاحب میں پناہ لی۔
+
+8. [inconsistent naming] سکھ بچوں کو گرنتھ صاحب پڑھایا جاتا تھا -> the scripture is گرو گرنتھ صاحب everywhere else in the article, including two sentences earlier.
+OLD: یہ ملک کا واحد اسکول تھا جہاں سکھ بچوں کو گرنتھ صاحب پڑھایا جاتا تھا۔
+NEW: یہ ملک کا واحد اسکول تھا جہاں سکھ بچوں کو گرو گرنتھ صاحب پڑھایا جاتا تھا۔
+
+9. [collocation] موسم کی تبدیلی کی یاد میں منایا جاتا ہے -> کی یاد میں commemorates a past event or person; a seasonal festival is celebrated on the turn of the season (calque of "marks").
+OLD: بیساکھی اور بسنت کی طرح لوہڑی بھی پنجاب کا ایک قدیم تہوار ہے جو موسم کی تبدیلی کی یاد میں منایا جاتا ہے۔
+NEW: بیساکھی اور بسنت کی طرح لوہڑی بھی پنجاب کا ایک قدیم تہوار ہے جو موسم کی تبدیلی کے موقع پر منایا جاتا ہے۔
+
+10. [calque] لوہڑی کا مطلب ہے گاؤں کا الاؤ، خشک میوے اور لوک گیت -> English "Lohri means bonfires..."; in Urdu a festival does not "mean" its customs.
+OLD: روایتی طور پر لوہڑی کا مطلب ہے گاؤں کا الاؤ، خشک میوے اور لوک گیت؛ بچے لکڑیاں جمع کرتے ہیں اور کھیر رات بھر ٹھنڈی ہونے کے لیے رکھ دی جاتی ہے۔
+NEW: روایتی طور پر لوہڑی گاؤں کے الاؤ، خشک میووں اور لوک گیتوں کا تہوار ہے؛ بچے لکڑیاں جمع کرتے ہیں اور کھیر رات بھر ٹھنڈی ہونے کے لیے رکھ دی جاتی ہے۔
+
+11. [repetition] بلا توقف مسلسل پڑھنے -> بلا توقف and مسلسل say the same thing twice.
+OLD: مقدس کتاب کو بلا توقف مسلسل پڑھنے کو *اکھنڈ پاٹھ* کہتے ہیں۔
+NEW: مقدس کتاب کو بلا توقف پڑھنے کو *اکھنڈ پاٹھ* کہتے ہیں۔
+
+12. [agreement / calque] گرو نانک کا وعظ ان کی *بانی* تھی -> subject وعظ is masculine but the copula is feminine تھی; the equation "his preaching was his bani" is also an English shape. Say the preaching took the form of bani.
+OLD: گرو نانک کا وعظ ان کی *بانی* تھی، یعنی عقیدت بھرے اشعار جن میں التجا، مناجات، عاجزی اور تعظیم کا رنگ ہے۔
+NEW: گرو نانک کا وعظ ان کی *بانی* کی صورت میں تھا، یعنی عقیدت بھرے اشعار جن میں التجا، مناجات، عاجزی اور تعظیم کا رنگ ہے۔
+
+13. [ambiguous pronoun] بعد کے گروؤں کی نظمیں انہی کے بجائے گرو نانک کے نام سے درج ہیں -> انہی most naturally points back to Kabir, Farid and Mardana, the last plural named, not to the later Gurus themselves.
+OLD: گرو گرنتھ صاحب میں بھگت کبیر، بابا فرید اور بھائی مردانہ جیسے دوسرے روحانی رہنماؤں کا کلام بھی شامل ہے، اور بعد کے گروؤں کی نظمیں انہی کے بجائے گرو نانک کے نام سے درج ہیں۔
+NEW: گرو گرنتھ صاحب میں بھگت کبیر، بابا فرید اور بھائی مردانہ جیسے دوسرے روحانی رہنماؤں کا کلام بھی شامل ہے، اور بعد کے گروؤں کی نظمیں ان کے اپنے ناموں کے بجائے گرو نانک کے نام سے درج ہیں۔
+
+14. [tangled sentence / ambiguous pronoun] زیادہ تر تقریباً دو سو گھرانے ... اور کئی برس تک جتھا سنگھ اس کے سربراہ رہے -> زیادہ تر تقریباً is a clumsy stack; an unrelated fact about the community's head is chained on after the hedge, and اس کے could refer to the number or the community. Split and name the antecedent.
+OLD: سکھ برادری کی تعداد زیادہ تر تقریباً دو سو گھرانے بتائی جاتی تھی، اگرچہ اس بارے میں اندازے مختلف ہیں، اور کئی برس تک جتھا سنگھ اس کے سربراہ رہے۔
+NEW: سکھ برادری کی تعداد عام طور پر تقریباً دو سو گھرانے بتائی جاتی تھی، اگرچہ اس بارے میں اندازے مختلف ہیں۔ کئی برس تک جتھا سنگھ اس برادری کے سربراہ رہے۔
+
+15. [dangling reference] ان کے رویے انہی تجربات کے سانچے میں ڈھلے -> انہی تجربات has no antecedent noun; the sentence names partition and migration but never "experiences".
+OLD: ننکانہ صاحب کے زیادہ تر مسلمان تقسیم کے بعد سرحد پار سے ہجرت کر کے آئے تھے، اور کہا جاتا ہے کہ ان کے رویے انہی تجربات کے سانچے میں ڈھلے۔
+NEW: ننکانہ صاحب کے زیادہ تر مسلمان تقسیم کے بعد سرحد پار سے ہجرت کر کے آئے تھے، اور کہا جاتا ہے کہ ان کے رویے تقسیم اور ہجرت کے انہی تجربات کے سانچے میں ڈھلے۔
+
+16. [calque] حروفِ تہجی پر ایک ایسا مراقبہ تھے جس کا رخ ذاتِ الٰہی کی طرف تھا -> "a meditation on the alphabet" rendered word for word; مراقبہ takes کا (مراقبۂ موت, ذات کا مراقبہ), not پر.
+OLD: سکھ روایت کے مطابق ننھے نانک کے پہلے اشعار حروفِ تہجی پر ایک ایسا مراقبہ تھے جس کا رخ ذاتِ الٰہی کی طرف تھا۔
+NEW: سکھ روایت کے مطابق ننھے نانک کے پہلے اشعار حروفِ تہجی کے سہارے ذاتِ الٰہی کا مراقبہ تھے۔
+
+17. [calque] شہر کا ایک لوہڑی الاؤ -> English noun-noun compound "a Lohri bonfire"; Urdu needs a postposition.
+OLD: جنوری 2011 میں اس کے صحن میں شہر کا ایک لوہڑی الاؤ روشن ہوا، جو پنجاب کی اس روایت کو زندہ کرنے کی کوشش کا حصہ تھا۔
+NEW: جنوری 2011 میں لوہڑی کے موقع پر شہر کا ایک الاؤ اس کے صحن میں روشن ہوا، جو پنجاب کی اس روایت کو زندہ کرنے کی کوشش کا حصہ تھا۔
+
+18. [collocation / misreading] سکھ فرید کے کلام کو بڑی عقیدت سے دیکھتے ہیں -> the idiom is عقیدت کی نگاہ سے دیکھنا; also سکھ فرید side by side momentarily reads as a name.
+OLD: سکھ فرید کے کلام کو بڑی عقیدت سے دیکھتے ہیں، کیونکہ خیال کیا جاتا ہے کہ اس صوفی نے ان کے مذہب کے بانی کو متاثر کیا تھا۔
+NEW: سکھوں کے ہاں فرید کا کلام بڑی عقیدت کی نگاہ سے دیکھا جاتا ہے، کیونکہ خیال کیا جاتا ہے کہ اس صوفی نے ان کے مذہب کے بانی کو متاثر کیا تھا۔
+
+19. [choppy] ندیم ایک مسلمان مصور ہیں۔ ان کی نظر میں ... -> a person is introduced in a bare one-line sentence purely to hang the next one on; reads like translated notes. Merge.
+OLD: ندیم ایک مسلمان مصور ہیں۔ ان کی نظر میں گرو نانک کسی مسلمان صوفی ولی کی طرح ہیں۔
+NEW: مسلمان مصور ندیم کی نظر میں گرو نانک کسی مسلمان صوفی ولی کی طرح ہیں۔
+
+NOTES:
+- Overall the prose is educated and mostly natural; the Lohri and Partition passages read well. The failures are scattered calques and a few tangled or ambiguous sentences, not systemic.
+- Repetition across sections (structural, fixing would remove sentences, so left as taste): پٹی as a wooden slate is explained in the introduction and again at the start of گرو کے پہلے سبق; "گرو سے وابستہ بڑے یادگاری دنوں پر زائرین ... آتے ہیں" appears in the introduction and again at the start of عقیدت اور تہوار; Talwandi's renaming as Nankana Sahib is stated under گرو نانک and again under ننکانہ صاحب; ساکھیاں is glossed in the introduction and جنم ساکھیاں glossed again later; the Aurangzeb-era followers' "worship" is described twice (service to travellers, then recitation), and the two statements sit uneasily together.
+- تلونڈی first appears in the گرو کے پہلے سبق section before the reader is told it is the old name of Nankana Sahib.
+- سچے سودے کے واقعے and کروڑی presuppose stories the reader has not been told; this cannot be fixed without adding facts.
+- تلونڈی کے گاؤں / تلونڈی کا گاؤں would read more naturally as تلونڈی نامی گاؤں or تلونڈی گاؤں.
+- Heading گرو کے پہلے سبق: گرو کا پہلا سبق is more natural.
+- شہر کے اچھی حالت میں رکھے گئے مقدس مقامات میں اس کا شمار ہوتا ہے is heavy; اس کا شمار شہر کے ان مقدس مقامات میں ہوتا ہے جنہیں اچھی حالت میں رکھا گیا ہے flows better. The same sentence carries three clauses and could be split, but the scope of the final hedge (upkeep vs management) is unclear, so I left it.
+- گویّے مردانہ is grammatical as an honorific but abrupt.
+- شہر کے سب سکھ اردو یا پنجابی نہیں بول سکتے تھے is read as "not all", but a careless reader could take it as "none".
+- گرو کے پہلے سبق کی یادگار اس عمارت نے is a compressed apposition; گرو کے پہلے سبق کی یادگار ہونے کے ساتھ ساتھ اس عمارت نے ... کو بھی پناہ دی would flow better.
+- نمائندوں نے ان کا استقبال کیا اور ان کے لیے لنگر کا انتظام تھا switches structure mid-sentence; اور وہیں ان کے لیے لنگر کا انتظام بھی تھا would be smoother.
+- سکھ مذہب / سکھ مت and روایتوں / روایات alternate; both are acceptable variants.
+- Punctuation is clean: Urdu ، ۔ ؛ throughout, no dashes, no Latin letters, asterisks balanced.

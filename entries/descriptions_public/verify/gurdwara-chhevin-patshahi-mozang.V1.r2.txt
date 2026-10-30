@@ -1,0 +1,10 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff result: `diff /home/claude/bak/gurdwara-chhevin-patshahi-mozang.md.bak_en1 entries/descriptions_public/gurdwara-chhevin-patshahi-mozang.md` reports one changed line only (33c33, the last paragraph of The Sixth Guru). I also applied the two listed OLD to NEW replacements to the backup in a script. The result is byte-identical to the current file, so nothing else moved.
+2. Change 1 ("following the assassination of his father"): supported. These are the team version's own words in The soldier-saint paragraph ("began the process of militarisation of the Sikh community following the assassination of his father"). The team version gives no other account of how Guru Arjan died, so the word sets nothing against a rival version. It restores the fact my round 1 note said was lost, and it fits with the Overview ("he began the militarisation of the Sikh community") and with the revenge oath two paragraphs earlier. There is no new fact, no lost fact (the next sentence about horses and arms is unchanged), grammar intact, no source talk, no dash.
+3. Change 2 ("he created the concept of the *Sangat*, the congregation of followers"): supported. It matches the team version's "had created the concept of the Sangat, which was then put under a Masand". The gloss and the relative clause are as in round 1, and the relative clause attaches to the Sangat just as it does in the team version. There is no new fact, no lost fact, grammar intact, no source talk, no dash.
+4. No em or en dash anywhere in the file.
+5. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-chhevin-patshahi-mozang --english-only` printed `ok    gurdwara-chhevin-patshahi-mozang  team 27257 -> public 11407 chars (0.42)` and exited 0.

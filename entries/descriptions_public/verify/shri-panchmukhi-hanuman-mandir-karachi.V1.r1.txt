@@ -1,0 +1,69 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+
+I checked every sentence against the team version. Every statement, number and count is supported, and glosses are definitional. Legends and traditions keep their framing: "Devotional tradition holds", "popularly said", "some accounts", "is said to have been created", "Another legend holds", "A legend explains the name", "reported to include". The material on Hanuman in general, on Karachi and on Sindh sits under its own headings. Each piece is worded so it cannot be read as said of this temple: "In two legends set beyond Karachi", "His image appears elsewhere too", "The city has other Hindu temples". The Sindh restoration wave is kept apart from the 2012 renovation and is not linked to it. The text names no citation, page, author or "the books", and has no signposting or archive language. Nothing rests on a flagged reading: the Kurus and Pandus passage, which the team version marks imperfectly printed, is dropped. The bibliography matches the team version's item for item. The prose before the bibliography contains no em or en dash.
+
+Notes that correct meaning or precision (apply by script):
+
+N1. [connective not in source] The team version reads "... are one and the same, and there is no longer Turk, Hindu, or Peshawari." The public text's "so that" adds a causal link the source does not make.
+OLD: and Abu Hanifa and Hanuman, so that there is no longer Turk, Hindu or Peshawari.
+NEW: and Abu Hanifa and Hanuman; there is no longer Turk, Hindu or Peshawari.
+
+N2. [time anchor] The musicians observation comes from Sorley, whose bibliography date is firm (first published 1940). With no anchor, the present perfect reads as a claim about Sindh today, after Partition removed most of its Hindus. The brief asks for a time anchor where the date of a description matters, and here it does.
+OLD: and most of the musicians in Sindh, it has been observed, have been Hindus and not Muslims.
+NEW: and in 1940 it was observed that most of the musicians in Sindh had been Hindus and not Muslims.
+
+Rulings on the writer's judgement calls:
+
+1. Accepted. "one of the most ancient Hindu temples in Pakistan" is in the team version's own Overview voice. The age in years stays tradition. The tension with "cannot be verified" is correctly sent to Rauf rather than resolved here.
+2. Accepted.
+3. Accepted as a definitional gloss. The Ramayana is a Sanskrit epic with Rama as its hero, and the team version ties Rama to the Ramayana.
+4. Accepted. "Such datings belong to tradition" keeps them as tradition, and dropping "and great antiquity" correctly stops the narrator asserting the age.
+5. Accepted. The source says "neither set in Karachi", and the parav statue keeps its place and its "even".
+6. Accepted. The legend is framed as legend, and the informant's name is apparatus, not important information.
+7. Accepted. "In the nineteenth century" is the right anchor for Chishti's unconfirmed 1867 date. "In the early twenty first century" is right for A White Trail (2013, firm). "Stood" for "there is" is acceptable (taste: "was").
+8. Accepted. Framing the 1982 selection's interpretation as "one modern reading" is conservative and is not source narration.
+9. "Paired opposites" is accepted, since it is the team version's own description. See N1 for "so that".
+10. Accepted. Ram as Rama is a spelling. "Rama's brother" is a gloss.
+11. Accepted. "Kolachi became Karachi" supports "was once the village of Kolachi". The 2016 date is firm, which supports the anchor.
+12. Accepted. "it has been said" frames the author's "as he put it".
+13. Accepted. "must have been" is rendered "It has been suggested", and Iqbal Qaiser's identification as "has been identified". Both stay framed as views.
+14. Accepted.
+15. Accepted. The temple of Hinglaj Devi at Hinglaj is implicit in the team version. The 240 km figure is a different measure (the road from Narayanpur), and dropping it is minor.
+16. Accepted.
+17. Accepted. "has also known violence" is a fair plain rendering of "a city of violence against Hindus".
+18. Accepted. Manghopir and Mango Pir are one place under two spellings: the team version sets them in one sentence, and "near Karachi" is its own.
+19. Accepted for the framing of both views. See N2 for the anchor.
+20. Accepted. "best-known" is correctly not carried, and the "often quoted" claim is kept where the team version makes it.
+21. Accepted. Rochaldas is a person whose narrative is part of the story, not a cited scholar. Attributing the allegation against the Mohajirs to his narrative keeps it out of the narrator's voice. The team version does not identify him further, so nothing can be added. The Mohajirs gloss is definitional.
+22. Accepted. Keeping the wave apart from the temple's renovation is right: the team version's "belongs to a wider pattern" is its own inference about a source that does not name the temple, and the public text says the temple's renovation was funded by local donations.
+23. Accepted.
+
+Rulings on the consensus choices:
+- Hanuman's standing beside Rama: accepted. "devoted servant" is the site's account, and the two mystical readings are rightly placed as readings, not as rivals to "servant".
+- The god's name: accepted.
+- Pakistan's Hindus: accepted. "between 6 and 10 million, though estimates vary widely" carries the source's own caveat. "most of them belong to underprivileged tribes and castes" is the true common ground of "over 90 percent" (Pakistan) and "a majority" (Sindh, scheduled castes).
+- Partition migrants: accepted. "a kind of consensus that they numbered around 1 million" supports "most often put at around a million". There is one clause that accounts differ, the lower reckoning is not set beside it, and the sentence reports the figure as the one most often given, not as fact.
+- Communal strife: accepted. "communal violence did occur there, even if it never reached the level of violence in the Punjab" is the team version's position. It is consistent with the Karachi riots, the Rochaldas narrative and the 1992 attacks, and Sorley's "rapprochement" concerns mystical ideas, not the absence of violence.
+- Restorations and minor drops: accepted.
+- Time anchors: accepted, except N2.
+
+Omission sweep: no important omission remains. Every fact about the temple is kept: Soldier Bazaar, panchmukhi, svayambhu, the five faces and their iconography, the "natural" statue, the three festivals, Rama's passage and the uncovering, fifteen hundred years and more, the loss of land, 2012 with local donations, the 2019 finds and their effect, the 1994 Act, the busy community worship, and the Legacy. The team version names no family, keepers, founders or priests, and the public text adds none. These items were dropped, and I judge none of them important for this article:
+- "a mighty warrior, the Indian version of Hercules"; "Rama's close ally"; Hanūvant; the index and glossary entries
+- Ramakrishna's absorption
+- Advit's aunt
+- the old man's "one hundred and fifty years" and the author's remark on it; the officer's "it is old"
+- the Navratri pilgrims "from as far as Karachi" (destination not given)
+- 240 km from Narayanpur
+- Zauqi Shah at the Muslim League meeting of 1907; Hajji Imdadullah's exile; the alligator miracle, which the team version names but does not tell
+- "exactly 0.9 million" in 1941 (21 per cent is kept); "over 90 percent"; "several millions"
+- Sorley's "rapprochement"; the "nationalist utopian ideal"
+- the Kurus and Pandus (uncertain reading)
+None of these bears on the temple, its god's worship there, or its community in a way a visitor needs.
+
+Minor points, taste only (do not apply as precision fixes):
+- "Narasimha, half man and half lion, Garuda, the eagle, Varaha, the boar, and Hayagriva, the form with the head of a horse" can be hard to parse as a list of four. Semicolons between the items would help.
+- "Lanka" is glossed "the kingdom of Ravana" in the Hanuman paragraph and appears again as a trading destination ("Aden, Gujarat and Lanka"). The source uses one word for both.
+- The quoted "today" in the Ramdeo Pir sentence comes from a 2019 book. That is recent enough, and the quotation is verbatim.
+- "Karachi is a city of Sufis too" is slightly freer than the source's "the city's Sufi life". It is acceptable.

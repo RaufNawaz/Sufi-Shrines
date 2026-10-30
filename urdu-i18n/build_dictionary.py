@@ -1212,6 +1212,16 @@ FOUNDED = {
  "1619 (commemorated event); original structure raised under Maharaja Ranjit Singh (early 19th c.); present building rebuilt 1926 by Sardar Mehar Singh":
      "1619 (یادگاری واقعہ)؛ اصل عمارت مہاراجہ رنجیت سنگھ کے عہد میں (اوائل انیسویں صدی)؛ موجودہ عمارت 1926 میں سردار مہر سنگھ نے دوبارہ بنوائی",
  "1630 CE (8 Muharram 1040 AH)": "1630ء (8 محرم 1040ھ)",
+ # ── Added 30 October 2026: the three `year_built` cells that are sentences
+ # and had no Urdu, so the Urdu founded row showed them as an English note
+ # (Rauf, 30 October 2026: "Just write the sentence in urdu"). The hedge is
+ # translated, not tidied away, as above. Drafted by Claude, unreviewed.
+ "681 CE / c. 63 AH (popular tradition) — see note; second tradition dates the events to the early 13th century CE":
+     "681ء / تقریباً 63ھ (عوامی روایت)؛ نوٹ دیکھیے؛ ایک دوسری روایت ان واقعات کو تیرہویں صدی عیسوی کے اوائل میں رکھتی ہے",
+ "1215 CE (as given in the form as a Hijri year; the saint's death year, not a construction date)":
+     "1215ء (فارم میں ہجری سال کے طور پر درج؛ یہ بزرگ کا سالِ وفات ہے، تعمیر کی تاریخ نہیں)",
+ "1671 (as given: \"English Calendar Date : 1671\"; the saint's death year, not a construction date)":
+     "1671 (جیسا درج ہے: \"انگریزی کیلنڈر کی تاریخ: 1671\"؛ یہ بزرگ کا سالِ وفات ہے، تعمیر کی تاریخ نہیں)",
  "17th century (Guru Hargobind's visit and Bhai Jiwan's conversion of his house into a gurdwara); hall enlarged 1915":
      "سترہویں صدی (گرو ہرگوبند کی آمد اور بھائی جیون کا اپنے گھر کو گوردوارے میں بدلنا)؛ ہال 1915 میں وسیع کیا گیا",
  "18th century (c. 1725–1750)": "اٹھارہویں صدی (تقریباً 1725–1750)",

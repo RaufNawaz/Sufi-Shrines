@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the sentence in shrine-of-mian-mir.ur.r4.changes.txt, read in its paragraph. "کہا جاتا ہے کہ جب گرو ارجن دیو کو اذیتیں دی گئیں تو ان کے مسلمان دوست میاں میر غصے کے عالم میں ان کے پاس آئے اور پوچھا:" is natural Urdu; the appositive name settles the singular honorific reading that "ان کے مسلمان دوست" alone left open, both ان کے refer plainly to the Guru, and the following "گرو نے انہیں" plainly means Mian Mir. Taste only: میاں میر now appears in three consecutive sentences of this short paragraph, which is acceptable here because it removes every doubt about who is meant.

@@ -1,0 +1,16 @@
+VERDICT: FAIL
+ISSUES:
+1. [addition / wrong reference] The Guru's Verse, paragraph 1: "A minstrel named Mardana sang the Guru's verses and drew people into the snare of devotion." | "مردانہ گویّے تھے؛ وہ گرو کے اشعار گاتے اور لوگوں کو عقیدت کے دام میں کھینچ لاتے تھے۔" -> The English deliberately introduces this Mardana as a new figure ("a minstrel named Mardana"), kept distinct from Bhai Mardana, the lifelong companion of The True Bargain. The Urdu names him bare, with the honorific plural, as an already known person ("Mardana was a singer"), so the Urdu reader identifies him with Bhai Mardana: an identification the English does not make. -> مردانہ نام کا ایک گویّا گرو کے اشعار گاتا اور لوگوں کو عقیدت کے دام میں کھینچ لاتا تھا۔
+OLD: مردانہ گویّے تھے؛ وہ گرو کے اشعار گاتے اور لوگوں کو عقیدت کے دام میں کھینچ لاتے تھے۔
+NEW: مردانہ نام کا ایک گویّا گرو کے اشعار گاتا اور لوگوں کو عقیدت کے دام میں کھینچ لاتا تھا۔
+NOTES:
+1. (precision, attribution) The True Bargain, paragraph 3: English "'Any dilution of my bargain will be a dilution of the truth', he says, and feeding them is 'a truly selfless service'" leaves open whose words the second quotation are; the Urdu "ان کے نزدیک" assigns them to Nanak. Dropping the two words keeps the English's open attribution.
+OLD: اور ان کے نزدیک فقیروں کو کھلانا
+NEW: اور فقیروں کو کھلانا
+2. (precision, reference) Legacy, paragraph 1: English "a living link to the compassion of their founder" means the founder of the pilgrims' faith. In "یہ گوردوارہ اپنے بانی کی رحم دلی سے" the reflexive اپنے takes the subject یہ گوردوارہ, so it can read as the gurdwara's own founder.
+OLD: یہ گوردوارہ اپنے بانی کی رحم دلی سے ایک زندہ رشتہ ہے
+NEW: یہ گوردوارہ ان کے مذہب کے بانی کی رحم دلی سے ایک زندہ رشتہ ہے
+3. (precision, word sense) Legacy, paragraph 3: English "Farid's texts are revered among the Sikhs"; متبرک سمجھا جاتا ہے says they are held sacred or a source of blessing, a step beyond "revered".
+OLD: سکھوں کے ہاں متبرک سمجھا جاتا ہے
+NEW: سکھوں کے ہاں بڑے احترام کی نظر سے دیکھا جاتا ہے
+4. (style only, no change proposed) Everything else matches paragraph by paragraph: all eight headings correspond; every name, number and date is present (about eighteen, twenty rupees, fifty, two cooks and two porters, 1947, 1993, 1993 and 1994, about twenty minutes, about forty, about ten, twelve years, ten rupee note, about 45 kilometres, 1980s, eighteenth century, 1469 to 1539, thirteen, sixteen, four journeys, more than twenty years, 1604, twentieth century); all hedges survive (it is said, tradition, the story goes, it is believed, is held, accounts differ, most often, about); the legends (the true bargain, the yogis under the trees, the mud and sugar, the Hinglaj footsteps) stay legends. Dropped glosses (gurdwara, Auqaf, langar as communal kitchen) and the dropped word "English" before "translation" are deliberate and correct for the Urdu reader. The English verse renderings are faithfully put into Urdu. Minor taste points, not affecting meaning: "a boy at the gate" became "پھاٹک پر کھڑے ایک لڑکے" (standing is implied); "Launch ye the boat of austere contemplation" became "کڑی تپسیا اور دھیان کی ناؤ" (two nouns for one); "they were new, Qaiser said, and did not know him" has "انہیں نہیں جانتے", which an Urdu reader takes as Qaiser in reported speech.

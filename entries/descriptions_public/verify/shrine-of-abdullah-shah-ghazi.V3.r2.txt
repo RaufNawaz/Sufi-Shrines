@@ -1,0 +1,18 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [repetition] "دوسرے بڑے مزارات کی طرح یہ مزار بھی تشدد کا نشانہ بن چکا ہے، اور پاکستان کے جن صوفی آستانوں پر حملے ہوئے ہیں ان میں اس کا نام بھی آتا ہے۔" -> The two clauses still say the same thing ("it has suffered violence" and "it is among the attacked shrines"), and the next sentence then describes the attack itself, so the reader is told three times. -> پاکستان کے جن بڑے صوفی آستانوں کو تشدد کا نشانہ بنایا گیا ہے، یہ مزار بھی ان میں شامل ہے۔
+
+2. [collocation / clarity] "کلفٹن کا بڑا حصہ بھرائی کر کے حاصل کی گئی زمین پر آباد ہے۔" -> "بھرائی کر کے" has no object, so a general reader cannot tell what was filled in. The Urdu idiom for reclaimed land is "سمندر پاٹ کر", and the article's first sentence already places Clifton on the sea. -> کلفٹن کا بڑا حصہ سمندر پاٹ کر حاصل کی گئی زمین پر آباد ہے۔
+
+3. [ambiguity] "جس کے بعد فقیر دوسروں کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔" -> "دوسروں" has no referent in the text. Nobody else has been mentioned, so the reader asks "behind whom?". If other faqirs are meant, say so. If some other group is meant, name it. -> سیہون میں ہر سال تین دن کا میلہ لگتا ہے، جس کے بعد فقیر ایک دوسرے کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔
+
+NOTES:
+- In پس منظر, "کراچی کے نام کے بارے میں ... کبھی یہ علاقہ" comes straight after a sentence about Clifton, so on first reading "یہ علاقہ" points to Clifton. The reclaimed-land sentence would sit better at the end of that paragraph or in the مزار section.
+- "سبز گنبد والا" appears twice, once in تعارف ("سبز گنبد والا یہ دربار") and again in مزار ("نمایاں سبز گنبد والا یہ آستانہ"). One mention is enough.
+- "معمولی بندرگاہی شہر": "معمولی" sounds slightly dismissive. "ایک چھوٹا سا بندرگاہی شہر" is warmer.
+- "کئی ملین کی آبادی والے": Urdu prose usually counts in lakh and crore. Converting the number would change the figure, though, and "ملین" is current in the Pakistani press, so it can stay.
+- "وہ ایک مشترکہ سرپرست بھی ہیں اور جائے پناہ بھی": "جائے" (place) applied to a person is a little forced, and "مشترکہ سرپرست" reads translated. Consider "سب کے سانجھے سرپرست بھی ہیں اور پناہ بھی".
+- "کے راستے" occurs three times across two sentences in پس منظر.
+- "عام بیان کے مطابق" and "بعض بیانات میں یہ بھی آیا ہے" are still slightly translated. "اکثر روایتوں کے مطابق" and "بعض روایتوں میں" would be more natural, but "روایت" is already frequent in the article.
+- "اُن" carries a diacritic once in تعارف, while "ان" is bare everywhere else. Years are written without "ء" (710، 711، 2010). Either style is fine if it is house style.

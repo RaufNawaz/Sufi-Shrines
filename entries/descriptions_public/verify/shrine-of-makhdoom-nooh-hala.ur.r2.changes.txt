@@ -1,0 +1,63 @@
+shrine-of-makhdoom-nooh-hala | Urdu round 2 | reports: verify/shrine-of-makhdoom-nooh-hala.V3.r1.txt (FAIL, 9 issues), verify/shrine-of-makhdoom-nooh-hala.V2.r1.txt (PASS, notes only) | backup: /home/claude/bak/shrine-of-makhdoom-nooh-hala.ur.before_r2.md | V3 issues applied in the verifier's wording: 1, 2, 4, 5, 6, 7, 9; adapted: 3, 8; rejected: none | notes applied: none
+
+WHY: V3.r1 issue 1 (تعارف): applied in the verifier's wording. The period (all year) and the occasion inside it (the ʿurs) are no longer joined as two equal adverbials.
+OLD: ان کا مزار ہالہ کا روحانی مرکز ہے، جو سال بھر اور ان کے سالانہ عرس کے موقع پر عقیدت مندوں کو اپنی طرف کھینچتا ہے۔
+NEW: ان کا مزار ہالہ کا روحانی مرکز ہے، جہاں سال بھر عقیدت مند کھنچے چلے آتے ہیں، اور ان کے سالانہ عرس کے موقع پر بھی۔
+
+WHY: V3.r1 issue 1 (ورثہ): applied in the verifier's wording, the same fix for the same calque.
+OLD: سال بھر اور ان کے سالانہ عرس کے موقع پر زائرین یہاں حاضری دیتے ہیں۔
+NEW: یہاں سال بھر زائرین حاضری دیتے ہیں، اور ان کے سالانہ عرس کے موقع پر بھی۔
+
+WHY: V3.r1 issue 2 (تعارف): applied in the verifier's wording. Checked against the English, the authority: "He was first buried near his native village, close to Halakandi" (and the team version: "his native village close to Halakandi", "his first grave near Halakandi"). The first grave is near his village, and the village lies near Halakandi; واقع makes that one reading explicit and adds nothing. Spelling: the English writes Hala and Halakandi with the same Hala element, and urdu-i18n/urdu-dictionary.json spells Hala ہالہ (placeTokens "Hala", and "Hala, Matiari District ..."); the dictionary has no Halakandi entry, so ہالہ کنڈی, matching ہالہ / نئے ہالہ / پرانے ہالہ elsewhere in the article. No ہالا remains in the file.
+OLD: ان کی پہلی تدفین ہالا کنڈی کے نزدیک ان کے آبائی گاؤں کے پاس ہوئی تھی
+NEW: ان کی پہلی تدفین ہالہ کنڈی کے نزدیک واقع ان کے آبائی گاؤں کے پاس ہوئی تھی
+
+WHY: V3.r1 issue 2 (مزار): applied in the verifier's wording, for the same reasons (English: "Makhdoom Nooh was first buried near his native village, close to Halakandi").
+OLD: مخدوم نوح کو پہلے ہالا کنڈی کے قریب ان کے آبائی گاؤں کے پاس سپردِ خاک کیا گیا تھا۔
+NEW: مخدوم نوح کو پہلے ہالہ کنڈی کے قریب واقع ان کے آبائی گاؤں کے پاس سپردِ خاک کیا گیا تھا۔
+
+WHY: V3.r1 issue 3: applied in the verifier's wording (English: "His lasting fame rests above all on his scholarship"; سب سے بڑا سبب keeps "above all").
+OLD: ان کی پائیدار ناموری سب سے بڑھ کر ان کے علم و فضل کی مرہونِ منت ہے۔
+NEW: ان کی دیرپا شہرت کا سب سے بڑا سبب ان کا علم و فضل ہے۔
+
+WHY: V3.r1 issue 3, adapted: a follow-on change to the next sentence. The fix puts شہرت directly before مشہور ہے کہ, an echo of one root in consecutive sentences; بتایا جاتا ہے کہ is one of the brief's renderings of "remembered as" and keeps the same hedge over the whole claim. Nothing else in the sentence moves.
+OLD: مشہور ہے کہ اس خطے
+NEW: بتایا جاتا ہے کہ اس خطے
+
+WHY: V3.r1 issue 4: applied in the verifier's wording. کے مقام پر marks مُلا سانوانی as a place, not a person; دوسری جگہ لے جانا beside دوسری بار is gone. English: "first to Mula Sanwani, about 1601, and again, in 1777, to the site of new Hala"; نئے ہالہ میں loses no fact, and the تعارف keeps نئے ہالہ کے مقام پر.
+OLD: ان کا جسدِ خاکی دو مرتبہ دوسری جگہ لے جانا پڑا: پہلی بار تقریباً 1601 میں مُلا سانوانی، اور دوسری بار 1777 میں نئے ہالہ کے مقام پر۔
+NEW: ان کا جسدِ خاکی دو مرتبہ منتقل کرنا پڑا: پہلی بار تقریباً 1601 میں مُلا سانوانی کے مقام پر، اور دوسری بار 1777 میں نئے ہالہ میں۔
+
+WHY: V3.r1 issue 5: applied in the verifier's wording. صوفیانہ موسیقی is the Urdu name for Sufi devotional music; the devotional sense is part of the term, so no fact is dropped.
+OLD: صوفیانہ عقیدت کی موسیقی
+NEW: صوفیانہ موسیقی
+
+WHY: V3.r1 issue 6: applied in the verifier's wording (English: "can make a living working on the large feudal farms": the opportunity, not permission or ability).
+OLD: کولہی اور بھیل عورتیں بڑی بڑی جاگیروں پر کام کر کے روزی کما سکتی ہیں۔
+NEW: کولہی اور بھیل عورتوں کو بڑی بڑی جاگیروں پر کام کر کے روزی کمانے کا موقع ملتا ہے۔
+
+WHY: V3.r1 issue 7: applied in the verifier's wording; ہالہ directly before کوہالہ read as ہالہ کو ہالہ. یہ قصبہ is Hala, named in the sentence before as اس قصبے.
+OLD: قدیم زمانے میں ہالہ کوہالہ کہلاتا تھا
+NEW: قدیم زمانے میں یہ قصبہ کوہالہ کہلاتا تھا
+
+WHY: V3.r1 issue 8, adapted in two words. Kept from the verifier: یہ روایت (the paragraph's own word for the story), and بیان نہیں کیا گیا for نہیں جوڑا گیا. Changed: (a) قصبے کے بارے میں for قصبے سے متعلق, because the paragraph's first sentence already has ابتدا سے متعلق; (b) مخدوم نوح کے مزار for the bare مزار, because the last مزار this section names is Shah Abdul Latif's (the Kolhi and Bhil sentence), so a bare مزار could be read as his. The English "the shrine" is this row's shrine (team version: the book "says nothing of Makhdoom Nooh or of his shrine, and draws no connection between the shrine and the goddess"), so naming him adds no fact; the brief asks for the person to be named again where a referent crosses paragraphs.
+OLD: یہ قصہ اس قصبے کا ہے، اور اس میں دیوی کا مزار سے کوئی تعلق نہیں جوڑا گیا۔
+NEW: یہ روایت قصبے کے بارے میں ہے، اور اس میں دیوی کا مخدوم نوح کے مزار سے کوئی تعلق بیان نہیں کیا گیا۔
+
+WHY: V3.r1 issue 9: applied in the verifier's wording (English: "the founder of the Sarwari branch of the Suhrawardi order there", there being Sindh).
+OLD: اسی سرزمین پر وہ سہروردی سلسلے کی سروری شاخ کے بانی بھی مانے جاتے ہیں اور اس خطے کے وہ پہلے عالمِ دین بھی جنہوں نے
+NEW: وہ سندھ میں سہروردی سلسلے کی سروری شاخ کے بانی بھی مانے جاتے ہیں، اور اس خطے کے وہ پہلے عالمِ دین بھی جنہوں نے
+
+Not applied:
+- V3.r1 note 1 (محترم ترین twice, تعارف and ورثہ): not applied. The English repeats "one of the most revered saints and scholars" in both sections; جلیل القدر loses the superlative and سب سے زیادہ قابلِ احترام is heavier in a list of two nouns. Taste, and the two are sections apart.
+- V3.r1 note 2 (تعارف and ورثہ repeat each other): not applied. The English repeats the same facts in Overview and Legacy; cutting them in Urdu would drop facts (brief: nothing more and nothing less).
+- V3.r1 note 3 (open the تعارف sentence with ان کی سب سے بڑی وجۂ شہرت یہ ہے کہ): not applied. It would drop the hedge مانے جاتے ہیں ("remembered as") and, after issue 3, echo the new صاحبِ مزار sentence ان کی دیرپا شہرت کا سب سے بڑا سبب.
+- V3.r1 note 4 (جن to جس after کسی ایسے مرشد): not applied. The verifier says the honorific جن can be defended; it is the usual respectful plural for a spiritual master. Taste.
+- V3.r1 note 5 (وابستہ تھے ... حاصل ہے, mixed tenses): not applied. The English itself has "He belonged ... and is honoured also with an Uwaisi spiritual lineage"; حاصل تھا would change the English's present.
+- V3.r1 note 6 (active اپنی تحریر میں انہوں نے ... کہا ہے): not applied. The English is passive ("In his work the dhikr ... is itself called a high priced pearl"); taste.
+- V3.r1 note 7 (ٹائلوں to کاشی کی اینٹوں): not applied. The English says "blue and white tiles", not Kashi tiles; calling them کاشی would add a fact, identifying the tiles with the Kashi work named earlier.
+- V3.r1 note 8 (چھپن in words): not applied. The English writes "fifty six" in words, and the checker allows only figures the English has.
+- V3.r1 note 9 (typographic quotation marks): not applied. Straight double quotes are the convention in the passed Urdu rows (bhit-bhit-shah, lal-shahbaz-qalandar, mazar-e-iqbal and others); taste.
+- V2.r1 note 1 (make the cause explicit in the تعارف: دریائے سندھ کے رخ بدلنے کے سبب ...): not applied. V2 calls it style only; the cause is clear, the مزار section states it (رخ بدلنے کی وجہ سے), and the note's wording would repeat that construction. The sentence was changed for V3 issue 2 only in its first clause.
+- V2.r1 note 2 (روایت twice; replace the first with قصے or بیان): not applied. V3 issue 8 asks for the opposite, that the paragraph call the story by one name, روایت; one consistent noun serves both readings better than two names for one account. The third sentence uses کے بارے میں to avoid a second متعلق.
+- V2.r1 note 3: informational, nothing to apply.

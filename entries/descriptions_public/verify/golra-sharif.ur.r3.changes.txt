@@ -1,0 +1,17 @@
+# golra-sharif: changes applied by the coordinator after V3 round 2 (FAIL, 4 issues); V2 round 2 PASS; exact replacement of each OLD once (late round procedure). V3 notes (taste, or content the English does not have) not applied. Backup of the round 2 file: /home/claude/bak/golra-sharif.ur.before_r3.md
+
+WHY: V3 r2 issue 1, ADAPTED by the coordinator: V3's wording names Mirza Ghulam Ahmad's claims where the English says only 'the controversy with Qadian'; قادیان کا تنازع is the natural Urdu for 'the Qadian controversy' and keeps the English, and V3's کارفرما رہا replaces the English-shaped 'influence extended to a controversy'
+OLD: یہی اثر و رسوخ قادیان سے ہونے والے تنازع اور تحریکِ خلافت کی سیاست تک پھیلا۔
+NEW: قادیان کے تنازع اور تحریکِ خلافت کی سیاست میں بھی یہی اثر و رسوخ کارفرما رہا۔
+
+WHY: V3 r2 issue 2, applied in the verifier's wording (each work has its own unique copy)
+OLD: دو فارسی تصانیف کے بارے میں درج ہے کہ ان کا واحد نسخہ یہیں موجود ہے۔
+NEW: درج ہے کہ دو فارسی تصانیف کے واحد نسخے یہیں موجود ہیں۔
+
+WHY: V3 r2 issue 3, ADAPTED: 'successors at the shrine' as successor to the seat, without مزار پر; V3's added 'and was sajjada nashin of the shrine' is not taken, since the English does not say he held that office
+OLD: بابو جی کے نام سے معروف پیر غلام محی الدین بھی مزار پر مہر علی شاہ کے جانشینوں میں تھے،
+NEW: بابو جی کے نام سے معروف پیر غلام محی الدین بھی گولڑہ کی گدی پر مہر علی شاہ کے جانشینوں میں سے تھے،
+
+WHY: V3 r2 issue 4, applied in the verifier's wording (بنیاد twice in consecutive sentences)
+OLD: وہ اس بات پر زور دیتے تھے کہ صوفیانہ عقیدت کی بنیاد صحیح عقیدے اور نبی کریمؐ کے اسوۂ حسنہ پر ہونی چاہیے۔
+NEW: وہ اس بات پر زور دیتے تھے کہ صوفیانہ عقیدت صحیح عقیدے اور نبی کریمؐ کے اسوۂ حسنہ پر استوار ہونی چاہیے۔

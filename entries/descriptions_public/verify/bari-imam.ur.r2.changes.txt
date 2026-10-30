@@ -1,0 +1,88 @@
+bari-imam Urdu round 2; reports: V3 r1 (FAIL, 18 issues) and V2 r1 (PASS, notes only); backup: /home/claude/bak/bari-imam.ur.before_r2.md; applied in verifier's wording: V3 2, 3, 4, 5, 8, 10, 11, 12, 13, 14, 16, 17, 18 (first part); adapted: V3 1 (with V2 note 4), 6, 7, 15, 18 (second part); rejected: V3 9; notes applied: V2 note 4, V3 notes 'دس بارہ برس' and 'عبادت'.
+
+WHY: V3 issue 1 with V2 note 4: adapted. V3's wording uses کے طور پر یاد کرتے ہیں, a calque the brief forbids for 'remembered as'; the brief's مانتے is used, and آج بھی keeps 'endures'. V2 note 4 (corrects precision: 'a defining festival', not an absolute 'the identity') applied in V2's wording in the same sentence.
+OLD: ان کا عرس پوٹھوہار کی پہچان ہے، اور ان کی یاد ایک ایسے سخی اور بابرکت ولی کے روپ میں قائم ہے جو مارگلہ کی پہاڑیوں سے دارالحکومت کی نگہبانی کرتے ہیں۔
+NEW: ان کا عرس پوٹھوہار کا ایک امتیازی تہوار ہے، اور آج بھی لوگ انہیں ایک ایسے سخی اور بابرکت ولی مانتے ہیں جو مارگلہ کی پہاڑیوں سے دارالحکومت کی نگہبانی کرتے ہیں۔
+
+WHY: V3 issue 2: applied in the verifier's wording ('patron darbar' = the darbar of the patron saint).
+OLD: دارالحکومت کے سرپرست دربار کی حیثیت سے یہ آستانہ اسلام آباد کی شناخت سے جڑا ہوا ہے۔
+NEW: دارالحکومت کے سرپرست ولی کا آستانہ ہونے کے ناطے یہ دربار اسلام آباد کی شناخت سے جڑا ہوا ہے۔
+
+WHY: V3 issue 3: applied in the verifier's wording.
+OLD: وہاں ان کے نام کے چراغ جلتے ہیں،
+NEW: وہاں باری امام کے نام کے چراغ جلتے ہیں،
+
+WHY: V3 issue 4: applied in the verifier's wording.
+OLD: قادری سلسلے سے تعلق رکھتے ہیں۔
+NEW: قادری سلسلے سے تعلق رکھتے تھے۔
+
+WHY: V3 issue 5: applied in the verifier's wording ('established tradition' = the commonly accepted one, which does not clash with 'accounts differ').
+OLD: البتہ مسلّمہ روایت کے مطابق
+NEW: البتہ عام طور پر مانی جانے والی روایت کے مطابق
+
+WHY: V3 issue 6: adapted. V3's 'وہ ملاقات جس کا احوال آگے آتا ہے' makes the meeting definite and pins it to an account below; the English says only 'a meeting with the saint in the Pothohar' and the next paragraphs give two meetings, so ایک marks it as indefinite, which removes the unexplained forward reference without adding signposting or choosing a meeting.
+OLD: اور پوٹھوہار میں ان سے ہونے والی ملاقات ہے۔
+NEW: اور پوٹھوہار میں ان سے ہونے والی ایک ملاقات ہے۔
+
+WHY: V3 issue 7: adapted. The calque پشیمان ہونے والے is replaced by V3's انہی (the repentance is told in the sentence before); V3's added 'دونوں' is not applied, because the English ('the descendants of the repentant Chan Agha and the later pir ...') does not say whether the descendants are of both men, and V2 passed the present reading.
+OLD: یہ جلوس پشیمان ہونے والے چن آغا اور
+NEW: یہ جلوس انہی چن آغا اور
+
+WHY: V3 issue 8: applied in the verifier's wording (English attaches 'based in Islamabad' to the journal).
+OLD: شائع کر رہی ہے، جس کا مرکز اسلام آباد ہے۔
+NEW: شائع کر رہی ہے، جو اسلام آباد سے نکلتا ہے۔
+
+WHY: V3 issue 10: applied in the verifier's wording.
+OLD: صوفی سلسلوں کی زندگی اور مذہبی اشاعت میں بھی اسلام آباد کا اپنا مقام ہے۔
+NEW: صوفی سلسلوں کی سرگرمیوں اور مذہبی کتب و رسائل کی اشاعت میں بھی اسلام آباد کا اپنا مقام ہے۔
+
+WHY: V3 issue 11: applied in the verifier's wording.
+OLD: کے مضافات میں واقع ہے، اور راولپنڈی اسلام آباد کا جڑواں شہر ہے۔
+NEW: کے مضافات میں واقع ہے۔ راولپنڈی اسلام آباد کا جڑواں شہر ہے۔
+
+WHY: V3 issue 12: applied in the verifier's wording.
+OLD: اسلام آباد کی اوپن یونیورسٹی میں منعقدہ ایک محفلِ موسیقی میں کسی زمانے میں ایک فنکارہ نے بڑے پُرجوش انداز میں گایا۔
+NEW: کسی زمانے میں اسلام آباد کی اوپن یونیورسٹی میں ایک محفلِ موسیقی منعقد ہوئی، جس میں ایک فنکارہ نے بڑے پُرجوش انداز میں گایا۔
+
+WHY: V3 issue 13: applied in the verifier's wording.
+OLD: 1994 میں مئی کے پہلے ہفتے میں باری امام کے عرس
+NEW: مئی 1994 کے پہلے ہفتے میں باری امام کے عرس
+
+WHY: V3 issue 14: applied in the verifier's wording.
+OLD: سترہویں صدی کے اس سید زاہد کا نورپور شاہاں والا مزار جدید اسلام آباد
+NEW: نورپور شاہاں میں واقع سترہویں صدی کے اس سید زاہد کا مزار جدید اسلام آباد
+
+WHY: V3 issue 15: adapted. V3's مہمان implies hospitality the English does not state ('met him with complete courtesy'); ملاقاتی (visitor) keeps the fix (no سے ... سے, no third repetition of the name) without adding that.
+OLD: اور وہ حسن پشاوری سے کمالِ ادب سے ملے۔
+NEW: اور وہ اپنے ملاقاتی کے ساتھ کمالِ ادب سے پیش آئے۔
+
+WHY: V3 issue 16: applied in the verifier's wording.
+OLD: بدھ مت کے ماننے والے بودھی درخت کو مقدس مانتے ہیں،
+NEW: بدھ مت کے پیروکار بودھی درخت کو مقدس سمجھتے ہیں،
+
+WHY: V3 issue 17: applied in the verifier's wording (the name itself says 'Persian research centre').
+OLD: شہر میں فارسی تحقیق کا ادارہ مرکزِ تحقیقاتِ فارسی ایران و پاکستان بھی قائم ہے،
+NEW: شہر میں مرکزِ تحقیقاتِ فارسی ایران و پاکستان بھی قائم ہے،
+
+WHY: V3 issue 18, first part: applied in the verifier's wording (Legacy no longer repeats the Overview's closing clause).
+OLD: ان کی یاد دوسرے بزرگوں کے آستانوں میں بھی زندہ ہے۔ اس کی ایک مثال
+NEW: باری امام کی یاد دوسرے بزرگوں کے درباروں میں بھی تازہ ہے۔ اس کی ایک مثال
+
+WHY: V3 issue 18, second part: adapted. V3's 'مگر عقیدت میں کوئی کمی نہیں آئی۔' drops 'the shrine remains thronged', which the English states, and makes 'endured' into 'did not diminish at all'; the English 'endured' (برقرار رہی) and 'remains thronged' are kept, reworded so the paragraph no longer repeats یہاں ... زائرین.
+OLD: مگر عقیدت برقرار رہی، اور آج بھی یہاں زائرین کا ہجوم رہتا ہے۔
+NEW: مگر عقیدت برقرار رہی، اور مزار آج بھی لوگوں سے بھرا رہتا ہے۔
+
+WHY: V3 NOTES: 'دس یا بارہ برس' is more idiomatic as 'دس بارہ برس' (same span, 'about ten or twelve'; لگ بھگ kept).
+OLD: لگ بھگ دس یا بارہ برس
+NEW: لگ بھگ دس بارہ برس
+
+WHY: V3 NOTES: word sense, 'a life of prayer' is devotion (عبادت), not supplication (دعا).
+OLD: دعا، سخاوت اور کرامات سے بھری زندگی
+NEW: عبادت، سخاوت اور کرامات سے بھری زندگی
+
+Not applied:
+- V3 issue 9 (شبہِ قارہ to شبہ قارہ): rejected. The English authority writes the title 'Danishnama-e Shibh-e Qarra', with the izafat, and the Persian is pronounced with it; dropping it would depart from the English.
+- V3 issue 7, the added 'دونوں': the English does not say whether the descendants are of both men (see above).
+- V3 issue 18, 'عقیدت میں کوئی کمی نہیں آئی' replacing the whole clause: would drop 'the shrine remains thronged' and strengthen 'endured' (see above).
+- V3 notes not applied as taste or as changing sense: سرپرست بزرگ to روحانی سرپرست; بزرگِ کبیر (the English 'great elder' epithet); two sentences opening with ہزاروں (the English repeats 'thousands'); کے اردگرد کے; Urdu quotation marks; راسخ العقیدہ حکومت (no equivalent that keeps 'orthodox' exactly); حلقۂ ارادت to ہفتہ وار محفل (would lose 'circle of disciples'); 'دارالحکومت کے علاقے اور اس کے باہر سے' to 'اسلام آباد ہی سے نہیں، دور دراز سے بھی' (changes 'capital region' to the city and 'beyond' to 'far away'); passive constructions.
+- V2 note 5 (روحانی قوت to روحانی تصرف or برکت): taste; the verifier calls the present wording acceptable.

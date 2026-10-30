@@ -1,0 +1,69 @@
+shrine-of-syed-musa-pak, Urdu round 2. Reports: V3 r1 (FAIL, 11 issues and NOTES), V2 r1 (PASS, NOTES only). Backup: /home/claude/bak/shrine-of-syed-musa-pak.ur.before_r2.md. Applied in the verifier's wording: V3 issues 1, 2, 4, 6, 7, 8, 10. Adapted: V3 issues 3, 5, 9 (with V2 note 1), 11. Rejected: none. Notes applied: V3 notes on Bahr al-Sarair, میں سے ایک تھا, وہاں to اس میں, مقبرہ to روضہ; V2 note 1 (inside issue 9).
+
+WHY: V3 r1 issue 1; applied in the verifier's wording (the English itself also names the family 'Musa Pak Gilani').
+OLD: گیلانی (موسیٰ پاک) سادات کے جدِ امجد بھی وہی ہیں، اور یہ خاندان ملتان کے ممتاز ترین مذہبی گھرانوں میں شمار ہوتا ہے۔
+NEW: موسیٰ پاک گیلانی سادات کے جدِ امجد بھی وہی ہیں، اور یہ خاندان ملتان کے ممتاز ترین مذہبی گھرانوں میں شمار ہوتا ہے۔
+
+WHY: V3 r1 issue 2; applied in the verifier's wording (علمبردار for 'carried'; no fact changed, the Qadiri link stays as in the English).
+OLD: موسیٰ پاک ملتان میں شیخ عبدالقادر جیلانی کے سلسلۂ قادریہ کے حامل تھے۔
+NEW: ملتان میں وہ شیخ عبدالقادر جیلانی کے سلسلۂ قادریہ کے علمبردار تھے۔
+
+WHY: V3 r1 issue 3; adapted: the verifier's sentence keeps a pronoun (ان کی مدح) that can again be read as Musa Pak, so the pronoun is dropped and the father is named as the one praised; same praise as the English.
+OLD: سید حامد گنج بخش کی مدح میں انہیں ساداتِ کرام کا نمونہ اور مشائخِ عظام میں برگزیدہ ترین کہا گیا ہے۔
+NEW: مدح میں سید حامد گنج بخش کو ساداتِ کرام کا نمونہ اور مشائخِ عظام میں برگزیدہ ترین کہا گیا ہے۔
+
+WHY: V3 r1 issue 4; applied in the verifier's wording ('remembered for' as مشہور ہے; the sanctity that earned him Pak kept).
+OLD: اپنی پرہیزگار زندگی اور اس پاکیزگی کے سبب وہ مشہور ہیں جس کی بدولت انہیں "پاک" کا لقب ملا۔
+NEW: ان کی پرہیزگار زندگی اور پاکیزگی مشہور ہے، اور اسی پاکیزگی کی بدولت انہیں "پاک" کا لقب ملا۔
+
+WHY: V3 r1 issue 5; adapted: the verifier's merged sentence puts the date 6 Shawwal 985 AH on the bai'at, but the English dates only his becoming attached and gives the bai'at as a separate statement, so the date would gain a scope the English lacks. The idiom دامن سے وابستہ (itself a phrase for becoming a disciple) is replaced by the plain منسلک, and the bai'at stays a separate sentence, so the doubling is gone and the date keeps its English scope.
+OLD: شیخ عبدالحق 6 شوال 985ھ (1577ء) کو ان کے دامن سے وابستہ ہوئے۔ انہوں نے موسیٰ پاک کے ہاتھ پر بیعت کی، اور مرشد نے اپنے مرید پر خاص توجہ فرمائی۔
+NEW: شیخ عبدالحق 6 شوال 985ھ (1577ء) کو ان سے منسلک ہوئے۔ بیعت انہوں نے موسیٰ پاک کے ہاتھ پر کی، اور مرشد نے اپنے مرید پر خاص توجہ فرمائی۔
+
+WHY: V3 r1 note; applied (ambiguous referent): ایک اور right after his own book reads as if Bahr al-Sarair were also his; the English does not say who wrote it, and the neutral wording keeps 'another work' (بھی) without implying authorship.
+OLD: ان کے احوال و اعمال کے بیان میں بحر السرائر نامی ایک اور کتاب بھی ہے۔
+NEW: ان کے احوال و اعمال پر بحر السرائر نامی ایک کتاب بھی موجود ہے۔
+
+WHY: V3 r1 issue 6; applied in the verifier's wording (the building is at Uch, not Multan; the hedge شاید kept).
+OLD: ملتان کے بجائے اوچ شریف میں واقع ایک اور عمارت کا تعلق شاید انہی بزرگ سے ہو۔
+NEW: ملتان کے علاوہ اوچ شریف میں بھی ایک عمارت ہے جس کا تعلق شاید انہی بزرگ سے ہو۔
+
+WHY: V3 r1 issue 7; applied in the verifier's wording (کے برابر for 'next to').
+OLD: اوچ میں گیلانی مزار کے پہلو میں پندرہویں صدی
+NEW: اوچ میں گیلانی مزار کے برابر پندرہویں صدی
+
+WHY: V3 r1 issue 8; applied in the verifier's wording (same two statements as the English, now two sentences).
+OLD: ملتان کے بزرگ سے اس عمارت کے تعلق کی بنیاد نام پر اور تختی کے اس بیان پر ہے کہ جسدِ خاکی ملتان لے جایا گیا؛ اوچ کی یہ عمارت ملتان کے مزار سے الگ ہے۔
+NEW: اس عمارت کو ملتان کے بزرگ سے جوڑنے کی بنیاد ان کا نام اور تختی کا یہ بیان ہے کہ جسدِ خاکی ملتان لے جایا گیا۔ اوچ کی یہ عمارت ملتان کے مزار سے الگ ہے۔
+
+WHY: V3 r1 issue 9 together with V2 r1 note 1; adapted: the izafat قلعۂ ملتان applied as the verifier wrote it; for 'Langah sultans followed him' V3's اس کے بعد دوسرے لنگاہ سلاطین would read 'after this (event)' and adds دوسرے, so V2's wording اس سردار کے بعد is used, which resolves the same vague ان and follows the English 'followed him'.
+OLD: ان کے سردار نے چال سے کام لے کر قلعہ ملتان شیخ یوسف قریشی سے چھین لیا اور شاہی لقب اختیار کیا، اور ان کے بعد لنگاہ سلاطین تخت پر بیٹھے۔
+NEW: ان کے سردار نے چال سے کام لے کر قلعۂ ملتان شیخ یوسف قریشی سے چھین لیا اور شاہی لقب اختیار کیا، اور اس سردار کے بعد لنگاہ سلاطین تخت پر بیٹھے۔
+
+WHY: V3 r1 note; applied: the English quotation says 'one of the biggest cities', so میں سے ایک تھا is both more standard and closer to the English.
+OLD: "ملتان پنجاب کے سب سے بڑے شہروں میں سے تھا
+NEW: "ملتان پنجاب کے سب سے بڑے شہروں میں سے ایک تھا
+
+WHY: V3 r1 issue 10; applied in the verifier's wording (the same man the English calls Guru Nanak earlier in the paragraph; no fact changed).
+OLD: ایک اور مصنف کے الفاظ میں، جب نانک ملتان آئے تو
+NEW: ایک اور مصنف کے الفاظ میں، جب گرو نانک ملتان آئے تو
+
+WHY: V3 r1 note; applied (ambiguous referent): وہاں replaced by اس میں, referring plainly to the poem.
+OLD: دلہن کے جہیز کا ذکر ہے، اور وہاں ملتان ایک بازار کی حیثیت سے سامنے آتا ہے:
+NEW: دلہن کے جہیز کا ذکر ہے، اور اس میں ملتان ایک بازار کی حیثیت سے سامنے آتا ہے:
+
+WHY: V3 r1 issue 11; adapted: the verifier's sentence drops the frame ان کی شہرت ایسے بزرگ کی ہے, which carries the English 'is remembered as ... a saint whose ...' over this clause, and would state the veneration and the family's influence as plain fact. The frame is kept and the two calques are replaced by the verifier's phrasing (دلوں میں ... عقیدت کو دوام بخشا; خاندان کے توسط سے ... بعد کے ادوار میں بھی شہر میں قائم رہا), with ان سے عقیدت (devotion to him) instead of ان کی عقیدت, which could read as his own devotion.
+OLD: ان کی شہرت ایسے بزرگ کی ہے جنہیں پاکیزگی اور شہادت کی بدولت پائیدار عقیدت نصیب ہوئی، اور جن کے خاندان کے ذریعے ان کا اثر شہر کی بعد کی تاریخ میں بھی جاری رہا۔
+NEW: ان کی شہرت ایسے بزرگ کی ہے جن کی پاکیزگی اور شہادت نے دلوں میں ان سے عقیدت کو دوام بخشا، اور جن کے خاندان کے توسط سے ان کا اثر بعد کے ادوار میں بھی شہر میں قائم رہا۔
+
+WHY: V3 r1 note; applied (one word for one building): the Legacy sentence repeats the claim of The Shrine and Its Devotion about the same tomb in the 1870s, where it is روضہ, so مقبرہ becomes روضہ; no fact changed.
+OLD: 1870 کی دہائی میں ملتان میں ان کا مقبرہ زیارت گاہ تھا
+NEW: 1870 کی دہائی میں ملتان میں ان کا روضہ زیارت گاہ تھا
+
+Not applied:
+- V3 note on the sentence about the order's story ("یہ سلسلۂ قادریہ کی سرگزشت ہے، خود موسیٰ پاک کے گھرانے کی نہیں"): the English has this sentence ("This is the story of the order, not of Musa Pak's own household"); dropping or recasting it would drop a statement of the English.
+- V3 note on the chronogram caption repeating the sentence before it: the caption is the Urdu meaning paragraph that the brief requires after the verse; the verifier itself left it alone.
+- V3 notes on فرزندِ دلبند, مزاروں کی کہکشاں and the Legacy section repeating facts: matters of taste, as the verifier says; the Legacy repeats what the English Legacy repeats.
+- V3 note on using مزار throughout: only the مقبرہ / روضہ pair (the same tomb, the same 1870s claim) was unified; the English itself distinguishes "rauza, or tomb" from "shrine", so روضہ is kept for the tomb and مزار for the shrine.
+- V2 note 2 (drop شاعر from "(اور سندھی اور پنجابی شاعر کے لیے ملتان بھی)"): V2 judged the current wording a fair reading that changes no fact; without the noun the Urdu could read as "for the Sindhi and Punjabi languages", which is less clear.
+- V2 notes 3 to 5: observations only, nothing to change.

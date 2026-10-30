@@ -1,0 +1,87 @@
+row shrine-of-shah-shams-ud-din-sabzwari; Urdu round 2; reports: verify/shrine-of-shah-shams-ud-din-sabzwari.V3.r1.txt (FAIL, 15 issues), verify/shrine-of-shah-shams-ud-din-sabzwari.V2.r1.txt (PASS, notes only); backup: /home/claude/bak/shrine-of-shah-shams-ud-din-sabzwari.ur.before_r2.md; V3 issues applied: 1-7, 10-15 (issue 1 with a note on شمار folded in); adapted: 8 (doubled pronoun), 9 (both occurrences: no 'had begun by'); rejected: none. Notes applied: V3 شمار repetition (2 places), V3 اُس موسم (pesh only), V2 note 1 (پُرجوش).
+
+WHY: V3 issue 1, applied in the verifier's wording (relative جو split off into its own sentence); in the following sentence 'ان کا شمار ہوتا ہے' varied to 'میں سے ایک مانے جاتے ہیں' per the V3 note on repeated شمار (English 'remembered as one of'; brief gives مانے جاتے ہیں for 'remembered as')
+OLD: قدیم "شہرِ اولیاء" ملتان میں حضرت شاہ شمس الدین سبزواری کا مزار واقع ہے، جو شاہ شمس یا پیر شمس کے نام سے بھی معروف ہیں۔ وہ تیرہویں صدی کے بزرگ تھے، اور اس خطے کی سب سے پُرجلال اور رنگا رنگ روحانی شخصیات میں ان کا شمار ہوتا ہے۔
+NEW: قدیم "شہرِ اولیاء" ملتان میں حضرت شاہ شمس الدین سبزواری کا مزار واقع ہے۔ وہ شاہ شمس یا پیر شمس کے نام سے بھی معروف ہیں۔ وہ تیرہویں صدی کے بزرگ تھے، اور اس خطے کی سب سے پُرجلال اور رنگا رنگ روحانی شخصیات میں سے ایک مانے جاتے ہیں۔
+
+WHY: V3 issue 2, applied in the verifier's wording (hedge kept: روایت ... جوڑتی ہے = 'associated in tradition')
+OLD: شاہ شمس اپنی حیرت انگیز کرامات کے سبب مشہور ہیں، اور روایت میں ان کا نام اسماعیلی دعوت کے ذریعے دین کی ایک صورت کی اشاعت سے وابستہ ہے۔
+NEW: شاہ شمس اپنی حیرت انگیز کرامات کے سبب مشہور ہیں، اور روایت ان کا نام اسماعیلی دعوت کی راہ سے دین کی ایک خاص صورت کی تبلیغ سے جوڑتی ہے۔
+
+WHY: V3 issue 3, applied in the verifier's wording
+OLD: انہی کی بدولت ملتان کو وہ مزار ملا جو شہر کی قدیم ترین زیارت گاہوں میں سے ہے، اور داستانوں کے اعتبار سے بھی جس کا شمار نمایاں ترین مزارات میں ہوتا ہے۔
+NEW: انہی کی بدولت ملتان کو وہ مزار ملا جو شہر کی قدیم ترین زیارت گاہوں میں سے ہے، اور جس کا شمار داستانوں کے اعتبار سے بھی نمایاں ترین مزارات میں ہوتا ہے۔
+
+WHY: V3 issue 4, applied in the verifier's wording
+OLD: یہاں تک کہ ملتان کا سورج اور اس کی تپش بھی شاہ شمس کی یاد سے جڑی ہوئی ہے۔
+NEW: یہاں تک کہ ملتان کے سورج اور اس کی تپش کا تعلق بھی شاہ شمس ہی سے جوڑا جاتا ہے۔
+
+WHY: V3 issue 5, applied in the verifier's wording (اس کی -> ان کی)
+OLD: ان کی زندگی تاریخ سے زیادہ داستان ہے، اور اس کی شہرت
+NEW: ان کی زندگی تاریخ سے زیادہ داستان ہے، اور ان کی شہرت
+
+WHY: V3 issue 6, applied in the verifier's wording
+OLD: ایسی ہی داستانوں کے سبب عوام کے تخیل میں ان کا شمار بڑے اولیاء میں ہونے لگا، اور
+NEW: ایسی ہی داستانوں کے سبب عوام انہیں بڑے اولیاء میں شمار کرنے لگے، اور
+
+WHY: V3 issue 7, applied in the verifier's wording (مشن -> دعوت, and تھا -> تھی to agree with feminine دعوت)
+OLD: اسماعیلی مشن سے وابستہ ہے، جو قرونِ وسطیٰ میں وادیِ سندھ کے پیچیدہ مذہبی دھاروں کا حصہ تھا۔
+NEW: اسماعیلی دعوت سے وابستہ ہے، جو قرونِ وسطیٰ میں وادیِ سندھ کے پیچیدہ مذہبی دھاروں کا حصہ تھی۔
+
+WHY: V3 issue 8, adapted: verifier's wording, but its 'ان کا ان سے' doubles the pronoun, so the second ان is named as صاحبِ مزار (the term the same paragraph already uses for him); no fact changed
+OLD: ملتان کے کسی شمس سے منسوب دوسرے ناموں کا ان سے کوئی مسلّمہ تعلق نہیں۔
+NEW: ملتان میں شمس نام کی کسی شخصیت کے جو دوسرے حوالے ملتے ہیں، ان کا صاحبِ مزار سے کوئی مسلّمہ تعلق نہیں۔
+
+WHY: V3 issue 9 (first occurrence), adapted: the ambiguous emphatic ہی is removed as asked, but the verifier's 'عہد تک ... ہونے لگی تھی' ('had begun by') is not used, because the English is a statement about one reign ('was already honoured in Multan in the reign of ... Aurangzeb'); 'کے عہد میں بھی' carries 'already in that reign' without turning it into an onset
+OLD: مغل بادشاہ اورنگزیب کے عہد ہی میں ملتان میں شمس نام کے ایک بزرگ کی تعظیم کی جاتی تھی۔
+NEW: مغل بادشاہ اورنگزیب کے عہد میں بھی ملتان میں شمس نام کے ایک بزرگ کی تعظیم کی جاتی تھی۔
+
+WHY: V3 issue 10, applied in the verifier's wording (شہر کے مدفون -> شہر میں مدفون)
+OLD: شہر کے مدفون اولیاء میں
+NEW: شہر میں مدفون اولیاء میں
+
+WHY: V3 issue 11, applied in the verifier's wording (شمس تبریز -> شمس تبریزی, matching the two later mentions)
+OLD: مولانا رومی کے روحانی محبوب شمس تبریز کی
+NEW: مولانا رومی کے روحانی محبوب شمس تبریزی کی
+
+WHY: V3 issue 12, applied in the verifier's wording
+OLD: اسماعیلی تحریک قرامطہ کا اقتدار صرف بحرین تک محدود نہ تھا بلکہ شمالی سندھ اور ملتان پر بھی ان کی حکومت تھی۔
+NEW: قرامطہ کی اسماعیلی تحریک کا اقتدار صرف بحرین تک محدود نہ تھا بلکہ شمالی سندھ اور ملتان پر بھی اس کی حکومت تھی۔
+
+WHY: V3 issue 13, applied in the verifier's wording
+OLD: وہ اسے شرک قرار دے کر اس کی مذمت کرتے ہیں۔
+NEW: وہ انہیں شرک قرار دے کر ان کی مذمت کرتے ہیں۔
+
+WHY: V3 issue 14, applied in the verifier's wording (full stop outside the closing quotation mark, as in the other quotation)
+OLD: کوئی انوکھی بات نہیں۔"
+NEW: کوئی انوکھی بات نہیں"۔
+
+WHY: V3 issue 15, applied in the verifier's wording
+OLD: ملتان کی قدیم عقیدت میں ان کا دربار
+NEW: ملتان کی قدیم روایتِ عقیدت میں ان کا دربار
+
+WHY: V3 issue 9 (second occurrence, Legacy), adapted as above: 'In the reign of Aurangzeb a Shams was already counted' is a statement about that reign, so 'کے عہد میں بھی ... گنے جاتے تھے', not the verifier's 'عہد تک ... گنے جانے لگے تھے'
+OLD: اورنگزیب کے عہد ہی میں شمس نام کے ایک بزرگ ان اولیاء میں گنے جاتے تھے
+NEW: اورنگزیب کے عہد میں بھی شمس نام کے ایک بزرگ ان اولیاء میں گنے جاتے تھے
+
+WHY: V3 note on repeated شمار, applied (Legacy): 'endures in memory as one of the great saints' -> مانے جاتے ہیں; no fact changed
+OLD: صاحبِ کرامت اولیاء میں شمار ہوتے ہیں۔
+NEW: صاحبِ کرامت اولیاء میں سے مانے جاتے ہیں۔
+
+WHY: V3 note on 'اُس موسم میں', applied in part: the stray pesh removed so اس is spelled as everywhere else in the article; the season is left unnamed, as the English leaves it ('in that season')
+OLD: اُس موسم میں
+NEW: اس موسم میں
+
+WHY: V2 note 1, applied: پُرجوش characterises the man beyond the English 'devotee'; plain پیروکار sits closer to the English
+OLD: تبلیغی جماعت کے ایک پُرجوش پیروکار
+NEW: تبلیغی جماعت کے ایک پیروکار
+
+Not applied:
+- V3 note on the chronicle's devotional voice ("انوارِ الٰہی کی جلوہ گاہ" / "راحت و سعادت"): no "اس تاریخ کے بقول" added. The English attributes only the second clause ("many friends of God, it was said, rested in that city"), which the Urdu already carries as "کہا جاتا تھا کہ"; adding an attribution over the whole sentence would depart from the English's attribution.
+- V3 note "مبلغ اور داعی": the English has both "preacher and missionary"; dropping one would drop a word of the English.
+- V3 note "رنگا رنگ روحانی شخصیات" / "مذہبی دھاروں": the verifier itself calls them acceptable; taste.
+- V3 note "مچھلی پکانے کو آگ میسر نہ تھی تو": taste; the sentence is correct as it stands.
+- V3 note "اُس موسم میں" (naming the season): not named, because the English says only "in that season"; only the pesh was removed.
+- V3 note on "ء" after years: taste, and consistent within the article; the checker wants the bare figures the English has.
+- V3 note "ایک گنبد دار مقبرہ": taste; the brief asks to drop a calqued ایک for English "a".
+- V2 notes 2 and 3: the verifier marks them fine as written; nothing to change.

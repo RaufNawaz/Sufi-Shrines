@@ -1,0 +1,84 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+A. Notes that correct meaning or precision (OLD -> NEW, each OLD occurs exactly once in the file)
+
+1. [added connective, chronology] The sentence before ends with Sulaiman Taunsvi's death in 1267 AH (about 1851), so "Later" makes the 1832 to 1833 voyage seem to come after it. The team version has no such link ("The town's name appears once more", rule 6).
+OLD: "Later, on his mission to Lahore and Bahawalpur of 1832 to 1833, Captain C. M. Wade"
+NEW: "On his mission to Lahore and Bahawalpur of 1832 to 1833, Captain C. M. Wade"
+
+2. [ambiguous referent] Coming after "and also in northern Sindh", "this area was a part of Sindh" could mean northern Sindh, which would make the clause empty. In the source, "this area" is the southern Punjab with Multan, where Siraiki is "mainly spoken".
+OLD: "in the Middle Ages this area was a part of Sindh."
+NEW: "in the Middle Ages the southern Punjab was a part of Sindh."
+
+3. [attribution] The team version knows this book only from a publisher's list that "advertises *Kalam-e Khwaja Ghulam Farid* by Khwaja Ghulam Farid of Kot Mithan Sharif". It does not say that the book itself names its author that way.
+OLD: "A book of his verse, *Kalam-e Khwaja Ghulam Farid*, names its author as Khwaja Ghulam Farid of Kot Mithan Sharif, adding to the town's name *Sharif*, noble, the honorific given to holy places."
+NEW: "A book of his verse, *Kalam-e Khwaja Ghulam Farid*, has been advertised as the work of Khwaja Ghulam Farid of Kot Mithan Sharif, a style that adds to the town's name *Sharif*, noble, the honorific given to holy places."
+
+4. [precision] The sentence says his name is in the title, but the title it gives is cut at the team version's ellipsis and does not contain his name.
+OLD: "His name also stands in the title of a recording, *A Tribute to Great Mystics*."
+NEW: "His name also stands in the full title of a recording, *A Tribute to Great Mystics*."
+
+B. Rulings on the writer's judgement calls
+
+1. Death year 1901 with no "accounts differ" clause: ACCEPTED. The site, Rozehnal, Schimmel's index and Ernst and Lawrence's own bibliography heading ("d. 1319/1901") all give 1901. The team version also says "He died in 1901" in its own voice. The "d. 1911" is a slip in the text of one book, contradicted by the same book's heading. It is not a rival account, and a clause would suggest a doubt that the sources do not support. No more certainty than the source allows.
+2. Birth year: ACCEPTED. 1845 on basis (a) (the site's account; one book against it). The single "accounts of the year differ" clause stands where the birth is told, as rule 4 asks. The Overview's "(1845 to 1901)" does not need to repeat it.
+3. Koreja title of Khwaja Muhammad Aqil left out: ACCEPTED. The team version gives no link between him and Ghulam Farid ("The book does not connect Muhammad Aqil with Ghulam Farid"), and no source gives Ghulam Farid's own family a different descent, so "Sayyid Koreja" needs no clause. A Faruqi "Koreja" placed beside the Sayyid "Koreja" of the same town would invite the reader to join two families that the source keeps apart. Leaving out a family title of a secondary figure is not an important omission.
+4. "one of the great Chishti masters of the nineteenth century, and a popular Seraiki poet of its last decades": ACCEPTED. It is supported by "another great nineteenth-century Chishti", "the nineteenth-century Chishti master" and "a popular Siraiki poet of the late nineteenth century"; "its last decades" is a fair rendering of "late".
+5. Repertoire summary in the Overview: ACCEPTED. It is supported by the Devotion material (Abida Parvin, Surraiya Multanikar, the qawwals, the Sindhi Hindu Sufis).
+6. Exercise and interior pilgrimage: ACCEPTED. In a Sufi setting paired with "interior pilgrimage", "spiritual exercise" is a clarifying gloss, not a new fact; bare "exercise" would mislead a general reader. "pilgrimage, with its sacred geography, is itself a subject of his poetry" rests fairly on "Pilgrimage and the sacred geography of the poems are named there as a subject".
+7. The kafi as a form: ACCEPTED. It is told about the form, not about Ghulam Farid, and is faithful to the quotation. "in the early twenty first century" is a firm anchor (bibliography item 2015).
+8. "The figure belongs to the mystical poetry of the region at large": ACCEPTED. It keeps Schimmel's general statement general and does not claim that he drew on it.
+9. "Hir, a tragic heroine of its folk tales": ACCEPTED. "its" is the Punjab's, and Hir is in the team version's list of heroines of the Sindhi and Punjabi folk tales.
+10. Abida Parvin and the black Layla: ACCEPTED. The team version itself calls the song "One of his lyrics". "attributing" is faithful. Dropping "Qays or" is minor.
+11. "in one of the lyric's lines he names himself": ACCEPTED. The line is quoted exactly, as the team version spells it, and no translation is added.
+12. Shackle's *Teachings* as an English rendering of the discourses: ACCEPTED. The team version says in its own voice "An English rendering of the discourses also exists".
+13. "more than a third of 225 pages" and "one chapter of the work": ACCEPTED. Both keep the source's ambiguity and add no certainty.
+14. "In effect, it has been said, his master marked out the southern Punjab ...": ACCEPTED. A scholar's reading is kept as a view without naming him, which rule 2 allows. The will's own words are paraphrased faithfully ("guidance" as "spiritual guidance" is a gloss in context).
+15. "invoked at the outset of performances of Sufi poetry": ACCEPTED. The team version's own clause says "performances" without narrowing it further, and this is not a merged or added fact.
+16. Two items on the programme of "that concert": ACCEPTED. The team version itself makes it the Islamabad performance.
+17. Recording title shortened at the ellipsis: ACCEPTED as a shortening, but see note A4 so that the sentence does not contradict itself.
+18. Qawwals' repertoire "as is Mehr Ali Shah": ACCEPTED.
+19. *Kalam-e Khwaja Ghulam Farid*: the book's description is acceptable and the gloss of *Sharif* is a dictionary sense. The attribution of the name to the book itself goes slightly beyond the source: see note A3.
+20. "Kot Mithan was a place of learning a century before Ghulam Farid": ACCEPTED. The team version asserts it in its own voice and gives no rival place. The caveat is a statement of absence, not a reading marked uncertain.
+21. "The teacher is identified as Khwaja Muhammad Aqil ...": ACCEPTED. The editor's identification is kept as an identification, without narrating the editor. The Qazi and the Khwaja are joined only as the team version joins them.
+22. Wade's voyage told as an event: ACCEPTED, since the journal's title states the voyage and the team version takes Mithankot as this town. The added "Later" should go: see note A1.
+23. "further south" for Iqbal Qaiser's "here" and "has been called an amalgamation": ACCEPTED. In context ("On the road south through Bahawalpur") "further south" means that road, and the view is framed as a view.
+24. "all three linguistic areas, Sindhi, Seraiki and Punjabi": ACCEPTED. It is a fair reading of "both, or rather all three" in a comparison of Sind and the Punjab, with Siraiki as the transition.
+25. Sohni sung "in all the regions of Sindh and in the Seraiki speaking area of the Punjab": ACCEPTED as a reading of the source's comma.
+26. Multan editions: ACCEPTED. All four are listed under "carried into print ... largely from Multan", and nothing is said of what *Naghmā-e Sehrā* was translated into.
+
+C. Merged persons and chains
+
+None. Maulvi Ghulam Farid Lahori (d. 1216 AH, Miani, Lahore) is explicitly kept apart. Khwaja Muhammad Aqil of Kot Mithan is not linked to Ghulam Farid's family or line. The Muhammad 'Aqil (d. 1814) of the southern Punjab schools and his disciple Gul Muhammad Ahmadpuri are left out rather than set beside the Kot Mithan teacher, where they would read as the same man. That is right, because the team version leaves the identity open. The Chishti Nizami Fakhri line through Taunsvi is not hung on Ghulam Farid.
+
+D. Omission sweep
+
+I compared every paragraph of the team version with the public text. No important omission remains. Everything below is either kept or rightly left out.
+- Kept: life, birthplace, family (Sayyid Koreja; father and elder brother as *sajjada nashins*; succession), learning, the Rohi, the Nawabs of Bahawalpur, death and burial. Also kept: the disciple Hasan Nizami (and the brother who made him a *murid*); the namesake; the Diwan, its themes, the verse and the Layla lyric; the discourses, both titles, the English (1978) and Urdu (1979) renderings, the translator and his introduction, and his master Shahidullah Faridi's will. Also kept: the shrine, its descendants as keepers, the *ʿurs*, *qawwali* and *langar*; the singers and the Sindhi Hindu Sufis; Kot Mithan's madrasa, Qazi/Khwaja Muhammad Aqil and his father Muhammad Sharif, and Taunsvi with his dates and the Chishti Nizami Fakhri line; Wade's voyage; the Seraiki language; the Legacy and the Multan editions.
+- Rightly left out:
+  - apparatus: citations; how each book prints his dates and spells his name; the index; the imprints and publishers; Monzavi and the manuscript; Ernst and Lawrence's notes citing Ashraf 'Ali; the publication details of Shackle's essay;
+  - statements of absence: no pir, tomb, builder or custodians in the books;
+  - the "Yā-ā-r Farīd" invocation, which the team version says may belong to Baba Farid (rule 5);
+  - Muhammad 'Aqil (d. 1814) and Gul Muhammad Ahmadpuri (identity unresolved, not about this site);
+  - the shorter signature fragment (contained in the line that is kept);
+  - Asaf Khan's diction view and Rozehnal's "Punjabi poet" (minor; Seraiki is supported by the site and four books);
+  - "extraordinary tenderness" (an evaluative phrase only).
+
+E. Mechanical checks
+
+- The bibliography matches the team version item for item and in order.
+- The verse paragraph and its italic rendering are byte-identical to the team version, and the romanised line matches exactly.
+- There are no em or en dashes and no quotation marks in the prose, and no citation, page or folio references.
+- No narration of a named source, and no archive or process words.
+- Glosses match `data/glossary.csv` (Sayyid; Chishtiyya "founded by Moinuddin Chishti"; *murid*, *samaʿ*, *zikr*/dhikr, *silsila*, *qawwali*, *langar*, *wahdat al-wujud*) or plain dictionary senses.
+- Prose ratio is about 0.46, within L1.
+
+F. Taste (no change needed)
+
+- "a Gilani Syed" sits beside the earlier glossed "Sayyid"; "Sayyid" would read as consistent.
+- "The annual *ʿurs*, the yearly commemoration" doubles annual and yearly.
+- "Most famous of all is his declaration" now follows the paragraph on the region's heroines, so its antecedent (his refrains) is two paragraphs back. "Most famous of all his lines is his declaration" would restore it.

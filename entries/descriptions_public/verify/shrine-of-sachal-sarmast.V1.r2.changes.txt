@@ -1,0 +1,17 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: Until the late 1960s the Sindhi publications of the state regularly featured Sachal Sarmast, with Shah Abdul Latif Bhittai and Shah Inayat, and marked their annual fairs with special editions.
+NEW: In the years before the late 1960s the Sindhi publications of the state regularly featured Sachal Sarmast, with Shah Abdul Latif Bhittai and Shah Inayat, and marked their annual fairs with special editions.
+
+2. V1 r1 change 2
+OLD: and in the Prophetic tradition he found proof of his ecstatic experience of union with God and of God's all embracing Unity.
+NEW: and in one of these sayings he found proof of his ecstatic experience of union with God and of God's all embracing Unity.
+
+3. V1 r1 change 3
+OLD: In India two *versis* are celebrated over the year, Sachal's on the 14th of Ramazan and Hari Ram's at the beginning of November, and at the Sachal Sain *darbar* the two are Sachal's and Pratap's.
+NEW: In India Sachal's *versi* is celebrated on the 14th of Ramazan and Hari Ram's at the beginning of November, while at the Sachal Sain *darbar* the two *versis* celebrated are Sachal's and Pratap's.
+
+4. V1 r1 change 4
+OLD: In the Rohani Rah, the spiritual path, the core of worship is
+NEW: In the Rohani Rah, whose name means the spiritual path, the core of worship is

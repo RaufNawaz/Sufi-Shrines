@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""check_urdu_out.py — the instrument for Rauf's ruling of 18 October 2026 (HANDOVER §9.368; brief
+"""check_urdu_out.py — the instrument for Rauf's ruling of 18 October 2026 (HANDOVER §9.369; brief
 docs/prompts/URDU_OUT_OF_PROSE_BRIEF.md): **a Description's prose is English only; the only
 Arabic-script text left is POETRY, set as verse paragraphs.** Prose quotations in Urdu/Persian/Punjabi/
 Arabic are removed, their sense carried in the English sentence. Supersedes the '> ' original-script
@@ -33,6 +33,15 @@ import check_quote_blocks as qb  # noqa: E402  (sections, kind, before_quotes, n
 
 DRAFTS, BEFORE = qb.DRAFTS, qb.BEFORE
 DONE = os.path.join(HERE, 'urdu_out_done.txt')
+# Arabic-script-only paragraphs of the original that are PROSE, not verse (kind() cannot tell), and so
+# are removed under the ruling like any prose quotation. Exact paragraph text, one per line: id<TAB>text.
+PROSE_FILE = os.path.join(HERE, 'urdu_out_prose_paragraphs.tsv')
+PROSE_PARAS = set()
+if os.path.exists(PROSE_FILE):
+    for _l in open(PROSE_FILE, encoding='utf-8'):
+        if _l.strip() and not _l.startswith('#') and '\t' in _l:
+            _i, _t = _l.rstrip('\n').split('\t', 1)
+            PROSE_PARAS.add((_i, _t.strip()))
 NUM = re.compile(r'(?<![\w])\d[\d,–\-]*')
 
 
@@ -72,6 +81,7 @@ def check(id_, verbose=True):
                             % (name, k, p[max(0, m.start() - 40):m.start() + 40].replace('\n', ' ')))
         vo = [p for p in po if qb.kind(p) == 'verse']
         vn = [p for p in pn if qb.kind(p) == 'verse']
+        vo = [v for v in vo if (id_, v.strip()) not in PROSE_PARAS]
         it = iter(vn)
         if not all(any(v == w for w in it) for v in vo):
             errs.append('EN2 %s: a verse paragraph of the original is missing or changed' % name)

@@ -1,0 +1,15 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque listed in the brief, introduced by change 11] "ان کے بھائی کا اپنا مزار بھی" renders "whose own shrine" as X کا اپنا. The brief, section "The Urdu version" (English possessives and parentheses), names exactly this as the calque to avoid ("X's own" is not X کا اپنا). The coordinator is right that the brief's own form خود X کا does not work here either: sentence-initial خود ان کے بھائی reads as "his own brother" and puts the stress on the kinship, not on the shrine. The plain Urdu answer is neither form: بھی already says that the brother has a shrine of his own nearby, distinct from the grave beside which Zanjani lies, so اپنا adds only the English shape. Meaning unchanged.
+OLD: ان کے بھائی کا اپنا مزار بھی قریب ہی واقع ہے۔
+NEW: ان کے بھائی کا مزار بھی قریب ہی واقع ہے۔
+
+2. [repetition inside the sentence and a doubled partitive, introduced by change 17] Adding قبروں fixed the bare superlative of round 1 issue 15, but it put قبریں and قبروں in one sentence inside a doubled "among" (ان میں ... قدیم ترین قبروں میں شمار): "of all the Sufi graves known in the region, among them his shrine counts among the oldest graves". One clause says it, and keeps "one of", "earliest", "known", "Sufi graves" and "the Lahore region".
+OLD: لاہور کے خطے میں جتنی صوفی قبریں معلوم ہیں، ان میں سید میراں حسین زنجانی کا مزار قدیم ترین قبروں میں شمار ہوتا ہے۔
+NEW: سید میراں حسین زنجانی کا مزار لاہور کے خطے کی قدیم ترین معلوم صوفی قبروں میں شمار ہوتا ہے۔
+
+NOTES:
+1. Round 1 issues: 1 fixed (the reversed postposition is gone; رہنمائی کرتے گزار دی is idiomatic; ساری عمر kept for fidelity, see V2); 2, 3, 4 fixed; 5 applied as worded but it is the brief's listed calque, see issue 1; 6 and 7 fixed (the three closings now read روایات مختلف ہیں، روایات میں اختلاف ہے، روایات متفق نہیں); 8, 9, 10, 11, 12, 13, 14 fixed; 15 fixed but the fix brought a repetition, see issue 2; 16 fixed and reads well (the story leads, the relative pronoun is gone). Round 1 notes applied: note 2 (عمر میں بڑے, with سے to avoid a doubled میں) removes the clash with the next sentence; note 3 (وہ) is clear, since only Zanjani can have died the night before his own funeral; note 5 (زنجانی کے بعد وہیں بھیجا) reads naturally, and the mix of حکم دیا تھا with بھیجا is normal narrative Urdu.
+2. The other changed sentences (changes 1, 2, 5, 6, 7, 8, 12, 13, 14, 15, 16, 18, 19) were read in their paragraphs: agreement, postpositions and izafat correct (یہ نام ... ملا ہے، نسبت سے، کے لحاظ سے، شہرت ... وابستہ ہے، اپنی سلطنت میں شامل کر لیا، کہانی ... جڑی ہوئی ہے، محلے کو ... نام ... ملا ہے), no calque, no new ambiguity, and each fits the sentences around it.
+3. Taste: the closing paragraph now has صاحبِ مزار ہی twice (changes 18 and 19, both carried over from the old text); one ہی could go. In the same paragraph پہنچا ہے is followed by پھیلا in the next, unchanged sentence; harmless.
+4. Mechanical: no Latin letters, no em or en dashes, Urdu punctuation in every changed sentence and in both corrected sentences above.

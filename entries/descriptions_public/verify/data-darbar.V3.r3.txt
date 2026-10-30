@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: This was a confirming round on the 7 sentences in data-darbar.ur.r3.changes.txt; all seven read naturally in their paragraphs, and naming داتا صاحب at the head of L75 settles who defines samaʿ and whom the following "انہوں نے" means; taste only: داتا صاحب now opens four of five sentences across L73 and L75, which is acceptable because the Masud Bakk sentence in between makes the name necessary at L75.

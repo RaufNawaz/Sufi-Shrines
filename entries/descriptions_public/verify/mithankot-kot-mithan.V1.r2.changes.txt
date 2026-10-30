@@ -1,0 +1,17 @@
+# mithankot-kot-mithan: precision notes applied after V1 round 1 (PASS)
+
+1. V1 r1 note A1 (an added 'Later' implied a chronology), in V1's wording.
+OLD: Later, on his mission to Lahore and Bahawalpur of 1832 to 1833, Captain C. M. Wade
+NEW: On his mission to Lahore and Bahawalpur of 1832 to 1833, Captain C. M. Wade
+
+2. V1 r1 note A2 (ambiguous referent), in V1's wording.
+OLD: in the Middle Ages this area was a part of Sindh.
+NEW: in the Middle Ages the southern Punjab was a part of Sindh.
+
+3. V1 r1 note A3 (attribution: the team version knows the book only from a publisher's list), in V1's wording.
+OLD: A book of his verse, *Kalam-e Khwaja Ghulam Farid*, names its author as Khwaja Ghulam Farid of Kot Mithan Sharif, adding to the town's name *Sharif*, noble, the honorific given to holy places.
+NEW: A book of his verse, *Kalam-e Khwaja Ghulam Farid*, has been advertised as the work of Khwaja Ghulam Farid of Kot Mithan Sharif, a style that adds to the town's name *Sharif*, noble, the honorific given to holy places.
+
+4. V1 r1 note A4 (the shortened title does not contain his name), in V1's wording.
+OLD: His name also stands in the title of a recording, *A Tribute to Great Mystics*.
+NEW: His name also stands in the full title of a recording, *A Tribute to Great Mystics*.

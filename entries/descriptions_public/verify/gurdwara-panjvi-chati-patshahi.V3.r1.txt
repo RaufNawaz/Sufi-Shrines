@@ -1,0 +1,55 @@
+VERDICT: FAIL
+ISSUES:
+1. [spelling] موزنگ -> the Lahore locality is written مزنگ in Urdu (مزنگ چونگی، مزنگ اڈا)؛ موزنگ is a back-transliteration of the English "Mozang" and reads as a misspelling to any Lahori reader -> corrected sentence below.
+OLD: کہا جاتا ہے کہ بی بی کولاں موزنگ کے ایک مسلمان سوداگر کی بندھوا خادمہ تھیں۔
+NEW: کہا جاتا ہے کہ بی بی کولاں مزنگ کے ایک مسلمان سوداگر کی بندھوا خادمہ تھیں۔
+
+2. [wrong postposition, ambiguity] ان کی سمادھی کی جگہ ایک چھوٹی سی عمارت بنوائی -> "کی جگہ" without پر means "instead of", so the sentence reads as if the son built a small building in place of the samadhi; the locative needs کے مقام پر -> corrected sentence below.
+OLD: ان کے بیٹے نے ان کی سمادھی کی جگہ ایک چھوٹی سی عمارت بنوائی۔
+NEW: ان کے بیٹے نے ان کی سمادھی کے مقام پر ایک چھوٹی سی عمارت بنوائی۔
+
+3. [unidiomatic collocation, inconsistent term] سکھ مت کے موجودہ چہرے کی بنیاد انہی نے رکھی -> "laying the foundation of a face" is a mixed metaphor calqued from "the present face of Sikhism"؛ Urdu says موجودہ صورت. Also سکھ مت appears only here, while the rest of the article uses سکھ مذہب throughout -> corrected sentence below.
+OLD: ہرگوبند آج بھی سب سے زیادہ متنازع سکھ گروؤں میں شمار ہوتے ہیں، اور سکھ مت کے موجودہ چہرے کی بنیاد انہی نے رکھی۔
+NEW: ہرگوبند آج بھی سب سے زیادہ متنازع سکھ گروؤں میں شمار ہوتے ہیں، اور سکھ مذہب کی موجودہ صورت کی بنیاد انہی نے رکھی۔
+
+4. [English word order] ان بعد کے گروؤں کے قدم چومنے کا شرف بھی ملا جنہوں نے بانی کا پیغام آگے بڑھایا، یعنی ارجن دیو اور ہرگوبند -> the names are tacked on after the relative clause with یعنی, mirroring "the later Gurus who carried on the founder's message, Arjan Dev and Hargobind"؛ "ان بعد کے گروؤں" is also awkward word order. Urdu names them where they belong -> corrected sentence below.
+OLD: یہ شہر صرف گرو نانک کا گہوارہ نہیں، بلکہ اسے ان بعد کے گروؤں کے قدم چومنے کا شرف بھی ملا جنہوں نے بانی کا پیغام آگے بڑھایا، یعنی ارجن دیو اور ہرگوبند۔
+NEW: یہ شہر صرف گرو نانک کا گہوارہ نہیں، بلکہ اسے بعد کے گروؤں ارجن دیو اور ہرگوبند کے قدم چومنے کا شرف بھی ملا، جنہوں نے بانی کا پیغام آگے بڑھایا۔
+
+5. [ambiguous pronoun] انہوں نے یہ حکم بھی دیا -> the preceding clause ends on "ان کی املاک" (the Guru's property), so the next honorific انہوں نے momentarily reads as the Guru giving the order; name the emperor -> corrected sentence below.
+OLD: انہوں نے یہ حکم بھی دیا کہ گرو پر یاسا کے تعزیری قوانین نافذ کیے جائیں اور انہیں موت کی سزا دی جائے۔
+NEW: بادشاہ نے یہ حکم بھی دیا کہ گرو پر یاسا کے تعزیری قوانین نافذ کیے جائیں اور انہیں موت کی سزا دی جائے۔
+
+6. [missing participle] دریائے بیاس کے کنارے گوئندوال کے "ارجن نامی ایک ہندو" -> without واقع the phrase "دریائے بیاس کے کنارے" floats and can attach to ذکر کیا ہے; Urdu needs کے کنارے واقع گوئندوال -> corrected sentence below.
+OLD: جہانگیر نے اپنی یادداشتوں میں دریائے بیاس کے کنارے گوئندوال کے "ارجن نامی ایک ہندو" کا ذکر کیا ہے، جہاں باغی شہزادہ "اتفاقاً ٹھہر گیا"۔
+NEW: جہانگیر نے اپنی یادداشتوں میں دریائے بیاس کے کنارے واقع گوئندوال کے "ارجن نامی ایک ہندو" کا ذکر کیا ہے، جہاں باغی شہزادہ "اتفاقاً ٹھہر گیا"۔
+
+7. [calque] ایک اور قصہ بھی گھوڑے کے گرد گھومتا ہے -> a literal rendering of "centres on a horse"؛ with a horse as the object the Urdu literally pictures someone walking round the animal, an unintended comic image. Also ایک اور ... بھی doubles up. Use محور -> corrected sentence below.
+OLD: چھٹے گرو کا ایک اور قصہ بھی گھوڑے کے گرد گھومتا ہے، مگر وہ ایک دوسرے مقدس مقام سے وابستہ ہے۔
+NEW: چھٹے گرو کے ایک اور قصے کا محور بھی ایک گھوڑا ہے، مگر وہ قصہ ایک دوسرے مقدس مقام سے وابستہ ہے۔
+
+8. [repetition] احاطے کے اندر ... ایک ہی چار دیواری میں -> "inside the compound ... within a single enclosure wall" says the same thing twice in one clause -> corrected sentence below.
+OLD: احاطے کے اندر دو مقدس عمارتیں ایک ہی چار دیواری میں ساتھ ساتھ کھڑی ہیں۔
+NEW: احاطے کی ایک ہی چار دیواری کے اندر دو مقدس عمارتیں ساتھ ساتھ کھڑی ہیں۔
+
+9. [clumsy construction, ambiguity] سموت 1670 میں ہاڑ کے مہینے میں ... سموت کا یہ سال 1613 کے مطابق ہے -> two میں in a row for one date; and the bare 1613 does not say which era it converts to, which is the whole point of the conversion sentence -> corrected sentences below.
+OLD: بتایا جاتا ہے کہ گرو ہرگوبند کشمیر کے سفر سے لوٹتے ہوئے سموت 1670 میں ہاڑ کے مہینے میں ننکانہ صاحب آئے۔ سموت کا یہ سال 1613 کے مطابق ہے۔
+NEW: بتایا جاتا ہے کہ گرو ہرگوبند کشمیر کے سفر سے لوٹتے ہوئے سموت 1670 کے ہاڑ کے مہینے میں ننکانہ صاحب آئے۔ سموت کا یہ سال 1613 عیسوی کے مطابق ہے۔
+
+10. [punctuation] گرو ہرگوبند، دونوں نے -> the comma cuts the names off from دونوں نے; Urdu takes the apposition without a pause -> corrected sentence below.
+OLD: گرو ارجن اور ان کے بیٹے گرو ہرگوبند، دونوں نے لاہور میں بہت وقت گزارا۔
+NEW: گرو ارجن اور ان کے بیٹے گرو ہرگوبند دونوں نے لاہور میں بہت وقت گزارا۔
+
+NOTES:
+- Overall the prose is fluent, idiomatic and well registered (بجائے خود، سونے پڑ گئے، شایانِ شان، ققنس are all well used); the issues above are local.
+- Repetition across sections: "first Guru to wear two swords, one for temporal and one for spiritual power" appears in the introduction, again at the end of the first paragraph of چھٹے گرو, and a third time two sentences later after the quotation (یہی *میری* اور *پیری* ہے: ...). The intro recap is a structural choice, but the two back-to-back statements in چھٹے گرو read as an echo; consider letting the second one carry the point. Similarly "پہلے شہید" and "صحیفہ یکجا کیا" recur several times.
+- دوسری دنیا کو سدھار گئے: understandable, but عالمِ بالا کو سدھار گئے or اس دنیا سے سدھار گئے is the more settled idiom.
+- اکال تخت کے سامنے ایک زعفرانی پرچم نصب تھا؛ اکال تخت کے معنی ہیں ابدی تخت: the gloss tacked on after a semicolon is a little clunky; "اکال تخت کے معنی ہیں ابدی تخت۔ اس کے سامنے ایک زعفرانی پرچم نصب تھا۔" would read more smoothly.
+- آج کے شہر میں ایک بڑی سڑک بیچوں بیچ گزرتی ہے، اور اس کی زیادہ تر عمارتیں: the nearest antecedent of اس کی is سڑک, though the town is clearly meant; "شہر کی" would remove the hesitation if that is the intended sense.
+- The introduction has یاد تازہ رکھی جاتی ہے followed at once by یاد دلاتا ہے; and بانیِ مذہب کے مولد is used both there and in the relic paragraph.
+- The relic paragraph says شہر کے باہر and then قصبے کے کنارے for the same place; one word for Nankana would be steadier.
+- امرت سر (the tank, written apart for the etymology) beside امرتسر (the city) elsewhere is defensible and probably intended.
+- وصولی کی یہ روایت بھی: روایت here means "practice", while the article uses روایت throughout as its hedge word ("روایت ہے"); طریقہ or نظام would avoid the double sense.
+- کرتار and گیانی پرتاپ enter without introduction; a reader will wonder who they are, but supplying it would add facts.
+- اور یہ شہر بھر میں گھوما (of the nagar kirtan) is a touch colloquial; شہر بھر میں گشت کیا would be more polished.
+- Closing line: "گوردوارہ پنجویں اور چھٹی پاتشاہی سکھ داستان کے آغاز کو" runs the name straight into سکھ داستان; moving "ان دونوں گروؤں کی آمد کی یاد منا کر" after the name would separate them. "یعنی اس درخت کے ایک ٹکڑے میں" in the last paragraph is also an afterthought construction; "وَن کے اس درخت" would recall which tree is meant.

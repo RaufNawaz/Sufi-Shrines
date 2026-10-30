@@ -1,0 +1,41 @@
+Changes after V1 round 1, applied by the coordinator in V1's own wording (issues, then precision notes). Nothing else changed.
+
+[V1 r1 issue 1]
+OLD: The older city stood on a mound, with the massive *havelis*, or mansions, of the Gilanis and the Makhdooms, the caretakers of the shrine. The group of shrines of the thirteenth and fourteenth centuries was reached through the market, and on the mound were graves covered arbitrarily with the blue and white Multani tiles that had been recovered from these historical shrines.
+NEW: The older city stood on a mound, with the massive *havelis*, or mansions, of the Gilanis and the Makhdooms. The group of shrines of the thirteenth and fourteenth centuries was reached through the market, and on the mound were graves covered arbitrarily with the blue and white Multani tiles that had been recovered from these historical shrines.
+
+[V1 r1 issue 2]
+OLD: Shaikh Ahmad, though urged to become the disciple of the great Shaikh, would not leave his own *pir*, his spiritual guide; and on a visit to Delhi Makhdoom Jahaniyan called on Ahmad-i Khattu and embraced him, telling him that he reminded him of his friend, Baba Ishaq.
+
+## Teaching and Devotion
+
+He strongly opposed the customs that had grown up around Shab-i Barat, the festival held in the evening of the middle of Sha'ban, the eighth month of the Muslim calendar, when fireworks were let off, graves were whitewashed and lighted lamps were placed on them.
+NEW: Shaikh Ahmad, though urged to become the saint's disciple, would not leave his own *pir*, his spiritual guide; and on a visit to Delhi Makhdoom Jahaniyan called on Ahmad-i Khattu and embraced him, telling him that he reminded him of his friend, Baba Ishaq.
+
+## Teaching and Devotion
+
+He strongly opposed the customs that had grown up around Shab-i Barat, the festival held in the evening of the middle of Sha'ban, the eighth month of the Muslim calendar, when fireworks were let off, graves were whitewashed and lighted lamps were placed on them.
+
+[V1 r1 minor a]
+OLD: Of these Jalali saints, those who had achieved a certain standard of perfection would, it is said, like the Haidari dervishes, swallow snakes, calling them Ali's fish, and scorpions, which they called Ali's prawns. *Malang* dervishes too, wandering ascetics, and others called Dudae, naked from head to foot, were counted among his *murids* in every quarter, and they performed the *dhikr* aloud.
+
+## The Shrine
+
+The shrine of Makhdoom Jahaniyan Jahangasht is a busy *darbar* amid Uch Sharif's famous complex of tombs, and it is kept by his descendants.
+NEW: Of these Jalali saints, those who had achieved a certain standard of perfection would, it is said, like the Haidari dervishes, swallow snakes, calling them Ali's fish, and they called scorpions Ali's prawns. *Malang* dervishes too, wandering ascetics, and others called Dudae, naked from head to foot, were counted among his *murids* in every quarter, and they performed the *dhikr* aloud.
+
+## The Shrine
+
+The shrine of Makhdoom Jahaniyan Jahangasht is a busy *darbar* amid Uch Sharif's famous complex of tombs, and it is kept by his descendants.
+
+[V1 r1 minor b]
+OLD: The elders of the Faqir family lived at Uch Sharif Sayyidan and served the sayyids of Uch, and the Gilani forebear of Hazrat Pir Muhammad Shah came from Uch Sharif in the time of Akbar Shah.
+
+Uch lay on the roads of armies.
+NEW: The elders of the Faqir family lived at Uch Sharif Sayyidan and served the sayyids of Uch, and a Gilani forebear of Hazrat Pir Muhammad Shah came from Uch Sharif in the time of Akbar Shah.
+
+Uch lay on the roads of armies.
+
+[V1 r1 minor c]
+OLD: Shihab al-Din's first campaign took it and left a deputy there, and his second came again to Multan and Uch and went on to Gujarat; Mirza Pir Muhammad crossed the Sind and took Uch and Multan; and on one march toward Jodhpur, Uch was a dependency of Multan.
+NEW: The first campaign of the conqueror Shihab al-Din took it and left a deputy there, and his second came again to Multan and Uch and went on to Gujarat; Mirza Pir Muhammad crossed the Sind and took Uch and Multan; and on one march toward Jodhpur, Uch was a dependency of Multan.

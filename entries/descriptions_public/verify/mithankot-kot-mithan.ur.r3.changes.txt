@@ -1,0 +1,13 @@
+# mithankot-kot-mithan: Urdu changes applied after round 2 (V2 PASS; V3 FAIL, 3 issues)
+
+1. V3 r2 issue 1 (repetition of مشہور ہے کہ two sentences apart), applied in V3's wording by the coordinator.
+OLD: ان کے بارے میں یہ بات مشہور ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا۔
+NEW: ان کے بارے میں یہ بات معروف ہے کہ انہوں نے عوام کے مفاد میں حکمران کو مشورہ دیا۔
+
+2. V3 r2 issue 2 (four clauses joined by اور; split), applied in V3's wording by the coordinator.
+OLD: اور خواجہ غلام فرید کے متن بھی، اور اس کنسرٹ کے پروگرام میں دو کلام انہی کے تھے اور دونوں سرائیکی میں تھے۔
+NEW: اور خواجہ غلام فرید کے متن بھی۔ اس کنسرٹ کے پروگرام میں دو کلام انہی کے تھے اور دونوں سرائیکی میں تھے۔
+
+3. V3 r2 issue 3 (ان could be read as Christopher Shackle; the English 'his' is Ghulam Farid), applied in V3's wording by the coordinator.
+OLD: ان کی تصانیف کے جو ایڈیشن ملتان سے چھپے، ان میں
+NEW: خواجہ غلام فرید کی تصانیف کے جو ایڈیشن ملتان سے چھپے، ان میں

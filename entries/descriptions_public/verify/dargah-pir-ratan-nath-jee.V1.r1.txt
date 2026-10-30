@@ -1,0 +1,54 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [source talk / side by side variants] "There is no consensus on whether the Delhi shrine honours the same figure as the Peshawar temple, honours a different figure, or is in fact the Peshawar temple itself, placed in the wrong city." -> This rules on judgement call 9, which I reject as written. The three options are not accounts that differ. They are the team version's own three readings of one unclear endnote ("Three readings of Boivin's note remain open, and the book settles none"), and the sentence lists all three side by side, which rule 4 forbids. The third option ("placed in the wrong city") supposes that a book put the shrine in the wrong place. That is talk about how reliable a printed source is, and rules 5 and 6 keep that for the team. Dropping it does not make the text more certain than the source. The team version's own narrative says the endnote "speaks of a shrine in Delhi and not of this one". The paragraph's first sentence already names the Delhi shrine plainly. The section's opening sentence already says it is not settled whether any of these figures is this temple's saint. The writer's fallback (end at "honours a different figure") still lists two variants side by side, so one clause is enough -> exact fix:
+OLD: There is no consensus on whether the Delhi shrine honours the same figure as the Peshawar temple, honours a different figure, or is in fact the Peshawar temple itself, placed in the wrong city.
+NEW: Whether the Delhi shrine honours the same figure as the Peshawar temple is not settled.
+
+NOTES:
+1. (precision) Unclear referent. The sentence before ends "has also been identified with Gorakhnath", so "the yogi" can be read as Gorakhnath. The team version's "Some traditions join the two figures into one" means the Hajji and Ratannath. "the contemporary of Gorakhnath" is already given in the paragraph above, so nothing is lost.
+OLD: The Hajji and the yogi are sometimes joined into one figure, but there is no consensus that they are one, and Ratannath, the contemporary of Gorakhnath, is also counted
+NEW: The Hajji and the yogi Ratannath are sometimes joined into one figure, but there is no consensus that they are one, and Ratannath is also counted
+2. (precision) The team version calls Tarvinder Kaur only "another informant". That she is Sikh is an inference from her name and from her family fleeing to where "there was a considerable Sikh population". The inference is probably right, but the source does not state it.
+OLD: After the attacks of 1971, one Sikh woman recalled, her family fled
+NEW: After the attacks of 1971, one woman recalled, her family fled
+3. (precision) "Long before" claims a length of time. The team version says only "Reaching further back" and gives no date for Ranjit Singh's reign. This rules on judgement call 20.
+OLD: Long before, during his reign, Maharaja Ranjit Singh had captured
+NEW: Earlier, during his reign, Maharaja Ranjit Singh had captured
+4. Rulings on the other judgement calls, all accepted:
+   - 1: the section is placed after The Temple and Devotion and opens by saying that whether any of these figures is the temple's saint is not settled. Nothing from the figures is given to the temple's saint, and no chains are merged.
+   - 2: "also called Baba Pir Ratan Nath" rests on "The site's account calls him Pir Ratan Nath, and Baba Pir Ratan Nath".
+   - 3: "founded in the memory of Gorakhnath" is dropped. This is the team version's internal tension, rightly put to Rauf.
+   - 4: "From the eleventh century" is dropped. It dates the order, not this site, and "roughly" already hedges.
+   - 5: "the hill of the yogis" is a gloss of the name.
+   - 6: "Tradition makes him" lowers certainty rather than raising it, and the team's passives ("made a companion", "said to come", "given 700/1300") support it. 1300 is the team's own Common Era figure.
+   - 7: a kunya is a name of the "father of" form used as an honorific, so "honorific name" is a fair definitional gloss.
+   - 8: accepted, with note 1.
+   - 10: "It has been counted" frames the view without its author and is acceptable.
+   - 11: the 2010 visit carries the same implication as the team version's own sentence order.
+   - 12 and 13: the framing is right and the speaker is rightly left unnamed.
+   - 14: the year 391 has no era, so converting it would invent one.
+   - 15: "In Aurangzeb's reign" is firm, from regnal year 40 and the team's "composed in the reign of Aurangzeb".
+   - 16: only the place name is uncertain, not the eighteen kos, Jamrud or the Nilab. The line's point stands.
+   - 17: accepted.
+   - 18: accepted for the man ("one Sikh informant"); see note 2 for the woman.
+   - 19: one author makes the same claim in two places. Neither of his two reasons is given, so nothing is merged, and "many" matches "A lot of".
+   - 21 and 22: the glosses are acceptable.
+5. Other checks passed:
+   - Legends stay framed: Ratan Nath is "remembered in tradition", the Hajji's life is "Tradition makes him" and "said to", the Katas marriages are "it was said", and Guru Nanak's visit is told "In the Janamsakhis".
+   - Every time anchor is firm: 1947, 2010, 2011, 1923, 1951, 1985, 2000, 1971 and "In Aurangzeb's reign".
+   - There are no citations or page numbers. Apart from Issue 1, there is no source narration.
+   - The quotations (the woman's two sentences, the Schimmel line, the Diwali line) occur verbatim in the team version.
+   - The temple's saint and the books' Ratannath are kept apart throughout. The second Legacy paragraph is rightly not carried, so that the figure is not tied to the temple.
+6. Taste only, not required:
+   - The Tilla Jogian sentence has four commas in a row ("the nearby hill of *Tilla Jogian*, the hill of the yogis, across the Indus, with Gorakhnath himself"). It might read better with the gloss moved to a clause at the end of the sentence.
+   - "*Dargah*, the word for a Sufi shrine, is borrowed from the vocabulary of the Muslim shrine" is slightly circular.
+   - "a *farman*, a royal order, of counsel" splits "farman of counsel". "a *farman* of counsel, a royal order, was sent" reads more easily.
+   - In the last Setting paragraph, "followers of Guru Nanak" appears twice and may blur the two groups.
+   - "Its rice was better than that of Bengal" is a fair simplification of the team version's "its rice, of a kind whose printed name cannot be read with certainty, is better than that of Bengal".
+   - After Issue 1 the ratio stays about 0.45, inside L1.
+7. Omission sweep: after reading the team version through, nothing obviously important is missing.
+   - What is left out is source apparatus: the index runs, the title of the study Boivin cites, and statements of what the books lack.
+   - Also left out are readings the team version marks uncertain: Kharpa, the Afghan raids, the Nilab place name, Dakka and the onward halts with their thirty and forty kos, Bangram, the rice's name and "whole".
+   - Also left out: the year 391, which has no era; the Risala-i Rataniyya speculation; Gorakhtari as a variant name; and minor items (Diyal, the scattered Hindus, the silsila as publisher, the second Schimmel paraphrase).
+   - Leaving out Khalid's two reasons for the calm of 1947 (the Congress, Abdul Ghaffar Khan) is defensible under rule 4, though a visitor might value Abdul Ghaffar Khan's name.

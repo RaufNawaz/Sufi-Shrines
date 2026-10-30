@@ -1,0 +1,73 @@
+# sharada-peeth: Urdu changes after V2 round 1 (FAIL, 2 issues) and V3 round 1 (FAIL, 11 issues).
+# Every issue of both reports applied (some adapted, as stated); V3 notes applied only where plainly better
+# Urdu changing no fact (repetition, bookish word, word sense). V3 notes numbered 1 to 11 in the order given.
+# Not applied: V3 notes 1, 3, 4, 5 and V2 note 2 (reasons in sharada-peeth.notes.md, "Urdu round 2");
+# V3 notes 10, 11 and V2 notes 1, 3, 4 ask for nothing. Backup of the round 1 text: bak/sharada-peeth.ur.before_r2.md
+
+WHY: V3 round 1, issue 1 (bare اس opening the paragraph; بلندی could be read as the height of the building). Verifier's sentence as given.
+OLD: اس کی بلندی تقریباً 2,000 میٹر ہے، اور یہ کوہِ ہرمکھ کے سائے میں واقع ہے۔
+NEW: یہ مقام سطحِ سمندر سے تقریباً 2,000 میٹر کی بلندی پر کوہِ ہرمکھ کے سائے میں واقع ہے۔
+
+WHY: V3 round 1, issue 2 (calque of "gave the goddess's name"). ADAPTED: the verifier's ہی ("it was precisely through Sharada Peeth") is dropped, since it adds an emphasis the English sentence does not have; otherwise the verifier's wording.
+OLD: شاردا پیٹھ نے دیوی کا نام شاردا رسم الخط کو بھی دیا اور خود کشمیر کو بھی،
+NEW: شاردا پیٹھ کی نسبت سے دیوی کا نام شاردا رسم الخط کو بھی ملا اور خود کشمیر کو بھی،
+
+WHY: V3 round 1, issue 3 ("marks the spot" calque; گرا against گرا تھا). Verifier's sentence as given. ADAPTED in the next sentence only: with both sentences now ending گرا تھا, the right hand sentence is recast as the English cleft ("it was the goddess's right hand that fell") so the verb is not repeated (brief: vary repeated verbs). روایت ہے کہ still governs the claim; no fact changed.
+OLD: اسی داستان کی رو سے شاردا پیٹھ اس جگہ کی نشان دہی کرتا ہے جہاں ستی کے جسم کا ایک حصہ زمین پر گرا۔ روایت ہے کہ شاردا میں دیوی کا دایاں ہاتھ گرا تھا۔
+NEW: اسی داستان کی رو سے شاردا پیٹھ وہ مقام ہے جہاں ستی کے جسم کا ایک حصہ زمین پر گرا تھا۔ روایت ہے کہ شاردا میں گرنے والا حصہ دیوی کا دایاں ہاتھ تھا۔
+
+WHY: V3 round 1, issue 4 (abstract noun as agent of a transitive verb). Verifier's sentence as given.
+OLD: سرسوتی سے نسبت نے شاردا پیٹھ میں عقیدت اور علم کو اس طرح یکجا کر دیا جس کی مثال ان استھانوں میں کم ہی ملتی ہے۔
+NEW: سرسوتی سے نسبت کے باعث شاردا پیٹھ میں عقیدت اور علم اس طرح یکجا ہو گئے کہ اس کی مثال ان استھانوں میں کم ہی ملتی ہے۔
+
+WHY: V3 round 1, issue 5 (participial calque of "his hymn listing"; گنوانے misread as "to lose"). Verifier's wording.
+OLD: دیوی کے اٹھارہ استھانوں کو گنوانے والے اپنے بھجن میں
+NEW: دیوی کے اٹھارہ استھانوں کے ذکر پر مشتمل اپنے بھجن میں
+
+WHY: V3 round 1, NOTE 2 (کا شمار ... میں ہوتا ہے/تھا three times, in paras 1, 3 and 5; vary one). Applied as repetition: the third occurrence becomes گنا جاتا تھا, the same meaning ("was counted among").
+OLD: اس دور میں اس کا شمار برصغیر کے ان سرِفہرست مندروں میں ہوتا تھا جو جامعہ کا درجہ بھی رکھتے تھے،
+NEW: اس دور میں یہ برصغیر کے ان سرِفہرست مندروں میں گنا جاتا تھا جو جامعہ کا درجہ بھی رکھتے تھے،
+
+WHY: V3 round 1, issue 6 ("in popular memory" calque). ADAPTED: the verifier's عوامی روایت میں would turn "memory" into "popular tradition" (adding "popular", and blurring the English's own distinction between "Tradition and later accounts" in the sentence before and "associated in memory" here), and would open two sentences in a row with روایت. The idiomatic Urdu for "associated in memory with" is used instead: X سے Y کی یادیں وابستہ ہیں. The hedge (memory, not record) is kept; verifier's وابستہ kept.
+OLD: لوگوں کی یادوں میں اس مقام کا نام فلسفی آدی شنکرا، مؤرخ کلہن اور عالم ویروتسانہ جیسی نامور ہستیوں سے جڑا ہوا ہے۔
+NEW: اس مقام سے فلسفی آدی شنکرا، مؤرخ کلہن اور عالم ویروتسانہ جیسی نامور ہستیوں کی یادیں وابستہ ہیں۔
+
+WHY: V3 round 1, issue 7 (کے اعزاز میں belongs to ceremonies). Verifier's sentence as given.
+OLD: اس کا نام اس مندر کے اعزاز میں رکھا گیا تھا۔
+NEW: اس کا نام اسی مندر کی نسبت سے رکھا گیا تھا۔
+
+WHY: V2 round 1, issue 2 (changed certainty: "... ہوں یا ...، وہ اسی سے کام لیتے ہیں" made the use general and near exclusive). Verifier's sentence as given.
+OLD: کشمیری پنڈت آج بھی اسے مقدس مانتے ہیں؛ مذہبی رسوم ہوں یا زائچوں کی تحریر، وہ اسی سے کام لیتے ہیں۔
+NEW: کشمیری پنڈت آج بھی اسے مقدس مانتے ہیں، اور یہ مذہبی رسوم اور زائچوں کی تحریر میں استعمال ہوتا ہے۔
+
+WHY: V2 round 1, issue 1 (changed fact: "after the twelfth century" dated the start of the upheavals, not the fading) COMBINED WITH V3 round 1, issue 8 (اس could be read as کشمیر). V2's sentence, with اس replaced by شاردا پیٹھ as V3 asks: the date now governs the fading of the shrine's pre-eminence, and the upheavals are the setting ("amid").
+OLD: بارہویں صدی کے بعد کشمیر سیاسی اتھل پتھل کی لپیٹ میں آیا، اور اسی دوران علم کی دنیا میں اس کی برتری ماند پڑتی گئی۔
+NEW: بارہویں صدی کے بعد علم کی دنیا میں شاردا پیٹھ کی برتری ماند پڑتی گئی، اور یہ وہ زمانہ تھا جب کشمیر سیاسی اتھل پتھل کی لپیٹ میں تھا۔
+
+WHY: V3 round 1, issue 9 ("lodestar" قطبی ستارہ is not an Urdu figure): verifier's قطب نما. Together with V3 round 1, NOTE 6, second half (بدستور in paras 8 and 10): بدستور dropped here and kept in the Legacy paragraph; "remained" is still carried by رکھتا رہا.
+OLD: جس کے لیے یہ بدستور ایک روحانی قطبی ستارے کی حیثیت رکھتا رہا۔
+NEW: جس کے لیے یہ ایک روحانی قطب نما کی حیثیت رکھتا رہا۔
+
+WHY: V3 round 1, NOTE 6, first half (near repetition: تحفظ کے لیے آوازیں followed by حفاظت کے لیے مہم). "preservation" becomes نگہداشت.
+OLD: مندر تک رسائی اور اس کی حفاظت کے لیے مہم چلائی ہے
+NEW: مندر تک رسائی اور اس کی نگہداشت کے لیے مہم چلائی ہے
+
+WHY: V3 round 1, NOTE 7 (تقدیس کی گئی is bookish; پھر سے تازہ کرنا is pleonastic). Verifier's wordings, with the postposition made to agree with masculine افتتاح (کا).
+OLD: ایک نئے شاردا مندر کی تقدیس کی گئی، جس کا مقصد اس قدیم استھان سے عقیدت کا رشتہ پھر سے تازہ کرنا ہے۔
+NEW: ایک نئے شاردا مندر کا مذہبی رسوم کے ساتھ افتتاح کیا گیا، جس کا مقصد اس قدیم استھان سے عقیدت کا رشتہ پھر سے جوڑنا ہے۔
+
+WHY: V3 round 1, issue 10 ("evocative" as a participle stacked on an adjective). Verifier's sentence as given.
+OLD: شاردا پیٹھ بدستور برصغیر کے سب سے دل گداز اور یادیں جگا دینے والے مقدس مقامات میں سے ایک ہے۔
+NEW: شاردا پیٹھ بدستور برصغیر کے ان مقدس مقامات میں سے ایک ہے جو دل کو سب سے زیادہ گداز کرتے اور یادیں جگاتے ہیں۔
+
+WHY: V3 round 1, NOTE 8 (پارسائی leans to personal abstinence; a word-sense correction). Verifier's first option علم و عقیدت, the word the article already uses for "devotion".
+OLD: کشمیری علم و پارسائی کے بلند ترین کمالات کا مظہر تھا۔
+NEW: کشمیری علم و عقیدت کے بلند ترین کمالات کا مظہر تھا۔
+
+WHY: V3 round 1, NOTE 9 (doubled pronoun اسے ... اس کی). Verifier's wording.
+OLD: اور نسل در نسل اسے *شکتی پیٹھ* مان کر اس کی تعظیم کی جاتی رہی ہے۔
+NEW: اور نسل در نسل *شکتی پیٹھ* کی حیثیت سے اس کی تعظیم ہوتی رہی ہے۔
+
+WHY: V3 round 1, issue 11 ("powerful symbol" and "an identity in which" relative clause). Verifier's sentence as given.
+OLD: یوں یہ آج بھی اس قدیم پہچان کی ایک طاقتور علامت ہے جس میں کشمیر "شاردا کی سرزمین" کہلاتا تھا۔
+NEW: یوں یہ آج بھی کشمیر کی اس قدیم پہچان کی ایک مضبوط علامت ہے کہ وہ "شاردا کی سرزمین" کہلاتا تھا۔

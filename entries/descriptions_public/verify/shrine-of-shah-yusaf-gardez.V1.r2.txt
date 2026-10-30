@@ -1,0 +1,10 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+Change 1 (Overview, V1 round 1 note a). NEW: "and founded the line of the Gardezi sayyids, a family descended from the Prophet Muhammad and long among the leading religious families of the city." Supported. The team version says he "founded the line of the Gardezi sayyids, long among the leading religious families of the city", calls him "A Sayyid of the family of the Prophet", and says "He founded the Gardezi sayyid family". "Descended from the Prophet Muhammad" matches the data/glossary.csv gloss of Sayyid ("Descendant of the Prophet Muhammad"), so naming Muhammad is definitional, not a new fact. No qualifier is lost: "long" stays, and "the city" still refers back to Multan. The fault note a named is fixed: the description now attaches to the Gardezi family, not to all descendants of the Prophet. No new fact, count or certainty. Grammar is sound; the singular appositive "a family" after "the line of the Gardezi sayyids" reads correctly.
+
+Nothing else moved. A diff against the round 1 backup (/home/claude/bak/shrine-of-shah-yusaf-gardez.md) shows that line 3 is the only changed line, and inside it only the two phrases in the change list differ ("descendants of" became "a family descended from", and "who were" became "and"). The other 36 lines are byte identical, and the bibliography is untouched. check_public_description.py --english-only gives ok at 0.42, exit 0.
+
+Minor (taste, record only): "a family ... among the leading religious families" repeats family/families within one clause. It is not a fault and does not need to change.

@@ -1,0 +1,5 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: He lived as a householder, and he brought a message of peace and harmony to the believers of Islam and Hinduism, two mutually hostile religions; he taught that a good life rested on honest labour, compassion, selfless service and prayer.
+NEW: He lived as a householder, and he brought a message of peace and harmony to the believers of Islam and Hinduism; he taught that a good life rested on honest labour, compassion, selfless service and prayer.

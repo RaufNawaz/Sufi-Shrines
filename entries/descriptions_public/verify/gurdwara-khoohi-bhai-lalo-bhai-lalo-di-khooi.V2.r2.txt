@@ -1,0 +1,20 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 27 OLD/NEW pairs in verify/gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi.ur.r2.changes.txt were applied in order to /home/claude/bak/gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi.ur.md.bak_ur1 (each OLD occurred exactly once in the text at its turn, each replaced once). The result is byte for byte identical to the current .ur.md, and each NEW occurs exactly once in it. Nothing else moved.
+2. Checker: python3 pipeline/book_queue/check_public_description.py gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi --no-verdicts printed "ok    gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi  team 41175 -> public 13961 chars (0.34), Urdu 13761 chars (0.99)" (exit 0).
+3. Each of the 27 changed passages was read in its paragraph against the matching English sentence. Facts, names, numbers (1452, 1989, 1992), hedges (tradition holds, held to be, is believed, the story goes, it is said, accounts differ, probably) and referents all carry over. Nothing is added except as noted in 4 and 5, which are emphasis, not fact.
+4. Decisions that were adapted or checked:
+   - Change 8 (south eastern route): the coordinator checked Dhillon p. 224. After Kabul and Peshawar, a south eastern route to the Punjab means travelling south east, so the Urdu ending in "پنجاب آئے" is right. The noun "route" is dropped, but the sense is kept.
+   - Change 17 (Chakki Sahib and Rori Sahib): dropping V3's "گوردوارہ" before both names is correct. The English calls Rori Sahib a gurdwara elsewhere (the keys paragraph) but never calls Chakki Sahib one. "کی زیارت" still marks both as holy places, and "پاس ہی واقع" keeps "nearby".
+   - Change 10: "ظالم کی روٹی" now matches the English's elided "bread".
+   - Change 26: "زیارت گاہ" no longer asserts a tomb. My round 1 issue is fixed.
+   - Change 11: "بیانات" is the right word for "accounts".
+5. Small shifts that are acceptable, recorded only:
+   - Change 1: "لازم و ملزوم" is symmetric, while the English says only that the site is inseparable from the story. This is the normal Urdu for "inseparable", and it adds no fact.
+   - Change 6: "ان کی اپنی زندگی" makes the irony of "yet the stories of his life are full of them" explicit with "اپنی". It adds emphasis, not content.
+   - Change 19: "حلقۂ ایمان" gives up the English image of a net but keeps the meaning, drawing people into the faith.
+   - Change 23: "یہ دیکھنا چاہا کہ ... ہیں یا نہیں" means "wanted to see whether" where the English has "looked for". With "مگر اسے کوئی نشان نہ ملا" it still reads as a search that found nothing.
+   - Change 5: the two English clauses (mostly on foot; with Mardana thousands of kilometres) are merged into one. Both facts remain, and the habitual "would cover" becomes a total, as V3 asked. The meaning is the same.
+   - Change 12: "نامی ایک سکھ" introduces Panesar for the first time, as the English does ("a Sikh"), so the brief's warning about making a known person a stranger does not apply.
+6. If V3's fix to the sangat sentence (change 13) is applied, "بیرونِ ملک کی سکھ *سنگت*" keeps "Sikh" and "congregation" from the English gloss. Dropping the explicit gloss is not an omission for V2: in Pakistani Urdu, سکھ سنگت is the ordinary term for a Sikh congregation.

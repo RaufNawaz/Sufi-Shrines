@@ -69,8 +69,17 @@ const MONTH_VARIANTS: readonly (readonly string[])[] = [
   ['Shaʿban', 'Shaʻban', "Sha'ban", 'Shaban', 'Shabaan'], // in data
   ['Ramadan', 'Ramadhan', 'Ramazan', 'Ramzan'], // in data
   ['Shawwal', 'Shawaal'], // in data
-  ['Dhu al-Qaʿdah', "Dhu al-Qa'dah", 'Zil Qad', 'Zul Qaida', 'Zilqad'],
-  ['Dhu al-Hijjah', 'Dhu al-Hijja', 'Zil Hajj', 'Zil Hijjah', 'Zul Hajj', 'Zilhaj'], // in data
+  ['Dhu al-Qaʿdah', "Dhu al-Qa'dah", 'Zil Qad', 'Zul Qaida', 'Zilqad', 'Zi al-Qada', 'Zi Qada'], // in data
+  [
+    'Dhu al-Hijjah',
+    'Dhu al-Hijja',
+    'Zil Hajj',
+    'Zil Hijjah',
+    'Zul Hajj',
+    'Zilhaj',
+    'Zi al-Hijja', // in data
+    'Zil-Hijja', // in data
+  ],
 ];
 
 /**

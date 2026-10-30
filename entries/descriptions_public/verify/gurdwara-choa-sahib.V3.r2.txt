@@ -1,0 +1,19 @@
+VERDICT: FAIL
+ISSUES:
+1. [repetition, introduced by change 3] "مؤرخ اقبال قیصر نے اس گوردوارے کا سفر کیا، اور اس سفر کو وہ اپنے تمام سفروں میں سب سے کٹھن شمار کرتے تھے" -> the change fixes the dangling جسے but puts سفر three times in one short sentence (سفر کیا، اس سفر کو، سفروں میں). The brief names this as a fault. Replacing the conjunct verb with گئے leaves سفر only where the meaning needs it: the anaphor and the comparison set ("the most difficult of his journeys"). اس سفر کو still points unambiguously to the journey. گئے, not پہنچے, because جب دونوں گوردوارے تک پہنچے follows two sentences later -> corrected sentence:
+OLD: انہی برسوں میں مؤرخ اقبال قیصر نے اس گوردوارے کا سفر کیا، اور اس سفر کو وہ اپنے تمام سفروں میں سب سے کٹھن شمار کرتے تھے۔
+NEW: انہی برسوں میں مؤرخ اقبال قیصر اس گوردوارے تک گئے، اور اس سفر کو وہ اپنے تمام سفروں میں سب سے کٹھن شمار کرتے تھے۔
+NOTES:
+- Round 1 issues: all 13 are fixed. 1, 2, 3, 5, 6, 7, 8, 9, 12 and 13 are fixed in V3's wording. 4, 10 and 11 are fixed in the coordinator's adapted wording, and each adaptation reads naturally:
+  - 4: 2020 میں ... اپنے ذمے لے لیا no longer pairs سے with a one-time completed act.
+  - 10: عقیدت کا اسیر بنا لیتے تھے is natural, positive Urdu ("captivated"), with no note of trickery.
+  - 11: the merged sentence names Mardana once, and خود carries the emphasis cleanly.
+  Round 1 note 4 (the dangling جسے) is resolved, but its wording brought in issue 1 above.
+- Change 2: سکھوں کے صحیفے ... سکھ گروؤں now sit in one sentence. The English has the same pair and it reads acceptably. If ever revisited, ان کے گروؤں would vary it, since ان clearly means the Sikhs named at the start of that sentence. Taste only.
+- Change 9: اس کی خدائی ہی کو للکارتے ہیں reads as God's own divinity, because خدا is the immediate antecedent and ہی gives the emphasis of "the divinity of the Divine". Babur, inside بابر کے قہر, is not a competing reading for a normal reader. Correct as it stands.
+- Change 10: گرو کے دوسرے بھجنوں کے انگریزی ترجموں کے چند مصرعوں سے stacks four genitives. It is grammatical and the calque is gone, but it is heavy. A lighter shape would be چند مصرعے ... لیے گئے ... اندازہ کراتے ہیں. Taste only.
+- Change 14: in the second limb, یا شام ڈھلے اس جنگل کے پاس سے ہو کر، the verb پہنچے is carried over from the first limb, and the relative clause trails after ہو کر. This is normal Urdu ellipsis and reads fine. Spelling out آئے after ہو کر would make it fuller. Taste only.
+- Change 4: پانی کا پورا گھڑا بھر کر لے آیا is idiomatic. گھڑا بھر پانی لے آیا would be terser. Taste only.
+- Changes 5, 7, 8, 11, 12, 13, 15, 16 and 17 are each natural and correct, and fit the sentences around them:
+  - 7 and 13: the repeated names بابا فرید and بابر fall in adjacent sentences, not within one.
+  - 12: the doubled جہلم in one sentence is the point of that sentence (the river takes the town's name).

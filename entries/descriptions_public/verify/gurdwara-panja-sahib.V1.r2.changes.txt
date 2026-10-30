@@ -1,0 +1,19 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/gurdwara-panja-sahib.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1 (paragraph deleted)]
+OLD: In the Janamsakhis, the cycles of tales told of the Guru's life, Hasan Abdal lay on his road home from Mecca, Medina and Baghdad. On that journey, the Janamsakhis tell, he came back by way of Iran, Kabul, Peshawar and Kandahar, passed through Hasan Abdal, and went on by Tilla Balnath, Katasraj and Saidpur to Kartarpur.
+
+The legend of the hand is told in more than one form, and accounts of when the Guru came differ.
+NEW: (deleted)
+
+[V1 r1 issue 2]
+OLD: The Guru composed verses in Hindi on the truth of God, setting out divine unity in clear words and shining metaphors, and a singer named Mardana sang his verses and drew people into the snare of devotion.
+NEW: The Guru composed verses in Hindi on the truth of God and on divine unity, and a singer named Mardana sang his verses and drew people into the snare of devotion.
+
+[V1 r1 precision note]
+OLD: Many were Pathan Sikhs, fair skinned and blue eyed, from Khyber Pakhtunkhwa and the tribal areas, and clean shaven Hindus from different regions of the country. Some walked the tar road without shoes as an expression of extreme respect.
+
+Entry was guarded, and a police officer checked everyone's security card.
+NEW: Many were Pathan Sikhs, fair skinned and blue eyed, from Khyber Pakhtunkhwa and the tribal areas; others were clean shaven Hindus from different regions of the country. Some walked the tar road without shoes as an expression of extreme respect.
+
+Entry was guarded, and a police officer checked everyone's security card.

@@ -1,0 +1,11 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff check: `diff /home/claude/bak/sial-sharif.before_v1r2.md entries/descriptions_public/sial-sharif.md` shows exactly two changed lines, line 15 (the *qawwali* paragraph) and line 27 (the first paragraph of The Setting), and in each the OLD and NEW text are exactly as the changes file gives them. The file grew from 7116 to 7145 bytes, which equals the two changes (+13 and +16). Nothing else moved, and the bibliography is untouched.
+2. Change 1 ("More widely, the Punjab is one of the two principal regions of the *qawwali* tradition, the other being Uttar Pradesh; the tunes of the two can be told apart mainly by their rhythmic setting, and Punjabi tunes tend to be organised rhythmically by stress."): this is supported. The team version presents the Qureshi passage as "of the music of the region as a whole" and says that "Neither book mentions Sial Sharif", so "More widely" states what the team version says about scope. It adds no new fact. The two regions, the rhythmic setting and the organisation by stress are unchanged from round 1. The sentence carries no source talk and no dash. It reads correctly in place and, as round 1 intended, no longer reads as a description of the shrine's own *qawwali*. Replacing the colon with ", and" softens the explanatory link a little, but this does not change the meaning.
+3. Change 2 ("More generally, the cult of the holy man, the *pir*, and the folk piety associated with him ..."): this is supported. The team version gives the Malik passage as a general statement about the Punjab, with no tie to Sial Sharif, and "More generally" marks it as general. It adds no fact and no embellishment. The rest of the sentence is unchanged, and the paragraph reads correctly.
+4. Checks rerun on the current file: there is no em dash or en dash in the prose before `## Bibliography`, and `check_public_description.py --english-only sial-sharif` returns ok at a ratio of 0.56 (team 10150 chars, public 5727 chars).
+5. Minor, not applied: the *qawwali* paragraph is still a single sentence on its own line, as it was in round 1. This was not part of the change and is not a fault.
+6. Note for the coordinator: there is no `sial-sharif.ur.md` yet, so the Urdu does not need to carry these changes. Only the English verdict stamp needs to be updated for the new file.

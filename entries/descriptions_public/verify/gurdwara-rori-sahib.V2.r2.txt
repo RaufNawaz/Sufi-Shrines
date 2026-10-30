@@ -1,0 +1,27 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 20 OLD to NEW pairs of verify/gurdwara-rori-sahib.ur.r2.changes.txt, each OLD replaced once and in order on /home/claude/bak/gurdwara-rori-sahib.ur.md.bak_ur1 (every OLD found exactly once), give a result byte for byte identical to the current gurdwara-rori-sahib.ur.md (26725 bytes both). Each NEW occurs exactly once in the current file. Nothing else moved.
+2. Checker: python3 pipeline/book_queue/check_public_description.py gurdwara-rori-sahib --no-verdicts printed: ok    gurdwara-rori-sahib  team 40213 -> public 15386 chars (0.38), Urdu 15091 chars (0.98)
+3. Each changed sentence read against the English, all faithful:
+   1 (The Guru, p1): "visit its religious shrines, Muslim, Hindu and of any other denomination" is kept whole; مقدس مقامات covers shrines that are not places of worship, so the adaptation of V3 r1 issue 1 (مقامات, with پر حاضری, which is the idiom for that noun) is right for fidelity, and کسی اور مذہب کے ماننے والوں کے keeps "of any other denomination".
+   2 (p3): honest labour, compassion, selfless service and prayer, all four kept.
+   3 (Eminabad p2): سچی محنت restores "honest", as V2 r1 note 1 asked.
+   4: "In the devotion of the Panth, the Sikh community, it is a parable of the difference between righteous earnings and wealth wrung from others": سکھوں names the Panth by its gloss; یہ قصہ ties "it" to the episode, the right referent; both terms of the contrast kept.
+   5: "Mardana has his own part in the story": کا بھی کردار keeps the sense; کردار removes the reading "share".
+   6: "it is told" still governs the refusal and the eating; تب جا کر ... جب keeps "only when"; the gloss of prasad now stands as its own definitional sentence, with "made holy by being offered" kept exactly. The next sentence (بعد میں مردانہ ہی ...) continues the told story as before.
+   7: "whose patronage adorned so many of the sites connected with the Gurus": same meaning with سرپرستی میں and a passive; جن کی still refers to Ranjit Singh.
+   8: ابھری دھاریوں والا keeps "ribbed" as raised ribs (V2 r1 note 2); white, lotus, especially graceful all kept.
+   9: "carved with an artistic effect of bricks": اینٹوں میں فن کارانہ انداز سے keeps bricks as the medium and the artistic effect.
+   10: "its congregation departed in the great and grievous migration": یہاں سے چلے گئے is "departed" and removes the reading "died".
+   11: present perfect inside the paragraph's "In more recent years ... has again received ... have been made" frame; the facts (security posted at all times, Sikh pilgrims every year) are unchanged and nothing is added. The English simple past here is matched by the frame, not contradicted; I agree with the coordinator's check.
+   12: "Bhai Bala and Bhai Mardana, a Hindu and a Muslim, were both companions of Nanak": both, companions, and the order Hindu then Muslim kept.
+   13: "drew people into the net of devotion": the net image becomes a path, but the claim (his singing drew people into devotion) is the same; no fact lost.
+   14: "turned away from house to house in an inhospitable village, he asks why two villages received opposite blessings": kept, and keeping "two villages" is right, since the English has it (adding the second village's story would add a fact).
+   15: "old shop paintings bore text that confirmed they were of Guru Nanak and Bhai Mardana": the NEW makes them pictures in the shops, which is the English sense.
+   16: tuned his rubab, struck up the accompaniment, his master's singing, at a tomb in Baghdad, "the stories tell": all kept.
+   17: "a serene Nanak": بڑے سکون سے keeps it as a quality, adds no fact.
+   18: "no signs of attack on them": ان مندروں now names the temples, the English referent.
+   19: "endures as a quiet monument to the earliest chapter ... when Guru Nanak walked": آج بھی keeps "endures", which V3's own wording had dropped; the coordinator's adaptation is right.
+   20: "a treasured link to their founder": اپنے دین کے بانی is the founder of the Sikhs' faith, the same person.
+4. Hedges in the changed sentences all intact: بیان کیا جاتا ہے (6), کہا جاتا ہے (3, unchanged around it), یہ کہانیاں بتاتی ہیں (16), ایک کہانی میں (14). No figure added or removed (1801 تا 1839 and 1992 unchanged). No Latin letters, no em or en dashes; the five semicolons are the Urdu ؛.

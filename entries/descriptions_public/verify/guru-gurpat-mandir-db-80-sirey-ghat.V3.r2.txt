@@ -1,0 +1,22 @@
+VERDICT: FAIL
+ISSUES:
+1. [repetition inside one sentence, introduced by change 14] "تصوف کی تین روایتیں تھیں، اور ان میں سے ایک ... کی روایت تھی" -> the change rightly fixes the agreement (round 1 issue 12), but it does so by repeating روایت, the very slip the brief names. ان میں سے ایک already means "one of the traditions"; Urdu leaves the noun understood and lets the genitive agree with it (کی تھی, feminine). Corrected sentence:
+OLD: ہندو صوفیوں میں تصوف کی تین روایتیں تھیں، اور ان میں سے ایک حیدرآباد کے ٹنڈو جہانیہ کی روایت تھی۔
+NEW: ہندو صوفیوں میں تصوف کی تین روایتیں تھیں، اور ان میں سے ایک حیدرآباد کے ٹنڈو جہانیہ کی تھی۔
+
+2. [repetition inside one sentence, introduced by change 8] "سندھی نانک پنتھیوں کو ... اور ان نانک پنتھیوں نے" -> dropping چنانچہ is right, but joining the two sentences has put نانک پنتھیوں twice into one sentence, and the demonstrative ان نانک پنتھیوں ("these Nanakpanthis") reads as if a subset were meant. The pronoun is unambiguous here: the only plural person in the sentence is نانک پنتھی (سکھ برادری and تحریک are singular), and خود کو ہندوؤں کا ... فرقہ settles it. Corrected sentence:
+OLD: اس تحریک کے نتیجے میں سندھی نانک پنتھیوں کو سکھ برادری کا حصہ نہیں مانا گیا، اور ان نانک پنتھیوں نے خود کو ہندوؤں کا ایک مذہبی فرقہ قرار دیا۔
+NEW: اس تحریک کے نتیجے میں سندھی نانک پنتھیوں کو سکھ برادری کا حصہ نہیں مانا گیا، اور انہوں نے خود کو ہندوؤں کا ایک مذہبی فرقہ قرار دیا۔
+
+NOTES:
+1. Round 1 V3 issues: all fifteen are addressed. Issues 1, 3 to 11, 13 and 15 are applied verbatim (changes 1, 4, 5, 6, 7, 9, 10, 11, 12, 13, 15, 17) and are fixed. Issue 2 is fixed by change 3 (merged with V2's past tense; see note 3). Issue 14 is fixed by change 16 (ساٹھ لاکھ in words instead of 60, which reads better beside ایک کروڑ and matches the article's دس لاکھ and آٹھ لاکھ). Issue 12's agreement fault is fixed by change 14, but the fix doubles روایت: issue 1 above.
+2. Change 1: ایک ایسے سنت کی نسبت سے تعمیر ہوا ہے جنہیں ... is idiomatic and removes the physical کے گرد. Fits the sentences around it.
+3. Change 3: good Urdu: the gloss now sits inside the name (سکھوں کے دسویں گرو گوبند سنگھ), شامل تھے agrees correctly with the mixed list ending in بال, and دربار میں آج بھی ان چیزوں کا ذکر ہوتا ہے now follows the list directly. The past شامل تھے beside the present بتائے جاتے ہیں is right (the attribution is still made today). Taste: the extraposed جو بابا سری چند کے بتائے جاتے ہیں attaches to the nearest noun, بال, as intended; the ring's own attribution rules out reading it over the whole list.
+4. Change 4: the سہرا ... کے سر باندھا جاتا ہے idiom is natural and keeps the hedge; ان گدیوں in the next sentence follows cleanly. Taste: the sentence opens with the reflexive اپنی before Gurpat Sahib is named; the paragraph is about him throughout, so it reads correctly.
+5. Change 5: تقویم (feminine, ہندوؤں کی ایک تقویم) and سنِ عیسوی کے مطابق ... بنتا ہے are the standard collocations; agreement right.
+6. Change 6: ماضی میں اس کی تولیت کے سلسلے میں ... کا نام آتا ہے is natural; اس is the darbar.
+7. Change 7: the relative clause removes the سبزی خور calque. Taste: بھی چلاتا ہے ... جگہ بھی ہے is a natural parallel after کے علاوہ; یہاں after the clause about the eatery is still read as the darbar. گوشت کے بغیر کھانا would be the most exact phrase for "vegetarian", but سبزی کا کھانا is the everyday one.
+8. Change 9: the two sentences now read cleanly and ان کے مندروں points at the Nanakpanthis. سندھ stands twice in the first sentence, but the second is doing contrastive work (south Punjab and Sindh, and in Sindh especially), not a slip; خاص طور پر سندھ میں would be an alternative of taste.
+9. Change 10: naming the word removes the guessing. لفظ دربار now stands in two consecutive sentences (... جو لفظ دربار آتا ہے ... / سندھ میں زیادہ تر فارسی لفظ دربار ...), which mirrors the English and is not inside one sentence.
+10. Changes 11, 12, 13, 15, 16 and 17 are natural, correct Urdu and fit their paragraphs: مقدس مقام; مالی امداد سے ... لہر آئی; آستانے / آستانہ after the italic Sindhi first mention; the جب ... تو correlative; ساٹھ لاکھ سے ایک کروڑ ... اندازے ایک دوسرے سے بہت مختلف ہیں ... دسیوں لاکھ; ذات پات نہ ہونے کا یہ دعویٰ, which also gives the next sentence's یہ a clear antecedent.
+11. The NEW sentences contain no Latin letters, no en or em dashes and no calques; the replay against the backup is identical, so no unchanged sentence moved. The round 1 taste notes (ٹنڈو جہانیہ / ٹنڈو جہانا, the double ٹکانہ definition, and the rest) are untouched and remain for the content editor.

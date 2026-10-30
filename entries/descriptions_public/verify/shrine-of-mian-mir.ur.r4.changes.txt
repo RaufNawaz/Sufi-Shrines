@@ -1,0 +1,5 @@
+Changes after Urdu round 3, applied by the coordinator in the verifiers' wording (or as noted). Nothing else changed.
+
+[V2 r3 issue 1 (definite: the friend is Mian Mir, as V3 r2 issue 2 also proposed)]
+OLD: تو ان کے ایک مسلمان دوست غصے کے عالم میں
+NEW: تو ان کے مسلمان دوست میاں میر غصے کے عالم میں

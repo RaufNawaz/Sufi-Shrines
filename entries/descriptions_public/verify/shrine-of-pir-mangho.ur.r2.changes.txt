@@ -1,0 +1,91 @@
+Row shrine-of-pir-mangho, Urdu round 2. Reports: verify/shrine-of-pir-mangho.V3.r1.txt (FAIL, 16 issues) and verify/shrine-of-pir-mangho.V2.r1.txt (PASS, notes only). Backup: /home/claude/bak/shrine-of-pir-mangho.ur.before_r2.md. V3 issues applied in the verifier's wording: 1, 2, 3, 7, 9, 11, 12, 13, 15 (9). Adapted: 4, 5, 6, 8, 10, 14, 16 (7). Rejected: none. Notes applied: V3 note on جلدی امراض; V2 note on "wide coverage".
+
+WHY: V3 issue 1; applied in the verifier's wording (کے اوپر read as physically on top of the city; کے نواح کی پہاڑیوں keeps the hills and their place by the city, English "the hills above Karachi").
+OLD: جو کراچی کے اوپر کی پہاڑیوں میں اسی مقام پر آ بسے تھے۔
+NEW: جو کراچی کے نواح کی پہاڑیوں میں اسی مقام پر آ بسے تھے۔
+
+WHY: V3 issue 2; applied in the verifier's wording (same calque as issue 1; English "in the hills above Karachi, in what is now the northern part of the city" is kept by the second clause).
+OLD: مزار کراچی کے اوپر کی پہاڑیوں میں واقع ہے،
+NEW: مزار کراچی کے نواح کی پہاڑیوں میں واقع ہے،
+
+WHY: V3 issue 3; applied in the verifier's wording (English "Below the tomb lies a pond": lower down from the tomb, not underneath it).
+OLD: مقبرے کے نیچے ایک تالاب ہے جس میں مگرمچھ رہتے ہیں۔
+NEW: مقبرے سے نیچے کی جانب ایک تالاب ہے جس میں مگرمچھ رہتے ہیں۔
+
+WHY: V3 note (جلدی امراض can be read as "quick" diseases); word sense only, English "skin ailments".
+OLD: جلدی امراض اور دوسری بیماریاں
+NEW: جلد کے امراض اور دوسری بیماریاں
+
+WHY: V3 issue 4; adapted. Verifier's متعدد مقامات میں شامل ہیں is applied, but چندرکوپ کے ابھار would make the anticline Chandrakup's own; the English says the springs are "along the same anticline as Chandrakup", so the relative clause says the anticline on which Chandrakup lies.
+OLD: یہ چشمے ایک قدرتی مظہر ہیں، اور زمینی حرارت کے ان کئی مقامات میں سے ایک ہیں جو چندرکوپ والے ابھار پر واقع ہیں۔
+NEW: یہ چشمے ایک قدرتی مظہر ہیں اور زمینی حرارت کے ان متعدد مقامات میں شامل ہیں جو اسی ابھار پر واقع ہیں جس پر چندرکوپ ہے۔
+
+WHY: V2 note ("wide coverage" is not "prominent"); applied in V2's wording, a precision fix with no fact changed.
+OLD: اور اخبارات اسے نمایاں جگہ دیتے ہیں۔
+NEW: اور اخبارات میں اس کا خوب چرچا ہوتا ہے۔
+
+WHY: V3 issue 5; adapted. The verifier's مگرمچھ اور چشمے ... کرامات ہیں states that the crocodiles and springs ARE miracles; the English says tradition "weaves the crocodiles and the springs into the miracles of the saint", so the Urdu says they are linked to his miracles in the traditions, which also removes the personified subject.
+OLD: روایت مگرمچھوں اور چشموں دونوں کو خود صاحبِ مزار کی کرامات میں شمار کرتی ہے۔
+NEW: روایات میں مگرمچھوں اور چشموں دونوں کو خود صاحبِ مزار کی کرامات سے جوڑا جاتا ہے۔
+
+WHY: V3 issue 6; adapted. The verifier's کو اہمیت حاصل ہے adds weight (importance) that the English "have a place in Hindu tradition too" lacks; کا ذکر ... بھی ملتا ہے removes the literal reading of مقام without adding it.
+OLD: ہندو روایت میں بھی ان چشموں کا ایک مقام ہے۔
+NEW: ان چشموں کا ذکر ہندو روایت میں بھی ملتا ہے۔
+
+WHY: V3 issue 7; applied in the verifier's wording (removes the present tense on Rama's guide and the repeated کاپری; English "In the narratives of the Kapri community, Lalu Jasraj is the founder of the Kapris, and the guide and staff bearer of Rama ... and of his entourage"; both roles stay inside the narratives).
+OLD: کاپری برادری کی روایات کے مطابق لالو جسراج کاپریوں کے بانی ہیں، اور رامائن کے مرکزی کردار رام اور ان کے ہمراہیوں کے رہنما اور عصا بردار بھی۔
+NEW: کاپری برادری کی روایات کے مطابق لالو جسراج اس برادری کے بانی ہیں۔ یہی روایات انہیں رامائن کے مرکزی کردار رام اور ان کے ہمراہیوں کا رہنما اور عصا بردار بھی بتاتی ہیں۔
+
+WHY: V3 issue 8; adapted. The ungoverned subjunctive رہا ہو is fixed, but not with the verifier's ممکن ہے, which would add a hedge inside the suggestion; the English is "the suggestion that the shrine was once associated with him" (indicative inside the suggestion; the possibility is stated in the next sentences).
+OLD: کہ کبھی یہ مزار لالو جسراج سے وابستہ رہا ہو۔
+NEW: کہ یہ مزار کبھی لالو جسراج سے وابستہ تھا۔
+
+WHY: V3 issue 9; applied in the verifier's wording (محلِ نظر does not take an open کس حد تک question; English "is open to question").
+OLD: یہ بات بھی محلِ نظر ہے کہ
+NEW: یہ بات بھی واضح نہیں کہ
+
+WHY: V3 issue 10; adapted. The verifier's سیدی یا سِدّی leaves سیدی readable as either name and reverses the English order "Sidi or Syedi"; سِدّی (Sidi) یا سیّدی (Syedi) keeps the order and makes the two names differ in their letters, not only in a tashdid.
+OLD: سیدی یا سیّدی
+NEW: سِدّی یا سیّدی
+
+WHY: V3 issue 11 (first part); applied in the verifier's wording (drops a redundant یہاں; "to work in the subcontinent" is carried by برصغیر لایا گیا).
+OLD: تاکہ ان سے یہاں کام لیا جائے۔
+NEW: تاکہ ان سے کام لیا جائے۔
+
+WHY: V3 issue 11 (second part); applied in the verifier's wording (English "in Sindh too they were set free"; resolves یہاں).
+OLD: جب غلامی کا خاتمہ ہوا تو یہاں بھی انہیں آزادی ملی۔
+NEW: جب غلامی کا خاتمہ ہوا تو سندھ میں بھی انہیں آزادی ملی۔
+
+WHY: V3 issue 11 (third part); applied in the verifier's wording (resolves یہاں to Sindh, the referent recorded in choice 12 of the notes).
+OLD: یہاں کے شیدیوں کی مادری زبان سندھی ہے۔
+NEW: سندھ کے شیدیوں کی مادری زبان سندھی ہے۔
+
+WHY: V3 issue 12; applied in the verifier's wording (English "follow one another on to the shrines of Karachi"; یکے بعد دیگرے used adverbially).
+OLD: فقیر ایک دوسرے کے پیچھے پیچھے کراچی کے مزارات کا رخ کرتے ہیں۔
+NEW: فقیر یکے بعد دیگرے کراچی کے مزارات کا رخ کرتے ہیں۔
+
+WHY: V3 issue 13; applied in the verifier's wording (split into two sentences; اس قصے کے مطابق still governs the whole story, since the second sentence continues the same tale with ماں and بیٹے, and the English frames it as "A legend tells").
+OLD: کی نسبت سے پہچانا جاتا تھا جس کے بیٹے کو ایک مچھلی نے مار ڈالا تھا؛ ماں نے
+NEW: کی نسبت سے پہچانا جاتا تھا، جس کے بیٹے کو ایک مچھلی نے مار ڈالا تھا۔ ماں نے
+
+WHY: V3 issue 14; adapted. The buried subject is fixed, but without the verifier's commas around چند ایک کے سوا, a comma-set aside of the kind the brief asks to avoid; plain Urdu order instead, same meaning (English "all but a few of the pilgrims' resting places along it to disappear").
+OLD: ان تبدیلیوں کے باعث راستے میں یاتریوں کی قیام گاہوں میں سے چند ایک کے سوا سب مٹ چکی ہیں۔
+NEW: ان تبدیلیوں کے باعث راستے میں یاتریوں کی چند ایک قیام گاہوں کے سوا باقی سب مٹ چکی ہیں۔
+
+WHY: V3 issue 15; applied in the verifier's wording (natural order of demonstrative and adjectives).
+OLD: قدیم، نرالا اور ہر دلعزیز یہ دربار آج بھی
+NEW: یہ قدیم، نرالا اور ہر دلعزیز دربار آج بھی
+
+WHY: V3 issue 16; adapted. The verifier's کا آئینہ (a mirror of) changes "a monument to" and is on the brief's list of misleading آئینہ uses; کا مظہر (the embodiment of) keeps the sense of the English without the odd دھاگوں کی یادگار. The verifier's یہ مزار and the removal of the doubled بھی are applied as given; the hedge "it has been suggested" stays as ایک رائے یہ بھی ہے.
+OLD: یہ ان بہت سے دھاگوں کی یادگار بھی ہے جو سندھ کے عوامی مذہب میں پروئے ہوئے ہیں۔ ایک رائے یہ بھی ہے کہ ان دھاگوں میں ہنگلاج کی ہندو یاترا سے تعلق بھی شامل ہے۔
+NEW: یہ مزار ان بہت سے دھاگوں کا مظہر بھی ہے جو سندھ کے عوامی مذہب میں پروئے ہوئے ہیں۔ ایک رائے یہ بھی ہے کہ ان دھاگوں میں ہنگلاج کی ہندو یاترا سے تعلق شامل ہے۔
+
+Not applied:
+- V2 note, "would" for جوڑ سکتی ہے: V2 itself says the meaning holds inside the hypothetical. Its proposed جوڑ دیتی, standing alone, reads in Urdu as a counterfactual (implying the association did not exist) or as a habitual past, which would tilt the English possibility toward a denial; سکتی ہے is kept.
+- V2 note, italics on قوال بچے: style only, as V2 says; the term is unfamiliar to an Urdu reader, which the brief allows to be italic.
+- V3 note, naming (پیر منگھو for the shrine in the Legacy): the Legacy says پیر منگھو کا مزار, the saint's name with مزار, which follows the convention the note asks for; the English has "Pir Mangho" there.
+- V3 note, shortening the second (حضرت حاجی سید سخی سلطان): the English repeats the full name, and the sentence's point is the name by which the shrine is known; shortening would drop it there.
+- V3 note, گجرات: the verifier says context shows the state; adding "Indian" would be a word the English lacks.
+- V3 note, افریقی الاصل ثقافت in the festival paragraph: taste, and would repeat the Legacy's phrase.
+- V3 notes, دور دور سے for ہر جگہ سے and صدیوں میں for صدیوں کے دوران: taste; دور دور سے also shifts "from all over" toward "from far away" (choice 9 in the notes).
+- V3 notes on ایک شخص, the "three things" list, the Hinglaj route (سڑک / راستہ, Narayanpur) and punctuation: the verifier leaves them as they are or they are taste; changing the route wording would add a fact (where Narayanpur is) or be taste.

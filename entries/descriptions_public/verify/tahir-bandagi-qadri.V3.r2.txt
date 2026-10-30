@@ -1,0 +1,22 @@
+VERDICT: FAIL
+ISSUES:
+1. [new ambiguity, change 9] "سلسلۂ قادریہ کے وابستگان میں ہوتا ہے، اور اس سلسلے میں وہ اپنے زمانے کے قطب مانے جاتے ہیں" -> In Urdu prose, اس سلسلے میں is first of all the stock idiom for "in this regard / in this connection". Because سلسلہ has just been used in its Sufi sense, the clause now reads two ways: "in this order he is the qutb of his age" and "in this regard he is held to be the qutb of his age". On the second reading he is no longer the qutb of the Qadiri order specifically. The old text did not have this double reading. Making the order the possessor of قطب removes the idiom and keeps the qualifier. -> corrected sentence: حضرت طاہر بندگی کا شمار شیخ عبدالقادر جیلانی کے قائم کردہ سلسلۂ قادریہ کے وابستگان میں ہوتا ہے، اور وہ اپنے زمانے میں اس سلسلے کے قطب مانے جاتے ہیں۔
+OLD: اور اس سلسلے میں وہ اپنے زمانے کے قطب مانے جاتے ہیں
+NEW: اور وہ اپنے زمانے میں اس سلسلے کے قطب مانے جاتے ہیں
+
+NOTES:
+1. Round 1 V3 issues, now:
+   - 1 and 20: fixed. Both use مقام, adapted for fidelity. اس قبرستان کا سب سے قدیم مقام and اس کا سب سے قدیم مقام read naturally, and both agree in gender (the old اس کی went with نشست).
+   - 2: fixed. The new sentence has its own subject (ان کا انتقال ہوا اور وہ ... دفن ہوئے).
+   - 3 to 8: fixed.
+   - 9: the gloss of قادری and the trailing appositive are gone, but the new wording brings in the ambiguity in issue 1.
+   - 10 to 19 and 21: fixed.
+   - Round 1 note 2 (پکی beside پختہ): fixed. پختہ اینٹوں now stands in three consecutive sentences, and the English also repeats "fired brick" three times.
+2. Change 5: one sentence now has ایک three times (ایک سے زیادہ، ایک روایت، ایک پیش گوئی). The second ایک before پیش گوئی is defensible, since the next sentence names the prophecy, but dropping it would read a little lighter. Taste.
+3. Change 8: عطا کیا now agrees with the nearest noun, مرتبہ, in the یعنی apposition, not with قطبیت. Agreeing with the nearest noun is normal Urdu here, so it is not an error. The extraposed جو ... مقام ہے is clear.
+4. Change 10: the correlative جو آسائشیں ... ان کے بجائے is clean, and کثرت سے no longer reads as an adverb. گزرتی تھیں in the sentence before and گزارتے تھے here echo each other mildly.
+5. Change 11: عمر appears twice across the semicolon (عمر کتنی تھی ... 54 برس کی عمر). This mirrors the English "age ... the age", and it is the natural way to say it.
+6. Change 13: بڑے اہتمام کے ساتھ اس کا انتظام has a slight sound echo (اہتمام / انتظام). Acceptable.
+7. Change 16: "اور ایک اس کے شمال میں، اور اس کے پہلو میں ایک اور احاطہ بھی تھا" has اور three times in a short span, one of them meaning "another". It reads correctly. A later pass could write ایک دوسرا احاطہ. Taste.
+8. Change 19: in ماں باپ اور دادا دادی، نانا نانی بھی, the asyndetic pair دادا دادی، نانا نانی is the usual way of saying "all the grandparents". Fine.
+9. Changes 7, 12, 15, 17, 18, 21, 22, 24 and 25 read naturally and fit the sentences around them. In change 17, شیخ کے مقبرے points unmistakably to شیخ محمد طاہر, named earlier in the same sentence. In change 25, اس قطعے سے الگ follows the قطعۂ تاریخ paragraph smoothly.

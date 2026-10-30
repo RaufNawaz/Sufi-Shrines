@@ -1,4 +1,4 @@
-# Brief: English-only prose; Urdu only as poetry (HANDOVER §9.368) — supersedes QUOTE_BLOCKS_BRIEF.md
+# Brief: English-only prose; Urdu only as poetry (HANDOVER §9.369) — supersedes QUOTE_BLOCKS_BRIEF.md
 
 **Ruling (Rauf, 18 October 2026, after seeing the §9.366 `> ` blocks):** "the citations look ugly … this block is
 good for poetry but for general prose … there shouldn't be such urdu references but instead these blocks could very

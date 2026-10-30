@@ -1,0 +1,13 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. Diff result. `diff /home/claude/bak/dargah-of-khwaja-muhammad-zaman-luari-sharif.md.bak_V1r1 entries/descriptions_public/dargah-of-khwaja-muhammad-zaman-luari-sharif.md` shows exactly two changed lines (11c11 and 61c61) and nothing else. Line 11 differs only in "accounts of the centre's beginnings differ" becoming "accounts of when Luari became a Naqshbandi centre differ"; line 61 differs only in "The line means" becoming "Its second half means". Both match the OLD and NEW of V1.r2.changes.txt exactly. Nothing else moved.
+
+2. Change 1 (The Setting, line 61): "Its second half means that Sindh is not in the position of leadership, or amirship." Supported. The team version's endnote explains only "'Sind is not the amir'", which is the second half of the recited line "*Punnu is not in the Kec / Sind is not the amir*" quoted directly above, so "Its" has a clear antecedent (the line just quoted) and "second half" is exact. No new fact, no lost fact, grammar intact, no source talk, no dash. The following sentence, "It is one of Alan Faqir's own political readings of the tales of women.", now takes "Its second half" (with its meaning) as its referent rather than "The line"; that is still covered by the team version's "These are all Alan Faqir's political interpretations of the female myths", so it introduces no fault.
+
+3. Change 2 (The Saint, line 11): "The *khanqah* is traditionally dated to 1737, though accounts of when Luari became a Naqshbandi centre differ." Supported. It matches the team version's disagreement "The dates of the Naqshbandi centre": the site's account dates the khanqah, and with it Luari's rise as the foremost Naqshbandi centre after Thatta, to 1737 (a traditional date), while Luari scholars are placed in the early eighteenth century with Makhdum Muhammad Hashim (1692 to 1762) as the main author. The clause no longer reads as a dispute over the khanqah's own date. It follows rule 4 (the established position, 1737, with one clause that accounts differ), claims nothing the team version does not, keeps grammar intact, and has no source talk and no dash. It also sits consistently with the Overview ("became the foremost Naqshbandi centre of eighteenth century Sindh after Thatta").
+
+4. Checker: `python3 pipeline/book_queue/check_public_description.py dargah-of-khwaja-muhammad-zaman-luari-sharif --english-only` printed "ok    dargah-of-khwaja-muhammad-zaman-luari-sharif  team 23779 -> public 11556 chars (0.49)" and exited 0.

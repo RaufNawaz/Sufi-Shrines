@@ -1,0 +1,29 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Omission sweep. Nothing important is missing, and the 0.43 ratio is honest. I checked every paragraph of the team version against the public text. All of these are kept: the tomb's beauty, its emblem status and its half-ruined state; Bibi Jawindi's line and her descent, with the hedge; the 1493 date and Dilshad; the octagonal, tiered, domed form, the corner turrets and the *kashi* palette; the regional Suhrawardi style; the river, the collapse and the flood; the neighbouring tombs of Baha al-Halim and the builder; the ensemble from before the Mughals, the UNESCO Tentative List and the conservation efforts; Khalid's mound, the three buildings, the razed halves, the iron rods, the Multani tiles, the white dome, the reused tiles on the graves and the market approach; the Sutlej and 1960; Rozehnal's view of the town and the full encounter (April 1996, the ʿurs at Allahabad, the photograph, the identification by disciples in Lahore, the shaykh dead over a year, framed as the author's telling); Bahawalpur, the merging of Punjabi and Sindhi culture, Siraiki, the havelis of the Gilanis and Makhdooms, and syncretism; Bhandari's armies, the township of Uch and the Thatta bounds; the Kaziruni founding legend, the flying contest and the three generations; Surkhposh (1291); the Suhrawardi centre under Makhdum-i Jahaniyan (1383); Farid ad-Din's inverted fast; the Qadiri missionaries, Muhammad Ghaus, the four sons, al-Jilani and his son Thani; the sayyids' word on disputed descent; Nanak's visit, the well and the gurdwara mound; Inayat Shah and the qawwal family; and the Devotion and Legacy paragraph.
+   What was dropped is source apparatus, rival variants handled under rule 4, the unreadable death fragment (rule 5, correctly left out), Khalid's speculation about Nanak, passages whose subject is unclear, and trivia (the car, Qaiser's "place has changed" remark, al-Jilani's route, the "no extant archive" remark). None of it is obviously important.
+
+2. Location (writer's call 4). This is not a merger. The conflicting element, "on the outskirts", is dropped, and a mound used as a graveyard is compatible with the Bukhari quarter. The writer's own connective "Around them lies Uch itself, known as the city of saints" leans slightly against Khalid's "outskirts". It also turns one author's epithet ("calls Uch Gilanian 'the city of saints'") into a general reputation. Optional fix: "Uch itself is called the city of saints."
+
+3. Flood date. Basis (d) is applied correctly. The site account is (a), but the only other source is against it, (b) is a tie and (c) does not apply. The range wording follows the brief's template. If more precision is wanted (optional): "it is placed as early as the sixteenth century and as late as the nineteenth". This avoids suggesting that some account names the seventeenth or eighteenth century.
+
+4. Time anchor "In the early twenty first century" (used for the mound and for Nanak's well). The team version gives only the book's year, 2016, not the year of the visit. This is acceptable by analogy with the brief's "By the 1870s" for Lahori 1875. "By the 2010s" would be strictly safe if the writer prefers.
+
+5. "the pursuit led by Khawas Khan". The team version says "Khawas Khan's pursuit", and "led by" picks one reading of the possessive. Optional fix: "and Khawas Khan's pursuit went as far as Multan and Uch."
+
+6. Qadiri arrival. "Uch was also the gate by which the Qadiri order ... entered the subcontinent", together with "late fifteenth century", silently drops Schimmel's other date (the order introduced "in the late fourteenth century"). Treating this as minor is defensible, since it is about the setting and not the site, and two of three dated statements point to the late fifteenth century. Optional: a clause noting that accounts of when the order first reached the subcontinent differ.
+
+7. Writer's judgement calls 1, 3, 5, 6, 7 to 16: all confirmed as supported and correctly framed.
+   - Call 6: "the families who keep the town's shrines" is a fair reading, since Khalid uses "the shrine" for Uch Sharif as a whole.
+   - Call 7: the tension between the lost Sutlej and the confluence comes from the team version itself.
+   - Call 10: Makhdum-i Jahaniyan is rightly not identified with the Makhdoom Jahaniyan Jahangasht of her descent.
+   - Call 13: framing Nanak's visit with "is said to have" is right.
+   - Call 15: naming "one modern book" and using "in the author's telling" falls within rule 2's exception (the author is a character in the story). The "in the author's telling" framing is needed so that the claim about a dead man is not stated as fact.
+   - Call 16: the evaluative words are the team version's own.
+
+8. The Overview gives "raised in the late fifteenth century" flat while the body frames 1493 as tradition. This mirrors the team version, and the site board's 1494 is also late fifteenth century, so it is fine. The muhaddith-style collapse hedge ("tradition holds that a great part of it collapsed") is more cautious than the team version, which states the collapse flatly and frames only the flood's date as tradition. That is acceptable.
+
+9. Mechanical scan: no em or en dashes in the prose. The one English quotation (Muhammad Bakhsh) appears verbatim in the team version. There is no source, process or uncertainty vocabulary.

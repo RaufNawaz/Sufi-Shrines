@@ -1,0 +1,75 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) The Saint, judgement call 3. Brief rule 4 allows "most often" only when most sources say it. Only two accounts give him the Qadiri order alone: Rafat's selection, in its introduction and notes, and Sharib's nisba. Three give both orders: the current account, Lahori's list of entries and the editor's full name. Shackle names the Qadiri in his notes and glossary and the Shattari alone in his introduction. "Simply a Qadiri" is common, so "often" is supported, but "most often" is not.
+OLD: He combined the Qadiri and Shattari orders in his own practice, and his full name carries both, though he is most often counted simply a Qadiri, a follower of the order of Sheikh Abdul Qadir of Baghdad.
+NEW: He combined the Qadiri and Shattari orders in his own practice, and his full name carries both, though he is often counted simply a Qadiri, a follower of the order of Sheikh Abdul Qadir of Baghdad.
+
+2. (precision) The Saint, judgement call 13, an ambiguous referent. The sentence just before this one is about the Shattari order, so "the order's Hanbali founder" now reads as the founder of the Shattari order. The team version's founder is Sheikh Abdul Qadir of Baghdad, "the Hanbali founder of the School", which means the Qadiriya. The rest of call 13 is accepted: the founder's name and "one writer has called ironical".
+OLD: His learning in Arabic and Persian was overlaid with an acceptance of the mystical traditions of the people of the subcontinent, an openness that one writer has called ironical, since the creed of the order's Hanbali founder was originally opposed to innovative adjustments of that kind.
+NEW: His learning in Arabic and Persian was overlaid with an acceptance of the mystical traditions of the people of the subcontinent, an openness that one writer has called ironical, since the creed of the Qadiri order's Hanbali founder was originally opposed to innovative adjustments of that kind.
+
+3. (precision) The Saint, judgement call 11. "remembered as" turns a single description into a general memory. The description comes from the title of one life of the saint in the edition's book list. "described as" keeps the phrase and claims no more than that.
+OLD: Accounts of his origins differ, but most tie him to Kasur, and he is remembered as "of Kasur, then of Lahore".
+NEW: Accounts of his origins differ, but most tie him to Kasur, and he is described as "of Kasur, then of Lahore".
+
+4. (precision) Bulleh Shah, the Disciple, judgement call 10, a wrong attribution. In the team version it is "a note to another lyric" that "makes the master a figure from the romance of Heer". The comparison between how Ranjha was treated and how Shah Inayat was treated for his caste is the note's own sentence. The draft gives this reading to the lyric itself. Elsewhere the draft frames the translator's notes as readings ("has been read as", "is read as"), and this one should be framed the same way.
+OLD: One of his lyrics casts the master as Ranjha of the romance of Hir: just as Ranjha was despised by Hir's family, so Shah Inayat was disparaged for being an Arain.
+NEW: One of his lyrics has been read as casting the master as Ranjha of the romance of Hir: just as Ranjha was despised by Hir's family, so Shah Inayat was disparaged for being an Arain.
+
+5. (precision) Bulleh Shah, the Disciple, part of judgement call 7: an author's verdict stated in the narrator's voice. "The times of Shah Enayat and Bulleh Shah were therefore hard times for the Qadiriya order" is the conclusion of an argument in Rafat's book, as its "therefore" shows. The draft frames only the second half of the sentence. Moving the frame lets it cover both halves, and nothing else changes.
+OLD: These were hard times for the Qadiri order: in Aurangzeb's time, it has been argued, the Qadiri mystics of Lahore were on the defensive, careful not to offend an orthodoxy inclined to take severe punitive measures against heretics.
+NEW: These were, it has been argued, hard times for the Qadiri order: in Aurangzeb's time the Qadiri mystics of Lahore were on the defensive, careful not to offend an orthodoxy inclined to take severe punitive measures against heretics.
+
+6. (precision) In Bulleh Shah's Verse: a count the team version does not give. The team version records one play on the name, in a note to one lyric, plus the glossary's meaning "favor". "The poems also play on his name" turns that into a habit of the poems in general.
+OLD: The poems also play on his name: *Inayat* means grace or favour in Arabic.
+NEW: One poem also plays on his name: *Inayat* means grace or favour in Arabic.
+
+7. Rulings on the other judgement calls. All are accepted.
+   - 1: Basis (a) holds. The current account and Shackle both give 1728. Lahori's 1141 AH (printed uncertainly) does not contradict it. Only the editor's later dating does, so not every other source is against the shrine. The editor's argument rests on figures printed uncertainly, and leaving it out is right.
+   - 2: "the one most often named" claims a plurality, and it is true as worded. Three accounts name Shah Raza (the field survey, Lahori and the editor), while Muhammad Ali Raza Shattari, Shah Zia Qadri and Mian Mir's seat have one account each. No chain is built: the outward and inward teachers have a sentence of their own, and nothing is placed under Shah Raza.
+   - 4: The only rival is Abida Parvin's Uch, reported by Abbas. Three accounts tie him to Kasur.
+   - 5: "his wife" in the team version must mean Shah Inayat's wife. The tradition explains friction between the ruler and Shah Inayat, and the ruler's own wife would not explain it. Accepted as drafted.
+   - 6: Lahori and Sharib agree on the substance: Abd al-Hakim declines Bulleh Shah and sends him to Shah Inayat. The joined telling contains no details that conflict. Talamba, which is marked as an uncertain reading, is left out, and "another master" rests on "declined to take Bulleh Shah as his disciple".
+   - 7: Accepted, together with note 5. The sequence of advice, refusal and rejection is supported in the team version itself: the introduction to Rafat's selection reads the break as a rejection "when the latter began to sing his rebuking lines against the orthodoxy". Abbas's "political forces" are not named in the draft either. A reader may link them to the Mughal court, but that link comes from Khaled Ahmad's own framing of the advice ("the political might of the Mughal court"). It is not a new identification.
+   - 8: The flagged word is the object of "practised", not the camouflage phrase. "worked under" keeps Khaled Ahmad's point without depending on that word.
+   - 9: Each of the three strands is framed. The dance is not made the cause of the reunion, and "after this" is not given an antecedent. "He knew that Shah Inayat was fond of music" is Abbas's plain statement.
+   - 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24: Accepted as written. In 14, "the 1870s" is firm from the bibliography's 1875. In 17, "was being completed in 1974" uses the team version's own date. In 21, the narrator's sentence is the team version's own summary of Shackle, and the attributed quotation follows immediately. In 24, the comment "as though it were a grant that could be revoked" is the team version's own.
+   - 25: See the L1 ruling (item 11).
+   - For Rauf, the book list items on pp. 295 and 307: The team version gives both items plainly, so the two phrases are supported as the text stands. Whether they belong to this saint or to the saint of Jhok is Rauf's question. If he rules them out, the phrase in note 3 and the Legacy sentence on 1974 go.
+
+8. Other checks. All passed.
+   - Legends stay framed. The fatwas and the answer: "It is said". The referral: "Tradition holds". The price, the clothes and the horse: "it is said", "the story goes". The wilayat, the sarangi and the reunion: "It is said", "the story continues". The dancing girl: "the most popular tale". The miraculous encounter: "Tradition also tells". Waris Shah and the Qur'an by the age of five: "is said". The Hindu origin doctrine: "it has been argued", "is said to have believed". The wife: "Local tradition".
+   - Rule 4 is followed. The death year, master, order, origin, caste, burial place, name, writings, referral and break each get one clause where they matter, and no variants are listed. Nothing is merged. Shah Ali Raza Faruqi's death year (1141 AH / 1728 CE) is rightly left out, since it would sit beside the saint's own 1728.
+   - No reading the team version marks uncertain or damaged is used. The text has no 1141 AH, no 1150 AH / 1737 CE, no Mohalla Nasbi, no order words or year from Kanhaiya Lal, no Talamba and no haqiqat or haqiqi. It also leaves out the sentence on the murshid's solace, the line from 'The Follower', the line in Roman letters, Bhulla and Chishti's damaged passage.
+   - There is no citation, page or folio reference, narration of a named source, or archive language. The unnamed frames ("one writer", "one translator of Bulleh Shah", "it has been argued", "as has been observed") are the form the brief allows. Muhammad Iqbal Mujaddidi is named as the author of a life of the saint, which is part of the story.
+   - The time anchors are firm: "the 1870s" (Lahori, 1875) and 1974 (the team version's own date). Nothing is anchored to Chishti or Kanhaiya Lal.
+   - I checked all 21 italic renderings by script: each is verbatim from the team version, and each credit matches its book (16 Shackle, 5 Rafat). Every quotation in the prose is verbatim. The glosses (murshid, ʿurs, Hafiz, Sayyid, bai'at, mazar, zikr, qawwali, murid, samaʿ, wilayat) agree with data/glossary.csv or with a plain dictionary sense. The bibliography is complete and in order.
+
+9. Taste only (no change required).
+   - The Overview's second paragraph and the first sentence of Bulleh Shah, the Disciple both say that his acceptance of Bulleh Shah "became one of the most retold episodes in Punjabi Sufi lore".
+   - Two nearby introductions in the verse section both open with "Elsewhere".
+   - "Waris Shah is said to have been a second prominent disciple of this period" comes right after a legend, so "this period" has no clear antecedent. The team version is equally vague here.
+   - "The poet as a saint's disciple is a common figure in Sufi poetry, and one with no counterpart in Western literature" is the translator's verdict in the narrator's voice. The paragraph already carries three frames, so I leave it as it is.
+   - In the qawwals sentence, "singing of the disciple" attaches loosely to "five were narratives". "in which they sang of" would be tidier.
+   - For the Urdu writer: the "gate" and the "door" in the lyrics are figures in the poems (the team version says so of the gate), so do not make them the shrine's gate. "his wife" in the Kasur tradition is Shah Inayat's wife.
+
+10. Omission sweep. I went through the team version section by section: Overview, The Life of the Saint, Bulleh Shah and His Wider Circle, In Bulleh Shah's Verse, Family, The Shrine, Devotion and Practice, Legends and Miracles, the disagreement list and Legacy. Nothing important is missing. Everything obviously important is present:
+   - the family: his father, his wife, two sons by name, a daughter and his descendants;
+   - his teachers, his master and his titles;
+   - his works and his caste;
+   - the move from Kasur, the mosque and the madrasa;
+   - Bulleh Shah's initiation, the break and the return, and Waris Shah;
+   - the verse, the burial and the Auqaf;
+   - the ʿurs and the weekly practice, with their numbers;
+   - the qawwals, the wedding song and the lives of the saint in Urdu.
+   What is left out falls into five kinds:
+   - source apparatus;
+   - rule 4 variants: the editor's later death year, Muhammad Ali Raza Shattari, Shah Zia Qadri, Mian Mir's seat, Uch and Abida Parvin's narration, and Shahrah-e Fatima Jinnah;
+   - readings marked uncertain;
+   - statements of absence;
+   - minor matter: Shah Ali Raza Faruqi's death year, "the contest of his shaykhhood", and the four names whose connection to him is not explained.
+
+11. L1 ruling. The draft has 14,964 characters of prose against the team version's 36,485, a ratio of 0.410. The six precision notes add 20 characters net, which gives 14,984 and a ratio of 0.411. The length stays inside L1, so the exception does not apply and no L1 exception line should be written.

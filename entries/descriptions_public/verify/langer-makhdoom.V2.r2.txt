@@ -1,0 +1,11 @@
+V2 VERDICT: PASS
+V2 ISSUES: none
+V3 VERDICT: PASS
+V3 ISSUES: none
+DIFF: Only the 10 listed changes moved. Applying each OLD -> NEW once to /tmp/claude-0/bak/langer-makhdoom.ur.r1.md (each OLD occurs exactly once there) reproduces the current langer-makhdoom.ur.md byte for byte. The diff has 9 hunks (lines 5, 11, 23, 33, 37, 39, 41, 45, 47), and line 45 carries both [8] and [9]. The file still has no Latin letters, no en or em dash and no Eastern digits, and its asterisks are balanced (2).
+NOTES:
+1. [6] Dropping "خانۂ عدم بھیج دیا گیا، یعنی" loses nothing a reader needs. In the English, "sent to the house of nothingness, that is, put to death" is an idiom followed by its own gloss, and it is not set in quotation marks. The fact it states, that he was put to death, is kept, and "موت کے گھاٹ اتار دیا گیا" is itself a literary idiom, so the register holds. The word "متعین" only spells out "agent at Chiniot" and adds no fact. In principle "چنیوٹ میں متعین" could attach to "سلطان حسین", but متعین is said of an official and not of a sultan, so no reader will take it that way.
+2. [5] "سوہنی مہینوال کی داستان" adds nothing. Sohni and Mahiwal are known only as the lovers of the folk tale, so "the tale of" is definitional, and the sentence already frames it as Punjabi folk culture. Both readings, "[داستان] اور [تخت ہزارہ کی یاد]" and "[داستان اور تخت ہزارہ] کی یاد", give the English sense, and the old misparse "[سوہنی مہینوال اور رانجھے] کے" is gone.
+3. [9] The English lists four orbits evenly. "نہ صرف رسوم و عبادات کے لحاظ سے بلکہ ... بھی" puts slightly more weight on the last three, as the old "کے ساتھ ساتھ ... بھی" did. No fact or certainty changes. This is taste only.
+4. [10] "جبکہ" sets the two named men side by side, as the English "and" does. It does not assert that they are two people, which the article leaves open. "ان سے" and "انہی سے" both still clearly refer to مخدوم عبدالکریم, who is named in the sentence before.
+5. [3] With this change "لنگر" opens two consecutive sentences: "لنگر جنوبی ایشیا میں ... ایک ہے۔ لنگر میں کھانا پکتا ہے". The repetition falls across two sentences, not inside one, and it is the price of removing the ambiguous "یہاں". Merging the sentences would be a matter of taste.

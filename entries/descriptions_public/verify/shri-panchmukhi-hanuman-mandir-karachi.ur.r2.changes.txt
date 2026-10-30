@@ -1,0 +1,115 @@
+1. V3 issue 1 applied
+OLD: وہ سنسکرت رزمیہ رامائن کے ہیرو رام کے جاں نثار خادم ہیں۔
+NEW: وہ سنسکرت کی رزمیہ داستان رامائن کے ہیرو رام کے جاں نثار خادم ہیں۔
+
+2. V2 style note (ہیاگریوا) applied: the honorific plural ہیں sat with the singular روپ, an agreement fault of the kind the brief admits; V2's own wording, which keeps 'the form with the head of a horse'
+OLD: جبکہ ہیاگریوا گھوڑے کے سر والا روپ ہیں۔
+NEW: جبکہ ہیاگریوا کا روپ گھوڑے کے سر والا ہے۔
+
+3. V3 issue 2 applied: the reorder keeps all three festivals, each with its description (Hanuman Jayanti as Hanuman's birth day, Diwali as the festival of lamps, Holi as the spring festival of colours), and 'especially' still governs all three
+OLD: ہنومان کے جنم دن *ہنومان جینتی* پر، اور بہار میں منائے جانے والے رنگوں کے تہوار ہولی اور چراغوں کے تہوار دیوالی پر مندر میں خاص طور پر بہت بھیڑ ہوتی ہے۔
+NEW: ہنومان کے جنم دن *ہنومان جینتی*، چراغوں کے تہوار دیوالی اور بہار میں منائے جانے والے رنگوں کے تہوار ہولی پر مندر میں خاص طور پر بہت بھیڑ ہوتی ہے۔
+
+4. V3 issue 3 applied
+OLD: عقیدت مندوں کی روایت ہے کہ خود رام اپنے بن باس کے برسوں میں اس راستے سے گزرے تھے، اور بہت عرصے بعد اسی جگہ ہنومان کی مورتی برآمد ہوئی، جس پر اسے رکھنے کے لیے یہاں ایک استھان بنایا گیا۔
+NEW: عقیدت مندوں کی روایت ہے کہ خود رام اپنے بن باس کے برسوں میں یہاں سے گزرے تھے، اور بہت عرصے بعد اسی جگہ ہنومان کی مورتی برآمد ہوئی، جسے رکھنے کے لیے وہیں ایک استھان بنایا گیا۔
+
+5. V3 issue 4 applied
+OLD: اور بعض بیانات اسے اس سے بھی پہلے کا بتاتے ہیں۔
+NEW: اور بعض بیانات اسے اس سے بھی قدیم بتاتے ہیں۔
+
+6. V3 issue 5 applied
+OLD: قدامت کے یہ اندازے روایت سے تعلق رکھتے ہیں،
+NEW: عمر کے یہ اندازے روایت پر مبنی ہیں،
+
+7. V3 issue 6 applied
+OLD: جن میں اس کی زمین کے ایک حصے کا ہاتھ سے نکل جانا بھی شامل ہے،
+NEW: جن میں اس کی زمین کے ایک حصے کا ہاتھ سے نکل جانا شامل ہے،
+
+8. V3 issue 7 applied
+OLD: ان دریافتوں اور مندر کی محفوظ حیثیت نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام اور مستحکم کر دیا ہے۔
+NEW: ان دریافتوں اور مندر کو حاصل تحفظ نے قومی اہمیت کے حامل ورثے کی حیثیت سے اس کا مقام مزید مستحکم کر دیا ہے۔
+
+9. V2 note (Bahur, precision) adapted: the English says the river was 'created by' Hanuman's attempt, so the temporal اس وقت ... جب becomes causal as V2 proposed; reworded so that the attempt is named by ہنومان rather than انہوں نے and کے لیے does not occur twice; کہا جاتا ہے still governs the claim
+OLD: دریائے بہور کے بارے میں کہا جاتا ہے کہ وہ اس وقت وجود میں آیا جب ہنومان نے رام کی بیوی سیتا کے لیے پانی لانے کی کوشش کی۔
+NEW: دریائے بہور کے بارے میں کہا جاتا ہے کہ وہ رام کی بیوی سیتا کے لیے پانی لانے کی اس کوشش سے وجود میں آیا جو ہنومان نے کی تھی۔
+
+10. V3 issue 8 applied (also V2 style note on the same clause)
+OLD: اسی راستے پر آگے ہنگلاج کی وادی میں یاتریوں نے ایک ایسے پڑاؤ پر ہنومان کی ایک چھوٹی سی مورتی تک رکھ دی ہے جس کی نسبت متنازع ہے۔
+NEW: اسی راستے پر آگے ہنگلاج کی وادی میں ایک پڑاؤ ہے جس کی نسبت متنازع ہے، اور یاتریوں نے وہاں ہنومان کی ایک چھوٹی سی مورتی تک رکھ دی ہے۔
+
+11. V3 note (stative) applied: رکھی تھی can read as an act of placing; the English 'stood' is a state
+OLD: ہنومان کی سنگِ مرمر کی ایک مورتی رکھی تھی،
+NEW: ہنومان کی سنگِ مرمر کی ایک مورتی رکھی ہوئی تھی،
+
+12. V3 issue 9 applied (also V2 ruling 3 and style note on دو قطبین)
+OLD: راون اور ہنومان معرفت کے دو قطبین کی صورت میں آتے ہیں۔
+NEW: راون اور ہنومان معرفت کے دو قطبوں کی صورت میں سامنے آتے ہیں۔
+
+13. V3 issue 10 applied
+OLD: دونوں نے اپنی شاعری میں کرشن کو جگہ دی اور ہنومان کے حلقے کے نام بھی لیے۔
+NEW: دونوں نے اپنی شاعری میں کرشن کو جگہ دی اور ہنومان کے حلقے کی ہستیوں کے نام بھی لیے۔
+
+14. V3 issue 11 applied
+OLD: سچل رام، ہنومان، سیتا اور خاص طور پر کرشن جیسے ہندو دیوتاؤں کا ذکر کرتے ہیں، اور قطب علی شاہ رام کے بھائی لکشمن کے ساتھ سیتا، رام اور کرشن کے نام لیتے ہیں۔
+NEW: سچل کے ہاں رام، ہنومان، سیتا اور خاص طور پر کرشن جیسے ہندو دیوتاؤں کا ذکر ملتا ہے، اور قطب علی شاہ کے ہاں رام کے بھائی لکشمن کے ساتھ سیتا، رام اور کرشن کے نام آتے ہیں۔
+
+15. V3 issue 12 applied
+OLD: یہ مندر جس شہر میں ہے، وہ کراچی کبھی کولاچی نام کا گاؤں تھا۔
+NEW: کراچی، جہاں یہ مندر واقع ہے، کبھی کولاچی نام کا ایک گاؤں تھا۔
+
+16. V3 issue 13 applied
+OLD: آرام باغ کا مندر لاہور کے مقابلے میں کہیں زیادہ آراستہ تھا اور اس کی برادری بھی کہیں بڑی تھی، اور وہاں کے ایک عہدیدار کا کہنا تھا کہ یہ مندر تقسیم سے پہلے بھی موجود تھا۔
+NEW: آرام باغ کا مندر لاہور کے مقابلے میں کہیں زیادہ آراستہ تھا اور اس کی برادری بھی کہیں بڑی تھی۔ وہاں کے ایک عہدیدار کا کہنا تھا کہ یہ مندر تقسیم سے پہلے بھی موجود تھا۔
+
+17. V2 style note (اب بھی) adapted: اب بھی with a past verb can read as 'now'; بدستور instead of V2's تب بھی / اس وقت بھی, because the sentence already opens with اکیسویں صدی کے اوائل میں; renders the English 'still lived'
+OLD: ہندوؤں کی معقول تعداد اب بھی آباد تھی
+NEW: ہندوؤں کی معقول تعداد بدستور آباد تھی
+
+18. V2 ruling 2 applied: بہاولنگر, the official district spelling, as the dictionary writes بہاولپور
+OLD: بہاول نگر
+NEW: بہاولنگر
+
+19. V2 issue 1 and V3 issue 14 merged: V3's sentence already carries V2's exact fix (مسلمان بزرگوں کے مزاروں پر ہندو جاتے), so Hindus stay the only visitors and the shrines stay Muslim; V3's split of the 1940 observation and مشاہدہ کیا گیا applied
+OLD: بڑے پیمانے پر قبولِ اسلام کے بعد کی صدیوں میں ہندو مسلمان بزرگوں کے مزاروں پر جاتے اور منتیں مان کر نذر نیاز چڑھاتے تھے، اور 1940 میں یہ مشاہدہ سامنے آیا کہ سندھ کے بیشتر موسیقار مسلمان نہیں بلکہ ہندو رہے تھے۔
+NEW: بڑے پیمانے پر قبولِ اسلام کے بعد کی صدیوں میں مسلمان بزرگوں کے مزاروں پر ہندو جاتے اور منتیں مان کر نذر نیاز چڑھاتے تھے۔ 1940 میں یہ مشاہدہ کیا گیا کہ سندھ کے بیشتر موسیقار مسلمان نہیں بلکہ ہندو رہے تھے۔
+
+20. V3 issue 15 adapted: kept بحری، ہوائی یا ریل کے راستے and removed the double کے, but kept انخلا ... شروع ہوا, because the English says the Hindu Sindhis 'started leaving especially after' the riots (V3's زور پکڑا turns 'began' into 'intensified'); wrote جنوری 1948 میں کراچی کے فسادات rather than V3's کراچی میں جنوری 1948 کے فسادات, so that خاص طور پر کراچی میں cannot read as 'especially in Karachi'
+OLD: نومبر 1947 کے اوائل تک 246,000 ہندو سمندر، ہوا یا ریل کے راستے سندھ چھوڑ چکے تھے، اور ہندو سندھیوں کا انخلا خاص طور پر جنوری 1948 کے کراچی کے فسادات کے بعد شروع ہوا۔
+NEW: نومبر 1947 کے اوائل تک 246,000 ہندو بحری، ہوائی یا ریل کے راستے سندھ چھوڑ چکے تھے، اور ہندو سندھیوں کا انخلا خاص طور پر جنوری 1948 میں کراچی کے فسادات کے بعد شروع ہوا۔
+
+21. V3 note (repetition) applied: مختلف twice in one sentence, a fault the Urdu brief lists; the hedge stays as بیانات میں اختلاف ہے
+OLD: اس بارے میں بیانات مختلف ہیں کہ سندھ میں مختلف مذاہب
+NEW: اس بارے میں بیانات میں اختلاف ہے کہ سندھ میں مختلف مذاہب
+
+22. V3 issue 16 adapted: the figure is written in words (ساٹھ لاکھ سے ایک کروڑ), not with V3's new digit 60, which the English lacks; the hedge بتائی جاتی ہے and the clause اگرچہ اندازوں میں بڑا فرق ہے stay with the figure; V3's split and ان ہندوؤں کی اکثریت applied
+OLD: پاکستان میں ہندوؤں کی تعداد 6 سے 10 ملین کے درمیان بتائی جاتی ہے، اگرچہ اندازوں میں بڑا فرق ہے، اور ان میں سے بیشتر محروم قبائل اور ذاتوں سے تعلق رکھتے ہیں۔
+NEW: پاکستان میں ہندوؤں کی تعداد ساٹھ لاکھ سے ایک کروڑ کے درمیان بتائی جاتی ہے، اگرچہ اندازوں میں بڑا فرق ہے۔ ان ہندوؤں کی اکثریت محروم قبائل اور ذاتوں سے تعلق رکھتی ہے۔
+
+23. V3 issue 17 applied
+OLD: شری پنچمکھی ہنومان مندر پاکستان کے ہندو مقدس مقامات میں ایک منفرد مقام رکھتا ہے۔
+NEW: شری پنچمکھی ہنومان مندر پاکستان کے ہندو مقدس مقامات میں ایک منفرد حیثیت رکھتا ہے۔
+
+24. V3 issue 18 adapted: V3 is right that پیدا ہوئی does not sit with a مورتی, but its ظاہر ہوئی renders 'manifested', while the English here says 'born of itself'; جنم لینا, the Urdu idiom for a thing coming to birth, keeps the English word and fixes the collocation; مانی جاتی ہے keeps 'is held to be', and the sentence now runs اس کی مرکزی مورتی ..., اس کی روایات ..., اور اس کی مٹی ... without a pronoun for the image
+OLD: اس کی مرکزی مورتی کے بارے میں مانا جاتا ہے کہ وہ خود بخود پیدا ہوئی،
+NEW: اس کی مرکزی مورتی خود بخود جنم لینے والی مانی جاتی ہے،
+
+25. V3 issue 19 applied
+OLD: دور کے ماضی سے جڑے رہنے کا وسیلہ
+NEW: ماضیِ بعید سے جڑے رہنے کا وسیلہ
+
+Not applied:
+- V3 note 1 (two یعنی in the Overview sentence): taste; V2 accepted the یعنی clause as the content of the devotees' belief, and the gloss of سوینبھو stays next to the term.
+- V3 note 2 (عوامی ہندو مت -> عام ہندوؤں کے): taste, and it would change 'popular Hinduism' into 'ordinary Hindus'.
+- V3 note 3 (رخ / جانب): taste.
+- V3 note 4 (پنچمکھی / پنچمکھ): the English itself has two forms, 'panchmukhi' and 'Panchamukha'; kept.
+- V3 note 5 (ایمان -> عقیدہ): taste; ماننے والوں کا ایمان renders 'the faithful hold'.
+- V3 note 6 (داستانوں میں لپٹی ہوئی): taste.
+- V3 note 7, first half (متعدد مزید -> مزید کئی): taste; the stative رکھی ہوئی تھی from the same note is applied.
+- V3 note 8 (Lahore comparison): V3 itself left it, and the English leaves it open.
+- V3 note 9 (دیواری تصویر / دیواروں پر بنی تصویروں): taste.
+- V3 note 10 (شعر کہتا ہے): taste; it renders 'the verse says'.
+- V3 note 11 (مہاجر / پناہ گزین): the English itself uses two terms, 'Mohajirs' and 'Muslim refugees'.
+- V3 note 13 (فتح کر کے زیرِ نگیں): taste.
+- V2 'also checked' items (اسی زمانے میں, ہوتا تھا, اکثر, the Overview یعنی clause): V2 accepted them; no change.
+- V2 ruling 2 (منگھو پیر / منگھوپیر): V2 says it is fine as written; the dictionary writes پیر منگھو with a space.

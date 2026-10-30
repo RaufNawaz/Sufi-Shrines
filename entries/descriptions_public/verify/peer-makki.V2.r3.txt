@@ -1,0 +1,12 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Confirming round 3 (V2 fidelity, changed sentences only), against entries/descriptions_public/peer-makki.md as the authority.
+
+Replay: the 1 OLD/NEW pair of verify/peer-makki.ur.r3.changes.txt was applied to /home/claude/bak/peer-makki.ur.md.bak_ur2 (md5 ee9f23c1, the same file the round 2 reports confirmed), the OLD found exactly once and replaced once; the result is byte for byte identical to the current peer-makki.ur.md (md5 14aa3d2a, 16928 bytes). Nothing else moved.
+
+Checker: python3 pipeline/book_queue/check_public_description.py peer-makki --no-verdicts printed: ok    peer-makki  team 24647 -> public 10068 chars (0.41), Urdu 9605 chars (0.95) (exit 0). The file has no Latin letters and no en or em dashes.
+
+Change 1 (Overview, para 2; V3 r2 issue 1): English: Despite its nearness to one of Pakistan's most visited shrines, Peer Makki's own tomb receives markedly fewer pilgrims. The NEW Urdu keeps every element: the concession (despite) as پھر بھی, one of Pakistan's most visited shrines as ان درگاہوں میں سے ایک ... جہاں سب سے زیادہ زائرین آتے ہیں, the great neighbour left unnamed as in the English, own as خود پیر مکی کے مقبرے, and fewer pilgrims as حاضری دینے والے کہیں کم ہیں. حاضری دینے والے means the people who come to pay their respects at a shrine, which is exactly pilgrims here; dropping تعداد changes no fact, since کم ہیں of people is fewer. کہیں کم for markedly was already judged acceptable in round 2 and is unchanged. The referent is right (Peer Makki's own tomb, not the neighbouring shrine), and nothing is added. Faithful.
+
+No change adds or drops a fact, name, number, hedge or qualifier.

@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the 11 changes in shaktipeeth-shri-hinglaj-mata-mandir.ur.r3.changes.txt; every NEW sentence is grammatical and reads naturally in its paragraph ("یاتری دیوی کی عطا تھے" agrees, "ساری اولاد ... آئے گی" agrees, the landslide clause, "عین ہنگلاج میں", "برسوں سے", "مندر میں", "مستقل حصہ" and "دیوی خود ہجوم سے اکتا کر" are all idiomatic, and "ملک بھر کے" no longer suggests local channels watched nationwide); taste only: حادثوں sits more usually with شکار than with مبتلا, so "یاتریوں کو حادثوں اور بیماریوں کا شکار بنا کر" is a possible polish, but the current wording is clear and acceptable.

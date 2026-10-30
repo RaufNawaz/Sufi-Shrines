@@ -1,0 +1,37 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: He was summoned to the city by the emperor Jahangir over his part in the rebellion of Prince Khusrau, the emperor's son; he appointed Hargobind as the sixth Guru, and was then martyred.
+NEW: He was summoned to the city by the emperor Jahangir over his role during the rebellion of Prince Khusrau, the emperor's son; he appointed Hargobind as the sixth Guru, and was then martyred.
+
+2. V1 r1 change 2
+OLD: in what was the *haveli*, the mansion, of the Mughal Diwan of Lahore, and that there he was immersed in a cauldron.
+NEW: in what was the *haveli*, the mansion, of the Mughal Diwan of Lahore, and that he was immersed in a cauldron.
+
+3. V1 r1 change 3
+OLD: The Guru had a *baoli* sunk at this spot to provide water for the people of the quarter.
+NEW: In that tradition, the Guru had a *baoli* sunk at this spot to provide water for the people of the quarter.
+
+4. V1 r1 change 4
+OLD: Tradition at the gurdwara holds that it suffered in the turbulence of the eighteenth century, when it was filled in and built over during the governorship of Nawab Yahya Khan, at the instigation of Diwan Jaspat Rai.
+NEW: It is said that the well suffered in the turbulence of the eighteenth century, when it was filled in and built over during the governorship of Nawab Yahya Khan, at the instigation of Diwan Jaspat Rai.
+
+5. V1 r1 change 5
+OLD: In the 1880s a Sikh with a white beard, Bhai Khazan Singh, was appointed to the service and care of the building.
+NEW: In the 1880s the building's serving officer was a Sikh with a white beard, Bhai Khazan Singh, appointed to its service and care.
+
+6. V1 r1 change 6
+OLD: Shops on both sides of the bazaar belonged to the building, and the enclosure itself served the bazaar as a warehouse:
+NEW: Shops belonged to the building, and the enclosure itself served the bazaar as a warehouse:
+
+7. V1 r1 change 7
+OLD: In 1799 he was greeted with enthusiasm by a population sick of the lawlessness of that time, and the whole region of the Punjab came under his rule.
+NEW: In 1799 he was greeted with enthusiasm by a population sick of the lawlessness of that time. The whole region of the Punjab came under his rule.
+
+8. V1 r1 change 8
+OLD: A Persian couplet belongs to the fort of Lahore.
+NEW: A Persian couplet is tied to a scene at the fort of Lahore.
+
+9. V1 r1 change 9
+OLD: Tradition sets the loss of the well in the turbulence of the eighteenth century, and the poets of that century in the Punjab wrote of its ruin.
+NEW: The well is said to have been lost in the turbulence of the eighteenth century, and the poets of that century wrote of the ruin of the Punjab.

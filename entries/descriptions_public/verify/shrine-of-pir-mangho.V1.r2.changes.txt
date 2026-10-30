@@ -1,0 +1,37 @@
+# shrine-of-pir-mangho: English changes after V1 round 1 (PASS, ISSUES: none). Precision notes 1 to 9 applied in the verifier's wording; note 10 (checks) needs no change; note 11 (length) handled by the L1 exception line in the notes, as V1 proposed. Backup: /home/claude/bak/shrine-of-pir-mangho.before_v1r2.md
+
+WHY: V1 r1 note 1 (attribution: the name rests on the current site text, not on the custodians); verifier's wording
+OLD: Accounts differ over whom the shrine honours, but the shrine itself names its saint Pir Mangho, Hazrat Haji Syed Sakhi Sultan.
+NEW: Accounts differ over whom the shrine honours; it is known as the shrine of Pir Mangho, Hazrat Haji Syed Sakhi Sultan.
+
+WHY: V1 r1 note 2 (precision: only the titles are glossed); verifier's wording
+OLD: Each part of that name carries a meaning:
+NEW: The titles in that name carry meanings:
+
+WHY: V1 r1 note 3 (generalisation: one informant's naming; 'simply' is not the source's); verifier's wording
+OLD: He is also known by what lives in his pool. One man, speaking of the big Sheedi gathering at the shrine, called him simply "the pir of the crocodiles".
+NEW: To one man, speaking of the big Sheedi gathering at the shrine, he was "the pir of the crocodiles".
+
+WHY: V1 r1 note 4 (precision: the source does not say Chandrakup has hot springs); verifier's wording
+OLD: The springs are a natural phenomenon: like those at Chandrakup, they are one of the thermal phenomena found along the same anticline, an upward fold in the layers of rock.
+NEW: The springs are a natural phenomenon, one of several thermal sites along the same anticline as Chandrakup, an anticline being an upward fold in the layers of rock.
+
+WHY: V1 r1 note 5 (precision: 'surrounding' is not in the source); verifier's wording
+OLD: The name Mangho Pir belongs to the surrounding locality as well, which was home to a leper asylum.
+NEW: Mangho Pir is also the name of the locality, which was home to a leper asylum.
+
+WHY: V1 r1 note 6 (embellishment: 'still'); verifier's wording
+OLD: Some of them are still attached to the feudal households of Sindh,
+NEW: Though free, some of them are attached to the feudal households of Sindh,
+
+WHY: V1 r1 note 7 (precision: 'together with' implied joint performance); verifier's wording
+OLD: In Sindh the Sheedis, together with the Manganhar musicians, perform
+NEW: In Sindh the Sheedis and the Manganhar musicians perform
+
+WHY: V1 r1 note 8 (the narrator's 'here' came from the informant's speech); verifier's wording
+OLD: and here too they were set free when slavery was abolished.
+NEW: and in Sindh too they were set free when slavery was abolished.
+
+WHY: V1 r1 note 9 (coherence: the Legacy's Hinglaj link had no antecedent; the team version supports it); verifier's wording
+OLD: that story has led to the suggestion that the shrine was once associated with him.
+NEW: that story has led to the suggestion that the shrine was once associated with him, an association that would tie the shrine to the Hindu pilgrimage to Hinglaj.

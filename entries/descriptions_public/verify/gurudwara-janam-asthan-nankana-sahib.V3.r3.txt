@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the six sentences in gurudwara-janam-asthan-nankana-sahib.ur.r3.changes.txt; each reads grammatically and idiomatically in its paragraph, "ایک شفا یابی" no longer points back to a cure that was never mentioned, and "بہتّر" now carries its tashdid. Taste note: the embedded relative clause "بھائی مردانہ کو، جو آگے چل کر ان کے ہم سفر رہے، ساتھ لے کر" is a little heavy but entirely natural, and "ان" clearly refers to Nanak.

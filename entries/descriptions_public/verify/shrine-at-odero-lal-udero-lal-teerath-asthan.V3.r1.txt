@@ -1,0 +1,81 @@
+VERDICT: FAIL
+ISSUES:
+1. [ambiguous relative clause] "ان کا ایک نام زندہ پیر بھی ہے جس کی تعظیم دونوں برادریاں کرتی ہیں" -> "جس کی" attaches to the nearest noun, نام, so the sentence says the name, not the saint, is venerated -> make the saint the object of تعظیم and keep the name as the form under which both revere him.
+OLD: مسلمانوں کے نزدیک یہی بزرگ شیخ طاہر نام کے ولی ہیں، اور ان کا ایک نام زندہ پیر بھی ہے جس کی تعظیم دونوں برادریاں کرتی ہیں۔
+NEW: مسلمانوں کے نزدیک یہی بزرگ شیخ طاہر نام کے ولی ہیں۔ انہیں زندہ پیر بھی کہا جاتا ہے، اور اس نام سے دونوں برادریاں ان کی تعظیم کرتی ہیں۔
+
+2. [elliptical English structure] "اور دریائے سندھ کے پانیوں کے اس احترام کی بھی" -> English "one of the symbols of X, and of Y"; in Urdu the second "کی بھی" hangs without its head noun and the reader has to supply علامت -> restore the noun.
+OLD: یہ مقام سندھ کی مشترکہ مذہبی ثقافت کی بڑی زندہ علامتوں میں سے ایک ہے، اور دریائے سندھ کے پانیوں کے اس احترام کی بھی جو سندھ کی دونوں روایتوں میں یکساں پایا جاتا ہے۔
+NEW: یہ مقام سندھ کی مشترکہ مذہبی ثقافت کی بڑی زندہ علامتوں میں سے ایک ہے، اور دریائے سندھ کے پانیوں کے اس احترام کی علامت بھی جو سندھ کی دونوں روایتوں میں یکساں پایا جاتا ہے۔
+
+3. [repetition] "چیٹی چنڈ پر ان کی پیدائش کا جشن مناتے ہیں ... اور اسی دن کو جھولے لال کا جنم دن مانا جاتا ہے" -> the same fact (Cheti Chand is his birthday) is stated twice in consecutive sentences -> merge into one sentence that keeps the celebration, the birthday and the new year.
+OLD: سندھی ہندو آج بھی چیٹی چنڈ پر ان کی پیدائش کا جشن مناتے ہیں۔ اس تہوار سے سندھی نئے سال کا آغاز ہوتا ہے، اور اسی دن کو جھولے لال کا جنم دن مانا جاتا ہے۔
+NEW: سندھی ہندو آج بھی چیٹی چنڈ کو ان کا جنم دن مان کر اس کا جشن مناتے ہیں، اور اسی تہوار سے سندھی نئے سال کا آغاز ہوتا ہے۔
+
+4. [redundancy, afterthought word order, gloss of a familiar word] "کسی اور جگہ کے ایک دوسرے بزرگ کو بھی دیا گیا ہے، یعنی سیہون کے قلندر شاہ لعل باز کو۔ قلندر سے مراد سیلانی درویش ہے۔" -> "اور" and "دوسرے" say the same thing twice; the name is tacked on after the verb in English order; and قلندر needs no gloss for a Pakistani reader -> one clean sentence.
+OLD: اڈیرو لال کا نام کسی اور جگہ کے ایک دوسرے بزرگ کو بھی دیا گیا ہے، یعنی سیہون کے قلندر شاہ لعل باز کو۔ قلندر سے مراد سیلانی درویش ہے۔
+NEW: اڈیرو لال کا نام ایک اور مقام کے بزرگ، یعنی سیہون کے قلندر شاہ لعل باز کو بھی دیا گیا ہے۔
+
+5. [calque, unidiomatic collocation] "خضر کو زیادہ تر اڈیرو لال ہی کے ساتھ یکجا کیا جاتا ہے" -> "یکجا کرنا" means to gather or assemble; "کے ساتھ یکجا کیا جانا" is a word-for-word "conflated with" -> say plainly that the two are taken as one figure.
+OLD: اور سندھ میں خضر کو زیادہ تر اڈیرو لال ہی کے ساتھ یکجا کیا جاتا ہے۔
+NEW: اور سندھ میں خضر اور اڈیرو لال کو زیادہ تر ایک ہی ہستی سمجھا جاتا ہے۔
+
+6. [izafat] "مابعدالطبیعیاتی نظریے وحدت الوجود" -> the doctrine's name follows نظریہ without izafat, which reads as a broken phrase; the standard form is نظریۂ وحدت الوجود.
+OLD: شیخ طاہر ابن عربی کے مابعدالطبیعیاتی نظریے وحدت الوجود کے سب سے پرجوش حامیوں میں سے تھے۔
+NEW: شیخ طاہر ابن عربی کے مابعدالطبیعیاتی نظریۂ وحدت الوجود کے سب سے پرجوش حامیوں میں سے تھے۔
+
+7. [ambiguous pronoun] "اور وہ اس کے پیچھے دوڑ پڑے" -> the nearest antecedent of "اس" is خدا, so the sentence reads "he ran after God" rather than after the camel -> name the camel.
+OLD: کہا جاتا ہے کہ انہیں اونٹ میں بھی خدا دکھائی دیا اور وہ اس کے پیچھے دوڑ پڑے۔
+NEW: کہا جاتا ہے کہ انہیں اونٹ میں بھی خدا دکھائی دیا اور وہ اونٹ کے پیچھے دوڑ پڑے۔
+
+8. [tangled sentence] "یہ وہ زمانہ تھا جب انیسویں صدی کے اواخر اور بیسویں صدی کے اوائل میں" -> "وہ زمانہ تھا جب ... میں" names the time twice, once as زمانہ and again as a "میں" phrase inside the relative clause -> fold the dates into زمانہ.
+OLD: یہ وہ زمانہ تھا جب انیسویں صدی کے اواخر اور بیسویں صدی کے اوائل میں جھولے لال کے نام پر ایک مرکزی پنتھ قائم کرنے کی کوشش ہو رہی تھی۔
+NEW: یہ انیسویں صدی کے اواخر اور بیسویں صدی کے اوائل کا وہ زمانہ تھا جب جھولے لال کے نام پر ایک مرکزی پنتھ قائم کرنے کی کوشش ہو رہی تھی۔
+
+9. [calque] "ایک دوسرے سے زیادہ سے زیادہ مشابہ ہوتی گئی ہیں" -> "زیادہ سے زیادہ" means "at most" or "as much as possible" in Urdu, not "more and more"; with رفتہ رفتہ and "ہوتی گئی" the increase is already expressed.
+OLD: گرو نانک اور جھولے لال کی تصویریں بھی رفتہ رفتہ ایک دوسرے سے زیادہ سے زیادہ مشابہ ہوتی گئی ہیں۔
+NEW: گرو نانک اور جھولے لال کی تصویریں بھی رفتہ رفتہ ایک دوسرے سے زیادہ مشابہ ہوتی گئی ہیں۔
+
+10. [wrong postposition, ambiguous pronoun] "خواجہ خضر کی عقیدت ... اور مسلمان و ہندو دونوں اسے مانتے تھے" -> "خضر کی عقیدت" means Khizr's own devotion (devotion to him is "خضر سے عقیدت"), and "اسے مانتے تھے" can point to خضر, the river or the devotion -> use تعظیم and say both communities took part in it.
+OLD: سندھ میں خواجہ خضر کی عقیدت دریائے سندھ کی پرستش سے جڑی ہوئی تھی اور مسلمان و ہندو دونوں اسے مانتے تھے؛ خضر کو زندہ پیر کہا جاتا تھا۔
+NEW: سندھ میں خواجہ خضر کی تعظیم دریائے سندھ کی پرستش سے جڑی ہوئی تھی اور مسلمان و ہندو دونوں اس میں شریک تھے؛ خضر کو زندہ پیر کہا جاتا تھا۔
+
+11. [calque] "دریائے سندھ کے دیوتا کے ساتھ ایک سمجھا جانے لگا" -> "کے ساتھ ایک سمجھنا" is English "identified with"; Urdu says someone came to be taken as the other.
+OLD: اور عوامی عقیدے میں انہیں پانیوں کی روح اور دریائے سندھ کے دیوتا کے ساتھ ایک سمجھا جانے لگا۔
+NEW: اور عوامی عقیدے میں انہیں پانیوں کی روح اور دریائے سندھ کا دیوتا ہی سمجھا جانے لگا۔
+
+12. [detached relative clause, near-tautology] "دریا دیوتا کے تقدس پر تھا، جو پانیوں کا دیوتا ہے" -> "جو" stands after "تقدس پر تھا" and so reaches back past تقدس, and "the river god, who is the god of waters" reads as a gloss of itself -> put the description before the name, with the postposition attached.
+OLD: سندھ کے دریا پنتھیوں کا ایمان دریا دیوتا کے تقدس پر تھا، جو پانیوں کا دیوتا ہے، اور اس عقیدے نے ہندو اور مسلمان دونوں کو متاثر کیا۔
+NEW: سندھ کے دریا پنتھیوں کا ایمان پانیوں کے دیوتا، یعنی دریا دیوتا کے تقدس پر تھا، اور اس عقیدے نے ہندو اور مسلمان دونوں کو متاثر کیا۔
+
+13. [ambiguous word order] "ہندو مسلمانوں کے مزاروں پر جاتے" -> "ہندو مسلمان" is the fixed pair "Hindus and Muslims", so the reader first parses "the shrines of Hindu-Muslims" and loses the subject -> move the subject after the place phrase.
+OLD: ہندو مسلمانوں کے مزاروں پر جاتے اور وہاں منت کے چڑھاوے چڑھاتے تھے، اور سندھ کے وسیع تر علاقے میں آج بھی دریائے سندھ کو نذریں پیش کی جاتی ہیں۔
+NEW: مسلمانوں کے مزاروں پر ہندو جاتے اور وہاں منت کے چڑھاوے چڑھاتے تھے، اور سندھ کے وسیع تر علاقے میں آج بھی دریائے سندھ کو نذریں پیش کی جاتی ہیں۔
+
+14. [English adjective stacking] "قرآنی دریائی ولی خضر" -> two stacked adjectives before a name is English order ("the Quranic river saint Khizr"); it also breaks the parallel with "ہندوستانی روایت کا مچھلی دیوتا".
+OLD: لال کی ہستی میں قرآنی دریائی ولی خضر اور ہندوستانی روایت کا مچھلی دیوتا ایک دوسرے سے آ ملتے ہیں۔
+NEW: لال کی ہستی میں قرآنی روایت کے دریائی ولی خضر اور ہندوستانی روایت کا مچھلی دیوتا ایک دوسرے سے آ ملتے ہیں۔
+
+15. [calque] "مرد دیوتا" -> English "a male deity"; دیوتا is already masculine (the feminine is دیوی), so "مرد" reads oddly to an Urdu reader.
+OLD: پورٹ گرینڈ میں ایک مندر کی دیوار پر بنی تصویر میں مرد دیوتا کو بہت بڑی مچھلی پر بیٹھے دکھایا گیا ہے اور نیچے پانی ہے۔
+NEW: پورٹ گرینڈ میں ایک مندر کی دیوار پر بنی تصویر میں ایک دیوتا کو بہت بڑی مچھلی پر بیٹھے دکھایا گیا ہے، اور نیچے پانی ہے۔
+
+16. [English apposition] "یہ جھولے لال ہیں، وہ مشہور ہندو دیوتا جن کی" -> "This is Jhulelal, the famous Hindu god who..." rendered word for word; "وہ مشہور ہندو دیوتا" dangles as a fragment after the comma.
+OLD: یہ جھولے لال ہیں، وہ مشہور ہندو دیوتا جن کی بعض مسلم روایات میں بھی تعظیم کی جاتی ہے۔
+NEW: یہ مشہور ہندو دیوتا جھولے لال ہیں، جن کی بعض مسلم روایات میں بھی تعظیم کی جاتی ہے۔
+
+17. [inconsistent spelling, repetition] "اوڈیرو لال کا مقام ... مشترک انسانیت ... مشترک عقیدت" -> the opening gives both spellings and the whole body then uses اڈیرو (including the very next sentence), so اوڈیرو here is inconsistent; and مشترک comes twice in one sentence.
+OLD: اوڈیرو لال کا مقام رواداری اور مشترک انسانیت کی علامت بن کر قائم رہا ہے، اور یہ ایک ہی بزرگ اور ایک ہی مقدس دریا سے مشترک عقیدت کی جگہ ہے۔
+NEW: اڈیرو لال کا مقام رواداری اور مشترک انسانیت کی علامت بن کر قائم رہا ہے، اور یہ ایک ہی بزرگ اور ایک ہی مقدس دریا سے سانجھی عقیدت کی جگہ ہے۔
+
+NOTES:
+- Opening: "جسے دونوں مل کر استعمال کرتے ہیں" is flat for a place of worship, and "مل کر" suggests a cooperation that the section on the divided management contradicts; "جس میں دونوں شریک ہیں" would read better.
+- "اور اسے ایک سے زیادہ طرح سے سنایا جاتا ہے" could be "اور اس کی کئی روایتیں ہیں".
+- "آسمان سے ایک آواز آئی۔ آواز نے حکم دیا کہ" repeats آواز; "تو آسمان سے آواز آئی کہ" is the idiomatic form.
+- "باقاعدگی سے تنازعات اٹھتے رہتے ہیں" is a calque of "regularly"; "آئے دن" would be idiomatic but slightly shifts the frequency, so left as taste.
+- "مندر چلاتے تھے" is colloquial; "مندر کا انتظام سنبھالتے تھے" is more polished.
+- "دربار میں بہت بڑا پوسٹر" reads better with "ایک بہت بڑا پوسٹر".
+- "دریا کا ایک الگ مقام تھا": in an article where مقام means "site" throughout, "دریا کو ایک امتیازی حیثیت حاصل تھی" would avoid a momentary misreading.
+- Glosses of fairly familiar terms remain: خواجہ خضر as "پانیوں سے وابستہ وہ رہنما ہیں جنہیں موت نہیں آتی", ناتھ پنتھ as "ناتھ جوگیوں کا مسلک", and نانک پنتھ glossed twice (once in the festivals section, again as "گرو نانک کے راستے پر چلنے والے نانک پنتھی" in the legacy section). The second نانک پنتھ gloss could go.
+- "سب سے بڑھ کر" appears in two consecutive paragraphs of the closing sections.
+- "سندھی ورثے پر نرمی سے ہندو رنگ چڑھانے" is understandable but stiff.

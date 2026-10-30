@@ -1,0 +1,15 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- "سلطان محمود کی دوسری مہم کے دوران اس کے سپاہی اس موسم میں ملتان کی گرم ہوا برداشت نہ کر سکے" -> the sentence before names three things (سردی، گرمی، بارش), so "اس موسم میں" does not point clearly to one of them. "گرم ہوا" makes the meaning plain enough, but "گرمی کے موسم میں" would remove the hesitation.
+- "ان اولیاء میں سے ہر ایک کا مزار انوارِ الٰہی کی جلوہ گاہ اور عوام کی زیارت گاہ تھا" -> the second half of the sentence ("کہا جاتا تھا کہ") marks the chronicle's voice, but the first half still reads as the article's own claim. Opening with "اس تاریخ کے بقول" would make it clear whose words these are.
+- "تبلیغی جماعت کے ایک پیروکار" -> "پیروکار" is the usual word for followers of a religion or a person; with a جماعت, "رکن" or "کارکن" is more natural.
+- "ملتان مصر کے فاطمیوں کا تابع بنا" -> "فاطمیوں کے تابع ہو گیا" is the more idiomatic construction.
+- "ان تمام روایات میں سے کوئی بھی اپنے شمس کو شاہ شمس سبزواری قرار نہیں دیتی" -> "اپنے شمس" is a little loose, as if translated from 'its Shams'. "ان میں سے کوئی روایت بھی اپنے ذکر کردہ شمس کو ..." would be tighter.
+- The introduction has two sentences in a row that open with "وہ" ("وہ شاہ شمس یا پیر شمس ... وہ تیرہویں صدی کے بزرگ تھے"). They could be joined: "وہ شاہ شمس یا پیر شمس کے نام سے بھی معروف ہیں اور تیرہویں صدی کے بزرگ تھے۔"
+- "قدیم ترین" appears again and again (قدیم ترین زیارت گاہوں، قدیم ترین درباروں، سب سے قدیم), as do "مشہور / شہرت / شہرہ". Some of this comes with the subject, but a little variation would help.
+- "ملاؤں نے" can carry a pejorative tone in Urdu. If the source is neutral, "علماء نے" or "مولویوں نے" would be gentler, but that is a question of tone and what the source intends, not of correctness.
+- "مبلغ اور داعی" are still near-synonyms, and "رنگا رنگ روحانی شخصیات" still reads a little like a translation. Both are acceptable.
+- Years are still written without "ء" (711 میں، 1175 میں). This is consistent within the article.

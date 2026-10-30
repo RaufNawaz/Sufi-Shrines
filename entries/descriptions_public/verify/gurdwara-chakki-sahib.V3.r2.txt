@@ -1,0 +1,14 @@
+VERDICT: FAIL
+ISSUES:
+1. [new ambiguity, introduced by change 5; same fix as V2 issue 1, apply once] "اس دور میں پنجاب کے صوفیوں میں شاہ آباد کے شیخ عبدالقدوس گنگوہی، ان کے مرید تھانیسر کے شیخ جلال اور قادری بزرگ شامل تھے، جنہوں نے اس خطے کو اپنی سرگرمیوں کا سب سے بڑا مرکز بنا لیا تھا۔" -> a relative clause placed after the verb of a sentence whose subject is a list is read as qualifying the whole list (as in اس جلسے میں وزیرِ اعظم، وزیرِ خارجہ اور کئی سفیر شامل تھے، جنہوں نے ...), so the Urdu reader takes all three, not only the Qadiris, as having made the region their centre. The correlative وہ ... جنہوں نے is the natural Urdu way to bind the clause to its noun.
+OLD: اور قادری بزرگ شامل تھے، جنہوں نے اس خطے کو
+NEW: اور وہ قادری بزرگ شامل تھے جنہوں نے اس خطے کو
+
+NOTES:
+- Round 1 issues: all six are fixed. 1 (وعظ ... تھا, change 8), 2 (نانک بڑے سکون سے, change 4), 3 (سیاح and مؤرخ both singular, اور اس دوران removed, change 3), 4 (اب removed, میں بھی, change 2), 5 (معظم replaced by بڑی تعظیم کرتے ہیں, change 10), 6 (the Legacy sentence no longer repeats the intro sentence; change 9 recasts it as چکی کی یاد ہو یا ... دونوں کا امین ہے, and naming the gurdwara in place of یہ گوردوارہ is an improvement after a paragraph about other gurdwaras). The round 1 note on سرچشمۂ تحریک is applied (change 6).
+- Every other new sentence is grammatical and fits its neighbours. Agreement checked: گوردوارہ چکی صاحب ... امین ہے and the following یہ ... جوڑتا ہے (masculine); زمین ... تھی; مؤرخ ... تھا ... لے گیا; وعظ ... تھا. Change 2's میں بھی cannot read as "also", since it opens the section.
+- Taste: change 1 puts بتایا جاتا ہے کہ straight after بیان کیا جاتا ہے کہ, with کہا جاتا ہے کہ and روایت یہ بھی ہے following. The verbs are varied and the English hedges each claim, so it is not a fault.
+- Taste: change 7's sentence now has گرو نانک twice (and گرو again in گرو گرنتھ صاحب). نانک خود وہاں موجود تھے would be equally clear and lighter.
+- Taste: ترغیب کا سرچشمہ (change 6) is correct but not a frequent collocation, since ترغیب mostly goes with دینا. It is clear in context and avoids the echo with تحریک, so it is acceptable.
+- Taste: عقیدت مندانہ سوانحی ادب (change 4) stacks two adjectives and is slightly heavy; سکھوں کی عقیدت بھری سوانح عمریوں would be lighter, but the present wording is correct.
+- Taste: the round 1 notes that were not applied (چراغ لہراتے, اور ایک اور گیت میں, the intro's ہنگامہ خیز sentence, and others) stand as before; they are outside this round.

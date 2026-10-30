@@ -1,0 +1,21 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed certainty] Overview, paragraph 1. English: "By tradition it marks a spot graced by Guru Nanak, the first Guru, or Pehli Patshahi, during his third udasi, or journey, through Sindh" | Urdu: ان کے سفر *اداسیاں* کہلاتے ہیں، اور سندھ سے ان کا یہ گزر تیسری اداسی کے دوران ہوا۔ -> In the English "By tradition" governs the whole sentence, the third udasi included, and The Guru section later says that accounts of which journey brought him to Sukkur differ. The Urdu splits the sentence so that the hedge stays on the first part (روایت کے مطابق ... شرف بخشا تھا) and the third udasi is stated as plain fact. -> corrected Urdu: ان کے سفر *اداسیاں* کہلاتے ہیں، اور اسی روایت کے مطابق سندھ سے ان کا یہ گزر تیسری اداسی کے دوران ہوا۔
+OLD: اور سندھ سے ان کا یہ گزر تیسری اداسی کے دوران ہوا۔
+NEW: اور اسی روایت کے مطابق سندھ سے ان کا یہ گزر تیسری اداسی کے دوران ہوا۔
+NOTES:
+1. Precision, optional (The Gurdwara, paragraph 2, and Legacy, paragraph 1). The English "images are also venerated" and "the Granth and images are honoured side by side" leave open whether these are pictures or icons; تصویروں narrows them to pictures. شبیہوں keeps the English breadth (the article already uses شبیہیں for "iconography").
+OLD: تصویروں کی بھی تعظیم ہوتی ہے
+NEW: شبیہوں کی بھی تعظیم ہوتی ہے
+OLD: گرنتھ صاحب اور تصویروں کی ساتھ ساتھ تعظیم ہوتی ہے
+NEW: گرنتھ صاحب اور شبیہوں کی ساتھ ساتھ تعظیم ہوتی ہے
+2. Precision, optional (The Followers of Nanak in Sindh, paragraph 4). English "an attempt to impose a specific script, the Khudawadi": رائج کرنا is to introduce or bring into use and loses the sense of imposing; نافذ کرنا keeps it.
+OLD: رائج کرنے کی سعی بھی ہوئی
+NEW: نافذ کرنے کی سعی بھی ہوئی
+3. Precision, optional (The Followers of Nanak in Sindh, paragraph 8). English "were most of the time preserved, with different arrangements for their management" states no concession; اگرچہ adds an "although" that sets the varied arrangements against the preservation.
+OLD: وہ زیادہ تر محفوظ رہے، اگرچہ ان کے انتظام کی صورتیں مختلف تھیں۔
+NEW: وہ زیادہ تر محفوظ رہے، اور ان کے انتظام کی صورتیں مختلف تھیں۔
+4. Referent, optional (The Gurdwara, paragraph 3). In the English "that shrine" is the shrine of their own that the Hindu congregation set up on the Sukkur bank. The paragraph names two shrines (the older shared one and the new Hindu one), and وہ مزار alone could be read as the older one; الگ ties it to the new one, as the previous sentence calls it.
+OLD: کہ وہ مزار اور یہ گوردوارہ
+NEW: کہ وہ الگ مزار اور یہ گوردوارہ
+5. Checked and found faithful: the eight headings correspond in order (Bibliography rightly omitted); every figure the English has (1469, 22 September 1539, 60, 24 September 1487, 8 September 1494, 12 February 1497, 1947, December 1939, February 1940, 1872, 1879) appears with the same meaning, and the figures in words (third, thirteen, twelve kos, more than twenty years, two sons, fourth, twenty fifth of Muharram, sixth of Safar, twenty five kos, seven years) are all kept; no other figures are added; there are no Latin letters, no dashes, and the asterisks are balanced. All names and relationships match (Kalyan Chand Das Bedi and Mehta Kalu, Rai Bular, Sulakhini and her parents, Sri Chand and Lakhmi Das, Lahna and Guru Angad Dev, Mardana, Karori, Baba Naulakha Hazari, Sayyad Hussain, Daulat Khan, Shaikh Mir, Diler Khan, Qubad Khan, Bedil, Rochaldas, Janullah, Sain Vasan Shah, Alan Faqir, Bhagat Kanwar Ram, all seven of Abida Parvin's poets, the five pictures on Rochaldas's wall). Every other hedge is kept (کہا جاتا ہے، روایت کے مطابق، مانا جاتا ہے، جنم ساکھیوں کے مطابق، قصہ ہے، روایات / بیانات / آرا مختلف ہیں، غالباً، زیادہ تر، کوئی 60، بتایا جاتا ہے، طے نہیں ہو سکی), and the legends stay legends. The English hymn lines are given as Urdu translations with the same meaning, which is the only possible form since the English lines are themselves translations and the Urdu may carry no Latin. The dropped glosses (sadhu, kos, azaan, langar, zamindars, Muharram, Safar, panchayats, gaddi nashins, samadhis, dargahs, kalams) and the removed italics are as the brief allows; the glosses kept or recast (Pehli Patshahi, udasi, Nanakpanth, janamsakhis, prakash, doha, aarti, tikana, jai, tirtha, sant, Khalsa) are unfamiliar terms and correctly kept.

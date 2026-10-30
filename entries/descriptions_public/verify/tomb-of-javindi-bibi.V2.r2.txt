@@ -1,0 +1,23 @@
+VERDICT V2: PASS
+VERDICT V3: PASS
+ISSUES: none
+NOTES:
+Change 1: faithful, fluent. شجرۂ نسب renders "her place in the family" as her place in the lineage, which is what the clause is about. مخدومِ جہانیاں now matches the section on the saints of Uch. The dictionary leaves out the zer only inside the shrine name, and the letters are the same.
+Change 2: faithful, fluent. ان کے احترام میں renders "in her honour" without the ceremonial sense of کے اعزاز میں. Unlike V3's suggested یاد میں, it does not turn honour into memory. ان clearly means بی بی جاوندی, named earlier in the sentence.
+Change 3: faithful, fluent. "The work for which Uch and Multan are famed" is now the art (کاشی کاری), not the material, so the issue is resolved.
+Change 4: faithful, fluent. مزارات کی تعمیر کے ساتھ پروان چڑھا keeps the associative sense of "flourished around the tombs" and drops the physical کے گرد. No fact is added.
+Change 5: faithful, fluent. سولہویں صدی سے لے کر انیسویں صدی تک کے ہیں keeps the full range of "as early as ... as late as" without the calque.
+Change 6: faithful, fluent. اس مقبرے names the tomb being described, so the indefinite article is gone.
+Change 7: faithful, fluent. "Surviving beauty only sharpens the sense" becomes بچے کھچے حصے کا حسن ... اور بھی گہرا. حصہ in the previous sentence and حصے here work as a natural back-reference, not a doubled phrase.
+Change 8: faithful, fluent. پاکستان کے ہاتھ سے نکل گیا only spells out what "the lost river of Pakistan" already says, so no fact is added. Taste note, not applied: پاکستان now appears three times in this sentence.
+Change 9: faithful, fluent.
+Change 10: faithful, fluent. نمائندہ مثال means "typical example". Because مثال is feminine, کا was correctly changed to کی.
+Change 11: faithful, fluent. اوچ ہی کی حج مسجد renders "the town's Hajj mosque". The apposition and its comma are gone.
+Change 12: faithful, fluent. وہ matches the English "he" and clearly means حضرت سید محمد غوث اوچی جیلی گیلانی (the honorific plural پہنچے confirms it). The name the old draft added is gone. حضرت محمد غوث and شاہ محمد غوث stay as the English has them, so the Urdu does not make them one man where the English does not. V3 issue 12 is resolved as far as fidelity allows.
+Change 13: faithful, fluent. معزز is the idiomatic adjective for a family. It is a little weaker than "revered" (قابلِ احترام), but it keeps the meaning and changes no fact.
+Change 14: faithful, fluent. خشت و کاشی renders "brick and glaze", and the compound is now Persian on both sides of و.
+Change 15: faithful, fluent. اس شخص سے ... جس نے خود بی بی جاوندی کا مقبرہ بنوایا تھا renders "the tomb's own builder" without adding the name دلشاد. بنوایا matches the causative تعمیر کروایا of the earlier paragraph.
+Change 16: faithful, fluent. عمارتوں کا جو حصہ باقی تھا renders "what remained", matching ان عمارتوں in the sentence before. اس کے اوپر still means that remaining part, as "with a white dome on top" does.
+Change 17: faithful, fluent. "Khawas Khan's pursuit went as far as Multan and Uch" is his own pursuit, and خواص خان نے ... تعاقب کیا makes him the pursuer. It keeps "as far as" as تک and the order Multan, Uch. It adds no one being pursued, since the English names none, and تعاقب without an object reads acceptably here. The ergative agreement (تعاقب کیا) is correct. The sentence no longer reads as Khawas Khan being pursued.
+Change 18: faithful, fluent. The sentence now opens with اللہ آباد, so the old یہ no longer seems to point to عرس. The next sentence's وہاں clearly means Allahabad. The village is still in southern Punjab, 60 miles southwest of Bahawalpur, as in the English.
+Diff: Replaying the 18 OLD -> NEW replacements, each once, on /root/work/bak/tomb-of-javindi-bibi.ur.r1.md reproduces the current entries/descriptions_public/tomb-of-javindi-bibi.ur.md byte for byte. The backup (md5 60aca938) is identical to ur.r1.applied.md, and the current file is md5 c3e9aa6c. A word-level diff gives 31 hunks, all inside the 18 changed sentences. Both files have 45 lines, and no heading changed. Nothing else moved: no Latin letters, no em or en dashes, no asterisks. The Urdu prose is 0.94 times the length of the English.

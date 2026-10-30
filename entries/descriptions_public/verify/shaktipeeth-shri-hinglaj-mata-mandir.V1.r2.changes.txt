@@ -1,0 +1,117 @@
+Changes after V1 round 1, applied by the coordinator in V1's own wording (issues, then precision notes). Nothing else changed.
+
+[V1 r1 issue 1]
+OLD: In recent decades Hinglaj has become one of the most important centres of Hindu worship in Pakistan, and it is generally considered the largest active place of pilgrimage in the country. For many, it is the oldest shrine in the entire Hindu tradition, so ancient and important that Hindus come even from India to visit it.
+NEW: In recent decades Hinglaj has become one of the most important centres of Hindu worship in Pakistan, and it is generally considered the largest active Hindu place of pilgrimage in the country. For many, it is the oldest shrine in the entire Hindu tradition, so ancient and important that Hindus come even from India to visit it.
+
+[V1 r1 issue 2]
+OLD: Accounts of how many of the seats lie in Pakistan differ, but Hinglaj is held to be one of only two there, and it is the most frequented of them.
+
+## Clans, Peoples and Faiths
+
+Hinglaj is a *kuldevi*, a clan goddess, for several communities.
+NEW: Accounts differ over how many of the seats lie in Pakistan, but Hinglaj is the most frequented of those there.
+
+## Clans, Peoples and Faiths
+
+Hinglaj is a *kuldevi*, a clan goddess, for several communities.
+
+[V1 r1 issue 3]
+OLD: Its endurance, in a remote and challenging landscape and across the fault lines of religion and history, has made it a powerful symbol of resilience for Pakistan's Hindu minority and a place of extraordinary sanctity for devotees of the Goddess throughout the subcontinent.
+
+Its remoteness is part of its new place.
+NEW: Its endurance, in a remote and challenging landscape and across the fault lines of religion and history, has made it a powerful symbol of resilience for Pakistan's Hindu minority and a place of extraordinary sanctity for devotees of the Goddess throughout the subcontinent. The wider Hingol cultural landscape has been proposed for recognition on account of its natural and spiritual importance.
+
+Its remoteness is part of its new place.
+
+[V1 r1 issue 4a]
+OLD: The Goddess punishes pride. A legend heard in colonial times tells of "A wealthy Shet named Kowaljee", a *shet* being a merchant, who chartered a ship to carry his party to Hinglaj, "when the Goddess, justly indignant at his arrogance and presumption, transformed the boat and every soul on board into stone."
+
+The Brahmakshatriyas tell how five princes, fleeing the curse of Parashurama, came here.
+NEW: In legend, the Goddess punishes pride. A legend heard in colonial times tells of "A wealthy Shet named Kowaljee", a *shet* being a merchant, who chartered a ship to carry his party to Hinglaj, "when the Goddess, justly indignant at his arrogance and presumption, transformed the boat and every soul on board into stone."
+
+The Brahmakshatriyas tell how five princes, fleeing the curse of Parashurama, came here.
+
+[V1 r1 issue 4b]
+OLD: The Goddess protects the road. As pilgrims on the way put it: "There are many wild animals on the way, but the Mother always helps, and never has anyone been hurt.
+NEW: Devotees hold that the Goddess protects the road. As pilgrims on the way put it: "There are many wild animals on the way, but the Mother always helps, and never has anyone been hurt.
+
+[V1 r1 issue 4c]
+OLD: In the central rite of the shrine, pilgrims crawl through the small tunnel, the womb of the Goddess, from which they are born again, and before a pilgrim may enter it, he or she has to follow a rigid pattern of purification and worship.
+NEW: In the central rite of the shrine, pilgrims crawl through the small tunnel that signifies the womb of the Goddess, from which they are born again, and before a pilgrim may enter it, he or she has to follow a rigid pattern of purification and worship.
+
+[V1 r1 issue 4d]
+OLD: The Goddess grants Charan men the gift of writing and composing stories and poems; she is their muse, and they imagine her sitting on a poet's tongue, quickening his creativity.
+NEW: The Goddess, they hold, grants Charan men the gift of writing and composing stories and poems; she is their muse, and they imagine her sitting on a poet's tongue, quickening his creativity.
+
+[V1 r1 minor a]
+OLD: Accounts of the number of seats differ from text to text, but the count of fifty one comes from the *Pīṭhanirṇaya*, which first tied that number to the parts of Sati's body. Its list names Hinglaj first, with the Goddess who resides there and the form of Shiva associated with her, and gives the crown of the head as the part of Sati that fell there; it is the text most often quoted as proof of Hinglaj's first place among all the seats.
+NEW: Accounts of the number of seats differ from text to text, but the *Pīṭhanirṇaya* first tied the number fifty one to the parts of Sati's body. Its list names Hinglaj first, with the Goddess who resides there and the form of Shiva associated with her, and gives the crown of the head as the part of Sati that fell there; it is the text most often quoted as proof of Hinglaj's first place among all the seats.
+
+[V1 r1 minor b]
+OLD: The link with Sati's head, and the idea of Hinglaj as the first of the seats, first appear in the *Pīṭhanirṇaya* itself, which is dated between 1690 and 1720, though accounts of their age differ.
+
+Hinglaj anchors a wider world of goddesses too.
+NEW: The link with Sati's head, and the idea of Hinglaj as the first of the seats, first appear in the *Pīṭhanirṇaya* itself, which is dated between 1690 and 1720, though accounts of how old the link is differ.
+
+Hinglaj anchors a wider world of goddesses too.
+
+[V1 r1 minor c]
+OLD: Before that, from around the middle of the 1960s until the middle of the 1980s, the shrine had been scarcely visited.
+
+The main pilgrimage now takes place over several days in April.
+NEW: Before that, from around the middle of the 1960s until the middle of the 1980s, the shrine seems to have been scarcely visited.
+
+The main pilgrimage now takes place over several days in April.
+
+[V1 r1 minor d]
+OLD: A semicircular tunnel was already there by the middle of the nineteenth century; by the middle of the twentieth, this tunnel, held to be natural, had been supported and stabilised by human hands; and some time after the end of the 1980s the committee extended it on both sides to make the full U under the platform.
+
+The passage through it is the heart of the pilgrimage.
+NEW: A semicircular tunnel was already there by the middle of the nineteenth century; by the middle of the twentieth, this tunnel, held to be natural, had been supported and stabilised by human hands; and later the committee extended it on both sides to make the full U under the platform.
+
+The passage through it is the heart of the pilgrimage.
+
+[V1 r1 minor e]
+OLD: The earliest colonial visitors mention no stable stone structure, only a "mud edifice"; a photograph published in 1943 shows that the basic stone structure had been built by then; and a party that visited in 1961 put the stone building at fifty or sixty years old.
+NEW: The earliest colonial visitors described no stable stone structure, only a "mud edifice"; a photograph published in 1943 shows that the basic stone structure had been built by then; and a party that visited in 1961 put the stone building at fifty or sixty years old.
+
+[V1 r1 minor f]
+OLD: In 1842 there was a small *mat*, or temple, at Hinglaj, but the chief attractions appeared to be natural objects: a *kand*, or reservoir of water; a well of unfathomable depth above the temple; and a spot where the lie of the rock looked like a fortress.
+NEW: By 1842 there was a small *mat*, or temple, at Hinglaj, but the chief attractions appeared to be natural objects: a *kand*, or reservoir of water; a well of unfathomable depth above the temple; and a spot where the lie of the rock looked like a fortress.
+
+[V1 r1 minor g]
+OLD: Colonial visitors were told of a place called 'sath durwazu', which held the private rooms of the Goddess, where to spit or to defile the ground was a serious transgression.
+
+New shrines rise in the valley year by year.
+NEW: A colonial visitor was told of a place called 'sath durwazu', which held the private rooms of the Goddess, where to spit or to defile the ground was a serious transgression.
+
+New shrines rise in the valley year by year.
+
+[V1 r1 minor g]
+OLD: Colonial visitors heard that she moves between the valley and an island, where she stays for the greater part of the day, for seven *pruhurs*, the watches into which the day is divided.
+NEW: A colonial visitor heard that she moves between the valley and an island, where she stays for the greater part of the day, for seven *pruhurs*, the watches into which the day is divided.
+
+[V1 r1 minor h]
+OLD: Until recently, though, it was customary for many people to eat the animals sacrificed at the Kali shrine, just a few metres before the temple of Hinglaj.
+NEW: Until recently, though, it was customary for many people to eat the animals sacrificed at the Kali shrine, just before the temple of Hinglaj.
+
+[V1 r1 minor i]
+OLD: Tradition holds, too, that the Tumbel spread the Goddess's fame in Lasbela, and that Hinglaj therefore decided to settle in a cave close to the Hingol River, where the Charans and other communities have worshipped her ever since.
+
+Some say the Goddess has left her temple.
+NEW: Tradition holds, too, that the Tumbel Charans spread the Goddess's fame in Lasbela, and that Hinglaj therefore decided to settle in a cave close to the Hingol River, where the Charans and other communities have worshipped her ever since.
+
+Some say the Goddess has left her temple.
+
+[V1 r1 minor j]
+OLD: Her power has been carried to India by dreams. Anoop Dan dreamt that, since her shrine in Balochistan could no longer be reached, Charans should visit the site of Temra Rai in its place, and the head of a temple in Delhi said that his guru had been told to build her temple there in India, because there was no proper worship in Pakistan.
+NEW: Dreams have carried her worship to India. Anoop Dan dreamt that, since her shrine in Balochistan could no longer be reached, Charans should visit the site of Temra Rai in its place, and the head of a temple in Delhi said that his guru had been told to build her temple there in India, because there was no proper worship in Pakistan.
+
+[V1 r1 minor k]
+OLD: The naming of the place follows in the Goddess's own words. Hingol's last wish was: "You should remain here at this very place under my name and fulfill all wishes that people bring to you!" The Goddess answered: "From now on I will be called Hinglaj Devi, and this place should be my place of worship.
+NEW: In the legend, the naming of the place follows in the Goddess's own words. Hingol's last wish was: "You should remain here at this very place under my name and fulfill all wishes that people bring to you!" The Goddess answered: "From now on I will be called Hinglaj Devi, and this place should be my place of worship.
+
+[V1 r1 minor l]
+OLD: One face is the Goddess's; accounts of whose the other is differ, and no particular story had fully settled around it.
+NEW: One face is the Goddess's; accounts differ over whose the other is, and no particular story had fully settled around it.

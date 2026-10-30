@@ -1,0 +1,12 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Confirming round, changed sentences only (the optional precision points of round 1).
+Minor a1: "In the janamsakhis, Mardana has his own part in the story." No longer reads as a second telling beside "the best loved telling"; "the story" refers back to the Lalo story of the paragraph before. Correct.
+Minor a2: "is said to have been questioned" frames the episode. Correct.
+Minor b1 and b2: "In one of them" refers back to "The stories" of the sentence before. "In the same stories" frames the Kartarpur sentence. Both follow Dhillon. Correct.
+Minor c: "though accounts of its date and its form differ" now covers the disputed storeys and dome as well as the date, in one clause naming no rival. Correct.
+Minor d1 and d2: the *rubab* gloss (Khalid's "a traditional stringed instrument") now comes at the first use of the word, and the later sentence no longer repeats it. Correct.
+Minor e: "several saints who were not Sikhs" gives the source's "non-Sikh saints" without the hyphen. Correct.
+Minor f: "*kirtan*, the devotional singing of hymns" is the plain dictionary sense; the paragraph still places the performers at Sikh gurdwaras, as Khalid does. Correct.
+L1 exception line in the notes matches the line approved in round 1 word for word.

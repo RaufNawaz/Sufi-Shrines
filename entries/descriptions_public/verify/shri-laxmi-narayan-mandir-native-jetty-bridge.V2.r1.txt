@@ -1,0 +1,19 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed certainty] English (Sindh and Its Hindus, paragraph 3): "In the narrative of the Hindu Sufi Rochaldas, the violence that spread through Sindh was not perpetrated by the Muslim Sindhis but by the Muhajirs, the Muslim refugees from India, who wanted to take over the houses of the Hindus, at least in Karachi." | Urdu: "ہندو صوفی روچل داس کے بقول سندھ میں پھیلنے والا تشدد سندھی مسلمانوں نے نہیں بلکہ ہندوستان سے آئے ہوئے مہاجروں نے کیا تھا۔ کم از کم کراچی میں یہ مہاجر ہندوؤں کے گھروں پر قبضہ کرنا چاہتے تھے۔" -> splitting the sentence takes the claim that the Muhajirs wanted to seize Hindu houses out of Rochaldas's account; the second Urdu sentence now states it in the article's own voice as established fact, about a named group. -> corrected Urdu: keep the second sentence inside the attribution.
+OLD: کم از کم کراچی میں یہ مہاجر
+NEW: روچل داس کے مطابق کم از کم کراچی میں یہ مہاجر
+
+NOTES:
+1. Karachi, paragraph 1: English "it is thought to have been a Hindu temple already in the time of Guru Nanak" | Urdu "گرو نانک کے زمانے میں بھی یہاں ہندو پوجا ہوتی تھی" says "Hindu worship took place here", a looser claim than the building being a Hindu temple. Hedge (خیال کیا جاتا ہے) is correctly kept. Tighter:
+OLD: گرو نانک کے زمانے میں بھی یہاں ہندو پوجا ہوتی تھی
+NEW: گرو نانک کے زمانے میں بھی یہ ہندو مندر تھا
+2. Sindh and Its Hindus, paragraph 3: English "dramatically altered the local demography" | Urdu "یکسر بدل گئی" means "changed entirely", slightly stronger than the English.
+OLD: مقامی آبادی کی ساخت یکسر بدل گئی
+NEW: مقامی آبادی کی ساخت میں زبردست تبدیلی آئی
+3. Devotion by the Sea, paragraph 3: English "at once its glory and its vulnerability" | Urdu "کمزوری" is "weakness"; the English means exposure to harm, which the section Under Threat then develops.
+OLD: اس کی شان بھی ہے اور اس کی کمزوری بھی
+NEW: اس کی شان بھی ہے اور اس کے لیے خطرے کا باعث بھی
+4. Style only, no action: Karachi, paragraph 5, "a supplier of Hindu worship" is rendered ہندو عبادت کا سامان, which leans toward goods although the examples also include pilgrims; acceptable as it stands.
+5. No action: the verse line in the English file is itself an English rendering in Latin script, so it cannot be copied byte for byte into a file that admits no Latin; پنوں کیچ میں نہیں / سندھ امیر نہیں renders it faithfully and the explanatory paragraph after it is kept in full.
+6. No action: "Rama Pir, also called Ramdeo or Ramdev" becomes one رام دیو because the two spellings coincide in Urdu script; the dropped glosses of ghats, tirthas, darbar, zamindars, Sufism, the second "path of Nanak" and "all have one master" are deliberate under the brief; headings correspond one to one, all numbers and dates match, and every hedge (بتائی جاتی ہے، سمجھا جاتا ہے، غالباً، کہا جاتا ہے، آرا مختلف ہیں، ممکن ہے) is present where the English has it.

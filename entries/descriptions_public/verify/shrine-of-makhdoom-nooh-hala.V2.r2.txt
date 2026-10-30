@@ -1,0 +1,24 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. I checked every sentence changed in round 2 against the English, and none changes a fact, a hedge or a reference:
+   (a) تعارف and ورثہ: "جہاں سال بھر ... اور ان کے سالانہ عرس کے موقع پر بھی" and "یہاں سال بھر زائرین حاضری دیتے ہیں، اور ان کے سالانہ عرس کے موقع پر بھی" both keep "throughout the year" and "at his annual ʿurs".
+   (b) "ہالہ کنڈی کے نزدیک/قریب واقع ان کے آبائی گاؤں کے پاس" places the village near Halakandi. This matches the team version, "his native village close to Halakandi", and the first grave stays near the village.
+   (c) "ان کی دیرپا شہرت کا سب سے بڑا سبب ان کا علم و فضل ہے" keeps "above all". "بتایا جاتا ہے کہ ... سب سے پہلے انہی نے" keeps the hedge in "remembered as" over the whole claim.
+   (d) "پہلی بار تقریباً 1601 میں مُلا سانوانی کے مقام پر" keeps "about" and now marks Mula Sanwani as a place.
+   (e) صوفیانہ موسیقی for "Sufi devotional music" drops no fact.
+   (f) "روزی کمانے کا موقع ملتا ہے" carries "can make a living".
+   (g) "یہ قصبہ کوہالہ کہلاتا تھا" stays inside "اس روایت کے مطابق", so both the Kohala name and the queen clause remain legend.
+   (h) "دیوی کا مخدوم نوح کے مزار سے کوئی تعلق بیان نہیں کیا گیا" is the right referent for "the shrine". The last shrine named before it is Shah Abdul Latif's, and the team version says the book "says nothing of Makhdoom Nooh or of his shrine, and draws no connection between the shrine and the goddess".
+   (i) In "وہ سندھ میں ... بانی بھی مانے جاتے ہیں، اور ... وہ پہلے عالمِ دین بھی", "there" is Sindh, and مانے جاتے ہیں governs both claims.
+2. In the مزار section, "to the site of new Hala" is now "نئے ہالہ میں", because round 2 moved کے مقام پر onto Mula Sanwani. No fact is lost: the English Legacy itself says "to new Hala in 1777", and the تعارف keeps "نئے ہالہ کے مقام پر". If exactness is preferred, "اور دوسری بار 1777 میں نئے ہالہ کے مقام پر" can be restored. This is style only.
+3. Halakandi is now ہالہ کنڈی in both places. Round 1 and the existing urdu-i18n/content article had ہالا کنڈی, and that article also has ہلاکندی. The place is the same either way, and the choice is recorded in notes.md. This is a spelling decision for the editor, not a fidelity issue.
+4. Three small renderings keep the English meaning:
+   - "ایک روایت میں اس قصبے کا پرانا نام بھی آیا ہے": the بھی adds nothing material.
+   - "عام رائے یہی ہے کہ ان کا زمانہ سولہویں صدی تھا" renders "generally dated" and keeps the "accounts differ" hedge before it.
+   - "ہمیشہ محفوظ نہیں رہا" renders "was not always safe".
+5. Everything else checks out:
+   - These glosses were dropped on purpose, as the brief allows: Sufi, ʿurs, Makhdoom, dhikr (ذکرِ الٰہی keeps the core sense) and Sayyid. The Uwaisi gloss is kept.
+   - Headings match: تعارف، صاحبِ مزار، مزار، ماحول، ورثہ. There is no verse.
+   - All figures match the English: fifty six (in words, as the English has it), 1500 to 1505, 1590, 87, about 1601, 1777 three times, 1689.
+   - The file has no Latin letters, no dashes and no asterisks.

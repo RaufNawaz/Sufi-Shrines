@@ -1,0 +1,10 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff. `diff /home/claude/bak/shrine-of-hazrat-shah-daula-daryai.md.bak_en2 entries/descriptions_public/shrine-of-hazrat-shah-daula-daryai.md` shows one hunk only, 13c13, in The Saint, third paragraph. The only difference is the single replacement listed in shrine-of-hazrat-shah-daula-daryai.V1.r3.changes.txt, applied verbatim: "In the early seventeenth century he settled in Gujrat, and he established ..." became "He is said to have settled in Gujrat in the early seventeenth century, and he established ...". The rest of the line, and every other line of the file, is unchanged.
+
+2. The change. "He is said to have settled in Gujrat in the early seventeenth century, and he established his own *khanqah* there, at the place formerly known as Garhi Shah Daula." The team version supports both clauses: "he is traditionally said to have lived roughly between 1581 and 1675, and to have settled in Gujrat in the early seventeenth century" and "He later established his own *khanqah* at Gujrat, at the place formerly known as Garhi Shah Daula." The settling date now carries the same hedge as in the team version, matching the hedged birth and death in the same section. No fact is added or lost (Gujrat, the early seventeenth century, the *khanqah*, Garhi Shah Daula all stand). The *khanqah* clause stays plain, as the team version gives it plainly. Grammar is intact, "He" resolves to Shah Daula from the preceding sentence, and the sentence has no source talk and no dash.
+
+3. Checker: `python3 pipeline/book_queue/check_public_description.py shrine-of-hazrat-shah-daula-daryai --english-only` printed `ok    shrine-of-hazrat-shah-daula-daryai  team 35106 -> public 16747 chars (0.48)` and exited 0. The 16 character rise from round 2's 16731 is exactly the length difference between OLD and NEW.

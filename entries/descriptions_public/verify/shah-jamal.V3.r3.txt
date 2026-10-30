@@ -1,0 +1,30 @@
+VERDICT: FAIL
+ISSUES:
+1. [ambiguity, pronoun reference] "ان کے لیے خریدا گیا ایک گھر انیسویں صدی میں بھی شاہ جمال کا گھر کہلاتا تھا۔" -> The two sentences before this one are about شیخ فخر الدین, so the reader takes "ان" to mean him. The sentence then says that a house bought for Fakhruddin was called Shah Jamal's house, which puzzles the reader. Name the person explicitly and check the source for which person is meant -> If the house was bought for the saint: "شاہ جمال کے لیے خریدا گیا ایک گھر انیسویں صدی میں بھی انہی کا گھر کہلاتا تھا۔" If it was bought for the disciple: "شیخ فخر الدین کے لیے خریدا گیا ایک گھر انیسویں صدی میں بھی شاہ جمال کا گھر کہلاتا تھا۔"
+2. [clarity, enumeration] "شاہ جمال کے دو مریدوں کے نام معلوم ہیں۔ ان میں سے ایک لاہور کے حسو تیلی ہیں ... ایک اور روایت میں شاہ جمال کو لاہور کے ایک غلہ فروش کا مرشد بتایا گیا ہے ... مزار کی روایت میں شیخ فخر الدین نامی ایک مرید کا ذکر بھی ملتا ہے جو ایک ہندو گھرانے میں پیدا ہوئے تھے۔" -> The paragraph announces two named disciples and gives "ان میں سے ایک". The next figure is an unnamed grain dealer, and then Fakhruddin is introduced with "بھی", so he reads as a third person. The reader cannot tell who the second named disciple is. Mark Fakhruddin as the second one (the paragraph implies he is; confirm this against the source) -> "دوسرے مرید شیخ فخر الدین ہیں، جن کا ذکر مزار کی روایت میں ملتا ہے اور جو ایک ہندو گھرانے میں پیدا ہوئے تھے۔"
+3. [idiom] "متولی شیخ امیر بخش اور ایک دوسرے شخص کو شکایت تھی کہ ..." -> "ایک دوسرے" first reads as "each other". The idiom for "one other person" is "ایک اور" -> "متولی شیخ امیر بخش اور ایک اور شخص کو شکایت تھی کہ ..."
+4. [calque] "ان میں سے مربع چبوترا متولی شیخ امیر بخش کے خاندان کا قبرستان تھا: ان کی والدہ اور فتح بی بی وہیں دفن تھیں۔" -> "ان میں سے" is a literal rendering of "of these". In Urdu it seems to refer to the mosque, madrasa and well listed just before, and the square platform was mentioned three sentences earlier. Use "مذکورہ" to separate it from "اینٹوں کا ایک اور چبوترا" -> "مذکورہ مربع چبوترا متولی شیخ امیر بخش کے خاندان کا قبرستان تھا؛ ان کی والدہ اور فتح بی بی وہیں دفن تھیں۔"
+5. [calque, postposition] "1880 کی دہائی تک اس کا شمار شہر کے باہر واقع مسلمانوں کے مقامات میں ہوتا تھا، اور اس کے برابر ایک مدرسہ بھی تھا۔" -> This copies the English "by the 1880s". In Urdu, "تک" sits badly with a habitual past such as "ہوتا تھا". It works with a perfect, as in the earlier "1870 کی دہائی تک ... مشہور ہو چکی تھی" -> "1880 کی دہائی میں اس کا شمار شہر کے باہر واقع مسلمانوں کے مقامات میں ہوتا تھا، اور اس کے برابر ایک مدرسہ بھی تھا۔"
+6. [spelling of name] "فارمن کرسچن کالج" -> "فارمن" reads as "Farman", which is close to "فرمان". The usual Urdu spelling of the college's name is "فورمن" -> "بابا شاہ جمال کا مزار لاہور میں اچھرہ سے متصل اور فورمن کرسچن کالج کے بالمقابل اس علاقے میں واقع ہے جو آج انہی کے نام سے پہچانا جاتا ہے۔"
+7. [collocation] "ان مسائل کی وجہ سے زائرین کی حفاظت کے بارے میں سنجیدہ خدشات پائے جاتے ہیں۔" -> "سنجیدہ خدشات" is a calque of "serious concerns". Educated Urdu writes "سنگین خدشات" -> "ان مسائل کی وجہ سے زائرین کی حفاظت کے بارے میں سنگین خدشات پائے جاتے ہیں۔"
+8. [calque, stacked modifier] "اس دور میں بیان ہونے والے مینار کے قصے میں سرائے سے لائے گئے مزدوروں، ایک کئی منزلہ عمارت، ایک عالی شان حویلی اور اس عمارت پر اٹھائے گئے اعتراض کا ذکر بھی ملتا ہے۔" -> This follows English word order ("the tower story as told in that period"). A relative clause reads more naturally -> "اس دور میں مینار کا جو قصہ بیان کیا جاتا تھا، اس میں سرائے سے لائے گئے مزدوروں، ایک کئی منزلہ عمارت، ایک عالی شان حویلی اور اس عمارت پر اٹھائے گئے اعتراض کا ذکر بھی ملتا ہے۔"
+9. [collocation] "لوگوں کو راسخ العقیدہ اسلامی طریقے کی طرف واپس لانے کی کوشش کرتے رہے۔" -> "راسخ العقیدہ" describes a believer or a religion, not "طریقہ". The pairing reads as translated -> "لوگوں کو راسخ العقیدہ اسلام کی طرف واپس لانے کی کوشش کرتے رہے۔"
+10. [redundancy, word order] "اس سے پہلے اس کی دیکھ بھال اور آرائش شروع میں خود شاہ جمال کرتے تھے، اور ان کے بعد یہ ذمہ داری بادشاہوں، مہاراجوں اور عقیدت مندوں نے سنبھالی۔" -> "اس سے پہلے" and "شروع میں" in one clause read awkwardly, and "اس" points two ways (the transfer to Auqaf, then the shrine) -> "اوقاف کی تحویل میں آنے سے پہلے، شروع میں اس کی دیکھ بھال اور آرائش خود شاہ جمال کرتے تھے، اور ان کے بعد یہ ذمہ داری بادشاہوں، مہاراجوں اور عقیدت مندوں نے سنبھالی۔"
+NOTES:
+These need checking against the source and are not language errors as such:
+"شیخ احمد بخش" appears only once, in the Fakhruddin paragraph. Every other mention of the nineteenth century custodian is "شیخ امیر بخش". If they are the same man, standardise the name.
+"نواسی کی نسبت میر تقی سے طے پائی" means a betrothal. Because the next sentence goes straight to Mir Taqi's son, "بیاہی گئی" may be what is meant: "اور نواسی میر تقی سے بیاہی گئی۔"
+"میری نامی" first reads as the possessive "میری". A zabar ("مَیری") would remove the stumble.
+
+Smaller points of preference:
+"روایت/روایتیں" and "مزار کی روایت" occur very often. In two places "قصہ" would vary them easily: "ان میں سب سے مشہور قصہ ایک شہزادی کا ہے" and "شاہ جمال کے سالِ وفات کے بارے میں اقوال مختلف ہیں".
+"تقسیم" occurs three times in two sentences. In the second, "جب وہ وقت آیا تو" would do.
+"اچھرہ کی شاہ جمال کالونی میں اچھرہ روڈ پر" repeats "اچھرہ". It is acceptable because these are proper names.
+"اکبر کے دور میں لاہور میں رہے" repeats the wording of the introduction almost exactly.
+Both "عمر بھر بزرگ کی خدمت میں رہے" and "عمر بھر بزرگ کے جاں نثار مرید رہے" occur. A light variation in one of them would help.
+"اندر سے ایک آواز نے حکم دیا کہ" could read more naturally as "اندر سے آواز آئی کہ".
+"بزرگ کی اپنی عمارت" inside Shah Jamal's own prophecy is slightly stiff. "*دمدمہ*" would be cleaner.
+"سوا چھ ضرب سوا پانچ گز" is understandable but technical.
+"حکام کی توجہ کا مرکز بنتے رہے ہیں" could be "حکام کی توجہ کا باعث بنتے رہے ہیں".
+"سیالکوٹ سے یہ تعلق بعد میں بھی قائم رہا: 1870 کی دہائی میں بھی" has a double "بھی", and a "؛" would sit better than the colon.
+The verse paragraph, the asterisks, the Western digits and the absence of Latin letters are all in order. There are no dashes.

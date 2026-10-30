@@ -1,0 +1,9 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1r2 1
+OLD: The Sindhi poet Sachal Sarmast speaks of him too, and his litany of the afflicted tells of ʿInayat killed 'in the fighting arena'.
+NEW: The Sindhi poet Sachal Sarmast speaks of him too, and Sachal's litany of the afflicted tells of ʿInayat killed 'in the fighting arena'.
+
+2. V1r2 2
+OLD: The *kalam*, or poetry, of Dalpat Sufi is sung at Jhok Sharif too, as it is in several other dargahs of Sindh run by Muslim *sajjada nashins*.
+NEW: The *kalam*, or poetry, of Dalpat Sufi is sung in several dargahs of Sindh run by Muslim *sajjada nashins*, Jhok Sharif among them.

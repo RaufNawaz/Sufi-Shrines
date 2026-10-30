@@ -1,0 +1,33 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+Rulings on the writer's Points for V1.
+1. Length: accepted, and no L1 exception is needed. None of my notes removes text; the two precision fixes below lengthen the prose slightly, so the ratio stays at 0.40 (18,198 against 45,407, 0.4008; the checker reads ok). My sweep found no important, certain fact missing: everything left out is citation apparatus, the disagreement section's rivals, Khalid's marked reconstruction, damaged readings, statements tied to the province or to another Kartarpur, scholars' verdicts, or minor detail (the glass door locked, "No photography", the policeman waving the car through, the television news, Inderjit's silence about the move, the second aarti translation, the list of other openings, the 1521 Babur Bani line, the 14 April birth day). If a later change takes the ratio under 0.40 with nothing important cut, the exception is justified, with this cause: "L1 exception (V1 round 1): most of the team version is citation apparatus, a disagreement section, the narration of four books and a reconstruction marked as the author's own, which rules 4 and 5 remove."
+2. The 2001 renovation: keep as written. The disputed part of Inderjit's account is "We established this gurdwara in 2001", which is rightly left out. That the keepers renovated the structure and prepared their first langar then is contradicted by no source, and a renovation presupposes an existing building, so it sits with the early twentieth century building and its clause without making a second account of the building's origin. It is not a merger.
+3. The last journey's route: keep. Khalid's compass summary covers all the journeys and ends "to Mecca and returned to settle at Kartarpur"; Dhillon's route is one journey, the fourth and last, which also goes west to Mecca and ends at Kartarpur. They agree; they are not two tellings of one route. "His last journey" is consistent with the four journeys the text adopts.
+4. Founding, journeys, settling: keep. The site's own sentence already has him found Kartarpur, travel, then settle; Dhillon's "a few months" and the resumed journeys are framed "In the same telling" and carry no date, so the site's 1504 and Dhillon's implied dating are not joined.
+5. Place of death: keep "died at Kartarpur" with no clause. "Just outside Kartarpur" is a minor difference of placing within the same locality.
+6. Guru Angad as second Guru: keep, no clause. The site and Dhillon agree; Rizvi's "As the First Guru" is a single writer's numbering, minor.
+7. Birth: keep the year only. 1469 is in Dhillon, Khalid and Rizvi; the day is single source detail and its omission is not an important loss.
+8. Sri Chand: keep. Both statements are plain, supported (Iqbal Qaiser's words outside the reconstruction; Boivin), and neither says whom the father passed over; "set aside his own sons" stays as the site has it.
+9. Mardana: accepted. The team version's sources give one Mardana in one role (his rabaab accompanying the Guru's compositions; "a singer named Mardana sang his verses"); no rival identity is offered, no journey with him is claimed, and the precedent (Gurdwara Malji Sahib V1) accepted the same gloss.
+10. The Muslim couple: accepted; one visit, told once in each place, with no added detail.
+11. The fateha sentence: keep. The team version's qualifier names its own object, "the word being damaged", which is the word for saint in "regard Nanak as a saint". The whole sentence rule applies to qualifiers that do not say what they qualify (the Surkh Posh V1 ruling); the fateha clause is a clean direct quotation and stands.
+12. Inderjit's grandfather: accepted; the team version's words, nothing added.
+13. The site's evaluative sentences: accepted under basis (a), as the team version's own narrator gives them, lowered where needed ("is thus held to be"). "Widely hailed" reports reception and may stay.
+14. Verse: accepted. No original script verse exists to copy; the five English renderings are verbatim, no translator is named in the team version, and none is placed at Kartarpur.
+15. Persons named: accepted. Iqbal Qaiser as "one visitor" is right.
+16. Glosses: accepted; each is a definition, not a fact about the site.
+17. Headings: not a fidelity matter. Ten is above the usual three to seven; folding Legends into Devotion and the Langar is optional.
+
+Checks the coordinator named.
+The family who came without dates: accepted. The parents and Mardana's parents are given once, inside the janamsakhi telling; the wife and children once, at the settling, where the only source for them places them. No date is attached to either, no source places the wife and children earlier, and the difference in when the parents came is minor timing, rightly dropped silently.
+Legend framing holds sentence by sentence: the flowers ("it is said", "the legend goes on"), the river once traditionally sweeping structures away, the missile (on the plaque), the flood belief, the snakes (the granthi's report), the Brahmin and Moola Keer (the janamsakhis), Farid's inspiration ("it is said"), the miracles ("is said to have performed").
+Source talk: none. "In Aurangzeb's reign" (twice) is firm from the bibliography item; 1520 is Rizvi's own Hijri and common era date; "Before the corridor opened" is the team version's placing of the undated visit. The Bhandari sentence on the followers' service of the traveller is general ("the Guru's followers") and does not place it at Kartarpur; acceptable.
+Rule 4: "most often counted as four" is right (the modern accounts and Dhillon against the Puratan five; Khalid's four directions agree); "more than twenty years" is true of every figure the team version gives and is not a new figure.
+
+Minor precision points (optional, each lengthens the prose slightly).
+a. "He lived as a householder, and it is the householder's life, of work in the fields and hymns at dawn and dusk, that the janamsakhis place at Kartarpur." The "dawn and dusk" is the site's wording, not the janamsakhis'; Dhillon has the compositions sung "at the appropriate times of the day". Replace with: "He lived as a householder, and it is the householder's life, of work in the fields and of hymns sung at the appropriate times of the day, that the janamsakhis place at Kartarpur."
+b. "Behind a fence there, hundreds of people gathered every day" ties Khalid's fence to the site's raised viewing platform, which the team version does not identify. Replace "Behind a fence there," with "Across the border, behind a fence,".

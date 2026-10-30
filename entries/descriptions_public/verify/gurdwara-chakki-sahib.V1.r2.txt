@@ -1,0 +1,14 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff: `diff /home/claude/bak/gurdwara-chakki-sahib.md.bak_en1 entries/descriptions_public/gurdwara-chakki-sahib.md` shows exactly one hunk, 41c41, the third paragraph of "## Guru Nanak". The only difference within it is the removal of ", two mutually hostile religions" before the semicolon, which is exactly change 1 of gurdwara-chakki-sahib.V1.r2.changes.txt (OLD replaced by NEW). Nothing else moved.
+
+2. Change 1, "He lived as a householder, and he brought a message of peace and harmony to the believers of Islam and Hinduism; he taught that a good life rested on honest labour, compassion, selfless service and prayer." Checked against the team version, Guru Nanak section: "a householder in every sense of the word", who "brought a message of peace and harmony to believers of the mutually hostile religions of Islam and Hinduism", and "the Guru taught that a good life rested on honest labour, compassion, selfless service and prayer". Every clause is supported. No new fact. The fact dropped is only the author's characterisation of the two faiths as mutually hostile, removed as V1 round 1 note 1 asked (the Babay de Ber ruling); no obviously important information is lost, since the paragraph's next sentences still carry the tension (he offended both Hindus and Muslims; the teaching was questioned at three places). Grammar is intact: the semicolon now joins two complete clauses cleanly. No source talk, no attribution, no dash. The paragraph reads on smoothly into "He offended both Hindus and Muslims".
+
+3. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-chakki-sahib --english-only` printed `ok    gurdwara-chakki-sahib  team 36464 -> public 14663 chars (0.40)` and exited 0. The ratio is 0.402, as round 1 measured after this change.
+
+4. The one en dash in the file is in the bibliography (the volume range of The Encyclopaedia of Sikhism, Vol. II, letters E to L), unchanged and verbatim from the team version's bibliography, as rule 1 of "What changes" requires. It is not prose.
+
+5. For the Urdu writer (no Urdu file exists yet): write the Urdu from the current English, so the sentence carries no equivalent of "mutually hostile".

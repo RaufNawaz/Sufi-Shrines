@@ -1,0 +1,5 @@
+Changes after Urdu round 3, applied by the coordinator in the verifiers' wording (or as noted). Nothing else changed.
+
+[V2 r3 issue 1 ("much of", not "most")]
+OLD: اور اس کے متولی خاندان کے بیشتر افراد بھی سنی ہیں۔
+NEW: اور اس کے متولی خاندان کا بڑا حصہ بھی سنی ہے۔

@@ -1,0 +1,55 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. (precision) [single observation made habitual] "On the platform of the *Nishan Sahib* an old Sikh writes his name." -> The team version gives this as one moment of one visit ("Khalid describes the devotions of a visit. An old Sikh writes his name ..."). With the frame gone, the present tense reads as a standing custom of some old Sikh of the gurdwara. The pilgrims' prostration, circling and fanning can stay habitual; this one act should be told as what it is.
+OLD: On the platform of the *Nishan Sahib* an old Sikh writes his name.
+NEW: On one visit an old Sikh wrote his name on the platform of the *Nishan Sahib*.
+
+2. (precision) [more certainty than the source] "over his part in the rebellion of Prince Khusrau" -> The team version has "for his alleged support to Khusro, the eldest son of Jahangir" and "over his role 'during the rebellion of Prince Khusro'". "His part in the rebellion" makes the Guru a participant in the revolt; the source's charge is alleged support. The next sentences (the blessing counted treason, "Accounts of why he died differ") then read consistently.
+OLD: He was summoned to Lahore by Jahangir, the fourth Mughal emperor, over his part in the rebellion of Prince Khusrau, the emperor's eldest son; he appointed Hargobind as the sixth Guru, and in 1606 he was put to death.
+NEW: He was summoned to Lahore by Jahangir, the fourth Mughal emperor, over his alleged support for the rebellion of Prince Khusrau, the emperor's eldest son; he appointed Hargobind as the sixth Guru, and in 1606 he was put to death.
+
+3. (precision) [gloss reads as a list item] "in *churidar* pyjama, close fitting trousers, and a saffron gown" -> With the serial comma, the gloss reads as a third garment (pyjama, trousers and a gown). The source names two: "churidar pyjama, a saffron gown".
+OLD: He came dressed as a royal, in *churidar* pyjama, close fitting trousers, and a saffron gown, with an aigrette, a necklace and two swords, and he refused to take up the religious symbols of Guruhood.
+NEW: He came dressed as a royal, in a saffron gown and the close fitting trousers called *churidar* pyjama, with an aigrette, a necklace and two swords, and he refused to take up the religious symbols of Guruhood.
+
+4. (precision) [one person, two spellings] "Rai Bhoe" in the second Nankana Sahib paragraph against "Rai Bhoi di Talwandi" in the paragraphs on either side. A reader cannot tell that the man under whom Talwandi was last rebuilt is the Rai Bhoi of the town's old name. Rule 4 drops a variant spelling silently; Rai Bhoi is the team version's common form (Rai Bhoi di Talwindi, Rai-Bhoi-Di-Talwandi, Talwandi Rai Bhoi).
+OLD: Its last rebirth, the story goes, took place under Rai Bhoe, who had converted to Islam, and by the end of Guru Nanak's life Talwandi was no longer an obscure little village but had become a place of pilgrimage.
+NEW: Its last rebirth, the story goes, took place under Rai Bhoi, who had converted to Islam, and by the end of Guru Nanak's life Talwandi was no longer an obscure little village but had become a place of pilgrimage.
+
+5. (precision) [unexplained name; the source identifies him] "Among them was the poetry of Baba Farid" -> The team version opens the paragraph "The scripture he compiled carries a Muslim saint's poetry." The public text drops that identification, so a visitor with no background does not know who Baba Farid is, and the point the team version makes (a Muslim saint's verse in the Sikh scripture, on a site about Pakistan's shrines) is lost. Clean in the source.
+OLD: Among them was the poetry of Baba Farid, which Guru Nanak had collected at Pak Pattan.
+NEW: Among them was the poetry of the Muslim saint Baba Farid, which Guru Nanak had collected at Pak Pattan.
+
+6. Rulings on the writer's judgement calls (accepted unless a note above says otherwise):
+   1 (the relic and its tradition): accepted. The established position (Guru Hargobind, month of Har, Samvat 1670 / 1613, the Gur Mela where he rested, the site later honouring the fifth Guru) leads; one clause says accounts differ; the second telling is kept only as the tradition of an object the gurdwara keeps and pilgrims touch (rule 7: the relic and its legend), framed "It is told" and "In this telling", and is not merged into the site's account. The fallback would lose the walk on foot "as a mark of respect", which is the relic's point. Taste: the story is told twice (relic paragraph and Legacy); the Legacy's second paragraph could be shortened, but it is framed and supported.
+   2 (buildings): accepted. The Nishan Sahib, the pilgrims' rooms, the Thara Sahib with the fly whisk and the upper room do not contradict the two shrines; the conflicting description (one "fairly small" gurdwara with a double storey main shrine in mango yellow) is dropped. Taste: "A small room above the shrine" follows a description of two shrines and does not say which; the source gives no more, so leave it rather than guess.
+   3 (location): accepted; joining the book's distance to the site's direction would have merged two accounts.
+   4 (congregation): accepted. Basis (a) yields here because the team version shows every other source (Walking with Nanak, A White Trail, Kartar) giving a resident Sikh community.
+   5 (the emperor's visit): accepted. "The successor of Baba Nanak" is clean; the team version itself places the episode under Guru Arjan in its own voice and records only the printed form of the name as uncertain; the emperor is unnamed as in the team version; the uncertain words on cheap grain and the reckoning are dropped, and "now the peasants could not meet the demand" adds nothing.
+   6 (eldest son, Baba Gurditta): accepted. "Eldest son" is the team version's clean prose; only the printed form of the name is flagged, and the name is clean in the same passage ("the younger son of Baba Gurditta") and in Bhandari.
+   7 (Gwalior, then cordial): accepted; "a cordial relationship" is clean.
+   8 (most controversial): accepted; only the title is flagged.
+   9 (Akal Takht, the Eternal Throne): accepted as a definitional gloss; the place itself is named from the clean p. 232 sentence.
+   10 (1604 and the bani): accepted; the date stays on Guru Nanak's bani only.
+   11 (twenty five years): accepted; 1581 to 1606 matches.
+   12 (the samadhi): accepted; not placed near Lahore Fort, which rests on the flagged "Agjan [OCR?]" sentence.
+   13 (Karbala, low point, cohesive motivation, Khalsa): accepted; framed as views.
+   14 (devotions): accepted, except the old Sikh (note 1).
+   15 (1985 "at one of the town's gurdwaras"): accepted. Taste: the team version says only that during the speech "the gate of the Gurdwara was closed"; placing the speech at the gurdwara is the natural reading and is left.
+   16 (other shrines): accepted; Mandi Mangat "held to have been" fits a guide's statement, and Bibi Kaulan is told of another shrine.
+   17 (Gurditta and Har Rai): accepted.
+   18 (Overview's second paragraph): accepted; "first martyr of the faith" is the team version's own, "first Guru to wear two swords" is clean.
+   19 (eight headings): accepted. One over the usual, but The Martyrdom of Guru Arjan carries three full paragraphs and folding it would make The Fifth Guru nine paragraphs long.
+   20 (length 0.46): no exception line is needed; see the sweep below.
+
+7. Rule 4 choices checked and accepted: the name (basis a); most of the town's shrines, not "the only one" (basis a); why Guru Arjan died ("most often tied to Khusrau's revolt", basis b, with the Chandu Shah / Chandu Lal explanations dropped and the Diwan's haveli kept unnamed); his end ("Accounts of his end differ", the Ravi miracle as Sikh belief); fifth, not fourth Guru; Hargobind's imprisonment without a reason; five hundred Sant Sipahi; militarisation "most often" after his father's death (Khalid twice against Grewal's reported view); 1469 for Guru Nanak's birth with the day and Dera Chahal dropped; "several" gurdwaras for six or seven; Khusrau's halt not given two places. No merged chain, no side by side variants. Time anchors (1613, 1947, 1985, 2005, 2011, "In the early twenty first century") all rest on firm dates in the team version or its bibliography (2013, 2016).
+
+8. Taste only (no change asked): "As Kartar remembered it" names a man the reader has not met; the quotation's "Our Gurdwaras" would support "As one Sikh, Kartar, remembered it". Giani Pratap is named without why he matters; the team version's clean "That was the first time someone had taken the initiative to take care of the gurdwaras in Nankana Sahib after Partition" could come back as a clause, though leaving it out matches the sibling rows. The Fifth Guru says twice that Ram Das appointed Arjan as the next Guru (first and second paragraphs). "pilgrim *jathas*, bands of pilgrims" repeats "pilgrim". Operation Blue Star and the DHA are unexplained, as in the team version. "In his memoirs Jahangir wrote" names a source, but the emperor is a protagonist of the story and his words are quoted, so it stands.
+
+9. Source talk sweep: no citation, page or folio, no author narrated, no "consulted", "records", "archive" or uncertainty vocabulary, no em or en dash; "It is told", "In this telling", "the story goes", "it has been said" frame traditions and views only. Every English quotation of six or more words occurs verbatim in the team version. Bibliography identical to the team version, item for item and in order. check_public_description.py --english-only: ok, 0.46, exit 0.
+
+Omission sweep: after a sweep of the team version, nothing important is missing; what is left out is source apparatus, variants resolved under rule 4, readings flagged [OCR?] or damaged (the Red Well's name, the boiling substance, Hargobind's birth year, the 2218 hymn count, the Lahore Fort samadhi), and marginal details (Jahangir's dates, Mohsin Fani's figures, "the fourth Nanak", the Batala occasion, the closing verse on the care of subjects), with only the Muslim identity of Baba Farid worth restoring (note 5).

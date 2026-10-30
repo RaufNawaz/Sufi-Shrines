@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: I applied the single OLD/NEW pair in verify/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.ur.r3.changes.txt to /home/claude/bak/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.ur.md.bak_ur2. The OLD occurred exactly once and was replaced once. The result is byte for byte identical to the current .ur.md (True). The NEW occurs once in the current file and the OLD no longer occurs. A plain diff of the backup against the current file shows only line 53 changed, by that one replacement. Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a --no-verdicts` printed `ok    darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a  team 37870 -> public 16607 chars (0.44), Urdu 15467 chars (0.93)` (exit 0).
+3. Change 1 (تلاوت فرماتے becomes تلاوت کرتے), checked against the English "After the midday meal he always rested; after the noon prayer he recited the Quran; then came the afternoon prayer.": The saint is still the reciter, so "he recited the Quran" is kept. Both the time (ظہر کے بعد) and the sequence (اور پھر عصر کی نماز) are unchanged. The only change is the honorific register of the verb, which adds or removes no fact, hedge or referent. The round 2 fidelity fix (making him the agent of the recitation) holds.
+4. No fix was adapted or rejected in this round. The coordinator applied V3 round 2 issue 1 in the verifier's own wording.

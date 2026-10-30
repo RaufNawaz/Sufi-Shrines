@@ -1,0 +1,8 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Change 1 (The Setting, paragraph on Hala): NEW "with the celebrated blue and white *Kashi* pottery of the region." The team version has this phrase almost word for word twice, in the Overview ("with the celebrated blue-and-white *Kashi* pottery of the region") and in its Hala paragraph. The only difference is that the hyphens in "blue-and-white" are dropped. That follows the brief's rule against coined hyphenated words and matches the public text's later "blue and white tiles". The unsupported word "glazed" is gone, and nothing is lost: the colours, "celebrated", *Kashi* and "of the region" are all kept. The change adds no new fact, embellishment, source talk or attribution. The changed line has no dash and no hyphen, and its four asterisks are balanced (*Makhdoom*, *Kashi*). The sentence reads correctly in place, and its three parallel "with" phrases are intact.
+2. The diff against /home/claude/bak/shrine-of-makhdoom-nooh-hala.before_v1r2.md shows only line 21 changed. Both files have 39 lines. A word-level diff of line 21 shows only the listed edit: "blue and white" moved before *Kashi*, and ", glazed in blue and white." became ".". Nothing else in the file moved.
+3. Round 1 note 8 (taste: "stands" repeated) was rightly not applied, and its sentence is unchanged.

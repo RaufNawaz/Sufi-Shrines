@@ -92,12 +92,26 @@ export default defineConfig(({ command }) => {
           globIgnores: [
             '**/urdu-content-*.js',
             '**/urdu-seed-*.js',
+            /* The per-article Urdu chunks (scripts/vite-urdu-articles.mjs, 17
+               October 2026) were named by slug alone, so the two patterns above
+               missed them and every visitor's service worker fetched all 170 in
+               the background: about 1 MB then, 2.9 MB once the full public
+               Urdu articles replaced the short ones (29 October 2026). Named
+               `urdu-article-<slug>` below so this pattern can see them; they are
+               cached on first read by the runtime rule instead. */
+            '**/urdu-article-*.js',
             '**/vendor/mapbox-gl-rtl-text-*.js',
             // Team-only payloads (the provenance panel and /review): a public
             // reader never opens them, so a public phone should not download
             // them (mobile audit, 25 October 2026).
             '**/provenance-*.js',
             '**/kg-review-queue-*.js',
+            /* The Gurmukhi face (30 October 2026) is wanted on the gurdwara
+               articles and Baba Farid's, where Guru Nanak's and Farid's verse
+               is quoted in its own script; its unicode-range already keeps
+               every other page from fetching it, and this keeps the service
+               worker from fetching it for every visitor in the background. */
+            '**/fonts/NotoSansGurmukhi-*.woff2',
           ],
           // The navigation fallback must resolve to a URL that exists in the
           // precache manifest, which is served under `base` — a hardcoded
@@ -110,11 +124,13 @@ export default defineConfig(({ command }) => {
             {
               // The language payloads excluded from the precache above: cached
               // on first real use, then served from the cache offline.
-              urlPattern: /\/assets\/urdu-(content|seed)-[^/]*\.js$/,
+              urlPattern: /\/assets\/urdu-(content|seed|article)-[^/]*\.js$/,
               handler: 'CacheFirst',
               options: {
                 cacheName: 'urdu-payloads',
-                expiration: { maxEntries: 8, maxAgeSeconds: 60 * 60 * 24 * 30 },
+                /* One entry per article read, so room for every article (170)
+                   beside the two whole-file payloads and their next versions. */
+                expiration: { maxEntries: 400, maxAgeSeconds: 60 * 60 * 24 * 30 },
                 cacheableResponse: { statuses: [0, 200] },
               },
             },
@@ -203,6 +219,12 @@ export default defineConfig(({ command }) => {
       manifest: true,
       rollupOptions: {
         output: {
+          /* Vite's own default, except for the per-article Urdu chunks, which
+             take a prefix the precache can exclude (globIgnores above). */
+          chunkFileNames: (chunk) =>
+            chunk.facadeModuleId?.startsWith('\0virtual:urdu-article/')
+              ? 'assets/urdu-article-[name]-[hash].js'
+              : 'assets/[name]-[hash].js',
           manualChunks: {
             'vendor-react': ['react', 'react-dom', 'react-router-dom'],
             'vendor-leaflet': ['leaflet', 'react-leaflet'],

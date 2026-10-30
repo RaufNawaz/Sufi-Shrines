@@ -1,0 +1,11 @@
+1. V1 r1 note 2 (precision: Shah Habib's descent is a separate statement, not a consequence of the generation count)
+OLD: Accounts differ over how many generations separated the two, but by tradition Shah Abdul Latif was his descendant in the fourth generation, and so Shah Abdul Latif's father, Shah Habib, was descended from one of the first noted poets in the Sindhi language.
+NEW: Accounts differ over how many generations separated the two, but by tradition Shah Abdul Latif was his descendant in the fourth generation. Shah Abdul Latif's father, Shah Habib, was himself a descendant of Shah Abdul Karim, one of the first noted poets in the Sindhi language.
+
+2. V1 r1 note 3 (precision: the appositive gloss made three books read as four)
+OLD: kept three books constantly by him: the Qur'an, the *Masnavi*, the long mystical poem of Jalaluddin Rumi, and the Sindhi verses of Shah Karim.
+NEW: kept three books constantly by him: the Qur'an, Jalaluddin Rumi's long mystical poem the *Masnavi*, and the Sindhi verses of Shah Karim.
+
+3. V1 r1 note 4 (clarity: the gloss split "family ... of Matiari")
+OLD: born in 1536 into a Sayyid family, descendants of the Prophet Muhammad, of Matiari.
+NEW: born in 1536 into a Sayyid family of Matiari, a family descended from the Prophet Muhammad.

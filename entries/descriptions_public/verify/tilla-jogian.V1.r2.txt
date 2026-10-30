@@ -1,0 +1,13 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. Diff result: `diff /home/claude/bak/tilla-jogian.md.bak_en1 entries/descriptions_public/tilla-jogian.md` shows exactly two changed lines (65c65 and 69c69) and nothing else. Line 65 differs only by the replacement of "the 'circle of nectar' is the ecstatic state" with "the 'circle of nectar' is a traditional image for the ecstatic state" (change 2); line 69 differs only by the replacement of ", a land where there is no irrigation." with ". There is no irrigation in the range." (change 1). Both match the OLD and NEW in tilla-jogian.V1.r2.changes.txt verbatim, and each NEW sentence occurs once in the file.
+
+2. Change 1 (The Salt Range paragraph): "There is no irrigation in the range." is supported by the team version's Werth quotation, "the salt range where there is no irrigation". The split moves the claim off the Potwar plateau and onto the range, as the source has it; the first sentence keeps every fact it had (eastern heights, the line of mountains, the plains of the Punjab, the slightly elevated plateau of the Potwar, all from Werth). No new fact, no lost fact, grammar intact, no source talk, no dash.
+
+3. Change 2 (the Bulleh Shah vocabulary paragraph): "the 'circle of nectar' is a traditional image for the ecstatic state that is the goal of yoga" is supported by Shackle's gloss in the team version, "another traditional image for the ecstatic state that is the goal of yoga". Dropping "another" is correct here, since the preceding item in the public sentence (the 'unstruck music') is glossed as a sound, not an image. The three part list still parses cleanly. No new fact, no lost fact, no source talk, no dash.
+
+4. Checker line: `python3 pipeline/book_queue/check_public_description.py tilla-jogian --english-only` printed "ok    tilla-jogian  team 29272 -> public 15627 chars (0.53)" and exited 0.

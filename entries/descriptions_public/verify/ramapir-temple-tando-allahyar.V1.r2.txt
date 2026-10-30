@@ -1,0 +1,11 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [diff] `diff /home/claude/bak/ramapir-temple-tando-allahyar.before_v1r2.md` against the current file shows exactly five changed lines (11, 29, 31, 33, 35), each holding one listed change and nothing else; no other line moved. No em or en dash in the file.
+2. [change 1] "Most of the country's remaining non-Muslims are Hindus living in southern Punjab, inner Sindh and Baluchistan." Supported (Khalid, team version Setting); the author's quoted "faraway" "peripheral" is no longer adopted in the narrator's voice. Reads correctly.
+3. [change 2] "Pithoro Pir, another of these heroes, is most often associated with figures of salvation, and of these Ramdev Pir is the most venerated." Supported: the team version (Boivin p. 43) lists Pithoro Pir among the deified heroes of Sindh, and the public text names that list at the end of the preceding paragraph. Minor: the antecedent of "these heroes" sits one paragraph back, and "of these" now follows two plural nouns ("heroes", "figures of salvation"); the sense (figures of salvation) is still clear from "associated with figures of salvation, and of these". Not worth a change.
+4. [change 3] "and the large majority used to visit the Sufi shrines" matches the team version's "The large majority". Reads correctly.
+5. [change 4] "Contrary to popular belief, there were many untouchables in Sindh, among them ..." is the team version's own wording (Boivin p. 40), restored without attribution; no new fact. Reads correctly after "Several of these communities look east ...".
+6. [change 5] "and many temples across Sindh were renovated, coinciding with changes in the political landscape." is the team version's wording (Schaflechner p. 16); it asserts coincidence only, not cause, as the source does. Reads correctly; no claim that the Tando Allahyar temple was among them.

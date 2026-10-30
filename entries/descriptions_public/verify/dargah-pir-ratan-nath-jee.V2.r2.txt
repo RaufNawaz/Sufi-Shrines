@@ -1,0 +1,21 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 14 OLD/NEW pairs in verify/dargah-pir-ratan-nath-jee.ur.r2.changes.txt were applied in order to /home/claude/bak/dargah-pir-ratan-nath-jee.ur.md.bak_ur1, each OLD replaced once (each occurred exactly once at its turn). The result is byte for byte identical to the current entries/descriptions_public/dargah-pir-ratan-nath-jee.ur.md (identical: True). Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py dargah-pir-ratan-nath-jee --no-verdicts` printed `ok    dargah-pir-ratan-nath-jee  team 23277 -> public 10335 chars (0.44), Urdu 9692 chars (0.94)` and exited 0.
+3. Fidelity of each change against the English (all faithful):
+   - 1 (رکھتے تھے): English "belongs to the Nath sampradaya" is a present of affiliation for a historical saint; the Urdu past "belonged" says the same thing and matches "جوگی بھی تھے اور سنت بھی" in the introduction. The order itself stays in the present in the next sentence, as it should.
+   - 2 (علاقے): "in the neighbourhood of Karimpura and the Jhanda Bazar" is kept; علاقہ covers both places.
+   - 3 (one sentence, گئے): "Peshawar's Hindus have also kept the festival at Katas. Hindus from Peshawar came to Katas in 2010" is fully kept; وہ correctly refers to Peshawar's Hindus, the year is kept, and nothing about the festival in 2010 is added beyond what the English juxtaposition already implies.
+   - 4 (چار شادیاں ہوئیں): "Four marriages solemnised at Katas that Shivratri" is kept; the hedge "it was said" (کہا گیا کہ), the girls, Khyber Pakhtunkhwa and FATA, and the 2010 floods are all there; یہ now has شادیاں as its antecedent.
+   - 5 (کہا گیا ہے کہ): the same hedge as "It has been said", quotation unchanged.
+   - 6 (opening phrase dropped): "Among the Nath yogis was a Ratannath, one of the names associated with the Nath movement" survives as "a yogi named Ratan Nath ... counted among the figures associated with the Nath movement"; his Nath affiliation and the indefinite "a Ratannath" (ایک جوگی) are kept, so nothing is lost.
+   - 7 (حاجی رتن): English "The Hajji and the yogi Ratannath" names two people; the new wording keeps them apart, which is what the English means. حاجی رتن plainly refers to the Shaikh Baba Ratan / Hajji Baba Ratan just introduced.
+   - 8 (کسی): "a Pir Baba Ratannath" is now rendered with its indefinite sense, which keeps the Delhi figure distinct from the Peshawar saint until the paragraph's last sentence leaves the question open. This applies my round 1 note correctly.
+   - 9 (gloss reworked): "The phrase calls one shrine at once a dargah, the Muslim word for a saint's tomb, and a mandir, the Hindu word for a temple." Every element is kept: one shrine, at once, Muslim, saint's tomb, Hindu, temple (عبادت گاہ). Dropping the explicit dictionary form of two familiar words is allowed by the brief and loses no fact; مسلمانوں کے ہاں keeps the sense that this is Muslim usage. یوں is only a connective and adds no claim.
+   - 10 (Jamrud): the spring of Jamshid, known as Jamrud, eighteen kos, to a place on the bank of the Nilab: all kept, and Jamrud now names the spring, as in the English.
+   - 11 (تصور ملتا ہے): "sees a oneness in which every boundary of birth and creed falls away" is kept; the next sentence's اس تصور now has an antecedent, matching "In that vision".
+   - 12 (کو ماننے والے): "Thousands of Nanak Panthi Hindus, followers of Guru Nanak" kept; no subset is implied, since Nanak Panthis are by definition followers of Nanak.
+   - 13 (adapted): the coordinator's rejection of the verifier's زیادہ تر لوگوں کا دھیان is right. "More often associated in the modern imagination" is a statement about frequency in the general imagination, not about a majority of people; زیادہ تر as an adverb of the association (دھیان زیادہ تر ... کی طرف جاتا ہے) is the closer rendering, and آج carries "modern".
+   - 14 (یوگ, یاد): "a deep and ancient Hindu and yogic presence: the Nath yogis whose austerities once echoed across these hills" kept; the restored یاد makes the Nath yogis the object of the preserved memory, which is what the English colon means.
+4. The V3 fix proposed in this round for change 3 (second کٹاس to وہاں) keeps the meaning: وہاں refers back to Katas in the same sentence.

@@ -1,0 +1,9 @@
+# shrine-of-abdullah-shah-ghazi: changes applied after V1 round 1 (PASS), from its optional notes on meaning or precision, in the verifier's own wording. Taste notes not applied.
+
+WHY: V1 round 1, optional note 4 (precision: "where" could be read as Hyderabad only)
+OLD: Karachi is one of two important urban centres of Sufism, with Hyderabad in India, where members of the same lineage of qawwali musicians, the Qawwal Bachche, actively maintain their special qawwali heritage.
+NEW: Karachi is one of two important urban centres of Sufism, the other being Hyderabad in India; in both, members of the same lineage of qawwali musicians, the Qawwal Bachche, actively maintain their special qawwali heritage.
+
+WHY: V1 round 1, optional note 5 (precision: "the shrines" suggested all of them)
+OLD: fakirs follow other fakirs and go on to the shrines of Karachi.
+NEW: fakirs follow other fakirs and go on to shrines in Karachi.

@@ -1,0 +1,17 @@
+# sharada-peeth: changes applied by the coordinator after V3 round 2 (FAIL, 4 issues); V2 round 2 PASS, by exact replacement of each OLD string once (late round procedure of the brief). Backup of the round 2 file: /home/claude/bak/sharada-peeth.ur.before_r3.md
+
+WHY: V3 r2 issue 1, ADAPTED by the coordinator: the verifier's مقدس استھانوں would drop the English 'great' ('one of the great Shakti Peethas'); 'great' is kept on this shrine (ایک بڑا استھان) and the gloss of Shakti Peethas no longer uses عظیم, so it stays distinct from the eighteen عظیم استھان (Maha Shakti Peethas) of para 3
+OLD: اور دیوی کے عظیم استھانوں یعنی *شکتی پیٹھوں* میں سے ایک بھی۔
+NEW: اور دیوی کے استھانوں یعنی *شکتی پیٹھوں* میں سے ایک بڑا استھان بھی۔
+
+WHY: V3 r2 issue 2, applied in the verifier's wording
+OLD: یہ مقام سطحِ سمندر سے تقریباً 2,000 میٹر کی بلندی پر کوہِ ہرمکھ کے سائے میں واقع ہے۔
+NEW: سطحِ سمندر سے تقریباً 2,000 میٹر کی بلندی پر یہ استھان کوہِ ہرمکھ کے سائے میں ہے۔
+
+WHY: V3 r2 issue 3, applied in the verifier's wording (the pronoun now follows شاردا پیٹھ directly and precedes کشمیر)
+OLD: بارہویں صدی کے بعد علم کی دنیا میں شاردا پیٹھ کی برتری ماند پڑتی گئی،
+NEW: بارہویں صدی کے بعد علم کی دنیا میں اس کی برتری ماند پڑتی گئی،
+
+WHY: V3 r2 issue 4, applied in the verifier's wording
+OLD: یہ اسی مرکز میں پروان چڑھا اور یہیں سے پھیلا۔ اس کا نام اسی مندر کی نسبت سے رکھا گیا تھا۔
+NEW: یہ اسی مرکز میں پروان چڑھا، یہیں سے پھیلا اور مندر ہی کے نام پر شاردا کہلایا۔

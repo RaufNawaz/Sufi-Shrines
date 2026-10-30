@@ -1,0 +1,17 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- All fourteen round-one issues are resolved. The sentences that were rewritten (the سورماؤں sentence, روایت کے مطابق ... تعمیر ہوئی, لنگر سے ... کھانا ملتا ہے, چادریں چڑھاتے ہیں ... ڈالی جاتی ہیں, the 6 to 10 ملین sentence, میگھواڑ، بھیل اور کولہی جیسے, the 1851 sentence, سندھ جغرافیائی طور پر, ہندو اہلِ قلم, and the closing یہ لو ... ان سب میں) now read naturally. The mechanical checks are clean: no Latin letters, no em or en dashes, Western digits only, Urdu punctuation throughout, and 8 balanced asterisks.
+- "نارائن پور کا اپنا ایک رام پیر مندر" now reads as the temple's proper name, so the form رام پیر is acceptable. If it is not the temple's actual name, align it with رامہ پیر.
+- "اس عقیدت مند نے دیے کی لو یہاں استھان میں رکھی": a flame is usually روشن کی جاتی ہے or جلائی جاتی ہے rather than رکھی جاتی ہے. "دیے کی لو یہاں استھان میں روشن کی" would land more cleanly. As written, it can still be read as referring to the lamp itself.
+- "رام دیو پیر کی عقیدت میں غریبوں کے وقار پر زور دیا جاتا ہے": the objective genitive (devotion to him) is idiomatic, but paragraph three uses "رام دیو پیر سے عقیدت". Using "رام دیو پیر سے وابستہ عقیدت میں" would remove any reading of it as his own devotion.
+- "صاحبِ کرامات اور غریبوں اور نچلی ذاتوں کے پشت پناہ" has two اور in a row. "صاحبِ کرامات اور غریبوں و نچلی ذاتوں کے پشت پناہ" or "صاحبِ کرامات، اور غریبوں اور نچلی ذاتوں کے پشت پناہ" would separate the two roles.
+- "جوگیوں کی ناتھ روایت پر چلنے والے *ناتھ پنتھی*" repeats ناتھ inside the gloss. "جوگیوں کی روایت پر چلنے والے *ناتھ پنتھی*" is lighter.
+- "گرد و نواح کے ضلع میں" is still a slightly odd collocation. "ٹنڈو الہ یار شہر اور ضلع میں" would be smoother.
+- "سندھ میں بہت سے اچھوت آباد تھے ... جو زیادہ تر عمرکوٹ کے آس پاس بسے ہوئے ہیں" still jumps from past to present. The sentence is grammatical, but a reader notices the jump.
+- "صوفیوں کے مزاروں پر آتے رہے ہیں، اور ان کی بھاری اکثریت صوفی آستانوں کی زیارت کیا کرتی تھی" makes nearly the same point twice in two tenses. This is acceptable if both claims are meant.
+- Two openings claim the temple's main source of fame: the introduction's "اس کی شہرت سب سے بڑھ کر اس سبب سے ہے" and the میلہ section's "مندر کی شہرت زیادہ تر اس کے بڑے میلے کے دم سے ہے". "مندر کی رونق زیادہ تر..." would avoid the echo.
+- "ان ہندو برادریوں میں سے کئی کا رخ ... راجستھان کی طرف ہے" is understandable as cultural orientation, though a reader could briefly take رخ as the direction of migration.
+- Several points from round one remain matters of taste: "دوسری سب سے بڑی زیارت", "پرستش" for reverence of saints, "مشترک"/"مشترکہ" in one paragraph, the vague "نجات کے طرح طرح کے مقامات", "سندھ بھر اور اس سے باہر سے", and the implicit comparison in "پرانی حدیں زیادہ کھلی تھیں".

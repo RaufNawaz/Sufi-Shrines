@@ -1,0 +1,21 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: On the platform of the *Nishan Sahib* an old Sikh writes his name.
+NEW: On one visit an old Sikh wrote his name on the platform of the *Nishan Sahib*.
+
+2. V1 r1 change 2
+OLD: He was summoned to Lahore by Jahangir, the fourth Mughal emperor, over his part in the rebellion of Prince Khusrau, the emperor's eldest son; he appointed Hargobind as the sixth Guru, and in 1606 he was put to death.
+NEW: He was summoned to Lahore by Jahangir, the fourth Mughal emperor, over his alleged support for the rebellion of Prince Khusrau, the emperor's eldest son; he appointed Hargobind as the sixth Guru, and in 1606 he was put to death.
+
+3. V1 r1 change 3
+OLD: He came dressed as a royal, in *churidar* pyjama, close fitting trousers, and a saffron gown, with an aigrette, a necklace and two swords, and he refused to take up the religious symbols of Guruhood.
+NEW: He came dressed as a royal, in a saffron gown and the close fitting trousers called *churidar* pyjama, with an aigrette, a necklace and two swords, and he refused to take up the religious symbols of Guruhood.
+
+4. V1 r1 change 4
+OLD: Its last rebirth, the story goes, took place under Rai Bhoe, who had converted to Islam, and by the end of Guru Nanak's life Talwandi was no longer an obscure little village but had become a place of pilgrimage.
+NEW: Its last rebirth, the story goes, took place under Rai Bhoi, who had converted to Islam, and by the end of Guru Nanak's life Talwandi was no longer an obscure little village but had become a place of pilgrimage.
+
+5. V1 r1 change 5
+OLD: Among them was the poetry of Baba Farid, which Guru Nanak had collected at Pak Pattan.
+NEW: Among them was the poetry of the Muslim saint Baba Farid, which Guru Nanak had collected at Pak Pattan.

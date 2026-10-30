@@ -1,0 +1,13 @@
+# shah-noorani-shrine-syed-bilawal-shah-noorani: changes applied by the coordinator after V3 round 2 (FAIL, 3 issues); V2 round 2 PASS; exact replacement of each OLD once (late round procedure). V3 notes (taste) not applied. Backup of the round 2 file: /home/claude/bak/shah-noorani-shrine-syed-bilawal-shah-noorani.ur.before_r3.md
+
+WHY: V3 r2 issue 1, applied in the verifier's wording (calque of 'one of the deadliest attacks on a Pakistani shrine')
+OLD: یہ کسی پاکستانی مزار پر ہونے والے مہلک ترین حملوں میں سے ایک تھا۔
+NEW: یہ پاکستان میں مزارات پر ہونے والے مہلک ترین حملوں میں سے ایک تھا۔
+
+WHY: V3 r2 issue 2, applied in the verifier's wording (first mention of the attack, so it is placed)
+OLD: نومبر 2016 کے حملے سے پہلے
+NEW: نومبر 2016 میں مزار پر ہونے والے حملے سے پہلے
+
+WHY: V3 r2 issue 3, applied in the verifier's wording: simple past with شاید for 'may have ended'; اسی راہ پر ties the sentence to the route from Sehwan the paragraph describes (the English: 'One woman's journey from Sehwan', in a paragraph on that route)
+OLD: سیہون سے چلنے والی ایک خاتون کا سفر شاید لاہوت پہنچ کر ختم ہوا تھا۔
+NEW: اسی راہ پر سیہون سے چلنے والی ایک خاتون کا سفر شاید لاہوت پہنچ کر ختم ہوا۔

@@ -1,0 +1,14 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Changed sentences, each checked against the English. None changes a fact, a hedge or a reference.
+   - Overview: ترجمان and مرکز stand for "voice" and "heart" with the same meaning.
+   - The Poet and Saint: "Little of his outward life is documented: he was no courtier ..." is now two sentences. The reason stays implied, as the English colon leaves it, and no causal claim is added. مشہور ہے کہ still governs the whole "remembered as" description. "legend has it" is now کہا جاتا ہے کہ, still hedged, and still describes a settled way of life. البتہ keeps "though accounts of the year differ", and تقریباً 1711 keeps "around".
+   - The Poetry: the comparison "an affection given to no other Pashto poet" now holds together. صوفیوں for "the mystic" is a generic plural, not a different person.
+   - The Shrine: مدت سے ... ہے keeps "has long been". سب سے نمایاں keeps "the great shrine" as foremost, not largest.
+   - The Setting: the comparisons with Turan's fruit and Bengal's rice are now exact. In the Nikshab sentence, یہ refers to the road.
+   - Legacy: میں keeps the three-poet comparison unchanged. In جن کے کلام میں ان کی قوم کی زبان ..., ان refers to Rahman Baba. عموماً keeps "usually regarded". اخلاق کے باب میں مشعلِ راہ keeps "moral compass".
+2. The whole current Urdu was checked paragraph by paragraph. There are 13 prose paragraphs on each side, and all six headings match and are in the same order. Every number in the Urdu is one the English has: 1653, 1711, 1977 and March 2009. There are no Latin letters and no dashes, and the asterisks are balanced (the book title only). The hedges are kept: "around" twice, "legend has it", "by tradition", "accounts of the year differ", "accounts of the attack differ", "usually regarded", "in sense", "not often".
+3. Style only, Legacy: "endures as the hearth of Pashto poetry" | "بدستور پشتو شاعری کا گہوارہ ہے". گہوارہ (cradle) is the usual Urdu figure for a nurturing centre, so this is not an error. Read strictly, though, it can suggest a birthplace. مرکز or آماجگاہ would follow "hearth" a little more closely, and this phrase was already accepted in round 1.
+4. Style only, The Poetry: "simple enough for the unlettered to carry in memory" | "اتنی سادہ ہے کہ ان پڑھ لوگ بھی اسے زبانی یاد کر لیتے ہیں". The English describes an ability and the Urdu states what people actually do. It is the ordinary Urdu way to say this, and the meaning is the same.
+5. Deliberate drops, as in round 1, not omissions: the glosses of دیوان، صوفی، چشتی سلسلہ، حج، رباب، عرس، مشاعرہ, and the italics on رباب، عرس، مشاعرہ، قلندر. The glosses of ناتھ جوگی and قلندر are kept. "گیارہویں صدی عیسوی" spells out the era that the English leaves implied, and adds no fact.

@@ -1,0 +1,53 @@
+VERDICT: FAIL
+ISSUES:
+1. [tangled sentence, word order] "مگر مہتا کالو جن کے ماتحت محاسب تھے، وہی رائے بلار لڑکے کی طرف داری کرتے ہیں" -> the relative clause comes before its head and opens with "مہتا کالو", so the reader first takes the father as the subject who defends the boy, and only at "وہی رائے بلار" has to reparse -> put the head noun first and the relative clause after it.
+OLD: گھر پر والد انہیں نکما کہتے ہیں، مگر مہتا کالو جن کے ماتحت محاسب تھے، وہی رائے بلار لڑکے کی طرف داری کرتے ہیں: نانک نے یہ رقم بھوک سے نڈھال فقیروں کی ایک پوری جماعت کو کھانا کھلانے پر لگائی ہے، اور یہ سودا "خدا کی نظر میں سچا" ہے۔
+NEW: گھر پر والد انہیں نکما کہتے ہیں، مگر رائے بلار، جن کے ماتحت مہتا کالو محاسب تھے، لڑکے کی طرف داری کرتے ہیں: نانک نے یہ رقم بھوک سے نڈھال فقیروں کی ایک پوری جماعت کو کھانا کھلانے پر لگائی ہے، اور یہ سودا "خدا کی نظر میں سچا" ہے۔
+
+2. [calque, agreement] "پنتھ کی عقیدت میں ... اس اصول کی پہلی کونپل ... : لنگر اور سیوا" -> "پنتھ کی عقیدت میں" is a literal rendering of "in Panthic devotion" and is not idiomatic Urdu; the singular "اس اصول" is then resolved by two things after a colon, which reads as English layout -> name the principle before the noun and make the devotees the subject.
+OLD: پنتھ کی عقیدت میں یہ واقعہ اس اصول کی پہلی کونپل سمجھا جاتا ہے جسے آگے چل کر سکھ مت میں مرکزی حیثیت حاصل ہوئی: لنگر اور سیوا۔
+NEW: پنتھ کے عقیدت مند اس واقعے کو لنگر اور سیوا کے اس اصول کی پہلی کونپل سمجھتے ہیں جسے آگے چل کر سکھ مت میں مرکزی حیثیت حاصل ہوئی۔
+
+3. [ambiguity] "ان کے ساتھی الیاس گھمن شاہ کو ہسپتال لے گئے" -> "الیاس گھمن شاہ" reads as one person's full name, so the sentence seems to say the companion was taken to hospital; the long chain of "اور ... ، اور" adds to the tangle -> front the object and split off the last clause.
+OLD: وہ اور ان کے ساتھی الیاس گھمن شاہ کو ہسپتال لے گئے اور پولیس میں رپورٹ درج کرائی، اور یہ معاملہ چند قومی اخباروں تک بھی جا پہنچا۔
+NEW: شاہ کو وہ اور ان کے ساتھی الیاس گھمن ہسپتال لے گئے اور پولیس میں رپورٹ درج کرائی۔ یہ معاملہ چند قومی اخباروں تک بھی جا پہنچا۔
+
+4. [ambiguous pronoun] "بوٹا سنگھ نے مہمانوں کو گوردوارہ دکھایا۔ ان کی عمر کوئی چالیس برس تھی۔" -> "ان" follows "مہمانوں" directly and can be read as the guests' age -> attach the age to Boota Singh.
+OLD: بوٹا سنگھ نے مہمانوں کو گوردوارہ دکھایا۔ ان کی عمر کوئی چالیس برس تھی۔
+NEW: کوئی چالیس برس کے بوٹا سنگھ نے مہمانوں کو گوردوارہ دکھایا۔
+
+5. [wrong reflexive] "یہ گوردوارہ اپنے بانی کی رحم دلی سے" -> "اپنے" binds to the subject "یہ گوردوارہ", so it says "the gurdwara's own founder" (the people who built it), not the founder of the pilgrims' faith -> use a plain pronoun.
+OLD: پاکستان میں سفر کرنے والے سکھ یاتریوں کے لیے یہ گوردوارہ اپنے بانی کی رحم دلی سے ایک زندہ رشتہ ہے۔
+NEW: پاکستان میں سفر کرنے والے سکھ یاتریوں کے لیے یہ گوردوارہ ان کے مذہب کے بانی کی رحم دلی سے ایک زندہ رشتہ ہے۔
+
+6. [calque] "ننکانہ صاحب سے سیدھی لکیر میں تقریباً 45 کلومیٹر" -> word-for-word "in a straight line"; the Urdu term for distance as the crow flies is "فضائی فاصلہ".
+OLD: اس کا پرانا نام چوہڑکانہ تھا، اور یہ ننکانہ صاحب سے سیدھی لکیر میں تقریباً 45 کلومیٹر کے فاصلے پر ہے۔
+NEW: اس کا پرانا نام چوہڑکانہ تھا، اور ننکانہ صاحب سے اس کا فضائی فاصلہ تقریباً 45 کلومیٹر ہے۔
+
+7. [unidiomatic collocation] "ایک چھوٹی سی احاطہ بندی کے اندر" -> "احاطہ بندی" is the act of fencing in, not a place one can be inside; the enclosure itself is "احاطہ".
+OLD: اس کے پہلو میں ایک چھوٹی سی احاطہ بندی کے اندر *وَن* کے چند درخت ہیں۔
+NEW: اس کے پہلو میں ایک چھوٹے سے احاطے کے اندر *وَن* کے چند درخت ہیں۔
+
+8. [word choice, broken phrase] "سچے سودے کی یادگار گوردواروں میں سے ایک" -> "یادگار" as an adjective means "memorable", and "سچے سودے کی یادگار" closes as a noun phrase on its own, leaving "گوردواروں" dangling -> say what the gurdwaras do.
+OLD: یہ سچے سودے کی یادگار گوردواروں میں سے ایک ہے، اور مانا جاتا ہے کہ یہ ٹھیک اس جگہ کھڑا ہے جہاں گرو نے فقیروں کو کھانا کھلایا تھا۔
+NEW: یہ سچے سودے کی یاد دلانے والے گوردواروں میں سے ایک ہے، اور مانا جاتا ہے کہ یہ ٹھیک اس جگہ کھڑا ہے جہاں گرو نے فقیروں کو کھانا کھلایا تھا۔
+
+9. [repetition] "کہا جاتا ہے کہ انہی درختوں کے نیچے نانک نے جوگیوں کے سردار سے گفتگو کی تھی۔" -> this sentence appears word for word in تعارف and again in the description of the site, which reads as a copy; vary the second one while keeping the hedge.
+OLD: گوردوارہ، صحن اور درخت سب ایک قدیم ٹیلے پر ہیں، جو قصبے اور اس کے گرد و نواح کا سب سے اونچا مقام ہے۔ کہا جاتا ہے کہ انہی درختوں کے نیچے نانک نے جوگیوں کے سردار سے گفتگو کی تھی۔
+NEW: گوردوارہ، صحن اور درخت سب ایک قدیم ٹیلے پر ہیں، جو قصبے اور اس کے گرد و نواح کا سب سے اونچا مقام ہے۔ جوگیوں کے سردار سے نانک کی جس گفتگو کا ذکر آتا ہے، کہا جاتا ہے کہ وہ انہی درختوں کے نیچے ہوئی تھی۔
+
+10. [word order, ambiguity] "کندہ قدموں کے نشانات" -> the adjective attaches to "قدموں", giving "marks of engraved feet"; it is the marks that are engraved, and "قدموں کے نشانات ... نقشِ قدم" also says footprints twice in one breath -> recast with a relative clause.
+OLD: دیوی ہنگلاج کے مندر میں کندہ قدموں کے نشانات کو گرو نانک کے نقشِ قدم مانا جاتا ہے۔
+NEW: دیوی ہنگلاج کے مندر میں قدموں کے جو نشان کندہ ہیں، انہیں گرو نانک کے نقشِ قدم مانا جاتا ہے۔
+
+NOTES:
+- Repetition by design: "اس قصبے کا پرانا نام چوہڑکانہ تھا" (تعارف) and "اس کا پرانا نام چوہڑکانہ تھا" (فاروق آباد), and the renovation sentence "برطانیہ کی سکھ سنگت کے تعاون سے گوردوارے کی تزئینِ نو ہوئی" in both تعارف and گوردوارہ. A lead that summarises the body is fine, but the body sentence in گوردوارہ could open differently ("بعد میں یہ تزئینِ نو ...").
+- Opening paragraph: "نوجوان نانک نے وہ رقم جو ان کے والد نے تجارت کے لیے دی تھی، بھوکے فقیروں کو ..." is correct but has two ergative "نے" in quick succession; "نوجوان نانک نے تجارت کے لیے والد کی دی ہوئی رقم بھوکے فقیروں کو کھانا کھلانے پر خرچ کر دی" would read more smoothly.
+- "اقبال قیصر کو اس کا نام بس شاہ یاد رہا": "بس شاہ" can be read for a moment as a two-word name; "انہیں اس آدمی کا نام صرف شاہ یاد رہا" is cleaner.
+- "اسی کی دہائی کے انتخابات" right after "1980 کی دہائی": "اسی" is a homograph of "اِسی", and words now replace the digits used one sentence earlier; "اس دہائی کے انتخابات" would avoid both.
+- "کم سن نانک" for a youth said a paragraph earlier to be about eighteen; "نوجوان" or "نوعمر" (both used elsewhere in the article) fits better.
+- "مگر سب کا مغز ایک ہی ہے": "سب" has no stated noun; "ہر روایت کا مغز" is clearer.
+- "گرو نانک کو بابا نانک بھی کہا جاتا تھا": he is still called so; "کہا جاتا ہے" unless the past tense is deliberately tied to the Aurangzeb-era source that follows.
+- Collocations that are understandable but a shade translated: "ہدایت یافتہ روح", "عقیدت کے دام میں" (دام also means snare), "تحریک کا سرچشمہ", "زندہ رشتہ", "وسیع تر روایت کے لیے", "یاتریوں کی راہ کا ایک عزیز پڑاؤ", "سب سے بڑے تھوک کریانہ فروش" (more natural: "کریانے کے سب سے بڑے تھوک فروش"), "جنم ساکھیوں کے بیان میں" (more natural: "کے مطابق"), "تاکہ ان کی پیٹھ کبھی" (the "کبھی" is superfluous).
+- Italics: "*سیوا*" is italicised on its second mention but not its first, and "لنگر" is never italicised; "*سُکھ آسن*" is italicised on first mention only, which is fine.
+- Checks: Western digits throughout, 36 asterisks (balanced), Urdu ، ؛ ۔ only, no Latin letters, no em or en dashes; verse paragraphs left untouched.

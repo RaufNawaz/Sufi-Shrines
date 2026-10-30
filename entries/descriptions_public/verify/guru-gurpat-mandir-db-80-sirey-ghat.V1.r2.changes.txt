@@ -1,0 +1,21 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1r1 1
+OLD: He is said to have brought relics with him and enshrined them: hair said to be from Baba Sri Chand, a rupee of the Nanak Shahi era, and a ring attributed to Guru Gobind Singh, the tenth Guru of the Sikhs.
+NEW: He is said to have brought relics with him and enshrined them, including hair said to be from Baba Sri Chand, a rupee of the Nanak Shahi era, and a ring attributed to Guru Gobind Singh, the tenth Guru of the Sikhs.
+
+2. V1r1 2
+OLD: Today it is kept as a registered charitable trust, and its trusteeship in former times is remembered under the name of Bao Santokdas.
+NEW: Today it is kept as a registered charitable trust, and its trusteeship in former times is remembered under Bao Santokdas.
+
+3. V1r1 3
+OLD: With a named founder, a dated building and a preserved lineage, it is one of the better known sites in this cluster, though little of its history can be traced beyond the memory of its own community.
+NEW: With a named founder, a dated building and a preserved lineage, it is one of the better documented sites in this cluster, though little of its history can be traced beyond the memory of its own community.
+
+4. V1r1 4
+OLD: British colonisation brought a renewal of religious life, tied to the spread of a composite middle class and marked by the emergence of the *darbars*, which spread a *darbar* culture.
+NEW: British colonisation, it has been argued, brought a renewal of religious life, tied to the spread of a composite middle class and marked by the emergence of the *darbars*, which spread a *darbar* culture.
+
+5. V1r1 5
+OLD: The Sindhi Adabi Board of Hyderabad published five volumes by Baloch between 1960 and 1962, and Lilaram Watanmal's biography of Shah Abdul Latif was published in Hyderabad in 1889.
+NEW: The Sindhi Adabi Board of Hyderabad published five volumes between 1960 and 1962, and Lilaram Watanmal's biography of Shah Abdul Latif was published in Hyderabad in 1889.

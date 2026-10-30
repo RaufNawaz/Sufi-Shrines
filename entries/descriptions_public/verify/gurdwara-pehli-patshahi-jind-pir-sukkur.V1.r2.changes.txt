@@ -1,0 +1,90 @@
+Coordinator fixes from V1 round 1 (exact wording from the report). Each item: the V1 point, then the old and new sentence.
+
+[V1 r1 #1 (omission)]
+OLD: His father was Kalyan Chand Das Bedi, affectionately called Mehta Kalu, accountant to the Bhatti family under Rai Bular. He died on 22 September 1539; accounts of the dates of his life differ.
+
+In the janamsakhis, the cycles of tales told of the first Guru's life, at the age of thirteen he refused the sacred thread, holding that it is a man's actions alone that give him his position.
+NEW: His father was Kalyan Chand Das Bedi, affectionately called Mehta Kalu, accountant to the Bhatti family under Rai Bular. He was born into a Hindu household and educated in a Muslim milieu, yet he is held to have been neither a practising Muslim nor a Hindu. He died on 22 September 1539; accounts of the dates of his life differ.
+
+In the janamsakhis, the cycles of tales told of the first Guru's life, at the age of thirteen he refused the sacred thread, holding that it is a man's actions alone that give him his position.
+
+[V1 r1 #2]
+OLD: On the wall of Rochaldas, one of them, hung pictures of Guru Nanak, Qutub Ali Shah, Sai Baba, Ramachandra and Krishna, and a *jai*, a formula of praise, named among the gods Guru Nanak, Jhulelal and Mast Qalandar.
+
+The Nanak Panthis were found in very large numbers in the province of Sindh, as well as in South Punjab.
+NEW: On the wall of Rochaldas, one of them, hung pictures of Guru Nanak, Qutub Ali Shah, Sai Baba, Ramachandra and Krishna. Among the Hindu Sufis of Sindh, a *jai*, a formula of praise, named among the gods Guru Nanak, Jhulelal and Mast Qalandar.
+
+The Nanak Panthis were found in very large numbers in the province of Sindh, as well as in South Punjab.
+
+[V1 r1 #3]
+OLD: The Nanak Panthis were found in very large numbers in the province of Sindh, as well as in South Punjab. The communities who refused the Khalsa, the order of initiated Sikhs, and called themselves followers of Guru Nanak still live in Sindh and in Khyber Pakhtunkhwa; baptised Sikhs look down upon them, and at Manora they were seen merging into the larger groups of Sikhs.
+
+After Partition the *darbars* that the Hindus left behind in Sindh were most of the time preserved, with different arrangements for their management, often with *gaddi nashins*, the heads of the shrines, or followers in India paying the keepers; and despite the shifting diplomatic relations between Pakistan and India, it was always possible to travel across the border.
+
+## The Setting
+
+Sukkur stands at one corner of the triangle formed by Rohri, Sukkur and Shikarpur.
+NEW: The Nanak Panthis belong to South Punjab and Sindh, and they are found in very large numbers in the province of Sindh. The communities who refused the Khalsa, the order of initiated Sikhs, and called themselves followers of Guru Nanak still live in Sindh and in Khyber Pakhtunkhwa; baptised Sikhs look down upon them, and at Manora they were seen merging into the larger groups of Sikhs.
+
+After Partition the *darbars* that the Hindus left behind in Sindh were most of the time preserved, with different arrangements for their management, often with *gaddi nashins*, the heads of the shrines, or followers in India paying the keepers; and despite the shifting diplomatic relations between Pakistan and India, it was always possible to travel across the border.
+
+## The Setting
+
+Sukkur stands at one corner of the triangle formed by Rohri, Sukkur and Shikarpur.
+
+[V1 r1 minor a]
+OLD: When he set out, the janamsakhis say, he was dressed in a strange garb, a combination of what the holy men of Hinduism and of Islam would wear.
+
+He married Sulakhini, daughter of Mul Chand and Chando Rani of the town of Batala, on 24 September 1487, though accounts of the marriage differ, and they had two sons, Sri Chand, born on 8 September 1494, and Lakhmi Das, born on 12 February 1497.
+NEW: When he set out, the janamsakhis say, he was dressed in a strange garb, an approximate combination of what the holy men of Hinduism and of Islam would wear.
+
+He married Sulakhini, daughter of Mul Chand and Chando Rani of the town of Batala, on 24 September 1487, though accounts of the marriage differ, and they had two sons, Sri Chand, born on 8 September 1494, and Lakhmi Das, born on 12 February 1497.
+
+[V1 r1 minor b]
+OLD: The singer Abida Parvin has said: "I sing Shah Hussain, Bulle Shah, Mian Muhammad Bakhsh, Hazrat Khawaja Ghulam Farid, Sacchal Sarmast, Baba Farid, and Guru Nanak." In Sindh, Sain Vasan Shah became famous for reciting the *banis* of Shri Guru Nanak and the *kalams*, the poems, of the Sufis.
+
+## The Followers of Nanak in Sindh
+
+In Aurangzeb's reign the sum of the worship of Baba Nanak's followers was the reading of their master's verses, which they recited in song and melody.
+NEW: The singer Abida Parvin has said: "I sing Shah Hussain, Bulle Shah, Mian Muhammad Bakhsh, Hazrat Khawaja Ghulam Farid, Sacchal Sarmast, Baba Farid, and Guru Nanak." Among the Hindu Sufis of Sindh, Sain Vasan Shah became famous for reciting the *banis* of Shri Guru Nanak and the *kalams*, the poems, of the Sufis.
+
+## The Followers of Nanak in Sindh
+
+In Aurangzeb's reign the sum of the worship of Baba Nanak's followers was the reading of their master's verses, which they recited in song and melody.
+
+[V1 r1 minor c]
+OLD: Inside the temples of the Nanak Panthis in Sindh and Southern Punjab hang portraits of Guru Nanak, along with Krishna, Kali Mata and other Hindu deities, and Guru Nanak is mostly depicted in saffron coloured clothes.
+
+The Guru's image also hung in the *darbars* of the Hindu Sufis of Sindh.
+NEW: Inside the temples of the Nanak Panthis in Sindh and Southern Punjab hang portraits of Guru Nanak, along with Krishna, Kali Mata and other Hindu deities. Guru Nanak is mostly depicted in saffron coloured clothes.
+
+The Guru's image also hung in the *darbars* of the Hindu Sufis of Sindh.
+
+[V1 r1 minor d]
+OLD: Jhulelal was already worshipped by some of the Hindus of Sindh, but most of them were Nanakpanthis. Offerings to the Indus are still made in the wider region of Sindh.
+
+In colonial Sindh an attempt was made to create a centralised path devoted to Jhulelal, then known as Amar Lal or Udero Lal, with an attempt to impose a specific script, the Khudawadi, and a meeting organised by several Hindu *panchayats*, or councils, of Sindh at Udero Lal.
+NEW: Jhulelal was already worshipped by some of the Hindus of Sindh, but the Hindus of Sindh were for the most part Nanakpanthis. Offerings to the Indus are still made in the wider region of Sindh.
+
+In colonial Sindh an attempt was made to create a centralised path devoted to Jhulelal, then known as Amar Lal or Udero Lal, with an attempt to impose a specific script, the Khudawadi, and a meeting organised by several Hindu *panchayats*, or councils, of Sindh at Udero Lal.
+
+[V1 r1 minor e]
+OLD: The verse is sung beyond the gurdwaras too. The singer Abida Parvin has said: "I sing Shah Hussain, Bulle Shah, Mian Muhammad Bakhsh, Hazrat Khawaja Ghulam Farid, Sacchal Sarmast, Baba Farid, and Guru Nanak." Among the Hindu Sufis of Sindh, Sain Vasan Shah became famous for reciting the *banis* of Shri Guru Nanak and the *kalams*, the poems, of the Sufis.
+
+## The Followers of Nanak in Sindh
+
+In Aurangzeb's reign the sum of the worship of Baba Nanak's followers was the reading of their master's verses, which they recited in song and melody.
+NEW: (deleted)
+
+[V1 r1 minor f]
+OLD: The singer Alan Faqir is reported to have sung in his youth on the buses and trains between Rohri and Sehwan Sharif, and at the *dargahs*, the shrines, of Sind.
+
+## Legacy
+
+Guru Nanak is remembered as a teacher who crossed the line between Hindu and Muslim, and a shrine kept by Hindus and Sikhs together, where the Granth and images are honoured side by side, belongs to that memory.
+NEW: The singer Alan Faqir is reported to have sung in his youth on the buses and trains between Rohri and Sehwan Sharif, and he also sang at the *dargahs*, the shrines, of Sind.
+
+## Legacy
+
+Guru Nanak is remembered as a teacher who crossed the line between Hindu and Muslim, and a shrine kept by Hindus and Sikhs together, where the Granth and images are honoured side by side, belongs to that memory.
+

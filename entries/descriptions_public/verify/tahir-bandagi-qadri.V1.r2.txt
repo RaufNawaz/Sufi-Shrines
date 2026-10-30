@@ -1,0 +1,58 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) The chronogram word now sits directly under the quatrain with nothing to separate them. The paragraph introduces a chronogram written on him as a quatrain, quotes its two opening lines, and then says "The year of his death is drawn from a single word, *gham*, grief." A reader takes *gham* as the key word of that quatrain and the quatrain's year as his death year. The team version keeps them apart. The quatrain is Lahori's, and "the year it encodes is not stated with these opening lines". The single word *gham* is Kanhaiya Lal's separate statement, and "No fuller chronogram phrase is printed in either place." Round 1 removed "also" so that the quatrain was not said to give his death year. That was right, but the juxtaposition still joins the two. One word fixes it without saying anything about the quatrain's year:
+OLD: The year of his death is drawn from a single word, *gham*, grief.
+NEW: Separately, the year of his death is drawn from a single word, *gham*, grief.
+
+2. Round 1 changes confirmed. The diff of the backup (bak_en1) against the current file shows exactly three changed lines (17, 75 and 86), and they match the three replacements in V1.r2.changes.txt word for word. Nothing else moved. Each change is supported:
+   - The *bai'at* sentence now has him initiating others and receiving their *bai'at* in the Qadiri, Naqshbandi and Suhrawardi orders. That is the team version's "Of the orders in which he initiated others, ... he took *bai'at* in ... the Qadiri, Naqshbandi and Suhrawardi". "is said to" keeps the certainty. "all four" ([OCR?]) stays out. The glossary gloss is used correctly, since "their" refers to the others. The sentence still supports "Most often he is counted a Naqshbandi as well".
+   - Rani Gul Begum's enclosure is no longer counted among the enclosures of fired brick. She is "a woman of the courtesan caste", as in the team version, and "stood there too" adds nothing beyond the team version's naming of it within the graveyard.
+   - With "also" gone, the text no longer says that the quatrain gives his death year. See note 1 for what remains.
+
+3. Rulings on the writer's judgement calls (notes, "## Judgement calls for V1"). On a fresh reading all 22 are accepted, for the reasons given in round 1, note 3, and none needs a change.
+   - 1: the date without a clause. The only rival day and year rest on two [OCR?] numbers.
+   - 2: the second telling of the fall. It keeps only the legible, compatible details, each framed.
+   - 3: the two Paradise sayings. They are distinct sayings, both framed.
+   - 4: the graveyard's origin, basis (a). The clause is present.
+   - 5: the couplet left out. Rule 5 applies.
+   - 6: Muhammad Masum. He is legible.
+   - 7: "a Gilani pir". Only the given name is lost.
+   - 8: Pir Sher Husain Tahiri. The uncertain element is dropped.
+   - 9: Sayyid Shahsawar in the nineteenth century.
+   - 10: Kanhaiya Lal's p. 292 passage. The team version uses it in its own voice, and it is rightly flagged for Rauf.
+   - 11: the *qutbiyat*. The claim reads whole and is framed "is said to".
+   - 12: the shrine's full name.
+   - 13: the quarter settled until the end of Muslim rule. It describes the quarter, not the raid.
+   - 14: Iskandar and Sikandar. They are one man with the same father.
+   - 15: "hundreds of thousands" and "every day".
+   - 16: the men called Abu Muhammad. They are kept in separate sentences and never said to be one man.
+   - 17: Batala. It is not linked to the chain.
+   - 18: the Chishti and the Naqshbandi Suhrawardi saint.
+   - 19: "written in the lives of the saints".
+   - 20: the Overview summary.
+   - 21: the Miani material, anchored to the 1880s.
+   - 22: no order given between Sayyid Mansur and Sayyid Shahsawar.
+
+4. Record only, no public text change. The notes file still quotes the pre-round 2 wording in two places. Under "His Sufi order" in the consensus choices it has "He is also said to have taken *bai'at* ... in the Qadiri, Naqshbandi and Suhrawardi orders", and it explains the sentence as his own affiliation ("since it adds the Suhrawardi without denying the others"). The Verse bullet has "The year of his death is also drawn from a single word". The coordinator should bring both in line with the current text. For the Urdu writer, round 1's point stands: the Urdu must say that he received the *bai'at* of others in the three orders (بیعت لیتے تھے), not that he took it himself.
+
+5. Whole text re-checked sentence by sentence, all passed.
+   - Every statement and number is in the team version: 1576, Fazlullah, 475 *kanals*, 1,200 to 1,600, 250,000 to 300,000, 7th to 9th Muharram, 8 Muharram 1040 AH and 8 August 1630, 54, 1264 AH, two miles, ten or twelve years, fifteen to twenty days, the four *khalifas* and the three generation chain.
+   - Legends and reports stay framed: the graveyard growing around the tomb, the trial and its second telling, the raid, the care of the shrine, the rebuilding, the Paradise sayings, the jinn, the visions, the name Miani and Akbar's village.
+   - Rule 4 holds. Each recorded disagreement either has its one clause (origin, master, age, the raid's date, the family's line, the graveyard's beginning) or is dropped silently as minor or as resting on uncertain readings. No chain is merged: Pir Kamal Kaithali, Shah Sikandar and Tahir form one line, and Kanhaiya Lal's Shah Kamal is not hung under it. Lahori's genealogy and the editor's are not joined.
+   - No uncertain reading is used as fact.
+   - No citation, page reference, author narration, signposting or archive language appears. Muhammad Din Fauq and Adam Banuri's own account are part of the story.
+   - The time anchors are firm: the 1880s for Kanhaiya Lal (1884), the nineteenth century for Chishti, "Later" for the modern editor, and "today" for the survey.
+   - Glosses are definitional. The verse lines are byte for byte the team version's. There are no em or en dashes.
+   - The checker (`--english-only`) exits 0.
+   - Plain survey statements without "It is reported" (the marriages, the families over generations, the restrained *ʿurs*) follow rule 3 of the brief and are not upgrades in certainty.
+
+6. Taste only, no change required:
+   - "Within this great wall stood another large platform of fired brick": "another" follows the team version's "another large *pakka* platform", where the first *pakka* structure is the wall. In the public sentence it reads a little as if an earlier platform had been mentioned.
+   - Round 1's taste notes still stand: the sentence "The episode is told plainly", where the Legacy clause on the graveyard's origin sits, "first" for the enclosure, the double gloss of *ʿurs*, and nine headings with Shah Husain and the *Tazkira-e Mujaddidiya* placed under His Disciples.
+
+7. Length. The prose is 14,902 characters against the team version's 35,745 (0.42), and the checker gives the same figures. Note 1 adds eleven characters. No L1 exception is needed.
+
+8. Omission sweep. After a fresh sweep of the team version paragraph by paragraph, nothing important is missing. The life, family (father, both wives, no descendants), masters, the Mujaddid and his son, orders, *khalifas*, chain, mosque, *madrasa* and library, tomb, enclosure and rebuilding, neighbouring graves, keepers by name with Sayyid Shahsawar's family, devotion, *ʿurs*, legends, the graveyard and the legacy are all present. What is left out is source apparatus, rival variants that rule 4 removes, and readings the team version marks uncertain.

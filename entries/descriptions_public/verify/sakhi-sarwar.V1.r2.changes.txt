@@ -1,0 +1,13 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1r1 1
+OLD: There were two wives in his father's household, one of them the saint's mother, and the saint had a brother, Sayyid Abd al-Ghani.
+NEW: There were two wives in his father's household, one of them the saint's mother, and the saint had a brother, Sayyid Abd al-Ghani. Zain al-Abidin lies with Sayyid Mahmud and Sayyid Sohrab in the burial place of his family, a place of pilgrimage for the people.
+
+2. V1r1 2
+OLD: The saint and his family were buried at the foot of the hills, and the tomb became known as the tomb of the martyr. His father, Zain al-Abidin, lies with Sayyid Mahmud and Sayyid Sohrab in the family's burial place, a place of pilgrimage for the people.
+NEW: The saint and his family were buried at the foot of the hills, and the tomb became known as the tomb of the martyr.
+
+3. V1r1 3
+OLD: His wife and young son died with him or soon after, and accounts of their deaths differ.
+NEW: His wife and young son died too, with him or after him, and accounts of their deaths differ.

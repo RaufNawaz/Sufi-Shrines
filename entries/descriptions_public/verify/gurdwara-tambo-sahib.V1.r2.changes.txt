@@ -1,0 +1,21 @@
+Changes applied by the coordinator, exact replacements, each OLD occurring once.
+
+1. V1 r1 change 1
+OLD: Originally called Rai Bhoi di Talwandi, it was renamed Nankana Sahib in honour of Guru Nanak, the first Sikh Guru, who was born there, and his early years there account for the several gurdwaras of the town.
+NEW: Originally called Rai Bhoi di Talwandi, it was renamed Nankana Sahib in honour of Guru Nanak, the first Sikh Guru, who was born there, and his early years there account for several of the town's gurdwaras.
+
+2. V1 r1 change 2
+OLD: A tall wall with barbed wire ran round it on all sides, with one gate from the main market and a board by the road in English, Shahmukhi and Gurmukhi, the scripts in which Punjabi is written; a second gate, painted blue, was kept permanently locked for security reasons.
+NEW: A tall wall with barbed wire ran round it on all sides, with one gate from the main market and a board by the road in English and in the Punjabi scripts Shahmukhi and Gurmukhi; a second, blue gate was kept permanently locked for security reasons.
+
+3. V1 r1 change 3
+OLD: Vast land lay vacant on both sides of the shrine and was used for farming, with a single storey building used by farmers and a tractor.
+NEW: Vast land lay vacant on both sides of the shrine and was used for farming, with a tractor and a single storey building used by farmers.
+
+4. V1 r1 change 4
+OLD: Such celebrations were new. Kartar explained that Lohri and Guru Gobind Singh's birthday had begun only in the last couple of years, made possible by the increase in the Sikh population through migration from the tribal areas; earlier there had been only a prayer at the gurdwara.
+NEW: Such celebrations, Kartar explained, were new: Lohri and Guru Gobind Singh's birthday had begun only in the last couple of years, made possible by the increase in the Sikh population through migration from the tribal areas, and earlier there had been only a prayer at the gurdwara.
+
+5. V1 r1 change 5
+OLD: So, as one writer observed with some irony, a Punjabi tradition shunned by the Punjab was being revived by a group of Pathan men living in the Punjab.
+NEW: As one writer observed, it was ironical that a Punjabi tradition shunned by the Punjab was being revived by a group of Pathan men living in the Punjab.

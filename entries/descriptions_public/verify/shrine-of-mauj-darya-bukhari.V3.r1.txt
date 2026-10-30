@@ -1,0 +1,73 @@
+VERDICT: FAIL
+ISSUES:
+1. [agreement / gender] "سیدنا بی بی فاطمہ ثانی" -> "سیدنا" ("our master") is a masculine honorific and does not stand before a woman's name; the feminine is "سیدہ". (If the source deliberately prints "سیدنا" as part of a title, keep it; a reader will take it as a slip.)
+OLD: ان کی پہلی بیوی سیدنا بی بی فاطمہ ثانی "بی بی کِلّہ" کہلاتی ہیں اور عوام میں مائی فاطمہ کے نام سے مشہور ہیں؛ ان کے نام کے بارے میں روایتیں مختلف ہیں۔
+NEW: ان کی پہلی بیوی سیدہ بی بی فاطمہ ثانی "بی بی کِلّہ" کہلاتی ہیں اور عوام میں مائی فاطمہ کے نام سے مشہور ہیں؛ ان کے نام کے بارے میں روایتیں مختلف ہیں۔
+
+2. [unidiomatic / illogical] "ان کا ایک اور گھر بھی تھا، جہاں ... حویلیاں بنی ہوئی تھیں" -> a single "گھر" inside which several havelis stand does not make sense; "گھر" here means a second place of residence, which "ٹھکانا" says.
+OLD: ان کا ایک اور گھر بھی تھا، جہاں ان کی دوسری بیوی رہتی تھیں اور حویلیاں بنی ہوئی تھیں۔
+NEW: ان کا ایک اور ٹھکانا بھی تھا، جہاں ان کی دوسری بیوی رہتی تھیں اور حویلیاں بنی ہوئی تھیں۔
+
+3. [repetition] "کرامات کا شہرہ تھا۔ ان کا شمار صاحبِ کرامت، ..." -> two adjacent sentences both say he was famed for miracles; join them and let "کرامات کا شہرہ" carry it once.
+OLD: اکبر کے عہد میں ان کی خدا ترسی، ولایت اور کرامات کا شہرہ تھا۔ ان کا شمار صاحبِ کرامت، عبادت گزار اور زاہد بزرگوں میں ہوتا تھا۔
+NEW: اکبر کے عہد میں ان کی خدا ترسی، ولایت اور کرامات کا شہرہ تھا، اور ان کا شمار عبادت گزار اور زاہد بزرگوں میں ہوتا تھا۔
+
+4. [repetition] "وہاں سب سے پہلے وہی آ کر بسے تھے۔ اکبر کے عہد میں یہاں آ کر انہوں نے" -> "آ کر" twice in two short sentences making one point; join them.
+OLD: جس جگہ آج ان کا مقبرہ ہے، وہاں سب سے پہلے وہی آ کر بسے تھے۔ اکبر کے عہد میں یہاں آ کر انہوں نے شہر کا ایک پورا محلہ آباد کیا۔
+NEW: جس جگہ آج ان کا مقبرہ ہے، وہاں سب سے پہلے وہی آ کر بسے تھے، اور اکبر کے عہد میں انہوں نے یہاں شہر کا ایک پورا محلہ آباد کیا۔
+
+5. [tangled word order] "شریعتِ محمدی کے دستور کے مطابق شہاب الدین چار برس ... کے ہوئے تو" -> without "جب" the clause is clipped, and the custom phrase attaches to his reaching the age instead of to his being seated in the maktab; put "جب" first and move the custom phrase next to the action it governs.
+OLD: بیان کیا جاتا ہے کہ شریعتِ محمدی کے دستور کے مطابق شہاب الدین چار برس، چار مہینے اور چار دن کے ہوئے تو انہیں مکتب میں بٹھایا گیا۔
+NEW: بیان کیا جاتا ہے کہ جب شہاب الدین چار برس، چار مہینے اور چار دن کے ہوئے تو شریعتِ محمدی کے دستور کے مطابق انہیں مکتب میں بٹھایا گیا۔
+
+6. [ambiguous / unidiomatic] "سادہ تختہ دار سطحوں" -> "تختہ دار" is read at once as "تختۂ دار" (the gallows) and is not an Urdu architectural term for panelling; plain wall panels are "خانے".
+OLD: اس پر نیچا گنبد ہے، آٹھوں کونوں پر برج بنے ہیں، اور دیواروں میں اندر کو دھنسی ہوئی بند محرابوں اور سادہ تختہ دار سطحوں کا امتزاج ہے۔
+NEW: اس پر نیچا گنبد ہے، آٹھوں کونوں پر برج بنے ہیں، اور دیواروں میں اندر کو دھنسی ہوئی بند محرابوں اور سادہ خانوں کا امتزاج ہے۔
+
+7. [unidiomatic / tense] "سرنگ کی کھدائی بزرگ کی قبر کے قریب سے گزرتی تھی" -> an excavation does not "pass by" (گزرنا), and the habitual "گزرتی تھی" turns a single event into a recurring one; "جو بظاہر" also has no clear antecedent.
+OLD: اطلاعات کے مطابق سرنگ کی کھدائی بزرگ کی قبر کے قریب سے گزرتی تھی، جو بظاہر تاریخی ورثے کے گرد حفاظتی دائرے کے ضوابط کی خلاف ورزی تھی۔
+NEW: اطلاعات کے مطابق سرنگ بزرگ کی قبر کے قریب سے کھودی گئی، اور یہ بظاہر تاریخی ورثے کے گرد حفاظتی دائرے کے ضوابط کی خلاف ورزی تھی۔
+
+8. [calque] "مزار کی دیکھ بھال کا ذمہ ایک طویل سلسلے میں ہاتھ بدلتا رہا" -> word for word "changed hands in a long succession"; Urdu does not say a responsibility "ہاتھ بدلتا ہے", and "ذمہ" alone should be "ذمہ داری". The idiom is "ایک ہاتھ سے دوسرے ہاتھ میں منتقل ہوتی رہی".
+OLD: بیان کیا جاتا ہے کہ محکمۂ اوقاف کی تحویل میں آنے سے پہلے مزار کی دیکھ بھال کا ذمہ ایک طویل سلسلے میں ہاتھ بدلتا رہا: شہنشاہ اکبر سے ان کے بعد کے حکمرانوں اور مہاراجہ رنجیت سنگھ تک، اور خود بزرگ کی اولاد تک۔
+NEW: بیان کیا جاتا ہے کہ محکمۂ اوقاف کی تحویل میں آنے سے پہلے مزار کی دیکھ بھال کی ذمہ داری ایک طویل عرصے تک ایک ہاتھ سے دوسرے ہاتھ میں منتقل ہوتی رہی: شہنشاہ اکبر سے ان کے بعد کے حکمرانوں اور مہاراجہ رنجیت سنگھ تک، اور خود بزرگ کی اولاد تک۔
+
+9. [gloss of familiar word] "جمعرات کی رات جمعے رات بھی کہلاتی ہے" -> "جمعے رات" is only "جمعرات" spelt as spoken, so the sentence tells an Urdu reader that Thursday night is also called Thursday; the established Urdu name for this night is "شبِ جمعہ".
+OLD: جمعرات کی رات جمعے رات بھی کہلاتی ہے، اور اسی شب کی محفلیں آج بھی ہفتے بھر میں سب سے زیادہ پُررونق ہوتی ہیں۔
+NEW: جمعرات کی رات یعنی شبِ جمعہ کی محفلیں آج بھی ہفتے بھر میں سب سے زیادہ پُررونق ہوتی ہیں۔
+
+10. [calque] "اللہ صمد خود مزار کی سب سے حیرت انگیز روایتوں میں سے ایک کا موضوع ہیں" -> a literal "is himself the subject of one of the shrine's most remarkable legends"; Urdu says the legend is about him.
+OLD: میراں محمد شاہ کے باورچی اللہ صمد خود مزار کی سب سے حیرت انگیز روایتوں میں سے ایک کا موضوع ہیں۔
+NEW: مزار سے وابستہ سب سے حیرت انگیز روایتوں میں سے ایک میراں محمد شاہ کے باورچی اللہ صمد کے بارے میں ہے۔
+
+11. [tangled / ambiguous] the ber-tree story -> "قصے کا محور" is an English "centres on"; in "جبکہ وہ خود اس وقت" the "وہ" can be read as the wife; "یہ نعمت" has no antecedent; and the sentence that puts the tree in view of the khanqah comes after the dialogue and calls it "ایک درخت", as if a second tree. Reordered so the tree, its being visible from the khanqah, and then the exchange come in sequence. (This reads the tree "visible from the khanqah" as the same ber tree, which the paragraph plainly intends; check against the source if in doubt.)
+OLD: ایک قصے کا محور بیری کا وہ درخت ہے جو بزرگ کی بیوی کے گھر کے آنگن میں تھا، جبکہ وہ خود اس وقت خانقاہ کے صحن میں تھے۔ میراں محمد شاہ نے پوچھا کہ یہ نعمت کہاں سے آئی، تو بیوی نے جواب دیا کہ یہ دولت انہیں آبا و اجداد سے ورثے میں ملی ہے۔ اہلیہ کے گھر کا ایک درخت حضرت موج دریا بخاری کی خانقاہ سے دکھائی دیتا تھا۔
+NEW: ایک قصہ بیری کے اس درخت کا ہے جو بزرگ کی بیوی کے گھر کے آنگن میں تھا اور حضرت موج دریا بخاری کی خانقاہ سے دکھائی دیتا تھا۔ قصے کے مطابق میراں محمد شاہ اس وقت خود خانقاہ کے صحن میں تھے، اور جب انہوں نے پوچھا کہ یہ نعمت کہاں سے آئی، تو بیوی نے جواب دیا کہ یہ دولت انہیں آبا و اجداد سے ورثے میں ملی ہے۔
+
+12. [calque] "یہ واقعہ ... اس بحث کا ایک گرما گرم موضوع بن گیا کہ" -> an English "became a flashpoint in the debate over"; in Urdu the subject of the debate is the "کہ" clause, so the event cannot also be its "موضوع".
+OLD: یہ واقعہ لاہور میں اس بحث کا ایک گرما گرم موضوع بن گیا کہ بنیادی ڈھانچے کی ترقی اور مذہبی ورثے کے تحفظ میں توازن کیسے قائم رکھا جائے۔
+NEW: اس واقعے نے لاہور میں اس بحث کو گرما دیا کہ بنیادی ڈھانچے کی ترقی اور مذہبی ورثے کے تحفظ میں توازن کیسے قائم رکھا جائے۔
+
+NOTES:
+- Repetition from merged sources, left as notes because each fix would drop a clause: (a) "اس کا داخلہ جنوب کی طرف تھا" repeats "اس کا دروازہ جنوب کی جانب تھا" four sentences earlier in the same paragraph; (b) "میراں محمد شاہ ایک چھوٹے سے قبرستان میں ... مدفون ہیں" repeats the introduction almost word for word; (c) the mosque and well of the 1880s sentence return in the very next one ("ایک پرانی مسجد ... کنواں"); (d) "سب سے بڑھ کر ... روحانی رازدار" restates the introduction. An editor may simply cut (a).
+- "روحانی رازدار" (twice) has a translated feel, though it is understood.
+- "گھرانے کی یہ تقسیم" has its antecedent two paragraphs back, with the maktab anecdote in between; "دو بیویوں کی اولاد کی یہ تقسیم" or moving the maktab paragraph would anchor it.
+- "تبالہ" (where Shahabuddin settled) and "بٹالہ" (near which the reward was given): if one town is meant, the spelling is inconsistent; if the sources really differ, it is right. Not changed because it is a place name.
+- "ان کا شجرۂ نسب" follows a sentence ending in "جہانیاں جہاں گشت", so "ان" can for a moment be read as him; "سلسلۂ نسب"، "نسب"، "شجرۂ نسب" also come in three consecutive sentences.
+- "بٹالہ کے قریب اکبر کی طرف سے ملنے والا خطیر انعام میراں محمد شاہ نے ..." is object first; "میراں محمد شاہ نے بٹالہ کے قریب ..." reads more easily.
+- "یہ دستاویزات کہاں رکھی گئی تھیں" sits oddly after "آج بھی ... محفوظ ہیں"; "کہاں محفوظ ہیں" if the source means today.
+- "نیلا گنبد والے شیخ عبدالرزاق مکی", after two plain mentions, reads as if a new person were being introduced; in "خود ان کا مقبرہ" the "ان" could be taken as Miran Muhammad Shah.
+- "انہیں بجائے خود ولیہ مانا جاتا ہے": "بجائے خود" mostly goes with things; "وہ خود بھی ولیہ مانی جاتی ہیں" is more natural.
+- "آندھی اور جلتا ہوا چراغ اس بات کی نشانی ہوں گے": "نشانیاں ہوں گی" would match "دونوں نشانیاں" in the next sentence.
+- "سہروردی سلسلے سے وابستہ تھے، اور جوانی میں حافظِ قرآن ہو گئے" joins two unrelated facts; "جوانی ہی میں قرآن حفظ کر لیا" as its own sentence is more natural.
+- "پورے نام کے ساتھ" inside the list of names is awkward; "اور پورے نام سے" or a separate clause.
+- "کرامت کے ذریعے اس کا رخ ... پھیر کر یہ لقب پایا" is compressed; "اپنی کرامت سے ... پھیر دیا، اور اسی پر انہیں یہ لقب ملا" flows better.
+- "اسٹیشن کی تعمیر میں" -> "کی تعمیر کے دوران"; "بنیادی ڈھانچے کی ترقی" is a newspaper calque ("ترقیاتی منصوبوں" is more natural); "کتنا ہی رہا ہو" -> "کتنا ہی کیوں نہ رہا ہو".
+- "جلتی ہوئی دیگ" -> "دہکتی ہوئی دیگ" or "آگ پر چڑھی دیگ", depending on the source.
+- "کبھی کاٹنے کی ضرورت نہیں پڑی" means felling; if pruning is meant, "کاٹ چھانٹ".
+- "میلہ چراغاں" calls to mind the festival at Madho Lal Hussain; if only illumination is meant, "چراغاں ہوتا ہے".
+- "داستانی محبوبہ" -> the stock phrase is "افسانوی محبوبہ".
+- "بڑے پیمانے پر پڑھی جاتی ہیں" (of books) -> "بہت پڑھی جاتی ہیں".
+- "وہیں چادر کی ایک کرامت": the place "وہیں" points to is unclear.
+- Hamza: "خلفاء" with hamza, "آبا" without; current practice is "خلفا".
+- "زہد و ورع، تقویٰ" pairs near synonyms; taste.

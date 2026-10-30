@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the single sentence in samadhi-of-maharaja-ranjit-singh.ur.r3.changes.txt; the diff shows only that change, and "ایک نادر بات ہو چکی تھی" now renders "it had become rare" with its change of state, while the relative clause on Lahore once ruled by a Sikh and seat of Sikh political strength is unchanged and faithful.

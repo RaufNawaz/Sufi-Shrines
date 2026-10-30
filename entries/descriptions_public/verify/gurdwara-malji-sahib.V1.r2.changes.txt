@@ -1,0 +1,61 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/gurdwara-malji-sahib.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1]
+OLD: He was no unworldly mystic but a householder in every sense of the word. He taught that all men and women were equal, irrespective of caste, creed, wealth, social standing and gender, and that a good life rested on honest labour, compassion, selfless service and prayer.
+NEW: He lived as a householder, with a wife and sons, and he taught that all men and women were equal, irrespective of caste, creed, wealth, social standing and gender, and that a good life rested on honest labour, compassion, selfless service and prayer.
+
+[V1 r1 issue 2]
+OLD: Giani Pratap, staying on to look after the gurdwara, housed the family of Kartar, a Sikh of the town, inside it for a short time, and made Kartar's father a *sewaadar*, a worker, at the gurdwara. Most of the community were not natives of the city but recent migrants from Khyber Pakhtunkhwa, where there is a considerable Sikh population.
+NEW: Giani Pratap housed the family of Kartar, a Sikh of the town, for a short time inside one of the gurdwaras in his care, and made Kartar's father a *sewaadar*, a worker, there. Most of the community were not natives of the city but recent migrants from Khyber Pakhtunkhwa, where there is a considerable Sikh population.
+
+[V1 r1 issue 3]
+OLD: Lohri and Guru Gobind Singh's birthday had only begun to be kept a couple of years before, made possible by the migration from the tribal areas; earlier there had been only a prayer at the gurdwara. On Guru Gobind Singh's birthday in January 2011 the community held a cricket tournament on the ground of Guru Nanak Government College, with teams called Khalsa XI, Nankana XI and Singh XI.
+NEW: Lohri and Guru Gobind Singh's birthday had only begun to be kept a couple of years before, made possible by the migration from the tribal areas; earlier there had been only a prayer at one of the town's gurdwaras. On Guru Gobind Singh's birthday in January 2011 the community held a cricket tournament on the ground of Guru Nanak Government College, with teams called Khalsa XI, Nankana XI and Singh XI.
+
+[V1 r1 issue 4]
+OLD: During a speech calling for a separate Sikh state, "the gate of the Gurdwara was closed", and Counsellor B.
+NEW: During a speech calling for a separate Sikh state, the gate of one of the town's gurdwaras was closed, and Counsellor B.
+
+[V1 r1 minor a]
+OLD: At school, the janamsakhis tell, the boy showed "a brilliance that had never before been seen in any child in Talwandi".
+
+At thirteen, in the janamsakhi telling, he refused the sacred thread, the *janeu*, in his father's courtyard, saying that "it is our actions and our actions alone" that give a man his position among men.
+NEW: At school, the janamsakhis tell, the boy showed a brilliance never before seen in any child in Talwandi.
+
+At thirteen, in the janamsakhi telling, he refused the sacred thread, the *janeu*, in his father's courtyard, saying that "it is our actions and our actions alone" that give a man his position among men.
+
+[V1 r1 minor b]
+OLD: Lakhmi Das was a worthy son, but spiritual fortune, it was said, was not his lot, and on his deathbed the Guru appointed not a son but his most loyal student as his spiritual successor: a man of the Khatri caste named Lehna, to whom he gave the title of Guru Angad.
+NEW: Lakhmi Das, it was said, was a worthy son, but spiritual fortune was not his lot, and on his deathbed the Guru appointed not a son but his most loyal student as his spiritual successor: a man of the Khatri caste named Lehna, to whom he gave the title of Guru Angad.
+
+[V1 r1 minor c]
+OLD: In Aurangzeb's reign Baba Nanak was hailed as the leader of the caravan on the roads of truth and the bearer of the torch of the mystic way.
+NEW: In Aurangzeb's reign Baba Nanak was called the leader of the caravan on the roads of truth and the bearer of the torch of the mystic way.
+
+[V1 r1 minor d]
+OLD: Farid's verses are revered among the Sikhs because he influenced the founder of their religion, and at one of the shrines of Guru Nanak at Nankana Sahib a picture of Baba Farid accompanied the picture of the Guru.
+NEW: Farid's verses are revered among the Sikhs, for he is held to have influenced the founder of their religion, and at one of the shrines of Guru Nanak at Nankana Sahib a picture of Baba Farid accompanied the picture of the Guru.
+
+[V1 r1 minor e]
+OLD: For the Sikh New Year, on 14 March 2011, *qawwals*, singers of Sufi devotional music, were invited from Faisalabad and sang first to Baba Farid; it was the first time since Partition that Muslim *qawwals* had been invited to perform at Nankana Sahib.
+
+The festival has also seen violence.
+NEW: For the Sikh New Year, on 14 March 2011, *qawwals*, singers of Sufi devotional music, were invited from Faisalabad to sing first to Baba Farid; it was the first time since Partition that Muslim *qawwals* had been invited to perform at Nankana Sahib.
+
+The festival has also seen violence.
+
+[V1 r1 minor f]
+OLD: Talwandi lay in the path of numerous mendicants, *sadhus*, Hindu ascetics, and other holy men, who camped in a grove of trees on the outskirts of the village.
+NEW: Talwandi lay in the path of numerous mendicants, holy men and *sadhus*, as Hindu ascetics are called, who camped in a grove of trees on the outskirts of the village.
+
+[V1 r1 minor g]
+OLD: Some shopkeepers kept separate utensils for Muslims and for everyone else, and one restaurant owner refused Sikh customers, complaining: "We become prisoners within our own city." Not all traders felt so, since the pilgrims bring business.
+
+## The Sikhs of Nankana Sahib
+
+Giani Pratap housed the family of Kartar, a Sikh of the town, for a short time inside one of the gurdwaras in his care, and made Kartar's father a *sewaadar*, a worker, there.
+NEW: Some shopkeepers kept separate utensils for Muslims and for everyone else, and one restaurant owner refused Sikh customers, complaining: "We become prisoners within our own city." Not all traders felt so, since the pilgrims brought business.
+
+## The Sikhs of Nankana Sahib
+
+Giani Pratap housed the family of Kartar, a Sikh of the town, for a short time inside one of the gurdwaras in his care, and made Kartar's father a *sewaadar*, a worker, there.

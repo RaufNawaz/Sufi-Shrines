@@ -15,7 +15,7 @@ import {
 import { isLikelyUrl, isUrduVariantKey, normalizeUrl } from '../../lib/data/fieldAliasing';
 import { localizeFieldName } from '../../lib/data/fieldLabels';
 import { yearPrecisionKey, YEAR_PRECISION_LABEL_KEYS } from '../../lib/data/yearPrecision';
-import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
+import { resolveFoundedDate, translateToUrdu } from '../../lib/i18n/urduFallback';
 import { localizeObservance } from '../../lib/i18n/localizeObservance';
 import type { Lang } from '../../types/shrine';
 
@@ -24,6 +24,7 @@ import { isRtlLang } from '../../lib/i18n/languages';
 import { useShrineTraditions } from './useShrineTraditions';
 import { useTeamAccess } from '../../lib/projectAccess';
 import { renderInlineBold } from './inlineFormat';
+import { localizeDatePart, splitRecordedDate } from '../../lib/i18n/splitRecordedDate';
 function isFoundedKey(key: string): boolean {
   return key === 'Founded' || key === 'Founded/Opened';
 }
@@ -177,11 +178,58 @@ export function ShrineInfobox({ shrine }: Props) {
      kind, and two hold an `event_note` with no `event_year`; without the note
      terms here their whole date block is absent and the archive silently
      withholds the only thing it knows about their date. */
+  /* A figure's birth or death date, as the public and the team each read it.
+     The cell is recorded with its qualification (RULE 2): Shah Inayat Qadiri's
+     birth reads "c. 1643 (existing sourcing); a 2026 field survey separately
+     gives 1056 AH (~1646 CE) -- the two are consistent ...", and it used to fill
+     the Urdu fact panel with English (Rauf, 29 October 2026: "there is english
+     leakage"). Same rule as the founded row: the public reads the date, with
+     its month and calendar in Urdu on the Urdu page; the team reads the date
+     and, beneath it, every word that followed it. A cell with no date in it at
+     all ("Not given. The only early date is ...") shows the public nothing and
+     the team the whole sentence. `splitRecordedDate` decides where the date
+     ends; the cell itself is untouched. */
+  const recordedFigureDate = (value: string): React.ReactNode => {
+    if (!value) return null;
+    const parts = splitRecordedDate(value);
+    if (!parts.date) {
+      if (!showQualifiers) return null;
+      return isUntranslatedInUrdu(lang, value) ? (
+        <bdi lang="en" data-latin className="infobox-value-prose">
+          {value}
+        </bdi>
+      ) : (
+        <bdi>{value}</bdi>
+      );
+    }
+    const circa = t('precisionCirca');
+    const approx = parts.approx && (usesLatinScript(lang) ? parts.approx : `${circa} `);
+    const date = `${approx}${localizeDatePart(parts.date, lang, circa)}`;
+    return (
+      <>
+        {isUntranslatedInUrdu(lang, date) ? (
+          <bdi lang="en" data-latin>
+            {fmtNum(date)}
+          </bdi>
+        ) : (
+          <bdi>{fmtNum(date)}</bdi>
+        )}
+        {showQualifiers && parts.qualification && (
+          <p className="infobox-note" data-latin>
+            {t('sourceNoteLabel')}: <bdi>{renderInlineBold(parts.qualification)}</bdi>
+          </p>
+        )}
+      </>
+    );
+  };
+  const bornValue = recordedFigureDate(shrine.figureBorn);
+  const diedValue = recordedFigureDate(shrine.figureDied);
+
   const hasDates = Boolean(
     shrine.yearBuilt ||
     shrine.yearBuiltNote ||
-    shrine.figureBorn ||
-    shrine.figureDied ||
+    bornValue ||
+    diedValue ||
     shrine.eventYear ||
     shrine.eventNote,
   );
@@ -359,7 +407,20 @@ export function ShrineInfobox({ shrine }: Props) {
               <dt className="infobox-label">{t('founded')}</dt>
               <dd className="infobox-value">
                 {(() => {
-                  const recorded = String(shrine.yearBuilt || resolveFoundedDate(shrine.raw, lang));
+                  /* `year_built` read through the Urdu dictionary too, as the
+                     legacy Founded/Opened already was: every founded cell in
+                     the data has an Urdu form in urdu-i18n's `foundedPhrases`,
+                     the sentences included (Rauf, 30 October 2026, of Bibi Pak
+                     Daman's: "Just write the sentence in urdu"). A cell the
+                     dictionary does not know comes back as recorded and takes
+                     the declared Latin path below. */
+                  const recorded = String(
+                    (shrine.yearBuilt &&
+                      (usesLatinScript(lang)
+                        ? shrine.yearBuilt
+                        : translateToUrdu(shrine.yearBuilt))) ||
+                      resolveFoundedDate(shrine.raw, lang),
+                  );
                   /* Five of the 127 rows that carry a `year_built` carry an
                      English *sentence* in it, because that is what the source
                      says and RULE 2 keeps it: Bibi Pak Daman's reads "681 CE /
@@ -444,20 +505,16 @@ export function ShrineInfobox({ shrine }: Props) {
               </dd>
             </div>
           )}
-          {shrine.figureBorn && (
+          {bornValue && (
             <div className="infobox-row">
               <dt className="infobox-label">{t('born')}</dt>
-              <dd className="infobox-value">
-                <bdi>{fmtNum(shrine.figureBorn)}</bdi>
-              </dd>
+              <dd className="infobox-value">{bornValue}</dd>
             </div>
           )}
-          {shrine.figureDied && (
+          {diedValue && (
             <div className="infobox-row">
               <dt className="infobox-label">{t('died')}</dt>
-              <dd className="infobox-value">
-                <bdi>{fmtNum(shrine.figureDied)}</bdi>
-              </dd>
+              <dd className="infobox-value">{diedValue}</dd>
             </div>
           )}
           {(shrine.eventYear || shrine.eventNote) && (

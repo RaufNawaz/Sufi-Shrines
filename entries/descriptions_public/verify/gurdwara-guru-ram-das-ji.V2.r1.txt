@@ -1,0 +1,7 @@
+VERDICT: FAIL
+ISSUES:
+1. [addition] Orphaned young, he was raised by his grandmother. | وہ کم عمری ہی میں یتیم ہو گئے، اور ان کی نانی نے انہیں پالا۔ -> نانی is specifically the maternal grandmother; the English (and the team version, from Khalid) says only "grandmother", so the Urdu adds an identification of which side of the family raised him. Use the side neutral جدّہ (or, if V3 finds it too literary, دادی یا نانی). -> وہ کم عمری ہی میں یتیم ہو گئے، اور ان کی جدّہ نے انہیں پالا۔
+OLD: وہ کم عمری ہی میں یتیم ہو گئے، اور ان کی نانی نے انہیں پالا۔
+NEW: وہ کم عمری ہی میں یتیم ہو گئے، اور ان کی جدّہ نے انہیں پالا۔
+NOTES:
+none. Every other paragraph checked: all names, dates (1534, 1574, 1581, 1758, 1799, 1801, 1880s, 1947), numbers, places, relationships and hedges (it is said, tradition relates, accounts differ, most often, some eighteen, is reported) carry over with the same meaning; headings correspond one to one; the Bulleh Shah renderings are faithful italic Urdu meanings without credit lines, and the English has no original script verse to copy. The Har Rai sentence (جس طرح ... اسی طرح) matches the team version's "in the same way as others had slipped away". Dropped glosses (gurdwara, langar, darbar, qawwali, kafi, Holi, kirpan, deorhi, pujari, samadh) are deliberate under the brief. No Latin letters, no dashes, and only Western digits the English has.

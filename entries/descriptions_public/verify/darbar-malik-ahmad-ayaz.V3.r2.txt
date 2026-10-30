@@ -1,0 +1,10 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. All nine round 1 V3 issues are fixed: issue 1 by change 6 (time clause first, Ayaz named, انہیں no longer read as the clothes); issue 2 by change 2 (بھی ... بھی for "both", and the closeness named as محمود و ایاز کی, which also avoids the ambiguity my round 1 wording ایاز سے ان کی would have introduced, so the adaptation is right); issue 3 by change 9; issue 4 by change 8; issue 5 by change 1; issue 6 by change 3; issue 7 by change 4; issue 8 by change 11; issue 9 by change 12.
+2. Each NEW read in its paragraph: agreement, postpositions and izafat are correct (کایا پلٹ is feminine, so ہوتی ہے is right; ملک ایاز کو ... مانا جاتا ہے is the correct impersonal; ایک یہ کہ ... اور دوسرے یہ کہ is the idiomatic enumeration); no calque, no new ambiguity, and each sentence fits its neighbours (in change 6 the following انہیں اپنی سابقہ پست حالی now resolves to Ayaz, the subject just before; in change 10 وہاں points back to مزار پر of the preceding sentence).
+3. Taste, change 6: جب تک سلطان نے ایاز کو اپنے لیے چن نہیں لیا تھا is correct and current; a more literary writer would use نہ in the جب تک clause (چن نہ لیا). Not a fault.
+4. Taste, changes 7 and 9: ایاز now occurs twice in each sentence. This is a proper name repeated to fix a referent (the brief asks for exactly that where a pronoun would be ambiguous), not the redundant repetition of a common noun, and every pronoun alternative brings the ambiguity back; acceptable.
+5. Taste, change 8: محمود غزنی کے عظیم جنگجو بادشاہ can for a moment be heard as the name "Mahmud Ghazni" before کے resolves it; the same was true with غزنہ, and غزنی is the form the article uses elsewhere. Not a fault.
+6. Taste, change 10: وہاں کے بیان کے مطابق is clear and correct, slightly bookish; a phrase such as "مزار والوں کے بقول" would be a little more colloquial. With مزار پر بتایا جاتا ہے before and کہا جاتا ہے after, the three attributions are varied, so there is no repetition.
+7. Taste, change 4: دو سبب اور بھی ہیں with the colon reads naturally and matches the colon used elsewhere in the article (حالاتِ زندگی, second paragraph).

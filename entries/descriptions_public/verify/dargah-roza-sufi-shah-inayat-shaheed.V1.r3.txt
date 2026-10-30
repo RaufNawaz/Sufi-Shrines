@@ -1,0 +1,12 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff: `diff bak_en2 current` shows exactly two changed lines, 33 (Devotion and Song, first paragraph) and 51 (Poetry, third paragraph). Applying the two listed OLD to NEW replacements, once each, to the backup reproduces the current file byte for byte (each OLD occurs once in the backup, each NEW once in the current file). Nothing else moved.
+
+2. Change 1 (V1r2 1), Poetry, third paragraph: "The Sindhi poet Sachal Sarmast speaks of him too, and Sachal's litany of the afflicted tells of ʿInayat killed 'in the fighting arena'." Supported: the team version has "Sachal also speaks of" Shah Inayat of Jhok, and "her translation of Sachal's litany of the afflicted includes the words 'hast killed' ʿInayat 'in the fighting arena'". The referent is now unambiguous; "Sachal" is the team version's own short form. No new fact, no lost fact, grammar intact, no source talk, no dash.
+
+3. Change 2 (V1r2 2), Devotion and Song, first paragraph: "The *kalam*, or poetry, of Dalpat Sufi is sung in several dargahs of Sindh run by Muslim *sajjada nashins*, Jhok Sharif among them." Supported: the team version has the kalam of Dalpat Sufi sung "in several dargahs located in Sindh and run by Muslim sajjada nashins, as for example in Jhok Sharif", and "It is also sung at Jhok Sharif in Sindh". Jhok is now one of the several, as in the team version; the fact that it is sung at Jhok is kept. *kalam* stays glossed; *sajjada nashins* is glossed at first use in The Shrine. No new fact, no lost fact, grammar intact, no source talk, no dash. The connective "too" (linking to the kafis sentence before it) is gone; that is a connective, not a fact, and the paragraph still reads as a sequence of what is sung at Jhok.
+
+4. Checker: `python3 pipeline/book_queue/check_public_description.py dargah-roza-sufi-shah-inayat-shaheed --english-only` printed: ok    dargah-roza-sufi-shah-inayat-shaheed  team 27802 -> public 12164 chars (0.44)

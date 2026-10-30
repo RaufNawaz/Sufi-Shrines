@@ -1,0 +1,18 @@
+VERDICT: V2 PASS, V3 PASS
+REPLAY: identical. Both OLD strings occur exactly once in the .bak (md5 cda1f46b343221e42983c9045d87bbe3, the round 2 text). Replacing each OLD with its NEW once, in order, reproduces the current .ur.md byte for byte (md5 ef6fd6803516550a3a7aab9561f40d08, 18873 bytes). diff shows only line 43 changed. Nothing else moved.
+ISSUES V2: none
+ISSUES V3: none
+NOTES:
+- V2. The three sentences now match the English paragraph:
+  - "صوبے دار کی جنگ کی ایک جدید تعبیر یہ ہے کہ" names no opponent, the same as "the governor's war". Line 9 sets صوبے دار as Mir Mannu, and the sentence before says he ran the Punjab, so the referent is clear.
+  - The misls' description sits wholly inside the modern reading. The pestering of Mir Mannu is under "تعبیر یہ ہے کہ". The little land and the backing and protection of the lower rungs because of their politics against the status quo are under "اس کی رو سے". The communal framing and its "even though" clause are under "اسی تعبیر کے مطابق".
+  - Nothing is added or dropped. "constantly" is مسلسل, "all over the Punjab" is پورے پنجاب میں جگہ جگہ, "several" is کئی, "many" is بہت سے, and "his own army" is خود میر منو کی فوج.
+  - The balance matches the English. اس کی رو سے is a neutral "according to it". It only restores the scope that the English semicolon gave the clause. It adds no doubt (no گویا, no مبینہ) and no endorsement.
+- V3. "اس کی رو سے" reads cleanly after the full stop. کی رو سے is used with a text, doctrine or reading (قانون کی رو سے), not with a person or a place, so it can only point to the تعبیر of the sentence before. It cannot be Mir Mannu or the Punjab, and the plural گروہ would take ان. "اسی تعبیر کے مطابق" then follows naturally: اسی confirms it is the same reading, and the lexical change from رو سے to مطابق keeps the sequence from echoing.
+- No new error:
+  - Agreement holds (گروہ ... کہلاتے تھے ... تنگ کرتے رہے; طبقے ... کرتے تھے).
+  - The two ان کی in sentence 2 both point to the groups.
+  - The round 2 repetition "سکھوں ... سکھ باغیوں" is gone.
+  - On line 43 there are no Latin letters and no dashes. Asterisks are balanced (2), and the only adjacent repeat is the idiom جگہ جگہ.
+  - check_public_description.py --no-verdicts exits 0, with an Urdu prose ratio of 0.96.
+- Taste only, not to apply: the reading is attributed three times in three sentences (تعبیر یہ ہے کہ / اس کی رو سے / اسی تعبیر کے مطابق). That is a little heavy but it is the cost of the split, and it is correct. "اس تعبیر کی رو سے" would be marginally more explicit but would put تعبیر in three successive sentences. The current wording is better.

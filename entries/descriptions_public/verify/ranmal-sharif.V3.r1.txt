@@ -1,0 +1,34 @@
+VERDICT: FAIL
+ISSUES:
+1. [ambiguous attribution] "صداقت محمد ماہ گنجاہی کی ثواقب المناقب (1126 ہجری) اور تذکرۂ نوشاہی (1146 ہجری)" -> "کی" governs both titles, so the reader takes تذکرۂ نوشاہی to be Sadaqat Muhammad Mah Ganjahi's work, which contradicts the later paragraph naming حافظ سید محمد حیات as its author -> separate the second title from the possessive.
+OLD: صداقت محمد ماہ گنجاہی کی ثواقب المناقب (1126 ہجری) اور تذکرۂ نوشاہی (1146 ہجری) بھی انہی کتابوں میں سے ہیں۔
+NEW: صداقت محمد ماہ گنجاہی کی ثواقب المناقب (1126 ہجری) بھی انہی کتابوں میں سے ہے، اور تذکرۂ نوشاہی (1146 ہجری) بھی۔
+
+2. [tangled logic] "حافظ طاہر کے سوا سب کو گندم مل گئی، کیونکہ غلہ ختم ہو گیا تھا" -> the "کیونکہ" clause hangs on "سب کو گندم مل گئی", so it literally says everyone got wheat because the grain ran out; the reason belongs to the exception -> attach the cause to Hafiz Tahir.
+OLD: حافظ طاہر کے سوا سب کو گندم مل گئی، کیونکہ غلہ ختم ہو گیا تھا۔
+NEW: باقی سب کو گندم مل گئی، مگر غلہ ختم ہو جانے کے باعث حافظ طاہر کو نہ مل سکی۔
+
+3. [calque] "ان کی طویل عمر اور غیر معمولی تنظیمی صلاحیت نے ... کی بنیاد رکھی" -> English inanimate agent ("his long life and talent laid the foundation"); in Urdu a person lays a foundation, and "عمر نے بنیاد رکھی" reads oddly -> make the saint the agent.
+OLD: ان کی طویل عمر اور غیر معمولی تنظیمی صلاحیت نے ایک ایسے روحانی خاندان کی بنیاد رکھی جو تقریباً چار صدیوں سے قائم ہے۔
+NEW: اپنی طویل عمر اور غیر معمولی تنظیمی صلاحیت کی بدولت انہوں نے ایک ایسے روحانی خاندان کی بنیاد رکھی جو تقریباً چار صدیوں سے قائم ہے۔
+
+4. [pronoun / inconsistent naming] "نوشاہیہ قادری سلسلے ... یہ پنجاب کے پائیدار صوفی طریقوں میں شمار ہوتا ہے" -> bare "یہ" follows a sentence whose subject is the saint, so the reader has to work out that it means the order; and the order, named "نوشاہیہ یا نوشاہیہ قادریہ" earlier, turns here into the hybrid "نوشاہیہ قادری سلسلہ" -> use the established name and an explicit subject.
+OLD: سید محمد نوشہ گنج بخش نوشاہیہ قادری سلسلے کے بانی کی حیثیت سے مشہور ہیں۔ یہ پنجاب کے پائیدار صوفی طریقوں میں شمار ہوتا ہے۔
+NEW: سید محمد نوشہ گنج بخش سلسلۂ نوشاہیہ قادریہ کے بانی کی حیثیت سے مشہور ہیں۔ یہ سلسلہ پنجاب کے پائیدار صوفی طریقوں میں شمار ہوتا ہے۔
+
+5. [redundancy / English relative clause] "مزار پر ان کا سالِ وفات 1654 مانا جاتا ہے، جب وہ بھرپور عمر پا کر دنیا سے رخصت ہوئے" -> the "جب" clause hangs off a year that is already "سالِ وفات", so death is said twice (calque of "1654, when he died at a great age") -> fold into one clause, keeping the hedge.
+OLD: مزار پر ان کا سالِ وفات 1654 مانا جاتا ہے، جب وہ بھرپور عمر پا کر دنیا سے رخصت ہوئے۔
+NEW: مزار پر مانا جاتا ہے کہ وہ 1654 میں بھرپور عمر پا کر دنیا سے رخصت ہوئے۔
+
+6. [ambiguous list] "اور چاروں نوشاہی کہلاتے تھے: شیخ مٹھا، ..." -> the colon follows "کہلاتے تھے", so the list of names reads as what they were called rather than who they were -> put the list after "مجذوب تھے" and give the naming its own sentence.
+OLD: نوشہ گنج بخش کے چار مرید مجذوب تھے، اور چاروں نوشاہی کہلاتے تھے: شیخ مٹھا، سید شاہ عبداللہ، نانو اور حافظ طاہر۔
+NEW: نوشہ گنج بخش کے چار مرید مجذوب تھے: شیخ مٹھا، سید شاہ عبداللہ، نانو اور حافظ طاہر۔ یہ چاروں نوشاہی کہلاتے تھے۔
+
+NOTES:
+- Otherwise the prose is good, idiomatic magazine Urdu: the Nanu, Shah Abdullah and Hafiz Tahir stories, the samaʿ paragraph and the Phalia section read naturally. No Latin, no dashes, Western digits throughout, asterisks balanced (*لگن* twice), and the verse is untouched.
+- Taste: "گنج بخش کے معنی ہیں خزانے عطا کرنے والا، اور نوشہ کے معنی دولہا" glosses words most Urdu readers know (نوشہ especially). It could be cut, but it carries the meaning of the titles, so I left it.
+- Taste: "والدہ بی بی جیونی ... تھیں، اور بھائی کا نام شیخ اسماعیل تھا" works as a family list, but "بھائی" joined to the mother's clause could be read as her brother. Splitting it into "نوشہ گنج بخش کے بھائی" would fix that if the source confirms whose brother he was.
+- Taste: "روایات" and "روایتیں", and "نوشاہیہ سلسلہ" and "نوشاہی سلسلے", alternate. Both forms are standard, but one of each would be tidier.
+- Taste: "ساہن پال کے ایک نجی نوشاہی کتب خانے میں محفوظ رہے ہیں، جو گجرات میں واقع ہے" ends on a trailing English-style appositive; "گجرات کے ساہن پال کے ایک نجی نوشاہی کتب خانے میں" would be smoother. Likewise "کنز الرحمت (1220 ہجری) 1330 ہجری میں" puts two dates side by side.
+- Taste: "حمل کو تین مہینے ہوئے تھے جب والد ..." would be more classical with "کہ", but "جب" is acceptable.
+- For the content verifier, not fluency: (a) the daughter's wedding anecdote says "دلہن والوں نے" demanded lagan, but the bride is Naushah's own daughter, so the demand comes from his side, and the story stops without an outcome; check against the source. (b) "سات ہزار صفحات کی تین جلدوں" can be read as 7,000 pages per volume. (c) Shah Abdullah is called a mansabdar at Alamgir's court, yet he meets the saint a day before a death dated 1654, before Alamgir's accession; worth checking that the wording does not imply the wrong timing. (d) Issue 1 assumes the source does not attribute تذکرۂ نوشاہی to Sadaqat Muhammad Mah Ganjahi; the later paragraph indicates it does not.

@@ -1,0 +1,16 @@
+V2 VERDICT: PASS
+V2 ISSUES: none
+V3 VERDICT: PASS
+V3 ISSUES: none
+DIFF: Only the 12 listed changes moved: the backup /tmp/claude-0/bak/shergarh.ur.r1.md with each OLD replaced once by its NEW (each OLD occurred exactly once) is byte identical to the current shergarh.ur.md; diff shows 7 changed lines (7, 9, 17, 27, 37, 41, 47), all accounted for; the chronogram lines پیر حق پرست and مشتاق منان (lines 19 and 23) are byte identical to the backup and to the English file; no Latin letters, no em or en dash, no Eastern digits in the file.
+NOTES: (taste only; recorded, not applied)
+1. [1] to [4]: fidelity exact (English "Daud" made داؤد بندگی, the name form the article uses elsewhere; no new fact). The second paragraph of صاحبِ مزار now opens three consecutive sentences with داؤد بندگی. That follows the brief (name the person again rather than leave an ان that could be the father) and is not a fault.
+2. [3] adapted: داؤد بندگی کی ولادت is more exact than V3's بیٹے کی ولادت ("before Daud was born") and reads naturally; bare والد is clear because the previous sentence names داؤد بندگی کے والد. Accepted.
+3. [5] adapted: وہ resolves to داؤد بندگی by elimination, since شاہ ابو المعالی is the other party named in the same clause. Keeping مرید is right: the English states "his murid" in this very sentence. It echoes ان کے مرید in the previous sentence, as the English itself does, and پیر و مرشد ... مرید is a natural Urdu pairing.
+4. [6]: the semicolon is correct Urdu ؛ and انہوں نے plainly means اقبال قیصر. A full stop in place of the semicolon would make the sentence a little lighter.
+5. [7]: ایک خاص فرقے changes no fact. The English "that particular Jain sect" has no antecedent, and the next sentence names the Digambars.
+6. [8]: 887 ہجری now dates the arrival at Uch ("which he entered in 887 AH"), and the order Khurasan, Multan, Uch is kept. Settling is part of the same event, so no fact changes.
+7. [9]: دعا و عبادت is V2's own suggestion and matches the general "prayer" among "the customary devotions" better than نماز did.
+8. [10]: ابو المعالی نے resolves the referent as the English names him.
+9. [11] fitted: اس کی تاریخ کے دو مادّے is correct (اس = سالِ وفات), and its plural now agrees with پہلا مادّہ / دوسرے مادّے that follow. A slightly more literary alternative is "اور اس کے دو مادّۂ تاریخ ملتے ہیں".
+10. [12]: the footprints are now قدموں کے نشان throughout (lines 37, 39, 41). صاحبِ مزار کے correctly avoids "the shrine's feet", and the parallel قدموں کے نشانوں میں ... ان نشانوں makes the ellipsis read clearly as the priests' footmarks. The genitive chain (صاحبِ مزار کے قدموں کے نشانوں میں جین مندروں کے ممتاز پجاریوں کے ان نشانوں کی) is long but grammatical and unambiguous.

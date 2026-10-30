@@ -1,0 +1,14 @@
+Changes after V1 round 2 (PASS), applying its optional notes 3, 4 and 5 in the verifier's wording. Nothing else changed.
+
+Note 3
+OLD: Dara Shikoh's wife, Nadira Begum, lies buried near the saint's mausoleum, and the shrine holds that the prince himself was laid to rest close to his master.
+NEW: Dara Shikoh's wife, Nadira Begum, lies buried near the saint's mausoleum, and the shrine holds that the prince himself was laid to rest close to the saint.
+
+Note 4
+OLD: Accounts describe the bond in different ways, but the prince's own guide is most often named as Mullah Shah, who drew him into the Qadiri way and introduced him to the saint, so that Mian Mir was his *dada murshid*, his guide's guide.
+NEW: Accounts describe the bond in different ways, but the prince's own guide is most often named as Mullah Shah, who drew him into the Qadiri way and introduced him to the saint, and Mian Mir was his *dada murshid*, his guide's guide.
+
+Note 5
+OLD: Pir Burhan, who came from Bukhara in Akbar's time, received the grace of the Qadiri order, its *fayz*, from Mian Mir and Shah Bilawal, the elders of Lahore.
+NEW: Pir Burhan, who came from Bukhara in Akbar's time, received the grace of the Qadiri order, its *fayz*, from Mian Mir and Shah Bilawal, elders of Lahore.
+

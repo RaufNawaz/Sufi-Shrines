@@ -1,0 +1,27 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 21 OLD strings in verify/gurdwara-patti-sahib.ur.r2.changes.txt were each found exactly once in /home/claude/bak/gurdwara-patti-sahib.ur.md.bak_ur1 and replaced once, in order; the result is byte for byte identical to the current gurdwara-patti-sahib.ur.md (32090 bytes each), and each NEW string occurs exactly once in the current file. Nothing else moved.
+2. Checker: python3 pipeline/book_queue/check_public_description.py gurdwara-patti-sahib --no-verdicts printed "ok    gurdwara-patti-sahib  team 40839 -> public 18778 chars (0.46), Urdu 18132 chars (0.97)" and exited 0.
+3. Each change read against the matching English sentence; all faithful.
+   (1) Janam Asthan split: the distance hedge is now its own sentence, پٹی صاحب اس سے ٹھیک کتنے فاصلے پر ہے, with اس resolving to Janam Asthan, exactly "accounts of its exact distance from the Janam Asthan differ".
+   (2) "the boy had nothing more to learn from him" rendered from the teacher's side (nothing left to teach the boy): same meaning, the story frame قصہ آگے بتاتا ہے kept.
+   (3) روایت ہے still governs the identification of the poem with the Patti Likhi; the Granth placement under Guru Nanak's name stays a property of that poem, as in the English. Rag Asa follows in the next sentence as before.
+   (4) سے پیچھے رہ گیا for "was surpassed by" is my round 1 note 1, applied in its own wording; it keeps the comparison without belittling the schooling.
+   (5) راستے for "circuit" is right: the pilgrims follow a route among the childhood sites.
+   (6) "an arch led in to a yellow building of two storeys" is kept (you go in by the arch and the building stands before you). The coordinator was right to drop V3's ایک before دو منزلہ: ایک دو منزلہ can read as "one or two storeys" and would blur the English figure.
+   (7) The بھی ... بھی pairing keeps both causes ("following the alienation after the wars of 1965 and 1971 as well as the demolition of the Babri Mosque in 1992") with equal weight; dates unchanged.
+   (8) The reordered time phrase still places the refuge in the early days of the migration after the 1965 and 1971 wars; families, provinces and gurdwara unchanged.
+   (9) گرو گرنتھ صاحب for the English "the Granth Sahib" is the same scripture, as the coordinator says, and matches the rest of the article; no change of fact.
+   (10) کے موقع پر منایا جاتا ہے for "commemorates the change of season" keeps the meaning (the festival marks the turn of the season); کی یاد میں was the wrong sense.
+   (11) "traditionally it means a village bonfire, dry fruit and folk songs" kept item for item.
+   (12) بلا توقف alone carries "unbroken"; dropping the doubled مسلسل loses nothing.
+   (13) "Guru Nanak's sermon was his bani" as the preaching taking the form of bani: same meaning, the gloss of bani kept.
+   (14) ان کے اپنے ناموں کے بجائے restores "not in their own names but in that of Guru Nanak" with the referent now the later Gurus, which fixes a misreading the round 1 wording allowed.
+   (15) My round 1 note 2, applied in its own wording: both shops now carry the Guru Nanak name, as the English has it for all three.
+   (16) عام طور پر تقریباً for "most often ... about" keeps both the frequency hedge and the approximation; "though accounts of its size differ" kept; the split makes Jatha Singh's leadership of the community (اس برادری) explicit, matching "its leader".
+   (17) تقسیم اور ہجرت کے انہی تجربات spells out the English "those experiences", whose antecedent is the migration across the border after Partition; nothing added, and کہا جاتا ہے still governs.
+   (18) The coordinator's adaptation is right. The English is "a meditation on the letters of the alphabet turned towards the divine": the letters are what the meditation is on, the divine is its direction. V3's proposed حروفِ تہجی کے سہارے ذاتِ الٰہی کا مراقبہ would have made the divine its object. The current text changes only the postposition and keeps that relation, with سکھ روایت کے مطابق still framing it.
+   (19) The coordinator's adaptation is right: keeping اس کے صحن میں directly after the date ties the courtyard to the building, where V3's order would let اس کے attach to شہر. شہر کا ایک الاؤ with لوہڑی کے موقع پر keeps "one of the town's Lohri fires"; "part of the attempt to revive that tradition of the Punjab" kept.
+   (20) "Farid's texts are revered among the Sikhs" kept, with خیال کیا جاتا ہے still hedging the influence on the founder.
+   (21) "For Nadeem, a Muslim painter" merged into one sentence; both uses of Muslim are in the English and carry its point.

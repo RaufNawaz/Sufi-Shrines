@@ -1,0 +1,16 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+All nine changed sentences checked against the team version and in their paragraphs.
+#1 "raised in his lifetime by order of Akbar": rests only on Kanhaiya Lal's clean "by Akbar's order" (and Chishti's clean "had this tomb built"); the uncertain word for the insistence is gone; the next paragraph follows cleanly.
+#2 "Among those who later held his seat as *sajjada nashin*": matches Chishti's succession list; no claim that they were of his line.
+#3 "He is said to have slapped his teacher ...": framed; father's thanks kept; reads well after "It is told that ..." and before "The division in the household ...".
+#4 "He is said to have prayed over brackish irrigation water for local landowners, and it turned sweet; tellings differ over whose prayer it was.": matches the team version; nobody "brought" the water; the rival (the grandson) is not named.
+#5 Overview: "a saint of the Suhrawardi order" with no Sufi label; grammar intact.
+#6 "In the 1880s the tomb itself held, beside the saint's own grave, the graves of his sons, Safi-ud-Din among them, and of others of his offspring.": matches Kanhaiya Lal; no count, so nothing rests on the uncertain "ten" or the "eleven".
+#7 "The small tomb of the servant Mian Murid was built by order of Akbar.": matches Chishti; the tandoor episode is not brought in; no identity with the cook asserted.
+minor i "in the nineteenth century people regarded as blessed the mosque where the body was washed": tense now matches the source; the uncertain place of death is not used.
+minor iii "tradition tells that Shihab al-Din could take the form of a lion": "of whom" ambiguity gone; the following "By the 1870s Shihab al-Din's descendants ..." reads cleanly.
+No dashes, no source talk, no repeated words or lost text at any edit point.
+The L1 exception line in the notes is word for word the line the round 1 report approved.
+For the record only (not a fault in a changed sentence): round 1 minor ii (the *chadar* sentence in Legends, "A miracle of a *chadar* is told there too,") was not applied; it was offered as a precision point, and the coordinator may still apply the round 1 wording: "Her story also tells of a miracle of a *chadar*, after which, it is said, the Bukhari and Gilani Sayyids no longer married one another."

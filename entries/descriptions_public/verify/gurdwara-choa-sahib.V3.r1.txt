@@ -1,0 +1,64 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque] "چند مصرعے ان کی شاعری کا کچھ اندازہ دیتے ہیں" -> "give a sense of" rendered literally; اندازہ دینا is not Urdu (اندازہ ہوتا ہے / لگتا ہے / کرانا are) -> corrected sentence:
+OLD: گرو کے دوسرے بھجنوں کے انگریزی ترجموں سے چند مصرعے ان کی شاعری کا کچھ اندازہ دیتے ہیں۔
+NEW: گرو کے دوسرے بھجنوں کے انگریزی ترجموں کے چند مصرعوں سے ان کی شاعری کا کچھ اندازہ ہوتا ہے۔
+
+2. [ambiguous construction] "عقیدت مندوں کے بعد میں بنائے ہوئے گوردوارے" -> the agentive genitive collides with the postposition کے بعد, so the phrase first reads as "after the devotees"; the participle phrase is also English word order -> corrected sentence:
+OLD: پاکستان بھر میں جن مقامات پر گرو نانک ٹھہرے تھے، وہاں عقیدت مندوں کے بعد میں بنائے ہوئے گوردوارے آج بھی سر بلند کھڑے ہیں۔
+NEW: پاکستان بھر میں جن مقامات پر گرو نانک ٹھہرے تھے، وہاں عقیدت مندوں نے بعد میں جو گوردوارے بنائے، وہ آج بھی سر بلند کھڑے ہیں۔
+
+3. [agreement / pronoun] "ان کی دو چھوٹی یلغاریں" -> the sentence before treats Babar as non-honorific singular (بابر نے ... سیالکوٹ تک آ پہنچا), so the honorific plural ان is inconsistent and does not clearly point back to him -> corrected sentence:
+OLD: اس سے پہلے دریائے سندھ اور جہلم کے درمیان کا علاقہ ان کی دو چھوٹی یلغاریں دیکھ چکا تھا۔
+NEW: اس سے پہلے دریائے سندھ اور جہلم کے درمیان کا علاقہ بابر کی دو چھوٹی یلغاریں دیکھ چکا تھا۔
+
+4. [tense] "2020 سے ... اپنے ذمے لے لیا" -> "since" (سے) with a simple completed past jars; a continuing state is needed -> corrected sentence:
+OLD: 2020 سے بیرونِ ملک مقیم سکھوں کی ایک تنظیم نے گوردوارے کی بحالی اور مرمت کا کام اپنے ذمے لے لیا۔
+NEW: 2020 سے بیرونِ ملک مقیم سکھوں کی ایک تنظیم نے گوردوارے کی بحالی اور مرمت کا کام اپنے ذمے لے رکھا ہے۔
+
+5. [calque] "نانک کی میراث اپنی اصل روح میں ... مٹتی جا رہی ہے" -> "fading in its true spirit" rendered word for word; a legacy does not fade "in" its spirit in Urdu -> corrected sentence:
+OLD: البتہ یہ سوال بھی اٹھایا گیا ہے کہ کیا نانک کی میراث اپنی اصل روح میں آہستہ آہستہ مٹتی جا رہی ہے۔
+NEW: البتہ یہ سوال بھی اٹھایا گیا ہے کہ کیا نانک کی میراث کی اصل روح آہستہ آہستہ مٹتی جا رہی ہے۔
+
+6. [redundancy / unidiomatic collocation] "خود ذاتِ الٰہی کی الوہیت کو للکارتے ہیں" -> "the divinity of the divine essence" is tautological and heavy; the idiom is خدائی کو للکارنا -> corrected sentence:
+OLD: ایک تعبیر کے مطابق اس نظم میں نانک بابر کے قہر کا الزام خدا کے سر ڈالتے ہیں اور خود ذاتِ الٰہی کی الوہیت کو للکارتے ہیں۔
+NEW: ایک تعبیر کے مطابق اس نظم میں نانک بابر کے قہر کا الزام خدا کے سر ڈالتے ہیں اور اس کی خدائی ہی کو للکارتے ہیں۔
+
+7. [unidiomatic collocation] "پانی سے بھرا پورا گھڑا" -> بھرا پورا is a fixed idiom (a thriving household, a well-built body) and reads oddly of a pitcher; the sense is a whole pitcher filled with water -> corrected sentence:
+OLD: وہاں کام کرنے والا ایک بوڑھا شخص ان کے لیے پانی سے بھرا پورا گھڑا لے آیا۔
+NEW: وہاں کام کرنے والا ایک بوڑھا شخص ان کے لیے پانی کا پورا گھڑا بھر کر لے آیا۔
+
+8. [ambiguous pronouns] "ان کے مزار پر ... ان کے لیے" -> the same pronoun ان points to Baba Farid and then to Guru Nanak within one sentence -> corrected sentence:
+OLD: اپنے سفروں کے دوران گرو نانک ان کے مزار پر گئے، اور یہ صوفی بزرگ ان کے لیے تحریک کا سرچشمہ بن گئے۔
+NEW: اپنے سفروں کے دوران گرو نانک بابا فرید کے مزار پر گئے، اور یہ صوفی بزرگ ان کے لیے تحریک کا سرچشمہ بن گئے۔
+
+9. [ambiguity] "چوتھا طبقہ اداسیوں کا تھا" -> the article has defined اداسی as Guru Nanak's journeys (چوتھی *اداسی*); with چوتھا in the same phrase, اداسیوں first reads as "of the journeys", not the Udasi ascetics -> corrected sentence:
+OLD: اورنگزیب کے عہد میں ہند کے درویش مختلف طبقوں میں بانٹے جاتے تھے، اور ان میں چوتھا طبقہ اداسیوں کا تھا۔
+NEW: اورنگزیب کے عہد میں ہند کے درویش مختلف طبقوں میں بانٹے جاتے تھے، اور ان میں چوتھا طبقہ اداسی فقیروں کا تھا۔
+
+10. [unidiomatic collocation / connotation] "لوگوں کو عقیدت کے دام میں لے آتے تھے" -> دام is a snare, and دام میں لانا means to entrap; it gives a devotional singer a note of trickery -> corrected sentence:
+OLD: وہ مغنی تھے؛ گرو کا کلام گاتے اور لوگوں کو عقیدت کے دام میں لے آتے تھے۔
+NEW: وہ مغنی تھے؛ گرو کا کلام گاتے اور لوگوں کو عقیدت کی راہ پر لے آتے تھے۔
+
+11. [repetition] "خود مردانہ کی شاعری بھی ... گرو گرنتھ صاحب میں شامل ہے" followed at once by "... بھگت کبیر، بابا فرید اور بھائی مردانہ جیسے ..." -> the next sentence states again that Mardana's verse is in the scripture -> corrected sentences:
+OLD: خود مردانہ کی شاعری بھی سکھوں کے صحیفے گرو گرنتھ صاحب میں شامل ہے۔ اس صحیفے میں سکھ گروؤں کی عارفانہ شاعری کے ساتھ بھگت کبیر، بابا فرید اور بھائی مردانہ جیسے دوسرے روحانی پیشواؤں کا کلام بھی موجود ہے۔
+NEW: خود بھائی مردانہ کی شاعری بھی سکھوں کے صحیفے گرو گرنتھ صاحب میں شامل ہے۔ اس صحیفے میں سکھ گروؤں کی عارفانہ شاعری کے ساتھ بھگت کبیر اور بابا فرید جیسے دوسرے روحانی پیشواؤں کا کلام بھی موجود ہے۔
+
+12. [ambiguous spelling] "تقسیم کے بہتر برس بعد" -> unpointed بہتر is the same word the article uses for "better" (نسبتاً بہتر رہی), so this first reads as "the better years after Partition"; the numeral needs its tashdid -> corrected sentence:
+OLD: تقسیم کے بہتر برس بعد اسی سال اگست میں متروکہ وقف املاک بورڈ نے گوردوارہ چوآ صاحب کو باقاعدہ طور پر عبادت کے لیے دوبارہ کھول دیا۔
+NEW: تقسیم کے بہتّر برس بعد اسی سال اگست میں متروکہ وقف املاک بورڈ نے گوردوارہ چوآ صاحب کو باقاعدہ طور پر عبادت کے لیے دوبارہ کھول دیا۔
+
+13. [ambiguous spelling] "تقسیم کے بہتر برس بعد" in ورثہ -> same as 12 -> corrected sentence:
+OLD: 2019 میں، تقسیم کے بہتر برس بعد، یہ دوبارہ کھلا اور یوں ان یاتریوں کو واپس مل گیا جن کے لیے اسے بنایا گیا تھا۔
+NEW: 2019 میں، تقسیم کے بہتّر برس بعد، یہ دوبارہ کھلا اور یوں ان یاتریوں کو واپس مل گیا جن کے لیے اسے بنایا گیا تھا۔
+
+NOTES:
+- Repetition across sections: اورنگزیب کے عہد میں opens four separate statements. The Udasis' worship (ان کی عبادت یہ تھی کہ وہ اپنے مرشد کا کلام گاتے تھے) is restated a few lines later for Nanak's followers (ساری عبادت یہی تھی کہ وہ اپنے مرشد کا کلام پڑھتے ...). The formula روایات مختلف ہیں، لیکن عموماً is used twice. That Baba Farid's verse is in the Guru Granth Sahib is said in two sections. These are acceptable in a sectioned article, but some variation would read better.
+- Glosses of familiar words: ان کے نام کے ساتھ بھائی کا لفظ احترام کے لقب کے طور پر آتا ہے and دوہا دو ہم قافیہ مصرعوں کا شعر ہوتا ہے explain things most Urdu readers know. Not changed, since they carry content.
+- کتک کے مہینے کا روشن نصف is a literal "bright half"; the usual terms are شکل پکش or اجالا پاکھ, e.g. کتک کے مہینے کا اجالا پاکھ (چاند کے بڑھنے کے دن).
+- اس گوردوارے کا سفر کیا، جسے وہ ... سب سے کٹھن شمار کرتے تھے: جسے hangs on the noun half of the conjunct verb سفر کیا, an English ", which" pattern. Context resolves it, but اور اس سفر کو وہ ... شمار کرتے تھے would be cleaner.
+- Mild calques and register: ایک اور سکھ روایت یہ بتاتی ہے (ایک اور سکھ روایت کے مطابق is smoother); ان کے انجینئر is modern for Sher Shah's builders (معمار or کاریگر); ایمن آباد اور لاہور کے شہروں کو and بٹالہ کے قصبے میں follow "the towns of" (ایمن آباد اور لاہور کو, قصبہ بٹالہ میں); پنجاب کے حکمران کے طور پر تاج پوشی could be بطور حکمرانِ پنجاب; تحریک کا سرچشمہ is journalistic for "source of inspiration".
+- گلا دینے والا سیاہ سفوف is hard to picture. If "corrosive" is meant, کھا جانے والی سیاہ تہ might suit better, but I have not changed it because the exact sense cannot be recovered from the Urdu alone.
+- حالیہ زمانے میں ... پاکستان آتے تھے pairs "recently" with a past habitual. That may be deliberate (a practice that has stopped), so I left it.
+- ٹلہ کا فاصلہ: the oblique ٹلے کا is equally acceptable. ستائیس in words beside 260 in digits is a small inconsistency.
+- The verse paragraphs, balanced asterisks (46), Western digits and Urdu punctuation are in order. There are no Latin letters and no em or en dashes.

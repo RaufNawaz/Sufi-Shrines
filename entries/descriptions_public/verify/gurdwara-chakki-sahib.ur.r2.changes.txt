@@ -1,0 +1,41 @@
+Changes applied by the coordinator (ur1), exact replacements, each OLD occurring once.
+
+1. V2 r1 issue 1 (the hedge governs the identification of the hymns with the Babar-vani, as in the English appositive)
+OLD: یہ وہی بھجن تھے جن میں
+NEW: بتایا جاتا ہے کہ یہ وہی بھجن تھے جن میں
+
+2. V3 r1 issue 4 (اب clashes with a past date; بھی keeps English 'still')
+OLD: 1990 کی دہائی کے اواخر میں چودہ *گھماؤں* زمین اب بھی اس گوردوارے کے نام تھی۔
+NEW: 1990 کی دہائی کے اواخر میں بھی چودہ *گھماؤں* زمین اس گوردوارے کے نام تھی۔
+
+3. V3 r1 issue 3 (even honorific level for the two unnamed people; padding removed)
+OLD: ایک سیاح گرو نانک کے نقشِ قدم پر پاکستان کا سفر کر رہا تھا، اور اس دوران ایک مؤرخ اس کے ہمراہ تھے۔ مؤرخ اسے قصبے کے ایک چھوٹے سے مکان پر لے گئے۔
+NEW: ایک سیاح گرو نانک کے نقشِ قدم پر پاکستان کا سفر کر رہا تھا اور ایک مؤرخ اس کے ہمراہ تھا۔ مؤرخ اسے قصبے کے ایک چھوٹے سے مکان پر لے گیا۔
+
+4. V2 r1 note 3 (precision: 'hagiography' keeps its devotional sense) merged with V3 r1 issue 2 (calqued attributive adjective before a name); one sentence
+OLD: سکھوں کے سوانحی ادب میں خود گرو کی عبادت کا ایک محبوب منظر ہے جو کئی تصویروں میں دکھایا گیا ہے: پُرسکون نانک اپنے مغنی بھائی مردانہ کے گیت سن رہے ہیں، مردانہ کے ہاتھ میں رباب ہے، اور بھائی بالا دونوں کے پیچھے چنور لیے کھڑے ہیں۔
+NEW: سکھوں کے عقیدت مندانہ سوانحی ادب میں خود گرو کی عبادت کا ایک محبوب منظر ہے جو کئی تصویروں میں دکھایا گیا ہے: نانک بڑے سکون سے اپنے مغنی بھائی مردانہ کے گیت سن رہے ہیں، مردانہ کے ہاتھ میں رباب ہے، اور بھائی بالا دونوں کے پیچھے چنور لیے کھڑے ہیں۔
+
+5. V2 r1 issue 2 (the Qadiri clause stays inside the attributed 'it has been argued' sentence)
+OLD: اور قادری بزرگ شامل تھے۔ قادریوں نے اسی خطے کو اپنی سرگرمیوں کا سب سے بڑا مرکز بنا لیا تھا۔
+NEW: اور قادری بزرگ شامل تھے، جنہوں نے اس خطے کو اپنی سرگرمیوں کا سب سے بڑا مرکز بنا لیا تھا۔
+
+6. V3 r1 note (precision: تحریک was just used for 'movement', so سرچشمۂ تحریک can read as 'source of the movement'; English says 'inspiration')
+OLD: صاحبِ مزار ان کے لیے سرچشمۂ تحریک بن گئے۔
+NEW: صاحبِ مزار ان کے لیے ترغیب کا سرچشمہ بن گئے۔
+
+7. V2 r1 note 1 (ambiguous referent: وہ could be read as Babur)
+OLD: تو وہ خود وہاں موجود تھے۔
+NEW: تو گرو نانک خود وہاں موجود تھے۔
+
+8. V3 r1 issue 1 (copula agrees with the subject وعظ)
+OLD: گرو نانک کا وعظ ان کی *بانی* تھی، یعنی
+NEW: گرو نانک کا وعظ ان کی *بانی* تھا، یعنی
+
+9. V3 r1 issue 6 (repeats the intro sentence) merged with V2 r1 note 2 (name the gurdwara, as the English does, after a paragraph about other gurdwaras); one sentence
+OLD: یہ گوردوارہ اس چکی کی یاد بھی سنبھالے ہوئے ہے اور جنگ کی سفاکی کے خلاف گرو کی گواہی کی بھی۔
+NEW: چکی کی یاد ہو یا جنگ کی سفاکی کے خلاف گرو کی گواہی، گوردوارہ چکی صاحب دونوں کا امین ہے۔
+
+10. V3 r1 issue 5 (معظم is not idiomatic as a predicate; 'revered' kept)
+OLD: جھولے لال سندھ کے ہندوؤں میں معظم ہیں۔
+NEW: سندھ کے ہندو جھولے لال کی بڑی تعظیم کرتے ہیں۔

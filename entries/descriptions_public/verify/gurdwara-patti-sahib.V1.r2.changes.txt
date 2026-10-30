@@ -1,0 +1,46 @@
+Coordinator fixes from V1 round 1 (exact wording from the report). Each item: the V1 point, then the old and new sentence.
+
+[V1 r1 #1]
+OLD: Pilgrims come to it on the great anniversaries of the Guru, and in its rooms Sikh families have made their homes.
+
+## The Guru's First Lessons
+
+In the Punjab of the fifteenth century, a *patti* was the smooth wooden board on which a pupil, with a reed pen and ink made at home, practised the letters of the alphabet under the eye of a teacher.
+NEW: Pilgrims come to it on the great anniversaries of the Guru, and Sikh families have made their homes in its rooms, though accounts of who lives there differ.
+
+## The Guru's First Lessons
+
+In the Punjab of the fifteenth century, a *patti* was the smooth wooden board on which a pupil, with a reed pen and ink made at home, practised the letters of the alphabet under the eye of a teacher.
+
+[V1 r1 #2]
+OLD: The gurdwara also keeps a festival of the Punjab. On the night of Lohri in January 2011 the second Lohri fire of the town was lit in its courtyard, where Kartar lived.
+NEW: The gurdwara has also been the scene of a festival of the Punjab. On the night of Lohri in January 2011 the second Lohri fire of the town was lit in its courtyard, where Kartar lived.
+
+[V1 r1 point 5]
+OLD: Kartar remembered that no Sikh was left there after Partition, and that the gurdwaras of the town became barren and fell into a bad state.
+NEW: Kartar remembered that no Sikh was left in the town after Partition, and that the gurdwaras of the town became barren and fell into a bad state.
+
+[V1 r1 point 10]
+OLD: In his time all literate Punjabis, Hindus and Muslims alike, were conversant with the Persian poets Attar, Rumi and Sa'di.
+NEW: In his time all literate Punjabis, Hindus and Muslims alike, are held to have been conversant with the Persian poets Attar, Rumi and Sa'di.
+
+[V1 r1 point 12]
+OLD: Whenever he came to an area he would visit its religious shrines, Muslim, Hindu and of any other denomination, and people came from every land to become his disciples, whole multitudes from the far parts of the realm.
+
+Lakhmi Das, it was said, was a worthy son, but spiritual fortune was not his lot, and the Guru passed him over.
+NEW: Whenever he came to an area he would visit its religious shrines, Muslim, Hindu and of any other denomination, and people are said to have come from every land to become his disciples, whole multitudes from the far parts of the realm.
+
+Lakhmi Das, it was said, was a worthy son, but spiritual fortune was not his lot, and the Guru passed him over.
+
+[V1 r1 point 15]
+OLD: Accounts of how many journeys he made differ, but his *udasis*, the long journeys of his teaching, lasted more than twenty years and took him, mostly on foot, east to Bengal, south to Sri Lanka, north to Kashmir, Nepal and Tibet, and west to Mecca.
+NEW: Accounts of how many journeys he made differ, but his *udasis*, his long journeys, lasted more than twenty years and took him, mostly on foot, east to Bengal, south to Sri Lanka, north to Kashmir, Nepal and Tibet, and west to Mecca.
+
+[V1 r1 minor a]
+OLD: The Sikhs of Nankana Sahib are not natives of the city but recent migrants from Khyber Pakhtunkhwa, where there is a considerable Sikh population.
+NEW: The Sikhs of Nankana Sahib were not natives of the city but recent migrants from Khyber Pakhtunkhwa, where there is a considerable Sikh population.
+
+[V1 r1 minor b]
+OLD: He married Sulakhini, daughter of Mul Chand and Chando Rani of the town of Batala, on 24 September 1487, though accounts of the marriage differ, and they had two sons, Sri Chand, born on 8 September 1494, and Lakhmi Das, born on 12 February 1497.
+NEW: He married Sulakhini, daughter of Mul Chand and Chando Rani of the town of Batala, on 24 September 1487, though accounts of the marriage differ, and his sons were Sri Chand, born on 8 September 1494, and Lakhmi Das, born on 12 February 1497.
+

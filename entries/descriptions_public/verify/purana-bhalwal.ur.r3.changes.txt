@@ -1,0 +1,13 @@
+# purana-bhalwal: changes applied by the coordinator after V3 round 2 (FAIL, 3 issues); V2 round 2 PASS; exact replacement of each OLD once (late round procedure). Other V3 notes (taste, or content the English does not have) not applied. Backup of the round 2 file: /home/claude/bak/purana-bhalwal.ur.before_r3.md
+
+WHY: V3 r2 issue 1, applied in the verifier's wording (کی رہنمائی میں reads 'under the guidance of'; English 'his whole life was spent in guiding students')
+OLD: ان کی ساری عمر شاگردوں کی رہنمائی میں گزری۔
+NEW: ان کی ساری عمر شاگردوں کی رہنمائی کرتے گزری۔
+
+WHY: V3 r2 issue 2, ADAPTED by the coordinator: V3's بانی ('founder') claims more than the English 'with whom the Naushahi way began' (rejected for that reason in round 2), so the relative clause becomes its own sentence, which removes both the demonstrative before the name and the ambiguous جن سے
+OLD: صوفی سلسلوں کی تاریخ میں وہ شاہ معروف چشتی اور ان نوشہ گنج بخش کی درمیانی کڑی مانے جاتے ہیں جن سے نوشاہی طریقے کی ابتدا ہوئی۔
+NEW: صوفی سلسلوں کی تاریخ میں وہ شاہ معروف چشتی اور نوشہ گنج بخش کے درمیان کی کڑی مانے جاتے ہیں۔ نوشاہی طریقے کی ابتدا نوشہ گنج بخش ہی سے ہوئی۔
+
+WHY: V3 r2 issue 3, ADAPTED by the coordinator: V3's موت کی سی کیفیت ('a state like death') softens the English 'reached the condition of death'; موت کی کیفیت طاری ہونا is the idiomatic collocation V3 asks for and keeps the English's full strength (the sentence stays under کہا جاتا ہے)
+OLD: ان پر حالتِ موت طاری ہو جاتی تھی
+NEW: ان پر موت کی کیفیت طاری ہو جاتی تھی

@@ -1,0 +1,29 @@
+VERDICT: FAIL
+ISSUES:
+1. [repetition inside the sentence, introduced by change 2] تعارف, paragraph 1: "خواجہ محمد زمان کا مقبرہ ... مل کر یہ درگاہ بناتے ہیں، اور ہر سال خواجہ محمد زمان کا عرس ..." -> The fix for the ambiguous ان names the saint a second time in the same sentence, in the same "خواجہ محمد زمان کا" frame. The full name now appears four times in a four-sentence paragraph. صاحبِ مزار makes the referent just as clear without the repetition: the sentence opens on his مقبرہ, and the article already uses صاحبِ مزار for the saint of Luari.
+OLD: اور ہر سال خواجہ محمد زمان کا عرس
+NEW: اور ہر سال صاحبِ مزار کا عرس
+
+2. [gloss between noun and postposition, introduced by change 10] ماحول, paragraph 1: "صوبہ چار سرکاروں یعنی اضلاع پر مشتمل تھا" -> The recast fixes the agreement and the register. But it now puts the gloss یعنی اضلاع between سرکاروں and its postposition پر, which the brief's section "The Urdu version" rules out. Lead with the familiar word and give the term after it.
+OLD: صوبہ چار سرکاروں یعنی اضلاع پر مشتمل تھا:
+NEW: صوبے کے چار اضلاع تھے جنہیں سرکار کہا جاتا تھا:
+
+NOTES:
+- Round 1 issues: these are fixed and read naturally in their paragraphs:
+  - 1: صدی میں
+  - 2: ان رسالوں کے سب سے اہم مصنف
+  - 3: adapted to نتیجہ اخذ کیا گیا. The inferential sense is clear and the causal reading "the result was" is gone, so the issue is fixed.
+  - 4: اس امکان کی بنیاد یہ ہے کہ, with Urdu commas. لنواری ... کوئی شکل ہو سکتی ہے agrees correctly with شکل.
+  - 5: نقشبندی سلسلے
+  - 7 and 8: word order
+  Issue 6 is fixed for agreement and register, but see issue 2 above.
+- Round 1 notes applied: 3 (see issue 1), 4 and 7. Notes 4 and 7 read well.
+- Changes 1, 5, 11 and 12 read naturally:
+  - 1: گنا جاتا ہے varies the شمار ہوتا ہے of the sentence before it.
+  - 5: محراب دار چھتوں والے حجرے now matches the تعارف.
+  - 11: پانی کی کمی اور جنگلوں کے سبب is now unambiguous.
+  - 12: خوراک کا دار و مدار sits well beside the انحصار of the sentence before it, without repeating it.
+- Change 4: عینک appears twice in the sentence and again in the next one. The repetition carries the contrast (the same object praised by one and turned around by the other), so it reads as deliberate, not as a slip.
+- Change 13: "وفات کے بعد ... اور بعد میں" uses بعد twice. Both words were already there; only the order changed. "پہلے بالائی اور پھر زیریں سندھ میں" would be lighter, but the next sentence opens with مگر پھر.
+- Change 14: "خاص طور پر ... بنیادی طور پر" repeats طور پر. Both were already there. خصوصاً would avoid the repetition, but it already stands two sentences earlier.
+- Change 12: دار و مدار is also written دارومدار. Both spellings are standard.

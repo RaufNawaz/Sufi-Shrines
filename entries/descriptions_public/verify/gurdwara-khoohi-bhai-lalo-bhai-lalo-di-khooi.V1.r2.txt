@@ -1,0 +1,14 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+All nine changes checked against the team version and in their paragraphs.
+#1 "Accounts of the year of Babur's invasion differ; one of its lines, in English translation, gives the poem's own reckoning:": the clause rule 4 asks for is present, no rival year is named, and the verse paragraph is unchanged. Optional polish only: "its" now stands just after "Babur's invasion"; since an invasion has no lines it still resolves to the poem, but the coordinator may write "Accounts of the year of Babur's invasion differ; one of the poem's lines, in English translation, gives its own reckoning:".
+#2 "The Guru's teaching that there was no Hindu and no Muslim, it is told, was questioned at three courts ...": framed; matches Khalid.
+#3 "Bhai Lalo's house, where tradition holds that Guru Nanak lodged, was made into a gurdwara ... and the well from which the Guru is said to have drunk is still preserved within it.": the stay is framed and the present tense matches the 1998 survey; it sits correctly before "At the restoration the well was covered over with a platform."
+#4 "In the same telling he works on a daily wage for Ramdev, the master carpenter ...": framed, following "In the janamsakhi telling he tells Nanak ...".
+Point 6 "a single oil lamp, a loosely strung string bed or *charpoy*, a single thick *bajre ki roti* of millet, and a single small onion": four objects, as in Dhillon; no extra item.
+Point 7 "cast out of his own *biradari*": matches Nanak's "from your biradari".
+minor 1 "the keys were probably with members of the Sikh community at the nearby Gurdwara Rori Sahib": keeps Khalid's "probably" rather than a general belief.
+minor 2 "The same visitor looked for signs of attack on them ... and found none": refers back to the "One visitor" of The Gurdwara, no second person implied; "them" still refers to the temples of the preceding sentence.
+No dashes, no source talk, no repeated words or lost text at any edit point.
+The L1 exception line in the notes is word for word the line the round 1 report approved.

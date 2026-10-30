@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the single sentence in shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.ur.r3.changes.txt; the earlier misparse of "سرائیکی سندھی" as a compound is gone, and the sentence reads cleanly in its paragraph. Taste note: "ہے، جو ... ہے" repeats "ہے" closely, but this is normal Urdu and no change is needed.

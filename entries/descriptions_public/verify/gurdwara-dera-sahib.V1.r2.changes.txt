@@ -1,0 +1,33 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/gurdwara-dera-sahib.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1]
+OLD: More than a hundred *slokas*, verses, of the Sufi saint Baba Farid Ganj-i Shakar are in it: Guru Nanak had collected Baba Farid's poetry at Pak Pattan, and Guru Arjan later included it in the Granth Sahib.
+NEW: More than a hundred *slokas*, verses, ascribed to Baba Farid Ganj-i Shakar are in it: Guru Nanak had collected Baba Farid's poetry at Pak Pattan, and Guru Arjan later included it in the Granth Sahib.
+
+[V1 r1 issue 2]
+OLD: The Indians stayed for three days, after which some returned home while others went on to the sacred shrines of Nankana Sahib and Hassan Abdal. Most of the pilgrims were Sikhs bearing the five Ks, the five articles of the Sikh faith, with a few clean shaven Nanak Panthi Sikhs, followers of Guru Nanak's path, from South Punjab and Sindh.
+NEW: The Indians were to stay for three days, after which some would return home while others would go on to the sacred shrines of Nankana Sahib and Hassan Abdal. Most of the pilgrims were Sikhs bearing the five Ks, the five articles of the Sikh faith, with a few clean shaven Nanak Panthi Sikhs, followers of Guru Nanak's path, from South Punjab and Sindh.
+
+[V1 r1 minor a]
+OLD: When Arjan produced two of the letters that had been withheld, hidden in Prithi Chand's robe, Prithi Chand was deeply ashamed.
+NEW: When Arjan produced two letters that had been withheld, hidden in Prithi Chand's robe, Prithi Chand was deeply ashamed.
+
+[V1 r1 minor b]
+OLD: He led the Sikhs as Guru from 1581 until his death in 1606; accounts of the year are not unanimous, but 1606 is the year generally given.
+NEW: He led the Sikhs as Guru from 1581 until his death in 1606; accounts of the year of his death are not unanimous, but 1606 is the year generally given.
+
+[V1 r1 minor c]
+OLD: Sikh tradition traces Chandu's enmity to a refused marriage: he had wished to marry his daughter to Guru Arjan's son, the match was declined after Sikhs wrote against it, and Arjan married his son to the daughters of two Sikhs.
+NEW: Chandu's enmity is traced to a refused marriage: he had wished to marry his daughter to Guru Arjan's son, the match was declined after Sikhs wrote against it, and Arjan married his son to the daughters of two Sikhs.
+
+[V1 r1 minor d]
+OLD: The city's Sikhs have thinned too, and it had become rare to meet a Sikh in a city that was once ruled by a Sikh and was the seat of their political strength.
+NEW: The city's Sikhs had thinned too, and by 2011 it had become rare to meet a Sikh in a city that was once ruled by a Sikh and was the seat of their political strength.
+
+[V1 r1 minor e]
+OLD: At the conclusion of the *Akhand Path*, the unbroken reading of the whole scripture, came the *bhog*, the community prayer, and the whole congregation bowed before the Granth Sahib as the living Guru.
+NEW: At the conclusion of the *Akhand Path*, the unbroken reading of the whole scripture, came the *bhog*, the community prayer, and the whole congregation prostrated itself before the Granth Sahib as the living Guru.
+
+[V1 r1 minor f]
+OLD: His death anniversary draws Sikhs far beyond Lahore: Operation Blue Star was launched on a day when thousands of Sikhs from all over the Punjab had gathered to commemorate it, and its victims became the latest entry in that list.
+NEW: His memory reaches far beyond Lahore: Operation Blue Star was launched on a day when thousands of Sikhs from all over the Punjab had gathered to commemorate it, and its victims became the latest entry in that list.

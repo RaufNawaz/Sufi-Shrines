@@ -1,0 +1,60 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) Overview, second paragraph, and judgement call 5. The relative clause "to whom God gave both outward and inward wealth" comes straight after "Shah Mahmud Ghaznavi", so the nearest antecedent is Mahmud. In the team version God gave this wealth to Ayaz. The fix splits the sentence and names Ayaz as the one who received it. "It was said" frames what is a hagiographic statement. Judgement call 5 itself is accepted: he has an entry of his own in the 1875 book (1875 is a firm date), and the team version shows that book giving him a saint's honorific and an account of his renunciation and *faiz*. So "honoured among the saints ... in the nineteenth century" is supported.
+OLD: He is also known simply as Malik Ayaz, and in the nineteenth century he was honoured among the saints as Shaikh Ayaz Lahori, the slave and beloved of Shah Mahmud Ghaznavi, to whom God gave both outward and inward wealth.
+NEW: He is also known simply as Malik Ayaz. In the nineteenth century he was honoured among the saints as Shaikh Ayaz Lahori, the slave and beloved of Shah Mahmud Ghaznavi, and it was said of him that God had given him both outward and inward wealth.
+
+2. (precision) The Restorer of Lahore, second paragraph. It opens "The city stayed unpeopled for some years." straight after a paragraph that ends with Ayaz settling the city again. It therefore reads as if the city stayed empty after he resettled it. The team version ties the empty years to the sack ("After Mahmud Ghaznavi's sack ... the city stayed unpeopled for some years").
+OLD: The city stayed unpeopled for some years.
+NEW: After Mahmud's sack, the city stayed unpeopled for some years.
+
+3. (precision) Legends, judgement call 6. Keeping the two temple stories as separate legends in separate paragraphs is accepted. So is saying nothing about whether they are one episode. But "sets Ayaz's counsel at Somnath" presents the Somnath story as the same counsel moved to another place, that is, as a variant of the "Onkay temple" episode. The team version expressly does not say that ("The books do not say that the two are one episode"), and the two counsels differ in content.
+OLD: Another story sets Ayaz's counsel at Somnath.
+NEW: Another story tells of Ayaz's counsel at Somnath.
+
+4. (precision) Legacy, judgement call 12. "In the history of the city" has two readings, and both fail. Read as a pointer to a book (the history of Lahore), it is veiled source narration. Read as plain history, it puts one historian's division of Lahore's history in the narrator's voice as fact, although the article itself records that the refounding tradition has been dismissed. The team version gives it only as that historian's framing ("makes his settlement of Lahore the turn from which the city's later history runs"). The fix frames it as a view, the way the draft already frames other views ("has been dismissed as", "has also been regarded as").
+OLD: In the history of the city, his settlement of Lahore is the turn from which its later history runs.
+NEW: His settlement of Lahore has also been taken as the turn from which the city's later history runs.
+
+5. (precision) Legacy, first paragraph. The team version reports what "should be remembered", the shrine's statement of what deserves remembering. The draft's "what is remembered" turns that into a claim that the bond is actually remembered at the shrine. That claim also sits against the same article's report that residents are largely unaware of his life and that his fame has waned.
+OLD: At the shrine, what is remembered is the bond between Mahmud Ghaznavi and Malik Ahmad Ayaz, "the love and romance" of king and slave: a slave who would sacrifice his life for his king, and a loyalty so complete that he could answer for it before God on the Day of Judgement.
+NEW: At the shrine it is said that what should be remembered is the bond between Mahmud Ghaznavi and Malik Ahmad Ayaz, "the love and romance" of king and slave: a slave who would sacrifice his life for his king, and a loyalty so complete that he could answer for it before God on the Day of Judgement.
+
+6. (precision) Three quotations by the same author come in under three different labels: "one scholar of Sufism" (Legends, the Huma), "one scholar of Islamic mysticism" (Ayaz in Poetry) and "one scholar of mysticism" (Legacy). A reader will take these as three scholars, a count the team version does not give: all three quotations are from the same writer. The fix keeps the first label and refers back to it in the other two places. There is no signposting.
+OLD: As one scholar of Islamic mysticism put it,
+NEW: As the same scholar of Sufism put it,
+OLD: In the words of one scholar of mysticism,
+NEW: In the words of the same scholar,
+
+7. Rulings on the other judgement calls. All are accepted.
+   - 1: The Georgia account stays under basis (a), with "Accounts of where Ayaz came from differ". "Turkish officer" and "the Turk" describe him and name no homeland. The only rival homeland (Kashmir) is introduced in its source with "they say", and the team version does not show every other source against the shrine.
+   - 2: 450 AH under basis (c), with "though accounts of the year differ", is accepted. The team version shows every dated account against 8 August 1041 ("The survey's date agrees with neither year"). Basis (b) gives no majority. No conversion is given. Basis (d) would also be defensible, but (c) is a correct application of the order.
+   - 3: Dropping "In Ayaz's last days", the one detail that conflicts with the established order of the deaths, follows rule 4 on minor variants. The story stays framed ("is also said"). "One of his two sons, Saad" is exactly as ambiguous as in the team version, and Saad, a family member, is kept.
+   - 4: The team version records the offices as different descriptions, and none of them excludes the others. The editor's office offered "in their place" (commander of the cantonment) is rightly dropped. Mahmud's death in 1030 is a firm date that no source contradicts, so joining it to the succession is not a merged chain.
+   - 7: Putting the Persian chronicle's "noose of his love" under "Tradition holds" lowers its certainty. It does not raise it.
+   - 8: "rajas and maharajas" is the plain sense of the collective phrase "Raja Maharaja".
+   - 9: Softening the survey's wording keeps its meaning. "Could never sway him" is close enough to "did not fall for".
+   - 10: "Data Darbar" for Ali Hajveri's shrine is the team version's own name for it, in its heading "Setting: Shah Alam Market and Data Darbar".
+   - 11: The sentence is framed as about that shrine, not this one. "Still" is the source's own word, and no time anchor is added.
+   - 13, 14, 16, 18: accepted.
+   - 15: The point stands without the flagged title: his name served as a figure of speech for a favourite who was called son. "In the nineteenth century" is the brief's own anchor for this book's material.
+   - 17: "Told among stories of poets", for the discourse on poets, is content about the tale and not a reference to the book.
+8. Other consensus choices were checked and are accepted:
+   - The Chowk Rang Mahal line, the mosque of Khwaja Ayaz and the Partition memory of the Shah Alami market are left out. Each rests on an identification the team version does not make.
+   - The "Tomb of Malik Ayaz" contents line and the dating of Majdud's governorship to 427 to 433 AH are dropped under rule 5.
+   - The Kashmir, Badakhshan and Ghazni purchase material is dropped under rule 4.
+   - "The tradition that he refounded Lahore is not universally accepted ..." and "though the romance itself has also been regarded as a literary growth of post-Seljuq times" are each a single clause, correctly placed.
+   - The poisoning and natural death versions stay in one clause, as the shrine's own two tellings.
+   - Time anchors: only "the nineteenth century" (from 1875, and for Chishti's unconfirmed 1867) and Mahmud's death in 1030. Nothing is anchored to the undated history of Lahore.
+   - Source talk: there are no citations, page references, named authors in the narrative, signposting, archive language or uncertainty vocabulary. Rūmī and ʿUnsuri are named only as part of their own stories.
+   - The English checker (--english-only) exits 0 at a ratio of 0.45. The precision fixes change the length by only a few characters.
+9. Taste only, not required:
+   - (a) "Though the Sultan had many thousands of slaves, Ayaz was the foremost of them" and the next sentence put the Persian chronicle's account of the Sultan's favour in the narrator's voice, straight after the shrine's purchase story. Nothing in those sentences depends on the purchase details that were dropped, so this is not a merged account.
+   - (b) In Ayaz in Poetry, "Ayaz's beauty and *naz*" is followed two sentences later by poets who wrote that he "had no great outward beauty", which reads as a contrast. Both are about the literary tale, so it is acceptable. Opening the last sentence with "Yet some poets wrote" would make the contrast deliberate.
+   - (c) "Beside the Darbar" for the survey's "in the vicinity of the Darbar" is supported by the team version's own wording, "the one reported beside the Darbar".
+   - (d) Both Overview paragraphs call him the slave and beloved of Mahmud Ghaznavi, the first under "Sultan" and the second under "Shah". Only one is needed.
+10. The notes file, not the public text: under "Uncertain readings" it says "named to the administration of the Punjab" was left out because "its sense uncertain". The team version marks the name "Malik Ayaz" as uncertain at that point, not the sense. The public text is not affected, since it uses the clear "became *hakim* of the Punjab by the king's order". Correct the notes line at the next edit.
+11. Omission sweep: I read the team version paragraph by paragraph, covering the life, origin, purchase, offices, the succession of Masud, Majdud and Maudud, the renunciation, death and burial, the restoration of Lahore and its three gates, the shrine and its losses, the mosque, the Auqaf, the daily offerings, the ʿurs and attendance, the legends, the poetry, the setting and the legacy. I find nothing important missing. Every named person the team version gives clearly is kept: Saad, Masud, Majdud, Maudud, Raja Anangpal, Raja Jaipal, ʿAli ibn Qarib, ʿUnsuri, Zulali, Rūmī, Raja Hira Singh, Allama Iqbal and Kaniya Lal.

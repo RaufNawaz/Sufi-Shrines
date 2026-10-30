@@ -1,0 +1,22 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed certainty] English | Urdu -> problem -> corrected Urdu
+English: "One scholar reads the story as showing that the shrine cult has become a falsehood void of any mysticism, an expression of corrupt political power, in which fear is the prime force that keeps the villagers and devotees loyal to the moral authority of the shrine."
+Urdu: the second sentence, اس عقیدت میں خوف ہی وہ بنیادی قوت ہے ...، stands on its own outside ایک محقق کے نزدیک.
+Problem: splitting the sentence drops the attribution, so the claim that fear is the prime force keeping devotees loyal reads as the article's own statement about the shrine, not as one scholar's reading of the story.
+OLD: اس عقیدت میں خوف ہی وہ بنیادی قوت ہے
+NEW: اسی محقق کے بقول اس عقیدت میں خوف ہی وہ بنیادی قوت ہے
+
+2. [changed fact] English | Urdu -> problem -> corrected Urdu
+English: "These are the words of a legend, not a description of any person."
+Urdu: یہ ایک افسانے کے الفاظ ہیں، کسی انسان کا بیان نہیں۔
+Problem: with a person, کسی انسان کا بیان most naturally means "anyone's statement or testimony", so the sentence reads "words of a legend, not something any person said". The English means the legend does not describe any real person, which matters here because the paragraph is about people with microcephaly.
+OLD: یہ ایک افسانے کے الفاظ ہیں، کسی انسان کا بیان نہیں۔
+NEW: یہ ایک افسانے کے الفاظ ہیں، ان سے کسی انسان کا حال بیان نہیں ہوتا۔
+
+NOTES:
+1. Devotion and Festivals, third paragraph: the English sets the first custom in the saint's lifetime (at his khanqah, as an offering to him) against what devotees did "after his death". صاحبِ مزار, "the one in the tomb", for the lifetime custom blurs that contrast. Same person, so this is not counted as an issue, but the fix restores the timeline:
+OLD: کبھی یہ دستور تھا کہ جن والدین نے صاحبِ مزار کے وسیلے سے اولاد مانگی ہوتی، وہ دودھ چھٹتے ہی بچے کو شاہ دولہ کی نذر کر کے ان کی خانقاہ پر چھوڑ جاتے۔
+NEW: کبھی یہ دستور تھا کہ جن والدین نے شاہ دولہ کے وسیلے سے اولاد مانگی ہوتی، وہ دودھ چھٹتے ہی بچے کو انہی کی نذر کر کے ان کی خانقاہ پر چھوڑ جاتے۔
+2. Everything else checked: all names, titles, numbers and dates match; hedges (کہا جاتا ہے، روایت کے مطابق، بیانات مختلف ہیں، معلوم ہوتا ہے، افسانے کے مطابق) hold; legends stay legends; headings correspond; the couplet is byte identical; no Latin letters, no dashes, and every figure is in the English. The English italic line after the verse is rendered as prose before the verse, which keeps its content. Dropped glosses (سید، معرفت، کوس، مہر، چکن، بین، اوقاف) are deliberate per the brief.
+3. Outside V2's scope, for the English: the body credits the closing chronogram to Mufti Ghulam Safdar Lahori, while the Bibliography gives the 1875 book's author as Mufti Ghulam Sarwar Lahori. The Urdu follows the English body (صفدر). Worth checking the name against the source.

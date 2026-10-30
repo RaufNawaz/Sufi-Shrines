@@ -1,0 +1,6 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. The Saint, paragraph 2: "مشہور ہے کہ وہ مبلغ تھے، اور ان کی موجودگی نے ملتان کو دین کا مرکز بنانے میں ... مدد دی" is acceptable, because the second clause sits inside the کہ clause up to the full stop. Optional tightening so that the hedge plainly covers the whole of "remembered as a preacher whose presence helped": "مشہور ہے کہ وہ ایسے مبلغ تھے جن کی موجودگی نے ملتان کو ... دین کا مرکز بنانے میں مدد دی".
+2. The Setting, paragraph 2: in "اس خطے کی زیارتوں میں بھی ملتان کا اپنا مقام تھا اور اس کی شاعری میں بھی", the parallel wording makes اس کی read as the region, as in the English ("its poetry"). It could be taken for Multan for a moment, but the reading is not wrong. No change needed.
+3. Correctly handled and not counted as omissions: the glosses of صوفی، سادات، فاتحہ، عرس and مشائخ are dropped, and کاشی is not italicised. All dates (711، 1088، 1175), centuries, places, names and hedges (روایت کے مطابق، روایت ہے کہ، بتایا جاتا ہے، مشہور ہے، آس پاس) correspond. All five headings correspond, the article has no verse, and the file has no Latin letters, dashes or asterisks.

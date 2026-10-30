@@ -1,0 +1,5 @@
+# shrine-of-shah-yusaf-gardez: changes applied after V1 round 1 (PASS), from its optional notes on meaning or precision, in the verifier's own wording. Taste notes not applied.
+
+WHY: V1 round 1, optional note a (precision: the relative clause attached to all descendants of the Prophet, not to the Gardezi family)
+OLD: and founded the line of the Gardezi sayyids, descendants of the Prophet Muhammad who were long among the leading religious families of the city.
+NEW: and founded the line of the Gardezi sayyids, a family descended from the Prophet Muhammad and long among the leading religious families of the city.

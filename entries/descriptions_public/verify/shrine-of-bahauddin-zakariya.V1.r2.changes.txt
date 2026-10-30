@@ -1,0 +1,53 @@
+Changes after V1 round 1, applied by the coordinator in V1's own wording (issues, then precision notes). Nothing else changed.
+
+[V1 r1 issue 1]
+OLD: Within eighteen days, it is said, he received the *khirqa*, the patched cloak of the Sufi, as the mark of his *khilafat*, his authority to guide others, and he was sent to Multan with leave to carry the order to India. It is told that the master's other disciples resented the bounty he received, and that the master answered them that they were like green wood and Zakariya like dry wood, and fire quickly catches dry wood.
+
+The chain of masters that ran to him began with Junaid of Baghdad, the chief of the Sufi company, and passed, among others, through Mamshad Alu Dinawari, Ahmad Aswad Dinawari, Abu Abdullah Khafif, Abu al-Qasim Gurgani, Abu Bakr Nassaj, Shaikh Ahmad Ghazali, the brother of Imam Muhammad Ghazali, Ziya al-Din Abu al-Najib Suhrawardi and Wajih al-Din Suhrawardi to Shihab-ud-Din Umar Suhrawardi, and from him to Bahauddin Zakariya.
+
+On the road to Multan, it is told, he met a learned *qalandar*, a wandering dervish, Sayyid Abd al-Quddus of Mosul, who had put on the qalandars' dress at the grave of Sayyid Jamal al-Din Mujarrad; Bahauddin had the qalandar's garment taken off him and brought him from *jazb*, the rapture of a soul drawn towards God, to *suluk*, the ordered journey of the Sufi path.
+NEW: (deleted)
+
+[V1 r1 issue 2]
+OLD: He accepted endowments and gifts and managed considerable resources, though accounts differ over what chiefly sustained his house. Outward and inward wealth were his portion: he was himself extremely rich, and his own *pir* had vast wealth too.
+NEW: He accepted endowments and gifts and managed considerable resources. He was a landlord of means, agriculture and trade were carried on at his house on a large scale, and his *khanqah* prospered on gifts from merchants and trade guilds: many merchants traded outside India, were largely independent of the government, and could not be prevented from giving. Outward and inward wealth were his portion: he was himself extremely rich, and his own *pir* had vast wealth too.
+
+[V1 r1 minor a]
+OLD: He was called Shaikh al-Shuyukh, the Shaikh of Shaikhs, Makhdum al-Alam, the Master of the World, and Bahauddin Zakariya Qureshi Multani; he bears the title Baha al-Haq, and in Punjabi verse he is invoked as Bahaval Haq. Among the titles heaped on him are peerless *pir*, or spiritual guide, and treasury of generosity, and he is counted among the greatest of the *awliya*, the friends of God.
+
+After his father's death he set out in search of learning.
+NEW: He was called Shaikh al-Shuyukh, the Shaikh of Shaikhs, Makhdum al-Alam, the Master of the World, and Bahauddin Zakariya Qureshi Multani; he bears the title Baha al-Haq, and in Bulleh Shah's verse he is invoked as Bahaval Haq. Among the titles heaped on him are peerless *pir*, or spiritual guide, and treasury of generosity, and he is counted among the greatest of the *awliya*, the friends of God.
+
+After his father's death he set out in search of learning.
+
+[V1 r1 minor b]
+OLD: The first letter set out the difficulty: by the teaching of the Shaikhs, the Quran and the *hadith*, the property of this world is an obstacle to union with God, yet some of the Shaikhs of the age enjoyed a handsome share of it and at the same time performed miracles.
+NEW: The first letter set out the difficulty: by the teaching of the Shaikhs, the Quran and the *hadith*, the property of this world is an obstacle to union with God, yet it was heard that some of the Shaikhs of the age enjoyed a handsome share of it and at the same time performed miracles.
+
+[V1 r1 minor c]
+OLD: The two men met at Delhi during the *mahzar* on the charges against Jalal al-Din Tabrizi, and there Bahauddin defended himself: "Although wealth is a serpent, someone who has learnt the incantation to overcome the venom, need not have any fear from the serpent." Pressed further, he answered: "Your achievement as a dervish is not endowed by such beauty and elegance as to be immune from the evil eye, but our achievements as dervishes are endowed with such great beauty as to gain no harm even if the whole of the world's blackness were applied to its face." It is told that in the end he was left without a reply.
+NEW: The two men met at Delhi during the *mahzar* on the charges against Jalal al-Din Tabrizi. In defence of his wealth Bahauddin said: "Although wealth is a serpent, someone who has learnt the incantation to overcome the venom, need not have any fear from the serpent." Pressed further, he answered: "Your achievement as a dervish is not endowed by such beauty and elegance as to be immune from the evil eye, but our achievements as dervishes are endowed with such great beauty as to gain no harm even if the whole of the world's blackness were applied to its face." It is told that in the end he was left without a reply.
+
+[V1 r1 minor d]
+OLD: When his share of the estate came to him, he gave it all to the *fuqara*, the poor, for, he reasoned, his father had mastered the world, so that the presence of wealth and gold could do him no harm. Sadr al-Din died in the year 709 of the Hijri calendar.
+
+Sadr al-Din's wife, Bibi Rasti, was a disciple of her father-in-law in her own right, and through her the Suhrawardi *nisbat*, the spiritual bond of the order, reached many women.
+NEW: When his share of the estate came to him, he gave it all to the *fuqara*, the poor. His reasoning began from this: his father had mastered the world, and so the presence of wealth and gold could do his father no harm. Sadr al-Din died in the year 709 of the Hijri calendar.
+
+Sadr al-Din's wife, Bibi Rasti, was a disciple of her father-in-law in her own right, and through her the Suhrawardi *nisbat*, the spiritual bond of the order, reached many women.
+
+[V1 r1 minor e]
+OLD: One Madan, the legend runs, asked for his intercession to obtain a son when the saint was touring in Sindh.
+NEW: In most tellings of the legend, one Madan asked for his intercession to obtain a son when the saint was touring in Sindh.
+
+[V1 r1 minor f]
+OLD: The family of the Lahore mufti Shaikh Kamal-ud-Din Qureshi was held to descend from him as well: the mufti's father had been summoned from Multan under Muhammad Tughlaq and appointed to the office of *ifta*, the giving of legal rulings.
+NEW: The family of the Lahore mufti Shaikh Kamal-ud-Din Qureshi was held to descend from him as well: the mufti's father, Shaikh Makhdum, had been summoned from Multan under Muhammad Tughlaq and appointed to the office of *ifta*, the giving of legal rulings.
+
+[V1 r1 minor g]
+OLD: Shihab-ud-Din Suhrawardi's other disciples were eminent in their own right, but the continuous history of the Suhrawardi order in India can be traced only through the *khalifas* of Bahauddin Zakariya, the deputies he appointed.
+
+He had many famous disciples.
+NEW: Shihab-ud-Din Suhrawardi had other disciples, but the continuous history of the Suhrawardi order in India can be traced only through the *khalifas* of Bahauddin Zakariya, the deputies he appointed.
+
+He had many famous disciples.

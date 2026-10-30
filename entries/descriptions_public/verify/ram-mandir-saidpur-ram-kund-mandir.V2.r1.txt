@@ -1,0 +1,22 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed certainty] Mai Dhadli's Urdu song, sung at a dwelling of fakirs, wandering Sufis, in Sehwan, runs: (followed by an English translation credited to Omar Kasmani) | سیہون میں فقیروں کے ایک ڈیرے پر مائی دھڈلی کا اردو گیت گایا گیا، جس کے بول یہ ہیں: -> the English gives only a translation of an Urdu song and marks it as one; the Urdu drops the credit (rightly, no Latin) but then calls its own rendering of that English translation the song's actual words. Because the song is in Urdu, an Urdu reader will take the next line as the original lyric, which neither the English nor the sources supply. Present it as the sense of the words, not the words. -> سیہون میں فقیروں کے ایک ڈیرے پر مائی دھڈلی کا اردو گیت گایا گیا، جس کے بولوں کا مفہوم یہ ہے:
+OLD: جس کے بول یہ ہیں:
+NEW: جس کے بولوں کا مفہوم یہ ہے:
+2. [wrong reference] Rawalpindi is the twin city of Islamabad | راولپنڈی اس کا جڑواں شہر ہے۔ -> the subject of the preceding sentence is سید پور, so اس کا most naturally reads as Saidpur's twin city; the English names Islamabad. -> راولپنڈی اسلام آباد کا جڑواں شہر ہے۔
+OLD: راولپنڈی اس کا جڑواں شہر ہے۔
+NEW: راولپنڈی اسلام آباد کا جڑواں شہر ہے۔
+3. [wrong reference] when Ravan's capital of Lanka was under attack by Ram and Lachhman | جب رام اور لچھمن اس کے دارالحکومت لنکا پر حملہ آور تھے -> the main clause subject is کمبھکرن, so اس کے can be read as Kumbhakaran's capital; the English names Ravan. -> جب رام اور لچھمن راون کے دارالحکومت لنکا پر حملہ آور تھے
+OLD: جب رام اور لچھمن اس کے دارالحکومت لنکا پر حملہ آور تھے
+NEW: جب رام اور لچھمن راون کے دارالحکومت لنکا پر حملہ آور تھے
+NOTES:
+1. Overview: "a popular destination" became بہت مقبول ("very popular"), a small added degree; the same fact in The Temple is rendered plainly as مقبول.
+OLD: آنے والوں میں بہت مقبول ہے
+NEW: آنے والوں میں مقبول ہے
+2. Rama on the Road to Hinglaj: "According to legend" became ایک روایت کے مطابق ("according to one tradition"), which hints at rival versions the English does not mention. Minor.
+OLD: ایک روایت کے مطابق سارسوت برہمنوں
+NEW: روایت ہے کہ سارسوت برہمنوں
+3. Madho Lal Hussein: "it is the name to be recited and sung" became رام ہی وہ نام ہے ("Ram alone is the name"). That ہی adds an exclusivity which sits awkwardly beside the previous sentence, where he also uses سائیں، رب and مولا.
+OLD: ان کی کافیوں میں رام ہی وہ نام ہے
+NEW: ان کی کافیوں میں رام وہ نام ہے
+4. Style only: otherwise faithful paragraph by paragraph. All seven headings correspond, nothing is omitted or added, the legends of Navratri, the cheonkul tree, Hinglaj and the Saraswat ṭīkā keep their hedges, and the dropped glosses (mystics of Islam, gurdwara, ashram, wandering Sufis, Rahim the Merciful, birthday of the Prophet) are deliberate under the brief. The English has no verse in its original script, only credited English translations, so the Urdu renderings of those translations without credit lines are as the brief intends; their sense matches the English in every case. Names agree with urdu-dictionary.json (باری امام، بلھے شاہ، وارث شاہ، سید پور، منوڑہ).

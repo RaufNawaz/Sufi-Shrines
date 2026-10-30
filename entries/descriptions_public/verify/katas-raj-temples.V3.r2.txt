@@ -1,0 +1,24 @@
+VERDICT: FAIL
+ISSUES:
+1. [repetition introduced by change 20] "باقی عمارتوں کی مرمت کے وقت اس کی مرمت نہیں ہوئی" -> the fix for round 1 issue 15 removes the ambiguity and the doubled تک, but now puts مرمت twice within six words (کی مرمت کے وقت اس کی مرمت), the in-sentence repetition the brief lists as a fault and a proof editor would mark. کے برعکس keeps the contrast unambiguous (the other buildings were repaired, this one was not) without the echo, and اس still points to the gurdwara building of the sentence before -> corrected sentence:
+OLD: باقی عمارتوں کی مرمت کے وقت اس کی مرمت نہیں ہوئی، اور 2010 کی دہائی کے وسط تک وہاں جانے والا راستہ بے توجہی کا شکار ہو چکا تھا اور عمارت کی چھت باقی نہ رہی تھی۔
+NEW: باقی عمارتوں کے برعکس اس کی مرمت نہیں ہوئی، اور 2010 کی دہائی کے وسط تک وہاں جانے والا راستہ بے توجہی کا شکار ہو چکا تھا اور عمارت کی چھت باقی نہ رہی تھی۔
+
+NOTES:
+1. Round 1 status: issues 1 to 14 and 16 to 22 are fixed, each in the round 1 wording, and each changed sentence was read in its paragraph without breaking the sentences around it. Issue 15 is fixed in substance (the reading "it and the others were not repaired" is gone, and so is وسط تک اس تک) but the fix brought in issue 1 above. The round 1 note on اسی لیے is fixed by چنانچہ, which reads well after the یوں sentence.
+2. Issue 1 (تعمیری): fixed. فنِ تعمیر اور مذہبی رسوم دونوں کے اعتبار سے is idiomatic and parses at once.
+3. Issue 2 (cave and fossil): fixed. The verb is supplied and the stalactites now belong to the cave. دکھایا ... بھی دکھایا is the normal way to coordinate with بھی, and فوسل twice follows the English; neither is a fault.
+4. Issue 3 (seals and figure): fixed. بعض مہروں پر ... جو شبیہ دکھائی گئی ہے، وہ ... ہو سکتی ہے is a clean correlative, feminine agreement throughout (بیٹھی، دکھائی گئی، ہو سکتی).
+5. Issues 4 to 6 (کوروؤں، پانڈوؤں): fixed; the article is now consistent with ہندوؤں، آنسوؤں، سادھوؤں.
+6. Issue 7 (تناسب ٹھگنے): fixed. یہ قد میں ٹھگنا ہے is natural, masculine agreement with the temple.
+7. Issue 8 (یہ مندر): fixed. یہاں کے مندر cannot be read as the single temple.
+8. Issue 9 (لنگ and لنگم): fixed; لنگ throughout.
+9. Issue 10 (تک with حال ہی میں): fixed. 2011 میں ... حال ہی میں ... ہوئی تھی reads as "in 2011 ... had recently been", and matches اس وقت تالاب کی حال ہی میں تزئین ہوئی تھی later in the article.
+10. Issue 11: fixed; ... قصوں میں سے ایک is the idiom. Taste only: سنائے جانے والے would be a shade more natural than دہرائے جانے والے for stories that are told.
+11. Issue 12: fixed; محمود غزنوی کی پنجاب پر یلغار is correct (feminine یلغار) and removes the حملہ آور ... حملے echo.
+12. Issues 13 and 14: fixed; وہاں is gone, and گرو نانک بھگتوں کے بیچ مندر کے اندر no longer reads as a building called Guru Nanak Mandir.
+13. Issues 16 to 22: fixed. The split after 2011 reads cleanly; کسی بھی دوسرے خطے is logical; جو نازک بھی ہے اور پائیدار بھی is a proper relative clause and removes the third بیک وقت; موسموں کی مار سہے ہوئے اس کے مندر attaches اس کے correctly; the list of cities has one اور and اور ان برسوں میں بھی آتے رہے is no longer an afterthought; کھنڈر بنی ایک عمارت is idiomatic; بلاشبہ removes the verbatim echo of the pond paragraph.
+14. Taste only, the temples paragraph: after changes 10 and 11, four clauses in a row take یہ as subject (اور یہ تقریباً دسویں صدی کا، یہ ناگرہ طرز میں، مگر یہاں یہ، یہ قد میں), and یہاں opens two neighbouring clauses (یہاں یہ، یہاں کے مندر). All correct and clear, but a little monotonous; مگر یہاں اس پر گندھارا کا اثر ہے and اس کا قد ٹھگنا ہے would vary it.
+15. Taste only, change 9: انہیں comes twice in the sentence (انہیں بنانے والوں ... زیادہ تر انہیں), both for the temples, so it is clear; ان کا زمانہ ... بتایا جاتا ہے would avoid the echo. بیانات is a shade journalistic but acceptable.
+16. Taste only, change 17: اس بیان کے مطابق اس زمانے میں puts two اس side by side; it reads acceptably. بیان three times in the paragraph is the paragraph's word for the reconstruction, not a fault.
+17. Mechanics of the changed sentences: Urdu punctuation only, no Latin letters, no em or en dashes, Western digits untouched, asterisks balanced (26). The proposed fix in issue 1 keeps all of these.

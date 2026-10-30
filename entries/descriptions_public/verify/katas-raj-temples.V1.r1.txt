@@ -1,0 +1,58 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. (precision) "Later" adds an order of events that the team version does not give. It puts the fall in the water level after the 2005 restoration. The team version gives the drop no date. The site's account says only that the drop became a concern that reached the Supreme Court. The later book says the level "had started to fall" before the later visit. The earlier book already has the cement factories drawing the water out during the neglect after Partition. Also, "the controversy" points back to a controversy the text has not yet named. The team version's own words are "an issue that reached the country's Supreme Court". This is the ruling on judgement call 20, which is otherwise accepted: the court is not credited with the restoration.
+OLD: Later the water level of the sacred pond fell alarmingly, a drop attributed to the cement factories around the site drawing out the groundwater, and the controversy reached the country's Supreme Court.
+NEW: The water level of the sacred pond also fell alarmingly, a drop attributed to the cement factories around the site drawing out the groundwater, an issue that reached the country's Supreme Court.
+2. (precision) Wrong attribution of the scene. "The same reconstruction" ties the parents' stop at Katas to the reconstruction of Nanak's visit at Shivratri. The team version gives it in a different reconstructed scene, "his reconstruction of the lives of Nanak's parents", which comes in the book before Nanak himself ("Katas enters Khalid's book once before Nanak himself"). This is the ruling on judgement call 9 for this sentence. The rest of call 9 is accepted.
+OLD: The same reconstruction has Nanak's mother Tripta and her husband stop at Katas Raj on their way home from Tilla Jogian, and both of them take a dip in the holy pond.
+NEW: A reconstruction of the lives of Nanak's parents likewise has his mother Tripta and her husband stop at Katas Raj on their way home from Tilla Jogian, and both of them take a dip in the holy pond.
+3. Rulings on the judgement calls. All are accepted, except as qualified by notes 1 and 2.
+   - 1: accepted. The two placings do not exclude each other: the site is "near" one town and "a few kilometres from" another. Both are in the team version and neither is given as a rival, so no "accounts differ" clause is needed.
+   - 2: accepted. The Temples section gives the established dating with one clause that accounts differ. "Most often" holds: the site's account, the experts' dating and the later book's "seventh and eighth century" all fall within the seventh to the tenth centuries, and only the guide dates them otherwise. The guide's dating and the blue board stay inside the Pandava tradition in Legends. They are told as part of the legend at the site, not set beside the architecture as a rival date, so this is not a side by side variant.
+   - 3: accepted. Framing the author's own statement as belief lowers certainty, which is allowed, and nothing is misattributed.
+   - 4: accepted. Basis (d) is correctly applied: no choice is made and no date is invented. See note 5 for a taste point on the wording.
+   - 5: accepted. "Was later raised at Katas" is true on both accounts. "At a little distance from the complex" comes from the only account that describes the building. Nothing in the public text contradicts the site's "near the pond".
+   - 6: accepted. The repairs and plastering (Gulab Singh) and the haveli and fort (Hari Singh Nalwa) are different works, and no source in the team version denies either.
+   - 7: accepted. The team version gives the clause in the author's own voice.
+   - 8: accepted. The Janamsakhis are the celebrated body of tradition and are named as such, not as a cited author. "Who travelled with him" rests on "visit with Mardana".
+   - 9: accepted for the framing. "A modern reconstruction ... imagines" keeps the team version's "reconstruction rather than record". The temples of Kali and Durga, "the most important there" and "the holiest of holy temples in the Punjab" all stay inside the imagined scene. See note 2 for the Tripta sentence.
+   - 10: accepted. Hedging what the author states in his own voice lowers certainty, which is allowed. "Mahmud of Ghazni" is the standard English form of the same person's name.
+   - 11: accepted. The two descriptions are of the same place and do not conflict, and "held to be" keeps the claim framed.
+   - 12: accepted. 2011 is firm from "2nd March 2011", and *Walking with Nanak* (2016) bounds "by the middle of the 2010s" and "then".
+   - 13: accepted. See note 5 on "still".
+   - 14: accepted.
+   - 15: accepted. The two sentences stay general and do not say that this *lingam* stands in a *yoni*.
+   - 16: accepted. "All over Punjab" supports "Across the province", and the paragraph does not tie the gurdwara endowments to Katas.
+   - 17: accepted.
+   - 18: accepted.
+   - 19: accepted. The team version's next sentence names the Archaeology Department's officials and offices, so "the department's hall" is theirs.
+   - 20: accepted, with note 1.
+   - 21: accepted.
+   - 22: accepted. Thatta is rightly dropped under rule 5, and the line's point stands without it.
+   - 23: accepted.
+   - 24: accepted.
+   - 25: accepted.
+   - 26: accepted. Dropping "For Khalid and his guide Iqbal Qaiser" removes source talk. The site keeping the memory of the visit rests on the gurdwara raised there.
+   - 27: accepted. The team version gives the phrase as the author's own description, not as legend.
+   - 28: accepted.
+   - Consensus choices outside the numbered calls are also accepted. "After the Kauravas had taken the throne" is background to the same exile and joins no rival accounts. Ajmer Sharif, the single tear, the thirteen year exile and "unexcavated" are minor variants that are rightly dropped.
+4. Other checks passed:
+   - Legends stay framed: "tradition holds", "it is said", "they say", "Legend makes", "It is also believed", "the story holds", "He is said to".
+   - Nothing rests on an uncertain reading. Thatta, Talwandi with the fifty kos and the yogis met there, the offerings carried off by the stream (the damaged passage) and Nausar are all left out. "Pandavs [OCR?]" flags only the spelling, and Shakeel's unmarked telling carries the same belief.
+   - There are no citations, page or folio numbers, and no named narration of a source. The unnamed framings ("An archaeologist has suggested", "have been called", "It has also been argued", "A modern reconstruction ... imagines", "the writer Iqbal Qaiser ... for his book") frame views and imagined material without narrating a source, and are acceptable.
+   - The time anchors are firm: 2011 from "2nd March 2011", the middle of the 2010s from the 2016 book, and 1872, 1947, 2003, 2005, 2008, 2009 and 2010 as the team version gives them.
+   - The quotations occur verbatim in the team version: Haroon Sarab Diyal's two sentences, "We never knew what this building was", "Muslims are not allowed inside today" and "Welcome Yatrees (pilgrims)".
+   - The expansions of ETPB, NCA and DSP are definitional and accepted.
+   - The English checker exits 0 at a ratio of 0.54.
+5. Taste only, not required:
+   - "Pilgrims and guides still tell the story": "still" is a small addition. "Pilgrims and guides tell the story" says exactly what the team version says.
+   - The stupa sentence: in "anywhere between the third century BC ... and at least four thousand years ago", "anywhere" hints at datings in between, and "between X and at least Y" is loose. "which has been put at anything from the third century BC, the time of Taxila, to four thousand years or more" would be tidier. The meaning is the same either way.
+   - "threw the pilgrims' luggage, their utensils for the *langar*, the free communal kitchen, and their rice onto the road" can be parsed as four items. "threw onto the road the pilgrims' luggage, their rice and the utensils of their *langar*, the free communal kitchen" reads more cleanly.
+   - In "began drawing water out of it", "it" can be read as the surrounding area or as the pond. The team version's "from here" means the site.
+   - Hari Singh Nalwa's haveli as the tallest building is told twice, in The Temples and in the Sikh period paragraph. The repetition is harmless.
+   - The paragraph on Shiva as god of procreation and cultivation, and on the Mohenjo-daro seals, is general religious context rather than legend. It sits under a Legends heading without harm.
+6. Not a V1 matter: the writer's question on possible pseudonyms (Shakeel, Prem Gupta, Haroon Sarab Diyal) is Rauf's to decide. The public text names them exactly as the team version does.
+7. Omission sweep: after a sweep of the team version, nothing obviously important is missing. What is left out falls into four groups. First, source apparatus: the citations, which books name the site and how, the author's own visits and his wife Anam, the title of Iqbal Qaiser's book, and the names Kenoyer and Chakravarti. Second, readings the team version marks uncertain (listed in note 4). Third, minor variants (note 3) and the Kashmiri kingdom attribution, which the "accounts differ" clause covers. Fourth, material the team version does not tie to Katas: the unnamed Shiva temple scene, Dhillon's south eastern route and Babur's third incursion, Achal, and Bhandari's temples of Mahadev.

@@ -1,0 +1,16 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Round 1 V3 issues: all 17 fixed. Each was applied in the verifier's own wording (issues 1 to 6 as changes 1 to 6, issues 7 to 12 as changes 8 to 13, issues 13 to 17 as changes 16 to 20), and each NEW was read again in its paragraph: agreement, postpositions, izafat and word order are correct, there is no new calque or ambiguity, and each fits the sentences around it. The round 1 taste note on "بڑی تعداد میں" (whether many masters lost followers or masters lost many followers) is resolved by change 7, "اپنے مریدوں اور کام کرنے والوں کی بڑی تعداد سے محروم ہو گئے", which is natural Urdu.
+2. Changes 14 and 15 (from V2) read naturally: "سندھ کی کئی ایسی درگاہوں میں گایا جاتا ہے جن کے سجادہ نشین مسلمان ہیں"، and "کیفیات زیادہ دھیمی اور ملائم ہیں" with the comparison implied by the context, as in the English.
+3. Taste, change 6: "لیکن صرف وہی نہیں، ... بھی ان کی طرف کھنچے چلے آتے تھے" is correct and clear, and "ان" still points to Shah Inayat; the fuller classic form would be "اور صرف وہی نہیں بلکہ".
+4. Taste, change 4: "جدید مفہوم میں جسے زرعی اصلاح کہا جاتا ہے" is grammatical (an Urdu relative pronoun need not open its clause), and the correlative جسے ... وہی is idiomatic; "جسے آج کل زرعی اصلاح کہا جاتا ہے" would be a hair smoother.
+5. Taste, change 3: "کے قائم کردہ قادری سلسلے" followed by "خانقاہ کا رشتہ ... قائم ہے" puts قائم in two consecutive sentences; mild, and the "کے قائم کردہ" pattern matches the Suhrawardi and Naqshbandi sentences elsewhere in the article.
+6. Taste, change 8: "چیلنج" is an ordinary loanword in Urdu prose and resolves the clash between للکار and درپردہ; "ایک خاموش للکار" would be the native alternative if the loanword is unwanted. The Overview now has "للکارنے" and this paragraph "چیلنج", so the two are not repeated.
+7. Change 16 and the brief's rule that "X's own" is خود X کا, not X کا اپنا: here خود cannot stand before an indefinite "ایک مرید", and "ایک مرید کی اپنی طریقت" is ordinary Urdu with a real contrast, so it is not a fault. The honorific "انہیں" after "ایک مرید" predates this round and is consistent with the next sentence.
+8. Taste, change 18: "ستم رسیدوں کے جو نام گنواتے ہیں، ان میں عنایت بھی ہیں" lets the names stand for the persons, which is common Urdu usage; "سچل جن ستم رسیدوں کو گنواتے ہیں" would be a little tighter.
+9. Change 10: the two "یا" in "سندھ ہو یا باقی عالمِ اسلام، سیاست یا سماجی اصلاح" are a function word in two different constructions, not a repetition fault.
+10. Taste, change 11: "اس جگہ کا ٹھیک محلِ وقوع" is a little redundant (جگہ with محلِ وقوع); "اصل محلِ وقوع" would be slightly more literary. The postposition fix is right.
+11. No Latin letters, no em or en dashes, asterisks balanced (22) in the current file.

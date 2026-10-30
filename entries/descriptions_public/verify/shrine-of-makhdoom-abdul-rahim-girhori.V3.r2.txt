@@ -1,0 +1,19 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [repetition] "ٹھٹھہ کے مخدوم محمد ہاشم اور ان کے رشتہ داروں نے ان صوفیوں کو نشانہ بنایا جو مذہب کے جذباتی پہلو کے حامی تھے۔ محمد ہاشم اور ان کے رشتہ داروں پر مشتمل اس گروہ نے زیادہ متین صوفیانہ دینداری کے فروغ میں ہاتھ بٹایا۔" -> the round 1 ambiguity fix now repeats the whole phrase «محمد ہاشم اور ان کے رشتہ داروں» in two consecutive sentences, which reads mechanically -> ٹھٹھہ کے مخدوم محمد ہاشم اور ان کے رشتہ داروں نے ان صوفیوں کو نشانہ بنایا جو مذہب کے جذباتی پہلو کے حامی تھے۔ اس خاندانی حلقے نے زیادہ متین صوفیانہ دینداری کے فروغ میں ہاتھ بٹایا۔
+2. [repetition / tangled] "جن یورشوں میں گرہوڑی کی بیشتر کتابیں تلف ہوئیں، بالائی سندھ پر افغانوں کی وہ یورشیں بھی اسی سال یعنی 1781 میں پیش آئیں۔" -> the paragraph opens with «گرہوڑی کی کتابیں ان ہنگاموں کی نذر ہوئیں» and closes by saying the same thing again in almost the same words as the تصانیف section; and «یعنی 1781» repeats the year given in the sentence just before, after «اسی سال» has already pointed to it -> بالائی سندھ پر افغانوں کی وہ یورشیں بھی، جن میں ان کتابوں کا بیشتر حصہ تلف ہوا، اسی سال پیش آئیں۔
+3. [repetition] "قریب کے قصبے پتھورو میں ایک اور ولی کا مزار ہے۔ پتھورو پیر کا مقبرہ پتھورو کی چھوٹی سی بستی میں ہے، جو ..." -> two consecutive sentences say the same thing (there is a saint's tomb in Pithoro), «پتھورو» comes three times, and the place is «قصبہ» in one sentence and «چھوٹی سی بستی» in the next -> قریب کی چھوٹی سی بستی پتھورو میں ایک اور ولی پتھورو پیر کا مقبرہ ہے۔ یہ بستی میرپور خاص اور عمرکوٹ کے درمیان اس ریلوے لائن پر واقع ہے جو کبھی سندھ کے حیدرآباد کو راجستھان کے باڑمیر اور جودھپور سے ملاتی تھی۔
+4. [repetition] "ان کا انحصار پوری طرح قرآن و حدیث پر تھا، اور وہ کامل زاہدانہ زندگی بسر کرتے تھے۔" -> «زاہدانہ زندگی» was used three sentences earlier in the same paragraph («اپنی دینی علمیت اور زاہدانہ زندگی کے سبب مشہور ہیں») -> ان کا انحصار پوری طرح قرآن و حدیث پر تھا، اور ان کا زہد کامل تھا۔
+
+NOTES:
+- «حیثیت سے» comes three times in quick succession across the first two paragraphs («شہید کی حیثیت سے»، «عالم اور زاہد کی حیثیت سے»، «مفسر کی حیثیت سے»), and «مشہور ہیں» is followed at once by «شہرت ملی»; one of each could be varied.
+- «حاضری دیتے رہتے ہیں» is slightly odd; plain «حاضری دیتے ہیں» is more natural.
+- «یہ سورت نبی کریمؐ سے صوفیانہ عقیدت کا محبوب موضوع ہے» and, two sentences later, «نعت گو شعرا کی ہمیشہ سے پسندیدہ سورت رہی ہے» say much the same; also a سورت is more naturally a favourite text than a «موضوع».
+- «شاہ عبداللطیف نے ایسا نہیں کیا۔» is still abrupt as a closing sentence; it could be attached to the previous one («...، جو شاہ عبداللطیف کے ہاں نہیں ملتا۔»).
+- «وہ اچھے مصنف تھے» says he wrote well; if the point is that he wrote much (the list that follows suggests quantity), «وہ کثیر التصانیف تھے» would fit better. I cannot settle this from the Urdu alone.
+- In «ہر سال عرس کے موقع پر ان کی یاد منائی جاتی ہے» the nearest plural is «زائرین»; context makes the saint clear, but «صاحبِ مزار کی یاد» would remove any doubt.
+- «شہنشاہ کا قافلہ» leaves the emperor unnamed; «مغل شہنشاہ» would read more clearly without adding a fact.
+- «سولہویں صدی سے ... سندھ میں آنا شروع ہوا» is a little redundant («سے» with «شروع ہوا»); «سولہویں صدی میں ... سندھ پہنچا» or «... آنے لگا» is smoother.
+- «داؤد پوتہ» is usually written as one word, «داؤدپوتہ».
+- «نبی کریمؐ» throughout but bare «محمدؐ» once; tense shifts (تھے/ہیں, رہے/ہے) are tolerable but could be evened out.

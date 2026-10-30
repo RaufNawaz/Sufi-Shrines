@@ -1,0 +1,22 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 15 OLD/NEW pairs of verify/gurdwara-sacha-sauda.ur.r2.changes.txt, applied in order to /home/claude/bak/gurdwara-sacha-sauda.ur.md.bak_ur1 (each OLD found exactly once and replaced once), give a file byte for byte identical to the current gurdwara-sacha-sauda.ur.md. Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-sacha-sauda --no-verdicts` printed `ok    gurdwara-sacha-sauda  team 31523 -> public 14032 chars (0.45), Urdu 13647 chars (0.97)` and exited 0.
+3. Each change against the English (all faithful; every fact, name, number and hedge kept, nothing added, referents right):
+   - 1 (The True Bargain, para 3): dropping ان کے نزدیک restores the English's open attribution of "a truly selfless service"; after نانک کہتے ہیں: the second clause can be read as his words or the narrator's, exactly as in the English. Decision right.
+   - 2: Rai Bular as the one who takes the boy's part, Mehta Kalu as the accountant under him; matches "Rai Bular, under whom Mehta Kalu served as accountant, takes the boy's part".
+   - 3: "In the devotion of the Panth ... the episode is read as the first flowering of the principle ...: langar ... and seva" is rendered with the Panth's devout as those who read it so; the singular principle naming langar and seva is the English's own construction; "would become central" kept as آگے چل کر ... مرکزی حیثیت حاصل ہوئی.
+   - 4: "one of the gurdwaras that commemorate the story" = سچے سودے کی یاد دلانے والے گوردواروں میں سے ایک; the hedge مانا جاتا ہے for "it is held" kept.
+   - 5: "whom Qaiser remembered only as Shah" kept. The adaptation (keeping اقبال قیصر کو rather than انہیں, which would follow the sentence about the addicts and gamblers) is right for the referent.
+   - 6: Qaiser and Ilyas Ghuman as joint subject of both taking him to hospital and filing the report; the newspapers clause kept. (The V3 r2 fix to this sentence keeps the same meaning.)
+   - 7: "within a small boundary" = ایک چھوٹے سے احاطے کے اندر.
+   - 8: hedge کہا جاتا ہے kept over the location; جس گفتگو کا ذکر آتا ہے refers back to the discourse already reported as hearsay in the overview and does not assert it as fact, so it adds nothing and does not strengthen the claim.
+   - 9: "about forty" kept as کوئی چالیس برس, attached to Boota Singh.
+   - 10: "about 45 kilometres ... in a straight line" = فضائی فاصلہ تقریباً 45 کلومیٹر.
+   - 11: اس دہائی points back to 1980 کی دہائی of the previous sentence; "the eighties" kept.
+   - 12: "A minstrel named Mardana" now introduced as a new figure (نام کا ایک گویّا, singular, no honorific), no longer identified with Bhai Mardana. Fixes V2 r1 issue 1.
+   - 13: "their founder" = ان کے مذہب کے بانی, with ان clearly the pilgrims. Fixes V2 r1 note 2.
+   - 14: "revered" = بڑے احترام کی نظر سے دیکھا جاتا ہے, no longer "held sacred". Fixes V2 r1 note 3; the hedge کہا جاتا ہے on the influence kept.
+   - 15: "engraved footsteps are held to be Guru Nanak's" kept with its hedge. (The V3 r2 fix, وہ گرو نانک کے مانے جاتے ہیں, is if anything closer to the English "are held to be Guru Nanak's".)
+4. Figures in the changed sentences match the English (45, 1980s, about forty); no Latin letters, no em or en dashes in the changed text.

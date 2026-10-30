@@ -1,0 +1,17 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+1. Diff: `diff /home/claude/bak/gurdwara-sacha-sauda.md.bak_en1 entries/descriptions_public/gurdwara-sacha-sauda.md` shows three changed lines (23, 37, 51) and nothing else. Applying the three OLD to NEW replacements of gurdwara-sacha-sauda.V1.r2.changes.txt to the backup (each OLD occurring once) reproduces the current file byte for byte. Nothing else moved.
+
+2. Change 1 (Guru Nanak, line 51), "He brought a message of peace and harmony to the believers of Islam and Hinduism, and taught that ...": supported by the team version's Dhillon sentence ("brought a message of peace and harmony to believers of ... Islam and Hinduism", "all men and women were equal, irrespective of caste, creed, wealth, social standing and gender", honest labour, compassion, selfless service and prayer). Only the author's characterisation "religions hostile to each other" is gone, as round 1 note 1 asked; the public text may leave it out, and no fact about the Guru or his teaching is lost. Nothing new is added. The sentence reads cleanly ("brought ... and taught that ... and that ..."), with no source talk and no dash.
+
+3. Change 2 (The Gurdwara, line 23), "and Qaiser himself has said that he played a major part in it": supported by Qaiser's "Yes." to the question whether he had "played a major part in the renovation of this gurdwara", and by the disagreement section's "with his own part in it", filed under his account. The claim now stands as his own statement, not the narrator's verdict, as round 1 note 2 asked. "it" still refers to the renovation. Qaiser is an actor in the story, not a narrated source, so this is not source talk. No new fact, none lost, grammar intact, no dash.
+
+4. Change 3 (Devotion and Pilgrimage, line 37), "On that visit in Ramzan, before the Guru Granth Sahib, ...": supported. The team version dates the visit with Qaiser to "the monsoon season", during "Ramzan" (Walking with Nanak, p. 70), and the gate, Boota Singh's tour, the palanquin, the sukhasan, the ten rupee note and the whisk (pp. 79 to 82) are told as that same visit in its Gurdwara and Devotion sections. The public text's earlier "On one visit, made in the monsoon season during the month of Ramzan" uses the same spelling, so the referent is now unambiguous against the pilgrims' visits in the paragraph before. No new fact (the month is already in the article), none lost, grammar intact, no dash.
+
+5. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-sacha-sauda --english-only` printed `ok    gurdwara-sacha-sauda  team 31523 -> public 14032 chars (0.45)`, exit 0. No em or en dash in the file.
+
+6. Recorded, not applied: none.

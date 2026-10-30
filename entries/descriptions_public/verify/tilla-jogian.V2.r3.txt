@@ -1,0 +1,11 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Replay: the 2 OLD/NEW pairs of verify/tilla-jogian.ur.r3.changes.txt, each replaced once and in order on /home/claude/bak/tilla-jogian.ur.md.bak_ur2, give a result byte for byte identical to the current entries/descriptions_public/tilla-jogian.ur.md (each OLD occurred exactly once in the backup; each NEW occurs exactly once in the current file and no OLD remains). Nothing else moved.
+- Checker: `python3 pipeline/book_queue/check_public_description.py tilla-jogian --no-verdicts` printed: ok    tilla-jogian  team 29272 -> public 15627 chars (0.53), Urdu 14736 chars (0.94)
+- Change 1 (paragraph on the Naths). English: "a wandering ascetic devoted to Shiva who meditates on the One." The Urdu ایسا سیلانی سادھو جو شیو کا بھگت ہو اور ذاتِ واحد کے دھیان میں رہے keeps all three elements (wandering ascetic, devoted to Shiva, meditates on the One); the subjunctive after ایسا ... جو gives the defining sense of the English ("the word usually means one of them: a ... who ..."); the referent stays انہی ناتھوں میں سے کوئی; nothing added, nothing dropped. Dropping the calqued ایک is correct.
+- Change 2 (Sikh tradition paragraph). English: "though historically Gorakhnath lived and preached long before Nanak's time." The Urdu names the period once (جس دور میں زندگی بسر کی اور اپنی تعلیمات کا پرچار کیا) and puts both "lived" and "preached" inside it, then places that period بہت پہلے than گرو نانک کا زمانہ. "though" (البتہ), "historically" (تاریخی اعتبار سے) and "long" (بہت) are kept. The contradiction that round 2 issue 1 found (اسی دور pointing to Nanak's time) is gone. Round 2 V2 issue 1 is fixed. گرو before نانک adds no fact (the same person is گرو نانک throughout the paragraph).
+- No fix in this round was adapted or rejected; both were applied in the verifiers' own wording, which I confirm on fidelity.
+- Scope: unchanged sentences were not reopened. The file has no Latin letters and no em or en dashes.

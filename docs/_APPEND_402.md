@@ -1,0 +1,22 @@
+### 9.402, 27 October 2026 (~12:00Z to ~12:25Z): Stage = notes. Public descriptions on the PC copy, continued at Rauf's request ("Keep working"): three more short rows done (`shrine-of-shah-shams-ud-din-sabzwari`, `golra-sharif`, `shah-noorani-shrine-syed-bilawal-shah-noorani`)
+
+**Stage: notes** (same Cowork session as §9.401, now with Rauf present; same method: cloud mirror, every result written to the PC with `device_commit_files` as it existed). Rows taken from the shortest end, unclaimed; claimed as `pub__<id>` (session `scheduled-pc-2026-10-27T1100Z`), renewed before the Urdu, released at the end. All three are `done`; `check_public_description.py` exits 0 on all three.
+
+| row | public / team | Urdu / English | md5 `.md` `.ur.md` `.notes.md` | rounds |
+|---|---|---|---|---|
+| `shrine-of-shah-shams-ud-din-sabzwari` | 0.45 | 0.92 | e8ccb5d6 9d559c51 799c3429 | V1 r1 FAIL (1: "Nothing more was told of this Shams al-Din", an absence of record), fix and two precision notes, r2 PASS; V2 r1 PASS V3 FAIL (15), r2 both PASS |
+| `golra-sharif` | 0.46 | 0.95 | 366dfd2c ca4436d5 e9966cc8 | V1 r1 PASS, four precision notes applied, r2 FAIL (1: "him" after dropping the name read as Haydar Ali Shah), r3 PASS; V2 r1 PASS V3 FAIL (15), r2 V2 PASS V3 FAIL (4), r3 confirming PASS |
+| `shah-noorani-shrine-syed-bilawal-shah-noorani` | 0.49 | 0.96 | 3218f0cc f7d6281e 1aff7cee | V1 r1 PASS, three precision notes applied, r2 FAIL (1: "In the years before 2016" gave a span the team version lacks), r3 PASS; V2/V3 r1 FAIL (2, 11), r2 V2 PASS V3 FAIL (3), r3 confirming V2 FAIL (1) V3 PASS, r4 confirming PASS (all four rounds used) |
+
+**Consensus choices** (full lists in each `.notes.md`):
+- `shrine-of-shah-shams-ud-din-sabzwari`: the name the shrine keeps, basis (a), with "other names linked with a Shams of Multan have no settled connection with him"; the Tabrizi of the Aurangzeb era history, the tomb of a Shah Shams and the Shams-i Tabriz flaying tradition told in their own section and never identified with this saint; death in Multan in the thirteenth century, no year. Left out: Chishti's damaged readings (years 1158 and 1155, Diwan Kaura Mal, the second name), Bhandari's uncertain captives and 835, the two verse items the team notes call too remote.
+- `golra-sharif`: birth 1859, basis (a), "though accounts of the year differ" (1856 not listed); Khwaja Shamsuddin Sialvi his direct *pir*, and the Muhammad Ali, Habib Ali Shah, Sufi Saheb line told separately (no merged chain); Hasan Nizami "a *khalifa*, one of his successors", Babuji among the successors to the seat; the Ahmadi characterisations ("sectarian and messianic", "latter-day prophet"), quoted in the team version, kept out of the site's voice. Left out: Eaton's "Golra Sharif in Rawalpindi District" pointer (identification by place name only).
+- `shah-noorani-shrine-syed-bilawal-shah-noorani`: Lahut Lamakan, the shrine's spelling, basis (a); the 2016 attack as one event (the shrine's account with "more than fifty people" killed from Schaflechner; V1 ruled no conflict, so no "accounts differ" clause); the new wave of interest anchored "Before the attack of November 2016". Left out: the possible "Noorani" mention that may concern Pir Chhatal Shah Noorani.
+
+**Verifier points worth knowing:** two of the three V1 confirming rounds failed on a fault that the precision fix itself introduced (a pronoun left without its referent; a time span the team version does not give), so the confirming round is not a formality. Shah Noorani's Urdu used all four rounds: a coordinator's late round link (اسی راہ پر) stood outside the hedge شاید and was caught by the confirming worker; the round 4 fix dropped it.
+
+**For Rauf to read (no decision blocks the work):** Shah Noorani's "one of the deadliest attacks on a Pakistani shrine" is in the team version's narrator voice; its team notes say no book supports it and leave it to you. Ten Balochistan names in its Urdu (Makran, Panjgur, Pasni, Naing, Manchhar and others) had no dictionary entry; the writer used common spellings, listed in the notes.
+
+**Queue:** 35 of 94 `done`. Batch 6 (six rows at `draft-ur`) unchanged. Next from the short end: `shrine-of-pir-mangho`, `shrine-of-syed-musa-pak`, `purana-bhalwal`.
+
+Nothing committed: Rauf must run `git add -A && git commit`. New: the three rows' `.md`, `.ur.md`, `.notes.md`, their files in `entries/descriptions_public/verify/`, their three released claims, and `docs/_APPEND_402.md` (appended to `docs/HANDOVER.md`).

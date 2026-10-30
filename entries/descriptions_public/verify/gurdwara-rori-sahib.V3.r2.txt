@@ -1,0 +1,14 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Round 1 V3 issues: all sixteen are fixed. 1 (adapted: with مقدس مقامات the postposition پر is the right idiom, so V3's میں is rightly not taken; کسی اور and the parallel مسلمانوں کے، ہندوؤں کے، ماننے والوں کے are in, agreement now masculine with مقامات); 2 دیانت دارانہ محنت; 3 سکھوں کی عقیدت مندانہ روایت میں یہ قصہ; 4 the prasad gloss is its own sentence and تب جا کر reads naturally; 5 سرپرستی میں with the passive; 6 اینٹوں میں; 7 یہاں سے چلے گئے; 8 present perfect now matches the paragraph; 9 companions first, then religions; 10 دام removed; 11 wording fixed (the second village stays, as the English has it); 12 دکانوں میں موجود; 13 رباب کے سُر ملائے and سنگت شروع کر دی; 14 بڑے سکون سے; 15 ان مندروں; 16 آج بھی ... یادگار ہے جس میں. The round 1 notes taken (کردار for حصہ; اپنے دین کے بانی) also read well.
+2. Every NEW sentence was read in its paragraph: agreement, postpositions, izafat and word order are correct, and each fits the sentences around it. Taste only, none of these is a fault:
+   a. ایک کہانی میں مردانہ کو ایک بے مروت گاؤں کے ہر دروازے سے ...: two indefinite ایک in one sentence (three with ایک دوسرے). Normal storytelling Urdu, but کسی بے مروت گاؤں, as the old text had, would avoid the echo.
+   b. ... ایسے مندروں پر قبضہ کر لیا تھا، اور ... ان مندروں پر حملے کا ...: مندروں twice in one sentence. Naming the temples again is the right cure for the old ambiguity; ending the sentence after کر لیا تھا and starting the next with 1992 میں would make the repeat less noticeable.
+   c. ورثہ: آج بھی now stands in the paragraph's first sentence (change 19) and its third (یہ آج بھی اپنے دین کے بانی سے), and again in the next paragraph (وہ آج بھی شان سے کھڑے ہیں). The English has the same echo (endures, remains, enduring); بدستور in the third sentence would vary it.
+   d. سکھوں کے لیے یہ آج بھی اپنے دین کے بانی سے ...: strictly اپنے binds to the subject یہ, but the reader takes it at once as the Sikhs' faith, and it reads naturally; no ambiguity in practice.
+   e. عقیدت کی راہ پر کھینچ لاتے تھے: correct; عقیدت کی طرف کھینچ لاتے تھے is a shade smoother.
+   f. سکھوں کی عقیدت مندانہ روایت میں: correct and clear; سکھ عقیدت مندوں کے نزدیک would be a little lighter.
+   g. اپنے رباب کے سُر ملائے اور اپنے گرو کے گانے ...: the reflexive twice is ordinary grammar; گرو کے گانے would also do.
+   h. Unchanged and not reopened: تصویروں ... یہ تصویریں in the Kanganpur sentence repeats a word, as it did before the change.
+3. No Latin letters, no em or en dashes; the semicolons in changes 7 and 12 are the Urdu ؛.

@@ -1,0 +1,15 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- "تاہم وہ پنجابی ہندوؤں سے خوشگوار تعلقات برقرار رکھنے کے لیے کوشاں رہے، حالانکہ ہندوؤں کے ہمسایہ سکھوں کی وہ مخالفت بھی کرتے تھے۔" is correct and readable. Two things make it heavy: "تاہم" and "حالانکہ" stack two concessions, and the object-first "سکھوں کی وہ مخالفت" restates the previous sentence. A lighter version with the same facts: "تاہم ہندوؤں کے ہمسایہ سکھوں کی مخالفت کے باوجود وہ پنجابی ہندوؤں سے خوشگوار تعلقات برقرار رکھنے کے لیے کوشاں رہے۔"
+- "ان کی روحانی سطوت کے باعث پورے پنجاب سے سالکین یہاں کھنچے چلے آتے تھے": "سطوت" suggests awe and dominance more than pull. "روحانی کشش" or "روحانی عظمت" fits "کھنچے چلے آتے" more naturally.
+- "پنجابی دھنوں میں لے کا دار و مدار بالعموم زور پر ہوتا ہے": the sentence is grammatical, but a general reader may not see what "زور" refers to. If the source means rhythmic stress, "ضرب کے زور پر" makes that clearer.
+- "انہوں نے وسیع حلقۂ ارادت کی رہنمائی کی" reads better as "ایک وسیع حلقۂ ارادت". "بہت سی صورتوں میں" could be "اکثر". The same paragraph uses "پیروکاروں" and then "مریدوں" two sentences later; "مریدوں" in both places would be more consistent in a Sufi context.
+- "شمس الدین سیالوی کا انتقال 1883 میں ہوا، اگرچہ ان کے سالِ وفات کے بارے میں اقوال مختلف ہیں" states the year and then qualifies it. "ان کا سالِ وفات 1883 بتایا جاتا ہے، اگرچہ اس بارے میں اقوال مختلف ہیں" is gentler and keeps the same facts.
+- "ان کے جانشین ... یہ جانشین ... سجادہ نشین بھی" could be folded into one clause. This is taste.
+- Structure, for the content editor: the qawwali paragraph and the faqir, arches and procession sentences in "ماحول" are about Punjab or Sargodha city, not Sial Sharif.
+- Outside the language brief: "صوفیہ کا یہ سلسلہ خواجہ معین الدین چشتی نے قائم کیا تھا" is still worth a fact check.
+- All fourteen round-1 issues are resolved in the current text, and no new error has been introduced.
+- Mechanics are clean: Urdu punctuation throughout, no em or en dashes, no Latin letters, Western digits (1799, 1883, 1184, 1267), no asterisks, no verse.

@@ -1,0 +1,39 @@
+VERDICT: PASS
+V2: PASS
+V3: PASS
+REPLAY: All 11 OLD -> NEW pairs from shrine-of-imam-ali-ul-haq.ur.r2.changes.txt were applied in order to /tmp/claude-0/bak/shrine-of-imam-ali-ul-haq.ur.r1.md. Each OLD occurred exactly once, and the result is byte for byte the current entries/descriptions_public/shrine-of-imam-ali-ul-haq.ur.md. The file has no Latin letters and no en or em dashes.
+
+Changed sentences checked (V2 fidelity against the English / V3 fluency in context):
+1. Setting p1, "...اور تاریخی طور پر یہ شہر پنجاب کو کشمیر سے ملاتا تھا۔" V2: emphatic یہی is gone, and "gave the Punjab a connection to Kashmir" is rendered with no exclusivity, which fixes V2 r1 issue 1. V3: correct. The second یہ is followed by شہر, so the sentence does not stutter.
+2. Overview, "...جن کے سر مقامی روایت بالائی پنجاب کے اس گوشے میں اسلام کی آمد کا سہرا باندھتی ہے۔" V2: "whom local tradition credits with the coming of Islam to this corner of the upper Punjab". The attribution to local tradition, "this corner" and "upper Punjab" are all present, and nothing is added. V3: the idiom سر سہرا باندھنا is correct. Plural جن agrees with ان مبلغ بزرگوں, and the word order is natural.
+3. The Saint p2, "...جن کے سر سیالکوٹ تک اسلام پہنچانے کا سہرا باندھا جاتا ہے، ..." V2: "who is credited with bringing Islam to Sialkot". The passive keeps the crediter unnamed, as in the English. V3: X تک پہنچانا is the normal construction and avoids اسلام لانا. The relative clauses جو / جن کے سر / جنہوں نے run in good parallel order.
+4. The Saint p1, "مقامی طور پر زیادہ رائج روایت ..." V2: رائج fairly renders "more commonly repeated locally". V3: idiomatic, and the calque is gone.
+5. The Saint p1, "انہیں علی الحق سیالکوٹی بھی کہا جاتا ہے۔" (the clause on the variant spelling is dropped). V2: accepted. "Ali al-Haq" differs from "Ali-ul-Haq" only in Latin transliteration, and both are علی الحق in Urdu script. The dropped clause therefore carried no fact an Urdu reader can see. It could also only be read as "also written without امام", which the English does not say. This is like dropping a gloss meant for the English reader. The title-less form still appears in علی الحق سیالکوٹی, and the nisba name with "known too" (بھی) is kept. V3: correct. انہیں clearly means Imam Ali-ul-Haq, as in the sentence before it.
+6. Setting p2, "اورنگزیب کے عہد میں اس کا شمار قدیم شہروں میں ہوتا تھا۔" V2: "was counted a city of the ancients", read as counted among ancient cities. The anchor and the past tense are kept. V3: correct and idiomatic, and the قدما misreading is gone (see NOTES on the echo of قدیم).
+7. Setting p2, "کسی زمانے میں اسے شالکوٹ کہا جاتا تھا، اور مانا جاتا ہے کہ ... مہابھارت میں اسی شالکوٹ کا ذکر ہے۔ سیالکوٹ کا ایک نام سالکوٹ بھی تھا۔" V2: "once" applies to Shalkot only, مانا جاتا ہے ("held to be") governs the Mahabharata claim only, and Salkot is "also called", in the past tense and outside the hedge, exactly as in the English. V3: naming سیالکوٹ removes the loose اسے, and ایک نام ... بھی تھا is natural Urdu. The next sentence's اس کی بنیاد now clearly refers to the city.
+8. Setting p3, "یہ بھی بیان کیا جاتا ہے کہ سیالکوٹ میں پورن کی آمد پر ایک سوکھا ہوا باغ پھر سے ہرا بھرا ہو گیا۔" V2: "It is told, too" (یہ بھی بیان کیا جاتا ہے) is kept, and the arrival in Sialkot and the revival of the dried up garden are both there. V3: the doubled "when he came / on his arrival" is gone, and the sentence is smooth.
+9. Setting p4, "شہر کے پرانے قلعے کی بنیاد زمانۂ قدیم میں پڑی تھی؛" V2: both "old fort" and "whose foundation was ancient" are kept. V3: بنیاد پڑنا is idiomatic, the pluperfect fits, and the tautology is gone. The next clause's اس کی مرمت clearly refers to the fort.
+10. Setting p8, "فقیر حمزہ غوث کے قصے بھی سنائے جاتے ہیں: انہوں نے بازار کے چوک کے عین بیچ میں بددعا دی تھی، ..." V2: the English "whose curse" already makes the curse Hamza Ghaus's, so the active voice adds no new agent. The colon keeps "Stories are also told" governing both the curse and the fear, and "in the centre of the market square" is kept. V3: انہوں نے clearly means Hamza Ghaus, who was just named. Using بددعا دینا without an object is acceptable, and the English names no target either.
+11. Legacy p1, "...مگر اس سے مقامی عقیدت مندوں کی نظر میں ان کا مرتبہ ذرا بھی کم نہیں ہوا۔" V2: "has done nothing to diminish his standing in local devotion". ذرا بھی and the perfect tense are kept, and nothing is added. V3: the stacked میں phrases are gone, and the sentence is idiomatic and clear.
+
+ISSUES: none
+
+NOT APPLIED rulings:
+- The fixer adapted V3 r1 issues 5, 6 and 8 instead of applying them literally. All three adaptations are sound. Issue 5: قدیم keeps "ancient", and the قدما problem V3 raised is fixed. Issue 6: V3's merge would have put Salkot under "once" and turned "also called" into "or". The adaptation keeps the English structure and still cures the loose اسے. Issue 8: V3's NEW dropped "old" and weakened "ancient", while the adaptation keeps both and removes the tautology. Every round 1 ISSUE (V2 1; V3 1 to 10) is now applied or soundly adapted.
+- V3 note بس امام صاحب: sound. It was only a note, and "simply" is in the English.
+- V3 note حلقۂ اسلام / دائرۂ اسلام and مسلم اکثریت کا قصبہ: sound. Both are standard Urdu, so this is taste.
+- V3 note on the present/past switch: sound. The English itself switches tense ("lies" / "was a bustling city" / "is located").
+- V3 note on dropping قدیم before یونانی متون: sound. "Ancient Greek texts" is the English qualifier.
+- V3 note on merging پرانے زمانے / ابتدائی زمانے and دارالحکومت / پایۂ تخت: sound. The English has two separate statements.
+- V3 notes on the Devotion section (یاد repeated, the non-parallel فیض کی طلب میں, the restated introduction): acceptable to leave. V3 graded them as notes, not issues, and no fact or construction is wrong.
+- V3 note ایسے موقعوں پر: sound. It renders the English "On such occasions".
+- V3 notes شہر میں داخل ہونے والے راستے پر and آثارِ قدیمہ کے کھنڈر: sound. Both are taste, and the second renders "archaeological ruins".
+- V3 note on the serial comma in the paper types: sound. V3 itself called it harmless.
+- V3 note on italicising کارچکن but not وقائعِ سیالکوٹ: sound. The brief italicises unfamiliar terms, not titles.
+- V2 r1 notes یہیں تعلیم پائی and بڑے لطف سے: sound. V2 passed both as style.
+
+NOTES (optional, not applied):
+- Setting p2 now uses قدیم in three straight sentences (ایک قدیم شہر ہے / قدیم یونانی متون / قدیم شہروں), and the echo of قدیم شہر is noticeable. The English repeats "ancient / ancients" the same way, and the words are correct, so this is taste only.
+- سہرا باندھنا now appears in both the Overview and The Saint p2. The English repeats "credits / credited" in the same two places, so this is fine.
+
+CHECKER: cd R && python3 pipeline/book_queue/check_public_description.py shrine-of-imam-ali-ul-haq --no-verdicts -> "ok    shrine-of-imam-ali-ul-haq  team 20897 -> public 9422 chars (0.45), Urdu 8660 chars (0.92)", exit 0.

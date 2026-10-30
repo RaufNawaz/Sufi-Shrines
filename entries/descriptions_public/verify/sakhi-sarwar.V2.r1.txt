@@ -1,0 +1,12 @@
+VERDICT: FAIL
+ISSUES:
+1. [changed fact] Overview, paragraph 1: English "the giver of hundreds of thousands" | Urdu "یعنی لاکھوں کو دینے والا" -> the English gloss makes the hundreds of thousands what he gives (giver OF lakhs); with کو the Urdu makes them the people he gives to (giver TO lakhs), a different meaning of the title -> corrected Urdu below.
+OLD: یعنی لاکھوں کو دینے والا
+NEW: یعنی لاکھوں دینے والا
+NOTES:
+1. Overview, paragraph 2: English "It has drawn pilgrims for centuries" is rendered with عقیدت مندوں (devotees) rather than زائرین (pilgrims). Close, but زائرین is the exact word and matches the next sentence's "crowded with them".
+OLD: اور صدیوں سے عقیدت مندوں کو اپنی طرف کھینچتا رہا ہے
+NEW: اور صدیوں سے زائرین کو اپنی طرف کھینچتا رہا ہے
+2. Legends, paragraph 1: English "gave the heap away" is rendered گندم کا ڈھیر. The only antecedent in the English is the wheat that thrived, and the lagis take a share of the harvest, so this resolves the reference rather than adding a fact. Acceptable as it stands.
+3. The Shrine, paragraph 3: "In the time of the Langahs" is rendered اپنے خاندان کے دورِ حکومت میں. The meaning holds (the Langahs were Sultan Husain Langah's own dynasty), but لنگاہوں کے دور میں would follow the English more closely. Style only.
+4. Checked and in order: all seven headings correspond; the twenty two links of the genealogy match in name and order; the six verse lines are byte identical to the English; every hedge (روایت ہے، کہا جاتا ہے، روایات مختلف ہیں، عموماً، تقریباً) sits where the English has one; figures 577, 1870, 3 April 2011, about fifty, forty and twelve kos, six months, ten days, two months and six men all match. The dropped glosses (Sayyid, Hind, nafs e ammara, Ghaus al Azam, Shaikh al Shuyukh, chronogram, kos, jagir, faqir, iftar, nazr, mukabbir, Baisakhi) and the dropped prose description of the chronogram's names are deliberate under the brief. No Latin letters and no dashes in the file.

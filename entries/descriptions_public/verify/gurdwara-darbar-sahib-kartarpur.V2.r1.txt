@@ -1,0 +1,25 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Rulings on the writer's doubtful choices:
+1. Correct, it is the English meaning. The next paragraph opens "In the same telling, after a few months at Kartarpur...", which shows that the English presents the whole of the previous paragraph after "The janamsakhis tell" as one telling: the choice of land, Ajit Randhawa's pledge, the people of every faith, and the parents coming to live there. Joining Ajit Randhawa into the framed sentence with ؛ and opening with انہی کہانیوں میں یہ بھی ہے کہ keeps the frame over exactly what the English frames. Nothing is widened, because the paragraph that follows opens with انہی کہانیوں کے مطابق, matching "In the same telling".
+2. Accepted. The Urdu page gives Urdu meanings, not English translations, so "in English translation" would be untrue there. Per the brief, verse renderings turned into short Urdu meanings without credits are deliberate. مفہوم is the right word.
+3. Accepted. It is literal to the English, which also makes the domes the corridor's end point by metonymy. Nothing is added.
+4. Accepted. ہر بیس برس سے کچھ اوپر کے وقفے سے is exactly "every twenty odd years".
+5. Accepted. "Shared across the line drawn in 1947" means shared by people on both sides of that line, and the sentence goes on to give the Muslim neighbours as the example. کھنچنے والی لکیر is fine. A style point: the Gurdwara section says 1947 میں کھینچی گئی لکیر, and the writer may want the same wording in both places.
+6. Accepted. "Often estranged" is the article's own description in English as well, so stating it as a separate plain sentence does not shift who makes the claim. ہر طرف سراہا گیا ہے correctly renders "widely hailed". دونوں ہمسایہ ملکوں is clear because India and Pakistan are named in the paragraph.
+7. Accepted. The English "his 'kitchen' there" places the kitchen at the dera site, so ڈیرے میں کسی برہمن کی "رسوئی" is faithful. The Abode section has already glossed ڈیرے یعنی بستی, so using بستی for the second mention refers to the same place and does not identify two places.
+8. Accepted on reference: اپنے refers to the subject, گرو نانک, so the sons are Nanak's, as in the English. On precision, ناراضی ("displeasure") is a little milder than "ire". Suggested wording: اپنے بیٹوں کی برہمی سے بچنے کے لیے گرو نانک نے گرو انگد سے کہا کہ…
+9. Accepted. "Shri" is in the English, and an honorific is fine.
+
+Precision notes (optional; none is a fidelity fault):
+a. Overview: "long visible across the fields from the Indian side". The current text سرحد کی بھارتی جانب کھیتوں کے پار نظر آتے رہے تھے could be read as placing the domes on the Indian side. Suggested: اس کے سفید گنبد مدتوں سے سرحد کی بھارتی جانب سے کھیتوں کے پار نظر آتے رہے تھے
+b. Abode: "as Talwandi and Sultanpur had before it". The current text تلونڈی اور سلطان پور کی طرح زیارت کا قصبہ drops "before it". Suggested: جلد ہی یہ جگہ اسی طرح زیارت کا قصبہ دکھائی دینے لگی جیسے اس سے پہلے تلونڈی اور سلطان پور
+c. Legends, Moola Keer: the English frame "In another" governs the whole sentence, including the covering up and the confession. In the Urdu, the frame stops at the full stop after مولا کیر کی ہے۔ and the story follows as a plain sentence. The context makes clear it is the story, but a colon, as in the Brahmin sentence, would keep it explicitly framed. Suggested: دوسری کہانی کرتارپور کے اولین آبادکاروں میں سے مولا کیر کی ہے: مولا کیر نے اُس مہمان کا پردہ رکھا
+d. Gurdwara: "On an earlier visit, one visitor had had to walk". The current text اس سے بھی پہلے یہاں آنے والے ایک زائر کو makes it "a visitor who came even before that", which loses the sense of an earlier visit. Suggested: ایک زائر کو اپنے ایک پچھلے پھیرے میں بڑی سڑک سے گوردوارے تک
+e. Gurdwara: "in a glass case with a marble plaque". The current text صندوق پر سنگِ مرمر کی تختی لگی تھی fixes the plaque onto the case, which is slightly narrower than the English. Suggested: اور اس کے ساتھ سنگِ مرمر کی تختی لگی تھی
+f. Kinship: the English "his grandfather" becomes اندرجیت کے دادا (paternal grandfather), which narrows the term. The English context (the family's village, where the family went on living) points to the paternal line, so this is acceptable. Flagged only as the brief asks.
+g. Architecture: the English "a feature of Muslim architecture" becomes جو مسلم طرز کی پہچان ہے. پہچان ("hallmark") is a little stronger than "a feature". Suggested: جو مسلم فنِ تعمیر کی ایک خصوصیت ہے
+h. "Of washing he sang" becomes ان کی ایک اور نظم میں دھونے کا ذکر ہے. This is acceptable. If preferred: دھونے کے بارے میں انہوں نے گایا:
+
+Style: Every figure matches (2, 80, 180, 15, 1594, 1469, 1487, 1494, 1497, 1520, 1504, eighteen as اٹھارہ, 1539, 2001, three as تین, 1965, 1947, 1971, 1999, 550, 2018, 2019, 1604). All headings correspond. Every hedge ("it is said", "the janamsakhis tell", "by tradition", "accounts differ", "held to", "some count", "by many accounts", "most often") is present and governs the same part of the claim. The glosses dropped for رباب، رینجرز، جتھا، سمادھی، لنگر and the italics removed from ordinary words are deliberate under the brief.

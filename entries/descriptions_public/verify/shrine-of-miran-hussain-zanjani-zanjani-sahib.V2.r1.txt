@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. The Saint, paragraph 2 (meaning clarity). English "and to have spent his whole life guiding them" | Urdu "اور ساری عمر انہی کی رہنمائی میں گزار دی" -> کسی کی رہنمائی میں most often means "under someone's guidance", so the phrase can be read as "spent his life under their guidance", the reverse of the English; context makes the intended sense recoverable, but a plain verb removes the ambiguity.
+OLD: ساری عمر انہی کی رہنمائی میں گزار دی
+NEW: ساری عمر انہی کی رہنمائی کرتے گزار دی
+2. Legacy, paragraph 2 (style only). "His name has also travelled" is rendered دور دور تک پہنچا ہے; "far and wide" is a slight intensification but an idiomatic rendering of "travelled", and no fact changes. No fix needed.
+3. Checked and found faithful: headings correspond (Overview, The Saint, Legends, The Shrine and Its Devotion, The Setting, Legacy); all names, titles, places and figures (958, 998, 1042, 1970s, 1880s, thirty six, a mile) present; every qualifier kept (روایت ہے، کہا جاتا ہے، روایات مختلف ہیں، مشہور ہے، تقریباً، کوئی چھتیس، اکثر بیانات، یہ رائے بھی دی گئی ہے، اعتراض کیا گیا ہے); legends stay legends; "by the 1880s ... had gone" rendered as a perfect with تک; dropped glosses of عرس، سلسلہ، مرشد، کرامات، خانقاہ، دالان، کوٹھری، رہٹ، فقیر، میلہ، گدی نشین، حدیث، تفسیر are deliberate per the brief; no verse in the article; no Latin letters or dashes in the file.

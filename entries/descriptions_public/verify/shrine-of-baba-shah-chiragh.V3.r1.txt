@@ -1,0 +1,33 @@
+VERDICT: FAIL
+ISSUES:
+1. [calque] "شاہ چراغ کے دادا کے طور پر زیادہ تر سید عبدالقادر ثالث ہی کا نام لیا جاتا ہے" -> "کے طور پر ... نام لیا جاتا ہے" is a literal rendering of "named as"; idiomatic Urdu states whose name is given -> corrected sentence below.
+OLD: نسب کی تفصیلات میں روایات مختلف ہیں، تاہم شاہ چراغ کے دادا کے طور پر زیادہ تر سید عبدالقادر ثالث ہی کا نام لیا جاتا ہے۔
+NEW: نسب کی تفصیلات میں روایات مختلف ہیں، تاہم شاہ چراغ کے دادا کا نام زیادہ تر سید عبدالقادر ثالث ہی بتایا جاتا ہے۔
+
+2. [calque] "شاہ چراغ کے نام کے پیچھے بھی ایک قصہ ہے" -> "نام کے پیچھے قصہ" is the English "the story behind the name"; educated Urdu says a story is attached to the name -> corrected sentence below.
+OLD: شاہ چراغ کے نام کے پیچھے بھی ایک قصہ ہے۔
+NEW: شاہ چراغ کے نام سے بھی ایک قصہ وابستہ ہے۔
+
+3. [calque] "جہاں دوسروں کے ساتھ ساتھ ڈپٹی کمشنر بھی رہائش پذیر رہے" -> "دوسروں کے ساتھ ساتھ" is a word-for-word "among others" and reads as if the others lived there alongside him -> corrected sentence below.
+OLD: انگریزی عہد میں مسجد کو کوٹھی بنا دیا گیا، جہاں دوسروں کے ساتھ ساتھ ڈپٹی کمشنر بھی رہائش پذیر رہے۔
+NEW: انگریزی عہد میں مسجد کو کوٹھی بنا دیا گیا، جس کے مکینوں میں ڈپٹی کمشنر بھی شامل تھے۔
+
+4. [collocation] "یورپی اور مشرقی فنِ تعمیر کے طریقے یکجا ہیں" -> "فنِ تعمیر کے طریقے" (methods of architecture) is not how styles are spoken of; the standard term is طرزِ تعمیر -> corrected sentence below.
+OLD: لاہور ہائی کورٹ پینوراما مارکیٹ کے قریب واقع ہے، اور اس کی عمارت میں یورپی اور مشرقی فنِ تعمیر کے طریقے یکجا ہیں۔
+NEW: لاہور ہائی کورٹ پینوراما مارکیٹ کے قریب واقع ہے، اور اس کی عمارت میں یورپی اور مشرقی طرزِ تعمیر یکجا ہیں۔
+
+5. [repetition] "مسجد اور مزار کے باقی حصوں کے نام زمین تھی، مگر تب تک اس میں سے تھوڑا ہی حصہ باقی رہ گیا تھا" -> both باقی and حصہ echo within one clause pair, and "حصہ" for the land blurs it with "حصوں" of the shrine; the land itself should be the subject of the second clause -> corrected sentence below.
+OLD: انگریزی عہد سے پہلے سکھوں کے زمانے میں مسجد اور مزار کے باقی حصوں کے نام زمین تھی، مگر تب تک اس میں سے تھوڑا ہی حصہ باقی رہ گیا تھا۔
+NEW: انگریزی عہد سے پہلے سکھوں کے زمانے میں مسجد اور مزار کے باقی حصوں کے نام زمین تھی، مگر تب تک اس میں سے تھوڑی ہی رہ گئی تھی۔
+
+NOTES:
+- Pronoun ambiguity to check against the source (not fixed, since resolving it would choose a fact): in the paragraph beginning "1880 کی دہائی میں لوگوں کو یہ بھی یاد تھا"، "یہ محلہ جاگیر کے طور پر بسایا گیا تھا ... اس کی جگہ اب چیف کورٹ کی عمارت اٹھنے لگی تھی" most naturally refers to موج دریا بخاری کا محلہ, the nearest antecedent; but under ماحول the Chief Court is said to rise on "سید چراغ شاہ گیلانی کے پرانے محلے کی جگہ". A native reader will see a contradiction. If the Chief Court stood on Chiragh Shah's mohalla, the sentence about the jagir and the plunder needs to name that mohalla explicitly.
+- Similar, milder ambiguity: "محمد غوث خود خراسان کے راستے ملتان آئے اور پھر اوچ میں آ بسے۔ کہا جاتا ہے کہ وہ 887 ہجری میں اس شہر میں داخل ہوئے۔" "اس شہر" reads as اوچ (nearest), but ملتان is also possible; naming the city would remove doubt.
+- The road is "دی مال" three times and "مال روڈ" once (ماحول). "مال روڈ" is the usual Urdu name; one form throughout would be cleaner.
+- "1716 میں محمد شاہ رنگیلا کے عہد میں لاہور کے مغل صوبیدار زکریا خان کی سرپرستی میں بنی" stacks three میں phrases; commas around "محمد شاہ رنگیلا کے عہد میں" would ease it. "رنگیلا" is a popular, slightly mocking epithet; the later reference uses plain "محمد شاہ", which suits a reference register better.
+- "تجربے کی خاطر انہوں نے بہت سے ملکوں کا سفر کیا" reads a little translated; "تجربہ حاصل کرنے کے لیے" is more natural.
+- "شہر کے سترہویں صدی کے مذہبی جغرافیے سے بچ رہنے والی ایک خاموش مگر اہم نشانی" is serviceable but academic-English in feel ("religious geography", "quiet but important survivor").
+- The split of mosque and tomb is told three times in quick succession under مزار ("جدا جدا ہو چکے تھے"، "دو حصوں میں بانٹ دیا تھا"، "مسجد دفتر بنا کر ... جبکہ مقبرہ ..."); one of the first two could go.
+- "خود" recurs often (six times), "پہلو میں" four times, "عالی شان" twice; fine individually.
+- The paragraph on شاہ درگاہی opens without any link to what precedes it; a reader meets him cold.
+- گیلانی for the family and جیلانی for شیخ عبدالقادر is the established Pakistani convention and is fine. Urdu ؛ and ، are used correctly; no dashes, no Latin letters, asterisks balanced, verse untouched.

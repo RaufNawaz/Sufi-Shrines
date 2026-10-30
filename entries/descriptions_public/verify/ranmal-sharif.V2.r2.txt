@@ -1,0 +1,17 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the nine OLD/NEW pairs of verify/ranmal-sharif.ur.r2.changes.txt were applied in order to /home/claude/bak/ranmal-sharif.ur.md.bak_ur1, each OLD replaced once (each occurred exactly once in the working text at its turn). The result is byte for byte identical to the current entries/descriptions_public/ranmal-sharif.ur.md. Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py ranmal-sharif --no-verdicts` printed: ok    ranmal-sharif  team 26225 -> public 11334 chars (0.43), Urdu 10217 chars (0.90). The file has no Latin letters and no em or en dashes.
+3. Change by change, against the English (the authority):
+   - 1 (brother): "He had a brother, Shaikh Ismail" is rendered as the saint's brother, now explicitly, so the referent is right and nothing is added. The split from the mother's sentence is supported by the English.
+   - 2 (bai'at): محمد نوشہ is the saint (introduced as محمد نوشہ at the head of the section), so "at whose hands he took bai'at" now has the right subject; جن still points to شاہ سلیمان قادری. The following وہ (reached completion) also now follows the saint.
+   - 3 (death year): "The year his shrine keeps is 1654, when he died full of years" keeps the year, the "full of years" and the attribution to the shrine (مزار پر مانا جاتا ہے), and follows the sentence saying accounts of the year differ. The hedge now covers the whole clause, which matches the English, where "full of years" sits inside the shrine's account. Death is stated once, as in the English.
+   - 4 (four majzubs): all four names in the same order, and "each of them bore the name Naushahi" kept as یہ چاروں نوشاہی کہلاتے تھے. The list now names who they were, as in the English.
+   - 5 (grew up strong): نہایت removed; طاقتور matches "strong" with no intensifier. Still under the tradition hedge (ان روایتوں کے مطابق).
+   - 6 (wheat): "All received it except Hafiz Tahir, for the grain had run out" is the same meaning: the others got wheat, and the grain running out is the reason Hafiz Tahir got none. گندم feminine, نہ مل سکی agrees.
+   - 7 (chronicles): ثواقب المناقب (1126 ہجری) stays Sadaqat Muhammad Mah Ganjahi's; تذکرۂ نوشاہی (1146 ہجری) is now listed without an author, as in the English list, and no longer contradicts the later paragraph naming حافظ سید محمد حیات as its author. Both dates kept.
+   - 8 (order name): "founder of the Naushahia Qadiri order, one of the enduring Sufi lines of the Punjab" kept; سلسلۂ نوشاہیہ قادریہ matches the name given earlier (نوشاہیہ قادریہ), and یہ سلسلہ now refers to the order, not the saint.
+   - 9 (long life): "a saint whose long life and organising genius planted a spiritual family that has lasted nearly four centuries" kept: the two causes (طویل عمر، غیر معمولی تنظیمی صلاحیت) are kept as causes (کی بدولت), the founding and the nearly four centuries kept. انہوں نے can only be the saint here, since the sentence between has an inanimate subject (یہ سلسلہ).
+4. No fix in the change list was adapted or rejected for fidelity; change 1 applies a V3 round 1 taste note, and the English confirms whose brother Shaikh Ismail was.
+5. Taste: in change 2 the saint is named twice in one sentence by two forms (نوشہ گنج بخش, then محمد نوشہ). It avoids repeating the same name and the reader knows both forms, so it is clear; recorded only.

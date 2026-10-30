@@ -1,0 +1,28 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 21 changes in verify/shrine-of-sachal-sarmast.ur.r2.changes.txt, each OLD replaced once and in order on /home/claude/bak/shrine-of-sachal-sarmast.ur.md.bak_ur1, give a text byte for byte identical to the current entries/descriptions_public/shrine-of-sachal-sarmast.ur.md (32076 bytes each; every OLD occurred exactly once at its turn, every NEW occurs once in the current file). Nothing else moved.
+2. Checker: python3 pipeline/book_queue/check_public_description.py shrine-of-sachal-sarmast --no-verdicts printed: ok    shrine-of-sachal-sarmast  team 38107 -> public 19373 chars (0.51), Urdu 18163 chars (0.94). The file has no Latin letters and no em or en dashes.
+3. Each changed sentence checked against the English:
+   - 1 (torch): "cherished as the passing of a torch from one master of Sindhi verse to the next" kept: بڑی محبت سے for cherished, the torch of Sindhi verse passing from one master's hand to the other's. علامت makes the metaphor explicit; no fact added.
+   - 2 (languages): "a remarkable range of tongues" kept as so many languages that one marvels; the hedge on the count stays in the next sentence (اقوال مختلف ہیں).
+   - 3 (surpassed all limits): English has the past "surpassed" beside the present "breaks"; the Urdu now uses the present in both clauses. Same claim about the same poetry; acceptable.
+   - 4 (Second Mansur): "It was this that won him the name ... for like al-Hallaj he sang ... without disguise" kept: اسی لیے ... کہ gives the emphasis and the reason; the reason given is the same open singing of lover and Beloved as one, which is what "this" points back to.
+   - 5 (Hallaj's name): "Hallaj's name occurs hundreds of times in his verses" kept; وہ is Sachal, اپنے اشعار his own verses, ان کا نام can only be Hallaj's (a subject's own would be اپنا). The ambiguity V3 found is gone.
+   - 6 (under the surface): اندر ہی اندر renders "lived on under the surface"; the list Sarmad, Shah Abdul Latif, Sachal and Iqbal is unchanged.
+   - 7 (Krishna): "brings Krishna into his Sufi poetry" as کرشن کا ذکر کرتے ہیں: same sense.
+   - 8 (Bedil's line): "the lovers [read] wisdom from God" now has its verb, so the two groups are clearly contrasted subjects; the added اور carries no meaning beyond the English comma. No credit line, as the brief requires.
+   - 9 (the shrine keeps his memory): the coordinator's adaptation is right. V3's جو ... آواز ہیں would assert as fact that Sachal is the ecstatic voice; the English frames it as how the shrine keeps his memory. جنہیں یہاں ... مانا جاتا ہے keeps the framing at the shrine, and the honorific plural جنہیں can refer only to Sachal (not to مزار or یاد).
+   - 10 (Nimano's master): the English indefinite "a Sakhi Qabul Muhammad" is restored with ایک, so he is kept apart from the early twenty first century sajjada nashin Sakhi Qabul Muhammad Faruqi two sentences later. بزرگ is a generic respectful noun, not a new claim; the next sentence already says he was counted among the pirs of Sachal's dargah.
+   - 11 (calendars): Christian calendar and Hindu calendar, the Vikram Samvat, both kept; one word now for "calendar".
+   - 12 (Abida Parvin): "her male counterparts among the qawwals ... cannot" as ان کے ہم پلہ مرد قوال ایسا نہیں کر سکتے. ہم پلہ (of matching standing) is a fair rendering of counterparts; the claim that male qawwals cannot sing this Sindhi poetry is intact. The gloss of قوال is dropped as the brief allows.
+   - 13 (to India): the coordinator was right to drop V3's بھی, which would add an "also" the English does not have.
+   - 14 (model case): بہترین مثال for "model case"; "carried by a Hindu path without any formal tie to it" unchanged.
+   - 15 (Soni): English "led the satsang every Thursday evening"; Urdu کرتی آ رہی ہیں (has been leading). The same paragraph says in the present that the satsang meets under Soni's supervision and that she is the leading singer, so the continuous reading adds no fact and removes the false implication of کرتی رہیں that she no longer leads it.
+   - 16 (repertoire): "Their repertoire" now explicitly the gatherings', which is the English referent ("these gatherings' song. Their repertoire").
+   - 17 (Sakhi Kuthiya): "Its name" now named, so the meaning "abode of the generous" attaches to Sakhi Kuthiya and not to Vadodara.
+   - 18 (Nimano): "now stands at the forefront" as اب نمانو کو اولیت حاصل ہے: same sense.
+   - 19 (northern Sindh): "Many Sindhi Sufi poets, especially from northern Sindh" kept; only the register changed.
+   - 20 (heights): "he raised to such heights" as بلندیوں تک پہنچایا; the dropped ایسی was the dangling calque, and the sense of raising the song to great heights stays.
+   - 21 (Shah Latif): شاہ عبداللطیف is the same person as the English "Shah Latif"; spelling made consistent with the rest of the article.
+4. No figure, name, hedge or qualifier was lost or added by any change; all 25 figures still match the English.

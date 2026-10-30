@@ -1,0 +1,15 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Seventeen of the eighteen round-1 fixes went in cleanly, and the article now reads as natural, educated Urdu. The one left as it was, "شبہِ قارہ", is correct: شبہ ends in a sounded ہ, so the izafat takes a zer and not ۂ, and the round-1 flag was mistaken. The points below are taste and do not count as errors:
+1. "وہ ان پہاڑیوں میں جا بسے جن کے نیچے پھیلے میدان میں آگے چل کر اسلام آباد بسنا تھا" uses the same verb, بسنا, twice in one sentence. Possible fix: "... جن کے دامن میں پھیلے میدان میں آگے چل کر اسلام آباد کی بنیاد پڑنی تھی".
+2. "بتایا جاتا ہے کہ پوٹھوہار میں باپ اور بیٹا، دونوں ان سے ملے۔" introduces an unnamed father and son, and the reader only learns who they are two sentences later. A native reader follows it, but naming them at once would be cleaner.
+3. "یہ جلوس انہی چن آغا اور بعد کے زمانے کے پیر آغا سید میر جانی شاہ کی اولاد کے زیرِ اہتمام نکلتا ہے" still leaves it slightly open whether "کی اولاد" covers both men. Context settles it, and "... شاہ، دونوں کی اولاد" would remove the doubt. The same paragraph also opens three sentences in a row with a hedge ("بیان کی جاتی ہے"، "کہا جاتا ہے"، "روایت کے مطابق"), and one of them could go.
+4. The phrase "یاد ... زندہ / تازہ" appears four times: in the introduction, at the start of مزار سے باہر عقیدت, at the start of the next paragraph, and in ورثہ. "دارالحکومت کے علاقے اور اس کے باہر سے" appears twice. In مزار اور عرس, "زائرین کا تانتا بندھا رہتا ہے" and "مزار آج بھی لوگوں سے بھرا رہتا ہے" say much the same thing, although after the 2005 attack the second sentence does carry a contrast.
+5. "مزار ایک وسیع احاطے پر مشتمل ہے" would read more naturally as "ایک وسیع احاطے میں پھیلا ہوا ہے".
+6. "راسخ العقیدہ حکومت" is an odd collocation, because the phrase normally describes a person's faith. "حلقۂ ارادت" for a weekly gathering also reads oddly, and "ہفتہ وار محفل / حلقہ" is more usual.
+7. "کوئی چودہ سے سولہ برس کی عمر میں" would read more naturally as "چودہ سولہ برس کی عمر میں".
+8. "کیونکہ اسلام آباد دارالحکومت ہے" repeats the city name from the same sentence, and "کیونکہ یہ دارالحکومت ہے" would avoid that. "کسی زمانے میں" opens sentences in two neighbouring paragraphs.
+9. "*خوارق العادات* از میر غلام کشمیری" and the similar titles use the bibliographic "از" in running prose. "میر غلام کشمیری کی *خوارق العادات*" would read more naturally.
+10. "ہزاروں" still opens two sentences in a row. "بزرگِ کبیر، عابدِ کبیر" is acceptable as a quoted epithet.
+11. The straight quotes around "باری شاہ لطیف" could be changed to typographic quotes.
+Mechanics: the asterisks are balanced (20). There are no Latin letters, no em or en dashes and no Eastern digits. Punctuation uses the Urdu ، ۔ ؛ throughout.

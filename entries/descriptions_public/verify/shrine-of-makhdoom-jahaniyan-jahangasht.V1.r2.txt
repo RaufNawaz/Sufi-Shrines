@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the sentences in shrine-of-makhdoom-jahaniyan-jahangasht.V1.r2.changes.txt: applying its 5 OLD/NEW pairs to bak3 reproduces the current file byte for byte, so there are no unlisted changes; issue 1 (Khalid's havelis sentence without "the caretakers of the shrine") and issue 2 ("urged to become the saint's disciple", where "the saint" follows "pay their respects to him") are resolved, and minors a to c match the team version (Rizvi's snakes as Ali's fish with scorpions only called Ali's prawns, Chishti's "a Gilani ancestor", Bhandari's Shihab al-Din campaigns now marked as the conqueror's); the notes carry the "L1 exception (V1 round 1)" line and check_public_description.py --english-only prints ok (0.35).

@@ -1,0 +1,24 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+Rulings on the flagged points.
+(1) Age twenty five unhedged: acceptable. In the English "it is said" sits inside the first main clause ("From the age of ten, it is said, he was distinguished in reading hearts and in the folding of earth and tongue"); the semicolon and "and" open a coordinate main clause, so the hedge most naturally governs the age ten claim (reading hearts, طیِ ارض و طیِ لسان) and its gloss. Your Urdu keeps کہا جاتا ہے on exactly that claim, and the gloss sentence (صوفیہ کے نزدیک) keeps its own attribution. The age twenty five statement may stand plain.
+(2) Glosses kept: all acceptable. ٹنکے یعنی سکے (an obsolete coin an Urdu reader may not know), قلندر (the brief names it as a gloss to keep), رابعہ (ابتدائے اسلام کی ولیہ رابعہ کی نسبت سے) and the gloss of طیِ ارض و طیِ لسان are all fine, and none sits between a noun and its postposition. "اس زمانے میں منگولوں کو مغل کہا جاتا تھا۔" as its own sentence before روایت ہے is correct: in the English the apposition is the narrator's explanation, not part of the legend, so placing it outside the legend frame changes nothing.
+(3) "who could not otherwise have reached the Prophet's company" as "جو ہجرت کے بغیر نبی کریم کی صحبت تک نہ پہنچ سکتے تھے": correct. "Otherwise" can only mean "without the hijra" here, and صحبت (company of the living) is the right word.
+(4) "the best man of the city, meaning Nizam al-Din" split into "سلطان نے پوچھا ... ۔ شیخ رکن الدین نے جواب دیا کہ سب سے پہلے شہر کے بہترین شخص نے ان کا استقبال کیا تھا، اور ان کی مراد نظام الدین اولیاء سے تھی۔": correct; ان کی مراد resolves to the shaikh, as in the English.
+(5) Massacre: correct. The English hedge is "Accounts of what followed differ, but ..." and then asserts the visit, the plea and the relenting as fact; the Urdu "اس کے بعد کے واقعات کے بارے میں روایتیں مختلف ہیں، لیکن ... رحم کی درخواست کی۔ سلطان نے ان کی بات مان لی۔" carries the same certainty. The separate final sentence is fine.
+(6) اکڑوں بیٹھا رہتا for "squatting": accurate (it is the literal posture), and the whole clause stays inside "صوفیہ کی ایک روایت ہے کہ", so the tradition frame governs the sultan's posture as in the English.
+(7) "supported by the Syeds' large landholdings": acceptable. The English participle is ambiguous between the shrines and the musicians' performing; "سادات کی وسیع جاگیروں کے سہارے موسیقار ان کے خاندانی مزارات پر اپنا فن پیش کرتے تھے" makes the landholdings sustain the performances at the shrines, which covers the sense. "the Muharram ceremonies marking the tragedy of Kerbala" is correctly attached to محرم alone.
+(8) Satan's dream reordered: correct. Both elements (the dream from Satan; Satan wishing to deprive him of his devotions) are present, "at once" is دیکھتے ہی, and the روایت ہے frame governs the whole.
+(9) The two Quranic verses as quoted Urdu renderings inline: correct; both match the English renderings in sense, and the attributions (ان کا خیال تھا، ان کی تعلیم یہ تھی، ان کے نزدیک) keep "he held", "he taught", "in his view".
+
+Other checks. Headings correspond one to one (تعارف، صاحبِ مزار، شیخ اور سلاطین، ملتان میں زندگی، مزار، روایات، ماحول، ورثہ). Every figure matches the English (1251, 1327, 1328, 1333, 1335, 1870, 1875, 695, 735; ninth, sixteenth and the counts as words). The couplet is byte identical. No Latin letters, no em or en dashes, asterisks balanced. Dropped glosses (Sufis, Ramadan, qibla, hajj, faqir, hal, chronogram, "founder of the Sikh faith" after گرو نانک) and dropped translator credit are deliberate and not omissions. "names the book's subject, the friends of God in the Punjab" shortened to "جس میں کتاب کے موضوع کا ذکر ہے" is acceptable, since the couplet itself says جو خدا کے دوست تھے پنجاب میں and the brief forbids paraphrasing a couplet just before quoting it.
+
+Optional precision notes.
+(a) "شاہ رکنِ عالم ہی نے شہر کو بچایا تھا": ہی adds an exclusivity ("it was he and no other") that "the saint is remembered as having saved the city" does not state. Prefer "مشہور ہے کہ جب ملتان نے محمد بن تغلق کے خلاف بغاوت کی تو شاہ رکنِ عالم نے شہر کو بچایا تھا۔"
+(b) "ایک بار شیخ رکن الدین نے حضرت نظام الدین کے ہاں کھانا کھایا۔" adds "once", which the English ("After a meal at Nizam al-Din's") does not have; harmless, but "شیخ رکن الدین نے حضرت نظام الدین کے ہاں کھانا کھایا۔" is closer.
+(c) "ان کی پالکی میں کاغذوں کا ڈھیر پڑا تھا": English "On his palanquin lay a pile of papers"; "ان کی پالکی پر کاغذوں کا ڈھیر پڑا تھا" is closer (the later "تختِ رواں میں عرضیاں رکھ دیتے" rightly keeps "inside").
+(d) "شیخ کی موجودگی ... کو ماند کر دے گی": the English "might eclipse" is a hope; "ماند کر دے" (subjunctive) fits امید تھی کہ better than the future.
+
+Style.
+"آوارہ گرد درویشوں یعنی قلندروں" : آوارہ گرد carries the sense of vagabond or loafer in Urdu, sharper than "wandering dervishes". Prefer "سیلانی درویشوں یعنی قلندروں" or "گھومتے پھرتے درویشوں یعنی قلندروں".

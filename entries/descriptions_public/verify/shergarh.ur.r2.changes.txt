@@ -1,0 +1,51 @@
+# shergarh: Urdu changes for round 2, by source: 1. V3 r1 issue 1; 2. V3 r1 issue 2; 3. V3 r1 issue 3 (adapted); 4. V3 r1 issue 4; 5. V3 r1 issue 5 (adapted); 6. V3 r1 issue 6; 7. V3 r1 issue 7; 8. V3 r1 issue 8; 9. V2 r1 note 2; 10. V2 r1 note 4; 11. V2 r1 note 5 (fitted); 12. V3 r1 note (g)
+
+[1] V3 r1 issue 1
+OLD: داؤد 1513ء میں سادات کے ایک گھرانے میں پیدا ہوئے۔
+NEW: داؤد بندگی 1513ء میں سادات کے ایک گھرانے میں پیدا ہوئے۔
+
+[2] V3 r1 issue 2
+OLD: کہا جاتا ہے کہ داؤد کے والد عرب سے ہندوستان آئے، پہلے ہیبت پور پٹی میں آباد ہوئے اور پھر چونیاں کے قصبے میں جا بسے۔
+NEW: کہا جاتا ہے کہ داؤد بندگی کے والد عرب سے ہندوستان آئے، پہلے ہیبت پور پٹی میں آباد ہوئے اور پھر چونیاں کے قصبے میں جا بسے۔
+
+[3] V3 r1 issue 3 (adapted)
+OLD: داؤد کی ولادت سے چار مہینے پہلے ان کے والد وفات پا چکے تھے۔
+NEW: داؤد بندگی کی ولادت سے چار مہینے پہلے والد وفات پا چکے تھے۔
+
+[4] V3 r1 issue 4
+OLD: داؤد نے مولانا اسماعیل لاہوری سے علومِ ظاہری کا وافر حصہ حاصل کیا اور پھر علومِ باطنی کی طرف متوجہ ہوئے۔
+NEW: داؤد بندگی نے مولانا اسماعیل لاہوری سے علومِ ظاہری کا وافر حصہ حاصل کیا اور پھر علومِ باطنی کی طرف متوجہ ہوئے۔
+
+[5] V3 r1 issue 5 (adapted)
+OLD: شاہ ابو المعالی کے لیے داؤد بندگی چچا بھی تھے، سسر بھی اور پیر و مرشد بھی؛ اور ابو المعالی ان کے مرید اور ممتاز خلیفہ تھے۔
+NEW: وہ شاہ ابو المعالی کے چچا بھی تھے، سسر بھی اور پیر و مرشد بھی، اور ابو المعالی ان کے مرید اور ممتاز خلیفہ تھے۔
+
+[6] V3 r1 issue 6
+OLD: مزار کے ایک دورے میں رہنمائی کرنے والے مؤرخ اقبال قیصر نے بتایا کہ ملنگ شال صرف اسی وقت اوڑھتے ہیں جب لوگوں کے سامنے ہوں، اور دوسرے ملنگوں کے درمیان ایک چھوٹی سی لنگی کے سوا کچھ نہیں پہنتے۔
+NEW: مزار کے ایک دورے میں مؤرخ اقبال قیصر رہنمائی کر رہے تھے؛ انہوں نے بتایا کہ ملنگ شال صرف اسی وقت اوڑھتے ہیں جب لوگوں کے سامنے ہوں، اور دوسرے ملنگوں کے درمیان ایک چھوٹی سی لنگی کے سوا کچھ نہیں پہنتے۔
+
+[7] V3 r1 issue 7
+OLD: انہوں نے کہا: "یہ بالکل ویسا ہی ہے"، اور ان کا خیال تھا کہ یہاں جینیوں کے اس خاص فرقے کا بھی کچھ نہ کچھ اثر ضرور ہوگا۔
+NEW: انہوں نے کہا: "یہ بالکل ویسا ہی ہے"، اور ان کا خیال تھا کہ یہاں جینیوں کے ایک خاص فرقے کا بھی کچھ نہ کچھ اثر ضرور ہوگا۔
+
+[8] V3 r1 issue 8
+OLD: وہ خراسان کے راستے ملتان پہنچے اور پھر اوچ میں آباد ہو گئے، جہاں ان کی آمد 887 ہجری میں ہوئی۔
+NEW: وہ خراسان کے راستے ملتان پہنچے اور پھر 887 ہجری میں اوچ آ کر آباد ہو گئے۔
+
+[9] V2 r1 note 2
+OLD: یہاں حسبِ دستور نماز، قوالی اور لنگر کا اہتمام ہوتا ہے۔
+NEW: یہاں حسبِ دستور دعا و عبادت، قوالی اور لنگر کا اہتمام ہوتا ہے۔
+
+[10] V2 r1 note 4
+OLD: انہوں نے اپنے مرشد کے بارے میں نغماتِ داؤدی کے نام سے ایک کتاب بھی لکھی۔
+NEW: ابو المعالی نے اپنے مرشد کے بارے میں نغماتِ داؤدی کے نام سے ایک کتاب بھی لکھی۔
+
+[11] V2 r1 note 5 (fitted)
+OLD: ان کا سالِ وفات 982 ہجری ہے، اور اس کے دو مادّہ ہائے تاریخ ملتے ہیں۔
+NEW: ان کا سالِ وفات 982 ہجری ہے، اور اس کی تاریخ کے دو مادّے ملتے ہیں۔
+
+[12] V3 r1 note (g)
+OLD: اقبال قیصر کو مزار کے نقوشِ قدم میں جین مندروں کے ممتاز پجاریوں کے ان نشاناتِ قدم کی مشابہت نظر آئی جو وہاں تعظیم کا محور بن جاتے ہیں۔
+NEW: اقبال قیصر کو صاحبِ مزار کے قدموں کے نشانوں میں جین مندروں کے ممتاز پجاریوں کے ان نشانوں کی مشابہت نظر آئی جو وہاں تعظیم کا محور بن جاتے ہیں۔
+
+ADAPTED / NOT APPLIED: [3] V3's 'بیٹے کی ولادت' does not name whose birth, so 'بیٹے' became 'داؤد بندگی' (English: 'before Daud was born'); the rest is V3's wording. [5] V3's wording dropped 'مرید', but the English states it in this very sentence ('Abul Muali was his murid ... and his distinguished khalifa'), so 'ان کے مرید اور ممتاز خلیفہ' is kept; the rest (وہ ... کے چچا, semicolon to comma) is V3's wording. [7] English 'that particular Jain sect' has no antecedent before the Digambar sentence, so 'ایک خاص فرقے' changes no fact. [8] Kept the English order (Khurasan, Multan, then Uch) and its date, 887 AH, now attached to the arrival at Uch as in the English ('which he entered in 887 AH'). [11] 'اس کے تاریخ کے دو مادّے' would double کے, so 'اس کے' became 'اس کی' to fit V2's 'تاریخ کے دو مادّے'. [12] One term, 'قدموں کے نشان' (first used in the article), for the saint's footprints; the Jain priests' footmarks are 'ان نشانوں' by ellipsis after 'قدموں کے نشانوں میں', to avoid repeating the phrase in one sentence; 'صاحبِ مزار کے' replaces 'مزار کے' because 'مزار کے قدموں' would read as the shrine's feet (English: 'the footprints of the saint'). Not applied: V2 notes 1, 3, 6 (no change asked) and V3 notes (a) to (f), (h), (i) (taste). Chronogram verse lines unchanged byte for byte.

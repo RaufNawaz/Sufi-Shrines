@@ -1,0 +1,11 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Diff against /home/claude/bak/shrine-of-makhdoom-abdul-rahim-girhori.before_v1r2.md: exactly four lines changed (21, 29, 31, 51), each the listed sentence and nothing else on the line. Nothing else in the file moved; the bibliography is untouched.
+- Change 1 (Kapari): "In one saying he called the perfect mystics Kapari, that is Yogis, a special group of Sanyasin, or Hindu renunciants, as Shah Abdul Latif often did." Supported by the team version's "a saying of his on the perfect mystics, whom he, 'as often by Shah, called Kapari, e.g., Yogi, a special group of Sanyasin'". "Often" now sits with Shah Abdul Latif, and "one saying" matches the single attested saying. "That is" for the source's "e.g." is a fair plain rendering. The naming rests on the framing words, not the damaged key words, so rule 5 is kept. It reads correctly after "Other sayings and readings of his are remembered too."
+- Change 2 (Kauthar): "Perhaps the finest of them is his rhymed commentary ..." keeps as a judgement what the team version marks "in her judgment", without naming the author. Supported; no fault.
+- Change 3 (typical exponent): "For all his militant zeal, it would be wrong to regard Girhori as a typical exponent of Sindhi Sufism." "Militant" is the team version's "the militant Naqshbandi Sufi", and "zeal" echoes its "who paid with his life for his missionary zeal"; the text already calls him "orthodox and militant". The connective is built from source words, so it is not an embellishment, and it restores the contrast the team version draws after his death. The sentence remains an evaluation in the site's voice, as it was in round 1, which raised no issue on that; taste only.
+- Change 4 (Mir Dard): "In this view of the Prophet, Girhori and Mir Dard stand together, and Shah Abdul Latif stands apart from them." Supported by "Schimmel places Girhori and Mir Dard on the side of those who interpret the Prophet in this way, and Shah Abdul Latif outside it." The referent is now clear, and "in this view of the Prophet" limits the separation to that interpretation, so it does not suggest a wider rift. No fault.
+- None of the four new sentences contains a dash, a citation, source narration, archive language or an uncertain reading.

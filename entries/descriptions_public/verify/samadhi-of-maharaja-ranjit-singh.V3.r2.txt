@@ -1,0 +1,16 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Round 1 has been applied well. The pronoun references, the agreement in the Mian Mir story, the oblique دروازے, the Subah Shah and Sada Kaur sentences and the closing paragraphs now read cleanly. The article reads as fluent magazine Urdu throughout. The remaining points are taste, plus one name to check against the source.
+1. "اور اس کے بعد فقیر خاندان نے" is preceded by "فقیر نورالدین کو چٹی کی سرکوبی پر مامور کیا گیا". A reader will first take چٹی as the common noun (a fine or penalty) before realising it is a name. If the source means the Chattha tribe of Rasul Nagar, write "چٹھوں کی سرکوبی". If it is a person, consider "چٹی نامی سردار کی سرکوبی" if the source supports that.
+2. "مہاراجہ اور دلیپ سنگھ تک ان کے جانشین ہر سنیچر وہاں آ کر نذر پیش کرتے تھے۔" Here وہاں has no place as its antecedent, only the person صوبہ شاہ. "صوبہ شاہ کے ہاں" or "ان کے تکیے پر" (if the source names the place) would anchor it, and the next sentence's "وہاں کے سجادہ نشین" with it.
+3. "ایک بڑی مسقف چھت تک جاتا تھا" is still tautological (a roofed roof). Use "مسقف" with a noun such as برآمدہ or دالان if the source describes a covered space, or drop it if the source means an open terrace.
+4. "باغ کے عین وسط میں توازن کے ساتھ" still sounds translated. "باغ کے عین وسط میں ایک متناسب یک منزلہ بارہ دری بنی ہے" would be smoother.
+5. "جسے جہاں چاہیں لے جایا جا سکتا تھا" mixes a present subjunctive with a past passive. "جسے ایک جگہ سے دوسری جگہ لے جایا جا سکتا تھا" is cleaner.
+6. "بڑے گنبد کے اوپر پوری اینٹ کی ایک اور بلند بارہ دری تھی": "پوری کی پوری اینٹ کی" or "تمام تر اینٹ کی" reads more naturally.
+7. "ان سے صحت طلب کی" is understandable. "ان سے صحت کی دعا چاہی" is the more usual idiom, if the source allows it.
+8. "رانی نکائن اور رانی چند کور کی سمادھی بھی شامل ہے" uses a singular سمادھی for two queens. That is correct if the monument is shared. Otherwise use "کی سمادھیاں بھی شامل ہیں".
+9. "فنون کی مؤرخ" is acceptable. "فن کی مؤرخ" or "مؤرخِ فن" is the commoner form.
+10. Moran takes non-honorific verbs (چہیتی تھی، لگاتی تھی) while everyone else, Mai Bhagi included, takes honorifics. This is acceptable for a courtesan in Urdu prose, but it should be a deliberate choice.
+11. "مہاراجہ نے موراں والا گاؤں اور موراں والی مسجد بھی بنوائی": agreement with the nearer conjunct is correct. "گاؤں بسایا اور ... مسجد بنوائی" would be more idiomatic if the source allows it.
+12. The deliberate items noted in the brief (the outward king remark, جند کور as another Muslim wife, the repeated epithets, یادگاری آرام گاہوں، جنوب رخ، the pigeons' دو, Chand Kaur among the wives, Mai Bhagi's refusal) all read grammatically and cause no stumble.
+Mechanics: Western digits throughout, no Latin letters, asterisks balanced (*پاہل*، *نہنگ*، *اکھنڈ پاٹھ*), curly quotation marks paired.

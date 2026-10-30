@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the sentences in madho-lal-hussain.V1.r3.changes.txt only. Applying the single listed OLD/NEW pair to the backup reproduces the current file byte for byte, so there is no unlisted change. The NEW sentence drops only the "oldest of the histories" clause, which r2 optional i flagged because the team version gives that claim only as Lahori's editor's and records the poem's date as disputed. What remains ("it set the pattern for the lives of him written ever since", Alam's "established the trend for hagiography that continues till the present"; the manuscript at Punjab University, Kugle) is supported. It reads as grammatical English and adds no dash, rival version or uncertain reading.

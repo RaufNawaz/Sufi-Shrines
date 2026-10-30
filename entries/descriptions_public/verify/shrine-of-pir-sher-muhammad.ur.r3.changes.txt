@@ -1,0 +1,83 @@
+# shrine-of-pir-sher-muhammad: Urdu changes after V2 round 2 (PASS) and V3 round 2 (FAIL, 15 issues). Backup: /home/claude/bak/shrine-of-pir-sher-muhammad.ur.before_r3.md
+
+WHY: V3 r2 issue 1; V3's wording.
+OLD: تقویٰ، علم اور مریدوں کی بڑی تعداد کی رہنمائی ان کی وجہِ شہرت ہے، اور پیر شیر محمد نے شرقپور کو عقیدت اور دینی تعلیم کا مرکز بنا دیا۔ ان کا دربار آج بھی وسطی پنجاب کی اہم زیارت گاہوں میں شمار ہوتا ہے۔
+NEW: تقویٰ، علم اور مریدوں کی بڑی تعداد کی رہنمائی ان کی وجہِ شہرت ہے۔ انہوں نے شرقپور کو عقیدت اور دینی تعلیم کا مرکز بنا دیا۔ ان کا دربار آج بھی وسطی پنجاب کی اہم زیارت گاہوں میں سے ایک ہے۔
+
+WHY: V3 r2 issue 2; V3's wording.
+OLD: ان کی خدمت میں پنجاب بھر سے اور اس سے باہر سے بھی مرید حاضر ہوتے تھے۔
+NEW: ان کی خدمت میں پورے پنجاب اور اس کے باہر سے بھی مرید حاضر ہوتے تھے۔
+
+WHY: V3 r2 issue 3; V3's wording.
+OLD: پیر صاحب کی پہچان دو باتیں ہیں: عبادت، زہد اور خدمت سے عبارت ان کی زندگی، اور عقیدت کا وہ اصلاحی اور متین انداز جس کی انہوں نے تعلیم دی۔
+NEW: پیر صاحب کی پہچان دو باتوں سے ہے: عبادت، زہد اور خدمت سے عبارت ان کی زندگی، اور عقیدت کا وہ اصلاحی اور متین انداز جس کی انہوں نے تلقین کی۔
+
+WHY: V3 r2 issue 4; V3's wording.
+OLD: دربار کی تولیت بدستور پیر شیر محمد کے خانوادے کے پاس ہے، اور اس خانوادے کے افراد کا شمار محترم دینی شخصیات میں ہوتا ہے۔
+NEW: دربار کی تولیت بدستور پیر شیر محمد کے خانوادے کے پاس ہے، جس کے افراد کا شمار محترم دینی شخصیات میں ہوتا ہے۔
+
+WHY: V3 r2 issue 5; V3's wording, checked against the English: the affiliation stays in the name چشتی صابری, as it does in the English name, and صوفی moves from the dropped clause to بزرگ.
+OLD: شرقپور میں پیر شیر محمد سے پہلے کے ایک اور بزرگ شیخ محمد سعید چشتی صابری شرقپوری بھی مدفون ہیں، جو اسی قصبے سے تعلق رکھنے والے چشتی صابری صوفی تھے۔
+NEW: شرقپور میں پیر شیر محمد سے پہلے کے ایک اور صوفی بزرگ شیخ محمد سعید چشتی صابری شرقپوری بھی مدفون ہیں، جن کا تعلق اسی قصبے سے تھا۔
+
+WHY: V3 r2 issue 6; V3's wording, checked against the English: مقیم renders "of Sharaqpur", and the manuscript is still held in Sharaqpur, with him.
+OLD: اس کا ایک قلمی نسخہ شرقپور ہی میں وہاں کے مولانا نصرت نوشاہی کے پاس محفوظ رہا ہے۔
+NEW: اس کا ایک قلمی نسخہ شرقپور ہی میں مقیم مولانا نصرت نوشاہی کے پاس محفوظ رہا ہے۔
+
+WHY: V2 r2 note 1; V2's wording: the place now sits next to the grant, as in the English "a jagir ... in the Sharaqpur area", so it can no longer be read as the place where the grant was made.
+OLD: شرقپور کے علاقے میں رانی جنداں نے بھائی بدھ سنگھ کو جاگیر دی
+NEW: رانی جنداں نے بھائی بدھ سنگھ کو شرقپور کے علاقے میں جاگیر دی
+
+WHY: V3 r2 issue 7 and V2 r2 note 3; adapted: V3's خود ہی علاقے کا زمیندار ہوتا ہے says the pir is himself the landlord, which states more than the English "represents the local landlord". زمیندار کی حیثیت رکھتا ہے keeps "represents" in the sense of holding the landlord's position, and no longer reads as acting as his agent. بہت سی صورتوں میں (V2 note 3) keeps "in many cases" in place of بہت سی جگہوں پر, and stands before the predicate so that it governs both halves of the claim. V3's other point (دیہات میں بہت سی جگہوں پر is wordy) is met by the same change.
+OLD: ان دونوں خطوں کے دیہات میں بہت سی جگہوں پر مقامی پیر علاقے کے زمیندار کی نمائندگی کرتا ہے، یا کم از کم اس کا قریبی عزیز ہوتا ہے۔
+NEW: ان دونوں خطوں کے دیہات میں مقامی پیر بہت سی صورتوں میں علاقے کے زمیندار کی حیثیت رکھتا ہے، یا کم از کم اس کا قریبی عزیز ہوتا ہے۔
+
+WHY: V3 r2 issue 8; adapted: the English gives both name forms (the full name, then "Sayyid Muhammad Ghaus of Uch"), so both stay, the short one as V3 writes it. V3's عام طور پر is dropped, because the English has no "commonly".
+OLD: حضرت سید محمد غوث اوچی جیلی گیلانی پنجاب آئے، جنہیں اوچ کے سید محمد غوث کہا جاتا ہے۔
+NEW: حضرت سید محمد غوث اوچی جیلی گیلانی پنجاب آئے، جو سید محمد غوث اوچی کے نام سے معروف ہیں۔
+
+WHY: V3 r2 issue 9; adapted: V3's کے ذریعے makes the Khwaja himself the agent of the spread, in the Punjab too, while the English says only that the order spread "from" him. سے چل کر keeps "from" in idiomatic Urdu (a silsila that runs from its master). بااثر ترین is V3's wording.
+OLD: سلسلۂ چشتیہ خواجہ معین الدین حسن سجزی سے ہند اور پنجاب میں پھیلا، اور اسے عام طور پر شمالی ہند اور پنجاب کے سب سے بااثر صوفی سلسلوں میں شمار کیا جاتا ہے۔
+NEW: سلسلۂ چشتیہ خواجہ معین الدین حسن سجزی سے چل کر ہند اور پنجاب میں پھیلا، اور اسے عام طور پر شمالی ہند اور پنجاب کے بااثر ترین صوفی سلسلوں میں شمار کیا جاتا ہے۔
+
+WHY: V3 r2 issue 10; V3's wording (the English "related to local political leaders but in tension with them" is kept by روابط بھی ... کشیدگی بھی).
+OLD: یہ عروج ان مشائخ کی بدولت تھا جن کے مقامی سیاسی رہنماؤں سے روابط تو تھے، مگر ان کے ساتھ کشیدگی بھی رہتی تھی۔
+NEW: یہ عروج ان مشائخ کی بدولت تھا جن کے مقامی سیاسی رہنماؤں سے روابط بھی تھے اور کشیدگی بھی رہتی تھی۔
+
+WHY: V3 r2 issue 11; V3's wording.
+OLD: کیونکہ ان کی لے عموماً زور پر قائم ہوتی ہے۔
+NEW: کیونکہ ان کی لے کا دار و مدار عموماً زور پر ہوتا ہے۔
+
+WHY: V3 r2 issue 12; V3's wording.
+OLD: یہاں کی مقبول قوالیوں کے بولوں میں قلندر کا نام آج بھی الاپا جاتا ہے۔
+NEW: یہاں کی مقبول قوالیوں کے بولوں میں قلندر کا نام آج بھی گونجتا ہے۔
+
+WHY: V3 r2 issue 13; V3's wording, checked against the English: the English sentence is a definition, and its content beyond the gloss stays (where dhammal is performed, at Sufi shrines in the Punjab and Sind; that it is vigorous; that it is a ritual). Only the gloss "dance" of a word a Pakistani reader knows goes, and ڈالنا is the verb that goes with دھمال. The italics on دھمال stay, as the brief asks.
+OLD: *دھمال* وہ پُرجوش رقص ہے جو پنجاب اور سندھ کے صوفی مزارات پر رسم کے طور پر کیا جاتا ہے۔
+NEW: پنجاب اور سندھ کے صوفی مزارات پر رسم کے طور پر پُرجوش *دھمال* ڈالی جاتی ہے۔
+
+WHY: V3 r2 issue 14; V3's wording ("for the people" is now said once, in the second clause, where the English says "for the masses").
+OLD: عوام کے لیے تعویذ لکھنے کا دستور تیرہویں صدی سے جوں کا توں چلا آ رہا ہے: پنجاب کے دوسرے مزارات کے گدی نشینوں کی طرح بابا فرید کے جانشین اور ان کے معاونین بھی آج تک عام لوگوں کے لیے تعویذ لکھتے ہیں۔
+NEW: تعویذ لکھنے کا دستور تیرہویں صدی سے جوں کا توں چلا آ رہا ہے: پنجاب کے دوسرے مزارات کے گدی نشینوں کی طرح بابا فرید کے جانشین اور ان کے معاونین بھی آج تک عام لوگوں کو تعویذ لکھ کر دیتے ہیں۔
+
+WHY: V3 r2 note on جدید پنجاب; V3's wording: جدید پنجاب can be read as present day Punjab, while the English "modern Punjab" means the Punjab of the modern era in which he lived.
+OLD: پیر شیر محمد شرقپوری جدید پنجاب کے بااثر صوفی مشائخ میں گنے جاتے ہیں۔
+NEW: پیر شیر محمد شرقپوری دورِ جدید کے پنجاب کے بااثر صوفی مشائخ میں گنے جاتے ہیں۔
+
+WHY: V3 r2 issue 15; V3's wording.
+OLD: اور خطۂ لاہور کے ممتاز اولیاء میں ان کی یاد بدستور زندہ ہے۔
+NEW: اور ان کا نام بدستور خطۂ لاہور کے ممتاز اولیاء کی صف میں لیا جاتا ہے۔
+
+NOT APPLIED:
+V2 r2 note 2 (نور و فیض to نور): V2 says فیض adds no fact and نور و فیض is idiomatic; pure taste.
+V2 r2 note 3: not skipped; applied with V3 issue 7 above.
+V2 r2 note 4: a record of the checks V2 ran; nothing to apply.
+V3 r2 note on the name form میاں شیر محمد: the English itself uses "Mian Sher Muhammad" at that point (The Saint, paragraph 1), so the Urdu follows the English.
+V3 r2 note on mixed plurals and spellings (صوفیوں and صوفیہ, سلسلوں and سلاسل, اولیاء and شعرا): all forms are correct Urdu; taste. ابو الفیض stays, because the project's Urdu dictionary spells the name that way and the brief makes the dictionary the authority for names.
+V3 r2 note on recurring شمار and the repeated century phrase, and the closing restating the introduction: the English repeats them; taste. Issue 1 already removed one شمار.
+V3 r2 note on خواجہ سلیمان named four times and the spread stated twice: the English states two facts (the spread in the Punjab, and the expansion in upper Punjab in the nineteenth century through his disciples), and naming him again follows the brief's rule on clear referents; taste.
+V3 r2 note on فارسی twice in one sentence: یہ would point back at فارسی زبان و تہذیب rather than at the language alone, so the noun is the more precise choice; taste.
+V3 r2 note on the Rani Jindan sentence sitting in a paragraph on book history, the run of statements in Devotion and Poetry, and which قلندر is meant: the order and content follow the English, which does not say which Qalandar.
+V3 r2 note on the descriptors پنجابی شاعر and صوفی شاعر: both are in the English, and V3 calls them harmless.
+V3 r2 note on صدر مقام for دارالحکومت: V3 itself says دارالحکومت is common usage, and the English says "capital"; taste.
+V3 r2 note that mechanics are clean: nothing to apply.

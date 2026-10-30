@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Confirming round on the sentence in bibi-pak-daman.ur.r4.changes.txt; script check: the NEW occurs exactly once in bibi-pak-daman.ur.md, the OLD is gone, no Latin letters, no dashes, asterisks still 6. "اور اس کے متولی خاندان کا بڑا حصہ بھی سنی ہے۔" against "and much of its custodial lineage are Sunni": بڑا حصہ is "much of", a large part, with no claim of a majority, so round 3's بیشتر fault is fixed; متولی خاندان keeps the term used elsewhere in the article, and the contrast with the Syed and Shia devotional identity and the Sunni formal administration is unchanged. Taste only: "کا ایک بڑا حصہ" would make the indefinite "a large part" unmistakable, but "کا بڑا حصہ" is the standard Urdu for "much of" and is faithful as it stands.

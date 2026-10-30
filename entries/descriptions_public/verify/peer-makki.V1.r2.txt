@@ -1,0 +1,22 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff result. `diff /home/claude/bak/peer-makki.md.bak_en1 entries/descriptions_public/peer-makki.md` shows three changed lines (17, 25 and 51) and nothing else. Line 25 carries two of the replacements (changes 1 and 2), lines 17 and 51 one each (changes 4 and 3). Applying the four listed OLD to NEW replacements, once each, to the backup reproduces the current file byte for byte. Each OLD occurred once in the backup and occurs zero times now. Each NEW occurs once now. Nothing else moved.
+
+2. Change 1, "Accounts differ on exactly where the tomb stands." Supported. The team version lists the location among its disagreements (the site's Bhati Gate quarter, the Ravi Road and Pir Makki Street of Lahori's edition, Chishti's Committee Bagh, and Kanhaiya Lal's "outside the city"). This is the plain rule 4 clause. It no longer suggests that the tomb or its address moved over time, and it leads cleanly into "In the nineteenth century it lay ...". No new fact, nothing lost, grammar intact, no source talk, no dash.
+
+3. Change 2, "There were two masonry wells, a platform marking a mosque, and a *ghusl-khana*, a bathing room." Supported. The team version has the same three items: two masonry wells, a *ghusl-khana* and a platform marking a mosque. Only the order changed. With the glossed term last, "a bathing room" reads as an appositive gloss and not as a fourth structure. The gloss itself is unchanged from round 1 and is definitional. No new fact, nothing lost, grammar intact, no dash.
+
+4. Change 3, "Hujwiri died in Lahore, and his shrine is still a popular place of pilgrimage there." Supported. The team version gives Hujwiri "died there" in Lahore and "His shrine, called that of Data Ganj Bakhsh, is still a popular place of pilgrimage in Lahore". The ambiguous referent (the nearest man had been Sultan Mas'ud I) is gone, and "his shrine" now plainly means Hujwiri's, not this one. The year 1071 stays out, as before, so the conventional date of around 1072 under Legends does not meet a second date. In the next sentence "he took Lahore" still refers to Khusrau Shah. No new fact, nothing lost, grammar intact, no source talk, no dash.
+
+5. Change 4, "For some thirty six years, it is said, he taught both the outward sciences ...". Supported. The team version gives this teaching only inside "Hagiographical accounts hold that ... remained for some thirty-six years as a teacher of both the exoteric sciences of Islamic law and the esoteric path of the Junaidi Sufi lineage, tracing back to the classical Baghdad master Junayd". The hedge now covers that sentence. The hedge also reaches the thirty six years, which the survey account gives plainly ("He preached in Lahore for thirty-six years after that"). That is more cautious than the team version, which the brief allows, and no fact is lost. The plain statements of the 575 AH arrival, the mosque, the prayers and the teaching of the Qur'an in the same paragraph are unchanged. Commas and grammar are intact. No dash.
+
+6. Taste (recorded, not applied). After change 3, three sentences in a row in the Ghaznavid paragraph begin with Hujwiri ("In Hujwiri's day", "Hujwiri reached", "Hujwiri died"). This is clear but slightly repetitive. It is not a fault.
+
+7. Dashes. The current file has one em dash and no en dash. The em dash is in the Bibliography's Alam Faqri item, which is copied verbatim from the team version as rule 1 requires, and it is present unchanged in the backup. No changed sentence has one.
+
+8. Checker line. `python3 pipeline/book_queue/check_public_description.py peer-makki --english-only` printed:
+ok    peer-makki  team 24647 -> public 10068 chars (0.41)
+(exit 0)

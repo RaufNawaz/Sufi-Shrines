@@ -1,0 +1,10 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. The Khalsa and the Granth, paragraph 3. English "devout Sikhs believe that he thereby purged Sikhism of corruption" is a general claim; the Urdu "اس خرابی سے" (of this corruption) narrows it slightly to the masand corruption alone. "thereby" already ties the belief to the abolition, so this is a nuance rather than a fidelity failure; optional fix:
+OLD: سکھ مذہب کو اس خرابی سے پاک کر دیا
+NEW: سکھ مذہب کو بدعنوانی سے پاک کر دیا
+2. Sukkur and Sindh, paragraph 4. English "a renewed religiosity" is rendered "مذہبی جوش" (religious fervour), a shade stronger than the English; optional fix:
+OLD: مذہبی جوش نئے سرے سے ابھرا
+NEW: مذہبی رجحان نئے سرے سے ابھرا
+3. Checked and accepted as deliberate or neutral: dropped glosses of familiar words (gurdwara as place of worship, True King, True Court, comb, bangle, Pathan or Pashtun, Muharram, Safar, kos, landholders, samadhi, Hindus who followed the Sufi path); "uncle" as چچا; "true descendant" as حقیقی وارث; "Sikh way of life" as گرو کے بتائے ہوئے طریقِ زندگی; the Shahid Ganj and Shaheed Ganj spellings both as شہید گنج (Urdu has one spelling). All hedges (supposedly, it is said, Sikh tradition holds, accounts differ, probably, may have, there is a view, one reading) are kept with their full scope; every number, date, name and heading corresponds; no Latin letters, no dashes, no figures beyond the English. The file has no verse.

@@ -1,0 +1,23 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Replay: the 17 OLD strings of verify/gurdwara-choa-sahib.ur.r2.changes.txt each occurred exactly once in /home/claude/bak/gurdwara-choa-sahib.ur.md.bak_ur1 and were replaced in order; the result is byte for byte identical to the current gurdwara-choa-sahib.ur.md (17 changes, identical True). Nothing else moved.
+2. Checker: `python3 pipeline/book_queue/check_public_description.py gurdwara-choa-sahib --no-verdicts` printed `ok    gurdwara-choa-sahib  team 29487 -> public 14722 chars (0.50), Urdu 14207 chars (0.97)`. No Latin letters, no em or en dashes, asterisks balanced (46).
+3. Each change checked against the English:
+   - 1 (Mardana, snare of devotion): عقیدت کا اسیر بنا لیتے keeps the capture of "drew people into the snare of devotion". The adaptation is right: V3's راہ پر لے آتے would have lost the image and read as reforming people.
+   - 2 (Guru Granth Sahib): every element kept: the Sikh scripture, the Gurus' spiritual poetry, "other spiritual teachers such as Bhagat Kabir, Baba Farid and Bhai Mardana", and with خود the point that Mardana's own poetry stands there. The adaptation is right: V3's fix had dropped Mardana from the English list.
+   - 3 (Iqbal Qaiser): "made what he counted the most difficult of his journeys, to this gurdwara" is kept, and اس سفر کو now points to the journey, not to the gurdwara.
+   - 4 (whole pot of water): same meaning; بھر کر is how Urdu says "a pot of water" and adds no fact.
+   - 5 and 15 (بہتّر): seventy two, now unmistakable.
+   - 6 (2020): 2020 میں ... اپنے ذمے لے لیا matches "From 2020 ... undertook" (the undertaking began in 2020). The adaptation is right: لے رکھا ہے would assert that the work is still in hand today, which the English does not say.
+   - 7 (Baba Farid's shrine): the referent is now the English one.
+   - 8 (اداسی فقیروں): the Udasis are the fourth class of the dervishes, glossed as religious mendicants, so فقیر adds nothing new.
+   - 9 (Babur Bani): "challenges the divinity of the Divine" kept as اس کی خدائی ہی کو للکارتے ہیں, under the same hedge (ایک تعبیر کے مطابق). اس reads as خدا, the nearest antecedent.
+   - 10 (lines in English translation): same meaning.
+   - 11 (founded): داغ بیل ڈالی matches "founded" and no longer clashes with Islam Shah completing the fort.
+   - 12 (Jhelum): the river takes the name Jhelum, as the English says.
+   - 13 (two minor raids by Babur): the referent is now Babur.
+   - 14 (Legacy, approach): round 1 issue 1 is fixed in its own wording. The thorns and heat, and the dusk beside a forest said to be unsafe, now describe how visitors came, not a standing condition of access; the hedge کہا جاتا تھا is kept.
+   - 16 (gurdwaras built later): "the gurdwaras that devotees later built at the places where Nanak stayed still stand tall" is kept.
+   - 17 (true essence): "whether Nanak's legacy, in its true essence, is slowly disappearing" is kept as a question and with the same hedge.
+4. Round 1: V2 issue 1 is fixed, and notes 1, 2 and 3 are applied as proposed. No change adds, drops or alters a fact, name, number or hedge.

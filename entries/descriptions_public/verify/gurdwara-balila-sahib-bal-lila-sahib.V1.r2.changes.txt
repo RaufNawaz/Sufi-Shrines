@@ -1,0 +1,105 @@
+English round 2 changes (coordinator, by script) to entries/descriptions_public/gurdwara-balila-sahib-bal-lila-sahib.md: V1 round 1 issues and precision notes in V1's exact wording.
+
+[V1 r1 issue 1]
+OLD: Several people at Nankana Sahib felt that the PSGPC, the Pakistan Sikh Gurdwara Prabandhak Committee, was not representative of the Sikh community in Pakistan.
+NEW: Several people at Nankana Sahib felt that the PSGPC, the Pakistani committee, was not representative of the Sikh community in Pakistan.
+
+[V1 r1 issue 2]
+OLD: His poem on the sacred thread, the *janeu* that he refused as a boy, runs:
+
+*From the cotton of compassion, / Spin the thread of contentment*
+
+On the oneness of God he sang:
+
+*My Master is One / He is One, brother, the only One*
+
+And again:
+
+*God is One, / The Path is One*
+
+The *aarti*, the hymn sung as lamps are waved in worship, begins:
+
+*In the salver of the firmament, / The sun and the moon shine as lamps*
+
+Of washing he sang:
+
+*As hands or feet besmirched with slime, / Water washes white*
+
+And in another song:
+
+*The herons in their white feathers dwell in the sacred shrines of pilgrimage*
+
+A line of the *Babur Bani*, his verses on the invasion of Babur, dates the invaders' coming:
+
+*Coming in seventy-eight (1521 C.E)*
+
+The verse is sung beyond the gurdwaras.
+NEW: His poem on the sacred thread, the *janeu* that the stories say he refused as a boy, runs:
+
+*From the cotton of compassion, / Spin the thread of contentment*
+
+On the oneness of God he sang:
+
+*My Master is One / He is One, brother, the only One*
+
+And again:
+
+*God is One, / The Path is One*
+
+The *aarti*, the hymn sung as lamps are waved in worship, begins:
+
+*In the salver of the firmament, / The sun and the moon shine as lamps*
+
+Of washing he sang:
+
+*As hands or feet besmirched with slime, / Water washes white*
+
+And in another song:
+
+*The herons in their white feathers dwell in the sacred shrines of pilgrimage*
+
+A line of the *Babur Bani*, his verses on the invasion of Babur, dates the invaders' coming:
+
+*Coming in seventy-eight (1521 C.E)*
+
+The verse is sung beyond the gurdwaras.
+
+[V1 r1 minor a]
+OLD: Among them were Surjeet and Udam, whose families had moved to Nankana a few years before and who spoke Urdu with a Pashto accent. Surjeet spoke of a cricket tournament arranged for the first time for the birthday of Guru Gobind Singh, and at one time he explained that the gurdwara was under renovation.
+
+Several people at Nankana Sahib felt that the PSGPC, the Pakistani committee, was not representative of the Sikh community in Pakistan.
+NEW: Surjeet and Udam, whose families had moved to Nankana a few years before, spoke Urdu with a Pashto accent. Surjeet spoke of a cricket tournament arranged for the first time for the birthday of Guru Gobind Singh, and at one time he explained that the gurdwara was under renovation.
+
+Several people at Nankana Sahib felt that the PSGPC, the Pakistani committee, was not representative of the Sikh community in Pakistan.
+
+[V1 r1 minor b]
+OLD: Accounts of how many he made differ, but they lasted more than twenty years, and he travelled mostly on foot. Wherever he went he visited the religious shrines of the place, Muslim, Hindu or of any other denomination, and people came from every land in great numbers to become his disciples.
+
+He came home between his journeys.
+NEW: Accounts differ on how many journeys he made, but together they lasted more than twenty years, and he travelled mostly on foot. Wherever he went he visited the religious shrines of the place, Muslim, Hindu or of any other denomination, and people came from every land in great numbers to become his disciples.
+
+He came home between his journeys.
+
+[V1 r1 minor c]
+OLD: Nanak himself is held to have abhorred the association of miracles with religious personalities, yet the stories of his life are full of them.
+
+He spent a major portion of his life in what is today Pakistan: he was born there, and he eventually settled in a small village on the Pakistani side of the border.
+NEW: Nanak himself is held to have abhorred the association of miracles with religious personalities, though the stories told of his life are full of them.
+
+He spent a major portion of his life in what is today Pakistan: he was born there, and he eventually settled in a small village on the Pakistani side of the border.
+
+[V1 r1 minor d]
+OLD: The young Nanak used to spend a lot of time on the mound in conversation with the yogis, *sadhus* and dervishes who passed through Talwandi, and it is believed that he began to frequent it in the six or seven years between the *Sacha Sauda* and his move to Sultanpur.
+NEW: The young Nanak is said to have spent a lot of time on the mound in conversation with the yogis, *sadhus* and dervishes who passed through Talwandi, and it is believed that he began to frequent it in the six or seven years between the *Sacha Sauda* and his move to Sultanpur.
+
+[V1 r1 minor e]
+OLD: In 2005 Nankana Sahib was separated from Sheikhupura and made an independent district, with the city as its headquarters, and the city had a population of over a million. Guru Nanak was celebrated all over Nankana Sahib: there were a Guru Nanak High School, a Guru Nanak grocery store and a Guru Nanak cloth shop, all run by Sikhs, while the town's Muslims generally refrained from honouring Guru Nanak in this way.
+
+## Legacy
+
+Where other shrines mark the Guru's teachings, his travels or the sacrifices of the martyrs, Bal Lila Sahib, with its field and its tank, commemorates that the founder of the faith was once a child at play on this ground, and that even then, in the telling of the Panth, the light within him was already shining.
+NEW: In 2005 Nankana Sahib was separated from Sheikhupura and made an independent district, with the city as its headquarters. The city had a population of over a million. Guru Nanak was celebrated all over Nankana Sahib: there were a Guru Nanak High School, a Guru Nanak grocery store and a Guru Nanak cloth shop, all run by Sikhs, while the town's Muslims generally refrained from honouring Guru Nanak in this way.
+
+## Legacy
+
+Where other shrines mark the Guru's teachings, his travels or the sacrifices of the martyrs, Bal Lila Sahib, with its field and its tank, commemorates that the founder of the faith was once a child at play on this ground, and that even then, in the telling of the Panth, the light within him was already shining.

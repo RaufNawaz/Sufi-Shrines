@@ -1,0 +1,58 @@
+VERDICT: FAIL
+ISSUES:
+1. [unidiomatic collocation / contradiction] "وسیع زمین خالی پڑی تھی اور اس پر کاشت کاری ہوتی تھی" -> land that "lies empty" cannot at the same time be under cultivation; خالی پڑی reads as vacant, unused land. The intended sense is open, unbuilt land -> corrected sentence:
+OLD: گوردوارے کے دونوں جانب وسیع زمین خالی پڑی تھی اور اس پر کاشت کاری ہوتی تھی؛ وہاں ایک ٹریکٹر تھا اور کسانوں کے استعمال کی یک منزلہ عمارت بھی تھی۔
+NEW: گوردوارے کے دونوں جانب وسیع کھلی زمین تھی جس پر کاشت کاری ہوتی تھی؛ وہاں ایک ٹریکٹر تھا اور کسانوں کے استعمال کی یک منزلہ عمارت بھی تھی۔
+
+2. [agreement / ambiguous pronoun] "ہاتھ رکھتے اور پھر اسے اپنے چہرے پر پھیرتے" -> ہاتھ here is plural (رکھتے), so the singular اسے does not agree and grammatically points back to آگ (people passing the fire over their faces); also آگ کے اوپر ہاتھ رکھنا suggests putting the hand on the flame -> corrected sentence:
+OLD: لوگ آگ کے اوپر ہاتھ رکھتے اور پھر اسے اپنے چہرے پر پھیرتے۔
+NEW: لوگ آگ کے اوپر ہاتھ لے جاتے اور پھر انہیں اپنے چہرے پر پھیرتے۔
+
+3. [calque] "سکھ ضمیر کو عزیز ایک سبق" -> literal rendering of "dear to the Sikh conscience"; ضمیر does not hold things dear in Urdu, and the prenominal participle phrase is English word order -> corrected sentence:
+OLD: تمبو صاحب کا خیمہ نما درخت سکھ ضمیر کو عزیز ایک سبق اپنے دامن میں لیے ہوئے ہے: دولت کا سب سے سچا مصرف دوسروں کی خدمت ہے، اور یہی سچے سودے کا اصول ہے۔
+NEW: تمبو صاحب کا خیمہ نما درخت ایک ایسا سبق اپنے دامن میں لیے ہوئے ہے جو سکھوں کو بہت عزیز ہے: دولت کا سب سے سچا مصرف دوسروں کی خدمت ہے، اور یہی سچے سودے کا اصول ہے۔
+
+4. [unidiomatic genitive] "بیرونِ ملک بسے سکھوں کے یاتری" -> "the pilgrims of the Sikhs settled abroad" is a calque of "diaspora pilgrims"; the pilgrims are themselves the Sikhs settled abroad -> corrected sentence:
+OLD: یہیں بیرونِ ملک بسے سکھوں کے یاتری رات بسر کرتے ہیں، اور یہیں ان کے عطیات سے بنے ہال آج کھڑے ہیں۔
+NEW: یہیں بیرونِ ملک بسے سکھ یاتری رات بسر کرتے ہیں، اور یہیں ان کے عطیات سے بنے ہال آج کھڑے ہیں۔
+
+5. [ambiguous pronoun] "صوفیوں سے بھی جڑتا ہے، اور ان سے عقیدت" -> ان follows صوفیوں directly and first reads as devotion to the Sufis, not to Guru Nanak -> corrected sentence:
+OLD: گرو نانک کا رشتہ صوفیوں سے بھی جڑتا ہے، اور ان سے عقیدت سکھوں تک محدود نہیں۔
+NEW: گرو نانک کا رشتہ صوفیوں سے بھی جڑتا ہے، اور گرو سے عقیدت سکھوں تک محدود نہیں۔
+
+6. [tangled sentence] "یہ قبائلی علاقوں سے نقل مکانی کے سبب سکھ آبادی بڑھنے سے ممکن ہوا" -> two stacked causal markers (کے سبب ... سے) packed into one noun phrase; hard to parse -> corrected sentence:
+OLD: لوہڑی اور گرو گوبند سنگھ کا جنم دن منانے کا سلسلہ پچھلے دو ایک برس ہی میں شروع ہوا تھا، اور یہ قبائلی علاقوں سے نقل مکانی کے سبب سکھ آبادی بڑھنے سے ممکن ہوا۔
+NEW: لوہڑی اور گرو گوبند سنگھ کا جنم دن منانے کا سلسلہ پچھلے دو ایک برس ہی میں شروع ہوا تھا، اور یہ اس لیے ممکن ہوا کہ قبائلی علاقوں سے نقل مکانی کے باعث سکھوں کی آبادی بڑھ گئی تھی۔
+
+7. [English sentence structure] "اور یہ تہوار گرو نانک کا جنم دن ہے، جو" -> a translated "which is" clause bolted on with اور یہ; the festival is named only after it has been referred to, and the sentence trails off in a chain of clauses -> corrected sentence:
+OLD: سکھ یاتری ان میں پاکستان کے سب سے بڑے سکھ تہوار کے موقع پر ٹھہرتے ہیں، اور یہ تہوار گرو نانک کا جنم دن ہے، جو ہر سال نومبر میں منایا جاتا ہے۔
+NEW: سکھ یاتری ان میں گرو نانک کے جنم دن کے موقع پر ٹھہرتے ہیں، جو پاکستان میں سکھوں کا سب سے بڑا تہوار ہے اور ہر سال نومبر میں منایا جاتا ہے۔
+
+8. [tense clash in relative clause] "گاؤں تھا، جو ... واقع ہے" -> the relative جو attaches to گاؤں (past) but carries a present-tense location, which jars -> corrected sentence:
+OLD: ننکانہ صاحب کبھی تلونڈی نام کا گاؤں تھا، جو لاہور سے تقریباً چالیس میل جنوب مغرب میں واقع ہے۔
+NEW: لاہور سے تقریباً چالیس میل جنوب مغرب میں واقع ننکانہ صاحب کبھی تلونڈی نام کا گاؤں تھا۔
+
+9. [calque] "بیس سے تیس نسخوں کے درمیان" -> "between twenty and thirty copies" rendered literally; Urdu gives the range directly -> corrected sentence:
+OLD: اقبال قیصر کا کہنا تھا کہ سال بھر میں بس یہی موقع ہوتا ہے جب ان کی کتاب بکتی ہے، اور وہ بھی بیس سے تیس نسخوں کے درمیان۔
+NEW: اقبال قیصر کا کہنا تھا کہ سال بھر میں بس یہی موقع ہوتا ہے جب ان کی کتاب بکتی ہے، اور وہ بھی محض بیس سے تیس نسخے۔
+
+10. [English sentence structure] "؛ ان کی عمر اس وقت اٹھاون برس تھی" -> the age ("then 58") is tacked on as a separate clause; Urdu puts it before the name, as the article itself does with پینتیس سالہ کانسٹیبل -> corrected sentence:
+OLD: اس اسٹال پر اقبال قیصر اپنی کتاب ہسٹاریکل سکھ شرائنز ان پاکستان فروخت کر رہے تھے؛ ان کی عمر اس وقت اٹھاون برس تھی۔
+NEW: اس اسٹال پر اٹھاون سالہ اقبال قیصر اپنی کتاب ہسٹاریکل سکھ شرائنز ان پاکستان فروخت کر رہے تھے۔
+
+11. [number agreement] "مذہبی اداروں کے سربراہ" -> a single سربراہ of plural ادارے reads as one man heading several institutions; a gloss defines the office generically -> corrected sentence:
+OLD: مہنت مذہبی اداروں کے سربراہ کو کہتے ہیں۔
+NEW: مہنت کسی مذہبی ادارے کے سربراہ کو کہتے ہیں۔
+
+NOTES:
+- Repetition: the last sentence of the introduction (یاتری منت کے طور پر درخت کی شاخوں پر کپڑے کی دھجیاں باندھتے ہیں) is repeated almost word for word at the start of عقیدت اور تہوار. Acceptable as a summary-then-detail pattern, but the second could be reworded, e.g. یہاں کی عقیدت کا مرکز یہی درخت ہے، جس کی شاخوں پر یاتری منت مان کر کپڑے کی دھجیاں باندھتے ہیں۔
+- The gloss of مہنت comes three sentences after its first use (انہوں نے *مہنت* کو موردِ الزام ٹھہرایا). Moving the definition up would read better.
+- رکھنا three times in two sentences (رکھا گیا ہے / رکھا جاتا ہے / رکھی ہیں) in the description of the main hall; e.g. گرو گرنتھ صاحب براجمان ہے would vary it.
+- یہ مالجی صاحب کے بھی قریب ہے repeats مالجی صاحب from the sentence just before; harmless but redundant.
+- لنگر ہال تھا جہاں لنگر چلتا ہے: the relative clause glosses the obvious and switches tense (تھا / چلتا ہے).
+- ہر شخص نے اس کا ٹکڑا درخت سے باندھا would read more naturally as اس کا ایک ٹکڑا.
+- *آرتی* کے گرد دائرے میں موم بتیاں بلند کی گئیں is hard to picture; if the sense is lamps waved in a circle, گھمائی گئیں would be clearer, but I have not changed it because the underlying action is not certain from the Urdu alone.
+- ایک ملاقات کے موقع پر leaves open whose meeting it was; ایک بار جب ان سے ملاقات ہوئی would be clearer.
+- Minor: حفاظتی گارڈ is a hybrid (محافظ or سکیورٹی گارڈ are more usual); بڑے یادگاری دنوں پر could be بڑے یادگاری دنوں کے موقع پر; آدی گرنتھ کے حصے کے طور پر is a mild "as part of" calque (آدی گرنتھ میں شامل کر کے); دھونے کے بارے میں انہوں نے گایا is flat; اپنے مرشد in پیروکاروں کی عبادت کا محور اپنے مرشد کا کلام is a loose reflexive (strictly ان کے مرشد); the ساکھی gloss is given twice (سچا سودا and گرو نانک sections).
+- Mixed tenses (present for the tree and buildings, past for the visit observations) appear deliberate, reflecting dated eyewitness reports, and are left alone.
+- Verse paragraphs, asterisks (balanced), Western digits and Urdu punctuation are in order; no Latin letters or dashes found.

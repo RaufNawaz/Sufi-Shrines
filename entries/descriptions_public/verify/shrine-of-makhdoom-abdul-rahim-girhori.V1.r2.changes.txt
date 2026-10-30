@@ -1,0 +1,17 @@
+# shrine-of-makhdoom-abdul-rahim-girhori: English changes after V1 round 1 (FAIL, 1 issue). Issue 1 applied in the verifier's wording; precision notes 1 to 3 applied (note 1 in the second of its two wordings, which keeps the judgement a judgement); notes 4 onward are checks and need no change. Backup: /home/claude/bak/shrine-of-makhdoom-abdul-rahim-girhori.before_v1r2.md
+
+WHY: V1 r1 issue 1 (unsupported claim: 'often' is Shah Abdul Latif's usage, and one saying is attested); verifier's wording
+OLD: Like Shah Abdul Latif, he often called the perfect mystics Kapari, Yogis, a special group of Sanyasin, or Hindu renunciants.
+NEW: In one saying he called the perfect mystics Kapari, that is Yogis, a special group of Sanyasin, or Hindu renunciants, as Shah Abdul Latif often did.
+
+WHY: V1 r1 note 1 (certainty: the team version marks this as a judgement); verifier's second wording
+OLD: The finest of them is his rhymed commentary
+NEW: Perhaps the finest of them is his rhymed commentary
+
+WHY: V1 r1 note 2 (loose 'however' after the 1956 edition sentence); verifier's wording
+OLD: It would be wrong, however, to regard Girhori as a typical exponent of Sindhi Sufism.
+NEW: For all his militant zeal, it would be wrong to regard Girhori as a typical exponent of Sindhi Sufism.
+
+WHY: V1 r1 note 3 (referent: 'it' had lost its antecedent); verifier's wording
+OLD: In this Girhori and Mir Dard stand on one side, and Shah Abdul Latif outside it.
+NEW: In this view of the Prophet, Girhori and Mir Dard stand together, and Shah Abdul Latif stands apart from them.
