@@ -227,6 +227,187 @@ a four-lead fixture in the merged schema:
 
 **Not checked:** the real `merged_leads.json`, which did not exist yet, and WebKit.
 
+### Test a conjecture (added 30 October 2026)
+
+A **Test a conjecture** button in the header opens a drawer (480 px on the right; full width on a
+phone). It exists so that a pattern noticed on the map can be stated, then tested, without leaving
+the page. Everything is computed in the browser from the embedded data; nothing is sent anywhere.
+
+**The workflow.**
+
+1. **State it.** Write the conjecture in words. Choose the unit and an outcome: any indicator, or
+   an archive variable (`n_site`, `n_mus`, `n_mus_pre1857`, `sites_per_million`,
+   `sites_per_1000km2`; the last two are not in the catalog and are labelled in the page). Then
+   choose one or more explanatory variables, each with the **sign you expect** (+, − or "no
+   prediction"), and any controls. Each variable can be taken as is, as log(1+x), standardised
+   (z), or log(1+x) then z. The page **refuses to run until every explanatory variable has a stated
+   sign**. The spec is timestamped before the numbers are computed, which makes this a light
+   pre-registration. The drawer opens prefilled from the map: in One measure, the indicator is the
+   outcome and the side panel's archive measure is the explanatory variable; in Compare two, "up"
+   is regressed on "across"; in Composite, the first indicator is the outcome and the rest are
+   controls. **Start from the map** refills it.
+2. **Test it.** **Record and test** runs, at the chosen unit:
+   - OLS, or Poisson when the outcome is a count;
+   - Pearson and Spearman correlations, each with a permutation p;
+   - Moran's I of the residuals;
+   - a residual-against-fitted plot.
+
+   **Show residuals on the map** draws the residuals on the main map with a diverging scale, and
+   the hover tooltip and card show each unit's residual, observed and fitted values. **Back to the
+   indicator map** (in the legend) or any change of indicator, mode or unit returns to the
+   indicators. **Same test at every unit** re-runs the identical spec at every unit where all its
+   variables exist and shows the runs side by side. If a variable is missing at a unit, that row
+   says why.
+3. **Keep it.** Every run, the unit re-runs included, is appended to a log. The log is saved in
+   `localStorage` (key `shrines_viewer_conjectures_v1`, wrapped in try/catch; if storage is
+   blocked the page says the log will not be kept). It can be exported as:
+   - **CSV**, one row per explanatory variable;
+   - **Markdown**;
+   - **JSON**, carrying every spec and the full log.
+
+   **Re-run a JSON spec…** takes one spec, an array of specs, or a whole export, and re-runs and
+   re-logs each one with identical numbers (all randomness is seeded). **Download data** writes
+   the analysis-ready table for the drawer's unit, `shrines_<unit>.csv`. It holds the id, the name
+   and the parent admin codes and names (for a hexagon: its H3 index, its centre, and the tehsil,
+   district and province holding that centre), then every column in the data at that unit. Under
+   each result, **Replicate in Stata or R** gives code that reads that CSV and runs the same
+   specification.
+
+**Exported findings belong in the repository** (for example `docs/research/`), not only in a
+browser's storage or a Downloads folder: RULE 0. The Markdown export ends with that line.
+
+**Estimators** (n units in the fit, k coefficients including the intercept, x_i the i-th row of X):
+
+- **Sample.** Listwise deletion: a unit is left out if it is missing any variable (or the
+  exposure), or if a transform or the model is undefined there (log(1+x) of x ≤ −1, exposure ≤ 0,
+  or a negative or non-integer Poisson count). z-scores use the mean and the n−1 standard
+  deviation of the units that remain. The result states both counts.
+- **OLS.** β̂ = (X′X)⁻¹X′y, computed by Householder QR of X after scaling each column to unit
+  length; X′X is never inverted directly.
+  - The design is refused if a diagonal of R is ≤ 1e-10, or if the 1-norm condition number of
+    the scaled X is ≥ 1e12; the message names the collinear term. Above 1e7, the result is marked
+    unstable.
+  - Classical: V = s²(X′X)⁻¹, with s² = e′e/(n−k).
+  - **HC1** (the default): V = n/(n−k) · (X′X)⁻¹ (Σ eᵢ² xᵢxᵢ′) (X′X)⁻¹. This is Stata's
+    `regress, vce(robust)`, and R's `vcovHC(type = "HC1")`.
+  - Inference: t on n−k df, with the 95% CI β̂ ± t₀.₉₇₅ · SE.
+  - Fit: R² and adjusted R².
+  - Joint robust Wald test of all slopes: F = b′V⁻¹b/q on (q, n−k).
+- **Poisson** (outcome `n_*` only), log link, optional exposure as the offset log(population).
+  Exposure is `pop2023` (census, tehsil and district) or `pop_kontur_2023` (Kontur, all units),
+  whichever exists at the unit; no other population is invented.
+  - Fitted by IRLS: weights μ, working response η − offset + (y − μ)/μ, and each step a weighted
+    QR solve.
+  - Started from μ = y + 0.5. It stops when the deviance changes by less than 1e-12 relative, or
+    reports non-convergence after 100 iterations.
+  - Robust (sandwich) covariance: V = n/(n−1) · B (Σ (yᵢ − μᵢ)² xᵢxᵢ′) B, with B = (X′WX)⁻¹ at
+    the final μ. This is Stata's `poisson, vce(robust)`; the R code multiplies `vcovHC(type =
+    "HC0")` by n/(n−1) to match.
+  - Inference: z, normal. The table also shows exp(β), the rate ratio.
+  - Fit:
+    - McFadden pseudo-R² = 1 − LL/LL₀. LL₀ is the intercept-only model with the same offset.
+    - Pearson dispersion Σ((y − μ)²/μ)/(n − k). Above 1.5 the page notes that only the robust
+      SEs allow for it.
+  - Joint robust Wald test: χ²(q).
+- **Correlations.** Pearson r and Spearman ρ (mid-ranks) between the outcome and each regressor,
+  on the same units and transforms as the regression.
+  - Two-sided permutation p = (1 + #{|r*| ≥ |r|}) / (1 + R), with R = 2,000 shuffles of the
+    outcome.
+  - The same shuffles serve every regressor and both coefficients.
+- **Moran's I of the residuals.** OLS uses the residuals; Poisson uses Pearson residuals. Both
+  are centred, as z.
+  - I = (n/S₀) · Σᵢ zᵢ · mean_{j∈N(i)} zⱼ / Σᵢ zᵢ². The weights are row-standardised, N(i) is
+    restricted to units in the fit, and S₀ is the number of units with at least one neighbour.
+    Isolates are counted and reported.
+  - Neighbours:
+    - **contiguity**: polygons sharing a boundary point, holes included. Without the holes,
+      Faisalabad City and Multan City tehsils, which are enclosed, had no neighbours. The
+      simplified boundaries share vertices exactly: every district has a neighbour, with 5.1 on
+      average.
+    - **k nearest centroids** (k = 6 by default): area-weighted polygon centroids, distance on
+      (lon · cos 30°, lat), ties broken by index.
+    - **H3 ring-1 neighbours** for hexagons, always: kNN over 19,000 cells is too slow in a page,
+      and for an interior hexagon the ring is exactly its 6 nearest centres.
+  - Expected value: for OLS, E[I] = (n/S₀) · tr(MW)/(n−k), with tr(MW) = −tr((X′X)⁻¹X′WX).
+    Poisson uses −1/(n−1).
+  - p is a permutation pseudo-p from 999 shuffles, one-sided in the direction of the observed I
+    against the permutation mean, as PySAL's `p_sim`.
+  - The page says in plain words when the residuals are positively autocorrelated (p < 0.05): the
+    SEs are likely too small.
+- **Benjamini–Hochberg** across the log. The family is every explanatory-variable test in the log,
+  unit re-runs included. With robust p sorted p₍₁₎ ≤ … ≤ p₍ₘ₎, the adjusted p₍ᵢ₎ =
+  min over j ≥ i of min(1, m·p₍ⱼ₎/j).
+- **Distributions.** jStat 1.9.6 from cdnjs supplies the t, normal, F and χ² functions. The page
+  works without it, and says that p-values need it.
+- **Randomness.** The permutations come from mulberry32 seeded with 20261030 (Moran: seed + 1). The
+  seed and the counts are in the spec, so a re-run reproduces every permutation p.
+
+**Caveats, shown where results are shown** (briefly, under every result):
+
+- **Multiple testing.** The note counts the tests run this session and in the log, and the BH
+  column adjusts for all of them.
+- **Ecological inference.** The associations are among units, not people or shrines, and nothing
+  here shows what causes what. The wording is never causal: the browser test fails on "effect",
+  "impact", "leads to" or "drives" in a result.
+- **Curated archive.** Whenever an archive variable is used, the note says the archive is not a
+  census.
+- **Pre-1857.** Whenever `n_mus_pre1857` is used, the note adds that 25 of 80 Muslim shrines have
+  no numeric year and count as not pre-1857 (see "Caveats" above).
+- **Sign.** The pre-stated sign is compared with the estimate. If p ≥ 0.05, the note adds that
+  the data do not tell the estimate apart from zero.
+- **Units.** The unit table flags runs on fewer than 30 units (a province run has n = 7), and says
+  that a raw coefficient may not compare across units.
+
+**Verified on 30 October 2026, in Chromium (Playwright, file://).**
+`pipeline/gis/viewer/tests/test_conjecture.cjs`: every check passes.
+
+- **Model runs:**
+  - OLS at district level: literacy ~ log(1+`n_mus_pre1857`) + night lights, n = 135, with 25
+    districts left out for a missing value.
+  - Poisson on `n_site` with census exposure: 6 IRLS iterations.
+  - Tehsil OLS with 6-nearest-centroid weights.
+  - The same test at all four units, logged as re-runs.
+  - In the browser, the H3 ring equals the 6 nearest centres for 231 sampled interior hexagons.
+- **Residual map:** all 577 tehsils coloured, with the hover and the card.
+- **Exports and downloads:**
+  - CSV, Markdown and JSON exports.
+  - Data downloads: tehsil 577 rows × 108 columns; district 160 rows, with Lahore's literacy and
+    province matching the data; hexagon 19,197 rows in about 0.6 s.
+  - The log survives a reload. A JSON re-run reproduces every number byte for byte.
+- **Drawer and page:**
+  - With storage blocked, the page still runs and says so.
+  - Esc closes the drawer, and focus returns to its button.
+  - At 390 px, light and dark, there is no sideways scroll and every control is at least 44 px.
+  - No console errors.
+  - The existing viewer checks still pass. Two hexagon checks fail with leads on, as they do
+    against the committed page: the known marker artefact.
+- **Independent reference:** `pipeline/gis/viewer/tests/check_conjecture_reference.py` (standard
+  library; numpy is not installed here) reads the data from `index.html` itself. It recomputes
+  the page's exported log with different algorithms: Gauss–Jordan normal equations for OLS,
+  Newton–Raphson for Poisson, and its own incomplete beta and gamma. It covers all six runs above,
+  district, tehsil, hexagon and province.
+  - Largest differences:
+    - coefficients 1.6e-13 relative, robust SEs 1.8e-12, classical 6.4e-13;
+    - Wald statistics 2.5e-12;
+    - Moran's I 1.3e-15 and E[I] 8.8e-15;
+    - R² 3e-13 absolute;
+    - Poisson log-likelihood and pseudo-R² ~1e-15.
+  - Every permutation p-value (Pearson, Spearman, Moran) and every n is **identical**: the
+    reference ports the seeded generator.
+  - p-values differ by up to 8e-8 absolute, and CI bounds by 5e-7 relative. That difference is
+    **jStat's**: its two-sided t p at t = 2 on 10 df is 7.6e-11 from the exact 0.0733880347707,
+    and its 0.975 quantile on 10 df is 9.5e-9 from 2.228138851986; the reference matches both to
+    1e-14. The tolerance is set at 1e-6, and the page shows four decimals.
+
+**Not verified:**
+
+- The Stata and R code has not been run, because neither is on this machine.
+  - In particular, the Stata lines for the five variable names longer than 32 characters
+    (`share_pop_within_60min_walk_health` and four others) assume that `import delimited` keeps
+    the original header as the variable label.
+- Moran's I at hexagon level against an outside implementation: the reference has no h3.
+- WebKit.
+
 ## Welfare layers (added 16 October 2026)
 
 `pipeline/gis/welfare/`. Every source, its licence and its URL are in `sources.tsv`; every file's

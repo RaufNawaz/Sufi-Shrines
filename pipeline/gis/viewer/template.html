@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/h3-js@4.1.0/dist/h3-js.umd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako_inflate.min.js"></script>
+    <!-- t, normal, F and chi-squared distributions for "Test a conjecture". The page works without it. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.9.6/jstat.min.js"></script>
     <style>
       :root {
         --bg: #f6f7f9;
@@ -427,6 +429,174 @@
       .leaflet-popup-content {
         font-size: 12px;
       }
+      /* ---- Test a conjecture: a drawer over the right of the page, full width on a phone. */
+      .btn {
+        font: inherit;
+        min-height: 44px;
+        padding: 6px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--text);
+        cursor: pointer;
+      }
+      .btn.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--panel);
+      }
+      .btn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      button:focus-visible,
+      select:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible,
+      summary:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      #cj {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 480px;
+        max-width: 100%;
+        z-index: 1200;
+        background: var(--panel);
+        color: var(--text);
+        border-left: 1px solid var(--line);
+        box-shadow: -8px 0 24px var(--shadow);
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0 16px 24px;
+      }
+      #cj .cjhead {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: var(--panel);
+        margin: 0 -16px 8px;
+        padding: 4px 4px 4px 16px;
+        border-bottom: 1px solid var(--line);
+      }
+      #cj h2 {
+        font-size: 16px;
+        margin: 0;
+      }
+      #cj h3 {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+        margin: 20px 0 6px;
+        font-weight: 600;
+      }
+      #cj .fld {
+        display: block;
+        margin: 10px 0;
+      }
+      #cj .fld > .lbl {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      #cj textarea {
+        width: 100%;
+        font: inherit;
+        padding: 6px 8px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--text);
+        resize: vertical;
+      }
+      #cj textarea.code {
+        font:
+          12px/1.4 ui-monospace,
+          SFMono-Regular,
+          Consolas,
+          monospace;
+      }
+      #cj select,
+      #cj input[type='search'] {
+        width: 100%;
+        max-width: 100%;
+      }
+      #cj input[type='number'] {
+        font: inherit;
+        min-height: 44px;
+        width: 5em;
+        padding: 6px 8px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--text);
+      }
+      #cj .cjrow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 6px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 4px 4px 4px 10px;
+        margin-bottom: 6px;
+      }
+      #cj .cjrow .lab {
+        flex: 1 1 calc(100% - 52px);
+        min-width: 0;
+        overflow-wrap: anywhere;
+        font-size: 13px;
+      }
+      #cj .cjrow select {
+        flex: 1 1 150px;
+        width: auto;
+        min-width: 0;
+      }
+      .cjbtns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 8px 0;
+      }
+      .scroll {
+        overflow-x: auto;
+        max-width: 100%;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      .match {
+        color: var(--pass);
+      }
+      .opp {
+        color: var(--fail);
+      }
+      #cjMsg:empty {
+        display: none;
+      }
+      #cjMsg {
+        color: var(--warn);
+        font-size: 13px;
+        margin: 6px 0;
+      }
+      #cjOut {
+        scroll-margin-top: 56px;
+      }
+      #cjRvf {
+        max-width: 100%;
+        height: auto;
+      }
       @media (max-width: 820px) {
         #find {
           flex: 1 1 120px;
@@ -471,6 +641,15 @@
         <label class="chk" id="leadsInWrap" hidden
           ><input type="checkbox" id="showLeadsIn" /> include places already in the archive</label
         >
+        <button
+          id="cjOpen"
+          class="btn primary"
+          type="button"
+          aria-expanded="false"
+          aria-controls="cj"
+        >
+          Test a conjecture
+        </button>
         <div id="notice" role="status" aria-live="polite"></div>
       </header>
       <div id="mapwrap">
@@ -513,6 +692,61 @@
         </details>
       </aside>
     </div>
+    <section id="cj" role="dialog" aria-modal="false" aria-labelledby="cjTitle" hidden>
+      <div class="cjhead">
+        <h2 id="cjTitle" tabindex="-1">Test a conjecture</h2>
+        <button class="iconbtn" id="cjClose" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="def">
+        Say what you expect before you look. The statement, the sign you expect and the
+        specification are recorded first; the numbers are computed after.
+      </div>
+      <div class="cjbtns">
+        <button class="btn" id="cjPrefill" type="button">Start from the map</button>
+      </div>
+      <label class="fld"
+        ><span class="lbl">The conjecture, in words</span
+        ><textarea
+          id="cjText"
+          rows="3"
+          placeholder="e.g. districts with more pre-1857 Muslim shrines have higher literacy, controlling for night lights"
+        ></textarea>
+      </label>
+      <div class="fld">
+        <span class="lbl">Unit</span>
+        <div class="seg" id="cjUnits" role="group" aria-label="Unit of analysis"></div>
+      </div>
+      <input
+        id="cjFind"
+        type="search"
+        placeholder="Filter the variable menus"
+        aria-label="Filter the variable menus"
+      />
+      <div class="fld">
+        <span class="lbl">Outcome</span>
+        <div id="cjY"></div>
+      </div>
+      <div class="fld">
+        <span class="lbl">Explanatory variables, each with the sign you expect</span>
+        <div id="cjX"></div>
+      </div>
+      <div class="fld">
+        <span class="lbl">Controls (optional)</span>
+        <div id="cjC"></div>
+      </div>
+      <div class="fld">
+        <span class="lbl">Model</span>
+        <div class="seg" id="cjModel" role="group" aria-label="Model"></div>
+      </div>
+      <div id="cjOpts"></div>
+      <div class="cjbtns">
+        <button class="btn primary" id="cjRun" type="button">Record and test</button>
+      </div>
+      <div id="cjMsg" role="status" aria-live="polite"></div>
+      <div id="cjOut"></div>
+      <h3>Log</h3>
+      <div id="cjLog"></div>
+    </section>
     <script>
       // build_viewer.py (or rebuild_from_embedded.py) embeds the data gzipped and base64-encoded.
       const D = JSON.parse(
@@ -612,7 +846,8 @@
         mode = 'single',
         sel = ['literacy'],
         ykey = 'sites_per_million',
-        V = null; // the current view: kind, keys, per-feature values and colours
+        V = null, // the current view: kind, keys, per-feature values and colours
+        RESID = null; // residuals of a tested conjecture, drawn instead of the indicators (see below)
 
       // ---- geometry -----------------------------------------------------------------------------
       function bboxOf(g) {
@@ -812,6 +1047,7 @@
         return v.length ? [v[Math.floor(v.length / 3)], v[Math.floor((2 * v.length) / 3)]] : [];
       }
       function computeView(fs) {
+        if (RESID && RESID.unit === unit) return residView(fs);
         const k = viewKind(),
           vals = Object.fromEntries(k.keys.map((key) => [key, fs.map((f) => f.p[key])])),
           W = { ...k, vals, col: new Array(fs.length).fill(null) };
@@ -975,6 +1211,8 @@
       }
       function valueLines(i) {
         if (V.kind === 'none') return '';
+        if (V.kind === 'resid')
+          return `<div class="v">${ok(V.res[i]) ? 'Residual: ' + V.res[i].toFixed(2) + ' SD' : 'Not in the fit'}</div>`;
         if (V.kind === 'comp')
           return `<div class="v">Composite: ${ok(V.comp[i]) ? V.comp[i].toFixed(0) + ' / 100' : 'not every component'}</div>`;
         return V.keys
@@ -1145,6 +1383,14 @@
         let html = `<button class="iconbtn" type="button" aria-label="Close">×</button>
           <div class="crumbs">${esc(UNITS.find((u) => u[0] === unit)[1])}${h.map((x) => ' · ' + esc(x[0]) + ' ' + esc(x[1])).join('')}</div>
           <h3 id="cardTitle">${esc(title)}</h3>`;
+        if (V.kind === 'resid') {
+          const j = RESID.pos.get(i);
+          html +=
+            j == null
+              ? `<div class="row def">Left out of test #${RESID.id}: a value is missing or not valid for the model.</div>`
+              : `<div class="row"><div>Residual of test #${RESID.id}</div><div class="val">${RESID.std[j].toFixed(2)} SD</div>
+            <div class="def">${esc(RESID.ylab)}: observed ${fmt(RESID.obs[j])}, fitted ${fmt(RESID.fit[j])}</div></div>`;
+        }
         if (V.kind === 'comp') {
           const r = rankOf(V.comp, i);
           html += `<div class="row"><div>Composite (unweighted rank average of ${V.keys.length})</div>
@@ -1225,6 +1471,27 @@
       // ---- legend and panel ---------------------------------------------------------------------
       function legend() {
         const el = $('legend');
+        if (V.kind === 'resid') {
+          const lab = [
+            'below −2.5',
+            '−2.5 to −1.5',
+            '−1.5 to −0.5',
+            '−0.5 to 0.5',
+            '0.5 to 1.5',
+            '1.5 to 2.5',
+            'above 2.5',
+          ];
+          el.innerHTML =
+            DIV.map((c, i) => `<div><i style="background:${c}"></i>${lab[i]} SD</div>`).join('') +
+            `<div><i style="background:#ccc;opacity:.4"></i>not in the fit</div>
+            <div class="def">Observed minus fitted${RESID.model === 'poisson' ? ' (Pearson residuals)' : ''}, in standard deviations of the residuals. Blue: higher than the model predicts; red: lower.</div>
+            <div class="cjbtns"><button class="btn" type="button" id="residOff">Back to the indicator map</button></div>`;
+          $('residOff').onclick = () => {
+            RESID = null;
+            draw();
+          };
+          return;
+        }
         if (V.kind === 'none') {
           el.innerHTML = `<div><i style="background:transparent;border-color:#3b4252"></i>${esc(UNITS.find((u) => u[0] === unit)[1])} boundaries</div><div class="def">No welfare measure is shown. Hover or click a ${UNIT1[unit]} for its sites and leads.</div>`;
           return;
@@ -1305,6 +1572,16 @@
           svg = $('scatter'),
           name = (f) => (f.hex ? f.id : f.name);
         const keys = V.keys;
+        if (V.kind === 'resid') {
+          $('titleHead').textContent = 'Residuals';
+          T.textContent = `Test #${RESID.id}: ${RESID.ylab}`;
+          Df.textContent = RESID.desc;
+          F.innerHTML = '';
+          $('yrow').innerHTML = '';
+          corr.innerHTML = `<div class="def">${esc(RESID.moranText)}</div>`;
+          svg.innerHTML = '';
+          return;
+        }
         $('titleHead').textContent =
           V.kind === 'comp' ? 'Composite' : V.kind === 'bi' ? 'Two indicators' : 'Indicator';
         F.innerHTML =
@@ -1520,6 +1797,7 @@
             : '';
           b.onclick = () => {
             unit = k;
+            RESID = null;
             clearSel();
             controls();
             draw();
@@ -1610,6 +1888,7 @@
       }
       function setMode(k) {
         let msg = '';
+        RESID = null;
         if (k === 'single' && sel.length > 1) {
           msg = `One measure keeps ${IND[sel[0]].label}.`;
           sel = sel.slice(0, 1);
@@ -1661,6 +1940,7 @@
       };
       function choose(k) {
         notice('');
+        RESID = null;
         if (!k) sel = [];
         else if (mode === 'single') sel = [k];
         else if (mode === 'bi') sel = sel.length >= 2 ? [sel[0], k] : [...sel, k];
@@ -1670,6 +1950,1702 @@
       $('ind').onchange = (e) => {
         if (e.target.value !== '__add') choose(e.target.value);
       };
+
+      // ---- test a conjecture: variables ---------------------------------------------------------
+      // A conjecture is stated (outcome, explanatory variables each with the sign expected, controls,
+      // unit, transforms), recorded, and only then tested: OLS with HC1 or classical SEs, Poisson by
+      // IRLS with sandwich SEs for a count, Pearson and Spearman with permutation p-values, Moran's I
+      // of the residuals, and the same specification at every other unit. GIS_FOUNDATION.md, "The
+      // viewer", gives every formula.
+      const CJ_EXTRA = {
+        n_mus_pre1857: {
+          label: 'Archive Muslim shrines with a numeric year before 1857',
+          group: 'Archive',
+        },
+        sites_per_1000km2: { label: 'Archive sites per 1,000 km²', group: 'Archive' },
+      };
+      const CJV = Object.fromEntries(
+        D.indicators.map((i) => [
+          i.key,
+          { key: i.key, label: i.label, group: i.group, units: i.units },
+        ]),
+      );
+      for (const [k, v] of Object.entries(CJ_EXTRA))
+        if (!CJV[k])
+          CJV[k] = {
+            key: k,
+            ...v,
+            units: UNITS.map((u) => u[0]).filter((u) =>
+              u === 'hex' ? D.hex.cols.includes(k) : D[u].features.some((f) => ok(f.properties[k])),
+            ),
+          };
+      const TF = {
+        none: 'as is',
+        log1p: 'log(1+x)',
+        z: 'standardised (z)',
+        log1p_z: 'log(1+x), then z',
+      };
+      const SIGNL = { '+': 'positive', '-': 'negative', 0: 'no prediction' };
+      const isCount = (k) => /^n_/.test(k);
+      const EXPO = ['pop2023', 'pop_kontur_2023'];
+      const cjHas = (key, u) => !!CJV[key] && CJV[key].units.includes(u);
+      const cjLab = (key) => (CJV[key] ? CJV[key].label : key);
+      function termName(key, tf) {
+        const l = cjLab(key);
+        return tf === 'log1p'
+          ? `log(1 + ${l})`
+          : tf === 'z'
+            ? `z(${l})`
+            : tf === 'log1p_z'
+              ? `z(log(1 + ${l}))`
+              : l;
+      }
+      const usesArchive = (spec) =>
+        [spec.y, ...spec.x, ...spec.c].some((v) => CJV[v.key] && CJV[v.key].group === 'Archive');
+
+      // ---- test a conjecture: data --------------------------------------------------------------
+      // Listwise deletion: a unit missing any variable (or the exposure) is left out; so is one where a
+      // transform or the model is undefined (log(1+x) of x <= -1, a non-integer count, exposure <= 0).
+      // z-scores use the mean and the n-1 standard deviation of the units that remain.
+      function cjData(spec, u) {
+        const vars = [spec.y, ...spec.x, ...spec.c],
+          pois = spec.model === 'poisson',
+          ex = pois ? spec.exposure : null,
+          miss = vars.filter((v) => !cjHas(v.key, u)).map((v) => cjLab(v.key));
+        if (ex && !cjHas(ex, u)) miss.push(cjLab(ex) + ' (exposure)');
+        if (miss.length)
+          return { error: `Not available at ${UNIT1[u]} level: ${miss.join('; ')}.` };
+        if (pois && spec.y.tf !== 'none')
+          return { error: 'A Poisson model takes the count as it is, untransformed.' };
+        const fs = feats(u),
+          idx = [];
+        let nMiss = 0,
+          nBad = 0;
+        for (let i = 0; i < fs.length; i++) {
+          const p = fs[i].p;
+          if (vars.some((v) => !ok(p[v.key])) || (ex && !ok(p[ex]))) {
+            nMiss++;
+            continue;
+          }
+          const yv = p[spec.y.key];
+          if (
+            vars.some((v) => v.tf.startsWith('log1p') && p[v.key] <= -1) ||
+            (ex && p[ex] <= 0) ||
+            (pois && (yv < 0 || !Number.isInteger(yv)))
+          ) {
+            nBad++;
+            continue;
+          }
+          idx.push(i);
+        }
+        const n = idx.length,
+          k = 1 + spec.x.length + spec.c.length;
+        if (n < k + 2)
+          return {
+            error: `Too few ${UNITN[u]} with every value (${n}) to estimate ${k} coefficients.`,
+          };
+        const col = (v) => {
+          const a = Float64Array.from(idx, (i) => fs[i].p[v.key]);
+          if (v.tf.startsWith('log1p')) for (let i = 0; i < n; i++) a[i] = Math.log1p(a[i]);
+          if (a.every((t) => t === a[0])) return null;
+          if (v.tf.endsWith('z')) {
+            let m = 0,
+              s = 0;
+            for (let i = 0; i < n; i++) m += a[i];
+            m /= n;
+            for (let i = 0; i < n; i++) s += (a[i] - m) ** 2;
+            s = Math.sqrt(s / (n - 1));
+            for (let i = 0; i < n; i++) a[i] = (a[i] - m) / s;
+          }
+          return a;
+        };
+        const X = [new Float64Array(n).fill(1)];
+        for (const v of [spec.y, ...spec.x, ...spec.c]) {
+          const a = col(v);
+          if (!a)
+            return {
+              error: `${termName(v.key, v.tf)} takes one value across these ${n} ${UNITN[u]}, so there is nothing to estimate.`,
+            };
+          X.push(a);
+        }
+        const y = X.splice(1, 1)[0];
+        if (pois && !y.some((t) => t > 0))
+          return { error: `The count is zero in every one of these ${n} ${UNITN[u]}.` };
+        const off = ex ? Float64Array.from(idx, (i) => Math.log(fs[i].p[ex])) : null;
+        return { fs, idx, n, k, y, X, off, nMiss, nBad };
+      }
+
+      // ---- test a conjecture: linear algebra ----------------------------------------------------
+      // Least squares by Householder QR, never by inverting X'X. Columns are first scaled to unit
+      // length, so the condition number measures collinearity rather than units of measurement.
+      function qrFactor(cols, n) {
+        const k = cols.length,
+          A = cols.map((c) => Float64Array.from(c)),
+          sc = new Float64Array(k),
+          H = [];
+        for (let j = 0; j < k; j++) {
+          let s = 0;
+          for (let i = 0; i < n; i++) s += A[j][i] * A[j][i];
+          sc[j] = Math.sqrt(s) || 1;
+          for (let i = 0; i < n; i++) A[j][i] /= sc[j];
+        }
+        const reflect = (h, j, x) => {
+          if (!h) return;
+          let d = 0;
+          for (let i = 0; i < h.v.length; i++) d += h.v[i] * x[j + i];
+          const f = (2 * d) / h.vv;
+          for (let i = 0; i < h.v.length; i++) x[j + i] -= f * h.v[i];
+        };
+        for (let j = 0; j < k; j++) {
+          const a = A[j];
+          let nrm = 0;
+          for (let i = j; i < n; i++) nrm += a[i] * a[i];
+          nrm = Math.sqrt(nrm);
+          let h = null;
+          if (nrm > 0) {
+            const v = a.slice(j);
+            v[0] -= a[j] > 0 ? -nrm : nrm;
+            let vv = 0;
+            for (let i = 0; i < v.length; i++) vv += v[i] * v[i];
+            if (vv > 0) h = { v, vv };
+          }
+          H.push(h);
+          for (let l = j; l < k; l++) reflect(h, j, A[l]);
+        }
+        const R = Array.from({ length: k }, (_, j) =>
+          Array.from({ length: k }, (_, l) => (l >= j ? A[l][j] : 0)),
+        );
+        const qty = (y) => {
+          const x = Float64Array.from(y);
+          H.forEach((h, j) => reflect(h, j, x));
+          return x;
+        };
+        return { R, sc, k, qty };
+      }
+      function upperInv(R) {
+        const k = R.length,
+          X = Array.from({ length: k }, () => new Array(k).fill(0));
+        for (let i = k - 1; i >= 0; i--) {
+          X[i][i] = 1 / R[i][i];
+          for (let j = i + 1; j < k; j++) {
+            let s = 0;
+            for (let m = i + 1; m <= j; m++) s += R[i][m] * X[m][j];
+            X[i][j] = -s / R[i][i];
+          }
+        }
+        return X;
+      }
+      const norm1 = (M) =>
+        Math.max(...M[0].map((_, j) => M.reduce((s, r) => s + Math.abs(r[j]), 0)));
+      const mm = (A, B) =>
+        A.map((r) => B[0].map((_, j) => r.reduce((s, x, l) => s + x * B[l][j], 0)));
+      // Returns beta, (X'X)^-1 and the 1-norm condition number of the column-scaled X; refuses a
+      // rank-deficient or near-collinear design (kappa >= 1e12) and names the offending column.
+      function lsq(cols, y, n) {
+        const F = qrFactor(cols, n),
+          k = F.k,
+          d = F.R.map((r, j) => Math.abs(r[j]));
+        const bad = d.findIndex((x) => !(x > 1e-10));
+        if (bad >= 0) return { error: 'collinear', col: bad };
+        const Ri = upperInv(F.R),
+          kappa = norm1(F.R) * norm1(Ri);
+        if (!(kappa < 1e12)) return { error: 'collinear', col: d.indexOf(Math.min(...d)), kappa };
+        const qy = F.qty(y),
+          beta = new Array(k),
+          XtXi = Array.from({ length: k }, () => new Array(k).fill(0));
+        for (let j = 0; j < k; j++) {
+          let s = 0;
+          for (let l = j; l < k; l++) s += Ri[j][l] * qy[l];
+          beta[j] = s / F.sc[j];
+        }
+        for (let a = 0; a < k; a++)
+          for (let b = a; b < k; b++) {
+            let s = 0;
+            for (let l = b; l < k; l++) s += Ri[a][l] * Ri[b][l];
+            XtXi[a][b] = XtXi[b][a] = s / (F.sc[a] * F.sc[b]);
+          }
+        return { beta, XtXi, kappa };
+      }
+      // B (sum_i u2_i x_i x_i') B: the sandwich, with B the bread.
+      function sandwich(B, X, u2, n) {
+        const k = X.length,
+          M = Array.from({ length: k }, () => new Array(k).fill(0));
+        for (let a = 0; a < k; a++)
+          for (let b = a; b < k; b++) {
+            let s = 0;
+            const xa = X[a],
+              xb = X[b];
+            for (let i = 0; i < n; i++) s += u2[i] * xa[i] * xb[i];
+            M[a][b] = M[b][a] = s;
+          }
+        return mm(mm(B, M), B);
+      }
+      function invSmall(M) {
+        const k = M.length,
+          A = M.map((r, i) => [...r, ...r.map((_, j) => (i === j ? 1 : 0))]);
+        for (let c = 0; c < k; c++) {
+          let p = c;
+          for (let r = c + 1; r < k; r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r;
+          [A[c], A[p]] = [A[p], A[c]];
+          const d = A[c][c];
+          if (!d) return null;
+          for (let j = 0; j < 2 * k; j++) A[c][j] /= d;
+          for (let r = 0; r < k; r++)
+            if (r !== c) {
+              const f = A[r][c];
+              for (let j = 0; j < 2 * k; j++) A[r][j] -= f * A[c][j];
+            }
+        }
+        return A.map((r) => r.slice(k));
+      }
+      function fitOLS(X, y, n) {
+        const k = X.length,
+          L = lsq(X, y, n);
+        if (L.error) return L;
+        const fit = new Float64Array(n),
+          e = new Float64Array(n);
+        let sse = 0,
+          my = 0,
+          tss = 0;
+        for (let i = 0; i < n; i++) {
+          let s = 0;
+          for (let j = 0; j < k; j++) s += X[j][i] * L.beta[j];
+          fit[i] = s;
+          e[i] = y[i] - s;
+          sse += e[i] * e[i];
+          my += y[i];
+        }
+        my /= n;
+        for (let i = 0; i < n; i++) tss += (y[i] - my) ** 2;
+        const s2 = sse / (n - k),
+          Vr = sandwich(
+            L.XtXi,
+            X,
+            e.map((t) => t * t),
+            n,
+          ).map((r) => r.map((x) => (x * n) / (n - k)));
+        return {
+          beta: L.beta,
+          Vc: L.XtXi.map((r) => r.map((x) => x * s2)),
+          Vr,
+          fitted: fit,
+          resid: e,
+          r2: 1 - sse / tss,
+          adj: 1 - sse / (n - k) / (tss / (n - 1)),
+          df: n - k,
+          kappa: L.kappa,
+          XtXi: L.XtXi,
+        };
+      }
+      const logFact = (y) => {
+        let s = 0;
+        for (let j = 2; j <= y; j++) s += Math.log(j);
+        return s;
+      };
+      // Poisson with a log link by iteratively reweighted least squares; each step a weighted QR
+      // solve. Converged when the deviance changes by less than 1e-12 relative (glm uses 1e-8).
+      function fitPoisson(X, y, off, n) {
+        const k = X.length,
+          o = off || new Float64Array(n);
+        let mu = Float64Array.from(y, (t) => t + 0.5),
+          eta = mu.map((m) => Math.log(m)),
+          L = null,
+          dev = Infinity,
+          iter = 0,
+          conv = false;
+        const devOf = (m) => {
+          let d = 0;
+          for (let i = 0; i < n; i++)
+            d += (y[i] > 0 ? y[i] * Math.log(y[i] / m[i]) : 0) - (y[i] - m[i]);
+          return 2 * d;
+        };
+        for (iter = 1; iter <= 100; iter++) {
+          const sw = mu.map((m) => Math.sqrt(m)),
+            Xw = X.map((c) => c.map((x, i) => x * sw[i])),
+            z = Float64Array.from(y, (t, i) => (eta[i] - o[i] + (t - mu[i]) / mu[i]) * sw[i]);
+          L = lsq(Xw, z, n);
+          if (L.error) return L;
+          for (let i = 0; i < n; i++) {
+            let s = o[i];
+            for (let j = 0; j < k; j++) s += X[j][i] * L.beta[j];
+            eta[i] = s;
+          }
+          if (eta.some((t) => t > 700)) return { error: 'diverged' };
+          mu = eta.map((t) => Math.exp(t));
+          const d = devOf(mu);
+          if (Math.abs(d - dev) / (Math.abs(d) + 0.1) < 1e-12) {
+            dev = d;
+            conv = true;
+            break;
+          }
+          dev = d;
+        }
+        if (!conv) return { error: 'diverged' };
+        // The bread, (X'WX)^-1, at the final fitted means.
+        const swf = mu.map((m) => Math.sqrt(m)),
+          B = lsq(
+            X.map((c) => c.map((x, i) => x * swf[i])),
+            new Float64Array(n),
+            n,
+          );
+        if (B.error) return B;
+        const u2 = Float64Array.from(y, (t, i) => (t - mu[i]) ** 2),
+          Vr = sandwich(B.XtXi, X, u2, n).map((r) => r.map((x) => (x * n) / (n - 1)));
+        let ll = 0,
+          ll0 = 0,
+          sy = 0,
+          se = 0,
+          chi = 0;
+        for (let i = 0; i < n; i++) {
+          sy += y[i];
+          se += Math.exp(o[i]);
+        }
+        const pr = new Float64Array(n);
+        for (let i = 0; i < n; i++) {
+          const lf = logFact(y[i]),
+            m0 = (Math.exp(o[i]) * sy) / se;
+          ll += y[i] * Math.log(mu[i]) - mu[i] - lf;
+          ll0 += (y[i] > 0 ? y[i] * Math.log(m0) : 0) - m0 - lf;
+          pr[i] = (y[i] - mu[i]) / Math.sqrt(mu[i]);
+          chi += pr[i] * pr[i];
+        }
+        return {
+          beta: L.beta,
+          Vc: B.XtXi,
+          Vr,
+          fitted: mu,
+          resid: pr,
+          ll,
+          ll0,
+          pseudo: 1 - ll / ll0,
+          disp: chi / (n - k),
+          dev,
+          iter,
+          kappa: B.kappa,
+          XtXi: B.XtXi,
+        };
+      }
+
+      // ---- test a conjecture: distributions, permutations, spatial weights ----------------------
+      const ST = typeof jStat !== 'undefined' ? jStat : null;
+      const pval = (t, df) =>
+        !ST || !Number.isFinite(t)
+          ? null
+          : df === Infinity
+            ? 2 * ST.normal.cdf(-Math.abs(t), 0, 1)
+            : 2 * ST.studentt.cdf(-Math.abs(t), df);
+      const crit = (df) =>
+        !ST ? null : df === Infinity ? ST.normal.inv(0.975, 0, 1) : ST.studentt.inv(0.975, df);
+      // A small seeded generator (mulberry32), so every permutation p-value can be reproduced.
+      function mulberry32(a) {
+        return () => {
+          a |= 0;
+          a = (a + 0x6d2b79f5) | 0;
+          let t = Math.imul(a ^ (a >>> 15), 1 | a);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+      function shuffle(p, rnd) {
+        for (let i = p.length - 1; i > 0; i--) {
+          const j = Math.floor(rnd() * (i + 1)),
+            t = p[i];
+          p[i] = p[j];
+          p[j] = t;
+        }
+      }
+      // Pearson and Spearman between the outcome and each regressor, with two-sided permutation
+      // p-values: (1 + #{|r*| >= |r|}) / (1 + R), the same R shuffles of the outcome for every test.
+      function corrPerm(y, xs, R, seed) {
+        const n = y.length,
+          prep = (a) => {
+            let m = 0;
+            for (let i = 0; i < n; i++) m += a[i];
+            m /= n;
+            const c = Float64Array.from(a, (t) => t - m);
+            let s = 0;
+            for (let i = 0; i < n; i++) s += c[i] * c[i];
+            return { c, s: Math.sqrt(s) };
+          },
+          dot = (a, b) => {
+            let s = 0;
+            for (let i = 0; i < n; i++) s += a[i] * b[i];
+            return s;
+          },
+          Y = prep(y),
+          YR = prep(ranks([...y]));
+        const out = xs.map((x) => {
+          const P = prep(x),
+            PR = prep(ranks([...x]));
+          return {
+            P,
+            PR,
+            r: dot(P.c, Y.c) / (P.s * Y.s),
+            rho: dot(PR.c, YR.c) / (PR.s * YR.s),
+            cr: 0,
+            cs: 0,
+          };
+        });
+        const rnd = mulberry32(seed),
+          p = Int32Array.from({ length: n }, (_, i) => i);
+        for (let t = 0; t < R; t++) {
+          shuffle(p, rnd);
+          for (const o of out) {
+            let a = 0,
+              b = 0;
+            for (let i = 0; i < n; i++) {
+              a += o.P.c[i] * Y.c[p[i]];
+              b += o.PR.c[i] * YR.c[p[i]];
+            }
+            if (Math.abs(a / (o.P.s * Y.s)) >= Math.abs(o.r) - 1e-12) o.cr++;
+            if (Math.abs(b / (o.PR.s * YR.s)) >= Math.abs(o.rho) - 1e-12) o.cs++;
+          }
+        }
+        return out.map((o) => ({
+          r: o.r,
+          pr: (o.cr + 1) / (R + 1),
+          rho: o.rho,
+          ps: (o.cs + 1) / (R + 1),
+        }));
+      }
+      // Contiguity: two polygons are neighbours when they share a boundary point (any ring, holes
+      // included, so an enclosed city tehsil touches the one around it). The boundaries were simplified
+      // together, so shared edges share their vertices. Hexagons: H3 ring-1 neighbours.
+      const NB = {};
+      function contiguity(u) {
+        if (NB[u]) return NB[u];
+        const fs = feats(u);
+        if (u === 'hex')
+          return (NB.hex = fs.map((f) =>
+            h3
+              .gridDisk(f.hex, 1)
+              .filter((c) => c !== f.hex)
+              .map((c) => fs.byId.get(c))
+              .filter((i) => i != null)
+              .sort((a, b) => a - b),
+          ));
+        const byV = new Map();
+        fs.forEach((f, i) => {
+          const polys = f.geom.type === 'Polygon' ? [f.geom.coordinates] : f.geom.coordinates;
+          for (const p of polys)
+            for (const ring of p)
+              for (const [x, y] of ring) {
+                const key = x + ',' + y,
+                  s = byV.get(key);
+                if (!s) byV.set(key, [i]);
+                else if (!s.includes(i)) s.push(i);
+              }
+        });
+        const nb = fs.map(() => new Set());
+        for (const s of byV.values())
+          if (s.length > 1) for (const a of s) for (const b of s) if (a !== b) nb[a].add(b);
+        return (NB[u] = nb.map((s) => [...s].sort((a, b) => a - b)));
+      }
+      // Area-weighted centroid in degrees (holes subtracted); a hexagon's is its H3 centre.
+      function centroidOf(u, i) {
+        const f = feats(u)[i];
+        if (f.hex) {
+          const [la, lo] = h3.cellToLatLng(f.hex);
+          return [lo, la];
+        }
+        const polys = f.geom.type === 'Polygon' ? [f.geom.coordinates] : f.geom.coordinates;
+        let A = 0,
+          cx = 0,
+          cy = 0;
+        for (const p of polys)
+          p.forEach((r, k) => {
+            let a = 0,
+              x = 0,
+              y = 0;
+            for (let m = 0; m < r.length - 1; m++) {
+              const c = r[m][0] * r[m + 1][1] - r[m + 1][0] * r[m][1];
+              a += c;
+              x += (r[m][0] + r[m + 1][0]) * c;
+              y += (r[m][1] + r[m + 1][1]) * c;
+            }
+            const s = (k === 0 ? 1 : -1) * Math.sign(a);
+            A += (s * a) / 2;
+            cx += s * x;
+            cy += s * y;
+          });
+        return [cx / (6 * A), cy / (6 * A)];
+      }
+      // Moran's I of the residuals with row-standardised weights among the units in the fit:
+      // I = (n / S0) * sum_i z_i * mean_{j in N(i)} z_j / sum_i z_i^2, z the centred residuals and S0
+      // the number of units with a neighbour. Pseudo p from permutations, one-sided in the direction
+      // of the observed I against the permutation mean (as PySAL's p_sim).
+      function moranOf(spec, u, idx, e, X) {
+        const n = idx.length,
+          pos = new Map(idx.map((f, j) => [f, j]));
+        let nb, w;
+        if (u === 'hex' || spec.weights !== 'knn') {
+          const all = contiguity(u);
+          nb = idx.map((f) => all[f].map((g) => pos.get(g)).filter((j) => j != null));
+          w = u === 'hex' ? 'H3 ring-1 neighbours' : 'contiguity (shared boundary point)';
+        } else {
+          const k = Math.max(1, Math.min(spec.k || 6, n - 1)),
+            C = idx.map((f) => centroidOf(u, f)),
+            cl = Math.cos(Math.PI / 6);
+          nb = C.map((a, i) => {
+            const d = [];
+            C.forEach(
+              (b, j) => j !== i && d.push([((a[0] - b[0]) * cl) ** 2 + (a[1] - b[1]) ** 2, j]),
+            );
+            d.sort((x, y) => x[0] - y[0] || x[1] - y[1]);
+            return d
+              .slice(0, k)
+              .map((x) => x[1])
+              .sort((a, b) => a - b);
+          });
+          w = `${k} nearest centroids`;
+        }
+        const iso = nb.filter((a) => !a.length).length,
+          S0 = n - iso;
+        if (!S0) return null;
+        let m = 0;
+        for (let i = 0; i < n; i++) m += e[i];
+        m /= n;
+        const z = Float64Array.from(e, (t) => t - m);
+        let zz = 0;
+        for (let i = 0; i < n; i++) zz += z[i] * z[i];
+        const I = (p) => {
+          let s = 0;
+          for (let i = 0; i < n; i++) {
+            const a = nb[i];
+            if (!a.length) continue;
+            let l = 0;
+            for (const j of a) l += p ? z[p[j]] : z[j];
+            s += ((p ? z[p[i]] : z[i]) * l) / a.length;
+          }
+          return ((n / S0) * s) / zz;
+        };
+        const I0 = I(null);
+        // E[I] for OLS residuals: (n / S0) tr(MW) / (n - k), tr(MW) = -tr((X'X)^-1 X'WX).
+        let EI = -1 / (n - 1);
+        if (X && X.XtXi) {
+          const k = X.cols.length,
+            XWX = Array.from({ length: k }, () => new Array(k).fill(0));
+          for (let b = 0; b < k; b++) {
+            const lag = new Float64Array(n);
+            for (let i = 0; i < n; i++) {
+              const a = nb[i];
+              if (!a.length) continue;
+              let l = 0;
+              for (const j of a) l += X.cols[b][j];
+              lag[i] = l / a.length;
+            }
+            for (let a = 0; a < k; a++) {
+              let s = 0;
+              for (let i = 0; i < n; i++) s += X.cols[a][i] * lag[i];
+              XWX[a][b] = s;
+            }
+          }
+          let tr = 0;
+          for (let a = 0; a < k; a++) for (let b = 0; b < k; b++) tr += X.XtXi[a][b] * XWX[b][a];
+          EI = ((n / S0) * -tr) / (n - k);
+        }
+        const R = spec.mperms,
+          rnd = mulberry32(spec.seed + 1),
+          p = Int32Array.from({ length: n }, (_, i) => i),
+          sims = new Float64Array(R);
+        for (let t = 0; t < R; t++) {
+          shuffle(p, rnd);
+          sims[t] = I(p);
+        }
+        let ms = 0,
+          vs = 0;
+        for (const s of sims) ms += s;
+        ms /= R;
+        for (const s of sims) vs += (s - ms) ** 2;
+        const sd = Math.sqrt(vs / (R - 1)),
+          up = I0 >= ms,
+          larger = sims.filter((s) => (up ? s >= I0 - 1e-12 : s <= I0 + 1e-12)).length;
+        return { I: I0, EI, p: (larger + 1) / (R + 1), z: (I0 - ms) / sd, iso, w, n };
+      }
+
+      // ---- test a conjecture: one run -----------------------------------------------------------
+      function runSpec(spec, u, full) {
+        const d = cjData(spec, u);
+        if (d.error) return { unit: u, error: d.error };
+        const pois = spec.model === 'poisson',
+          F = pois ? fitPoisson(d.X, d.y, d.off, d.n) : fitOLS(d.X, d.y, d.n),
+          tv = [{ key: null, tf: 'none', role: 'const' }]
+            .concat(spec.x.map((v) => ({ ...v, role: 'x' })))
+            .concat(spec.c.map((v) => ({ ...v, role: 'c' })));
+        if (F.error)
+          return {
+            unit: u,
+            error:
+              F.error === 'collinear'
+                ? `The regressors are (nearly) collinear at ${UNIT1[u]} level: ${F.col ? termName(tv[F.col].key, tv[F.col].tf) : 'the intercept'} is close to a combination of the others${F.kappa ? ` (condition number ${F.kappa.toExponential(1)})` : ''}.`
+                : 'The Poisson fit did not converge in 100 iterations (a regressor may separate the zeros from the rest).',
+          };
+        const df = pois ? Infinity : F.df,
+          q = crit(df);
+        const terms = tv.map((v, j) => {
+          const b = F.beta[j],
+            seR = Math.sqrt(F.Vr[j][j]),
+            seC = Math.sqrt(F.Vc[j][j]);
+          return {
+            key: v.key,
+            tf: v.tf,
+            role: v.role,
+            sign: v.sign ?? null,
+            b,
+            seR,
+            seC,
+            pR: pval(b / seR, df),
+            pC: pval(b / seC, df),
+            loR: q == null ? null : b - q * seR,
+            hiR: q == null ? null : b + q * seR,
+            loC: q == null ? null : b - q * seC,
+            hiC: q == null ? null : b + q * seC,
+          };
+        });
+        // Joint Wald test of every non-intercept coefficient, robust covariance.
+        const kq = terms.length - 1,
+          Vq = F.Vr.slice(1).map((r) => r.slice(1)),
+          Vi = invSmall(Vq),
+          bq = F.beta.slice(1);
+        let wald = null;
+        if (Vi) {
+          const W = bq.reduce((s, b, a) => s + b * Vi[a].reduce((t, v, c) => t + v * bq[c], 0), 0);
+          wald = pois
+            ? { stat: W, df1: kq, p: ST ? 1 - ST.chisquare.cdf(W, kq) : null, kind: 'chi2' }
+            : {
+                stat: W / kq,
+                df1: kq,
+                df2: df,
+                p: ST ? 1 - ST.centralF.cdf(W / kq, kq, df) : null,
+                kind: 'F',
+              };
+        }
+        const out = {
+          unit: u,
+          n: d.n,
+          k: d.k,
+          nMiss: d.nMiss,
+          nBad: d.nBad,
+          model: spec.model,
+          terms,
+          wald,
+          kappa: F.kappa,
+          ...(pois
+            ? { pseudo: F.pseudo, ll: F.ll, ll0: F.ll0, disp: F.disp, iter: F.iter }
+            : { r2: F.r2, adj: F.adj, df }),
+        };
+        out.moran = moranOf(spec, u, d.idx, F.resid, pois ? null : { cols: d.X, XtXi: F.XtXi });
+        if (full)
+          out.corr = corrPerm(d.y, d.X.slice(1), spec.perms, spec.seed).map((c, j) => ({
+            key: tv[j + 1].key,
+            tf: tv[j + 1].tf,
+            ...c,
+          }));
+        Object.defineProperty(out, '_', {
+          value: { idx: d.idx, resid: F.resid, fitted: F.fitted, y: d.y },
+          enumerable: false,
+        });
+        return out;
+      }
+
+      // ---- test a conjecture: the log -----------------------------------------------------------
+      // Every run is appended. Saved through localStorage where the browser allows it; the page works
+      // without it. Exports: CSV and Markdown (one row per explanatory variable), JSON (re-runs).
+      const LOGKEY = 'shrines_viewer_conjectures_v1';
+      let LOG = [];
+      try {
+        const s = JSON.parse(localStorage.getItem(LOGKEY) || '[]');
+        if (Array.isArray(s)) LOG = s;
+      } catch {
+        LOG = [];
+      }
+      const SESSION0 = LOG.length;
+      function saveLog() {
+        try {
+          localStorage.setItem(LOGKEY, JSON.stringify(LOG));
+          return true;
+        } catch {
+          return false;
+        }
+      }
+      const nextId = () => LOG.reduce((m, e) => Math.max(m, e.id), 0) + 1;
+      function signOf(t) {
+        if (!t.sign || t.sign === '0')
+          return { exp: t.sign || '0', obs: Math.sign(t.b), match: null };
+        const obs = Math.sign(t.b);
+        return { exp: t.sign, obs, match: obs === (t.sign === '+' ? 1 : -1) };
+      }
+      function entryOf(spec, res, ts, maupOf) {
+        const e = { id: nextId(), ts, statement: spec.statement, spec, maupOf: maupOf ?? null };
+        if (res.error) return { ...e, unit: res.unit, error: res.error };
+        const { _, ...r } = res;
+        return { ...e, ...r };
+      }
+      // Benjamini-Hochberg across every explanatory-variable test in the log (robust p-values).
+      function bh() {
+        const H = [];
+        for (const e of LOG)
+          if (!e.error)
+            e.terms
+              .filter((t) => t.role === 'x' && t.pR != null)
+              .forEach((t) => H.push([`${e.id}:${t.key}`, t.pR]));
+        const m = H.length,
+          o = H.map((h, i) => i).sort((a, b) => H[a][1] - H[b][1]),
+          adj = new Map();
+        let run = 1;
+        for (let r = m - 1; r >= 0; r--) {
+          run = Math.min(run, (H[o[r]][1] * m) / (r + 1));
+          adj.set(H[o[r]][0], run);
+        }
+        return { m, adj };
+      }
+      const fp = (p) => (p == null ? '—' : p < 0.0001 ? '< 0.0001' : p.toFixed(4));
+      const peq = (p) => (p != null && p < 0.0001 ? 'p < 0.0001' : 'p = ' + fp(p));
+      const fn = (v, d = 3) =>
+        !ok(v)
+          ? '—'
+          : Math.abs(v) >= 1e5 || (Math.abs(v) < 1e-3 && v !== 0)
+            ? v.toExponential(2)
+            : v.toFixed(d);
+      const specText = (s) =>
+        `${termName(s.y.key, s.y.tf)} ~ ${s.x.map((v) => termName(v.key, v.tf)).join(' + ')}${s.c.length ? ' | controls: ' + s.c.map((v) => termName(v.key, v.tf)).join(' + ') : ''}`;
+
+      // ---- test a conjecture: the form ----------------------------------------------------------
+      const CJ = {
+        unit: 'district',
+        y: null,
+        x: [],
+        c: [],
+        model: 'ols',
+        se: 'hc1',
+        exposure: '',
+        weights: 'contig',
+        k: 6,
+        statement: '',
+        dirty: false,
+      };
+      const cjEl = $('cj');
+      function cjPrefill() {
+        const k = viewKind(),
+          v = (key) => ({ key, tf: 'none' });
+        CJ.unit = unit;
+        CJ.model = 'ols';
+        CJ.exposure = '';
+        CJ.c = [];
+        if (k.kind === 'none') {
+          CJ.y = v('n_site');
+          CJ.x = [];
+        } else if (k.kind === 'bi') {
+          CJ.y = v(k.keys[1]);
+          CJ.x = [{ ...v(k.keys[0]), sign: '' }];
+        } else {
+          CJ.y = v(k.keys[0]);
+          CJ.x = k.keys[0] === ykey ? [] : [{ ...v(ykey), sign: '' }];
+          if (k.kind === 'comp') CJ.c = k.keys.slice(1).map(v);
+        }
+        CJ.dirty = false;
+        cjForm();
+      }
+      function cjOptions(chosen, placeholder) {
+        const words = ($('cjFind').value || '').toLowerCase().split(/\s+/).filter(Boolean),
+          all = Object.values(CJV).filter(
+            (v) =>
+              chosen.includes(v.key) ||
+              words.every((w) => `${v.label} ${v.group} ${v.key}`.toLowerCase().includes(w)),
+          ),
+          groups = [...new Set(all.map((v) => v.group))].sort((a, b) =>
+            a === 'Archive' ? -1 : b === 'Archive' ? 1 : 0,
+          );
+        return (
+          `<option value="">${esc(placeholder)}</option>` +
+          groups
+            .map(
+              (g) =>
+                `<optgroup label="${esc(g)}">` +
+                all
+                  .filter((v) => v.group === g)
+                  .map((v) => {
+                    const why = chosen.includes(v.key)
+                      ? ' (chosen)'
+                      : !v.units.includes(CJ.unit)
+                        ? ` (not at ${UNIT1[CJ.unit]})`
+                        : '';
+                    return `<option value="${v.key}" ${why ? 'disabled' : ''}>${esc(v.label)}${esc(why)}</option>`;
+                  })
+                  .join('') +
+                '</optgroup>',
+            )
+            .join('')
+        );
+      }
+      const used = () => [CJ.y, ...CJ.x, ...CJ.c].filter(Boolean).map((v) => v.key);
+      function tfSelect(v, label, noTf) {
+        return `<select data-tf aria-label="Transform of ${esc(label)}" ${noTf ? 'disabled title="A Poisson model takes the count as it is"' : ''}>${Object.entries(
+          TF,
+        )
+          .map(([k, l]) => `<option value="${k}" ${v.tf === k ? 'selected' : ''}>${l}</option>`)
+          .join('')}</select>`;
+      }
+      function cjForm() {
+        $('cjText').value = CJ.statement;
+        const u = $('cjUnits');
+        u.innerHTML = '';
+        for (const [k, l] of UNITS) {
+          const b = document.createElement('button'),
+            miss = used().filter((key) => !cjHas(key, k));
+          b.type = 'button';
+          b.textContent = l;
+          b.setAttribute('aria-pressed', k === CJ.unit);
+          b.disabled = miss.length > 0;
+          b.title = miss.length ? `Not at ${UNIT1[k]}: ${miss.map(cjLab).join('; ')}` : '';
+          b.onclick = () => {
+            CJ.unit = k;
+            CJ.dirty = true;
+            cjForm();
+          };
+          u.appendChild(b);
+        }
+        const pois = CJ.model === 'poisson';
+        if (CJ.y && pois) CJ.y.tf = 'none';
+        $('cjY').innerHTML = CJ.y
+          ? `<div class="cjrow"><span class="lab">${esc(cjLab(CJ.y.key))}</span>${tfSelect(CJ.y, cjLab(CJ.y.key), pois)}<button class="iconbtn" type="button" data-rm aria-label="Remove the outcome">×</button></div>`
+          : `<select data-add aria-label="Choose the outcome">${cjOptions(used(), 'Choose the outcome…')}</select>`;
+        const rows = (arr, role) =>
+          arr
+            .map(
+              (v, i) =>
+                `<div class="cjrow" data-i="${i}"><span class="lab">${esc(cjLab(v.key))}</span>${tfSelect(v, cjLab(v.key))}${
+                  role === 'x'
+                    ? `<select data-sign aria-label="Expected sign of ${esc(cjLab(v.key))}"><option value="" ${!v.sign ? 'selected' : ''}>Expected sign…</option>${Object.entries(
+                        SIGNL,
+                      )
+                        .map(
+                          ([k, l]) =>
+                            `<option value="${k}" ${v.sign === k ? 'selected' : ''}>${k === '0' ? l : k === '+' ? '+ ' + l : '− ' + l}</option>`,
+                        )
+                        .join('')}</select>`
+                    : ''
+                }<button class="iconbtn" type="button" data-rm aria-label="Remove ${esc(cjLab(v.key))}">×</button></div>`,
+            )
+            .join('');
+        $('cjX').innerHTML =
+          rows(CJ.x, 'x') +
+          `<select data-add aria-label="Add an explanatory variable">${cjOptions(used(), 'Add an explanatory variable…')}</select>`;
+        $('cjC').innerHTML =
+          rows(CJ.c, 'c') +
+          `<select data-add aria-label="Add a control">${cjOptions(used(), 'Add a control…')}</select>`;
+        const canPois = CJ.y && isCount(CJ.y.key);
+        if (!canPois && pois) CJ.model = 'ols';
+        const m = $('cjModel');
+        m.innerHTML = '';
+        for (const [k, l] of [
+          ['ols', 'OLS'],
+          ['poisson', 'Poisson (count)'],
+        ]) {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = l;
+          b.setAttribute('aria-pressed', k === CJ.model);
+          b.disabled = k === 'poisson' && !canPois;
+          b.title = b.disabled
+            ? 'Poisson needs a count outcome (n_site, n_mus, n_mus_pre1857)'
+            : '';
+          b.onclick = () => {
+            CJ.model = k;
+            CJ.dirty = true;
+            cjForm();
+          };
+          m.appendChild(b);
+        }
+        const ex = EXPO.filter((k) => cjHas(k, CJ.unit));
+        if (CJ.exposure && !ex.includes(CJ.exposure)) CJ.exposure = '';
+        $('cjOpts').innerHTML =
+          (CJ.model === 'ols'
+            ? `<label class="fld"><span class="lbl">Standard errors</span><select id="cjSe"><option value="hc1" ${CJ.se === 'hc1' ? 'selected' : ''}>Robust (HC1), the default</option><option value="classical" ${CJ.se === 'classical' ? 'selected' : ''}>Classical (assumes equal variance)</option></select></label>`
+            : `<label class="fld"><span class="lbl">Exposure (offset log population)</span><select id="cjEx"><option value="">None: model the count itself</option>${ex.map((k) => `<option value="${k}" ${CJ.exposure === k ? 'selected' : ''}>${esc(cjLab(k))}</option>`).join('')}</select></label><div class="def">Standard errors are robust (sandwich); a Poisson model's own SEs assume the variance equals the mean.</div>`) +
+          (CJ.unit === 'hex'
+            ? '<div class="fld"><span class="lbl">Neighbours for Moran\'s I</span>H3 ring-1 neighbours (the six around each hexagon)</div>'
+            : `<div class="fld"><span class="lbl">Neighbours for Moran's I</span><div class="cjbtns" style="margin:0;align-items:center"><select id="cjW" style="flex:1 1 200px;width:auto"><option value="contig" ${CJ.weights === 'contig' ? 'selected' : ''}>Contiguity (shared boundary)</option><option value="knn" ${CJ.weights === 'knn' ? 'selected' : ''}>k nearest centroids</option></select>${CJ.weights === 'knn' ? `<label class="chk">k <input id="cjK" type="number" min="1" max="20" value="${CJ.k}" /></label>` : ''}</div></div>`);
+        // Wire the rows.
+        const wire = (box, arr, role) => {
+          box.querySelectorAll('.cjrow').forEach((r) => {
+            const v = role === 'y' ? CJ.y : arr[+r.dataset.i];
+            r.querySelector('[data-tf]').onchange = (e) => {
+              v.tf = e.target.value;
+              CJ.dirty = true;
+            };
+            const sg = r.querySelector('[data-sign]');
+            if (sg)
+              sg.onchange = (e) => {
+                v.sign = e.target.value;
+                CJ.dirty = true;
+              };
+            r.querySelector('[data-rm]').onclick = () => {
+              if (role === 'y') CJ.y = null;
+              else arr.splice(+r.dataset.i, 1);
+              CJ.dirty = true;
+              cjForm();
+            };
+          });
+          const add = box.querySelector('[data-add]');
+          if (add)
+            add.onchange = (e) => {
+              const key = e.target.value;
+              if (!key) return;
+              if (role === 'y') CJ.y = { key, tf: 'none' };
+              else arr.push(role === 'x' ? { key, tf: 'none', sign: '' } : { key, tf: 'none' });
+              CJ.dirty = true;
+              cjForm();
+              const again = box.querySelector('[data-add]');
+              if (again) again.focus();
+            };
+        };
+        wire($('cjY'), null, 'y');
+        wire($('cjX'), CJ.x, 'x');
+        wire($('cjC'), CJ.c, 'c');
+        const on = (id, f) => $(id) && ($(id).onchange = f);
+        on('cjSe', (e) => ((CJ.se = e.target.value), (CJ.dirty = true)));
+        on('cjEx', (e) => ((CJ.exposure = e.target.value), (CJ.dirty = true)));
+        on('cjW', (e) => {
+          CJ.weights = e.target.value;
+          CJ.dirty = true;
+          cjForm();
+        });
+        on('cjK', (e) => {
+          CJ.k = Math.max(1, Math.min(20, Math.round(+e.target.value) || 6));
+          CJ.dirty = true;
+        });
+      }
+      $('cjText').oninput = (e) => {
+        CJ.statement = e.target.value;
+        CJ.dirty = true;
+      };
+      $('cjFind').oninput = () => cjForm();
+      function cjMsg(t) {
+        $('cjMsg').textContent = t || '';
+      }
+      function specOf() {
+        return JSON.parse(
+          JSON.stringify({
+            format: 'shrines-viewer-conjecture',
+            v: 1,
+            statement: CJ.statement.trim(),
+            unit: CJ.unit,
+            y: CJ.y,
+            x: CJ.x,
+            c: CJ.c,
+            model: CJ.model,
+            se: CJ.model === 'ols' ? CJ.se : 'robust',
+            exposure: CJ.model === 'poisson' ? CJ.exposure || null : null,
+            weights: CJ.unit === 'hex' ? 'h3' : CJ.weights,
+            k: CJ.k,
+            perms: 2000,
+            mperms: 999,
+            seed: 20261030,
+          }),
+        );
+      }
+      function loadSpec(s) {
+        Object.assign(CJ, {
+          statement: s.statement || '',
+          unit: s.unit,
+          y: { ...s.y },
+          x: s.x.map((v) => ({ ...v })),
+          c: s.c.map((v) => ({ ...v })),
+          model: s.model,
+          se: s.se === 'classical' ? 'classical' : 'hc1',
+          exposure: s.exposure || '',
+          weights: s.weights === 'knn' ? 'knn' : 'contig',
+          k: s.k || 6,
+          dirty: true,
+        });
+        cjForm();
+      }
+      // Run a spec now and append it to the log. Recorded (timestamped) before it is computed.
+      function record(spec, maupOf) {
+        const ts = new Date().toISOString(),
+          res = runSpec(spec, spec.unit, maupOf == null),
+          e = entryOf(spec, res, ts, maupOf);
+        LOG.push(e);
+        saveLog();
+        return { e, res };
+      }
+      function validSpec(s) {
+        if (!s || typeof s !== 'object' || !s.y || !Array.isArray(s.x) || !Array.isArray(s.c))
+          return 'not a conjecture spec';
+        if (!UNITS.some((u) => u[0] === s.unit)) return `unknown unit ${s.unit}`;
+        for (const v of [s.y, ...s.x, ...s.c]) {
+          if (!CJV[v.key]) return `unknown variable ${v.key}`;
+          if (!TF[v.tf]) return `unknown transform ${v.tf}`;
+        }
+        if (!s.x.length) return 'no explanatory variable';
+        if (s.x.some((v) => !(v.sign in SIGNL))) return 'an expected sign is missing';
+        if (!['ols', 'poisson'].includes(s.model)) return `unknown model ${s.model}`;
+        for (const k of ['perms', 'mperms', 'seed'])
+          if (!Number.isInteger(s[k])) return `${k} missing`;
+        return null;
+      }
+      function cjRun() {
+        cjMsg('');
+        if (!CJ.y) return cjMsg('Choose an outcome.');
+        if (!CJ.x.length) return cjMsg('Add at least one explanatory variable.');
+        const unset = CJ.x.filter((v) => !v.sign);
+        if (unset.length)
+          return cjMsg(
+            `First say which sign you expect for ${unset.map((v) => cjLab(v.key)).join('; ')} (or "no prediction"). Stating it before the result is what makes this a test.`,
+          );
+        const spec = specOf();
+        $('cjRun').disabled = true;
+        cjMsg('Recorded. Computing…');
+        setTimeout(() => {
+          const { e, res } = record(spec, null);
+          $('cjRun').disabled = false;
+          cjMsg('');
+          cjResult(e, res);
+          cjLog();
+          $('cjOut').scrollIntoView({ block: 'start' });
+        }, 30);
+      }
+      $('cjRun').onclick = cjRun;
+      $('cjPrefill').onclick = cjPrefill;
+
+      // ---- test a conjecture: results -----------------------------------------------------------
+      function cjResult(e, res) {
+        const out = $('cjOut'),
+          s = e.spec;
+        if (e.error) {
+          out.innerHTML = `<h3>Test #${e.id}</h3><div class="note">${esc(e.error)}</div>`;
+          return;
+        }
+        const B = bh(),
+          pois = s.model === 'poisson',
+          cls = !pois && s.se === 'classical',
+          lab = pois ? 'robust (sandwich)' : cls ? 'classical' : 'robust (HC1)',
+          nSess = LOG.length - SESSION0;
+        const signs = e.terms
+          .filter((t) => t.role === 'x')
+          .map((t) => {
+            const g = signOf(t),
+              pa = B.adj.get(`${e.id}:${t.key}`),
+              obs = g.obs > 0 ? '+' : g.obs < 0 ? '−' : '0';
+            const head =
+              g.match == null
+                ? `No sign was predicted; the estimate is ${obs}.`
+                : g.match
+                  ? `Expected ${g.exp === '+' ? '+' : '−'}, observed ${obs}: <b class="match">the sign matches</b>.`
+                  : `Expected ${g.exp === '+' ? '+' : '−'}, observed ${obs}: <b class="opp">the sign is the opposite</b>.`;
+            const weak =
+              t.pR != null && t.pR >= 0.05 ? ' The data do not tell it apart from zero.' : '';
+            return `<div class="row"><div>${esc(termName(t.key, t.tf))}</div><div>${head} Robust ${peq(t.pR)}; adjusted across the ${B.m} test${B.m === 1 ? '' : 's'} in the log (Benjamini–Hochberg), ${peq(pa)}.${weak}</div></div>`;
+          })
+          .join('');
+        const rows = e.terms
+          .map((t) => {
+            const se = cls ? t.seC : t.seR,
+              p = cls ? t.pC : t.pR,
+              lo = cls ? t.loC : t.loR,
+              hi = cls ? t.hiC : t.hiR;
+            return `<tr><td>${t.role === 'const' ? '(intercept)' : esc(termName(t.key, t.tf))}${t.role === 'c' ? ' <span class="def">control</span>' : ''}</td><td class="num">${fn(t.b, 4)}</td><td class="num">${fn(se, 4)}</td><td class="num">${fn(t.b / se, 2)}</td><td class="num">${fp(p)}</td><td class="num">${fn(lo, 3)} to ${fn(hi, 3)}</td>${pois ? `<td class="num">${fn(Math.exp(t.b), 3)}</td>` : ''}</tr>`;
+          })
+          .join('');
+        const fit = pois
+          ? `McFadden pseudo-R² ${fn(e.pseudo, 3)} · Pearson dispersion ${fn(e.disp, 2)}${e.disp > 1.5 ? ' (overdispersed: the robust SEs allow for it; the model-based ones would not)' : ''} · ${e.iter} IRLS iterations${s.exposure ? ` · exposure: ${esc(cjLab(s.exposure))}` : ''}`
+          : `R² ${fn(e.r2, 3)} · adjusted R² ${fn(e.adj, 3)} · ${e.df} residual df`;
+        const wald = e.wald
+          ? e.wald.kind === 'F'
+            ? `Joint test of all slopes (robust Wald): F(${e.wald.df1}, ${e.wald.df2}) = ${fn(e.wald.stat, 2)}, ${peq(e.wald.p)}.`
+            : `Joint test of all slopes (robust Wald): χ²(${e.wald.df1}) = ${fn(e.wald.stat, 2)}, ${peq(e.wald.p)}.`
+          : '';
+        const corr = (e.corr || [])
+          .map(
+            (c) =>
+              `<tr><td>${esc(termName(c.key, c.tf))}</td><td class="num">${fn(c.r, 3)} (p ${fp(c.pr)})</td><td class="num">${fn(c.rho, 3)} (p ${fp(c.ps)})</td></tr>`,
+          )
+          .join('');
+        const M = e.moran,
+          mtext = moranText(M);
+        out.innerHTML = `<h3>Result of test #${e.id}</h3>
+          <div class="def">${esc(UNITS.find((u) => u[0] === e.unit)[1])} level · ${pois ? 'Poisson' : 'OLS'} · ${lab} SEs · n = ${e.n} ${UNITN[e.unit]}; ${e.nMiss} left out for a missing value${e.nBad ? `, ${e.nBad} where the model or a transform is undefined` : ''}. Recorded ${esc(e.ts.replace('T', ' ').slice(0, 19))} UTC, before the numbers were computed.</div>
+          ${e.statement ? `<div class="row"><i>${esc(e.statement)}</i></div>` : ''}
+          ${signs}
+          <div class="scroll"><table class="cjres"><tr><th>Term</th><th class="num">Coef${pois ? ' (log rate)' : ''}</th><th class="num">SE</th><th class="num">${pois ? 'z' : 't'}</th><th class="num">p</th><th class="num">95% CI</th>${pois ? '<th class="num">Rate ratio</th>' : ''}</tr>${rows}</table></div>
+          <div class="def">${fit}. ${wald}${e.kappa > 1e7 ? ` <b>Close to collinear</b> (condition number ${e.kappa.toExponential(1)}): the coefficients are unstable.` : ''}${ST ? '' : ' <b>p-values need jStat, which did not load (offline?).</b>'}</div>
+          <h3>Correlations, outcome with each regressor</h3>
+          <div class="scroll"><table><tr><th>Regressor</th><th class="num">Pearson r</th><th class="num">Spearman ρ</th></tr>${corr}</table></div>
+          <div class="def">p-values from ${s.perms.toLocaleString()} permutations of the outcome (seed ${s.seed}), two-sided; on the same ${e.n} ${UNITN[e.unit]} and transforms as the regression.</div>
+          <h3>Spatial check</h3><div>${esc(mtext)}</div>
+          <div class="note">${nSess} test${nSess === 1 ? '' : 's'} this session, ${LOG.length} in the log: with that many tries some p-values fall under 0.05 by chance, so read the adjusted one. Ecological: these are associations among ${UNITN[e.unit]}, not among people or among shrines, and nothing here shows what causes what.${usesArchive(s) ? ' The archive is curated, not a census: a shrine variable measures where the archive has looked as well as where shrines are.' : ''}${[s.y, ...s.x, ...s.c].some((v) => v.key === 'n_mus_pre1857') ? ' Pre-1857 counts a numeric year below 1857; 25 of the 80 Muslim shrines have no numeric year and count as not pre-1857.' : ''}</div>
+          <div class="cjbtns"><button class="btn" type="button" id="cjResMap">Show residuals on the map</button><button class="btn" type="button" id="cjMaupBtn">Same test at every unit</button></div>
+          <svg id="cjRvf" width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Residuals against fitted values"></svg>
+          <div id="cjMaup"></div>
+          <details><summary>Replicate in Stata or R</summary>
+            <div class="def">Download the data for this unit (button under the log), then:</div>
+            <label class="fld"><span class="lbl">Stata</span><textarea class="code" rows="9" readonly id="cjStata">${esc(stataCode(e))}</textarea></label>
+            <label class="fld"><span class="lbl">R</span><textarea class="code" rows="9" readonly id="cjR">${esc(rCode(e))}</textarea></label>
+            <div class="cjbtns"><button class="btn" type="button" data-copy="cjStata">Copy Stata</button><button class="btn" type="button" data-copy="cjR">Copy R</button></div>
+          </details>`;
+        if (res && res._) rvf(res._);
+        else $('cjRvf').remove();
+        $('cjResMap').onclick = () => residMap(e, res);
+        $('cjResMap').disabled = !(res && res._);
+        $('cjMaupBtn').onclick = () => maup(e);
+        out.querySelectorAll('[data-copy]').forEach(
+          (b) =>
+            (b.onclick = () => {
+              const ta = $(b.dataset.copy);
+              const done = () => (b.textContent = 'Copied');
+              if (navigator.clipboard && navigator.clipboard.writeText)
+                navigator.clipboard.writeText(ta.value).then(done, () => {
+                  ta.select();
+                  b.textContent = 'Selected: press Ctrl+C';
+                });
+              else {
+                ta.select();
+                b.textContent = 'Selected: press Ctrl+C';
+              }
+            }),
+        );
+      }
+      function moranText(M) {
+        if (!M) return "Moran's I: no unit in the fit has a neighbour in the fit.";
+        const head = `Moran's I of the residuals = ${fn(M.I, 3)} (expected ${fn(M.EI, 3)} without spatial pattern), permutation ${peq(M.p)}; ${M.w}${M.iso ? `, ${M.iso} without a neighbour in the fit` : ''}.`;
+        return M.p < 0.05 && M.I > M.EI
+          ? `${head} Neighbouring units share what the model leaves unexplained, so the standard errors above are likely too small and the p-values too optimistic.`
+          : M.p < 0.05
+            ? `${head} Neighbours differ more than chance would make them (negative autocorrelation); the standard errors may be off.`
+            : `${head} No clear spatial pattern in the residuals at this weighting, which does not rule one out at another scale.`;
+      }
+      function rvf(r) {
+        const svg = $('cjRvf'),
+          W = 340,
+          H = 200,
+          m = { l: 38, r: 8, t: 8, b: 28 },
+          n = r.fitted.length,
+          step = Math.max(1, Math.ceil(n / 3000)),
+          xs = [...r.fitted],
+          ys = [...r.resid];
+        const x0 = Math.min(...xs),
+          x1 = Math.max(...xs),
+          ya = Math.max(...ys.map(Math.abs)) || 1;
+        const X = (v) => m.l + ((v - x0) / (x1 - x0 || 1)) * (W - m.l - m.r),
+          Y = (v) => m.t + ((ya - v) / (2 * ya)) * (H - m.t - m.b);
+        let pts = '';
+        for (let i = 0; i < n; i += step)
+          pts += `<circle cx="${X(xs[i]).toFixed(1)}" cy="${Y(ys[i]).toFixed(1)}" r="2.5" fill="#6baed6" fill-opacity=".7"/>`;
+        svg.innerHTML =
+          `<line x1="${m.l}" y1="${Y(0)}" x2="${W - m.r}" y2="${Y(0)}" stroke="currentColor" opacity=".45" stroke-dasharray="3 3"/><line x1="${m.l}" y1="${m.t}" x2="${m.l}" y2="${H - m.b}" stroke="currentColor" opacity=".3"/>` +
+          pts +
+          `<text x="${m.l}" y="${H - 15}">${fmt(x0)}</text><text x="${W - m.r}" y="${H - 15}" text-anchor="end">${fmt(x1)}</text><text x="${W / 2}" y="${H - 2}" text-anchor="middle">fitted across, residual up${step > 1 ? ` (1 in ${step} shown)` : ''}</text><text x="4" y="${m.t + 8}">${fmt(ya)}</text><text x="4" y="${H - m.b}">${fmt(-ya)}</text>`;
+      }
+      const DIV = ['#b2182b', '#ef8a62', '#fddbc7', '#f7f7f7', '#d1e5f0', '#67a9cf', '#2166ac'],
+        DIVB = [-2.5, -1.5, -0.5, 0.5, 1.5, 2.5];
+      function residView(fs) {
+        const W = {
+          kind: 'resid',
+          keys: [],
+          vals: {},
+          col: new Array(fs.length).fill(null),
+          res: new Array(fs.length).fill(null),
+        };
+        RESID.idx.forEach((f, j) => {
+          W.res[f] = RESID.std[j];
+          W.col[f] = DIV[klass(RESID.std[j], DIVB)];
+        });
+        return W;
+      }
+      function residMap(e, res) {
+        const r = res._,
+          n = r.resid.length;
+        let m = 0,
+          s = 0;
+        for (let i = 0; i < n; i++) m += r.resid[i];
+        m /= n;
+        for (let i = 0; i < n; i++) s += (r.resid[i] - m) ** 2;
+        s = Math.sqrt(s / (n - 1)) || 1;
+        RESID = {
+          id: e.id,
+          unit: e.unit,
+          model: e.model,
+          idx: r.idx,
+          pos: new Map(r.idx.map((f, j) => [f, j])),
+          std: Array.from(r.resid, (t) => t / s),
+          obs: r.y,
+          fit: r.fitted,
+          ylab: termName(e.spec.y.key, e.spec.y.tf),
+          desc: `${specText(e.spec)}. ${e.model === 'poisson' ? 'Poisson' : 'OLS'} at ${UNIT1[e.unit]} level, n = ${e.n}.`,
+          moranText: moranText(e.moran),
+        };
+        unit = e.unit;
+        clearSel();
+        controls();
+        draw();
+        if (window.innerWidth <= 820) {
+          cjClose();
+          $('mapwrap').scrollIntoView({ block: 'start' });
+        }
+      }
+      // The same specification at every unit where all its variables exist, side by side. Each run
+      // is a further test and goes into the log (and into the Benjamini-Hochberg family).
+      function maup(e) {
+        const box = $('cjMaup');
+        box.innerHTML = '<div class="def">Running at every unit…</div>';
+        setTimeout(() => {
+          const runs = UNITS.map(([u]) => {
+            if (u === e.unit) return { u, e };
+            const spec = {
+              ...e.spec,
+              unit: u,
+              weights: u === 'hex' ? 'h3' : e.spec.weights === 'h3' ? 'contig' : e.spec.weights,
+            };
+            const d = cjData(spec, u);
+            if (d.error) return { u, skip: d.error };
+            return { u, e: record(spec, e.id).e };
+          });
+          const xs = e.spec.x;
+          box.innerHTML =
+            `<h3>Same test at every unit</h3><div class="scroll"><table><tr><th>Unit</th><th class="num">n</th>${xs.map((v) => `<th class="num">${esc(termName(v.key, v.tf))}</th>`).join('')}<th class="num">${e.model === 'poisson' ? 'Pseudo-R²' : 'R²'}</th><th class="num">Moran's I</th></tr>` +
+            runs
+              .map(({ u, e: r, skip }) => {
+                const nm = esc(UNITS.find((x) => x[0] === u)[1]);
+                if (skip || r.error)
+                  return `<tr><td>${nm}</td><td colspan="${xs.length + 3}" class="def">${esc(skip || r.error)}</td></tr>`;
+                return `<tr><td>${nm}${r.id === e.id ? ' <span class="def">(as tested)</span>' : ''}</td><td class="num">${r.n}${r.n < 30 ? '<br><span class="def">few units</span>' : ''}</td>${xs
+                  .map((v) => {
+                    const t = r.terms.find((t) => t.role === 'x' && t.key === v.key);
+                    return `<td class="num">${fn(t.b, 3)}<br><span class="def">p ${fp(t.pR)}</span></td>`;
+                  })
+                  .join(
+                    '',
+                  )}<td class="num">${fn(r.model === 'poisson' ? r.pseudo : r.r2, 3)}</td><td class="num">${r.moran ? fn(r.moran.I, 3) + `<br><span class="def">p ${fp(r.moran.p)}</span>` : '—'}</td></tr>`;
+              })
+              .join('') +
+            `</table></div><div class="def">Coefficient with its robust p. A pattern that holds at one unit and not another is about how the units are drawn (the modifiable areal unit problem), not only about places. Each re-run is logged as a further test. A coefficient on a z-scored or log variable compares across units; a raw one may not, because the variable's spread differs.</div>`;
+          cjLog();
+        }, 30);
+      }
+
+      // ---- test a conjecture: replication code --------------------------------------------------
+      // Long names: Stata allows 32 characters. import delimited renames a longer header and keeps it
+      // as the variable label, so the code finds it by its label.
+      function stataCode(e) {
+        const s = e.spec,
+          vars = [
+            ['y', s.y],
+            ...s.x.map((v, i) => ['x' + (i + 1), v]),
+            ...s.c.map((v, i) => ['c' + (i + 1), v]),
+          ],
+          L = [
+            `* Test #${e.id} from the Shrines and Welfare viewer, recorded ${e.ts}`,
+            ...(s.statement ? [`* "${s.statement.replace(/\n/g, ' ')}"`] : []),
+            ...s.x.map((v, i) => `* expected sign of x${i + 1} (${v.key}): ${SIGNL[v.sign]}`),
+            `import delimited using "shrines_${s.unit}.csv", clear case(preserve) varnames(1)`,
+          ],
+          src = (key) => {
+            if (key.length <= 32) return key;
+            L.push(`ds, has(varlabel "${key}")`, `local v_${key.slice(0, 20)} \`r(varlist)'`);
+            return `\`v_${key.slice(0, 20)}'`;
+          };
+        const names = vars.map(([nm, v]) => {
+          const k = src(v.key);
+          L.push(`generate double ${nm} = ${v.tf.startsWith('log1p') ? `ln(1 + ${k})` : k}`);
+          return nm;
+        });
+        const ex = s.model === 'poisson' && s.exposure ? src(s.exposure) : null;
+        L.push('mark touse', `markout touse ${names.join(' ')}${ex ? ' ' + ex : ''}`);
+        if (ex) L.push(`replace touse = 0 if ${ex} <= 0`);
+        vars.forEach(([nm, v]) => {
+          if (v.tf.endsWith('z'))
+            L.push(
+              `quietly summarize ${nm} if touse`,
+              `replace ${nm} = (${nm} - r(mean)) / r(sd) if touse`,
+            );
+        });
+        const rhs = names.slice(1).join(' ');
+        if (s.model === 'poisson')
+          L.push(`poisson y ${rhs} if touse, vce(robust)${ex ? ` exposure(${ex})` : ''}`);
+        else L.push(`regress y ${rhs} if touse${s.se === 'classical' ? '' : ', vce(robust)'}`);
+        L.push(`* Moran's I in the viewer used ${e.moran ? e.moran.w : 'no weights'}.`);
+        return L.join('\n');
+      }
+      function rCode(e) {
+        const s = e.spec,
+          vars = [
+            ['y', s.y],
+            ...s.x.map((v, i) => ['x' + (i + 1), v]),
+            ...s.c.map((v, i) => ['c' + (i + 1), v]),
+          ],
+          keys = [
+            ...new Set(
+              vars
+                .map(([, v]) => v.key)
+                .concat(s.model === 'poisson' && s.exposure ? [s.exposure] : []),
+            ),
+          ],
+          L = [
+            `# Test #${e.id} from the Shrines and Welfare viewer, recorded ${e.ts}`,
+            ...(s.statement ? [`# "${s.statement.replace(/\n/g, ' ')}"`] : []),
+            ...s.x.map((v, i) => `# expected sign of x${i + 1} (${v.key}): ${SIGNL[v.sign]}`),
+            'library(sandwich); library(lmtest)',
+            `d <- read.csv("shrines_${s.unit}.csv")`,
+            `d <- d[complete.cases(d[, c(${keys.map((k) => `"${k}"`).join(', ')})]), ]`,
+          ];
+        vars.forEach(([, v]) => v.tf.startsWith('log1p') && L.push(`d <- d[d$${v.key} > -1, ]`));
+        if (s.model === 'poisson' && s.exposure) L.push(`d <- d[d$${s.exposure} > 0, ]`);
+        vars.forEach(([nm, v]) => {
+          L.push(`d$${nm} <- ${v.tf.startsWith('log1p') ? `log1p(d$${v.key})` : `d$${v.key}`}`);
+          if (v.tf.endsWith('z')) L.push(`d$${nm} <- as.numeric(scale(d$${nm}))`);
+        });
+        const f = `y ~ ${vars
+          .slice(1)
+          .map(([nm]) => nm)
+          .join(' + ')}`;
+        if (s.model === 'poisson')
+          L.push(
+            `m <- glm(${f}, family = poisson, data = d${s.exposure ? `, offset = log(${s.exposure})` : ''})`,
+            '# robust (sandwich) SEs with the n/(n-1) factor the viewer and Stata use',
+            'coeftest(m, vcov = vcovHC(m, type = "HC0") * nrow(d) / (nrow(d) - 1))',
+          );
+        else
+          L.push(
+            `m <- lm(${f}, data = d)`,
+            s.se === 'classical' ? 'summary(m)' : 'coeftest(m, vcov = vcovHC(m, type = "HC1"))',
+          );
+        L.push(
+          `# Moran's I in the viewer used ${e.moran ? e.moran.w : 'no weights'}; spdep::lm.morantest is the R equivalent.`,
+        );
+        return L.join('\n');
+      }
+
+      // ---- test a conjecture: log, exports, data download --------------------------------------
+      function download(name, text, type) {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([text], { type }));
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          URL.revokeObjectURL(a.href);
+          a.remove();
+        }, 0);
+      }
+      const csvCell = (v) => {
+        const s = v == null ? '' : String(v);
+        return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+      };
+      const stamp = () => new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-');
+      function logRows() {
+        const B = bh(),
+          out = [];
+        for (const e of LOG) {
+          const base = {
+            id: e.id,
+            timestamp: e.ts,
+            statement: e.statement || '',
+            unit: e.unit,
+            model: e.spec.model,
+            se: e.spec.se,
+            outcome: e.spec.y.key,
+            outcome_transform: e.spec.y.tf,
+            controls: e.spec.c
+              .map((v) => (v.tf === 'none' ? v.key : `${v.tf}(${v.key})`))
+              .join('; '),
+            exposure: e.spec.exposure || '',
+            weights: e.moran ? e.moran.w : '',
+            maup_of: e.maupOf ?? '',
+          };
+          if (e.error) {
+            out.push({ ...base, error: e.error });
+            continue;
+          }
+          for (const t of e.terms.filter((t) => t.role === 'x')) {
+            const g = signOf(t);
+            out.push({
+              ...base,
+              variable: t.key,
+              variable_transform: t.tf,
+              expected_sign: SIGNL[t.sign] || '',
+              coef: t.b,
+              se_robust: t.seR,
+              p_robust: t.pR,
+              se_classical: t.seC,
+              p_classical: t.pC,
+              p_bh: B.adj.get(`${e.id}:${t.key}`),
+              sign_matches: g.match == null ? '' : g.match ? 'yes' : 'no',
+              n: e.n,
+              dropped: e.nMiss + e.nBad,
+              r2: e.model === 'poisson' ? '' : e.r2,
+              pseudo_r2: e.model === 'poisson' ? e.pseudo : '',
+              moran_i: e.moran ? e.moran.I : '',
+              moran_p: e.moran ? e.moran.p : '',
+              error: '',
+            });
+          }
+        }
+        return out;
+      }
+      const CSVCOLS = [
+        'id',
+        'timestamp',
+        'statement',
+        'unit',
+        'model',
+        'se',
+        'outcome',
+        'outcome_transform',
+        'variable',
+        'variable_transform',
+        'controls',
+        'exposure',
+        'expected_sign',
+        'coef',
+        'se_robust',
+        'p_robust',
+        'se_classical',
+        'p_classical',
+        'p_bh',
+        'sign_matches',
+        'n',
+        'dropped',
+        'r2',
+        'pseudo_r2',
+        'moran_i',
+        'moran_p',
+        'weights',
+        'maup_of',
+        'error',
+      ];
+      function logCSV() {
+        return (
+          [
+            CSVCOLS.join(','),
+            ...logRows().map((r) => CSVCOLS.map((c) => csvCell(r[c])).join(',')),
+          ].join('\r\n') + '\r\n'
+        );
+      }
+      function logMD() {
+        const B = bh(),
+          md = (s) =>
+            String(s ?? '')
+              .replace(/\|/g, '\\|')
+              .replace(/\n/g, ' ');
+        return [
+          '# Conjectures tested in the Shrines and Welfare viewer',
+          '',
+          `Exported ${new Date().toISOString()}. ${LOG.length} tests in the log, ${B.m} explanatory-variable hypotheses; the BH column adjusts for all of them (Benjamini–Hochberg).`,
+          '',
+          "| # | Recorded (UTC) | Conjecture | Specification | Unit | Model | Expected | Coef | Robust p | BH p | Sign | n | Moran's I (p) |",
+          '|---|---|---|---|---|---|---|---|---|---|---|---|---|',
+          ...logRows().map((r) =>
+            r.error
+              ? `| ${r.id} | ${r.timestamp.slice(0, 19)} | ${md(r.statement)} | | ${r.unit} | ${r.model} | | | | | | | ${md(r.error)} |`
+              : `| ${r.id}${r.maup_of !== '' ? ` (re-run of #${r.maup_of})` : ''} | ${r.timestamp.slice(0, 19)} | ${md(r.statement)} | ${md(`${r.outcome_transform === 'none' ? r.outcome : r.outcome_transform + '(' + r.outcome + ')'} ~ ${r.variable_transform === 'none' ? r.variable : r.variable_transform + '(' + r.variable + ')'}${r.controls ? ' + ' + r.controls : ''}`)} | ${r.unit} | ${r.model} | ${r.expected_sign} | ${fn(r.coef, 4)} | ${fp(r.p_robust)} | ${fp(r.p_bh)} | ${r.sign_matches || '—'} | ${r.n} | ${r.moran_i === '' ? '—' : `${fn(r.moran_i, 3)} (${fp(r.moran_p)})`} |`,
+          ),
+          '',
+          "Read with: the archive is curated, not a census; these are associations among areal units, not among people or shrines (ecological inference), and none of them is a causal estimate. Where Moran's I of the residuals is significant, the standard errors are likely too small.",
+          '',
+          'Findings worth keeping belong in the repository (docs/research/), per RULE 0 of CLAUDE.md.',
+          '',
+        ].join('\n');
+      }
+      function logJSON() {
+        return JSON.stringify(
+          {
+            format: 'shrines-viewer-conjectures',
+            v: 1,
+            exported: new Date().toISOString(),
+            specs: LOG.filter((e) => e.maupOf == null).map((e) => e.spec),
+            log: LOG,
+          },
+          null,
+          1,
+        );
+      }
+      // Re-run: accepts one spec, an array of specs, or a whole export; each is run and logged again.
+      function rerun(obj) {
+        const specs = Array.isArray(obj)
+          ? obj
+          : obj && Array.isArray(obj.specs)
+            ? obj.specs
+            : [obj];
+        let ran = 0;
+        const bad = [];
+        let last = null;
+        for (const s of specs) {
+          const why = validSpec(s);
+          if (why) {
+            bad.push(why);
+            continue;
+          }
+          last = record(s, null);
+          ran++;
+        }
+        if (last) {
+          loadSpec(last.e.spec);
+          cjResult(last.e, last.res);
+        }
+        cjLog();
+        cjMsg(
+          `${ran} spec${ran === 1 ? '' : 's'} re-run${bad.length ? `; ${bad.length} refused (${[...new Set(bad)].join('; ')})` : ''}.`,
+        );
+        return ran;
+      }
+      // The analysis-ready table for one unit: ids, names, admin codes, every value in the data.
+      function unitCSV(u) {
+        const fs = feats(u),
+          keys = [],
+          seen = new Set(['id', 'name']);
+        for (const f of fs) for (const k in f.p) if (!seen.has(k)) seen.add(k) && keys.push(k);
+        const nm = (v, id) => {
+          const i = id ? feats(v).byId.get(id) : null;
+          return i == null ? '' : feats(v)[i].name;
+        };
+        const head =
+          u === 'hex'
+            ? [
+                'h3',
+                'lat',
+                'lon',
+                'tehsil_id',
+                'tehsil',
+                'district_id',
+                'district',
+                'province_id',
+                'province',
+              ]
+            : u === 'tehsil'
+              ? ['id', 'name', 'district_id', 'district', 'province_id', 'province']
+              : u === 'district'
+                ? ['id', 'name', 'province_id', 'province']
+                : ['id', 'name'];
+        const rows = fs.map((f) => {
+          let tid = null,
+            did = null,
+            pid = null,
+            ll = null;
+          if (u === 'tehsil') tid = f.id;
+          else if (u === 'district') did = f.id;
+          else if (u === 'hex') {
+            ll = h3.cellToLatLng(f.hex);
+            const t = featAt('tehsil', ll[0], ll[1]);
+            if (t >= 0) tid = feats('tehsil')[t].id;
+            else {
+              const d = featAt('district', ll[0], ll[1]);
+              if (d >= 0) did = feats('district')[d].id;
+            }
+          }
+          if (tid) did = tid.slice(0, 5);
+          if (did) pid = did.slice(0, 3);
+          const pre =
+            u === 'hex'
+              ? [
+                  f.id,
+                  ll[0].toFixed(5),
+                  ll[1].toFixed(5),
+                  tid,
+                  nm('tehsil', tid),
+                  did,
+                  nm('district', did),
+                  pid,
+                  nm('province', pid),
+                ]
+              : u === 'tehsil'
+                ? [f.id, f.name, did, nm('district', did), pid, nm('province', pid)]
+                : u === 'district'
+                  ? [f.id, f.name, pid, nm('province', pid)]
+                  : [f.id, f.name];
+          return [...pre, ...keys.map((k) => f.p[k])].map(csvCell).join(',');
+        });
+        return [[...head, ...keys].join(','), ...rows].join('\r\n') + '\r\n';
+      }
+      let clearArm = false;
+      function cjLog() {
+        const B = bh(),
+          nSess = LOG.length - SESSION0,
+          box = $('cjLog');
+        const rows = LOG.slice()
+          .reverse()
+          .map((e) => {
+            if (e.error)
+              return `<tr><td>${e.id}</td><td colspan="6" class="def">${esc(e.statement || specText(e.spec))}: ${esc(e.error)}</td></tr>`;
+            return e.terms
+              .filter((t) => t.role === 'x')
+              .map((t, j) => {
+                const g = signOf(t);
+                return `<tr><td>${j ? '' : e.id + (e.maupOf != null ? `<br><span class="def">re-run of #${e.maupOf}</span>` : '')}</td><td>${j ? '' : esc(e.statement || specText(e.spec))}<br><span class="def">${esc(termName(t.key, t.tf))} · ${esc(UNIT1[e.unit])} · ${e.model === 'poisson' ? 'Poisson' : 'OLS'}</span></td><td class="num">${t.sign === '0' ? '·' : t.sign === '+' ? '+' : '−'}</td><td class="num">${fn(t.b, 3)}</td><td class="num">${fp(t.pR)}<br><span class="def">BH ${fp(B.adj.get(`${e.id}:${t.key}`))}</span></td><td>${g.match == null ? '—' : g.match ? '<span class="match">matches</span>' : '<span class="opp">opposite</span>'}</td><td class="num">${e.moran ? fn(e.moran.I, 2) + `<br><span class="def">p ${fp(e.moran.p)}</span>` : '—'}</td></tr>`;
+              })
+              .join('');
+          })
+          .join('');
+        let saved = true;
+        try {
+          localStorage.getItem(LOGKEY);
+        } catch {
+          saved = false;
+        }
+        box.innerHTML =
+          `<div class="def">${nSess} test${nSess === 1 ? '' : 's'} this session; ${LOG.length} in the log, ${B.m} hypotheses in the Benjamini–Hochberg family. ${saved ? 'Kept in this browser only: export to keep it.' : 'This browser will not keep it (storage blocked): export before closing.'} Findings worth keeping go into the repository (docs/research/).</div>` +
+          (LOG.length
+            ? `<div class="scroll"><table><tr><th>#</th><th>Conjecture</th><th class="num">Exp.</th><th class="num">Coef</th><th class="num">Robust p</th><th>Sign</th><th class="num">Moran's I</th></tr>${rows}</table></div>`
+            : '') +
+          `<div class="cjbtns"><button class="btn" type="button" id="cjCSV" ${LOG.length ? '' : 'disabled'}>Export CSV</button><button class="btn" type="button" id="cjMD" ${LOG.length ? '' : 'disabled'}>Export Markdown</button><button class="btn" type="button" id="cjJSON" ${LOG.length ? '' : 'disabled'}>Export JSON spec</button><button class="btn" type="button" id="cjLoad">Re-run a JSON spec…</button><input type="file" id="cjFile" accept=".json,application/json" hidden /></div>
+          <div class="cjbtns"><button class="btn" type="button" id="cjData">Download data: ${esc(UNIT1[CJ.unit])} (CSV)</button>${LOG.length ? '<button class="btn" type="button" id="cjClear">Clear the log</button>' : ''}</div>`;
+        $('cjCSV').onclick = () => download(`conjectures_${stamp()}.csv`, logCSV(), 'text/csv');
+        $('cjMD').onclick = () => download(`conjectures_${stamp()}.md`, logMD(), 'text/markdown');
+        $('cjJSON').onclick = () =>
+          download(`conjectures_${stamp()}.json`, logJSON(), 'application/json');
+        $('cjLoad').onclick = () => $('cjFile').click();
+        $('cjFile').onchange = (ev) => {
+          const f = ev.target.files[0];
+          if (!f) return;
+          f.text().then((t) => {
+            try {
+              rerun(JSON.parse(t));
+            } catch (err) {
+              cjMsg('That file is not valid JSON: ' + err.message);
+            }
+          });
+        };
+        $('cjData').onclick = () =>
+          download(`shrines_${CJ.unit}.csv`, unitCSV(CJ.unit), 'text/csv');
+        if ($('cjClear'))
+          $('cjClear').onclick = (ev) => {
+            if (!clearArm) {
+              clearArm = true;
+              ev.target.textContent = 'Click again to clear';
+              return;
+            }
+            clearArm = false;
+            LOG = [];
+            saveLog();
+            $('cjOut').innerHTML = '';
+            cjLog();
+          };
+      }
+
+      // ---- test a conjecture: the drawer --------------------------------------------------------
+      function cjOpen() {
+        if (!CJ.dirty) cjPrefill();
+        else cjForm();
+        cjLog();
+        cjEl.hidden = false;
+        $('cjOpen').setAttribute('aria-expanded', 'true');
+        $('cjTitle').focus();
+      }
+      function cjClose() {
+        cjEl.hidden = true;
+        $('cjOpen').setAttribute('aria-expanded', 'false');
+        $('cjOpen').focus();
+      }
+      $('cjOpen').onclick = () => (cjEl.hidden ? cjOpen() : cjClose());
+      $('cjClose').onclick = cjClose;
+      cjEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          e.stopPropagation();
+          cjClose();
+        }
+      });
+      // CJ's unit follows the form; refresh the data button when it changes.
+      $('cjUnits').addEventListener('click', () => cjLog());
 
       $('coverage').innerHTML =
         '<table><tr><th>Source</th><th>Features</th><th>Archive sites it has</th><th>Median offset</th><th>p90</th></tr>' +

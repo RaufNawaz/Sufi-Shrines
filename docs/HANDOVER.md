@@ -21965,3 +21965,22 @@ snapshot exported at deploy. Everything is in `docs/DATABASE.md`; the essentials
   `archive_command` "succeeded" into a mangled relative path inside the data directory while the
   server's own counter reported every segment archived. Forward slashes; and `backup.py` now
   checks the archived file is really on disk.
+
+### 9.421, 30 October 2026 (agent): Stage = notes. GIS viewer: "Test a conjecture", a pre-registered regression workbench in the page, checked against an independent reference
+
+Full account, including every formula, in `docs/GIS_FOUNDATION.md`, "The viewer" → "Test a conjecture". Files: `pipeline/gis/viewer/template.html` and the rebuilt `index.html` (by `rebuild_from_embedded.py --leads …`; data unchanged, so `build_viewer.py` needs no change), plus `pipeline/gis/viewer/tests/test_conjecture.cjs` (Playwright) and `tests/check_conjecture_reference.py` (standard library, exits non-zero on a mismatch). Nothing committed.
+
+Findings that would cost an hour:
+
+- **jStat 1.9.6's t distribution is accurate to about 1e-8, not to machine precision.** Two-sided p at t = 2 on 10 df is 7.6e-11 from the exact value; `studentt.inv(0.975, 10)` is 9.5e-9 off. Against the reference, the page's p-values differ by up to 8e-8 and its CI bounds by 5e-7 relative, while the coefficients and SEs agree to 1e-12. It is invisible at four decimals, but a reference check needs a tolerance of about 1e-6 on p, or it fails for jStat's reasons.
+- **`package.json` has `"type": "module"`, so a CommonJS Playwright script in the repo must be `.cjs`.** As `.js`, `require` is not defined.
+- **Contiguity needs the holes.** Using only outer rings left Faisalabad City and Multan City tehsils with no neighbour: they are enclosed, and they touch only the hole of the tehsil around them. With all rings, every polygon at every admin unit has a neighbour. The simplified boundaries share vertices exactly, so exact-coordinate matching works.
+- **numpy is not installed on the PC**, hence the standard-library reference. It ports the page's seeded generator (mulberry32 plus Fisher–Yates), so the permutation p-values must match exactly, and they do.
+- **`test_viewer.js` (scratchpad) fails its two hexagon checks with leads on, against the committed page as well.** This is the known marker artefact; `test_viewer_noleads.js` passes.
+
+Decisions that are Rauf's, asked in the chat (RULE 5). Each has a default in place:
+
+- **Moran's I on hexagons always uses H3 ring-1 neighbours.** kNN is not offered there, because 19,000 cells is too slow in a page.
+- **The BH family is the whole log, unit re-runs included.** So each "Same test at every unit" adds up to three hypotheses.
+- **One-sided expectations are recorded but the p-values are two-sided.**
+- **The log lives in one browser until exported.**
