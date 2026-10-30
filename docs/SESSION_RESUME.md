@@ -34,6 +34,28 @@ the reason the rest is credible.
 
 ---
 
+## 30 October 2026, late night: the database, the GIS leads and the research viewer (read HANDOVER §9.418 to §9.421, then `docs/DATABASE.md`)
+
+**State.** Everything is committed on `cleanup/perf-stability-security` and pushed; `1.7` was fast-forwarded to `9801b63f` with Rauf's approval in the other session, which watched the deploy (its result is that session's record). `npm run verify` was green at `9801b63f`. Two sessions worked this checkout side by side that night (`shrines-project-1c`: this work; `shrines-project-97`: the verse and deploy work below).
+
+**Done that night** (each in the repo, each verified):
+
+- **Merged shrine leads** (`pipeline/gis/shrine_sources/merged_leads.*`, §9.418, `GIS_FOUNDATION.md` "Merged leads"): Wikidata over OSM, GeoNames dropped, 817 places, 724 leads not in the archive; figure filled only from structured statements (25). Rauf's verdicts recorded: Gurdwara Chowa Sahib's two Wikidata items are one place (`wikidata_duplicates.tsv`; still to merge on Wikidata itself); Samadhi of Bhai Vasti Ram is the archive's Samadh Bhai Vasti Ram (`archive_match_verdicts.tsv`).
+- **The GIS viewer** (`pipeline/gis/viewer/index.html`, §9.419, §9.421): blank map, Compare two (bivariate) and Composite modes, a raised tile with an info card, one Wikidata + OSM lead layer, and **"Test a conjecture"**: pre-stated signs, OLS with HC1, Poisson for counts, permutation correlations, Moran's I of residuals, the same test at every unit, a log with Benjamini-Hochberg, CSV/Markdown/JSON/Stata/R exports. Numbers matched a stdlib reference (coefficients to 1e-13). Rebuild without the GeoPackage: `python pipeline/gis/viewer/rebuild_from_embedded.py --leads pipeline/gis/shrine_sources/merged_leads.json`. Exported research findings belong in `docs/research/`.
+- **The archive database** (`pipeline/db/`, `docs/DATABASE.md`, §9.420): Rauf ruled it **replaces the Google Sheet as the master**. PostgreSQL 17 + PostGIS on this PC (`~/pgsql-17`, data `~/pgdata/17`, backups `~/pgbackup`, all outside iCloud), localhost only, a login per person, an audit trail of every change, tables in schema `archive` (migration 0002). Import reads every cell back before committing; the export reads identically to the sheet through the build's own parser (489 rows); restore drill and point-in-time recovery both proved. **The sheet is still production**: no cutover yet.
+
+**On hold at Rauf's request (30 October, before sleeping). Ask again in the chat, RULE 5:**
+
+1. **Supabase.** Rauf chose Supabase as the hosted home (open source, web table editor so Adil can edit without a VPN); this PC becomes the backup target. Rauf to create the project, keep its password in a password manager (never in the chat or the repo), invite Adil, then say so. The agent then gives him one pgpass line to add himself, runs `migrate.py`, `import_sheet.py`, the cell-by-cell verify, and points `backup.py` at it. Known limits are in `DATABASE.md` ("Hosting").
+2. **Scheduled start and backups are not registered.** The agent's attempt was refused as persistence; Rauf runs it himself: `powershell -ExecutionPolicy Bypass -File "pipeline\db\windows\install_tasks.ps1"`. Until then the server does not start after a reboot and no backup runs on its own. **Start it by hand** (PowerShell): `Start-Process "$HOME\pgsql-17\pgsql\bin\pg_ctl.exe" -ArgumentList @('-D',"$HOME\pgdata\17",'-l',"$HOME\pgdata\logs\startup.log",'start') -WindowStyle Hidden`.
+3. **The parallel run and the freeze** (`DATABASE.md` "Cutover"): daily re-import + verify for a few days, then the sheet goes view-only and `scripts/data/build-dataset.mjs` reads the export. That last step is website code.
+4. **Defaults in the conjecture workbench** Rauf may want changed: the Benjamini-Hochberg family is the whole log (unit re-runs included); p-values two-sided despite the stated sign; hexagons use H3 neighbours only; the log lives in one browser until exported.
+5. **Viewer defaults**: in One measure, an indicator missing at the current unit switches unit (other modes disable it); whole zoom levels (opens at 5, not 5.5); the Compare-two legend's vertical label is cut off ("Night lights whe…"), a small fix still to make.
+
+**Known gaps.** The viewer's embedded welfare data predates the 8 October import (counts 169 sites); a full rebuild needs `shrines_foundation.gpkg`, which is not on this PC. With leads on, 725 markers cover Lahore's hexagons (`test_viewer.js` fails its two hexagon checks for that reason only; `test_viewer_noleads.js` passes). The Stata/R code the workbench writes has not been run (neither is installed). WebKit untested.
+
+---
+
 ## 30 October 2026, night: start here (read HANDOVER §9.412 to §9.417)
 
 **Working copy and branch.** `C:\Users\g16\Desktop\Shrines Project`, branch `cleanup/perf-stability-security` (cut 25 October from `d368297`, `docs/CLEANUP_2026-10.md`). Last commit, by Rauf on 30 October at 02:12Z: "feat: verse originals in Gurmukhi, restored lines, verse language labels, new Urdu articles". **Not pushed.** GitHub Pages deploys only on a push to `1.7` (`.github/workflows/deploy-pages.yml`); `origin/1.7` was at `9435527` when last fetched and has none of this branch.

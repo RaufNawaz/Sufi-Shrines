@@ -156,8 +156,21 @@ restored and compared here. Two known limits, stated rather than glossed:
 Waiting on: Rauf creating the Supabase project and putting its connection password in pgpass
 (never in the chat or the repo).
 
+## Status at the end of 30 October 2026 (on hold at Rauf's request)
+
+- **Running now, by hand:** the local server, started detached from a session. It will **not**
+  restart after a reboot until the scheduled tasks are registered. Start it (PowerShell):
+  `Start-Process "$HOME\pgsql-17\pgsql\bin\pg_ctl.exe" -ArgumentList @('-D',"$HOME\pgdata\17",'-l',"$HOME\pgdata\logs\startup.log",'start') -WindowStyle Hidden`
+- **Last verified:** schema at migration 0002; 489 sites, 261 images; equal to the sheet cell for
+  cell; last dump `shrines-20261030-012303.dump`, restore drill ok; WAL archive current.
+- **Not done, waiting on Rauf:** registering `windows/install_tasks.ps1` (Rauf runs it by hand;
+  the agent's attempt was refused as persistence), creating the Supabase project, and starting the
+  parallel run.
+
 ## Open (decisions asked in the chat, 30 October 2026)
 
-- The off-site copy: which open-source tool and which cloud destination.
+- Supabase: Rauf to create the project, invite Adil, and say so (password never in the chat).
+- The off-site copy: settled by Supabase plus the nightly pull to this PC. Restic + rclone to Google
+  Drive is the fallback Rauf named if Supabase does not work out.
 - Which table editor: settled by Supabase (its own web table editor).
 - When to start the parallel run and freeze the sheet.
