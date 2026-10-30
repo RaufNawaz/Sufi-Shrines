@@ -1,4 +1,4 @@
-### 9.419, 30 October 2026 (interactive, PC): Stage = notes. The first committed snapshot since 8 October, and everything it broke
+### 9.422, 30 October 2026 (interactive, PC): Stage = notes. The first committed snapshot since 8 October, and everything it broke
 
 Rauf, in chat, opening the session: repo hygiene, then `data:build`, `data:validate`, `verify`, and commit the refreshed data; then the dev server, then the deploy question. Written as a fragment because a parallel session had §9.418 uncommitted in HANDOVER.md.
 
