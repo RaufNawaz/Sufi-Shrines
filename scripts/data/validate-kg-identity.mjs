@@ -57,6 +57,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify } from './lib/slugs.mjs';
+import { frozenSheetText } from './lib/frozenSheet.mjs';
 import {
   saintNameKey,
   findNameKeyCollisions,
@@ -124,6 +125,8 @@ function sourceText(source) {
     if (!row) return { ok: false, why: `no shrine row with slug "${slug}"` };
     return { ok: true, text: Object.values(row).join('\n') };
   }
+  const frozen = frozenSheetText(ROOT, source);
+  if (frozen) return frozen;
   const path = join(ROOT, source.split('#')[0]);
   if (!existsSync(path)) return { ok: false, why: `file not found: ${source}` };
   return { ok: true, text: readFileSync(path, 'utf8') };

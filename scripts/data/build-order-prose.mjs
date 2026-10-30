@@ -80,14 +80,14 @@ const PICKS = [
     from: 'The Suhrawardiyya takes its name', to: 'well suited to a scholar-saint.',
     why: 'From the archive’s own section "The Suhrawardi Way": the order’s name, its founding texts and its temper.' },
   { order: 'suhrawardiyya', shrine: 'Shrine of Bahauddin Zakariya',
-    from: 'The Suhrawardi order he founded was marked', to: 'Sindh for centuries.',
-    why: 'Kept beside the passage above ON PURPOSE, and not reconciled with it. This entry says Zakariya "founded" the order; the Abul Faiz entry says the Suhrawardiyya takes its name from Abu Najib and Shihab al-Din of Baghdad and "was carried into the Indian subcontinent" by Zakariya. Two entries of this archive word the same relationship differently, and showing both is the archive reporting what it holds rather than picking a winner (RULE 2).' },
+    from: "Bahauddin Zakariya's lasting achievement was to root the Suhrawardi way", to: 'western Punjab and Sindh for centuries.',
+    why: 'Kept beside the passage above: the order’s temper as it took root at Multan. Until 30 October 2026 this entry said Zakariya "founded" the order and the pick was kept for that disagreement with the Abul Faiz entry; the public text that replaced it says he "planted" and "rooted" it, which no longer disagrees, so the pick was reselected from the same paragraph (Rauf, 30 October 2026: reselect from the public text).' },
 
   { order: 'qadiriyya', shrine: 'Shamsabad',
     from: 'Shams Ali Qalandar stood in the tradition', to: 'the early devotee Uways al-Qarani.',
     why: 'Carries the order’s eponym and date, and defines *Owaisi* — which is also the standing reason no person-to-person lineage edge may be drawn for this figure. Its first sentence is also the Qalandariyya’s passage, deliberately: the same paragraph places this figure in both traditions, which is why the archive records him under both.' },
   { order: 'qadiriyya', shrine: 'Shergarh',
-    from: 'At Shergarh, in the Okara district', to: 'spread the Qadiri order in the Punjab.',
+    from: 'At Shergarh, in the Okara district', to: 'spread that order in the Punjab.',
     why: 'How the order reached the Punjab, from the entry of a saint who carried it there — and a sentence that names him, which "From his base at Shergarh he taught" does not.' },
 
   { order: 'qalandariyya', shrine: 'Shamsabad',
@@ -106,7 +106,7 @@ const PICKS = [
     why: 'A practice of the order stated as a practice, and one that contradicts the archive’s own default assumption that a Sufi shrine keeps an urs.' },
 
   { order: 'malamati', shrine: 'Shrine of Hazrat Madho Lal Hussain',
-    from: 'Hussain belonged, in spirit, to the', to: 'an outward show of impropriety.',
+    from: 'Hussain belonged in spirit to the', to: 'an outward show of impropriety.',
     why: 'The archive’s section "The Way of Blame". The order had no description; this is the definition the corpus already held.' },
 
   { order: 'azeemia', shrine: 'Shrine of Qalandar Baba Auliya',
@@ -114,43 +114,40 @@ const PICKS = [
     why: 'The archive’s section "The Azeemia Order" in full — founder, successor, teaching and seat. A twentieth-century order the archive documents well and the order page showed nothing of.' },
 
   { order: 'shattari', shrine: 'Shrine of Shah Inayat Qadiri',
-    from: 'Born around 1643 in Kasur', to: 'one being silently preferred.',
-    why: 'Two quotations from one entry rather than one long one. The obvious span — first sentence to last — swept in a paragraph about friction with Kasur’s ruling family that has nothing to do with the silsila, and cutting the middle out of a quotation is not something this archive does. So the two sentences that ARE about the Shattari are quoted separately and in order. The thinnest of the nine, and left thin. This is the whole of what the corpus says about the Shattari as a silsila: that one man trained under a Shattari teacher and held the two silsilas together in his practice. Started a sentence earlier than the obvious one so the passage names him — and so it carries the archive’s own refusal to choose between two sources that name that teacher differently. Nothing here defines the order, and nothing pretends to.' },
+    from: 'His full name, as it stands in his own works', to: 'Shah Inayat Allah Qadiri and Inayat Shah.',
+    why: 'Reselected on 30 October 2026 from the public text, which replaced the entry. The Shattari is named in this entry twice: in his full name as his own works give it, and in the paragraph below. This sentence names him and carries the nisba, so it stands first; the paragraph on his teachers between the two opens on "He" and is not quoted. Nothing here defines the order, and nothing pretends to.' },
   { order: 'shattari', shrine: 'Shrine of Shah Inayat Qadiri',
-    from: 'He combined the Qadiri and Shattari silsilas', to: "*Lata'if-e-Ghaibiya*.",
-    why: 'The other half. Opens on "He", which a passage on an order page normally may not — allowed here only because it follows the passage above it, from the same entry, which names him two lines up.' },
+    from: 'He combined the Qadiri and Shattari orders', to: 'was given particular importance.',
+    why: 'The other half: that he held the two orders together, and the one Shattari doctrine the entry names (fana fi l-shaikh). Opens on "He", allowed only because it follows the passage above it, from the same entry, which names him.' },
   { order: 'shattari', shrine: 'Mazar of Bulleh Shah',
-    from: 'Well educated in Arabic and Persian', to: 'rather than a high-born sayyid.',
+    from: 'Shah Inayat was a Sufi master of Lahore', to: 'rather than a Sayyid of high birth.',
     why: 'The second and last mention: the same man named from his disciple’s entry as "of the Qadiri-Shattari line".' },
 
-  { order: 'junaidi', shrine: 'Shrine of Peer Makki',
-    from: 'Standing close to the great mausoleum of Data Ganj Bakhsh', to: 'tracing back to the classical Baghdad master Junayd.',
-    why: 'The order was created on 5 September 2026 and had nothing on its page. This is the corpus naming it, of a shrine’s principal figure, and saying what he taught of it. Runs from the entry’s first sentence rather than from the sentence that names the order, because that one opens "Hagiographical accounts hold that he arrived" — a pronoun with no antecedent once lifted out (rule 1) — and the middle of a quotation is not ours to cut (rule 2). At 945 characters it is the second longest of the passages, behind the Naqshbandi one, and that length is the price of both rules holding at once.' },
-  { order: 'junaidi', shrine: 'Shrine of Bibi Pak Daman',
-    from: 'The custodial and scholarly tradition tells a different', to: 'to settle at last in Lahore.',
-    why: 'The second witness, and the one kg-order-proposals.json weighed when it declined a Junaidiya node — named of the Bibis’ father, who has no shrine of his own. Kept because the archive says it, and because it is the whole of what the corpus records about this line besides the Peer Makki passage. Opens on the tradition rather than on the man, which is how the entry itself introduces him.' },
+  /* The two Junaidi picks (Peer Makki, Bibi Pak Daman) were dropped on 30 October 2026, when the
+     public text replaced both entries (Rauf, in chat: reselect from the public text, drop what it no
+     longer says). Bibi Pak Daman's no longer names the line. Peer Makki's does, but in a paragraph
+     opening "He came to Lahore", and the shortest run that names him first is 2,406 characters,
+     over the 1,200 a passage may be: rules 1 and 2 cannot both hold. */
 ];
 /* The Urdu half. Positional against PICKS — [orderSlug, shrineSlug, from, to] —
    so a reordering of the picks fails loudly rather than silently pairing a
    passage with the wrong translation. */
 const URDU_MARKS = [
  ["chishtiyya","eidgah-sharif","وہ سلسلہ چشتیہ سے تعلق رکھتے ہیں","سماع کی مشق پر ہے۔"],
- ["chishtiyya","shrine-of-fariduddin-ganjshakar","پاکپتن میں، جنوبی پنجاب میں","مقدس ہستیوں میں شمار ہوتے ہیں۔"],
+ ["chishtiyya","shrine-of-fariduddin-ganjshakar","پنجاب کے جنوب میں دریائے ستلج کے پرانے کنارے","روحانی شخصیات میں شمار ہوتے ہیں۔"],
  ["suhrawardiyya","shrine-of-abul-faiz-qalander-ali-suharwardi","سہروردیہ اپنا نام","عالم بزرگ کے لیے موزوں تھا۔"],
- ["suhrawardiyya","shrine-of-bahauddin-zakariya","ان کا قائم کردہ سہروردی سلسلہ","مذہبی زندگی کو تشکیل دیا۔"],
+ ["suhrawardiyya","shrine-of-bahauddin-zakariya","حضرت بہاؤالدین زکریا کا پائیدار کارنامہ","مذہبی زندگی کو ڈھالا۔"],
  ["qadiriyya","shamsabad","شمس علی قلندر قلندروں کی روایت میں","اویس قرنی کے انداز میں۔"],
- ["qadiriyya","shergarh","شیرگڑھ میں، پنجاب کے ضلع اوکاڑہ","پھیلاؤ میں بہت کچھ کیا۔"],
+ ["qadiriyya","shergarh","پنجاب کے ضلع اوکاڑہ میں شیر گڑھ","ان کا بڑا حصہ رہا۔"],
  ["qalandariyya","shamsabad","شمس علی قلندر قلندروں کی روایت میں","قابل احترام سلسلوں سے الگ کرتی تھی۔"],
  ["naqshbandiyya","shrine-of-ganj-e-inayat-sarkar","نقشبندیہ اپنا نام","عظیم انجنوں میں سے ایک بن کر۔"],
  ["rashidi","dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth","قصبہ پیر جو گوٹھ","پیر پگارا کے سلسلے کے جدِ امجد۔"],
  ["rashidi","dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth","دربار صوفی مزارات میں ایک غیر معمولی سخت نظم","کوئی عوامی عرس نہیں مناتی۔"],
- ["malamati","shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar","حسین روح کے اعتبار سے ملامتیہ","ظاہری مظاہرے کے نیچے چھپاتے ہوئے۔"],
+ ["malamati","shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar","روح کے اعتبار سے شاہ حسین ملامتیہ","کے پردے میں چھپائے رکھتے ہیں۔"],
  ["azeemia","shrine-of-qalandar-baba-auliya","قلندر بابا اولیاء کا پائیدار ورثہ","عقیدت اور علم دونوں کی حامل ہے۔"],
- ["shattari","shrine-of-shah-inayat-qadiri","تقریباً 1643 میں قصور میں","خاموشی سے ایک کو ترجیح دی جائے۔"],
- ["shattari","shrine-of-shah-inayat-qadiri","اُنہوں نے اپنی مشق میں سلسلہ قادریہ","*لطائفِ غیبیہ* شامل ہیں۔"],
- ["shattari","mazar-of-bulleh-shah","عربی، فارسی اور دینی علوم میں","(کاشتکار باغبان) تھے۔"],
- ["junaidi","shrine-of-peer-makki","داتا گنج بخش کے عظیم مقبرے کے قریب","دونوں کے استاد کی حیثیت سے۔"],
- ["junaidi","shrine-of-bibi-pak-daman","متولی اور علمی روایت ایک مختلف","بالآخر لاہور میں آباد ہوا۔"]
+ ["shattari","shrine-of-shah-inayat-qadiri","خود ان کی تصانیف","کے ناموں سے بھی معروف ہیں۔"],
+ ["shattari","shrine-of-shah-inayat-qadiri","شاہ عنایت نے اپنے سلوک میں قادری اور شطاری","ذات میں مٹا دینا۔"],
+ ["shattari","mazar-of-bulleh-shah","شاہ عنایت لاہور کے ایک صوفی بزرگ تھے","برادری سے تعلق رکھتے تھے۔"]
 ];
 
 const problems = [];

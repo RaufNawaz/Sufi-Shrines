@@ -50,7 +50,14 @@ describe('what the archive says about its orders', () => {
 
   it('covers every order in the taxonomy', () => {
     const covered = new Set(prose.passages.map((p) => p.orderSlug));
-    const uncovered = kg.orders.map((o) => o.slug).filter((s) => !covered.has(s));
+    /* Junaidi has no passage since 30 October 2026, by Rauf's ruling in chat:
+       excerpts are reselected from the public text and dropped where it no longer
+       allows one (build-order-prose.mjs records why for this order). Named here
+       so a second order losing its passage still fails. */
+    const RULED_EMPTY = new Set(['junaidi']);
+    const uncovered = kg.orders
+      .map((o) => o.slug)
+      .filter((s) => !covered.has(s) && !RULED_EMPTY.has(s));
     expect(uncovered, 'an order with no passage shows a reader nothing about what it is').toEqual(
       [],
     );

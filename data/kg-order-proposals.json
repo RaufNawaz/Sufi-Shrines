@@ -112,7 +112,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+   "source": "entries/descriptions/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.md#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
    "quote": "He was initiated in the Chishti-Nizami order and became the spiritual heir of his master Khwaja Nur Muhammad Maharvi’s line",
    "notes": null
   },
@@ -183,7 +183,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+   "source": "entries/descriptions/dargah-of-khwaja-muhammad-zaman-luari-sharif.md#dargah-of-khwaja-muhammad-zaman-luari-sharif",
    "quote": "the shrine of Khwaja Muhammad Zaman (1713–1775), one of the most revered Naqshbandi Sufis and Sindhi mystic poets of the eighteenth century",
    "notes": null
   },
@@ -254,7 +254,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#golra-sharif",
+   "source": "entries/descriptions/golra-sharif.md#golra-sharif",
    "quote": "in the Sufi path he was initiated in the Chishti order, taking spiritual allegiance in the line of Khwaja Shamsuddin Sialvi of Sial Sharif",
    "notes": null
   },
@@ -271,7 +271,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#mausoleum-of-waris-shah",
+   "source": "entries/descriptions/mausoleum-of-waris-shah.md#mausoleum-of-waris-shah",
    "quote": "belonged in spirit to the Chishti Sufi tradition, tracing his discipleship to the line of the saint Makhdoom of Kasur",
    "notes": "Contradicts the existing seed (waris-shah -> qadiriyya). Both the column and the prose of this row say Chishti. See disagreesWithExistingSeed. Prose hedges with \"in spirit\"."
   },
@@ -322,7 +322,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#purana-bhalwal",
+   "source": "entries/descriptions/purana-bhalwal.md#purana-bhalwal",
    "quote": "a sixteenth-century Sufi of the *Qadiriyya* order who is remembered locally with the affectionate title *Sakhi Badshah*",
    "notes": null
   },
@@ -373,7 +373,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shergarh",
+   "source": "entries/descriptions/shergarh.md#shergarh",
    "quote": "a revered Qadiri saint of the sixteenth century who did much to spread the Qadiri order in the Punjab",
    "notes": "Contradicts the existing seed (daud-bandagi-kirmani -> chishtiyya). Column and prose both say Qadiri, repeatedly. See disagreesWithExistingSeed."
   },
@@ -441,7 +441,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-baba-shah-chiragh",
+   "source": "entries/descriptions/shrine-of-baba-shah-chiragh.md#shrine-of-baba-shah-chiragh",
    "quote": "the shrine of Baba Shah Chiragh commemorates Syed Abdul Razzaq, a Sufi of the Qadiri lineage who traced his descent to Sheikh Abdul Qadir Gilani of Baghdad",
    "notes": null
   },
@@ -478,7 +478,7 @@
    "isProseNotValue": false,
    "evidence": "prose",
    "confidence": 0.7,
-   "source": "data/shrines.csv#shrine-of-baba-shah-kamal",
+   "source": "data/live_sheet_2026-10-15.csv#shrine-of-baba-shah-kamal",
    "quote": "local devotional tradition attaches to him the composite title \"Qadiri Suhrawardi,\" suggesting an affiliation with the same overlapping Sufi orders associated with his brother's shrine nearby",
    "notes": "0.7: the source hedges twice (\"local devotional tradition\", \"suggesting\"), and the corpus says little is independently documented about him. The composite title must stay composite."
   },
@@ -512,7 +512,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-hafiz-muhammad-jamal-multani",
+   "source": "entries/descriptions/shrine-of-hafiz-muhammad-jamal-multani.md#shrine-of-hafiz-muhammad-jamal-multani",
    "quote": "marks the resting place of the man traditionally credited with establishing the *Chishti* order firmly in the city",
    "notes": null
   },
@@ -529,7 +529,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+   "source": "entries/descriptions/madho-lal-hussain.md#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
    "quote": "Hussain belonged, in spirit, to the *Malamatiyya* — the Sufis of the “path of blame,” who deliberately drew the censure of respectable society upon themselves",
    "notes": "parentOrder null: the Malamatiyya is not a branch of any of the five and the corpus does not place it under one. The overview calls him \"the great Malamati Sufi\" flatly; the History section hedges with \"in spirit\". See newOrdersNeeded."
   },
@@ -563,7 +563,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-hazrat-shah-daula-daryai",
+   "source": "entries/descriptions/shrine-of-hazrat-shah-daula-daryai.md#shrine-of-hazrat-shah-daula-daryai",
    "quote": "he became the disciple of a Suhrawardi *faqir* remembered as Shah Saidan Sarmast, serving at his master's *khanqah* with great devotion",
    "notes": null
   },
@@ -580,7 +580,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori",
+   "source": "entries/descriptions/shrine-of-makhdoom-abdul-rahim-girhori.md#shrine-of-makhdoom-abdul-rahim-girhori",
    "quote": "It honours a leading Naqshbandi mystic and scholar of eighteenth-century Sindh (1739–1778) who belonged to the Mangrio tribe",
    "notes": null
   },
@@ -597,7 +597,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-makhdoom-nooh-hala",
+   "source": "entries/descriptions/shrine-of-makhdoom-nooh-hala.md#shrine-of-makhdoom-nooh-hala",
    "quote": "A Sufi of the *Suhrawardi* order, honoured also with an Uwaisi spiritual lineage, he is remembered as the founder of the *Sarwari* branch of the order in Sindh",
    "notes": null
   },
@@ -614,7 +614,7 @@
    "isProseNotValue": false,
    "evidence": "prose",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-makhdoom-nooh-hala",
+   "source": "entries/descriptions/shrine-of-makhdoom-nooh-hala.md#shrine-of-makhdoom-nooh-hala",
    "quote": "he is remembered as the founder of the *Sarwari* branch of the order in Sindh",
    "notes": "IMPORTANT COLLISION: this \"Sarwari\" is a branch of the SUHRAWARDI order in Sindh, founded by Makhdoom Nooh. It is not the same as Sultan Bahu's \"Sarwari Qadiri\" (a branch of the Qadiri order). Two distinct branches share a name; they must not be merged into one node."
   },
@@ -631,7 +631,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-mauj-darya-bukhari",
+   "source": "entries/descriptions/shrine-of-mauj-darya-bukhari.md#shrine-of-mauj-darya-bukhari",
    "quote": "an adherent of the Suhrawardi silsila founded by Bahauddin Zakariya of Multan",
    "notes": null
   },
@@ -685,7 +685,7 @@
    "isProseNotValue": false,
    "evidence": "prose",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-pir-sher-muhammad",
+   "source": "entries/descriptions/shrine-of-pir-sher-muhammad.md#shrine-of-pir-sher-muhammad",
    "quote": "he became a spiritual guide of great reputation, uniting the Qadiri and Chishti lineages, and drew disciples from across the Punjab and beyond",
    "notes": null
   },
@@ -721,7 +721,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+   "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri",
    "quote": "He combined the Qadiri and Shattari silsilas in his own practice and authored several Persian works of mystical philosophy",
    "notes": "multiple=true: the source names two silsilas. Only one of them (Qadiri) exists among the five; Shattari has no node, so parentOrders lists only qadiriyya and the Shattari half is carried by the branch string and newOrdersNeeded. Do not read the single parentOrder as the whole of his affiliation."
   },
@@ -738,7 +738,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-shah-jamal",
+   "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-jamal",
    "quote": "The shrine — of the Suhrawardi line and the Ahl-e-Sunnat tradition — has been in the care of the government's Auqaf Department since 1960",
    "notes": "\"Ahl-e-Sunnat\" in the same sentence is a sect, not an order, and is not proposed as one. The column records only Suhrawardi; the prose records three orders — see the prose proposal and contradictions."
   },
@@ -759,7 +759,7 @@
    "isProseNotValue": false,
    "evidence": "prose",
    "confidence": 0.95,
-   "source": "data/shrines.csv#shrine-of-shah-jamal",
+   "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-jamal",
    "quote": "He belonged jointly to the Qadiriyya, Suhrawardiyya and Chishtiyya orders — a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi",
    "notes": "The row also traces his Suhrawardi lineage specifically to Bahauddin Zakariya of Multan, on the authority of Alam Faqri's *Tazkirah Awliya-e-Pakistan*."
   },
@@ -793,7 +793,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.95,
-   "source": "data/shrines.csv#sial-sharif",
+   "source": "entries/descriptions/sial-sharif.md#sial-sharif",
    "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi",
    "notes": null
   },
@@ -827,7 +827,7 @@
    "isProseNotValue": false,
    "evidence": "silsila-column",
    "confidence": 0.7,
-   "source": "data/shrines.csv#tomb-of-javindi-bibi",
+   "source": "entries/descriptions/tomb-of-javindi-bibi.md#tomb-of-javindi-bibi",
    "quote": "Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her holiness.",
    "notes": "0.7: the prose places her in the \"Jalali Bukhari line\" (a descent group) and never names an order for her; the row's other Suhrawardi mention is about the tomb style of \"the Suhrawardi saints\". Also note a modelling clash: existing-saints.json attaches this shrine to jalaluddin-surkh-posh-bukhari, not to Bibi Jawindi, who has no saint node."
   },

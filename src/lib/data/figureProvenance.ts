@@ -56,17 +56,25 @@ export interface FigureSourceRef {
  */
 const SHRINE_DATASET_FILES: readonly string[] = ['data/shrines.csv', 'data/shrines.json'];
 
+/**
+ * Since 30 October 2026 evidence whose words left the sheet points to the team
+ * file that holds them, or to a frozen copy of the sheet, with the entry slug
+ * kept as the fragment (`scripts/data/repoint-kg-evidence.mjs`).
+ */
+const SHRINE_FRAGMENT_FILES = /^(?:entries\/descriptions\/[^/#]+\.md|data\/live_sheet_\d{4}-\d{2}-\d{2}\.csv)$/;
+
 export function parseFigureSource(raw: string | undefined): FigureSourceRef | null {
   const value = (raw || '').trim();
   if (!value) return null;
   const hash = value.indexOf('#');
   const file = hash === -1 ? value : value.slice(0, hash);
   const fragment = hash === -1 ? null : value.slice(hash + 1).trim() || null;
+  const isEntryFile = SHRINE_DATASET_FILES.includes(file) || SHRINE_FRAGMENT_FILES.test(file);
   return {
     raw: value,
     file,
     fragment,
-    shrineSlug: fragment && SHRINE_DATASET_FILES.includes(file) ? fragment : null,
+    shrineSlug: fragment && isEntryFile ? fragment : null,
   };
 }
 

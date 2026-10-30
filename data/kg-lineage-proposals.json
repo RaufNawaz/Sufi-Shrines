@@ -17,7 +17,7 @@
       "objectName": "Abu’l-Fadl Muhammad al-Khuttali",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#data-darbar",
+      "source": "entries/descriptions/data-darbar.md#data-darbar",
       "quote": "His own spiritual guide was Abu’l-Fadl Muhammad al-Khuttali, who linked him to the “sober” Sufism of the school of Junayd of Baghdad",
       "notes": "The Miran Hussain Zanjani entry names Zanjani's master as \"Sheikh Abu al-Fazal Khatil\" and calls Zanjani Hujwiri's senior \"pir-brother\" — orthographically close to this name, and consistent with a shared master, but no source in this corpus states the two names are one person. Left as two separate objects rather than merged."
     },
@@ -30,7 +30,7 @@
       "objectName": "Sheikh Abu al-Fazal Khatil",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib",
+      "source": "entries/descriptions/shrine-of-miran-hussain-zanjani-zanjani-sahib.md#shrine-of-miran-hussain-zanjani-zanjani-sahib",
       "quote": "on the instruction of his spiritual master, Sheikh Abu al-Fazal Khatil, and is remembered to have preached in the city for some thirty-six years",
       "notes": "See note on the Hujwiri proposal: the same entry reports that Hujwiri called Zanjani his senior \"pir-brother\", which would imply a shared master. Not asserted here."
     },
@@ -43,7 +43,7 @@
       "objectName": "Bahlol (Bahlol Daryai)",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "source": "entries/descriptions/madho-lal-hussain.md#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
       "quote": "he is remembered as a disciple of the Sufi master Bahlol (Bahlol Daryai) and as a devoted frequenter of the shrine of Data Ganj Bakhsh",
       "notes": "shrine_entries/madho-lal-hussain.md adds an editorial note: \"His pir is given as Bahlol (Bahlol Daryai) in the Shafqat Tanvir Mirza study; confirm spelling.\""
     },
@@ -56,7 +56,7 @@
       "objectName": "Shaikh Siyustani",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "at the hands of the master whom the shrine’s tradition remembers as Shaikh Siyustani, from whom he received training and, in time, the khilafat, the authority to guide others.",
       "notes": "Confidence lowered — the source itself hedges the master's identity (\"whom the shrine's tradition remembers as\")."
     },
@@ -69,7 +69,7 @@
       "objectName": "Shaikh Siyustani",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "from whom he received training and, in time, the khilafat, the authority to guide others.",
       "notes": "Khilafat as authority to guide others, not as inheritance of a seat; and the master's identity is hedged in the source."
     },
@@ -82,7 +82,7 @@
       "objectName": "Mian Mir",
       "objectIsNew": false,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "His foremost successor was Mullah Shah Badakhshi, who carried on the master’s nightly practice of habs-e-dam"
     },
     {
@@ -94,7 +94,7 @@
       "objectName": "Mullah Shah Badakhshi",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "became the spiritual guide of Prince Dara Shikoh and, through him, of the emperor Shah Jahan’s brilliant daughter, the princess Jahanara",
       "notes": "Stated as Mullah Shah being his spiritual guide; the same entry adds \"Prince Dara Shikoh, drawn through Mullah Shah into the Qadiri way\". Confidence lowered because no initiation or bai'at is stated."
     },
@@ -107,7 +107,7 @@
       "objectName": "Mullah Shah Badakhshi",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "His sister, the princess Jahanara — Shah Jahan’s best-loved daughter — was herself a disciple of Mullah Shah"
     },
     {
@@ -119,7 +119,7 @@
       "objectName": "Sheikh Khokar Baig Suhrawardi",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-jamal",
       "quote": "a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi",
       "notes": "Confidence lowered — hedged as \"tradition holds\"; the named master is otherwise undocumented in this corpus."
     },
@@ -145,7 +145,7 @@
       "objectName": "Hazrat Shah Sikandar",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+      "source": "entries/descriptions/tahir-bandagi-qadri.md#darbar-hazrat-tahir-bandagi-qadri",
       "quote": "For advanced learning he became a disciple (*mureed*) of Hazrat Shah Sikandar, who is credited with giving him the name \"Tahir Bandagi\""
     },
     {
@@ -195,7 +195,7 @@
       "objectName": "Muhammad Ali Raza Shattari",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri",
       "quote": "Shah Inayat trained under a Shattari Sufi teacher — named in earlier sourcing for this entry as Muhammad Ali Raza Shattari",
       "notes": "The entry deliberately records two different names for the same teacher and refuses to prefer one. Both proposed; neither should be resolved without a new source.",
       "contradicts": "the following proposal (Hazrat Shah Raza Qadri Shattari, same source sentence)"
@@ -209,7 +209,7 @@
       "objectName": "Hazrat Shah Raza Qadri Shattari",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-shah-inayat-qadiri",
       "quote": "and named in a 2026 field survey as Hazrat Shah Raza Qadri Shattari; the two names are close but not identical",
       "notes": "See the preceding proposal. Same source sentence, competing name for the same teacher.",
       "contradicts": "the preceding proposal (Muhammad Ali Raza Shattari, same source sentence)"
@@ -223,7 +223,7 @@
       "objectName": "Makhdoom of Kasur",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#mausoleum-of-waris-shah",
+      "source": "entries/descriptions/mausoleum-of-waris-shah.md#mausoleum-of-waris-shah",
       "quote": "tracing his discipleship to the line of the saint Makhdoom of Kasur",
       "notes": "Confidence lowered — \"to the line of\" is a chain-level claim, not a stated personal teacher; and the object is named only by title and place."
     },
@@ -236,7 +236,7 @@
       "objectName": "Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
+      "source": "entries/descriptions/shrine-of-bahauddin-zakariya.md#shrine-of-bahauddin-zakariya",
       "quote": "travelling to Baghdad to enter the discipleship of Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi, the great systematiser of the Suhrawardi order",
       "notes": "Also in shrine_entries/shrine-of-bahauddin-zakariya.md, same wording."
     },
@@ -249,7 +249,7 @@
       "objectName": "Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
+      "source": "entries/descriptions/shrine-of-bahauddin-zakariya.md#shrine-of-bahauddin-zakariya",
       "quote": "Under him Zakariya completed his training with remarkable speed and received the mantle of *khilafat*, with authorisation to carry the order to India."
     },
     {
@@ -261,7 +261,7 @@
       "objectName": "Bahauddin Zakariya",
       "objectIsNew": false,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
+      "source": "entries/descriptions/shrine-of-bahauddin-zakariya.md#shrine-of-bahauddin-zakariya",
       "quote": "carried by his disciples and descendants — among them the poet-saint Fakhr-ud-Din Iraqi, who came to Multan and married into his family",
       "notes": "Confidence lowered — the sentence lists \"disciples and descendants\" together without saying which Iraqi was, and separately records that he married into the family."
     },
@@ -287,7 +287,7 @@
       "objectName": "Khwaja Qutbuddin Bakhtiar Kaki",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar",
+      "source": "entries/descriptions/shrine-of-fariduddin-ganjshakar.md#shrine-of-fariduddin-ganjshakar",
       "quote": "A disciple and spiritual heir of Khwaja Qutbuddin Bakhtiar Kaki of Delhi, and the master of the great Nizamuddin Auliya"
     },
     {
@@ -324,7 +324,7 @@
       "objectName": "Khwaja Noor Muhammad Maharvi",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-hafiz-muhammad-jamal-multani",
+      "source": "entries/descriptions/shrine-of-hafiz-muhammad-jamal-multani.md#shrine-of-hafiz-muhammad-jamal-multani",
       "quote": "Hafiz Jamal was a disciple of *Khwaja Noor Muhammad Maharvi*, a leading Chishti master of the region"
     },
     {
@@ -336,7 +336,7 @@
       "objectName": "Khwaja Nur Muhammad Maharvi",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "source": "entries/descriptions/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.md#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "quote": "He was initiated in the Chishti-Nizami order and became the spiritual heir of his master Khwaja Nur Muhammad Maharvi’s line",
       "notes": "Confidence lowered — the source says heir of \"his master ... line\" rather than stating a direct personal initiation. Object slug shared with the Hafiz Jamal proposal; spelling variant \"Nur\" vs \"Noor\" recorded in nameVariantsSeen."
     },
@@ -349,7 +349,7 @@
       "objectName": "Khwaja Nur Muhammad Maharvi",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "source": "entries/descriptions/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.md#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "quote": "became the spiritual heir of his master Khwaja Nur Muhammad Maharvi’s line",
       "notes": "Same hedge as above: heir of the line, not stated as inheriting the master's own seat."
     },
@@ -362,7 +362,7 @@
       "objectName": "Sayyid Abdul Rahman of Delhi",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#garh-maharaja-shorkot",
+      "source": "entries/descriptions/garh-maharaja-shorkot.md#garh-maharaja-shorkot",
       "quote": "Bahu received initiation in the Qadiri order at the hand of Sayyid Abdul Rahman of Delhi"
     },
     {
@@ -374,7 +374,7 @@
       "objectName": "Shah Maroof Khushabi",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#purana-bhalwal",
+      "source": "entries/descriptions/purana-bhalwal.md#purana-bhalwal",
       "quote": "his spiritual guide (*pir*) was Shah Maroof Khushabi of the nearby town of Khushab"
     },
     {
@@ -386,7 +386,7 @@
       "objectName": "Shah Saidan Sarmast",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-hazrat-shah-daula-daryai",
+      "source": "entries/descriptions/shrine-of-hazrat-shah-daula-daryai.md#shrine-of-hazrat-shah-daula-daryai",
       "quote": "he became the disciple of a Suhrawardi *faqir* remembered as Shah Saidan Sarmast, serving at his master's *khanqah* with great devotion"
     },
     {
@@ -398,7 +398,7 @@
       "objectName": "Makhdoom Nooh",
       "objectIsNew": false,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+      "source": "entries/descriptions/shrine-of-shah-abdul-karim-bulri.md#shrine-of-shah-abdul-karim-bulri",
       "quote": "adds that he was himself a disciple (*murid*) of Makhdoom Nooh of Hala before settling and preaching at Bulri",
       "notes": "Attributed in the source to Alam Faqri, *Tazkirah Awliya-e-Pakistan*. Connects two shrines in the archive: shrine-of-shah-abdul-karim-bulri and shrine-of-makhdoom-nooh-hala."
     },
@@ -423,7 +423,7 @@
       "objectName": "Khwaja Abul Masakin",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+      "source": "entries/descriptions/dargah-of-khwaja-muhammad-zaman-luari-sharif.md#dargah-of-khwaja-muhammad-zaman-luari-sharif",
       "quote": "There he came under the influence of the Sufi master Khwaja Abul Masakin, whose disciple he became"
     },
     {
@@ -435,7 +435,7 @@
       "objectName": "Shaikh Abdul Latif",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+      "source": "entries/descriptions/dargah-of-khwaja-muhammad-zaman-luari-sharif.md#dargah-of-khwaja-muhammad-zaman-luari-sharif",
       "quote": "Muhammad Zaman received his first instruction from his father, Shaikh Abdul Latif, a follower of the Naqshbandi order",
       "notes": "Confidence lowered — \"first instruction\" from his father, with no initiation or khilafat stated. Also recorded in familyRelations."
     },
@@ -448,7 +448,7 @@
       "objectName": "Khwaja Muhammad Zaman of Luari Sharif",
       "objectIsNew": false,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-makhdoom-abdul-rahim-girhori",
       "quote": "He was among the foremost *khalifas* (deputies) of Khwaja Muhammad Zaman of Luari Sharif (also recorded in this dataset)",
       "notes": "Independently supported in entries/web-research-2026-08/shrine-of-makhdoom-abdul-rahim-girhori.md: \"he became a disciple of Khwaja Muhammad Zaman (1713-1775 AD) of Luari Sharif, a celebrated Naqshbandi mystic\". Connects two shrines in the archive."
     },
@@ -461,7 +461,7 @@
       "objectName": "Khwaja Muhammad Zaman of Luari Sharif",
       "objectIsNew": false,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-makhdoom-abdul-rahim-girhori",
       "quote": "He was among the foremost *khalifas* (deputies) of Khwaja Muhammad Zaman of Luari Sharif",
       "notes": "Khalifa/deputy, i.e. holder of khilafat; not stated as sole inheritor of the Luari seat."
     },
@@ -872,7 +872,7 @@
       "objectName": "Guru Arjan Dev",
       "objectIsNew": false,
       "confidence": 0.95,
-      "source": "data/shrines.csv#gurdwara-dera-sahib",
+      "source": "entries/descriptions/gurdwara-dera-sahib.md#gurdwara-dera-sahib",
       "quote": "Sikh tradition records that the Guru's son and successor, Guru Hargobind, raised a memorial platform at the site of the martyrdom",
       "notes": "The Guruship is the seat; the same entry establishes that \"the Guru\" here is Guru Arjan. Also in familyRelations (son)."
     },
@@ -885,7 +885,7 @@
       "objectName": "Guru Amar Das",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "source": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji",
       "quote": "he served with such devotion and humility that he was in time chosen to succeed him. As the fourth Guru he",
       "notes": "Object named in the same sentence: \"he came under the influence of Guru Amar Das, the third Guru, whose daughter he married\". Guru Amar Das has no shrine row in this archive, hence a new slug. The entry also records the marriage — see familyRelations."
     },
@@ -898,7 +898,7 @@
       "objectName": "Guru Amar Das",
       "objectIsNew": true,
       "confidence": 0.7,
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "source": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji",
       "quote": "Orphaned young, he came under the influence of Guru Amar Das, the third Guru, whose daughter he married and whom he served with such devotion and humility",
       "notes": "Confidence lowered — \"came under the influence of\" and \"served\", not a stated formal discipleship. The succession claim (above) is the firmer of the two."
     },
@@ -937,7 +937,7 @@
       "objectName": "Matsyendranath",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#gorakhnath-goraknath-temple",
+      "source": "entries/descriptions/gorakhnath-goraknath-temple.md#gorakhnath-goraknath-temple",
       "quote": "He is remembered as the disciple of Matsyendranath, and the *Nath* tradition he shaped"
     },
     {
@@ -1038,7 +1038,7 @@
       "objectName": "Guru Nanak",
       "objectIsNew": false,
       "confidence": 0.95,
-      "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
+      "source": "entries/descriptions/gurdwara-darbar-sahib-kartarpur.md#gurdwara-darbar-sahib-kartarpur",
       "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru",
       "notes": "Found on 30 August 2026 by scripts/data/scan-lineage-statements.mjs, which reads every lineage sentence in the corpus. One of only TWO this file's original sweep missed across 177 such sentences — that sweep's `method` claims all 169 rows, and the scan is the first check of the claim. One sentence states both relations: \"a devoted disciple\" and \"installed as the second Guru\"."
     },
@@ -1051,7 +1051,7 @@
       "objectName": "Guru Nanak",
       "objectIsNew": false,
       "confidence": 0.95,
-      "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
+      "source": "entries/descriptions/gurdwara-darbar-sahib-kartarpur.md#gurdwara-darbar-sahib-kartarpur",
       "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru",
       "notes": "The succession half of the same sentence, as a separate edge because the corpus distinguishes them and the entry's whole point is that the two came apart here: Nanak passed the Guruship over his own sons, \"founding the line of succession by spiritual merit rather than heredity\". The archive's other Sikh succession, Guru Arjan Dev to Guru Hargobind, ran father to son."
     },
@@ -1077,7 +1077,7 @@
       "objectName": "Hazrat Mujaddid Alf Sani",
       "objectIsNew": true,
       "confidence": 0.95,
-      "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+      "source": "data/live_sheet_2026-10-15.csv#darbar-hazrat-tahir-bandagi-qadri",
       "quote": "formally became Mujaddid Alf Sani's disciple as well -- later teaching Mujaddid Alf Sani's own children",
       "notes": "\"As well\" — a SECOND master, not a replacement: his edge to Hazrat Shah Sikandar stands. The node is named as the entry names him, by the title Mujaddid Alf Sani, and deliberately not merged with Shaikh Ahmad Sirhindi, whom the Ganj-e-Inayat entry names in full while describing the Mujaddidi branch. They are one man historically; no sentence in this corpus says so, so the archive does not."
     },
@@ -1155,7 +1155,7 @@
       "objectName": "Shah Abdul Karim Bulri",
       "objectIsNew": false,
       "confidence": 0.95,
-      "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+      "source": "entries/descriptions/shrine-of-shah-abdul-karim-bulri.md#shrine-of-shah-abdul-karim-bulri",
       "quote": "His sayings and verses were first gathered by a disciple, Mir Daryai Tharawi, in the Persian work *Bayan al-Arifin*, completed in 1630",
       "notes": "The disciple who compiled the *Bayan al-Arifin* seven years after his master's death — the reason anything of Shah Abdul Karim's verse survives, and therefore the reason Shah Abdul Latif Bhittai has a documented forebear at all."
     },
@@ -1168,7 +1168,7 @@
       "objectName": "Syed Shah Jamal Uddin Naqvi Bukhari (Baba Shah Jamal)",
       "objectIsNew": false,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "source": "entries/descriptions/shah-jamal.md#shrine-of-shah-jamal",
       "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple",
       "notes": "0.7: the tie is stated plainly but sits inside a miracle story (a cantaloupe given to a childless couple, twin sons following). NOT Fakhr-ud-Din Iraqi, the Persian poet who came to Multan and married into Bahauddin Zakariya's family — a different man three centuries earlier, already in this graph. The slug is disambiguated deliberately; see saintDoNotMerge."
     },
@@ -1181,7 +1181,7 @@
       "objectName": "Mian Mir",
       "objectIsNew": false,
       "confidence": 0.7,
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "quote": "His disciples cherished their own intimate wonders: Meerak Mohammad Lahori relates how, having taken up and chewed a discarded betel-leaf from the saint",
       "notes": "0.7 because the sentence establishes it by construction rather than declaring it: it opens on \"His disciples\", names Meerak as the one who relates the wonder, and the man carried into ecstasy by the betel-leaf is Meerak himself. A first-person witness inside a class the sentence has just named is a disciple; it is still not the same as \"X was a disciple of Y\". Mian Mir's page previously showed one master and one successor and none of the disciples the entry describes at length."
     }
@@ -1247,21 +1247,21 @@
       "subjectName": "Mian Mir",
       "objectName": "(his teacher, unnamed in this sentence)",
       "quote": "Around the age of twenty-five, with his teacher’s permission, Mian Mir came to Lahore",
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "notes": "Not a second teacher and not a new claim. The entry names his master elsewhere — Shaikh Siyustani, already an edge in both directions — and this sentence just refers back to him. Recorded so the scan stops offering it."
     },
     {
       "subjectName": "Allama Muhammad Iqbal",
       "objectName": "Sayyid Mir Hassan / Sir Thomas Arnold",
       "quote": "Near the family home the boy was placed in the care of the learned Sayyid Mir Hassan, an imam and teacher of rare gifts, who taught him Arabic, Persian, and Urdu",
-      "source": "data/shrines.csv#tomb-of-allama-iqbal-mazar-e-iqbal",
+      "source": "entries/descriptions/mazar-e-iqbal.md#tomb-of-allama-iqbal-mazar-e-iqbal",
       "notes": "Schooling, not initiation, and the distinction is the whole reason this vocabulary is only `disciple_of`/`successor_of`. Mir Hassan taught him languages; Sir Thomas Arnold, in the next paragraph, \"a teacher whose learning and friendship shaped him profoundly\", taught him philosophy at Government College. Both are real and important relationships and neither is a *silsila*. Scholarly education is a relation this graph does not model; if it ever does, these two are where to start."
     },
     {
       "subjectName": "Sant Harnam Das",
       "objectName": "Baba Bankhandi (at eight removes)",
       "quote": "built under an eighth successor in the lineage, Sant Harnam Das",
-      "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple",
+      "source": "entries/descriptions/sadh-belo-sadh-belo-island-temple.md#sadh-belo-sadh-belo-island-temple",
       "notes": "A named successor the archive cannot model without lying about the distance. `successor_of` means the seat passed from one to the next; this is the EIGHTH holder, and an edge would compress eight generations into one. The kin layer has `descendant_of` for exactly this at-a-remove case and the lineage vocabulary has no equivalent — the honest note is that the gap is in the vocabulary, not the corpus. Reconsider if a `successor_at_remove` type is ever added. RESOLVED 30 August 2026: `descendant_in_lineage_of` was added on Rauf's ruling and this IS now an edge, with generations=8 and the source's own word (“successor”) kept in `removeWording`. Left in place rather than deleted because the entry is the record of why the type exists — two passes found this gap independently before either could act on it."
     },
     {
@@ -1275,7 +1275,7 @@
       "subjectName": "Khwaja Moinuddin Chishti",
       "objectName": "Ali Hujwiri (Data Ganj Bakhsh)",
       "quote": "Khwaja Moinuddin Chishti, before he founded his order at Ajmer, kept his forty-day retreat at Data's tomb and sealed his devotion in the famous couplet",
-      "source": "data/shrines.csv#data-darbar",
+      "source": "entries/descriptions/data-darbar.md#data-darbar",
       "notes": "The most famous devotional link in Punjabi Sufism and not a teaching tie: the retreat was at the TOMB, more than a century after Hujwiri's death. An Uwaisi-style claim at most, and the entry does not make even that — it says retreat and couplet. The couplet is why every visitor to Data Darbar knows the connection, which is exactly why it needs writing down as a non-tie."
     },
     {
@@ -1289,35 +1289,35 @@
       "subjectName": "Guru Nanak",
       "objectName": "the maulvi of Patti (named in some tellings Qutbuddin)",
       "quote": "his study of Punjabi and accounts, of Sanskrit with a Hindu *pandit*, and of Persian with a Muslim *maulvi*, named in some tellings Qutbuddin",
-      "source": "data/shrines.csv#gurdwara-patti-sahib",
+      "source": "entries/descriptions/gurdwara-patti-sahib.md#gurdwara-patti-sahib",
       "notes": "Ruled out twice over, and the second reason is the one that matters. First: schooling, not initiation — the same line drawn for Iqbal's Sayyid Mir Hassan and Thomas Arnold, and the whole gurdwara's point is that the pupil out-taught the teacher. Second: \"named in SOME TELLINGS Qutbuddin\" is the corpus declining to settle the name, and an edge would settle it. The site is called Maulvi Patti after him, so the relationship is real and remembered; it is the naming and the KIND that the archive will not commit to."
     },
     {
       "subjectName": "Shah Abul Muali Qadri (or Dara Shikoh)",
       "objectName": "Sheikh Imam Niyamat Ali",
       "quote": "he once accompanied Shah Abul Muali to the court of his teacher Sheikh Imam Niyamat Ali",
-      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "source": "entries/descriptions/darbar-abul-muali-qadri.md#darbar-abul-muali-qadri",
       "notes": "A NAMED teacher and an unresolvable antecedent: \"his teacher\" can be Dara Shikoh's or Shah Abul Muali's, and the sentence gives nothing to decide with. The entry's own QA notes flag that the accounts of the Dara Shikoh connection differ between the survey and the tazkira, so this is not a passage to resolve by reading harder. Two candidate subjects and no way to choose is exactly the shape that produced allo_mahar_resolution.md."
     },
     {
       "subjectName": "Khwaja Moinuddin Chishti",
       "objectName": "Ali Hujwiri (Data Ganj Bakhsh) — second sentence",
       "quote": "on his way into the subcontinent kept a forty-day retreat (*chilla*) at the foot of Hujwiri's tomb in Lahore",
-      "source": "data/shrines.csv#data-darbar",
+      "source": "entries/descriptions/data-darbar.md#data-darbar",
       "notes": "The same non-tie already recorded from this entry's other sentence, and it needs its own row because THE SCANNERS MATCH ON THE SENTENCE — a ruling recorded against one wording does not silence another. A retreat at a TOMB, more than a century after the man died, is not a teaching tie however famous the couplet."
     },
     {
       "subjectName": "Shah Muhammad Sulaiman Taunsvi",
       "objectName": "Sial Sharif and Golra Sharif (lines, not people)",
       "quote": "the Chishti revival of the nineteenth-century Punjab, including the lines that led to Sial Sharif and Golra Sharif, owes much to his khanqah",
-      "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "source": "entries/descriptions/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a.md#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "notes": "Names two khanqahs and a debt, not two people and a transmission. The archive already holds the person-to-person chain this sentence is summarising — Pir Meher Ali Shah of Golra through Shamsuddin Sialvi — as edges, so building this one would double-count a line it already draws properly."
     },
     {
       "subjectName": "Hazrat Tahir Bandagi Qadri / Khawaja Feroz-ud-Din",
       "objectName": "their disciples and Gaddi Nasheen (unnamed)",
       "quote": "The shrine is maintained, per the survey, by his special disciples (*mureedeen-e-khas*) and their descendants",
-      "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "source": "data/live_sheet_2026-10-15.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
       "notes": "Representative of a whole class in this corpus: the custodial sentences. \"His disciples built his shrine\", \"the current Gaddi Nasheen\", \"his special disciples and their descendants\" — every entry with a living custodial family has two or three, and none of them names anybody. Real relations, unbuildable, and numerous enough that the pile would look full of candidates forever without this row."
     },
     {
@@ -1329,7 +1329,7 @@
         "The current custodians (*Gaddi Nasheen*) describe Hazrat Tahir Bandagi as someone who did not care for drumming (*dhol*) or ecstatic dance (*dhamal*), and say the Urs is kept",
         "The shrine is overseen today by its Gaddi Nasheen (current custodians), with several people formally employed as staff who, per the survey, consider caring for"
       ],
-      "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+      "source": "data/live_sheet_2026-10-15.csv#darbar-hazrat-tahir-bandagi-qadri",
       "notes": "Four sentences about a living custodial family and not one name among them: \"rulers and disciples of the period\", \"the current custodians (Gaddi Nasheen)\", \"several people formally employed as staff\". The representative case for the class already recorded at Khawaja Feroz-ud-Din — every entry with a functioning darbar produces two to four of these, they are real relations, and none can ever be an edge."
     },
     {
@@ -1352,7 +1352,7 @@
         "The circle that formed around Mian Mir and his successor Mullah Shah became, for one brief and luminous generation, the spiritual",
         "His disciples shaped the spiritual life of the Mughal court; his friendship with the Sikh Gurus became a legend of tolerance that Punjab still cherishes; his forty-day retreat at"
       ],
-      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "source": "entries/descriptions/shrine-of-mian-mir.md#shrine-of-mian-mir",
       "notes": "The fourth sentence of this cluster yielded a real edge — Meerak Mohammad Lahori, proposed separately. These three do not: unnamed disciples forbidding a dome, the succession to Mullah Shah which is already an edge, and a summary sentence about disciples shaping the Mughal court. The entry describes a circle at length and names exactly one member of it."
     },
     {
@@ -1363,14 +1363,14 @@
         "The alternative name Maulvi Patti preserves the memory of this Muslim teacher, and of a schooling that crossed the community lines of the age.",
         "Patti Sahib enshrines one of the tenderest and most characteristic of the Guru Nanak narratives: the schoolboy who taught his teacher, whose first recorded verses were a"
       ],
-      "source": "data/shrines.csv#gurdwara-patti-sahib",
+      "source": "entries/descriptions/gurdwara-patti-sahib.md#gurdwara-patti-sahib",
       "notes": "Three more sentences on the schooling already ruled out once in this file: it is education rather than initiation, and the teacher is \"named in some tellings Qutbuddin\", which is the corpus declining to settle the name. Recorded together because the entry returns to the same story three times — a *patti* board, the acrostic that amazed the master, and the Legacy paragraph — and the answer does not change."
     },
     {
       "subjectName": "Ali Hujwiri (Data Ganj Bakhsh)",
       "objectName": "Hazrat Shaikh Hussain Zanjani",
       "quote": "his senior “pir-brother,” Hazrat Shaikh Hussain Zanjani, was already established in the city",
-      "source": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib",
+      "source": "entries/descriptions/shrine-of-miran-hussain-zanjani-zanjani-sahib.md#shrine-of-miran-hussain-zanjani-zanjani-sahib",
       "notes": "Both are figures and the sentence is explicit, and it is STILL not an edge any vocabulary here holds. A *pir-bhai* is a fellow disciple of the SAME master — a peer, not a teacher — so `disciple_of` and `successor_of` both invert or invent a hierarchy the source denies, and `kin_of` would read a spiritual idiom as blood the way “son of Peshawar” does in kinAdjudicated. The shared pir is not named, so it cannot be derived from two `disciple_of` edges either. FIRST instance of this gap; `descendant_in_lineage_of` was recorded twice before it earned a type, so this is recorded and not acted on."
     }
   ],
@@ -1380,7 +1380,7 @@
       "objectName": "Bahauddin Zakariya",
       "wording": "grandson of",
       "quote": "Rukn-ud-Din was born in Multan in 1251, the grandson of Baha-ud-Din Zakariya and son of Sadr-ud-Din Arif",
-      "source": "data/shrines.csv#shrine-of-shah-rukn-e-alam",
+      "source": "entries/descriptions/shrine-of-shah-rukn-e-alam.md#shrine-of-shah-rukn-e-alam",
       "notes": "The spiritual-heir half of this is already in existing-lineage.json; recorded here only for the blood link, including the intervening father Sadr-ud-Din Arif."
     },
     {
@@ -1388,7 +1388,7 @@
       "objectName": "Jalaluddin Surkh-Posh Bukhari",
       "wording": "grandson of",
       "quote": "Chief among his descendants was his grandson, Sayyid Jalaluddin known as Makhdoom Jahaniyan Jahangasht",
-      "source": "data/shrines.csv#shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "source": "entries/descriptions/shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari.md#shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
       "notes": "Blood only. Neither entry says the Uch seat passed directly from grandfather to grandson."
     },
     {
@@ -1396,7 +1396,7 @@
       "objectName": "Makhdoom Jahaniyan Jahangasht",
       "wording": "a descendant of",
       "quote": "Bibi Jawindi was a saintly woman of the great Bukhari sayyid family of Uch, a descendant of Makhdoom Jahaniyan Jahangasht",
-      "source": "data/shrines.csv#tomb-of-javindi-bibi",
+      "source": "entries/descriptions/tomb-of-javindi-bibi.md#tomb-of-javindi-bibi",
       "notes": "entries/web-research-2026-08/tomb-of-bahaal-halim-uch-sharif.md quotes the UNESCO nomination calling her Jahangasht's \"great grant daughter\" (sic)."
     },
     {
@@ -1404,7 +1404,7 @@
       "objectName": "Jalaluddin Surkh-Posh Bukhari",
       "wording": "a descendant of",
       "quote": "the son of Safi-ud-Din Bukhari of the Sadaat of that town, a descendant of Jalaluddin Surkh-Posh Bukhari whose genealogy is traced through Syed Jalal-ud-Din Jahaniyan Jahangasht",
-      "source": "data/shrines.csv#shrine-of-mauj-darya-bukhari"
+      "source": "entries/descriptions/shrine-of-mauj-darya-bukhari.md#shrine-of-mauj-darya-bukhari"
     },
     {
       "subjectName": "Ghazi Syed Shah Fateh Muhammad Bukhari (Ghazi Baba)",
@@ -1419,7 +1419,7 @@
       "objectName": "Shah Abdul Karim Bulri",
       "wording": "great-great-grandson of / great-grandson of (sources disagree)",
       "quote": "A separate source, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, instead calls him Bhittai's great-grandfather (three generations, not four)",
-      "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+      "source": "entries/descriptions/shrine-of-shah-abdul-karim-bulri.md#shrine-of-shah-abdul-karim-bulri",
       "notes": "The corpus reports both counts and refuses to choose: the main text has \"his celebrated great-great-grandson, Shah Abdul Latif Bhittai\". Keep both."
     },
     {
@@ -1427,7 +1427,7 @@
       "objectName": "Sayyid Ahmad Tokhta Tirmidhi",
       "wording": "the daughters of",
       "quote": "holds that the six were the daughters of the great saint Sayyid Ahmad Tokhta Tirmidhi, “Murshid-e-Punjab,”",
-      "source": "data/shrines.csv#shrine-of-bibi-pak-daman",
+      "source": "entries/descriptions/bibi-pak-daman.md#shrine-of-bibi-pak-daman",
       "notes": "This is one of two competing traditions the entry reports about who the six were. Family, and contested."
     },
     {
@@ -1435,14 +1435,14 @@
       "objectName": "Hazrat Peer Syed Abdullah",
       "wording": "the son of",
       "quote": "a scholar-mystic born in Baghdad — the son of Hazrat Peer Syed Abdullah, of a Hasani-Hussaini family of religious scholars",
-      "source": "data/shrines.csv#shrine-of-peer-makki"
+      "source": "entries/descriptions/peer-makki.md#shrine-of-peer-makki"
     },
     {
       "subjectName": "Syed Abdul Razzaq (Shah Chiragh)",
       "objectName": "Sheikh Abdul Qadir Gilani of Baghdad",
       "wording": "traced his descent to",
       "quote": "a Sufi of the Qadiri lineage who traced his descent to Sheikh Abdul Qadir Gilani of Baghdad",
-      "source": "data/shrines.csv#shrine-of-baba-shah-chiragh",
+      "source": "entries/descriptions/shrine-of-baba-shah-chiragh.md#shrine-of-baba-shah-chiragh",
       "notes": "Genealogical descent claim, not initiation."
     },
     {
@@ -1450,7 +1450,7 @@
       "objectName": "Syed Ahmad Shah",
       "wording": "their father, who personally instructed both sons",
       "quote": "Their father, Syed Ahmad Shah, a descendant of Jalaluddin Surkh-Posh Bukhari of Uch Sharif, personally instructed both sons in Islamic theology",
-      "source": "data/shrines.csv#shrine-of-baba-shah-kamal",
+      "source": "data/live_sheet_2026-10-15.csv#shrine-of-baba-shah-kamal",
       "notes": "Instruction in theology by the father; no initiation, khilafat or silsila stated, so deliberately not proposed as disciple_of. See rejected."
     },
     {
@@ -1458,7 +1458,7 @@
       "objectName": "Shaikh Abdul Latif",
       "wording": "his father, from whom he received his first instruction",
       "quote": "Muhammad Zaman received his first instruction from his father, Shaikh Abdul Latif, a follower of the Naqshbandi order",
-      "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+      "source": "entries/descriptions/dargah-of-khwaja-muhammad-zaman-luari-sharif.md#dargah-of-khwaja-muhammad-zaman-luari-sharif",
       "notes": "Also proposed as a 0.7 disciple_of, flagged there."
     },
     {
@@ -1488,7 +1488,7 @@
       "objectName": "Guru Ram Das and Guru Amar Das",
       "wording": "son of the fourth Guru / grandson of the third",
       "quote": "Guru Arjan (1563–1606), son of the fourth Guru, Ram Das, and grandson of the third, Amar Das, presided over the Sikh Panth",
-      "source": "data/shrines.csv#gurdwara-dera-sahib",
+      "source": "entries/descriptions/gurdwara-dera-sahib.md#gurdwara-dera-sahib",
       "notes": "Note the succession order in Sikh tradition is Amar Das → Ram Das → Arjan; the blood line and the Guruship run together here but the entry states only the blood relation for these two steps."
     },
     {
@@ -1496,7 +1496,7 @@
       "objectName": "Guru Amar Das",
       "wording": "married his daughter",
       "quote": "he came under the influence of Guru Amar Das, the third Guru, whose daughter he married",
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji"
+      "source": "entries/descriptions/gurdwara-guru-ram-das-ji.md#gurdwara-guru-ram-das-ji"
     },
     {
       "subjectName": "Sri Chand",
@@ -1575,7 +1575,7 @@
       "objectName": "his father and his elder brother (unnamed)",
       "wording": "succeeded to the seat on his brother's death",
       "quote": "his father and, after him, his elder brother were the spiritual guides (*sajjada-nashins*) of their line, and on his brother’s death Ghulam Farid succeeded to the seat",
-      "source": "data/shrines.csv#mithankot-kot-mithan",
+      "source": "entries/descriptions/mithankot-kot-mithan.md#mithankot-kot-mithan",
       "notes": "A real succession, but neither the father nor the brother is named, so no edge can be drawn. Recorded here so it is not lost."
     },
     {

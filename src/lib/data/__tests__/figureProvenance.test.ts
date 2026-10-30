@@ -41,6 +41,16 @@ describe('parsing a biographySource reference', () => {
     expect(ref?.shrineSlug).toBeNull();
   });
 
+  it('keeps the entry slug when evidence points to a team file or a frozen sheet', () => {
+    /* 30 October 2026: quotes whose words left the sheet were pointed here, and
+       the saint page must still link the biography to its shrine. */
+    expect(parseFigureSource('entries/descriptions/data-darbar.md#data-darbar')?.shrineSlug).toBe(
+      'data-darbar',
+    );
+    expect(parseFigureSource('data/live_sheet_2026-10-15.csv#bari-imam')?.shrineSlug).toBe('bari-imam');
+    expect(parseFigureSource('entries/descriptions_public/data-darbar.md#data-darbar')?.shrineSlug).toBeNull();
+  });
+
   it('treats an empty fragment as no fragment', () => {
     expect(parseFigureSource('data/shrines.csv#')?.shrineSlug).toBeNull();
     expect(parseFigureSource('data/shrines.csv# ')?.shrineSlug).toBeNull();

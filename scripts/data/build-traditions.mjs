@@ -67,10 +67,10 @@ const TRADITIONS = [
     alsoKnownAs: ['Nath sampradaya', 'Kanphata yogis'],
     category: 'Hindu Temple',
     shrine: 'dargah-pir-ratan-nath-jee',
-    from: 'The Naths, who flourished across',
+    from: 'The Naths trace their lineage to Gorakhnath',
     to: 'the first lord and archetypal yogi.',
-    urFrom: 'ناتھ، جو قرون وسطیٰ کے ابتدائی صدیوں سے',
-    urTo: 'نمونہ یوگی، کے طور پر پوجتے تھے۔',
+    urFrom: 'ناتھ جوگی اپنی نسبت گورکھ ناتھ سے',
+    urTo: 'مثالی نمونہ مان کر پوجتے تھے۔',
   },
   {
     slug: 'udasi',
@@ -79,10 +79,10 @@ const TRADITIONS = [
     alsoKnownAs: ['Udasipanth'],
     category: 'Nanakpanthi / Udasi Darbar',
     shrine: 'sadh-belo-sadh-belo-island-temple',
-    from: 'The distinctive character of Sadh Belo',
+    from: 'The character of Sadh Belo flows from its roots',
     to: 'renunciation, pilgrimage and hospitality.',
-    urFrom: 'سادھ بیلو کا منفرد کردار',
-    urTo: 'مہمان نوازی کی روایت پروان چڑھاتی ہے۔',
+    urFrom: 'سادھ بیلو کے مزاج کی جڑیں',
+    urTo: 'مہمان نوازی کی روایت کو فروغ دیا۔',
   },
   {
     slug: 'pranami',
@@ -127,10 +127,10 @@ const TRADITIONS = [
     alsoKnownAs: ['Shaktipeeth'],
     category: 'Hindu Temple',
     shrine: 'shaktipeeth-shri-hinglaj-mata-mandir',
-    from: 'The sanctity of Hinglaj is rooted',
-    to: 'charged with the presence of the goddess.',
-    urFrom: 'ہنگلاج کی تقدس شکتی پیٹھوں',
-    urTo: 'دیوی کی موجودگی سے معمور ہوا۔',
+    from: 'The sanctity of Hinglaj rests on the legend',
+    to: 'charged with the presence of the Goddess.',
+    urFrom: 'ہنگلاج کا تقدس شکتی پیٹھوں',
+    urTo: 'شکتی پیٹھ وجود میں آ گیا۔',
   },
   {
     slug: 'nanakpanthi',
@@ -160,20 +160,20 @@ const TRADITIONS = [
 
 /** Site memberships. Each quotes the archive saying it. */
 const MEMBERSHIPS = [
-  ['nath', 'dargah-pir-ratan-nath-jee', "The temple's saint, Ratan Nath, belongs to the", 'founder of the sect.'],
-  ['nath', 'gorakhnath-goraknath-temple', 'The temple honours Guru Gorakhnath', 'order of *yogis*.'],
-  ['nath', 'tilla-jogian', 'It became the principal seat of the', 'looked to Gorakhnath as its master.'],
+  ['nath', 'dargah-pir-ratan-nath-jee', "The temple's saint, Ratan Nath, belongs to the", 'named for their split ears.'],
+  ['nath', 'gorakhnath-goraknath-temple', 'It is dedicated to Guru Gorakhnath', 'still standing and in use.'],
+  ['nath', 'tilla-jogian', 'Tilla Jogian became the principal seat of the', 'looked to Gorakhnath as its master.'],
   ['udasi', 'sadh-belo-sadh-belo-island-temple', 'One of the most important living centres', 'elder son of Guru Nanak'],
   ['udasi', 'khatwari-darbar-shikarpur', 'The darbar belongs to the shared Nanakpanthi', 'venerated the Gurus together.'],
   ['pranami', 'parnami-mandir', 'At Malka Hans, a historic village', 'devotional tradition in Pakistan.'],
   ['swaminarayan', 'shri-swaminarayan-mandir-karachi', 'Jinnah Road in the heart of Karachi', 'in the country.'],
   ['daduvansi', 'sant-baba-bhagat-ram-darbar-mandir', 'Local tradition associates the shrine', 'descendants of a saintly founder.'],
-  ['shakti-peetha', 'shaktipeeth-shri-hinglaj-mata-mandir', 'It is one of the fifty-one', 'in present-day Pakistan.'],
-  ['shakti-peetha', 'sharada-peeth', 'Simultaneously a temple, a fabled university', 'religious memory of Kashmir.'],
+  ['shakti-peetha', 'shaktipeeth-shri-hinglaj-mata-mandir', 'It is one of the fifty one', 'along a demanding desert route.'],
+  ['shakti-peetha', 'sharada-peeth', 'At once a temple, a fabled university', 'religious memory of Kashmir.'],
   ['nanakpanthi', 'bhai-waliram-darbar', 'In Digano Mahesar, a small village', 'Swami Dharmdas of Larkana.'],
-  ['nanakpanthi', 'gurdwara-pehli-patshahi-jind-pir-sukkur', 'Its first custodian is said to have been', 'without a firm confessional boundary.'],
+  ['nanakpanthi', 'gurdwara-pehli-patshahi-jind-pir-sukkur', 'Its first custodian is said to have been', 'are to be counted as Sikhs.'],
   ['nanakpanthi', 'gurdwara-sach-khand-sahib', "Shikarpur's only functioning Sikh gurdwara", 'this historic Sindhi trading city.'],
-  ['nanakpanthi', 'guru-gurpat-mandir-db-80-sirey-ghat', 'On a plot known as DB-80', 'in the Jagiasi lineage, of Guru Nanak.'],
+  ['nanakpanthi', 'guru-gurpat-mandir-db-80-sirey-ghat', "The darbar's tradition holds that Gurpat Sahib", 'in the early nineteenth century.'],
   ['nanakpanthi', 'khatwari-darbar-shikarpur', 'The Khatwari Darbar is among the most celebrated', 'the wealth of its merchant houses.'],
   ['nanakpanthi', 'sain-vali-vilayat-rai-darbar-kambar', 'The darbar of Sain Vali Vilayat Rai stands in the', 'Nanakpanthi *darbar* in the district.'],
   ['nanakpanthi', 'sant-baba-asudaram-darbar-panno-aqil', 'The Darbar of Sant Baba Asudaram at Panno Aqil', '(Nanakpanthi) tradition.'],
@@ -182,7 +182,7 @@ const MEMBERSHIPS = [
   ['sevapanthi', 'sevapanthi-darbar-bhai-gurdas-gandava', 'In the heart of Gandava', 'Balochistan in the eighteenth century.'],
   /* Both, and the entry says so in one breath: the Jagiasi line runs "through
      Baba Sri Chand's Udasi line". Two traditions, one sentence, two rows. */
-  ['udasi', 'guru-gurpat-mandir-db-80-sirey-ghat', "According to the darbar's own tradition", 'in the early nineteenth century.'],
+  ['udasi', 'guru-gurpat-mandir-db-80-sirey-ghat', "The darbar's tradition holds that Gurpat Sahib", 'in the early nineteenth century.'],
 ];
 
 /** Term matches that are NOT memberships, and why. Kept because each one is a
