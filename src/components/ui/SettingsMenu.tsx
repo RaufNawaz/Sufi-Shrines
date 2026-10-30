@@ -188,7 +188,7 @@ function SettingsPanel({
             preference through one module, and a reader who finds them both —
             they can be on screen together — must not have to work out whether
             a pill and a checkbox mean the same thing. */}
-        <div className="msettings-row">
+        <div className="msettings-row msettings-row--inline">
           <span className="msettings-row-label">{t('settingsToursToggle')}</span>
           <button
             type="button"

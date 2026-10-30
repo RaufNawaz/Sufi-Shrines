@@ -1408,11 +1408,44 @@
      short of the footer instead of parking content beneath it. Slightly more
      than the footer's 44px plus its padding. */
   scroll-padding-block-end: 4.25rem;
-  padding: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: var(--radius-xl);
   background: var(--color-bg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
+  transform-origin: top right;
+}
+
+[dir='rtl'] .settings-menu-panel {
+  transform-origin: top left;
+}
+
+/* Opaque, not frosted. A frosted ground was tried on 30 October 2026 and the
+   article text behind read through it beside the controls: this panel opens
+   over prose and the map, and its own legibility comes first. */
+
+/* The stacked rows are taller than the old inline ones, so on a laptop the
+   panel may grow further before it scrolls; the phone cap below still holds. */
+@media (min-width: 769px) {
+  .settings-menu-panel {
+    max-height: min(86vh, 46rem);
+  }
+}
+
+/* A short settle on opening, as a system popover does. Under a reduced motion
+   preference (the device's, or `/settings`, which motion.css honours) it simply
+   appears. */
+@media (prefers-reduced-motion: no-preference) {
+  .settings-menu-panel {
+    animation: msettings-in var(--duration-fast) var(--easing);
+  }
+}
+
+@keyframes msettings-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
 }
 
 .settings-menu-panel input {
@@ -1421,43 +1454,67 @@
 
 /* A hairline between groups, not a card around each — the archive's rule. */
 .msettings-section + .msettings-section {
-  margin-top: var(--space-3);
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--hairline) solid var(--color-border-light);
 }
 
+/* Small capitals over each group, the way system settings label theirs. Case
+   does nothing to Nastaliq, so the Urdu heading is simply small and quiet. */
 .msettings-heading {
   margin: 0 0 var(--space-2);
   color: var(--color-text-secondary);
   font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-slight);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
+[dir='rtl'] .msettings-heading {
+  letter-spacing: 0;
+}
+
+/* A label above its control, every row the same. The label used to sit beside
+   the segments and the row wrapped wherever the two did not fit, so some rows
+   broke and others did not: a ragged column of controls at different indents,
+   worse in Urdu. Stacked, every segmented control spans the panel and every
+   label starts at one edge. The switch row keeps its control beside the label
+   (`.msettings-row--inline`): a switch is narrow, and that is where a reader
+   looks for one. */
 .msettings-row {
   display: flex;
   min-height: 44px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-1);
+}
+
+.msettings-row--inline {
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
 .msettings-row + .msettings-row {
-  margin-top: var(--space-1);
+  margin-top: var(--space-3);
 }
 
 .msettings-row-label {
   color: var(--color-text);
   font-size: var(--text-sm);
+  font-weight: 500;
   line-height: 1.3;
 }
 
+/* The segmented control the settings page and the almanac already use: a
+   recessed track with the chosen option a raised pill on it, not a filled
+   block, spanning the panel. */
 .msettings-seg {
-  display: inline-flex;
+  display: flex;
   align-items: stretch;
-  overflow: hidden;
-  border: 1.5px solid var(--color-border);
+  gap: 2px;
+  padding: 2px;
   border-radius: var(--radius-full);
   background: var(--color-bg-alt);
 }
@@ -1471,17 +1528,30 @@
   position: relative;
   display: flex;
   min-height: 44px;
+  /* Grow from the label's own width, so the segments fill the row and a long
+     Urdu label takes the room it needs instead of breaking onto two lines. */
+  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
   color: var(--color-text-secondary);
   font-size: var(--text-sm);
+  font-weight: 500;
   line-height: 1.2;
   text-align: center;
   cursor: pointer;
   transition:
-    background var(--duration-fast),
-    color var(--duration-fast);
+    background-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing);
+}
+
+/* Nastaliq's own leading made an Urdu segment taller than its row; one line
+   box, as on the settings page. */
+[dir='rtl'] .msettings-seg-option {
+  padding-inline: var(--space-2);
+  line-height: var(--leading-urdu-heading);
 }
 
 /* The real target: transparent, and the whole segment. See the comment beside
@@ -1496,24 +1566,20 @@
   cursor: pointer;
 }
 
-.msettings-seg-option + .msettings-seg-option {
-  border-inline-start: 1px solid var(--color-border);
-}
-
 @media (hover: hover) {
   .msettings-seg-option:hover:not(.active) {
-    background: var(--color-primary-pale);
-    color: var(--color-primary);
+    color: var(--color-text);
   }
 }
 
-/* `--color-text-inverse` on `--color-primary`, never a hardcoded foreground:
-   this ground changes with the theme, and
-   src/styles/__tests__/themeFlippingGrounds.test.ts refuses the alternative. */
+/* The raised pill. `--color-segment-thumb` and `--color-text` are both theme
+   tokens, so this ground and its foreground flip together
+   (src/styles/__tests__/themeFlippingGrounds.test.ts). */
 .msettings-seg-option.active {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
+  background: var(--color-segment-thumb);
+  color: var(--color-text);
   font-weight: 600;
+  box-shadow: var(--shadow-sm);
 }
 
 /* The focus ring belongs on the segment, because the radio driving it is
@@ -1521,7 +1587,7 @@
    has no visible position at all. */
 .msettings-seg-option:focus-within {
   outline: 2px solid var(--color-primary);
-  outline-offset: -2px;
+  outline-offset: 1px;
 }
 
 /* Sticky, because the panel scrolls. Seven preferences do not fit the cap
@@ -1548,17 +1614,39 @@
 .msettings-all {
   position: sticky;
   z-index: 1;
-  bottom: calc(var(--space-3) * -1);
+  bottom: calc(var(--space-4) * -1);
   display: flex;
   min-height: 44px;
   align-items: center;
-  margin: var(--space-3) calc(var(--space-3) * -1) calc(var(--space-3) * -1);
-  padding: var(--space-2) var(--space-3);
-  border-top: 1px solid var(--color-border);
+  justify-content: space-between;
+  margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
+  padding: var(--space-2) var(--space-4);
+  border-top: var(--hairline) solid var(--color-border-light);
+  border-end-start-radius: var(--radius-xl);
+  border-end-end-radius: var(--radius-xl);
   background: var(--color-bg);
   color: var(--color-primary);
   font-size: var(--text-sm);
   font-weight: 600;
+  text-decoration: none;
+}
+
+/* A chevron, as on any row that leads somewhere else; it points the way the
+   language reads. */
+.msettings-all::after {
+  content: '›';
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+[dir='rtl'] .msettings-all::after {
+  content: '‹';
+}
+
+@media (hover: hover) {
+  .msettings-all:hover {
+    background: var(--color-bg-alt);
+  }
 }
 
 /* ── Reading-size slider ──────────────────────────────────────────────────

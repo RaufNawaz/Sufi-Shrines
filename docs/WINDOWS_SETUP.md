@@ -65,3 +65,6 @@ matches the Mac byte for byte.
 - Windows PowerShell 5.1 does not accept `&&` between commands ("The token '&&' is not a valid statement separator in this version"). Put each command on its own line, or join them with `;`.
 - After a commit, Git's automatic tidy up can ask "Deletion of directory '.git/objects/00' failed. Should I try again?" without end, when something else has the folder open (an editor, the Claude app's link to the folder, a sync tool). Ctrl+C is safe once the commit has printed; run `git gc` later with nothing else open.
 - An aborted commit message leaves `.git/.COMMIT_EDITMSG.swp`; if Vim warns about a swap file on the next commit, press D.
+- `npm run build:e2e` fails in PowerShell ("'VITE_BASE_PATH' is not recognized"): it sets the variable the Unix way. In Git Bash it runs, but Git Bash rewrites the `/` into `C:/Program Files/Git/`, and `e2e/global-setup.ts` then refuses the build ("dist/ was built for a different base path"). What works, in Git Bash: `MSYS_NO_PATHCONV=1 VITE_BASE_PATH=/ npm run build`, then `npx playwright test`.
+- `src/lib/data/__tests__/docsNoTsvExport.test.ts` and `internalLinks.test.ts` used to call `find`, which from PowerShell is `find.exe`; both now walk the folders in Node (`65f3fa8e`).
+- Playwright browsers for Chromium are installed (the a11y and directory mode specs ran on 30 October 2026).
