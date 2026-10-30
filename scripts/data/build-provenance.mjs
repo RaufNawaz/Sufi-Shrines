@@ -20,7 +20,10 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 import { buildSlugs } from './lib/slugs.mjs';
+
+const Papa = createRequire(import.meta.url)('papaparse');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -72,8 +75,61 @@ const BASELINE_URDU_DESCRIPTION_PROVENANCE = {
     'fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md.',
 };
 
+/**
+ * Rows the book pipeline added to the sheet in October 2026: no Description, no
+ * Urdu article, only what one line of one book says. Their record names that
+ * book, in the archive's own bibliography wording, and the patch that built the
+ * row (Rauf, 30 October 2026: give the 318 rows provenance before the deploy).
+ * The takeaways line is the row's place in the machine-read notes on the OCR
+ * transcription, not a page of the book, so it goes in `notes`, not `page`.
+ */
+const BOOK_ROWS = {
+  NEW_FROM_BOOK_HADEEQAT_UL_AULIA: {
+    source:
+      'Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)',
+    patch: 'data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.csv',
+    script: 'pipeline/book_queue/build_new_rows.py',
+  },
+  NEW_FROM_BOOK_TAREEKH_LAHORE: {
+    source: 'Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)',
+    patch: 'data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.csv',
+    script: 'pipeline/book_queue/build_tagged_rows.py',
+  },
+};
+const takeawaysLine = new Map();
+for (const { patch } of Object.values(BOOK_ROWS)) {
+  const path = join(ROOT, patch);
+  if (!existsSync(path)) continue;
+  for (const r of Papa.parse(readFileSync(path, 'utf8'), { header: true, skipEmptyLines: true }).data) {
+    if (r.id) takeawaysLine.set(r.id, r._takeaways_line);
+  }
+}
+
 let added = 0;
 let created = 0;
+
+rows.forEach((row, i) => {
+  const flag = String(row.flags ?? '')
+    .split(/[;,\s]+/)
+    .find((f) => BOOK_ROWS[f]);
+  if (!flag || String(row.Description ?? '').trim()) return;
+  const slug = slugs[i];
+  if (bySlug.get(slug) && Object.keys(bySlug.get(slug).fields).length) return;
+  const book = BOOK_ROWS[flag];
+  const line = takeawaysLine.get(row.id);
+  const entry = { shrineSlug: slug, fields: {} };
+  entry.fields.Name = {
+    source: book.source,
+    method: 'llm',
+    notes:
+      `Row built by ${book.script} from the machine-read notes on the book's OCR transcription` +
+      (line ? `, takeaways line ${line}` : '') +
+      `; every value is that line's own (${book.patch.replace('.csv', '.md')}). Not yet reviewed.`,
+  };
+  provenance.shrines.push(entry);
+  bySlug.set(slug, entry);
+  created++;
+});
 
 slugs.forEach((slug) => {
   if (!urduContent[slug]?.descriptionUr) return;

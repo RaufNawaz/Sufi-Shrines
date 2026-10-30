@@ -1,7 +1,37 @@
 {
   "schema_version": "1.0.0",
-  "updated": "2026-07-12",
+  "updated": "2026-10-29",
   "shrines": [
+    {
+      "shrineSlug": "abdullah-khweshgi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3676; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "abu-al-khair",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 822; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "akhund-muhammad-rafi-peshawari",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3699; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
     {
       "shrineSlug": "allo-mahar",
       "fields": {
@@ -43,6 +73,46 @@
       }
     },
     {
+      "shrineSlug": "asthan-sitla-mata-outside-the-wall",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 907; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "ayub-sabir-miran",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3532; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "badshahi-masjid",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 838; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "bahle-ocr-shah-majzub-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3600; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "bari-imam",
       "fields": {
         "Description Urdu": {
@@ -56,6 +126,26 @@
           "contentTier": "tier2-compendium",
           "confidence": 0.75,
           "notes": "Assumed merged from shrine_entries/ — not yet diffed against the live text; see Phase B reconciliation."
+        }
+      }
+    },
+    {
+      "shrineSlug": "begumpura-graveyard",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 831; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "bhadr-kali-in-city",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 896; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -111,6 +201,16 @@
       }
     },
     {
+      "shrineSlug": "bhairon-ji-ka-asthan-mohalla-wachhowali",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 899; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "bhit-bhit-shah",
       "fields": {
         "Description Urdu": {
@@ -124,6 +224,16 @@
           "contentTier": "tier2-compendium",
           "confidence": 0.75,
           "notes": "Assumed merged from shrine_entries/ — not yet diffed against the live text; see Phase B reconciliation."
+        }
+      }
+    },
+    {
+      "shrineSlug": "bibi-rasti",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3647; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -145,6 +255,26 @@
       }
     },
     {
+      "shrineSlug": "chaubara-chhajju-bhagat",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 904; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "chishti-family-graves-maidan-zarin-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 817; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "churrio-jabal-durga-mata-temple",
       "fields": {
         "Description Urdu": {
@@ -158,6 +288,16 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "dan-shahid",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3619; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -501,6 +641,36 @@
       }
     },
     {
+      "shrineSlug": "devi-dwara-rajo-and-dharman",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 923; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "dharamsala-bhai-goma-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 947; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "dharamsala-of-baba-khuda-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 945; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "eidgah-sharif",
       "fields": {
         "Description Urdu": {
@@ -513,6 +683,26 @@
           "method": "human",
           "contentTier": "sheet-original",
           "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
+        }
+      }
+    },
+    {
+      "shrineSlug": "faqir-taj-shah-majzub-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3599; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "fazl-shah-majzub-naushahi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3607; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -580,6 +770,16 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gulabi-shah",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 772; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1370,6 +1570,136 @@
       }
     },
     {
+      "shrineSlug": "gyan-mandir-and-shivala-ishri-prashad-kayath",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 924; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "hafiz-ghulam-muhammad-known-as-imam-gamun",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3518; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "hafiz-muhammad-taqi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3588; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "haji-ahmad-resident-of-qalat",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3700; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "haji-fath-ali-muttaqi-sialkoti",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3690; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "haji-hafiz-qari-abd-al-malik",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3674; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "haji-jamiat",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3627; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "haji-muhammad-saeed-dola-wari",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 767; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "half-demolished-mosque-near-sarai-muhammad-sultan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 871; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "hanuman-mandir-moti-bazaar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 883; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "hazrat-ghulam-muhi-al-din-qasuri-mujaddidi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3672; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "hazrat-shah-hasan-wali-kamil",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3628; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "imambara-and-gami-shah",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 815; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "jagannath-temple-sialkot",
       "fields": {
         "Description Urdu": {
@@ -1399,6 +1729,16 @@
           "method": "human",
           "contentTier": "sheet-original",
           "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
+        }
+      }
+    },
+    {
+      "shrineSlug": "jali-shah-majzub-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3604; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1454,6 +1794,16 @@
       }
     },
     {
+      "shrineSlug": "kali-devi-mandir",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 902; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "kalka-cave-temple-asthan-of-kalka-devi",
       "fields": {
         "Description Urdu": {
@@ -1487,6 +1837,16 @@
       }
     },
     {
+      "shrineSlug": "khanqah-kahhote-shah",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 824; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "khatwari-darbar-shikarpur",
       "fields": {
         "Description Urdu": {
@@ -1500,6 +1860,66 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "khwaja-ayub-qureshi-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3579; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "khwaja-bihari-qadri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3513; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "khwaja-hafiz-abd-al-khaliq-uwaisi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3707; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "khwaja-khawand-mahmud-lahori-famous-as-hazrat-ishan-naqshbandi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3554; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "khwaja-muhammad-siddiq-peshawari",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3698; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "kotwali-mosque-of-mian-nura-nur-muhammad",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 855; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1534,6 +1954,16 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "kuka-dharamsala-moti-bazaar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 946; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1605,6 +2035,396 @@
       }
     },
     {
+      "shrineSlug": "madrasa-garhi-shahu-khair-garh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 823; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mai-bhagi-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3601; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "makhdoom-nau-bahar-shah-sajjada-nashin-of-uch-bukhari",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3659; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "makhdum-mufti-shaikh-muhammad-qureshi-mian-kalan",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3590; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "makhdum-shah-alam-sadr-jahan",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3688; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mandir-banke-bihari",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 889; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mandir-bawa-mehr-das-four-mandirs",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 900; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mandir-bhadr-kali-niaz-beg",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 918; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mandir-sitla-devi-inside-the-city",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 908; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mandir-than-bhairon-ichhra",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 919; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "marghat-the-hindu-cremation-ground",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 915; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-bazar-bi",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 844; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-bukan-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 861; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-chiniyan-wali",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 848; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-dai-anga",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 864; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-dai-ladu",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 865; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-hafiz-chabuk-sawar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 859; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-imam-shah-wali",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 862; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-khurd-nawab-wazir-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 840; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-khwaja-ayaz",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 869; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-masti-darwaza-maryam-zamani",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 839; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-mian-muhammad-sultan-thekedar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 868; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-mohalla-takiya-sadhuwan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 851; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-moran-tawaif",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 860; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-muhammad-salih-kambo-mochi-darwaza",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 847; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-muhammad-salih-sindhi",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 867; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-mulla-majid-mohalla-chehl-bibian",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 863; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-naqiban",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 866; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-pari-mahal",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 845; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-phulian-wali",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 857; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-shaikh-nawab-imam-al-din-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 858; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masjid-wazir-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 849; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mastan-shah-lahori-majzub",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3603; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "masum-shah-majzub-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3597; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mata-mandir-of-kucha-bal-nath",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 935; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "maulana-ghulam-muhyi-al-din-qasuri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3675; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "maulana-haji-sad-allah",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3687; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "maulvi-jami-lahori",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 807; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "maulvi-timur-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3583; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "mausoleum-of-waris-shah",
       "fields": {
         "Description Urdu": {
@@ -1622,6 +2442,26 @@
       }
     },
     {
+      "shrineSlug": "mazar-chiragh-shah",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3534; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mazar-marg-naini",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3535; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "mazar-of-bulleh-shah",
       "fields": {
         "Description Urdu": {
@@ -1635,6 +2475,116 @@
           "contentTier": "tier2-compendium",
           "confidence": 0.75,
           "notes": "Assumed merged from shrine_entries/ — not yet diffed against the live text; see Phase B reconciliation."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mazar-shahid-ganj-mohalla-sadhwan",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3618; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mian-amir-bakhsh-the-bookbinder",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3549; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mian-jan-muhammad",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 795; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mian-mongar-majzub-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3596; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mian-nuras-second-mosque-kashmiri-bazaar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 856; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "miani-graveyard-and-panj-pir-dher",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 833; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mir-sayyid-shah-firoz",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3507; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "miran-sayyid-ghulam-muhyi-al-din",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3523; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "miran-sayyid-mubarak-haqqani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3653; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mirza-hadi-muhammad-muslim-pir-zaidi",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 806; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "miskin-shah-amri-mir-inayat-allah",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 797; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1669,6 +2619,116 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mosque-at-the-garhi-shahu-compound",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 872; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mosque-of-sayyid-amir-shah",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 853; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mosque-of-zabita-khan-and-mirza-muhammad-mirza-mota",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 852; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "moti-masjid-lahore-fort",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 873; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mufti-ghulam-muhammad",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3589; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mufti-muhammad-taqi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3587; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mufti-rahim-allah",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3585; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mufti-rahmat-allah",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3586; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mufti-shaikh-muhammad-mukarram-qureshi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3584; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "multani-dharamsala",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 948; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mustaqim-shah-lahori-faizpuri-majzub",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3598; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1721,6 +2781,56 @@
       }
     },
     {
+      "shrineSlug": "nawab-zakariya-khans-graveyard-complex-mughalpura",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 832; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "neighbourhood-thakurdwara-on-a-confectioners-shop-site",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 905; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "nizam-shah-lahori-majzub",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3602; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "nur-muhammad-thani-naruwala",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3706; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "old-tomb-under-government-house",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 827; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "panj-tirath",
       "fields": {
         "Description Urdu": {
@@ -1751,6 +2861,136 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "past-masjid-nichi-masjid",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 846; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-balkhi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3616; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-bhola-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3609; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-burhan",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3529; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-dhal",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3608; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-ghazi-known-as-pir-az-ghaib",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3626; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-hadi-rahnuma",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3625; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-muhammad-sachiar-naushahi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3683; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-muhammad-shirazi-chishti",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3550; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-sayyid-kamal-known-as-pir-jahanian",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3668; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-siraj-al-din-known-as-pir-siraji",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3617; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-zaki",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3615; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "pir-zuhdi-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3528; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1806,6 +3046,16 @@
       }
     },
     {
+      "shrineSlug": "ram-dwara-mohalla-wachhowali",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 898; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "ram-mandir-saidpur-ram-kund-mandir",
       "fields": {
         "Description Urdu": {
@@ -1840,6 +3090,16 @@
       }
     },
     {
+      "shrineSlug": "rani-gul-begum",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 973; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "ranmal-sharif",
       "fields": {
         "Description Urdu": {
@@ -1857,6 +3117,16 @@
       }
     },
     {
+      "shrineSlug": "rasul-shahi-faqirs-and-nur-husain",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 789; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "sadh-belo-sadh-belo-island-temple",
       "fields": {
         "Description Urdu": {
@@ -1869,6 +3139,36 @@
           "method": "human",
           "contentTier": "sheet-original",
           "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sadhu-chuhras-well-and-shivala",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 906; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "safed-gumbad-laka-gumbad-yahya-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 982; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sain-qutb-shah-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3605; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1903,6 +3203,166 @@
           "contentTier": "tier2-compendium",
           "confidence": 0.75,
           "notes": "Assumed merged from shrine_entries/ — not yet diffed against the live text; see Phase B reconciliation."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-bawa-jhingar-shah-suthra",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 942; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-bhai-rupa",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 949; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-bhai-vasti-ram",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 943; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-dariya-gar-sanyasi",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 951; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-haqiqat-rai",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 944; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-jamadar-khushhal-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 954; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-maharaja-kharak-singh-and-kunwar-nau-nihal-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 959; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-maharaja-sher-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 958; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-raja-dhian-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 962; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-raja-suchet-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 956; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-raja-teja-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 952; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-raja-udham-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 955; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-ram-singh-son-of-jamadar-khushhal-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 953; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-rani-chand-kaur",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 961; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-rani-raj-kaur-rani-nakain",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 960; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadh-sardar-jawahar-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 957; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -1991,6 +3451,366 @@
       }
     },
     {
+      "shrineSlug": "sarvwala-maqbara-sharaf-al-nisa-begum",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 978; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-abd-al-karim-famous-as-pir-bhawan-shah",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3671; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-abd-al-wahhab-qadiri",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 798; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-abdul-qadir-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3531; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-abdul-qadir-sani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3654; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-abu-turab-known-as-shah-gada-husaini-shattari-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3578; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-ahmad-shaikh-al-hind-gilani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3686; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-ahmad-tokhta-tirmizi-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3573; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-badr-al-din-shah-alam-sabz-gumbad",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 766; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-baha-al-din-gilani-known-as-bahawal-sher-qalandar-hujrawi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3664; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-chiragh-shah-hakim",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 810; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-fazl-shah-of-mauza-sanda",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3678; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-hamid-ganj-bakhsh",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3655; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-hasan-peshawari-qadri-gilani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3696; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-jan-muhammad-huzuri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3514; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-jhulan-shah-famous-as-ghore-shah-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3565; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-kamil-shah-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3509; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-mahmud-huzuri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3508; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-mitha-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3576; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-muhammad-ghaus-bala-pir",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3663; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-muhammad-ghaus-uchi-jili-gilani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3652; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-muhammad-muqim-entitled-muhkam-al-din",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3665; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-muhammad-muqim-muhkam-al-din",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3667; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-muhammad-nur",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3666; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-munawwar-ali-shah-naqshbandi-suhrawardi-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3557; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-nasir-al-din",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3657; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-sadr-al-din-known-as-shaikh-rajan-qattal",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3656; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-sar-buland",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3614; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-shah-bilawal",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3512; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-shah-husain-known-as-bhohre-wala",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3697; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-shah-ismat-allah-hamza-pahalwan-naushahi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3684; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-shahbaz",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3566; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-suf-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3613; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-usman-famous-as-shah-jhula-bukhari-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3562; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyid-yaqub-addressed-as-sadr-e-diwan-zanjani-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3574; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sayyids-of-mohalla-syed-sar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 771; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "sevapanthi-darbar-bhai-gurdas-gandava",
       "fields": {
         "Description Urdu": {
@@ -2004,6 +3824,66 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-badr-al-din-gilani",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 765; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-dargahi-qadri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3526; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-farid-naushahi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3623; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-ismail-muhaddith",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3527; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-kaku-chishti-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3539; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-muhammad-ghaus-gilani-qadri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3516; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -2025,6 +3905,76 @@
       }
     },
     {
+      "shrineSlug": "shah-ocr-naushahi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3606; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-rahmat-allah-qureshi-multani-then-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3622; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-raza-qadri-shattari-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3515; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-rustam-ghazi",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 820; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-shams-al-din-qadri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3511; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-sharaf-enclosure-at-khwaja-muhammad-saeeds",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 763; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-sharf-mohalla-outside-bhati-gate",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 761; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "shah-yousuf",
       "fields": {
         "Description Urdu": {
@@ -2042,6 +3992,26 @@
       }
     },
     {
+      "shrineSlug": "shah-zia-al-din-shirwani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3624; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-zia-qadiri",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 775; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "shahwala-teja-singh-mandir",
       "fields": {
         "Description Urdu": {
@@ -2055,6 +4025,496 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-abd-al-hakim-sialkoti",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3689; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-abd-al-jalil-qutb-al-alam-chuhar-bandagi-qureshi-harithi-hakari-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3561; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-abd-al-khaliq-lahori-chishti-sabri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3542; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-abd-al-razzaq-makki-nila-gumbad",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 804; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-abdullah-shah-baloch-lahori-qadri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3517; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-abu-ishaq-qadri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3510; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-ahmad-mashuq-e-ilahi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3642; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-al-islam-mufti-abdul-salam-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3591; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-ali-rangrez",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3629; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-arif-chishti",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 808; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-ashraf",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 805; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-faiz-bakhsh-lahori-sabri-chishti",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3548; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-fath-shah-shattari-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3580; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-ghulam-husain-of-walian-wali",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3685; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-ghulam-murtaza-qasuri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3673; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-ghulan-shah-sarmast-qadiri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3530; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-haji-abd-al-karim-chishti-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3541; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-haji-muhammad-saeed-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3520; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-haji-ramzan-lahori-chishti",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3547; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-hamid-al-din-abu-al-hakim-qureshi-hakkari-suhrawardi-sultan-al-tarikin",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3643; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-hamid-qari-suhrawardi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3582; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-hasan-kunjadgar-famous-as-hassu-teli-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3567; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-ilm-al-din-chuniwal",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3669; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-jan-allah-chishti-sabri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3540; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-jan-muhammad-suhrawardi-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3568; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-jan-muhammad-thani-lahori-suhrawardi-jan-muhammad-parvezabadi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3570; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-karam-shah-qureshi-harithi-ocr",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3571; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-khair-al-din-known-as-khair-shah-chishti-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3546; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-ladhe-shah-ocr-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3522; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-mahmud-shah-naqshbandi-mujaddidi-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3556; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-mir-muhammad-yaqub-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3519; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhammad-arif-chishti-sabri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3543; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhammad-ashraf-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3581; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhammad-ismail-lahori-famous-as-mian-kalan-also-mian-wada",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3569; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhammad-ismail-muhaddith-wa-mufassir-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3572; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhammad-saeed-chishti-sabri-sharaqpuri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3670; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhammad-salim-chishti-sabri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3545; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhammad-siddiq-chishti-sabri-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3544; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhkam-al-din-sahib-al-sair-uwaisi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3708; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-muhtaram",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3621; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-musa-ahangar-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3563; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-musa-khokhar",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3620; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-nur-ahmad-famous-as-nur-husain-qadiri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3521; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-nur-muhammad-chishti-famous-as-nur-muhammad-ocr-maharvi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3705; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-nur-qasuri",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3677; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-sadi-ocr-mujaddidi-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3555; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-sadr-al-din-arif",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3641; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-sayyid-abu-ishaq-gazruni-famous-as-miran-badshah-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3577; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaikh-shahr-allah-multani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3645; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -2108,6 +4568,26 @@
       }
     },
     {
+      "shrineSlug": "sharaf-shah-lahori",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3525; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sher-shah-qadri-multani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3646; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "shergarh",
       "fields": {
         "Description Urdu": {
@@ -2138,6 +4618,196 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-and-devi-dwara-ganga-parbat",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 914; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-and-samadh-of-shiv-gar-sanyasi",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 950; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-and-thakurdwara-outside-mori-gate",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 925; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-bakhshi-bhagat-ram",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 879; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-dharm-chand-wala",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 933; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-diwan-ratan-chand-with-tank-and-sarai",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 917; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-diwan-shankar-das",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 886; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-gulab-rai-jamadar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 881; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-lala-chhote-lal",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 929; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-lala-nihal-chand",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 916; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-near-chah-badhu-wala",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 913; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-north-of-masjid-wazir-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 877; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-pandit-radha-kishan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 901; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-raghunath-misr",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 887; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-raja-dina-nath",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 878; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-sukh-dyal-sud",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 936; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-tarpolia-wala",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 884; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-thibi-wala",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 894; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shivala-wilbagh-dilbagh-rai",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 893; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -3226,6 +5896,46 @@
       }
     },
     {
+      "shrineSlug": "sohan-majzub-ajodhani-pakpattani",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3710; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sufi-wali-masjid",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 854; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sultan-bala-din-uwaisi",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3709; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sunehri-masjid-masjid-tilai-kashmiri-bazaar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 843; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "swami-dharmdas-darbar-larkana-kennedy-market",
       "fields": {
         "Description Urdu": {
@@ -3239,6 +5949,306 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "taja",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 773; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "takiya-baba-farid-ganjshakar-lahore",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 825; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "taksali-wali-masjid",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 841; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tali-sahib-baba-sri-chand",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 941; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-and-shivala-lala-jasna-dibar-and-jangam",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 927; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-and-shivala-sant-shah-and-devi-dyal",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 920; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-atar-singh-subedar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 932; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-attached-to-mandir-banke-bihari",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 890; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-baikunth-das",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 885; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-bakho-misr",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 888; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-bawa-dehona-das",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 926; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-bawa-mangal-das",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 909; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-bhori-sarkar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 911; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-chhojhi-mal-khatri",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 931; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-chor-mor-wala",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 895; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-jwala-dai",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 897; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-lala-bhagwan-das",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 937; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-lala-mahin-lal",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 928; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-lala-nihal-chand-five-mandirs",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 921; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-makho-shah",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 922; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-of-the-kankhal-image",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 891; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-pandit-aukat-nath",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 930; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-pandit-radha-kishan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 903; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-rai-singh-risaldar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 934; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-raja-teja-singh",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 880; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-rani-jindan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 912; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "thakurdwara-rani-lachhmi",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 910; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "the-foundresss-tomb-at-naya-kot",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 984; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "the-small-rauza-of-the-newly-muslim-woman",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3564; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "the-takiya-ambli-wala-enclosure",
+      "fields": {
+        "Name": {
+          "source": "Mufti Ghulam Sarwar Lahori, *Hadiqat al-Awliya* (Persian, composed 1292 AH / 1875 CE; read in an Urdu edition annotated by محمد اقبال مجددی and issued by تصوّف فاؤنڈیشن)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_new_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 3533; every value is that line's own (data/review/PATCH_new_rows_hadeeqat_ul_aulia_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -3291,6 +6301,16 @@
       }
     },
     {
+      "shrineSlug": "tomb-of-ali-mardan-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 974; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "tomb-of-allama-iqbal-mazar-e-iqbal",
       "fields": {
         "Description Urdu": {
@@ -3304,6 +6324,16 @@
           "contentTier": "tier1-ocr",
           "confidence": 0.9,
           "notes": "Assumed merged from shrine_entries/ — not yet diffed against the live text; see Phase B reconciliation."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-asaf-jah",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 987; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -3356,6 +6386,36 @@
       }
     },
     {
+      "shrineSlug": "tomb-of-bahadur-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 975; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-jahangir",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 986; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-jani-khan-nizam-al-daula",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 979; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "tomb-of-javindi-bibi",
       "fields": {
         "Description Urdu": {
@@ -3369,6 +6429,56 @@
           "contentTier": "tier2-compendium",
           "confidence": 0.75,
           "notes": "Assumed merged from shrine_entries/ — not yet diffed against the live text; see Phase B reconciliation."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-muhammad-salih-and-shaikh-inayat-allah-kambo",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 985; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-nawab-mian-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 981; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-nawab-nusrat-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 977; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-nur-jahan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 988; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-prince-parvez",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 980; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
@@ -3437,6 +6547,36 @@
       }
     },
     {
+      "shrineSlug": "tomb-of-zeb-al-nisa-begum",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 983; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tombs-of-makhduma-begum-and-nawab-abu-al-hasan-khan",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 976; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "travellers-mosque-of-muhammad-sultan-thekedar",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 870; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
       "shrineSlug": "umarkot-amarkot-shiv-mandir",
       "fields": {
         "Description Urdu": {
@@ -3450,6 +6590,46 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "unchi-masjid-bhati-darwaza",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 842; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "unnamed-mosque-of-the-dilawar-khan-land-case",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 850; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "unnamed-temple-with-fourteen-shops",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 882; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
+        }
+      }
+    },
+    {
+      "shrineSlug": "vaishno-devi-mandir-mohalla-talwara",
+      "fields": {
+        "Name": {
+          "source": "Kanhaiya Lal Hindi, *Tarikh-e Lahore* (1884 original)",
+          "method": "llm",
+          "notes": "Row built by pipeline/book_queue/build_tagged_rows.py from the machine-read notes on the book's OCR transcription, takeaways line 892; every value is that line's own (data/review/PATCH_new_rows_tareekh_lahore_2026-10-10.md). Not yet reviewed."
         }
       }
     },
