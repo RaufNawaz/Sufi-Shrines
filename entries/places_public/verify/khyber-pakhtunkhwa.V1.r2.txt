@@ -1,0 +1,14 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+- Diff check (python difflib, /home/claude/work/bak/khyber-pakhtunkhwa.r1.bak against /home/claude/repo/entries/places_public/khyber-pakhtunkhwa.md): exactly four lines changed (lines 5, 11, 13 and 33), and each one is an OLD/NEW pair in the changes file, applied word for word. Nothing else moved. The bibliography is unchanged.
+- All three round 1 issues are applied: issue 1 in both sentences (Overview and The Province in History), issue 2 (Communities) and issue 3 (The Province in History).
+- Change 1, Overview: "In the Sikh period Maharaja Ranjit Singh captured the Pathan regions of what is now Khyber Pakhtunkhwa, and as a result several people there became Sikhs." This resolves the issue: no Sikh period unit is mapped onto the modern province, and there is no source talk. The team version supports "as a result" ("and as a result several people converted to Sikhism", pp. 161 to 162). In the next sentence, "here" still refers clearly to the province. There is no new fault.
+- Change 1, History: "the Pathan regions of what are now Khyber Pakhtunkhwa and the tribal areas". This is supported and resolves the issue, and the plural "are" agrees with the two units. On taste only: "what are now ... the tribal areas" gives the tribal areas a present-day status that the team version neither asserts nor denies. It is harmless, so I have not raised it as an issue.
+- Change 2, Communities: "The *shalwar kameez* ... is the traditional wear of the province's people". This is supported ("traditional wear of the residents of the province of Khyber Pakhtunkhwa", p. 183), and the embellishment is gone. The paragraph is now a single sentence. That is acceptable, but if anyone wants it longer, it could be joined to the paragraph before it. The round 1 note on "one man, Kartar" still stands as a matter of taste: "a man called Kartar" would be closer to the team's "A man Khalid calls Kartar".
+- Change 3, partition: "crediting the calm either to the influence of the Indian National Congress there or to that of Abdul Ghaffar Khan". This now gives the two explanations without choosing between them, which is rule 4(d) and matches team-notes question 1 (one author, two pages, two reasons). It is grammatical, and the clause still reads well. There is no new fault.
+- No dash, doubled word or sentence, broken referent or source talk was introduced in any changed sentence or its neighbours. While reading the neighbouring text I saw no unsupported fact.
+- The round 1 notes I did not act on (the NWFP tense, the "pro-Taliban" label, the women's ritual meetings, where the sentence on the uprisings sits, the repeated Ranjit Singh material, "also counted as Sikhs") remain optional and are matters of taste.

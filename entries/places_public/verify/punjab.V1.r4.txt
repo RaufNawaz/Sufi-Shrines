@@ -1,0 +1,30 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+V1 round 4 (confirming) for punjab. Read: PUBLIC_DESCRIPTION_BRIEF.md (rules 4 and 5), entries/places/punjab.md (team version, with Where the Sources Disagree), entries/places_public/punjab.md, the round 3 report and its changes list (3 items), and the notes file's round 3 entry.
+
+0. Diff check (python). Reversing the three listed changes in the current file gives a text with md5 36f7a1f230deb6ab27e003585538d1de, which begins 36f7a1f2 as required. Each NEW string occurs exactly once in the current file. A line diff of the reconstructed round 3 text against the current file shows exactly three changed lines (17, 155, 235), one per change, and nothing else. The current file's md5 is 011600764d349de74c2e0f169d913ef5.
+
+1. Change 1, Communities, "while Hindus are a smaller community there, so political parties can ignore them." The clause "most of the country's Hindus are scattered in other provinces, with only a few in Punjab" is gone.
+   - Support: the team records "How many Hindus live in the Punjab" as a disagreement. The p. 87 variant ("only a few in Punjab") is set against p. 31 (a significant Hindu population in Southern Punjab) and p. 233 (the majority in Sindh and Southern Punjab). Basis (b) holds: most of the team's passages give the southern population. The kept clause ("a smaller community in the Punjab and can therefore be ignored" by political parties) is the team's own wording from p. 87, and it does not conflict with the chosen position.
+   - Whole article, every mention of Hindus in the Punjab: the Overview (line 17, "a significant Hindu population still living in its south"); Communities (line 233, "a significant Hindu population still lives there"; line 235, the majority of non-Muslims are Hindus in Southern Punjab, inner Sindh and Baluchistan, and Hindus are a smaller community than the Christians); line 357 ("Most of the Hindu community lives in Sindh and southern Punjab"; central Punjab has hardly any high caste Hindus); line 245 (the Sikh and Hindu minorities of central Punjab). These are now consistent. No variant is left side by side. Line 237 quotes one Lahore resident as never having come across any Hindu. This is a person's own testimony about Lahore, framed as a quotation, and it does not contradict the article's position.
+   - Grammar: the sentence ends cleanly, and "them" still refers to Hindus. The next sentence ("In urban Punjab ...") follows without a break.
+
+2. Change 2, Saints and Pilgrimage, "a number of Punjabi tribes still claim to have been converted by Fariduddin Shakarganj."
+   - Support: the team quotes Schimmel's "Ganj-i Shakar". This is a spelling variant of the same name (rule 4, minor). The claim stays framed as the tribes' own claim, which matches the team disagreement "Whether Baba Farid converted the Punjab's clans".
+   - Whole article: every occurrence of Fariduddin is now "Fariduddin Shakarganj" (lines 19, 155, 249, and "Shaikh Fariduddin Shakarganj" at 309). "Ganj-i Shakar" no longer appears. The other references are "Baba Farid" or "Farid", which is acceptable. The new form also makes the next sentence's "When Shakarganj made his abode at Pakpattan" (Waris Shah) refer back clearly.
+   - Grammar: intact.
+
+3. Change 3, Overview, "After Partition several gurdwaras, the Sikh places of worship, and temples were taken over and destroyed by migrants".
+   - Support: team line 9 cites In Search of Shiva p. 8 for this claim. The team's fuller quotation from the same page (line 191) is "seen several gurdwaras and temples being taken over and destroyed by the migrants". "Several" is the source's word.
+   - Whole article, post Partition takeovers: line 17 (several, taken over and destroyed by migrants) and line 233 (several gurdwaras and temples taken over and destroyed by the migrants) now agree. Line 25 and line 325 give "hundreds of temples and gurdwaras all over Pakistani Punjab" taken over by refugees and turned into homes or households. That is the team's separate claim from A White Trail p. 58, about a different fate, and the team gives both side by side in its own overview. Several destroyed and hundreds turned into homes are compatible, so no contradiction is created. Before this change, the bare plural at line 17 could be read as "all".
+   - Grammar: intact. The appositive gloss "the Sikh places of worship" is unchanged from round 3.
+
+4. Not part of this round's changes, recorded only. In round 3's note 2, the second pair is still unapplied: "Al-Beruni" (line 41) and "al-Biruni" (line 193). One form should be chosen before the Urdu work, under the one spelling per name rule. OLD "The Jats whom al-Biruni had called" NEW "The Jats whom Al-Beruni had called" (or the reverse at line 41).
+
+5. Notes file: the Hindu population choice is recorded only in the narrative entry "After V1 round 3" (basis (b) stated). Rule 4 asks for every choice to be recorded. The coordinator may also want the bullet round 3 proposed among the consensus choices: "- How many Hindus live in the Punjab: a significant population in Southern Punjab, basis (b); 'only a few in Punjab' (A White Trail p. 87) dropped." This is not a fault in the public text.
+
+6. Round 3's notes 4 to 8 are still as recorded there. None is a fault.

@@ -135,7 +135,19 @@ export function extractLeadPreviewText(text: string): string {
   return leadBlocks.join('\n\n').trim() || firstSectionContent;
 }
 
-export function parseInlineSections(rawText: string): InlineSection[] {
+/**
+ * `wholeMarkdownHeadings`: a `## ` line is one heading, whole. Without it, a
+ * heading that begins with a known section name and a colon ("## History: Mughal
+ * Lahore") is split as a sheet-style inline heading, "History" with "Mughal
+ * Lahore" as its first line of prose, which printed the second half of every
+ * such place heading as a stray paragraph (found 30 October 2026 on /place/lahore).
+ * The place articles pass it; the shrine Descriptions keep the old reading, which
+ * the sheet's inline headings ("History: built in …") rely on.
+ */
+export function parseInlineSections(
+  rawText: string,
+  { wholeMarkdownHeadings = false }: { wholeMarkdownHeadings?: boolean } = {},
+): InlineSection[] {
   const sections: InlineSection[] = [];
   const lines = rawText.split(/\r?\n/);
 
@@ -157,7 +169,9 @@ export function parseInlineSections(rawText: string): InlineSection[] {
       flushSection();
       inLead = false;
       currentHeading = stripHeadingMarkup(line.trim());
-      if (headingMatch.inlineContent) currentLines.push(headingMatch.inlineContent);
+      if (headingMatch.inlineContent && !(wholeMarkdownHeadings && /^#{1,6}\s/.test(line.trim()))) {
+        currentLines.push(headingMatch.inlineContent);
+      }
     } else if (!inLead) {
       currentLines.push(line);
     }

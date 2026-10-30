@@ -1,0 +1,52 @@
+# Changes applied after V1 round 1 (all issues of groups A and B, and the notes that correct meaning or precision); each OLD replaced exactly once
+
+OLD: The story is told that the saint Shah Kaku Chishti went to the enemy as an envoy and was killed, and that Ahmad Shah, drowned in grief and anger, ordered a general massacre.
+NEW: The story is told that when Ahmad Shah came to Lahore, the saint Shah Kaku Chishti assured him that this was his own city and was sent as his envoy, that the man he went to had him killed, and that Ahmad Shah, drowned in grief and anger, ordered a general massacre.
+
+OLD: and whole tombs and mosques were dug out until no trace was left.
+NEW: and brick sellers took the fabric of tombs and mosques, digging out the foundations of Abul Hasan Khan's tomb, which had cost ten lakh, until no trace was left.
+
+OLD: From Jahangir's tomb, from Shalamar Bagh and from demolished mosques, marble and red stone went to Amritsar for the Sri Darbar Sahib.
+NEW: Marble from Jahangir's tomb and from Shalamar Bagh went to Amritsar for the Sri Darbar Sahib, and the marble and red stone of Khwaja Muhammad Saeed's demolished mosque and tomb were sent to Amritsar too.
+
+OLD: Under the treaty of 1846 a Resident was appointed in the city, and in the end Duleep Singh left Lahore.
+NEW: Under the treaty of 1846 territory passed from the government of Lahore, a Resident was appointed in the city at the request of the people of the state, and in the end Duleep Singh left Lahore.
+
+OLD: He framed the city's history as a sequence of destructions, thirteen numbered shocks of plunder and demolition, and cast Sikh rule as the time of loss and English rule as the time of restitution.
+NEW: He framed the city's history as a sequence of destructions, thirteen numbered shocks of plunder and demolition. In four cases close together he cast Sikh rule as the time of loss and English rule as the time of restitution, but elsewhere he reported both regimes in the same register and drew no general conclusion from the contrast.
+
+OLD: At Miani, when a body came
+NEW: At one burial ground, when a body came
+
+OLD: Daulat Khan Lodi, the governor, later turned
+NEW: Daulat Khan Lodi, the governor, turned
+
+OLD: after Mahmud's conquest
+NEW: after Sultan Mahmud's conquest
+
+OLD: and the samadhs of *mahants*, the heads of temple establishments, inside their own temples.
+NEW: and the samadhs of *mahants*, the heads of temple establishments, inside the Shivala Tarpoliya's own halls.
+
+OLD: through an artillery officer, a hill raja who made the place over to his Brahmins, and a nawab
+NEW: through an artillery officer, Sansar Chand of Kangra, who made the place over to his Brahmins, and a nawab
+
+OLD: made all his property *waqf*
+NEW: made all his immovable property *waqf*
+
+OLD: four shops so that the temple ran comfortably
+NEW: four shops, from whose rents the temple ran comfortably
+
+OLD: people suffered, so stalls
+NEW: people suffered, and stalls
+
+OLD: its imamat was given to two master teachers of the whole Punjab
+NEW: its imamat was given to Maulana Ghulam Rasul and Ghulam Allah, the master teachers of the whole Punjab
+
+OLD: Other mosques carry chronograms,
+NEW: Other mosques carry chronograms, verses whose letters, read as numbers, give a year,
+
+OLD: was kept with great pomp; by the 1880s only an annual prayer for the dead was left.
+NEW: was kept with great pomp, and devotees went on holding it after him; by the 1880s only an annual prayer for the dead was left.
+
+OLD: bought vacant land at auction and built his mandir on it
+NEW: bought vacant land at auction and began to build his mandir on it

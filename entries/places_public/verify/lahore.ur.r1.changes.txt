@@ -1,0 +1,1128 @@
+# lahore: Urdu changes after V2 and V3 round 1 (applied by the four writers, each OLD replaced once; then two spelling normalisations by the coordinator)
+
+===== P1 =====
+
+ur_P1 round 1 changes (V2 r1 + V3 r1)
+
+APPLIED: 28
+
+1. WHY: V2 issue 1 [changed certainty]: English states collusion as the reason; 'کے الزام میں' made it only a charge.
+   OLD: سازباز کے الزام میں ایک شخص کا سر قلم کیا گیا
+   NEW: سازباز کی پاداش میں ایک شخص کا سر قلم کیا گیا
+
+2. WHY: V3 issue 1 (and V2 style note) [ergative with لے جانا]: drop نے.
+   OLD: پیر ہادی کے مقبرے سے راجا دھیان سنگھ نے سنگِ مرمر کی جالیاں
+   NEW: پیر ہادی کے مقبرے سے راجا دھیان سنگھ سنگِ مرمر کی جالیاں
+
+3. WHY: V3 issue 2 [ambiguity]: 'ایک اور' read as 'another'.
+   OLD: لاہور کے سرداروں میں سے ایک اور اس کے حاکم لہنا سنگھ نے
+   NEW: لاہور کے ایک سردار اور شہر کے حاکم لہنا سنگھ نے
+
+4. WHY: V3 issue 3 [ambiguous name]: bare ہمایوں after اعظم ہمایوں; English 'the emperor's servants' kept as اس کے کارندوں with مغل بادشاہ ہمایوں.
+   OLD: جب ہمایوں شہزادہ محمد اکبر اور تین ہزار سواروں کے ساتھ لوٹا تو افغان تتر بتر ہو گئے اور لاہور بغیر لڑائی کے بادشاہ کے کارندوں کے ہاتھ آ گیا۔
+   NEW: جب مغل بادشاہ ہمایوں شہزادہ محمد اکبر اور تین ہزار سواروں کے ساتھ لوٹا تو افغان تتر بتر ہو گئے اور لاہور بغیر لڑائی کے اس کے کارندوں کے ہاتھ آ گیا۔
+
+5. WHY: V3 issue 4 [broken construction]: participle missing.
+   OLD: اور مجرموں کو سرِعام سزائے موت دیکھنے کے لیے
+   NEW: اور مجرموں کو سرِعام دی جانے والی سزائے موت دیکھنے کے لیے
+
+6. WHY: V3 issue 5 [agreement]: دہلی is feminine.
+   OLD: ہیمو نے دہلی لے لیا تو
+   NEW: ہیمو نے دہلی لے لی تو
+
+7. WHY: V3 issue 6 [agreement + calque].
+   OLD: نسل اور طبقہ عمارتوں کے نقشوں ہی میں لکھ دیا گیا تھا۔
+   NEW: نسل اور طبقے کی تفریق عمارتوں کے نقشوں ہی میں رکھ دی گئی تھی۔
+
+8. WHY: V3 issue 7 [no antecedent]: یہی مشقت pointed at nothing.
+   OLD: انگریزی عہد میں یہی مشقت چار دیواری کے اندر لے آئی گئی۔
+   NEW: انگریزی عہد میں قیدیوں کی مشقت چار دیواری کے اندر لے آئی گئی۔
+
+9. WHY: V3 issue 8 [tense clash]: اب بھی with a past verb.
+   OLD: جہاں سے تعویذ توڑا گیا تھا، اب بھی دکھائی دیتی تھی۔
+   NEW: جہاں سے تعویذ توڑا گیا تھا، بعد میں بھی دکھائی دیتی رہی۔
+
+10. WHY: V3 issue 9 [logic/order]: gateway first so the danger is clear; same facts as the English.
+   OLD: اس کا خیال تھا کہ لاہور بڑا شہر ہے، اس لیے یہاں تھوڑی مدت میں شاہانہ لوازم، لشکروں کا ساز و سامان، کثیر فوج اور جنگ کا ہر سامان جمع ہو سکتا ہے، اور یہی وہ دروازہ ہے جس سے مغل کابل سے اندر آتے ہیں۔
+   NEW: اس کا خیال تھا کہ لاہور وہ دروازہ ہے جس سے مغل کابل سے اندر آتے ہیں، اور یہ اتنا بڑا شہر ہے کہ یہاں تھوڑی مدت میں شاہانہ لوازم، لشکروں کا ساز و سامان، کثیر فوج اور جنگ کا ہر سامان جمع ہو سکتا ہے۔
+
+11. WHY: V3 issue 10 [calque]: ہاتھ بدلنا.
+   OLD: شہر بار بار ہاتھ بدلتا رہا۔
+   NEW: شہر بار بار ایک ہاتھ سے دوسرے ہاتھ میں جاتا رہا۔
+
+12. WHY: V3 issue 11 [calque] انعام; with V3 issue 22 spelling سیّد.
+   OLD: پندرھویں صدی بھر لاہور وہ انعام بنا رہا جس کے لیے کھوکھر، سید سلاطین اور لودھی آپس میں لڑتے رہے۔
+   NEW: پندرھویں صدی بھر کھوکھر، سیّد سلاطین اور لودھی لاہور پر قبضے کے لیے آپس میں لڑتے رہے۔
+
+13. WHY: V3 issue 12 [calque]: موسمی دارالحکومت، دائمی گردش.
+   OLD: مغلیہ لاہور ایک علاقائی دارالحکومت بھی تھا اور موسمی بھی، جہاں دربار اپنی دائمی گردش میں آ کر ٹھہرتا تھا۔
+   NEW: مغلیہ لاہور ایک علاقائی دارالحکومت بھی تھا اور ایسا شہر بھی جہاں سدا سفر میں رہنے والا دربار کچھ موسموں کے لیے آ کر ٹھہرتا تھا۔
+
+14. WHY: V3 issue 13 [calque].
+   OLD: بادشاہی مسجد شاہانہ شان سے گزر کر فوجی استعمال تک پہنچی۔
+   NEW: بادشاہی مسجد شاہانہ شان و شوکت کے دن دیکھنے کے بعد فوج کے استعمال میں آ گئی۔
+
+15. WHY: V3 issue 14 [calque]: 'one or more'; کم از کم ایک keeps the English uncertainty (the zamindar or zamindars).
+   OLD: اور وہاں کے ایک یا ایک سے زیادہ زمیندار ہلاک ہو گئے۔
+   NEW: اور وہاں کا کم از کم ایک زمیندار ہلاک ہوا۔
+
+16. WHY: V3 issue 15 [agreement in gapped verb].
+   OLD: اور ایک کشمیری اینٹ فروش سیّد عبد الوہاب قادری کے مقبرے کا۔
+   NEW: اور ایک کشمیری اینٹ فروش سیّد عبد الوہاب قادری کے مقبرے کا سامان لے گیا۔
+
+17. WHY: V3 issue 16 [agreement]: two subjects.
+   OLD: دیوان رتن چند کی سرائے اور تالاب تھا؛
+   NEW: دیوان رتن چند کی سرائے اور تالاب تھے؛
+
+18. WHY: V3 issue 17 [subject ellipsis across نے].
+   OLD: اور گورنمنٹ ہاؤس پر ہر سال ہزاروں خرچ کرتی تھی۔
+   NEW: اور وہ گورنمنٹ ہاؤس پر ہر سال ہزاروں روپے خرچ کرتی تھی۔
+
+19. WHY: V3 issue 18 [tense].
+   OLD: لاہور کی برادریاں ساتھ ساتھ رہیں؛
+   NEW: لاہور کی برادریاں ساتھ ساتھ رہتی تھیں؛
+
+20. WHY: V3 issue 19 [logic]: route Multan, Lahore, Delhi kept as in the English.
+   OLD: کیونکہ ملتان سے لاہور اور دہلی جانے والا ایک بڑا راستہ یہیں سے گزرتا تھا۔
+   NEW: کیونکہ ملتان سے دہلی جانے والا ایک بڑا راستہ لاہور سے ہو کر گزرتا تھا۔
+
+21. WHY: V3 issue 20 [direction verb]: from Lahore to Delhi unchanged.
+   OLD: اور صوفی اپنے خاندانوں سمیت لاہور سے دہلی آتے تھے۔
+   NEW: اور صوفی اپنے خاندانوں سمیت لاہور سے دہلی جاتے تھے۔
+
+22. WHY: V3 issue 21 [ordinal spelling], matching پندرھویں.
+   OLD: سترہویں صدی
+   NEW: سترھویں صدی
+
+23. WHY: V3 issue 21 [ordinal spelling], matching پندرھویں.
+   OLD: اٹھارہویں صدی
+   NEW: اٹھارھویں صدی
+
+24. WHY: V3 issue 22 [spelling]: سیّد as everywhere else (glossary.csv honorific).
+   OLD: زکریا خان سید برادران
+   NEW: زکریا خان سیّد برادران
+
+25. WHY: V3 issue 22 [spelling]: نمبردار as in چودھریوں اور نمبرداروں.
+   OLD: موزنگ کے لمبردار
+   NEW: موزنگ کے نمبردار
+
+26. WHY: V3 note [ambiguity, meaning]: مردوں read as men; English 'examining the dead'.
+   OLD: مردوں کے معائنے کی عمارت
+   NEW: لاشوں کے معائنے کی عمارت
+
+27. WHY: V3 note [ambiguity, referent]: 'گویا پہلے شہر' misread as 'previously'; English 'outside the first' is the original city, called اصل شہر elsewhere in the file.
+   OLD: گویا پہلے شہر کے باہر ایک دوسرا شہر
+   NEW: گویا اصل شہر کے باہر ایک دوسرا شہر
+
+28. WHY: V3 note [term inconsistency]: one name for the same festival, عید الاضحیٰ as earlier in the file.
+   OLD: عید قربان کے دن
+   NEW: عید الاضحیٰ کے دن
+
+REJECTED / NOT APPLIED: 10
+
+1. V3 note: 'خواجہ ایاز' as Nur Jahan's father: rejected, the English names her father Khwaja Ayaz; the Urdu stays faithful.
+2. V3 note: 'صرف دہلی دروازے میں کچھ باقی رہا' beside the rebuilt Delhi Gate: rejected, the English states both (the Delhi Gate rebuilt in two storeys; of Akbar's fabric only the Delhi Gate kept any).
+3. V3 note: 'شیر سنگھ کے قاتل' without his killing mentioned: rejected, the English has 'Sher Singh's killers' in the same way; adding the killing would add a fact.
+4. V3 note: 'شاہنواز خان نے اسے جواب دیا' to کہا: rejected, the English says 'Shah Nawaz Khan answered him'.
+5. V3 note: 'ہال کے اندر' to 'دونوں ہالوں کے اندر': rejected, the English says 'inside the hall' (singular); changing it would change the fact.
+6. V3 note: سچیت سنگھ killed stated twice, and مدرسے / خانقاہ for the same site: not applied, the English states both (Suchet Singh was killed in Lahore; Mian Wada's madrasa ... surrounded the khanqah).
+7. V2 note: شیر خوار بچی for 'the infant': not applied, V2 itself finds it consistent with the English (the infant is Nur Jahan).
+8. V2 note: change of subject mid sentence in the tribute/beheading/plunder sentence: not applied, V2 marks it acceptable (taste).
+9. V2 note: 'کچھ علاقہ' and 'بتایا جاتا ہے' for 'is dated': no change needed, V2 finds meaning unchanged.
+10. V3 notes of taste (انگریزوں repeated, شمع دان, the literary gates sentence, repetition of عظیم / بڑے and of the Aurangzeb remark, پہلے in the Anarkali sentence beyond the fix above): not applied, taste only; the Aurangzeb remark appears twice in the English as well.
+
+
+WHY: coordinator, after the fixers (7 occurrences): one spelling across the article: سید, as 214 of 225 uses in the shrine Urdu articles (glossary: "also سید")
+OLD: سیّد
+NEW: سید
+
+===== P2 =====
+
+ur_P2.md round 1 fixes (V2 fidelity r1, V3 fluency r1)
+APPLIED: 69   REJECTED / NOT APPLIED: 16
+
+== APPLIED ==
+
+1. WHY: V3 1 + V2 note (line 3): agreement with آرام گاہیں (feminine)
+   OLD: یادگار بن کر کھڑے ہیں۔
+   NEW: یادگار بن کر کھڑی ہیں۔
+
+2. WHY: V3 2: repetition of آج بھی / مقبرہ / زیارت after the quotation
+   OLD: اور ان کا مقبرہ آج بھی پنجابیوں کو زیارت کے لیے اپنی طرف کھینچتا ہے۔
+   NEW: اور پنجابی اب بھی اس کی زیارت کو کھنچے چلے آتے ہیں۔
+
+3. WHY: V3 4: appositive title between commas; سوانح عمری
+   OLD: میاں میر اور لاہور کے قادری سلسلے کی ایک عمدہ سوانح، سکینۃ الاولیاء، مغل ولی عہد سے منسوب ہے۔
+   NEW: میاں میر اور لاہور کے قادری سلسلے کی عمدہ سوانح عمری سکینۃ الاولیاء مغل ولی عہد سے منسوب ہے۔
+
+4. WHY: V3 5: آوارہ گرد is pejorative
+   OLD: قلندر وہ آوارہ گرد درویش ہیں
+   NEW: قلندر وہ سیلانی درویش ہیں
+
+5. WHY: V3 6: calques زندہ سلسلہ and مجموعی طور پر. V3's عام طور پر would turn 'as a class' into 'usually' (V2 fidelity), so 'as a class' is given as سبھی
+   OLD: ایک زندہ صوفی سلسلہ شہر کے کم معروف مزاروں کے بارے میں مجموعی طور پر احتیاط کی تعلیم دیتا ہے
+   NEW: آج کا ایک صوفی سلسلہ شہر کے سبھی کم معروف مزاروں کے بارے میں احتیاط کی تعلیم دیتا ہے
+
+6. WHY: V3 7: calque 'in its own words'
+   OLD: اس کے اپنے الفاظ میں:
+   NEW: اس سلسلے کا کہنا ہے:
+
+7. WHY: V2 note (line 15): 'going as envoy to his death' is closer as سفارت than سفر
+   OLD: اور اسی سفر میں جان سے گئے
+   NEW: اور اسی سفارت میں جان سے گئے
+
+8. WHY: V3 9: trailing phrase in English order
+   OLD: مادھو لال حسین کا مزار باغبان پورہ میں ہے، جو کبھی لاہور کے نواح میں تھا اور اب پھیلتے ہوئے شہر کا ایک محلہ ہے، بالکل شالیمار باغ کے ساتھ۔
+   NEW: مادھو لال حسین کا مزار شالیمار باغ کے بالکل ساتھ باغبان پورہ میں ہے، جو کبھی لاہور کے نواح میں تھا اور اب پھیلتے ہوئے شہر کا ایک محلہ ہے۔
+
+9. WHY: V3 10: ambiguous اس کی / اسے, tangled sentence
+   OLD: انیسویں صدی میں قلعۂ لاہور کی ایک عمارت میں، جو تخت کے سامنے اس کی جنوبی سمت میں تھی، ایک قبر تھی، اور عام لوگ اسے نگار خانہ کہتے تھے۔
+   NEW: انیسویں صدی میں قلعۂ لاہور کی ایک عمارت میں ایک قبر تھی۔ یہ عمارت تخت کے سامنے جنوب کی سمت واقع تھی، اور عام لوگ اسے نگار خانہ کہتے تھے۔
+
+10. WHY: V3 11: پنجابی علما could read as 'Punjabi scholars'
+   OLD: چونکہ پنجابی علما کو میاں کہتے ہیں
+   NEW: چونکہ اہلِ پنجاب علما کو میاں کہتے ہیں
+
+11. WHY: V3 12: calque 'the graveyard it is now'
+   OLD: تو یہ گاؤں وہ قبرستان بن گیا جو آج ہے۔
+   NEW: تو یہ گاؤں قبرستان میں بدل گیا، جو آج تک موجود ہے۔
+
+12. WHY: V3 13: calque 'is the site of'
+   OLD: لاہور کے قلب میں سلطان پورہ کا ایک تاریخی قبرستان گھوڑے شاہ کے مزار کا مقام ہے۔
+   NEW: لاہور کے قلب میں سلطان پورہ کے ایک تاریخی قبرستان میں گھوڑے شاہ کا مزار ہے۔
+
+13. WHY: V3 14 + V2 note (line 29): gloss between commas cut the noun from its verb (V3); دخمہ and 'of the Parsis' go beyond the English 'Tower of Silence' (V2). One sentence for both: the English term only, no gloss
+   OLD: لاہور میں کوئی دخمہ، یعنی پارسیوں کا مینارِ خاموشی، نہیں ہے،
+   NEW: لاہور میں کوئی مینارِ خاموشی نہیں ہے،
+
+14. WHY: V3 15: جب clause in English order. The English says 'the prince and the princess', so they stay singular (V3's plural not taken)
+   OLD: کبھی یہ دروازہ شہزادے اور شہزادی کے لیے مخصوص تھا جب وہ قلعے سے شہر کی طرف جاتے، اور
+   NEW: کبھی جب شہزادہ اور شہزادی قلعے سے شہر کی طرف جاتے تو یہ دروازہ انہی کے لیے مخصوص ہوتا تھا، اور
+
+15. WHY: V3 16: izafat
+   OLD: حضورِ اکرم کے قدم مبارک کا نشان
+   NEW: حضورِ اکرم کے قدمِ مبارک کا نشان
+
+16. WHY: V3 17: سکھ repeated
+   OLD: سکھ عہد میں سکھ انہیں لے گئے؛
+   NEW: سکھ اپنے دور میں انہیں اٹھا لے گئے؛
+
+17. WHY: V3 20: one spelling for Bhadar/Bhadra Kali; spelled as urdu-dictionary.json gives it (بہدر کالی)
+   OLD: ٹھوکر نیاز بیگ کا بھدرا کالی مندر
+   NEW: ٹھوکر نیاز بیگ کا بہدر کالی مندر
+
+18. WHY: V3 21: name glosses itself; three clauses strung on اور
+   OLD: اور اس کے ساتھ بلیوں کا ایک مزار ہے جو بلیوں والا مزار کہلاتا ہے، اور وہاں کی رسم غالباً اسی لیے کہیں زیادہ تیزی سے ماند پڑی ہے کہ یہ مزار ایک بڑے شہر کے عین قلب میں ہے۔
+   NEW: اور اس کے ساتھ ایک مزار ہے جو بلیوں والا مزار کہلاتا ہے۔ یہ مزار ایک بڑے شہر کے عین قلب میں ہے، اور غالباً اسی لیے یہاں کی رسم کہیں زیادہ تیزی سے ماند پڑ گئی ہے۔
+
+19. WHY: V3 23: ایک مقام بنانا vague and unidiomatic
+   OLD: ان کی یاد میں ایک مقام بنایا گیا ہے
+   NEW: ان کی ایک یادگار قائم ہے
+
+20. WHY: V3 24: زندگی رہی unidiomatic, رہی / رہتے repeated
+   OLD: بلھے شاہ، جن کی زندگی 1680 سے 1752 تک رہی، لاہور کے قریب رہتے تھے۔
+   NEW: بلھے شاہ نے، جو 1680 میں پیدا ہوئے اور 1752 میں فوت ہوئے، لاہور کے قریب زندگی گزاری۔
+
+21. WHY: V3 25: اسی points to one plot
+   OLD: اسی زمین پر کھڑی ہیں
+   NEW: ایسی جگہوں پر کھڑی ہیں
+
+22. WHY: V3 26: tautology
+   OLD: اور ان میں سب سے پرانی وہاں کی پہلی اور سب سے قدیم عمارت ہے۔
+   NEW: اور ان میں سب سے پرانی وہی ہے جو اس احاطے میں سب سے پہلے بنی۔
+
+23. WHY: V3 27: سنگ twice, کی chained
+   OLD: ایک مسجد کی سنگِ مرمر کی سنگِ بنیاد والی تختی پر
+   NEW: ایک مسجد کے سنگِ بنیاد کی مرمریں تختی پر
+
+24. WHY: V3 28: باغ repeated
+   OLD: گلابی باغ پر باغ کی تاریخ 1066 درج ہے
+   NEW: گلابی باغ پر اس کی تاریخ 1066 درج ہے
+
+25. WHY: V3 29: reads as 'the Sikh Ram Das'; vowel marked
+   OLD: سکھ رام داس کھتری کپور
+   NEW: سُکھ رام داس کھتری کپور
+
+26. WHY: V3 30: جو and ان ambiguous. V3's wording dates the mandir to Samvat 1931; the English dates her appearance to Samvat 1931 ('followed her appearance in Samvat 1931'), so the date stays with the appearance
+   OLD: دیوی کا مندر سمت 1931 میں ان کے ظہور کے بعد بنا، جو 1875 کے مطابق ہے، اور عطیہ
+   NEW: دیوی کا ظہور سمت 1931 یعنی 1875 میں ہوا اور ان کا مندر اس کے بعد بنا۔ عطیہ
+
+27. WHY: V3 31: oblique case before پر; gloss cut off from postposition
+   OLD: سکھ امرا کی سمادھیں، یعنی ان کے یادگاری مقبرے، پر بھی اسی سن کی تاریخیں درج ہیں۔
+   NEW: سکھ امرا کی سمادھوں پر بھی، یعنی ان کے یادگاری مقبروں پر، اسی سن کی تاریخیں درج ہیں۔
+
+28. WHY: V3 32: اس pointed to the platform; comma splice
+   OLD: اس میں چالیس حجرے اور چار مینار ہیں، اس کے بارہ حوضوں میں سے
+   NEW: مقبرے میں چالیس حجرے اور چار مینار ہیں، اور اس کے بارہ حوضوں میں سے
+
+29. WHY: V2 7: آج تک adds a present day claim
+   OLD: اور ایک اور گنبد میں کلس لگانے کی جگہ آج تک خالی ہے۔
+   NEW: اور ایک اور گنبد میں کلس لگانے کی جگہ خالی پڑی ہے۔
+
+30. WHY: V2 3: the English does not say Bhauri Sarkar's is a samadh
+   OLD: بھوری سرکار کی سمادھ پر پیتل کا کلس ہے
+   NEW: بھوری سرکار کے ہاں پیتل کا کلس ہے
+
+31. WHY: V2 4: the English does not say Rani Jindan's is a samadh
+   OLD: رانی جنداں کی سمادھ پر ہر جگہ سنہری کلس ہیں
+   NEW: رانی جنداں کے ہاں ہر جگہ سنہری کلس ہیں
+
+32. WHY: V3 33: سمادھ میں ہر سمادھ confusing. V3's احاطے is not in the English, so the same کے ہاں form as V2 3 and 4 is used
+   OLD: اور کھڑک سنگھ اور نو نہال سنگھ کی سمادھ میں ہر سمادھ کے اوپر ایک سنہری کلس ہے۔
+   NEW: اور کھڑک سنگھ اور نو نہال سنگھ کے ہاں ہر سمادھ کے اوپر ایک سنہری کلس ہے۔
+
+33. WHY: V3 34: calque سلطنت کا انقلاب; نامکمل repeated. عمارت named so that دوسری حکومت cannot read as 'another government'
+   OLD: اور دوسری سلطنت کے انقلاب کی وجہ سے نامکمل چھوڑ دی گئی
+   NEW: اور دوسری عمارت حکومت بدل جانے کی وجہ سے بیچ ہی میں چھوڑ دی گئی
+
+34. WHY: V2 6: 'might' is a possibility, not a hope
+   OLD: اور امید تھی کہ وہ اسے مکمل کرا دیں۔
+   NEW: اور ممکن تھا کہ وہ اسے مکمل کرا دیں۔
+
+35. WHY: V3 35: time adverbial and agent coordinated; صاحبانِ مزار
+   OLD: بہت سے مقبرے صاحبانِ قبر کی زندگی ہی میں یا ان کے مریدوں نے بنائے۔
+   NEW: بہت سے مقبرے صاحبانِ مزار کی زندگی ہی میں بن گئے، یا ان کے مریدوں نے بنائے۔
+
+36. WHY: V3 36: infinitive mixed with nouns
+   OLD: عملے کے رہنے، باورچی خانوں
+   NEW: عملے کی رہائش، باورچی خانوں
+
+37. WHY: V3 37: سرد خانہ means cold storage or mortuary
+   OLD: ایک زیرِ زمین سرد خانہ
+   NEW: ایک ٹھنڈا تہ خانہ
+
+38. WHY: V2 note (line 81): the English 'and' was turned into a cause
+   OLD: اس لیے وہیں پانی جذب کرنے والے گڑھے
+   NEW: اور وہیں پانی جذب کرنے والے گڑھے
+
+39. WHY: V3 38: spelling consistency شیو لنگ
+   OLD: ایک شیولنگ پر
+   NEW: ایک شیو لنگ پر
+
+40. WHY: V2 note (line 87): one of the two names was used as the general term
+   OLD: شہر کے مقبروں اور مسجدوں کی کاشی کاری کے دو نام ہیں۔
+   NEW: شہر کے مقبروں اور مسجدوں پر کاشی کے کام کے دو نام ہیں۔
+
+41. WHY: V3 39: five communities, so دونوں طرف does not fit
+   OLD: برادریوں کے درمیان لین دین دونوں طرف سے ہوتا تھا
+   NEW: برادریوں کے درمیان لین دین یک طرفہ نہیں، باہمی تھا
+
+42. WHY: V3 40: new sentence should not open with اور
+   OLD: اور صوفی کسی سے دشمنی نہیں رکھتے تھے
+   NEW: صوفی کسی سے دشمنی نہیں رکھتے تھے
+
+43. WHY: V3 41 + V2 note (line 97): tense ہو to ہوتی (V3); متولی is itself one of the listed titles, so 'holders' becomes ذمہ داروں (V2)
+   OLD: مذہبی عمارتوں کے متولیوں کے لقب اس برادری کے مطابق ہوتے تھے جس کے پاس وہ عمارت ہو۔
+   NEW: مذہبی عمارتوں کے ذمہ داروں کے لقب اس برادری کے مطابق ہوتے تھے جس کے پاس وہ عمارت ہوتی۔
+
+44. WHY: V2 note (line 99): متولی used for a Hindu bairagi blurs the point
+   OLD: ایک متولی خود کو بیراگی
+   NEW: ایک صاحبِ منصب خود کو بیراگی
+
+45. WHY: V2 note (line 101): ایک خاص بیماری more specific than 'an illness'
+   OLD: ایک خاص بیماری میں مبتلا بچوں
+   NEW: کسی بیماری میں مبتلا بچوں
+
+46. WHY: V2 1 + V3 42: subject and scope of 'mostly' changed (V2); ہندو اور مسلمان repeated and بھی clashing with ہی (V3). V3's own wording keeps the meaning V2 flagged, so V2's clause is used inside V3's restructured sentence; Bhadar Kali spelled as the dictionary gives it
+   OLD: جمعرات کو ہندو اور مسلمان میراں بادشاہ کے مزار پر حاضر ہوتے، مادھو لال حسین کے دونوں میلوں میں ہندو اور مسلمان شریک ہوتے، اور بھدر کالی کے میلے میں بھی زیادہ تر مسلمان ہی جاتے تھے۔
+   NEW: جمعرات کو ہندو اور مسلمان میراں بادشاہ کے مزار پر حاضر ہوتے اور مادھو لال حسین کے دونوں میلوں میں بھی شریک ہوتے، اور زیادہ تر مسلمان بھی بہدر کالی کے میلے میں جاتے تھے۔
+
+47. WHY: V3 43: gloss separated ٹھاکروں from کی
+   OLD: اس میں ٹھاکروں، یعنی دیوتاؤں، کی مورتیاں رکھ دیں
+   NEW: اس میں دیوتاؤں یعنی ٹھاکروں کی مورتیاں رکھ دیں
+
+48. WHY: V3 44: collocation
+   OLD: اپنی کشمکش پر کیسے قابو پایا
+   NEW: اپنی کشمکش کیسے سلجھائی
+
+49. WHY: V3 45: calque 'a donated mansion'
+   OLD: ایک عطیہ کی ہوئی حویلی میں
+   NEW: عطیے میں ملی ہوئی ایک حویلی میں
+
+50. WHY: V3 46: an عرس is منایا
+   OLD: اور ان کا سالانہ عرس بھی لوہار ہی کرتے تھے
+   NEW: اور ان کا سالانہ عرس بھی لوہار ہی مناتے تھے
+
+51. WHY: V3 47: parsed as 'the Hindu priests who come'; Bhadar Kali spelled as the dictionary gives it
+   OLD: نیاز بیگ میں بھدر کالی پر آنے والے ہندو پجاریوں کی دل و جان سے خدمت کرتے
+   NEW: نیاز بیگ میں بہدر کالی پر آنے والے ہندو وہاں کے پجاریوں کی دل و جان سے خدمت کرتے
+
+52. WHY: V3 48: اسی شخص could mean Murad Bakhsh; the English says 'that man' = the Khwaja
+   OLD: اسی شخص کی اولاد
+   NEW: اسی خواجہ کی اولاد
+
+53. WHY: V3 49: calque 'with its gaddi nashin'
+   OLD: بابا خدا سنگھ کا دھرم شالہ اپنے گدی نشین کے ساتھ تھا،
+   NEW: بابا خدا سنگھ کا دھرم شالہ تھا، جس کا اپنا گدی نشین تھا،
+
+54. WHY: V3 50: calque 'counted alongside the rest'
+   OLD: مسیحی اداروں کا شمار بھی باقیوں کے ساتھ ہوتا تھا۔
+   NEW: شہر کے اداروں میں مسیحی ادارے بھی شامل تھے۔
+
+55. WHY: V3 51: definite 'the padre' with no prior mention, plural پادریوں follows
+   OLD: پادری نے باغ بھائی مہان سنگھ خریدا
+   NEW: ایک پادری نے باغ بھائی مہان سنگھ خریدا
+
+56. WHY: V3 52: gender
+   OLD: زیب النسا بیگم مالک بھی تھیں
+   NEW: زیب النسا بیگم مالکہ بھی تھیں
+
+57. WHY: V2 8: 'still' dropped
+   OLD: اور 1880 کی دہائی میں ان کا خاندان اسی بازار میں رہتا تھا،
+   NEW: اور 1880 کی دہائی میں بھی ان کا خاندان اسی بازار میں رہتا تھا،
+
+58. WHY: V3 53: a custom cannot be part of the buildings
+   OLD: ستی بھی شہر کی عمارتوں کا حصہ ہے۔
+   NEW: ستی کی یاد بھی شہر کی عمارتوں میں محفوظ ہے۔
+
+59. WHY: V3 54: digits consistency
+   OLD: چھ دسمبر 1992
+   NEW: 6 دسمبر 1992
+
+60. WHY: V3 56: trailing جو clause followed plural اداروں
+   OLD: فورمین کرسچن کالج "مسیحی مشنریوں کے قائم کیے ہوئے قدیم ترین کالجوں میں سے ایک ہے"، اور انگریزی میں تعلیم دینے والے اولین اداروں میں سے بھی، جو انیسویں صدی کے نصفِ آخر میں قائم ہوا۔
+   NEW: انیسویں صدی کے نصفِ آخر میں قائم ہونے والا فورمین کرسچن کالج "مسیحی مشنریوں کے قائم کیے ہوئے قدیم ترین کالجوں میں سے ایک ہے"، اور انگریزی میں تعلیم دینے والے اولین اداروں میں سے بھی۔
+
+61. WHY: V3 57: verbless English style fragments
+   OLD: خاصی تعداد میں پارسی رہتے تھے، سب خوش حال، اور ان میں سے زیادہ تر بعد میں ملک چھوڑ گئے: "اب یہاں ہم گنتی کے چند لوگ رہ گئے ہیں"، لاہور میں صرف پینتیس پارسی۔
+   NEW: خاصی تعداد میں پارسی رہتے تھے جو سب خوش حال تھے، اور ان میں سے زیادہ تر بعد میں ملک چھوڑ گئے: "اب یہاں ہم گنتی کے چند لوگ رہ گئے ہیں"؛ لاہور میں اب صرف پینتیس پارسی ہیں۔
+
+62. WHY: V3 58: پجاری is specifically Hindu
+   OLD: کوئی پجاری نہ ہونے کی وجہ سے
+   NEW: کوئی پارسی پیشوا نہ ہونے کی وجہ سے
+
+63. WHY: V3 59: collocation
+   OLD: یہ افواہیں رہی ہیں کہ
+   NEW: یہ افواہیں گردش کرتی رہی ہیں کہ
+
+64. WHY: V3 60: adjectival participle
+   OLD: قمیص پہنا ایک پتلا
+   NEW: قمیص پہنے ایک پتلا
+
+65. WHY: V3 61: simple past mixed with pluperfect
+   OLD: دھاوا بولا، اس کا پرچم اتارا اور جلا دیا تھا
+   NEW: دھاوا بول کر اس کا پرچم اتارا اور جلا دیا تھا
+
+66. WHY: V3 62: name isolated between commas
+   OLD: انہی میں سے ایک، مراد، سیہون کا ایک ڈیرا چھوڑ کر لاہور آ بسے
+   NEW: انہی فقیروں میں سے ایک مراد تھے، جو سیہون کا ایک ڈیرا چھوڑ کر لاہور آ بسے
+
+67. WHY: V3 63: جس attached to الزام after the comma
+   OLD: ایک کثیر الانتخابی سوال کی بنا پر توہینِ رسالت کا الزام لگا، جس میں
+   NEW: ایک ایسے کثیر الانتخابی سوال کی بنا پر توہینِ رسالت کا الزام لگا جس میں
+
+68. WHY: V2 2: 'its own name' is the thakurdwara's name, not Rai Singh's
+   OLD: سنگِ مرمر کی ایک تختی پر خود ان کا نام، ان کے والد کرم سنگھ کا نام اور سمت 1938 درج ہے۔
+   NEW: سنگِ مرمر کی ایک تختی پر خود ٹھاکردوارے کا نام، رائے سنگھ کے والد کرم سنگھ کا نام اور سمت 1938 درج ہے۔
+
+69. WHY: V2 5: the English does not give the murid's gender
+   OLD: ایک صوفی سلسلے کی ایک مریدنی شہر میں عورتوں کے لیے ایک غیر رسمی دینی مدرسہ چلاتی ہیں۔
+   NEW: شہر میں ایک صوفی سلسلے کے ایک مرید عورتوں کے لیے ایک غیر رسمی دینی مدرسہ چلاتے ہیں۔
+
+== REJECTED / NOT APPLIED ==
+
+1. V3 3 (Madho Lal Husain line)
+   WHY: V3 would make the subject شاہ حسین and add that مادھو لال حسین is the name of his shrine. The English says 'Madho Lal Husain is buried together with his Hindu beloved', naming the man Madho Lal Husain, and states no identification with Shah Hussain; adding it is a fact the English does not give. Urdu kept faithful to the English.
+
+2. V3 8 (مغلپورہ to مغل پورہ)
+   WHY: urdu-i18n/urdu-dictionary.json spells Mughalpura as one word, مغلپورہ (Nawab Zakariya Khan's graveyard complex, Mughalpura); the dictionary governs. Used once in the file, so it is already consistent.
+
+3. V3 18 and 19 (والمیکی to بالمیکی)
+   WHY: The English itself spells two different forms: 'Valmiki Mandir' (the temple, twice) and 'Balmiki Hindus' (the community, also inside a quotation). A name the English spells otherwise is not changed; the dictionary also has والمیکی for Valmiki. The Urdu keeps one spelling per English form: والمیکی for Valmiki, بالمیکی for Balmiki.
+
+4. V3 22 (زائرین to نمازیوں)
+   WHY: The English says 'teeming with pilgrims', which is a quotation from the source in the team version; نمازی would change who the source says fills the mosque. زائرین kept.
+
+5. V3 note a (Mariam Zamani as Jahangir's mother)
+   WHY: The English says 'Maryam Zamani, wife of the emperor Jahangir'. The English is the authority; not changed here. Flag for the English, not the Urdu.
+
+6. V3 note b (ننھیال vs دادا)
+   WHY: The English says 'maternal family' and 'paternal grandfather'. Kept as the English states.
+
+7. V3 note c (who consulted whom at Bodlo)
+   WHY: The English says the pilgrim was one 'whom he had consulted' (Kasmani quoted). Kept.
+
+8. V3 note d (برکت for causation)
+   WHY: برکت is not in the English, which says 'because, it is said, whatever his heart desired came to him'; the Urdu already says exactly that. Not applied.
+
+9. V3 note e (taziya on replica graves)
+   WHY: The English says the taziya 'is borne on replica graves of Imam Hasan and Imam Husain'. Kept.
+
+10. V3 note f (تینوں روایتوں)
+   WHY: The English says 'in all three traditions'. Kept.
+
+11. V3 note g (سپردِ خاک for Guru Arjan)
+   WHY: The English says 'his remains interred'; سپردِ خاک is the plain Urdu for interment. Kept.
+
+12. V2 note and V3 note (پیر عزیز مزنگ vs موزنگ)
+   WHY: The English spells the person 'Pir Aziz Mazang' and the place 'Mozang'. The dictionary's موزنگ is used for the place throughout (6 times); مزنگ is kept for the person's name because the English spells it otherwise (V3 itself says leave it if part of the name).
+
+13. V3 note (احمد شاہ ابدالی / درانی)
+   WHY: The English uses both 'Ahmad Shah Abdali' and 'Ahmad Shah Durrani'. Kept as the English spells them.
+
+14. V3 notes of taste (سنہرا/سنہری; بکرمی on some dates; 1868ء and 1066 without ھ; بادشاہی/شاہی مسجد; mildly literal phrases; اس کے ساتھ رجسٹرڈ; محلے کی مقامی مسجدوں)
+   WHY: Pure taste or follow the English: سنہرا agrees with masculine کلس and سنہری is invariant; بکرمی appears exactly where the English has Bikrami; adding ھ to 1066 would add an era the English does not give, and ء on 1868 separates it from the Hijri dates beside it; شاہی مسجد is inside a quotation ('Royal Mosque'). Skipped under the brief's stopping rule.
+
+15. V3 55 (انیس سو اسی to 1980)
+   WHY: The English says 'in the eighties' and has no figure 1980; the checker (U9, ur_trial.py) fails on a figure the English lacks, and the brief allows only figures the English has. The year stays in words, as the English gives it.
+
+16. V2 note (line 147, سردار بور سنگھ)
+   WHY: V2 marks it acceptable; no change.
+
+
+
+WHY: coordinator, after the fixers (3 occurrences): one spelling across the article: بھدر کالی, as parts P1, P3 and P4 write it
+OLD: بہدر کالی
+NEW: بھدر کالی
+
+===== P3 =====
+
+ur_P3.md, fixes after round 1 of V2 (fidelity) and V3 (fluency)
+Applied: 80. Rejected issues: 8 (plus notes not applied, listed at the end).
+
+APPLIED
+
+[V2.1]
+WHY: V2: English says Shah Abu Ishaq Qadri; the title Shah had become Shaikh
+OLD: شیخ ابو اسحق قادری کے مقبرے کے نام
+NEW: شاہ ابو اسحق قادری کے مقبرے کے نام
+
+[V2.2]
+WHY: V2: 'line by line' had become 'everywhere generation after generation', which made every succession hereditary. V2's wording adapted so that سلسلہ and جانشینی are not repeated in the same sentence (V3 repetition rule)
+OLD: اور ہر جگہ نسل در نسل۔
+NEW: اور ہر جگہ کی اپنی الگ لڑی تھی۔
+
+[V2.3]
+WHY: V2: English 'without an owner', not 'without an heir'
+OLD: جس کا کوئی وارث نہ تھا
+NEW: جس کا کوئی مالک نہ تھا
+
+[V2.4]
+WHY: V2: English says 'under the sultanate' without naming it Sikh. V2 wording, with زمانے for دور so that دور is not repeated before انگریزی دور
+OLD: سکھ سلطنت میں بھی خزانہ رہی
+NEW: سلطنت کے زمانے میں بھی خزانہ رہی
+
+[V2.5]
+WHY: V2: 'every time' (ہر بار) is not in the English
+OLD: اور ہر بار رقم وقف کے بجائے قابض کی جیب میں گئی
+NEW: اور رقم وقف کو نہیں بلکہ قابض کو ملی
+
+[V2.6]
+WHY: V2: ساہوکار (professional moneylender) is not in the English; قرض خواہ per V2, with اپنی رقم so that قرض is not repeated
+OLD: ایک ساہوکار نے اپنا قرض واپس لینے سے انکار کر دیا۔
+NEW: ایک قرض خواہ نے اپنی رقم واپس لینے سے انکار کر دیا۔
+
+[V3.1+V2note]
+WHY: V3 issue 1 and V2 note (line 89): gender agreement, رقم is feminine
+OLD: تو ان کا ایک گزارے کی رقم مقرر ہوئی
+NEW: تو ان کے لیے گزارے کی ایک رقم مقرر ہوئی
+
+[V3.2]
+WHY: V3: وہ مکان کا is ungrammatical
+OLD: اور اس کی جگہ وہ مکان کا کرایہ آنے لگا
+NEW: اور اس کی جگہ ایک مکان کا کرایہ آنے لگا
+
+[V3.3]
+WHY: V3: اپنے pointed back to انگریزوں
+OLD: انگریزوں نے انہیں صرف اپنے پینے کے لیے شراب کشید کرنے کا لائسنس دیا۔
+NEW: انگریزوں نے انہیں لائسنس دیا کہ وہ صرف اپنے پینے کے لیے شراب کشید کریں۔
+
+[V3.4]
+WHY: V3: fronted بارہ دری left مرمت کرائی without a proper object
+OLD: وزیر خان کی بارہ دری، جو سکھ دور میں بہت بری حالت میں تھی، انگریزوں نے اتنی اچھی مرمت کرائی کہ نئی بنی ہوئی لگنے لگی۔
+NEW: سکھ دور میں وزیر خان کی بارہ دری بہت بری حالت میں تھی، مگر انگریزوں نے اس کی اتنی اچھی مرمت کرائی کہ وہ نئی بنی ہوئی لگنے لگی۔
+
+[V3.5]
+WHY: V3: والا must be oblique before پر
+OLD: ٹھبی والا شوالے پر
+NEW: ٹھبی والے شوالے پر
+
+[V3.6]
+WHY: V3: کا شمار ہونا needs a noun
+OLD: کنواں بھی شوالے ہی کا شمار ہونے لگا۔
+NEW: کنواں بھی شوالے ہی کا حصہ شمار ہونے لگا۔
+
+[V3.7]
+WHY: V3: gloss between commas cut کی off from its noun
+OLD: افتا کے منصب، یعنی فتویٰ دینے کے عہدے، کی اپنی جاگیریں تھیں۔
+NEW: افتا یعنی فتویٰ دینے کے منصب کی اپنی جاگیریں تھیں۔
+
+[V3.8]
+WHY: V3: gloss between commas stranded کے
+OLD: چوک وزیر خان چغتائیوں، یعنی مغلوں، کے زمانے میں کھلا تھا؛
+NEW: چوک وزیر خان چغتائی مغلوں کے زمانے میں کھلا تھا؛
+
+[V3.9]
+WHY: V3: gloss between commas stranded کا
+OLD: *سائر*، یعنی محصول، کا ٹھیکہ
+NEW: *سائر* یعنی محصول کا ٹھیکہ
+
+[V3.10]
+WHY: V3: کی separated from پوجا by a relative clause
+OLD: ٹھاکر دوارے کی، جو وشنو کا مندر ہے، پوجا موتی کے سپرد تھی؛
+NEW: وشنو کے مندر ٹھاکر دوارے کی پوجا موتی کے سپرد تھی؛
+
+[V3.11]
+WHY: V3: tangled sentence; جو (feminine تھی) clashed with masculine ظرف
+OLD: چاندی کی ایک جلہری، یعنی وہ ظرف جس میں شیو لنگ قائم ہوتا ہے، جو وزن میں چار سو روپے کے برابر تھی، چوری کے بعد چندے سے دوبارہ بنوائی گئی۔
+NEW: چاندی کی ایک جلہری، یعنی وہ ظرف جس میں شیو لنگ قائم ہوتا ہے، چوری ہو گئی تو چندے سے دوبارہ بنوائی گئی؛ اس کا وزن چار سو روپے بھر تھا۔
+
+[V3.12]
+WHY: V3: وہ pointed to کارندہ, not the Brahmin; odd word order
+OLD: خدمت کرنے والے ایک برہمن کو تنخواہ جموں سرکار کا کارندہ دیتا تھا؛ وہ ہر صبح آتا،
+NEW: خدمت کرنے والے ایک برہمن کو جموں سرکار کا کارندہ تنخواہ دیتا تھا؛ برہمن ہر صبح آتا،
+
+[V3.13]
+WHY: V3: read as 'the Mufti Jalaluddin Mosque'
+OLD: مفتی جلال الدین مسجد کے متولی مفتی غلام سرور کی اجازت سے امامت کرتے تھے۔
+NEW: مفتی جلال الدین ایک مسجد میں اس کے متولی مفتی غلام سرور کی اجازت سے امامت کرتے تھے۔
+
+[V3.14]
+WHY: V3: two names ran together
+OLD: میاں وڈا کی خانقاہ کے سجادہ نشین میاں احمد الدین حامد قاری کی خانقاہ پر بھی قابض تھے۔
+NEW: میاں وڈا کی خانقاہ کے سجادہ نشین میاں احمد الدین کا قبضہ حامد قاری کی خانقاہ پر بھی تھا۔
+
+[V3.15]
+WHY: V3: two names ran together
+OLD: تو اس مسجد میں پڑھانے والے استاد میاں جان محمد میاں وڈا ہی کے شاگرد اور مرید تھے۔
+NEW: تو اس مسجد میں میاں جان محمد پڑھاتے تھے، جو میاں وڈا ہی کے شاگرد اور مرید تھے۔
+
+[V3.16]
+WHY: V3: genitive chain first read as Ghulam Muhi ud Din Shah being the guardian
+OLD: عبدالجلیل قطبِ عالم کے مقبرے کے متولی غلام محی الدین شاہ کے بیٹے خورشید عالم تھے، جو ضلع سیالکوٹ کے گاؤں رتہ پیراں میں رہتے تھے اور مقبرے پر قیام کے لیے ان کے دو کمرے تھے۔
+NEW: عبدالجلیل قطبِ عالم کے مقبرے کی تولیت غلام محی الدین شاہ کے بیٹے خورشید عالم کے پاس تھی، جو ضلع سیالکوٹ کے گاؤں رتہ پیراں میں رہتے تھے؛ مقبرے پر ان کے قیام کے لیے دو کمرے تھے۔
+
+[V3.17]
+WHY: V3: read as 'transferred from the second wife' (English: a youngest son by a second wife)
+OLD: پھر یہ دائمی جاگیر ہبہ کے ذریعے دوسری بیوی سے ان کے سب سے چھوٹے بیٹے کو منتقل ہو گئی،
+NEW: پھر یہ دائمی جاگیر ہبہ کے ذریعے دوسری بیوی سے ہونے والے ان کے سب سے چھوٹے بیٹے کو منتقل ہو گئی،
+
+[V3.18]
+WHY: V3: unclear whether خزانہ named the officer or the unit (English: an artillery officer named Khazana)
+OLD: رنجیت سنگھ کے زمانے میں خزانہ نامی توپ خانے کے ایک افسر نے
+NEW: رنجیت سنگھ کے زمانے میں توپ خانے کے خزانہ نامی ایک افسر نے
+
+[V3.19]
+WHY: V3: اس pointed to راوی or شہر, not Aurangzeb. V3's NEW (اورنگزیب) would repeat the name already opening the same sentence, so بادشاہ is used, which can only mean Aurangzeb here
+OLD: اس کے دورِ حکومت کے چوتھے سال دس کوس لمبے پشتے کا حکم ہوا
+NEW: بادشاہ کے دورِ حکومت کے چوتھے سال دس کوس لمبے پشتے کا حکم ہوا
+
+[V3.20]
+WHY: V3: verbless English style appositive (English: the wells and trees were part of Jahangir's order)
+OLD: ساتھ ہی راستے بھر پکی اینٹ کے کنویں اور درختوں کی دو قطاریں؛
+NEW: اور ساتھ ہی راستے بھر پکی اینٹ کے کنویں بنانے اور درختوں کی دو قطاریں لگانے کا بھی؛
+
+[V3.21]
+WHY: V3: یہاں تک کہ makes no sense after an order of execution
+OLD: یہاں تک کہ جو علما انہیں دربار میں لائے تھے انہوں نے بڑی منت سماجت سے ان کی جان بخشی کرائی۔
+NEW: مگر جو علما انہیں دربار میں لائے تھے انہوں نے بڑی منت سماجت سے ان کی جان بخشی کرا لی۔
+
+[V3.22]
+WHY: V3: اب with past tense in historical narrative
+OLD: ایک اور مسجد میں مولوی نظام الدین کے دو بیٹے اب بھی امامت کر رہے تھے۔
+NEW: ایک اور مسجد میں مولوی نظام الدین کے دو بیٹے اس وقت بھی امامت کر رہے تھے۔
+
+[V3.23]
+WHY: V3: same tense calque
+OLD: پیری مریدی کا سلسلہ اب بھی اسی خاندان میں جاری تھا
+NEW: پیری مریدی کا سلسلہ اس وقت بھی اسی خاندان میں جاری تھا
+
+[V3.24]
+WHY: V3: same tense calque
+OLD: ایک نہایت عمدہ باغ لگایا جو اب بھی مندر کے ساتھ تھا۔
+NEW: ایک نہایت عمدہ باغ لگایا جو اس وقت بھی مندر کے ساتھ تھا۔
+
+[V3.25]
+WHY: V3: same tense calque
+OLD: اور مسجد کی امامت بھی ابھی انہی کے پاس تھی۔
+NEW: اور مسجد کی امامت بھی اس وقت انہی کے پاس تھی۔
+
+[V3.26]
+WHY: V3: same tense calque
+OLD: اور زنانہ جیل کی مرمت اور نگرانی بھی اب تک انہی کے ذمے تھی۔
+NEW: اور زنانہ جیل کی مرمت اور نگرانی بھی اس وقت تک انہی کے ذمے تھی۔
+
+[V3.27]
+WHY: V3: ہاتھ بدلنا is a calque of 'change hands'
+OLD: انگریزی عہد میں مذہبی املاک نزول اور نیلام کے راستے ہاتھ بدلتی تھیں:
+NEW: انگریزی عہد میں مذہبی املاک نزول اور نیلام کے راستے ایک ہاتھ سے دوسرے ہاتھ میں جاتی تھیں:
+
+[V3.28]
+WHY: V3: صاف کی گئیں suggests cleaning
+OLD: مقبرے اور مسجدیں قلعہ بندی، سڑکوں، پائپوں اور ریل کے لیے صاف کی گئیں، اور اس کا آغاز انگریزوں سے پہلے ہو چکا تھا۔
+NEW: قلعہ بندی، سڑکوں، پائپوں اور ریل کے لیے مقبرے اور مسجدیں ڈھائی گئیں، اور اس کا آغاز انگریزوں سے پہلے ہو چکا تھا۔
+
+[V3.29]
+WHY: V3: کو بدل کر reads as replaced or swapped, not converted
+OLD: ایک مقبرے کو بدل کر اپنے آدمیوں کو اس میں ٹھہرایا اور ایک مسجد کو بدل کر اپنے کارخانے کے افسر کو اس میں بسایا؛
+NEW: ایک مقبرے میں ردوبدل کر کے اپنے آدمی اس میں ٹھہرائے اور ایک مسجد میں ردوبدل کر کے اپنے کارخانے کا افسر اس میں بسایا؛
+
+[V3.30]
+WHY: V3: بدل دیا گیا means was replaced
+OLD: بہادر خان کا مقبرہ میاں میر کی چھاؤنی بنتے وقت بدل دیا گیا،
+NEW: بہادر خان کے مقبرے میں میاں میر کی چھاؤنی بنتے وقت ردوبدل کر دیا گیا،
+
+[V3.31]
+WHY: V3: کو نیلام calques 'auctioned to'
+OLD: دیوان اجودھیا پرشاد کو نیلام ہوئے۔
+NEW: دیوان اجودھیا پرشاد کے ہاتھ نیلام ہوئے۔
+
+[V3.32]
+WHY: V3: dangling نکال کر; تابوت left without a verb
+OLD: آبنوس کے تابوت پتھر کے تہ خانے سے نکال کر لاشیں زمین میں دفن کر دی گئیں؛
+NEW: آبنوس کے تابوت پتھر کے تہ خانے سے نکالے گئے اور لاشیں زمین میں دفن کر دی گئیں؛
+
+[V3.33]
+WHY: V3: تالاب بھرا گیا first reads as filled with water
+OLD: حویلی میاں خان کا بڑا تالاب بھرا گیا،
+NEW: حویلی میاں خان کا بڑا تالاب پاٹ دیا گیا،
+
+[V3.34]
+WHY: V3: کے اوپر calques 'on top of'
+OLD: رکھوالا کرائے اور زمین کے اوپر چڑھاوا بھی لیتا تھا۔
+NEW: رکھوالا کرائے اور زمین کی آمدنی کے علاوہ چڑھاوا بھی لیتا تھا۔
+
+[V3.35]
+WHY: V3: اس پر was ambiguous. V3's اس کی دکانوں would add 'its shops', which the English (shop rent besides) does not say, so the ambiguous اس پر is simply dropped; the list of three sources already carries 'besides'
+OLD: کچھ زمین، سرکار کا مقرر کیا ہوا وظیفہ، اور اس پر دکانوں کا کرایہ۔
+NEW: کچھ زمین، سرکار کا مقرر کیا ہوا وظیفہ، اور دکانوں کا کرایہ۔
+
+[V3.36]
+WHY: V3: the idiom is بڑی حد تک
+OLD: بہت حد تک طے کرتا تھا
+NEW: بڑی حد تک طے کرتا تھا
+
+[V3.37]
+WHY: V3: the fixed pair is نظم و ضبط
+OLD: ضبط و نظم کا پابند
+NEW: نظم و ضبط کا پابند
+
+[V3.38]
+WHY: V3: تکمیل کرنا mistranslates 'complement'
+OLD: سیہون میں ریاست کے منصوبے کی تکمیل بھی کرتی تھی اور اسی سے تحریک بھی پاتی تھی۔
+NEW: سیہون میں ریاستی منصوبے کا ساتھ بھی دیتی تھی اور اسی سے تحریک بھی پاتی تھی۔
+
+[V3.39]
+WHY: V3: امن و امان is kept برقرار, not قابو میں
+OLD: امن و امان قابو میں رکھنے کے لیے
+NEW: امن و امان برقرار رکھنے کے لیے
+
+[V3.40]
+WHY: V3: جس پر after درخواست could refer to the petition
+OLD: شہر کے ممتاز ماہرینِ تعمیرات نے لاہور کے ایک تاریخی ہندو مندر کو بچانے کے لیے درخواست دی، جس پر مقامی لوگ قبضہ کرتے جا رہے تھے،
+NEW: شہر کے ممتاز ماہرینِ تعمیرات نے لاہور کے ایک تاریخی ہندو مندر کو، جس پر مقامی لوگ قبضہ کرتے جا رہے تھے، بچانے کے لیے درخواست دی،
+
+[V3.41]
+WHY: V3: سلامتی کا اعتراض is a literal calque
+OLD: سلامتی کے اعتراض پر بھی غالب
+NEW: حفاظتی خدشات پر بھی غالب
+
+[V3.42]
+WHY: V3: وقف کیے جاتے تھے had no subject
+OLD: ہندو مندروں کے لیے بھی وقف کیے جاتے تھے، اور اکثر خرید کر۔
+NEW: ہندو مندروں کے لیے بھی جائیدادیں وقف کی جاتی تھیں، اور اکثر خرید کر۔
+
+[V3.43]
+WHY: V3: X پر وقف said the madrasa was dedicated to the grain
+OLD: اور ایک رکھ کے غلے پر وقف تھا۔
+NEW: اور اس کے وقف میں ایک رکھ کا غلہ تھا۔
+
+[V3.44]
+WHY: V3: صدقہ and تصدق said the same thing
+OLD: ملکہ کی سلامتی کے صدقے میں تصدق کر دیے۔
+NEW: ملکہ کی سلامتی کے لیے صدقہ کر دیے۔
+
+[V3.45]
+WHY: V3: رہن and گروی are the same act
+OLD: بعد میں رہن ہو گیا اور مہاراجہ جموں کے پاس گروی رکھا گیا۔
+NEW: بعد میں مہاراجہ جموں کے پاس رہن رکھا گیا۔
+
+[V3.46]
+WHY: V3: احاطہ repeated
+OLD: سید جان محمد حضوری کے مزار کے احاطے کے اندر اپنے خرچ سے ایک خاندانی قبرستان کا احاطہ بنوایا۔
+NEW: سید جان محمد حضوری کے مزار کے احاطے میں اپنے خرچ سے ایک چاردیواری والا خاندانی قبرستان بنوایا۔
+
+[V3.48]
+WHY: V3: one spelling per name; the same founder of Sufi Wali Masjid is حاجی مولا داد later in the file (the English itself spells him Mauli Dad once and Maula Dad once; not in urdu-dictionary.json)
+OLD: خود بانی حاجی مولی داد کو جاتا تھا
+NEW: خود بانی حاجی مولا داد کو جاتا تھا
+
+[V3.49]
+WHY: V3: one spelling per name; elsewhere راجہ تیجا سنگھ, which is also the urdu-dictionary.json spelling (Samadh Raja Teja Singh, Thakurdwara Raja Teja Singh)
+OLD: ایک ضبط شدہ حویلی راجہ تیج سنگھ کو
+NEW: ایک ضبط شدہ حویلی راجہ تیجا سنگھ کو
+
+[V3.50]
+WHY: V3: one spelling; elsewhere always دھرم سال
+OLD: اور دھرم سالہ میں فقیروں کے لیے پکے کمرے بنے تھے۔
+NEW: اور دھرم سال میں فقیروں کے لیے پکے کمرے بنے تھے۔
+
+[V3.52]
+WHY: V3: باضابطہ is not used of a person's character (English: orderly)
+OLD: نہایت متقی اور باضابطہ آدمی تھے۔
+NEW: نہایت متقی اور اصول پسند آدمی تھے۔
+
+[V3.53]
+WHY: V3: 'had been since' needs the continuous perfect
+OLD: میاں احمد الدین انگریزوں کی آمد کے وقت سے اپنی خانقاہ کے سجادہ نشین تھے،
+NEW: میاں احمد الدین انگریزوں کی آمد سے اپنی خانقاہ کے سجادہ نشین چلے آ رہے تھے،
+
+[V3.54]
+WHY: V3: سرے سے belongs with negatives. V3's NEW dropped the English 'altogether'; kept as بالکل
+OLD: کی گدی سرے سے لاہور سے باہر بھی ہو سکتی تھی:
+NEW: کی گدی لاہور سے بالکل باہر بھی ہو سکتی تھی:
+
+[V3.55]
+WHY: V3: کے پیچھے کی calques 'the story behind'
+OLD: اس نقصان کے پیچھے کی پوری داستان
+NEW: اس نقصان کی پوری داستان
+
+[V3.57]
+WHY: V3: unneeded gloss of the familiar word نذر
+OLD: نذر، یعنی بزرگوں کے حضور پیش کیا جانے والا ہدیہ، نیچے سے اوپر کی طرف جاتی تھی،
+NEW: نذر نیچے سے اوپر کی طرف جاتی تھی،
+
+[V3.59]
+WHY: V3: three stacked relative clauses before the agent
+OLD: وہاں کا ٹاہلی کا درخت، جو سری چند کے زمانے سے کھڑا تھا، جس سے اس جگہ کا نام پڑا تھا اور جس کی پوجا ہوتی تھی، ریلوے نے کاٹ ڈالا؛ مگر اس کی جڑ پھر ہری ہوئی اور وہ دوبارہ درخت بن گیا۔
+NEW: اس جگہ کا نام وہاں کے ٹاہلی کے درخت سے پڑا تھا، جو سری چند کے زمانے سے کھڑا تھا اور جس کی پوجا ہوتی تھی۔ ریلوے نے یہ درخت کاٹ ڈالا، مگر اس کی جڑ پھر ہری ہوئی اور وہ دوبارہ درخت بن گیا۔
+
+[V3.60]
+WHY: V3: اوپر and نیچے side by side read as a contradiction. V3's NEW dropped 'above the mosque', which the English states ('The shops above the mosque, under its domed vestibule'); rewritten to keep both locations without the clash
+OLD: مسجد کے اوپر، اس کی گنبد دار ڈیوڑھی کے نیچے والی دکانیں جلد سازوں کی تھیں۔
+NEW: مسجد کی بالائی سطح پر گنبد دار ڈیوڑھی کے تلے جو دکانیں تھیں، وہ جلد سازوں کی تھیں۔
+
+[V3.62]
+WHY: V3: unclear who built the mosque and for whom; English: the Khoja witnesses said they had built it and given it to him. V3's انہی would follow ان کے پیر (the community) directly, so the grandfather is named: دادا ہی
+OLD: انہوں نے مسجد بنا کر انہی کو دی تھی،
+NEW: برادری نے مسجد بنا کر دادا ہی کے سپرد کی تھی،
+
+[V3.64]
+WHY: V3: unclear; English 'an order for a civil suit followed', so V3's 'directed to sue' reading applies
+OLD: وارثوں نے مقدمے دائر کیے اور دیوانی دعوے کا حکم بھی ہوا،
+NEW: وارثوں نے مقدمے دائر کیے اور انہیں دیوانی دعویٰ دائر کرنے کا حکم بھی ملا،
+
+[V3.65]
+WHY: V3: no department had been named; English 'of that department' refers to nazul
+OLD: مستی دروازے کی مسجد کو اسی محکمے کے قاضی فقیہ الدین نے نزول کے طور پر درج کر لیا تھا،
+NEW: مستی دروازے کی مسجد کو محکمۂ نزول کے قاضی فقیہ الدین نے نزول کے طور پر درج کر لیا تھا،
+
+[V3.67]
+WHY: V3: thief and shopkeeper were definite but not introduced. V3 wording, but 'the same goods' kept as چوری کا وہی مال (V3's اسی کا مال would make them the thief's own goods)
+OLD: چور کو پھانسی ہوئے کچھ عرصہ گزرا تو دکان دار نے وہی مال لگا کر لاہور میں کئی کنویں بنوائے،
+NEW: ایک چور کو پھانسی ہوئے کچھ عرصہ گزرا تو ایک دکان دار نے چوری کا وہی مال لگا کر لاہور میں کئی کنویں بنوائے،
+
+[V3.68]
+WHY: V3: no person mentioned; English 'the man' is the one whose oath was false
+OLD: تو مہاراجہ نے اس شخص کے دونوں ہاتھ کٹوا دیے۔
+NEW: تو مہاراجہ نے حلف اٹھانے والے کے دونوں ہاتھ کٹوا دیے۔
+
+[V3.69]
+WHY: V3: colours and a stone type mixed in one series. V3 wording, with the verb made plural for the compound subject
+OLD: سرخ، سیاہ اور سنگِ مرمر کا پتھر اکھاڑ لیا گیا۔
+NEW: سرخ اور سیاہ پتھر اور سنگِ مرمر اکھاڑ لیے گئے۔
+
+[V3.70]
+WHY: V3: neutral 'reached its end'. V3's کامیاب ہوا would turn the English 'ran its full course' into an outcome claim, so rewritten as 'fought to the end', which is idiomatic and faithful
+OLD: ایک مندر کا سرکار کے خلاف دعویٰ اپنے انجام تک پہنچا۔
+NEW: ایک مندر نے سرکار کے خلاف اپنا دعویٰ آخر تک لڑا۔
+
+[V3.71]
+WHY: V3: میں and وہاں سے repeated the place
+OLD: نیلا گنبد میں جب فوجی میس وہاں سے اٹھ گیا تو
+NEW: نیلا گنبد سے جب فوجی میس اٹھ گیا تو
+
+[V3.72]
+WHY: V3: دور کے اندر calques 'within'
+OLD: بادشاہی مسجد میں انگریزی دور کے اندر مشرقی حجرے ڈھا دیے گئے
+NEW: انگریزی دور میں بادشاہی مسجد کے مشرقی حجرے ڈھا دیے گئے
+
+[V3.73]
+WHY: V3: the same thing said twice (اللہ واسطے already means without payment)
+OLD: نظام الدین بمبئی میں بلا معاوضہ، اللہ واسطے پڑھاتے تھے؛
+NEW: نظام الدین بمبئی میں اللہ واسطے پڑھاتے تھے؛
+
+[V3.74]
+WHY: V3: حق دیتے could mean granting the right to dig
+OLD: مرنے والے کے گھر والے گورکنوں کو قبر کھودنے کا حق دیتے،
+NEW: مرنے والے کے گھر والے گورکنوں کو قبر کھودنے کا حق ادا کرتے،
+
+[V3.76]
+WHY: V3: دبا دینا needs an object
+OLD: انتظام بھی کرتی تھی اور دبا بھی دیتی تھی۔
+NEW: انتظام بھی کرتی تھی اور بند بھی کر دیتی تھی۔
+
+[V3.77]
+WHY: V3: چالو and جاری together
+OLD: ایک چالو کنواں اور حوض جاری کیے گئے
+NEW: ایک کنواں اور حوض چالو کیے گئے
+
+[V3.78]
+WHY: V3: colloquial سیدھے سیدھے and awkward تو
+OLD: گیلانی سادات کے قبرستان کے تو پیر نظام الدین سیدھے سیدھے مالک تھے۔
+NEW: گیلانی سادات کے قبرستان کے مالک تو براہِ راست پیر نظام الدین تھے۔
+
+[V3.79]
+WHY: V3: one repairs چونے سے
+OLD: اس کی مرمت خود اپنے اہتمام سے چونے میں کرواتے تھے۔
+NEW: اس کی مرمت خود اپنے اہتمام سے چونے سے کرواتے تھے۔
+
+[V3.80]
+WHY: V3: ٹرسٹ repeated right after the name
+OLD: جو تقسیم سے پہلے کا ٹرسٹ ہے اور لاہور میں قائم ہے،
+NEW: جو تقسیم سے پہلے قائم ہوا تھا اور لاہور میں ہے،
+
+[V3.note.qasab]
+WHY: V3 note (inflection): قصاب خانہ takes the oblique before کی
+OLD: قصاب خانہ کی مسجد
+NEW: قصاب خانے کی مسجد
+
+[V3.note.chela]
+WHY: V3 note (meaning): پوتا چیلا can read as a grandson; English 'a grandson disciple of Shiv Gar' is a disciple's disciple
+OLD: شیو گر کا ایک پوتا چیلا
+NEW: شیو گر کے ایک چیلے کا چیلا
+
+REJECTED
+
+[V3.47] ٹالی صاحب to ٹاہلی صاحب (three places)
+REASON: Rejected. The English spells the place Tali Sahib and urdu-i18n/urdu-dictionary.json has ٹالی صاحب (Tali Sahib (Baba Sri Chand)). The tree is the tahli in the English and stays ٹاہلی. The file keeps one spelling for the place name.
+
+[V3.51] سجادہ نشین to گدی نشین for Bawa Parsotam Das's temple
+REASON: Rejected. The English states the title: 'they jointly made him sajjada nashin of a temple'. Changing it would change a title the English gives.
+
+[V3.56] drop 'پنجاب کے دارالحکومت' before لاہور
+REASON: Rejected. The English states it: 'between Sehwan and Lahore, the capital of Punjab'. Dropping it would drop a stated fact.
+
+[V3.58] drop پاکستانی from بیس پاکستانی روپے
+REASON: Rejected. The English states 'twenty Pakistani rupees'; kept faithful.
+
+[V3.61] drop the count 'three' from مہر داس کے ہاں ایک ہی احاطے میں تین رکھوالے شریک تھے
+REASON: Rejected. The English says 'At Mehr Das three custodians shared one enclosure' and then names two and says 'these two' served the Devi's mandir. The Urdu matches the English exactly; the count is the English's own.
+
+[V3.63] make بھائی جواہر سنگھ the named successor
+REASON: Rejected. The English says 'his successor took the monthly shop rents, and within a few years Bhai Jawahar Singh had fallen into debt'; it does not state that Jawahar Singh is the successor. Making him so would add an identification.
+
+[V3.66] reduce منت مانی کہ آئندہ ایسی حرکت نہیں ہوگی to منت مانی
+REASON: Rejected. The English says the Maharaja 'vowed that such an act would not happen again' and does not name the act either. Cutting the clause would drop the content of the vow.
+
+[V3.75] drop بھی from یہاں تک کہ وہ بھی چل بسے
+REASON: Rejected. The English has 'until he too died'; بھی renders 'too'.
+
+[V2.notes] V2 notes on lines 109, 61, 93, 131, 173, glosses
+REASON: Not applied: V2 records each as acceptable or faithful. The one V2 note that corrects agreement (line 89) is applied as V3.1.
+
+[V3.notes.taste] V3 notes: honorific verb number for Mughal emperors; frequency of '1880 کی دہائی'; کوٹھی بنا لیا repetition; 'پانچ وارث، جن کے نام درج ہیں'; سکیورٹی; چیلے اور گرو order; مدرسے کی خوش حالی; بازار کی طرف کی ایک بیٹھنے کی جگہ
+REASON: Not applied: matters of taste, per the brief (skip pure taste after the first pass).
+
+[V3.notes.facts] V3 notes: Kharak Singh as راجہ in one place; نورا / نور محمد; مدسودن to مدھوسودن; drop ایک from ایک نیچی مسجد
+REASON: Not applied. The English has 'Raja Kharak Singh' at that place and 'Maharaja' elsewhere; it names Nura Iman Wala, Nura's first mosque and the second Nur Muhammad mosque separately; it spells Pandit Madsudan; and it says 'One low mosque', not the Neevin Masjid. The Urdu follows the English in each.
+
+===== P4 =====
+
+ur_P4 round 1 fixes (V2 r1 PASS with notes, V3 r1 FAIL with 37 issues)
+APPLIED: 40   REJECTED (in whole or part): 14
+
+1. WHY: V3 #1 agreement (خداؤں needs جھوٹے), collocation (میلے لگانا, جلوس نکالنا), comma opening the relative clause
+   OLD: ہندو جب اپنے ان خداؤں کے لیے جنہیں مولانا جھوٹا کہتے تھے، میلے اور جلوس نکال سکتے ہیں
+   NEW: ہندو جب اپنے ان خداؤں کے لیے، جنہیں مولانا جھوٹے کہتے تھے، میلے لگا سکتے اور جلوس نکال سکتے ہیں
+
+2. WHY: V3 #2 postposition: devotion to the saint is ان سے عقیدت
+   OLD: ان کی عقیدت کا دوسرا مرکز
+   NEW: ان سے عقیدت کا دوسرا مرکز
+
+3. WHY: V3 #3 collocation: a couplet is not صادق کیا
+   OLD: اس پر ایک فارسی شعر صادق کیا گیا جو
+   NEW: اس پر ایک فارسی شعر چسپاں کیا گیا جو
+
+4. WHY: V3 #4 redundancy: مغنیہ already means a female singer
+   OLD: خواتین مغنیاں لاہور کے صوفی مزاروں پر
+   NEW: گانے والی عورتیں لاہور کے صوفی مزاروں پر
+
+5. WHY: V3 #5 'the biggest' said twice in a row; loosely placed زیادہ تر (no fact lost: 'no mela in Lahore was greater' restates 'the greatest mela of the city'; 'for the most part' kept as اکثریت)
+   OLD: شہر کا سب سے بڑا میلہ نیاز بیگ میں بھدر کالی کا تھا جو ہر سال جیٹھ کے مہینے میں لگتا تھا۔ لاہور میں اس سے بڑا کوئی میلہ نہ تھا، اور مسلمان بھی زیادہ تر اس میں شریک ہوتے تھے۔
+   NEW: شہر کا سب سے بڑا میلہ نیاز بیگ میں بھدر کالی کا تھا جو ہر سال جیٹھ کے مہینے میں لگتا تھا، اور مسلمانوں کی بھی اکثریت اس میں شریک ہوتی تھی۔
+
+6. WHY: V3 #6 missing subject for پڑنے and the پڑنے/پڑتی jingle
+   OLD: گرمی کے موسم میں پڑنے کی وجہ سے لوگوں کو تکلیف اٹھانی پڑتی۔
+   NEW: یہ میلہ گرمی کے موسم میں آتا تھا، اس لیے لوگوں کو تکلیف اٹھانی پڑتی۔
+
+7. WHY: V3 #7 repetition: میلہ چراغاں already named in the sentence before. V3 wording adapted: 'لاہور میں' kept (the English says 'in Lahore') and 'مشہور' kept (the English says 'famous as')
+   OLD: مادھو لال کا عرس آج بھی لاہور میں شالیمار باغ کے قریب مارچ کے آخری سنیچر کو منایا جاتا ہے۔ یہ میلہ چراغاں کے نام سے مشہور ہے اور ہر سال شالیمار باغ میں لگتا ہے۔
+   NEW: مادھو لال کا عرس آج بھی ہر سال مارچ کے آخری سنیچر کو لاہور میں شالیمار باغ کے قریب منایا جاتا ہے؛ یہی وہ مشہور میلہ چراغاں ہے جو شالیمار باغ میں لگتا ہے۔
+
+8. WHY: V3 #8 calque: a shrine is not itself Qadiri and Shattari; state the silsila link
+   OLD: ایک قادری اور شطاری مزار پر صوفی
+   NEW: قادری اور شطاری سلسلوں سے نسبت رکھنے والے ایک مزار پر صوفی
+
+9. WHY: V3 #9 English word order
+   OLD: اجتماعات بڑے بھی ہوتے تھے۔
+   NEW: بڑے بڑے اجتماعات بھی ہوتے تھے۔
+
+10. WHY: V3 #10 ambiguity (reads as the saint's church). V3's 'چھاؤنی' NOT used: the English says only 'the church at Mian Mir', so naming the cantonment would add a fact; the place reading is made explicit instead
+   OLD: میاں میر کے گرجا گھر میں
+   NEW: میاں میر کے علاقے میں واقع گرجا گھر میں
+
+11. WHY: V3 #12 word order: the loaves were not for the lamp
+   OLD: یہ روٹیاں چراغ کے لیے ایک پیسے سمیت لے لیتا۔
+   NEW: یہ روٹیاں اور چراغ کے لیے ایک پیسہ لے لیتا۔
+
+12. WHY: V3 #13 gloss of familiar مہنت and stacked تھے; V3 wording adapted to drop the first خود so that خود does not occur twice (the sentence keeps 'کتھا بھی خود کرتے' = 'himself gave the katha')
+   OLD: چور مور والا کے مہنت، جو اس استھان کے سربراہ تھے، خود عالم آدمی تھے، اس لیے
+   NEW: چور مور والا کے مہنت عالم آدمی تھے، اس لیے
+
+13. WHY: V3 #14 inconsistent spelling: دھرم سال everywhere else
+   OLD: ایک دھرم سالہ کا گزارہ
+   NEW: ایک دھرم سال کا گزارہ
+
+14. WHY: V3 #15 English style apposition between commas
+   OLD: ہندو عقیدت مند، عورتیں اور مرد، حاضر ہوتے
+   NEW: ہندو عقیدت مند مرد و زن حاضر ہوتے
+
+15. WHY: V3 #16 name cut off from its phrase; apposition does not parse
+   OLD: شہید گنج میں سکھ جنگجوؤں کے طبقے نہنگ سڑک کنارے ایک دالان میں سارا دن بھنگ گھوٹتے جہاں اس کے کڑاہے رکھے رہتے
+   NEW: شہید گنج میں سکھ جنگجوؤں کے نہنگ طبقے کے لوگ سڑک کنارے ایک دالان میں سارا دن بھنگ گھوٹتے، جہاں اس کے کڑاہے رکھے رہتے
+
+16. WHY: V3 #17 paraphrase and quotation said the same thing back to back
+   OLD: اور کہنے لگا کہ اس کے زمانے میں کوئی سماع سننے کا اہل نہیں: "اس زمانے میں کوئی اہل نہیں رہا"۔
+   NEW: اور کہنے لگا: "اس زمانے میں کوئی اہل نہیں رہا"، یعنی اب کوئی سماع سننے کے لائق نہیں۔
+
+17. WHY: V3 #18 pronoun ان unclear. V3's اس (the order) would move the referent; the English says 'their' (the circles'), so the referent is named instead, which satisfies both
+   OLD: ایک محفل میں ان کے اذکار کا پورا سلسلہ ریکارڈ کیا گیا۔
+   NEW: ایک محفل میں ان حلقوں کے اذکار کا پورا سلسلہ ریکارڈ کیا گیا۔
+
+18. WHY: V3 #19 calque of 'refuse hospitality'
+   OLD: ان محفلوں میں مہمان داری سے انکار کیا جاتا ہے:
+   NEW: ان محفلوں میں خاطر تواضع سے قصداً گریز کیا جاتا ہے:
+
+19. WHY: V3 #20 ناشتہ three times; the tail restated the quotation (an English reader's gloss of 'Lahori nashta', no fact lost)
+   OLD: ناشتہ" ہوتا ہے، جو اس شہر کا اپنا ناشتہ ہے۔
+   NEW: ناشتہ" ہوتا ہے۔
+
+20. WHY: V3 #21 calque: English participial adjective 'the blinded Shahryar'
+   OLD: نابینا کر دیے گئے شہریار نے قلعۂ لاہور کی قید میں چار مصرعے کہے
+   NEW: شہریار نے، جسے نابینا کر دیا گیا تھا، قلعۂ لاہور کی قید میں چار مصرعے کہے
+
+21. WHY: V3 #22 calque 'a demolished old haveli'. V3's 'ایک پرانی حویلی گرا کر' would say the haveli was demolished to build the thakurdwara, which the English does not state; a relative clause keeps the English fact
+   OLD: ایک گرائی گئی پرانی حویلی کی جگہ بنا تھا؛
+   NEW: ایک پرانی حویلی کی جگہ بنا تھا جو گرا دی گئی تھی؛
+
+22. WHY: V3 #23 relative clause cut off from its antecedent مضمون
+   OLD: اور طاہر لاہوری کا مضمون "اولیا کے عرس" شامل ہیں، جو "سوہنا شہر لاہور" میں شائع ہوا۔
+   NEW: اور "سوہنا شہر لاہور" میں شائع ہونے والا طاہر لاہوری کا مضمون "اولیا کے عرس" شامل ہیں۔
+
+23. WHY: V3 #24 relative clause cut off from its antecedent (read as poetry that includes Punjab University)
+   OLD: لاہور کے اشاعتی اداروں نے صوفیانہ شاعری چھاپی، جن میں اشرف، پنجاب یونیورسٹی، اردو دنیا اور اللہ والے کی قومی دکان شامل ہیں۔
+   NEW: لاہور کے جن اشاعتی اداروں نے صوفیانہ شاعری چھاپی ان میں اشرف، پنجاب یونیورسٹی، اردو دنیا اور اللہ والے کی قومی دکان شامل ہیں۔
+
+24. WHY: V3 #25 relative clause cut off from its antecedent
+   OLD: قوالی پر لکھا گیا ادب بھی لاہور کے ناشروں نے شائع کیا، جن میں شیخ محمد اشرف اور ادارۂ ثقافتِ اسلامیہ شامل ہیں۔
+   NEW: قوالی پر لکھا گیا ادب بھی لاہور کے جن ناشروں نے شائع کیا ان میں شیخ محمد اشرف اور ادارۂ ثقافتِ اسلامیہ شامل ہیں۔
+
+25. WHY: V3 #26 two unrelated facts joined by اور, split into two sentences; combined with V2 note 2d ('is measured as' rendered ناپا گیا ہے rather than the more hedged بتایا جاتا ہے)
+   OLD: ، اور لاہور سے پاکپتن کا فاصلہ جنوب مغرب میں 120 میل بتایا جاتا ہے۔
+   NEW: ۔ لاہور سے جنوب مغرب کی سمت پاکپتن کا فاصلہ 120 میل ناپا گیا ہے۔
+
+26. WHY: V3 #27 izafat required; matches قصیدۂ بردہ later
+   OLD: بوصیری کے قصیدہ بردہ کے نسخے
+   NEW: بوصیری کے قصیدۂ بردہ کے نسخے
+
+27. WHY: V3 #28 اپنے گاؤں read as 'its own village'
+   OLD: یہ بڑا شہر اپنے گاؤں نگلتا جا رہا ہے۔
+   NEW: یہ بڑا شہر اپنے آس پاس کے گاؤں نگلتا جا رہا ہے۔
+
+28. WHY: V3 #29 bare مال reads as goods; revenue records
+   OLD: مال کے ریکارڈ
+   NEW: محکمۂ مال کے ریکارڈ
+
+29. WHY: V3 #30 ambiguous relative clause (جس could point to either fort); V3's reading matches the English (only royalty stayed in the Lahore fort)
+   OLD: روہتاس لاہور کے قلعے جیسا قلعہ نہ تھا، جس میں صرف شاہی خاندان ٹھہرتا تھا۔
+   NEW: لاہور کے قلعے میں صرف شاہی خاندان ٹھہرتا تھا، مگر روہتاس ایسا قلعہ نہ تھا۔
+
+30. WHY: V3 #31 read as two years; one academic year 1995 to 1996
+   OLD: 1995 اور 1996 کا تعلیمی سال
+   NEW: 1995 تا 1996 کا تعلیمی سال
+
+31. WHY: V3 #32 collocation (میلہ لگانا) and postposition (تاریخ کو)
+   OLD: یہ سالانہ میلہ اسی تاریخ پر اپنی جیب سے کرتے تھے۔
+   NEW: یہ سالانہ میلہ اسی تاریخ کو اپنی جیب سے لگاتے تھے۔
+
+32. WHY: V3 #33 'ہندو اور مسلمان مل کر' repeated from the sentence before
+   OLD: شاہ بلاول کی خانقاہ پر ہندو اور مسلمان مل کر میلہ لگاتے تھے۔
+   NEW: شاہ بلاول کی خانقاہ پر دونوں مل کر میلہ لگاتے تھے۔
+
+33. WHY: V3 #34 inconsistency: سات محرم elsewhere
+   OLD: ساتویں محرم کو، جو مہندی کا دن ہے،
+   NEW: سات محرم کو، جو مہندی کا دن ہے،
+
+34. WHY: V3 #35 clumsy double کے
+   OLD: چیچک سے شفا کے بعد کے اشنان پر
+   NEW: چیچک سے شفا پانے کے بعد اشنان کے موقع پر
+
+35. WHY: V3 #36 register: چالو is colloquial
+   OLD: ایک چالو کنواں
+   NEW: ایک چلتا ہوا کنواں
+
+36. WHY: V3 #37 collocation: ضمانت دینا means to stand surety; 'vouched for' is گواہی دی
+   OLD: حکومت کے انصاف کی ضمانت دی
+   NEW: حکومت کے انصاف کی گواہی دی
+
+37. WHY: V2 note 2a (precision): 'the shaykh's nephew', not 'a nephew'
+   OLD: شیخ کے ایک بھتیجے یا بھانجے نے
+   NEW: شیخ کے بھتیجے یا بھانجے نے
+
+38. WHY: V2 note 2b (precision): English 'a saint's festival', عرس was narrower
+   OLD: ایک ولی کے عرس کے موقع پر
+   NEW: ایک ولی کے میلے کے موقع پر
+
+39. WHY: V3 note 3 (meaning): حدود reads as boundaries; the English quotation means 'limitations'
+   OLD: اس کی کچھ حدود تو لازماً رہی ہوں گی
+   NEW: اس کی کچھ کمزوریاں تو لازماً رہی ہوں گی
+
+40. WHY: V3 note 8 (consistency): اندھوں in the same paragraph against نابیناؤں
+   OLD: نابیناؤں کو حفظ کرایا جاتا
+   NEW: اندھوں کو حفظ کرایا جاتا
+
+REJECTED OR NOT APPLIED
+
+R1. V3 #11 spelling مزنگ for Mozang
+   REASON: Rejected: urdu-i18n/urdu-dictionary.json (placeTokens/Mozang) spells it موزنگ, and the brief makes the dictionary binding; موزنگ is the only spelling in the file.
+
+R2. V3 #7, part: drop 'لاہور میں'
+   REASON: Not applied: the English states 'still celebrated in Lahore near the Shalimar Garden'; the rest of V3 #7 is applied (see above). Also kept 'مشہور' for the English 'famous as'.
+
+R3. V3 #10, part: 'میاں میر چھاؤنی'
+   REASON: Not applied: the English says only 'the church at Mian Mir'; naming the cantonment adds a fact. Ambiguity resolved with 'میاں میر کے علاقے میں واقع'.
+
+R4. V3 #18, part: ان to اس (the order)
+   REASON: Not applied as worded: the English 'their full repertoire' belongs to the zikr circles; the referent is named (ان حلقوں کے) instead.
+
+R5. V3 #22, part: 'ایک پرانی حویلی گرا کر اس کی جگہ'
+   REASON: Not applied as worded: it states the haveli was demolished in order to build the thakurdwara, which the English does not say ('on the site of a demolished old haveli'); calque removed with a relative clause instead.
+
+R6. V3 note 1: merge or distinguish Abul Muali's shrine and Shah Abu al-Maali's rauza
+   REASON: Rejected: the English gives them as two separate entries in consecutive sentences and says nothing of whether they are the same place; merging or marking a difference would change the English's facts.
+
+R7. V3 note 2: 'مسجد صوف کے مقبرے اور جلد سازوں کی دکانوں' unclear
+   REASON: Not applied: it renders the English 'the tomb at the Masjid Suf and ... the bookbinders' shops' faithfully; no fix was proposed and any gloss would add facts.
+
+R8. V3 note 4: 'بھرا ہوا تھا' for 'بھر چکا تھا'
+   REASON: Not applied: taste, and the brief asks for a perfect with 'By the 1880s'.
+
+R9. V3 note 5: 'حاشیے پر', 'رفتہ رفتہ'
+   REASON: Not applied: taste (mild calques, no meaning change).
+
+R10. V3 note 6: 'املاک کے مؤرخ' odd label
+   REASON: Not applied: renders the English 'a historian of property' faithfully; no alternative proposed.
+
+R11. V3 note 7: move the دھرم سال gloss
+   REASON: Not applied: taste; the gloss already follows the first occurrence of دھرم سال (کوکا دھرم سال).
+
+R12. V3 note 8, part: 'زیادہ تر' register mix
+   REASON: Not applied separately: the زیادہ تر in the Bhadar Kali sentence is gone with V3 #5; none remains in the Mian Wada paragraph.
+
+R13. V2 note 2c: 'سیتلا ماتا کے استھان پر' to 'سیتلا ماتا پر'
+   REASON: Not applied: V2 itself calls the current wording more natural and harmless; taste.
+
+R14. V2 note 3 and V3 fact check: National College of Arts dated 1857 (Mayo School usually 1875)
+   REASON: Not changed: the English is the authority for facts and says 1857; flagged for the English author / Rauf to check against the source.
+

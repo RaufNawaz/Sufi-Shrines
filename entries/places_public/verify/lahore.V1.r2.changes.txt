@@ -1,0 +1,21 @@
+# lahore: changes applied by the coordinator after V1 round 2 (FAIL); each OLD replaced once
+
+WHY: V1 round 2 issue 1 (doubled sentence), V1's wording
+OLD: How Lahore began is told in more than one way. Accounts of how Lahore began differ. In one telling
+NEW: How Lahore began is told in more than one way. In one telling
+
+WHY: V1 round 2 issue 2 (doubled phrase), V1's wording
+OLD: and in the nineteenth century that man's descendants were among the gravediggers. In the nineteenth century the gravediggers working there included men named
+NEW: and in the nineteenth century that man's descendants were among the gravediggers. Those working there then included men named
+
+WHY: V1 round 2 note: 'ever' goes beyond the source
+OLD: though accounts differ on whether he ever took the city.
+NEW: though accounts differ on whether he took the city.
+
+WHY: V1 round 2 note: smoother, same claim
+OLD: The Sufi orders were the Qadiri, Chishti, Suhrawardi, Naqshbandi and Naushahi, among others.
+NEW: The Sufi orders included the Qadiri, Chishti, Suhrawardi, Naqshbandi and Naushahi.
+
+WHY: V1 round 2 note for the coordinator: the team version (p. 173) says he was not autonomous; the Khan's name cannot be read, so he is left unnamed
+OLD: Mir Momin Khan became nazim of Lahore in Muhammad Shah's time.
+NEW: Mir Momin Khan became nazim of Lahore in Muhammad Shah's time, though he did not rule on his own: the real nazim of Lahore was another Khan.

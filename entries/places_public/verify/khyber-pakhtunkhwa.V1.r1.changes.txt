@@ -1,0 +1,18 @@
+Changes applied after V1 round 1 (khyber-pakhtunkhwa), by the coordinator, each in the verifier's wording.
+
+WHY: V1 r1 issue 1 (History sentence)
+OLD: During his reign Maharaja Ranjit Singh captured the Pathan regions of Khyber Pakhtunkhwa and the tribal areas, the Pathans being the Pashtun people.
+NEW: During his reign Maharaja Ranjit Singh captured the Pathan regions of what are now Khyber Pakhtunkhwa and the tribal areas, the Pathans being the Pashtun people.
+
+WHY: V1 r1 issue 1 (no mapping of the Sikh period onto the modern province)
+OLD: In the Sikh period Maharaja Ranjit Singh captured the province's Pathan regions, and several people there became Sikhs.
+NEW: In the Sikh period Maharaja Ranjit Singh captured the Pathan regions of what is now Khyber Pakhtunkhwa, and as a result several people there became Sikhs.
+
+WHY: V1 r1 issue 2 (dress not the province's alone)
+OLD: The province has its own dress. The *shalwar kameez*, loose trousers worn under a long shirt, is the traditional wear of its people, and one man, Kartar, wore it grey and baggy.
+NEW: The *shalwar kameez*, loose trousers worn under a long shirt, is the traditional wear of the province's people, and one man, Kartar, wore it grey and baggy.
+
+WHY: V1 r1 issue 3 (no implied verdict)
+OLD: or, above all, to that of Abdul Ghaffar Khan, known as the Sarhadi, or Frontier, Gandhi.
+NEW: or to that of Abdul Ghaffar Khan, known as the Sarhadi, or Frontier, Gandhi.
+

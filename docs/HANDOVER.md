@@ -22047,6 +22047,101 @@ GeoPackage (it no longer rounds data).
 
 Nothing was committed.
 
+### 9.423, 30 October 2026 (interactive, cloud session with the PC folder): Stage = places. Every place tag now has a page, provinces have pages, and Lahore has the first place article (team, public English, Urdu, all verified)
+
+**Asked.** Rauf, in chat: the "Kasur" tag on Bulleh Shah's page led to "No place by that name is recorded"; "work on completing that so that each region etc gets their own descriptions so that everything from the shrines is carried over to the site". Asked (RULE 5), he chose: cities **plus provinces**; **the same process as the shrines** (team version, public English, Urdu, V1, V2, V3); **Lahore first as the pilot**. Mid session: "have a watcher so that if limit runs out it just picks up again as it resets".
+
+**Why Kasur failed.** `PlacePage` built places with `buildPlaces(shrines)`, whose default is two sites, while the shrine page links every place a site is in. **37 places had one site** (Kasur, Pakpattan, Bhit Shah, Taunsa Sharif, Jhang, Hyderabad, Larkana, Mithankot among them), so 37 chips went nowhere.
+
+**Site changes** (typecheck, lint, the unit suite and `npm run build` green in a cloud copy of the branch; prerender now writes **71 place pages** + `/ur` mirrors):
+- `src/lib/data/places.ts`: `buildAllPlaces` (every place with a site, plus provinces) for `/place/:slug`, search and the `/about` index; `buildPlaces` keeps its default of two for the old tests. **Provinces**: `PROVINCES` (Azad Kashmir, Balochistan, Khyber Pakhtunkhwa, Punjab, Sindh), membership read from the data only: the site's own `region`, else "Azad Kashmir" anywhere in the Location (Sharada Peeth's "(Azad Kashmir)" reads as the country), else the province every region bearing site of its place records. Measured on the 489 rows: no place's sites disagree; Punjab 384, Sindh 43, Khyber Pakhtunkhwa 21, Balochistan 11, Azad Kashmir 1; 25 sites without a province. Islamabad Capital Territory is the `islamabad` place.
+- `scripts/data/lib/places.mjs` mirrors it (`countProvinces`, `regionOfLocation`), held by `placesVocabSync.test.ts`; `prerender.mjs` writes the provinces and the one site places.
+- `ShrinePage`: the province chip first, then the places ("Punjab · Kasur").
+- `PlacePage`: "Province" kicker; `PlaceArticle` (lazy, `React.lazy`, so the route's eager budget is unchanged) renders the place's article under the photographs, Urdu in the Urdu view with the English bibliography under a localised heading.
+- `scripts/data/build-place-articles.mjs` writes `src/data/place-articles/<slug>.json` **only for an article whose three verdict stamps are PASS on the current files**; `--check` is in `data:validate`. Loaded per place with `import.meta.glob` (Lahore's chunk 365 KB, lazy).
+- Tests: `places.test.ts` (every chip has a page; provinces; a split place gives no province; Azad Kashmir), `placesVocabSync.test.ts` (province counts equal on both sides).
+
+**The material.** `pipeline/book_queue/build_place_sources.py` reads every `### Place-level material` and `### Province-level material` block back out of `shrine_entries/` (integration had copied each one verbatim into every entry of its place), de-duplicates by book, heading and text, maps headings to places (vocabulary, then `HEADING_ALIASES` read by hand: Achhra, Mozang, Miani, Rohri, Hala, Clifton ...), adds whole-book sections about a place (`PLACE_BOOK_SECTIONS`: *Tarikh-e Lahore*'s Cross-cutting material for Lahore), and writes `entries/places/sources/<slug>.sources.md` with each book's Source line. It exits 1 on a heading it cannot place. **38 places and provinces have book material**; Lahore 410,000 characters, Punjab 306,000, Sindh 241,000, Multan 57,000, Karachi 42,000, down to Sargodha's 1,700. The other places have none at place level and keep their site lists.
+
+**Tools and brief.** `docs/prompts/PLACE_DESCRIPTION_BRIEF.md` (binding; reuses the two shrine briefs); `place_description_queue.py` (status / next / state / verdict, the state read from the files; places after Lahore show `pilot-review` until `data/review/places_approved.txt` lists `lahore`); `check_place_description.py team|public` (the shrine checkers re-pointed; `check_description_draft.check` gained an `entry_path` argument); `data/review/places_queue.txt` (Lahore, Punjab, Sindh, Multan, Karachi, Balochistan, Khyber Pakhtunkhwa, then by size). Worker prompts and helpers: `docs/prompts/place_description_workers_2026-10-30/` with a README.
+
+**Lahore, done.**
+- Team version `entries/places/lahore.md`: 333,148 characters, **1,668 citations to 21 books**, 308 paragraphs, 17 sections, checker exit 0. Five section drafters (parts in `entries/places/drafts/`), four composers, an English only pass on the two groups that still quoted Urdu prose (`lahore.urduout_A.txt` / `_D.txt` list each quotation and its English), an Overview and a 43 item Where the Sources Disagree. Notes: `entries/places/lahore.notes.md`.
+- Public English `entries/places_public/lahore.md`: 190,520 characters, **0.58** of the team prose, 13 sections. V1 PASS round 4 (23 faults in round 1, then faults the fixes introduced in rounds 2 and 3).
+- Urdu `entries/places_public/lahore.ur.md`: 171,568 characters, 0.90 of the English. V2 and V3 PASS round 3. Every reply and changes file is in `entries/places_public/verify/`.
+- On the dev server `/place/lahore` and `/ur/place/lahore` render the article; the Urdu article has no Latin outside the bibliography items.
+
+**The watcher.** Scheduled task "Sufi-Shrines place articles (PC): watcher" (`trig_01KfpZrifC2PRTjjU1bMU5y1`), hourly, automatic approval, requires this PC. Each firing reads `entries/places/LOCK_interactive.md`: if it was modified within the last three hours, an interactive session holds the work and the firing stops; otherwise it runs one firing of the brief. This session last refreshed the lock at about 07:10Z, so the watcher is free from about 10:10Z; delete the file whenever convenient. With Lahore done and nothing released, it reports that the pilot waits for Rauf.
+
+**For Rauf (asked in the chat).**
+1. Approve the Lahore pilot's style (or say what to change), then add `lahore` to `data/review/places_approved.txt` to release the other 37.
+2. The National College of Arts is dated **1857** in the source (*A White Trail*); two Urdu verifiers note it is usually dated 1875. RULE 2 kept the source's year.
+3. Boivin says Iqbal was "born in Lahore"; the public writer left the birthplace out. Lal Husain's and Madho's death years, and most Hijri dates in *Tarikh-e Lahore*, are left out of the public text because the team version marks them uncertain in print.
+4. Places with no book material (27, and Azad Kashmir) have no article; they could be written from their shrines' team versions instead, if he wants every place to carry prose.
+
+**Delete by hand:** `src/data/place-articles.json` (written early in this session, replaced by the per place folder; nothing reads it; this session could not delete on the PC). **Commit:** nothing committed. The parallel PC session's files were not touched, apart from appending this section and one line in `docs/README.md`. Suggested: `git add -A` then `git commit -m "feat: place and province pages, place articles, Lahore pilot"` (separate lines in PowerShell).
+
+### 9.424, 30 October 2026 (scheduled, ~10:16Z to ~10:30Z): Stage = places. Watcher firing: Lahore confirmed done, the other 37 wait for Rauf's approval of the pilot; nothing drafted
+
+**Lock.** `entries/places/LOCK_interactive.md` last modified 07:09Z, over three hours before this firing (10:16Z), so the watcher ran. The interactive session's last files are from about 07:54Z.
+
+**Queue.** `place_description_queue.py status`: lahore `done`, the other 37 places and provinces `pilot-review` (`data/review/places_approved.txt` lists nothing). `next 3` returns nothing.
+
+**Lahore, checked from the files.** Team checker exit 0; public checker exit 0 (team 330,102 to public 190,520 characters, 0.58; Urdu 171,568, 0.90); stamps V1 PASS round 4, V2 and V3 PASS round 3, all on the current md5s (en:3c6b3854, ur:be67bdd5); `node scripts/data/build-place-articles.mjs --check` reports 1 article current, so `src/data/place-articles/lahore.json` needed no rebuild. Nothing was written apart from this section.
+
+**For Rauf.** As in §9.423: approve the Lahore pilot's style (or say what to change), then add `lahore` to `data/review/places_approved.txt`; the next firing then starts Punjab. Until then each hourly firing finds nothing to do. Delete `entries/places/LOCK_interactive.md` and the stale `src/data/place-articles.json` by hand when convenient. The watcher's stored prompt still names `src/data/place-articles.json`; the build now writes `src/data/place-articles/<slug>.json`, and later firings follow the script.
+
+**Commit:** nothing committed.
+
+### 9.425, 30 October 2026 (scheduled, ~11:14Z to ~11:25Z): Stage = places. Watcher firing: Lahore still done, the other 37 still wait for Rauf's approval of the pilot; nothing drafted
+
+**Lock.** `entries/places/LOCK_interactive.md` last modified 07:09Z, about four hours before this firing (11:14Z), so the watcher ran. The PC folder was not connected at the start of the firing; access to `C:\Users\g16\Desktop\Shrines Project` was requested and granted.
+
+**Queue.** `place_description_queue.py status`: lahore `done`, the other 37 places and provinces `pilot-review` (`data/review/places_approved.txt` still lists nothing; all 37 source files are on the PC). `next 3` returns nothing.
+
+**Lahore, checked from the files.** Team checker exit 0; public checker exit 0 (team 330,102 to public 190,520 characters, 0.58; Urdu 171,568, 0.90); stamps V1 PASS round 4, V2 and V3 PASS round 3, all on the current md5s (en:3c6b3854, ur:be67bdd5); `node scripts/data/build-place-articles.mjs --check` reports 1 article current, so `src/data/place-articles/lahore.json` needed no rebuild. Nothing was written apart from this section.
+
+**For Rauf.** Unchanged from §9.423 and §9.424: approve the Lahore pilot's style (or say what to change), then add `lahore` to `data/review/places_approved.txt`; the next firing then starts Punjab. Until then each firing finds nothing to do. Delete `entries/places/LOCK_interactive.md` and the stale 20 byte `src/data/place-articles.json` by hand when convenient.
+
+**Commit:** nothing committed.
+
+### 9.426, 30 October 2026 (scheduled, ~12:25Z to ~12:35Z): Stage = places. Watcher firing: Lahore still done, the other 37 still wait for Rauf's approval of the pilot; nothing drafted
+
+**Lock.** `entries/places/LOCK_interactive.md` last modified 07:09Z, about five hours and a quarter before this firing (12:25Z), so the watcher ran. The PC folder was not connected at the start; access to `C:\Users\g16\Desktop\Shrines Project` was requested and granted.
+
+**Queue.** `place_description_queue.py status` in a cloud mirror of the PC files: lahore `done`, the other 37 places and provinces `pilot-review` (`data/review/places_approved.txt` still lists nothing, unchanged since 06:11Z; all 37 source files are on the PC). `next 3` returns nothing.
+
+**Lahore, checked from the files.** No Lahore file has changed since §9.425 (team version 06:46Z, public English 07:08Z, Urdu 07:43Z, notes 07:54Z). Stamps in `entries/places_public/lahore.notes.md`: V1 PASS round 4 (en:3c6b3854), V2 PASS round 3 (en:3c6b3854 ur:be67bdd5), V3 PASS round 3 (ur:be67bdd5), and the queue confirms they match the current files; the saved replies `verify/lahore.V1.r4.txt`, `V2.r3.txt` and `V3.r3.txt` are on the PC. `node scripts/data/build-place-articles.mjs --check` reports 1 article current, so `src/data/place-articles/lahore.json` needed no rebuild. Nothing was written to the PC apart from this section.
+
+**For Rauf.** Unchanged from §9.423 to §9.425: approve the Lahore pilot's style (or say what to change), then add `lahore` to `data/review/places_approved.txt`; the next firing then starts Punjab. Until then each firing finds nothing to do. Delete `entries/places/LOCK_interactive.md` and the stale 20 byte `src/data/place-articles.json` by hand when convenient.
+
+**Commit:** nothing committed.
+
+### 9.427, 30 October 2026 (interactive, cloud session with the PC folder, ~12:55Z to ~14:10Z): Stage = places. Lahore's article too long: a short article of about 8,000 words, verified, with a switch to the full account and "More on this" under each section
+
+**Asked.** Rauf, shown the Lahore public article (33,267 words): "It is too long." Asked (RULE 5), he chose length **scaled by place**, and for the material the short article leaves out: "there should already be a team version internal one that is far more detailed than the public one but then you should create a feature in the website where you can have an article that is short and complete but then switch to the longer one if you want or toggle which sections you need more information for". Mid session: "Lahore should be around 8000 words".
+
+**Three tiers now.** Team version (internal, every citation, unchanged); the long public article (unchanged, now the "full account"); and a new **short public article** that the page opens on.
+
+**Rules and tools** (`docs/prompts/PLACE_DESCRIPTION_BRIEF.md`, new section "The short article"):
+- Files `entries/places_public/<slug>.short.md`, `.short.ur.md`, `.short.notes.md`, reports `verify/<slug>.short.<V>.r<N>.txt`. Source: the long public article only. Exactly the long article's `## ` headings, so a section can be swapped for its long text.
+- Length in words: target `44 x sqrt(long prose words)`, accepted 0.85 to 1.15 (Lahore: target 8,025). Only places whose long prose is at least 5,000 words get one (a 10,000 word long article gives 4,400; 5,000 gives 3,100).
+- `check_place_description.py short <slug>`: S1 headings equal the long one's, S2 every section has prose and is shorter than its long section, S3 verse verbatim from the long, S4 bibliography equal, S5 the short Urdu's headings equal the long Urdu's, SL the length, plus P1 to P5, Q1, Q2, U1 to U9 and V against the long article.
+- `place_description_queue.py`: after a long article is done, `draft-short-en`, `verify-short-en`, `draft-short-ur`, `verify-short-ur`; verdicts with `verdict <slug>.short V1 PASS 1`. A place is `done` only when both are.
+- `scripts/data/build-place-articles.mjs` adds `short: {en, ur}` to `src/data/place-articles/<slug>.json` only when the short article's own three stamps pass (and skips `*.short.md` as a slug).
+
+**Lahore short article.** 8,466 words (1.05 of target), Urdu 44,456 characters (0.91). V1: round 1 FAIL (6 issues: Shah Kaku's story, the brick quarrying, the stone sent to Amritsar, the 1846 treaty, *Tarikh-e Lahore*'s contrast of regimes, a burial ground wrongly named Miani), round 2 confirming PASS. Urdu written by two writers from the long Urdu's verified wording; V2 and V3: round 1 FAIL (5 and 71 issues), round 2 FAIL (1 and 23), round 3 confirming (V3 PASS, V2 one fault the fixes introduced), round 4 PASS. Every reply and changes file is in `entries/places_public/verify/`; the choices and rulings in `lahore.short.notes.md`. `check_place_description.py short lahore` and `public lahore` exit 0; the queue shows lahore `done`; the data file was rebuilt (`--check` current).
+
+**Site.** `src/components/place/PlaceArticle.tsx`: when the data has `short`, the article opens on it, with a two option switch ("Short article" / "Full account", Urdu مختصر مضمون / مکمل احوال, `aria-pressed`, 44px targets) and under every section a "More on this" button (`aria-expanded`, Urdu مزید تفصیل) that swaps in that section's long text; closing scrolls the heading back into view if needed; a new place starts short. Strings in `uiStrings.ts` and `.ur.ts` (`placeArticle*`, `placeSection*`), styles in `components.css`. **Fixed on the way:** `parseInlineSections` split a heading like "## History: Mughal Lahore" into the alias "History" plus a stray paragraph "Mughal Lahore" (visible on /place/lahore since §9.423); it now takes `{ wholeMarkdownHeadings: true }`, which the place article passes and the shrine pages do not. Tests: `src/components/place/__tests__/PlaceArticle.test.tsx` (6). In a cloud copy of `src/` with the PC's configs: typecheck, lint and prettier clean; the place, shrine, i18n and articleParsing tests pass; checked in a browser on /place/lahore and /ur/place/lahore. The full `npm run verify` was not run on the PC (the cloud copy lacks much of the repository outside `src/`, so 16 unrelated data tests fail there for missing files).
+
+**For Rauf.**
+1. Look at /place/lahore on the dev server: the short article, the switch and "More on this". If the short one is right, add `lahore` to `data/review/places_approved.txt`; the watcher then starts Punjab and will now write each place's short article too.
+2. The long article (and so the short) says "Madho Lal Husain is buried together with his Hindu beloved"; a native Urdu editor read the name as the saint and his beloved together and asked for "Shah Hussain, with his Hindu beloved Madho Lal". Kept as the long article has it (RULE 2 and the verified text); changing it means changing the long article and re-verifying.
+3. The idle watcher appends a HANDOVER section and a project doc every hour while it waits (§9.424 to 9.426). Say if it should report nothing when nothing changes.
+4. Run `npm run verify` on the PC before committing. Suggested commit: `git add -A` then `git commit -m "feat: short place articles with a full account switch; Lahore short article"`.
+
+**Lock.** `entries/places/LOCK_interactive.md` was refreshed at 13:54Z and goes stale three hours later; delete it by hand when convenient (this session cannot delete on the PC). **Commit:** nothing committed.
+
 ### 9.428, 30 October 2026 (interactive, Windows PC): Stage = notes. GIS viewer: Rauf's five decisions acted on, and the whole GIS chain rebuilt from fresh downloads
 
 **Decisions (asked in chat, answered the same morning).** Open on None; inline the libraries; add native support, sourced only; keep frozen analysis plans outside the tool (OSF, AsPredicted); rebuild here by downloading. All five done. Record: `docs/research/VIEWER_REVIEW_2026-10-30.md`, "Decisions for Rauf". (§9.422 and the review record said "31 October" for the overnight work; it was 29 to 30 October, corrected everywhere in this session's files.)
@@ -22064,3 +22159,77 @@ Nothing was committed.
 **Verified.** `test_conjecture.cjs` all pass; `test_review_fixes.cjs` 35 checks, all pass; `check_conjecture_reference.py` MATCH. Review package rebuilt (`pipeline/gis/viewer/review/welfare-viewer-review.zip`, 6.0 MB, gitignored).
 
 **Committed** at Rauf's request, this session's files only; the other session's place files share this working tree and stay out of it.
+
+### 9.429, 30 October 2026 (scheduled, ~15:21Z to ~17:10Z): Stage = places. Watcher firing after the pilot's approval: Punjab, Sindh and Multan each taken from nothing to a verified public English; Multan's long article done in both languages
+
+**Lock and claims.** `entries/places/LOCK_interactive.md` read RELEASED (14:55Z), so the firing ran. `data/review/places_approved.txt` lists `lahore` (Rauf, 30 October: "move forward and do it for all the regions"). Claimed `place__punjab`, `place__sindh` and `place__multan` (session `watcher-2026-10-30T1521Z`), renewed once, released at the end. A second firing (`watcher-2026-10-30T1615Z`) claimed Karachi, Balochistan and Khyber Pakhtunkhwa at 16:15Z and was left alone; its section, if any, follows this one.
+
+**How it ran.** The 30 October worker prompts, adapted per place (copies of the adapted prompts are not in the repo; the README's order was followed). Provinces use the province headings of the brief. Every part, draft, verifier reply, changes file and verdict was written to the PC as soon as it existed (the bridge dropped once for a few minutes at about 15:55Z; nothing was lost). Prose English only from the first drafter prompt on, so no English only pass was needed.
+
+**Punjab** (sources 375,000 characters): four section drafters by books (Kanhaiya Lal alone; Bhandari, Chishti, Lahori, Sharib, Waris Shah, Madho Lal Hussein, Rafat; Khalid, Dhillon, Eaton, Rizvi, Ernst and Lawrence, Kugle, Schaflechner; Schimmel, Shackle, Sorley, Boivin and the rest), three composers (history; saints and communities; language, the state and the books), one Overview and Where the Sources Disagree writer (27 items). Team version `entries/places/punjab.md`: 178,327 characters, **711 citations to 29 books**, checker exit 0. Public English 105,230 characters (0.61), three writers; V1 round 1 FAIL (22 issues across the groups), round 2 FAIL (3: a rival date left beside "accounts differ", a referent the fixes broke, an uncertain name), round 3 PASS, then three of round 3's notes applied (a Hindu population contradiction, rule 4) and **round 4 PASS**. Urdu `punjab.ur.md` 95,285 characters (0.91), three writers, checker ok. **Next step: V2 and V3 round 1.**
+
+**Sindh** (sources 269,000 characters): three drafters (Sorley and Shackle's *Risalo*; Boivin, Schaflechner and Bhandari; the other twenty books), three composers, Overview and 33 item Where the Sources Disagree. Team version 224,623 characters, **906 citations to 25 books**, exit 0; one heading outside the brief's list, `## The Land and Its Livelihood` (Sorley's economic history). Public English 131,828 characters (0.60); V1 round 1 FAIL (26 issues), round 2 FAIL (3, two introduced by the fixes), **round 3 PASS**. Urdu 120,614 characters (0.91), three writers; **V2 and V3 round 1 FAIL** (V2 20 issues, V3 198, per group in `verify/sindh.V2.r1.txt` and `sindh.V3.r1.txt`). **Next step: the Urdu fixers per group (`10_urdu_fixer.md`), then a confirming round.**
+
+**Multan** (sources 78,600 characters): one writer for the whole team version (62,398 characters, **308 citations to 16 books**, exit 0). Public English 34,691 characters (0.58); V1 rounds 1 and 2 FAIL (8, then 3 issues, one a referent broken by a fix), round 3 PASS. Urdu 31,877 characters (0.92); V2 and V3 round 1 FAIL (4 and 45), round 2 FAIL (3, two introduced by the fixes), **round 3 PASS both**. The long article is done; **next step: `draft-short-en`, target 3,434 words** (long prose 6,092). `build-place-articles.mjs` was not run: no place reached `done` (Multan still needs its short article).
+
+**Records.** Parts and composed groups: `entries/places/drafts/{punjab,sindh}.*` (also `punjab.composed_[ABCO].md`, `sindh.composed_[ABCO].md`); public drafts per writer in `entries/places_public/drafts/`; every reply and changes file in `entries/places_public/verify/`; team notes `entries/places/<slug>.notes.md` (each drafter's notes verbatim plus the composition record); public notes `entries/places_public/<slug>.notes.md`.
+
+**For Rauf.**
+1. Punjab team version: the Ernst and Lawrence citation at p. 124 is copied exactly and so shows `folio printed "Ill" [text-layer?] [111]`. Keep, or cite p. 124 alone?
+2. The province headings have no Festivals heading; Lohri, Vaisakhi and Basant close Punjab's Communities. Add one?
+3. *Hadiqat al-Awliya*: its Source line says Persian, the author calls it a short Urdu collection; the bibliography follows the Source line.
+4. Sindh: Hinglaj (in Bhandari's suba of Thatta) is left out because the site is tagged Balochistan. The team version spells the dynasty Sumra in history and Sumiro in the language section (the public text says Sumra throughout).
+5. Multan: Kharak Singh's conquest year, written out in words as "eighteen eighteen", is uncertain in the Persian; the public text gives no year until Rauf says 1818 may stand (team notes question 2).
+6. `urdu-i18n/urdu-dictionary.json` gives Sayyid Muhammad Ghaus Uchchi Jili Gilani as `...اوچی حلبی گیلانی`; "Jili" is not "Halabi". The Punjab Urdu writes جیلی.
+
+**Commit:** nothing committed. Copy of this section: `pipeline/book_queue/_handover_9429_section.md`.
+
+### 9.430, 30 October 2026 (scheduled, ~20:15Z to ~21:25Z): Stage = places. Watcher firing: Multan done in full (long and short, both languages, data file built); Punjab and Sindh long articles done in both languages, their short English verified and short Urdu written
+
+**Lock and claims.** `entries/places/LOCK_interactive.md` read RELEASED. The PC folder was not connected at the start; access was requested and granted. No live claims: the 15:21Z firing had released Punjab, Sindh and Multan, and the 16:15Z firing's claims on Karachi, Balochistan and Khyber Pakhtunkhwa had expired at 18:45Z. Claimed `place__punjab`, `place__sindh`, `place__multan` (session `watcher-2026-10-30T2015Z`), renewed once, released at the end. Karachi, Balochistan and Khyber Pakhtunkhwa were not touched (queue order; up to three places a firing).
+
+**How it ran.** The 30 October worker prompts, adapted per place (heading groups for Punjab and Sindh: P1 Overview and History, P2 the middle sections, P3 language, the state and the books; single workers for Multan and for short rounds). Every verifier reply, changes file, Urdu file and notes line was written to the PC as soon as it existed, and every verdict recorded with `place_description_queue.py verdict` after its report was saved. Where a confirming round failed on a handful of sentences, the coordinator applied the verifier's NEW wording as exact replacements and ran a further confirming round; no confirming round was skipped.
+
+**Punjab.** V2 and V3 round 1 FAIL (V2 2, 6, 6 issues by group; V3 68, 42, 66). Three Urdu fixers applied them (81, 52 and 85 edits), adapting V3's wording wherever it would change a fact the English states; the coordinator made مہاراجہ (the dictionary's) the one spelling across the groups. Round 2 FAIL (six sentences, five made by the round 1 fixes), fixed; **round 3 PASS both**. Long article done. Short English (target 5,940 words): written, 6,264 words; V1 round 1 FAIL (the Hindus' position in the province today dropped; Nanak Panthi Hindus and Khidr as Zinda pir generalised beyond the places the long gives), fixed with its meaning notes; **V1 round 2 PASS**. Short Urdu written (33,074 characters, 0.91), checker ok. **Next: short V2 and V3 round 1.**
+
+**Sindh.** Three Urdu fixers applied the round 1 reports of the 15:21Z firing (70, 93, 56 replacements; rejections kept the English as the authority, e.g. Shah Inat Rizvi kept distinct from Shah Inayat, Dard not expanded, Nasarpur and Nasirpur as the English spells them). Round 2 FAIL (V2 one sentence, V3 three), round 3 V2 PASS and V3 FAIL (a round 2 fix brought back the "X کا اپنا" pattern), **round 4 PASS both**. Long article done. Short English (target 6,615): 7,312 words (1.11); V1 round 1 FAIL (the Jelali and Jemali orders dropped; Thatta's town life misdated to 1828 to 1832; the Hindu origin reading of the *Risalo* stories lost its limit), fixed; **V1 round 2 PASS**. Short Urdu written (39,302 characters, 0.92), checker ok. **Next: short V2 and V3 round 1.**
+
+**Multan.** Short English (target 3,434): 3,533 words; V1 round 1 PASS, three of its notes applied (two unclear referents, Sultan Husain Langah's fate restored), round 2 PASS. Short Urdu: V2 and V3 round 1 FAIL (3 and 25: "by the end of the seventeenth century" read as "until"; second verbs without an ergative subject), 31 fixes (V3's "Lal Shahbaz Qalandar" for "the saint Lal" rejected), round 2 V2 PASS and V3 FAIL (one more sentence of the same kind), **round 3 PASS both**. **Multan is `done`.** `node scripts/data/build-place-articles.mjs` was run on a cloud copy and `src/data/place-articles/multan.json` (long and short) written to the PC.
+
+**Records.** Replies, combined round reports and changes files in `entries/places_public/verify/` (`punjab.V2/V3.r1..r3`, `punjab.ur.r1/r2.changes`, `sindh.V2/V3.r2..r4`, `sindh.ur.r1..r3.changes`, `{punjab,sindh,multan}.short.V1.r1/r2` with `.r1.changes`, `multan.short.V2/V3.r1..r3`, `multan.short.ur.r1/r2.changes`); choices in each `.notes.md` and `.short.notes.md`.
+
+**Queue now:** lahore, multan `done`; punjab and sindh `verify-short-ur`; karachi `verify-ur` (V2 round 2 stale, V3 round 2 fail: the 16:15Z firing applied V3's round 1 fixes, `verify/karachi.ur.r1.changes.txt`, so a confirming round is next); balochistan and khyber-pakhtunkhwa `verify-ur` (round 3 confirming next); the other 31 places `draft-team`.
+
+**For Rauf.**
+1. **Data files.** Run `node scripts/data/build-place-articles.mjs` on the PC before committing. Only `multan.json` was written back, as the firing instructions say; the script will now also write `punjab.json` and `sindh.json` with the long article only (their stamps pass), until their short articles pass. Say if a province should stay off the site until its short article is done.
+2. **Multan long Urdu.** V2 on the short Urdu noticed that the long Urdu (`multan.ur.md`, Overview and Communities) has the same "سترھویں صدی کے اواخر تک ... بستے تھے" wording that reads "until" rather than "by". It passed V2 and V3 and was left as it is; fixing it means a confirming round on the long Urdu.
+3. **Punjab Urdu names.** The English calls the Taunsa saint Khwaja, Shaikh and Shah Sulayman; the Urdu now says خواجہ سلیمان تونسوی throughout (the dictionary's form). The English also gives Shah Hussain and Madho Lal Hussein, Salim Khan and Islam Shah without linking them; the Urdu follows the English.
+4. **Sindh short article length**: 7,312 words, 1.11 of the target (accepted to 1.15).
+5. **The 16:15Z firing** (Karachi, Balochistan, Khyber Pakhtunkhwa) left no HANDOVER section; its work is in the files (`verify/karachi.*`, `balochistan.*`, `khyber-pakhtunkhwa.*`, last written about 17:08Z).
+
+**Commit:** nothing committed. Copy of this section: `pipeline/book_queue/_handover_9430_section.md`.
+
+### 9.431, 30 October 2026 (scheduled, ~21:15Z to ~21:35Z): Stage = places. Watcher firing: Karachi, Balochistan and Khyber Pakhtunkhwa done (long articles in both languages; none needs a short article); their data files built
+
+**Lock and claims.** `entries/places/LOCK_interactive.md` read RELEASED. The PC folder was not connected at the start; access was requested and granted. Punjab, Sindh and Multan were held by `watcher-2026-10-30T2015Z` (live until 22:45Z) and were not touched. The 16:15Z firing's claims on Karachi, Balochistan and Khyber Pakhtunkhwa had expired at 18:45Z; claimed all three (session `watcher-2026-10-30T2115Z`) and released them at the end.
+
+**Where they stood.** The 16:15Z firing left no HANDOVER section (§9.430, For Rauf 5); its files showed: Karachi V1 PASS (round 3), V2 round 1 PASS with notes, V3 round 1 FAIL (59 issues), the Urdu writer's 62 replacements applied (`verify/karachi.ur.r1.changes.txt`); Balochistan and Khyber Pakhtunkhwa V1 PASS (round 2), round 2 confirming V2 PASS and V3 FAIL (3 and 2 issues), the coordinator's fixes applied (`verify/<slug>.ur.r2.changes.txt`). So each needed a confirming round. The pre fix backups were rebuilt by undoing each listed change, and replaying the changes on the backup gave the current file exactly, so no unlisted edit was in play.
+
+**How it ran.** `11_V2_V3_confirming.md`, adapted per place: one confirming worker doing V2 and V3 together on the changed sentences, diffing against the backup. Each reply was saved as both `<slug>.V2.r<N>.txt` and `<slug>.V3.r<N>.txt` before its verdicts were recorded, and every file went to the PC as soon as it existed.
+
+**Balochistan.** Round 3 confirming: **V2 PASS, V3 PASS**, no issues. Done.
+
+**Khyber Pakhtunkhwa.** Round 3 confirming: **V2 PASS, V3 PASS**, no issues. Done.
+
+**Karachi.** Round 2 confirming: V2 PASS, V3 FAIL (5 faults the round 1 fixes introduced: «دیوتا» read as plural without «ایک»; «کراچی میں» twice in one sentence; «ان» pointing first to the students and then to the shaykh; the spoon and lemon race named with a bare conjunctive participle; «روانہ ہوتے ہیں» ending two sentences running). The coordinator applied the five in the verifier's wording (`verify/karachi.ur.r2.changes.txt`); checker ok. Round 3 confirming: **V2 PASS, V3 PASS**, no issues. Done.
+
+**Data files.** `node scripts/data/build-place-articles.mjs` run on a cloud copy; `src/data/place-articles/{karachi,balochistan,khyber-pakhtunkhwa}.json` (long article only; each long prose is under 5,000 words, so no short article) written to the PC. The other data files on the PC were not touched.
+
+**Queue now:** lahore, multan, karachi, balochistan, khyber-pakhtunkhwa `done`; punjab and sindh `verify-short-ur` (§9.430); the other 31 places `draft-team`, next nankana-sahib, uch-sharif, peshawar.
+
+**For Rauf.**
+1. Run `node scripts/data/build-place-articles.mjs` on the PC before committing (it will also write punjab.json and sindh.json, as §9.430 says).
+2. Notes the confirming verifiers recorded and did not apply (taste or precision, not faults): Karachi's introduction says «تعمیر کیا» and its history «تعمیر کروایا» for the same "built"; «شہر کی وسعت» for "its growth" would be closer as «توسیع»; Balochistan's «وہاں کے ویزوں» could read as the restricted part only, where the English says the province («صوبے کے ویزوں» would be exact). Changing any of them means another confirming round.
+3. Still open from the 16:15Z firing's notes: Balochistan, "the MMA" left unexpanded and the Kalhoro heading printed "Kalh6ro" (team notes questions 1 and 3), and the *guāṭi* consensus choice; Khyber Pakhtunkhwa, whether and when the province was renamed (team notes question 3), and Gurdwara Patti Sahib kept despite the [OCR?] on the province's name.
+
+**Commit:** nothing committed. Copy of this section: `pipeline/book_queue/_handover_9431_section.md`.

@@ -1,0 +1,37 @@
+punjab short article, V1 round 1 FAIL: every issue applied in the verifier's NEW wording by the coordinator, with the notes that correct meaning or a referent. Notes adding material only if room allows were not applied.
+
+WHY: issue 1 [important omission]: the Hindus' position in the province today
+OLD: In the Punjab itself Christians have a formidable presence and are the overwhelming majority among the minorities, yet in most villages Muslims are the landowners and Christians are confined to menial work and treated as untouchables.
+NEW: In the Punjab itself Christians have a formidable presence and are the overwhelming majority among the minorities, while Hindus are a smaller community there, and many Hindus in Punjab pass as Muslims or Christians by taking names that are not Hindu, a way of surviving in a hostile place. In most villages Muslims are the landowners, and Christians are confined to menial work and treated as untouchables.
+
+WHY: issue 2 [distortion by compression]: the name is tied to place
+OLD: and devotees of Guru Nanak who did not join Guru Gobind Singh's Khalsa are called Nanak Panthi Hindus, with a picture
+NEW: and the thousands of devotees of Guru Nanak in Khyber Pakhtunkhwa, Punjab and Sindh who did not join Guru Gobind Singh's Khalsa are called Nanak Panthi Hindus, with a picture
+
+WHY: issue 3 [distortion by compression]: 'in Punjab' restored
+OLD: Khidr is often called Zinda pir, the living saint, and at the shrines
+NEW: Khidr is often called Zinda pir, the living saint, in Punjab, and at the shrines
+
+WHY: note (i): keep to the long, which does not say Masud gave it
+OLD: Masud gave it to his young son Majdud, who after Masud's death rebelled against the new sultan, Maudud, and died suddenly on the day of Eid during the siege of Lahore.
+NEW: When Masud came to the throne his young son Majdud was given the Punjab as his governorship; after Masud's death Majdud rebelled against the new sultan, Maudud, and died suddenly on the day of Eid during the siege of Lahore.
+
+WHY: note (iii): why he marched, from the long
+OLD: The emperor set out towards Punjab in the rains, against the advice of most of his nobles,
+NEW: The emperor set out towards Punjab in pursuit of Dara in the rains, against the advice of most of his nobles,
+
+WHY: precision note: only the Sikh challenge was armed
+OLD: as the declining Mughal authority came under armed challenge from the Sikhs and from local notables,
+NEW: as the declining Mughal authority came under challenge from armed rebellion by the Sikhs and from local notables who set up their own power,
+
+WHY: precision note: the long's own construction
+OLD: as the Afghans helped to resettle it, built its towns, founded many new ones and promoted trade.
+NEW: as the Afghans helped to resettle it and build its towns, founding many new ones and promoting trade.
+
+WHY: precision note: 'the king' was ambiguous between Sabuktigin and Mahmud
+OLD: Malik Ayaz became ruler of the Punjab by the king's order.
+NEW: Malik Ayaz became ruler of the Punjab by Mahmud's order.
+
+WHY: precision note: 'it' could be misread as the Chishti order
+OLD: the Qadiris had made it the main centre of their activities.
+NEW: the Qadiris had made the Punjab the main centre of their activities.

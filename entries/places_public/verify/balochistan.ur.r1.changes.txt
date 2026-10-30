@@ -1,0 +1,173 @@
+balochistan.ur.md, round 1 fixes (V2 r1 FAIL 5 issues, V3 r1 FAIL 26 issues)
+Backup of the text before these changes: /home/claude/work/bak/balochistan.ur.r1.bak
+Changes applied: 30. Rejected or partly rejected items: 15.
+
+== CHANGES ==
+
+1. WHY: V3.1 (comma apposition: یہیں cut off from the phrase locating Hinglaj); V3's sentence.
+   OLD: اور زیارت کا مرکز ہنگلاج بھی یہیں، صوبے کے سندھی بولنے والے حصے میں واقع ہے۔
+   NEW: اور زیارت کا مرکز ہنگلاج بھی اسی صوبے کے سندھی بولنے والے حصے میں واقع ہے۔
+
+2. WHY: V2.1 (addition: اترنے والے, a movement the English does not state); V2's wording.
+   OLD: یہاں کے پہاڑوں سے اترنے والے لوگوں کی اولاد آگے چل کر سندھ کے تخت پر بیٹھی
+   NEW: یہاں کی پہاڑیوں کے لوگوں کی اولاد آگے چل کر سندھ کے تخت پر بیٹھی
+
+3. WHY: V3.2 (two unrelated facts joined by اور); split as V3 gives it.
+   OLD: دبی ہوئی شورش کی کیفیت میں رہا ہے، اور 2010 کی دہائی میں
+   NEW: دبی ہوئی شورش کی کیفیت میں رہا ہے۔ 2010 کی دہائی میں
+
+4. WHY: V3.3 (calque ایک دوسرے کے شریک for three parties); V3's sentence.
+   OLD: اساطیر، دھنوں اور لسانی رموز میں بلوچستان، سندھ اور ایران کی ساحلی پٹی ایک دوسرے کے شریک ہیں
+   NEW: بلوچستان، سندھ اور ایران کی ساحلی پٹی کی اساطیر، دھنیں اور لسانی رموز مشترک ہیں
+
+5. WHY: V3.4 (English order: trailing اور براہوی بھی after a relative clause); V3's sentence.
+   OLD: یہاں سیدی برادریاں بھی آباد ہیں جو ایک ڈھول کو مقدس مانتی ہیں، اور براہوی بھی۔
+   NEW: یہاں براہوی بھی آباد ہیں اور سیدی برادریاں بھی، جو ایک ڈھول کو مقدس مانتی ہیں۔
+
+6. WHY: V3.5 (calque پڑوسی سندھ / اپنی الگ مشکلات); V3's wording.
+   OLD: پڑوسی سندھ اپنی الگ مشکلات میں گھرا رہا:
+   NEW: ادھر ہمسایہ سندھ اپنی مشکلات میں گھرا رہا:
+
+7. WHY: V3.6 (Anglicism بہتر ہوگا اگر); condition first, ending تو بہتر ہوگا, V3's sentence.
+   OLD: یہ بات بھی شامل تھی کہ بہتر ہوگا اگر بلوچستان کے سردار مطلوبہ اطاعت و فرماں برداری کا اظہار کریں اور مہم میں شریک ہوں۔
+   NEW: یہ بات بھی شامل تھی کہ بلوچستان کے سردار مطلوبہ اطاعت و فرماں برداری کا اظہار کریں اور مہم میں شریک ہوں تو بہتر ہوگا۔
+
+8. WHY: V3.7 (ambiguous اس: Rustam Mirza or the jagir; the English 'which yielded' is the grant); V3's wording.
+   OLD: اور اس کی آمدنی قندھار کے محاصل سے بڑھ کر تھی۔
+   NEW: اور اس جاگیر کی آمدنی قندھار کے محاصل سے بڑھ کر تھی۔
+
+9. WHY: V2 NOTE (precision: تاکہ turned the English result 'which avoided' into a purpose); rendered as a result with اور یوں ... بچ جاتے تھے.
+   OLD: کرتے تھے، تاکہ بالائی سندھ کی بدترین گرمی اور سیلاب سے بھی بچ سکیں اور بلوچستان اور فارس کے کوہستانی علاقوں کی کڑاکے کی سردی سے بھی۔
+   NEW: کرتے تھے، اور یوں بالائی سندھ کی بدترین گرمی اور سیلاب سے بھی بچ جاتے تھے اور بلوچستان اور فارس کے کوہستانی علاقوں کی کڑاکے کی سردی سے بھی۔
+
+10. WHY: V3.9 (date attached to بیان کیا instead of the journey); V3's wording.
+   OLD: ایک مؤرخ نے 1960 کی دہائی کے وسط میں برصغیر کے اپنے پہلے سفر کا حال
+   NEW: ایک مؤرخ نے 1960 کی دہائی کے وسط میں کیے گئے برصغیر کے اپنے پہلے سفر کا حال
+
+11. WHY: V3.10 (بارش کم twice in consecutive sentences; double کے in صوبے کے مٹی کے); V3's sentence. Same facts as the English (rain scarce, average rainfall low, cones not eroded, cones last).
+   OLD: یہاں بارش کم ہوتی ہے۔ اوسط بارش کم ہونے کے باعث صوبے کے مٹی کے مخروطی ٹیلے جلد نہیں کٹتے اور دیر تک قائم رہتے ہیں۔
+   NEW: یہاں اوسط بارش کم ہوتی ہے، اسی لیے صوبے میں مٹی کے مخروطی ٹیلے جلد نہیں کٹتے اور دیر تک قائم رہتے ہیں۔
+
+12. WHY: V3.11 (past and present clauses yoked by اور; calqued ایک); split as V3 gives it, but with آتے تھے and without the second یہاں, so that پہنچ and یہاں are not repeated across the two new sentences.
+   OLD: پرانے زمانے کے مسافر ایک خشک اور بنجر سرزمین سے گزر کر آتے تھے، اور موسمِ بہار کے اجتماعات کے دنوں میں گرمی انتہا کو پہنچ جاتی ہے۔
+   NEW: پرانے زمانے کے مسافر خشک اور بنجر سرزمین سے گزر کر یہاں آتے تھے۔ موسمِ بہار کے اجتماعات کے دنوں میں گرمی انتہا کو پہنچ جاتی ہے۔
+
+13. WHY: V3.12 (کوہستان سندھ readable as one name); V3's sentence.
+   OLD: کوہستان سندھ کا مغربی حصہ ہے جو بلوچستان کے قریب واقع ہے۔
+   NEW: سندھ کا مغربی علاقہ کوہستان بلوچستان کے قریب واقع ہے۔
+
+14. WHY: V3.13 (trailing مگر ... میں in English order); restructured as V3 asks, but with the two locations not stacked (V3's NEW had حصے میں کچھی کے میدان میں back to back), and without واقع, which the Kohistan sentence just before now ends on.
+   OLD: فتح پور کا گاؤں جیکب آباد سے تقریباً 100 کلومیٹر دور کچھی کے میدان میں ہے، مگر بلوچستان کے سندھی بولنے والے حصے میں۔
+   NEW: فتح پور کا گاؤں کچھی کے میدان میں جیکب آباد سے تقریباً 100 کلومیٹر دور ہے اور بلوچستان کے سندھی بولنے والے حصے میں شامل ہے۔
+
+15. WHY: V2.2 + V3.14 merged (same sentence). V2: یکسر overstates 'reshaped', so V2's صورت بدل گئی is kept in substance; V3: اس شاہراہ ambiguous after two highways, وہ زیارت without antecedent, sentence overlong, so V3's split and ساحلی شاہراہ are taken, with V3's یکسر replaced by صورت بدل دی and the calqued ایک dropped.
+   OLD: اس شاہراہ کا مقصد بلوچستان کے ساحلی علاقے کی معاشی ترقی کو فروغ دینا تھا، اور اس سے وہ زیارت یکسر بدل گئی جو پہلے مشقت بھرا سفر ہوا کرتی تھی۔
+   NEW: ساحلی شاہراہ کا مقصد بلوچستان کے ساحلی علاقے کی معاشی ترقی کو فروغ دینا تھا۔ پہلے اس علاقے کی زیارت مشقت بھرا سفر ہوا کرتی تھی، مگر اس شاہراہ نے اس کی صورت بدل دی۔
+
+16. WHY: V3 NOTE (one plural for Sufis throughout: صوفیا in the Overview and here).
+   OLD: بہت سے صوفی یکے بعد دیگرے
+   NEW: بہت سے صوفیا یکے بعد دیگرے
+
+17. WHY: V3.16 (resumptive relative جس کے بارے میں ... کہ اس میں); split as V3 gives it, but keeping دعویٰ for the English 'claim' (V3's کے بقول is weaker than 'claim').
+   OLD: گھر والے اکثر جذباتی الجھنوں میں مبتلا عورتوں کو وجد آفریں *دھمال* میں شریک کرانے لاتے ہیں، جس کے بارے میں عقیدت مندوں کا دعویٰ ہے کہ اس میں شفا کی تاثیر ہے۔
+   NEW: گھر والے جذباتی الجھنوں میں مبتلا عورتوں کو اکثر وجد آفریں *دھمال* میں شریک کرانے لاتے ہیں۔ عقیدت مندوں کا دعویٰ ہے کہ اس میں شفا کی تاثیر ہے۔
+
+18. WHY: V3.17 (ہندوؤں کی اکثریت readable as 'a Hindu majority'); fixed with زیادہ تر ہندو rather than V3's آبادی کا بڑا حصہ, since the English says 'most of the Hindus' and بڑا حصہ is 'much of'.
+   OLD: جن میں ہندوؤں کی اکثریت بکھری ہوئی تھی۔
+   NEW: جن میں زیادہ تر ہندو بکھرے ہوئے تھے۔
+
+19. WHY: V3.18 (calque جیسا کہ ... میں متوقع ہے; spelling کمیاب); V3's order and spelling, but the English asserts that the poets delight and says only 'as might be expected', so the verb stays indicative (لطف اٹھاتے ہیں) and V3's emphatic عین متوقع becomes توقع کے مطابق.
+   OLD: جیسا کہ ایک ایسی سوکھی دھرتی میں متوقع ہے جہاں پانی کم یاب ہو اور بارش شاذ ہی برسے، یہاں کے شاعر گرج چمک والے طوفانوں کی منظر کشی سے لطف اٹھاتے ہیں
+   NEW: ایسی سوکھی دھرتی میں، جہاں پانی کمیاب ہو اور بارش شاذ ہی برسے، توقع کے مطابق یہاں کے شاعر گرج چمک والے طوفانوں کی منظر کشی سے لطف اٹھاتے ہیں
+
+20. WHY: V3.19 (calque کے پورے سلسلے میں for 'continuum'); V3's wording.
+   OLD: راجستھان، سندھ، بلوچستان اور ایران کے پورے سلسلے میں گائی جاتی ہے۔
+   NEW: راجستھان سے سندھ اور بلوچستان ہوتی ہوئی ایران تک گائی جاتی ہے۔
+
+21. WHY: V3.20 (سندھ and بلوچستان twice in one sentence; علاقوں کی علاقائی); V3's sentence, but سرائیکی علاقوں kept plural as in the English ('the Siraiki speaking regions') instead of V3's singular خطے.
+   OLD: یہ سندھ اور بلوچستان کی سرزمین میں سنائی جاتی ہے، اور سندھ، بلوچستان اور سرائیکی علاقوں کی علاقائی زبانوں اور بولیوں میں گائی جاتی ہے۔
+   NEW: یہ کہانی سندھ اور بلوچستان میں سنائی جاتی ہے، اور ان دونوں صوبوں اور سرائیکی علاقوں کی مقامی زبانوں اور بولیوں میں گائی جاتی ہے۔
+
+22. WHY: V2 NOTE (precision: emphatic ہی stronger than the English 'which originated in Balochistan and Sindh'); V2's wording.
+   OLD: بلوچستان اور سندھ ہی میں پیدا ہوئی
+   NEW: بلوچستان اور سندھ میں پیدا ہوئی
+
+23. WHY: V3.23, first part (اس زیارت without antecedent in the section); V3's wording.
+   OLD: اس زیارت پر لکھنے والے ایک مصنف
+   NEW: ان زائرین کے سفر پر لکھنے والے ایک مصنف
+
+24. WHY: V3.23, second part (قانونی repeated); نہ تھی applied, but V3's dropping of قانونی طور پر would drop 'legally' from the English 'legally ambiguous', so the repetition is reduced with قانوناً instead.
+   OLD: وہاں کے ویزوں کی حیثیت قانونی طور پر مبہم تھی، اور اس سفر کی کوئی ٹھوس قانونی بنیاد نہیں تھی۔
+   NEW: وہاں کے ویزوں کی حیثیت قانوناً مبہم تھی، اور اس سفر کی کوئی ٹھوس قانونی بنیاد نہ تھی۔
+
+25. WHY: V2.3 + V3.21 merged (same sentence). V2: drop یہ, which equates 'their aim' with the one slogan; V3: an aim cannot 'leave behind' countries, so V3's اگر ... پورا ہوا تو ... رہ جائیں گے, without یہ.
+   OLD: واحد بخش کے بقول ان جماعتوں کا یہ مقصد پیچھے "چار چھوٹے ملک" چھوڑ جائے گا جنہیں
+   NEW: واحد بخش کے بقول اگر ان جماعتوں کا مقصد پورا ہوا تو پیچھے "چار چھوٹے ملک" رہ جائیں گے جنہیں
+
+26. WHY: V2.4 + V3.22 merged (same sentence). V2: کیونکہ adds a causal link the English does not make; V3: four clauses, دے سکتا تھا reads 'was able to', وہ مولوی repeats. V3's two sentences, which drop کیونکہ and so satisfy V2 too.
+   OLD: ستمبر 2012 کے ایک احتجاج کے موقع پر کوئی مقامی مولوی ایسا خطبہ دے سکتا تھا جس میں امریکا، اسرائیل اور بھارت کی تباہی کی دعا مانگی جائے، کیونکہ وہ مولوی انہی تینوں کو ملک کی ہر خرابی کا ذمہ دار ٹھہراتا تھا، اور ان خرابیوں میں بلوچستان کی علیحدگی پسند تحریک بھی شامل تھی۔
+   NEW: ستمبر 2012 کے ایک احتجاج کے موقع پر ممکن تھا کہ کوئی مقامی مولوی ایسا خطبہ دے جس میں امریکا، اسرائیل اور بھارت کی تباہی کی دعا مانگی جائے۔ ایسا مولوی بلوچستان کی علیحدگی پسند تحریک سمیت ملک کی ہر خرابی کا ذمہ دار انہی تینوں کو ٹھہراتا تھا۔
+
+27. WHY: V3.24, first part (کے لیے for 'to someone's view' is an Anglicism); V3's wording.
+   OLD: 1940 میں لکھنے والے ایک مصنف کے لیے بلوچستان ایک پہاڑی دیس تھا:
+   NEW: 1940 میں لکھنے والے ایک مصنف کے نزدیک بلوچستان ایک پہاڑی دیس تھا:
+
+28. WHY: V3.24, second part (wrong postposition سے مشترک); V3's wording.
+   OLD: جس کے بعض عناصر سندھ کی شاعری سے مشترک ہیں۔
+   NEW: جس کے بعض عناصر سندھ کی شاعری میں بھی ملتے ہیں۔
+
+29. WHY: V2.5 = V3.25 (identical fix: Balochistan, Sindh and the Iranian coast together make the one region); their shared sentence.
+   OLD: اکیسویں صدی کی دہلیز پر بلوچستان کو ایک ایسے خطے کا حصہ سمجھا گیا جس کی لوک روایت سندھ اور ایران کی ساحلی پٹی کے ساتھ مشترک ہے۔
+   NEW: اکیسویں صدی کی دہلیز پر بلوچستان کو سندھ اور ایران کی ساحلی پٹی کے ساتھ ایک ایسے خطے کا حصہ سمجھا گیا جس کی لوک روایت مشترک ہے۔
+
+30. WHY: V3.26 (کے لیے calque; بلوچستان twice in one sentence; next sentence's اسے nearest the historian); V3's wording.
+   OLD: ایک مؤرخ کے لیے بلوچستان ایک صحرا تھا جسے اس نے دریائے سندھ کی جانب جاتے ہوئے پار کیا۔ 2010 کی دہائی میں اسے
+   NEW: ایک مؤرخ کے نزدیک یہ ایک صحرا تھا جسے اس نے دریائے سندھ کی جانب جاتے ہوئے پار کیا۔ 2010 کی دہائی میں بلوچستان کو
+
+== REJECTED (wholly or in part), with reasons ==
+
+R1. V3.8 (tense: make both clauses past, or both present)
+   REASON: The English itself has present 'Its pastoral tribes move between the plains ... and the mountains' against past 'the pastoralists of the western Punjab, who stayed on the plains'. Either fix changes when something held (V3 cannot see the English). The Urdu keeps the English tenses: میدانوں کا رخ کرتے ہیں / میدانوں ہی میں رہتے تھے.
+
+R2. V3.15 (جیلانی -> شیخ عبدالقادر جیلانی)
+   REASON: The English says only 'Gilani'; the fuller name is an identification the English does not give, which the brief's override rule forbids. جیلانی is the dictionary's spelling of the nisba (SAINTS: Sheikh Abdul Qadir Gilani = شیخ عبدالقادر جیلانی), so the spelling is consistent.
+
+R3. V3.23, the dropping of قانونی طور پر in 'وہاں کے ویزوں کی حیثیت ... مبہم تھی'
+   REASON: The English says the status of visas was 'legally ambiguous'; dropping 'legally' drops a qualifier. Repetition reduced instead with قانوناً (see changes).
+
+R4. V3.18, the emphatic عین متوقع and subjunctive لطف اٹھائیں
+   REASON: The English asserts that the poets delight and says 'as might be expected', not 'quite expected'. The rest of V3.18 applied (see changes).
+
+R5. V3.14, یکسر in V3's new sentence
+   REASON: V2.2 finds یکسر ('entirely') an overstatement of 'reshaped'; the merged sentence uses صورت بدل دی.
+
+R6. V3.16, عقیدت مندوں کے بقول
+   REASON: The English says 'devotees claim'; کے بقول ('according to') is weaker, so دعویٰ is kept. The split applied.
+
+R7. V3.17, آبادی کا بڑا حصہ
+   REASON: The English says 'most of the Hindus'; بڑا حصہ is 'much of' (brief). زیادہ تر ہندو used; the ambiguity V3 found is removed.
+
+R8. V3.20, سرائیکی خطے (singular)
+   REASON: The English has 'the Siraiki speaking regions' (plural); سرائیکی علاقوں kept. The rest of V3.20 applied.
+
+R9. V3 NOTE: پچاس سے زیادہ in words
+   REASON: The English spells out 'more than fifty'; no change, as V3 itself advises.
+
+R10. V3 NOTE: گواٹی -> گواتی
+   REASON: The English writes 'guāṭi' with a retroflex ṭ, which is ٹ; the Urdu follows the English. No dictionary entry.
+
+R11. V3 NOTE: ایک برادری -> اسی برادری
+   REASON: The English says 'the conceptual worldview of a community', not of the Brahui; اسی برادری would make the identification the English does not make. The suggested ٹھہرتی ہے for ہے is taste, skipped.
+
+R12. V3 NOTE: drop ضرور from اندازہ ہے کہ ... ضرور آباد رہے ہوں گے
+   REASON: The English has both 'must' and 'it is reckoned' ('There must, it is reckoned, have been many Mekranis'); ضرور renders 'must'.
+
+R13. V3 NOTE: ایم ایم اے -> متحدہ مجلس عمل
+   REASON: The English says 'the MMA'; the expanded name is a fuller name than the English gives. The note on سب سے بڑی جماعت بن کر ... برتری is taste: both halves render the English 'gained the upper hand as the largest party'.
+
+R14. V3 NOTE: مکران کوسٹل ہائی وے -> مکران ساحلی شاہراہ
+   REASON: Taste; the official name is the one the English gives and the dictionary has no entry. Kept.
+
+R15. V3 NOTES: رفتہ رفتہ ... یکے بعد دیگرے; اپنا ورثہ
+   REASON: Taste (V3 says so); the English has both 'In time' and 'one after another'. Skipped.
+

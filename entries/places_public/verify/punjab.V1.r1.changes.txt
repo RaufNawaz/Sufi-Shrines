@@ -1,0 +1,380 @@
+punjab: changes applied after V1 round 1 (entries/places_public/verify/punjab.V1.r1.txt)
+File edited: entries/places_public/punjab.md (prose only; bibliography byte for byte unchanged).
+Each change: group, issue or note number, OLD, NEW. Applied 30 October 2026.
+Checker after the changes: check_place_description.py public punjab --english-only -> ok (0.61).
+
+1. [P1] issue 1
+   OLD: After Yudhishthira gave up his throne at the coming of the Kaljug
+   NEW: Tradition holds that after Yudhishthira gave up his throne at the coming of the Kaljug
+
+2. [P1] issue 2
+   OLD: Islam came first to the *wilayat* of Multan, where it began in 99 AH
+   NEW: In the *wilayat* of Multan, Islam began in 99 AH
+
+3. [P1] issue 3
+   OLD: When Masud came to the throne after his father's death
+   NEW: When Masud came to the throne after Sultan Mahmud's death
+
+4. [P1] issue 4
+   OLD: and their raids were less destructive and more sporadic
+   NEW: and their raids appear to have been less destructive and more sporadic
+
+5. [P1] issue 5
+   OLD: His son Khusrau Malik succeeded him on the throne of Lahore, and his rule held over the Punjab until 582 AH, when he went to Ghazni. With his surrender to Sultan Shihab al-Din Ghori the Ghurid sultanate in Hind began and the Ghaznavid government came to its end.
+   NEW: His son Khusrau Malik succeeded him on the throne of Lahore and ruled over the Punjab. Accounts of how and when his rule ended differ; the Ghaznavid government came to its end with his surrender to Sultan Shihab al-Din Ghori, when the Ghurid sultanate in Hind began.
+
+6. [P1] issue 6
+   OLD: Chingiz Khan's army entered Punjab in pursuit of the prince and plundered the whole land, and a little known tradition holds that the people of Lahore fought them for two months.
+   NEW: A little known tradition holds that Chingiz Khan's army entered Punjab in pursuit of the prince and plundered the whole land, and that the people of Lahore fought them for two months.
+
+7. [P1] issue 7
+   OLD: Some of his *kafis* seem to speak of a separation from Shah Inayat
+   NEW: One of his *kafis* seems to speak of a separation from Shah Inayat
+
+8. [P1] issue 8a
+   OLD: and the province's story in modern times ends with its division between India and Pakistan.
+   NEW: and in the end the province was divided between India and Pakistan.
+
+9. [P1] issue 8b
+   OLD: The province's story ends with its division between India and Pakistan and the second wave of migration that followed.
+   NEW: Then the Punjab was divided between India and Pakistan, and a second wave of migration followed.
+
+10. [P1] issue 9
+   OLD: Ranjit Singh's Punjab was the province at its widest. As the Maharaja,
+   NEW: As the Maharaja,
+
+11. [P1] issue 10
+   OLD: when ʿAli Hujwiri reached Lahore
+   NEW: when Hujwiri reached Lahore
+
+12. [P1] issue 11 (Overview)
+   OLD: many important gurdwaras came to be run by Hindu *mahants*, hereditary custodians.
+   NEW: many important gurdwaras came to be run by Hindu *mahants*, priestly custodians.
+
+13. [P1] issue 12
+   OLD: Later an exhibition of the industrial arts of the Punjab was held in the building of the School of Art.
+   NEW: An exhibition of the industrial arts of the Punjab was also held in the building of the School of Art.
+
+14. [P1] issue 9, follow up (referent mended after the cut)
+   OLD: As the Maharaja, ruler of the region of the Punjab, he brought the whole region into his hands
+   NEW: As the Maharaja, ruler of the region of the Punjab, Ranjit Singh brought the whole region into his hands
+
+15. [P1] note 3 (Bairam Khan referent)
+   OLD: At his fall, in the sixth year of the reign, Bairam Khan took the road to Punjab
+   NEW: At Bairam Khan's fall, in the sixth year of the reign, he took the road to Punjab
+
+16. [P1] note 4 (again)
+   OLD: When Sultan Sikandar again began to collect revenue
+   NEW: When Sultan Sikandar began to collect revenue
+
+17. [P1] note 5 (Ranghars)
+   OLD: and another names the Ranghars, a tribe
+   NEW: and his verse also touches on the Ranghars, a tribe
+
+18. [P1] note 6 (descriptor)
+   OLD: and the scholar Al-Beruni came to India
+   NEW: and Al-Beruni came to India
+
+19. [P1] note 6 (descriptor)
+   OLD: After the uprising of 1857 the Sufi Imdadullah fled
+   NEW: After the uprising of 1857 Imdadullah fled
+
+20. [P1] note 7 (keep inside retelling)
+   OLD: Once the conquerors had settled down in the Punjab, they turned
+   NEW: In that retelling, once the conquerors had settled down in the Punjab, they turned
+
+21. [P1] note 8 (reconstruction framed)
+   OLD: Yet in the days of Guru Nanak's parents, the jungles of Punjab were infested
+   NEW: Yet it is said that in the days of Guru Nanak's parents the jungles of Punjab were infested
+
+22. [P1] note 9 (first Punjabi)
+   OLD: he was the first Punjabi to rule Punjab, and he brought
+   NEW: he is called the first Punjabi to rule Punjab, and he brought
+
+23. [P1] note 10 / cross group (Abdali also called Durrani)
+   OLD: to those of Ahmad Shah Abdali, the Afghan king whose capital was Kandahar
+   NEW: to those of Ahmad Shah Abdali, also called Durrani, the Afghan king whose capital was Kandahar
+
+24. [P1] note 10 / cross group (Abdali also called Durrani)
+   OLD: and Ahmad Shah Durrani, Nadir Shah's successor, invaded it several times from his native Afghanistan. Ahmad Shah of the Abdali Afghans, after Nadir Shah's assassination, took Afghanistan
+   NEW: and Ahmad Shah Abdali, Nadir Shah's successor, invaded it several times from his native Afghanistan. After Nadir Shah's assassination Ahmad Shah took Afghanistan
+
+25. [P1] note 12 (golden age referent)
+   OLD: Its golden age was the late seventeenth and the eighteenth century
+   NEW: The golden age of this poetry was the late seventeenth and the eighteenth century
+
+26. [P1] note 13 (those barriers)
+   OLD: closed those barriers in the middle
+   NEW: closed that frontier in the middle
+
+27. [P1] note 14 (significant)
+   OLD: a number of grave political crises
+   NEW: a number of significant political crises
+
+28. [P1] note 14 (did not advise)
+   OLD: most of the nobles advised against moving in that season
+   NEW: most of the nobles did not advise moving in that season
+
+29. [P1] note 14 (agreed a tax)
+   OLD: Abdali had fixed a yearly tax that the governor was to pay him
+   NEW: Abdali had agreed a yearly tax that the governor was to pay him
+
+30. [P1] note 14 (writes)
+   OLD: Waris Shah grieved:
+   NEW: Waris Shah writes:
+
+31. [P1] note 14 (no calmer)
+   OLD: The same years seen from Sindh were no calmer.
+   NEW: The same years can also be seen from Sindh.
+
+32. [P1] note 15 (faujdari)
+   OLD: of the hills of Punjab was given new holders.
+   NEW: of the hills of Punjab changed hands.
+
+33. [P1] note 17 (the fourth blow)
+   OLD: The blows on the province fell one after another. The fourth came
+   NEW: Of the blows that fell on the province one after another, the fourth came
+
+34. [P1] note 14 (writes), reworded for checker P2
+   OLD: In the epilogue of *Hir and Ranjha*, which he dated 1180 Hijri, Waris Shah writes:
+   NEW: Waris Shah's lament comes in the epilogue of *Hir and Ranjha*, which he dated 1180 Hijri:
+
+35. [P2] issue 1
+   OLD: A saint of the province is one whose tomb lies in its soil; of the Naqshbandi line, none of the elders before Khwaja Baqi Billah of Delhi has a tomb in the land of Punjab.
+   NEW: Its saints are reckoned by their tombs in its soil, and so the province's account of the Naqshbandi line begins with Khwaja Baqi Billah of Delhi, since none of the elders before him has a tomb in the land of Punjab.
+
+36. [P2] issue 2
+   OLD: He is said to have been the first of the callers to Islam to come to Lahore; thousands became Muslims at his hands, and through him Islam spread in Punjab.
+   NEW: He is said to have been the first of the callers to Islam to come to Lahore, and thousands are said to have become Muslims at his hands, so that through him Islam spread in Punjab.
+
+37. [P2] issue 3
+   OLD: Today the heart of shrine devotion lies in the south of the province.
+   NEW: Today the heart of shrine devotion is placed in the south of the province.
+
+38. [P2] issue 4
+   OLD: It is dominant in Punjab and North India, though it was never widespread in Sindh,
+   NEW: It is dominant in Punjab and North India, though it was not widespread in Sindh,
+
+39. [P2] issue 5
+   OLD: form an important part of its population, as the census of 1931 for the Bombay Presidency makes clear.
+   NEW: form an important part of its population.
+
+40. [P2] issue 6
+   OLD: One man who moved to Lahore in the 1980s put it this way: "There are hardly any Zoroastrians here and I have never come across any Hindu.
+   NEW: One man who moved to Lahore in the 1980s put it this way: "here in the Punjab, the situation is much different. There are hardly any Zoroastrians here and I have never come across any Hindu.
+
+41. [P2] note 1 (army major)
+   OLD: As a colonial officer wrote in 1911
+   NEW: As an army major wrote in 1911
+
+42. [P2] note 2 (In this way)
+   OLD: In this way the shrine helped to draw
+   NEW: The shrine helped to draw
+
+43. [P2] note 3 (named among five)
+   OLD: The Punjab is one of five regions, with Gujarat,
+   NEW: The Punjab is named among five regions, with Gujarat,
+
+44. [P2] note 4 (medieval Punjab)
+   OLD: In one view, for over three hundred years Islam and Hinduism lived side by side in the Punjab in a state of constant conflict.
+   NEW: In one view, for over three hundred years in the medieval Punjab Islam and Hinduism lived side by side in a state of constant conflict.
+
+45. [P2] note 5 (has been explained)
+   OLD: The change is explained by the coming of the Persian wheel
+   NEW: The change has been explained by the coming of the Persian wheel
+
+46. [P2] note 6 (Rasul Shahi)
+   OLD: it had hardly any house, *takia*,
+   NEW: it had no house, *takia*,
+
+47. [P2] note 7 (claim heard in Punjab)
+   OLD: The popular Punjabi claim that the Jalali faqirs
+   NEW: The claim heard in Punjab that the Jalali faqirs
+
+48. [P2] note 8 (in some accounts)
+   OLD: His third journey, of 1514 to 1516, went
+   NEW: In some accounts his third journey, of 1514 to 1516, went
+
+49. [P2] note 9 (Naushah marriage story)
+   OLD: Other customs belong to the nineteenth century. Following the custom of the Muslims of Punjab, the bride's family at the marriage of Hazrat Naushah's daughter demanded a hundred rupees in customary dues.
+   NEW: Other marriage customs were known in the nineteenth century. In the story of the marriage of Hazrat Naushah's daughter, the bride's family, following the custom of the Muslims of Punjab, demanded a hundred rupees in customary dues.
+
+50. [P2] note 10 (written lives)
+   OLD: the lives of the saints were drawn into
+   NEW: the written lives of the saints were drawn into
+
+51. [P2] note 11 (counted remote)
+   OLD: living in the remote regions of Southern Punjab, inner Sindh and Baluchistan.
+   NEW: living in the regions of Southern Punjab, inner Sindh and Baluchistan that are counted remote.
+
+52. [P2] note 12 (more influential)
+   OLD: was most influential in Northern India
+   NEW: was more influential in Northern India
+
+53. [P2] note 13 (a stretch of that land)
+   OLD: little by little the land passed to them
+   NEW: little by little a stretch of that land passed to them
+
+54. [P2] note 14 (a few years before)
+   OLD: In the years before 1884 famine fell
+   NEW: A few years before 1884 famine fell
+
+55. [P2] note 15 (regarded as)
+   OLD: the whole community was one social unit
+   NEW: the whole community was regarded as one social unit
+
+56. [P2] note 15, carried to the Overview (regarded as)
+   OLD: The village of the old Punjab was one social unit
+   NEW: The village of the old Punjab was regarded as one social unit
+
+57. [P2] note 17 (would lead)
+   OLD: the most likely path leads to a life among
+   NEW: the most likely path would lead to a life among
+
+58. [P2] note 18 (one writer's view)
+   OLD: than the northern and central regions, where education is more widespread
+   NEW: than the northern and central regions, where, in one writer's view, education is more widespread
+
+59. [P2] note 4, carried to the Overview (one view, medieval Punjab)
+   OLD: Islam and Hinduism existed side by side in the Punjab for over three hundred years in a state of constant conflict, yet
+   NEW: In one view, Islam and Hinduism existed side by side in the medieval Punjab for over three hundred years in a state of constant conflict, yet
+
+60. [P3] issue 1
+   OLD: whose lines liken him to the candle of Punjab and to a new flower from the garden of Punjab.
+   NEW: one of whose lines likens him to a new flower from the garden of Punjab.
+
+61. [P3] issue 2
+   OLD: Sindh and the Punjab are most often spoken of together, as the two provinces of one tradition of religious poetry and as a cotton growing country, and the province is also the land invaded by Marathas, Sikhs and Muslim armies in the late seventeenth and eighteenth centuries.
+   NEW: One historian of Islamic mysticism most often speaks of Sindh and the Punjab together, as the two provinces of one tradition of religious poetry and as a cotton growing country, and for her the province is also the land invaded by Marathas, Sikhs and Muslim armies in the late seventeenth and eighteenth centuries.
+
+62. [P3] issue 3
+   OLD: a large number of important gurdwaras came to be run by Hindu *mahants*, hereditary custodians.
+   NEW: a large number of important gurdwaras came to be run by Hindu *mahants*, the heads of temples and religious houses.
+
+63. [P3] issue 4
+   OLD: the Punjabi cannot. Punjabi alone is not taught in schools and has no dictionary.
+   NEW: the Punjabi cannot; Punjabi alone, it adds, is not taught in schools and has no dictionary.
+
+64. [P3] note a (seems)
+   OLD: contrasted sharply with the wheat and meat diet of the Punjab, a special stumbling block for newcomers.
+   NEW: contrasted sharply with the wheat and meat diet of the Punjab and seems to have been a special stumbling block for newcomers.
+
+65. [P3] note a (mainly, tend to)
+   OLD: Tunes from Uttar Pradesh rest on quantity, the length of the syllables, while Punjabi tunes are organised by stress,
+   NEW: Tunes from Uttar Pradesh rest mainly on quantity, the length of the syllables, while Punjabi tunes tend to be organised by stress,
+
+66. [P3] note a (particularly)
+   OLD: are most evident in the countryside
+   NEW: are particularly evident in the countryside
+
+67. [P3] note a (represents)
+   OLD: in many cases the local *pir* is the local landlord or closely related to him.
+   NEW: in many cases the local *pir* represents the local landlord or is at least closely related to him.
+
+68. [P3] note a (traditionally)
+   OLD: is sung at almost every Punjabi wedding
+   NEW: is traditionally sung at almost every Punjabi wedding
+
+69. [P3] note b (several)
+   OLD: Mardana knew by heart many folk stories
+   NEW: Mardana knew by heart several folk stories
+
+70. [P3] note c (always been)
+   OLD: but as an enemy of Islam for all time.
+   NEW: but as having always been an enemy of Islam.
+
+71. [P3] note d (tile inscription 1880s)
+   OLD: a tile inscription carries these lines.
+   NEW: a tile inscription recorded in the 1880s carried these lines.
+
+72. [P3] note d (gardens)
+   OLD: and his gardens remain his memorial in many places.
+   NEW: and in the nineteenth century his gardens remained his memorial in many places.
+
+73. [P3] note d (early 1980s anchor)
+   OLD: Punjabi literature in Pakistan is in a state of neglect: the language has become a purely spoken one, and Punjabis can no longer read it in written form.
+   NEW: In the early 1980s Punjabi literature in Pakistan was in a state of neglect: the language had become a purely spoken one, and Punjabis could no longer read it in written form.
+
+74. [P3] note d (awaited)
+   OLD: The Punjab still awaits a proper assessment of its greatest poet, a meeting that may never take place.
+   NEW: The Punjab awaited a proper assessment of its greatest poet, a meeting that might never take place.
+
+75. [P3] note e (editor's judgement)
+   OLD: The author of *Nuzhat al-Khawatir*, by contrast, took
+   NEW: The author of *Nuzhat al-Khawatir*, in the editor's judgement, took
+
+76. [P3] note f (fragment)
+   OLD: Once the image is turned round, as if the armies of the Punjab had fallen upon Hindustan. That is an imagined scene,
+   NEW: Once he turns the image round, writing as if the armies of the Punjab had fallen upon Hindustan; that is an imagined scene,
+
+77. [P3] note g (Hir and Ranjha)
+   OLD: Heer Ranjha is the most celebrated folk story
+   NEW: Hir and Ranjha is the most celebrated folk story
+
+78. [P3] note g (Punjab)
+   OLD: in different parts of Panjab,
+   NEW: in different parts of Punjab,
+
+79. [P3] note g (Punjab)
+   OLD: The world of Hir and Ranjha is western Panjab.
+   NEW: The world of Hir and Ranjha is western Punjab.
+
+80. [P3] note g (Punjab)
+   OLD: who had made the Panjab the main centre
+   NEW: who had made the Punjab the main centre
+
+81. [P3] note f, follow up (referent)
+   OLD: Once he turns the image round, writing as if
+   NEW: Once the poet turns the image round, writing as if
+
+82. [all] cross group (Sindh)
+   OLD: villagers of Sind and Punjab
+   NEW: villagers of Sindh and Punjab
+
+83. [all] cross group (Sindh)
+   OLD: Nadir Shah first conquered Sind and the Punjab
+   NEW: Nadir Shah first conquered Sindh and the Punjab
+
+84. [all] cross group (Sindh)
+   OLD: great Sufis of Punjab and Sind drew
+   NEW: great Sufis of Punjab and Sindh drew
+
+85. [all] cross group (Sindh)
+   OLD: At the shrines of Punjab and Sind devotees
+   NEW: At the shrines of Punjab and Sindh devotees
+
+86. [all] cross group (Sindh)
+   OLD: thought to have come into Sind with
+   NEW: thought to have come into Sindh with
+
+87. [all] cross group (Sindh)
+   OLD: more visibly in Sind than in the Punjab, and some saints
+   NEW: more visibly in Sindh than in the Punjab, and some saints
+
+88. [all] cross group (Sindh)
+   OLD: his successors in Sind, accepted
+   NEW: his successors in Sindh, accepted
+
+89. [all] cross group (Sindh)
+   OLD: the whole stream is called the Sind and
+   NEW: the whole stream is called the Sindh and
+
+90. [all] cross group (Sindh)
+   OLD: across the river of Sind;
+   NEW: across the river of Sindh;
+
+91. [all] cross group (Baluch)
+   OLD: in the Baloch country
+   NEW: in the Baluch country
+
+92. [all] cross group (Madho Lal Hussein), 7 places
+   OLD: Shah Hussein
+   NEW: Madho Lal Hussein
+
+93. [all] cross group (Madho Lal Hussein), reworded for checker P2
+   OLD: Madho Lal Hussein wrote in the Punjab of Akbar,
+   NEW: Madho Lal Hussein belongs to the Punjab of Akbar,
+
+94. [all] cross group (Madho Lal Hussein), reworded for checker P2
+   OLD: the social and economic conditions of the Punjab in Madho Lal Hussein's time.
+   NEW: the social and economic conditions of the Punjab in the time of Madho Lal Hussein.

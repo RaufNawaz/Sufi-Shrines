@@ -1,0 +1,25 @@
+Changes applied after V1 round 2 (FAIL, 3 issues), 30 October 2026, by the coordinator, exactly as V1 gave them (issues 1 to 3, then the spelling points 4a to 4g):
+1. OLD: because of the province's isolation, though that account gives no evidence that its *sants*, the poet saints, shaped the spiritual life of the province.
+   NEW: because of the province's isolation.
+2. OLD: Mirza Jani Beg, son of Painda Muhammad son of Muhammad Baqi, came to court with the Khankhanan, Mirza Abd al-Rahim, whose deeds included the conquest of Gujarat, Thatta and the Deccan, after ruling for eight years, and the country entered the protected dominions of the empire.
+   NEW: After ruling for eight years, Mirza Jani Beg, son of Painda Muhammad son of Muhammad Baqi, came to court with the Khankhanan, Mirza Abd al-Rahim, whose deeds included the conquest of Gujarat, Thatta and the Deccan, and the country entered the protected dominions of the empire.
+3. OLD: In the nineteenth century Burton saw Sufism in Sindh as a political power:
+   NEW: In the nineteenth century one writer saw Sufism in Sindh as a political power:
+4. OLD: As Crowe put it, "The Sindians are excessively fond of singing".
+   NEW: As one observer put it, "The Sindians are excessively fond of singing".
+5. OLD: The *wilayat*, or country, of Sind known as Thatta
+   NEW: The *wilayat*, or country, of Sindh known as Thatta
+6. OLD: The greatest river was the Sind.
+   NEW: The greatest river was the Sindh.
+7. OLD: came up from the salt sea into the Sind,
+   NEW: came up from the salt sea into the Sindh,
+8. OLD: Arab historians spoke of Hind and Sind separately: Sind was bounded by Multan, Jaisalmer and Gujarat, and Hind, or Hindustan, began where Sind ended.
+   NEW: Arab historians spoke of Hind and Sindh separately: Sindh was bounded by Multan, Jaisalmer and Gujarat, and Hind, or Hindustan, began where Sindh ended.
+9. OLD: connecting Afghanistan, Khorasan, Arabia
+   NEW: connecting Afghanistan, Khurasan, Arabia
+10. OLD: Sultan Sikandar Lodhi
+   NEW: Sultan Sikandar Lodi
+11. OLD: Abd al-Rahim Khan-i Khanan, one of Akbar's chief nobles, was travelling
+   NEW: The Khankhanan, Abd al-Rahim, one of Akbar's chief nobles, was travelling
+12. OLD: The exceptions were the two Hur rebellions
+   NEW: The exceptions were the two *hurr* rebellions

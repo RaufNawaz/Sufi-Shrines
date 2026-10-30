@@ -1,0 +1,18 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [fault a change introduced: ambiguous referent] "one of two important urban centres of Sufism in the subcontinent, with Hyderabad in India, the home of a living Chishti order, of Hindu temples and of most of Pakistan's Zoroastrians" (Overview, paragraph 1) -> The change makes the count and the pairing correct, and both are supported by the team version ("one of 'two important urban centres of Sufism' in the subcontinent, paired with Hyderabad in India"). But putting "with Hyderabad in India," straight before "the home of a living Chishti order" makes that phrase, and the rest of the list, read as an apposition describing Hyderabad. The reader can take Hyderabad in India to be the home of the living Chishti order. The team version places that order in Karachi (Rozehnal). Before the change the list had no such referent. -> exact fix: OLD "one of two important urban centres of Sufism in the subcontinent, with Hyderabad in India, the home of a living Chishti order, of Hindu temples" NEW "one of two important urban centres of Sufism in the subcontinent, the other being Hyderabad in India, and the home of a living Chishti order, of Hindu temples"
+
+NOTES:
+
+- Diff check (python difflib, /home/claude/work/bak/karachi.r1.bak against entries/places_public/karachi.md): exactly seven lines differ (3, 27, 35, 61, 67, 71, 91). Each one is precisely one listed change, OLD to NEW. Nothing else moved.
+- All four round 1 issues were applied (1: the qawwali calendar sentence removed; 2: the film sentence; 3: "one of two" with Hyderabad; 4: one dissertation). Three meaning or precision notes were also applied. The remaining round 1 notes were taste or optional and were rightly not applied.
+- Change 1 (calendar sentence removed): this resolves the issue. The paragraph is now one sentence about the 1983 death, which is fully supported (team, line 65). No fault.
+- Change 2 (Immaculate Conception): this resolves the issue and matches the filmography line "about a hijṛā shrine in Karachi, Pakistan". Taste only: "the transgender community of South Asia, in Karachi" leaves "in Karachi" trailing after the gloss. "is about a shrine in Karachi of the *hijṛā*, the transgender community of South Asia" would read more smoothly. Not a fault.
+- Change 4 (one dissertation): this resolves the issue ("a Karachi University doctoral dissertation", team, line 93). No fault.
+- Change 5 ("*ʿīd*, a Muslim festival"): correct gloss, no fault.
+- Change 6 ("A holy area has been renamed and a temple built over"): this resolves the point. The renaming was of the area (team, lines 35 and 59), and a mosque was built on top of the Port Grand temple (line 37). "Holy" is a light gloss of the area's "religious connotation". This is the round 1 verifier's own wording and is acceptable. The sentence repeats facts already given in Holy Places (lines 37 and 41), but that repetition was there before the change.
+- Change 7 ("a city torn by conflict, where security guards ..."): this resolves the point. It is now the source's own sentence ("In a city torn by conflict, security guards and law enforcement authorities are quick to react"). No fault.
+- Pre-existing and not introduced: Overview, Qawwali and Song, and Karachi in Books all now name or quote the "two important urban centres", and two of them pair it with Hyderabad. This is taste.
+- No new dashes, doubled words, source talk or unsupported facts were found in the changed sentences or their neighbours.

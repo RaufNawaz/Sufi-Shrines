@@ -1,0 +1,10 @@
+V2 and V3 confirming round 3 for multan.short, one confirming worker doing both. V2 PASS, V3 PASS.
+
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+NOTES:
+- Diff check (python difflib, /home/claude/work/multan/short_ur.r2.bak against /home/claude/repo/entries/places_public/multan.short.ur.md): both files have 113 lines, and the only hunk is line 33, where "شیوخ" is now preceded by "اس نے". The OLD sentence occurs exactly once in the backup and not at all in the current file, and the NEW sentence occurs exactly once in the current file. Replacing OLD with NEW in the backup gives text identical to the current file, so nothing outside the listed change moved. Mechanics are still clean: no Latin letters, no em or en dashes, 4 asterisks.
+- V2: the English (paragraph 4 of the Delhi Sultans history) says "Later a sultan reached Multan and made the round of the tombs of the shaikhs." The NEW sentence, "بعد میں ایک سلطان ملتان پہنچا اور اس نے شیوخ کے مقبروں کی زیارت کی۔", says the same: an unnamed sultan, later, reached Multan and visited the shaikhs' tombs. Nothing is added, nothing is dropped and the certainty is unchanged. "اس نے" can only refer to "ایک سلطان", the subject of the first clause. It cannot be read as Malik Bahram or his sons, who belong to the previous sentence and are referred to in the plural.
+- V3: the fix is correct. It adds the ergative subject that the transitive perfective "زیارت کی" requires after the intransitive "پہنچا", which matches the handling in the eight sentences fixed in round 1. The sentence reads naturally in its paragraph and the next sentence, "انہی دنوں ملتان میں لنگاہ قوم نے ...", still follows smoothly. "ایک سلطان" is not a calqued article here: the sultan is unnamed in the English too, so "ایک" is the natural Urdu for an indefinite person.
+- Taste: "مقبروں پر حاضری دی" would carry "made the round" a little more closely than "زیارت کی", but "زیارت" is the established usage and already passed V2. This does not fail the round.

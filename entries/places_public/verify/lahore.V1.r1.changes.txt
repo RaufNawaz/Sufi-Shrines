@@ -1,0 +1,125 @@
+# lahore: changes applied by the coordinator after V1 round 1 (FAIL); each OLD replaced once
+
+WHY: V1 P1 issue 1
+OLD: When Humayun returned with Prince Muhammad Akbar and three thousand horse, the governor of Lahore, Tatar Khan, came out against him and Bairam Khan overcame him off his guard; the Afghans scattered, and Lahore passed into the hands of the emperor's servants.
+NEW: When Humayun returned with Prince Muhammad Akbar and three thousand horse, the Afghans scattered and Lahore passed without a battle into the hands of the emperor's servants.
+
+WHY: V1 P1 issue 2
+OLD: For a time no sultan of Hind lived in Lahore and the city declined and lay deserted, until Tatar Khan, one of the amirs of Sultan Bahlul Lodi, made it his seat of government and settlement grew again.
+NEW: For a time no sultan of Hind lived in Lahore and the city declined, until Tatar Khan, one of the amirs of Sultan Bahlul Lodi, made it his seat of government.
+
+WHY: V1 P1 issue 4
+OLD: Most of the buildings between the Mochi Gate and the Kashmiri Bazaar are his memorials, and he was the last nazim of Lahore, after whom none was appointed.
+NEW: Most of the buildings between the Mochi Gate and the Kashmiri Bazaar are his memorials.
+
+WHY: V1 P1 issue 5
+OLD: His successor Aram Shah was enthroned in the delightful territory of Lahore
+NEW: Aram Shah was enthroned in the delightful territory of Lahore
+
+WHY: V1 P1 issue 6
+OLD: and the Delhi Gate was the most famous.
+NEW: and the Delhi Gate was famous.
+
+WHY: V1 P1 issue 7
+OLD: and he watched it sitting at a city gate.
+NEW: and he watched it sitting at a gate.
+
+WHY: V1 P1 note (founding), V1's wording, basis (c)
+OLD: Its founding is most often given to Lo, or Lohu, and in one telling Raja Ramchandar had two sons, Kushu and Lohu, and it was Lohu who settled the city.
+NEW: Accounts of how Lahore began differ. In one telling Raja Ramchandar had two sons, Kushu and Lohu, and it was Lohu who settled the city.
+
+WHY: V1 P2 issue 1
+OLD: In the nineteenth century those working there, on the word of Sayyid Mansur, the *sajjada nashin*, included men named Rahmat, Nabi Bakhsh, Miran Bakhsh, Shahab al-Din, Nur Din and Chiragh Din.
+NEW: In the nineteenth century the gravediggers working there included men named Rahmat, Nabi Bakhsh, Miran Bakhsh, Shahab al-Din, Nur Din and Chiragh Din.
+
+WHY: V1 P2 issue 2
+OLD: He and her paternal grandfather, Mufti Muzaffar Din, both appear in the city's history of the 1880s.
+NEW: Her paternal grandfather was Mufti Muzaffar Din.
+
+WHY: V1 P2 issue 3
+OLD: and it was settled in connection with Pir Shirazi Baloch, to whom the Baloch people of Mozang came and went.
+NEW: and it is said to have been settled in connection with Pir Shirazi Baloch, to whom the Baloch people of Mozang came and went.
+
+WHY: V1 P2 issue 4
+OLD: The saints guard the city and claim it. Of a *majzub*
+NEW: Tradition holds that the saints guard the city and claim it. Of a *majzub*
+
+WHY: V1 P2 issue 5
+OLD: and he bathed and dressed it every day, because whatever his heart desired came to him.
+NEW: and he bathed and dressed it every day because, it is said, whatever his heart desired came to him.
+
+WHY: V1 P2 issue 6
+OLD: The city's Muslim notables judged their saints too: Shah Hussain's
+NEW: Lahore judged its saints too: Shah Hussain's
+
+WHY: V1 P2 issue 7
+OLD: The Sufi orders of the city included the Qadiri, Chishti, Suhrawardi, Naqshbandi and Naushahi, among others.
+NEW: The Sufi orders were the Qadiri, Chishti, Suhrawardi, Naqshbandi and Naushahi, among others.
+
+WHY: V1 P2 note (tense and anchor)
+OLD: and that man's descendants are among the gravediggers
+NEW: and in the nineteenth century that man's descendants were among the gravediggers
+
+WHY: V1 P3 issue 1
+OLD: Sometimes disciples were preferred to heirs, and sometimes heirs held everything. Shah Rahmatullah Qureshi's family kept both:
+NEW: Sometimes heirs held everything. Shah Rahmatullah Qureshi's family kept both:
+
+WHY: V1 P3 issue 2
+OLD: they jointly made him *sajjada nashin* of the temple of Chhajju Bhagat, when only
+NEW: they jointly made him *sajjada nashin* of a temple, when only
+
+WHY: V1 P3 issue 3
+OLD: The Shiv Gar shivala and Rani Lachhmi's thakurdwara had land cultivated every harvest.
+NEW: The Shiv Gar shivala had land of its own, and Rani Lachhmi's thakurdwara had land cultivated every harvest.
+
+WHY: V1 P3 issue 4
+OLD: The Baoli had a great many shops and rented *kothris*, small rooms.
+NEW: The Baoli had shops and rented *kothris*, small rooms.
+
+WHY: V1 P3 note (anchor)
+OLD: In the nineteenth century, after the Sikhs had looted the village of Miani, its resettled houses paid a rent of one rupee a year each
+NEW: After the Sikhs had looted the village of Miani, its resettled houses paid a rent of one rupee a year each, as they still did in the nineteenth century
+
+WHY: V1 P3 note (referent)
+OLD: Zakariya Khan, who told him that if he became
+NEW: Zakariya Khan, who told Haqiqat Rai that if he became
+
+WHY: V1 P4 issue 1
+OLD: and tambola is the only game played in Lahore now.
+NEW: and tambola is the only game the community plays in Lahore now.
+
+WHY: V1 P4 issue 2
+OLD: and the Punjab University library holds a manuscript of it, number 374, of 1804.
+NEW: and the Punjab University library holds a manuscript of his verse, number 374, of 1804.
+
+WHY: V1 P4 issue 3
+OLD: Writers of many centuries have seen Lahore as a seat of poets and of rulers.
+NEW: Two older accounts describe Lahore as a seat of poets and of rulers.
+
+WHY: V1 P4 issue 4
+OLD: The anniversary of Madho Lal Hussain is still celebrated
+NEW: The anniversary of Madho Lal is still celebrated
+
+WHY: V1 P4 issue 5
+OLD: and Hindus and Muslims often shared it.
+NEW: and Hindus and Muslims shared some of it.
+
+WHY: V1 P4 note (Sana'i not called a poet)
+OLD: The poet Sana'i, who first collected
+NEW: Sana'i, who first collected
+
+WHY: V1 P4 note (in print)
+OLD: he asked the administration openly for a further grant
+NEW: he asked the administration publicly, in writing, for a further grant (the checker refuses "in print" as uncertainty vocabulary)
+
+WHY: V1 P4 note (one search)
+OLD: and a printing said to date from 1966 could not be found in the libraries of Lahore
+NEW: and a printing said to date from 1966 was not found in the libraries of Lahore that were searched
+WHY: V1 P1 issue 3 (the file italicises *khanqah*)
+OLD: Sikh army surrounded the *khanqah*, the Sufi lodge, foot and horse, and the guns opened fire. Suchet Singh was killed, the walls of the building were brought down by cannon balls, and many of the khanqah's dervishes and about a hundred and fifty of Suchet Singh's companions died.
+NEW: Sikh army, foot and horse, surrounded the *khanqah*, the Sufi lodge, and attacked it. Suchet Singh was killed, and many of the khanqah's dervishes and about a hundred and fifty of Suchet Singh's companions died.
+
+WHY: V1 P1 note for the coordinator: the team version lists Ghori's taking of Lahore as a disagreement (Bhandari against Dhillon); rule 4 gives the established telling with one clause that accounts differ
+OLD: and the Sultan installed his own deputy in Lahore.
+NEW: and the Sultan installed his own deputy in Lahore, though accounts differ on whether he ever took the city.
+

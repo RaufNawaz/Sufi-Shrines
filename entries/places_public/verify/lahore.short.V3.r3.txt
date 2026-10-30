@@ -1,0 +1,26 @@
+# V2 and V3 round 3 (confirming, one worker doing both) on entries/places_public/lahore.short.ur.md: the round 2 changes (verify/lahore.short.ur.r2.changes.txt), with a diff against the round 2 text. Reply verbatim.
+# Verdicts recorded: V2 FAIL (round 3, issue 1 is a fidelity fault); V3 PASS (round 3, no fluency fault).
+
+VERDICT: FAIL
+
+ISSUES:
+1. [V2 changed fact (number) / omission of qualifier] Group B line 45: "اور چور مور والا میں بھی مہنت اور پجاری کا گزارا اسی پر تھا۔" -> The English says "the *mahant* ... and the pujaris lived on the offerings alone". The old text treated پجاری as a plural subject ("کرتے تھے"). In the new genitive construction, پجاری is singular oblique, so it now says "the mahant and the pujari", one priest. The plural form would be پجاریوں. "alone" (صرف) has also gone: اسی پر only points back to the previous clause. -> "ایک ٹھاکر دوارے کے ضروری اخراجات صرف چڑھاوے پر چلتے تھے، نہ کوئی جاگیر مقرر تھی نہ روزینہ، اور چور مور والا میں بھی مہنت اور پجاریوں کا گزارا بس اسی پر تھا۔"
+
+NOTES:
+- **Diff check.** I diffed both backups against the current files, line by line and word by word.
+  - Group A has 8 changed lines (5, 45, 47, 51, 61, 71, 73, 89). They match the 8 OLD/NEW entries exactly.
+  - Group B has 13 changed lines (15, 41, 45, 53, 67, 69, 71, 85, 87, 91, 112, 114, 118). They match the 15 entries exactly: lines 67 and 112 each hold two. Nothing else moved, and the line counts are unchanged (91 and 118).
+- **Group A new sentences.** All 8 are faithful and fluent. V3 r2 A issues 1 to 8 are resolved.
+  - Issue 2 uses رنجیت سنگھ instead of مہاراجا. The English "his death" refers to Ranjit Singh, so this adds nothing. Naming him twice in one sentence is acceptable.
+  - Issue 7 now reads "علامہ محمد اقبال یہیں دفن ہیں". This drops the English "the poet" and adds the honorific علامہ. I accept it: "the poet" works as a gloss of a name every Urdu reader knows, and the brief allows conventional honorifics. Recorded only.
+  - Issue 8 puts the canal clauses in the past, where the English has the present ("runs ... fills ... is raised"). The English sentence itself opens with "ran", so the past frame is defensible. The Urdu no longer implies the water still runs. Recorded only.
+- **Group B new sentences.** Apart from issue 1, the rest are faithful and fluent. V2 r2 B issue 1 and V3 r2 B issues 1, 2 and 4 to 15 are resolved. Minor points, none needing a change:
+  - "کچھ املاک ... واپس بھی ہوئیں" adds a light "some" and "also" to "Restitution came through named officers". It reads as the natural contrast with the paragraph before and changes no fact.
+  - "مذہبی سرگرمیوں کی" gives an object to "licensed, administered and suppressed", which has none in the English. The paragraph's examples (a mela, a Sufi order's still, a shrine diwan's schooling) support it.
+- **Rejections.** All are sound.
+  - V3 B3 (naming the Maharaja as رنجیت سنگھ): the English never names him, so this would be an identification the English does not make.
+  - V3 B12 ("6 دسمبر" in digits): the English writes the day in words, and U9 refuses figures the English lacks.
+  - V3 B1 (ان کی): the long article says "paid for the mosque's repair himself", so مسجد کی مرمت is correct.
+  - A issue 5: removing the quotation marks follows V3's own suggested sentence.
+
+No files were edited.

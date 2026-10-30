@@ -1,0 +1,19 @@
+V2 and V3 confirming round 4 for sindh, one confirming worker over the one changed sentence. V2 PASS, V3 PASS.
+
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+
+ISSUES: none
+
+Diff check: I ran python difflib on lines for each pair (ur_P1.r3.bak / ur_P1.md, ur_P2.r3.bak / ur_P2.md, ur_P3.r3.bak / ur_P3.md). P1 and P2 are byte for byte identical to their backups. In P3 only line 63 changed, and the line count is the same (159). I replayed the one OLD -> NEW pair from coord2.changes.txt on ur_P3.r3.bak. OLD occurs exactly once, and the replay reproduces the current ur_P3.md byte for byte. Nothing outside the listed change moved.
+
+Changed sentence, checked in its paragraph (P3 line 63) against en_P3.md line 63:
+- "نوآبادیاتی دور میں سندھ کے لیے خداوادی کے نام سے ایک الگ رسم الخط نافذ کرنے کی کوشش بھی ہوئی۔" for "Colonial Sindh also saw an attempt to impose a script of its own, the Khudawadi."
+  - V2 passes. "Colonial Sindh" is نوآبادیاتی دور میں سندھ. "an attempt" is کی کوشش. "impose" is نافذ کرنے. "a script of its own" is سندھ کے لیے ... ایک الگ رسم الخط, a script distinct to Sindh. "the Khudawadi" is خداوادی کے نام سے. "also" is بھی. The sentence names no agent, as in the English. Certainty is unchanged: the attempt is stated as a fact, not as a claim. Nothing is added or dropped.
+  - V3 passes. The noun-plus-کا اپنا pattern the brief names is gone, and no new one appears. سندھ کے لیے goes naturally with نافذ کرنا. The کے لیے ... کے نام سے sequence reads cleanly, and خداوادی stays next to its postposition. Agreement is correct: رسم الخط is masculine, so ایک الگ رسم الخط, and کوشش is feminine, so ہوئی. No word is doubled. There is no pronoun, so no reference can shift. The sentence is still the paragraph's last. It follows on from the Hyderabad standard sentence through بھی, as the English does with "also". "ایک الگ" is natural Urdu here, not a calqued article.
+- Neighbour (the Hyderabad sentence before it) is unchanged and still reads correctly with the new close.
+
+NOTES (taste, not counted):
+- The previous sentence ends "پورے سندھ کے لیے درسی کتابیں لکھنے کو کہا", and the changed sentence has "سندھ کے لیے" again a few words later. This is an echo across two sentences, not a repeat within one, and it is acceptable. If wanted, "صوبے کے لیے" would vary it, since P3 calls Sindh صوبہ elsewhere.
+- "ایک الگ رسم الخط" (a separate script) slightly shifts "of its own" towards "distinct" rather than "belonging to Sindh". With سندھ کے لیے, the sense of a script particular to Sindh is kept, so this is not a V2 fault.
+- The period is called "نوآبادیاتی دور" here, while the preceding paragraph (line 61) uses "انگریزی عہد". Both are standard. The paragraph already says "نوآبادیاتی حکام", so the choice is consistent within it.

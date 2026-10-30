@@ -1,0 +1,12 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Diff proof: replaying the 2 listed OLD -> NEW replacements in order on ur_khyber-pakhtunkhwa.r2.bak gives a file byte-identical to the current ur_khyber-pakhtunkhwa.md. Each OLD occurred exactly once in the backup and each NEW occurs exactly once in the current file. A python difflib line diff touches only lines 21 and 41, both listed changes. Nothing else moved.
+- Change 1 (line 41), V2: the English "To the disciple from Peshawar ... it was a frontier of open shrines, where women walk in and touch the graves" is kept: the disciple, the place and time of speaking, the land of open shrines, women walking in and touching graves. The home called "سرحد" carries the English play on "frontier", as round 2 accepted. V3: وطن is masculine and agrees with ان کا ... تھا; "سرحد" stands in apposition and no longer takes a masculine possessive. It echoes the intro (اپنے وطن کو "سرحد" کہتی تھیں ... یہ وطن). پشاور کی اس مریدنی still points back to the disciple of the Shrines section, which now introduces her as from Peshawar, so the reference holds. No doubled word, no new repetition inside the sentence.
+- Change 2 (line 21), V2: "For one disciple, a woman originally from Peshawar, the shrines of her home were open to women in a way that those of Pakpattan were not" becomes two sentences with the same content: one disciple (مریدنی gives "a woman"), originally (اصل میں) from Peshawar, and the جتنے ... اتنے comparison with Pakpattan. Nothing added or dropped, no change of certainty. V3: اصل میں now follows the subject and reads as "originally", not "in fact". ان کے نزدیک ان کے وطن both resolve to the disciple, the only person in play, and the next sentence (انہوں نے کہا) still points to her. The honorific plural تھیں with ایک مریدنی matches the intro's ایک خاتون ... کہتی تھیں.
+- Taste: the second sentence of line 21 opens with ان کے نزدیک ان کے وطن, two ان in a row. Both mean the same person and the pair was already there before the fix; ان کے نزدیک ان کا اپنا وطن would be no better (the brief discourages کا اپنا). Acceptable.
+- Taste: "ایک مریدنی اصل میں پشاور کی رہنے والی تھیں۔" is a short introducing sentence at the head of the section. It reads cleanly; a relative clause (ایک مریدنی جو اصل میں ...) would only rebuild the long sentence round 2 split.
+- Mechanics are clean: no Latin letters, no em or en dashes, no asterisks, Western digits only.

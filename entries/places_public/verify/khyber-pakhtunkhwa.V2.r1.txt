@@ -1,0 +1,18 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [omission] English (Overview, para 3): "won a controlling majority of the province's Provincial Assembly." | Urdu: "نے صوبائی اسمبلی میں فیصلہ کن اکثریت حاصل کی۔" -> "the province's" is dropped, so the sentence does not say which provincial assembly. This matters because the History section has the same coalition win in Baluchistan as well.
+   OLD: متحدہ مجلسِ عمل نے صوبائی اسمبلی میں فیصلہ کن اکثریت حاصل کی۔
+   NEW: متحدہ مجلسِ عمل نے صوبے کی صوبائی اسمبلی میں فیصلہ کن اکثریت حاصل کی۔
+
+2. [changed certainty] English (The Province in History, para 4): "made unprecedented gains." | Urdu: "نے غیر معمولی کامیابی حاصل کی۔" -> غیر معمولی means "extraordinary, unusual". It loses "unprecedented", i.e. that the coalition had never done this before.
+   OLD: نے غیر معمولی کامیابی حاصل کی۔
+   NEW: نے بے مثال کامیابی حاصل کی۔
+
+NOTES:
+- Communities, para 1: English "Thousands of them are part of mainstream society" follows "They are primarily Hindus". The Urdu "ہندوؤں میں سے ہزاروں" makes "them" the Hindus. This is the most natural reading of the English, but the Books section ("where Hindus and Sikhs stayed on ... where thousands of them are part of the mainstream") could be read as covering both communities. The Urdu there ("ان میں سے ہزاروں") is also ambiguous, so it matches. Accept unless the source says otherwise.
+- Khyber Pakhtunkhwa in Books, para 2: "grouped the ritual meetings of its women with those of Afghanistan and Iran" became "مجالس کو افغانستان اور ایران کے ساتھ ایک ہی زمرے میں رکھا", which groups the meetings with the countries. "افغانستان اور ایران کی مجالس کے ساتھ" would be more exact. Style and precision only, so not counted.
+- Communities, para 2: "باقاعدہ دیکشا لینے والے سکھوں" glosses the Khalsa. دیکشا is a Hindu initiation term, and "امرت چکھنے والے" or "امرت لے کر باقاعدہ شامل ہونے والے" would be more native for Sikh initiation. The meaning ("initiated") is kept. This is for V3.
+- Overview, para 1: "اپنے وطن کو "سرحد" کہتی تھیں" turns the appositive "her home, 'the frontier'" into "used to call her home 'the frontier'". The meaning is kept.
+- These are deliberate and not omissions: the dropped glosses of gurdwara, darbar ("literally a court"), shalwar kameez and "Frontier" (for Sarhadi), and the removed italics.
+- Everything else matches paragraph by paragraph: names, numbers (2002, 19 percent, 1965, 1971, 2010s, 2011, 2010, four marriages, 1998, 2007, October 2000), places, relationships, the "accounts differ" framing, the quotations and the headings. No verse.

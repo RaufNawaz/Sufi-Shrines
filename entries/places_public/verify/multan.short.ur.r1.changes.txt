@@ -1,0 +1,169 @@
+multan.short.ur.md, round 1 fixes (V2_short.r1 + V3_short.r1)
+Applied: 31   Rejected/not applied: 12
+
+1. WHY: V2 issue 1: 'by the end of the seventeenth century' needs a perfect; تک with a plain past reads as 'until'.
+   OLD: سترھویں صدی کے اواخر تک یہاں ہر طرح کے لوگ بستے تھے اور ہر ملک کا مال خریدا اور بیچا جاتا تھا۔
+   NEW: سترھویں صدی کے اواخر تک یہاں ہر طرح کے لوگ آ بسے تھے اور ہر ملک کے مال کی خرید و فروخت ہونے لگی تھی۔
+
+2. WHY: V2 issue 2: the same 'by ... ' fault (read as 'until').
+   OLD: سترھویں صدی کے اواخر تک ملتان کے لوگ ایسی زبان بولتے تھے جس میں لاہور اور سندھ کی بولیاں ملی جلی تھیں۔
+   NEW: سترھویں صدی کے اواخر تک ملتان کے لوگوں کی زبان میں لاہور اور سندھ کی بولیاں گھل مل چکی تھیں۔
+
+3. WHY: V2 issue 3 (omission of 'the saint'); V3 issue 20 on the same sentence partly met: the name now has a descriptor, but stays لعل as the English and the long Urdu name him (V3's لعل شہباز قلندر rejected, see below).
+   OLD: لعل نے سب سے پہلے ملتان کا رخ کیا؛
+   NEW: صوفی بزرگ لعل نے سب سے پہلے ملتان کا رخ کیا؛
+
+4. WHY: V3 issue 1: ergative subject cannot carry چاہتا تھا; tense clash.
+   OLD: اس ہجوم نے ان کے گھر کے پاس والمیکی مندر کو تباہ کر دیا اور انہیں زندہ جلا دینا چاہتا تھا۔
+   NEW: اس ہجوم نے ان کے گھر کے پاس والمیکی مندر کو تباہ کر دیا تھا، اور وہ انہیں زندہ جلا دینا چاہتا تھا۔
+
+5. WHY: V3 issue 2: transitive حکومت کی needs اس نے.
+   OLD: پھر فیروز شاہ کا بیٹا سلطان محمود اپنے دادا سلطان حسین کا جانشین ہوا اور ستائیس برس حکومت کی۔
+   NEW: پھر فیروز شاہ کا بیٹا سلطان محمود اپنے دادا سلطان حسین کا جانشین ہوا اور اس نے ستائیس برس حکومت کی۔
+
+6. WHY: V3 issue 3: ergative (انہوں نے) and a loose chain of three clauses.
+   OLD: فارسی شاعر فخر الدین عراقی ملتان میں بہاؤالدین سے وابستہ ہوئے اور ان کی شان میں قصیدے کہے، اور بہاؤالدین کی وفات کے کچھ ہی عرصے بعد قونیہ چلے گئے۔
+   NEW: فارسی شاعر فخر الدین عراقی ملتان میں بہاؤالدین سے وابستہ ہوئے اور انہوں نے ان کی شان میں قصیدے کہے؛ بہاؤالدین کی وفات کے کچھ ہی عرصے بعد وہ قونیہ چلے گئے۔
+
+7. WHY: V3 issue 4: transitive حال سنایا needs اس نے.
+   OLD: ابوبکر نامی ایک قوال ملتان سے نظام الدین کے مرشد کی زیارت کو آیا اور ملتانی شیخ کی خانقاہ میں سماع کا حال سنایا۔
+   NEW: ابوبکر نامی ایک قوال ملتان سے نظام الدین کے مرشد کی زیارت کو آیا اور اس نے ملتانی شیخ کی خانقاہ میں ہونے والے سماع کا حال سنایا۔
+
+8. WHY: V3 issue 5: transitive شکست دی needs اس نے.
+   OLD: اور راستے میں راجا جے پال کے بیٹے راجا آنند پال کو شکست دی۔
+   NEW: اور راستے میں اس نے راجا جے پال کے بیٹے راجا آنند پال کو شکست دی۔
+
+9. WHY: V3 issue 6: transitive پڑاؤ ڈالا needs اس نے.
+   OLD: اس کے بعد خود تیمور کابل سے آیا اور ملتان میں پڑاؤ ڈالا۔
+   NEW: اس کے بعد خود تیمور کابل سے آیا اور اس نے ملتان میں پڑاؤ ڈالا۔
+
+10. WHY: V3 issue 7: intransitive and transitive clauses sharing one unmarked subject.
+   OLD: ملتان چلے آئے اور یہاں کے حاکم ملک مروان کی ملازمت اختیار کر لی۔
+   NEW: ملتان چلے آئے اور یہاں کے حاکم ملک مروان کے ملازم ہو گئے۔
+
+11. WHY: V3 issue 8: ergative (انہوں نے); سلطانی پر بٹھانا unidiomatic.
+   OLD: چنانچہ ملتان کے اکابر اور عوام مشورے کے لیے جمع ہوئے اور بالاتفاق شیخ یوسف قریشی کو سلطانی پر بٹھایا۔
+   NEW: چنانچہ ملتان کے اکابر اور عوام مشورے کے لیے جمع ہوئے اور انہوں نے بالاتفاق شیخ یوسف قریشی کو مسندِ سلطانی پر بٹھایا۔
+
+12. WHY: V3 issue 9: کمسن twice; transitive شہر لے لیا without ergative subject.
+   OLD: کمسن سلطان کے عہد میں قوام خان اور لشکر خان ارغون سے جا ملے، کمسن حسین سے لڑے اور شہر لے لیا۔
+   NEW: کمسن سلطان حسین کے عہد میں قوام خان اور لشکر خان ارغون سے جا ملے اور سلطان سے لڑ کر شہر پر قابض ہو گئے۔
+
+13. WHY: V3 issue 10: bare برادری does not say which community (the English's 'the community' follows the Hindu temples).
+   OLD: اور برادری نے دوسری جگہوں کو عارضی مندروں میں بدل لیا ہے۔
+   NEW: اور ہندو برادری نے دوسری جگہوں کو عارضی مندروں میں بدل لیا ہے۔
+
+14. WHY: V3 issue 11: اسے has no clear antecedent.
+   OLD: اور اس نے اسے شرک قرار دیا۔
+   NEW: اور اس نے ان سب باتوں کو شرک قرار دیا۔
+
+15. WHY: V3 issue 12: ان شاعروں points to nothing (the previous sentence speaks of شاعری).
+   OLD: ان شاعروں کے نزدیک
+   NEW: ان زبانوں کے شاعروں کے نزدیک
+
+16. WHY: V3 issue 13: آج کے شہر میں clashes with two places; calque.
+   OLD: آج کے شہر میں ملتان اور بہاولپور کے بااثر زمیندار سید
+   NEW: آج ملتان اور بہاولپور کے بااثر زمیندار سید
+
+17. WHY: V3 issue 14: the idiom is کے تابع ہونا.
+   OLD: بعد میں ملتان مصر کے فاطمیوں کا تابع ہو گیا
+   NEW: بعد میں ملتان مصر کے فاطمیوں کے تابع ہو گیا
+
+18. WHY: V3 issue 15: تعاقب میں and پیچھے پیچھے repeat each other.
+   OLD: بادشاہ دارا کے تعاقب میں پیچھے پیچھے آیا
+   NEW: بادشاہ دارا کا تعاقب کرتا ہوا آیا
+
+19. WHY: V3 issue 16: clumsy relative clause in English order.
+   OLD: دارا کی طرف سے شہر جس شخص کے پاس تھا اس نے اطاعت قبول کر لی۔
+   NEW: دارا کی طرف سے جو شخص شہر پر مامور تھا، اس نے اطاعت قبول کر لی۔
+
+20. WHY: V3 issue 17: روکنا ... روک نہ سکا back to back.
+   OLD: خزانے کی کشتیوں کا راستہ روکنا چاہا، مگر انہیں روک نہ سکا۔
+   NEW: خزانے کی کشتیوں کا راستہ روکنا چاہا، مگر کامیاب نہ ہو سکا۔
+
+21. WHY: V3 issue 18: ٹکنا is colloquial for this register.
+   OLD: لیکن وہاں نہیں ٹکا۔
+   NEW: لیکن وہاں نہیں ٹھہرا۔
+
+22. WHY: V3 issue 19: people cannot be a رشتہ (calque of 'are the only link'); ہی keeps 'only'.
+   OLD: کوئی تیس عورتیں اب ہرنیہ کشیپ اور پرہلاد کی کہانی سے شہر کا واحد رشتہ ہیں۔
+   NEW: کوئی تیس عورتیں ہی اب ہرنیہ کشیپ اور پرہلاد کی کہانی سے شہر کا رشتہ جوڑے ہوئے ہیں۔
+
+23. WHY: V3 issue 21: کی خدمت میں and اس کے ندیموں میں say the same thing twice (a ندیم of a prince is in his service, so the English's 'in the service' is still carried).
+   OLD: ملتان میں بلبن کے بیٹے کی خدمت میں اس کے ندیموں میں شامل تھے
+   NEW: ملتان میں بلبن کے بیٹے کے ندیموں میں شامل تھے
+
+24. WHY: V3 issue 22: قصبہ رکھنا is a word-for-word rendering.
+   OLD: لنگاہوں کا سردار اپنا ایک قصبہ رکھتا تھا۔
+   NEW: لنگاہوں کا سردار ایک قصبے کا مالک تھا۔
+
+25. WHY: V3 issue 23: اندر داخل repeats itself.
+   OLD: اس کے قرابت دار قلعے کے اندر داخل کر لیے گئے۔
+   NEW: اس کے قرابت دار قلعے میں داخل کر لیے گئے۔
+
+26. WHY: V3 issue 24: stacked کے with آج.
+   OLD: شہر کے آج کے ہندوؤں کی یاد میں زندہ ہے
+   NEW: شہر کے موجودہ ہندوؤں کی یاد میں زندہ ہے
+
+27. WHY: V3 issue 25: اور ... اور in one short list (Overview paragraph 4 only; the quotation under برادریاں left as it is).
+   OLD: اور گرو نانک کے زمانے میں مسلمان اولیا کے مزاروں اور جین اور ہندو مندروں کی وجہ سے مشہور تھا۔
+   NEW: اور گرو نانک کے زمانے میں مسلمان اولیا کے مزاروں اور جین و ہندو مندروں کی وجہ سے مشہور تھا۔
+
+28. WHY: V3 note 1 (referent/meaning): the English 'met a commander and Tatar Khan, governor of the Punjab' and the next sentence's 'the commander's army' make two men (the long Urdu agrees); the Urdu could be read as one.
+   OLD: ملتان کے قریب اس کا مقابلہ ایک سالار اور پنجاب کے حاکم تاتار خان سے ہوا۔
+   NEW: ملتان کے قریب اس کا مقابلہ ایک سالار سے اور پنجاب کے حاکم تاتار خان سے ہوا۔
+
+29. WHY: V2 note (meaning): 'a devotee' is an adherent; سرگرم کارکن ('active worker') is stronger than the English.
+   OLD: تبلیغی جماعت کے ایک سرگرم کارکن نے کہا
+   NEW: تبلیغی جماعت سے وابستہ ایک شخص نے کہا
+
+30. WHY: V2 note (precision): 'brought Multan under Muslim rule for the first time'; وہ پہلا فاتح تھا adds 'conqueror' and shifts the focus.
+   OLD: محمد بن قاسم وہ پہلا فاتح تھا جس نے ملتان کو مسلم حکومت کے زیرِ نگیں کیا،
+   NEW: محمد بن قاسم نے پہلی بار ملتان کو مسلم حکومت کے زیرِ نگیں کیا،
+
+31. WHY: V2 note (meaning): دفن ہوتا ہے reads 'gets buried'; the English says 'is buried'.
+   OLD: ایک حاکم لاہور میں دفن ہوتا ہے
+   NEW: ایک حاکم لاہور میں دفن ہے
+
+REJECTED OR NOT APPLIED
+
+R1. V3 issue 20 (لعل -> لعل شہباز قلندر)
+    REASON: The English names him only as 'the saint Lal' and the long Urdu only as لعل; identifying him as Lal Shahbaz Qalandar would add a fact the English does not state. V2 issue 3's fix (صوفی بزرگ لعل) is applied instead, which also meets V3's concern that the reader is not told who he is.
+
+R2. V3 note: heading 'تاریخ: مغل، افغان اور سکھ عہد کا ملتان اور اس کے بعد' dangling اور اس کے بعد
+    REASON: Taste; the heading follows the English 'Mughal, Afghan and Sikh Multan and After' and is grammatical. Not a meaning, agreement, referent or spelling correction.
+
+R3. V3 note: repetition across sections (Sufi scholars' base, Shams Tabriz flaying, Iraqi's poems, Siraiki sentence)
+    REASON: The English article repeats these itself (Overview summarises the body); varying wording is taste and not a correction of meaning.
+
+R4. V3 note: سلطان سرور vs سخی سرور
+    REASON: The English uses both names ('Sultan Sarwar' in A City of Saints, 'Sakhi Sarwar' in Multan in Books) and the long Urdu does the same; equating them in a parenthesis would add an identification the English does not make.
+
+R5. V3 note: repeated names (two ملک بہرام, two سلطان حسین, two لشکر خان, two رکن الدین)
+    REASON: V3 itself says this follows the facts; no change.
+
+R6. V3 note: انتہا پسند -> غالی
+    REASON: Register/taste; 'extreme' is rendered faithfully. Not applied (note-level taste).
+
+R7. V3 note: نقصان پہنچانے لگا -> تاخت و تاراج کرنے لگا
+    REASON: Would strengthen the English 'began to harm' into 'ravage', a change of meaning.
+
+R8. V3 note: کا کام تمام کیا -> کا کام تمام کر دیا
+    REASON: Taste; both forms are correct.
+
+R9. V3 note: ایک سے زیادہ -> کئی
+    REASON: Would change 'more than one' to 'several', which the English does not say.
+
+R10. V3 note: تیار ہوتی ہیں -> چھپتی ہیں
+    REASON: Taste; the English says 'made', and تیار ہوتی ہیں renders it; not a correction of meaning.
+
+R11. V3 note: unrelated river-trade sentence in the critics paragraph
+    REASON: Structural; the English has the same two sentences in one paragraph.
+
+R12. V2 note: long Urdu (multan.ur.md lines 3 and 91) has the same تک + imperfect wording
+    REASON: Outside this file and this task; flagged for the coordinator, not changed here.
+
+REREAD
+Every changed sentence was reread in its paragraph (diff against short_ur.r1.bak: only the 31 sentences above moved, line count unchanged). No doubled word, broken agreement or shifted pronoun found: سالار کے لشکر (next sentence) now clearly points to the first of two men; سلطان سے (Langah paragraph) points to سلطان حسین named in the same sentence; وہ انہیں (Parvati Devi) = the mob / Parvati Devi; انہوں نے ان کی شان میں = Iraqi / Baha'uddin.
+Not changed, for the coordinator: one sentence carries the same intransitive + transitive pattern V3 flagged elsewhere but did not list: "بعد میں ایک سلطان ملتان پہنچا اور شیوخ کے مقبروں کی زیارت کی۔" (History: The Delhi Sultans, paragraph 4). Left for the confirming round rather than changed unverified.
+checker: ok    multan.short  long 6092 -> short 3533 words (target 3434, 1.03), Urdu 18389 chars (0.92 of the English characters)

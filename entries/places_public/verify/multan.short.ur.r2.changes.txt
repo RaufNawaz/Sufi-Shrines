@@ -1,0 +1,5 @@
+Multan short Urdu, fix after the confirming round 2 (applied by the coordinator, the verifier's NEW).
+
+WHY: round 2 issue 1 [V3]: an intransitive clause joined to a transitive perfective without an ergative subject, the fault round 1 fixed in eight other sentences
+OLD: بعد میں ایک سلطان ملتان پہنچا اور شیوخ کے مقبروں کی زیارت کی۔
+NEW: بعد میں ایک سلطان ملتان پہنچا اور اس نے شیوخ کے مقبروں کی زیارت کی۔

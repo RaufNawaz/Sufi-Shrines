@@ -16,3 +16,14 @@ export declare function countPlaces<T>(
   locationOf: (row: T) => string,
   minSites?: number,
 ): Array<PlaceVocabularyRow & { count: number }>;
+export interface ProvinceVocabularyRow {
+  slug: string;
+  name: string;
+  pattern: string | null;
+}
+export declare const PROVINCE_VOCABULARY: ProvinceVocabularyRow[];
+export declare function regionOfLocation(location: string): string;
+export declare function countProvinces<T>(
+  rows: readonly T[],
+  locationOf: (row: T) => string,
+): Array<ProvinceVocabularyRow & { count: number }>;

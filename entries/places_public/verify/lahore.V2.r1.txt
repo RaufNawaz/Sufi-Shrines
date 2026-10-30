@@ -1,0 +1,110 @@
+# V2 Urdu fidelity, round 1, Lahore (four verifiers, one per section group; the round fails if any fails)
+
+===== P1 =====
+
+VERDICT: FAIL
+
+ISSUES:
+1. [changed certainty] English (History: Mughal Lahore, the Invasions and the Misls, paragraph beginning "In the eighteenth century the city lived by ransom"): "a man was beheaded for collusion" | Urdu: "سازباز کے الزام میں ایک شخص کا سر قلم کیا گیا" -> the English states the collusion as the reason for the beheading; "کے الزام میں" (on the charge of) turns it into an accusation only, weakening the claim. -> corrected Urdu:
+   OLD: سازباز کے الزام میں ایک شخص کا سر قلم کیا گیا
+   NEW: سازباز کی پاداش میں ایک شخص کا سر قلم کیا گیا
+
+NOTES:
+- All four headings correspond (تعارف; شہر کی بنیاد سے بابر تک; مغلیہ لاہور، بیرونی حملے اور مسلیں; رنجیت سنگھ، انگریز اور جدید لاہور). Every paragraph of the English has its Urdu counterpart in order; all names, numbers and dates checked (1000, 1071, 555ھ, 28 years, 1210, 16 Jumada al-Akhir 639ھ, 1241, 12,000, 12 kos, 1523 to 1524, 22 days, 4 miles, 6,000 mansab, 1751, 50,000/20,000, 10,000, 40 years, 10 lakh, 1,000 rupees, 50 yards, about 200, half a mile, about 150, 1846, 1799, wages 4/2 and 8/4 annas and 1 to 2 rupees, 1862, 1864, 3 years, 1872, 5 years, 1881, 1 lakh, 34,000, 3 lakh 20,000, 42,000/38,000/4,000, 30,000 + 15,000 = 45,000, 40 days, 24 prisoners, 1931, March 1940, 1972). Hedges are preserved: "in one telling", "a tradition still told today", "accounts differ", "the story goes", "the story is told", "it is said", "is said to have had many buildings raised", "are said to have conquered", "about", "the zamindar or zamindars". No verse in these sections.
+- Dropped glosses (qawwals/qawwali, melas, ʿurs, kafis "Punjabi Sufi lyrics", the Chalisi "Forty" famine, mujawirs, jagir, kothi, etc.) are deliberate under the brief and not counted.
+- Overview paragraph on Nur Jahan's family: "the infant" is rendered "شیر خوار بچی" (a girl). In context the infant is Nur Jahan, so this is consistent with the English, but it does make the identification explicit; "شیر خوار بچے" would be neutral if a stricter reading is wanted.
+- Style: paragraph beginning "فہرست یہیں ختم نہیں ہوتی": "پیر ہادی کے مقبرے سے راجا دھیان سنگھ نے سنگِ مرمر کی جالیاں اور سرخ پتھر کے ستون اتروا کر لے گیا" mixes the ergative نے with لے گیا. Suggested: "پیر ہادی کے مقبرے سے سنگِ مرمر کی جالیاں اور سرخ پتھر کے ستون راجا دھیان سنگھ اتروا کر لے گیا".
+- Style: paragraph on the Sikh demands: "شہر نے ایک حملہ آور کو خراج دیا، ... سر قلم کیا گیا، اور لوٹ کا مال ... بانٹ دیا گیا" changes subject mid sentence; acceptable, but could be split.
+- "1846 کے معاہدے کے تحت کچھ علاقہ" adds "کچھ" to "territory"; natural Urdu, meaning unchanged.
+- "the Mongols' destruction of Lahore is dated 1241" and "his conquest of the city is dated 1523 to 1524" rendered with "بتایا جاتا ہے"; this is the idiomatic Urdu for "is dated" and does not add doubt beyond the English.
+
+===== P2 =====
+
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] English: "and Muslims too mostly went to the mela of Bhadar Kali." | Urdu: "اور بھدر کالی کے میلے میں بھی زیادہ تر مسلمان ہی جاتے تھے۔" -> The Urdu says the people at the Bhadar Kali mela were mostly Muslims; the English says Muslims too (for the most part) went to it. The subject and the scope of "mostly" have changed.
+   OLD: اور بھدر کالی کے میلے میں بھی زیادہ تر مسلمان ہی جاتے تھے۔
+   NEW: اور زیادہ تر مسلمان بھی بھدر کالی کے میلے میں جاتے تھے۔
+
+2. [wrong reference] English: "Rai Singh Risaldar's thakurdwara carries on a marble slab over its east door its own name, the name of his father Karam Singh and Samvat 1938." | Urdu: "خود ان کا نام، ان کے والد کرم سنگھ کا نام" -> "its own name" is the thakurdwara's name; the Urdu makes it Rai Singh's name. (If the source actually means Rai Singh's own name, the English needs correcting instead; as written, the English is the authority.)
+   OLD: سنگِ مرمر کی ایک تختی پر خود ان کا نام، ان کے والد کرم سنگھ کا نام اور سمت 1938 درج ہے۔
+   NEW: سنگِ مرمر کی ایک تختی پر خود ٹھاکردوارے کا نام، رائے سنگھ کے والد کرم سنگھ کا نام اور سمت 1938 درج ہے۔
+
+3. [addition] English: "Bhauri Sarkar's has a brass one" | Urdu: "بھوری سرکار کی سمادھ پر پیتل کا کلس ہے" -> The English does not say this is a samadh, and elsewhere it treats Bhauri Sarkar's as an establishment with samadhs of former successors and managers inside it. The Urdu adds an identification.
+   OLD: بھوری سرکار کی سمادھ پر پیتل کا کلس ہے
+   NEW: بھوری سرکار کے ہاں پیتل کا کلس ہے
+
+4. [addition] English: "Gilded finials stand throughout at Rani Jindan's" | Urdu: "رانی جنداں کی سمادھ پر ہر جگہ سنہری کلس ہیں" -> The English does not say this is her samadh; elsewhere it names her thakurdwara and shivala. The Urdu adds an identification.
+   OLD: رانی جنداں کی سمادھ پر ہر جگہ سنہری کلس ہیں
+   NEW: رانی جنداں کے ہاں ہر جگہ سنہری کلس ہیں
+
+5. [addition] English: "A murid, a pledged disciple, of one Sufi order runs an informal religious school for women in the city." | Urdu: "ایک صوفی سلسلے کی ایک مریدنی ... چلاتی ہیں" -> The English does not give the murid's gender; the Urdu makes the murid a woman. (If the source says she is a woman, keep the Urdu and add that to the English instead.)
+   OLD: ایک صوفی سلسلے کی ایک مریدنی شہر میں عورتوں کے لیے ایک غیر رسمی دینی مدرسہ چلاتی ہیں۔
+   NEW: شہر میں ایک صوفی سلسلے کے ایک مرید عورتوں کے لیے ایک غیر رسمی دینی مدرسہ چلاتے ہیں۔
+
+6. [changed certainty] English: "Raja Harbans Singh ... had gained full authority and might bring it to completion." | Urdu: "اور امید تھی کہ وہ اسے مکمل کرا دیں۔" -> "might" states a possibility; "امید تھی" adds an expectation or hope that the English does not state.
+   OLD: اور امید تھی کہ وہ اسے مکمل کرا دیں۔
+   NEW: اور ممکن تھا کہ وہ اسے مکمل کرا دیں۔
+
+7. [addition] English: "in another dome a fitting waits empty for a kalas to be raised." | Urdu: "کلس لگانے کی جگہ آج تک خالی ہے" -> "آج تک" (to this day) adds a claim about the present that the English (an 1880s observation) does not make.
+   OLD: اور ایک اور گنبد میں کلس لگانے کی جگہ آج تک خالی ہے۔
+   NEW: اور ایک اور گنبد میں کلس لگانے کی جگہ خالی پڑی ہے۔
+
+8. [omission] English: "in the 1880s her family still lived in the same bazaar" | Urdu: "اور 1880 کی دہائی میں ان کا خاندان اسی بازار میں رہتا تھا،" -> The qualifier "still" (continuity from Moran's time) is dropped.
+   OLD: اور 1880 کی دہائی میں ان کا خاندان اسی بازار میں رہتا تھا،
+   NEW: اور 1880 کی دہائی میں بھی ان کا خاندان اسی بازار میں رہتا تھا،
+
+NOTES:
+- Headings correspond (three sections). There is no verse in these sections. Every number and date checks against the English, and all hedges are kept with the same scope ("it is said", "tradition holds", "probably", "said to be worth", "was said to be distinguished", "it is told", "it is not clear"). The dropped glosses (silsila, urs, fatiha, ulama, khanqah, sabil, taziya, Imambara, qawwals, sati, Milad, majzub, Zuljanah) are deliberate under the brief.
+- Line 15 (Shah Kaku Chishti): "اسی سفر میں جان سے گئے" is a little more specific than "going as envoy to his death". "اور اسی سفارت میں جان سے گئے" would be closer. This is optional.
+- Line 29: "کوئی دخمہ، یعنی پارسیوں کا مینارِ خاموشی" adds the term دخمہ and "of the Parsis" as a gloss. It is consistent with the next clause and is acceptable, but it goes beyond the English, which says only "Tower of Silence".
+- Line 97 ("مذہبی عمارتوں کے متولیوں کے لقب") and line 99 ("ایک متولی خود کو بیراگی ... کہتا تھا"): متولی is itself one of the titles this paragraph lists (mutawalli). Using it for "holders" in general, and for a Hindu bairagi, blurs the point. A neutral word would be better, for example "ذمہ داروں کے لقب" and "ایک صاحبِ منصب خود کو بیراگی ... کہتا تھا".
+- Line 87: "کاشی کاری کے دو نام ہیں" uses one of the two names as the general term, so the sentence reads as "kashi kari has two names, one being kashi kari". Something like "کاشی کے کام کے دو نام ہیں" would avoid this.
+- Line 3: agreement. "متبرک آرام گاہوں کی جو ... یادگار بن کر کھڑے ہیں" should be "کھڑی ہیں".
+- Spelling of Mozang: موزنگ appears five times, and مزنگ once ("پیر عزیز مزنگ", line 17). Check both against urdu-dictionary.json and make them consistent.
+- Line 101: "ایک خاص بیماری" for "an illness" is acceptable but slightly more specific than the English.
+- Line 147: "ایک سردار بور سنگھ کی بیوی کی ہے" assigns one samadh where the English gives no count. This is a natural reading for a single wife and is acceptable.
+- Line 81: "اس لیے وہیں ... گڑھے بنائے گئے ہیں" turns the English "and" into a cause. This is harmless.
+
+===== P3 =====
+
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] English para 4 (line 7): "the tomb of Shah Abu Ishaq Qadri" | Urdu: "شیخ ابو اسحق قادری کے مقبرے کے نام" -> the title Shah has become Shaikh (شیخ), which is a different title and in effect a different name. -> OLD: "شیخ ابو اسحق قادری کے مقبرے کے نام" NEW: "شاہ ابو اسحق قادری کے مقبرے کے نام"
+
+2. [changed fact / addition] English para 8 (line 15): "Succession passed by discipleship, by heredity and by teaching lineage, line by line." | Urdu: "... اور ہر جگہ نسل در نسل۔" -> "line by line" (one lineage after another) has been rendered "everywhere, generation after generation". That adds a universal "everywhere" and makes every succession hereditary, which contradicts "by discipleship" and "by teaching lineage" in the same sentence. -> OLD: "اور ہر جگہ نسل در نسل۔" NEW: "اور ہر سلسلہ اپنی الگ لڑی میں آگے چلتا تھا۔"
+
+3. [changed fact] English para 70 (line 139): "Nawab Mian Khan's tomb garden, without an owner" | Urdu: "جس کا کوئی وارث نہ تھا" -> "without an owner" has become "had no heir". Having no owner is not the same claim as having no heir. -> OLD: "جس کا کوئی وارث نہ تھا" NEW: "جس کا کوئی مالک نہ تھا"
+
+4. [addition] English para 80 (line 159): "the Moti Masjid ... served as the treasury under the sultanate and again under the English" | Urdu: "سکھ سلطنت میں بھی خزانہ رہی" -> the Urdu says which sultanate it was (Sikh), and the English does not. That is plausible from context but it is an identification the English does not make. -> OLD: "سکھ سلطنت میں بھی خزانہ رہی" NEW: "سلطنت کے دور میں بھی خزانہ رہی"
+
+5. [changed certainty / addition] English para 82 (line 163): "which passed through five occupiers, the money going to the occupant and not to the endowment" | Urdu: "اور ہر بار رقم وقف کے بجائے قابض کی جیب میں گئی" -> "ہر بار" (every time) is added. The English says money went to the occupant rather than the endowment. It does not say this happened at each of the five transfers. -> OLD: "اور ہر بار رقم وقف کے بجائے قابض کی جیب میں گئی" NEW: "اور رقم وقف کو نہیں بلکہ قابض کو ملی"
+
+6. [addition] English para 61 (line 121): "One lender refused to be repaid." | Urdu: "ایک ساہوکار نے اپنا قرض واپس لینے سے انکار کر دیا۔" -> ساہوکار means a professional moneylender or banker. The English says only that Haji Nur lent the money, not that lending was his trade. -> OLD: "ایک ساہوکار نے اپنا قرض واپس لینے سے انکار کر دیا۔" NEW: "ایک قرض خواہ نے اپنا قرض واپس لینے سے انکار کر دیا۔"
+
+NOTES (style only, or points accepted as faithful):
+- Line 89: "ان کا ایک گزارے کی رقم مقرر ہوئی" has a gender agreement slip (رقم is feminine). Suggested: "ان کے لیے گزارے کی ایک رقم مقرر ہوئی".
+- Line 109: "The house of Chhajju Bhagat" is rendered "چھجو بھگت کا چوبارہ". The English names the same place's chaubara elsewhere (lines 15 and 39), so this reads as the same site and is acceptable. If strict parity is wanted, use "چھجو بھگت کا ٹھکانا".
+- Line 61: "پشت در پشت" now governs only the jagir. In the English, "generation after generation" can also cover the muafi village of Qila Gujjar Singh. This is a minor scope shift and is acceptable.
+- Line 93: "pavilions over the water" is rendered "بارہ دریاں", which is a specific kind of pavilion. Acceptable in Urdu idiom.
+- Line 131: "تصدق ... ملکہ کی سلامتی کے صدقے میں" says whose safety the alms were for, which the English leaves general ("for another's safety"). The context (the queen's recovery) supports it.
+- Line 173: "باؤلی والے بھائی" makes clear which Bhai is meant, matching line 89. This is a fair resolution of the reference.
+- Dropped glosses of familiar words (malik, kos as "about two miles", anna, mujawir, sajjada nashin, madrasa and so on) and removed italics are deliberate under the brief and are not counted.
+- All three headings correspond. There is no verse in these sections. All numbers and dates match the English (1847, 1865, Sambat 1895 and 1910, 1957 and 1958, 2011, 2012, 1930s, and amounts such as 9955, 93000, 2200 and 500).
+
+===== P4 =====
+
+VERDICT: PASS
+ISSUES: none
+NOTES: style only.
+1. Headings correspond (میلے اور رسوم / شاعری / کتابوں میں لاہور); 133 lines each, same paragraph order. Both verse blocks (lines 71 to 72 and 78 to 79) are byte identical to the English. Every figure in the English appears in the Urdu (9/11 rendered as نائن الیون); no Latin letters, no en or em dashes, asterisks balanced (3 pairs). Qualifiers checked and kept: "it is told" بیان کیا جاتا ہے, "accounts differ" روایات مختلف ہیں, "probably ... about" غالباً ... کے لگ بھگ, "about" تقریباً throughout, "not less than" کم از کم, "nearly" لگ بھگ, "said to date from 1966" بتایا جاتا ہے, "for the most part" زیادہ تر. Dropped glosses (mela, khanqah, mehndi, Basant, samadh, shivala, abyat, nisba, the English rendering of the Tehqiqat title in brackets) are of familiar words or English-reader aids, as the brief allows.
+2. Small renderings that slightly narrow or add, none changing a fact; optional tightening:
+   a. "the shaykh's nephew" | "شیخ کے ایک بھتیجے یا بھانجے": the "یا" is a fair way to keep English "nephew" unspecified, but "ایک" makes him "a nephew" rather than "the nephew". Optional: OLD "شیخ کے ایک بھتیجے یا بھانجے نے" NEW "شیخ کے بھتیجے یا بھانجے نے".
+   b. "At the time of a saint's festival" | "ایک ولی کے عرس کے موقع پر": festival rendered as عرس; for a saint's festival at Data Darbar it is the natural reading, but strictly narrower. Optional: OLD "ایک ولی کے عرس کے موقع پر" NEW "ایک ولی کے میلے کے موقع پر".
+   c. "At Sitla Mata worship went on" | "سیتلا ماتا کے استھان پر": adds the noun استھان to a bare place name. Harmless, but optional: OLD "سیتلا ماتا کے استھان پر پوجا" NEW "سیتلا ماتا پر پوجا" (or keep; it reads more naturally).
+   d. "from Lahore Pakpattan is measured as 120 miles" | "120 میل بتایا جاتا ہے": "is said to be" reads a touch more hedged than "is measured as". Acceptable; optional NEW "120 میل ناپا گیا ہے" if a closer match is wanted.
+   e. "At Than Bhairo's fire place it never went out" | "تھان بھیرو کے آتش دان پر جلنے والا چراغ کبھی گل نہ ہوتا": resolves the English "it" to the lamp, which is the evident sense. Fine.
+3. Outside V2 scope, noted for the English author: the English says the National College of Arts was established in Lahore in 1857; the Mayo School of Arts (its predecessor) is usually dated 1875. The Urdu faithfully copies 1857. Check the source before publishing.
+

@@ -1,0 +1,30 @@
+Changes applied after V1 round 1 (karachi), by the coordinator, each in the verifier's wording.
+
+WHY: V1 r1 issue 1 (one researcher's fieldwork, not a city practice)
+OLD: Visits to the city's shrines follow the *qawwali* calendar of saints' anniversaries. On 20 February 1983 Sufi Abdul Karim Sumar died
+NEW: On 20 February 1983 Sufi Abdul Karim Sumar died
+
+WHY: V1 r1 issue 2 (a film's subject, not a fact in the narrator's voice)
+OLD: The city also has a shrine of the *hijṛā*, the transgender community of South Asia, which is the subject of Jamil Dehlavi's film *Immaculate Conception*.
+NEW: Jamil Dehlavi's film *Immaculate Conception* is about a shrine of the *hijṛā*, the transgender community of South Asia, in Karachi.
+
+WHY: V1 r1 issue 3 ('two', not 'the two'; the pairing city)
+OLD: one of the two important urban centres of Sufism in the subcontinent, the home of a living Chishti order
+NEW: one of two important urban centres of Sufism in the subcontinent, with Hyderabad in India, the home of a living Chishti order
+
+WHY: V1 r1 issue 4 (one dissertation)
+OLD: and doctoral dissertations have been written at Karachi University.
+NEW: and a doctoral dissertation has been written at Karachi University.
+
+WHY: V1 r1 note (gloss: there are two ʿīds)
+OLD: at *ʿīd*, the Muslim festival,
+NEW: at *ʿīd*, a Muslim festival,
+
+WHY: V1 r1 note (the area was renamed, not the temple)
+OLD: Some holy places have been renamed or built over: Ram Bagh has become Aram Bagh,
+NEW: A holy area has been renamed and a temple built over: Ram Bagh has become Aram Bagh,
+
+WHY: V1 r1 note (street crime: the source speaks only of its rate)
+OLD: Karachi is a city torn by conflict and by street crime, where security guards
+NEW: Karachi is a city torn by conflict, where security guards
+

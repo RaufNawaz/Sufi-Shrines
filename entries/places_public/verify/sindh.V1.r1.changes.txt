@@ -1,0 +1,329 @@
+Changes applied after V1 round 1 (FAIL in all three groups: P1 9 issues, P2 10, P3 7), 30 October 2026, to entries/places_public/sindh.md.
+Every numbered ISSUE was found exactly once and applied in V1's NEW wording (two touched again by the cross group spelling rule: 'Koran' to 'Quran' in P2 issue 2; 'Sumiros' to 'Sumra' in P3 issue 5). Then the NOTES points that make the text more faithful, in V1's wording, then one spelling per name. The bibliography is untouched. Checker: ok (0.60).
+
+1. [P1 issue 1]
+   OLD: The line of the Jams ran on through Jam Junan, Jam Tamachi, Jam Salahuddin and his son Jam Nizamuddin, Jam Ali Sher, Jam Karan son of Tamachi, Jam Fath Khan son of Sikandar, whom the notables raised up when the country was left without a ruler, Jam Tughluq, Jam Mubarak, Jam Sikandar son of Fath Khan and Jam Sanjar, to Jam Nizamuddin, known as Jam Nanda, and Jam Firuz.
+   NEW: The line of the Jams ran on, through many rulers, to Jam Nanda and Jam Firuz, the last of them.
+
+2. [P1 issue 2; then 'against the Jam three times' made 'three times against the Jam of the day' so the campaign is not read as against Jam Anzar, named just before (coordinator's context check)]
+   OLD: In the time of a son of Jam Anzar, Sultan Firuz Shah of Delhi marched against the Jam three times,
+   NEW: Sultan Firuz Shah of Delhi marched three times against the Jam of the day,
+
+3. [P1 issue 3]
+   OLD: so that Mansura, the capital of Sindh, ruled by the Sumra dynasty, accepted the overlordship of the Egyptian Caliphs, and Sufism there was cut off from other lands.
+   NEW: so that Mansura, the capital of Sindh, accepted the overlordship of the Egyptian Caliphs, and Sufism there was cut off from other lands; accounts differ on which dynasty held Mansura at the time.
+
+4. [P1 issue 4]
+   OLD: with the governorship of the *suba* of Thatta. Dara Shikoh came from Thatta towards Gujarat. In Sarmad's day
+   NEW: with the governorship of the *suba* of Thatta. In Sarmad's day
+
+5. [P1 issue 5]
+   OLD: At the first census, in 1872, Sindh counted 1,718,688 Muslims, 393,092 Hindus, 5,034 Christians and 86,663 persons of other castes such as Sikhs, Parsis and Jews. It was a largely Muslim country,
+   NEW: Figures for Sindh from the early 1870s count 1,718,688 Muslims, 393,092 Hindus, 5,034 Christians and 86,663 persons of other castes such as Sikhs, Parsis and Jews. Sindh was a largely Muslim country,
+
+6. [P1 issue 6]
+   OLD: In 1659 and the year after, Sindh was ravaged by famine and plague: never did famine rage worse anywhere, the living being hardly able to bury the dead.
+   NEW: In 1659 and the year after, Sindh was ravaged by famine and plague; as one observer wrote, never did famine rage worse anywhere, the living being hardly able to bury the dead.
+
+7. [P1 issue 7]
+   OLD: Dr Burnes found the country priest ridden
+   NEW: One observer found the country priest ridden
+
+8. [P1 issue 8]
+   OLD: Under the native governments, as Burton saw it, Sufism was a formidable political engine.
+   NEW: Under the native governments, as one writer saw it, Sufism was a formidable political engine.
+
+9. [P1 issue 9]
+   OLD: so that even a historian of the Mughal economy found it impossible to include Sindh in his reconstruction.
+   NEW: and a historian of the Mughal economy found it impossible to include Sindh in his reconstruction.
+
+10. [P2 issue 1]
+   OLD: is said to have embraced Islam through a miracle he performed.
+   NEW: is said to have embraced Islam through a miracle performed by Makhdum Jahaniyan.
+
+11. [P2 issue 2]
+   OLD: Among such women was Bibi Fatima Hajram, a *hafiza*, one who knew the whole Koran by heart, and in Sindh, as elsewhere,
+   NEW: The women of Sindh's religious life include Bibi Fatima Hajram, a *hafiza*, one who knew the whole Quran by heart, and in Sindh, as elsewhere,
+
+12. [P2 issue 3]
+   OLD: Hindus have been coming to the Sufi mausoleums of Sindh since the nineteenth century.
+   NEW: Hindus have long come to the Sufi mausoleums of Sindh, though accounts differ on when they began.
+
+13. [P2 issue 4]
+   OLD: As in other regions of South Asia, a strong Sufi presence was rapidly established across Sindh with the arrival of charismatic figures, often linked with one of the main Sufi orders, such as the Suhrawardis and the Qadiris.
+   NEW: Accounts differ on how steadily Sufism grew there; as in other regions of South Asia, a strong Sufi presence is said to have been rapidly established across Sindh with the arrival of charismatic figures, often linked with one of the main Sufi orders, such as the Suhrawardis and the Qadiris.
+
+14. [P2 issue 5]
+   OLD: By 1851 a portrait of the Lohanas was held to be a general portrait of the Hindus of Sindh, the great body of whom they made up.
+   NEW: By 1851 a portrait of the Lohanas was held to be a general portrait of the Hindus of Sindh.
+
+15. [P2 issue 6]
+   OLD: From 1740 onwards Sindh was approaching a natural and self contained economy, a sign of a great increase in administrative efficiency.
+   NEW: Sindh was by then approaching a natural and self contained economy, a sign of a great increase in administrative efficiency from 1740 onwards.
+
+16. [P2 issue 7]
+   OLD: Its rains are scanty and never regular, so the province is not seriously troubled when the monsoon fails;
+   NEW: Because the river made it, the province is not seriously troubled when the monsoon fails, though its rains are scanty and never regular;
+
+17. [P2 issue 8]
+   OLD: the Company's papers fall almost blank on Sindh until 25 November 1744
+   NEW: the Company's papers fall blank on Sindh until 25 November 1744
+
+18. [P2 issue 9]
+   OLD: and the many skilled exponents of Sufi thought in medieval Sindh account for
+   NEW: and the several skilled exponents of Sufi thought in medieval Sindh account for
+
+19. [P2 issue 10]
+   OLD: Sindh had, and still has, a great variety of folk dances;
+   NEW: Sindh had, and in 1940 still had, a great variety of folk dances;
+
+20. [P3 issue 1]
+   OLD: When Nadir Shah invaded in 1739, Diwan Gidumal, the minister of the Kalhora princes, offered him two bags which, he said, "contain the most valuable of Sind's gifts; they contain the holy dust from the tombs of numerous saints and Pirs of Sind". The story is told as a mark of the country's pride in its mystical heritage.
+   NEW: Diwan Gidumal, the minister of the Kalhora princes, offered an invader two bags which, he said, "contain the most valuable of Sind's gifts; they contain the holy dust from the tombs of numerous saints and Pirs of Sind". Accounts differ on which invader it was; in one telling it was Nadir Shah, in 1739. The story is told as a mark of the country's pride in its mystical heritage.
+
+21. [P3 issue 2a]
+   OLD: The stories of the poem are Hindu in origin, and most of them belong to the Sindh of the days before Islam. Apart from the tales of the Punjab and Kutch, they are stories of Lower Sindh told among the Hindu peoples on the edges of the Thar before their general conversion to Islam.
+   NEW: The stories of the poem have been read as Hindu in origin. Apart from the tales of the Punjab and Kutch, they are, on this reading, stories of Lower Sindh told among the Hindu peoples on the edges of the Thar before their general conversion to Islam.
+
+22. [P3 issue 2b + P3 note 2 + spelling]
+   OLD: The heroines' stories are loosely set in the time before the Mughals, when Sindh was ruled by the Muslim Rajput dynasties of the Sumiros and the Samos,
+   NEW: Accounts of when the stories are set differ; the heroines' stories are loosely set in the time before the Mughals, when Sindh was ruled by the Rajput dynasties of the Sumra and the Samma,
+
+23. [P3 issue 3]
+   OLD: The province had two peculiar circumstances: most of its people had come late to Islam, and there was no large body of native literature in Sindhi, because its learned class came mostly from the privileged, many of them immigrants rather than people of the land.
+   NEW: On this reading the province had two peculiar circumstances: most of its people had come late to Islam, and there was no large body of native literature in Sindhi, because its learned class came mostly from the privileged, many of them immigrants rather than people of the land; accounts differ, though, on how much Sindhi literature came before Shah Abdul Latif.
+
+24. [P3 issue 4]
+   OLD: and there is no evidence that its *sants*, the poet saints, shaped the spiritual life of the province.
+   NEW: though that account gives no evidence that its *sants*, the poet saints, shaped the spiritual life of the province.
+
+25. [P3 issue 5 + spelling]
+   OLD: In a famous episode, Jakhiro resisted the invasion of Sultan Alauddin, the Muslim emperor of Delhi, who died in 1316, and took under his protection the women of his fellow Rajputs, the Sumiros.
+   NEW: In a famous episode of these legends, Jakhiro resisted the invasion of Sultan Alauddin, the Muslim emperor of Delhi, who died in 1316, and took under his protection the women of his fellow Rajputs, the Sumra.
+
+26. [P3 issue 6]
+   OLD: The threat to the province's shared culture is growing.
+   NEW: Some see a growing threat.
+
+27. [P3 issue 7]
+   OLD: Whatever the reason the Chishti order was absent from the province,
+   NEW: Whatever the reason the Chishti order spread so little in the province,
+
+28. [P1 note 1 (Nadir Shah year)]
+   OLD: Persian overlordship and tribute after the invasion of Nadir Shah, usually dated 1739;
+   NEW: Persian overlordship and tribute after the invasion of Nadir Shah in 1739, though accounts of the year differ;
+
+29. [P1 note 2 (Somnath)]
+   OLD: Returning from Somnath, Mahmud set out to punish a group who had behaved insolently towards his soldiers on the bank of the river Sindh.
+   NEW: Mahmud set out to punish a group who had behaved insolently towards his soldiers on the bank of the river Sindh as he returned from Somnath.
+
+30. [P1 note 3 (Kalhora not tied to 1658)]
+   OLD: ; and in 1658 the civil war between Aurangzeb and Dara Shikoh ended in Dara Shikoh's defeat and his death after a pursuit through Sindh, while the Kalhora began to oppose the Mughal troops.
+   NEW: ; in 1658 the civil war between Aurangzeb and Dara Shikoh ended in Dara Shikoh's defeat and his death after a pursuit through Sindh; and the Kalhora began to oppose the Mughal troops.
+
+31. [P1 note 4 (1754 to 1758)]
+   OLD: though its troubles in those years were typical
+   NEW: though its troubles from 1754 to 1758 were typical
+
+32. [P1 note 5 (books, not written works); reordered so the checker's 'the books' source-talk rule (P2) does not fire, meaning unchanged]
+   OLD: In 1781 too most of the written works of the scholar Makhdum Abdur Rahim Girhori were destroyed
+   NEW: In 1781 too most of the scholar Makhdum Abdur Rahim Girhori's books were destroyed
+
+33. [P1 note 6 (Jani Beg came to court)]
+   OLD: The Khankhanan, Mirza Abd al-Rahim, whose deeds included the conquest of Gujarat, Thatta and the Deccan, brought Mirza Jani Beg, son of Painda Muhammad son of Muhammad Baqi, to court after Jani Beg had ruled for eight years, and the country entered the protected dominions of the empire.
+   NEW: Mirza Jani Beg, son of Painda Muhammad son of Muhammad Baqi, came to court with the Khankhanan, Mirza Abd al-Rahim, whose deeds included the conquest of Gujarat, Thatta and the Deccan, after ruling for eight years, and the country entered the protected dominions of the empire.
+
+34. [P1 note 7 (part of Sindh in disorder)]
+   OLD: In the early seventeenth century the country was disordered,
+   NEW: In the early seventeenth century part of Sindh was in disorder,
+
+35. [P1 note 8 (would have numbered)]
+   OLD: so that they numbered under a million
+   NEW: so that they would have numbered under a million
+
+36. [P1 note 9 (conditional concession)]
+   OLD: The violence never reached the level of the Punjab's, but there was communal violence in Sindh.
+   NEW: Even if the violence never reached the level of the Punjab's, there was communal violence in Sindh.
+
+37. [P1 note 10 (decade before 2018)]
+   OLD: and in recent years many temples have been renovated in step with
+   NEW: and in the decade before 2018 many temples were renovated in step with
+
+38. [P1 note 11 (modern political division)]
+   OLD: in Baluch poetry the word means not a political division but the valley of the Indus.
+   NEW: in Baluch poetry the word means not the modern political division but the valley of the Indus.
+
+39. [P1 note 12 (Persianate)]
+   OLD: The Muslim conquests of northern India carried the Persianate culture of the wider Islamic world to Sindh,
+   NEW: The Muslim conquests of northern India extended the Persianate cultural world to Sindh,
+
+40. [P1 note 13 (drop 'So') + spelling Abdali]
+   OLD: So in Shah Abdul Latif's own lifetime Nadir Shah made Sindh tributary to Persia and Ahmad Shah Durani made it subject to Kabul.
+   NEW: In Shah Abdul Latif's own lifetime Nadir Shah made Sindh tributary to Persia and Ahmad Shah Abdali made it subject to Kabul.
+
+41. [P2 note 1 (1940 present); with it 'Wrestling was as popular then as in 1940' became 'in earlier days as in 1940', since 'then' would now point to 1940]
+   OLD: The peasants of Sindh are, and always have been, fond of laughter ... Wrestling was as popular then as in 1940,
+   NEW: The peasants of Sindh were in 1940, and always had been, fond of laughter ... Wrestling was as popular in earlier days as in 1940,
+
+42. [P2 note 3 (described as unhealthy)]
+   OLD: Lower Sindh was known for its unhealthiness, its epidemics, agues and fevers, and for ophthalmia,
+   NEW: Lower Sindh was described as unhealthy, with its epidemics, agues and fevers, and ophthalmia,
+
+43. [P2 note 4 (still recognisable in 1940)]
+   OLD: were still recognisable a century later,
+   NEW: were still recognisable in 1940,
+
+44. [P2 note 5 (quarter belongs to lower estimate)]
+   OLD: between 850,000 and about a million, about a quarter of them Hindus.
+   NEW: between 850,000 and about a million, the lower estimate counting about a quarter of them Hindus.
+
+45. [P2 note 7 (the saltpetre coppers)]
+   OLD: nor could artificers for its saltpetre coppers.
+   NEW: nor could artificers for the saltpetre coppers.
+
+46. [P2 note 8 (new scholarly writing)]
+   OLD: much of the new writing on the province was the work of Hindu scholars
+   NEW: much of the new scholarly writing was the work of Hindu scholars
+
+47. [P2 note 9 (informant's past tense)]
+   OLD: The *lotevali* gypsy women sing only at the shrine of Lal Shahbaz Qalandar, the one place in Sindh where they still come, and no such tradition has been seen at Bhit Shah,
+   NEW: The *lotevali* gypsy women sang only at the shrine of Lal Shahbaz Qalandar, the one place in Sindh where they still came, and no such tradition was seen at Bhit Shah,
+
+48. [P3 note 1 (Shah Abdul Latif's dates)]
+   OLD: Accounts of his dates differ by a year, placing his birth in 1689 or 1690 and his death in 1751 or 1752.
+   NEW: Accounts of his dates differ; he is most often dated 1689 to 1752.
+
+49. [P3 note 4 (teaching hedge)]
+   OLD: Teaching was not a respected trade.
+   NEW: Teaching seems never to have been held in great respect.
+
+50. [P3 note 5 (earlier poetry overshadowed)]
+   OLD: though their names tend to be overshadowed by Shah Abdul Latif's unique reputation.
+   NEW: though that earlier poetry tends to be overshadowed by Shah Abdul Latif's unique reputation.
+
+51. [P3 note 6 (1970s anchor)]
+   OLD: are almost as popular today as they were a hundred and fifty years ago.
+   NEW: were in the 1970s almost as popular as they had been a hundred and fifty years before.
+
+52. [P3 note 7 (tune said to be sung)]
+   OLD: a tune sung all along the lands from Rajasthan
+   NEW: a tune said to be sung all along the lands from Rajasthan
+
+53. [P3 note 8 (word order)]
+   OLD: These musicians sing to women only in the Sayyid households of Sindh,
+   NEW: In the Sayyid households of Sindh these musicians sing to women only,
+
+54. [P3 note 9 (no 'of the crop')]
+   OLD: In this country a third share of the crop was taken from the cultivator.
+   NEW: In this country a third share was taken from the cultivator.
+
+55. [P3 note 10 (evaluative opener deleted)]
+   OLD: The land was rich. Salt and iron mines
+   NEW: Salt and iron mines
+
+56. [P3 note 11 (Burton's words framed)]
+   OLD: Even among the mild Sindhis a noted Pir might once safely order
+   NEW: Even among the mild Sindhis, he wrote, a noted Pir might once safely order
+
+57. [P3 note 12 (Molchand)]
+   OLD: Yet one Hindu Sindhi Sufi, Molchand, worried after Partition
+   NEW: Yet Molchand worried after Partition
+
+58. [P3 note 13 (no translator credit)]
+   OLD: You may make the whole world happy!" (translated by Annemarie Schimmel). This last blessing
+   NEW: You may make the whole world happy!" This last blessing
+
+59. [P3 note 14 (letters and friends)]
+   OLD: Sindhi girls who never learned to hold a pen or read a letter still complain, in song, that no letter has come from their beloved;
+   NEW: Sindhi girls who never learned what a pen looks like and knew not a single letter still complain, in song, that no letter has come from their friends;
+
+60. [P3 note 15 (present of a 1998 book)]
+   OLD: who still holds great authority in Pakistan today.
+   NEW: who in the late 1990s still held great authority in Pakistan.
+
+61. [P3 note 16 (rationalisation)]
+   OLD: by a reordering of the poetry begun
+   NEW: by a rationalisation of the poetry begun
+
+62. [spelling: Punjab]
+   OLD: conquered Sindh and the Panjab before
+   NEW: conquered Sindh and the Punjab before
+
+63. [spelling: Abdali also called Durrani]
+   OLD: Ahmad Shah Abdali's influence on Sindh was not as important
+   NEW: The influence on Sindh of Ahmad Shah Abdali, also called Durrani, was not as important
+
+64. [spelling: Abdali]
+   OLD: when Ahmad Shah Durani invaded Sindh
+   NEW: when Ahmad Shah Abdali invaded Sindh
+
+65. [spelling: Durrani]
+   OLD: annexed to the Durani kingdom
+   NEW: annexed to the Durrani kingdom
+
+66. [spelling: Baluch]
+   OLD: mainly those of Baloch origin
+   NEW: mainly those of Baluch origin
+
+67. [spelling: Kalhora dynasty]
+   OLD: the native Kalhoro dynasty
+   NEW: the native Kalhora dynasty
+
+68. [spelling: Kalhora]
+   OLD: scribes of the Kalhoras and the Talpurs
+   NEW: scribes of the Kalhora and the Talpurs
+
+69. [spelling: Suhrawardiyya]
+   OLD: the Qalandariyya and the Sohrawardiyya, while its fakirs, the wandering holy men, were divided into two great orders, the Jelali and the Jemali darwishes.
+   NEW: the Qalandariyya and the Suhrawardiyya, while its *faqirs*, the wandering holy men, were divided into two great orders, the Jelali and the Jemali dervishes.
+
+70. [spelling: Makhdum Jahaniyan (1)]
+   OLD: the governors of Sindh sought the help of Makhdum-i Jahaniyan.
+   NEW: the governors of Sindh sought the help of Makhdum Jahaniyan.
+
+71. [spelling: Makhdum Jahaniyan (2) + Zakariya]
+   OLD: Baha'u'd-Din Zakariyya supported Iltutmish's annexation, governors sought the help of Makhdum-i Jahaniyan,
+   NEW: Baha'uddin Zakariya supported Iltutmish's annexation, governors sought the help of Makhdum Jahaniyan,
+
+72. [spelling: Sumra (Sumirahs)]
+   OLD: The Sumirahs of lower Sindh, who were Isma'ilis,
+   NEW: The Sumra of Lower Sindh, who were Isma'ilis,
+
+73. [spelling: Sumra (Sumiros)]
+   OLD: Since the time of the Sumiros in the thirteenth century
+   NEW: Since the time of the Sumra in the thirteenth century
+
+74. [spelling: Samma (Summa)]
+   OLD: one of the Summa rulers of Sindh
+   NEW: one of the Samma rulers of Sindh
+
+75. [spelling: Quran]
+   OLD: the Koran, the Mathnawi of Rumi
+   NEW: the Quran, the Mathnawi of Rumi
+
+76. [spelling: Makran]
+   OLD: Baluchistan, Mekran, Multan
+   NEW: Baluchistan, Makran, Multan
+
+77. [spelling: Jaisalmer, Gujarat]
+   OLD: bounded by Multan, Jaisalmere and Gujrat,
+   NEW: bounded by Multan, Jaisalmer and Gujarat,
+
+78. [spelling: Sayyids]
+   OLD: kept for the *sayyids* and their dependents
+   NEW: kept for the Sayyids and their dependents
+
+79. [spelling: Hussein]
+   OLD: to receive the blessing of Shah Hussayn; the Mughal armies then conquered Thatta, and Hussayn's reputation spread.
+   NEW: to receive the blessing of Shah Hussein; the Mughal armies then conquered Thatta, and Hussein's reputation spread.
+
+NOTES points not applied, and why:
+- P1 'how far Sumra authority reached over each is confused': V1 calls it taste.
+- P1 'In the telling of Rochaldas': V1 calls it acceptable.
+- P2 'every kind of popular superstition could be found in the province': V1's 'examples of every superstitious practice of that kind' leaves 'of that kind' with no referent (the public text has no list of practices before it); left as it was rather than introduce a broken referent.
+- P2 *jagir* and *panchayat* glosses harmonised: taste (V1: 'none is wrong').
+- P2 'None of the Company's covenanted servants', the photographic portrait sentence, the poll tax reading: V1 calls them acceptable or confirmed.
+- P3 *sung* in two senses: V1 calls it acceptable.
+- P3 'Hinglaj' with no gloss: V1 says leave it; the team version gives nothing to build a gloss from.
+- P3 heading 'The Province in Books': V1 says the brief allows it.
+- P1 1941 'about 0.9 million' (team 'exactly 0.9 million'): not raised by V1; left.

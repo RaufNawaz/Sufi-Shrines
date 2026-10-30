@@ -1,0 +1,28 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+- Diff proof. python difflib between /home/claude/work/punjab/short.r1.bak and entries/places_public/punjab.short.md gives exactly 9 changed lines (lines 7, 21, 31, 43, 51, 79, 103, 105), one hunk per listed change (line 21 carries two of them, Malik Ayaz and Majdud). Applying the nine OLD -> NEW pairs of punjab.short.V1.r1.changes.txt to the backup, each OLD found exactly once, gives a text byte for byte identical to the current short article. Nothing outside the listed changes moved.
+
+- Each changed sentence, read in its paragraph against the long article:
+  1. Communities, Hindus: "while Hindus are a smaller community there, and many Hindus in Punjab pass as Muslims or Christians by taking names that are not Hindu, a way of surviving in a hostile place" is verbatim from the long (line 235). The long's "so political parties can ignore them" is left out, which drops a consequence without changing the claim. The split before "In most villages Muslims are the landowners, and Christians are confined to menial work and treated as untouchables" matches the long (line 237). No new causal link: the old "yet" contrast is gone, and the two sentences stand side by side as in the long.
+  2. Nanak Panthi Hindus: now tied to "Khyber Pakhtunkhwa, Punjab and Sindh" and to "thousands", as the long (line 239). Grammar holds: "the thousands of devotees ... who did not join ... are called Nanak Panthi Hindus, with a picture ... in their temples".
+  3. Khidr: "in Punjab" restored as in the long (line 179).
+  4. Majdud: "When Masud came to the throne his young son Majdud was given the Punjab as his governorship" keeps the long's passive (line 43) and no longer says Masud gave it. "after Masud's death Majdud rebelled against the new sultan, Maudud" is supported by "After Masud died and Maudud took the throne, Majdud rebelled ... Maudud marched against him". Referents are clear.
+  5. "in pursuit of Dara" is from the long (line 95, "While the imperial standards were in Punjab in pursuit of Dara"). The emperor stays unnamed, as in the long. The phrase gives the reason for the march the long gives, no more.
+  6. Bulleh Shah: "came under challenge from armed rebellion by the Sikhs and from local notables who set up their own power" follows the long (line 111) and no longer makes the notables' challenge armed. The long's "growing" is dropped; that softens nothing that needs a hedge.
+  7. Afghans: "helped to resettle it and build its towns, founding many new ones and promoting trade" is the long's construction (line 65), with "and commerce" dropped.
+  8. "by Mahmud's order": in the long (line 41) "the king" is Mahmud, the subject of that sentence. Correct, and it removes the ambiguity with Sabuktigin.
+  9. Overview: "the Qadiris had made the Punjab the main centre of their activities" is the long's own wording (lines 13 and 355).
+  No hedge was lost in any changed sentence. No doubled word, no broken referent, and no dash or hyphen in any of the nine new texts (checked by script).
+
+- Checker: cd /home/claude/repo && python3 pipeline/book_queue/check_place_description.py short punjab --english-only
+  ok    punjab.short  long 18222 -> short 6264 words (target 5940, 1.05)
+  exit 0. Length moved from 1.04 to 1.05 of target, inside 0.85 to 1.15.
+
+- Taste, no change needed:
+  - Line 79: "the living saint, in Punjab, and at the shrines of Punjab and Sindh" names Punjab twice in a few words. It is accurate, and both come from the long.
+  - Line 103: "In the Punjab itself ... while Hindus are a smaller community there" has "there" after "In the Punjab itself", which is slightly redundant but verbatim from the long. The paragraph now says that a significant Hindu population lives in the south and, a sentence later, that Hindus are a smaller community in the Punjab. That is not a contradiction ("smaller" is set against the Christian majority among the minorities), and the long says both.
+  - Round 1's optional additions were not applied, as the changes file says: (a) the pir as landlord, (b) the 2002 textbook, (iv) the "constant conflict" view in the Overview, and the gloss for "the men". None is a fault at this length.

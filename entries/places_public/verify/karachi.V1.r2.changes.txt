@@ -1,0 +1,6 @@
+Changes applied after V1 round 2 (karachi), by the coordinator, in the verifier's wording.
+
+WHY: V1 r2 issue 1 (referent introduced by the round 1 fix)
+OLD: one of two important urban centres of Sufism in the subcontinent, with Hyderabad in India, the home of a living Chishti order, of Hindu temples
+NEW: one of two important urban centres of Sufism in the subcontinent, the other being Hyderabad in India, and the home of a living Chishti order, of Hindu temples
+

@@ -1,0 +1,42 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [fault introduced by the change, doubled sentence] "How Lahore began is told in more than one way. Accounts of how Lahore began differ. In one telling Raja Ramchandar had two sons, Kushu and Lohu, and it was Lohu who settled the city." -> The founding paragraph already opened with "How Lahore began is told in more than one way." The OLD text replaced only the second sentence, so the new "Accounts of how Lahore began differ." now repeats the opener almost word for word. The content is supported: the team version gives several founding accounts (Lo in Bhandari, Lohu son of Ramchandar in Chishti p. 795, Luv and Kush in Khalid), and the Kushu and Lohu telling is quoted correctly. The fault is the doubling. The existing opener already does the work of the rule 4 clause, so drop the new sentence. -> OLD: "How Lahore began is told in more than one way. Accounts of how Lahore began differ. In one telling" NEW: "How Lahore began is told in more than one way. In one telling"
+
+2. [fault introduced by the changes, doubled phrase] "and in the nineteenth century that man's descendants were among the gravediggers. In the nineteenth century the gravediggers working there included men named Rahmat, ..." -> Two separate changes (the P2 tense and anchor note, and P2 issue 1) each added "in the nineteenth century ... the gravediggers". The two now sit in back to back sentences and repeat the same anchor and the same noun. Both facts are supported. The team version says Khwaja's descendants "are now among the gravediggers" (Chishti, so the nineteenth century), and Chishti's second list of gravediggers working "in his day" names Rahmat, Nabi Bakhsh, Miran Bakhsh, Shahab al-Din, Nur Din and Chiragh Din (p. 213). The anchor is no longer tied to Sayyid Mansur, so the round 1 merged account fault is fixed. Only the doubling needs repair. -> OLD: "and in the nineteenth century that man's descendants were among the gravediggers. In the nineteenth century the gravediggers working there included men named" NEW: "and in the nineteenth century that man's descendants were among the gravediggers. Those working there then included men named"
+
+NOTES:
+- The other 28 changes were checked against the team version. Each is supported, adds no certainty and merges no accounts:
+  - Humayun's return matches Bhandari p. 256, "without a battle".
+  - Tatar Khan matches Bhandari p. 524 alone.
+  - Mir Momin Khan: the sentence is cut correctly.
+  - Aram Shah: no succession is claimed.
+  - The Delhi Gate "is famous".
+  - Ahmad Shah watched "at a gate".
+  - Muzaffar Din is named as the scholar's paternal grandfather in Abbas p. 193.
+  - Mozang is hedged as "is said".
+  - The saints are framed as "Tradition holds".
+  - The image legend is framed as "it is said".
+  - "Lahore judged its saints" fits the remaining quotation.
+  - The Sufi orders are no longer tied to the city.
+  - The Parsotam Das temple is left unnamed.
+  - The Shiv Gar shivala has eight ghumaon, so "land of its own" holds without the uncertain figure.
+  - The Baoli's shops are now unnumbered.
+  - Miani rent: "after the Sikhs looted the village, the resettled houses paid a rent of one rupee a year each", from Chishti, so the nineteenth century anchor is correct.
+  - "told Haqiqat Rai" fixes the referent.
+  - "the community plays" reflects the team's "they".
+  - The manuscript is "of his verse".
+  - "Two older accounts" reflects the team's "Two of these books" and sits under "Lahore in Books", where the books are the subject.
+  - "Madho Lal" is used as the team gives it.
+  - "shared some of it" is supported.
+  - Sana'i is no longer called a poet.
+  - "publicly, in writing" reflects "in print".
+  - The 1966 printing "was not found in the libraries of Lahore that were searched" reflects Kugle's single search.
+  - In the Suchet Singh sentences the two uncertain verbs are gone, "attacked it" rests on p. 239, and the deaths are kept.
+  - The Ghurid clause gives Dhillon's view as one clause after Bhandari's.
+  None introduces a dash, source talk or a broken grammatical referent.
+- Ghurid clause: "though accounts differ on whether he ever took the city". Dhillon says only that Ghori "was not able to conquer Lahore" when he captured the Punjab in 1192, so "ever" is slightly broader than the source. "though accounts differ on whether he took the city" would be exact. This is optional.
+- "Sometimes heirs held everything." now opens its paragraph without the contrast it once had. It reads acceptably, and "kept both:" points forward to the colon list, so the referent holds. This is optional.
+- "tambola is the only game the community plays in Lahore now": "the community" leans on Navroz and the minorities' calendar in the paragraph before, which never names the Parsis. It is clear enough in context and keeps to the team's "they".
+- "The Sufi orders were the Qadiri, ..., among others": "were ... among others" is slightly awkward. "The Sufi orders included the Qadiri, Chishti, Suhrawardi, Naqshbandi and Naushahi." would read more smoothly without placing them in the city. This is optional.
+- Outside this round's scope, seen in passing: the Mir Momin Khan paragraph says he "became nazim of Lahore". The team version (Chishti p. 173) says he was not autonomous, and the real nazim was a Khan whose name cannot be read. This sentence was not changed in this round, so it is recorded here for the coordinator only.

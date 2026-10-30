@@ -1,0 +1,958 @@
+Sindh Urdu, fixes after V2 and V3 round 1, per heading group (applied by the group's Urdu writer as exact replacements). WHY / OLD / NEW, then the rejected items with reasons.
+
+=================== GROUP P1 ===================
+ur_P1.md round 1 fixes: 70 replacements applied (V2 round 1 + V3 round 1 + notes)
+
+1. WHY: V3-1 a name has no boundaries; the area it covers does (tense kept as 'has never had' in the English: ہوتا رہا ہے)
+   OLD: اس نام کی حدیں کبھی متعین نہیں رہیں:
+   NEW: سندھ کے نام کا اطلاق جس علاقے پر ہوتا رہا ہے، اس کی حدیں کبھی متعین نہیں رہیں:
+
+2. WHY: V3-2 calque 'political division'
+   OLD: آج کی سیاسی تقسیم کے لیے نہیں
+   NEW: آج کی سیاسی اکائی کے لیے نہیں
+
+3. WHY: V3-3 agreement (first occurrence, Overview)
+   OLD: تک حکومت کا مستقر ٹھٹھہ اور دیبل تھے۔
+   NEW: تک حکومت کے مستقر ٹھٹھہ اور دیبل تھے۔
+
+4. WHY: V3-4 مشاہدہ نگار is a coinage; standard مبصر (Overview) + V2-4 the hundred thousand tombs belong to the observer's report, not a general reputation
+   OLD: ایک مشاہدہ نگار کو یہ ملک مذہبی پیشواؤں کے شکنجے میں جکڑا ہوا دکھائی دیا، اور اس کے بارے میں مشہور تھا کہ یہاں اولیا کے ایک لاکھ مزار ہیں۔
+   NEW: ایک مبصر کو یہ ملک مذہبی پیشواؤں کے شکنجے میں جکڑا ہوا دکھائی دیا، اور اس کے بقول کہا جاتا تھا کہ یہاں اولیا کے ایک لاکھ مزار ہیں۔
+
+5. WHY: V3-5 calque 'social religion'
+   OLD: یہاں کے سماجی مذہب کی بنیاد
+   NEW: یہاں معاشرے میں رائج دین داری کی بنیاد
+
+6. WHY: V3-6 آوارہ گرد is pejorative (also V2 note)
+   OLD: یہاں کے آوارہ گرد فقیر
+   NEW: یہاں کے سیلانی فقیر
+
+7. WHY: V3-7 name cut off by commas; جن/جسے referent mixed
+   OLD: دریا کا اپنا ایک ولی بھی تھا، خواجو خضر، جن سے عقیدت دریائے سندھ کی پوجا سے جڑی ہوئی تھی اور جسے مسلمانوں اور ہندوؤں دونوں کی سرپرستی حاصل تھی۔
+   NEW: دریا کا بھی اپنا ایک ولی تھا: خواجو خضر۔ ان سے عقیدت دریائے سندھ کی پوجا سے جڑی ہوئی تھی، اور اس عقیدت کو مسلمانوں اور ہندوؤں دونوں کی سرپرستی حاصل تھی۔
+
+8. WHY: V2-6 omission: 'wandering' yogis (varied from سیلانی فقیر above, per V2 note)
+   OLD: جوگی بلوچستان میں ہنگلاج کی دیوی کی یاترا کے لیے سندھ سے گزرتے تھے،
+   NEW: گھومتے پھرتے جوگی بلوچستان میں ہنگلاج کی دیوی کی یاترا کے لیے سندھ سے گزرتے تھے،
+
+9. WHY: V3-8 the list names a tomb, a saint, a darbar, not kinds of relationship
+   OLD: صوبے کے ہندوؤں کا تصوف سے رشتہ تین طرح کا ہے:
+   NEW: صوبے کے ہندوؤں کا تصوف سے رشتہ تین صورتوں میں سامنے آتا ہے:
+
+10. WHY: V3-9 'بلوچ کلہوڑا حکمرانوں' misparses; اسی وقت had no antecedent
+   OLD: بلوچ کلہوڑا حکمرانوں کے بلانے سے پہلے کئی پشتوں سے اس ملک میں آباد تھے، مگر ان کی سیاسی اہمیت اسی وقت سے شروع ہوئی۔
+   NEW: بلوچ اس ملک میں کلہوڑا حکمرانوں کے بلانے سے پہلے ہی کئی پشتوں سے آباد تھے، مگر ان کی سیاسی اہمیت اسی بلاوے سے شروع ہوئی۔
+
+11. WHY: V3-10 'ہندو زمینداروں' read as 'Hindu landlords', reversing the meaning
+   OLD: ہندو زمینداروں کو قرض دیتے، تجارت کے لیے سرمایہ فراہم کرتے اور محصول کا ٹھیکہ لیتے تھے، اور دیہات کی تمام چھوٹی دکانیں انہی کی تھیں۔
+   NEW: زمینداروں کو قرض ہندو دیتے تھے، تجارت کے لیے سرمایہ بھی وہی فراہم کرتے اور محصول کا ٹھیکہ بھی وہی لیتے تھے، اور دیہات کی تمام چھوٹی دکانیں بھی انہی کی تھیں۔
+
+12. WHY: V3-11 غالب ... غالباً jingle; راہ ... راستہ repeat
+   OLD: انیسویں صدی میں ہندو سندھیوں کی غالب مذہبی راہ غالباً نانک پنتھ تھی، یعنی گرو نانک کے پیروکاروں کا راستہ۔
+   NEW: انیسویں صدی میں ہندو سندھیوں میں سب سے زیادہ رائج مسلک غالباً نانک پنتھ تھا، یعنی گرو نانک کے پیروکاروں کا راستہ۔
+
+13. WHY: V3-12 calque 'speak as their mother tongue'
+   OLD: سیدی، جنہیں شروع میں افریقہ سے غلام بنا کر لایا گیا تھا، اب سندھی ہی کو اپنی مادری زبان کے طور پر بولتے ہیں۔
+   NEW: سیدیوں کو شروع میں افریقہ سے غلام بنا کر لایا گیا تھا، اور اب سندھی ہی ان کی مادری زبان ہے۔
+
+14. WHY: V3-13 بولی ... بولی جاتی; وہاں/یہاں for different referents
+   OLD: شمالی سندھ کی بولی سرائیکی، جو خاص طور پر وہاں کی بلوچ آبادی میں بولی جاتی ہے، یہاں کے بہت سے صوفی شاعروں کی دوسری زبان بنی۔
+   NEW: سرائیکی، جو شمالی سندھ میں اور خاص طور پر وہاں کی بلوچ آبادی میں بولی جاتی ہے، سندھ کے بہت سے صوفی شاعروں کی دوسری زبان بنی۔
+
+15. WHY: V3-14 calque 'معانی کے لیے برتا گیا'; range tacked on after the verb
+   OLD: لوک کہانیوں کو یہاں دوسرے خطوں کی نسبت کہیں زیادہ صوفیانہ معانی کے لیے برتا گیا، سولھویں صدی کے نصفِ اول میں قاضی قادن کے کلام سے لے کر اٹھارھویں صدی میں بھٹ کے شاہ عبداللطیف کے رسالو تک، جو ان کے کلام کا مجموعہ ہے۔
+   NEW: سولھویں صدی کے نصفِ اول میں قاضی قادن کے کلام سے لے کر اٹھارھویں صدی میں بھٹ کے شاہ عبداللطیف کے مجموعۂ کلام رسالو تک، یہاں لوک کہانیوں کو دوسرے خطوں کی نسبت کہیں زیادہ صوفیانہ معانی کے اظہار کا وسیلہ بنایا گیا۔
+
+16. WHY: V3-15 '1940 تک ... اب تک' clash, کلاسیکی شاہکار repeated, سندھ کی زبان; merged with V2-1 omission of 'universally' (بالاتفاق ... تسلیم)
+   OLD: 1940 تک رسالو کو سندھ کی زبان کا اب تک کا واحد کلاسیکی شاہکار کہا جا سکتا تھا۔ اسے سندھی ادب کا سب سے بڑا کلاسیکی شاہکار مانا جاتا ہے،
+   NEW: 1940 تک رسالو کو سندھی زبان کا اس وقت تک کا واحد کلاسیکی شاہکار کہا جا سکتا تھا۔ اسے بالاتفاق سندھی ادب کی سب سے بڑی کلاسیکی تخلیق تسلیم کیا جاتا ہے،
+
+17. WHY: V3-16 relative clause stranded after the verb; merged with V2-5 پہچان stronger than 'a feature' (sentence split to avoid a double اور)
+   OLD: وہاں کوئی رسم منگنہاروں کے بغیر ادا نہیں ہوتی، جو برادریوں کے روایتی موسیقار ہیں، اور مقامی زبان میں گایا جانے والا صوفیانہ کلام لعل شہباز قلندر کے مزار اور بھٹ میں شاہ عبداللطیف کے مزار کی پہچان ہے۔
+   NEW: وہاں برادریوں کے روایتی موسیقار منگنہار ہیں اور ان کے بغیر کوئی رسم ادا نہیں ہوتی۔ مقامی زبان میں گایا جانے والا صوفیانہ کلام لعل شہباز قلندر کے مزار اور بھٹ میں شاہ عبداللطیف کے مزار کی ایک خصوصیت ہے۔
+
+18. WHY: V3-17 calque 'state publications'
+   OLD: ریاست کی سندھی مطبوعات میں
+   NEW: سرکاری سندھی مطبوعات میں
+
+19. WHY: V3-18 two unrelated statements joined by semicolon + اور
+   OLD: حالانکہ سندھ کے دوسرے اولیا ان میں باقاعدگی سے جگہ پاتے تھے؛ اور 2018 سے
+   NEW: حالانکہ سندھ کے دوسرے اولیا ان میں باقاعدگی سے جگہ پاتے تھے۔ 2018 سے
+
+20. WHY: V2-2 omission: 'in Sindh'
+   OLD: اسلام پسند دہشت گردی کے پھیلاؤ کے باوجود صوفی ثقافت
+   NEW: سندھ میں اسلام پسند دہشت گردی کے پھیلاؤ کے باوجود صوفی ثقافت
+
+21. WHY: V3-19 gloss of a familiar word
+   OLD: وہاں سے ہند، یعنی ہندوستان، شروع ہوتا تھا
+   NEW: وہاں سے ہند شروع ہوتا تھا
+
+22. WHY: V3-20 جوں جوں needs a progressive pair
+   OLD: دہلی کی بالادستی جوں جوں کمزور ہوئی، ایسے مقامی واقعات پیش آئے جنہوں نے
+   NEW: دہلی کی بالادستی جوں جوں کمزور ہوتی گئی، ایسے مقامی واقعات پیش آتے گئے جنہوں نے
+
+23. WHY: V3-21 تقریباً and سرے سے cancel; heavy تک کے برسوں کے
+   OLD: 1690 سے 1760 تک کے برسوں کے معتبر کاغذات تقریباً سرے سے ناپید ہیں
+   NEW: 1690 سے 1760 تک کے معتبر کاغذات تقریباً ناپید ہیں
+
+24. WHY: V3-22 stacked کے chain
+   OLD: شاعر کی زندگی کے زمانے کے ایسٹ انڈیا کمپنی کے ریکارڈ میں
+   NEW: شاعر کے زمانۂ حیات میں ایسٹ انڈیا کمپنی کے ریکارڈ میں
+
+25. WHY: V3-23 double کو
+   OLD: ایک مؤرخ کو سندھ کو اس میں شامل کرنا ممکن ہی نظر نہ آیا
+   NEW: ایک مؤرخ نے سندھ کو اس میں شامل کرنا ممکن ہی نہ سمجھا
+
+26. WHY: V3-24 calque 'neighbouring Asia'
+   OLD: پڑوسی ایشیا کے فیصلہ کن واقعات سے
+   NEW: ایشیا کے پڑوسی خطوں کے فیصلہ کن واقعات سے
+
+27. WHY: V3-25 stacked izafat, hard to parse
+   OLD: یہاں اسلامی معاشرے کی دین پر استوار حکومتی بنیاد دیر تک قائم رہی
+   NEW: یہاں اسلامی معاشرے میں حکومت کی دینی بنیاد دیر تک قائم رہی
+
+28. WHY: V3-26 'بڑا اہم' redundant
+   OLD: 1659 سے 1758 تک اس کے وقائع میں کوئی بڑا اہم واقعہ درج نہیں۔
+   NEW: 1659 سے 1758 تک کے اس کے وقائع میں کوئی بڑا واقعہ درج نہیں۔
+
+29. WHY: V3-26 اسے pointed to وقائع rather than Sindh
+   OLD: بنجر زمینوں نے اسے باقی دنیا سے کاٹ رکھا تھا
+   NEW: بنجر زمینوں نے سندھ کو باقی دنیا سے کاٹ رکھا تھا
+
+30. WHY: V3-3 agreement (second occurrence, capitals paragraph)
+   OLD: اواخر میں حکومت کا مستقر ٹھٹھہ اور دیبل تھے۔
+   NEW: اواخر میں حکومت کے مستقر ٹھٹھہ اور دیبل تھے۔
+
+31. WHY: V3-27 انہیں could be the treasures or the regions
+   OLD: اور انہیں پہلی بار ایک ہی زرعی دنیا میں یکجا کر دیا
+   NEW: اور ان سب خطوں کو پہلی بار ایک ہی زرعی دنیا میں یکجا کر دیا
+
+32. WHY: V3-28 the infinitive is the subject
+   OLD: جب اموی سلطنت سے سندھ میں عرب حاکم آنا بند ہوئے تو
+   NEW: جب اموی سلطنت سے سندھ میں عرب حاکموں کا آنا بند ہوا تو
+
+33. WHY: V2-3 changed fact: 'the edge' belongs to the campaigns, not to Sindh; also resolves V3-29 (کنارے read as riverbanks) without V3's 'borders of Sindh', which would keep the wrong fact
+   OLD: غزنوی اپنی مہمات کے دوران سندھ کے کناروں تک بھی آئے۔
+   NEW: غزنوی اپنی مہمات کے حاشیے پر سندھ تک بھی آ پہنچے۔
+
+34. WHY: V3-30 رہا ... رہا, same idea twice
+   OLD: سومرہ ایک سندھی قبیلہ تھا جو کسی زمانے میں سندھ پر حکمران رہا، اور صدیوں تک یہ ملک اسی کے قبضے میں رہا۔
+   NEW: سومرہ ایک سندھی قبیلہ تھا جس نے کسی زمانے میں سندھ پر حکومت کی، اور یہ ملک صدیوں تک اسی کے قبضے میں رہا۔
+
+35. WHY: V3-31 جو could attach to مہم
+   OLD: شہاب الدین کی چوتھی مہم دیول کے خلاف تھی، جو ٹھٹھہ کے نام سے معروف ہے۔
+   NEW: شہاب الدین کی چوتھی مہم ٹھٹھہ کے نام سے معروف شہر دیول کے خلاف تھی۔
+
+36. WHY: V3-32 relative clause stranded after the verb
+   OLD: شہزادہ محمد سلطان کی جاگیر مقرر ہوئی، جو ملتان میں تعینات تھا۔
+   NEW: ملتان میں تعینات شہزادہ محمد سلطان کی جاگیر مقرر ہوئی۔
+
+37. WHY: V3-33 calque 'peculiar circumstances'
+   OLD: اس صوبے کے خاص حالات میں سے ایک ہے
+   NEW: اس صوبے کی امتیازی خصوصیات میں سے ایک ہے
+
+38. WHY: V3-34 relative clause stranded after the verb
+   OLD: فارسی شاعری کے مراکز تھے، جو تعلیم یافتہ اشرافیہ کے قلم سے نکلتی تھی۔
+   NEW: اس فارسی شاعری کے مراکز تھے جو تعلیم یافتہ اشرافیہ کے قلم سے نکلتی تھی۔
+
+39. WHY: V3-35 name repeated in one sentence (اس keeps the sentence subject, Salahuddin, as the English's likely reading per V2 note)
+   OLD: جام صلاح الدین جام فیروز کا رشتہ دار تھا، اور جام صلاح الدین کی بہن
+   NEW: جام صلاح الدین جام فیروز کا رشتہ دار تھا، اور اس کی بہن
+
+40. WHY: V3-36 last اس could be Bahadur Shah
+   OLD: اور وہیں اس کا انتقال ہوا۔
+   NEW: اور وہیں جام فیروز کا انتقال ہوا۔
+
+41. WHY: V3-37 awkward ہی
+   OLD: جو ترک ہی خاندان تھا
+   NEW: جو خود بھی ایک ترک خاندان تھا
+
+42. WHY: V3-38 سے with one-time آیا; V3's 'میں' would drop the English 'from the sixteenth century onwards', so the verb is made inceptive instead (آنے لگا)
+   OLD: انہی کے ساتھ سولھویں صدی سے سلسلۂ نقشبندیہ سندھ آیا۔
+   NEW: انہی کے ساتھ سولھویں صدی سے سلسلۂ نقشبندیہ سندھ میں آنے لگا۔
+
+43. WHY: V3-39 clumsy کی جانب کی
+   OLD: ٹھٹھہ کی جانب کی بندرگاہ لاہری بندر
+   NEW: ٹھٹھہ کے علاقے کی بندرگاہ لاہری بندر
+
+44. WHY: V3-40 cryptic word order
+   OLD: مغلوں کی انتظامی اکائی تنہا سندھ نہیں تھی۔
+   NEW: مغل انتظام میں سندھ کوئی الگ اکائی نہیں تھا۔
+
+45. WHY: V2 note (referent): the expenses belong to the person of rank, not the office
+   OLD: جو ہر سال کسی صاحبِ مرتبہ کو ملتا اور جس کے اخراجات
+   NEW: جو ہر سال کسی ایسے صاحبِ مرتبہ کو ملتا جس کے اخراجات
+
+46. WHY: V3-41 dangling participle
+   OLD: اور سندھ سے گزرتے ہوئے تعاقب کے بعد دارا کی موت واقع ہوئی
+   NEW: اور سندھ کے راستے دارا کا تعاقب ہوا، جس کے بعد اس کی موت واقع ہوئی
+
+47. WHY: V3-42 calque 'beyond easy reach of'
+   OLD: بڑے شہروں کی آسان رسائی سے باہر مغل گرفت کمزور تھی
+   NEW: جن علاقوں تک بڑے شہروں سے آسانی سے پہنچا نہیں جا سکتا تھا، وہاں مغل گرفت کمزور تھی
+
+48. WHY: V3-43 concessive clause buried mid sentence
+   OLD: 1644 میں لوگ اس قدر ستائے ہوئے اور مفلس تھے کہ زمین زرخیز ہونے اور عمدہ نیل کی بڑی مقدار پیدا کرنے کی صلاحیت رکھنے کے باوجود ان میں نہ کھاد ڈالنے اور بیج بونے کا حوصلہ تھا نہ وسائل۔
+   NEW: زمین زرخیز تھی اور اس میں عمدہ نیل بڑی مقدار میں پیدا ہو سکتا تھا، مگر 1644 میں لوگ اس قدر ستائے ہوئے اور مفلس تھے کہ ان میں نہ کھاد ڈالنے اور بیج بونے کا حوصلہ تھا نہ وسائل۔
+
+49. WHY: V3-44 calque 'bad government'
+   OLD: بالائی سندھ کی بری حکومت اور اس کے چھوٹے اہلکاروں کی بدعنوانی
+   NEW: بالائی سندھ کی بدانتظامی اور وہاں کے چھوٹے اہلکاروں کی بدعنوانی
+
+50. WHY: V3-4 مشاہدہ نگار -> مبصر (famine paragraph)
+   OLD: ایک مشاہدہ نگار کے بقول
+   NEW: ایک مبصر کے بقول
+
+51. WHY: V3-45 calque 'of the type'
+   OLD: اس نوع کا جسے اب جاموٹ کہا جاتا ہے،
+   NEW: ان قبیلوں میں سے جنہیں اب جاموٹ کہا جاتا ہے،
+
+52. WHY: V3-46 ان could be the Sufis just criticised
+   OLD: اور ان کے نقشبندی حلقے نے
+   NEW: اور مخدوم محمد ہاشم کے نقشبندی حلقے نے
+
+53. WHY: V3-47 calque 'integral part'
+   OLD: سندھ سلطنت کا لازمی حصہ رہا
+   NEW: سندھ سلطنت کا اٹوٹ حصہ رہا
+
+54. WHY: V3-48 peoples need the plural
+   OLD: باری باری مغل، ایرانی اور افغان کے آگے
+   NEW: باری باری مغلوں، ایرانیوں اور افغانوں کے آگے
+
+55. WHY: V3-48 peoples need the plural (second occurrence)
+   OLD: ملک کو مغل، ایرانی اور پٹھان سے آزاد کیا جائے
+   NEW: ملک کو مغلوں، ایرانیوں اور پٹھانوں سے آزاد کیا جائے
+
+56. WHY: V3-4 مشاہدہ نگار -> مبصر (1760)
+   OLD: 1760 میں ایک مشاہدہ نگار نے لکھا
+   NEW: 1760 میں ایک مبصر نے لکھا
+
+57. WHY: V3-49 counterfactual needs ہوتا
+   OLD: تو اس میں ایسٹ انڈیا کمپنی کا فائدہ تھا
+   NEW: تو اس میں ایسٹ انڈیا کمپنی کا فائدہ ہوتا
+
+58. WHY: V3-50 adjective phrase set off in apposition
+   OLD: یہ ایک چھوٹا سا علاقہ ہے، قدرتی طور پر زرخیز، جو
+   NEW: یہ ایک چھوٹا سا، قدرتی طور پر زرخیز علاقہ ہے جو
+
+59. WHY: V3-51 'اسی 1781' is not Urdu; bare عالم. V3's 'اسی سال' would follow a sentence ending on 1843, so the year is named: 1781 ہی میں
+   OLD: اسی 1781 میں بالائی سندھ پر افغان یورشوں میں عالم مخدوم
+   NEW: 1781 ہی میں بالائی سندھ پر افغان یورشوں میں عالمِ دین مخدوم
+
+60. WHY: V3-52 calque 'only by establishing'; sentence ended on a participle
+   OLD: مگر صرف بلوچوں کی ایسی برتری قائم کر کے جو باقی آبادی پر، اور خصوصاً ہندوؤں پر، بہت بھاری پڑی۔
+   NEW: مگر یہ وحدت بلوچوں کی ایسی برتری ہی کے ذریعے قائم ہوئی جو باقی آبادی پر، خصوصاً ہندوؤں پر، بہت بھاری پڑی۔
+
+61. WHY: V3-53 unvowelled کچھ reads as 'some'
+   OLD: لوہانے سندھ، کچھ اور سوراشٹر
+   NEW: لوہانے سندھ، کَچھ اور سوراشٹر
+
+62. WHY: V3-54 one town spelt two ways (نصیرپور / نصرپور); the dictionary has no entry, so the file keeps نصرپور, which it already uses in the last section
+   OLD: سیوستان، نصیرپور اور عمرکوٹ
+   NEW: سیوستان، نصرپور اور عمرکوٹ
+
+63. WHY: V3-55 بنیادی باتوں third time, ڈھانچا second time in the paragraph
+   OLD: سندھ میں مغل انتظام کا ڈھانچا 1600 سے 1840 تک بنیادی باتوں میں کم ہی بدلا، اگرچہ اس کی روح میں خاصی تبدیلی آ گئی۔
+   NEW: 1600 سے 1840 تک سندھ میں مغل انتظام کی ہیئت میں کم ہی فرق آیا، اگرچہ اس کی روح خاصی بدل گئی۔
+
+64. WHY: V3-56 نوآبادیات means colonies
+   OLD: انگریزی نوآبادیات کا غلبہ تھا
+   NEW: انگریزی استعمار کا غلبہ تھا
+
+65. WHY: V3-57 (part) کے ... کے ... کے chain; the ذاتوں -> گروہوں part rejected, see below
+   OLD: 1870 کی دہائی کے اوائل کے سندھ کے اعداد و شمار میں
+   NEW: 1870 کی دہائی کے اوائل میں سندھ کے اعداد و شمار میں
+
+66. WHY: V3-58 تشدد twice in a short sentence
+   OLD: سندھ میں فرقہ وارانہ تشدد ہوا ضرور۔
+   NEW: سندھ میں فرقہ وارانہ فسادات ہوئے ضرور۔
+
+67. WHY: V2 note (attribution): rejoin the Rochaldas clause with ؛ so he stays its source, as in the English
+   OLD: نظریں جمائے ہوئے تھے۔ کچھ ہندو
+   NEW: نظریں جمائے ہوئے تھے؛ کچھ ہندو
+
+68. WHY: V3-59 mismatched forms in a series
+   OLD: سمندر، ہوائی یا ریل کے راستے
+   NEW: سمندری، ہوائی یا ریل کے راستے
+
+69. WHY: V3-60 double hedge; V3's 'اندازاً 500,000' would drop the English 'nearly', so: ایک اندازے کے مطابق ('were estimated') + تقریباً ('nearly')
+   OLD: 1 جنوری 1948 تک اندازاً تقریباً 500,000 افراد
+   NEW: 1 جنوری 1948 تک ایک اندازے کے مطابق تقریباً 500,000 افراد
+
+70. WHY: V3-61 repeats that Sindh is in Pakistan; nonstandard اسلامیانے; English apposition. V3's sentence kept, with اب restored for the English 'now'
+   OLD: اور اب یہ پاکستان کا حصہ ہے، ایک ایسے ملک کا جو اسلامیانے کے مختلف مراحل سے گزر چکا ہے۔
+   NEW: اور اب یہ ایک ایسے ملک کا حصہ ہے جو اسلامی رنگ میں ڈھلنے کے مختلف مراحل سے گزر چکا ہے۔
+
+REJECTED / NOT APPLIED AS PROPOSED
+
+R1. V3-29  [proposed: غزنوی اپنی مہمات کے دوران سندھ کی سرحدوں تک بھی آئے]
+   REASON: V3's wording rejected: 'reached the borders of Sindh' says Ghazni stopped at Sindh's frontier, but the English says Ghazni reached Sindh, at the edge of its campaigns (V2-3), and the next sentences have Mahmud fighting in Sindh. V3's complaint (کنارے as riverbanks) is met by the V2-3 fix, which drops کنارے.
+
+R2. V3-57 (part)  [proposed: دوسری ذاتوں -> دوسرے گروہوں]
+   REASON: The English (the authority) says 'persons of other castes such as Sikhs, Parsis and Jews', the classification of the 1870s figures it reports; replacing 'castes' with 'groups' would change what the English states. The postposition-chain part of the issue is applied.
+
+R3. V3-38 (wording)  [proposed: سولھویں صدی میں]
+   REASON: V3's 'میں' drops the English 'from the sixteenth century onwards'; the issue is met instead with an inceptive verb (سولھویں صدی سے ... آنے لگا), counted as applied.
+
+R4. V3-60 (wording)  [proposed: اندازاً 500,000]
+   REASON: V3's fix drops 'nearly' (تقریباً), a qualifier the English gives; the double hedge is resolved as ایک اندازے کے مطابق تقریباً, counted as applied.
+
+R5. V3-51 (wording)  [proposed: اسی سال]
+   REASON: In place, اسی سال would point at 1843, the nearest year in the previous sentence; '1781 ہی میں' keeps the English year, counted as applied.
+
+R6. V3 note: دیول / دیبل
+   REASON: Not changed: the English itself names Dewal as an earlier capital and Debal (with Thatta) as the later seat of government, so they stay as two names.
+
+R7. V3 note: Hindu Sufis
+   REASON: Not changed: the English says 'the Hindu Sufis of Sindh'.
+
+R8. V3 note: Durrani annexation timing
+   REASON: Not changed: the English states 'was then annexed to the Durrani kingdom'.
+
+R9. V3 note: ان مغربی صوبوں
+   REASON: Not changed: the English has 'the pious of these western provinces'.
+
+R10. V3 taste notes (محدود کردار، شاندار تنہائی، قرامطی بدعت، ریاستِ خیرپور، پیروں کی طاقت، سنہ، repeated continuity sentence)
+   REASON: Not applied: taste, not meaning, agreement, referent or spelling. قرامطی بدعت renders the English 'Qarmatian heresy'; 'the power of the pir' is singular in the English; the continuity sentence repeats in the English too.
+
+R11. V2 notes: faqirs / Salahuddin's sister
+   REASON: Handled: آوارہ گرد replaced (V3-6) and the yogis given a different word (V2-6); the sister stays with the sentence subject (V3-35), which V2 accepted.
+
+=================== GROUP P2 ===================
+ur_P2.md round-1 fixes (V2_P2.r1 + V3_P2.r1). Applied: 93 replacements. Rejected / not applied: 9.
+
+1. WHY: V2 note (Land para 1): نہر means a canal; the English 'channels that change their course' are the river's own channels
+   OLD: راستہ بدلتی نہروں
+   NEW: راستہ بدلتی شاخوں
+
+2. WHY: V3 #1: calque 'ان حدود کے اندر' and unnatural collocation 'آسودگی کے ساتھ پالنا'
+   OLD: ان حدود کے اندر یہ زمین ہمیشہ اپنے باشندوں کو معتدل آسودگی کے ساتھ پالتی رہی ہے
+   NEW: ان حدود میں رہتے ہوئے یہ زمین اپنے باشندوں کو ہمیشہ ایک معتدل درجے کی آسودگی بہم پہنچاتی رہی ہے
+
+3. WHY: V3 #2: 'کم خوش نصیب' calques 'less fortunate'; recurring famines need the plural
+   OLD: جس قحط نے ہندوستان کے کم خوش نصیب علاقوں کو برباد کیا، اس سے سندھی کسان کو عموماً کوئی خوف نہ تھا، اور یہ صوبہ نسبتاً اس سے محفوظ رہا۔
+   NEW: جن قحطوں نے ہندوستان کے بدقسمت علاقوں کو برباد کیا، ان سے سندھی کسان کو عموماً کوئی خوف نہ تھا، اور یہ صوبہ نسبتاً ان سے محفوظ رہا۔
+
+4. WHY: V3 #3: 'آ گھیرا' had no object
+   OLD: خشک سالی، ٹڈی دل، طاعون اور سیلاب نے آ گھیرا
+   NEW: خشک سالی، ٹڈی دل، طاعون اور سیلاب نے صوبے کو آ گھیرا
+
+5. WHY: V3 #4: 'بڑھا کر بیان کرنا' means exaggerate (self-contradiction); circular 'کیونکہ'
+   OLD: آب پاشی ہمیشہ اس صوبے کی کنجی رہی ہے، کیونکہ اتنی کم بارش والی سرزمین میں اس کی اہمیت کو جتنا بھی بڑھا کر بیان کیا جائے، کم ہے۔
+   NEW: آب پاشی ہمیشہ اس صوبے کی کنجی رہی ہے؛ اتنی کم بارش والی سرزمین میں اس کی اہمیت جتنی بھی بیان کی جائے، کم ہے۔
+
+6. WHY: V3 #5: literal 'crops followed the water'
+   OLD: فصلیں پانی کے پیچھے چلتی تھیں۔
+   NEW: فصلوں کا دار و مدار پانی پر تھا۔
+
+7. WHY: V3 #6: 'known for' calque (کے لیے مشہور)
+   OLD: سندھ میٹھے اور کھارے دونوں پانیوں کی مچھلی کے لیے ہمیشہ مشہور رہا ہے
+   NEW: سندھ کی میٹھے اور کھارے دونوں پانیوں کی مچھلی ہمیشہ سے مشہور رہی ہے
+
+8. WHY: V3 #7: 'سرچشمہ' for a supply of people is a calque; 'سمندری پیشہ لوگ' awkward
+   OLD: زیریں سندھ کا ساحل گجرات، کنارا اور مالابار کے ساتھ ہندوستان کے ملاحوں اور سمندری پیشہ لوگوں کے بڑے سرچشموں میں سے تھا۔
+   NEW: گجرات، کنارا اور مالابار کی طرح زیریں سندھ کا ساحل بھی ان بڑے علاقوں میں سے تھا جہاں سے ہندوستان کو ملاح اور سمندر پیشہ لوگ ملتے تھے۔
+
+9. WHY: V3 #8: 'بندر' already means port
+   OLD: لاڑی بندر کی بندرگاہ میں خوب چہل پہل
+   NEW: لاڑی بندر میں خوب چہل پہل
+
+10. WHY: V3 #9 (English loan کسٹم -> چونگی) merged with V2 note (Land para 6): 'its customs' are the Sindh government's dues, not dues levied on the Company
+   OLD: اور اس پر عائد کسٹم اور راہداری کے محصول ویسے ہی
+   NEW: اور اس حکومت کی چونگی اور راہداری کے محصول ویسے ہی
+
+11. WHY: V3 #10: 'عام استعمال ہوتا' needs an adverb
+   OLD: جنوبی ایران، سندھ اور مغربی ایشیا میں عام استعمال ہوتا تھا
+   NEW: جنوبی ایران، سندھ اور مغربی ایشیا میں عام طور پر استعمال ہوتا تھا
+
+12. WHY: V3 #11: 'half a dozen' rendered literally
+   OLD: یہاں آدھی درجن پھلتی پھولتی صنعتیں تھیں
+   NEW: یہاں کوئی چھ پھلتی پھولتی صنعتیں تھیں
+
+13. WHY: V2 #1 [changed fact]: 'ہونے کے باوجود' made the English context a concession. V2's wording also meets V3 #12's complaint about the wrong connector; V3's causal wording (کی وجہ سے) is NOT applied, see rejections
+   OLD: ایک مسلم سرزمین ہونے کے باوجود یہاں کے تین چوتھائی لوگ
+   NEW: اس مسلم سرزمین میں تین چوتھائی لوگ
+
+14. WHY: V3 #13: 'یہ' had no clear antecedent
+   OLD: اور یہ مناسب دست کار فراہم کرنے سے قاصر ہے
+   NEW: اور یہ صوبہ مناسب دست کار فراہم کرنے سے قاصر ہے
+
+15. WHY: V3 #14: overloaded sentence split; 'باقی ہندوستان' awkward; 'یوں یہ' ambiguous
+   OLD: 1770 تک سندھ بھی سوتی کپڑا بنانے والے باقی ہندوستان کے ساتھ اس مصیبت میں شریک ہو چکا تھا، اور بعد کے کلہوڑا حکمرانوں نے اسے ایک خود کفیل مسلم ریاست بنا دیا جس کے دروازے لگ بھگ پون صدی تک انگریزوں پر بند رہے، یوں یہ 1843 کے بعد تک جمود میں ڈوبا رہا۔
+   NEW: 1770 تک سندھ بھی سوتی کپڑا بنانے والے ہندوستان کے باقی علاقوں کے ساتھ اس مصیبت میں شریک ہو چکا تھا۔ بعد کے کلہوڑا حکمرانوں نے اسے ایک خود کفیل مسلم ریاست بنا دیا جس کے دروازے لگ بھگ پون صدی تک انگریزوں پر بند رہے، اور یوں سندھ 1843 کے بعد تک جمود میں ڈوبا رہا۔
+
+16. WHY: V3 #15: antecedent آبادی is feminine singular
+   OLD: اور کم تر اندازے میں ان کا تقریباً چوتھائی حصہ
+   NEW: اور کم تر اندازے میں اس کا تقریباً چوتھائی حصہ
+
+17. WHY: V3 #16: adjective and noun yoked together
+   OLD: معاشرہ زرعی اور گلہ بانی کا تھا
+   NEW: معاشرہ زراعت اور گلہ بانی پر قائم تھا
+
+18. WHY: V3 #18: 'کے ساتھ ساتھ' read as 'as well as the flood'
+   OLD: جنہیں سیلاب کے ساتھ ساتھ کھڑا بھی
+   NEW: جنہیں سیلاب کے حساب سے کھڑا بھی
+
+19. WHY: V3 #17: same mixed construction
+   OLD: سندھ کے زرعی اور گلہ بانی کے اضلاع پر پورے اترتے تھے
+   NEW: سندھ کے ان اضلاع پر پورے اترتے تھے جہاں زراعت اور گلہ بانی ہوتی تھی
+
+20. WHY: V3 #19: 'اب بھی' clashed with past 'تھے'; 'زیریں سندھ' repeated in one sentence
+   OLD: اور جنوب مغربی ہوا پکڑنے کے لیے بادگیر زیریں سندھ میں اب بھی ہر جگہ استعمال ہوتے تھے۔
+   NEW: اور جنوب مغربی ہوا پکڑنے کے لیے بادگیر وہاں اس وقت بھی ہر جگہ استعمال ہوتے تھے۔
+
+21. WHY: V3 #20: gloss between commas cut the term off from 'میں'
+   OLD: اور ان کے گرد اپنی *لانڈھیوں*، یعنی جھونپڑیوں کے جھرمٹوں، میں بسے مسلمان کاشتکار
+   NEW: اور ان کے گرد جھونپڑیوں کے اپنے جھرمٹوں یعنی *لانڈھیوں* میں بسے مسلمان کاشتکار
+
+22. WHY: V3 #21: 'اب تک' with past; the obstacle is the children's herding, not the children
+   OLD: اور یہ طریقہ اب تک رائج تھا؛ اسی طرح مویشی چرانے والے بچے اب تک کسانوں کی تعلیم کی راہ میں بڑی رکاوٹوں میں سے تھے۔
+   NEW: اور یہ طریقہ تب بھی رائج تھا؛ اسی طرح بچوں کا مویشی چرانا تب بھی کسانوں کی تعلیم کی راہ میں ایک بڑی رکاوٹ تھا۔
+
+23. WHY: V3 #22: 'جو' attached to معیشت, but the sign is the whole development
+   OLD: اس وقت تک سندھ ایک فطری اور خود کفیل معیشت کے قریب پہنچ رہا تھا، جو 1740 کے بعد سے
+   NEW: اس وقت تک سندھ ایک فطری اور خود کفیل معیشت کے قریب پہنچ رہا تھا، اور یہ بات 1740 کے بعد سے
+
+24. WHY: V3 #23: term set between commas, English apposition order
+   OLD: اور ایک فی کس محصول، *سر شماری*، ان مسلمانوں پر عائد تھا
+   NEW: اور *سر شماری* نام کا ایک فی کس محصول ان مسلمانوں پر عائد تھا
+
+25. WHY: V3 #24: gloss broke the participle from its noun
+   OLD: 1847 میں جاگیر یا انعام کے طور پر دی گئی، یعنی لگان سے مستثنیٰ، زمین سرکاری زمین کا دسواں حصہ تھی۔
+   NEW: جاگیر یا انعام کے طور پر دی گئی زمین، جو لگان سے مستثنیٰ ہوتی تھی، 1847 میں سرکاری زمین کا دسواں حصہ تھی۔
+
+26. WHY: V3 #25: three successive travel verbs; merged into one sentence. V3's 'اس صوبے میں آئے' adjusted to 'سندھ سے گزرے' to keep the English 'crossed ... through Sindh', and to give the next sentence's 'یہ زیریں حصہ' its antecedent
+   OLD: صوفی حلاج 900 کے کچھ ہی بعد لوگوں کو خدا کی طرف بلانے کے لیے اس صوبے سے گزرے۔ وہ گجرات سے چل کر سندھ میں گھومتے پھرے۔
+   NEW: صوفی حلاج 900 کے کچھ ہی بعد لوگوں کو خدا کی طرف بلانے کے لیے گجرات سے چل کر سندھ سے گزرے۔
+
+27. WHY: V3 #26: compared a region with a growth
+   OLD: کیونکہ یہاں ماوراءالنہر اور خراسان جیسے فروغ کا کوئی ثبوت نہیں ملتا
+   NEW: کیونکہ یہاں اس طرح کے فروغ کا کوئی ثبوت نہیں ملتا جیسا ماوراءالنہر اور خراسان میں ہوا
+
+28. WHY: V3 #27: calque of 'Middle Period of Islam'
+   OLD: اسلام کے وسطی دور میں
+   NEW: اسلامی تاریخ کے وسطی دور میں
+
+29. WHY: V3 #28: calque 'found a congenial home', dangling 'وہ مہارت', ماہر/مہارت jingle, overlong
+   OLD: صدیوں پہلے یہاں لایا گیا صوفیانہ عرفان اس سرزمین میں اپنے مزاج کا گھر پا گیا اور مختلف ادوار میں بہت نمایاں رہا، اور قرونِ وسطیٰ کے سندھ میں تصوف کے کئی ماہر شارحین کی موجودگی ہی سے شاہ عبداللطیف کی شاعری میں صوفیانہ اظہار کی وہ مہارت سمجھ میں آتی ہے۔
+   NEW: صدیوں پہلے یہاں لایا گیا صوفیانہ عرفان اس سرزمین کو اپنے مزاج کے موافق پا کر یہیں کا ہو رہا اور مختلف ادوار میں بہت نمایاں رہا۔ قرونِ وسطیٰ کے سندھ میں تصوف کے کئی ماہر شارحین موجود تھے، اور انہی کی موجودگی سے شاہ عبداللطیف کی شاعری میں صوفیانہ اظہار کی پختگی سمجھ میں آتی ہے۔
+
+30. WHY: V3 #29: 'known for' calque
+   OLD: جو اپنے علم اور تقدس کے لیے مشہور ہوئے
+   NEW: جو علم و تقدس میں مشہور ہوئے
+
+31. WHY: V3 #30: inserted clause split 'تیرھویں صدی' from 'کے درمیان'
+   OLD: اور تیرھویں صدی، جب لعل شہباز قلندر کا زمانہ تھا، اور اٹھارھویں صدی کے درمیان
+   NEW: اور تیرھویں صدی میں لعل شہباز قلندر کے زمانے سے لے کر اٹھارھویں صدی تک
+
+32. WHY: V3 #31: 'پرکشش' suggests good looks, not charisma
+   OLD: پرکشش روحانی شخصیات
+   NEW: صاحبِ کشش روحانی شخصیات
+
+33. WHY: V3 #32: examples between commas cut 'سلسلے' off from 'سے'
+   OLD: اور یہ شخصیات اکثر کسی بڑے صوفی سلسلے، مثلاً سہروردیہ یا قادریہ، سے وابستہ ہوتی تھیں
+   NEW: اور یہ شخصیات اکثر سہروردیہ یا قادریہ جیسے کسی بڑے صوفی سلسلے سے وابستہ ہوتی تھیں
+
+34. WHY: V3 #33: 'یہ' pointed back to nothing (first mention)
+   OLD: مزاروں کا یہ جغرافیہ تیرھویں صدی میں
+   NEW: سندھ کے مزاروں کا جغرافیہ تیرھویں صدی میں
+
+35. WHY: V2 #2 [addition]: 'دیکھ کر' added that the chief witnessed the miracle
+   OLD: مخدوم جہانیاں کی ایک کرامت دیکھ کر اسلام قبول کیا
+   NEW: مخدوم جہانیاں کی ایک کرامت کے سبب اسلام قبول کیا
+
+36. WHY: V3 #34: list run into the sentence; قلندر read as a fifth order
+   OLD: جمالی فقیر چار سلسلوں سے تعلق رکھتے تھے، قادری، نقشبندی، سہروردی اور چشتی، اور ان کے ساتھ ساتھ قلندر اور نام نہاد صوفی گداگر پھرتے تھے،
+   NEW: جمالی فقیر چار سلسلوں سے تعلق رکھتے تھے: قادری، نقشبندی، سہروردی اور چشتی۔ ان کے ساتھ ساتھ قلندر اور نام نہاد صوفی گداگر بھی پھرتے تھے،
+
+37. WHY: V3 #35: 'home to' rendered literally
+   OLD: دیہی علاقہ ان کی بے شمار چھوٹی چھوٹی ریاستوں کا گھر بن گیا
+   NEW: دیہی علاقے میں ان کی بے شمار چھوٹی چھوٹی ریاستیں قائم ہو گئیں
+
+38. WHY: V3 #36: 'دل کو گہرائی سے چھونا' is English 'deeply touch'
+   OLD: ایسی شخصیت وادیِ سندھ کے زیریں حصے کے مسلمانوں کے دل کو ہمیشہ گہرائی سے چھوتی رہی ہے
+   NEW: ایسی شخصیت زیریں وادیِ سندھ کے مسلمانوں کے دلوں پر ہمیشہ گہرا اثر رکھتی آئی ہے
+
+39. WHY: V3 #37: one 'رکھتا' عقیدت; 'سے کی جاتی' is wrong
+   OLD: بزرگوں کے مزاروں سے کی جاتی ہے
+   NEW: بزرگوں کے مزاروں سے رکھی جاتی ہے
+
+40. WHY: V3 #38: 'صورت' cannot be 'پڑھی'
+   OLD: روحانی نظموں میں پڑھے جا سکتے ہیں
+   NEW: روحانی نظموں میں دیکھے جا سکتے ہیں
+
+41. WHY: V3 #39: unrelated clause joined with 'اور'
+   OLD: قرونِ وسطیٰ کے پرانے ڈھرے پر چلتی تھی، اور صوبے میں ہر طرح کے عوامی توہمات پائے جاتے تھے۔
+   NEW: قرونِ وسطیٰ کے پرانے ڈھرے پر چلتی تھی۔ صوبے میں ہر طرح کے عوامی توہمات بھی پائے جاتے تھے۔
+
+42. WHY: V2 #3 [changed fact]: 'preferably' states a preference, 'زیادہ تر' states frequency
+   OLD: زیادہ تر سرخ رنگ کی
+   NEW: ترجیحاً سرخ رنگ کی
+
+43. WHY: V3 #40: devotion to him is 'سے عقیدت'
+   OLD: عبدالقادر گیلانی کی عقیدت پورے صوبے میں
+   NEW: عبدالقادر گیلانی سے عقیدت پورے صوبے میں
+
+44. WHY: V3 #41: a pole is not 'لٹکایا'; two nouns with a singular verb
+   OLD: ہر درخت پر ایک بانس اور ایک جھنڈا لٹکایا جاتا تھا
+   NEW: ہر درخت پر ایک بانس کے ساتھ ایک جھنڈا باندھا جاتا تھا
+
+45. WHY: V3 #42: singular and plural mismatched
+   OLD: ان درختوں کے پھل اور پتوں کو
+   NEW: ان درختوں کے پھلوں اور پتوں کو
+
+46. WHY: V3 #43: gloss of a name transparent to an Urdu reader
+   OLD: غوث بخش، یعنی غوث کی عطا، جیسے نام
+   NEW: غوث بخش جیسے نام
+
+47. WHY: V3 #44: 'ان کی عقیدت' should be 'ان سے عقیدت'; 'عقیدت کو ماننا' does not work
+   OLD: ان کی عقیدت دریائے سندھ کی پرستش سے جڑی ہوئی تھی اور مسلمان اور ہندو دونوں اسے مانتے تھے
+   NEW: ان سے عقیدت دریائے سندھ کی پرستش سے جڑی ہوئی تھی اور مسلمان اور ہندو دونوں اس میں شریک تھے
+
+48. WHY: V3 #45: 'ملا دینا' unclear for 'merged with'. V3's 'سب سے بڑھ کر' changed to 'سب سے زیادہ ... ہی' to keep the English 'the figure most often merged'
+   OLD: سندھ میں جس شخصیت کو سب سے زیادہ خضر سے ملا دیا جاتا ہے وہ اڈیرو لال ہیں
+   NEW: سندھ میں خضر کو سب سے زیادہ اڈیرو لال ہی سے ایک سمجھا جاتا ہے
+
+49. WHY: V3 #46: 'وصل کا بازار گرم رکھنا' unclear
+   OLD: مثنوی پڑھ پڑھ کر وصل کا بازار گرم رکھا
+   NEW: مثنوی پڑھ پڑھ کر وصل کی لگن زندہ رکھی
+
+50. WHY: V3 #47: 'known for' calque
+   OLD: اولیا پرستی کے لیے مشہور سندھ خاص طور پر
+   NEW: سندھ، جو اپنی اولیا پرستی کی وجہ سے مشہور ہے، خاص طور پر
+
+51. WHY: V3 #48: self-evident word glossed
+   OLD: *فقیرانی*، یعنی فقیر عورت، کبھی کبھی
+   NEW: *فقیرانی* کبھی کبھی
+
+52. WHY: V3 #49: 'مذہبی زندگی کی عورتیں' unidiomatic
+   OLD: سندھ کی مذہبی زندگی کی عورتوں میں بی بی فاطمہ حجرم ہیں
+   NEW: سندھ کی دینی زندگی سے وابستہ عورتوں میں بی بی فاطمہ حجرم بھی ہیں
+
+53. WHY: V3 #50: 'scholar of Islam' rendered literally
+   OLD: اسلام کی ایک عالمہ کا کہنا تھا
+   NEW: اسلامیات کی ایک عالمہ کا کہنا تھا
+
+54. WHY: V3 #51: 'اب بھی' with past. V3's 'اب تک جاری تھا' has the same clash, so 'اس وقت بھی' is used
+   OLD: جہاں وہ اب بھی آتی تھیں
+   NEW: جہاں ان کا آنا اس وقت بھی جاری تھا
+
+55. WHY: V3 #52: 'تو' needs a preceding 'جب'
+   OLD: گلوکارہ ریشماں سے پوچھا گیا کہ
+   NEW: جب گلوکارہ ریشماں سے پوچھا گیا کہ
+
+56. WHY: V3 #53: 'کے لیے' should be 'کے بارے میں'
+   OLD: اور جوگیوں کے لیے شاعر کے اپنے الفاظ
+   NEW: اور جوگیوں کے بارے میں شاعر کے اپنے الفاظ
+
+57. WHY: V3 #54: inconsistent spelling; the file elsewhere has راجا (lines 105, 133)
+   OLD: راجہ بھرتری،
+   NEW: راجا بھرتری،
+
+58. WHY: V3 #54 (second occurrence in the same sentence)
+   OLD: راجہ ویراگ
+   NEW: راجا ویراگ
+
+59. WHY: V3 #55: 'پیش کرتا ہے' for 'offers' with a region as subject
+   OLD: پاکستان کا جنوب، اور سب سے بڑھ کر سندھ، نجات کے ایسے مقامات کا پورا سلسلہ پیش کرتا ہے
+   NEW: پاکستان کے جنوب میں، اور سب سے بڑھ کر سندھ میں، نجات کے ایسے مقامات کا پورا سلسلہ موجود ہے
+
+60. WHY: V3 #56: singular 'جو' had no singular antecedent
+   OLD: بھیل ہوتے ہیں، جو مجموعی طور پر
+   NEW: بھیل ہوتے ہیں، اور یہ ترکیب مجموعی طور پر
+
+61. WHY: V3 #57: 'کچھ میں' read as 'in some' rather than Kutch
+   OLD: جبکہ کچھ میں ان کے اچھوت مرید
+   NEW: جبکہ کَچھ میں ان کے اچھوت مرید
+
+62. WHY: V3 #59: devotion to him is 'سے عقیدت'
+   OLD: پتھورو پیر کی عقیدت سندھ میں
+   NEW: پتھورو پیر سے عقیدت سندھ میں
+
+63. WHY: V3 #60: 'identified as' rendered literally
+   OLD: کلفٹن کے ایک مندر کی شناخت اس مندر کے طور پر کی گئی ہے جہاں
+   NEW: کلفٹن کے ایک مندر کو وہ مندر قرار دیا گیا ہے جہاں
+
+64. WHY: V3 #61: gloss followed the verb, cut off from its noun
+   OLD: جیسے سکھوں کی بعض سمادھیاں بھی بنتی تھیں، یعنی وہ یادگاریں جو کسی کی چتا کی جگہ پر اٹھائی جاتی ہیں۔
+   NEW: جیسے سکھوں کی بعض سمادھیاں بھی بنتی تھیں؛ سمادھی وہ یادگار ہے جو کسی کی چتا کی جگہ پر اٹھائی جاتی ہے۔
+
+65. WHY: V3 #62: the place must be marked after the saint's name in the same sentence
+   OLD: اور اڈیرو لال میں سندھ کی کئی ہندو پنچایتوں
+   NEW: اور اڈیرو لال کے مقام پر سندھ کی کئی ہندو پنچایتوں
+
+66. WHY: V2 #4 [omission]: 'photographic' was dropped
+   OLD: اور ان میں ایک تصویر اس مقام کو
+   NEW: اور ان میں ایک عکسی تصویر اس مقام کو
+
+67. WHY: V3 #63: 'ہر ... میں بہت عام' clash
+   OLD: ہر مذہبی رسم میں شہنائی بہت عام ہے
+   NEW: ہر طرح کی مذہبی رسموں میں شہنائی بہت عام ہے
+
+68. WHY: V3 #64: two 'اور' clauses piled up; last one tacked on
+   OLD: سندھ کی کھوئی ہوئی سرزمین سے براہِ راست رسمی رشتہ قائم رکھتی ہے، اور زندہ رشتہ اس مرشد سے ہے جو سندھ ہی میں مقیم ہے، اور سندھ اب پاکستان کا حصہ ہے۔
+   NEW: سندھ کی کھوئی ہوئی سرزمین سے ایک براہِ راست رسمی رشتہ قائم رکھتی ہے، جبکہ زندہ رشتہ اس مرشد سے ہے جو سندھ میں، یعنی اب پاکستان میں، مقیم ہے۔
+
+69. WHY: V3 #65: 'رہتے تھے' three times in two sentences
+   OLD: جو پوری طرح مویشی پالنے میں لگے رہتے تھے اور جن کا کوئی آقا نہ تھا۔ یہ جت کہلاتے تھے اور وادیِ سندھ کے ویرانوں میں رہتے تھے
+   NEW: جو پوری طرح مویشی پالنے میں مصروف تھے اور جن کا کوئی آقا نہ تھا۔ یہ جت کہلاتے تھے اور وادیِ سندھ کے ویرانوں میں بسے ہوئے تھے
+
+70. WHY: V3 #66: 'ہندو مسلم مزاروں' read as 'Hindu-Muslim shrines'; 'نرم خو' describes persons
+   OLD: ہندو مسلم مزاروں پر جاتے اور منتوں کے نذرانے چڑھاتے تھے، اور سندھ کی راسخ العقیدگی بھی نرم خو تھی
+   NEW: ہندو، مسلمانوں کے مزاروں پر جاتے اور منتوں کے نذرانے چڑھاتے تھے، اور سندھ کی راسخ العقیدگی میں بھی نرمی تھی
+
+71. WHY: V3 #68: commas isolated the gloss from 'تھے'
+   OLD: جن میں سے بیشتر بے زمین کاشتکار، یعنی ہاری، تھے
+   NEW: جن میں سے بیشتر بے زمین کاشتکار یعنی ہاری تھے
+
+72. WHY: V3 #69: 'known for' pattern
+   OLD: قانون کی پاسداری کے لیے نیک نام نہ تھے
+   NEW: قانون کی پاسداری میں نیک نام نہ تھے
+
+73. WHY: V2 #5 ['most' had become بڑا حصہ; تک with plain past read as 'until 1940'] merged with V3 #70 ('اب بھی' with past)
+   OLD: 1940 تک بلوچ آبادی کا بڑا حصہ اپر سندھ فرنٹیئر، لاڑکانہ اور سکھر کے اضلاع میں رہتا تھا، جن میں پہلا اب بھی گویا
+   NEW: 1940 میں بلوچ آبادی کا بیشتر حصہ اپر سندھ فرنٹیئر، لاڑکانہ اور سکھر کے اضلاع میں رہتا تھا، جن میں سے پہلا اس وقت بھی گویا
+
+74. WHY: V3 #71: 'کسی گلی کا مکان' literal and odd
+   OLD: اور بلوچ کسی گلی کے مکان پر کھلے کھیتوں
+   NEW: اور بلوچ گلی کوچوں کے مکانوں پر کھلے کھیتوں
+
+75. WHY: V2 #6 [changed fact]: تک with a plain past read as 'until 1851'
+   OLD: 1851 تک یہ سمجھا جاتا تھا کہ
+   NEW: 1851 تک یہ سمجھا جانے لگا تھا کہ
+
+76. WHY: V3 #72: Urdu says 'قربانی دینا', as the last paragraph does
+   OLD: جانوروں کی قربانی کرتے تھے
+   NEW: جانوروں کی قربانی دیتے تھے
+
+77. WHY: V3 #73: 'زیادہ سے زیادہ' means 'at most', not 'increasingly'
+   OLD: لوگوں کو زیادہ سے زیادہ کسی بڑے مذہب
+   NEW: لوگوں کو رفتہ رفتہ کسی بڑے مذہب
+
+78. WHY: V3 #74: 'to an increasing extent' rendered literally
+   OLD: انیسویں صدی کے اواخر کے سندھی بڑھتی ہوئی حد تک خود کو
+   NEW: انیسویں صدی کے اواخر کے سندھی روز بروز خود کو
+
+79. WHY: V3 #75: same misuse of 'زیادہ سے زیادہ'
+   OLD: بعد کی مردم شماریوں میں زیادہ سے زیادہ ہندو کی حیثیت سے
+   NEW: بعد کی مردم شماریوں میں بڑھتی ہوئی تعداد میں ہندو کی حیثیت سے
+
+80. WHY: V2 #7 [changed fact: 'سب سے آگے' is 'foremost', the English says 'the first'] merged with V3 #76 ('یہاں تک کہ' read as a climax). One sentence for both: V2's wording, and the English 'until' kept as an explicit time limit instead of V3's 'پھر', which would drop it
+   OLD: سندھی ہندو نوآبادیاتی نظام میں سرگرمی سے حصہ لینے والوں میں سب سے آگے تھے، اور نئی علمی تحریروں کا بڑا حصہ ہندو اہلِ علم کا کام تھا، یہاں تک کہ 1947 میں آزادی کے بعد ہندو آبادی بڑی تعداد میں پاکستان سے ہندوستان چلی گئی۔
+   NEW: نوآبادیاتی نظام میں سب سے پہلے سرگرمی سے حصہ لینے والے سندھی ہندو تھے، اور نئی علمی تحریروں کا بڑا حصہ ہندو اہلِ علم کا کام رہا؛ یہ صورت اس وقت تک قائم رہی جب 1947 میں آزادی کے بعد ہندو آبادی بڑی تعداد میں پاکستان سے ہندوستان چلی گئی۔
+
+81. WHY: V3 #77: 'چنانچہ اگرچہ' clumsy
+   OLD: چنانچہ اگرچہ سندھ پر مسلمانوں کا غلبہ تھا، کرشن بھکتی نے
+   NEW: یوں سندھ پر مسلمانوں کے غلبے کے باوجود کرشن بھکتی نے
+
+82. WHY: V3 #78: 'ترک' is masculine
+   OLD: ترکِ دنیا اختیار کر لی۔
+   NEW: ترکِ دنیا اختیار کر لیا۔
+
+83. WHY: V3 #79: two 'جن' clauses in a row
+   OLD: رسالو کے سُر 16 *کاموڈ* میں جن ماہی گیر ذاتوں کا ذکر ہے، جن میں منگر، مے اور مہانو شامل ہیں، وہ
+   NEW: رسالو کے سُر 16 *کاموڈ* میں منگر، مے اور مہانو جیسی جن ماہی گیر ذاتوں کا ذکر ہے، وہ
+
+84. WHY: V3 #80: 'کبھی کبھی' contradicted the habitual 'کرتی رہتی'
+   OLD: جو کبھی کبھی نقل مکانی کرتی رہتی ہیں
+   NEW: جو کبھی کبھی نقل مکانی بھی کرتی ہیں
+
+85. WHY: V3 #81: final clause out of place and in the wrong tense. V3's 'آتے رہے ہیں' (still coming) adjusted to 'صدیوں تک ... آتے رہے' to keep the English past 'had been coming through the ages'
+   OLD: غلاموں کی تجارت کی وجہ سے سندھ میں افریقی بڑی تعداد میں موجود ہیں؛ غلامی ختم ہوئی تو یہاں بھی انہیں آزادی ملی، اور وہ صدیوں سے آتے رہے تھے۔
+   NEW: افریقی صدیوں تک سندھ آتے رہے، اور غلاموں کی تجارت کی وجہ سے یہاں ان کی بڑی تعداد موجود ہے؛ غلامی ختم ہوئی تو یہاں بھی انہیں آزادی ملی۔
+
+86. WHY: V3 #58: 'کچھ' read as 'some' rather than Kutch
+   OLD: سندھ اور کچھ کے سیدی
+   NEW: سندھ اور کَچھ کے سیدی
+
+87. WHY: V3 #82: object-first order invited a misreading
+   OLD: تحفظ اور عورت کا مقام رشتے داری اور رسم و رواج طے کرتے ہیں۔
+   NEW: تحفظ اور عورت کے مقام کا فیصلہ رشتے داری اور رسم و رواج کرتے ہیں۔
+
+88. WHY: V3 #83 ['امتیازی حصہ' can mean a privileged share; second clause lacked a subject] merged with V2 note (Communities para 21: 'بیس بائیس برس' added specific ages to 'early twenties')
+   OLD: نوعمر اور بیس بائیس برس کی غیر شادی شدہ لڑکیاں سب سے زیادہ غیر محفوظ پائی گئی ہیں، جنہیں گھر کے اندر کھانے میں امتیازی حصہ ملتا ہے اور علاج معالجے تک رسائی محدود ہے
+   NEW: نوعمری اور بیس کے پیٹے کے ابتدائی برسوں کی غیر شادی شدہ لڑکیاں سب سے زیادہ غیر محفوظ پائی گئی ہیں، جن کے ساتھ گھر کے اندر کھانے کی تقسیم میں امتیاز برتا جاتا ہے اور جن کی علاج معالجے تک رسائی محدود ہے
+
+89. WHY: V2 #8 [wrong reference: after the split 'ان کی' pointed to Sindh's Hindus only] merged with V3 #84 (count in لاکھ like the rest of the article). The figure is written in words, ساٹھ لاکھ سے ایک کروڑ (exactly 6 to 10 million), as the article already writes ساڑھے آٹھ لاکھ and دس لاکھ; V3's digits '60' and '1' are figures the English lacks and would fail checker U7. 'ملک بھر کے' instead of V2's repeated 'پاکستان کے' avoids the same phrase in consecutive sentences while keeping the reference to all of Pakistan's Hindus
+   OLD: ان کی تعداد کا اندازہ 6 سے 10 ملین کے درمیان لگایا جاتا ہے
+   NEW: ملک بھر کے ہندوؤں کی تعداد کا اندازہ ساٹھ لاکھ سے ایک کروڑ کے درمیان لگایا جاتا ہے
+
+90. WHY: V3 #85: count in لاکھ, consistent with the rest of the article
+   OLD: پاکستان کے سندھی ہندو آج بھی کئی ملین ہیں
+   NEW: پاکستان کے سندھی ہندو آج بھی دسیوں لاکھ ہیں
+
+91. WHY: V2 #9 [wrong reference]: 'which' points to the acts of segregation, not to the denial. V2's 'علیحدگی کے ان واقعات' shortened to 'ان واقعات' because the same sentence already says 'امتیازی علیحدگی کے واقعات', and 'ان واقعات' can only point there
+   OLD: اور دلت تنظیمیں اس رویے کی شدید مخالفت کرتی ہیں
+   NEW: اور دلت تنظیمیں ان واقعات کی شدید مخالفت کرتی ہیں
+
+92. WHY: V3 #86: 'کے مقابلے میں' (compared with) should be 'کے بجائے' (as against)
+   OLD: تاجروں اور دکان داروں کے مقابلے میں کاری گروں
+   NEW: تاجروں اور دکان داروں کے بجائے کاری گروں
+
+93. WHY: V3 #87: a singular with no referent
+   OLD: اور ہندو درگاہ سے ظاہر ہوتا ہے
+   NEW: اور ہندو درگاہوں سے ظاہر ہوتا ہے
+
+REJECTED / NOT APPLIED
+
+- V3 #12: 'مسلم سرزمین ہونے کی وجہ سے' makes being a Muslim land the cause of the people's freedom from the leather prejudice. The English ('In a Muslim land, three quarters of the people did not share the prejudice against leather') states no cause, so this adds a causal claim. V2 #1's neutral wording 'اس مسلم سرزمین میں تین چوتھائی لوگ' was applied instead. It also removes the wrong concessive connector V3 objected to.
+- V3 #67: 'نصیرپور' -> 'نصرپور': the English spells the two names differently ('Thatta and Nasarpur' in The Land and Its Livelihood, 'from Bhakkar to Nasirpur and Umarkot' in Communities), and urdu-dictionary.json has neither. The Urdu follows the English, so the two spellings stay.
+- V3 note: Hindu Sufis (line 43): The English says 'Three orders were dominant among the Hindu Sufis of Sindh', so 'ہندو' is faithful and is kept.
+- V3 note: niyani: 'سندھی معاشرے کی چھوٹی بہن' renders the English 'the little sister of Sindhi society'. V3's 'گھرانے کی کنواری بیٹی' would change what the English states.
+- V3 note: مہانو / موہانے: The English has two spellings, 'the Muhano' (a fishing caste of Sur 16) and 'the Mohana', so the Urdu keeps both. Merging them would make an identity claim the English does not make.
+- V3 note: Jhulelal 'ان میں سے': In the English, 'though most of them were Nanakpanthis' is itself ambiguous between the groups and the Hindus of Sindh, and 'ان میں سے' keeps that ambiguity. Choosing one reading would add a claim. 'پہلے ہی' renders the English 'already'.
+- V2 note: plague -> وبا (Saints para 5): Not applied: V2 judges 'ایک بڑی وبا' acceptable, and the change would be only for consistency.
+- V2 note: Nanakpanth 'سب سے بڑا' vs 'غالب': Not applied: V2 judges the meaning 'near enough', and 'غالباً ... غالب' would jingle.
+- V3 taste notes: Not applied, as matters of taste: varying 'روایات مختلف ہیں' (the English says 'accounts differ' each time); dropping the glosses of عربِ سعید and دریا پنتھی; 'لٹھا' for calico and rephrasing 'معاہدے والا ملازم'; 'ہنگلاج کی دیوی' vs 'ہنگلاج دیوی' (a phrase that follows the English wording, not a spelling); repetition of دریا/دیوتا and of غالب.
+
+=================== GROUP P3 ===================
+ur_P3.md round 1 fixes (V2_P3.r1 + V3_P3.r1). Backup of the pre-fix file: ur_P3.r1.bak
+Changes: 56. V2 issues applied 5/5 (V2 #1 = V3 #9; V2 #2 merged with V3 #17). V3 issues applied 47/50 (#4 and #25 adapted, see WHY). Notes applied: 4. Rejected: 3 (V3 #1, #14, #47).
+
+=== CHANGES ===
+
+WHY: V3 #2 (ambiguity: read as 'shrines of Hindu Sufis')
+OLD: سندھ کے ہندو صوفیوں کے مزاروں پر جاتے تھے
+NEW: سندھ کے ہندو بھی صوفیوں کے مزاروں پر جاتے تھے
+
+WHY: V3 #3 (tangled genitive with dangling یعنی)
+OLD: نقشبندیوں کو چھوڑ کر سندھ کے تصوف پر وحدت الوجود کی شاعری چھائی ہوئی ہے، یعنی اس تعلیم کی کہ ساری ہستی خدا میں ایک ہے۔
+NEW: نقشبندیوں کو چھوڑ کر سندھ کے تصوف پر اس شاعری کا غلبہ ہے جو وحدت الوجود کی ترجمان ہے، یعنی اس تعلیم کی کہ ساری ہستی خدا میں ایک ہے۔
+
+WHY: V3 #4 (one verb serving two objects; pronoun). ADAPTED: V3's 'ان کا سندھی ترجمہ' would make the translation one of the paraphrases; the English says 'a Sindhi translation of it' (of the Quran), so the referent is named: خود قرآن
+OLD: ان علما نے پہلے قرآن کے مفہوم کی عبارتیں اور پھر اس کا سندھی ترجمہ لکھا،
+NEW: ان علما نے پہلے قرآن کے مفہوم کی عبارتیں لکھیں اور پھر خود قرآن کا سندھی ترجمہ کیا،
+
+WHY: V3 #5 (نتیجہ read as 'outcome'; سرکاری طور پر calque of 'officially')
+OLD: ان کے بعد کے رسالوں کا نتیجہ یہ تھا کہ سندھی سرکاری طور پر مسلمان ہوتے ہوئے بھی
+NEW: ان کے بعد کے رسالوں میں یہ نتیجہ نکالا گیا کہ سندھی رسمی طور پر مسلمان ہوتے ہوئے بھی
+
+WHY: V3 #6 (calque 'caste musicians')
+OLD: بلکہ ذات کے گویّے، یعنی منگنہار یا میراثی۔
+NEW: بلکہ گانے بجانے والی ذاتوں کے لوگ، یعنی منگنہار یا میراثی۔
+
+WHY: V3 #7 (repetition of کھنچے / کھینچ)
+OLD: اس کی شہرت انہیں کھینچ لاتی تھی
+NEW: اس کی شہرت انہیں اپنی طرف بلاتی تھی
+
+WHY: V3 #8 (English word order 'except by Hindus'; calque and tense of 'unlikely to have been better')
+OLD: پڑھائی کی زبان کی حیثیت سے سندھی بہت نظر انداز رہی، سوائے ہندوؤں کے، جو اسے عربی کے بجائے ایک اور رسم الخط میں لکھتے تھے؛ اور مغلوں اور کلہوڑوں کے دور میں بھی حالات اس سے بہتر ہونے کا امکان کم ہے۔
+NEW: ہندوؤں کو چھوڑ کر، جو سندھی کو عربی کے بجائے ایک اور رسم الخط میں لکھتے تھے، پڑھائی کی زبان کی حیثیت سے سندھی بہت نظر انداز رہی؛ اور اس کا امکان کم ہے کہ مغلوں اور کلہوڑوں کے دور میں حالات اس سے بہتر رہے ہوں۔
+
+WHY: V2 #1 + V3 #9 (same fix: ہی میں reads 'already in'; English 'only in the sixteenth century')
+OLD: وہاں سولہویں صدی ہی میں پہنچی۔
+NEW: وہاں سولہویں صدی میں جا کر پہنچی۔
+
+WHY: V3 #10 (شاعری کا گانا unidiomatic)
+OLD: سندھی صوفیانہ شاعری کا گانا
+NEW: سندھی صوفیانہ کلام گانا
+
+WHY: V3 #11 (redundant واضح with نمایاں)
+OLD: بکھرنے کے واضح آثار نمایاں
+NEW: بکھرنے کے آثار نمایاں
+
+WHY: V3 #12 (pronoun اس pointed to سندھی/ادب)
+OLD: کیونکہ اس کا پڑھا لکھا طبقہ
+NEW: کیونکہ صوبے کا پڑھا لکھا طبقہ
+
+WHY: V3 #13 (collocation قائم)
+OLD: ایسے مرد سورماؤں پر قائم ہیں
+NEW: ایسے مرد سورماؤں پر مبنی ہیں
+
+WHY: V3 #14 REJECTED as proposed (مدحیہ نظم drops 'of the Prophet'; the English says the verses on Jakhiro 'are read as a long praise of the Prophet', so نعت was faithful). To stop the word reading as a slip, the Prophet is now named: پیغمبر کی ایک طویل مدح
+OLD: اس پر کہے گئے اشعار کو ایک طویل نعت سمجھا جاتا ہے۔
+NEW: اس پر کہے گئے اشعار کو پیغمبر کی ایک طویل مدح سمجھا جاتا ہے۔
+
+WHY: V3 #15 (گائی / گانے والے / گانا in one clause)
+OLD: اور گانے والے اسے سندھ، بلوچستان اور سرائیکی خطوں کی زبانوں اور بولیوں میں گانا پسند کرتے ہیں
+NEW: اور گویّے اسے سندھ، بلوچستان اور سرائیکی خطوں کی زبانوں اور بولیوں میں پیش کرنا پسند کرتے ہیں
+
+WHY: V3 #16 (English word order; relative clause interrupting the pair)
+OLD: اس کے بائیسویں سُر سارنگ میں برسات خدا کی قدرت اور فضل کی نشانی ہے، سندھ میں بھی، جہاں بارش عام طور پر خشک رہنے والے دیہی علاقے کی کایا پلٹ دیتی ہے، اور باقی ساری دنیا میں بھی۔
+NEW: اس کے بائیسویں سُر سارنگ میں برسات سندھ میں بھی خدا کی قدرت اور فضل کی نشانی ہے اور باقی ساری دنیا میں بھی۔ سندھ میں بارش عام طور پر خشک رہنے والے دیہی علاقے کی کایا پلٹ دیتی ہے۔
+
+WHY: V3 #17 (wrong antecedent of جن کا; overloaded sentence) + V2 #2 (omitted translator Christopher Shackle; 'ایک اور ترجمے' had no first translation). One sentence satisfying both
+OLD: بارش جن جن جگہوں تک پہنچتی ہے ان کے نام گنوانے کے بعد، جن کا آخری مصرع ہے "کچھ عمرکوٹ پر سے گزرے ہیں اور زمین کو سرسبز کر گئے ہیں"، شاعر خدا سے دعا کرتا ہے کہ سندھ کو ہمیشہ آباد رکھے، اور کلام اس دعا پر ختم ہوتا ہے:
+NEW: شاعر ان جگہوں کے نام گنواتا ہے جہاں جہاں بارش پہنچتی ہے، اور اس فہرست کا آخری مصرع ہے "کچھ عمرکوٹ پر سے گزرے ہیں اور زمین کو سرسبز کر گئے ہیں"۔ اس کے بعد وہ خدا سے دعا کرتا ہے کہ سندھ کو ہمیشہ آباد رکھے، اور کرسٹوفر شیکل کے ترجمے میں کلام اس دعا پر ختم ہوتا ہے:
+
+WHY: V3 #18 (calque 'closer to home')
+OLD: ایک اور ترجمے کے مطابق شاعر اپنے گھر کے اور قریب آ کر یوں دعا کرتا ہے:
+NEW: ایک اور ترجمے کے مطابق شاعر اپنے دیس کا نام لے کر یوں دعا کرتا ہے:
+
+WHY: V3 #19 (trailing comparison after the verb)
+OLD: یہاں ہند سے مراد گنگا کا علاقہ ہے، سندھ اور وادیِ سندھ کے مقابلے میں۔
+NEW: یہاں سندھ اور وادیِ سندھ کے مقابل ہند سے مراد گنگا کا علاقہ ہے۔
+
+WHY: V3 #20 (calque 'wealth of birds')
+OLD: پرندوں کی دولت میں
+NEW: پرندوں کی فراوانی میں
+
+WHY: V3 #21 (poetry does not have عادتیں)
+OLD: صوبے کی شاعری کی کچھ اور عادتیں بھی ہیں۔
+NEW: صوبے کی شاعری کی کچھ اور روایتیں بھی ہیں۔
+
+WHY: V3 #22 (calqued 'even' connector)
+OLD: یہاں تک کہ دور افتادہ صوبہ سندھ میں شاہ عبداللطیف کی شاعری بھی قاری کو دعوت دیتی ہے
+NEW: دور افتادہ سندھ میں بھی شاہ عبداللطیف کی شاعری قاری کو دعوت دیتی ہے
+
+WHY: V3 #23 (relative clause read as describing the songs; مخلوق انسانی زندگی unidiomatic)
+OLD: سندھ کے عظیم صوفی شاعروں نے پیغمبر کے لیے شاندار گیت وقف کیے ہیں، جو مخلوق انسانی زندگی کی رات اور الٰہی دن کے درمیان صبح کی طرح نمودار ہوتے ہیں
+NEW: سندھ کے عظیم صوفی شاعروں نے پیغمبر کے لیے، جو تخلیق شدہ انسانی زندگی کی رات اور الٰہی دن کے درمیان صبح کی طرح نمودار ہوتے ہیں، شاندار گیت وقف کیے ہیں
+
+WHY: V3 #24 (subject cut off from its verb; overlong)
+OLD: *وِرہنی* شاعری، جس میں عقیدت مند ایک نوعمر دلہن ہے جو اپنے دولہا کی راہ دیکھ رہی ہے اور یہ دولہا حضرت محمد ہیں، سندھ کی عقیدت بھری محفلوں میں گائی جاتی ہے، جیسے مولود کی محفلیں جو میلادِ نبی کی خوشی میں سجتی ہیں۔
+NEW: *وِرہنی* شاعری میں عقیدت مند ایک نوعمر دلہن ہے جو اپنے دولہا کی راہ دیکھ رہی ہے، اور یہ دولہا حضرت محمد ہیں۔ یہ شاعری سندھ کی عقیدت بھری محفلوں میں گائی جاتی ہے، جیسے مولود کی وہ محفلیں جو میلادِ نبی کی خوشی میں سجتی ہیں۔
+
+WHY: V3 #25 (اسی ambiguous: eighty / those same). ADAPTED: V3's digits '80' are a figure the English lacks (the English writes 'eighty' in words; the checker's U9 would fail), so the word is written اسّی with tashdid, which reads only as 'eighty'
+OLD: 1940 سے پہلے کے اسی برسوں میں
+NEW: 1940 سے پہلے کے اسّی برسوں میں
+
+WHY: V3 #26 (read as 'after the calm days were over')
+OLD: اور انگریزی حکومت کے پرسکون دنوں کے بعد ہی
+NEW: اور انگریزی حکومت کا پرسکون دور آنے کے بعد ہی
+
+WHY: V3 #27 (awkward ایک اپنا الگ; name isolated between commas)
+OLD: نوآبادیاتی سندھ میں ایک اپنا الگ رسم الخط، خداوادی، رائج کرنے کی کوشش بھی ہوئی۔
+NEW: نوآبادیاتی سندھ میں خداوادی کے نام سے ایک الگ رسم الخط رائج کرنے کی کوشش بھی ہوئی۔
+
+WHY: V2 #3 (hedge 'it is said' must govern the whole standardisation claim, not only its timing)
+OLD: سندھی کی بہت سی بولیوں میں سے حیدرآباد کی بولی معیاری قرار پائی؛ کہا جاتا ہے کہ ایسا اس وقت ہوا جب 1853 میں انگریزوں نے حیدرآباد کے اہلِ علم سے پورے سندھ کے لیے درسی کتابیں لکھنے کو کہا۔
+NEW: کہا جاتا ہے کہ سندھی کی بہت سی بولیوں میں سے حیدرآباد کی بولی اس وقت معیاری قرار پائی جب 1853 میں انگریزوں نے حیدرآباد کے اہلِ علم سے پورے سندھ کے لیے درسی کتابیں لکھنے کو کہا۔
+
+WHY: V3 #28 (calque 'the province's modern image of itself')
+OLD: شاہ عبداللطیف صوبے کے اپنے بارے میں جدید تصور کے مرکز میں ہیں۔
+NEW: سندھ آج اپنے آپ کو جس نظر سے دیکھتا ہے، اس کے مرکز میں شاہ عبداللطیف ہیں۔
+
+WHY: V3 #29 (ambiguity 'in India and in other places')
+OLD: جو ہندوستان میں اور جگہوں پر بجائے جاتے ہیں
+NEW: جو ہندوستان میں دوسری جگہوں پر بھی بجائے جاتے ہیں
+
+WHY: V3 #30 (calque 'an observer')
+OLD: ایک مشاہدہ کرنے والے کے الفاظ میں
+NEW: ایک مبصر کے الفاظ میں
+
+WHY: V3 #31 (repetition of بول چال کی زبان in the paragraph)
+OLD: صوفیانہ کلام عموماً بول چال کی زبان میں گایا جاتا ہے
+NEW: صوفیانہ کلام عموماً عوامی زبان میں گایا جاتا ہے
+
+WHY: V3 #32 (جسے بھی reads as 'whichever')
+OLD: جسے بھی سُنگ کہا جاتا ہے
+NEW: جسے سُنگ ہی کہا جاتا ہے
+
+WHY: V3 #33 (معاملہ رہنا not the idiom)
+OLD: تاج مستانی کا معاملہ ٹیلی وژن
+NEW: تاج مستانی کا واسطہ ٹیلی وژن
+
+WHY: V3 #34 (calque 'quasi-theocratic state'; vague ممکنہ صورت)
+OLD: ایک رائے یہ ہے کہ تقریباً مذہبی حکومت جیسی ریاست کی یہی ایک ممکنہ صورت تھی۔
+NEW: ایک رائے یہ ہے کہ ایسی نیم مذہبی ریاست میں یہی ہو سکتا تھا۔
+
+WHY: V3 #35 (tautology تبلیغی مبلغ)
+OLD: تبلیغی مبلغ "جنوبی
+NEW: تبلیغی جماعت کے مبلغ "جنوبی
+
+WHY: V3 #36 (انتظام and بندوبست redundant)
+OLD: زیادہ تر انتظام کے مختلف بندوبستوں کے ساتھ محفوظ رہے
+NEW: زیادہ تر طرح طرح کے انتظامی بندوبستوں کے ساتھ محفوظ رہے
+
+WHY: V3 #37 (repetition of کے باوجود)
+OLD: اس کے باوجود مولچند کو
+NEW: پھر بھی مولچند کو
+
+WHY: V3 #38 (اولیا کو منانا means 'placate')
+OLD: کہ صوبہ کن اولیا کو مناتا ہے۔
+NEW: کہ صوبہ کن اولیا کو نمایاں کرتا ہے۔
+
+WHY: V3 #39 (یہ مطبوعات seemed to point to the newspapers)
+OLD: یہ مطبوعات دو نمایاں سرکاری رسالے تھے
+NEW: ریاست کی یہ سندھی مطبوعات دو نمایاں سرکاری رسالے تھے
+
+WHY: V3 #40 (رقابت کی تقسیمیں unidiomatic)
+OLD: شیخ واحد بخش کی نظر میں اندرونی نسلی رقابت کی تقسیمیں کسی بیرونی دشمن جتنی ہی تباہ کن تھیں۔
+NEW: شیخ واحد بخش کی نظر میں نسلی رقابتوں سے پیدا ہونے والی اندرونی تقسیم کسی بیرونی دشمن جتنی ہی تباہ کن تھی۔
+
+WHY: V3 #41 (title stuck to a generic noun; دونوں without referent)
+OLD: اور ان حکمرانوں کی تاریخ "تاریخِ بہادر شاہی" دونوں کا احوال بیان کرتی ہے۔
+NEW: اور "تاریخِ بہادر شاہی" ان دونوں ولایتوں کے حکمرانوں کا احوال بیان کرتی ہے۔
+
+WHY: V3 #42 (read as 'lack of forest and water')
+OLD: اور جنگل اور پانی کی کمی کے سبب
+NEW: اور پانی کی کمی اور جنگلوں کے سبب
+
+WHY: V2 #5 ('no fewer than forty thousand' turned an estimate into a minimum)
+OLD: اور چھوٹی بڑی کشتیاں چالیس ہزار سے کم نہ رہی ہوں گی۔
+NEW: اور چھوٹی بڑی کشتیاں ضرور چالیس ہزار رہی ہوں گی۔
+
+WHY: V2 NOTE (a word the English does not have: 'wild' pig; the English has 'pig')
+OLD: پاڑا ہرن، جنگلی سؤر اور
+NEW: پاڑا ہرن، سؤر اور
+
+WHY: V3 #43 (unrelated items run together after a semicolon)
+OLD: دہی چار مہینے تک خراب نہیں ہوتا تھا؛ پھول تھے اور بہت سے پھل، سب سے بڑھ کر آم، اور صحرا میں چھوٹے خربوزے اگتے تھے۔
+NEW: دہی چار مہینے تک خراب نہیں ہوتا تھا۔ پھول بھی تھے اور بہت سے پھل بھی، جن میں آم سب سے بڑھ کر تھا، اور صحرا میں چھوٹے خربوزے اگتے تھے۔
+
+WHY: V3 #44 (وہ حکمرانی pointed to nothing; ان now resolves to مسلمانوں just before)
+OLD: جب اس سرزمین پر وہ حکمرانی
+NEW: جب اس سرزمین پر ان کی حکمرانی
+
+WHY: V3 NOTE (referent: 'the verdict of 1940' is the 1940 book introduced above)
+OLD: 1940 کا فیصلہ یہ تھا
+NEW: 1940 کی اس کتاب کا فیصلہ یہ تھا
+
+WHY: V3 #45 (مقامات twice; long stacked modifier)
+OLD: واقعی ملتان کے جنوب میں دریا کے ساتھ ساتھ دور سمندر کی سمت پھیلے ہوئے علاقے کے سندھی مقامات ہیں۔
+NEW: واقعی اس سندھی علاقے میں ہیں جو ملتان کے جنوب سے دریا کے ساتھ ساتھ دور سمندر کی سمت پھیلا ہوا ہے۔
+
+WHY: V3 #46 (اس ملک read as ہندوستان; the English 'the country' is Sindh)
+OLD: اس ملک کو اپنے صوفیانہ ورثے پر ہمیشہ فخر رہا تھا۔
+NEW: سندھ کو اپنے صوفیانہ ورثے پر ہمیشہ فخر رہا تھا۔
+
+WHY: V3 #47 REJECTED as proposed (خواجہ میر درد spells the name otherwise than the English, which has only 'Dard'). The ambiguity it found (bare درد read as 'pain') is resolved without adding to the name: ان دونوں شاعروں
+OLD: اور درد اور شاہ عبداللطیف کی راہیں
+NEW: اور درد اور شاہ عبداللطیف، ان دونوں شاعروں کی راہیں
+
+WHY: V3 #48 (یقین رکھنا takes پر)
+OLD: اس بات کا یقین رکھتے تھے
+NEW: اس بات پر یقین رکھتے تھے
+
+WHY: V3 NOTE (referent: جہاں stood far from سندھ, after the verb; Sindh as the forefathers' home is now attached to سندھ)
+OLD: پنجوانی نے سندھیوں کو "اپنے ماضی اور سندھ کے اس شاندار ثقافتی ورثے سے روشناس کرانے" کا بیڑا اٹھایا "جہاں ان کے آبا و اجداد بستے تھے"؛
+NEW: پنجوانی نے سندھیوں کو "اپنے ماضی اور آبا و اجداد کے وطن سندھ کے شاندار ثقافتی ورثے سے روشناس کرانے" کا بیڑا اٹھایا؛
+
+WHY: V3 #49 (ایک اپنی طرز کا unidiomatic)
+OLD: عقیدت پر مبنی ایک اپنی طرز کا مذہب اپناتا آیا تھا
+NEW: اپنی ہی طرز کا ایک عقیدت پر مبنی مذہب اپناتا آیا تھا
+
+WHY: V3 #50 (collocation الزام رکھنا)
+OLD: انگریزی حکومت پر بھی رکھتے ہیں۔
+NEW: انگریزی حکومت پر بھی دھرتے ہیں۔
+
+WHY: V2 #4 (the 1739 date stood outside 'in one telling', as settled fact). V2's NEW used without its second حملہ آور, which would repeat the word from the clause just before (وہ حملہ آور کون تھا)
+OLD: ایک روایت میں وہ نادر شاہ تھا، اور یہ واقعہ 1739 کا ہے۔
+NEW: ایک روایت کے مطابق یہ 1739 کا واقعہ ہے اور وہ نادر شاہ تھا۔
+
+WHY: V2 NOTE (a word the English does not have: بھی 'also'; English 'have been read as Hindu in origin')
+OLD: رسالو کی کہانیوں کو اصلاً ہندو کہانیاں بھی سمجھا گیا ہے۔
+NEW: رسالو کی کہانیوں کو اصلاً ہندو کہانیاں سمجھا گیا ہے۔
+
+=== REJECTED ===
+
+V3 #1: شاہ عنات رضوی -> شاہ عنایت رضوی
+REASON: Not applied. The English spells this poet 'Shah Inat Rizvi' (d. 1711), and the 'Shah Inayat' later in the file (state journals, para on Sehwan) is a different saint, Shah Inayat (Shaheed) of Jhok, whom the English spells 'Inayat'. V3's premise that they are one person is wrong; merging the spellings would change a name the English spells otherwise. The dictionary has no entry for Shah Inat Rizvi. One spelling per name is kept: عنات for Inat, عنایت for Inayat.
+
+V3 #14: ایک طویل نعت -> ایک طویل مدحیہ نظم
+REASON: Fix not applied as written: it drops 'of the Prophet', which the English states ('the verses on whom are read as a long praise of the Prophet'). The sentence was instead made explicit (پیغمبر کی ایک طویل مدح) so it no longer reads as a slip; see the change list.
+
+V3 #47: درد -> خواجہ میر درد
+REASON: Fix not applied as written: it gives the name otherwise than the English, which has only 'Dard'. The ambiguity is resolved instead by an appositive (درد اور شاہ عبداللطیف، ان دونوں شاعروں کی راہیں); see the change list.
+
+=== NOTES NOT APPLIED (taste) ===
+
+V2 note: spinning of cotton in past tense (میں سے تھا) - V2 calls it harmless; taste.
+V3 note: سورمیاں/سورمیوں - already used consistently; kept.
+V3 note: para 1 'سے لے کر ... تک' tail after the verb - word-order taste.
+V3 note: دب کر رہ جاتی ہے -> رہ گئی ہے - not applied: the English 'tends to be overshadowed' is habitual, which رہ جاتی ہے keeps.
+V3 note: عام و خاص / سوت کاتنا / ہندوؤں کے فکر و مذہب - V3 marks these as taste (کے فکر و مذہب is the usual compound, cf. فکر و فن).
+V3 note: احمد بلا میم repetition - V3 calls it acceptable.
+V3 note: تصوف کو ایک معروض بنا دیا / نفی کی حالت میں - V3 calls them understandable; taste.
+V3 note: opening quotation mark after کہ - the English quotations themselves begin with 'that', so the Urdu keeps کہ inside them.

@@ -7,7 +7,7 @@ import { INFO_KEYS, SUPPORT_KEYS, TRADITION_KEYS, type CoverageReport } from '..
 import { SUPPORT_LEVEL_LABEL_KEYS } from '../../lib/data/supportLevel';
 import { INFO_LEVEL_LABEL_KEYS } from '../../lib/data/infoLevel';
 import { CATEGORY_LABELS } from '../../lib/data/categoryKey';
-import { buildPlaces } from '../../lib/data/places';
+import { buildAllPlaces } from '../../lib/data/places';
 import { buildWorkRollup } from '../../lib/data/sourceWorks';
 import {
   buildSourceIndex,
@@ -148,7 +148,7 @@ export function ArchiveKnows({
      is also the only inbound link to the place pages — a route reachable only by
      typing its URL is a route nobody reads, and the prerenderer needs something
      to crawl. */
-  const { places, unplaced } = useMemo(() => buildPlaces(shrines), [shrines]);
+  const { places, unplaced } = useMemo(() => buildAllPlaces(shrines), [shrines]);
 
   const shared = useMemo(
     () => restsOn.sources.filter((source) => source.shrines.length > 1),

@@ -1,0 +1,5 @@
+# Urdu change after the round 3 confirming check, applied by the coordinator in the verifier's wording
+
+======== GROUP B ========
+OLD: اور چور مور والا میں بھی مہنت اور پجاری کا گزارا اسی پر تھا۔
+NEW: اور چور مور والا میں بھی مہنت اور پجاریوں کا گزارا بس اسی پر تھا۔

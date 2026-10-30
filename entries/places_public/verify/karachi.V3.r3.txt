@@ -1,0 +1,20 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Proof that nothing else moved: /home/claude/work/public/ur_karachi.r2.bak is byte-identical to /home/claude/work/bak/karachi.ur.r2.bak (cmp). I parsed 5 OLD/NEW pairs from ur_karachi.r2.changes.txt. Every OLD occurs exactly once in the backup and no longer occurs in the current file, and every NEW occurs exactly once in the current file. Replaying the 5 replacements on the backup in order gives a text identical to the current ur_karachi.md. difflib shows 5 changed lines (41, 49, 51, 69, 71) out of 91, with no added or removed lines, each inside one listed replacement.
+- Coverage: round 2 issues 1 to 5 are all applied in the verifier's wording. The round 2 NOTES were recorded and not applied, which is correct for notes.
+- Change by change (each read in its paragraph against the English):
+  1. «دیوار پر بنی ایک تصویر میں ایک دیوتا کو بہت بڑی مچھلی پر بیٹھے دکھایا گیا ہے: یہ جھولے لال ہیں۔» V2: "A mural shows a male deity seated on a giant fish: Jhule Lal." «دیوتا» is the masculine form (as against «دیوی»), so "male" is carried. The number is now clearly singular. V3: «X کو ... بیٹھے دکھایا گیا ہے» is correct, and the honorific plural «ہیں» after the colon now reads naturally. The two «ایک» (mural, deity) are both needed.
+  2. «اس شہر میں وہ ہر جگہ فراک پہن کر جاتی تھیں، ...» V2: "there she would wear dresses everywhere"; «اس شہر» clearly means Karachi, named in the quotation just before. V3: the doubled «کراچی میں» is gone. «وہ ... جاتی تھیں» still points to Daria Boatwala, as «انہوں نے» does in the next sentence.
+  3. «... ان سے انگریزی اور اردو میں خطاب کرتے تھے؛ ان خطابات میں سے بعض ٹیپ پر ریکارڈ بھی کیے گئے۔» V2: "some of the lectures were recorded on tape"; «بعض» keeps "some", and nothing is added. V3: «ان» before «خطابات» is now a demonstrative adjective and cannot be read as "his" or "theirs". The pronoun clash is resolved.
+  4. «وہاں لان میں چمچ پر لیموں رکھ کر دوڑنے کا مقابلہ اور تین ٹانگوں کی دوڑ جیسے کھیل ہوتے ہیں، ...» V2: the lawn games, the spoon and lemon race and the three legged race are all there, in the English's present. V3: the race is now named with a proper noun phrase, there is no doubled «میں», and «مقابلہ ... دوڑ» varies the two names. «وہاں» still points to the Beach Luxury Hotel.
+  5. «... اور عید اور محرم کے موقع پر بھی کراچی سے زائرین جاتے ہیں۔» V2: "Karachi sends pilgrims at ʿīd and in muḥarram"; the sense is kept, nothing is added, and the certainty is unchanged. V3: the doubled «روانہ ہوتے ہیں» and the third «یہاں سے» are gone.
+- Taste points (none failing):
+  (a) Change 2 makes «اس شہر میں» (this sentence) and «اس شہر کو» (next sentence) appear in two sentences in a row. Round 2 chose this on purpose. It reads acceptably, but if it is varied, the next sentence could read «تاہم انہوں نے کراچی کو "سچ مچ ایک صحرا" بھی کہا۔». The quotation just before already has «کراچی میں», so the present wording is arguably the better one.
+  (b) In change 5, «کراچی سے زائرین جاتے ہیں» has no destination. In context (a paragraph about pilgrimage) it reads as "pilgrims go out from Karachi" and is acceptable. «کراچی سے زائرین زیارت کو جاتے ہیں» would be fuller without adding a fact.
+  (c) The last paragraph of the section still has «یہیں سے آگے روانہ ہوتے ہیں۔» and «یہیں سے سفر پر نکلتا ہے» in two sentences in a row, and «سفر پر نکلنا» also appears in its first sentence. «کراچی» also comes five times in the paragraph; the English repeats the name too. None of this was introduced by round 2's fixes, and round 2 accepted it.
+  (d) «عید اور محرم کے موقع پر» uses a singular «موقع» for two occasions, and the English "in muḥarram" names a month. This is common, idiomatic usage and was not changed in this round.
+- Mechanical: no Latin letters; no em or en dashes; 16 asterisks (balanced); no Eastern digits. The Western figures (1843, 1850, 1861, 1896, 1907, 1937, 1945, 1946, 1947, 1953, 1967, 1968, 1975, 1978, 1983, 20, 2000, 2007, 300) are unchanged from round 2 and all appear in the English. The suggestions in the notes keep Western digits, use no Latin letters, dashes or asterisks, and add or remove no fact.

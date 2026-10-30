@@ -1,0 +1,17 @@
+sindh short article, V1 round 1 FAIL: every issue applied in the verifier's NEW wording by the coordinator, with the notes that correct meaning or a referent. Notes adding material only if room allows were not applied.
+
+WHY: issue 1 [important omission]: the Jelali and Jemali orders
+OLD: Yet Sufi practice in Sindh rested more on personal allegiance to a master than on membership of an order, and a Sufi could belong to several orders at once.
+NEW: The *faqirs*, the wandering mystics, of Sindh belonged to the two great orders of Jelali and Jemali dervishes. Yet Sufi practice in Sindh rested more on personal allegiance to a master than on membership of an order, and a Sufi could belong to several orders at once.
+
+WHY: issue 2 [distortion by compression]: Thatta's town life is not of 1828 to 1832
+OLD: In 1828 and 1832 the population was put at between 850,000 and about a million, and town life, as it is understood today, was found in Thatta only.
+NEW: In 1828 and 1832 the population was put at between 850,000 and about a million, and after 1740 the chief concentration of people had shifted from Thatta to Shikarpur, Hyderabad and Karachi.
+
+WHY: issue 3 [distortion by compression]: the reading's limit restored
+OLD: The stories of the poem have been read as Hindu in origin, tales of Lower Sindh told among the Hindu peoples on the edges of the Thar before their general conversion to Islam.
+NEW: The stories of the poem have been read as Hindu in origin: apart from the tales of the Punjab and Kutch, they are, on this reading, tales of Lower Sindh told among the Hindu peoples on the edges of the Thar before their general conversion to Islam.
+
+WHY: note: 'perhaps because' no longer reaches the Naqshbandi clause
+OLD: the Chishtiyya never spread there as it did in the rest of South Asia, and the Naqshbandiyya has several important centres,
+NEW: the Chishtiyya never spread there as it did in the rest of South Asia. The Naqshbandiyya has several important centres,

@@ -1,0 +1,17 @@
+Sindh Urdu, fixes after the confirming round 2 (applied by the coordinator as exact replacements, each the verifier's NEW).
+
+[P1] WHY: C_P1 issue 1 [V3]: 'تک ... تک' and 'by 1940' read as 'until 1940'
+OLD: 1940 تک رسالو کو سندھی زبان کا اس وقت تک کا واحد کلاسیکی شاہکار کہا جا سکتا تھا۔
+NEW: 1940 میں رسالو کو سندھی زبان کا اس وقت تک کا واحد کلاسیکی شاہکار کہا جا سکتا تھا۔
+
+[P1] WHY: C_P1 issue 2 [V3]: a fixed past date takes the simple past, not the present perfect
+OLD: دوسری ذاتوں کے 86,663 افراد شمار کیے گئے ہیں۔
+NEW: دوسری ذاتوں کے 86,663 افراد شمار کیے گئے۔
+
+[P2] WHY: C_P2 issue 1 [V3]: 'X کے اپنے' made the huts' own clusters; a round 1 fix introduced it
+OLD: جھونپڑیوں کے اپنے جھرمٹوں یعنی *لانڈھیوں* میں
+NEW: اپنی جھونپڑیوں کے جھرمٹوں یعنی *لانڈھیوں* میں
+
+[P3] WHY: C_P3 issue 1 [V2]: 'a script of its own' and 'impose' lost by a round 1 fix
+OLD: نوآبادیاتی سندھ میں خداوادی کے نام سے ایک الگ رسم الخط رائج کرنے کی کوشش بھی ہوئی۔
+NEW: نوآبادیاتی سندھ میں خداوادی کے نام سے صوبے کا اپنا ایک رسم الخط نافذ کرنے کی کوشش بھی ہوئی۔

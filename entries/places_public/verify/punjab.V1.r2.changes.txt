@@ -1,0 +1,22 @@
+Changes applied after V1 round 2 (FAIL, 3 issues), 30 October 2026, by the coordinator:
+1. OLD: when Shihab al-Din Ghori conquered Hindustan, Multan too came into his possession, and he captured Punjab in 1192.
+   NEW: when Shihab al-Din Ghori conquered Hindustan, Multan too came into his possession.
+2. OLD: Its saints are reckoned by their tombs in its soil, and so the province's account of the Naqshbandi line begins with Khwaja Baqi Billah of Delhi, since none of the elders before him has a tomb in the land of Punjab.
+   NEW: Of the Naqshbandi line, none of the elders before Khwaja Baqi Billah of Delhi has a tomb in the land of Punjab.
+3. OLD: the Tatars came into it from the west; Sikha Gakkhar entered it from the country of Hazara, and Timur passed through its foothills on his way to Delhi;
+   NEW: the Tatars came into it from the west; Timur passed through its foothills on his way to Delhi;
+4. OLD: except Lahore and Qasur,
+   NEW: except Lahore and Kasur,
+5. OLD: Ghazna annexed the Punjab
+   NEW: Ghazni annexed the Punjab
+6. OLD: Ghazna. Tradition also hold
+   NEW: Ghazni. Tradition also hold
+7. OLD: the Ghakkars dominated
+   NEW: the Gakkhars dominated
+8. OLD: Shaikh Baha'u'd-Din Zakariyya
+   NEW: Shaikh Bahauddin Zakariya
+9. OLD: Baha' al-Haqq Zakariya, who died in 1263
+   NEW: Bahauddin Zakariya, who died in 1263
+10. OLD: Shaykh Farid ad-Din Ganj-i Shakar
+   NEW: Shaikh Fariduddin Shakarganj
+(1 to 3 are V1's issues exactly as given; 4 to 10 are the one spelling per name points of its report.)

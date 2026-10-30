@@ -26,6 +26,7 @@ import {
   PLACE_VOCABULARY,
   placesForLocation,
   countPlaces,
+  countProvinces,
   locationOfRow,
 } from '../../../../scripts/data/lib/places.mjs';
 
@@ -96,5 +97,22 @@ describe('the place vocabulary is the same on both sides', () => {
       const app = appSide.find((p) => p.slug === place.slug);
       expect(place.count, place.slug).toBe(app?.shrines.length);
     }
+  });
+
+  it('counts the same provinces, with the same sites, as the app', async () => {
+    const snapshot = (await import('../../../data/shrines-fallback.json')).default as {
+      rows: ShrineRow[];
+    };
+    const shrines = buildShrines(snapshot.rows);
+    const scriptSide = countProvinces(shrines, (s) => s.location ?? '');
+    const { buildProvinces } = await import('../places');
+    const appSide = buildProvinces(shrines);
+    expect(scriptSide.map((p) => p.slug).sort()).toEqual(appSide.map((p) => p.slug).sort());
+    for (const province of scriptSide) {
+      const app = appSide.find((p) => p.slug === province.slug);
+      expect(province.count, province.slug).toBe(app?.shrines.length);
+    }
+    // Anchor: Punjab holds most of the archive once Lahore is read as Punjab.
+    expect(scriptSide.find((p) => p.slug === 'punjab')!.count).toBeGreaterThan(300);
   });
 });

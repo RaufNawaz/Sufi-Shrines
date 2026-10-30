@@ -1,5 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { buildPlaces, placesForShrine, PLACES } from '../places';
+import {
+  buildAllPlaces,
+  buildPlaces,
+  buildProvinces,
+  placesForShrine,
+  provinceForShrine,
+  PLACES,
+  PROVINCES,
+} from '../places';
 import { translateToUrdu } from '../../i18n/urduFallback';
 import { buildShrines } from '../shrineModel';
 import snapshot from '../../../data/shrines-fallback.json';
@@ -161,5 +169,75 @@ describe('buildPlaces over the shipped snapshot', () => {
     const { places: p, unplaced: u } = buildPlaces([one]);
     expect(p).toEqual([]);
     expect(u, 'a placed site with no neighbours was reported as unplaced').toEqual([]);
+  });
+});
+
+describe('every place a shrine page links to has a page', () => {
+  it('builds a page for every place chip on every shrine', () => {
+    /* The shrine page links every place a site is in. Until 30 October 2026 a
+       place needed two sites for a page, so 37 chips (Kasur among them) led to
+       "No place by that name is recorded." */
+    const slugs = new Set(buildAllPlaces(shrines).places.map((p) => p.slug));
+    for (const shrine of shrines) {
+      for (const place of placesForShrine(shrine)) {
+        expect(slugs.has(place.slug), `${shrine.slug} links /place/${place.slug}`).toBe(true);
+      }
+      const province = provinceForShrine(shrine, shrines);
+      if (province) expect(slugs.has(province.slug), province.slug).toBe(true);
+    }
+    expect(slugs.has('kasur')).toBe(true);
+    expect(slugs.has('pakpattan')).toBe(true);
+  });
+});
+
+describe('provinces', () => {
+  const provinces = buildProvinces(shrines);
+
+  it('have slugs that no place uses', () => {
+    const placeSlugs = new Set(PLACES.map((p) => p.slug));
+    for (const p of PROVINCES) expect(placeSlugs.has(p.slug), p.slug).toBe(false);
+  });
+
+  it('every province name has an Urdu translation', () => {
+    const untranslated = PROVINCES.filter((p) => {
+      const urdu = translateToUrdu(p.name);
+      return !urdu || /[A-Za-z]/.test(urdu);
+    }).map((p) => p.slug);
+    expect(untranslated).toEqual([]);
+  });
+
+  it('put a site with no province in its Location in the province of its place', () => {
+    const lahoreOnly = shrines.find(
+      (s) => s.location === 'Lahore' || (/\bLahore\b/.test(s.location ?? '') && !s.region),
+    );
+    expect(lahoreOnly, 'no Lahore row without a recorded province').toBeTruthy();
+    expect(provinceForShrine(lahoreOnly!, shrines)?.slug).toBe('punjab');
+  });
+
+  it('never place a site in two provinces, and say so when a place is split', () => {
+    const counted = provinces.reduce((n, p) => n + p.shrines.length, 0);
+    const ids = new Set(provinces.flatMap((p) => p.shrines.map((s) => s.id)));
+    expect(ids.size).toBe(counted);
+  });
+
+  it('give Punjab, Sindh, Khyber Pakhtunkhwa and Balochistan a page', () => {
+    const slugs = provinces.map((p) => p.slug);
+    for (const slug of ['punjab', 'sindh', 'khyber-pakhtunkhwa', 'balochistan']) {
+      expect(slugs).toContain(slug);
+    }
+    expect(provinces.every((p) => p.kind === 'province')).toBe(true);
+    /* Sharada Peeth's Location ends "(Azad Kashmir), Pakistan", which `region`
+       reads as the country; the province must still be found. */
+    expect(slugs).toContain('azad-kashmir');
+  });
+
+  it('do not take a province from a place whose sites disagree', () => {
+    const a = { ...shrines[0]!, id: -1, location: 'Testtown, Punjab, Pakistan', region: 'Punjab' };
+    const b = { ...shrines[0]!, id: -2, location: 'Testtown, Sindh, Pakistan', region: 'Sindh' };
+    const c = { ...shrines[0]!, id: -3, location: 'Multan', region: '' };
+    const d = { ...shrines[0]!, id: -4, location: 'Multan, Punjab, Pakistan', region: 'Punjab' };
+    expect(provinceForShrine(c, [a, b, c, d])?.slug).toBe('punjab');
+    const e = { ...shrines[0]!, id: -5, location: 'Multan, Sindh, Pakistan', region: 'Sindh' };
+    expect(provinceForShrine(c, [c, d, e]), 'a split place gave its sites a province').toBeNull();
   });
 });

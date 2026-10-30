@@ -675,6 +675,17 @@ const UI_TEXT_EN = {
   /* ── Places (Track B) ─────────────────────────────────────────────────── */
   placesTitle: 'Places',
   placeKicker: 'Place',
+  provinceKicker: 'Province',
+  /* The place article's two lengths (Rauf, 30 October 2026): "an article that is
+     short and complete but then switch to the longer one if you want or toggle
+     which sections you need more information for". */
+  placeArticleLengthLabel: 'How much to read',
+  placeArticleShort: 'Short article',
+  placeArticleFull: 'Full account',
+  placeArticleShortNote:
+    'This is the short article. Open any section for its full account, or switch to the full account above.',
+  placeSectionMore: 'More on this',
+  placeSectionLess: 'Show less',
   placeIntro:
     'What the archive records in one place — which sites, which traditions, and the span of the dates it can read.',
   placeSitesHeading: 'Sites recorded here',

@@ -1,0 +1,167 @@
+Urdu out of prose, composed_D.md (Lahore place article, team version), 30 October 2026
+Quotations converted: 36. Verse paragraphs promoted: 0. Verse paragraphs repaired: 2 (37, 41).
+Paragraph numbers are those of the file before editing.
+
+1. Paragraph 4, p. 324, folio 331
+   ORIGINAL: لوگ اندر میلا کر جاتے میں
+   ENGLISH:  people go inside, and the printed word for what they do there can be read either as holding a fair or as soiling the place
+
+2. Paragraph 10, p. 82, folio 85
+   ORIGINAL: اتوار کے روز ہندو و مسلمان لوگ اپنے بچون کو جنکو پانی ولنے کی بیماری ہوتی ہے چاہ پر لیجا کر نہلاتے ہیں ہر ایک شخص چار روٹیاں میٹھی اور چار نمکین اپنے ہمراہ لیجاتا ہے بعد غسل کے وہ روٹیاں زمیندار چاہ کا مع ایک پیسہ چراغی کے لیے لیتا ہے
+   ENGLISH:  on Sundays Hindus and Muslims take their children who suffer from a sickness, its printed name not certainly readable, to the well and bathe them; each person brings four sweet loaves and four salted ones, and after the bath the zamindar of the well takes the loaves, together with one paisa for the lamp
+
+3. Paragraph 10, p. 299, folio 302
+   ORIGINAL: جو شخص اپنا بچہ چاہ پر لاتا ہے وہ چار روٹیان شیرین[OCR?] اور چار نمکین پکاکر ہمراہ لاتا ہے وہ لوگون کو تقسیم کر دیتا ہے اور ایک پیسہ چاہ کے زمیندارون کو دیتا ہے
+   ENGLISH:  whoever brings his child to the well cooks four sweet loaves, the word uncertainly printed, and four salted ones and brings them with him, distributes them to the people, and gives one paisa to the zamindars of the well
+
+4. Paragraph 10, p. 187, folio 190
+   ORIGINAL: حتی المقدور نذرانہ
+   ENGLISH:  people give offerings, each as much as he can
+
+5. Paragraph 10, p. 187, folio 190
+   ORIGINAL: چیچک کی بیماری کا زور ہوتا ہے
+   ENGLISH:  while the sickness is at its height (the smallpox already named in the sentence)
+
+6. Paragraph 10, pp. 452–453, folios 459–460
+   ORIGINAL: زر نقدہ اور بکرا
+   ENGLISH:  cash and a goat (the gloss already in the sentence; quotation deleted)
+
+7. Paragraph 10, pp. 452–453, folios 459–460
+   ORIGINAL: غسل صحت
+   ENGLISH:  the bath of recovery
+
+8. Paragraph 11, p. 237, folio 240
+   ORIGINAL: گہوڑے گلی اب بھی میلے کے روز ہزارون مزار پر چڑہتے ہیں چنانچہ مزار کی منڈیرون پر گلی گہوڑون کے انبار لگے رہتے ہیں
+   ENGLISH:  clay horses are still offered at the mazar in thousands on the day of the mela, so that heaps of them always lie on the parapets of the tomb
+
+9. Paragraph 11, p. 294, folio 297
+   ORIGINAL: جو حاجتمند قبر پر جاتا ہے [illegible] روٹیان نذر مانتا ہے … آخر جب عنایت الہی سے اُسکا کام با انجام پہنچ جاتا ہے تو روٹیان [illegible] پکاکر قبر پر لے آتا ہے اور [illegible] کو بانٹ دیتا ہے
+   ENGLISH:  whoever goes to the grave in need vows a number of loaves, and when at last by God's grace his work is brought to completion, he cooks the loaves, brings them to the grave and shares them out; the number of loaves and who receives them are illegible in the printed text
+
+10. Paragraph 18, p. 213, folio 216
+   ORIGINAL: تھوڑی سی بنگ … وہی اُسکی نذر ہے جسکو وہ پرشاد کہتا ہے
+   ENGLISH:  his nazr is a little bhang that he calls prashad (the gloss already in the sentence)
+
+11. Paragraph 25, p. 67
+   ORIGINAL: روز عید الضحی
+   ENGLISH:  on the day of Eid al-Adha
+
+12. Paragraph 30, p. 179
+   ORIGINAL: در وقت عبور از دریاے راوی پایان قلعہ لاہور
+   ENGLISH:  as he crossed the Ravi below the fort of Lahore
+
+13. Paragraph 32, p. 107
+   ORIGINAL: بگو کور شد دیده آفتاب
+   ENGLISH:  a quatrain whose last line says that the eye of the sun has gone blind (a single hemistich, so paraphrased rather than set as a verse paragraph)
+
+14. Paragraph 43, p. 524
+   ORIGINAL: شهریست بزرگ و مصریست سترگ
+   ENGLISH:  a great city and a mighty metropolis
+
+15. Paragraph 43, p. 524
+   ORIGINAL: اجناس هفت کشور و اشیاے بحر و بر بتجرید[OCR?] فروخت میرود
+   ENGLISH:  the goods of the seven climes and the wares of sea and land are sold, one word of that passage uncertainly printed
+
+16. Paragraph 43, p. 512
+   ORIGINAL: دار السلطنت لاهور
+   ENGLISH:  the seat of the sultanate
+
+17. Paragraph 43, p. 177
+   ORIGINAL: دارالممالک لاہور
+   ENGLISH:  the capital of the realms
+
+18. Paragraph 43, p. 400
+   ORIGINAL: درخطه دل کشاۓ لاهور
+   ENGLISH:  a land that delights the heart
+
+19. Paragraph 50, pp. 140–141, folios 143–144
+   ORIGINAL: کسی مصلحت کیوقت
+   ENGLISH:  for some reason of expediency
+
+20. Paragraph 50, pp. 15, 21; folios 10, 16
+   ORIGINAL: فضول تصور ہو کر
+   ENGLISH:  that so high a wall was thought superfluous (the source file's fuller quotation from p. 15 names the high rampart)
+
+21. Paragraph 50, pp. 15, 21; folios 10, 16
+   ORIGINAL: بنظر رفع اس تکلیف کے
+   ENGLISH:  that the work was done to remove a nuisance
+
+22. Paragraph 50, pp. 15, 21; folios 10, 16
+   ORIGINAL: جب انگریزی امن کا وقت آیا
+   ENGLISH:  that the time of the English peace had come
+
+23. Paragraph 51, p. 38, folio 41
+   ORIGINAL: سرکار نے براہ معدلت معاوضہ ہر ایک نقصان کا رعایا کو پورا پورا دیا
+   ENGLISH:  the government, as a matter of justice, paid the subjects full compensation for every loss
+
+24. Paragraph 51, p. 38, folio 41
+   ORIGINAL: حسب دلخواہ رعایا کو … جس سے کوئی ناراض نہوا
+   ENGLISH:  compensated to the subjects' own satisfaction, so that no one was displeased
+
+25. Paragraph 51, p. 38, folio 41
+   ORIGINAL: دام دام
+   ENGLISH:  paid to the last penny
+
+26. Paragraph 51, p. 38, folio 41
+   ORIGINAL: پوری پوری قیمت دیکر مکانات کروا دیئے اور صاف میدان بنا کر تالاب کی عمارت شروع کی
+   ENGLISH:  the government paid the full price for the houses, cleared the ground and began building the tank (the verb with the houses is incomplete as printed; rendered by the sense of the passage)
+
+27. Paragraph 51, p. 142, folio 145
+   ORIGINAL: اگر ایک مرتبہ پہر توجہ کریگی … تو پوری پوری مرمت مسجد کی ہو جائیگی
+   ENGLISH:  if it would turn its attention to the mosque once more, the mosque would be repaired in full
+
+28. Paragraph 52, p. 158, folio 161
+   ORIGINAL: اگر جائداد کی آمدنی اسکے متعلق نہوتی تو آبادی کی صورت مفقود ہو جاتی
+   ENGLISH:  had the property's income not been attached to it, the very form of its habitation would have been lost (the gloss already in the sentence)
+
+29. Paragraph 52, p. 80, folio 83
+   ORIGINAL: کوئی نہ کوئی بزرگ ایسا قیام پذیر رہتا جسکے سے تمام مزارہ [OCR?] کو فیض پہنچتا تھا
+   ENGLISH:  some holy man or other always lived there through whom blessing reached all of a company named by a word uncertainly printed
+
+30. Paragraph 52, p. 103, folio 106
+   ORIGINAL: متبرک و خلیق آدمی ہے اور اسی کے سبب سے یہ مکان بخوبی آباد ہے
+   ENGLISH:  is a blessed and courteous man, and it is because of him that the place is well peopled
+
+31. Paragraph 53, pp. 103–104, folios 106–107
+   ORIGINAL: اُسکے سبب سے دوبالا تہی
+   ENGLISH:  the thakurdwara's splendour was doubled on its sadhu's account
+
+32. Paragraph 53, p. 122, folio 125
+   ORIGINAL: اُسکے سبب سے شوالہ نہایت رونق پر ہے
+   ENGLISH:  because of him the shivala is in great splendour
+
+33. Paragraph 53, p. 128, folio 131
+   ORIGINAL: جسکے سبب سے مکان کی روپئی[OCR?] دن بدن زیادہ ہوتی جاتی ہے
+   ENGLISH:  because of him the place's income, as an uncertainly printed word seems to read, grows day by day
+
+34. Paragraph 53, p. 182, folio 185
+   ORIGINAL: جبتک بانی کعبہ[OCR?] زندہ رہا اس مسجد میں کمال رونق رہی اب کم رونق ہے
+   ENGLISH:  while its founder lived, the words naming him uncertainly printed, it was in full splendour, and now its splendour is little
+
+35. Paragraph 53, p. 441, folio 448
+   ORIGINAL: جیتک[OCR?] وہ زندہ رہا اس مکان پر بڑی رونق رہی
+   ENGLISH:  while Pandit Sardha Ram Phaluri[OCR?] lived there was great splendour at the place (the [OCR?] on the word for 'while' is a trivial misprint of the same word and does not change the sense)
+
+36. Paragraph 53, p. 441, folio 448
+   ORIGINAL: مگر وہ رونق نہیں ہوتی
+   ENGLISH:  but that splendour does not come
+
+VERSE PARAGRAPHS WITH LATIN MARKERS (not counted as quotations removed)
+
+Paragraph 37, p. 153, folio 156
+   BEFORE:
+طرفہ معمار خرد تاریخ سال
+گفت زیبا مسجد از افراز خان[OCR?]
+   AFTER:
+طرفہ معمار خرد تاریخ سال
+گفت زیبا مسجد از افراز خان
+   NOTE: the [OCR?] markers made the paragraph fail the verse shape (every line Arabic script, no Latin), so it rendered as prose. Markers removed from the verse lines; the uncertainty is stated in the English of the following paragraph (paragraph 38).
+
+Paragraph 41, p. 222, folio 225
+   BEFORE:
+از مکافات عمل غافل مشو
+ہو[OCR?] گندم از گندم بروبید[OCR?] جو ز جو
+   AFTER:
+از مکافات عمل غافل مشو
+ہو گندم از گندم بروبید جو ز جو
+   NOTE: the [OCR?] markers made the paragraph fail the verse shape (every line Arabic script, no Latin), so it rendered as prose. Markers removed from the verse lines; the uncertainty is stated in the English sense paragraph added after it, in italics with the citation.

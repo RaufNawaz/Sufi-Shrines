@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-10-30T20:45:32Z",
+  "expires_at": "2026-10-30T22:45:32Z",
+  "note": "place article watcher firing [renewing own claim; previous holder watcher-2026-10-30T2015Z]",
+  "released_at": "2026-10-30T21:23:18Z",
+  "released_by": "watcher-2026-10-30T2015Z",
+  "session": "watcher-2026-10-30T2015Z",
+  "slug": "place__sindh",
+  "status": "released"
+}

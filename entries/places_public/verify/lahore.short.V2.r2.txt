@@ -1,0 +1,76 @@
+# V2 round 2 (Urdu fidelity) on entries/places_public/lahore.short.ur.md, after the round 1 changes; two groups, replies verbatim.
+# Round verdict: FAIL (A PASS, B FAIL)
+
+======== GROUP A ========
+VERDICT: PASS
+
+ISSUES: none
+
+I compared every paragraph of the six Urdu sections with the English. All facts, names, titles, numbers, dates, places, relationships and qualifiers carry the same meaning. Headings match section for section.
+
+- **Round 1 fix:** V2 r1 issue 1 is fixed. The text now reads "خسرو ملک کو کمزور کرتا رہا", so the pronoun refers to Khusraw Malik, not the city.
+- **The 42 fluency changes:** I checked each one against the English. None of them changed a fact, name, number or qualifier. These ones needed a closer look, and all keep the English's meaning:
+  - "the city was put to the sword" became "شہر کے باشندوں کو تہِ تیغ کیا گیا".
+  - The saint's own city is now "یہ شہر خود ان کا اپنا شہر ہے" (the reading in the notes).
+  - The patron saint wording is "روحانی سرپرست مانے جاتے ہیں / مانا جاتا ہے / کے شمار ... میں ہوتا ہے", matching "is called / is counted".
+  - The Mian Mir sentence is restructured: the village still stands inside his own enclosure, and Mauj Darya and Chiragh Shah still founded the quarters.
+  - The rajas of Delhi and Ajmer now come to Jaipal's aid ("بھی" removes the reading that Jaipal was raja of Delhi and Ajmer).
+  - Chronogram: "شعر یا مصرعے"; era: "بکرمی سمت 1931 یعنی 1875".
+  - "سرو کے ... منقش درخت" carries "painted".
+- **Numbers:** all present and unchanged: seventeenth century, about 1000, 1071, 28 years, 1210, 639 AH, 1241, 1523 to 1524, a crore, 1751, 50,000 and 20,000, seven lakh, forty years, ten lakh, 1799, several thousand maunds, about 200, half a mile, 1846, about a mile, twice, 1862, 1864, 1872 and five years, 1881, 1931, March 1940, Samvat 1931 = 1875, 19 by 19, three storeys, three graves, nine feet, 40, 4, 12 and 11, fifty years.
+- **Qualifiers:** all kept with their meaning:
+  - Founding, Babur's conquest and the Mongols' destruction: "کئی طرح سے بیان کی جاتی ہے", "ایک روایت کے مطابق", "آج بھی سنائی جانے والی ایک روایت", "بتایا جاتا ہے" (for "is dated").
+  - Nanak, Shah Kaku and the saints: "سکھ روایت کے مطابق", "روایت ہے کہ" for both Shah Kaku and the saints guarding the city, "کہا جاتا ہے" for the majzub and for Miani.
+  - Amounts: "تقریباً" (about 1000, about 200, about a mile), "زیادہ تر مقامات", "کچھ عرصے کے لیے".
+- **Legends:** Duni Chand's needle and Shah Kaku's killing stay legends, each inside a single sentence under its hedge.
+- **Dropped glosses and italics:** these are deliberate under the brief and are not omissions. They cover amil, Muftis, kotwal, Qadi, nazrana, misls, kirpan, mazars, urs, fatiha, majzub, khanqah, shiwala, mihrab, samadhs, pujaris, dharamsala, mahants, mujawirs, sajjada nashin, sabil, kalas, lakh and crore.
+- **Names:** following the coordinator's ruling, the Urdu keeps مادھو لال حسین throughout.
+
+NOTES (style only):
+1. **Durrani / Abdali:** "احمد شاہ ابدالی نے حاجی محمد سعید کے محلے" is where the English says "Ahmad Shah Durrani". He is the same man, so no fact changes. The Urdu is consistent with itself but departs from the English's name form at this one place, as groupA.changes.txt already records.
+2. **"barred lanes":** "دایہ انگا کے محلے نے اپنے دروازوں اور بند گلیوں کی اوٹ لی". "بند گلی" usually means a dead-end alley, while the English means lanes closed off with barriers. "اور ناکہ بند گلیوں" would be closer if wanted.
+3. **Miani:** "جب یہ گاؤں آخرکار ویران ہوا تو قبرستان میں بدل گیا، جو آج تک موجود ہے۔" stands as its own sentence after the "کہا جاتا ہے" sentence. The village it refers to is already hedged, so the legend still reads as a legend. Joining it to the previous sentence with "؛ اور" would keep the English's single hedged sentence. Also, "جو آج تک موجود ہے" says "which still exists" where the English says "the graveyard it is now". The meaning is the same.
+4. **Muslims and Christians:** "وہ بھی آج تک ایک ایسے ہندو مندر میں جاتے ہیں". "بھی" adds a slight "they too" that the English does not have. "وہ آج تک" would be closer.
+5. **"of old foundation":** "پرانی بنیادوں والے مندر" can be read as the physical foundations. "قدیم زمانے سے قائم مندر" would be closer to the English.
+6. **"close and practical":** "ایک دوسرے کے قریب اور سلیقے سے" gives "neat" for "practical". "ضرورت کے مطابق" would be nearer, but this is minor.
+7. **Sharaf un-Nisa's will:** "ان کی وصیت کے مطابق بغیر سیڑھیوں کے بنایا اور اسی حال میں رکھا گیا" makes the will cover the building as well as the keeping. The English is ambiguous enough to allow this, so there is no change of fact.
+
+======== GROUP B ========
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] English: "Modern scholars have seen Lahore from very different distances, some studying in the city and making it the base for their fieldwork." | Urdu: "کچھ نے اسی شہر میں تعلیم حاصل کی اور اسے اپنی میدانی تحقیق کا مرکز بنایا۔" -> This sentence is about scholars and how close they were to Lahore, so "studying in the city" means studying Lahore from inside it, as researchers. "تعلیم حاصل کی" means "were educated / were students in this city", which states a biographical fact the English does not give. The round-1 change from پڑھائی کی to تعلیم حاصل کی fixed the register but kept this misreading, and V2 r1 had already noted it. -> Replace `کچھ نے اسی شہر میں تعلیم حاصل کی اور اسے اپنی میدانی تحقیق کا مرکز بنایا۔` with `کچھ نے اسی شہر میں رہ کر اس کا مطالعہ کیا اور اسے اپنی میدانی تحقیق کا مرکز بنایا۔`
+
+Everything else matches the English. I went through all seven sections, paragraph by paragraph:
+- **Facts and names:** every fact, name, title, relationship and place is present with the same meaning.
+- **Hedges and qualifiers:** these are all kept:
+  - about / تقریباً for 800, 200, 100 and 1900
+  - for the most part / اکثریت (Bhadar Kali)
+  - were put down to / بتایا جاتا تھا
+  - often / اکثر
+  - could decide / کبھی کبھی ... طے ہو جاتا تھا
+  - mostly / زیادہ تر
+  - not less than ten thousand
+  - more than seventy, more than forty years
+  - much of the rest / بڑا حصہ
+- **Numbers:** the digit sets in the two files are identical: 28, 94, 170, 1849, 1880, 1884, 1900, 1930, 1935, 1992, 2010. Numbers written as words also match: seventeen, ten, forty, three, fifty, eight and four annas, thousand, five hundred, five, two, eleven, eight (four and four), thirty five, thirteen, four cases.
+- **Headings:** all seven correspond.
+- **Verse:** the Persian couplet (lines 103–104) is byte-identical to the English.
+- **Letters:** there are no Latin letters.
+- **Round-1 changes:** I checked all 46 entries in groupB.changes.txt. None of them changed a fact, name, number or qualifier. The four V2 r1 issues are correctly fixed:
+  - کبھی کبھی for "could decide"
+  - مریدی اور شاگردی
+  - ہزار روپے (no longer ہزار ہزار)
+  - موراں کے سکے
+- **Rejected fluency suggestions:** the coordinator was right to reject V3 12 and V3 14, because each would have added meaning the English does not have. Dropping "no mela in Lahore was greater" (V3 30) loses no fact. ٹالی for the tree keeps the place and the tree consistent with the dictionary.
+- **Dropped glosses and italics:** these follow the brief and are not counted as omissions: taziya, muwahhid, sama, gaddi nashin, qawwal, anna, kos, mehndi/alam, bhajan, hazri ("literally presence"), Milad.
+
+NOTES (style only, none affects a fact):
+- Line 15: "جس میں تقریباً آٹھ سو افراد کے بیٹھنے کی گنجائش تھی" puts the English present "seats" into the past to match the sentence's tense. It is acceptable, but it no longer says the church still seats this many.
+- Line 27: "سترہ برس کے ایک لڑکے نکا سنگھ" softens "a single boy". "صرف ایک لڑکے" would keep the contrast with "a whole complex".
+- Line 63: "اپنا دعویٰ آخر تک نہ چھوڑا" ("did not give up its claim") credits the temple with persistence. The English "ran its full course" means the claim was carried through to a result. "اپنے انجام کو پہنچا" (in a reworded sentence) would be closer. The meaning is close enough not to count as an issue.
+- Line 75: "1880 کی دہائی میں" for "By the 1880s" was chosen on purpose to avoid the تک/"until" trap. It loses the sense of "by" but keeps the fact.
+- Line 65: "فوجی میس" specifies "a mess" as military. Line 17: "خود بسائی تھی" adds a slight emphasis ("herself") to "who built all of it". Both are harmless.
+- Line 79: *ایکادشی* is italicised although the English does not italicise Ekadashi. The brief allows this for a term that is unfamiliar to Urdu readers.
+
+No files were edited.

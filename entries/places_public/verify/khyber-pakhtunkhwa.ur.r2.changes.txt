@@ -1,0 +1,10 @@
+Changes applied after the round 2 confirming report (V3 FAIL), by the coordinator, in the verifier's wording (PUBLIC_DESCRIPTION_BRIEF, late rounds).
+
+WHY: V3 r2 issue 1 (agreement: سرحد is feminine; agree through وطن)
+OLD: پشاور کی اس مریدنی کے نزدیک ان کا "سرحد" کھلے مزاروں کی سرزمین تھا، جہاں
+NEW: پشاور کی اس مریدنی کے نزدیک ان کا وطن "سرحد" کھلے مزاروں کی سرزمین تھا، جہاں
+
+WHY: V3 r2 issue 2 (اصل میں read as 'in fact' at the head of the sentence)
+OLD: اصل میں پشاور کی رہنے والی ایک مریدنی کے نزدیک ان کے وطن کے مزار عورتوں کے لیے جتنے کھلے تھے، پاکپتن کے مزار اتنے کھلے نہیں تھے۔
+NEW: ایک مریدنی اصل میں پشاور کی رہنے والی تھیں۔ ان کے نزدیک ان کے وطن کے مزار عورتوں کے لیے جتنے کھلے تھے، پاکپتن کے مزار اتنے کھلے نہیں تھے۔
+

@@ -1,0 +1,322 @@
+# V3 Urdu fluency, round 1, Lahore (four verifiers, one per section group; the round fails if any fails)
+
+===== P1 =====
+
+VERDICT: FAIL
+
+ISSUES:
+1. [grammar: ergative with intransitive verb] "پیر ہادی کے مقبرے سے راجا دھیان سنگھ نے سنگِ مرمر کی جالیاں اور سرخ پتھر کے ستون اتروا کر لے گیا۔" -> "لے جانا" does not take "نے"; the sentence is ungrammatical as it stands -> "پیر ہادی کے مقبرے سے راجا دھیان سنگھ سنگِ مرمر کی جالیاں اور سرخ پتھر کے ستون اتروا کر لے گیا۔"
+
+2. [ambiguity] "لاہور کے سرداروں میں سے ایک اور اس کے حاکم لہنا سنگھ نے پچھلے بادشاہوں کی یادگاریں ڈھانی شروع کیں" -> "ایک اور" is read by any Urdu reader as "another", so the sentence seems to name two people -> "لاہور کے ایک سردار اور شہر کے حاکم لہنا سنگھ نے پچھلے بادشاہوں کی یادگاریں ڈھانی شروع کیں تو شہر کے بزرگوں نے رنجیت سنگھ کو دعوت دی کہ لاہور آ کر اس پر قبضہ کر لے۔"
+
+3. [ambiguous name/pronoun] "جب ہمایوں شہزادہ محمد اکبر اور تین ہزار سواروں کے ساتھ لوٹا تو افغان تتر بتر ہو گئے اور لاہور بغیر لڑائی کے بادشاہ کے کارندوں کے ہاتھ آ گیا۔" -> comes straight after "اعظم ہمایوں" (Haibat Khan), so the bare "ہمایوں" can be read as the rebel -> "جب مغل بادشاہ ہمایوں شہزادہ محمد اکبر اور تین ہزار سواروں کے ساتھ لوٹا تو افغان تتر بتر ہو گئے اور لاہور بغیر لڑائی کے اس کے کارندوں کے ہاتھ آ گیا۔"
+
+4. [grammar: broken construction] "اور مجرموں کو سرِعام سزائے موت دیکھنے کے لیے ہجوم اس میں امڈ آتا تھا؛" -> "مجرموں کو" becomes the object of "دیکھنے"; the passive participle is missing -> "اور مجرموں کو سرِعام دی جانے والی سزائے موت دیکھنے کے لیے ہجوم اس میں امڈ آتا تھا؛"
+
+5. [agreement] "ہیمو نے دہلی لے لیا تو" -> دہلی is feminine (the article itself has "خود دہلی اس صوبے کے ماتحت ہو گئی") -> "ہیمو نے دہلی لے لی تو اکبر نے لاہور میں لشکر جمع کر کے دہلی پر چڑھائی کی۔"
+
+6. [agreement + calque] "نسل اور طبقہ عمارتوں کے نقشوں ہی میں لکھ دیا گیا تھا۔" -> two subjects with a singular verb, and "written into the plans" is a literal calque -> "نسل اور طبقے کی تفریق عمارتوں کے نقشوں ہی میں رکھ دی گئی تھی۔"
+
+7. [no antecedent] "انگریزی عہد میں یہی مشقت چار دیواری کے اندر لے آئی گئی۔" -> nothing earlier is called مشقت (the previous lines describe begging and mutilation), so "یہی" points at nothing -> "انگریزی عہد میں قیدیوں کی مشقت چار دیواری کے اندر لے آئی گئی۔"
+
+8. [tense clash] "اور وہ جگہ جہاں سے تعویذ توڑا گیا تھا، اب بھی دکھائی دیتی تھی۔" -> "اب بھی" (now) with a past verb is incoherent -> "اور وہ جگہ جہاں سے تعویذ توڑا گیا تھا، بعد میں بھی دکھائی دیتی رہی۔"
+
+9. [logic/order] "اس کا خیال تھا کہ لاہور بڑا شہر ہے، اس لیے یہاں تھوڑی مدت میں شاہانہ لوازم، لشکروں کا ساز و سامان، کثیر فوج اور جنگ کا ہر سامان جمع ہو سکتا ہے، اور یہی وہ دروازہ ہے جس سے مغل کابل سے اندر آتے ہیں۔" -> in this order it sounds like an advantage, so the following "چنانچہ وہ شہر کو اجاڑ کر..." does not follow; putting the "gateway for the Mughals" first shows why the resources were a danger -> "اس کا خیال تھا کہ لاہور وہ دروازہ ہے جس سے مغل کابل سے اندر آتے ہیں، اور یہ اتنا بڑا شہر ہے کہ یہاں تھوڑی مدت میں شاہانہ لوازم، لشکروں کا ساز و سامان، کثیر فوج اور جنگ کا ہر سامان جمع ہو سکتا ہے۔"
+
+10. [calque] "دہلی کے ابتدائی سلاطین کے زمانے میں شہر بار بار ہاتھ بدلتا رہا۔" -> "ہاتھ بدلنا" is English "changed hands" -> "دہلی کے ابتدائی سلاطین کے زمانے میں شہر بار بار ایک ہاتھ سے دوسرے ہاتھ میں جاتا رہا۔"
+
+11. [calque] "پندرھویں صدی بھر لاہور وہ انعام بنا رہا جس کے لیے کھوکھر، سید سلاطین اور لودھی آپس میں لڑتے رہے۔" -> "انعام" for "prize" is unidiomatic -> "پندرھویں صدی بھر کھوکھر، سیّد سلاطین اور لودھی لاہور پر قبضے کے لیے آپس میں لڑتے رہے۔"
+
+12. [calque] "مغلیہ لاہور ایک علاقائی دارالحکومت بھی تھا اور موسمی بھی، جہاں دربار اپنی دائمی گردش میں آ کر ٹھہرتا تھا۔" -> "موسمی دارالحکومت" and "دائمی گردش" are word for word English -> "مغلیہ لاہور ایک علاقائی دارالحکومت بھی تھا اور ایسا شہر بھی جہاں سدا سفر میں رہنے والا دربار کچھ موسموں کے لیے آ کر ٹھہرتا تھا۔"
+
+13. [calque] "بادشاہی مسجد شاہانہ شان سے گزر کر فوجی استعمال تک پہنچی۔" -> "went from royal splendour to military use" rendered literally; reads oddly -> "بادشاہی مسجد شاہانہ شان و شوکت کے دن دیکھنے کے بعد فوج کے استعمال میں آ گئی۔"
+
+14. [calque] "اور وہاں کے ایک یا ایک سے زیادہ زمیندار ہلاک ہو گئے۔" -> "one or more" rendered literally, clumsy -> "اور وہاں کا کم از کم ایک زمیندار ہلاک ہوا۔"
+
+15. [agreement in gapped verb] "اینٹ فروش خاوند محمود کے روضے کا سامانِ تعمیر لے گئے، اور ایک کشمیری اینٹ فروش سیّد عبد الوہاب قادری کے مقبرے کا۔" -> the omitted verb would have to be singular "لے گیا", so the plural "لے گئے" cannot cover it -> "اینٹ فروش خاوند محمود کے روضے کا سامانِ تعمیر لے گئے، اور ایک کشمیری اینٹ فروش سیّد عبد الوہاب قادری کے مقبرے کا سامان لے گیا۔"
+
+16. [agreement] "شاہ عالمی دروازے کے باہر دیوان رتن چند کی سرائے اور تالاب تھا؛" -> two subjects, singular verb -> "شاہ عالمی دروازے کے باہر دیوان رتن چند کی سرائے اور تالاب تھے؛ تالاب ہمیشہ بھرا رہتا تھا، اور شہر سے ہزاروں مرد اور عورتیں اس میں نہانے آتے تھے۔"
+
+17. [subject ellipsis across نے] "سرکار نے پنجاب کی پہلی نمائش پر ہزاروں روپے خرچ کیے، اور گورنمنٹ ہاؤس پر ہر سال ہزاروں خرچ کرتی تھی۔" -> "سرکار نے" cannot serve as subject of the imperfective "کرتی تھی"; the second clause needs its own subject -> "سرکار نے پنجاب کی پہلی نمائش پر ہزاروں روپے خرچ کیے، اور وہ گورنمنٹ ہاؤس پر ہر سال ہزاروں روپے خرچ کرتی تھی۔"
+
+18. [tense] "لاہور کی برادریاں ساتھ ساتھ رہیں؛ بعض مقدس مقامات میں وہ شریک تھیں اور بعض پر آپس میں جھگڑتی تھیں۔" -> perfective "رہیں" clashes with the habitual "تھیں" that follows -> "لاہور کی برادریاں ساتھ ساتھ رہتی تھیں؛ بعض مقدس مقامات میں وہ شریک تھیں اور بعض پر آپس میں جھگڑتی تھیں۔"
+
+19. [logic/tautology] "کیونکہ ملتان سے لاہور اور دہلی جانے والا ایک بڑا راستہ یہیں سے گزرتا تھا۔" -> a road "to Lahore" cannot "pass through" Lahore -> "کیونکہ ملتان سے دہلی جانے والا ایک بڑا راستہ لاہور سے ہو کر گزرتا تھا۔"
+
+20. [direction verb] "اور صوفی اپنے خاندانوں سمیت لاہور سے دہلی آتے تھے۔" -> the narrative stands in Lahore, so movement to Delhi is "جاتے" -> "لاہور دارالحکومت بن چکا تھا، اور صوفی اپنے خاندانوں سمیت لاہور سے دہلی جاتے تھے۔"
+
+21. [inconsistent spelling: ordinals] "سترہویں" (para 1) and "اٹھارہویں" (para beginning "اٹھارہویں صدی میں شہر کی زندگی") against "پندرھویں" -> use one standard throughout -> "سترھویں" and "اٹھارھویں" (matching "پندرھویں").
+
+22. [inconsistent spelling] "سید سلاطین" and "سید برادران" against "سیّد" everywhere else; "موزنگ کے لمبردار" against "چودھریوں اور نمبرداروں" -> standardise -> "سیّد سلاطین", "سیّد برادران"; "موزنگ کے نمبردار".
+
+NOTES:
+Punctuation is clean: Urdu ، ۔ ؛ throughout, no em or en dashes, no Latin letters, Western digits only, asterisks balanced (*زنبورک*). The quotation marks in the Guru Nanak needle sentence are fine.
+Taste: "اور انگریزوں نے اسے پنجاب کا دارالحکومت بنایا" repeats "انگریزوں" from the same sentence; "...اور انگریزوں کا دور آتا ہے، جنہوں نے اسے پنجاب کا دارالحکومت بنایا" would be smoother. "شمعیں جلانے کے ستون" could be "شمع دان". "عید الاضحیٰ" and "عید قربان" are both correct but could be unified. "شہر کے دروازوں کے نام اپنے بانیوں کے سودوں اور فرمانوں کے امین ہیں" is a little literary for the register; acceptable.
+Repetition: the Mughal buildings paragraph uses عظیم / بڑے / بڑی بڑی several times, and says twice that the buildings lasted to Aurangzeb/Alamgir. "سچیت سنگھ لاہور میں قتل ہوا۔" is followed two sentences later by "سچیت سنگھ مارا گیا"; the same paragraph calls the site both "مدرسے" and "خانقاہ". The Anarkali sentence uses "پہلے" heavily ("گویا پہلے شہر کے باہر..." can also be misread as "the first city").
+"شاہنواز خان نے اسے جواب دیا کہ" has no question to answer; "کہا" would read more naturally unless the source has a message being answered.
+Ambiguity for the editor to settle against the source: "مردوں کے معائنے کی عمارت" can be read as men (مَردوں) or the dead (مُردوں); if a post mortem house is meant, "لاشوں کے معائنے کی عمارت" removes the doubt. "چندہ دینے والوں کے نام ہال کے اندر" follows two halls; "دونوں ہالوں کے اندر" if that is what is meant.
+Possible content points for the fact checker (not language): Nur Jahan's father is named "خواجہ ایاز"; "صرف دہلی دروازے میں کچھ باقی رہا" sits uneasily beside "دہلی دروازہ گرا کر دو منزلہ دوبارہ بنایا گیا"; "شیر سنگھ کے قاتل" appears without Sher Singh's killing having been mentioned.
+
+===== P2 =====
+
+VERDICT: FAIL
+
+ISSUES:
+1. [agreement] «یعنی ان متبرک آرام گاہوں کی جو لاہور کے چاروں طرف گزرے ہوئے اہلِ اللہ کی یادگار بن کر کھڑے ہیں» -> the antecedent is آرام گاہیں (feminine), so the verb must be کھڑی ہیں -> «یعنی ان متبرک آرام گاہوں کی جو لاہور کے چاروں طرف گزرے ہوئے اہلِ اللہ کی یادگار بن کر کھڑی ہیں»
+2. [repetition] «اور ان کا مقبرہ آج بھی پنجابیوں کو زیارت کے لیے اپنی طرف کھینچتا ہے» -> straight after the quotation it repeats آج بھی, مزار/مقبرہ and زیارت گاہ/زیارت -> «اور پنجابی اب بھی اس کی زیارت کو کھنچے چلے آتے ہیں»
+3. [ambiguity] «مادھو لال حسین اپنے ہندو محبوب کے ساتھ شالیمار باغ کے قریب ایک سادہ سے مقبرے میں دفن ہیں۔» -> coming right after شاہ حسین, this reads as a second, different saint, and his Hindu beloved is left unnamed. The reader cannot tell that مادھو لال حسین is the name of the shrine of شاہ حسین and his beloved -> «شاہ حسین اپنے ہندو محبوب کے ساتھ شالیمار باغ کے قریب ایک سادہ سے مقبرے میں دفن ہیں، جو مادھو لال حسین کا مزار کہلاتا ہے۔»
+4. [calque / apposition] «میاں میر اور لاہور کے قادری سلسلے کی ایک عمدہ سوانح، سکینۃ الاولیاء، مغل ولی عہد سے منسوب ہے۔» -> this is English appositive structure, with the title set between commas. Also, سوانح on its own with ایک is loose; the idiom is سوانح عمری -> «میاں میر اور لاہور کے قادری سلسلے کی عمدہ سوانح عمری سکینۃ الاولیاء مغل ولی عہد سے منسوب ہے۔»
+5. [register] «قلندر وہ آوارہ گرد درویش ہیں» -> آوارہ گرد is pejorative (loafer) in Urdu and wrong in tone for a heritage text -> «قلندر وہ سیلانی درویش ہیں»
+6. [calque] «ایک زندہ صوفی سلسلہ شہر کے کم معروف مزاروں کے بارے میں مجموعی طور پر احتیاط کی تعلیم دیتا ہے» -> زندہ سلسلہ (living order) and مجموعی طور پر (generally) are both literal English -> «آج کا ایک صوفی سلسلہ شہر کے کم معروف مزاروں کے بارے میں عام طور پر احتیاط کی تعلیم دیتا ہے»
+7. [calque] «اس کے اپنے الفاظ میں:» -> a literal rendering of "in its own words", applied to a سلسلہ -> «اس سلسلے کا کہنا ہے:»
+8. [spelling consistency] «مغلپورہ خاوند محمود» -> every other پورہ name is written as two words (بیگم پورہ، باغبان پورہ، سلطان پورہ، تیل پورہ) -> «مغل پورہ خاوند محمود»
+9. [word order] «مادھو لال حسین کا مزار باغبان پورہ میں ہے، جو کبھی لاہور کے نواح میں تھا اور اب پھیلتے ہوئے شہر کا ایک محلہ ہے، بالکل شالیمار باغ کے ساتھ۔» -> the trailing phrase بالکل شالیمار باغ کے ساتھ follows English order and hangs loose at the end -> «مادھو لال حسین کا مزار شالیمار باغ کے بالکل ساتھ باغبان پورہ میں ہے، جو کبھی لاہور کے نواح میں تھا اور اب پھیلتے ہوئے شہر کا ایک محلہ ہے۔»
+10. [ambiguity] «انیسویں صدی میں قلعۂ لاہور کی ایک عمارت میں، جو تخت کے سامنے اس کی جنوبی سمت میں تھی، ایک قبر تھی، اور عام لوگ اسے نگار خانہ کہتے تھے۔» -> it is unclear whether اس کی refers to the throne or the fort, and whether اسے refers to the grave or the building. The sentence is also tangled -> «انیسویں صدی میں قلعۂ لاہور کی ایک عمارت میں ایک قبر تھی۔ یہ عمارت تخت کے سامنے جنوب کی سمت واقع تھی، اور عام لوگ اسے نگار خانہ کہتے تھے۔»
+11. [ambiguity] «چونکہ پنجابی علما کو میاں کہتے ہیں» -> this can be read as "Punjabi scholars are called Mian" -> «چونکہ اہلِ پنجاب علما کو میاں کہتے ہیں»
+12. [calque] «جب میانی آخرکار ویران ہوا تو یہ گاؤں وہ قبرستان بن گیا جو آج ہے۔» -> وہ قبرستان بن گیا جو آج ہے is a literal rendering of "became the graveyard it is today" -> «جب میانی آخرکار ویران ہوا تو یہ گاؤں قبرستان میں بدل گیا، جو آج تک موجود ہے۔»
+13. [calque] «لاہور کے قلب میں سلطان پورہ کا ایک تاریخی قبرستان گھوڑے شاہ کے مزار کا مقام ہے۔» -> مزار کا مقام ہے is a literal rendering of "is the site of" -> «لاہور کے قلب میں سلطان پورہ کے ایک تاریخی قبرستان میں گھوڑے شاہ کا مزار ہے۔»
+14. [gloss cut off by commas] «لاہور میں کوئی دخمہ، یعنی پارسیوں کا مینارِ خاموشی، نہیں ہے،» -> the gloss is wedged between commas and cuts the noun off from its verb -> «لاہور میں پارسیوں کا کوئی دخمہ یعنی مینارِ خاموشی نہیں ہے،»
+15. [word order / number] «کبھی یہ دروازہ شہزادے اور شہزادی کے لیے مخصوص تھا جب وہ قلعے سے شہر کی طرف جاتے، اور پوری گزرگاہ میں چراغ روشن کیے جاتے تھے؛» -> the جب clause comes last, in English order, and the singular شہزادے اور شہزادی reads oddly for a general custom -> «کبھی جب شہزادے اور شہزادیاں قلعے سے شہر کی طرف جاتے تو یہ دروازہ انہی کے لیے مخصوص ہوتا تھا، اور پوری گزرگاہ میں چراغ روشن کیے جاتے تھے؛»
+16. [izafat] «حضورِ اکرم کے قدم مبارک کا نشان» -> the izafat is missing, although the text marks it elsewhere (قدمِ رسول) -> «حضورِ اکرم کے قدمِ مبارک کا نشان»
+17. [repetition] «سکھ عہد میں سکھ انہیں لے گئے؛» -> سکھ is repeated twice in a row -> «سکھ اپنے دور میں انہیں اٹھا لے گئے؛»
+18. [spelling consistency] «نیلا گنبد والمیکی مندر انار کلی کے تاریخی بازار میں ہے اور شہر کے بالمیکی ہندوؤں کی عبادت گاہ ہے۔» -> والمیکی and بالمیکی appear in the same sentence. The quotation later in the text has بالمیکی, so standardise on that -> «نیلا گنبد بالمیکی مندر انار کلی کے تاریخی بازار میں ہے اور شہر کے بالمیکی ہندوؤں کی عبادت گاہ ہے۔»
+19. [spelling consistency] «نیلا گنبد کا والمیکی مندر ہیں» -> same issue as item 18 -> «نیلا گنبد کا بالمیکی مندر ہیں»
+20. [spelling consistency] «ٹھوکر نیاز بیگ کا بھدرا کالی مندر» -> the text has بھدر کالی everywhere else -> «ٹھوکر نیاز بیگ کا بھدر کالی مندر»
+21. [tautology / tangled] «اور اس کے ساتھ بلیوں کا ایک مزار ہے جو بلیوں والا مزار کہلاتا ہے، اور وہاں کی رسم غالباً اسی لیے کہیں زیادہ تیزی سے ماند پڑی ہے کہ یہ مزار ایک بڑے شہر کے عین قلب میں ہے۔» -> the name glosses itself, and three clauses are strung together with اور -> «اور اس کے ساتھ ایک مزار ہے جو بلیوں والا مزار کہلاتا ہے۔ یہ مزار ایک بڑے شہر کے عین قلب میں ہے، اور غالباً اسی لیے یہاں کی رسم کہیں زیادہ تیزی سے ماند پڑ گئی ہے۔»
+22. [collocation] «جمعے کے دن یہ زائرین سے کھچا کھچ بھری ہوتی ہے» -> people at Friday prayers in a mosque are نمازی, not زائرین -> «جمعے کے دن یہ نمازیوں سے کھچا کھچ بھری ہوتی ہے»
+23. [unidiomatic] «ان کی یاد میں ایک مقام بنایا گیا ہے» -> ایک مقام بنانا is vague and unidiomatic for a memorial -> «ان کی ایک یادگار قائم ہے»
+24. [calque / repetition] «بلھے شاہ، جن کی زندگی 1680 سے 1752 تک رہی، لاہور کے قریب رہتے تھے۔» -> زندگی رہی is unidiomatic and repeats رہی and رہتے -> «بلھے شاہ نے، جو 1680 میں پیدا ہوئے اور 1752 میں فوت ہوئے، لاہور کے قریب زندگی گزاری۔»
+25. [wrong determiner] «شہر کی کئی مسجدیں اسی زمین پر کھڑی ہیں جہاں پہلے کوئی اور مسجد تھی۔» -> اسی points to one specific plot. The sense is "on sites where" -> «شہر کی کئی مسجدیں ایسی جگہوں پر کھڑی ہیں جہاں پہلے کوئی اور مسجد تھی۔»
+26. [tautology] «اور ان میں سب سے پرانی وہاں کی پہلی اور سب سے قدیم عمارت ہے۔» -> "the oldest is the oldest" -> «اور ان میں سب سے پرانی وہی ہے جو اس احاطے میں سب سے پہلے بنی۔»
+27. [clumsy repetition] «ایک مسجد کی سنگِ مرمر کی سنگِ بنیاد والی تختی پر» -> سنگ appears twice and کی is chained three times -> «ایک مسجد کے سنگِ بنیاد کی مرمریں تختی پر»
+28. [repetition] «گلابی باغ پر باغ کی تاریخ 1066 درج ہے» -> باغ is repeated -> «گلابی باغ پر اس کی تاریخ 1066 درج ہے»
+29. [ambiguity] «سکھ رام داس کھتری کپور کے یادگاری شوالے» -> in a sentence about Hindu and Sikh buildings, the name reads as "the Sikh Ram Das". Mark the vowel -> «سُکھ رام داس کھتری کپور کے یادگاری شوالے»
+30. [ambiguity] «دیوی کا مندر سمت 1931 میں ان کے ظہور کے بعد بنا، جو 1875 کے مطابق ہے» -> جو could refer to the apparition or to the Samvat year, and ان has no clear antecedent -> «دیوی کے ظہور کے بعد ان کا مندر سمت 1931 یعنی 1875 میں بنا»
+31. [case / gloss cut off] «سکھ امرا کی سمادھیں، یعنی ان کے یادگاری مقبرے، پر بھی اسی سن کی تاریخیں درج ہیں۔» -> before پر the noun must be oblique (سمادھوں), and the gloss between commas cuts it off from its postposition -> «سکھ امرا کی سمادھوں پر بھی، یعنی ان کے یادگاری مقبروں پر، اسی سن کی تاریخیں درج ہیں۔»
+32. [ambiguity] «اس میں چالیس حجرے اور چار مینار ہیں، اس کے بارہ حوضوں میں سے» -> the nearest antecedent of اس is the platform (چبوترہ), which cannot hold forty cells. There is also a comma splice -> «مقبرے میں چالیس حجرے اور چار مینار ہیں، اور اس کے بارہ حوضوں میں سے»
+33. [unclear] «اور کھڑک سنگھ اور نو نہال سنگھ کی سمادھ میں ہر سمادھ کے اوپر ایک سنہری کلس ہے۔» -> سمادھ میں ہر سمادھ is confusing -> «اور کھڑک سنگھ اور نو نہال سنگھ کی سمادھ کے احاطے میں ہر سمادھ کے اوپر ایک سنہری کلس ہے۔»
+34. [calque] «اور دوسری سلطنت کے انقلاب کی وجہ سے نامکمل چھوڑ دی گئی» -> سلطنت کا انقلاب is a literal rendering of "revolution of the state". The sentence also repeats نامکمل from the previous one -> «اور دوسری حکومت بدل جانے کی وجہ سے بیچ ہی میں چھوڑ دی گئی»
+35. [coordination] «بہت سے مقبرے صاحبانِ قبر کی زندگی ہی میں یا ان کے مریدوں نے بنائے۔» -> a time adverbial and an agent are coordinated under one verb. Also, صاحبانِ مزار is the idiom -> «بہت سے مقبرے صاحبانِ مزار کی زندگی ہی میں بن گئے، یا ان کے مریدوں نے بنائے۔»
+36. [parallelism] «کوتوالی شوالے میں عملے کے رہنے، باورچی خانوں اور کپڑوں کے ذخیرے کے لیے» -> an infinitive is mixed with nouns -> «کوتوالی شوالے میں عملے کی رہائش، باورچی خانوں اور کپڑوں کے ذخیرے کے لیے»
+37. [connotation] «ایک زیرِ زمین سرد خانہ» -> سرد خانہ now means cold storage or a mortuary -> «ایک ٹھنڈا تہ خانہ»
+38. [spelling consistency] «ایک شیولنگ پر» -> the text writes شیو لنگ elsewhere -> «ایک شیو لنگ پر»
+39. [logic / calque] «برادریوں کے درمیان لین دین دونوں طرف سے ہوتا تھا» -> five communities are named, so دونوں طرف (a calque of "went both ways") does not fit -> «برادریوں کے درمیان لین دین یک طرفہ نہیں، باہمی تھا»
+40. [punctuation / style] «اور صوفی کسی سے دشمنی نہیں رکھتے تھے» -> a new sentence after ۔ should not open with اور -> «صوفی کسی سے دشمنی نہیں رکھتے تھے»
+41. [tense] «اس برادری کے مطابق ہوتے تھے جس کے پاس وہ عمارت ہو۔» -> past habitual followed by present subjunctive -> «اس برادری کے مطابق ہوتے تھے جس کے پاس وہ عمارت ہوتی۔»
+42. [repetition / بھی with ہی] «جمعرات کو ہندو اور مسلمان میراں بادشاہ کے مزار پر حاضر ہوتے، مادھو لال حسین کے دونوں میلوں میں ہندو اور مسلمان شریک ہوتے، اور بھدر کالی کے میلے میں بھی زیادہ تر مسلمان ہی جاتے تھے۔» -> ہندو اور مسلمان is repeated, and بھی clashes with ہی -> «جمعرات کو ہندو اور مسلمان میراں بادشاہ کے مزار پر حاضر ہوتے اور مادھو لال حسین کے دونوں میلوں میں بھی شریک ہوتے، جبکہ بھدر کالی کے میلے میں جانے والے زیادہ تر مسلمان ہی ہوتے تھے۔»
+43. [gloss cut off by commas] «اس میں ٹھاکروں، یعنی دیوتاؤں، کی مورتیاں رکھ دیں» -> the gloss separates ٹھاکروں from کی -> «اس میں دیوتاؤں یعنی ٹھاکروں کی مورتیاں رکھ دیں»
+44. [collocation] «اپنی کشمکش پر کیسے قابو پایا» -> one does not قابو پانا a کشمکش -> «اپنی کشمکش کیسے سلجھائی»
+45. [calque] «ایک عطیہ کی ہوئی حویلی میں» -> a literal rendering of "a donated mansion" -> «عطیے میں ملی ہوئی ایک حویلی میں»
+46. [collocation] «اور ان کا سالانہ عرس بھی لوہار ہی کرتے تھے» -> an عرس is منایا, not کیا -> «اور ان کا سالانہ عرس بھی لوہار ہی مناتے تھے»
+47. [ambiguity / missing subject] «نیاز بیگ میں بھدر کالی پر آنے والے ہندو پجاریوں کی دل و جان سے خدمت کرتے» -> this parses as "the Hindu priests who come", which leaves the verb without a subject. Fix on the most likely reading, but check against the source -> «نیاز بیگ میں بھدر کالی پر آنے والے ہندو وہاں کے پجاریوں کی دل و جان سے خدمت کرتے»
+48. [ambiguity] «اور انیسویں صدی میں اسی شخص کی اولاد گورکنوں میں شامل تھی» -> اسی شخص could mean Murad Bakhsh or the Khwaja -> «اور انیسویں صدی میں اسی خواجہ کی اولاد گورکنوں میں شامل تھی»
+49. [calque] «بابا خدا سنگھ کا دھرم شالہ اپنے گدی نشین کے ساتھ تھا» -> a literal rendering of "with its gaddi nashin" -> «بابا خدا سنگھ کا دھرم شالہ تھا، جس کا اپنا گدی نشین تھا»
+50. [calque] «مسیحی اداروں کا شمار بھی باقیوں کے ساتھ ہوتا تھا۔» -> a literal rendering of "were counted alongside the rest" -> «شہر کے اداروں میں مسیحی ادارے بھی شامل تھے۔»
+51. [antecedent] «پادری نے باغ بھائی مہان سنگھ خریدا» -> a definite "the padre" appears with no prior mention, and پادریوں (plural) follows in the same sentence -> «ایک پادری نے باغ بھائی مہان سنگھ خریدا»
+52. [gender] «زیب النسا بیگم مالک بھی تھیں اور بانی بھی؛» -> the subject is a woman -> «زیب النسا بیگم مالکہ بھی تھیں اور بانی بھی؛»
+53. [calque] «ستی بھی شہر کی عمارتوں کا حصہ ہے۔» -> a custom cannot be "part of the buildings" -> «ستی کی یاد بھی شہر کی عمارتوں میں محفوظ ہے۔»
+54. [digits consistency] «چھ دسمبر 1992» -> elsewhere the text writes 13 فروری 1945 and 28 مئی 2010 -> «6 دسمبر 1992»
+55. [digits consistency] «انیس سو اسی کی دہائی میں» -> the text writes 1880 کی دہائی throughout -> «1980 کی دہائی میں»
+56. [word order / antecedent] «مشنری کالج بھی اسی داستان کا حصہ ہیں: فورمین کرسچن کالج "مسیحی مشنریوں کے قائم کیے ہوئے قدیم ترین کالجوں میں سے ایک ہے"، اور انگریزی میں تعلیم دینے والے اولین اداروں میں سے بھی، جو انیسویں صدی کے نصفِ آخر میں قائم ہوا۔» -> the trailing جو clause follows plural اداروں but refers to the college -> «مشنری کالج بھی اسی داستان کا حصہ ہیں: انیسویں صدی کے نصفِ آخر میں قائم ہونے والا فورمین کرسچن کالج "مسیحی مشنریوں کے قائم کیے ہوئے قدیم ترین کالجوں میں سے ایک ہے"، اور انگریزی میں تعلیم دینے والے اولین اداروں میں سے بھی۔»
+57. [fragments] «خاصی تعداد میں پارسی رہتے تھے، سب خوش حال، اور ان میں سے زیادہ تر بعد میں ملک چھوڑ گئے: "اب یہاں ہم گنتی کے چند لوگ رہ گئے ہیں"، لاہور میں صرف پینتیس پارسی۔» -> سب خوش حال and لاہور میں صرف پینتیس پارسی are English style verbless fragments -> «خاصی تعداد میں پارسی رہتے تھے جو سب خوش حال تھے، اور ان میں سے زیادہ تر بعد میں ملک چھوڑ گئے: "اب یہاں ہم گنتی کے چند لوگ رہ گئے ہیں"؛ لاہور میں اب صرف پینتیس پارسی ہیں۔»
+58. [register] «کوئی پجاری نہ ہونے کی وجہ سے» -> پجاری is specifically Hindu. A Zoroastrian priest is a موبد or پیشوا -> «کوئی پارسی پیشوا نہ ہونے کی وجہ سے»
+59. [collocation] «یہ افواہیں رہی ہیں کہ» -> افواہیں رہنا is unidiomatic -> «یہ افواہیں گردش کرتی رہی ہیں کہ»
+60. [grammar] «امریکی پرچم والی قمیص پہنا ایک پتلا» -> the adjectival participle must be پہنے (ہوئے) -> «امریکی پرچم والی قمیص پہنے ایک پتلا»
+61. [tense] «دھاوا بولا، اس کا پرچم اتارا اور جلا دیا تھا» -> simple past is mixed with pluperfect in a single series -> «دھاوا بول کر اس کا پرچم اتارا اور جلا دیا تھا»
+62. [name between commas] «انہی میں سے ایک، مراد، سیہون کا ایک ڈیرا چھوڑ کر لاہور آ بسے» -> the name is isolated between commas in English style -> «انہی فقیروں میں سے ایک مراد تھے، جو سیہون کا ایک ڈیرا چھوڑ کر لاہور آ بسے»
+63. [ambiguity] «ایک کثیر الانتخابی سوال کی بنا پر توہینِ رسالت کا الزام لگا، جس میں خود ان کا نام» -> after the comma, جس attaches to الزام rather than to سوال -> «ایک ایسے کثیر الانتخابی سوال کی بنا پر توہینِ رسالت کا الزام لگا جس میں خود ان کا نام»
+
+NOTES:
+Mechanics are clean: no dashes, no Latin letters, no Eastern digits, no Latin commas or semicolons, and asterisks are balanced. Verse paragraphs: none in this part.
+Points to check against the source, not changed here:
+(a) Line 141: Mariam Zamani is called Jahangir's wife (بیوی); historically she was his mother.
+(b) Line 149: the researcher links her ننھیال (maternal side) to the Muftis, but then names her دادا (paternal grandfather); perhaps نانا is meant.
+(c) Line 179: «جن سے مراد نے بودلو کی درگاہ پر مشورہ کیا تھا» says Murad consulted the pilgrim; the reverse (she consulted Murad) seems more likely.
+(d) Line 109: «کیونکہ کہا جاتا ہے کہ اس کے دل کی ہر مراد پوری ہو جاتی تھی» leaves the causation loose; «کیونکہ روایت ہے کہ اس کی برکت سے...» would be clearer if the source supports it.
+(e) Line 35: «تعزیہ ... قبروں کی شبیہوں پر اٹھایا جاتا ہے» is unclear, since a تعزیہ is itself the replica.
+(f) Line 137: تینوں روایتوں has no defined set of three.
+(g) Line 33: سپردِ خاک is a Muslim burial idiom applied to Guru Arjan.
+Matters of taste and consistency:
+Line 15 uses both احمد شاہ ابدالی and احمد شاہ درانی for the same man.
+In line 65, سنہرا کلس and سنہری کلس alternate. سنہری is acceptable as invariant, but pick one.
+بکرمی is added to some Samvat dates and not others.
+1868ء carries ء, while other Common Era dates do not. 1066 at Gulabi Bagh lacks ھ, while 1282ھ and 1266ھ have it.
+In line 17, «پیر عزیز مزنگ» uses مزنگ, while the locality is موزنگ everywhere else. If this is part of the name, leave it.
+بادشاہی مسجد and شاہی مسجد both occur, though one of them is inside a quotation.
+«کام کاج کا انتظام پاس پاس اور سلیقے سے» (line 73) and «یہ پیمائشیں پانی تک بھی پہنچتی ہیں» (line 63) are mildly literal.
+«اس کے ساتھ رجسٹرڈ» could be «اس میں درج».
+«محلے کی مقامی مسجدوں» is slightly redundant.
+
+===== P3 =====
+
+VERDICT: FAIL
+
+ISSUES:
+1. [grammar/agreement] "قرض کو انتظام کے تحت لایا گیا تو ان کا ایک گزارے کی رقم مقرر ہوئی" -> "ان کا ... رقم" is broken (masculine possessive on a feminine noun, ایک misplaced) -> NEW: "قرض کو انتظام کے تحت لایا گیا تو ان کے لیے گزارے کی ایک رقم مقرر ہوئی"
+2. [grammar] "اور اس کی جگہ وہ مکان کا کرایہ آنے لگا جو ان کا بیٹا ادا کرتا تھا" -> "وہ مکان کا" is ungrammatical (demonstrative in direct case before کا) -> NEW: "اور اس کی جگہ ایک مکان کا کرایہ آنے لگا جو ان کا بیٹا ادا کرتا تھا"
+3. [pronoun/reflexive] "راجہ دینا ناتھ کی سفارش پر انگریزوں نے انہیں صرف اپنے پینے کے لیے شراب کشید کرنے کا لائسنس دیا۔" -> اپنے refers back to the subject انگریزوں, so it literally says "for the English's own drinking" -> NEW: "راجہ دینا ناتھ کی سفارش پر انگریزوں نے انہیں لائسنس دیا کہ وہ صرف اپنے پینے کے لیے شراب کشید کریں۔"
+4. [postposition/syntax] "وزیر خان کی بارہ دری، جو سکھ دور میں بہت بری حالت میں تھی، انگریزوں نے اتنی اچھی مرمت کرائی کہ نئی بنی ہوئی لگنے لگی۔" -> fronted بارہ دری has no کی, so "مرمت کرائی" has no proper object; reads as broken -> NEW: "سکھ دور میں وزیر خان کی بارہ دری بہت بری حالت میں تھی، مگر انگریزوں نے اس کی اتنی اچھی مرمت کرائی کہ وہ نئی بنی ہوئی لگنے لگی۔"
+5. [inflection] "ٹھبی والا شوالے پر بہت چڑھاوا آتا تھا" -> والا must take oblique before پر -> NEW: "ٹھبی والے شوالے پر بہت چڑھاوا آتا تھا"
+6. [grammar/idiom] "اور اس کے بعد کنواں بھی شوالے ہی کا شمار ہونے لگا۔" -> "کا شمار ہونا" needs a noun ("X کا شمار Y میں"); as written it is ungrammatical -> NEW: "اور اس کے بعد کنواں بھی شوالے ہی کا حصہ شمار ہونے لگا۔"
+7. [gloss cuts off postposition] "افتا کے منصب، یعنی فتویٰ دینے کے عہدے، کی اپنی جاگیریں تھیں۔" -> gloss between commas separates کی from its noun -> NEW: "افتا یعنی فتویٰ دینے کے منصب کی اپنی جاگیریں تھیں۔"
+8. [gloss cuts off postposition] "چوک وزیر خان چغتائیوں، یعنی مغلوں، کے زمانے میں کھلا تھا؛" -> same fault; کے stranded after the gloss -> NEW: "چوک وزیر خان چغتائی مغلوں کے زمانے میں کھلا تھا؛"
+9. [gloss cuts off postposition] "پورے شہر کے تجارتی مال پر *سائر*، یعنی محصول، کا ٹھیکہ جس شخص کے پاس تھا،" -> کا stranded after the comma gloss -> NEW: "پورے شہر کے تجارتی مال پر *سائر* یعنی محصول کا ٹھیکہ جس شخص کے پاس تھا،"
+10. [split postposition] "ٹھاکر دوارے کی، جو وشنو کا مندر ہے، پوجا موتی کے سپرد تھی؛" -> کی separated from پوجا by a relative clause; awkward English order -> NEW: "وشنو کے مندر ٹھاکر دوارے کی پوجا موتی کے سپرد تھی؛"
+11. [tangled sentence] "چاندی کی ایک جلہری، یعنی وہ ظرف جس میں شیو لنگ قائم ہوتا ہے، جو وزن میں چار سو روپے کے برابر تھی، چوری کے بعد چندے سے دوبارہ بنوائی گئی۔" -> gloss plus a second relative clause; جو (feminine تھی) clashes with the masculine ظرف just before it -> NEW: "چاندی کی ایک جلہری، یعنی وہ ظرف جس میں شیو لنگ قائم ہوتا ہے، چوری ہو گئی تو چندے سے دوبارہ بنوائی گئی؛ اس کا وزن چار سو روپے بھر تھا۔"
+12. [ambiguous pronoun/word order] "ایک سمادھ پر، یعنی چتا کی جگہ اٹھائی گئی یادگار پر، خدمت کرنے والے ایک برہمن کو تنخواہ جموں سرکار کا کارندہ دیتا تھا؛ وہ ہر صبح آتا،" -> وہ most naturally points to the nearest noun کارندہ, but it is the Brahmin who offers flowers; "تنخواہ ... کارندہ دیتا" is also odd order -> NEW: "ایک سمادھ پر، یعنی چتا کی جگہ اٹھائی گئی یادگار پر، خدمت کرنے والے ایک برہمن کو جموں سرکار کا کارندہ تنخواہ دیتا تھا؛ برہمن ہر صبح آتا،"
+13. [ambiguity: run-on names] "مفتی جلال الدین مسجد کے متولی مفتی غلام سرور کی اجازت سے امامت کرتے تھے۔" -> reads as "the Mufti Jalaluddin Mosque" -> NEW: "مفتی جلال الدین ایک مسجد میں اس کے متولی مفتی غلام سرور کی اجازت سے امامت کرتے تھے۔"
+14. [ambiguity: run-on names] "میاں وڈا کی خانقاہ کے سجادہ نشین میاں احمد الدین حامد قاری کی خانقاہ پر بھی قابض تھے۔" -> "میاں احمد الدین حامد قاری" reads as one name -> NEW: "میاں وڈا کی خانقاہ کے سجادہ نشین میاں احمد الدین کا قبضہ حامد قاری کی خانقاہ پر بھی تھا۔"
+15. [ambiguity: run-on names] "تو اس مسجد میں پڑھانے والے استاد میاں جان محمد میاں وڈا ہی کے شاگرد اور مرید تھے۔" -> two names run together -> NEW: "تو اس مسجد میں میاں جان محمد پڑھاتے تھے، جو میاں وڈا ہی کے شاگرد اور مرید تھے۔"
+16. [ambiguity: genitive chain] "عبدالجلیل قطبِ عالم کے مقبرے کے متولی غلام محی الدین شاہ کے بیٹے خورشید عالم تھے، جو ضلع سیالکوٹ کے گاؤں رتہ پیراں میں رہتے تھے اور مقبرے پر قیام کے لیے ان کے دو کمرے تھے۔" -> first reading makes غلام محی الدین شاہ the متولی -> NEW: "عبدالجلیل قطبِ عالم کے مقبرے کی تولیت غلام محی الدین شاہ کے بیٹے خورشید عالم کے پاس تھی، جو ضلع سیالکوٹ کے گاؤں رتہ پیراں میں رہتے تھے؛ مقبرے پر ان کے قیام کے لیے دو کمرے تھے۔"
+17. [ambiguity] "پھر یہ دائمی جاگیر ہبہ کے ذریعے دوسری بیوی سے ان کے سب سے چھوٹے بیٹے کو منتقل ہو گئی،" -> reads as "transferred from the second wife to his youngest son" -> NEW: "پھر یہ دائمی جاگیر ہبہ کے ذریعے دوسری بیوی سے ہونے والے ان کے سب سے چھوٹے بیٹے کو منتقل ہو گئی،"
+18. [ambiguity] "رنجیت سنگھ کے زمانے میں خزانہ نامی توپ خانے کے ایک افسر نے" -> unclear whether خزانہ names the officer or the artillery unit -> NEW: "رنجیت سنگھ کے زمانے میں توپ خانے کے خزانہ نامی ایک افسر نے"
+19. [ambiguous pronoun] "اس کے دورِ حکومت کے چوتھے سال دس کوس لمبے پشتے کا حکم ہوا" -> nearest antecedents are راوی and شہر, not Aurangzeb -> NEW: "اورنگزیب کے دورِ حکومت کے چوتھے سال دس کوس لمبے پشتے کا حکم ہوا"
+20. [English style ellipsis] "ساتھ ہی راستے بھر پکی اینٹ کے کنویں اور درختوں کی دو قطاریں؛" -> verbless appositive tacked onto "حکم دیا" -> NEW: "اور ساتھ ہی راستے بھر پکی اینٹ کے کنویں بنانے اور درختوں کی دو قطاریں لگانے کا بھی؛"
+21. [wrong connective] "یہاں تک کہ جو علما انہیں دربار میں لائے تھے انہوں نے بڑی منت سماجت سے ان کی جان بخشی کرائی۔" -> یہاں تک کہ ("until/even") makes no sense after an order of execution; contrast is needed -> NEW: "مگر جو علما انہیں دربار میں لائے تھے انہوں نے بڑی منت سماجت سے ان کی جان بخشی کرا لی۔"
+22. [tense calque of "still"] "ایک اور مسجد میں مولوی نظام الدین کے دو بیٹے اب بھی امامت کر رہے تھے۔" -> اب with past tense in historical narrative -> NEW: "ایک اور مسجد میں مولوی نظام الدین کے دو بیٹے اس وقت بھی امامت کر رہے تھے۔"
+23. [tense calque] "پیری مریدی کا سلسلہ اب بھی اسی خاندان میں جاری تھا" -> same -> NEW: "پیری مریدی کا سلسلہ اس وقت بھی اسی خاندان میں جاری تھا"
+24. [tense calque] "ایک نہایت عمدہ باغ لگایا جو اب بھی مندر کے ساتھ تھا۔" -> same -> NEW: "ایک نہایت عمدہ باغ لگایا جو اس وقت بھی مندر کے ساتھ تھا۔"
+25. [tense calque] "اور مسجد کی امامت بھی ابھی انہی کے پاس تھی۔" -> same -> NEW: "اور مسجد کی امامت بھی اس وقت انہی کے پاس تھی۔"
+26. [tense calque] "اور زنانہ جیل کی مرمت اور نگرانی بھی اب تک انہی کے ذمے تھی۔" -> same -> NEW: "اور زنانہ جیل کی مرمت اور نگرانی بھی اس وقت تک انہی کے ذمے تھی۔"
+27. [calque] "انگریزی عہد میں مذہبی املاک نزول اور نیلام کے راستے ہاتھ بدلتی تھیں:" -> "ہاتھ بدلنا" is English "change hands" -> NEW: "انگریزی عہد میں مذہبی املاک نزول اور نیلام کے راستے ایک ہاتھ سے دوسرے ہاتھ میں جاتی تھیں:"
+28. [calque] "مقبرے اور مسجدیں قلعہ بندی، سڑکوں، پائپوں اور ریل کے لیے صاف کی گئیں، اور اس کا آغاز انگریزوں سے پہلے ہو چکا تھا۔" -> "صاف کی گئیں" is English "cleared"; in Urdu it suggests cleaning -> NEW: "قلعہ بندی، سڑکوں، پائپوں اور ریل کے لیے مقبرے اور مسجدیں ڈھائی گئیں، اور اس کا آغاز انگریزوں سے پہلے ہو چکا تھا۔"
+29. [calque] "ایک مقبرے کو بدل کر اپنے آدمیوں کو اس میں ٹھہرایا اور ایک مسجد کو بدل کر اپنے کارخانے کے افسر کو اس میں بسایا؛" -> "کو بدل کر" for "converted" reads as "replaced/swapped" -> NEW: "ایک مقبرے میں ردوبدل کر کے اپنے آدمی اس میں ٹھہرائے اور ایک مسجد میں ردوبدل کر کے اپنے کارخانے کا افسر اس میں بسایا؛"
+30. [calque] "بہادر خان کا مقبرہ میاں میر کی چھاؤنی بنتے وقت بدل دیا گیا،" -> same; "بدل دیا گیا" means "was replaced" -> NEW: "بہادر خان کے مقبرے میں میاں میر کی چھاؤنی بنتے وقت ردوبدل کر دیا گیا،"
+31. [calque/postposition] "کلو بائی کی حویلی کا کنواں اور باغ دیوان اجودھیا پرشاد کو نیلام ہوئے۔" -> "کو نیلام" is English "auctioned to" -> NEW: "کلو بائی کی حویلی کا کنواں اور باغ دیوان اجودھیا پرشاد کے ہاتھ نیلام ہوئے۔"
+32. [dangling participle] "نور جہاں کے مقبرے میں آبنوس کے تابوت پتھر کے تہ خانے سے نکال کر لاشیں زمین میں دفن کر دی گئیں؛" -> نکال کر has no agent and تابوت is left without a verb -> NEW: "نور جہاں کے مقبرے میں آبنوس کے تابوت پتھر کے تہ خانے سے نکالے گئے اور لاشیں زمین میں دفن کر دی گئیں؛"
+33. [ambiguity] "سرکاری خرچ پر میونسپلٹی کے نکاسیِ آب کے کاموں سے حویلی میاں خان کا بڑا تالاب بھرا گیا،" -> "تالاب بھرا گیا" first reads as "filled with water", the opposite of the sense (filled in) -> NEW: "سرکاری خرچ پر میونسپلٹی کے نکاسیِ آب کے کاموں سے حویلی میاں خان کا بڑا تالاب پاٹ دیا گیا،"
+34. [calque] "دوسری جگہوں پر رکھوالا کرائے اور زمین کے اوپر چڑھاوا بھی لیتا تھا۔" -> "کے اوپر" is English "on top of" -> NEW: "دوسری جگہوں پر رکھوالا کرائے اور زمین کی آمدنی کے علاوہ چڑھاوا بھی لیتا تھا۔"
+35. [ambiguity] "کچھ زمین، سرکار کا مقرر کیا ہوا وظیفہ، اور اس پر دکانوں کا کرایہ۔" -> "اس پر" may attach to the stipend or the land -> NEW: "کچھ زمین، سرکار کا مقرر کیا ہوا وظیفہ، اور اس کی دکانوں کا کرایہ۔"
+36. [idiom] "مندر کا محلِ وقوع ہی بہت حد تک طے کرتا تھا کہ اسے کیا ملے گا۔" -> the idiom is بڑی حد تک -> NEW: "مندر کا محلِ وقوع ہی بڑی حد تک طے کرتا تھا کہ اسے کیا ملے گا۔"
+37. [idiom] "ریاست شہر کو ضبط و نظم کا پابند بھی کرتی تھی۔" -> the fixed pair is نظم و ضبط -> NEW: "ریاست شہر کو نظم و ضبط کا پابند بھی کرتی تھی۔"
+38. [calque] "ایسی نجی سرپرستی سیہون میں ریاست کے منصوبے کی تکمیل بھی کرتی تھی اور اسی سے تحریک بھی پاتی تھی۔" -> "تکمیل کرنا" (complete) mistranslates "complement" -> NEW: "ایسی نجی سرپرستی سیہون میں ریاستی منصوبے کا ساتھ بھی دیتی تھی اور اسی سے تحریک بھی پاتی تھی۔"
+39. [collocation] "امن و امان قابو میں رکھنے کے لیے" -> one keeps امن و امان برقرار, not قابو میں -> NEW: "امن و امان برقرار رکھنے کے لیے"
+40. [ambiguous relative clause] "شہر کے ممتاز ماہرینِ تعمیرات نے لاہور کے ایک تاریخی ہندو مندر کو بچانے کے لیے درخواست دی، جس پر مقامی لوگ قبضہ کرتے جا رہے تھے،" -> جس پر sits after درخواست and can refer to it -> NEW: "شہر کے ممتاز ماہرینِ تعمیرات نے لاہور کے ایک تاریخی ہندو مندر کو، جس پر مقامی لوگ قبضہ کرتے جا رہے تھے، بچانے کے لیے درخواست دی،"
+41. [calque] "عوامی عقیدت کبھی کبھی سلامتی کے اعتراض پر بھی غالب آ جاتی تھی۔" -> "سلامتی کا اعتراض" is a literal "security objection" -> NEW: "عوامی عقیدت کبھی کبھی حفاظتی خدشات پر بھی غالب آ جاتی تھی۔"
+42. [missing object] "ہندو مندروں کے لیے بھی وقف کیے جاتے تھے، اور اکثر خرید کر۔" -> وقف کیے جاتے تھے has no subject/object -> NEW: "ہندو مندروں کے لیے بھی جائیدادیں وقف کی جاتی تھیں، اور اکثر خرید کر۔"
+43. [wrong construction] "اور ایک رکھ کے غلے پر وقف تھا۔" -> "X پر وقف" means "dedicated to X", so it says the madrasa was dedicated to the grain -> NEW: "اور اس کے وقف میں ایک رکھ کا غلہ تھا۔"
+44. [redundancy] "اور ان کی خدمت گار کنیزوں نے بھی اپنے زیور ملکہ کی سلامتی کے صدقے میں تصدق کر دیے۔" -> صدقہ and تصدق say the same thing -> NEW: "اور ان کی خدمت گار کنیزوں نے بھی اپنے زیور ملکہ کی سلامتی کے لیے صدقہ کر دیے۔"
+45. [redundancy] "بعد میں رہن ہو گیا اور مہاراجہ جموں کے پاس گروی رکھا گیا۔" -> رہن and گروی are the same act -> NEW: "بعد میں مہاراجہ جموں کے پاس رہن رکھا گیا۔"
+46. [repetition] "سید جان محمد حضوری کے مزار کے احاطے کے اندر اپنے خرچ سے ایک خاندانی قبرستان کا احاطہ بنوایا۔" -> احاطہ twice here and again in the next sentence -> NEW: "سید جان محمد حضوری کے مزار کے احاطے میں اپنے خرچ سے ایک چاردیواری والا خاندانی قبرستان بنوایا۔"
+47. [inconsistent spelling] "ٹالی صاحب کے مہنت کو" / "اور ٹالی صاحب کی باقی زمین ریلوے لے گئی" / "ٹالی صاحب کی زمین ریلوے کے یارڈ کے اندر آ گئی" -> the text says the place is named after the ٹاہلی tree, so the name must match the tree -> NEW: "ٹاہلی صاحب کے مہنت کو" / "اور ٹاہلی صاحب کی باقی زمین ریلوے لے گئی" / "ٹاہلی صاحب کی زمین ریلوے کے یارڈ کے اندر آ گئی"
+48. [inconsistent spelling] "خود بانی حاجی مولی داد کو جاتا تھا" -> the same founder of صوفی والی مسجد is later حاجی مولا داد -> NEW: "خود بانی حاجی مولا داد کو جاتا تھا"
+49. [inconsistent spelling] "ایک ضبط شدہ حویلی راجہ تیج سنگھ کو" -> elsewhere راجہ تیجا سنگھ -> NEW: "ایک ضبط شدہ حویلی راجہ تیجا سنگھ کو"
+50. [inconsistent spelling] "اور دھرم سالہ میں فقیروں کے لیے پکے کمرے بنے تھے۔" -> elsewhere always دھرم سال -> NEW: "اور دھرم سال میں فقیروں کے لیے پکے کمرے بنے تھے۔"
+51. [register] "تینوں حاکموں نے مل کر انہیں ایک مندر کا سجادہ نشین بنا دیا۔" -> سجادہ نشین is a Sufi term; for a Hindu temple the next sentences use مہنت -> NEW: "تینوں حاکموں نے مل کر انہیں ایک مندر کا گدی نشین بنا دیا۔"
+52. [collocation] "نہایت متقی اور باضابطہ آدمی تھے۔" -> باضابطہ (formal, regular) is not used of a person's character -> NEW: "نہایت متقی اور اصول پسند آدمی تھے۔"
+53. [calque: "had been since"] "میاں احمد الدین انگریزوں کی آمد کے وقت سے اپنی خانقاہ کے سجادہ نشین تھے،" -> needs continuous perfect -> NEW: "میاں احمد الدین انگریزوں کی آمد سے اپنی خانقاہ کے سجادہ نشین چلے آ رہے تھے،"
+54. [collocation] "کسی روحانی سلسلے کی گدی سرے سے لاہور سے باہر بھی ہو سکتی تھی:" -> سرے سے belongs with negatives -> NEW: "کسی روحانی سلسلے کی گدی لاہور سے باہر بھی ہو سکتی تھی:"
+55. [calque] "اس نقصان کے پیچھے کی پوری داستان حساب کی جانچ سے شروع ہو کر بربادی پر ختم ہوئی۔" -> "کے پیچھے کی" is English "the story behind" -> NEW: "اس نقصان کی پوری داستان حساب کی جانچ سے شروع ہو کر بربادی پر ختم ہوئی۔"
+56. [unneeded gloss] "سیہون اور پنجاب کے دارالحکومت لاہور کے درمیان" -> glossing Lahore in an article about Lahore -> NEW: "سیہون اور لاہور کے درمیان"
+57. [unneeded gloss] "نذر، یعنی بزرگوں کے حضور پیش کیا جانے والا ہدیہ، نیچے سے اوپر کی طرف جاتی تھی،" -> نذر is an everyday word -> NEW: "نذر نیچے سے اوپر کی طرف جاتی تھی،"
+58. [unneeded gloss] "جہاں بیس پاکستانی روپے میں" -> "پاکستانی" is redundant for an Urdu reader -> NEW: "جہاں بیس روپے میں"
+59. [tangled sentence] "وہاں کا ٹاہلی کا درخت، جو سری چند کے زمانے سے کھڑا تھا، جس سے اس جگہ کا نام پڑا تھا اور جس کی پوجا ہوتی تھی، ریلوے نے کاٹ ڈالا؛ مگر اس کی جڑ پھر ہری ہوئی اور وہ دوبارہ درخت بن گیا۔" -> three stacked relative clauses before the agent -> NEW: "اس جگہ کا نام وہاں کے ٹاہلی کے درخت سے پڑا تھا، جو سری چند کے زمانے سے کھڑا تھا اور جس کی پوجا ہوتی تھی۔ ریلوے نے یہ درخت کاٹ ڈالا، مگر اس کی جڑ پھر ہری ہوئی اور وہ دوبارہ درخت بن گیا۔"
+60. [confusing] "مسجد کے اوپر، اس کی گنبد دار ڈیوڑھی کے نیچے والی دکانیں جلد سازوں کی تھیں۔" -> "اوپر" and "نیچے" in one phrase contradict each other -> NEW: "مسجد کی گنبد دار ڈیوڑھی کے نیچے والی دکانیں جلد سازوں کی تھیں۔" (check the source if "اوپر" was meant to carry a separate fact)
+61. [internal inconsistency, verify source] "مہر داس کے ہاں ایک ہی احاطے میں تین رکھوالے شریک تھے:" -> says three keepers, but only two are named and the sentence ends with "یہ دونوں" -> NEW (if the source does not name a third person): "مہر داس کے ہاں ایک ہی احاطے کی خدمت رکھوالوں میں یوں بٹی ہوئی تھی:"
+62. [ambiguous pronouns, verify source] "انہوں نے مسجد بنا کر انہی کو دی تھی،" -> not clear who built it and who received it -> NEW (if the community built it for their pir): "برادری نے مسجد بنا کر انہی کے سپرد کی تھی،"
+63. [unclear link, verify source] "باؤلی میں بھائی نہال سنگھ کی جاگیر کے بعد ان کا جانشین دکانوں کا ماہانہ کرایہ لینے لگا، اور چند ہی برسوں میں بھائی جواہر سنگھ قرض میں ڈوب گئے؛" -> جواہر سنگھ appears from nowhere; if he is the successor, say so -> NEW: "باؤلی میں بھائی نہال سنگھ کی جاگیر کے بعد ان کے جانشین بھائی جواہر سنگھ دکانوں کا ماہانہ کرایہ لینے لگے، اور چند ہی برسوں میں قرض میں ڈوب گئے؛"
+64. [unclear, verify source] "وارثوں نے مقدمے دائر کیے اور دیوانی دعوے کا حکم بھی ہوا،" -> unclear whether they were told to file a civil suit or won a decree -> NEW (if directed to sue): "وارثوں نے مقدمے دائر کیے اور انہیں دیوانی دعویٰ دائر کرنے کا حکم بھی ملا،"
+65. [no antecedent] "مستی دروازے کی مسجد کو اسی محکمے کے قاضی فقیہ الدین نے نزول کے طور پر درج کر لیا تھا،" -> no department has been named -> NEW: "مستی دروازے کی مسجد کو محکمۂ نزول کے قاضی فقیہ الدین نے نزول کے طور پر درج کر لیا تھا،"
+66. [no antecedent, verify source] "منت مانی کہ آئندہ ایسی حرکت نہیں ہوگی" -> the reader is never told what act is meant -> restore the missing act from the source or NEW: "منت مانی"
+67. [no antecedent] "چور کو پھانسی ہوئے کچھ عرصہ گزرا تو دکان دار نے وہی مال لگا کر لاہور میں کئی کنویں بنوائے،" -> "the thief" and "the shopkeeper" are definite but not introduced -> NEW: "ایک چور کو پھانسی ہوئے کچھ عرصہ گزرا تو ایک دکان دار نے اسی کا مال لگا کر لاہور میں کئی کنویں بنوائے،"
+68. [no antecedent] "تو مہاراجہ نے اس شخص کے دونوں ہاتھ کٹوا دیے۔" -> no person mentioned -> NEW: "تو مہاراجہ نے حلف اٹھانے والے کے دونوں ہاتھ کٹوا دیے۔"
+69. [faulty parallelism] "سرخ، سیاہ اور سنگِ مرمر کا پتھر اکھاڑ لیا گیا۔" -> colours and a stone type mixed in one series -> NEW: "سرخ اور سیاہ پتھر اور سنگِ مرمر اکھاڑ لیا گیا۔"
+70. [unclear collocation] "ایک مندر کا سرکار کے خلاف دعویٰ اپنے انجام تک پہنچا۔" -> neutral "reached its end"; the story shows the claim succeeded -> NEW: "ایک مندر کا سرکار کے خلاف دعویٰ کامیاب ہوا۔"
+71. [redundancy] "نیلا گنبد میں جب فوجی میس وہاں سے اٹھ گیا تو" -> میں and وہاں سے repeat the place -> NEW: "نیلا گنبد سے جب فوجی میس اٹھ گیا تو"
+72. [redundancy] "بادشاہی مسجد میں انگریزی دور کے اندر مشرقی حجرے ڈھا دیے گئے" -> "دور کے اندر" is English "within" -> NEW: "انگریزی دور میں بادشاہی مسجد کے مشرقی حجرے ڈھا دیے گئے"
+73. [repetition/gloss] "نظام الدین بمبئی میں بلا معاوضہ، اللہ واسطے پڑھاتے تھے؛" -> the same thing said twice -> NEW: "نظام الدین بمبئی میں اللہ واسطے پڑھاتے تھے؛"
+74. [ambiguity] "مرنے والے کے گھر والے گورکنوں کو قبر کھودنے کا حق دیتے،" -> can mean "gave them the right to dig" rather than "paid their due" -> NEW: "مرنے والے کے گھر والے گورکنوں کو قبر کھودنے کا حق ادا کرتے،"
+75. [stray particle] "یہاں تک کہ وہ بھی چل بسے۔" -> بھی implies someone else died first; this is the first example -> NEW: "یہاں تک کہ وہ چل بسے۔"
+76. [verb without object] "نوآبادیاتی ریاست اجازت نامے بھی دیتی تھی، انتظام بھی کرتی تھی اور دبا بھی دیتی تھی۔" -> "دبا دینا" needs an object; English "licensed, managed and suppressed" -> NEW: "نوآبادیاتی ریاست اجازت نامے بھی دیتی تھی، انتظام بھی کرتی تھی اور بند بھی کر دیتی تھی۔"
+77. [redundancy] "ایک چالو کنواں اور حوض جاری کیے گئے" -> چالو and جاری together -> NEW: "ایک کنواں اور حوض چالو کیے گئے"
+78. [register] "گیلانی سادات کے قبرستان کے تو پیر نظام الدین سیدھے سیدھے مالک تھے۔" -> colloquial "سیدھے سیدھے", awkward placement of تو -> NEW: "گیلانی سادات کے قبرستان کے مالک تو براہِ راست پیر نظام الدین تھے۔"
+79. [postposition] "اس کی مرمت خود اپنے اہتمام سے چونے میں کرواتے تھے۔" -> one repairs چونے سے -> NEW: "اس کی مرمت خود اپنے اہتمام سے چونے سے کرواتے تھے۔"
+80. [repetition] "جو تقسیم سے پہلے کا ٹرسٹ ہے اور لاہور میں قائم ہے،" -> ٹرسٹ repeated immediately after the name -> NEW: "جو تقسیم سے پہلے قائم ہوا تھا اور لاہور میں ہے،"
+
+NOTES:
+Taste and points for the editor to check against the source: honorifics are inconsistent (Mughal emperors take singular verbs, اس/ہوا, while Sikh rulers and nobles take plural ones); کھڑک سنگھ is مہاراجہ in one place and راجہ in another (fine if the source distinguishes his pre-accession title); "1880 کی دہائی" recurs very often and could sometimes be "اس وقت" or "مؤرخ کے زمانے میں"; in "کوٹھی بنا لیا" the phrase is used four times in two sentences (line about Kambo, Asif Jah, Pir Hadi); "پانچ وارث، جن کے نام درج ہیں" sounds like a note to the editor, not prose; نورا / نور محمد and "نورا ایمان والا" may be the same person and should be named consistently; "مدسودن" would normally be spelt مدھوسودن; "ایک نیچی مسجد" should drop ایک if the Neevin Masjid is meant; "قصاب خانہ کی مسجد" should be "قصاب خانے کی" unless it is a fixed proper name; "سکیورٹی" could be "حفاظتی انتظامات"; "چیلے اور گرو" reads more naturally as "گرو اور چیلے"; "مدرسے کی خوش حالی دوگنی ہو گئی" would read better as "مدرسے کی رونق دوگنی ہو گئی"; "شیو گر کا ایک پوتا چیلا" could be "شیو گر کے چیلے کا چیلا"; "بازار کی طرف کی ایک بیٹھنے کی جگہ" could simply be "بازار کی طرف کی ایک بیٹھک". Mechanical checks pass: no Latin letters, no em or en dashes, no Latin commas, question marks or semicolons, Western digits throughout, asterisks balanced (14, seven pairs). No verse paragraphs in this part.
+
+===== P4 =====
+
+VERDICT: FAIL
+
+ISSUES:
+1. [agreement + collocation] "ہندو جب اپنے ان خداؤں کے لیے جنہیں مولانا جھوٹا کہتے تھے، میلے اور جلوس نکال سکتے ہیں" -> plural خداؤں needs جھوٹے; میلے نکالنا is not idiomatic (میلہ لگتا ہے، جلوس نکلتا ہے); the relative clause also lacks its opening comma -> "ہندو جب اپنے ان خداؤں کے لیے، جنہیں مولانا جھوٹے کہتے تھے، میلے لگا سکتے اور جلوس نکال سکتے ہیں"
+
+2. [postposition] "ایک ولی کی دکان ان کی عقیدت کا دوسرا مرکز بن گئی" -> ان کی عقیدت means the saint's own devotion; devotion to him is ان سے عقیدت -> "ایک ولی کی دکان ان سے عقیدت کا دوسرا مرکز بن گئی"
+
+3. [collocation] "اس پر ایک فارسی شعر صادق کیا گیا جو" -> شعر صادق آتا ہے، صادق کیا نہیں جاتا -> "اس پر ایک فارسی شعر چسپاں کیا گیا جو"
+
+4. [redundancy] "خواتین مغنیاں لاہور کے صوفی مزاروں پر" -> مغنیہ already means a female singer, so خواتین is redundant (and the usual plural is مغنیات) -> "گانے والی عورتیں لاہور کے صوفی مزاروں پر"
+
+5. [repetition + ambiguity] "شہر کا سب سے بڑا میلہ نیاز بیگ میں بھدر کالی کا تھا جو ہر سال جیٹھ کے مہینے میں لگتا تھا۔ لاہور میں اس سے بڑا کوئی میلہ نہ تھا، اور مسلمان بھی زیادہ تر اس میں شریک ہوتے تھے۔" -> "the biggest" is said twice in a row; مسلمان بھی زیادہ تر is loosely placed -> "شہر کا سب سے بڑا میلہ نیاز بیگ میں بھدر کالی کا تھا جو ہر سال جیٹھ کے مہینے میں لگتا تھا، اور مسلمانوں کی بھی اکثریت اس میں شریک ہوتی تھی۔"
+
+6. [missing subject + jingle] "گرمی کے موسم میں پڑنے کی وجہ سے لوگوں کو تکلیف اٹھانی پڑتی۔" -> no subject for پڑنے، and پڑنے...پڑتی jars -> "یہ میلہ گرمی کے موسم میں آتا تھا، اس لیے لوگوں کو تکلیف اٹھانی پڑتی۔"
+
+7. [repetition + inconsistency] "مادھو لال کا عرس آج بھی لاہور میں شالیمار باغ کے قریب مارچ کے آخری سنیچر کو منایا جاتا ہے۔ یہ میلہ چراغاں کے نام سے مشہور ہے اور ہر سال شالیمار باغ میں لگتا ہے۔" -> میلہ چراغاں has just been named in the previous sentence, so "یہ ... کے نام سے مشہور ہے" reads as if new; لاہور میں is redundant; "کے قریب" and "میں" sit awkwardly side by side -> "مادھو لال کا عرس آج بھی ہر سال مارچ کے آخری سنیچر کو شالیمار باغ کے قریب منایا جاتا ہے؛ یہی میلہ چراغاں ہے، جو شالیمار باغ میں لگتا ہے۔"
+
+8. [calque] "ایک قادری اور شطاری مزار پر صوفی" -> a shrine is not itself Qadiri and Shattari in Urdu idiom; the silsila link must be stated -> "قادری اور شطاری سلسلوں سے نسبت رکھنے والے ایک مزار پر صوفی"
+
+9. [unidiomatic] "اجتماعات بڑے بھی ہوتے تھے۔" -> English word order ("gatherings could also be large") -> "بڑے بڑے اجتماعات بھی ہوتے تھے۔"
+
+10. [ambiguity] "میاں میر کے گرجا گھر میں تقریباً آٹھ سو نشستیں تھیں۔" -> after the saint میاں میر in the first paragraph, "میاں میر کا گرجا گھر" reads as the saint's church; the article itself (para on fairs that grew) ties میاں میر to the cantonment -> "میاں میر چھاؤنی کے گرجا گھر میں تقریباً آٹھ سو نشستیں تھیں۔" (confirm the cantonment is meant)
+
+11. [spelling] "موزنگ میں سکھ" -> the Lahore locality is spelt مزنگ -> "مزنگ میں سکھ"
+
+12. [word order / ambiguity] "یہ روٹیاں چراغ کے لیے ایک پیسے سمیت لے لیتا۔" -> reads as if the loaves were for the lamp -> "یہ روٹیاں اور چراغ کے لیے ایک پیسہ لے لیتا۔"
+
+13. [gloss of familiar word + stacked تھے] "چور مور والا کے مہنت، جو اس استھان کے سربراہ تھے، خود عالم آدمی تھے، اس لیے" -> مہنت needs no gloss, and the aside leaves two تھے in a row -> "چور مور والا کے مہنت خود عالم آدمی تھے، اس لیے"
+
+14. [inconsistent spelling] "ایک دھرم سالہ کا گزارہ" -> everywhere else دھرم سال -> "ایک دھرم سال کا گزارہ"
+
+15. [English style apposition] "ہندو عقیدت مند، عورتیں اور مرد، حاضر ہوتے" -> commas around an inserted phrase is English punctuation -> "ہندو عقیدت مند مرد و زن حاضر ہوتے"
+
+16. [name cut off from its phrase] "شہید گنج میں سکھ جنگجوؤں کے طبقے نہنگ سڑک کنارے ایک دالان میں سارا دن بھنگ گھوٹتے جہاں اس کے کڑاہے رکھے رہتے" -> "سکھ جنگجوؤں کے طبقے نہنگ" does not parse as apposition in Urdu -> "شہید گنج میں سکھ جنگجوؤں کے نہنگ طبقے کے لوگ سڑک کنارے ایک دالان میں سارا دن بھنگ گھوٹتے، جہاں اس کے کڑاہے رکھے رہتے"
+
+17. [repetition] "اور کہنے لگا کہ اس کے زمانے میں کوئی سماع سننے کا اہل نہیں: "اس زمانے میں کوئی اہل نہیں رہا"۔" -> the paraphrase and the quotation say the same thing back to back -> "اور کہنے لگا: "اس زمانے میں کوئی اہل نہیں رہا"، یعنی اب کوئی سماع سننے کے لائق نہیں۔"
+
+18. [pronoun] "ایک محفل میں ان کے اذکار کا پورا سلسلہ ریکارڈ کیا گیا۔" -> the antecedent is the singular سلسلہ (اس کے ذکر کے حلقے just before) -> "ایک محفل میں اس کے اذکار کا پورا سلسلہ ریکارڈ کیا گیا۔"
+
+19. [calque] "ان محفلوں میں مہمان داری سے انکار کیا جاتا ہے:" -> "refuse hospitality" rendered literally; مہمان داری سے انکار is not said -> "ان محفلوں میں خاطر تواضع سے قصداً گریز کیا جاتا ہے:"
+
+20. [repetition] "ایسٹر کا ناشتہ "حلوہ پوری اور چنے، خالص لاہوری ناشتہ" ہوتا ہے، جو اس شہر کا اپنا ناشتہ ہے۔" -> ناشتہ three times, and the tail restates the quotation -> "ایسٹر کا ناشتہ "حلوہ پوری اور چنے، خالص لاہوری ناشتہ" ہوتا ہے۔"
+
+21. [calque] "نابینا کر دیے گئے شہریار نے قلعۂ لاہور کی قید میں چار مصرعے کہے" -> English participial adjective ("the blinded Shahryar") -> "شہریار نے، جسے نابینا کر دیا گیا تھا، قلعۂ لاہور کی قید میں چار مصرعے کہے"
+
+22. [calque] "تیجا سنگھ کا ٹھاکر دوارہ انگریزی راج میں پچیس برس پہلے ایک گرائی گئی پرانی حویلی کی جگہ بنا تھا؛" -> "a demolished old haveli" rendered as an English style participle -> "تیجا سنگھ کا ٹھاکر دوارہ انگریزی راج میں پچیس برس پہلے ایک پرانی حویلی گرا کر اس کی جگہ بنایا گیا تھا؛"
+
+23. [relative clause cut off from antecedent] "اور طاہر لاہوری کا مضمون "اولیا کے عرس" شامل ہیں، جو "سوہنا شہر لاہور" میں شائع ہوا۔" -> جو ... ہوا hangs after the plural شامل ہیں and is far from مضمون -> "اور "سوہنا شہر لاہور" میں شائع ہونے والا طاہر لاہوری کا مضمون "اولیا کے عرس" شامل ہیں۔"
+
+24. [relative clause cut off from antecedent] "لاہور کے اشاعتی اداروں نے صوفیانہ شاعری چھاپی، جن میں اشرف، پنجاب یونیورسٹی، اردو دنیا اور اللہ والے کی قومی دکان شامل ہیں۔" -> جن میں follows شاعری, so it reads as poetry that includes Punjab University -> "لاہور کے جن اشاعتی اداروں نے صوفیانہ شاعری چھاپی ان میں اشرف، پنجاب یونیورسٹی، اردو دنیا اور اللہ والے کی قومی دکان شامل ہیں۔"
+
+25. [relative clause cut off from antecedent] "قوالی پر لکھا گیا ادب بھی لاہور کے ناشروں نے شائع کیا، جن میں شیخ محمد اشرف اور ادارۂ ثقافتِ اسلامیہ شامل ہیں۔" -> same problem as 24 -> "قوالی پر لکھا گیا ادب بھی لاہور کے جن ناشروں نے شائع کیا ان میں شیخ محمد اشرف اور ادارۂ ثقافتِ اسلامیہ شامل ہیں۔"
+
+26. [tangled sentence] "اس شہر کے اپنے اخبار و رسائل بھی ہیں، جن میں انگریزی ہفت روزہ "دی فرائیڈے ٹائمز" بھی شامل ہے، اور لاہور سے پاکپتن کا فاصلہ جنوب مغرب میں 120 میل بتایا جاتا ہے۔" -> two unrelated facts joined by اور -> "اس شہر کے اپنے اخبار و رسائل بھی ہیں، جن میں انگریزی ہفت روزہ "دی فرائیڈے ٹائمز" بھی شامل ہے۔ پاکپتن لاہور سے 120 میل جنوب مغرب میں بتایا جاتا ہے۔"
+
+27. [inconsistent spelling / izafat] "بوصیری کے قصیدہ بردہ کے نسخے" -> later written قصیدۂ بردہ; the izafat is required -> "بوصیری کے قصیدۂ بردہ کے نسخے"
+
+28. [ambiguity] "یہ بڑا شہر اپنے گاؤں نگلتا جا رہا ہے۔" -> اپنے گاؤں reads as "its own village" -> "یہ بڑا شہر اپنے آس پاس کے گاؤں نگلتا جا رہا ہے۔"
+
+29. [ambiguity] "اس کا مواد مال کے ریکارڈ اور سرکاری دستاویزات سے لیا گیا تھا۔" -> bare مال reads as goods; revenue records are محکمۂ مال کا ریکارڈ -> "اس کا مواد محکمۂ مال کے ریکارڈ اور سرکاری دستاویزات سے لیا گیا تھا۔"
+
+30. [ambiguous relative clause] "روہتاس لاہور کے قلعے جیسا قلعہ نہ تھا، جس میں صرف شاہی خاندان ٹھہرتا تھا۔" -> جس can point to either fort -> "لاہور کے قلعے میں صرف شاہی خاندان ٹھہرتا تھا، مگر روہتاس ایسا قلعہ نہ تھا۔" (confirm this is the intended reading)
+
+31. [ambiguity / consistency] "انہوں نے 1995 اور 1996 کا تعلیمی سال اس شہر میں" -> reads as two years; the article elsewhere uses تا for spans (1048 تا 1049ء) -> "انہوں نے 1995 تا 1996 کا تعلیمی سال اس شہر میں"
+
+32. [collocation + postposition] "یہ سالانہ میلہ اسی تاریخ پر اپنی جیب سے کرتے تھے۔" -> میلہ لگایا جاتا ہے، اور تاریخ کو comes more naturally than تاریخ پر -> "یہ سالانہ میلہ اسی تاریخ کو اپنی جیب سے لگاتے تھے۔"
+
+33. [repetition] "شعبان کی اٹھائیس تاریخ کو شاہ بلاول کی خانقاہ پر ہندو اور مسلمان مل کر میلہ لگاتے تھے۔" -> "ہندو اور مسلمان مل کر" repeats the sentence before verbatim -> "شعبان کی اٹھائیس تاریخ کو شاہ بلاول کی خانقاہ پر دونوں مل کر میلہ لگاتے تھے۔"
+
+34. [inconsistency] "ساتویں محرم کو، جو مہندی کا دن ہے،" -> the next sentence and the rest of the article use سات محرم -> "سات محرم کو، جو مہندی کا دن ہے،"
+
+35. [clumsy double کے] "سیتلا دیوی کے مندر میں چیچک سے شفا کے بعد کے اشنان پر نقدی اور ایک بکرا چڑھایا جاتا۔" -> "سیتلا دیوی کے مندر میں چیچک سے شفا پانے کے بعد اشنان کے موقع پر نقدی اور ایک بکرا چڑھایا جاتا۔"
+
+36. [register] "چالیس بیگھے زمین اور ایک چالو کنواں تھا" -> چالو is colloquial -> "چالیس بیگھے زمین اور ایک چلتا ہوا کنواں تھا"
+
+37. [collocation] "جہاں انہوں نے حکومت کے انصاف کی ضمانت دی، وہاں الفاظ ان کے اپنے تھے۔" -> "vouched for" rendered as ضمانت دی, which means to stand surety -> "جہاں انہوں نے حکومت کے انصاف کی گواہی دی، وہاں الفاظ ان کے اپنے تھے۔"
+
+NOTES:
+Punctuation is clean: no em or en dashes, no Latin letters, no ASCII commas or question marks, and the six asterisks are balanced. Verse paragraphs were left untouched.
+Taste or source checks, not counted as errors. First, "ابو المعالی کے مزار" and "شاہ ابو المعالی کے روضے" sit in consecutive sentences, so a reader will take them for one shrine described twice; if they are different places, mark the difference, and if they are the same, merge the two sentences. Second, "مسجد صوف کے مقبرے اور جلد سازوں کی دکانوں" is unclear as it stands. Third, in "اس کی کچھ حدود تو لازماً رہی ہوں گی", حدود reads as boundaries; if "limitations" is meant, "اس کی کچھ کمزوریاں تو لازماً رہی ہوں گی" is clearer. Fourth, "1880 کی دہائی تک لاہور کا سال میلوں اور تہواروں سے بھر چکا تھا" would read better as "بھرا ہوا تھا". Fifth, "پرانی اور سادہ رسمیں حاشیوں پر" and "برسوں میں شہر کی سب سے بڑی ٹائر منڈی" are mild calques; "حاشیے پر" and "رفتہ رفتہ" would be smoother. Sixth, "املاک کے مؤرخ" is an odd label. Seventh, the gloss "دھرم سال میں سکھ عبادت بھی کرتے ہیں اور مسافر ٹھہرتے بھی ہیں" interrupts the paragraph; it could go where دھرم سال first appears. Eighth, "زیادہ تر" and "اندھوں اور لنگڑوں" against "نابیناؤں" are register mixes in the Mian Wadda paragraph.
+Fact check for the editor, not changed here: "نیشنل کالج آف آرٹس 1857 میں لاہور میں قائم ہوا". The Mayo School of Arts, which the article names later, is generally dated 1875, so the year may be transposed. Check it against the source.
+

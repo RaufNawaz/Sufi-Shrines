@@ -144,3 +144,76 @@ export function countPlaces(rows, locationOf, minSites = 2) {
     count: counts.get(p.slug),
   }));
 }
+
+/**
+ * Provinces, mirrored from `PROVINCES` and `buildProvinces` in
+ * src/lib/data/places.ts, where the three-step rule is documented. Held to the
+ * app by placesVocabSync.test.ts, which compares the counts over the snapshot.
+ */
+export const PROVINCE_VOCABULARY = [
+  { slug: 'azad-kashmir', name: 'Azad Kashmir', pattern: '\\bAzad\\s+(?:Jammu\\s+and\\s+)?Kashmir\\b' },
+  { slug: 'balochistan', name: 'Balochistan', pattern: null },
+  { slug: 'khyber-pakhtunkhwa', name: 'Khyber Pakhtunkhwa', pattern: null },
+  { slug: 'punjab', name: 'Punjab', pattern: null },
+  { slug: 'sindh', name: 'Sindh', pattern: null },
+];
+
+/** `extractRegion` in src/lib/data/shrineModel.ts, line for line. */
+const ADMIN_UNITS = [
+  { match: /^Azad\s+(?:Jammu\s+and\s+)?Kashmir\b/i, value: 'Azad Kashmir' },
+  { match: /^Gilgit[-\s]Baltistan\b/i, value: 'Gilgit-Baltistan' },
+  { match: /^Islamabad(?:\s+Capital\s+Territory)?\b/i, value: 'Islamabad Capital Territory' },
+  { match: /^Khyber\s+Pakhtunkhwa\b/i, value: 'Khyber Pakhtunkhwa' },
+  { match: /^Bal[ou]chistan\b/i, value: 'Balochistan' },
+  { match: /^Punjab\b/i, value: 'Punjab' },
+  { match: /^Sindh\b/i, value: 'Sindh' },
+];
+
+export function regionOfLocation(location) {
+  if (!location) return '';
+  const parts = location
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (parts.length < 2) return '';
+  for (const part of [...parts].reverse()) {
+    for (const unit of ADMIN_UNITS) if (unit.match.test(part)) return unit.value;
+  }
+  for (const part of [...parts].reverse()) if (/^Pakistan\b/i.test(part)) return 'Pakistan';
+  return '';
+}
+
+/** Province slug → site count over raw rows, every province with a site. */
+export function countProvinces(rows, locationOf) {
+  const locations = rows.map((row) => locationOf(row));
+  const seen = new Map();
+  for (const location of locations) {
+    const region = regionOfLocation(location);
+    if (!region || !PROVINCE_VOCABULARY.some((p) => p.name === region)) continue;
+    for (const place of placesForLocation(location)) {
+      const set = seen.get(place.slug) ?? new Set();
+      set.add(region);
+      seen.set(place.slug, set);
+    }
+  }
+  const index = new Map([...seen].filter(([, set]) => set.size === 1).map(([slug, set]) => [slug, [...set][0]]));
+  const byName = (name) => PROVINCE_VOCABULARY.find((p) => p.name === name) ?? null;
+  const counts = new Map();
+  for (const location of locations) {
+    const region = regionOfLocation(location);
+    // "Pakistan" (the country fallback) is no province: read on.
+    let province = region ? byName(region) : null;
+    if (!province) {
+      province = PROVINCE_VOCABULARY.find((p) => p.pattern && new RegExp(p.pattern, 'i').test(location)) ?? null;
+      if (!province) {
+        const from = new Set(placesForLocation(location).map((p) => index.get(p.slug)).filter(Boolean));
+        province = from.size === 1 ? byName([...from][0]) : null;
+      }
+    }
+    if (province) counts.set(province.slug, (counts.get(province.slug) ?? 0) + 1);
+  }
+  return PROVINCE_VOCABULARY.filter((p) => counts.has(p.slug)).map((p) => ({
+    ...p,
+    count: counts.get(p.slug),
+  }));
+}

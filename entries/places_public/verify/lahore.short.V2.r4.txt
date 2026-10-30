@@ -1,0 +1,16 @@
+# V2 and V3 round 4 (confirming, one worker doing both) on entries/places_public/lahore.short.ur.md: the one change after round 3 (verify/lahore.short.ur.r3.changes.txt). Reply verbatim.
+# Verdicts recorded: V2 PASS (round 4); V3 PASS (round 4).
+
+VERDICT: PASS
+ISSUES: none
+NOTES:
+- **Diff check.** Diffing groupB.short.ur.r3.bak.md against groupB.short.ur.md shows exactly one changed line, line 45. It matches the single OLD/NEW entry in lahore.short.ur.r3.changes.txt: "پجاری کا گزارا اسی پر" became "پجاریوں کا گزارا بس اسی پر". Nothing else changed.
+- **Fidelity (V2).** The new clause "اور چور مور والا میں بھی مہنت اور پجاریوں کا گزارا بس اسی پر تھا۔" matches the English "at Chor Mor Wala the mahant ... and the pujaris lived on the offerings alone".
+  - پجاریوں is the correct plural oblique before کا. مہنت stays singular.
+  - بس اسی پر gives "alone". اسی points back to چڑھاوا / چڑھاوے in the clause before, so "the offerings" is clear.
+  - The round 3 issue (singular number and the missing "alone") is resolved. The text is the wording round 3 proposed.
+  - The appositive "the head of the establishment" is still dropped. This counts as a deliberate gloss drop under the brief, the same as mahants and pujaris in V2 r1 and r2, so it is not an omission.
+- **Fluency (V3).** The genitive with two joined nouns (مہنت اور پجاریوں کا گزارا) is idiomatic, and "بھی ... بس اسی پر" reads naturally. Nothing new is wrong.
+- **Paragraph flow.** I read the whole paragraph once (line 45, under مذہبی معیشت). It runs smoothly: from the opening general claim, to the thakurdwara (صرف چڑھاوے پر), to Chor Mor Wala (بھی ... بس اسی پر), to the contrast at دوسری جگہوں پر. The repetition of صرف and بس is light and adds emphasis. It does not read as a fault.
+- **Assembly.** entries/places_public/lahore.short.ur.md is identical (checked with cmp) to groupA.short.ur.md, then one blank line, then groupB.short.ur.md.
+- I did not edit any files.

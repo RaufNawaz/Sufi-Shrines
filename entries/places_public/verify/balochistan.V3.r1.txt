@@ -1,0 +1,66 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [word order / comma apposition] "اور زیارت کا مرکز ہنگلاج بھی یہیں، صوبے کے سندھی بولنے والے حصے میں واقع ہے۔" -> "یہیں" is separated by a comma, English style, from the phrase that actually locates Hinglaj, so the sentence reads as two locations strung together -> "اور زیارت کا مرکز ہنگلاج بھی اسی صوبے کے سندھی بولنے والے حصے میں واقع ہے۔"
+
+2. [unrelated clauses joined] "قیامِ پاکستان کے بعد سے یہ صوبہ دبی ہوئی شورش کی کیفیت میں رہا ہے، اور 2010 کی دہائی میں بھارتی زائرین کو یہاں آنے کے لیے ایک اضافی ویزا درکار ہوتا تھا۔" -> two unrelated facts joined by "اور" as if one caused the other; split them -> "قیامِ پاکستان کے بعد سے یہ صوبہ دبی ہوئی شورش کی کیفیت میں رہا ہے۔ 2010 کی دہائی میں بھارتی زائرین کو یہاں آنے کے لیے ایک اضافی ویزا درکار ہوتا تھا۔"
+
+3. [calque / ambiguity] "اساطیر، دھنوں اور لسانی رموز میں بلوچستان، سندھ اور ایران کی ساحلی پٹی ایک دوسرے کے شریک ہیں" -> "ایک دوسرے کے شریک ہیں" is English "share with one another"; for three parties it is loose and unidiomatic. Urdu says the things are مشترک -> "بلوچستان، سندھ اور ایران کی ساحلی پٹی کی اساطیر، دھنیں اور لسانی رموز مشترک ہیں"
+
+4. [word order] "یہاں سیدی برادریاں بھی آباد ہیں جو ایک ڈھول کو مقدس مانتی ہیں، اور براہوی بھی۔" -> the trailing "اور براہوی بھی" after a relative clause is English order ("and the Brahui too") and makes the reader go back to find what it attaches to -> "یہاں براہوی بھی آباد ہیں اور سیدی برادریاں بھی، جو ایک ڈھول کو مقدس مانتی ہیں۔"
+
+5. [calque] "پڑوسی سندھ اپنی الگ مشکلات میں گھرا رہا:" -> "پڑوسی سندھ" and "اپنی الگ مشکلات" render "neighbouring Sindh had its own troubles" word for word -> "ادھر ہمسایہ سندھ اپنی مشکلات میں گھرا رہا:"
+
+6. [Anglicism] "خانِ خاناں کے احکام میں یہ بات بھی شامل تھی کہ بہتر ہوگا اگر بلوچستان کے سردار مطلوبہ اطاعت و فرماں برداری کا اظہار کریں اور مہم میں شریک ہوں۔" -> "بہتر ہوگا اگر ..." is "it would be well if"; idiomatic Urdu puts the condition first and ends with تو بہتر ہوگا -> "خانِ خاناں کے احکام میں یہ بات بھی شامل تھی کہ بلوچستان کے سردار مطلوبہ اطاعت و فرماں برداری کا اظہار کریں اور مہم میں شریک ہوں تو بہتر ہوگا۔"
+
+7. [ambiguous pronoun] "اور اس کی آمدنی قندھار کے محاصل سے بڑھ کر تھی۔" -> "اس" can be Rustam Mirza or the jagir -> "اور اس جاگیر کی آمدنی قندھار کے محاصل سے بڑھ کر تھی۔"
+
+8. [tense inconsistency] "یہاں کے گلہ بان قبیلے سردیوں کے برساتی موسم میں میدانوں کا رخ کرتے ہیں اور خشک موسم میں پہاڑوں کا، جبکہ مغربی پنجاب کے گلہ بان میدانوں ہی میں رہتے تھے۔" -> a present habitual is set against a past habitual in the same comparison, so the contrast does not hold; one tense is needed (past habitual fits the paragraph's seventeenth and eighteenth century frame; if the English is present, use رہتے ہیں instead) -> "یہاں کے گلہ بان قبیلے سردیوں کے برساتی موسم میں میدانوں کا رخ کرتے تھے اور خشک موسم میں پہاڑوں کا، جبکہ مغربی پنجاب کے گلہ بان میدانوں ہی میں رہتے تھے۔"
+
+9. [ambiguity] "ایک مؤرخ نے 1960 کی دہائی کے وسط میں برصغیر کے اپنے پہلے سفر کا حال یوں بیان کیا ہے:" -> as placed, the date attaches to بیان کیا (he wrote it in the mid 1960s), not to the journey -> "ایک مؤرخ نے 1960 کی دہائی کے وسط میں کیے گئے برصغیر کے اپنے پہلے سفر کا حال یوں بیان کیا ہے:"
+
+10. [repetition] "یہاں بارش کم ہوتی ہے۔ اوسط بارش کم ہونے کے باعث صوبے کے مٹی کے مخروطی ٹیلے جلد نہیں کٹتے اور دیر تک قائم رہتے ہیں۔" -> "بارش کم" twice in consecutive sentences, and the double کے in "صوبے کے مٹی کے" is clumsy -> "یہاں اوسط بارش کم ہوتی ہے، اسی لیے صوبے میں مٹی کے مخروطی ٹیلے جلد نہیں کٹتے اور دیر تک قائم رہتے ہیں۔"
+
+11. [unrelated clauses joined / tense] "پرانے زمانے کے مسافر ایک خشک اور بنجر سرزمین سے گزر کر آتے تھے، اور موسمِ بہار کے اجتماعات کے دنوں میں گرمی انتہا کو پہنچ جاتی ہے۔" -> a past statement about travellers and a present one about heat are yoked by "اور"; the calqued "ایک" is also unneeded -> "پرانے زمانے کے مسافر خشک اور بنجر سرزمین سے گزر کر یہاں پہنچتے تھے۔ موسمِ بہار کے اجتماعات کے دنوں میں یہاں گرمی انتہا کو پہنچ جاتی ہے۔"
+
+12. [ambiguity] "کوہستان سندھ کا مغربی حصہ ہے جو بلوچستان کے قریب واقع ہے۔" -> "کوہستان سندھ" can be read as a single name (Kohistan of Sindh) -> "سندھ کا مغربی علاقہ کوہستان بلوچستان کے قریب واقع ہے۔"
+
+13. [word order / wrong connective] "فتح پور کا گاؤں جیکب آباد سے تقریباً 100 کلومیٹر دور کچھی کے میدان میں ہے، مگر بلوچستان کے سندھی بولنے والے حصے میں۔" -> the trailing "مگر ... میں" is English order ("but in the Sindhi-speaking part"), and "مگر" sets up a contrast that does not exist -> "فتح پور کا گاؤں بلوچستان کے سندھی بولنے والے حصے میں کچھی کے میدان میں واقع ہے اور جیکب آباد سے تقریباً 100 کلومیٹر دور ہے۔"
+
+14. [ambiguous referent / overlong] "اس شاہراہ کا مقصد بلوچستان کے ساحلی علاقے کی معاشی ترقی کو فروغ دینا تھا، اور اس سے وہ زیارت یکسر بدل گئی جو پہلے مشقت بھرا سفر ہوا کرتی تھی۔" -> two highways were just named, so "اس شاہراہ" is unclear; "وہ زیارت" has no antecedent in this section -> "ساحلی شاہراہ کا مقصد بلوچستان کے ساحلی علاقے کی معاشی ترقی کو فروغ دینا تھا۔ پہلے اس علاقے کی زیارت ایک مشقت بھرا سفر ہوا کرتی تھی، مگر اس شاہراہ نے اسے یکسر بدل دیا۔"
+
+15. [register] "اور وہاں جیلانی کی مقبولیت کی نشان دہی کرتے ہیں۔" -> the bare nisba "جیلانی" reads curt and unclear to an Urdu reader, who knows the saint as شیخ عبدالقادر جیلانی (this names the same person and adds no fact) -> "اور وہاں شیخ عبدالقادر جیلانی کی مقبولیت کی نشان دہی کرتے ہیں۔"
+
+16. [calque: resumptive relative] "گھر والے اکثر جذباتی الجھنوں میں مبتلا عورتوں کو وجد آفریں *دھمال* میں شریک کرانے لاتے ہیں، جس کے بارے میں عقیدت مندوں کا دعویٰ ہے کہ اس میں شفا کی تاثیر ہے۔" -> "جس کے بارے میں ... کہ اس میں" is English "which devotees claim has"; split -> "گھر والے جذباتی الجھنوں میں مبتلا عورتوں کو اکثر وجد آفریں *دھمال* میں شریک کرانے لاتے ہیں۔ عقیدت مندوں کے بقول اس میں شفا کی تاثیر ہے۔"
+
+17. [ambiguity] "1998 کی مردم شماری کے وقت بلوچستان ان صوبوں میں شامل تھا جن میں ہندوؤں کی اکثریت بکھری ہوئی تھی۔" -> "ہندوؤں کی اکثریت" can be read as "a Hindu majority", which is not meant -> "1998 کی مردم شماری کے وقت بلوچستان ان صوبوں میں شامل تھا جن میں ہندوؤں کی آبادی کا بڑا حصہ بکھرا ہوا تھا۔"
+
+18. [calque in quotation] "جیسا کہ ایک ایسی سوکھی دھرتی میں متوقع ہے جہاں پانی کم یاب ہو اور بارش شاذ ہی برسے، یہاں کے شاعر گرج چمک والے طوفانوں کی منظر کشی سے لطف اٹھاتے ہیں" -> "جیسا کہ ... میں متوقع ہے" is "as might be expected in"; even inside quotation marks the rendering should be Urdu; also کمیاب is the usual spelling -> "ایسی سوکھی دھرتی میں، جہاں پانی کمیاب ہو اور بارش شاذ ہی برسے، یہ عین متوقع ہے کہ یہاں کے شاعر گرج چمک والے طوفانوں کی منظر کشی سے لطف اٹھائیں"
+
+19. [calque] "بتایا جاتا ہے کہ "مست قلندر" کی دھن راجستھان، سندھ، بلوچستان اور ایران کے پورے سلسلے میں گائی جاتی ہے۔" -> "کے پورے سلسلے میں" renders "across the whole arc" literally -> "بتایا جاتا ہے کہ "مست قلندر" کی دھن راجستھان سے سندھ اور بلوچستان ہوتی ہوئی ایران تک گائی جاتی ہے۔"
+
+20. [repetition] "یہ سندھ اور بلوچستان کی سرزمین میں سنائی جاتی ہے، اور سندھ، بلوچستان اور سرائیکی علاقوں کی علاقائی زبانوں اور بولیوں میں گائی جاتی ہے۔" -> سندھ and بلوچستان twice in one sentence, and "علاقوں کی علاقائی" -> "یہ کہانی سندھ اور بلوچستان میں سنائی جاتی ہے، اور ان دونوں صوبوں اور سرائیکی خطے کی مقامی زبانوں اور بولیوں میں گائی جاتی ہے۔"
+
+21. [unidiomatic collocation] "واحد بخش کے بقول ان جماعتوں کا یہ مقصد پیچھے "چار چھوٹے ملک" چھوڑ جائے گا جنہیں "بھارت راتوں رات نگل جائے گا"۔" -> an aim cannot "leave behind" countries in Urdu; this is English "this aim would leave four small countries" -> "واحد بخش کے بقول اگر ان جماعتوں کا یہ مقصد پورا ہوا تو پیچھے "چار چھوٹے ملک" رہ جائیں گے جنہیں "بھارت راتوں رات نگل جائے گا"۔"
+
+22. [calque / overlong] "ستمبر 2012 کے ایک احتجاج کے موقع پر کوئی مقامی مولوی ایسا خطبہ دے سکتا تھا جس میں امریکا، اسرائیل اور بھارت کی تباہی کی دعا مانگی جائے، کیونکہ وہ مولوی انہی تینوں کو ملک کی ہر خرابی کا ذمہ دار ٹھہراتا تھا، اور ان خرابیوں میں بلوچستان کی علیحدگی پسند تحریک بھی شامل تھی۔" -> four clauses in one sentence; "دے سکتا تھا" reads as "was able to", not "might"; "وہ مولوی" repeats -> "ستمبر 2012 کے ایک احتجاج کے موقع پر ممکن تھا کہ کوئی مقامی مولوی ایسا خطبہ دے جس میں امریکا، اسرائیل اور بھارت کی تباہی کی دعا مانگی جائے۔ ایسا مولوی بلوچستان کی علیحدگی پسند تحریک سمیت ملک کی ہر خرابی کا ذمہ دار انہی تینوں کو ٹھہراتا تھا۔"
+
+23. [repetition] "اس زیارت پر لکھنے والے ایک مصنف" and "صوبے کا ایک حصہ ممنوعہ علاقہ تھا، وہاں کے ویزوں کی حیثیت قانونی طور پر مبہم تھی، اور اس سفر کی کوئی ٹھوس قانونی بنیاد نہیں تھی۔" -> "اس زیارت" has no antecedent in this section (no pilgrimage has been named), and قانونی occurs six times in one paragraph, twice in this last sentence -> "ان زائرین کے سفر پر لکھنے والے ایک مصنف" and "صوبے کا ایک حصہ ممنوعہ علاقہ تھا، وہاں کے ویزوں کی حیثیت مبہم تھی، اور اس سفر کی کوئی ٹھوس قانونی بنیاد نہ تھی۔"
+
+24. [calque: کے لیے for "for X"] "اٹھارہویں صدی کے سندھ پر 1940 میں لکھنے والے ایک مصنف کے لیے بلوچستان ایک پہاڑی دیس تھا:" and "اور ایک ایسی شاعری کا گہوارہ جس کے بعض عناصر سندھ کی شاعری سے مشترک ہیں۔" -> "کے لیے" in the sense of "to (someone's view)" is an Anglicism (the next paragraph rightly uses کے نزدیک); "سے مشترک" is the wrong postposition -> "اٹھارہویں صدی کے سندھ پر 1940 میں لکھنے والے ایک مصنف کے نزدیک بلوچستان ایک پہاڑی دیس تھا:" and "اور ایک ایسی شاعری کا گہوارہ جس کے بعض عناصر سندھ کی شاعری میں بھی ملتے ہیں۔"
+
+25. [logic / ambiguity] "اکیسویں صدی کی دہلیز پر بلوچستان کو ایک ایسے خطے کا حصہ سمجھا گیا جس کی لوک روایت سندھ اور ایران کی ساحلی پٹی کے ساتھ مشترک ہے۔" -> as written the region shares its tradition with Sindh and the Iranian coast, whereas earlier those three together form the region -> "اکیسویں صدی کی دہلیز پر بلوچستان کو سندھ اور ایران کی ساحلی پٹی کے ساتھ ایک ایسے خطے کا حصہ سمجھا گیا جس کی لوک روایت مشترک ہے۔"
+
+26. [calque / repetition / pronoun] "1960 کی دہائی کے وسط میں بلوچستان کو پہلی بار دیکھنے والے ایک مؤرخ کے لیے بلوچستان ایک صحرا تھا جسے اس نے دریائے سندھ کی جانب جاتے ہوئے پار کیا۔ 2010 کی دہائی میں اسے" -> "کے لیے" calque as in 24; بلوچستان twice in one sentence; the next sentence's "اسے" then sits nearest to the historian -> "1960 کی دہائی کے وسط میں بلوچستان کو پہلی بار دیکھنے والے ایک مؤرخ کے نزدیک یہ ایک صحرا تھا جسے اس نے دریائے سندھ کی جانب جاتے ہوئے پار کیا۔ 2010 کی دہائی میں بلوچستان کو"
+
+NOTES:
+- Mechanics are clean: no Latin letters, no em or en dashes, no Eastern digits, no ASCII punctuation, 6 asterisks (balanced), no verse paragraphs.
+- "پچاس سے زیادہ افراد" is written in words. The house rule wants Western digits, but urdu_content_qa warns on any figure the English lacks; if the English spells out "fifty", leave it as is.
+- "*گواٹی*": the Balochi word is usually written گواتی (from گوات, wind). Check against the dictionary or the source before changing it.
+- "اگر یہ مان لیا جائے کہ ان کے ہاں مادری نسب پر مبنی ڈھانچے موجود تھے تو سسی کی اسطورہ ایک برادری کے تصورِ جہاں کی ترجمان ہے۔" "ایک برادری" is vague. If the English means the Brahui, write اسی برادری, and in either case ٹھہرتی ہے sits better than ہے after the condition.
+- "اندازہ ہے کہ ... ضرور آباد رہے ہوں گے" hedges twice. "ضرور" can go.
+- "ایم ایم اے" will be opaque to some readers. متحدہ مجلس عمل is the same party and adds no fact. "سب سے بڑی جماعت بن کر سامنے آئی اور اسے برتری حاصل ہو گئی" is close to saying the same thing twice.
+- "مکران کوسٹل ہائی وے" is English in Urdu script. مکران ساحلی شاہراہ is the usual Urdu, and the official name is fine if the dictionary prefers it.
+- "صوفیا" (lines 3 and 33) and "بہت سے صوفی" (line 33) are both correct. Using one plural throughout would read more evenly.
+- "رفتہ رفتہ ... یکے بعد دیگرے" (line 13) is a little redundant. This is taste.
+- "سسی کی کہانی اس صوبے کا اپنا ورثہ ہے" is acceptable Urdu, though "اپنا" sits slightly oddly beside the next sentence, which shares the story with Sindh.

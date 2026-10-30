@@ -1,0 +1,42 @@
+# V2 round 1 (Urdu fidelity) on entries/places_public/lahore.short.ur.md against lahore.short.md; two groups, replies verbatim.
+# Round verdict: FAIL (A FAIL, B FAIL)
+
+======== GROUP A (Overview to "A City of Saints: The Fabric of the Holy Places") ========
+VERDICT: FAIL
+
+ISSUES:
+1. [wrong reference] English (History: From the Founding of the City to Babur, paragraph 4): "while Shihab al-Din raided the city again and again and wore him down" | Urdu: "جبکہ شہاب الدین بار بار شہر پر یورش کر کے اسے کمزور کرتا رہا" -> The nearest antecedent of اسے is شہر, so the Urdu reads as Shihab al-Din wearing down the city. In the English, "him" is Khusraw Malik. -> Replace "جبکہ شہاب الدین بار بار شہر پر یورش کر کے اسے کمزور کرتا رہا" with "جبکہ شہاب الدین بار بار شہر پر یورش کر کے خسرو ملک کو کمزور کرتا رہا"
+
+I checked everything else paragraph by paragraph across all six sections and it matches: facts, names, numbers (seventeenth century, about 1000, 1071, 28 years, 1210, 639 AH, 1241, 1523 to 1524, 1751, fifty thousand and twenty thousand, seven lakh, a crore, forty years, ten lakh, 1799, about 200, half a mile, 1846, about a mile, 1862, 1864, 1872 and five years, 1881, 1931, March 1940, Samvat 1931 = 1875, 19 by 19, three storeys, three graves, nine feet, 40, 4, 12 and 11, fifty years), qualifiers (روایت ہے، کہا جاتا ہے، تقریباً، زیادہ تر، "more than one way"), legends and headings.
+- "his own city" (Shah Kaku Chishti) is rendered as the saint's city (یہ خود ان کا شہر ہے). The English is ambiguous here, but this is the reading in entries/places/lahore.notes.md ("his claim that Lahore was his city"), so the Urdu is correct.
+- Dropped glosses (amil, Muftis, ulama, kotwal, Qadi, nazrana, misls, kirpan, mazars, urs, fatiha, majzub, khanqah, shiwala, mihrab, samadhs, pujaris, dharamsala, mahants, mujawirs, sajjada nashin, sabil, kalas, lakh, crore) are deliberate under the brief, not omissions.
+- There is no verse in these sections.
+
+NOTES (style only):
+- "اس پر دنی چند اور اس کی بیوی گرو کے مرید ہو گئے": the English only says "and", and اس پر makes the needle the cause. The story implies this, so it is acceptable, but "اور" would be closer to the English.
+- The chronogram gloss "ایسے مصرعے میں" narrows "a verse" to a half-line. "ایسے شعر یا مصرعے میں" or "ایسی عبارت میں" would be closer.
+- "سنہری مسجد کی تاریخ اس کی محراب پر کندہ ہے": کندہ (engraved) is slightly more specific than "dated on". "درج" would be the neutral word.
+- "سرو کے بڑے بڑے نقش": the English "painted" is not carried. "منقش" or "رنگین" could be added if wanted.
+- "منگولوں کے ہاتھوں لاہور کی تباہی کا سال 1241 بتایا جاتا ہے" and "1523 تا 1524 بتایا جاتا ہے" render "is dated" acceptably. They add no real hedge.
+
+======== GROUP B (Communities to "Lahore in Books") ========
+VERDICT: FAIL
+
+ISSUES:
+1. [changed certainty] English: "How an endowment was made could decide whether it survived." | Urdu: "وقف کس طرح کیا گیا، اکثر اسی پر اس کی بقا کا دارومدار ہوتا تھا۔" -> The English says this *could* decide survival. The Urdu says survival *often depended* on it, which turns a possibility into a frequency claim. -> Replace `وقف کس طرح کیا گیا، اکثر اسی پر اس کی بقا کا دارومدار ہوتا تھا۔` with `وقف کس طرح کیا گیا، کبھی کبھی اسی سے یہ طے ہو جاتا تھا کہ وہ باقی رہے گا یا نہیں۔`
+
+2. [changed fact] English: "Succession passed by discipleship, by heredity and by teaching lineage." | Urdu: "جانشینی کہیں چیلے اور گرو کے رشتے سے چلتی تھی" -> The English uses "discipleship" in a general sense across Hindu and Muslim institutions. "چیلا/گرو" limits it to Hindu terms in a paragraph that is mostly about mosques and khanqahs. -> Replace `چیلے اور گرو کے رشتے سے` with `مریدی اور شاگردی کے رشتے سے`
+
+3. [changed fact] English: "Mastan Shah threw away the *nazrs* of a thousand rupees that Ranjit Singh sent him" | Urdu: "ہزار ہزار روپے کی نذریں" -> "ہزار ہزار" says each offering was a thousand rupees. The English does not say this: it can also mean offerings totalling a thousand. -> Replace `ہزار ہزار روپے کی نذریں` with `ہزار روپے کی نذریں`
+
+4. [wrong reference] English: "and in the 1880s her coins were still kept as keepsakes" | Urdu: "اور 1880 کی دہائی میں بھی لوگ اس کے سکے یادگار کے طور پر سنبھال کر رکھتے تھے" -> "اس کے" comes right after سکہ and پنجاب, so it does not clearly point to Moran. Elsewhere the file uses the honorific ان for Moran. -> Replace `لوگ اس کے سکے` with `لوگ موراں کے سکے`
+
+All other facts, names, numbers, dates, places and hedges match the English. Hedges checked: تقریباً for "about" (800, 200, 100, 1900), بتایا جاتا تھا for "were put down to", and "for the most part" for the Muslims at the Bhadar Kali mela. The seven headings correspond. The Persian couplet (lines 103–104) is byte-identical to the English. The dropped glosses (taziya, muwahhid, sama, gaddi nashin, qawwal, kos, chiraghan, mehndi/alam, bhajan, hazri, Milad) and dropped italics follow the brief and are not omissions.
+
+NOTES (style only):
+- "دونوں بار ایک مسلمان فقیر نے" (two mosques, "each time"): "دونوں صورتوں میں" would make it clearer that these are two separate cases and not necessarily the same faqir.
+- "شیخ موسیٰ خود لوہار تھے اور ان کا سالانہ عرس لوہار ہی مناتے تھے": the ہی here is acceptable emphasis, but dropping it avoids implying that only blacksmiths attended.
+- "جدید محققین ... کچھ نے اسی شہر میں پڑھائی کی": پڑھائی suggests being a student. "اسی شہر میں رہ کر تحقیق کی" is closer to "studying in the city" as scholars.
+- "منشی نجم الدین ... مسجد کی مرمت اپنی جیب سے کرائی": the English "its repair" could mean the mosque or the tomb. The Urdu commits to the mosque. That is acceptable, but "اس کی مرمت" would keep the English's ambiguity.
+- "عملی زندگی سے کنارہ کش" for "retired from public life" is acceptable. "دنیاوی/عوامی زندگی" would be slightly closer.
+- "ریلوے ... جس کے لوہے کے کارخانے کا ایک افسر": the English has the definite "its ironworks officer". "کا افسر" without ایک would match.

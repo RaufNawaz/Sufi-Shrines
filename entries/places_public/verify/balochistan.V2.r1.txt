@@ -1,0 +1,27 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [addition] Overview, para 2: "the offspring of men from its hills came to sit on the throne of Sindh" | "یہاں کے پہاڑوں سے اترنے والے لوگوں کی اولاد آگے چل کر سندھ کے تخت پر بیٹھی" -> اترنے والے ("who came down from") adds a movement the English does not state; the English says only that the men were from its hills.
+   OLD: یہاں کے پہاڑوں سے اترنے والے لوگوں کی اولاد آگے چل کر سندھ کے تخت پر بیٹھی
+   NEW: یہاں کی پہاڑیوں کے لوگوں کی اولاد آگے چل کر سندھ کے تخت پر بیٹھی
+
+2. [changed certainty] Land and Routes, para 5: "and it reshaped the pilgrimage, which had been a journey of hardship" | "اور اس سے وہ زیارت یکسر بدل گئی جو پہلے مشقت بھرا سفر ہوا کرتی تھی" -> یکسر ("entirely, completely") overstates "reshaped"; the English does not say the pilgrimage changed completely.
+   OLD: اور اس سے وہ زیارت یکسر بدل گئی جو پہلے مشقت بھرا سفر ہوا کرتی تھی۔
+   NEW: اور اس سے اس زیارت کی صورت بدل گئی جو پہلے مشقت بھرا سفر ہوا کرتی تھی۔
+
+3. [wrong reference] Pilgrimage and the State, para 2: "and their aim, he said, would leave 'four smaller countries'" | "واحد بخش کے بقول ان جماعتوں کا یہ مقصد پیچھے ..." -> یہ مقصد ("this aim") identifies the aim with the slogan "Azad Balochistan" just named; the English says only "their aim", the aim of the nationalist parties, without equating it with that one slogan.
+   OLD: واحد بخش کے بقول ان جماعتوں کا یہ مقصد پیچھے "چار چھوٹے ملک" چھوڑ جائے گا
+   NEW: واحد بخش کے بقول ان جماعتوں کا مقصد پیچھے "چار چھوٹے ملک" چھوڑ جائے گا
+
+4. [addition] Pilgrimage and the State, para 3: "praying for the demise of the United States, Israel and India, which he held responsible for everything wrong in the country" | "... کی تباہی کی دعا مانگی جائے، کیونکہ وہ مولوی انہی تینوں کو ..." -> کیونکہ ("because") adds a causal link: the English gives his view of the three countries in a relative clause and does not say it is why he prayed for their demise.
+   OLD: جس میں امریکا، اسرائیل اور بھارت کی تباہی کی دعا مانگی جائے، کیونکہ وہ مولوی انہی تینوں کو ملک کی ہر خرابی کا ذمہ دار ٹھہراتا تھا، اور ان خرابیوں میں بلوچستان کی علیحدگی پسند تحریک بھی شامل تھی۔
+   NEW: جس میں امریکا، اسرائیل اور بھارت کی تباہی کی دعا مانگی جائے۔ وہ مولوی انہی تینوں کو ملک کی ہر خرابی کا ذمہ دار ٹھہراتا تھا، اور ان خرابیوں میں بلوچستان کی علیحدگی پسند تحریک بھی شامل تھی۔
+
+5. [changed fact] Balochistan in Books, para 3: "it was seen as part of one region of shared lore with Sindh and the coastal belt of Iran" | "بلوچستان کو ایک ایسے خطے کا حصہ سمجھا گیا جس کی لوک روایت سندھ اور ایران کی ساحلی پٹی کے ساتھ مشترک ہے" -> In the English, Balochistan, Sindh and the coastal belt of Iran together make one region of shared lore (as in the section on Language, Poetry and Music). The Urdu makes the region a separate area whose lore it shares with Sindh and the Iranian coast, so Sindh and the coast are left out of the region.
+   OLD: اکیسویں صدی کی دہلیز پر بلوچستان کو ایک ایسے خطے کا حصہ سمجھا گیا جس کی لوک روایت سندھ اور ایران کی ساحلی پٹی کے ساتھ مشترک ہے۔
+   NEW: اکیسویں صدی کی دہلیز پر بلوچستان کو سندھ اور ایران کی ساحلی پٹی کے ساتھ ایک ایسے خطے کا حصہ سمجھا گیا جس کی لوک روایت مشترک ہے۔
+
+NOTES:
+- Everything else matches: all eight headings, every date and number (710, 711 to 712, 1960s, 1998, 2001, N 10, 25, 2016, more than fifty, 2002, 2012, 2010s, 1940, 1970s, about 100 km), every name, and the hedges ("seems to have been", "is reported", "it is said", "accounts of the word differ", "it is reckoned", "devotees claim", "assuming", "claims"). The article has no verse. There are no Latin letters and no em or en dashes, and the asterisks are balanced (3 pairs).
+- The glosses dropped for murids, Khankhanan, jagir, wilayat, Ghauth Bakhsh, ghazal and diwan, and for maulvi and suba, follow the brief and are not omissions.
+- Style, optional: para 3 of Language, Poetry and Music, "بلوچستان اور سندھ ہی میں پیدا ہوئی": the emphatic ہی is a little stronger than the English relative clause ("which originated in Balochistan and Sindh"); "بلوچستان اور سندھ میں پیدا ہوئی" is closer. Land and Routes para 1, "تاکہ ... بچ سکیں" turns the English result ("which avoided") into a purpose. Both are acceptable, and neither changes a fact.

@@ -154,9 +154,51 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'wazirabad', name: 'Wazirabad', match: /\bWazirabad\b/i },
 ] as const;
 
+/**
+ * Provinces as places (Rauf, 30 October 2026: "each region etc gets their own
+ * descriptions"). The books carry a great deal of province material (the
+ * province sweep of 7 October attached Punjab and Sindh passages to every entry
+ * in them) and until now it had no page to stand on.
+ *
+ * Membership is read from the data, never from general geography (RULE 2), in
+ * this order:
+ *
+ * 1. The site's own `region`, which `extractRegion` reads out of its Location.
+ * 2. For Azad Kashmir only, the name anywhere in the Location: the one row
+ *    there writes "(Azad Kashmir)" in parentheses, which `extractRegion` does
+ *    not read because it matches at the head of a segment.
+ * 3. Otherwise, the province of a place the site is in, **when every site of
+ *    that place that records a province records the same one**. Most Lahore
+ *    rows say only "Lahore"; the Lahore rows that do name a province all say
+ *    Punjab, so the archive's own data puts Lahore in Punjab. Measured on the
+ *    489-row snapshot of 30 October 2026: no place in the vocabulary has sites
+ *    recording two different provinces, six places have none recording any, and
+ *    25 sites stay without a province.
+ *
+ * Islamabad Capital Territory is not here: its four sites are exactly the
+ * `islamabad` place, which already has a page.
+ */
+export interface ProvinceVocabularyEntry {
+  slug: string;
+  /** The name as `extractRegion` returns it, which is also the dictionary key. */
+  name: string;
+  /** Matched anywhere in the Location (step 2 above). Only set where needed. */
+  match?: RegExp;
+}
+
+export const PROVINCES: readonly ProvinceVocabularyEntry[] = [
+  { slug: 'azad-kashmir', name: 'Azad Kashmir', match: /\bAzad\s+(?:Jammu\s+and\s+)?Kashmir\b/i },
+  { slug: 'balochistan', name: 'Balochistan' },
+  { slug: 'khyber-pakhtunkhwa', name: 'Khyber Pakhtunkhwa' },
+  { slug: 'punjab', name: 'Punjab' },
+  { slug: 'sindh', name: 'Sindh' },
+] as const;
+
 export interface PlaceRecord {
   slug: string;
   name: string;
+  /** A town, city or district from `PLACES`, or a province from `PROVINCES`. */
+  kind: 'place' | 'province';
   /** Sites whose Location names this place. Never empty in `buildPlaces`. */
   shrines: Shrine[];
   /** How many sites of each tradition, ordered by count then key. */
@@ -177,6 +219,50 @@ export function placesForShrine(shrine: Shrine): PlaceVocabularyEntry[] {
   const location = shrine.location ?? '';
   if (!location) return [];
   return PLACES.filter((p) => p.match.test(location));
+}
+
+/** The province a place's sites record, when they all record the same one. */
+function placeProvinceIndex(shrines: readonly Shrine[]): Map<string, string> {
+  const seen = new Map<string, Set<string>>();
+  for (const shrine of shrines) {
+    if (!shrine.region || !PROVINCES.some((p) => p.name === shrine.region)) continue;
+    for (const place of placesForShrine(shrine)) {
+      const set = seen.get(place.slug) ?? new Set<string>();
+      set.add(shrine.region);
+      seen.set(place.slug, set);
+    }
+  }
+  const index = new Map<string, string>();
+  for (const [slug, regions] of seen) {
+    if (regions.size === 1) index.set(slug, [...regions][0]!);
+  }
+  return index;
+}
+
+function provinceOf(shrine: Shrine, index: Map<string, string>): ProvinceVocabularyEntry | null {
+  const byName = (name: string) => PROVINCES.find((p) => p.name === name) ?? null;
+  /* `region` can be "Pakistan" (the country fallback), which is no province: read on. */
+  const own = shrine.region ? byName(shrine.region) : null;
+  if (own) return own;
+  const location = shrine.location ?? '';
+  for (const p of PROVINCES) if (p.match && p.match.test(location)) return p;
+  const fromPlaces = new Set(
+    placesForShrine(shrine)
+      .map((place) => index.get(place.slug))
+      .filter((r): r is string => !!r),
+  );
+  return fromPlaces.size === 1 ? byName([...fromPlaces][0]!) : null;
+}
+
+/**
+ * The province one shrine is in, read as described at `PROVINCES`. Needs the
+ * whole archive, because step 3 reads the other sites of the same place.
+ */
+export function provinceForShrine(
+  shrine: Shrine,
+  shrines: readonly Shrine[],
+): ProvinceVocabularyEntry | null {
+  return provinceOf(shrine, placeProvinceIndex(shrines));
 }
 
 /**
@@ -226,8 +312,20 @@ export function buildPlaces(shrines: readonly Shrine[], minSites = 2): PlacesRes
   for (const entry of PLACES) {
     const group = bySlug.get(entry.slug);
     if (!group || group.length < minSites) continue;
+    places.push(summarise(entry.slug, entry.name, 'place', group));
+  }
 
-    const counts = new Map<Exclude<CategoryKey, 'default'>, number>();
+  places.sort((a, b) => b.shrines.length - a.shrines.length || a.name.localeCompare(b.name));
+  return { places, unplaced };
+}
+
+function summarise(
+  slug: string,
+  name: string,
+  kind: PlaceRecord['kind'],
+  group: Shrine[],
+): PlaceRecord {
+  const counts = new Map<Exclude<CategoryKey, 'default'>, number>();
     for (const s of group) {
       const key = categoryKey(s.category);
       if (key === 'default') continue;
@@ -236,19 +334,47 @@ export function buildPlaces(shrines: readonly Shrine[], minSites = 2): PlacesRes
 
     const years = group.map(firstGregorianYear).filter((y): y is number => y !== null);
 
-    places.push({
-      slug: entry.slug,
-      name: entry.name,
+    return {
+      slug,
+      name,
+      kind,
       shrines: group,
       traditions: [...counts]
         .map(([key, count]) => ({ key, count }))
         .sort((a, b) => b.count - a.count || a.key.localeCompare(b.key)),
       yearSpan: years.length
         ? { earliest: Math.min(...years), latest: Math.max(...years) }
-        : null,
-    });
-  }
+      : null,
+  };
+}
 
-  places.sort((a, b) => b.shrines.length - a.shrines.length || a.name.localeCompare(b.name));
-  return { places, unplaced };
+/** Every province with at least one site, largest first. */
+export function buildProvinces(shrines: readonly Shrine[]): PlaceRecord[] {
+  const index = placeProvinceIndex(shrines);
+  const bySlug = new Map<string, Shrine[]>();
+  for (const shrine of shrines) {
+    const province = provinceOf(shrine, index);
+    if (!province) continue;
+    const list = bySlug.get(province.slug);
+    if (list) list.push(shrine);
+    else bySlug.set(province.slug, [shrine]);
+  }
+  return PROVINCES.filter((p) => bySlug.has(p.slug))
+    .map((p) => summarise(p.slug, p.name, 'province', bySlug.get(p.slug)!))
+    .sort((a, b) => b.shrines.length - a.shrines.length || a.name.localeCompare(b.name));
+}
+
+/**
+ * Every page under `/place/:slug`: the provinces, then every place with at
+ * least one site.
+ *
+ * One site is enough for a page (30 October 2026). Until then a place needed
+ * two, but the shrine page's place chip links every place a site is in, so 37
+ * chips (Kasur, Pakpattan, Bhit Shah, Taunsa Sharif among them) led to "No
+ * place by that name is recorded." A place page is also where the books'
+ * material about the place lives, and a place with one site has that too.
+ */
+export function buildAllPlaces(shrines: readonly Shrine[]): PlacesResult {
+  const { places, unplaced } = buildPlaces(shrines, 1);
+  return { places: [...buildProvinces(shrines), ...places], unplaced };
 }

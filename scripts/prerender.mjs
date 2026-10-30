@@ -17,7 +17,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './data/lib/slugs.mjs';
-import { countPlaces, locationOfRow } from './data/lib/places.mjs';
+import { countPlaces, countProvinces, locationOfRow } from './data/lib/places.mjs';
 import { ROUTE_DESCRIPTIONS } from './lib/routeDescriptions.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -811,7 +811,7 @@ if (kgData) {
 
 // ── place pages ───────────────────────────────────────────────────────────
 /*
- * One file per place with two or more sites, in both languages.
+ * One file per place with a site, and per province, in both languages.
  *
  * The vocabulary and the counting live in scripts/data/lib/places.mjs, mirrored
  * from src/lib/data/places.ts and held to it by
@@ -826,7 +826,12 @@ if (kgData) {
  */
 const placeSlugs = [];
 {
-  const places = countPlaces(shrines, ({ row }) => locationOfRow(row));
+  /* Every place with a site, and the provinces (30 October 2026): the app's
+     `buildAllPlaces`, which these two counts mirror. */
+  const places = [
+    ...countProvinces(shrines, ({ row }) => locationOfRow(row)),
+    ...countPlaces(shrines, ({ row }) => locationOfRow(row), 1),
+  ];
   for (const place of places) {
     const canonicalUrl = SITE_URL ? `${SITE_URL}/place/${place.slug}` : '';
     const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/place/${place.slug}` : '';

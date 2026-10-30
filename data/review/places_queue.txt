@@ -1,0 +1,42 @@
+# Place and province articles, in drafting order (pipeline/book_queue/place_description_queue.py).
+# Lahore is the pilot (Rauf, 30 October 2026); the rest wait for its approval in places_approved.txt.
+# Only places with book material are listed: build_place_sources.py writes a source file for each.
+
+lahore
+punjab
+sindh
+multan
+karachi
+balochistan
+khyber-pakhtunkhwa
+nankana-sahib
+uch-sharif
+peshawar
+islamabad
+sehwan
+sialkot
+sukkur
+hyderabad
+umerkot
+bahawalpur
+eminabad
+hingol
+shikarpur
+jhelum
+matiari
+quetta
+pakpattan
+gujranwala
+gujrat
+luari-sharif
+khairpur
+lasbela
+kartarpur
+tando-muhammad-khan
+khuzdar
+jhok-sharif
+jhang
+mithankot
+taunsa-sharif
+dera-ghazi-khan
+sargodha

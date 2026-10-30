@@ -1,0 +1,14 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Diff proof: python difflib (SequenceMatcher, autojunk off) between /home/claude/work/multan.ur.r2.bak and the current /home/claude/repo/entries/places_public/multan.ur.md gives 143 lines in both and exactly three replaced lines (77, 89 and 105, 1-based), no inserts or deletes. The three OLD -> NEW pairs in multan.ur.r2.changes.txt were replayed in order on the backup; each OLD occurred exactly once, and the result equals the current file byte for byte. Nothing outside the listed changes moved.
+- Change 1 (line 77, "اولیا کا شہر"): "ملتان ہی کا ایک نادر منظر ہے جس میں لعل دوسری صوفی شخصیات کی صحبت میں وجد کی کیفیت کا مظاہرہ کرتے دکھائی دیتے ہیں" renders "Lal is found in Multan in a rare scene of ecstatic performance in the company of other Sufi figures" with nothing added (no dance) and nothing dropped (rare, scene, ecstatic, performance, company of other Sufi figures all present). V3: correct and natural; plural honorific agreement with لعل (کرتے دکھائی دیتے ہیں) holds, the ecstasy is no longer said twice, and the following clause "اور سہروردی روایت کے مطابق یہیں ... انہیں بیعت کیا" still points to Lal.
+- Change 2 (line 89, "برادریاں"): "آگے چل کر شہر کے سلطان بننے والے لنگاہ ایک ایسی قوم تھے جس کا سردار اپنا ایک قصبہ رکھتا تھا۔" matches "The Langahs, who became the city's sultans, were a people whose chief held a small town of his own." V3: the copula now agrees with the plural masculine subject لنگاہ (as in "مغل ایک ترک قوم تھے"); the relative clause and جس کا سردار ... رکھتا تھا agree correctly.
+- Change 3 (line 105, "مزارات، اوقاف اور ریاست"): "یہی خاندان وہاں سالانہ رسوم کا اہتمام کرتے ہیں، جیسے عید کی تقریبات اور سانحۂ کربلا کی یاد میں محرم کی مجالس۔" matches "the families arrange yearly rituals there such as the Eid and the Muharram ceremonies marking the tragedy of Kerbala". V3: رسوم now occurs once in the sentence; تقریبات is the right word for Eid ceremonies; the list still hangs correctly on جیسے.
+- Rejections: the round 2 change list records no rejected items; all three round 2 proposals were applied as given. The round 1 rejections were confirmed in round 2 and nothing in this round touches them.
+- Taste, not a fault: line 115 ("میلے اور رسوم") keeps "عید کی رسوم" for the same English phrase that line 105 now gives as "عید کی تقریبات". Both are correct and the paragraphs are apart; round 2 rightly left 115 alone because رسوم does not repeat there.
+- Taste carried over from round 2 and still open, none failing: "کشمیر کے پہاڑوں کی طرف ہٹ گیا" (English "into the hills"), "ایک ایسے جال کی کڑیاں" (mixed image), and the neighbouring repeats "قبضے میں آیا ... قبضہ کیا" and "قید کر لیا۔ سلطان حسین قید ہوا".
+- Mechanics: no Latin letters; no en or em dashes; 6 asterisks (balanced); the ten headings are unchanged.

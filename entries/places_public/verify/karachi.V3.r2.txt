@@ -1,0 +1,33 @@
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+ISSUES:
+
+1. [V3, number ambiguity introduced by the fix] OLD: دیوار پر بنی ایک تصویر میں ایک بہت بڑی مچھلی پر بیٹھے دیوتا دکھائے گئے ہیں: یہ جھولے لال ہیں۔ -> Without «ایک» before «دیوتا», «بیٹھے دیوتا دکھائے گئے ہیں» first reads as "deities seated on a fish are shown" (plural). Only the gloss after the colon shows it is one figure. The English says "a male deity". Keeping «ایک دیوتا» and moving the honorific plural onto an oblique participle with «کو» fixes the agreement problem from round 1 and keeps the number clear. -> NEW: دیوار پر بنی ایک تصویر میں ایک دیوتا کو بہت بڑی مچھلی پر بیٹھے دکھایا گیا ہے: یہ جھولے لال ہیں۔
+
+2. [V3, repetition inside one sentence, new] OLD: کراچی میں وہ ہر جگہ فراک پہن کر جاتی تھیں -> Replacing «وہاں» with «کراچی میں» puts «کراچی میں» twice in one sentence: «کراچی میں وہ ہر جگہ ... اور "کراچی میں ہزاروں پارسی ہیں ..."». The second one is inside the quotation, so the first is the one to change. «اس شہر میں» clearly means Karachi after the previous sentence, and it matches «اس شہر کو» in the next sentence. -> NEW: اس شہر میں وہ ہر جگہ فراک پہن کر جاتی تھیں
+
+3. [V3, one pronoun for two referents, new] OLD: ان کے بعض خطابات ٹیپ پر ریکارڈ بھی کیے گئے۔ -> The fix added «ان سے» (= the students) just before, so in one sentence «ان» now points first to the students and then, in «ان کے بعض خطابات», to the shaykh. Round 1 issue 8 flagged this same fault. A demonstrative removes the ambiguity. -> NEW: ان خطابات میں سے بعض ٹیپ پر ریکارڈ بھی کیے گئے۔
+
+4. [V3, ungrammatical name for the race, new] OLD: وہاں لان میں چمچ میں لیموں رکھ کر دوڑ اور تین ٹانگوں کی دوڑ جیسے کھیل ہوتے ہیں -> «رکھ کر» is a conjunctive participle that needs a verb. Followed by the noun «دوڑ», it reads like an instruction ("put a lemon in a spoon and run"), not the name of a game. «لان میں چمچ میں» also doubles «میں». -> NEW: وہاں لان میں چمچ پر لیموں رکھ کر دوڑنے کا مقابلہ اور تین ٹانگوں کی دوڑ جیسے کھیل ہوتے ہیں
+
+5. [V3, repeated verb in neighbouring sentences, new] OLD: اور عید اور محرم کے موقع پر بھی یہاں سے زائرین روانہ ہوتے ہیں۔ -> The previous sentence now ends «یہیں سے آگے روانہ ہوتے ہیں۔», and this clause ends «یہاں سے زائرین روانہ ہوتے ہیں۔». That gives the same verb at the end of two consecutive sentences and «یہیں سے / یہیں سے / یہاں سے» three times in a row. The English says only "Karachi sends pilgrims at ʿīd ... and in muḥarram". -> NEW: اور عید اور محرم کے موقع پر بھی کراچی سے زائرین جاتے ہیں۔
+
+NOTES:
+- Proof that nothing else moved: the round 1 backup /home/claude/work/public/ur_karachi.r1.bak is byte-identical to /home/claude/work/bak/karachi.ur.r1.bak. I parsed 62 OLD/NEW pairs from ur_karachi.r1.changes.txt. Every OLD occurs exactly once in the backup, and every NEW occurs exactly once in the current file. Replaying all 62 on the backup in order gives a text identical to the current ur_karachi.md. difflib shows 33 changed lines out of 92 and no added or removed lines, all inside the listed replacements.
+- Coverage: V3 round 1 issues 1 to 59 are all addressed in the changes file (none missing). Every V3 round 1 note and the V2 round 1 notes are either applied or listed as rejected with a reason.
+- The rejections are sound. The tense of «کہلاتی ہے» (issues 1 and 2) follows the English present "is known". «ایک نئی عمارت» follows "a new building". «پاس ہی ایک گھر میں» follows "a house nearby" and does not imply a second house. Hyderabad, «اس شہر» for "really a desert", the two college names, «ڈھائی سو» (the English spells the number out) and «نانک» inside the quotation all follow the English. «روایت کے مطابق», added at the head of the split sentence in تعارف, carries the English's "it is said", which governs the whole sentence. It is not a new hedge.
+- V2: every changed sentence says what the English says. I found no omission, addition, change of certainty or wrong reference. Small points, none failing:
+  (a) The history section now has «تعمیر کروایا» (had built) while the introduction keeps «تعمیر کیا» for the same English "built". Both readings fit a governor, but the two sections now differ slightly. «تعمیر کیا» in both would be the most literal.
+  (b) «شہر کی وسعت نے» renders "Its growth". «وسعت» is extent rather than growth; «شہر کی توسیع نے» would be closer, and it would still avoid repeating «پھیلاؤ» from the quotation.
+  (c) «کراچی میں چشتی سلسلے کے ادارے بھی قائم ہیں» drops the "own" of "its own institutions". The possession is kept, so this is acceptable.
+- V3 taste points, none failing:
+  (a) The body sentence «1907 میں جب مسلم لیگ کا پہلا اجلاس کراچی میں ہوا تو چشتی بزرگ محمد ذوقی شاہ اس میں شریک تھے۔» is now closer to the تعارف sentence than before the fix. Round 1 issue 18 had also named this repetition. The English repeats it as well, and the writer lists intro/body repetition as taste. If it is varied: «چشتی بزرگ محمد ذوقی شاہ نے مسلم لیگ کے پہلے اجلاس میں شرکت کی، جو 1907 میں کراچی میں منعقد ہوا تھا۔»
+  (b) «کراچی میں چشتی سلسلے کے ہفتہ وار معمولات طے شدہ ہیں۔» is followed by a quotation that also begins «کراچی میں» and contains «ہفتہ وار». A possible variant: «شہر میں چشتی سلسلے کا ہر ہفتہ ایک طے شدہ معمول کے مطابق گزرتا ہے۔»
+  (c) «سوسائٹی» comes three sentences running in the Theosophical paragraph. This is the price of resolving «اس کے لیے»; acceptable.
+  (d) «... مدن بھی یہیں کے قوال تھے۔» and «... بھی کراچی ہی کے گویّے تھے۔» are parallel frames two sentences apart.
+  (e) «جو غالباً کسی امیر ہندو کی طرف سے بطور نذر ہوتا ہے» is acceptable, though «ہوتا ہے» is a little flat.
+  (f) In «ان میں سے ایک کلفٹن میں ہے، جس کا بڑا حصہ ...», «جس» could grammatically take the temple. «آباد» makes Clifton the reading.
+  (g) «مزار کے احاطے سے قریب» is acceptable. «کے قریب» is more usual.
+  (h) «کی نظر میں یہ» comes twice in two sentences in کتابوں میں کراچی. This mirrors the English "For X it is ... For Y it is" parallelism.
+- Mechanical: no Latin letters; no em or en dashes; 16 asterisks (balanced). The digits used (1843, 1850, 1861, 1896, 1907, 1937, 1945, 1946, 1947, 1953, 1967, 1968, 1975, 1978, 1983, 20, 2000, 2007, 300) all appear in the English. There are no Eastern digits. The prose length ratio is about 0.95 (whitespace-normalised characters, Urdu against English without the bibliography). Every proposed NEW above keeps Western digits, uses no Latin letters, dashes or asterisks, and adds or removes no fact.

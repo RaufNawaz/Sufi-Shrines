@@ -1,0 +1,14 @@
+Changes applied after the round 2 confirming report (V3 FAIL), by the coordinator, in the verifier's wording (PUBLIC_DESCRIPTION_BRIEF, late rounds).
+
+WHY: V3 r2 issue 1 (Kohistan read as کوہستانِ بلوچستان)
+OLD: سندھ کا مغربی علاقہ کوہستان بلوچستان کے قریب واقع ہے۔
+NEW: کوہستان کا علاقہ سندھ کا مغربی حصہ ہے جو بلوچستان کے قریب واقع ہے۔
+
+WHY: V3 r2 issue 2 (echo of زیادہ تر ہندو in the previous sentence)
+OLD: جن میں زیادہ تر ہندو بکھرے ہوئے تھے۔
+NEW: جن میں ہندوؤں کی بیشتر آبادی بکھری ہوئی تھی۔
+
+WHY: V3 r2 issue 3 (اس کی could point to علاقے; the English says the pilgrimage)
+OLD: پہلے اس علاقے کی زیارت مشقت بھرا سفر ہوا کرتی تھی، مگر اس شاہراہ نے اس کی صورت بدل دی۔
+NEW: پہلے یہاں کی زیارت مشقت بھرا سفر ہوا کرتی تھی، مگر اس شاہراہ نے اس کی صورت بدل دی۔
+

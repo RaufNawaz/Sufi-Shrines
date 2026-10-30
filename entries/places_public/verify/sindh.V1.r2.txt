@@ -1,0 +1,77 @@
+V1 round 2 (confirming) for sindh, 30 October 2026. Read in full: PUBLIC_DESCRIPTION_BRIEF.md, PLACE_DESCRIPTION_BRIEF.md, the round 1 report and its changes list (79 changes), the public text entries/places_public/sindh.md (whole article, read once more after the change by change check), and the team version entries/places/sindh.md (each changed sentence checked against its passage, plus the whole "Where the Sources Disagree"). The notes file was used for the drafters' handling of damaged readings.
+
+VERDICT: FAIL
+
+ISSUES:
+
+1. [source talk introduced by a fix (change 24)] "By one account the Bhakti, the devotional movement of Hindu India, reached Sindh only in the sixteenth century, because of the province's isolation, though that account gives no evidence that its *sants*, the poet saints, shaped the spiritual life of the province." -> The round 1 fix replaced an overgeneralisation with a remark on what one source does and does not contain ("that account gives no evidence"). That is the "who said what" apparatus that rules 2 and 6 remove, in the same class as "is not recorded in the sources consulted". The "though" also sets up a contrast the team version does not make. The team version's point (Boivin finds no evidence in Ajwani of the *sants*' influence) is a remark about a source, not a fact about the province, so it goes. Nothing important is lost. -> exact fix:
+   OLD: because of the province's isolation, though that account gives no evidence that its *sants*, the poet saints, shaped the spiritual life of the province.
+   NEW: because of the province's isolation.
+   (The Urdu must drop the same clause.)
+
+2. [broken referent introduced by a fix (change 33)] "Mirza Jani Beg, son of Painda Muhammad son of Muhammad Baqi, came to court with the Khankhanan, Mirza Abd al-Rahim, whose deeds included the conquest of Gujarat, Thatta and the Deccan, after ruling for eight years, and the country entered the protected dominions of the empire." -> The reordering leaves "after ruling for eight years" straight after the relative clause about Abd al-Rahim, so it reads as the Khankhanan having ruled for eight years. The team version says Jani Beg came to court "having ruled for eight years". -> exact fix:
+   OLD: Mirza Jani Beg, son of Painda Muhammad son of Muhammad Baqi, came to court with the Khankhanan, Mirza Abd al-Rahim, whose deeds included the conquest of Gujarat, Thatta and the Deccan, after ruling for eight years, and the country entered the protected dominions of the empire.
+   NEW: After ruling for eight years, Mirza Jani Beg, son of Painda Muhammad son of Muhammad Baqi, came to court with the Khankhanan, Mirza Abd al-Rahim, whose deeds included the conquest of Gujarat, Thatta and the Deccan, and the country entered the protected dominions of the empire.
+
+3. [source talk: quoted persons named by surname, left after round 1 changes 7 and 8] "In the nineteenth century Burton saw Sufism in Sindh as a political power: ..." and "As Crowe put it, "The Sindians are excessively fond of singing"." -> Round 1 anonymised Burnes and Burton in the Overview under the brief's rule that a quoted person stays "without the surname". The same Burton quotation now reads "as one writer saw it" in the Overview but "Burton saw" in Shrines and the State, and change 56 ("he wrote") leans on that name. Crowe is the same case: an observer whom Sorley quotes. (Burton, Heddle and Lieutenant James in "The Province in Books" may stay, since the place brief frames that section as the authors' views of the place.) -> exact fix (two edits):
+   OLD: In the nineteenth century Burton saw Sufism in Sindh as a political power:
+   NEW: In the nineteenth century one writer saw Sufism in Sindh as a political power:
+   ("Even among the mild Sindhis, he wrote," then refers to "one writer" and stays as it is.)
+   OLD: As Crowe put it, "The Sindians are excessively fond of singing".
+   NEW: As one observer put it, "The Sindians are excessively fond of singing".
+
+4. [one spelling per name (check 8); for the coordinator's normalisation, not a cause of the FAIL] The cross group normalisation left these variants:
+   a. OLD: The *wilayat*, or country, of Sind known as Thatta
+      NEW: The *wilayat*, or country, of Sindh known as Thatta
+      (The Overview has "the *wilayat*, or realm, of Sindh, known as Thatta".)
+   b. OLD: The greatest river was the Sind.
+      NEW: The greatest river was the Sindh.
+      OLD: came up from the salt sea into the Sind,
+      NEW: came up from the salt sea into the Sindh,
+      (Elsewhere the text has "the river Sindh".)
+   c. OLD: Arab historians spoke of Hind and Sind separately: Sind was bounded by Multan, Jaisalmer and Gujarat, and Hind, or Hindustan, began where Sind ended.
+      NEW: Arab historians spoke of Hind and Sindh separately: Sindh was bounded by Multan, Jaisalmer and Gujarat, and Hind, or Hindustan, began where Sindh ended.
+      (This is unquoted prose. Change 77 normalised the other names in this sentence but left these.)
+   d. OLD: connecting Afghanistan, Khorasan, Arabia
+      NEW: connecting Afghanistan, Khurasan, Arabia
+      (The text uses "Khurasan" three times elsewhere.)
+   e. OLD: Sultan Sikandar Lodhi
+      NEW: Sultan Sikandar Lodi
+      (Compare "the Lodi Afghans".)
+   f. OLD: Abd al-Rahim Khan-i Khanan, one of Akbar's chief nobles, was travelling
+      NEW: The Khankhanan, Abd al-Rahim, one of Akbar's chief nobles, was travelling
+      (The paragraph before has "the Khankhanan, Mirza Abd al-Rahim". These are the same man.)
+   g. OLD: The exceptions were the two Hur rebellions
+      NEW: The exceptions were the two *hurr* rebellions
+      (The next sentence and the Overview have *hurr*.)
+
+Check of the 79 round 1 changes, each read in its paragraph:
+- Changes 1 to 23, 25 to 32 and 34 to 79 apply as V1 intended and are supported by the team version. None of them introduces a doubled sentence, a broken referent, a grammar slip or a lost hedge. Specific checks:
+  - Change 1: Jam Nanda (from the p. 295 passage) and Jam Firuz as the last of the line are firm.
+  - Change 2: "the Jam of the day" is sound. The coordinator's context edit adds nothing.
+  - Change 3: the "accounts differ" clause covers the Mansura disagreement. The remaining statements (Sorley's early dynasties, the Qarmatians in northern Sindh) do not name Mansura's ruler, so nothing contradicts it.
+  - Change 6: the superlative is now framed as an observer's words.
+  - Changes 12 and 13: the hedges are in place, and Communities' seventeenth and eighteenth century Hindu visits no longer contradict anything.
+  - Change 15: "by then" points to the British occupation.
+  - Change 20: the invader disagreement is handled.
+  - Changes 21 and 22: "pre-Islamic" is gone. The "before the general conversion" reading and the Sumra and Samma setting do not conflict, and "Muslim" was rightly dropped to match the Sumra handling in History.
+  - Change 25: "of these legends" has a clear referent.
+  - Change 41: the 1940 tenses are consistent.
+  - Change 48: "most often" is right, two of three sources.
+  - Changes 62 to 79 are spelling changes only.
+- Change 24 fails (issue 1).
+- Change 33 fails (issue 2).
+- Change 56 is sound in itself but depends on the surname (issue 3).
+
+Whole article reread: no further unsupported claim, legend given as fact, merged chain, uncertain reading or important omission found beyond round 1's accepted handling. The checks of the uncertain readings dropped by round 1 (Bhandari's Hijri years and reign lengths, Qubad Khan, the eighth century scholars, 1662, 1800, the Jams' list) still hold.
+
+NOTES:
+- "Figures for Sindh from the early 1870s count ..." (change 5, V1's own wording): this is acceptable. The decade rests on Boivin's attribution of the figures to the 1872 census, which the same sentence half contradicts. "Figures for Sindh reported in the nineteenth century" would be safer still. Optional.
+- "many temples having been renovated within a decade" (Shrines and the State) has the same drifting anchor that change 37 fixed in the Overview. For consistency: OLD "many temples having been renovated within a decade" -> NEW "many temples having been renovated in the decade before 2018". This also applies to "in recent years the Deoband school" and "Today state bodies ... routinely publish", which are the presents of 2018 and 2022 books. All are minor.
+- "A Sindhi writer, Abdul Qadir Mangi, put it plainly": this names a quoted person in the Language section. Under the rule in issue 3, "A Sindhi writer put it plainly" would match. It is defensible as a Sindhi voice that is part of the story, so it is left to the coordinator.
+- "J. Parsram" (Books, Schimmel's quotation) and "Jethmal Parsram" (Books, 1924) are probably one man, but the team version does not identify them, so do not merge them. The same goes for Nasirpur/Nasarpur and Lahari Bandar/Laribunder: the team version keeps both forms from different books and never says they are the same place.
+- Two Chanesars stand in the text: a Sumra king about 1228 (History) and Jam Chanesar, a Samma ruler of the fourteenth century (Language). Both are faithful to their passages. Change 74 only normalised "Summa" to "Samma".
+- "On this reading the province had two peculiar circumstances" (change 23): the referent ("The poem's place has been explained by the province's history") is loose but serviceable. History states the late conversion plainly as "one of the province's peculiar circumstances", so the hedge here is stronger than in History. This is acceptable.
+- "Yet Molchand worried after Partition" (change 57): Molchand is not introduced. This is acceptable, since the team gives nothing more than "one of his subjects".
+- Within four paragraphs of Saints and Pilgrimage there are two "accounts differ" clauses, on how far Sufism spread early and how steadily it grew. They are separate disagreements and both are needed; the repetition is a matter of taste.
+- The glosses of *faqirs* ("wandering holy men", "wandering mystics", "holy mendicants") and *pirs* ("Sufi masters", "holy men with a special spiritual authority", "spiritual masters") vary. None is wrong.

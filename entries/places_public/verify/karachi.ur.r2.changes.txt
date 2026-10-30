@@ -1,0 +1,23 @@
+Changes applied to karachi.ur.md after the round 2 confirming report (V2 PASS, V3 FAIL, 5 issues), by the coordinator, in the verifier's wording (PUBLIC_DESCRIPTION_BRIEF, late rounds). Watcher firing 2026-10-30T2115Z. Backup of the round 2 text: /home/claude/work/bak/karachi.ur.r2.bak
+
+WHY: V3 r2 issue 1 (without ایک, «بیٹھے دیوتا دکھائے گئے ہیں» first reads as plural; the English has one male deity)
+OLD: دیوار پر بنی ایک تصویر میں ایک بہت بڑی مچھلی پر بیٹھے دیوتا دکھائے گئے ہیں: یہ جھولے لال ہیں۔
+NEW: دیوار پر بنی ایک تصویر میں ایک دیوتا کو بہت بڑی مچھلی پر بیٹھے دکھایا گیا ہے: یہ جھولے لال ہیں۔
+
+WHY: V3 r2 issue 2 (کراچی میں twice in one sentence; the second is inside the quotation)
+OLD: کراچی میں وہ ہر جگہ فراک پہن کر جاتی تھیں
+NEW: اس شہر میں وہ ہر جگہ فراک پہن کر جاتی تھیں
+
+WHY: V3 r2 issue 3 (ان pointed first to the students, then to the shaykh)
+OLD: ان کے بعض خطابات ٹیپ پر ریکارڈ بھی کیے گئے۔
+NEW: ان خطابات میں سے بعض ٹیپ پر ریکارڈ بھی کیے گئے۔
+
+WHY: V3 r2 issue 4 (رکھ کر followed by a noun does not name the race; doubled میں)
+OLD: وہاں لان میں چمچ میں لیموں رکھ کر دوڑ اور تین ٹانگوں کی دوڑ جیسے کھیل ہوتے ہیں
+NEW: وہاں لان میں چمچ پر لیموں رکھ کر دوڑنے کا مقابلہ اور تین ٹانگوں کی دوڑ جیسے کھیل ہوتے ہیں
+
+WHY: V3 r2 issue 5 (روانہ ہوتے ہیں ends two consecutive sentences; یہیں سے / یہاں سے three times; the English: Karachi sends pilgrims)
+OLD: اور عید اور محرم کے موقع پر بھی یہاں سے زائرین روانہ ہوتے ہیں۔
+NEW: اور عید اور محرم کے موقع پر بھی کراچی سے زائرین جاتے ہیں۔
+
+The round 2 report's NOTES (V2 a to c, V3 taste a to h) are recorded, not applied (confirming round notes, brief: Stopping).

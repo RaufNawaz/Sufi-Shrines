@@ -1,0 +1,23 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] Overview, paragraph 1: "By the end of the seventeenth century people of every kind lived there and the goods of every land were bought and sold" | "سترھویں صدی کے اواخر تک یہاں ہر طرح کے لوگ بستے تھے اور ہر ملک کا مال خریدا اور بیچا جاتا تھا۔" -> تک with a plain imperfect past reads as "until the end of the seventeenth century people of every kind lived here and goods were traded", which implies this stopped then. The English says it was so by that date. The brief ('The Urdu version') names this construction: "by" needs a perfect in Urdu. -> corrected Urdu:
+   OLD: سترھویں صدی کے اواخر تک یہاں ہر طرح کے لوگ بستے تھے اور ہر ملک کا مال خریدا اور بیچا جاتا تھا۔
+   NEW: سترھویں صدی کے اواخر تک یہاں ہر طرح کے لوگ آ بسے تھے اور ہر ملک کے مال کی خرید و فروخت ہونے لگی تھی۔
+
+2. [changed fact] Communities, paragraph 2: "By the end of the seventeenth century the people of Multan spoke a tongue in which the speech of Lahore and of Sindh were mixed." | "سترھویں صدی کے اواخر تک ملتان کے لوگ ایسی زبان بولتے تھے جس میں لاہور اور سندھ کی بولیاں ملی جلی تھیں۔" -> the same fault: it reads "until the end of the seventeenth century the people of Multan spoke...", which implies they then stopped, and that is not what the English says. -> corrected Urdu:
+   OLD: سترھویں صدی کے اواخر تک ملتان کے لوگ ایسی زبان بولتے تھے جس میں لاہور اور سندھ کی بولیاں ملی جلی تھیں۔
+   NEW: سترھویں صدی کے اواخر تک ملتان کے لوگوں کی زبان میں لاہور اور سندھ کی بولیاں گھل مل چکی تھیں۔
+
+3. [omission] A City of Saints, paragraph 3: "For the saint Lal, Multan was his first destination" | "لعل نے سب سے پہلے ملتان کا رخ کیا؛" -> "the saint" is dropped. A bare لعل does not tell the reader who this is, and the English names him as a saint. -> corrected Urdu:
+   OLD: لعل نے سب سے پہلے ملتان کا رخ کیا؛
+   NEW: صوفی بزرگ لعل نے سب سے پہلے ملتان کا رخ کیا؛
+
+NOTES:
+- Everything else matches the English paragraph by paragraph. All ten headings correspond, and there is correctly no bibliography. Every name, number and date is present (711, 641, 1175, 1397, 1267, 1263, 1811, 2010, 1865, 1976, 1978, 1983; sixteen, twenty seven, three and seven years; fourteen thousand horse; thirty thousand arrows; five days; four years; seven to seventy; ten to twelve of about a hundred houses; thirty odd women). Every hedge is kept: کہا جاتا ہے, روایت ہے, ہندوستان میں روایت ہے, روایتیں مختلف ہیں, اکثر روایتوں کے مطابق, غالباً, مانا جاتا ہے, بتایا جاتا ہے, دعویٰ کیا جاتا تھا, کوئی قطعی رائے نہیں, لگ بھگ, کوئی تیس. Legends stay legends. Glosses of familiar words were dropped (mollas, qazi, madrasa, jagir, khutba, zamindars, suba, subadar, Holi, Mufti, shirk, qawwal, samaʿ, silsilas, marsiya, deras and dargahs), as the brief allows.
+- Hallaj "in touch with them there" is given as ملتان میں. The long English says "at Multan", so this is right.
+- Communities, paragraph 3: "A devotee of the Tableeghi Jamaat" is rendered تبلیغی جماعت کے ایک سرگرم کارکن. A devotee is an adherent, so کارکن ("worker") is slightly stronger. تبلیغی جماعت سے وابستہ ایک شخص, or ایک عقیدت مند, would be closer.
+- History, paragraph 2: "brought Multan under Muslim rule for the first time" is rendered وہ پہلا فاتح تھا جس نے. This is acceptable, but پہلی بار would keep the English's focus: محمد بن قاسم نے پہلی بار ملتان کو مسلم حکومت کے زیرِ نگیں کیا.
+- Multan in Books, paragraph 2: ایک حاکم لاہور میں دفن ہوتا ہے reads oddly ("gets buried"). لاہور میں دفن ہے is better.
+- Overview, paragraph 4: لیکن ہولی کا حال بدل گیا ہے is framing only and adds no fact.
+- The long Urdu (multan.ur.md, lines 3 and 91) carries the same تک + imperfect wording as issues 1 and 2. It is outside this check, but it may be worth the same fix there.

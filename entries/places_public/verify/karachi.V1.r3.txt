@@ -1,0 +1,18 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+- Diff check (python difflib, /home/claude/work/bak/karachi.r2.bak against /home/claude/repo/entries/places_public/karachi.md): both files have 107 lines and only line 3 differs (Overview, paragraph 1). The one difference is exactly the listed change, OLD "one of two important urban centres of Sufism in the subcontinent, with Hyderabad in India, the home of a living Chishti order, of Hindu temples" to NEW "one of two important urban centres of Sufism in the subcontinent, the other being Hyderabad in India, and the home of a living Chishti order, of Hindu temples". Nothing else moved.
+- All issues applied: round 2 had one issue, and that is the change applied. Round 2 had no meaning or precision notes left to apply. Its notes were diff, confirmation and taste remarks.
+- The change resolves the issue. "the other being Hyderabad in India" closes the pairing, and "and the home of" makes Karachi the subject of the rest of the list. The living Chishti order, the Hindu temples and the Zoroastrians can no longer be read as belonging to Hyderabad.
+- Support for the new sentence in the team version:
+  - "one of two important urban centres of Sufism ... the other being Hyderabad in India": team line 7 has "one of 'two important urban centres of Sufism' in the subcontinent, paired with Hyderabad in India", and line 73 has "Karachi and Hyderabad in India". "The other being" is the same claim as "paired with" and is no more certain.
+  - "the home of a living Chishti order": line 7 (Rozehnal), "the home of a living Chishti order".
+  - "of Hindu temples": line 9 (Clifton, Ram Bagh, Port Grand).
+  - "of most of Pakistan's Zoroastrians": line 9, "The majority of the Zoroastrian community of Pakistan is based in Karachi".
+  - Nothing is embellished.
+- No new fault. The sentence has no doubled word or phrase and no dash, and the "and" joins the list in the right place. Every referent is clear, and the sentence has no source talk. Its neighbours (the opening sentence on the port and Partition, and the Sehwan and Hinglaj sentence) are unchanged and still read cleanly.
+- Taste only, pre-existing: "Hyderabad in India" and "two important urban centres" also appear in Qawwali and Song (line 75) and Karachi in Books (line 83). Not a fault, not for application.
+- Nothing grave (no unsupported fact) was noticed in the neighbouring text.

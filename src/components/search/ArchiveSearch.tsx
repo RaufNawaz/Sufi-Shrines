@@ -18,7 +18,7 @@ import { localizeFigureName, localizeOrderName } from '../../lib/i18n/localizeKg
 import { isUrduSeedLoaded, loadUrduSeed, onUrduSeedLoaded } from '../../lib/i18n/urduFallback';
 import { localizeRecordedName } from '../../lib/i18n/localizeRecordedName';
 import { categoryKey } from '../../lib/data/categoryKey';
-import { buildPlaces } from '../../lib/data/places';
+import { buildAllPlaces } from '../../lib/data/places';
 import { tFn } from '../../lib/i18n/uiStrings';
 import { highlightSegments } from '../../lib/search/highlight';
 import { localizeObservance } from '../../lib/i18n/localizeObservance';
@@ -209,7 +209,7 @@ export function ArchiveSearch({
   }, []);
 
   const { ids } = useSearch(shrines as Shrine[], debounced);
-  const places = useMemo(() => buildPlaces(shrines).places, [shrines]);
+  const places = useMemo(() => buildAllPlaces(shrines).places, [shrines]);
   const savedSlugs = useSavedShrines();
   const saved = useMemo(() => new Set(savedSlugs), [savedSlugs]);
 

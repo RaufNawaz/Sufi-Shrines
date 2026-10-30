@@ -1,0 +1,4 @@
+Changes applied after V1 round 2 (FAIL, 3 issues), 30 October 2026, by the coordinator, exactly as V1 gave them:
+1. "a governor who died at Multan is buried there" became "... is buried in Lahore" (fault introduced by round 1 fix 3).
+2. "the mystic Hallaj" became "Hallaj".
+3. "a fleeing prince" became "the fugitive Ibrahim Husain Mirza".

@@ -1,0 +1,11 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Changed sentence (public line 71): "Most of the buildings between the Mochi Gate and the Kashmiri Bazaar are Mir Momin Khan's memorials." This matches the team version (Chishti p. 173), where "his memorials" belongs to Mir Momin Khan. The memorials are now tied to the right man, not to "another Khan" or to Zakariya Khan. It is stated with the same certainty as the team version: the clause is not one of the parts the team version marks as uncertainly printed. Round 3 issue 1 is fixed.
+- Pronouns across the whole paragraph: "his father, Sultan Mu'azzam Bahadur Shah" refers to Muhammad Mu'izz al-Din. "his father moving to be nazim of Multan", "he continued in Lahore" and "he had a great passion for building" all refer to Zakariya Khan. "he did not rule on his own" refers to Mir Momin Khan, the subject of that sentence. No pronoun is left pointing at the wrong person. The next paragraph opens with a new subject ("In time the province of Multan ..."), so nothing carries over.
+- Repetition: Mir Momin Khan is named in two sentences in a row. That is the cost of the fix, and it is needed because "another Khan" sits between them, so it is not a fault. "nazim of Lahore" appears three times, and "the real nazim of Lahore" makes a fourth. That was already there, and the repeat carries the contrast. As an optional trim, "the real nazim of Lahore was another Khan" could become "the real nazim was another Khan".
+- Source talk: none in the paragraph. No citations, no "Chishti writes" and no talk of words that cannot be read.
+- Dashes: none. The only hyphen is the transliteration in "Mu'izz al-Din". It was already there and is not a dash.
+- Already there and outside this change: "Shah Alam died in the city of Lahore" uses a different name for the man already called "Sultan Mu'azzam Bahadur Shah" two clauses before, so a general reader may not see that they are the same person. This is optional and not introduced by the change.

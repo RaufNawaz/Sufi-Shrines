@@ -1,0 +1,23 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+
+Diff check: I replayed the 3 listed OLD -> NEW replacements once each on /home/claude/work/public/ur_balochistan.r2.bak, in Python. The result is identical to the current ur_balochistan.md (exact string equality). Each OLD occurred exactly once in the backup and does not occur now. Each NEW occurs exactly once now. Both files have 77 lines. difflib shows 3 changed lines (27, 29, 43), and they are exactly the lines that hold the three listed changes. Nothing outside the listed changes moved. There are no Latin letters and no em or en dashes, and the asterisks are balanced (6).
+
+ISSUES: none
+
+1. Line 27, "کوہستان کا علاقہ سندھ کا مغربی حصہ ہے جو بلوچستان کے قریب واقع ہے۔"
+   (V2) This matches the English "The Kohistan is the western part of Sindh that stands close to Balochistan". There is no ایک, so "the western part" stays definite. Nothing is added or left out.
+   (V3) Kohistan now reads clearly as a name. علاقہ separates it from سندھ, and nothing joins it to بلوچستان, so the izafat misreading from round 2 is gone. The relative clause جو after حصہ ہے is natural Urdu, and both verbs agree.
+
+2. Line 43, "جن میں ہندوؤں کی بیشتر آبادی بکھری ہوئی تھی۔"
+   (V2) The English says "most of the Hindus", so بیشتر is right here. The brief's rule against بیشتر applies only to "much of". "The provinces across which" is rendered as ان صوبوں ... جن میں. The certainty and the 1998 time frame are unchanged.
+   (V3) The echo of زیادہ تر ہندو from the sentence before is gone, and so is the misreading "those scattered were mostly Hindus". آبادی is feminine and agrees with بکھری ہوئی تھی. "آبادی بکھری ہوئی" is idiomatic.
+
+3. Line 29, "پہلے یہاں کی زیارت مشقت بھرا سفر ہوا کرتی تھی، مگر اس شاہراہ نے اس کی صورت بدل دی۔"
+   (V2) This says the highway reshaped the pilgrimage, which had been a journey of hardship, as the English does. The pilgrimage is the one the English calls "the pilgrimage". Hinglaj was introduced as زیارت کا مرکز in paragraph 1, and the paragraph has just named the Hingol area. یہاں adds no fact.
+   (V3) The competing noun اس علاقے has been removed. اس کی can now only point to زیارت, or to its predicate سفر, and either reading gives the English meaning. It cannot point to شاہراہ, which would need اپنی. In ہوا کرتی تھی the verb agrees with the feminine subject زیارت, which is correct for a copular sentence.
+
+NOTES:
+- Line 27: two sentences in a row now end in a relative clause with جو ("... سلسلہ دکھائی دیتا ہے جو ... حدِ فاصل ہے۔ ... حصہ ہے جو ... واقع ہے۔"). The next sentence also uses حصے (سندھی بولنے والے حصے). The English repeats "part" too, and the parallel reads acceptably. This is a matter of taste.
+- Line 29: یہاں follows "بلوچستان کے ساحلی علاقے", so it points to the coast, which suits Hinglaj near the Hingol. A reader may also take it as Balochistan in general. Both readings agree with the English "the pilgrimage". The round 2 taste note on ساحلی شاہراہ ... ساحلی علاقے still applies and is not counted.
+- The round 2 notes on changes 23, 24 and 6 (the third سفر, وہاں کے ویزوں, ادھر) are outside this round's changes. They stay as notes.

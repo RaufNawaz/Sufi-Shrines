@@ -1,0 +1,944 @@
+Punjab Urdu, fixes after V2 and V3 round 1, per heading group (applied by the group's Urdu writer as exact replacements), then the coordinator's spelling normalisation. WHY / OLD / NEW, then the rejected items with reasons.
+
+=================== GROUP P1 ===================
+ur_P1.md round-1 fixes (V2_P1.r1.txt, V3_P1.r1.txt), 2026-10-30
+Backup of the file before these changes: /home/claude/work/punjab/ur_P1.r1.bak
+81 changes applied.
+
+1. WHY: V2 issue 1 + V3 issue 27 (same sentence): keep the Anangpal clause inside 'Another tradition holds' (V2); stop repeating حکومت (V3). V2's پھر replaced by the existing تب to avoid پھر twice with 'غزنی سے پھر'.
+   OLD: تو ان کی حکومت مدتوں اچھی طرح قائم رہی، یہاں تک کہ بہرام شاہ کے زمانے میں ان کی باہمی چپقلش نے پنجاب کی حکومت کو بالکل کمزور کر دیا۔ تب راجا اننگ پال نے لاہور پر قبضہ کر لیا،
+   NEW: تو ان کا اقتدار مدتوں مستحکم رہا، یہاں تک کہ بہرام شاہ کے زمانے میں ان کی باہمی چپقلش نے پنجاب پر ان کی گرفت بالکل کمزور کر دی۔ اسی بیان کے مطابق تب راجا اننگ پال نے لاہور پر قبضہ کر لیا،
+
+2. WHY: V2 issue 2: 'In one view' must govern the slow, probably unconscious conversion too.
+   OLD: موجود رہے۔ اس کے باوجود پنجابی قبیلوں کا قبولِ اسلام
+   NEW: موجود رہے۔ اسی رائے کے مطابق اس کشمکش کے باوجود پنجابی قبیلوں کا قبولِ اسلام
+
+3. WHY: V2 note (meaning): English 'then'; اب in a past perfect frame reads as 'now'.
+   OLD: اور اب وہ ایک صوبہ تھا جس کا دارالحکومت لاہور تھا
+   NEW: اور اس وقت وہ ایک صوبہ تھا جس کا دارالحکومت لاہور تھا
+
+4. WHY: V3 issue 7: calque 'اپنے دیوان والا'.
+   OLD: کبھی اپنے دیوان والا مغل صوبہ،
+   NEW: کبھی ایسا مغل صوبہ جس کا اپنا دیوان تھا،
+
+5. WHY: V2 note (meaning): '1150 to 1151' is a span, not two separate years.
+   OLD: 1150 اور 1151 میں علاء الدین
+   NEW: 1150 تا 1151 میں علاء الدین
+
+6. WHY: V2 note (meaning): '1398 to 1399' is a span.
+   OLD: 1398 اور 1399 میں تیمور
+   NEW: 1398 تا 1399 میں تیمور
+
+7. WHY: V3 issue 1: agreement (رسوم is feminine plural) and object split from verb.
+   OLD: پنجاب اور سندھ کے بڑے مزاروں نے گلہ بان قبیلوں کو اپنے مذہبی رسوم کے دائرے میں، اور اپنے سماجی، معاشی اور سیاسی حلقۂ اثر میں بھی، کھینچ لیا۔
+   NEW: پنجاب اور سندھ کے بڑے مزاروں نے گلہ بان قبیلوں کو اپنی مذہبی رسوم کے دائرے میں بھی کھینچ لیا اور اپنے سماجی، معاشی اور سیاسی حلقۂ اثر میں بھی۔
+
+8. WHY: V3 issue 2: ergative نے cannot be shared with لے جانا.
+   OLD: فریاد کی کہ افغانوں نے اس کا گھر لوٹ لیا ہے اور اس کی بیٹی کو کابل اٹھا لے گئے ہیں۔
+   NEW: فریاد کی کہ افغان اس کا گھر لوٹ کر اس کی بیٹی کو کابل اٹھا لے گئے ہیں۔
+
+9. WHY: V3 issue 3: izafat made 'Shor Ghazi Khan' one name; English is 'the fort of Shor from Ghazi Khan'.
+   OLD: سلطان حسین لنگاہ نے قلعۂ شور غازی خان سے چھین لیا،
+   NEW: سلطان حسین لنگاہ نے شور کا قلعہ غازی خان سے چھین لیا،
+
+10. WHY: V3 issue 4: زیادہ سے زیادہ means 'at most', not 'increasingly'.
+   OLD: محمود کے جانشین زیادہ سے زیادہ ایک علاقائی طاقت بنتے گئے۔
+   NEW: محمود کے جانشین رفتہ رفتہ ایک علاقائی طاقت بنتے چلے گئے۔
+
+11. WHY: V3 issue 5 (overview): circular اس سے ملحق.
+   OLD: 1875 میں پنجاب سے مراد دہلی سے پشاور تک کا وہ سارا ملک تھا جو اس وقت اس سے ملحق تھا اور
+   NEW: 1875 میں پنجاب سے مراد دہلی سے پشاور تک کا وہ سارا ملک تھا جو اس وقت صوبے میں شامل تھا اور
+
+12. WHY: V3 issue 5 (history section): two اس pointing to different things.
+   OLD: 1875 میں اس سے مراد دہلی سے پشاور تک کا وہ سارا ملک تھا جو اس وقت اس سے ملحق تھا،
+   NEW: 1875 میں پنجاب سے مراد دہلی سے پشاور تک کا وہ سارا ملک تھا جو اس وقت صوبے میں شامل تھا،
+
+13. WHY: V3 issue 6: armies do not 'bring deserted villages'; 'waves settled' mixed metaphor; overlong.
+   OLD: منگول لشکر بار بار آئے اور اپنے ساتھ لوٹ مار، قحط اور ویران بستیاں لائے، اور منگولوں کے دباؤ سے ترک آبادکاروں کی لہریں پنجاب کے شہروں میں آ بسیں، جن میں
+   NEW: منگول لشکر بار بار آئے، ان کے ساتھ لوٹ مار اور قحط آیا اور بستیاں ویران ہوئیں۔ منگولوں کے دباؤ کے سبب ترک آبادکار لہر در لہر آ کر پنجاب کے شہروں میں بس گئے، جن میں
+
+14. WHY: V3 issue 8: overlong, loose یہی.
+   OLD: اس کے جانشینوں کے بعد یہ ملک انگریزی عملداری میں چلا گیا، اور 1880 کی دہائی تک لاہور صوبۂ پنجاب کا دارالحکومت بن چکا تھا، اور یہی صوبے کے لیفٹیننٹ گورنر اور صوبائی عدالتوں کا مستقر تھا۔
+   NEW: اس کے جانشینوں کے بعد یہ ملک انگریزی عملداری میں چلا گیا۔ 1880 کی دہائی تک لاہور صوبۂ پنجاب کا دارالحکومت بن چکا تھا، اور صوبے کے لیفٹیننٹ گورنر اور صوبائی عدالتوں کا مستقر بھی یہی شہر تھا۔
+
+15. WHY: V3 issue 9: سب سے پہلے means 'first in time'.
+   OLD: پنجاب سب سے پہلے اولیا کے مزاروں کی سرزمین ہے۔
+   NEW: پنجاب کی اولین پہچان اس کے اولیا کے مزار ہیں۔
+
+16. WHY: V3 issue 10: calque مزار ثقافت.
+   OLD: آج جنوبی پنجاب کو ملک کی مزار ثقافت کا مرکز سمجھا جاتا ہے۔
+   NEW: آج جنوبی پنجاب کو ملک میں مزاروں سے وابستہ ثقافت کا مرکز سمجھا جاتا ہے۔
+
+17. WHY: V3 issue 11: calque مزار ثقافت; unrelated assassination tacked on with اور.
+   OLD: نے جنوب کی مزار ثقافت کا رخ کیا ہے، اور 4 جنوری 2011 کو
+   NEW: نے جنوب کی مزاروں سے وابستہ ثقافت کا رخ کیا ہے۔ 4 جنوری 2011 کو
+
+18. WHY: V3 issue 12 (applied with a change): overlong, پنجاب three times. V3's NEW joined the Naushahi faqirs to 'گرو نانک کے زمانے تک' with اور یہاں, which the English does not do (only the Qadiris are dated to Guru Nanak's day), so the sentence break falls after the Qadiris instead. Name per coordinator: خواجہ سلیمان تونسوی.
+   OLD: گرو نانک کے زمانے تک قادریوں نے پنجاب کو اپنی سرگرمیوں کا سب سے بڑا مرکز بنا لیا تھا؛ پنجاب میں نوشاہی فقیر ہزاروں کی تعداد میں تھے؛ اور شیخ سلیمان تونسوی نے، جن کا انتقال 1850 میں ہوا، پورے پنجاب میں دینی مدارس کے ذریعے سلسلۂ چشتیہ کو مستحکم کیا۔
+   NEW: گرو نانک کے زمانے تک قادریوں نے پنجاب کو اپنی سرگرمیوں کا سب سے بڑا مرکز بنا لیا تھا۔ پنجاب میں نوشاہی فقیر ہزاروں کی تعداد میں تھے، اور 1850 میں وفات پانے والے خواجہ سلیمان تونسوی نے پورے صوبے میں دینی مدارس کے ذریعے سلسلۂ چشتیہ کو مستحکم کیا۔
+
+19. WHY: V3 issue 13: اس read as the Christian community; آبادی بستی ہے redundant.
+   OLD: اس کے جنوب میں اب بھی ہندوؤں کی خاصی آبادی بستی ہے،
+   NEW: صوبے کے جنوب میں اب بھی ہندوؤں کی خاصی آبادی ہے،
+
+20. WHY: V3 issue 14: calque کاشت کاری کے تہوار.
+   OLD: جیسے کاشت کاری کے تہوار
+   NEW: جیسے زرعی تہوار
+
+21. WHY: V3 issue 15: اس کی بولی could be qawwali's; بولی ... بولی جاتی.
+   OLD: پنجاب قوالی کے دو بڑے خطوں میں سے ایک ہے، اور جنوب میں اس کی بولی سرائیکی میں ڈھل جاتی ہے، جو شمالی سندھ اور جنوبی پنجاب میں بولی جاتی ہے۔
+   NEW: پنجاب قوالی کے دو بڑے خطوں میں سے ایک ہے۔ جنوب میں صوبے کی بولی سرائیکی میں ڈھل جاتی ہے، جو شمالی سندھ اور جنوبی پنجاب کی زبان ہے۔
+
+22. WHY: V3 note (tense): the sentence jumped from past to present; split in two.
+   OLD: ہر ایک کی زبان پر تھی، اور جہاں کہیں پنجابی مل بیٹھیں
+   NEW: ہر ایک کی زبان پر تھی۔ جہاں کہیں پنجابی مل بیٹھیں
+
+23. WHY: V3 issue 16 (1 of 3): انگریزی فتح reads as an English-language victory.
+   OLD: 1840 کی دہائی میں انگریزی فتح کے ساتھ فارسی
+   NEW: 1840 کی دہائی میں انگریزوں کی فتح کے ساتھ فارسی
+
+24. WHY: V3 issue 16 (2 of 3).
+   OLD: 1840 کی دہائی میں انگریزی فتح کے ساتھ صوفی
+   NEW: 1840 کی دہائی میں انگریزوں کی فتح کے ساتھ صوفی
+
+25. WHY: V3 issue 16 (3 of 3).
+   OLD: انگریزی فتح کے وقت رجب
+   NEW: انگریزوں کی فتح کے وقت رجب
+
+26. WHY: V3 issue 17: رکھا ... رکھا.
+   OLD: موتی مندر رکھا گیا اور اس میں ریاست کا خزانہ رکھا جانے لگا۔
+   NEW: موتی مندر رکھا گیا اور وہاں ریاست کا خزانہ محفوظ کیا جانے لگا۔
+
+27. WHY: V3 issue 18: 'each period's Punjab is its own' does not work in Urdu.
+   OLD: اور اس کی تاریخ کے ہر دور کا پنجاب اپنا الگ ہے۔
+   NEW: اور تاریخ کے ہر دور کا پنجاب دوسرے ادوار کے پنجاب سے مختلف ہے۔
+
+28. WHY: V3 issue 19: لاہور کے لیے reads as 'for the benefit of Lahore'.
+   OLD: لاہور کے لیے پنجاب وہ بڑی اکائی تھا جس کا یہ شہر حصہ تھا: وہ ملک جس کا یہ دارالحکومت بنا، پھر نہ رہا، اور پھر دوبارہ بنا۔
+   NEW: لاہور جس بڑی اکائی کا حصہ تھا، وہ پنجاب تھا: وہ ملک جس کا یہ شہر دارالحکومت بنا، پھر نہ رہا، اور پھر دوبارہ بنا۔
+
+29. WHY: V3 issue 20: gloss of familiar ثقافت then repeated as ثقافتی; سندھی علاقے loose.
+   OLD: جس زمانے میں سندھی علاقے میں موجودہ پنجاب کا جنوبی حصہ بھی شامل تھا، اس وقت وہاں ایک مشترک سندھی ثقافت موجود تھی، یعنی سماجی، مذہبی اور ثقافتی خصوصیات کا ایک مجموعہ۔
+   NEW: جس زمانے میں موجودہ پنجاب کا جنوبی حصہ بھی سندھ میں شامل تھا، اس وقت وہاں سماجی، مذہبی اور ثقافتی خصوصیات کا ایک مشترک سندھی مجموعہ موجود تھا۔
+
+30. WHY: V3 issue 21: 'a valley that was an agrarian society'; English apposition.
+   OLD: وادیٔ سندھ کی طرح، جو ایک زرعی معاشرہ تھی، آج کا
+   NEW: وادیٔ سندھ کے زرعی معاشرے کی طرح آج کا
+
+31. WHY: V3 issue 22: میں سے ایک ... میں سے ایک.
+   OLD: سکندر کے مؤرخ پورس کو چندر بنسی نسل کے ان دو راجاؤں میں سے ایک بتاتے ہیں جن میں سے
+   NEW: سکندر کے مؤرخوں کے مطابق پورس چندر بنسی نسل کے ان دو راجاؤں میں سے تھا جن میں سے
+
+32. WHY: V3 issue 23: trailing 'from X to Y' after the verb is English order.
+   OLD: گرو نانک سے پہلے کی صدیوں میں ہر حملہ آور پنجاب ہی کے راستے آیا، گیارھویں صدی کے آغاز کے بعد غزنویوں، غوریوں اور تغلقوں سے لے کر 1398 میں تیمور تک۔
+   NEW: گیارھویں صدی کے آغاز کے بعد آنے والے غزنویوں، غوریوں اور تغلقوں سے لے کر 1398 میں تیمور تک، گرو نانک سے پہلے کی صدیوں میں ہر حملہ آور پنجاب ہی کے راستے آیا۔
+
+33. WHY: V3 issue 24: چھوڑ دیا گیا suggests 'abandoned'.
+   OLD: اس کے برعکس سندھ کو چھوڑ دیا گیا:
+   NEW: سندھ کا معاملہ اس کے برعکس تھا:
+
+34. WHY: V3 issue 25: calques مسلم فتح، فارسی تہذیب کی دنیا، مضبوط موجودگی; پرکشش is not 'charismatic'; overlong.
+   OLD: شمالی ہندوستان کی مسلم فتح نے فارسی تہذیب کی دنیا کو پنجاب تک پھیلا دیا، جہاں مغل دور میں اور اس کے بعد بھی فارسی حکمران طبقے کی غالب ادبی زبان رہی، اور بڑے صوفی سلسلوں کی پرکشش شخصیات کی آمد سے یہاں بہت جلد صوفیوں کی مضبوط موجودگی قائم ہو گئی۔
+   NEW: شمالی ہندوستان پر مسلمانوں کی فتح کے ساتھ فارسی تہذیب کا دائرہ پنجاب تک پھیل گیا، جہاں مغل دور میں اور اس کے بعد بھی فارسی حکمران طبقے کی غالب ادبی زبان رہی۔ بڑے صوفی سلسلوں کی بااثر شخصیات کی آمد سے یہاں بہت جلد صوفیوں کے قدم مضبوطی سے جم گئے۔
+
+35. WHY: V3 issue 26 (1 of 2): reads as 'Mahmud's Punjab'.
+   OLD: اور محمود کے پنجاب پر حملے کے بعد
+   NEW: اور پنجاب پر محمود کے حملے کے بعد
+
+36. WHY: V3 issue 26 (2 of 2): reads as 'Ahmad Shah's Punjab'.
+   OLD: احمد شاہ ابدالی کے پنجاب پر حملے دیکھے
+   NEW: پنجاب پر احمد شاہ ابدالی کے حملے دیکھے
+
+37. WHY: V3 issue 28: اس does not clearly mean Khusrau Malik.
+   OLD: جب اس نے سلطان شہاب الدین غوری کی اطاعت قبول کی
+   NEW: جب خسرو ملک نے سلطان شہاب الدین غوری کی اطاعت قبول کی
+
+38. WHY: V3 issue 29: گرفت is not قائم کی.
+   OLD: پنجاب کے جنوبی حصے پر مضبوط گرفت اور سنی حکومت قائم کی؛
+   NEW: پنجاب کے جنوبی حصے پر اپنی گرفت مضبوط کی اور وہاں سنی حکومت قائم کی؛
+
+39. WHY: V3 issue 30: nested جب ... تو.
+   OLD: اس نے جواب دیا کہ جب منگول ولایتِ پنجاب پر برابر یورشیں کرتے رہتے ہیں تو دہلی سے دور دراز ملکوں کو جانا مناسب نہیں
+   NEW: اس نے جواب دیا کہ منگول ولایتِ پنجاب پر برابر یورشیں کرتے رہتے ہیں، ایسے میں دہلی سے دور دراز ملکوں کو جانا مناسب نہیں
+
+40. WHY: V3 issue 31: active to passive mid-sentence.
+   OLD: پنجاب میں آیا اور دیپالپور اور لاہور دونوں لوٹ لیے گئے؛
+   NEW: پنجاب میں آیا اور اس نے دیپالپور اور لاہور دونوں کو لوٹ لیا؛
+
+41. WHY: V3 issue 32: misplaced relative جو.
+   OLD: منصوبے سے پہلے منگولوں کے خلاف جہاد کا نعرہ بلند کیا تھا، جو پچھلے
+   NEW: منصوبے سے پہلے ان منگولوں کے خلاف جہاد کا نعرہ بلند کیا تھا جو پچھلے
+
+42. WHY: V3 issue 33: three third-person references to two men.
+   OLD: اور اس کی واپسی پر پنجاب کے لوگوں نے اس لٹیرے کے قتل و غارت کی فریاد اس کے سامنے پیش کی۔
+   NEW: اور تیمور کی واپسی پر پنجاب کے لوگوں نے اس کے سامنے اس لٹیرے کے قتل و غارت کی فریاد کی۔
+
+43. WHY: V3 issue 34: محور is a calque of 'pivot'.
+   OLD: پندرھویں صدی کا محور تاتار خان کی حکومت ہے۔
+   NEW: پندرھویں صدی میں مرکزی حیثیت تاتار خان کی حکومت کو حاصل ہے۔
+
+44. WHY: V3 issue 35 (applied with a change): tense mismatch and overlong. Splitting as V3 proposed would take the Balkh and Kabul raids out from under 'it is said' and 'before his time', which in the English govern both, so the new sentence keeps the hedge and the time (یہ بھی کہا جاتا ہے کہ ان دنوں).
+   OLD: اور قصبے اور گاؤں برباد ہو گئے، اور بلخ اور کابل کے مغل ہر سال پنجاب پر یورش کرتے تھے، یہاں تک کہ ملک ویران پڑا رہتا اور اس کی پیداوار تھوڑی رہ گئی۔
+   NEW: اور قصبے اور گاؤں برباد ہو گئے۔ یہ بھی کہا جاتا ہے کہ ان دنوں بلخ اور کابل کے مغل ہر سال پنجاب پر یورش کرتے تھے، یہاں تک کہ ملک ویران پڑا رہتا تھا اور اس کی پیداوار گھٹ گئی تھی۔
+
+45. WHY: V3 issue 36: اس could be the Raja of Jammu's son.
+   OLD: دونوں نے اس سے مدد مانگی۔
+   NEW: دونوں نے تاتار خان سے مدد مانگی۔
+
+46. WHY: V3 issue 37 (applied with a change): the English states both that he took the road to Punjab and that, after Bikaner, he turned towards Punjab; V3's NEW dropped the first. The repetition of پنجاب is removed instead (اسی طرف).
+   OLD: تو اس نے پنجاب کی راہ لی، اور بیکانیر کے بعد پنجاب کی طرف مڑ کر وہاں جا پہنچا۔
+   NEW: تو اس نے پنجاب کی راہ لی اور بیکانیر کے بعد پھر اسی طرف مڑ کر وہاں جا پہنچا۔
+
+47. WHY: V3 issue 38 (applied with a change): جاگیر repeated. V3's یعنی لاہور اور ملتان would equate 'the territory of the Punjab' with Lahore and Multan, which the English does not do; it says the Punjab lay in his jagir and that the jagir was Lahore and Multan. One جاگیر, both statements kept.
+   OLD: ہمایوں نے لنگر خان کو اپنے بھائی شہزادہ کامران کی خدمت پر مامور کیا، جس کی جاگیر میں پنجاب کا علاقہ شامل تھا؛ کامران کی جاگیر لاہور اور ملتان تھی۔
+   NEW: ہمایوں نے لنگر خان کو اپنے بھائی شہزادہ کامران کی خدمت پر مامور کیا، جس کی جاگیر لاہور اور ملتان تھی اور اس میں پنجاب کا علاقہ شامل تھا۔
+
+48. WHY: V3 issue 39: سے ... سے.
+   OLD: رانا سانگا سے جنگ سے پہلے
+   NEW: رانا سانگا کے خلاف جنگ سے پہلے
+
+49. WHY: V3 issue 40: 'counted in two provinces' unidiomatic.
+   OLD: اکبر کی سلطنت میں پنجاب دو صوبوں میں شمار ہوتا تھا، صوبۂ لاہور اور صوبۂ ملتان۔
+   NEW: اکبر کی سلطنت میں پنجاب دو صوبوں میں بٹا ہوا تھا: صوبۂ لاہور اور صوبۂ ملتان۔
+
+50. WHY: V3 issue 41: 'held the fort' literal.
+   OLD: لاہور کے صوبیدار دلاور خان نے قلعے کو اس کے مقابلے میں تھامے رکھا۔
+   NEW: لاہور کے صوبیدار دلاور خان نے قلعہ بند ہو کر اس کا مقابلہ کیا۔
+
+51. WHY: V3 issue 42: name fenced between commas.
+   OLD: پنجاب کے پہاڑی علاقے کے بڑے زمینداروں میں سے ایک، راجا باسو، ابھی ابھی بادشاہ کے ساتھ آ ملا تھا؛
+   NEW: پنجاب کے پہاڑی علاقے کا ایک بڑا زمیندار راجا باسو ابھی ابھی بادشاہ سے آ ملا تھا؛
+
+52. WHY: V3 issue 43: جو after the verb could attach to the haveli.
+   OLD: نواب وزیر خان کی صوبیداری کے زمانے میں اندھی حویلی ایک ہندو امیر نے بنوائی جو صوبۂ پنجاب کا دیوان تھا،
+   NEW: نواب وزیر خان کی صوبیداری کے زمانے میں ایک ہندو امیر نے، جو صوبۂ پنجاب کا دیوان تھا، اندھی حویلی بنوائی،
+
+53. WHY: V3 issue 44: 'home of an industry' as کا گھر.
+   OLD: سترھویں اور اٹھارھویں صدی میں پنجاب، سندھ کے ساتھ ساتھ، چمڑے کی صنعت کا گھر تھا۔
+   NEW: سترھویں اور اٹھارھویں صدی میں سندھ کی طرح پنجاب بھی چمڑے کی صنعت کا مرکز تھا۔
+
+54. WHY: V3 issue 45: اس pointed to the century or to ruin.
+   OLD: اٹھارھویں صدی بربادی کا زمانہ تھی، اور پنجاب اس کا میدانِ جنگ تھا۔
+   NEW: اٹھارھویں صدی بربادی کا زمانہ تھی، اور اس دور کی لڑائیوں کا میدان پنجاب تھا۔
+
+55. WHY: V3 issue 46 + V2 note (italics on titles): خاتمے could read as the lovers' end. V3's NEW (ان کی ہیر) is kept in sense, but the title the English gives, Hir and Ranjha, is kept and italicised like *بابر بانی*, and 'epilogue' is اختتامیہ.
+   OLD: وارث شاہ کا نوحہ ہیر رانجھا کے خاتمے میں آتا ہے،
+   NEW: وارث شاہ کا نوحہ ان کی *ہیر رانجھا* کے اختتامیے میں آتا ہے،
+
+56. WHY: V3 issue 47: لوٹ مار کرنے والے and لٹیرے say the same thing.
+   OLD: اس کے حملے کے بعد لوٹ مار کرنے والے سکھ جتھوں نے
+   NEW: اس کے حملے کے بعد سکھ جتھوں نے
+
+57. WHY: V3 issue 48: collocation لوٹ مار مچانا.
+   OLD: نے پنجاب میں لوٹ مار پھیلائی
+   NEW: نے پنجاب میں لوٹ مار مچائی
+
+58. WHY: V3 issue 49: 'lived in a time' as زمانے میں رہے.
+   OLD: بلھے شاہ، جن کا انتقال 1758 میں ہوا، پنجاب میں بڑی سماجی اتھل پتھل کے زمانے میں رہے،
+   NEW: بلھے شاہ نے، جن کا انتقال 1758 میں ہوا، پنجاب میں بڑی سماجی اتھل پتھل کے زمانے میں زندگی گزاری،
+
+59. WHY: V3 issue 50: 'no side to choose' literal.
+   OLD: بلھے شاہ کے سامنے کسی دھڑے کو چننے کا راستہ نہ تھا۔
+   NEW: بلھے شاہ کے لیے کسی ایک دھڑے کا ساتھ دینے کی کوئی صورت نہ تھی۔
+
+60. WHY: V3 issue 51 (applied with a change): اجاڑنے والے تھے is ambiguous. V3's اجاڑ رہے تھے ('were laying waste') changes the English 'were to lay waste', a future in the past (they later did). Written as آگے چل کر ... اجاڑ ڈالا.
+   OLD: بندہ بیراگی کی سرکردگی میں سکھ لٹیرے لاہور اور قصور کے سوا سارا صوبہ اجاڑنے والے تھے،
+   NEW: بندہ بیراگی کی سرکردگی میں سکھ لٹیروں نے آگے چل کر لاہور اور قصور کے سوا سارا صوبہ اجاڑ ڈالا،
+
+61. WHY: V3 issue 52: broken parallelism in the list of relatives.
+   OLD: ان کے کلام میں رانگھڑوں کا بھی ذکر آتا ہے، جو مسلمان راجپوتوں کا ایک قبیلہ تھا، اٹھارھویں صدی کے پنجاب میں نمایاں ہوا، اور جس کا غرور ضرب المثل تھا۔
+   NEW: ان کے کلام میں رانگھڑوں کا بھی ذکر آتا ہے، جو مسلمان راجپوتوں کا ایک قبیلہ تھا۔ یہ قبیلہ اٹھارھویں صدی کے پنجاب میں نمایاں ہوا اور اس کا غرور ضرب المثل تھا۔
+
+62. WHY: V3 issue 53: gloss between commas strands کے.
+   OLD: اور ایک اور کافی میں ہجری بارھویں صدی، یعنی عیسوی اٹھارھویں صدی، کے پنجابی معاشرے کی بدحالی کا بیان ہے۔
+   NEW: اور ایک اور کافی میں بارھویں صدی ہجری کے پنجابی معاشرے کی بدحالی کا بیان ہے؛ عیسوی حساب سے یہ اٹھارھویں صدی ہے۔
+
+63. WHY: V3 issue 54: circular 'took the whole region as Maharaja of the region'. Applied in V3's wording (a first draft kept پنجاب کے مہاراجا, which put پنجاب three times in the sentence; 'ruler of the region' is carried by مہاراجہ ... اس پر حکومت کی).
+   OLD: رنجیت سنگھ نے خطۂ پنجاب کے حکمران مہاراجا کی حیثیت سے سارا خطہ اپنے قبضے میں کر لیا اور چالیس برس پنجاب پر حکومت کی؛
+   NEW: رنجیت سنگھ نے سارا خطۂ پنجاب اپنے قبضے میں کر لیا اور مہاراجا کی حیثیت سے چالیس برس اس پر حکومت کی؛
+
+64. WHY: V3 issue 55: the implied contrast (outward king) was lost.
+   OLD: کہ ظاہری بادشاہ مہاراجا رنجیت سنگھ ہے۔
+   NEW: کہ ظاہری بادشاہ تو مہاراجا رنجیت سنگھ ہے۔
+
+65. WHY: V3 issue 56: وہ could be either man; joined ہوگا.
+   OLD: دھیان سنگھ نے شیر سنگھ سے کہا کہ ان شاء اللہ وہ جلد پنجاب کا حکمران ہوگا،
+   NEW: دھیان سنگھ نے شیر سنگھ سے کہا کہ ان شاء اللہ تم جلد پنجاب کے حکمران ہو گے،
+
+66. WHY: V3 issue 57: second sentence restated the first.
+   OLD: اور پھر سارا ملک انگریزی عملداری میں آ گیا۔ سکھ حکومت کے خاتمے کے بعد انگریز پنجاب کے مالک بن گئے۔
+   NEW: اور پھر سارا ملک انگریزی عملداری میں آ گیا؛ یوں سکھ حکومت ختم ہوئی اور انگریز پنجاب کے مالک بن گئے۔
+
+67. WHY: V3 issue 58: trailing apposition. Applied with the original وہاں for V3's پنجاب میں, since پنجاب already stands twice in the sentence.
+   OLD: وہ انیسویں صدی کے وسط میں پہنچے، اس صدی میں جسے وہاں سکھ دور بھی کہا جاتا ہے،
+   NEW: وہ انیسویں صدی کے وسط میں پہنچے، جو وہاں سکھ دور بھی کہلاتی ہے،
+
+68. WHY: V3 issue 59: ان دونوں after three officials named. The English 'two halls named after them' follows the Montgomery and Lawrence sentences, so the referent is resolved, not added.
+   OLD: ان دونوں کے نام سے موسوم دو ہالوں
+   NEW: منٹگمری اور لارنس کے نام سے موسوم دو ہالوں
+
+69. WHY: V3 issue 60: عام جیل means 'ordinary jail'.
+   OLD: لاہور کی سنٹرل جیل سارے خطۂ پنجاب کے قیدیوں کے لیے عام جیل کی حیثیت سے بنائی گئی:
+   NEW: لاہور کی سنٹرل جیل سارے خطۂ پنجاب کے قیدیوں کی مشترکہ جیل کے طور پر بنائی گئی:
+
+70. WHY: V3 issue 61 (applied, keeping 'literally'): comma-fenced insertion separated object and verb. V3's NEW reduced 'which literally means' to یعنی; the English 'literally' is kept.
+   OLD: عام بول چال میں مقامی پنجابیوں کو، نہری بستیاں بننے کے بعد آ کر بسنے والوں کے مقابلے میں، جانگلی کہا جاتا ہے، جس کے لفظی معنی ہیں جنگل کے لوگ۔
+   NEW: نہری بستیاں بننے کے بعد آ کر بسنے والوں کے مقابلے میں مقامی پنجابیوں کو عام بول چال میں جانگلی کہا جاتا ہے، جس کے لفظی معنی ہیں جنگل کے لوگ۔
+
+71. WHY: V3 issue 62 (applied with a change): garbled. V3's ان راستوں ('these routes') has no antecedent; the English speaks of the regions, so ان خطوں.
+   OLD: اور تاجروں کے علاوہ علم کی گردش کے سلسلے بھی قائم تھے، خاص طور پر مذہبی علم کے۔
+   NEW: اور تاجروں کے ساتھ ساتھ ان خطوں میں علم بھی گردش کرتا تھا، خاص طور پر مذہبی علم۔
+
+72. WHY: V3 issue 63: کا بننا for 'formation'.
+   OLD: پنجاب کے قوم پرستانہ تصورات کا بننا کوئی سادہ عمل نہ تھا۔
+   NEW: پنجاب کے قوم پرستانہ تصورات کی تشکیل کوئی سادہ عمل نہ تھا۔
+
+73. WHY: V3 issue 64: English apposition, کو ... کو, ambiguous اور نمایاں.
+   OLD: اردو، ہندی اور پنجابی، تین باہم قریبی زبانیں، بیک وقت رائج تھیں، اور ان کے فرق کو مسلمانوں، ہندوؤں اور سکھوں کی حریف ثقافتی شناختوں کو اور نمایاں کرنے کے لیے استعمال کیا گیا۔
+   NEW: اردو، ہندی اور پنجابی، جو آپس میں بہت قریب کی زبانیں ہیں، بیک وقت رائج تھیں، اور ان کے باہمی فرق سے مسلمانوں، ہندوؤں اور سکھوں کی حریف ثقافتی شناختوں کو مزید نمایاں کرنے کا کام لیا گیا۔
+
+74. WHY: V3 issue 65 (applied, keeping 'never'): شدت ... شدت, پہنچا ... پہنچا. V3's NEW dropped کبھی; the English says 'never'.
+   OLD: جنوب میں تقسیم کا تشدد کبھی اس شدت کو نہیں پہنچا جس شدت کو دوسری جگہوں پر پہنچا،
+   NEW: جنوب میں تقسیم کا تشدد کبھی اس شدت کو نہیں پہنچا جو دوسری جگہوں پر دیکھی گئی،
+
+75. WHY: V3 issue 66: پاکستانی ... پاکستان.
+   OLD: جو پاکستان کا سب سے خوش حال صوبہ ہے۔
+   NEW: جو ملک کا سب سے خوش حال صوبہ ہے۔
+
+76. WHY: V3 issue 67: four clauses on اور.
+   OLD: اور اس کی حدود پنجاب تک پھیلی ہوئی تھیں، اور معلوم ہوتا ہے کہ
+   NEW: اور اس کی حدود پنجاب تک پھیلی ہوئی تھیں۔ معلوم ہوتا ہے کہ
+
+77. WHY: V3 issue 68: idiom is کسی حد تک.
+   OLD: جانشینی کی جنگ کچھ حد تک
+   NEW: جانشینی کی جنگ کسی حد تک
+
+78. WHY: V3 note (referent): اپنے had no personal subject.
+   OLD: اپنے زمانے کی ہنگامہ آرائیوں پر یہ تنقید،
+   NEW: اپنے عہد کی ہنگامہ آرائیوں پر بلھے شاہ کی یہ تنقید،
+
+79. WHY: V3 note: calqued ایک for 'a second wave'.
+   OLD: ہجرت کی ایک دوسری لہر آئی
+   NEW: ہجرت کی دوسری لہر آئی
+
+80. WHY: V3 note (spelling): گروگدی is written گرو گدی.
+   OLD: گروگدی
+   NEW: گرو گدی
+
+81. WHY: Spelling. urdu-i18n/urdu-dictionary.json (saints) spells Maharaja Ranjit Singh مہاراجہ رنجیت سنگھ; the title is made مہاراجہ in all 12 places in this file so there is one spelling (Ranjit Singh, Kharak Singh, Sher Singh, Dalip Singh, and 'راجا اور مہاراجا').
+   OLD: مہاراجا (all 12 occurrences)
+   NEW: مہاراجہ
+   (The NEW text of changes above that contain مہاراجا is shown before this spelling change; in the file it now reads مہاراجہ.)
+
+REJECTED (not applied), with reasons
+1. V3 NOTE: the overview repeats sentences of the history sections. Rejected: taste; the overview is a summary lead and the English repeats the same sentences (Siraiki south, prince's jagir and suba, last refuge of the house of Ghazni).
+2. V3 NOTE: the two famine sentences (the Andhi Haveli builder's descendants; Mir Jawad's descendants) read as a doublet; add a connective making clear they are two families. Rejected: the English does not say whether they are two families or one, so a connective saying so would add a fact.
+3. V3 NOTE: سلیم خان / اسلام شاہ and معز الدین محمد بن سام / شہاب الدین غوری, consider one name or a bracketed equation. Rejected: follow the English, which gives each name in the form used here and does not equate them (coordinator: follow the English for Salim Khan and Islam Shah).
+4. V3 NOTE: محمد قاسم is usually محمد بن قاسم. Rejected: the English spells the name Muhammad Qasim.
+5. V3 NOTE: 'چوتھی ... پانچویں ... آٹھویں آفت' counts blows whose first three are never listed. Rejected: the count is the English's ('the fourth came', 'the fifth blow', ... 'the eighth blow').
+6. V3 NOTE: 'صوبے کے حاکم مغلوں ہی کے مقرر کردہ تھے'. Rejected: changes the English 'The suba still had its Mughal rulers' into 'its rulers were appointed by the Mughals', a different claim.
+7. V3 NOTE: 'اس کے قصبوں کی تعمیرِ نو' for the doubled قصبے. Rejected: تعمیرِ نو is 'rebuilding'; the English says 'build its towns'. Pure taste otherwise.
+8. V3 NOTE: replace 'گرو کی سوانح کی ایک بازگوئی' with 'ایک جدید روایت' or 'ایک بیان'. Rejected: 'جدید' adds 'modern', which the English ('one retelling of the Guru's life') does not say; the note itself calls the current wording correct (taste).
+9. V2 NOTE (style only) on 1150/1151 and 1398/1399 and on title italics: APPLIED, not rejected (see changes 5, 6 and 55).
+
+Partly applied (V3's sentence changed so the Urdu stays faithful to the English): V3 issues 12, 35, 37, 38, 46, 51, 58 (one word), 61, 62, 65; reasons in each WHY above.
+Merged: V2 issue 1 and V3 issue 27 address the same sentence and are written as one sentence (change 1).
+
+=================== GROUP P2 ===================
+ur_P2.r1.changes.txt  (Punjab article, heading group P2: اولیا اور زیارت / برادریاں; Urdu round 1 fixes)
+Inputs: V2_P2.r1.txt (6 issues), V3_P2.r1.txt (42 issues), English en_P2.md as authority.
+All 6 V2 issues and all 42 V3 issues applied (V2-1 and V2-2 by one edit; V3-8 by three edits).
+Five applied in an adapted wording, for the reason given in each WHY: V3-1, V3-9, V3-17, V3-23, V3-33.
+One NOTE applied (quotation full stop). Two follow-on edits found on rereading the changed paragraphs.
+Script: each OLD asserted to occur exactly once. Backup of the pre-fix file: /tmp/claude-0/-home-claude/d3a7ce1c-d1ae-54a6-8837-c58e3b66e2bb/scratchpad/ur_P2.r0.bak.md
+Checker: python3 ur_trial.py P2 -> ok: no Urdu errors.
+
+==================== CHANGES ====================
+
+WHY: V2-1 + V2-2 [changed certainty; changed fact]: 'it is said' must govern all three claims; English says her shrine is in Lahore, not that she is buried there (V2 wording).
+OLD: کہا جاتا ہے کہ لاہور میں مدفون بی بی پاک دامن نے پنجاب کے غیر مسلموں میں اسلام کی اشاعت کے کام میں مردوں کو شریک کیا۔ خواتین پردے کے پیچھے سے مرد علما اور ان کے سامعین سے بات کرتی تھیں، اور سات سو مرد علما بی بی کے ساتھ اس سرزمین میں آئے جسے اس زمانے میں ہند کہا جاتا تھا۔
+NEW: لاہور میں بی بی پاک دامن کا مزار ہے۔ ان کے بارے میں کہا جاتا ہے کہ انہوں نے پنجاب کے غیر مسلموں میں اسلام کی اشاعت کے کام میں مردوں کو شریک کیا اور خواتین پردے کے پیچھے سے مرد علما اور ان کے سامعین سے بات کرتی تھیں۔ یہ بھی روایت ہے کہ سات سو مرد علما بی بی کے ساتھ اس سرزمین میں آئے جسے اس زمانے میں ہند کہا جاتا تھا۔
+
+WHY: V3-1 [consistency]: the sudden plural name 'بیبیاں پاک دامن' read like a new subject. V3 proposed 'ان بیبیوں'; adapted to 'بی بی پاک دامن کی بیبیوں' so the sentence keeps the English 'the Bibis of Bibi Pak Daman' while tying the plural to the Bibi already named.
+OLD: یہ روایت کہ بیبیاں پاک دامن نے زمین میں سما جانے
+NEW: یہ روایت کہ بی بی پاک دامن کی بیبیوں نے زمین میں سما جانے
+
+WHY: V2-6 [addition]: 'داستان' identified a work the English does not name, and 'the poet' was dropped (V2 wording).
+OLD: وارث شاہ نے اپنی داستان کی ابتدائی مناجات میں گایا:
+NEW: شاعر وارث شاہ نے اپنی مناجات میں گایا:
+
+WHY: V3 NOTE [punctuation consistency]: full stop moved outside the closing quotation mark, as in the file's other three quotations.
+OLD: ساری مصیبتیں ٹل گئیں۔"
+NEW: ساری مصیبتیں ٹل گئیں"۔
+
+WHY: V3-2 [ambiguity]: 'شاعر کی مدح' could read as praise of the poet (V3 wording).
+OLD: یہ تاریخ نہیں بلکہ شاعر کی مدح ہے
+NEW: یہ تاریخ نہیں بلکہ شاعرانہ مدح ہے
+
+WHY: V3-3 [diction]: 'رسومی' is not standard Urdu (V3 wording).
+OLD: اپنے رسومی، سماجی، معاشی اور سیاسی دائرے میں کھینچ لائے
+NEW: اپنی رسموں اور اپنے سماجی، معاشی اور سیاسی دائرۂ اثر میں کھینچ لائے
+
+WHY: V3-4 [repetition/tangled]: repeated 'پنجاب اور شمالی ہندوستان', Sindh concession moved to the end (V3 wording).
+OLD: پنجاب اور شمالی ہندوستان میں اسی سلسلے کا غلبہ ہے، اگرچہ سندھ میں اسے زیادہ فروغ نہیں ملا، اور عموماً اسے شمالی ہندوستان اور پنجاب کے طاقتور ترین صوفی سلسلوں میں شمار کیا جاتا ہے۔
+NEW: پنجاب اور شمالی ہندوستان میں اسی سلسلے کا غلبہ ہے اور عموماً اسے وہاں کے طاقتور ترین صوفی سلسلوں میں شمار کیا جاتا ہے، اگرچہ سندھ میں اسے زیادہ فروغ نہیں ملا۔
+
+WHY: V3-5 [agreement]: two centuries need the plural (V3 wording).
+OLD: اٹھارھویں اور انیسویں صدی میں چشتیوں کو پھر سے عروج ملا۔
+NEW: اٹھارھویں اور انیسویں صدیوں میں چشتیوں کو پھر سے عروج ملا۔
+
+WHY: V3-6 [ambiguity]: 'رشتے' suggests kinship; the English (and its source, 'related to but in tension with') means connections (V3 wording).
+OLD: جن کے مقامی سیاسی رہنماؤں سے رشتے بھی تھے
+NEW: جن کے مقامی سیاسی رہنماؤں سے روابط بھی تھے
+
+WHY: V3-7 [punctuation/register]: commas cut 1267ھ from its postposition; 'فوت ہوئے' flat for a major saint (V3 wording).
+OLD: 1184ھ میں پیدا ہوئے اور 1267ھ، یعنی 1850 میں، فوت ہوئے۔
+NEW: 1184ھ میں پیدا ہوئے اور 1267ھ مطابق 1850 میں ان کا وصال ہوا۔
+
+WHY: V3-8 [consistency] (1 of 3): one title for the saint of Taunsa throughout, خواجہ سلیمان تونسوی, as the coordinator's instructions fix it; the English refers to one person.
+OLD: نظامی شاخ شیخ سلیمان تونسوی کے مریدوں
+NEW: نظامی شاخ خواجہ سلیمان تونسوی کے مریدوں
+
+WHY: V3-8 [consistency] (2 of 3).
+OLD: شیخ سلیمان تونسوی نے اپنے پیروکاروں
+NEW: خواجہ سلیمان تونسوی نے اپنے پیروکاروں
+
+WHY: V3-8 [consistency] (3 of 3).
+OLD: پھر بھی شاہ سلیمان ایک طرف
+NEW: پھر بھی خواجہ سلیمان ایک طرف
+
+WHY: V3-9 [word order/izafat]: 'بابر کے ہندوستان' read as 'Babur's India' and the time phrase sat between commas. V3's NEW said the whole journey took place around the incursion; the English dates only its close ('The fourth closed, around the time of ...'), so the time phrase is kept on 'ختم ہوا'.
+OLD: چوتھا سفر، بابر کے ہندوستان پر تیسرے حملے کے آس پاس، جنوب مشرق سے پنجاب واپسی پر ختم ہوا۔
+NEW: چوتھا سفر ہندوستان پر بابر کے تیسرے حملے کے لگ بھگ زمانے میں جنوب مشرق سے پنجاب واپسی پر ختم ہوا۔
+
+WHY: V3-10 [collocation]: a title is not 'بولا جاتا' (V3 wording).
+OLD: سائیں کا لقب کسی جاگیردار یا روحانی پیشوا کے لیے بولا جاتا ہے۔
+NEW: سائیں کا لقب کسی جاگیردار یا روحانی پیشوا کے لیے استعمال ہوتا ہے۔
+
+WHY: V3-11 [ambiguity]: the western wing made up of Punjab and Sindh (V3 wording).
+OLD: بنگال میں بھی اور پنجاب اور سندھ کے مغربی بازو میں بھی
+NEW: بنگال میں بھی اور پنجاب و سندھ پر مشتمل مغربی بازو میں بھی
+
+WHY: V3-12 [calque]: 'گہری کاشت' (V3 wording).
+OLD: دریاؤں کے سیلابی میدانوں میں گہری کاشت پر تھا۔
+NEW: دریاؤں کے سیلابی میدانوں کی بھرپور کاشت پر تھا۔
+
+WHY: V3-13 [overlong]: three clauses chained with اور ... اور; split (V3 wording).
+OLD: سو میل سے بھی کم رہتا تھا، اور دریائی علاقے کے مستقل باشندوں
+NEW: سو میل سے بھی کم رہتا تھا۔ دریائی علاقے کے مستقل باشندوں
+
+WHY: V3-14 [word order]: what is supported is the movement itself; '؛ اور' awkward (V3 wording).
+OLD: جٹوں کے گلہ بان گروہوں کا ذکر کیا ہے؛ اور ان کے شمال کی طرف بڑھنے اور پنجاب کی چراگاہوں میں بس جانے کی اُس زمانے کی شہادتوں سے خوب تائید ہوتی ہے۔
+NEW: جٹوں کے گلہ بان گروہوں کا ذکر کیا ہے، اور اُس زمانے کی شہادتوں سے ان کے شمال کی طرف بڑھنے اور پنجاب کی چراگاہوں میں بس جانے کی خوب تائید ہوتی ہے۔
+
+WHY: V3-15 [calque]: 'غیر موجودگی نمایاں تھی' and stacked commas (V3 wording).
+OLD: صرف پنجاب کے انتہائی مغرب میں، سندھ ساگر دوآب میں، جہاں جنجوعہ راجپوتوں اور گکھڑوں کا غلبہ تھا، زمینداروں میں جٹوں کی غیر موجودگی نمایاں تھی۔
+NEW: صرف پنجاب کے انتہائی مغرب میں سندھ ساگر دوآب کے اندر، جہاں جنجوعہ راجپوتوں اور گکھڑوں کا غلبہ تھا، زمینداروں میں جٹ کہیں دکھائی نہیں دیتے تھے۔
+
+WHY: V3-16 [grammar/tense]: جیسے جیسے ... ویسے ویسے needs progressive verbs in both halves (V3 wording).
+OLD: جٹ جیسے جیسے سندھ سے شمال کی طرف پنجاب میں آئے، پست شودروں سے زمیندار بنے اور گلہ بانی چھوڑ کر کاشت کار ہوئے، ویسے ویسے
+NEW: جٹ جیسے جیسے سندھ سے شمال کی طرف پنجاب میں آتے گئے، پست شودروں سے زمیندار بنتے گئے اور گلہ بانی چھوڑ کر کاشت کار ہوتے گئے، ویسے ویسے
+
+WHY: V3-17 [English word order]: long modifier stacked before the noun, recast as a relative clause (V3 wording, with V3's past 'تھے/کرتے تھے' kept in the present 'ہیں/کرتے ہیں' because the English is present: 'clans that marry within themselves and are spread ... mostly as peasant farmers').
+OLD: جنوب مغربی پنجاب میں زیادہ تر کسانوں کی حیثیت سے پھیلے ہوئے اور آپس ہی میں شادیاں کرنے والے بہت سے بڑے قبیلوں نے 1935 سے 1938 کے درمیان
+NEW: جنوب مغربی پنجاب میں پھیلے ہوئے بہت سے بڑے قبیلوں نے، جو زیادہ تر کسان ہیں اور آپس ہی میں شادیاں کرتے ہیں، 1935 سے 1938 کے درمیان
+
+WHY: V3-18 [pronoun]: 'وہ' could mean the land or a person; subject made explicit ('ان' checked: it is the Baluch, as in the English 'them') (V3 wording).
+OLD: رفتہ رفتہ اس زمین کا ایک حصہ ان کے قبضے میں آ گیا، اور اسی زمانے سے وہ ملک سہراب کی اولاد کے ہاتھ میں رہا۔
+NEW: رفتہ رفتہ اس زمین کا ایک حصہ ان کے قبضے میں آ گیا اور یہ حصہ اسی زمانے سے ملک سہراب کی اولاد کے ہاتھ میں رہا۔
+
+WHY: V3-19 [diction]: inflated, and read as if one famine had already been mentioned (V3 wording).
+OLD: سرزمینِ پنجاب کے قحط کا ذکر مائی بھاگی کے حالات میں ملتا ہے۔
+NEW: پنجاب میں پڑنے والے ایک قحط کا ذکر مائی بھاگی کے حالات میں ملتا ہے۔
+
+WHY: V3-20 [deixis]: the paragraph is about communities leaving Punjab; 'آئے' pointed the wrong way (V3 wording).
+OLD: ملتان سمیت پنجاب کے شہروں سے آئے
+NEW: ملتان سمیت پنجاب کے شہروں سے نکلے
+
+WHY: V3-21 [repetition/commas]: 'دیوان' three times and the names boxed in commas (V3 wording; that the brothers were diwans stays in the predicate).
+OLD: تو دو بھائی، دیوان لکھپت رائے اور جسپت رائے، حکومتِ پنجاب کے دیوان تھے۔
+NEW: تو دو بھائی لکھپت رائے اور جسپت رائے حکومتِ پنجاب کے دیوان تھے۔
+
+WHY: V3-22 [calque]: 'قائم نظام' (V3 wording).
+OLD: چونکہ وہ قائم نظام کے خلاف کھڑے تھے
+NEW: چونکہ وہ رائج نظام کے خلاف کھڑے تھے
+
+WHY: V3-23 [collocation]: one does not 'نبھانا' habits. V3 proposed 'اپنی پرانی وضع'; written 'اپنی وضع داری' so that 'پرانا ... پرانی' does not repeat in one sentence.
+OLD: پرانا حکمران طبقہ انگریزی راج میں بھی اپنی عادتیں نبھاتا رہا:
+NEW: پرانا حکمران طبقہ انگریزی راج میں بھی اپنی وضع داری نبھاتا رہا:
+
+WHY: V3-24 [ambiguity]: read as 'Hindus and Muslims took part'; the English is that Hindus shared in the Muslim orders (V3 wording).
+OLD: ہندو مسلمان صوفی سلسلوں میں شریک ہوتے تھے
+NEW: ہندو بھی مسلمان صوفیوں کے سلسلوں میں شریک ہوتے تھے
+
+WHY: V3-25 [unidiomatic]: 'اجازت ہونا مشہور ہے' (V3 wording).
+OLD: پنجاب کے جٹ زمیندار ہیں اور ان کے ہاں بیواؤں کو دوسری شادی کی اجازت ہونا مشہور ہے؛
+NEW: پنجاب کے جٹ زمیندار ہیں اور یہ بات مشہور ہے کہ ان کے ہاں بیواؤں کو دوسری شادی کی اجازت ہے؛
+
+WHY: V3-26 [calque]: 'سادہ تر علاقے' (V3 wording).
+OLD: جیسا کہ دیہات کے سادہ تر علاقوں میں آج بھی ہوتا ہے۔
+NEW: جیسا کہ دیہات کے سیدھے سادے ماحول میں آج بھی ہوتا ہے۔
+
+WHY: V3-27 [ambiguity/repetition]: 'کے واسطے سے' read as Lakhmi Chand's agency; 'لوگ' repeated (V3 wording).
+OLD: لکھمی چند کے واسطے سے گرو نانک کی اولاد میں بیٹیوں کو مار ڈالنے کا پرانا رواج تھا۔ یہ لوگ خود کو پنجاب کے سب سے معزز لوگ سمجھتے تھے
+NEW: گرو نانک کی جو اولاد لکھمی چند سے چلی، اس میں بیٹیوں کو مار ڈالنے کا پرانا رواج تھا۔ یہ لوگ خود کو پنجاب میں سب سے معزز سمجھتے تھے
+
+WHY: V3-28 [overlong]: the game is a separate idea; split (V3 wording).
+OLD: اور چٹخارے دار گپ شپ میں بھی، اور ایک پسندیدہ کھیل میں
+NEW: اور چٹخارے دار گپ شپ میں بھی۔ ایک پسندیدہ کھیل میں
+
+WHY: V3-29 [calque]: 'ہلکا لینا' (V3 wording).
+OLD: اسے ہلکا نہیں لیا جا سکتا۔
+NEW: اسے ٹالا نہیں جا سکتا۔
+
+WHY: V3-30 [overlong]: three unrelated facts chained with semicolons and 'اور'; split (V3 wording).
+OLD: ہونٹوں کی سرخی کا کام دیتا تھا؛ صابن سے شیو کرنے کا رواج بہت بعد میں آیا، اور گاؤں کے نائی آج بھی اکثر صرف پانی سے حجامت بناتے ہیں؛ اور پیڑھا
+NEW: ہونٹوں کی سرخی کا کام دیتا تھا۔ صابن سے شیو کرنے کا رواج بہت بعد میں آیا، اور گاؤں کے نائی آج بھی اکثر صرف پانی سے حجامت بناتے ہیں۔ پیڑھا
+
+WHY: V3-31 [izafat]: 'مزار ثقافت' is an English noun compound (V3 wording).
+OLD: اصلاحی تحریکوں نے دیہات کی مزار ثقافت پر دباؤ ڈالا ہے۔
+NEW: اصلاحی تحریکوں نے دیہات میں مزاروں کی ثقافت پر دباؤ ڈالا ہے۔
+
+WHY: V3-32 [word order]: two adjectives stacked before پنجاب (V3 wording).
+OLD: نے غیر منقسم دیہی پنجاب میں کام کیا
+NEW: نے غیر منقسم پنجاب کے دیہات میں کام کیا
+
+WHY: V3-33 [redundancy]: 'تبلیغی مبلغین' is tautological. V3 proposed 'تبلیغی کارکنوں'; written 'تبلیغی جماعت کے مبلغین' to keep the English 'preachers' while removing the tautology.
+OLD: تبلیغی مبلغین کی توجہ جنوبی پنجاب
+NEW: تبلیغی جماعت کے مبلغین کی توجہ جنوبی پنجاب
+
+WHY: V3-34 [repetition]: 'سماجی تانے بانے میں سرایت' repeated from two paragraphs earlier (V3 wording).
+OLD: اسی طرح اہلِ حدیث مکتبِ فکر کی تنظیمیں بھی جنوبی پنجاب کے سماجی تانے بانے میں سرایت کر گئی ہیں۔
+NEW: اسی طرح اہلِ حدیث مکتبِ فکر کی تنظیموں نے بھی جنوبی پنجاب کے معاشرے میں گہری جڑیں پکڑ لی ہیں۔
+
+WHY: V3-35 [repetition]: 'یہ تنظیمیں' and 'نوجوانوں' repeated (V3 wording).
+OLD: یہ تنظیمیں نوجوانوں میں اس لیے مقبول ہیں کہ ان کے پاس نوجوانوں پر ہونے والے موجودہ ظلم کی ایک توجیہ ہے۔
+NEW: نوجوانوں میں ان تنظیموں کی مقبولیت کا سبب یہ ہے کہ وہ ان پر ہونے والے موجودہ ظلم کی ایک توجیہ پیش کرتی ہیں۔
+
+WHY: V3-36 [pronoun]: 'انہیں' could refer to Christians or Hindus (V3 wording).
+OLD: جبکہ وہاں ہندو ایک چھوٹی برادری ہیں، اس لیے سیاسی جماعتیں انہیں نظر انداز کر سکتی ہیں۔
+NEW: جبکہ ہندو وہاں اتنی چھوٹی برادری ہیں کہ سیاسی جماعتیں انہیں نظر انداز کر سکتی ہیں۔
+
+WHY: V3-37 [calque]: 'مخالف ماحول' and 'ایک' twice (V3 wording).
+OLD: یہ ایک مخالف ماحول میں جینے کا ایک طریقہ ہے۔
+NEW: یہ معاندانہ ماحول میں جینے کا ایک طریقہ ہے۔
+
+WHY: V3-38 [unidiomatic]: 'دہرائی جاتی معلوم ہوتی ہے' (V3 wording).
+OLD: مقامی مسجدوں میں قرآن کے چند جلے ہوئے اوراق ملنے کی کہانی بار بار دہرائی جاتی معلوم ہوتی ہے۔
+NEW: یوں لگتا ہے کہ مقامی مسجدوں میں قرآن کے چند جلے ہوئے اوراق ملنے کی کہانی بار بار دہرائی جاتی ہے۔
+
+WHY: V3-39 [agreement]: several heads cannot share one turban (V3 wording).
+OLD: نے اپنے سر ایک ڈھیلی پگڑی سے ڈھانپ رکھے تھے، جو مغربی پنجاب کے دیہات میں مقبول انداز ہے۔
+NEW: نے اپنے سر ڈھیلی ڈھالی پگڑیوں سے ڈھانپ رکھے تھے، جو مغربی پنجاب کے دیہات کا مقبول انداز ہے۔
+
+WHY: V3-40 [commas/logic]: the date was cut off from its verb, and '13 جنوری کو ... رات' did not agree (V3 wording).
+OLD: یہ 13 جنوری کو، جو عموماً پوہ کے مہینے کی آخری رات ہوتی ہے، منایا جاتا ہے: گاؤں میں الاؤ جلتا ہے،
+NEW: یہ 13 جنوری کی رات منایا جاتا ہے، جو عموماً پوہ کے مہینے کی آخری رات ہوتی ہے۔ اس موقع پر گاؤں میں الاؤ جلتا ہے،
+
+WHY: V3-41 [gloss]: every Pakistani reader knows دھمال; gloss dropped (V3 wording; a dropped gloss is not an omission under the brief).
+OLD: عقیدت مند *دھمال* ڈالتے ہیں، جو ایک پرجوش رسمی رقص ہے۔
+NEW: عقیدت مند *دھمال* ڈالتے ہیں۔
+
+WHY: V3-42 [punctuation]: Urdu introduces a quotation with a colon (V3 wording).
+OLD: تو وہ جواب دیتا ہے، "اور نہیں تو کیا!
+NEW: تو وہ جواب دیتا ہے: "اور نہیں تو کیا!
+
+WHY: V2-3 [changed fact]: 'aloud' had been dropped, so the mulla would give no call at all (V2 wording).
+OLD: اس مسجد کا ملا بھی اذان نہیں دے گا۔
+NEW: اس مسجد کا ملا بھی بلند آواز سے اذان نہیں دے گا۔
+
+WHY: V2-4 [changed certainty]: 'tend to be' had been dropped (V2 wording).
+OLD: مقامی لوگ دوسرے مذاہب کے طور طریقوں کو ان مہاجروں سے زیادہ قبول کرتے ہیں
+NEW: مقامی لوگ عموماً دوسرے مذاہب کے طور طریقوں کو ان مہاجروں سے زیادہ قبول کرتے ہیں
+
+WHY: V2-5 [changed fact]: the English names the tale 'Suhini and Mehar' (its Sindhi form, the point of the sentence), not Mahiwal (V2 wording).
+OLD: سوہنی مہینوال کی پنجابی داستان
+NEW: سوہنی میہار کی پنجابی داستان
+
+WHY: Follow-on to V3-33 (found on reread): 'تبلیغی جماعت' now stood twice in one sentence; the second becomes 'یہ جماعت'.
+OLD: اور تبلیغی جماعت پنجاب کے بڑے شہروں
+NEW: اور یہ جماعت پنجاب کے بڑے شہروں
+
+WHY: Follow-on to V3-35 (found on reread): after the new sentence ends on 'ان پر' (the young men), the next sentence's 'ان کا پہلا قدم' could point to the young men; the English 'Their first step' is the organisations', so they are named.
+OLD: ان کا پہلا قدم مزاروں اور ان کے متولیوں کو نشانہ بنانا ہے
+NEW: ان تنظیموں کا پہلا قدم مزاروں اور ان کے متولیوں کو نشانہ بنانا ہے
+
+==================== REJECTED / NOT APPLIED ====================
+
+Issues rejected: none. Every numbered issue of V2 and V3 was applied (five in adapted wording, reasons above).
+
+NOTES not applied (taste, or would depart from the English):
+- V3 NOTE شاہ حسین / مادھو لال حسین: the English names him "Hazrat Husain" and then "Madho Lal Hussein" in two sentences and does not link them; per instructions the English's forms are followed and no merging or linking is added.
+- V3 NOTE Kabir "وہی" / "ہندوستان": the English itself says "Hindustan" and "the same blend"; glossing Hindustan as the Gangetic heartland would add a fact the English does not state. Kept.
+- V3 NOTE "کیچ اور مکران" / "کیچ مکران": the English gives both forms ("Kech and Makran", "Kech Makran"); kept as the English has them.
+- V3 NOTE Khidr "بھی": the English has "he too is thought to have disappeared alive"; kept.
+- V3 NOTES of taste (not applied): repeated جانا پہچانا; the two opening sentences of the southern-Punjab paragraph; "تقسیم نے یہ بدل دیا..."; "استثنا موجود ہے"; "گایا" (the English has "sang"); "مزار نے" (the English has the generic singular "The shrine"); the gloss on دنداسہ; "نہیں چھوا".
+- V2 NOTE "اور نہیں تو کیا!" for "What the hell!": marked acceptable by V2; taste, not applied.
+
+=================== GROUP P3 ===================
+ur_P3.md round 1 fixes (V2_P3.r1 + V3_P3.r1). Backup of the pre-fix file: ur_P3.r1.bak
+APPLIED CHANGES: 85 replacements (83 for the reports, 2 more after the reread, numbered 84 and 85)
+
+1. WHY: V3-1 parenthetical between commas cut "پنجاب میں" off its clause
+   OLD: معتبر روایت کے مطابق پنجاب میں، سندھ کی طرح، صوفیانہ شاعری
+   NEW: معتبر روایت کے مطابق سندھ کی طرح پنجاب میں بھی صوفیانہ شاعری
+
+2. WHY: V3-2 tangled sentence, defining idea withheld after the colon (V3 wording)
+   OLD: اس بارے میں روایتیں مختلف ہیں؛ تاہم مادھو لال حسین کے کلام میں ہیر کے اور سوہنی مہینوال کے قصوں کی طرف جو اشارے ملتے ہیں، وہ بظاہر ایک ایسی روایت کا آغاز ہیں، یا کسی نامعلوم ابتدا سے چلی آتی روایت کی کڑی، جو پنجاب اور سندھ کی مذہبی شاعری کا خاصہ ہے: لوک کہانیوں کو صوفیانہ فکر کے سانچے میں ڈھالنا۔
+   NEW: اس بارے میں روایتیں مختلف ہیں۔ پنجاب اور سندھ کی مذہبی شاعری کا ایک خاصہ یہ ہے کہ وہ لوک کہانیوں کو صوفیانہ فکر کے سانچے میں ڈھالتی ہے، اور مادھو لال حسین کے کلام میں ہیر اور سوہنی مہینوال کے قصوں کی طرف جو اشارے ملتے ہیں، وہ بظاہر یا تو اسی روایت کا آغاز ہیں یا کسی نامعلوم ابتدا سے چلی آتی اسی روایت کی ایک کڑی۔
+
+3. WHY: V3 NOTE (spelling inconsistency): one plural, صوفیا, throughout the file (1 of 3)
+   OLD: صوفیوں کی تعلیم کافی
+   NEW: صوفیا کی تعلیم کافی
+
+4. WHY: V3-3 relative "جو" cut off from "ان لوگوں" by the whole predicate
+   OLD: اس لیے ان لوگوں میں صوفیانہ تعلیم پھیلانے کا یہ بہترین ذریعہ تھیں جو پڑھنا نہیں جانتے تھے اور جن کا سارا علم زبانی روایت پر منحصر تھا۔
+   NEW: اس لیے جو لوگ پڑھنا نہیں جانتے تھے اور جن کا سارا علم زبانی روایت پر منحصر تھا، ان میں صوفیانہ تعلیم پھیلانے کا یہ بہترین ذریعہ تھیں۔
+
+5. WHY: V3-4 present tense for a 16th century figure; English restatement pattern
+   OLD: مادھو لال حسین اکبر کے پنجاب سے تعلق رکھتے ہیں، اس پنجاب سے جہاں دُلا بھٹی کے نام سے مشہور عبداللہ بھٹی نے بغاوت کی، اور اکبر کے حکم پر
+   NEW: مادھو لال حسین اکبر کے اس پنجاب سے تعلق رکھتے تھے جہاں دُلا بھٹی کے نام سے مشہور عبداللہ بھٹی نے بغاوت کی اور اکبر کے حکم پر
+
+6. WHY: V3-5 calque "Muslim Punjabi poetry" (adjective stacking)
+   OLD: مسلمان پنجابی شاعری کا سنہری دور
+   NEW: پنجابی میں مسلمانوں کی شاعری کا سنہری دور
+
+7. WHY: V2-4 + V3-6 (same phrase): "زیادہ تر دیہی صوبوں" reads as "most rural provinces"; one wording for both (V2's)
+   OLD: جیسا کہ زیادہ تر دیہی صوبوں
+   NEW: جیسا کہ بنیادی طور پر دیہی صوبوں
+
+8. WHY: V3-7 tense clash ہیں/تھیں, "اور ... اور" chain, doubled "ان کے ہم عصروں"
+   OLD: شاہ عبداللطیف ایک دیہی صوفیانہ روایت کے نمائندہ ہیں، اور اسی روایت میں پنجاب میں ان کے ہم عصروں کی جڑیں بھی پیوست تھیں، اور کسی حد تک پشتو بولنے والے علاقوں میں ان کے ہم عصروں کی بھی۔
+   NEW: شاہ عبداللطیف ایک دیہی صوفیانہ روایت کے نمائندہ تھے۔ پنجاب میں ان کے ہم عصروں کی جڑیں بھی اسی روایت میں پیوست تھیں، اور کسی حد تک پشتو بولنے والے علاقوں کے ہم عصروں کی بھی۔
+
+9. WHY: V3 NOTE (referent): "ان کے موضوعات" after "زبانیں" first reads as "of the languages"
+   OLD: ان کے موضوعات بار بار گائے گئے
+   NEW: یہ صوفیانہ موضوعات بار بار گائے گئے
+
+10. WHY: V3 NOTE (spelling inconsistency): صوفیا throughout (2 of 3)
+   OLD: شمال مغرب کے صوفیوں نے
+   NEW: شمال مغرب کے صوفیا نے
+
+11. WHY: V3-8 one spins yarn, not the cotton plant
+   OLD: کپاس کاتنا عورتوں
+   NEW: سوت کاتنا عورتوں
+
+12. WHY: V3-9 third "سب سے بڑھ کر" in the section
+   OLD: جن میں سب سے بڑھ کر عبدالقادر جیلانی
+   NEW: جن میں سرِفہرست عبدالقادر جیلانی
+
+13. WHY: V3-10 "تعلیمی سی حرفیاں" misreadable; "نظمیں ... نظمیں"
+   OLD: چھوٹی چھوٹی نرم و نازک نظمیں اور تعلیمی سی حرفیاں لکھیں، یعنی حروفِ تہجی کی ترتیب سے کہی گئی نظمیں۔
+   NEW: چھوٹی چھوٹی نرم و نازک نظمیں اور سی حرفیاں لکھیں، یعنی حروفِ تہجی کی ترتیب سے کہے گئے تعلیمی اشعار۔
+
+14. WHY: V3-11 three "بھی", "اور ... اور" chain, no subject for "ملتا ہے"
+   OLD: عوامی صوفیانہ شاعری میں بھی، اور سندھ اور پنجاب کے صوفی شاعروں اور گویّوں کے ہاں بھی اسی طرح
+   NEW: عوامی صوفیانہ شاعری میں بھی؛ یہ سندھ اور پنجاب کے صوفی شاعروں اور گویّوں کے ہاں اسی طرح
+
+15. WHY: V3-12 trailing English-style afterthought
+   OLD: سرائیکی شمالی سندھ اور جنوبی پنجاب میں بولی جاتی ہے، زیادہ تر جنوبی پنجاب میں، اور ملتان اس کا مرکز ہے۔
+   NEW: سرائیکی شمالی سندھ میں بھی بولی جاتی ہے مگر زیادہ تر جنوبی پنجاب میں، اور اس کا مرکز ملتان ہے۔
+
+16. WHY: V3-13 "اس علاقے" after ملتان read as Multan; the border area is meant (English "there")
+   OLD: جبکہ اس علاقے میں وہ سندھی سے زیادہ ملتی جلتی ہے۔
+   NEW: جبکہ اس سرحدی علاقے میں بولی جانے والی سرائیکی سندھی سے زیادہ ملتی جلتی ہے۔
+
+17. WHY: V3 NOTE (meaning): "آخر ہی میں" can read as "only in"; English "already"
+   OLD: سترھویں صدی کے آخر ہی میں
+   NEW: سترھویں صدی کے آخر میں بھی
+
+18. WHY: V3 NOTE (spelling inconsistency): صوفیا throughout (3 of 3)
+   OLD: صوفیوں کے ہاں روحانی
+   NEW: صوفیا کے ہاں روحانی
+
+19. WHY: V3-14 unidiomatic "گنگا سے قریب کی"
+   OLD: گنگا سے قریب کی سرزمینوں
+   NEW: گنگا کے آس پاس کی سرزمینوں
+
+20. WHY: V3-15 spelling ٹھیٹھ -> ٹھیٹ
+   OLD: ٹھیٹھ پنجابی
+   NEW: ٹھیٹ پنجابی
+
+21. WHY: V3-16 "آخری صورت" reads as "last form"
+   OLD: اس نے اپنی آخری صورت پائی
+   NEW: اس نے اپنی حتمی صورت پائی
+
+22. WHY: V3-17 (part) "آج بھی" repeated in consecutive sentences: the English has "even today" only in the last sentence, so it is removed here, not there
+   OLD: وارث شاہ کا یہ کلام آج بھی، جہاں کہیں پنجابی مل بیٹھیں، بار بار گایا جاتا ہے۔
+   NEW: وارث شاہ کا یہ کلام جہاں کہیں پنجابی مل بیٹھیں، بار بار گایا جاتا ہے۔
+
+23. WHY: V3-17 (part) generic singular "پنجابی کا دل"; "even today" kept, since the English states it
+   OLD: اور آج بھی یہ قصہ گایا جائے تو پنجابی کا دل بھر آتا ہے۔
+   NEW: اور آج بھی جب یہ قصہ گایا جاتا ہے تو پنجابیوں کے دل بھر آتے ہیں۔
+
+24. WHY: V3-18 stacked "تو وہ جو ... وہ ... اس وقت ... جب"
+   OLD: ہیر کو ڈولی میں بٹھا کر رخصت کیا جاتا ہے تو وہ جو بین کرتی ہے، وہ روایتی طور پر تقریباً ہر پنجابی شادی میں اس وقت گایا جاتا ہے جب دلہن سسرال روانہ ہوتی ہے، اور پنجابی رسوم میں خود ڈولی گہرے جذباتی معنی رکھتی ہے۔
+   NEW: ڈولی میں رخصت ہوتے وقت ہیر جو بین کرتی ہے، وہ روایتی طور پر تقریباً ہر پنجابی شادی میں دلہن کی رخصتی کے وقت گایا جاتا ہے، اور پنجابی رسوم میں ڈولی بجائے خود گہرے جذباتی معنی رکھتی ہے۔
+
+25. WHY: V3-19 clumsy "کہ کہا گیا کہ"
+   OLD: مگر اس قصے کو پنجاب کی روحانی محبت کی داستانوں پر ایسا داغ سمجھا جاتا ہے کہ کہا گیا کہ ان دو عاشقوں
+   NEW: مگر اسے پنجاب کی روحانی محبت کی داستانوں پر ایک داغ سمجھا جاتا ہے، یہاں تک کہ کہا گیا ہے کہ ان دو عاشقوں
+
+26. WHY: V3-20 "میں ... میں ... میں" chain; قصہ / کہانی / داستان in one sentence
+   OLD: سندھ کے ہر خطے میں اور پنجاب کے سرائیکی علاقے میں صوفیانہ شاعری میں اس کی داستان گائی جاتی ہے، اور پنجاب میں سوہنی کی اس اساطیری کہانی کا ہیرو مہینوال ہے۔
+   NEW: سندھ کے ہر خطے اور پنجاب کے سرائیکی علاقے کی صوفیانہ شاعری میں یہ داستان گائی جاتی ہے، اور پنجاب میں اس اساطیری قصے کا ہیرو مہینوال ہے۔
+
+27. WHY: V3-21 (part 1) quoted lines not marked off from the prose
+   OLD: حملوں سے لی گئی ہیں: گویا قندھار کی فوجیں پنجاب پر چھا گئی ہوں؛ ایسا لوٹا جیسے فوجوں نے پنجاب کو لوٹا؛ آج پنجاب قندھاریوں کے ہاتھ آ گیا ہے، اور اس آخری مصرعے کو
+   NEW: حملوں سے لی گئی ہیں: "گویا قندھار کی فوجیں پنجاب پر چھا گئی ہوں"، "ایسا لوٹا جیسے فوجوں نے پنجاب کو لوٹا" اور "آج پنجاب قندھاریوں کے ہاتھ آ گیا ہے"؛ اس آخری مصرعے کو
+
+28. WHY: V3-21 (part 2, "likewise") quoted line marked off
+   OLD: اور کہتے ہیں گویا پنجاب کی فوجیں ہندوستان پر ٹوٹ پڑی ہوں۔
+   NEW: اور کہتے ہیں: "گویا پنجاب کی فوجیں ہندوستان پر ٹوٹ پڑی ہوں"۔
+
+29. WHY: V3-22 calque "انگریز سکھ معاہدے"
+   OLD: 1809 کے انگریز سکھ معاہدے نے ستلج پر روک دیا تھا
+   NEW: 1809 میں انگریزوں اور سکھوں کے درمیان ہونے والے معاہدے نے ستلج پر روک دیا تھا
+
+30. WHY: V3-23 calque "غلط احساس"; weak "اڑان"
+   OLD: ممکن ہے شاعر کی یہ اڑان مقامی حب الوطنی کے کسی غلط احساس سے پیدا ہوئی ہو۔
+   NEW: ممکن ہے شاعر کے تخیل کی یہ پرواز کسی بے جا مقامی حب الوطنی کا نتیجہ ہو۔
+
+31. WHY: V3-24 double emphasis "اسی ... ہی"
+   OLD: اسی اتھل پتھل کے پس منظر ہی میں
+   NEW: اسی اتھل پتھل کے پس منظر میں
+
+32. WHY: V3-25 "1292ھ کے لیے کہا" not the idiom (تاریخ کہنا); "اس میں" ambiguous (book or qita)
+   OLD: ایک قطعۂ تاریخ پر ختم ہوتی ہے، جو مصنف کے بیٹے مفتی غلام صفدر لاہوری نے 1292ھ کے لیے کہا، اور اس میں صوبے کے اولیا کا ذکر ہے۔
+   NEW: ایک قطعۂ تاریخ پر ختم ہوتی ہے جس میں مصنف کے بیٹے مفتی غلام صفدر لاہوری نے 1292ھ کی تاریخ کہی ہے، اور اسی قطعے میں صوبے کے اولیا کا ذکر ہے۔
+
+33. WHY: V3-26 "کہا گیا ... کہا گیا"; V3 proposed "قرار دیا گیا ہے" (declared), adapted to "تشبیہ دی گئی ہے" because the English says "likens him to"
+   OLD: ایک قطعہ کہا گیا، جس کے ایک مصرعے میں اسے گلشنِ پنجاب کا نوشگفتہ پھول کہا گیا ہے۔
+   NEW: ایک قطعہ کہا گیا جس کے ایک مصرعے میں اسے گلشنِ پنجاب کے نوشگفتہ پھول سے تشبیہ دی گئی ہے۔
+
+34. WHY: V3-27 "عمارتوں پر ... شعر میں آیا" does not hang together
+   OLD: اس کے صوبے داروں کی عمارتوں پر بھی شعر میں آیا ہے۔
+   NEW: اس کے صوبے داروں کی عمارتوں پر لکھے گئے اشعار میں بھی آیا ہے۔
+
+35. WHY: V2-5 present tense "مسجد ہے" asserts the mosque stands today, which the English does not say
+   OLD: مادھو لال حسین کے مزار کے مغرب میں نواب زکریا خان کی مسجد ہے، اور اس کی شمالی محراب پر کاشی کاری کا ایک کتبہ تھا جسے 1880 کی دہائی میں قلم بند کیا گیا۔
+   NEW: مادھو لال حسین کے مزار کے مغرب میں نواب زکریا خان کی مسجد کی شمالی محراب پر کاشی کاری کا ایک کتبہ تھا، جسے 1880 کی دہائی میں قلم بند کیا گیا۔
+
+36. WHY: V3-28 "پنجاب کے ... پنجاب کے", "گاتے تھے ... گاتے پھرتے تھے" in one run-on
+   OLD: زبانی یاد تھیں جو وہ پنجاب کے میلوں میں گاتے تھے، اور جوانی میں وہ پنجاب کے شہروں
+   NEW: زبانی یاد تھیں جنہیں وہ پنجاب کے میلوں میں گاتے تھے۔ جوانی میں وہ صوبے کے شہروں
+
+37. WHY: V3-29 calque "with UP, Punjab is one of the two"
+   OLD: اتر پردیش کے ساتھ پنجاب قوالی کی روایت کے دو بڑے خطوں میں سے ایک ہے، اور
+   NEW: اتر پردیش اور پنجاب قوالی کی روایت کے دو بڑے خطے ہیں، اور
+
+38. WHY: V2-6 + V3-30 (same phrase): V2 "کہیں" intensifies the plain comparative; V3 "واضح طور پر نمایاں" pleonastic; one wording drops both
+   OLD: کہیں زیادہ واضح طور پر نمایاں کرتا ہے
+   NEW: زیادہ نمایاں کرتا ہے
+
+39. WHY: V3-31 "اگرچہ" opens a concession in two consecutive sentences
+   OLD: اور پنجابی مسلمانوں نے اردو کا رخ کیا، اگرچہ اپنی بول چال
+   NEW: اور پنجابی مسلمانوں نے اردو کا رخ کیا؛ البتہ اپنی بول چال
+
+40. WHY: V2-2 "no longer" (they once could) was lost
+   OLD: اور پنجابی اسے لکھی ہوئی صورت میں پڑھ نہیں سکتے تھے
+   NEW: اور پنجابی اب اسے لکھی ہوئی صورت میں پڑھنے کے قابل نہیں رہے تھے
+
+41. WHY: V3-32 (part) "الزام ... پر رکھنا" calques "blamed on"; "یہی سلوک" unclear. V3's "اسی بے اعتنائی کا شکار ہوا" not applied (see rejections); "no differently" kept as the English has it
+   OLD: بے اعتنائی کا الزام ان میں علمی روایت کی کمی پر رکھا جاتا ہے؛ بلھے شاہ کے ساتھ بھی یہی سلوک ہوا۔
+   NEW: بے اعتنائی کا سبب ان میں علمی روایت کی کمی کو بتایا جاتا ہے؛ بلھے شاہ کا معاملہ بھی اس سے مختلف نہ تھا۔
+
+42. WHY: V3-33 (part) "ملاقات" has no antecedent; a wait ends. V3's "منتظر رہا ہے" not applied (see rejections)
+   OLD: اور شاید یہ ملاقات کبھی نہ ہو پائے۔
+   NEW: اور شاید یہ انتظار کبھی ختم نہ ہو۔
+
+43. WHY: V3-34 elliptical tag "اور پٹھان اور بلوچ بھی"; "سندھی ... سندھی"
+   OLD: پھر بھی سندھی سب سے بڑے زندہ سندھی شاعر کا نام بتا سکتا ہے، اور پٹھان اور بلوچ بھی، لیکن
+   NEW: پھر بھی سندھی اپنے سب سے بڑے زندہ شاعر کا نام بتا سکتا ہے، پٹھان اور بلوچ بھی بتا سکتے ہیں، لیکن
+
+44. WHY: V3-35 "صرف ... ہی" doubled
+   OLD: کہ صرف پنجابی ہی ایسی زبان ہے جو
+   NEW: کہ پنجابی ہی وہ واحد زبان ہے جو
+
+45. WHY: V3-36 "عمارتوں کا منصب" unclear
+   OLD: پنجاب کی عمارتوں کا ایک منصب سونپا گیا
+   NEW: پنجاب میں عمارتوں سے متعلق ایک منصب سونپا گیا
+
+46. WHY: Spelling per urdu-dictionary.json ("Maharaja Ranjit Singh" -> مہاراجہ) (1 of 2)
+   OLD: مستان شاہ نے مہاراجا کے ہزاروں
+   NEW: مستان شاہ نے مہاراجہ کے ہزاروں
+
+47. WHY: V3-37 رکھنا three times, "اور ... اور"
+   OLD: موتی مندر رکھ دیا گیا اور اس میں ریاست کا خزانہ رکھا جانے لگا، اور 1880
+   NEW: موتی مندر کر دیا گیا اور اسے ریاستی خزانے کے لیے استعمال کیا جانے لگا؛ 1880
+
+48. WHY: Spelling per urdu-dictionary.json (مہاراجہ) (2 of 2)
+   OLD: اسی مہاراجا کے عہد
+   NEW: اسی مہاراجہ کے عہد
+
+49. WHY: V2 NOTE (meaning) + V3 NOTE: "bargained for a mosque"; "اجازت ... حاصل کی" added "permission" and stated the outcome
+   OLD: فقیر صاحبان نے باؤلی کے پاس ایک مسجد کی اجازت اس وعدے پر حاصل کی کہ اس کا ملا بلند آواز سے اذان نہیں دے گا۔
+   NEW: فقیر صاحبان نے باؤلی کے پاس ایک مسجد کے لیے یہ وعدہ کر کے سودا کیا کہ اس کا ملا بلند آواز سے اذان نہیں دے گا۔
+
+50. WHY: V2 NOTE (meaning): جاگیر is a technical term the English does not use ("endowed"; the next sentence says tracts of land); V2's "وسیع اراضی عطا کی" adapted to avoid repeating وسیع from the next sentence
+   OLD: سکھ ریاست نے گوردواروں کے لیے جاگیریں وقف کیں۔
+   NEW: سکھ ریاست نے گوردواروں کے لیے زمینیں وقف کیں۔
+
+51. WHY: V3-38 subject "انہوں نے" arrived last, after "انہیں", blurring the pronouns
+   OLD: چنانچہ پیروں، زمینداروں اور سرداروں کی معاشی حیثیت کو مضبوط کر کے اور انہیں انگریزی روایت کے مطابق تعلیم دلا کر انہوں نے ان کی وفاداری حاصل کی۔
+   NEW: چنانچہ انہوں نے پیروں، زمینداروں اور سرداروں کی معاشی حیثیت مضبوط کر کے اور انہیں انگریزی طرز کی تعلیم دلا کر ان کی وفاداری حاصل کی۔
+
+52. WHY: V3-39 a place given as an example of disputes; "فیصلہ کن کسوٹی" literal
+   OLD: جن کی ایک مثال تونسہ ہے، چشتیہ نظامیہ سلیمانیہ شاخ کے لیے فیصلہ کن کسوٹی
+   NEW: جیسے تونسہ کا جھگڑا، چشتیہ نظامیہ سلیمانیہ شاخ کے لیے فیصلہ کن آزمائش
+
+53. WHY: V3-40 (part) agreement: جوڑ توڑ is masculine. The rest of V3's fix not applied (see rejections)
+   OLD: انگریزوں کی جوڑ توڑ
+   NEW: انگریزوں کے جوڑ توڑ
+
+54. WHY: V3-41 (adapted) "خاص طور پر ... بالخصوص" and a trailing afterthought. V3's "ان دیہات میں ... جہاں" would make the clause restrictive (only those villages), which the English does not say
+   OLD: دیہات میں خاص طور پر نمایاں ہے، جہاں بڑے زمیندار اور بڑی جاگیریں مرکزی حیثیت رکھتی ہیں، بالخصوص پنجاب اور سندھ میں۔
+   NEW: خاص طور پر دیہات میں نمایاں ہے، جہاں بڑے زمیندار اور بڑی جاگیریں مرکزی حیثیت رکھتی ہیں، اور یہ بات پنجاب اور سندھ پر سب سے زیادہ صادق آتی ہے۔
+
+55. WHY: V3-42 "ایک واحد" pleonastic
+   OLD: ایک واحد اسلام
+   NEW: یکساں اسلام
+
+56. WHY: V3-43 four "کی" in a row; "ہمیشہ سے / سدا سے اسلام کا دشمن"
+   OLD: 2002 میں لاہور سے شائع ہونے والی پنجاب ٹیکسٹ بک بورڈ کی پانچویں جماعت کی اردو کی درسی کتاب یہ سکھاتی ہے کہ ہندو ہمیشہ سے اسلام کا دشمن رہا ہے، اور پاکستانی درسی کتابوں میں ہندو کو نہ صرف قومی سلامتی کے لیے خطرہ بلکہ سدا سے اسلام کا دشمن بنا کر پیش کیا جاتا ہے۔
+   NEW: پنجاب ٹیکسٹ بک بورڈ نے 2002 میں لاہور سے پانچویں جماعت کے لیے اردو کی جو درسی کتاب شائع کی، وہ یہ سکھاتی ہے کہ ہندو ہمیشہ سے اسلام کا دشمن رہا ہے؛ پاکستانی درسی کتابوں میں ہندو کو نہ صرف قومی سلامتی کے لیے خطرہ بلکہ اسلام کا ازلی دشمن بنا کر پیش کیا جاتا ہے۔
+
+57. WHY: V3-44 "جماعت" could be any of the parties named
+   OLD: جبکہ جماعت ان الزامات
+   NEW: جبکہ مسلم لیگ نون ان الزامات
+
+58. WHY: V2 NOTE (meaning): "وسیع" added "wide" to "international coverage"
+   OLD: میں وسیع توجہ اس وقت ملی
+   NEW: میں توجہ اس وقت ملی
+
+59. WHY: V3-45 river or province: the Indus must be named here
+   OLD: بلوچوں کے علاقے میں سندھ سے جا ملتے ہیں
+   NEW: بلوچوں کے علاقے میں دریائے سندھ سے جا ملتے ہیں
+
+60. WHY: V3-46 spelling کنووں -> کنوؤں (twice)
+   OLD: آب پاشی کا بڑا حصہ کنووں پر منحصر تھا۔ ان کنووں پر
+   NEW: آب پاشی کا بڑا حصہ کنوؤں پر منحصر تھا۔ ان کنوؤں پر
+
+61. WHY: V3-47 parenthetical cut "ریت" off from "دھو کر"; run-on
+   OLD: دریاؤں کی ریت، خاص طور پر بیاس اور دریائے بہت کی ریت، دھو کر سونا نکالا جاتا تھا، اور شمالی پہاڑوں میں
+   NEW: دریاؤں کی ریت دھو کر سونا نکالا جاتا تھا، خاص طور پر بیاس اور دریائے بہت کی ریت سے۔ شمالی پہاڑوں میں
+
+62. WHY: V3-48 first measure lacked "لمبائی میں"
+   OLD: یہ فیروزپور سے سیوستان تک چار سو کوس
+   NEW: یہ فیروزپور سے سیوستان تک لمبائی میں چار سو کوس
+
+63. WHY: V3-49 (adapted) gloss posing as a coordinate clause broke the list; V3's "سرکار (یعنی ضلع) سے" would put a gloss between a noun and its postposition, which the brief forbids, so the gloss goes after the list
+   OLD: مشرق میں اس کی حد سرہند کی سرکار سے ملتی تھی، اور سرکار سے مراد ضلع ہے؛ مغرب میں اس کی حد کیچ مکران سے، شمال میں شورکوٹ سے اور جنوب میں صوبۂ اجمیر سے ملتی تھی۔
+   NEW: مشرق میں اس کی حد سرہند کی سرکار سے ملتی تھی، مغرب میں کیچ مکران سے، شمال میں شورکوٹ سے اور جنوب میں صوبۂ اجمیر سے؛ یہاں سرکار سے مراد ضلع ہے۔
+
+64. WHY: V3-50 spelling شاہجہان آباد -> شاہجہاں آباد (the file has شاہ جہاں)
+   OLD: صوبۂ شاہجہان آباد
+   NEW: صوبۂ شاہجہاں آباد
+
+65. WHY: V3-51 "پہلی" reads as "first", not "earlier"
+   OLD: ان پہلی کتابوں پر انحصار
+   NEW: ان پہلے کی کتابوں پر انحصار
+
+66. WHY: V3-52 "بزرگ ہیں جو ... علما تھے" clumsy; a chapter holds accounts, not people
+   OLD: کتاب کے پانچویں چمن میں وہ بزرگ ہیں جو پنجاب کے صاحبِ علم اور نامور علما تھے، ساتویں چمن میں وہ پرہیزگار خواتین جو پنجاب میں رہیں، اور بعد کے ایک حصے میں پنجاب کے وہ بزرگ جن کی
+   NEW: کتاب کے پانچویں چمن میں پنجاب کے فاضل اور نامور علما کا ذکر ہے، ساتویں چمن میں ان پرہیزگار خواتین کا جو پنجاب میں رہیں، اور بعد کے ایک حصے میں پنجاب کے ان بزرگوں کا جن کی
+
+67. WHY: V3-53 "اس اعتبار سے" needs "کہ", not "کیونکہ"
+   OLD: سب سے بدقسمت خطہ ہے، کیونکہ اس کی
+   NEW: سب سے بدقسمت خطہ ہے کہ اس کی
+
+68. WHY: V3-54 commas separated the date from "تک"
+   OLD: 1292ھ، یعنی 1875، تک
+   NEW: 1292ھ یعنی 1875 تک
+
+69. WHY: V3-55 (adapted) "پنجاب" three times in one sentence; V3's added "صرف" left out, since the English says "whichever elders came to mind", not "only"
+   OLD: اگرچہ انہوں نے پنجاب کے انہی بزرگوں کے حالات لکھے
+   NEW: اگرچہ انہوں نے انہی بزرگوں کے حالات لکھے
+
+70. WHY: V3-56 (part) "اپنی" without proper antecedent; appositive chain. V3's "منٹگمری (اب ساہیوال) کے" not applied: a gloss between a noun and its postposition, which the brief forbids; the closing Sahiwal clause is kept
+   OLD: پرانا پنجاب ہے، اپنی *باروں* سمیت، یعنی
+   NEW: پرانا پنجاب ہے، جس میں اس کی *باریں* بھی شامل ہیں، یعنی
+
+71. WHY: V3-57 an account (بیان) does not "مان کر بات کرنا"
+   OLD: اگرچہ مورلینڈ کا بیان پنجاب کے بجائے
+   NEW: اگرچہ مورلینڈ پنجاب کے بجائے
+
+72. WHY: V2-1 "گویا" (as if) made the historian's view hypothetical
+   OLD: گویا یہ مذہبی شاعری کی ایک ہی روایت کے دو صوبے ہوں اور کپاس اگانے والا ایک ہی ملک؛
+   NEW: یعنی مذہبی شاعری کی ایک ہی روایت کے دو صوبوں اور کپاس اگانے والے ایک ہی ملک کی حیثیت سے؛
+
+73. WHY: V3-58 "وہاں" can mean Sindh
+   OLD: اور وہاں یہ افغانوں
+   NEW: اور اس مطالعے میں یہ افغانوں
+
+74. WHY: V2 NOTE (referent): the subject of "stumbling block" is the Bengali diet, not "the difference"
+   OLD: اور بظاہر یہی فرق نئے آنے والوں کے لیے خاص طور پر بڑی دشواری بنا۔
+   NEW: اور بظاہر بنگالیوں کی یہ خوراک نئے آنے والوں کے لیے خاص طور پر بڑی دشواری بنی۔
+
+75. WHY: V2-3 "بڑا مرکز" (a major centre) weakens "the main centre"
+   OLD: اپنی سرگرمیوں کا بڑا مرکز
+   NEW: اپنی سرگرمیوں کا مرکزی مقام
+
+76. WHY: V3-59 (adapted) "زیادہ تر مصنف" reads as "most authors"; V3's own NEW kept that string, so "بڑی حد تک" is used
+   OLD: زیادہ تر مصنف کے ذاتی خرچ پر چلنے والے منصوبے "اِن سرچ آف شیوا" کی تحقیق مصنف کے آبائی شہر لاہور کے گرد و نواح تک محدود رہی۔
+   NEW: منصوبہ "اِن سرچ آف شیوا" بڑی حد تک مصنف کے ذاتی خرچ پر چلا، اور اس کی تحقیق مصنف کے آبائی شہر لاہور کے گرد و نواح تک محدود رہی۔
+
+77. WHY: V3-60 "جہاں" needs a place, not "برادریوں"
+   OLD: اور وہ ان برادریوں کی عکاسی نہیں کرتے جہاں
+   NEW: اور وہ ان علاقوں کی ہندو برادریوں کی عکاسی نہیں کرتے جہاں
+
+78. WHY: V3-61 calque "بلبلہ" for "bubble"
+   OLD: شہری مراکز کا بلبلہ ہی تو
+   NEW: شہری مراکز کی محدود دنیا ہی تو
+
+79. WHY: V3-62 + V2 NOTE (same sentence): V3 says he marvels at the rarity, not the road; V2 says "حیرت" adds surprise to "remarks". One sentence: he remarks, no surprise
+   OLD: اور اس پر حیرت ظاہر کرتے ہیں کہ پاکستان کے سب سے خوش حال صوبے پنجاب کے قلب میں ایسی سنسان سڑک کم ہی ملتی ہے۔
+   NEW: اور کہتے ہیں کہ پاکستان کے سب سے خوش حال صوبے پنجاب کے قلب میں ایسی سنسان سڑک کم ہی دیکھنے میں آتی ہے۔
+
+80. WHY: V3-63 unrelated fact joined by "اور"; "کریر" cut off from its verb
+   OLD: پرانے زمانے میں پنجاب میں عمارتوں پر عام طور پر زرد رنگ کیا جاتا تھا، اور کریر، جو ایک قدیم پنجابی پودا ہے، اب ویران
+   NEW: پرانے زمانے میں پنجاب میں عمارتوں پر عام طور پر زرد رنگ کیا جاتا تھا۔ قدیم پنجابی پودا کریر اب ویران
+
+81. WHY: V3-64 "تصور ... سے کرنا" not idiomatic
+   OLD: اس صوبے کا تصور اس کی مغربی سرحد سے کرتا ہے۔
+   NEW: اس صوبے کو اس کی مغربی سرحد کی طرف سے دیکھتا ہے۔
+
+82. WHY: V3-65 stiff construction
+   OLD: کہ اب پنجاب کی باری ہے کہ خیبر میں تباہی مچائے۔
+   NEW: کہ اب خیبر میں تباہی مچانے کی باری پنجاب کی ہے۔
+
+83. WHY: V3-66 calque "برتنا" for "treat (a topic)"
+   OLD: سندھ کے مذہبی میل جول کو یوں برتتے ہیں
+   NEW: سندھ کے مذہبی میل جول کو یوں پیش کرتے ہیں
+
+84. WHY: Reread after V3-18: the applied sentence had "رخصت ہوتے وقت ... رخصتی کے وقت" (رخصت and وقت twice); "as she is carried off in the palanquin" rendered as "ڈولی میں جاتے ہوئے"
+   OLD: ڈولی میں رخصت ہوتے وقت ہیر جو بین کرتی ہے،
+   NEW: ڈولی میں جاتے ہوئے ہیر جو بین کرتی ہے،
+
+85. WHY: Reread after V2-1: V2's "یعنی ... کی حیثیت سے" read as a gloss tacked on after the verb; the same words moved before the verb (V2's meaning kept, no "as if")
+   OLD: اکثر سندھ اور پنجاب کا ذکر ایک ساتھ کرتی ہیں، یعنی مذہبی شاعری کی ایک ہی روایت کے دو صوبوں اور کپاس اگانے والے ایک ہی ملک کی حیثیت سے؛
+   NEW: اکثر سندھ اور پنجاب کا ذکر مذہبی شاعری کی ایک ہی روایت کے دو صوبوں اور کپاس اگانے والے ایک ہی ملک کی حیثیت سے ایک ساتھ کرتی ہیں؛
+
+REJECTED (or partly rejected): 11
+
+- V3-32 (part): V3 rewrote "Bulleh Shah was treated no differently" as "بلھے شاہ کا کلام بھی اسی بے اعتنائی کا شکار ہوا", committing to one reading (neglect) and saying it should be checked against the source. The English does not settle whether "no differently" means neglect by Muslims or survival through Sikh collectors, so the Urdu keeps that scope: "بلھے شاہ کا معاملہ بھی اس سے مختلف نہ تھا" (clearer than "یہی سلوک", no new claim).
+- V3-33 (part): "منتظر رہا ہے" (present perfect) would say the Punjab is still waiting; the English has a past "awaited". The past is kept and only the "ملاقات" metaphor is fixed.
+- V3-40 (part): "مقامی سکھ، ہندو اور مسلمان مصلحین کی باہمی رقابت" makes all three groups reformers and adds "باہمی". The English "the rivalry of local Sikhs, Hindus and Muslim reformers" does not settle that, so the Urdu keeps its wording. Only the agreement fix (کے جوڑ توڑ) is applied.
+- V3 NOTE 1: Naming Sindhi ("سرائیکی، سندھی اور پنجابی کے بیچ پل") would add a statement the English does not make ("Siraiki forms the bridge to Punjabi ... all three language areas").
+- V3 NOTE 4: A "یعنی سوہنی مہینوال" signal next to سہنی اور میہار would add an identification the English leaves implicit. The closing clause's repetition is in the English too ("a Punjab tale that has found a home in Sindh, one of the stories of the Risalo that came from the Punjab").
+- V3 NOTE 5: Taste ("ہیروئنیں" accepted by V3; "سندھی و پنجابی" is optional). Not applied.
+- V3 NOTE 6: "اور اسی زمانے میں" would add a time link the English does not state ("while irrigation allowed wheat production to grow rapidly").
+- V3 NOTE 8: The English states it too ("and the sarkar of Dipalpur was a dependency of the suba"), so the clause stays.
+- V3 NOTE 9: The English keeps the source's present ("this union has been the cause"), so the Urdu does too.
+- V3 NOTE 10 (part): یلدز kept rather than یلدوز: the name is not in urdu-i18n/urdu-dictionary.json, and ur_P1.md spells it یلدز twice, so یلدز keeps one spelling across the article. (The صوفیوں/صوفیا part of the note IS applied.)
+- V3 NOTE 11: Taste ("طرح طرح سے", "رہائش گاہوں"). Not applied.
+
+SPELLINGS KEPT
+- نواب زکریا خان: urdu-dictionary.json has ذکریا (for "Nawab Zakariya Khan's graveyard complex"), but the verse, copied byte for byte, reads "زکریا خان صوبہ پنجاب"; the prose keeps زکریا so the name has one spelling in the file.
+- عبدالقادر جیلانی: the dictionary has no entry for him; kept.
+- مہاراجہ: changed to the dictionary's spelling here; ur_P1.md (12) and ur_P2.md (1) still use مہاراجا. شاہجہاں آباد: ur_P1.md has شاہجہان once.
+
+=================== COORDINATOR ===================
+[P2] WHY: coordinator, one spelling per name across the groups: P1 and P3 now write the dictionary's مہاراجہ
+OLD: مہاراجا
+NEW: مہاراجہ

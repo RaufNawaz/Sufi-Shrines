@@ -167,10 +167,12 @@ def arabic_runs(text: str) -> list:
     return out
 
 
-def check(id_: str, sheet: dict, quiet: bool, draft_dir: str = "") -> list:
+def check(id_: str, sheet: dict, quiet: bool, draft_dir: str = "", entry_path: str = "") -> list:
+    """`entry_path` replaces shrine_entries/<id>.md as the material (the place articles read
+    entries/places/sources/<slug>.sources.md; check_place_description.py)."""
     errs = []
     dpath = os.path.join(draft_dir or os.path.join(REPO, "entries", "descriptions"), id_ + ".md")
-    epath = os.path.join(REPO, "shrine_entries", id_ + ".md")
+    epath = entry_path or os.path.join(REPO, "shrine_entries", id_ + ".md")
     if not os.path.exists(dpath):
         return ["no draft at %s" % os.path.relpath(dpath, REPO)]
     if not os.path.exists(epath):

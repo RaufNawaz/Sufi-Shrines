@@ -1,0 +1,314 @@
+multan.ur.md round 1 fixes (V2 fidelity r1 + V3 fluency r1), 2026-10-30
+Backup of the pre-fix file: /home/claude/work/multan.ur.r1.bak
+Applied: 58 edits as changes plus 1 follow-up found on rereading (V3-39), and 1 rewording in place of the rejected V3-45 fix.
+
+[V2-1]
+WHY: addition: the English gives only the initial H.; Urdu writes the initial as ایچ (V2 wording)
+OLD: بشیر حسین ناظم کی *اولیائے ملتان*۔
+NEW: بشیر ایچ ناظم کی *اولیائے ملتان*۔
+
+[V2-2]
+WHY: changed certainty: the English says only that he was imprisoned and died, not that he died in captivity (V2 wording)
+OLD: سلطان حسین قید ہی میں مر گیا،
+NEW: سلطان حسین قید ہوا اور مر گیا،
+
+[V2-3]
+WHY: changed fact: 'ecstatic performance' is not said to be a dance (V2 wording). V3 query on منظر not applied: the English says 'scene'
+OLD: ملتان ہی کا ایک نادر منظر ہے جس میں لعل دوسری صوفی شخصیات کی صحبت میں وجد کے عالم میں رقص کرتے دکھائی دیتے ہیں
+NEW: ملتان ہی کا ایک نادر منظر ہے جس میں لعل دوسری صوفی شخصیات کی صحبت میں وجد کے عالم میں اپنا حال پیش کرتے دکھائی دیتے ہیں
+
+[V2-4]
+WHY: wrong reference: the gifts and visits are to the daughter, not the Shaikh (V2 wording)
+OLD: اس نے اپنی بیٹی شیخ کے نکاح میں دے دی، اسے ہمیشہ مناسب تحفے بھیجتا رہا اور کبھی کبھی اس سے ملنے بھی آتا تھا۔
+NEW: اس نے اپنی بیٹی شیخ کے نکاح میں دے دی، اور اس کے بعد بیٹی کو ہمیشہ مناسب تحفے بھیجتا رہا اور کبھی کبھی اس سے ملنے بھی آتا تھا۔
+
+[V2 note (معائنے) ]
+WHY: meaning: بہانے makes the review explicitly a pretext; the English says 'to be reviewed' (V2 wording)
+OLD: معائنے کے بہانے ملتان لے آیا
+NEW: معائنے کے لیے ملتان لے آیا
+
+[V2 note (named saints)]
+WHY: meaning: نامور means renowned, the English says 'named' (V2 wording, with ہے for a complete verb)
+OLD: اپنے نامور اولیا کے علاوہ یہاں اور بھی بہت سے بزرگ آسودۂ خاک ہیں۔
+NEW: ان اولیا کے علاوہ جن کا ذکر ہو چکا ہے، یہاں اور بھی بہت سے بزرگ آسودۂ خاک ہیں۔
+
+[V2 note (Baluch)]
+WHY: referent: the History section has a single Baluch; plural with ہی read as the Baluch people (V2 wording)
+OLD: مفرور ابراہیم حسین مرزا کو بلوچوں ہی نے حاکمِ ملتان کے حوالے کیا تھا
+NEW: مفرور ابراہیم حسین مرزا کو ایک بلوچ ہی نے حاکمِ ملتان کے حوالے کیا تھا
+
+[V2 note (Cutch) + V3-43]
+WHY: homograph: unvowelled کچھ reads as 'some'; zabar added (both verifiers, same fix; no رن added)
+OLD: "کچھ اور ملتان کے درمیان کے صحرا"
+NEW: "کَچھ اور ملتان کے درمیان کے صحرا"
+
+[V2 note (آخر میں) + V3-3]
+WHY: V2: آخر میں is stronger than 'then', use پھر-like sequence; V3: dangling رنجیت سنگھ کے with a trailing relative clause. One sentence satisfying both: no 'finally', a full verb, the death in its own sentence
+OLD: اس کے بعد شہر مغلوں کے ہاتھ آیا، پھر افغانوں کے قبضے میں گیا اور آخر میں رنجیت سنگھ کے، جس کی فتح میں شہر کے نواب مظفر خان کی جان گئی۔
+NEW: اس کے بعد شہر مغلوں کے ہاتھ آیا، پھر افغانوں کے قبضے میں گیا، اور ان کے بعد رنجیت سنگھ نے اسے فتح کیا۔ اسی فتح میں شہر کے نواب مظفر خان کی جان گئی۔
+
+[V2 note (withdrew)]
+WHY: precision: 'withdrew into the hills of Kashmir', not 'hid'
+OLD: مگر شکست کھا کر کشمیر کے پہاڑوں میں جا چھپا۔
+NEW: مگر شکست کھا کر کشمیر کے پہاڑوں کی طرف ہٹ گیا۔
+
+[V2 note (strategic)]
+WHY: precision: 'a strategic commercial centre', not merely 'important'
+OLD: ملتان پنجاب کا ایک اہم تجارتی مرکز تھا،
+NEW: ملتان پنجاب کا ایک کلیدی تجارتی مرکز تھا،
+
+[V2 note (tied to)]
+WHY: precision: 'tied to the Suhrawardi order', not 'deep connection'
+OLD: ملتان کا گہرا تعلق سلسلۂ سہروردیہ سے ہے۔
+NEW: ملتان سلسلۂ سہروردیہ سے وابستہ ہے۔
+
+[V3-1]
+WHY: calque: appositive after comma; description moved before the name (V3 wording)
+OLD: شہر کے ہندو آج بھی ہرنیہ کشیپ کی یاد سنبھالے ہوئے ہیں، وہ ظالم بادشاہ جس کے بارے میں مانا جاتا ہے کہ ہزاروں برس پہلے اس شہر پر اسی کی حکومت تھی۔
+NEW: شہر کے ہندو آج بھی اس ظالم بادشاہ ہرنیہ کشیپ کی یاد سنبھالے ہوئے ہیں جس کے بارے میں مانا جاتا ہے کہ ہزاروں برس پہلے اس شہر پر اسی کی حکومت تھی۔
+
+[V3-2]
+WHY: calque of 'the Ismaili branch of Shia Islam' (V3 wording)
+OLD: وہاں شیعہ اسلام کی شاخ اسماعیلیہ کا زور توڑ دیا
+NEW: وہاں شیعوں کے اسماعیلی فرقے کا زور توڑ دیا
+
+[V3-4]
+WHY: word order: relative clause between commas cut the name off (V3 wording)
+OLD: بہاؤالدین زکریا کے علاوہ، جن کا انتقال 1267 میں ہوا، اور بھی بہت سے اولیا اس شہر میں آرام فرما ہیں۔
+NEW: 1267 میں وفات پانے والے بہاؤالدین زکریا کے علاوہ بھی بہت سے اولیا اس شہر میں آرام فرما ہیں۔
+
+[V3-5]
+WHY: word order: زندہ inside the genitive read as 'the living skin' (V3 wording)
+OLD: ہندوستان میں روایت ہے کہ ملتان میں ملاؤں نے شمس تبریز کی زندہ ہی کھال کھینچ لی تھی
+NEW: ہندوستان میں روایت ہے کہ ملتان میں ملاؤں نے شمس تبریز کی کھال زندہ حالت میں کھینچ لی تھی
+
+[V3-6]
+WHY: word order: genitive separated from its head (V3 wording)
+OLD: ہندوستان میں روایت ہے کہ مولانا رومی کے روحانی محبوب شمس تبریز کی ملتان میں ملاؤں نے زندہ ہی کھال کھینچ لی تھی
+NEW: ہندوستان میں روایت ہے کہ ملتان میں ملاؤں نے مولانا رومی کے روحانی محبوب شمس تبریز کی کھال زندہ حالت میں کھینچ لی تھی
+
+[V3-7]
+WHY: unidiomatic 'دل کا ایک مقدس شہر' (V3 wording)
+OLD: سندھی اور پنجابی شاعروں کے ہاں ملتان مکہ اور مدینہ کے ساتھ دل کا ایک مقدس شہر ہے۔
+NEW: سندھی اور پنجابی شاعروں کے ہاں مکہ اور مدینہ کی طرح ملتان بھی ایک مقدس شہر ہے جو دل کے اندر بستا ہے۔
+
+[V3-8]
+WHY: stacked genitives glossing a familiar festival; contrastive connective (V3 wording)
+OLD: لیکن ہندوؤں کے بہار کے تہوار ہولی کا حال بدل گیا ہے: یہ تہوار 2010 میں بھی شہر میں نہیں منایا جاتا تھا، اور اب ہر سال چھوٹے پیمانے پر منایا جاتا ہے۔
+NEW: لیکن ہولی کا حال بدل گیا ہے: 2010 میں بھی یہ تہوار شہر میں نہیں منایا جاتا تھا، مگر اب ہر سال چھوٹے پیمانے پر منایا جاتا ہے۔
+
+[V3-9]
+WHY: postposition: قریب takes کے (V3 wording)
+OLD: اور آج شہر میں بولی جانے والی سرائیکی پنجابی سے زیادہ قریب ہے۔
+NEW: اور آج شہر میں بولی جانے والی سرائیکی پنجابی کے زیادہ قریب ہے۔
+
+[V3-10]
+WHY: postposition: قریب takes کے (V3 wording)
+OLD: آج ملتان کی سرائیکی پنجابی سے زیادہ قریب ہے،
+NEW: آج ملتان کی سرائیکی پنجابی کے زیادہ قریب ہے،
+
+[V3-11]
+WHY: repetition پہلی بار / پہلی مرتبہ; izafat in نصفِ آخر (V3 wording)
+OLD: ساتویں صدی کے نصف آخر میں ملتان کا پہلی بار مسلم لشکروں سے سامنا ہوا، اور محمد بن قاسم نے پہلی مرتبہ اسے مسلم حکومت کے زیرِ نگیں کیا۔
+NEW: ساتویں صدی کے نصفِ آخر میں ملتان کا پہلی بار مسلم لشکروں سے سامنا ہوا، اور محمد بن قاسم وہ پہلا فاتح تھا جس نے اسے مسلم حکومت کے زیرِ نگیں کیا۔
+
+[V3-12]
+WHY: ambiguous pronouns اس کا / اس کے (V3 wording)
+OLD: جب محمد بن قاسم نے ملتان لیا تو اس کا ماتحت علاقہ چونیاں بھی اس کے قبضے میں آ گیا۔
+NEW: جب محمد بن قاسم نے ملتان لیا تو ملتان کا ماتحت علاقہ چونیاں بھی اس کے قبضے میں آ گیا۔
+
+[V3-13]
+WHY: unidiomatic: اپنا بنا لینا means winning affection (V3 wording)
+OLD: غزنویوں نے ملتان کو اپنا بنا لیا۔
+NEW: ملتان غزنویوں کے قبضے میں آیا۔
+
+[V3-14]
+WHY: stacked genitives اس کی دہلی کی سلطنت (V3 wording)
+OLD: غوری کے عہد میں ملتان اس کی دہلی کی سلطنت میں شامل ہوا
+NEW: غوری کے عہد میں ملتان اس کی سلطنتِ دہلی میں شامل ہوا
+
+[V3-15]
+WHY: English non-restrictive relative; وہاں could read as Delhi (V3 wording)
+OLD: رکن الدین فیروز شاہ کے عہد میں امرا نے ملتان کے حاکم کو بلا بھیجا، جس نے وہاں بھاری لشکر جمع کیا اور دہلی کی طرف چل پڑا۔
+NEW: رکن الدین فیروز شاہ کے عہد میں امرا نے ملتان کے حاکم کو بلا بھیجا، چنانچہ اس نے ملتان میں بھاری لشکر جمع کیا اور دہلی کی طرف چل پڑا۔
+
+[V3-16]
+WHY: calque: nominalised refusal (V3 wording)
+OLD: یہاں کے علما کا ایک فتویٰ دینے سے انکار مشہور ہے، اور مولانا حسام الدین بھی ملتان ہی کے تھے۔
+NEW: یہاں کے علما کا یہ واقعہ مشہور ہے کہ انہوں نے ایک فتویٰ دینے سے انکار کر دیا تھا، اور مولانا حسام الدین بھی ملتان ہی کے تھے۔
+
+[V3-17]
+WHY: overlong chain of اور; sentence split (V3 wording)
+OLD: کیخسرو ملتان میں رہتا تھا اور ان دنوں دربار آیا ہوا تھا، اور بلبن کی وصیت کے مطابق تخت اسی کو ملنا تھا، مگر
+NEW: کیخسرو ملتان میں رہتا تھا اور ان دنوں دربار آیا ہوا تھا۔ بلبن کی وصیت کے مطابق تخت اسی کو ملنا تھا، مگر
+
+[V3-18]
+WHY: agreement: محل سرا is feminine (V3 wording)
+OLD: شیخ کے خاص محل سرا میں بھی
+NEW: شیخ کی خاص محل سرا میں بھی
+
+[V3-19]
+WHY: apposition between commas broke the subject (V3 wording; all relationships kept: Mahmud son of Firuz Shah, grandson and successor of Sultan Husain)
+OLD: پھر سلطان حسین کا پوتا، یعنی فیروز شاہ کا بیٹا سلطان محمود، اپنے دادا کا جانشین ہوا اور ستائیس برس حکومت کی۔
+NEW: پھر فیروز شاہ کا بیٹا سلطان محمود اپنے دادا سلطان حسین کا جانشین ہوا اور ستائیس برس حکومت کی۔
+
+[V3-20]
+WHY: ambiguous 'ملتان ٹھٹھہ کے حاکم' (V3 wording)
+OLD: پنجاب پہنچ کر بابر نے فرمان جاری کیا کہ ملتان ٹھٹھہ کے حاکم مرزا شاہ حسین ارغون کو جاگیر میں دیا جائے۔
+NEW: پنجاب پہنچ کر بابر نے فرمان جاری کیا کہ ملتان کو جاگیر کے طور پر ٹھٹھہ کے حاکم مرزا شاہ حسین ارغون کے سپرد کر دیا جائے۔
+
+[V3-21a]
+WHY: identifier moved to the first mention of Khawas Khan (V3 wording)
+OLD: اور خواص خان ملتان تک اس کا پیچھا کرنے کے بعد لوٹ گیا۔
+NEW: اور شیر خان کا غلام خواص خان ملتان تک اس کا پیچھا کرنے کے بعد لوٹ گیا۔
+
+[V3-21b]
+WHY: identifier removed from the second mention (V3 wording)
+OLD: جبکہ شیر خان کا غلام خواص خان ایک بڑا لشکر
+NEW: جبکہ خواص خان ایک بڑا لشکر
+
+[V3-22]
+WHY: elliptical clause without a verb, trailing relative (V3 wording)
+OLD: رستم مرزا کو پنج ہزاری منصب ملا اور جاگیر میں ملتان اور بلوچستان کا ملک، جس کی آمدنی قندھار سے زیادہ تھی۔
+NEW: رستم مرزا کو پنج ہزاری منصب ملا، اور جاگیر میں ملتان اور بلوچستان کا وہ ملک ملا جس کی آمدنی قندھار سے زیادہ تھی۔
+
+[V3-23]
+WHY: tangled; جسے could attach to either man (V3 wording)
+OLD: دارا کی طرف سے ملتان کی حکومت جس شخص کے پاس تھی، اس نے اطاعت قبول کی، اور اس کے ساتھ سید عزت خان نے بھی، جسے خلعت کے ساتھ تین ہزار ذات اور پانچ سو سوار کا منصب ملا۔
+NEW: دارا کی طرف سے ملتان کی حکومت جس شخص کے پاس تھی اس نے اطاعت قبول کر لی، اور اس کے ساتھ سید عزت خان نے بھی۔ سید عزت خان کو خلعت کے ساتھ تین ہزار ذات اور پانچ سو سوار کا منصب ملا۔
+
+[V3-24]
+WHY: collocation: کام میں لانا is for things; مذہبی آہنگ unidiomatic (V3 wording)
+OLD: جواب میں رنجیت سنگھ نے سکھ جنگجو نہنگوں کو کام میں لا کر ان لڑائیوں کو مذہبی آہنگ دے دیا۔
+NEW: جواب میں رنجیت سنگھ نے سکھ جنگجو نہنگوں سے کام لے کر ان لڑائیوں کو مذہبی رخ دے دیا۔
+
+[V3-25]
+WHY: run-on names read as one name (V3 wording)
+OLD: حافظ محمد جمال نور محمد کے جانشین اور سلیمان تونسوی کے ہم عصر تھے اور 1811 میں فوت ہوئے؛
+NEW: نور محمد کے جانشین اور سلیمان تونسوی کے ہم عصر حافظ محمد جمال 1811 میں فوت ہوئے؛
+
+[V3-26]
+WHY: repetition فتح ... فتح (V3 wording)
+OLD: کھڑک سنگھ کی سرکردگی میں ایک لشکر ملتان فتح کرنے بھیجا گیا، اور شہر فتح ہو گیا۔
+NEW: کھڑک سنگھ کی سرکردگی میں ایک لشکر ملتان کی مہم پر بھیجا گیا، اور شہر فتح ہو گیا۔
+
+[V3-27]
+WHY: redundant tail clause with odd emphatic ہی (V3 wording). Fact kept: 'ابھی پاکستان کا حصہ نہیں بنا تھا' (had not yet become part of Pakistan) states that it later did, which is what 'in which it now lies' says
+OLD: جب ملتان ابھی پاکستان کا حصہ نہیں بنا تھا؛ آج یہ شہر پاکستان ہی میں واقع ہے۔
+NEW: جب ملتان ابھی پاکستان کا حصہ نہیں بنا تھا۔
+
+[V3-28]
+WHY: city placed inside the order; حلقہ sits poorly with the internet comparison (V3 wording)
+OLD: آج کے ایک صوفی سلسلے میں ملتان بھی لاہور اور کراچی کے ساتھ ایک ایسے حلقے کا حصہ ہے جسے اس سلسلے کے ایک رکن نے انٹرنیٹ سے تشبیہ دی۔
+NEW: آج کے ایک صوفی سلسلے کے ہاں ملتان، لاہور اور کراچی ایک ایسے جال کی کڑیاں ہیں جسے اس سلسلے کے ایک رکن نے انٹرنیٹ سے تشبیہ دی۔
+
+[V3-29]
+WHY: jingle شان ... شاندار (V3 wording)
+OLD: ان کی شان میں شاندار قصیدے کہے
+NEW: ان کی شان میں بلند پایہ قصیدے کہے
+
+[V3-30]
+WHY: ولی لعل read as a proper name (V3 wording). Lal is not named more fully: the English names him only 'Lal', and the paragraph's first sentence already frames him as one of the saints of other orders
+OLD: ولی لعل کی پہلی منزل ملتان تھی۔
+NEW: لعل کی پہلی منزل ملتان تھی۔
+
+[V3-31]
+WHY: ambiguous ان سے (could be the Mufti and Gardezi families). Applied by splitting the sentence so that بیدل is the subject and ان سے can only be Bedil; V3's 'بیدل سے' would repeat the name inside one sentence
+OLD: مفتیوں اور گردیزیوں کے خاندان لاہور اور ملتان سے تعلق رکھتے تھے، اور بیدل ایک ایسے قریشی خاندان کے چشم و چراغ تھے جو ان سے دو پشت پہلے
+NEW: مفتیوں اور گردیزیوں کے خاندان لاہور اور ملتان سے تعلق رکھتے تھے۔ بیدل ایک ایسے قریشی خاندان کے چشم و چراغ تھے جو ان سے دو پشت پہلے
+
+[V3-32]
+WHY: agreement قوم ... تھے; subject cut off by commas (V3 wording)
+OLD: لنگاہ، جو آگے چل کر شہر کے سلطان بنے، ایک ایسی قوم تھے جس کا سردار اپنا ایک قصبہ رکھتا تھا۔
+NEW: آگے چل کر شہر کے سلطان بننے والے لنگاہ ایک ایسی قوم تھی جس کا سردار اپنا ایک قصبہ رکھتا تھا۔
+
+[V3-33]
+WHY: ambiguous اس بستی after the city-wide headcount; order changed (V3 wording)
+OLD: ریلوے اسٹیشن کے پاس واقع ہولی محلہ ان کئی علاقوں میں سے ایک ہے جہاں وہ رہتے ہیں۔ ان کی تعداد ایک ہزار سے کچھ ہی زیادہ ہے، اور اس بستی کے لگ بھگ سو گھروں میں سے صرف دس بارہ گھر ہندو خاندانوں کے ہیں۔
+NEW: ان کی تعداد ایک ہزار سے کچھ ہی زیادہ ہے۔ ریلوے اسٹیشن کے پاس واقع ہولی محلہ ان کئی علاقوں میں سے ایک ہے جہاں وہ رہتے ہیں، اور اس محلے کے لگ بھگ سو گھروں میں سے صرف دس بارہ گھر ہندو خاندانوں کے ہیں۔
+
+[V3-34]
+WHY: relative clause stranded the predicate (V3 wording)
+OLD: پاروتی دیوی شہر کی ایک پیشہ ور گلوکارہ ہیں، جنہوں نے کلاسیکی موسیقی کی باقاعدہ تربیت پائی ہے، اور سماجی کارکن بھی ہیں۔
+NEW: پاروتی دیوی شہر کی ایک پیشہ ور گلوکارہ اور سماجی کارکن ہیں جنہوں نے کلاسیکی موسیقی کی باقاعدہ تربیت پائی ہے۔
+
+[V3-35]
+WHY: inconsistent honorific (Shaikh Yusuf is singular elsewhere); name trailing after یعنی (V3 wording)
+OLD: جب ملتان ایک الگ سلطنت بنا تو تخت پر بٹھائے جانے والے بھی ایک شیخ ہی تھے، یعنی شیخ یوسف قریشی، جنہیں شہر کے اکابر اور عوام نے باہم مشورے سے چنا تھا۔
+NEW: جب ملتان ایک الگ سلطنت بنا تو شہر کے اکابر اور عوام نے باہم مشورے سے جسے تخت پر بٹھایا وہ بھی ایک شیخ ہی تھا: شیخ یوسف قریشی۔
+
+[V3-36]
+WHY: ambiguous coordination: 'in memory of Eid and of Karbala' (V3 wording)
+OLD: جیسے عید اور سانحۂ کربلا کی یاد میں محرم کی مجالس۔
+NEW: جیسے عید کی رسوم اور سانحۂ کربلا کی یاد میں محرم کی مجالس۔
+
+[V3-37]
+WHY: unidiomatic نذرانوں کے نگہبان. V3's sentence repeats مزاروں twice; shortened to one مزاروں governing both nouns, same meaning
+OLD: نذرانوں اور ان کے نگہبانوں پر تنقید بھی ہوئی ہے۔
+NEW: مزاروں کے نذرانوں اور نگرانوں، دونوں پر تنقید بھی ہوئی ہے۔
+
+[V3-38]
+WHY: repetition جاتا تھا ... جاتی تھی with an afterthought phrase (V3 wording)
+OLD: زیارت کا سفر شہر سے باہر کی سمت بھی جاتا تھا، اس راہ پر جو ملتان سے سلطان سرور کے مقبرے تک جاتی تھی۔
+NEW: زیارت کی ایک راہ شہر سے باہر بھی نکلتی تھی: وہ راہ جو ملتان سے سلطان سرور کے مقبرے تک جاتی تھی۔
+
+[V3-39]
+WHY: 'شہزادہ سعدی' read as 'Prince Saadi' (V3 wording)
+OLD: شہزادہ سعدی کو شیراز سے ملتان بلانا چاہتا تھا، اور یہ خواہش
+NEW: شہزادے کی خواہش تھی کہ سعدی کو شیراز سے ملتان بلائے، اور یہ خواہش
+
+[V3-39 follow-up, found on rereading] 
+WHY: V3's sentence repeats خواہش inside one sentence; the second is replaced by یہ (its referent is the خواہش just named). 'only' (صرف) kept.
+OLD: ملتان بلائے، اور یہ خواہش صرف شاعر
+NEW: ملتان بلائے، اور یہ صرف شاعر
+
+[V3-40]
+WHY: relative clause trailing after the verb with a tense switch (V3 wording)
+OLD: سترھویں صدی کے اواخر میں مغل عہد کی ایک کتاب نے صوبۂ دارالامان ملتان کا حال لکھتے ہوئے اس شہر کو قدیم شہروں میں سے ایک بتایا، جس کا قلعہ اینٹوں کا ہے۔
+NEW: سترھویں صدی کے اواخر میں مغل عہد کی ایک کتاب نے صوبۂ دارالامان ملتان کا حال لکھتے ہوئے اس شہر کو اینٹوں کے قلعے والا ایک قدیم شہر بتایا۔
+
+[V3-41]
+WHY: اس سے پہلے read as 'before Mahmud' (V3 wording)
+OLD: اس سے پہلے اس شہر پر سلطان حسین لنگاہ حکومت کر چکا تھا۔
+NEW: اس کتاب کے زمانے سے پہلے اس شہر پر سلطان حسین لنگاہ حکومت کر چکا تھا۔
+
+[V3-42]
+WHY: homograph بہت read as 'very'; run-on river list (V3 wording)
+OLD: ملتان سے بیس کوس کے فاصلے پر ایک سرائے کے قریب راوی چناب اور بہت کے ملے ہوئے دھارے میں جا گرتا تھا
+NEW: ملتان سے بیس کوس کے فاصلے پر ایک سرائے کے قریب چناب اور دریائے بہت کے ملے ہوئے دھارے میں راوی جا گرتا تھا
+
+[V3-44a]
+WHY: redundancy ہی ... واحد (V3 wording)
+OLD: ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں ہی اب پرہلاد
+NEW: ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں اب پرہلاد
+
+[V3-44b]
+WHY: redundancy ہی ... واحد, later occurrence (V3 wording)
+OLD: ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں ہی اب ہرنیہ کشیپ
+NEW: ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں اب ہرنیہ کشیپ
+
+[V3 note (Zauqi Shah)]
+WHY: ambiguous referent: وہ خود could be Zauqi Shah or al-Jilani. Following the English ('Zauqi Shah told of a miracle in which he and ...'), Zauqi Shah is made the subject so وہ خود can only be him; nothing added
+OLD: ذوقی شاہ کی سنائی ہوئی ایک کرامت کے مطابق وہ خود اور معین الدین چشتی ایک بیمار دوست کی مدد کو پلک جھپکتے میں اجمیر سے ملتان پہنچ گئے۔
+NEW: ذوقی شاہ نے ایک کرامت سنائی جس میں وہ خود اور معین الدین چشتی ایک بیمار دوست کی مدد کو پلک جھپکتے میں اجمیر سے ملتان پہنچ گئے تھے۔
+
+[V3 note (چھینٹ)]
+WHY: repetition of چھینٹ in one phrase; the port stays unnamed as in the English ('chintz in imitation of those of the port')
+OLD: بندرگاہ کی چھینٹ کی طرز پر چھینٹ بناتے تھے
+NEW: بندرگاہ کی طرز کی چھینٹ بناتے تھے
+
+[V3-45 (rejected as given; repetition addressed)]
+WHY: V3's fix drops 'meeting place and residence', which the English states in this paragraph, and adds the signpost 'as mentioned above', which the English does not have. V3's repetition concern is met instead by varied wording that keeps every fact
+OLD: ملتان کی صوفی خانقاہ ایسی جائے ملاقات اور قیام گاہ تھی جس کے دروازے مسلمانوں اور ہندوؤں دونوں پر کھلے تھے۔
+NEW: ملتان کی صوفی خانقاہ میل ملاقات اور قیام کی ایسی جگہ تھی جو مسلمانوں اور ہندوؤں دونوں کے لیے کھلی تھی۔
+
+REJECTED OR NOT APPLIED
+----------------------
+[V3-45] The proposed sentence ("جیسا کہ اوپر ذکر ہوا، ملتان کی صوفی خانقاہ کے دروازے مسلمانوں اور ہندوؤں دونوں پر کھلے تھے۔") is not applied: it drops "a meeting place and residence", which the English states in this paragraph, and adds a signpost ("as mentioned above") that the English does not have. The repetition it objects to is addressed by rewording (see the change above), keeping every fact.
+[V3 note: منظر query] Not applied: the English says "a rare scene"; turning it into a painting (تصویر) would add a fact.
+[V3 note: صاحب کا لقب رکھنے والے دو آدمیوں] Not applied: the English says only "two men titled sahib"; naming them British officers would add a fact.
+[V3 note: which port] Not applied: the English does not name the port. Only the repeated چھینٹ was removed.
+[V3 note: سلطان سرور / سخی سرور] Not applied: the English itself uses "Sultan Sarwar" (pilgrim road, twice) and "Sakhi Sarwar" (the legend); سخی سرور is the dictionary spelling of the latter. Each Urdu form matches its English form, one spelling per English name.
+[V3 note: شہاب الدین / معز الدین محمد بن سام] Not applied: the English names them this way in the same sentence; identifying them as one man would add a statement the English does not make.
+[V3 note: taste (intro repetition; دعویٰ رکھتے ہیں; کی خدمت میں اس کے ندیم; ایک سے زیادہ مذاہب; تیار ہوتی ہیں; 2010 تک)] Not applied: pure taste, per the brief's stopping rule. "2010 تک" would also read as "until 2010", which changes the English "as recently as 2010".
+[V2 notes: Madho Lal Hussein quotation; "all the way"] No change requested (V2 judged acceptable).

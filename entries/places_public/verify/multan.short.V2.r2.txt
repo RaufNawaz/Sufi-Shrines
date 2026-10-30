@@ -1,0 +1,28 @@
+V2 and V3 confirming round 2 for multan.short, one confirming worker doing both. V2 PASS, V3 FAIL (one sentence).
+
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [V3, agreement / ergative, consistency] OLD: "بعد میں ایک سلطان ملتان پہنچا اور شیوخ کے مقبروں کی زیارت کی۔" (History: The Delhi Sultans, paragraph 4) -> this has the fault that round 1 fixed in eight other sentences (changes 5 to 12). An intransitive clause (پہنچا) is joined to a transitive perfective (زیارت کی), and the second clause has no ergative subject. It is now the only sentence of this kind left in the file, so the article handles the construction inconsistently. The fix keeps the English meaning ("Later a sultan reached Multan and made the round of the tombs of the shaikhs") and adds nothing. -> NEW: "بعد میں ایک سلطان ملتان پہنچا اور اس نے شیوخ کے مقبروں کی زیارت کی۔"
+
+NOTES:
+- Diff check: I applied the 31 OLD -> NEW pairs from multan.short.ur.r1.changes.txt to /home/claude/work/multan/short_ur.r1.bak, matching each OLD exactly once, in order. The result is byte-identical to the current multan.short.ur.md, and both files have 113 lines. Nothing changed outside the listed edits. Mechanics are still clean: no Latin letters, no dashes, 4 asterisks.
+- I reread all 31 changed sentences in their paragraphs against the English. Each one says what the English says, with no omission, addition, change of certainty or wrong referent, and none adds a new language fault. Points I checked in particular:
+  - 1 and 2: the perfects (آ بسے تھے، ہونے لگی تھی، گھل مل چکی تھیں) now read as "by", not "until".
+  - 3: صوفی بزرگ لعل carries "the saint Lal".
+  - 4: in وہ انہیں, وہ is the mob (چاہتا is masculine singular) and انہیں is Parvati Devi.
+  - 6: in انہوں نے ان کی شان میں, the first pronoun is Iraqi and the second is Baha'uddin, and the semicolon split reads well.
+  - 12: کمسن سلطان حسین is the child sultan of the previous paragraph, and سلطان سے points back to him, not to Mirza Shah Husain Arghun.
+  - 22: ہی keeps "only".
+  - 28: سالار سے اور ... تاتار خان سے now makes two men, as in the English, and سالار کے لشکر follows cleanly.
+- Rejections: all twelve were rightly rejected.
+  - R1: the English says only "the saint Lal". Naming him as لعل شہباز قلندر would add a fact.
+  - R7: تاخت و تاراج would overstate "began to harm".
+  - R9: کئی would change "more than one".
+  - R2, R3, R6, R8 and R10 are matters of taste. R4 and R5 follow the English. R11 is structural. R12 is outside this file.
+- Taste, not a fault (does not fail the round): the opposite pattern, an ergative subject followed by an intransitive verb, stays in several unchanged sentences, for example in the neighbour of change 9: "تیمور نے انہیں قتل کروایا اور صحرا کے راستے آگے روانہ ہو گیا". Others are لشکر خان نے ... کام تمام کیا اور ... بن بیٹھا، اس نے ... روپیہ لیا اور ... بھاگ نکلا، اس نے ... پیالہ پی لیا اور چلّانے لگا، ملک بہرام نے ... بغاوت کی اور ... مارا گیا، غازی تغلق نے ... چڑھائی کی اور تخت پر بیٹھا. Standard Urdu prose accepts this order, and round 1 did not list it, so no change is needed.
+- Change 10, کے ملازم ہو گئے: کی ملازمت میں آ گئے would suit the period register a little better. This is taste.
+- Change 13: ہندو now appears twice in one sentence (تاریخی ہندو مندر ... ہندو برادری). The sentence is clear and the repetition is acceptable.
+- Change 27: جین و ہندو is fine. The quotation under برادریاں rightly keeps جین اور ہندو.
+- Change 21: وہاں نہ ٹھہرا is slightly more literary than وہاں نہیں ٹھہرا. This is taste.

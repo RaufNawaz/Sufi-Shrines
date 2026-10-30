@@ -1,0 +1,5 @@
+# lahore: change applied after V1 round 3 (FAIL)
+
+WHY: V1 round 3 issue 1 (broken referent), V1's wording
+OLD: Most of the buildings between the Mochi Gate and the Kashmiri Bazaar are his memorials.
+NEW: Most of the buildings between the Mochi Gate and the Kashmiri Bazaar are Mir Momin Khan's memorials.

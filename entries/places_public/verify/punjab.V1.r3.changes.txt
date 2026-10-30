@@ -1,0 +1,4 @@
+Changes applied after V1 round 3 (PASS, no issues), from its NOTES 1 to 3, 30 October 2026, by the coordinator, so that V2 and V3 read a text free of a known contradiction; a confirming V1 round 4 follows.
+1. OLD: ; most of the country's Hindus are scattered in other provinces, with only a few in Punjab.   NEW: .   (rule 4: the team version records the Hindu population of the Punjab as a disagreement; basis (b), the account the article already gives elsewhere, that many Hindus live in Southern Punjab, is kept.)
+2. OLD: converted by Fariduddin Ganj-i Shakar.   NEW: converted by Fariduddin Shakarganj.   (one spelling per name)
+3. OLD: After Partition gurdwaras, the Sikh places of worship, and temples were taken over   NEW: After Partition several gurdwaras, the Sikh places of worship, and temples were taken over   (the team's "several" restored)

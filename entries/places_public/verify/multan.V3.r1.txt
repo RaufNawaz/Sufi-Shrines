@@ -1,0 +1,103 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [calque: appositive after comma] "شہر کے ہندو آج بھی ہرنیہ کشیپ کی یاد سنبھالے ہوئے ہیں، وہ ظالم بادشاہ جس کے بارے میں مانا جاتا ہے کہ ہزاروں برس پہلے اس شہر پر اسی کی حکومت تھی۔" -> English apposition ("X, the tyrant king who…") hung on after a comma; in Urdu the description belongs before the name. -> "شہر کے ہندو آج بھی اس ظالم بادشاہ ہرنیہ کشیپ کی یاد سنبھالے ہوئے ہیں جس کے بارے میں مانا جاتا ہے کہ ہزاروں برس پہلے اس شہر پر اسی کی حکومت تھی۔"
+
+2. [calque] "یہاں تک کہ غزنی کے سلطان محمود نے وہاں شیعہ اسلام کی شاخ اسماعیلیہ کا زور توڑ دیا" -> "شیعہ اسلام کی شاخ اسماعیلیہ" is a word-for-word rendering of "the Ismaili branch of Shia Islam". -> "یہاں تک کہ غزنی کے سلطان محمود نے وہاں شیعوں کے اسماعیلی فرقے کا زور توڑ دیا"
+
+3. [elliptical, tangled] "پھر افغانوں کے قبضے میں گیا اور آخر میں رنجیت سنگھ کے، جس کی فتح میں شہر کے نواب مظفر خان کی جان گئی۔" -> the dangling "رنجیت سنگھ کے،" (verb and noun elided) followed by a relative clause does not hold together in Urdu. -> "پھر افغانوں کے قبضے میں گیا، اور آخر میں رنجیت سنگھ نے اسے فتح کیا، اور اسی فتح میں شہر کے نواب مظفر خان کی جان گئی۔"
+
+4. [word order; repetition] "بہاؤالدین زکریا کے علاوہ، جن کا انتقال 1267 میں ہوا، اور بھی بہت سے اولیا اس شہر میں آرام فرما ہیں۔" -> the relative clause wedged between commas cuts the name off from the sentence (English order); the sentence also repeats the closing line of the first paragraph almost word for word. -> "1267 میں وفات پانے والے بہاؤالدین زکریا کے علاوہ بھی بہت سے اولیا اس شہر میں آرام فرما ہیں۔"
+
+5. [word order] "ہندوستان میں روایت ہے کہ ملتان میں ملاؤں نے شمس تبریز کی زندہ ہی کھال کھینچ لی تھی" -> "کی زندہ ہی کھال" puts "زندہ" inside the genitive, so it reads as "the living skin"; the adverbial belongs after the object. -> "ہندوستان میں روایت ہے کہ ملتان میں ملاؤں نے شمس تبریز کی کھال زندہ حالت میں کھینچ لی تھی"
+
+6. [word order, tangled] "ہندوستان میں روایت ہے کہ مولانا رومی کے روحانی محبوب شمس تبریز کی ملتان میں ملاؤں نے زندہ ہی کھال کھینچ لی تھی" -> the genitive "شمس تبریز کی" is separated from its head "کھال" by the place, the subject and the adverb; same "زندہ ہی کھال" problem as above. -> "ہندوستان میں روایت ہے کہ ملتان میں ملاؤں نے مولانا رومی کے روحانی محبوب شمس تبریز کی کھال زندہ حالت میں کھینچ لی تھی"
+
+7. [unidiomatic, ambiguous] "سندھی اور پنجابی شاعروں کے ہاں ملتان مکہ اور مدینہ کے ساتھ دل کا ایک مقدس شہر ہے۔" -> "دل کا ایک مقدس شہر" is not an Urdu collocation and blurs the idea (stated plainly in the poetry section) that Mecca, Medina and Multan are "within the heart". -> "سندھی اور پنجابی شاعروں کے ہاں مکہ اور مدینہ کی طرح ملتان بھی ایک مقدس شہر ہے جو دل کے اندر بستا ہے۔"
+
+8. [gloss of a familiar word; stacked genitives; wrong connective] "لیکن ہندوؤں کے بہار کے تہوار ہولی کا حال بدل گیا ہے: یہ تہوار 2010 میں بھی شہر میں نہیں منایا جاتا تھا، اور اب ہر سال چھوٹے پیمانے پر منایا جاتا ہے۔" -> "ہندوؤں کے بہار کے تہوار ہولی کا" is four stacked genitives glossing a festival every Urdu reader knows (the paragraph is already about the city's Hindus); "اور" should be a contrast. -> "لیکن ہولی کا حال بدل گیا ہے: 2010 میں بھی یہ تہوار شہر میں نہیں منایا جاتا تھا، مگر اب ہر سال چھوٹے پیمانے پر منایا جاتا ہے۔"
+
+9. [postposition, ambiguous] "اور آج شہر میں بولی جانے والی سرائیکی پنجابی سے زیادہ قریب ہے۔" -> "پنجابی سے زیادہ قریب" can be read as a comparison ("closer [to something] than Punjabi is"); "قریب" here takes "کے". -> "اور آج شہر میں بولی جانے والی سرائیکی پنجابی کے زیادہ قریب ہے۔"
+
+10. [postposition, ambiguous] "آج ملتان کی سرائیکی پنجابی سے زیادہ قریب ہے، جبکہ اوچ کی سرائیکی سندھی سے زیادہ ملتی جلتی ہے۔" -> same as 9. -> "آج ملتان کی سرائیکی پنجابی کے زیادہ قریب ہے، جبکہ اوچ کی سرائیکی سندھی سے زیادہ ملتی جلتی ہے۔"
+
+11. [repetition; izafat] "ساتویں صدی کے نصف آخر میں ملتان کا پہلی بار مسلم لشکروں سے سامنا ہوا، اور محمد بن قاسم نے پہلی مرتبہ اسے مسلم حکومت کے زیرِ نگیں کیا۔" -> "پہلی بار … پہلی مرتبہ" in one sentence; "نصفِ آخر" needs the izafat. -> "ساتویں صدی کے نصفِ آخر میں ملتان کا پہلی بار مسلم لشکروں سے سامنا ہوا، اور محمد بن قاسم وہ پہلا فاتح تھا جس نے اسے مسلم حکومت کے زیرِ نگیں کیا۔"
+
+12. [ambiguous pronouns] "جب محمد بن قاسم نے ملتان لیا تو اس کا ماتحت علاقہ چونیاں بھی اس کے قبضے میں آ گیا۔" -> "اس کا … اس کے" refer to two different things (Multan, Qasim). -> "جب محمد بن قاسم نے ملتان لیا تو ملتان کا ماتحت علاقہ چونیاں بھی اس کے قبضے میں آ گیا۔"
+
+13. [unidiomatic] "غزنویوں نے ملتان کو اپنا بنا لیا۔" -> "کسی کو اپنا بنا لینا" in Urdu means winning someone's affection, not taking a city. -> "ملتان غزنویوں کے قبضے میں آیا۔"
+
+14. [clumsy genitives] "غوری کے عہد میں ملتان اس کی دہلی کی سلطنت میں شامل ہوا" -> "اس کی دہلی کی سلطنت" stacks two "کی" awkwardly. -> "غوری کے عہد میں ملتان اس کی سلطنتِ دہلی میں شامل ہوا"
+
+15. [English relative clause; ambiguous adverb] "رکن الدین فیروز شاہ کے عہد میں امرا نے ملتان کے حاکم کو بلا بھیجا، جس نے وہاں بھاری لشکر جمع کیا اور دہلی کی طرف چل پڑا۔" -> non-restrictive "، جس نے" is an English pattern, and "وہاں" can be read as Delhi (the last place named in the reader's mind is the court that summoned him). -> "رکن الدین فیروز شاہ کے عہد میں امرا نے ملتان کے حاکم کو بلا بھیجا، چنانچہ اس نے ملتان میں بھاری لشکر جمع کیا اور دہلی کی طرف چل پڑا۔"
+
+16. [calque: nominalisation] "یہاں کے علما کا ایک فتویٰ دینے سے انکار مشہور ہے، اور مولانا حسام الدین بھی ملتان ہی کے تھے۔" -> "علما کا ایک فتویٰ دینے سے انکار مشہور ہے" is English noun-phrase syntax ("a refusal by its ulama to issue a fatwa is famous") and parses badly. -> "یہاں کے علما کا یہ واقعہ مشہور ہے کہ انہوں نے ایک فتویٰ دینے سے انکار کر دیا تھا، اور مولانا حسام الدین بھی ملتان ہی کے تھے۔"
+
+17. [overlong chain of اور] "کیخسرو ملتان میں رہتا تھا اور ان دنوں دربار آیا ہوا تھا، اور بلبن کی وصیت کے مطابق تخت اسی کو ملنا تھا، مگر فخر الدین نے ایک چال چل کر اسے واپس ملتان بھیج دیا۔" -> three clauses strung on "اور … اور … مگر". -> "کیخسرو ملتان میں رہتا تھا اور ان دنوں دربار آیا ہوا تھا۔ بلبن کی وصیت کے مطابق تخت اسی کو ملنا تھا، مگر فخر الدین نے ایک چال چل کر اسے واپس ملتان بھیج دیا۔"
+
+18. [agreement] "شیخ کے خاص محل سرا میں بھی اپنے آدمی تعینات کر دیے" -> "محل سرا" is feminine. -> "شیخ کی خاص محل سرا میں بھی اپنے آدمی تعینات کر دیے"
+
+19. [apposition between commas] "پھر سلطان حسین کا پوتا، یعنی فیروز شاہ کا بیٹا سلطان محمود، اپنے دادا کا جانشین ہوا اور ستائیس برس حکومت کی۔" -> the subject is broken by an English-style parenthetical. -> "پھر فیروز شاہ کا بیٹا سلطان محمود اپنے دادا سلطان حسین کا جانشین ہوا اور ستائیس برس حکومت کی۔"
+
+20. [ambiguous] "پنجاب پہنچ کر بابر نے فرمان جاری کیا کہ ملتان ٹھٹھہ کے حاکم مرزا شاہ حسین ارغون کو جاگیر میں دیا جائے۔" -> "ملتان ٹھٹھہ کے حاکم" runs together and reads as "the governor of Multan-Thatta". -> "پنجاب پہنچ کر بابر نے فرمان جاری کیا کہ ملتان کو جاگیر کے طور پر ٹھٹھہ کے حاکم مرزا شاہ حسین ارغون کے سپرد کر دیا جائے۔"
+
+21. [identifier on second mention, not first] "اور خواص خان ملتان تک اس کا پیچھا کرنے کے بعد لوٹ گیا۔" -> Khawas Khan is introduced bare here and only identified ("شیر خان کا غلام") in the next sentence; swap the identifier to the first mention, and in the next sentence change "جبکہ شیر خان کا غلام خواص خان ایک بڑا لشکر" to "جبکہ خواص خان ایک بڑا لشکر". -> "اور شیر خان کا غلام خواص خان ملتان تک اس کا پیچھا کرنے کے بعد لوٹ گیا۔"
+
+22. [elliptical] "رستم مرزا کو پنج ہزاری منصب ملا اور جاگیر میں ملتان اور بلوچستان کا ملک، جس کی آمدنی قندھار سے زیادہ تھی۔" -> the second clause has no verb and the relative clause trails after a comma. -> "رستم مرزا کو پنج ہزاری منصب ملا، اور جاگیر میں ملتان اور بلوچستان کا وہ ملک ملا جس کی آمدنی قندھار سے زیادہ تھی۔"
+
+23. [tangled, ambiguous relative] "دارا کی طرف سے ملتان کی حکومت جس شخص کے پاس تھی، اس نے اطاعت قبول کی، اور اس کے ساتھ سید عزت خان نے بھی، جسے خلعت کے ساتھ تین ہزار ذات اور پانچ سو سوار کا منصب ملا۔" -> four comma-joined pieces; "جسے" could attach to either man. -> "دارا کی طرف سے ملتان کی حکومت جس شخص کے پاس تھی اس نے اطاعت قبول کر لی، اور اس کے ساتھ سید عزت خان نے بھی۔ سید عزت خان کو خلعت کے ساتھ تین ہزار ذات اور پانچ سو سوار کا منصب ملا۔"
+
+24. [collocation] "جواب میں رنجیت سنگھ نے سکھ جنگجو نہنگوں کو کام میں لا کر ان لڑائیوں کو مذہبی آہنگ دے دیا۔" -> "کام میں لانا" is said of things, not people; "مذہبی آہنگ دینا" is not idiomatic ("آہنگ" is tone/harmony). -> "جواب میں رنجیت سنگھ نے سکھ جنگجو نہنگوں سے کام لے کر ان لڑائیوں کو مذہبی رخ دے دیا۔"
+
+25. [ambiguous run-on names] "حافظ محمد جمال نور محمد کے جانشین اور سلیمان تونسوی کے ہم عصر تھے اور 1811 میں فوت ہوئے؛" -> "حافظ محمد جمال نور محمد" reads as a single name. -> "نور محمد کے جانشین اور سلیمان تونسوی کے ہم عصر حافظ محمد جمال 1811 میں فوت ہوئے؛"
+
+26. [repetition] "کھڑک سنگھ کی سرکردگی میں ایک لشکر ملتان فتح کرنے بھیجا گیا، اور شہر فتح ہو گیا۔" -> "فتح … فتح" in one short sentence. -> "کھڑک سنگھ کی سرکردگی میں ایک لشکر ملتان کی مہم پر بھیجا گیا، اور شہر فتح ہو گیا۔"
+
+27. [redundant clause] "شہر کے آج کے ہندوؤں میں سے بعض اس زمانے سے یہاں رہتے آئے ہیں جب ملتان ابھی پاکستان کا حصہ نہیں بنا تھا؛ آج یہ شہر پاکستان ہی میں واقع ہے۔" -> "ابھی … نہیں بنا تھا" already says it later did; the tail clause adds nothing and its emphatic "ہی" reads oddly. No fact is lost by dropping it. -> "شہر کے آج کے ہندوؤں میں سے بعض اس زمانے سے یہاں رہتے آئے ہیں جب ملتان ابھی پاکستان کا حصہ نہیں بنا تھا۔"
+
+28. [unidiomatic, tangled] "آج کے ایک صوفی سلسلے میں ملتان بھی لاہور اور کراچی کے ساتھ ایک ایسے حلقے کا حصہ ہے جسے اس سلسلے کے ایک رکن نے انٹرنیٹ سے تشبیہ دی۔" -> "آج کے ایک صوفی سلسلے میں ملتان … حصہ ہے" places the city inside the order; "حلقہ" (circle) sits poorly with the internet comparison, which implies a network. -> "آج کے ایک صوفی سلسلے کے ہاں ملتان، لاہور اور کراچی ایک ایسے جال کی کڑیاں ہیں جسے اس سلسلے کے ایک رکن نے انٹرنیٹ سے تشبیہ دی۔"
+
+29. [jingle] "ان کی شان میں شاندار قصیدے کہے" -> "شان … شاندار" back to back. -> "ان کی شان میں بلند پایہ قصیدے کہے"
+
+30. [ambiguous name] "ولی لعل کی پہلی منزل ملتان تھی۔" -> "ولی لعل" reads as a proper name ("Wali Lal"). -> "لعل کی پہلی منزل ملتان تھی۔" (If this is Lal Shahbaz Qalandar, the editor should give the full name at first mention from the source; not added here.)
+
+31. [ambiguous pronoun] "اور بیدل ایک ایسے قریشی خاندان کے چشم و چراغ تھے جو ان سے دو پشت پہلے ملتان سے ہجرت کر چکا تھا۔" -> "ان سے" can refer to the Mufti and Gardezi families just named. -> "اور بیدل ایک ایسے قریشی خاندان کے چشم و چراغ تھے جو بیدل سے دو پشت پہلے ملتان سے ہجرت کر چکا تھا۔"
+
+32. [agreement; subject cut off by commas] "لنگاہ، جو آگے چل کر شہر کے سلطان بنے، ایک ایسی قوم تھے جس کا سردار اپنا ایک قصبہ رکھتا تھا۔" -> "قوم … تھے" mixes feminine singular predicate with plural verb; the relative clause isolates the subject. -> "آگے چل کر شہر کے سلطان بننے والے لنگاہ ایک ایسی قوم تھی جس کا سردار اپنا ایک قصبہ رکھتا تھا۔"
+
+33. [ambiguous reference, sentence order] "ریلوے اسٹیشن کے پاس واقع ہولی محلہ ان کئی علاقوں میں سے ایک ہے جہاں وہ رہتے ہیں۔ ان کی تعداد ایک ہزار سے کچھ ہی زیادہ ہے، اور اس بستی کے لگ بھگ سو گھروں میں سے صرف دس بارہ گھر ہندو خاندانوں کے ہیں۔" -> the city-wide headcount sits between "ہولی محلہ" and "اس بستی", so "اس بستی" seems to mean the whole Hindu community. -> "ان کی تعداد ایک ہزار سے کچھ ہی زیادہ ہے۔ ریلوے اسٹیشن کے پاس واقع ہولی محلہ ان کئی علاقوں میں سے ایک ہے جہاں وہ رہتے ہیں، اور اس محلے کے لگ بھگ سو گھروں میں سے صرف دس بارہ گھر ہندو خاندانوں کے ہیں۔"
+
+34. [tangled] "پاروتی دیوی شہر کی ایک پیشہ ور گلوکارہ ہیں، جنہوں نے کلاسیکی موسیقی کی باقاعدہ تربیت پائی ہے، اور سماجی کارکن بھی ہیں۔" -> the relative clause interrupts the predicate, leaving "اور سماجی کارکن بھی ہیں" stranded. -> "پاروتی دیوی شہر کی ایک پیشہ ور گلوکارہ اور سماجی کارکن ہیں جنہوں نے کلاسیکی موسیقی کی باقاعدہ تربیت پائی ہے۔"
+
+35. [inconsistent honorific; appositive with یعنی] "جب ملتان ایک الگ سلطنت بنا تو تخت پر بٹھائے جانے والے بھی ایک شیخ ہی تھے، یعنی شیخ یوسف قریشی، جنہیں شہر کے اکابر اور عوام نے باہم مشورے سے چنا تھا۔" -> Shaikh Yusuf Qureshi takes the singular throughout the history section ("سادہ دل شیخ … مہربانیاں کرتا رہا") but the plural here; the name trails after "یعنی" with a further relative clause. -> "جب ملتان ایک الگ سلطنت بنا تو شہر کے اکابر اور عوام نے باہم مشورے سے جسے تخت پر بٹھایا وہ بھی ایک شیخ ہی تھا: شیخ یوسف قریشی۔"
+
+36. [ambiguous coordination] "جیسے عید اور سانحۂ کربلا کی یاد میں محرم کی مجالس۔" -> reads as "majalis in memory of Eid and of Karbala". -> "جیسے عید کی رسوم اور سانحۂ کربلا کی یاد میں محرم کی مجالس۔"
+
+37. [unidiomatic] "نذرانوں اور ان کے نگہبانوں پر تنقید بھی ہوئی ہے۔" -> "نذرانوں کے نگہبان" (guardians of offerings) is not an Urdu expression; the paragraph is about shrine custodians and the offerings made at shrines. -> "مزاروں پر چڑھنے والے نذرانوں اور مزاروں کے نگرانوں پر تنقید بھی ہوئی ہے۔"
+
+38. [repetition, trailing clause] "زیارت کا سفر شہر سے باہر کی سمت بھی جاتا تھا، اس راہ پر جو ملتان سے سلطان سرور کے مقبرے تک جاتی تھی۔" -> "جاتا تھا … جاتی تھی", with an afterthought phrase after the comma. -> "زیارت کی ایک راہ شہر سے باہر بھی نکلتی تھی: وہ راہ جو ملتان سے سلطان سرور کے مقبرے تک جاتی تھی۔"
+
+39. [ambiguous] "شہزادہ سعدی کو شیراز سے ملتان بلانا چاہتا تھا، اور یہ خواہش صرف شاعر کے بڑھاپے کی وجہ سے پوری نہ ہو سکی۔" -> "شہزادہ سعدی" reads as "Prince Saadi". -> "شہزادے کی خواہش تھی کہ سعدی کو شیراز سے ملتان بلائے، اور یہ خواہش صرف شاعر کے بڑھاپے کی وجہ سے پوری نہ ہو سکی۔"
+
+40. [relative clause cut off; tense] "اس شہر کو قدیم شہروں میں سے ایک بتایا، جس کا قلعہ اینٹوں کا ہے۔" -> the relative clause trails after the verb and switches to the present tense in a past report. -> "سترھویں صدی کے اواخر میں مغل عہد کی ایک کتاب نے صوبۂ دارالامان ملتان کا حال لکھتے ہوئے اس شہر کو اینٹوں کے قلعے والا ایک قدیم شہر بتایا۔"
+
+41. [ambiguous reference] "اس سے پہلے اس شہر پر سلطان حسین لنگاہ حکومت کر چکا تھا۔" -> follows the sentence about Mahmud's soldiers, so "اس سے پہلے" reads as "before Mahmud", which is wrong; it means before the book. -> "اس کتاب کے زمانے سے پہلے اس شہر پر سلطان حسین لنگاہ حکومت کر چکا تھا۔"
+
+42. [ambiguous: homograph, run-on list] "راوی چناب اور بہت کے ملے ہوئے دھارے میں جا گرتا تھا" -> "بہت" (the Jhelum) is read as "very", and "راوی چناب اور بہت" looks like a three-river list. -> "ملتان سے بیس کوس کے فاصلے پر ایک سرائے کے قریب چناب اور دریائے بہت کے ملے ہوئے دھارے میں راوی جا گرتا تھا"
+
+43. [homograph] "کچھ اور ملتان کے درمیان کے صحرا" -> unvowelled "کچھ" reads as "some". -> "کَچھ اور ملتان کے درمیان کے صحرا"
+
+44. [redundancy; repetition] "ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں ہی اب پرہلاد کی کہانی سے شہر کا واحد رشتہ ہیں۔" -> "ہی … واحد" double the restriction; the same sentence recurs almost verbatim in "میلے اور رسوم". -> "ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں اب پرہلاد کی کہانی سے شہر کا واحد رشتہ ہیں۔" (Likewise in the later occurrence: "ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں ہی اب ہرنیہ کشیپ" -> "ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں اب ہرنیہ کشیپ".)
+
+45. [repetition] "ملتان کی صوفی خانقاہ ایسی جائے ملاقات اور قیام گاہ تھی جس کے دروازے مسلمانوں اور ہندوؤں دونوں پر کھلے تھے۔" -> third near-verbatim statement of the khanqah open to Muslims and Hindus (already in the introduction and in "اولیا کا شہر"); here it can be shortened to a back-reference. -> "جیسا کہ اوپر ذکر ہوا، ملتان کی صوفی خانقاہ کے دروازے مسلمانوں اور ہندوؤں دونوں پر کھلے تھے۔"
+
+NOTES:
+- Taste: the introduction repeats several sentences from the sections almost verbatim ("ملتان صوفیوں کا شہر ہے … اپنا مرکز بنایا", the Shams Tabriz tradition, the Sayyid patrons of Suraiya Multanikar, the seventeenth-century trade sentence). Acceptable as a summary, but a little varied wording would read better.
+- Query for the editor, not fixable from the Urdu alone: "ذوقی شاہ کی سنائی ہوئی ایک کرامت کے مطابق وہ خود اور معین الدین چشتی…" — "وہ خود" can be Zauqi Shah or al-Jilani from the previous sentence. Name the person from the source.
+- Query: "ملتان ہی کا ایک نادر منظر ہے" — if this is a painting or miniature, say so ("ایک نادر تصویر"); "منظر" alone reads as a scene witnessed.
+- Query: "صاحب کا لقب رکھنے والے دو آدمیوں" is clumsy; if the source means two British officers, say so after checking.
+- Query: "بندرگاہ کی چھینٹ کی طرز پر چھینٹ" — which port is meant is unclear, and "چھینٹ" is repeated.
+- The same saint is "سلطان سرور" (twice) and "سخی سرور" (once); both are his names, but one form throughout would help the general reader.
+- "شہاب الدین" and "معز الدین محمد بن سام" are the same man named two ways in one sentence; a reader may take them for two people.
+- Taste: "دعویٰ رکھتے ہیں" -> "دعویٰ کرتے ہیں"; "کی خدمت میں اس کے ندیم رہے" -> "کے ندیم رہے"; "ایک سے زیادہ مذاہب کا شہر" -> "کئی مذاہب کا شہر"; "کتابیں تیار ہوتی ہیں" -> "کتابیں چھپتی ہیں"; "2010 میں بھی" could read more clearly as "2010 تک".
+- Mechanics are clean: Urdu punctuation throughout (، ۔ ؛), no em or en dashes, no Latin letters, Western digits only, 6 asterisks (balanced).

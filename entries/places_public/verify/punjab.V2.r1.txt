@@ -1,0 +1,77 @@
+V2 round 1 for punjab, run per heading group (P1 Overview and History; P2 saints and communities; P3 language, the state and the books). The round's verdict is the conjunction of the groups: FAIL.
+
+=================== GROUP P1 ===================
+VERDICT: FAIL
+
+ISSUES:
+1. [changed certainty] History: From the Earliest Times to Babur, paragraph 9 ("Another tradition holds that ..."). English | "Another tradition holds that when the Ghaznavid sultans ruled Punjab ... left the government of Punjab altogether weak; Raja Anangpal then took Lahore, and there was Hindu rule there for a time until an army came again from Ghazni." | Urdu splits the sentence after کمزور کر دیا۔ and starts a new sentence, تب راجا اننگ پال نے ... -> In English the Anangpal clause sits after a semicolon and is still governed by "Another tradition holds". In the Urdu it stands as its own sentence, so Anangpal taking Lahore and the period of Hindu rule read as plain fact and are no longer part of the tradition. -> corrected Urdu:
+   OLD: یہاں تک کہ بہرام شاہ کے زمانے میں ان کی باہمی چپقلش نے پنجاب کی حکومت کو بالکل کمزور کر دیا۔ تب راجا اننگ پال نے لاہور پر قبضہ کر لیا، اور کچھ عرصہ وہاں ہندو راج رہا، یہاں تک کہ غزنی سے پھر ایک لشکر آیا۔
+   NEW: یہاں تک کہ بہرام شاہ کے زمانے میں ان کی باہمی چپقلش نے پنجاب کی حکومت کو بالکل کمزور کر دیا۔ اسی بیان کے مطابق پھر راجا اننگ پال نے لاہور پر قبضہ کر لیا، اور کچھ عرصہ وہاں ہندو راج رہا، یہاں تک کہ غزنی سے پھر ایک لشکر آیا۔
+
+2. [changed certainty] Overview, paragraph 7 ("The province's faiths met in more than one way."). English | "In one view, Islam and Hinduism existed side by side in the medieval Punjab for over three hundred years in a state of constant conflict, yet the conversion of the Punjabi clans to Islam was very slow and probably unconscious, and many of the clans claim ..." | Urdu ends the "ایک رائے یہ ہے کہ" sentence after موجود رہے۔ and begins a new sentence, اس کے باوجود پنجابی قبیلوں کا قبولِ اسلام ... -> In English the "yet" clause is part of the same sentence, so "In one view" covers it too. In the Urdu the slow, probably unconscious conversion becomes the article's own claim instead of part of the attributed view. The brief says a hedge must govern the whole claim. -> corrected Urdu:
+   OLD: موجود رہے۔ اس کے باوجود پنجابی قبیلوں کا قبولِ اسلام بہت آہستہ آہستہ اور غالباً غیر شعوری طور پر ہوا،
+   NEW: موجود رہے۔ اسی رائے کے مطابق اس کشمکش کے باوجود پنجابی قبیلوں کا قبولِ اسلام بہت آہستہ آہستہ اور غالباً غیر شعوری طور پر ہوا،
+
+NOTES: style only.
+- Overview, paragraph 2: in "اور اب وہ ایک صوبہ تھا جس کا دارالحکومت لاہور تھا" the English says "then". Inside a past perfect frame اب can read as "now". Suggest "اور اس وقت وہ ایک صوبہ تھا".
+- Italics are inconsistent on titles. *بابر بانی* keeps its italics (Babur Bani), but ہیر رانجھا (English *Hir and Ranjha*, Decline section, paragraph 2) loses them. Both are titles, so treat them the same way.
+- "in 1150 to 1151" and "1398 to 1399" are given as "1150 اور 1151 میں" and "1398 اور 1399 میں". This is acceptable, but "1150 تا 1151" would keep the sense of a span more closely.
+- Checked and fine: there are no Latin letters and no em or en dashes. All headings correspond (four sections). The verse paragraph is a meaning-only italic paragraph with no credit line, as the brief says. Every figure, date and Hijri year matches the English. Every other qualifier is kept (تقریباً، کہا جاتا ہے، روایت ہے، ایک کم معروف روایت، معلوم ہوتا ہے، بظاہر، غالباً، بعض کا دعویٰ ہے، روایتیں مختلف ہیں). The glosses dropped for familiar words (دیوان، فقیر، جہاد، پرگنہ، زمیندار، فوجداری، حویلی، گوردوارہ، گدی) are deliberate under the brief and are not counted as omissions.
+
+=================== GROUP P2 ===================
+VERDICT: FAIL
+
+ISSUES:
+1. [changed certainty] English: "It is said that the Bibi Pak Daman, whose shrine is in Lahore, involved the men in spreading Islam ..., the women speaking to the male scholars and their audiences from behind the veil, and that seven hundred male scholars came with her to Hind" | Urdu: the Urdu splits the sentence after the first clause, so "it is said" no longer governs the women speaking from behind the veil or the seven hundred scholars, which are now stated as fact. -> The hedge must govern all three claims.
+   OLD: کہا جاتا ہے کہ لاہور میں مدفون بی بی پاک دامن نے پنجاب کے غیر مسلموں میں اسلام کی اشاعت کے کام میں مردوں کو شریک کیا۔ خواتین پردے کے پیچھے سے مرد علما اور ان کے سامعین سے بات کرتی تھیں، اور سات سو مرد علما بی بی کے ساتھ اس سرزمین میں آئے جسے اس زمانے میں ہند کہا جاتا تھا۔
+   NEW: لاہور میں بی بی پاک دامن کا مزار ہے۔ ان کے بارے میں کہا جاتا ہے کہ انہوں نے پنجاب کے غیر مسلموں میں اسلام کی اشاعت کے کام میں مردوں کو شریک کیا اور خواتین پردے کے پیچھے سے مرد علما اور ان کے سامعین سے بات کرتی تھیں۔ یہ بھی روایت ہے کہ سات سو مرد علما بی بی کے ساتھ اس سرزمین میں آئے جسے اس زمانے میں ہند کہا جاتا تھا۔
+
+2. [changed fact] English: "the Bibi Pak Daman, whose shrine is in Lahore" | Urdu: "لاہور میں مدفون بی بی پاک دامن" -> "buried in Lahore" asserts a burial, where the English says only that her shrine is in Lahore. The same paragraph reports the tradition that the Bibis were taken into the earth. -> Fixed by the NEW text in issue 1 ("لاہور میں بی بی پاک دامن کا مزار ہے").
+   OLD: لاہور میں مدفون بی بی پاک دامن
+   NEW: (see issue 1) لاہور میں بی بی پاک دامن کا مزار ہے۔
+
+3. [changed fact] English: "offered a bond that the mulla would not give it" (it = the call to prayer given aloud) | Urdu: "اس بات کا مچلکا دینے کی پیشکش کی کہ اس مسجد کا ملا بھی اذان نہیں دے گا" -> "aloud" is dropped. The Urdu now promises that the mulla would give no call to prayer at all, not that he would refrain from giving it aloud.
+   OLD: اس مسجد کا ملا بھی اذان نہیں دے گا۔
+   NEW: اس مسجد کا ملا بھی بلند آواز سے اذان نہیں دے گا۔
+
+4. [changed certainty] English: "Local people tend to be more accepting of the practices of other faiths than the migrants" | Urdu: "مقامی لوگ دوسرے مذاہب کے طور طریقوں کو ان مہاجروں سے زیادہ قبول کرتے ہیں" -> "tend to be" is dropped, so a general tendency becomes an absolute statement.
+   OLD: مقامی لوگ دوسرے مذاہب کے طور طریقوں کو ان مہاجروں سے زیادہ قبول کرتے ہیں
+   NEW: مقامی لوگ عموماً دوسرے مذاہب کے طور طریقوں کو ان مہاجروں سے زیادہ قبول کرتے ہیں
+
+5. [changed fact] English: "The Punjabi tale of Suhini and Mehar" | Urdu: "سوہنی مہینوال کی پنجابی داستان" -> The Urdu replaces the hero's name Mehar with Mahiwal. The English uses the name the tale carries in Sindh, which is the point of the sentence.
+   OLD: سوہنی مہینوال کی پنجابی داستان
+   NEW: سوہنی میہار کی پنجابی داستان
+
+6. [addition] English: "In his invocation the poet Waris Shah sang:" | Urdu: "وارث شاہ نے اپنی داستان کی ابتدائی مناجات میں گایا:" -> "داستان" adds an identification of the work that the English does not make, and "the poet" is dropped.
+   OLD: وارث شاہ نے اپنی داستان کی ابتدائی مناجات میں گایا:
+   NEW: شاعر وارث شاہ نے اپنی مناجات میں گایا:
+
+NOTES:
+- Headings correspond (اولیا اور زیارت / برادریاں). There is no verse in these sections. All numbers and dates match: 1035, 615ھ, 887ھ, 1184ھ, 1267ھ/1850, 1504, 1514 to 1516, 1523 to 1524, 1975, 1911, the 1260s, 186/82, 1263, 1935 to 1938, 1650s, 1884, 1880s, 6 December 1992, 2005, 2009, 1980s, November 2011, 13 January. Both clan lists are complete (13 names and 6 names).
+- The dropped glosses (sayyid, hadith, tafsir, qazi, pirs/fakirs/jogis, bhang, doab, ser, satti, lassi, khwaja-sara, etc.) are deliberate under the brief and are not counted.
+- "حضرت حسین" is rendered "حضرت شاہ حسین". This is acceptable as a conventional name, since the next sentence names Madho Lal Hussain.
+- "What the hell!" is rendered "اور نہیں تو کیا!". That is an idiomatic affirmation rather than an indignant oath. It is acceptable, but "ارے واہ!" or a similar exclamation would keep more of the tone.
+- "pearha ... a piece of furniture" is rendered "ایک عام نشست". That is slightly more specific than the English but correct.
+- "some of Hir's friends, by their names, are Hindus" is rendered "اپنے ناموں سے ہندو معلوم ہوتی ہیں". That is a fair reading of "by their names".
+
+=================== GROUP P3 ===================
+VERDICT: FAIL
+
+ISSUES:
+1. [changed certainty] English "The Punjab and Sindh ... One historian of Islamic mysticism most often speaks of Sindh and the Punjab together, as the two provinces of one tradition of religious poetry and as a cotton growing country" | Urdu "گویا یہ مذہبی شاعری کی ایک ہی روایت کے دو صوبے ہوں" -> گویا ("as if") makes the historian's view sound hypothetical or doubtful; the English says she treats them as the two provinces of one tradition -> OLD: "گویا یہ مذہبی شاعری کی ایک ہی روایت کے دو صوبے ہوں اور کپاس اگانے والا ایک ہی ملک؛" NEW: "یعنی مذہبی شاعری کی ایک ہی روایت کے دو صوبوں اور کپاس اگانے والے ایک ہی ملک کی حیثیت سے؛"
+
+2. [omission] English "the language had become a purely spoken one, and Punjabis could no longer read it in written form" | Urdu "اور پنجابی اسے لکھی ہوئی صورت میں پڑھ نہیں سکتے تھے" -> "no longer" (they once could) is lost -> OLD: "اور پنجابی اسے لکھی ہوئی صورت میں پڑھ نہیں سکتے تھے" NEW: "اور پنجابی اب اسے لکھی ہوئی صورت میں پڑھنے کے قابل نہیں رہے تھے"
+
+3. [changed fact] English "the Qadiris, who had made the Punjab the main centre of their activities" | Urdu "اپنی سرگرمیوں کا بڑا مرکز" -> "a major centre" weakens "the main centre" -> OLD: "جنہوں نے پنجاب کو اپنی سرگرمیوں کا بڑا مرکز بنا رکھا تھا" NEW: "جنہوں نے پنجاب کو اپنی سرگرمیوں کا مرکزی مقام بنا رکھا تھا"
+
+4. [changed fact] English "as one would expect among the people of mainly rural provinces" | Urdu "زیادہ تر دیہی صوبوں کے لوگوں میں" -> reads as "most rural provinces" as easily as "provinces that are mainly rural"; the English qualifies the provinces, not their number -> OLD: "جیسا کہ زیادہ تر دیہی صوبوں کے لوگوں میں توقع کی جا سکتی ہے" NEW: "جیسا کہ بنیادی طور پر دیہی صوبوں کے لوگوں میں توقع کی جا سکتی ہے"
+
+5. [addition] English "On the northern mihrab, the prayer niche, of the mosque of Nawab Zakariya Khan, west of the mazar, the saint's tomb, of Madho Lal Hussein, a tile inscription recorded in the 1880s carried these lines." | Urdu "... نواب زکریا خان کی مسجد ہے، ..." -> the present tense ہے asserts that the mosque stands today, which the English does not say (it reports only an inscription recorded in the 1880s) -> OLD: "مادھو لال حسین کے مزار کے مغرب میں نواب زکریا خان کی مسجد ہے، اور اس کی شمالی محراب پر کاشی کاری کا ایک کتبہ تھا جسے 1880 کی دہائی میں قلم بند کیا گیا۔" NEW: "مادھو لال حسین کے مزار کے مغرب میں نواب زکریا خان کی مسجد کی شمالی محراب پر کاشی کاری کا ایک کتبہ تھا، جسے 1880 کی دہائی میں قلم بند کیا گیا۔"
+
+6. [changed certainty] English "the drum marking the metre more strongly in the Punjab" | Urdu "کہیں زیادہ واضح طور پر" -> "far more" intensifies the plain comparative -> OLD: "پنجاب میں ڈھول وزن کو کہیں زیادہ واضح طور پر نمایاں کرتا ہے" NEW: "پنجاب میں ڈھول وزن کو زیادہ واضح طور پر نمایاں کرتا ہے"
+
+NOTES:
+- Headings correspond (زبان، شاعری اور موسیقی / مزارات اور ریاست / کتابوں میں پنجاب). Both verse blocks (جو خدا کے دوست تھے پنجاب میں ... ; زبدۂ بارگاہ او نواب ...) are byte-identical to the English file. The missing Urdu meaning after the Urdu chronogram is correct (the verse is already in Urdu). The Bulleh Shah rendering is given in Urdu with the credit dropped, as the brief says. All the dropped glosses (kafi aside, which is kept; faqir, chronogram, diwan, Mirasis, qawwals, khanqahs, mahants, Ahmad bila mim, Takht L'hore's English title) are glosses of words familiar to an Urdu reader, as the brief allows. All figures and spelled-out numbers (1265, 1809, 1292ھ, 1875, 1880s, 1884, 1620, 1940, 2002, 2011, 8/371, 9/168, the kos, mahal and dam figures) match.
+- Minor, optional: "The Sikh state endowed the gurdwaras" -> "گوردواروں کے لیے جاگیریں وقف کیں" uses the technical term جاگیر where the paragraph speaks only of tracts of land; "گوردواروں کو وسیع اراضی عطا کی" would stay closer to the English.
+- Minor, optional: "the Fakir sahibs bargained for a mosque" -> "ایک مسجد کی اجازت ... حاصل کی" adds "permission" and states the outcome; "ایک مسجد کے لیے ... سودا کیا" would be closer to the English.
+- Minor, optional: "drew international coverage" -> "وسیع توجہ" adds "wide"; "remarks how rarely" -> "حیرت ظاہر کرتے ہیں" adds surprise; in the Bengal sentence the subject of "seems to have been a special stumbling block" is the Bengali diet, while the Urdu makes it "یہی فرق" (the difference). None of these changes a fact materially.

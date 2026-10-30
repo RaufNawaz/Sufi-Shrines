@@ -1,0 +1,20 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+- Diff (python difflib, unified, n=0, /home/claude/work/sindh/short.r1.bak against entries/places_public/sindh.short.md): exactly three lines changed, 53, 63 and 109. They carry the four listed changes: issue 2 on line 53; issue 1 and the Naqshbandi note on line 63; issue 3 on line 109. Each NEW matches the changes file word for word. Nothing else in the file moved.
+
+- Issue 1 (line 63, Saints and Pilgrimage): "The *faqirs*, the wandering mystics, of Sindh belonged to the two great orders of Jelali and Jemali dervishes." This is long article line 171 word for word, and the Overview (line 13) agrees. As in the long article, it comes right before the sentence on allegiance to a master. "Yet" stands where the long article has "however", and the contrast is the same: the orders as against personal allegiance. This is the first use of *faqirs* in the short article, so the gloss is in the right place, and "the woman faqir" on line 67 now follows a glossed term. There is no dash or hyphen, and no word is doubled.
+
+- Issue 2 (line 53, The Land and Its Livelihood): "In 1828 and 1832 the population was put at between 850,000 and about a million, and after 1740 the chief concentration of people had shifted from Thatta to Shikarpur, Hyderabad and Karachi." Both statements are in long article line 147, in the same order. "Had shifted" places the shift before the 1828 and 1832 figures, which is correct. The clause is joined by "and", not by a causal word, so no new cause appears. The dated misattachment of "town life ... in Thatta only" is gone. A matter of taste only: the sentence steps back in time halfway through, and it sits in the paragraph that opens "Then the trade declined", so a hasty reader might take the shift as part of the decline. Two sentences, as in the long article, would avoid that. This is not a fault.
+
+- Issue 3 (line 109, The Province in Books): "The stories of the poem have been read as Hindu in origin: apart from the tales of the Punjab and Kutch, they are, on this reading, tales of Lower Sindh told among the Hindu peoples on the edges of the Thar before their general conversion to Islam." This is long article line 309, with the limit and "on this reading" both kept. "They" refers clearly to the stories. The hedge "have been read as" stays. Taste only: "tales ... tales" comes twice in one clause (the long article has "tales ... stories"). Writing "stories of Lower Sindh" would match the source and avoid the repeat.
+
+- Naqshbandi note (line 63): "Perhaps because of the Suhrawardi hold on Sindh, the Chishtiyya never spread there as it did in the rest of South Asia. The Naqshbandiyya has several important centres, above all Lowari Sharif near Badin." The hedge "perhaps because" now covers only the Chishti clause, as in long article line 169. The Naqshbandi sentence is that line's last sentence, minus "in the province, ... in Southern Sindh". The paragraph is about Sindh throughout, so the referent is clear.
+
+- Checker: cd /home/claude/repo && python3 pipeline/book_queue/check_place_description.py short sindh --english-only
+  Output: "ok    sindh.short  long 22605 -> short 7312 words (target 6615, 1.11)", exit 0. The length is within the 0.85 to 1.15 band but near its top, so any material added later should be weighed against the word target.
+
+- The round 1 notes not applied (the Sufism and tolerance clause in Shrines and the State, the double gloss in the Overview, the missing contrast for "instead", and the minor omissions) are unchanged. They remain matters of taste and do not fail this round.

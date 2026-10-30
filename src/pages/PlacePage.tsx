@@ -11,7 +11,7 @@ import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 
-import { buildPlaces, type PlaceRecord } from '../lib/data/places';
+import { buildAllPlaces, type PlaceRecord } from '../lib/data/places';
 import { figuresAtShrines } from '../lib/data/placeFigures';
 import { readRecordedObservances } from '../lib/data/recordedObservances';
 import {
@@ -37,10 +37,12 @@ import { NotFoundSearch } from '../components/ui/NotFoundSearch';
  * Sahib" should be readable subjects rather than filter values. 35 of 169 sites
  * are in or around Lahore and the shrine pages never said so.
  *
- * The page states only what `places.ts` can derive from the `Location` column —
- * which sites, which traditions, and the span of the dates it can actually read.
- * It deliberately does not describe the place: this archive has no prose about
- * Lahore, and writing some here would be inventing content (RULE 2).
+ * The page states what `places.ts` can derive from the `Location` column —
+ * which sites, which traditions, and the span of the dates it can actually read
+ * — and, since 30 October 2026, the books' own account of the place, where one
+ * has been written and verified (`PlaceArticle`, from
+ * `docs/prompts/PLACE_DESCRIPTION_BRIEF.md`). It never describes a place from
+ * anywhere else: that would be inventing content (RULE 2).
  */
 
 /**
@@ -50,6 +52,14 @@ import { NotFoundSearch } from '../components/ui/NotFoundSearch';
  * graph is loaded dynamically: this route keeps it off its eager bundle.
  */
 type PlaceOrder = { slug: string; name: Record<Lang, string>; count: number };
+
+/* The books' account of the place, loaded only when the page renders: the prose
+   renderer it shares with the shrine pages is 11 KB this route's eager budget
+   (`scripts/check-bundle-budget.mjs`) need not carry for the places that have no
+   article. */
+const PlaceArticle = React.lazy(() =>
+  import('../components/place/PlaceArticle').then((m) => ({ default: m.PlaceArticle })),
+);
 
 function useOrdersForFigures(figureSlugs: string[]): PlaceOrder[] {
   const [orders, setOrders] = React.useState<PlaceOrder[]>([]);
@@ -206,7 +216,9 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
           the first draft used `entity-kicker` and `entity-lede`, neither of
           which exists in any stylesheet, so the page would have rendered
           unstyled while looking correct in the JSX. */}
-      <p className="entity-type-kicker">{t('placeKicker')}</p>
+      <p className="entity-type-kicker">
+        {t(place.kind === 'province' ? 'provinceKicker' : 'placeKicker')}
+      </p>
       <h1 ref={headingRef} className="entity-title">
         {displayName}
       </h1>
@@ -256,6 +268,13 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
           })}
         </div>
       )}
+
+      {/* The books' account of the place, under the photographs and before the lists: the lists answer
+          "what is here", the article "what is this place". Renders nothing
+          until an article has passed its three verifiers. */}
+      <React.Suspense fallback={null}>
+        <PlaceArticle slug={place.slug} />
+      </React.Suspense>
 
       {/* The sites first (explorer council, 17 October 2026). They were last,
           under every figure and every observance — about eleven phone screens
@@ -413,7 +432,7 @@ export default function PlacePage() {
   const isRtl = isRtlLang(lang);
 
   const place = useMemo(() => {
-    const { places } = buildPlaces(shrines);
+    const { places } = buildAllPlaces(shrines);
     return places.find((p) => p.slug === slug) ?? null;
   }, [shrines, slug]);
 

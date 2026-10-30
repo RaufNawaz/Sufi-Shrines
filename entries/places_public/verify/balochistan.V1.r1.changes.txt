@@ -1,0 +1,41 @@
+Changes applied after V1 round 1 (balochistan), by the coordinator, each in the verifier's wording. Also (V1 r1 note, one spelling for the Urdu writer): the narrator's 'Sind' made 'Sindh' in the prose before the bibliography, quotations untouched (none contains it).
+
+WHY: V1 r1 issue 1 (Sassi not told in Iran; 'tales' not in source)
+OLD: It shares myths, melodies and tales, among them the tale of Sassi, with Sindh and the coastal belt of Iran.
+NEW: It shares myths, melodies and linguistic codes with Sindh and the coastal belt of Iran, and the tale of Sassi is told in Sindh and Balochistan alike.
+
+WHY: V1 r1 issue 2a (no count)
+OLD: Many of Pakistan's Hindus live there, and so do Sidi communities, who hold a drum sacred, and the Brahui.
+NEW: It is one of the regions where Pakistan's Hindus live, and Sidi communities, who hold a drum sacred, and the Brahui live there too.
+
+WHY: V1 r1 issue 2b (no count)
+OLD: Balochistan is home to many of Pakistan's Hindus.
+NEW: Balochistan is one of the regions where Pakistan's Hindus live.
+
+WHY: V1 r1 issue 3 (one journey, not a general fact)
+OLD: Travellers from Iran cross the Baluchistan desert and the Sulaiman Mountains and come down through the Bolan Pass to the green strip of the Indus Valley.
+NEW: In the mid 1960s a traveller could go by train from Iran across the Baluchistan desert and the Sulaiman Mountains, down through the Bolan Pass to the green strip of the Indus Valley.
+
+WHY: V1 r1 issue 4a (time anchor)
+OLD: Since the establishment of Pakistan it has been a province in a state of latent insurgency, and Indian pilgrims need an additional visa to travel there.
+NEW: Since the establishment of Pakistan it has been a province in a state of latent insurgency, and in the 2010s Indian pilgrims needed an additional visa to travel there.
+
+WHY: V1 r1 issue 4b (time anchor)
+OLD: For Indian pilgrims Balochistan is hard to reach.
+NEW: For Indian pilgrims Balochistan was hard to reach.
+
+WHY: V1 r1 note (precision: the start of the advance is dated)
+OLD: Muhammad bin Qasim advanced through Makran and Baluchistan in 710,
+NEW: Muhammad bin Qasim began his advance through Makran and Baluchistan in 710,
+
+WHY: V1 r1 note (precision: a line of Sufi mystics, not all)
+OLD: It was one of the roads by which the Sufi mystics came into the region,
+NEW: It was one of the roads by which Sufi mystics came into the region,
+
+WHY: V1 r1 note (referent)
+OLD: the status of visas for it was legally ambiguous,
+NEW: the status of visas for the province was legally ambiguous,
+
+WHY: V1 r1 note, one spelling (Sindh) in the narrator's prose
+OLD: Sind (9 occurrences before the bibliography)
+NEW: Sindh

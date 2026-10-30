@@ -1,0 +1,122 @@
+khyber-pakhtunkhwa.ur.md, round 1 fixes (V2 r1 + V3 r1). Backup: /home/claude/work/bak/khyber-pakhtunkhwa.ur.r1.bak
+APPLIED: 23 replacements (V2 issues 1-2, V3 issues 1-17 with issue 9 in part, and four notes that correct a referent, a wrong word or a spelling inconsistency)
+REJECTED: 8
+
+1. WHY: V2 issue 1 (omission: 'the province's' Provincial Assembly) combined with V3 issue 10 (do not repeat صوبہ in صوبے کی صوبائی اسمبلی): names the province's assembly without the repetition.
+   OLD: متحدہ مجلسِ عمل نے صوبائی اسمبلی میں فیصلہ کن اکثریت حاصل کی۔
+   NEW: متحدہ مجلسِ عمل نے اس صوبے کی اسمبلی میں فیصلہ کن اکثریت حاصل کی۔
+
+2. WHY: V3 note (taste-plus-referent): وہ could first be read as the woman; name the homeland.
+   OLD: اور ان کی یادوں میں وہ بہت سے مزاروں کی سرزمین تھا
+   NEW: اور ان کی یادوں میں یہ وطن بہت سے مزاروں کی سرزمین تھا
+
+3. WHY: V3 issue 17 (tense: past-anchored adverbial with present perfect).
+   OLD: بعد کے برسوں میں صوبے کے سکھ خاندان پنجاب میں ننکانہ صاحب جا بسے ہیں۔
+   NEW: بعد کے برسوں میں صوبے کے سکھ خاندان پنجاب میں ننکانہ صاحب جا بسے۔
+
+4. WHY: V3 issue 13 (gloss of a familiar word: پٹھان needs no gloss for an Urdu reader; the English gloss is for the English reader).
+   OLD: پٹھان یعنی پشتون قوم کے وہ علاقے فتح کیے
+   NEW: پٹھانوں کے وہ علاقے فتح کیے
+
+5. WHY: V3 issue 1 (ambiguity: جہاں after آ کر بسے تھے reads as Nankana; the English says the province has the sizeable Sikh population).
+   OLD: 2010 کی دہائی کے اوائل میں ننکانہ کے سکھ حال ہی میں اسی صوبے سے آ کر بسے تھے، جہاں سکھوں کی خاصی آبادی ہے۔
+   NEW: 2010 کی دہائی کے اوائل میں ننکانہ کے سکھ حال ہی میں اسی صوبے سے آ کر بسے تھے، اور اس صوبے میں سکھوں کی خاصی آبادی ہے۔
+
+6. WHY: V3 note (consistency): English has 'numerous' uprisings in both History and Books; the Urdu said بہت سی here and بے شمار there. One rendering for one word.
+   OLD: صوبہ سرحد میں مذہبی رہنماؤں کی قیادت میں بہت سی بغاوتیں بھی اٹھ چکی ہیں۔
+   NEW: صوبہ سرحد میں مذہبی رہنماؤں کی قیادت میں بے شمار بغاوتیں بھی اٹھ چکی ہیں۔
+
+7. WHY: V2 issue 2 (changed certainty: 'unprecedented' is بے مثال, not غیر معمولی).
+   OLD: نے غیر معمولی کامیابی حاصل کی۔
+   NEW: نے بے مثال کامیابی حاصل کی۔
+
+8. WHY: V3 issue 10 (repetition: صوبے کی صوبائی اسمبلی).
+   OLD: اور شمال مغربی سرحدی صوبے کی صوبائی اسمبلی میں فیصلہ کن اکثریت اس کے ہاتھ آئی۔
+   NEW: اور شمال مغربی سرحدی صوبے کی اسمبلی میں فیصلہ کن اکثریت اس کے ہاتھ آئی۔
+
+9. WHY: V3 issue 11 (calque: نسلی پشتون for 'ethnic Pashtun').
+   OLD: اور اس میں غالب عنصر نسلی پشتونوں کا تھا۔
+   NEW: اور اس میں پشتونوں کا غلبہ تھا۔
+
+10. WHY: V3 issue 7 (calque: اصلاً ... تعلق رکھنے والی and the English 'in a way that ... were not').
+   OLD: اصلاً پشاور سے تعلق رکھنے والی ایک مریدنی کے نزدیک ان کے وطن کے مزار عورتوں کے لیے اس طرح کھلے تھے جس طرح پاکپتن کے مزار نہیں تھے۔
+   NEW: اصل میں پشاور کی رہنے والی ایک مریدنی کے نزدیک ان کے وطن کے مزار عورتوں کے لیے جتنے کھلے تھے، پاکپتن کے مزار اتنے کھلے نہیں تھے۔
+
+11. WHY: V3 issue 6 (unidiomatic: اتنے without a correlative کہ).
+   OLD: سرحد میں ہمارے ہاں اتنے مزار ہیں جہاں آپ ولی کے آستانے کے اندر جا سکتے ہیں۔
+   NEW: سرحد میں ہمارے ہاں کتنے ہی مزار ایسے ہیں جہاں آپ ولی کے آستانے کے اندر جا سکتے ہیں۔
+
+12. WHY: V3 issue 9, word order part only (second object tacked on after the verb). Its replacement of غم پسندی by غم و اندوہ is rejected: the English names the term gham pasandi and glosses it 'loving grief', so غم و اندوہ would drop the 'loving' and the named term.
+   OLD: میں زور غم پسندی پر ہوتا ہے، یا دردِ دل کو نوحے کے انداز میں بیان کرنے پر۔
+   NEW: میں زور غم پسندی پر، یا دردِ دل کو نوحے کے انداز میں بیان کرنے پر ہوتا ہے۔
+
+13. WHY: V3 issue 5 (ambiguity: اکثر before the verb phrase can read as 'most of them'; ہندوؤں میں سے ہزاروں is stiff). Hindus remain the referent, as V2's note accepts.
+   OLD: ہندوؤں میں سے ہزاروں معاشرے کے مرکزی دھارے کا حصہ ہیں اور اکثر اس کی معاشی اور سیاسی زندگی میں نمایاں نظر آتے ہیں۔
+   NEW: ہزاروں ہندو معاشرے کے مرکزی دھارے کا حصہ ہیں اور اس کی معاشی اور سیاسی زندگی میں اکثر اوقات نمایاں نظر آتے ہیں۔
+
+14. WHY: V3 issue 16 (linkage: اور joins a past event to a present state).
+   OLD: رنجیت سنگھ کی فتح کے بعد پٹھان علاقوں کے کئی لوگوں نے سکھ مذہب اختیار کر لیا، اور خیبر پختونخوا میں سکھوں کی خاصی آبادی ہے۔
+   NEW: رنجیت سنگھ کی فتح کے بعد پٹھان علاقوں کے کئی لوگوں نے سکھ مذہب اختیار کر لیا۔ خیبر پختونخوا میں سکھوں کی خاصی آبادی ہے۔
+
+15. WHY: V3 issue 15 (collocation: سکھ شمار کیا جانا; جنہیں after گرو نانک invites the wrong antecedent).
+   OLD: یہ گرو نانک کے ماننے والے ہیں جنہیں سکھ بھی شمار کیا جاتا ہے۔
+   NEW: یہ گرو نانک کے ماننے والے ہیں اور انہیں سکھوں میں بھی شمار کیا جاتا ہے۔
+
+16. WHY: V2 note and V3 note (wrong word: دیکشا is the Hindu term for initiation; Sikh initiation is امرت لینا). The meaning 'initiated' is kept.
+   OLD: خالصہ یعنی باقاعدہ دیکشا لینے والے سکھوں کی جماعت
+   NEW: خالصہ یعنی باقاعدہ امرت لینے والے سکھوں کی جماعت
+
+17. WHY: V3 issue 14 (linkage: اور joins a general present fact to an unrelated past detail).
+   OLD: شلوار قمیص صوبے کے لوگوں کا روایتی لباس ہے، اور کرتار نام کے ایک صاحب سرمئی رنگ کی ڈھیلی ڈھالی شلوار قمیص پہنتے تھے۔
+   NEW: شلوار قمیص صوبے کے لوگوں کا روایتی لباس ہے۔ کرتار نام کے ایک صاحب بھی سرمئی رنگ کی ڈھیلی ڈھالی شلوار قمیص پہنتے تھے۔
+
+18. WHY: V3 issue 4 (tense: ایسا صوبہ تھا clashes with the present relatives; a reported view takes the present). Checked against the English: the time anchor (the writer's travels in the early 2010s) is kept, and the section's other book views are already in the present, so no fact's time changes.
+   OLD: کی نظر میں خیبر پختونخوا ایسا صوبہ تھا جہاں ہندو اور سکھ
+   NEW: کی نظر میں خیبر پختونخوا ایسا صوبہ ہے جہاں ہندو اور سکھ
+
+19. WHY: V3 issue 3 (postposition: پنجاب منتقلی is English-style noun stacking).
+   OLD: اس مصنف نے صوبے کے سکھوں کی پنجاب منتقلی کو
+   NEW: اس مصنف نے صوبے کے سکھوں کے پنجاب منتقل ہونے کو
+
+20. WHY: V3 issue 12 (calque: تجویز کرنا means propose; 'suggested' an interpretation is رائے دینا; خود ان کے نزدیک for 'from his perspective').
+   OLD: ایک محقق نے تجویز کیا کہ صوبے میں
+   NEW: ایک محقق نے یہ رائے دی کہ صوبے میں
+
+21. WHY: V3 issue 12, second part (same sentence).
+   OLD: لیکن خود ان کے نقطۂ نظر سے یہ صوبہ
+   NEW: لیکن خود ان کے نزدیک یہ صوبہ
+
+22. WHY: V3 issue 8 and V2 note (comparison: meetings grouped with countries; ان مجالس must point to this province's meetings).
+   OLD: ایک اور محقق نے یہاں کی خواتین کی مذہبی مجالس کو افغانستان اور ایران کے ساتھ ایک ہی زمرے میں رکھا اور ان مجالس کے لہجے کو
+   NEW: ایک اور محقق نے یہاں کی خواتین کی مذہبی مجالس کو افغانستان اور ایران کی ایسی ہی مجالس کے زمرے میں رکھا، اور یہاں کی مجالس کے لہجے کو
+
+23. WHY: V3 issue 2 (ambiguity: کھلے مزاروں کی سرحد تھی reads as 'the border line of open shrines', with تھی agreeing with the common noun).
+   OLD: پشاور کی اس مریدنی کے نزدیک یہ کھلے مزاروں کی سرحد تھی، جہاں
+   NEW: پشاور کی اس مریدنی کے نزدیک ان کا "سرحد" کھلے مزاروں کی سرزمین تھا، جہاں
+
+REJECTED OR NOT APPLIED
+
+R1. V3 issue 9, its word change غم پسندی to غم و اندوہ (word order part applied).
+   REASON: The English names the term gham pasandi and glosses it 'loving grief'. غم و اندوہ means 'grief and sorrow' and would drop both the named term and the 'loving'. V3 cannot see the English; what it read as 'fondness for grief' is exactly the English meaning.
+
+R2. V3 note: drop the FATA label (فاٹا یعنی وفاق کے زیرِ انتظام قبائلی علاقوں) for consistency.
+   REASON: The English names FATA and spells it out at that point; dropping it would drop a name the English gives.
+
+R3. V3 note: former names, کہا جاتا ہے to کہا جاتا تھا.
+   REASON: The English says 'also called' in the present; V3 itself left it. Changing it would change a fact's time.
+
+R4. V3 note: مثبت to خوش گوار or امید افزا.
+   REASON: Taste; the English says 'positive', which مثبت renders exactly. Not applied under the stopping rule.
+
+R5. V3 note: مصیبت جھیل چکی تھیں to سیلاب سے متاثر ہوئی تھیں.
+   REASON: Taste; the current wording renders 'had suffered' faithfully. Not applied.
+
+R6. V3 note: facts repeated across sections.
+   REASON: Structural, from the English article's shape; the Urdu must carry the same facts in the same sections.
+
+R7. V2 note: سرحد کہتی تھیں for the appositive.
+   REASON: V2 says the meaning is kept; taste only.
+
+R8. V2 note: Communities 'them' read as the Hindus.
+   REASON: V2 accepts it; no change needed (V3 issue 5's rewording keeps Hindus as the referent).
+

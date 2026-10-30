@@ -812,6 +812,76 @@
 /* Five photographs from the place's own sites, when it has that many. A strip
    rather than a grid: it is a glance at what the archive holds here, not the
    gallery — that is on each shrine's own page, which every tile links to. */
+/* The books' account of a place (PlaceArticle, 30 October 2026). It reuses the
+   shrine article's section, heading and prose rules; this only spaces it from the
+   page summary above and the site lists below. */
+.place-article {
+  margin-block: var(--space-6) var(--space-8);
+  max-width: 72ch;
+}
+
+/* Short article or full account (Rauf, 30 October 2026). A two option switch
+   above the article, and under each short section a button that opens that
+   section's long text in place. Targets are 44px (CLAUDE.md, accessibility);
+   the active option is marked by fill and weight, not colour alone. */
+.place-article-length {
+  margin-block-end: var(--space-5);
+}
+
+.place-article-length-switch {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+}
+
+.place-article-length-option,
+.place-section-more {
+  min-block-size: 44px;
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-full);
+  font: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.place-article-length-option {
+  border: 0;
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.place-article-length-option.active {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 700;
+}
+
+.place-article-length-note {
+  margin-block: var(--space-2) 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.place-section-more {
+  margin-block-start: var(--space-2);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.place-section-more[aria-expanded='true'] {
+  background: var(--color-bg-alt);
+}
+
+.place-article-length-option:focus-visible,
+.place-section-more:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 .place-photo-strip {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));

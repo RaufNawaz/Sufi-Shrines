@@ -1,0 +1,5 @@
+Sindh Urdu, fix after the confirming round 3 (applied by the coordinator as an exact replacement, the verifier's NEW).
+
+[P3] WHY: round 3 issue 1 [V3]: the round 2 fix brought back the 'X کا اپنا' pattern the brief names
+OLD: نوآبادیاتی سندھ میں خداوادی کے نام سے صوبے کا اپنا ایک رسم الخط نافذ کرنے کی کوشش بھی ہوئی۔
+NEW: نوآبادیاتی دور میں سندھ کے لیے خداوادی کے نام سے ایک الگ رسم الخط نافذ کرنے کی کوشش بھی ہوئی۔

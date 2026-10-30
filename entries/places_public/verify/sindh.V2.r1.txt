@@ -1,0 +1,86 @@
+V2 round 1 for sindh, run per heading group (P1 Overview and History; P2 the land, saints and communities; P3 language, the state and the books). The round's verdict is the conjunction of the groups: FAIL.
+
+=================== GROUP P1 ===================
+VERDICT: FAIL
+
+ISSUES:
+1. [omission] English: "it is universally acknowledged as the greatest classic of Sindhi literature" | Urdu: "اسے سندھی ادب کا سب سے بڑا کلاسیکی شاہکار مانا جاتا ہے،" -> "universally" is dropped, so the claim loses its "by everyone" force and reads as a plain "is regarded as". -> OLD: "اسے سندھی ادب کا سب سے بڑا کلاسیکی شاہکار مانا جاتا ہے،" NEW: "اسے سندھی ادب کا سب سے بڑا کلاسیکی شاہکار بالاتفاق تسلیم کیا جاتا ہے،"
+
+2. [omission] English: "Despite the spread of Islamist terrorism in Sindh, the Sufi culture still pervades Sindhi society." | Urdu: "اسلام پسند دہشت گردی کے پھیلاؤ کے باوجود صوفی ثقافت" -> the place "in Sindh" is dropped, so the spread reads as general rather than within the province. -> OLD: "اسلام پسند دہشت گردی کے پھیلاؤ کے باوجود صوفی ثقافت" NEW: "سندھ میں اسلام پسند دہشت گردی کے پھیلاؤ کے باوجود صوفی ثقافت"
+
+3. [changed fact] English: "The house of Ghazni reached Sindh at the edge of its campaigns." | Urdu: "غزنوی اپنی مہمات کے دوران سندھ کے کناروں تک بھی آئے۔" -> the English puts "the edge" on the campaigns: Ghazni did reach Sindh, but Sindh lay at the margin of its campaigns. The Urdu moves "the edge" to Sindh ("came as far as Sindh's edges"), which says they reached only Sindh's borders. That conflicts with the next sentences, where Mahmud's army fights in Sindh. -> OLD: "غزنوی اپنی مہمات کے دوران سندھ کے کناروں تک بھی آئے۔" NEW: "غزنوی اپنی مہمات کے حاشیے پر سندھ تک بھی آ پہنچے۔"
+
+4. [changed certainty] English: "One observer found the country priest ridden and said to possess a hundred thousand tombs of saints" | Urdu: "اور اس کے بارے میں مشہور تھا کہ یہاں اولیا کے ایک لاکھ مزار ہیں۔" -> in the English, the hundred thousand tombs are part of what one observer reported ("said to"). The Urdu cuts the link to the observer and turns it into a widely known reputation (مشہور تھا), which spreads the claim further than the English does. -> OLD: "اور اس کے بارے میں مشہور تھا کہ یہاں اولیا کے ایک لاکھ مزار ہیں۔" NEW: "اور اس کے بقول کہا جاتا تھا کہ یہاں اولیا کے ایک لاکھ مزار ہیں۔"
+
+5. [changed certainty] English: "sufiana kalam, Sufi poetry sung in the vernacular, is a feature of the shrines of Lal Shahbaz Qalandar and of Shah Abdul Latif at Bhit" | Urdu: "لعل شہباز قلندر کے مزار اور بھٹ میں شاہ عبداللطیف کے مزار کی پہچان ہے۔" -> "a feature" (one characteristic) becomes پہچان (the hallmark that identifies the shrines), which is stronger than the English. -> OLD: "لعل شہباز قلندر کے مزار اور بھٹ میں شاہ عبداللطیف کے مزار کی پہچان ہے۔" NEW: "لعل شہباز قلندر کے مزار اور بھٹ میں شاہ عبداللطیف کے مزار کی ایک خصوصیت ہے۔"
+
+6. [omission] English: "Wandering yogis crossed Sindh on pilgrimage to the goddess at Hinglaj" | Urdu: "جوگی بلوچستان میں ہنگلاج کی دیوی کی یاترا کے لیے سندھ سے گزرتے تھے،" -> the qualifier "wandering" is dropped. -> OLD: "جوگی بلوچستان میں ہنگلاج کی دیوی کی یاترا کے لیے سندھ سے گزرتے تھے،" NEW: "گھومتے پھرتے جوگی بلوچستان میں ہنگلاج کی دیوی کی یاترا کے لیے سندھ سے گزرتے تھے،"
+
+NOTES (style only, not counted as issues):
+- Overview: "its faqirs, the wandering holy men" is rendered "آوارہ گرد فقیر". In ordinary Urdu, آوارہ گرد leans pejorative ("vagrant"); "گھومتے پھرتے فقیر" or "سیلانی فقیر" would be neutral. Under issue 6, "گھومتے پھرتے" is suggested for the yogis too; if both are used, vary one of them.
+- Samma paragraph: the English "Jam Salahuddin, a kinsman of Jam Firuz whose sister was married to Sultan Muzaffar of Gujarat" could grammatically make the sister Firuz's. The Urdu settles it as Salahuddin's sister, which fits his raising armies from Gujarat. I accept it, but the writer should confirm it against the source.
+- Mughal unit paragraph: in the English, the expenses belong to the "person of rank". In "جس کے اخراجات عموماً آمدنی سے بڑھ جاتے تھے" they attach to the office (منصب). The meaning is effectively the same.
+- Rochaldas paragraph: the Urdu makes "some Hindus had already sent their wives and children to India..." its own sentence, so Rochaldas is no longer clearly its source. The English is ambiguous after the semicolon, so this is acceptable. Joining it to the previous sentence with "؛" would keep the English structure.
+- Dropped glosses (دربار، زمیندار، مہاجر، منصب ذات، کاردار handled separately) and dropped italics are deliberate per the brief. The three headings correspond, and there is no verse. Every figure and date I checked matches the English (711, 905, 1228, 1351, 1367, 1461, 887ھ, 1592, 1739, 8 April 1758, 1781, 1843, 1852, 1866, the 1870s census figures, 21 and 6 per cent, 246,000, 500,000, 140,000, 14 January).
+
+=================== GROUP P2 ===================
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] English (Land, para 7) "In a Muslim land, three quarters of the people did not share the prejudice against leather." | Urdu "ایک مسلم سرزمین ہونے کے باوجود یہاں کے تین چوتھائی لوگ چمڑے کے خلاف تعصب میں شریک نہ تھے۔" -> "ہونے کے باوجود" (despite being) turns the English context into a concession. It reverses the logic: the Urdu implies that Muslims would be expected to share the prejudice, which the English does not say. -> OLD: "ایک مسلم سرزمین ہونے کے باوجود یہاں کے تین چوتھائی لوگ" NEW: "اس مسلم سرزمین میں تین چوتھائی لوگ"
+
+2. [addition] English (Saints, para 5) "is said to have embraced Islam through a miracle performed by Makhdum Jahaniyan" | Urdu "مخدوم جہانیاں کی ایک کرامت دیکھ کر اسلام قبول کیا" -> "دیکھ کر" (on seeing) adds that the chief witnessed the miracle. The English says only that he converted through it. -> OLD: "مخدوم جہانیاں کی ایک کرامت دیکھ کر اسلام قبول کیا" NEW: "مخدوم جہانیاں کی ایک کرامت کے سبب اسلام قبول کیا"
+
+3. [changed fact] English (Saints, para 12) "many pieces of cloth, preferably red" | Urdu "زیادہ تر سرخ رنگ کی" -> "preferably" states a preference, but "زیادہ تر" (mostly) states how often the cloth is red. That is a different claim. -> OLD: "زیادہ تر سرخ رنگ کی" NEW: "ترجیحاً سرخ رنگ کی"
+
+4. [omission] English (Saints, para 24) "in them a photographic portrait carries the sacredness of the space" | Urdu "اور ان میں ایک تصویر اس مقام کو وہی تقدس عطا کرتی ہے" -> "photographic" is dropped. A plain تصویر could be a painting, so the point that it is a photograph is lost. -> OLD: "اور ان میں ایک تصویر اس مقام کو" NEW: "اور ان میں ایک عکسی تصویر اس مقام کو"
+
+5. [changed fact] English (Communities, para 7) "by 1940 most of the Baluchi population lived in the Upper Sind Frontier, Larkana and Sukkur districts" | Urdu "1940 تک بلوچ آبادی کا بڑا حصہ ... میں رہتا تھا" -> There are two problems. First, "most" became "بڑا حصہ" (a large part / much of), which weakens the claim; the brief keeps بڑا حصہ for "much of". Second, تک with a plain past (رہتا تھا) reads as "until 1940 they lived there", the reading the brief warns against. -> OLD: "1940 تک بلوچ آبادی کا بڑا حصہ" NEW: "1940 میں بلوچ آبادی کا بیشتر حصہ"
+
+6. [changed fact] English (Communities, para 12) "By 1851 a portrait of the Lohanas was held to be a general portrait of the Hindus of Sindh." | Urdu "1851 تک یہ سمجھا جاتا تھا کہ" -> تک with a plain past reads as "until 1851 it was thought", which implies the view ended in 1851. The English says the view had taken hold by then. -> OLD: "1851 تک یہ سمجھا جاتا تھا کہ" NEW: "1851 تک یہ سمجھا جانے لگا تھا کہ"
+
+7. [changed fact] English (Communities, para 17) "The Sindhi Hindus were the first to take an active part in the colonial system" | Urdu "سندھی ہندو نوآبادیاتی نظام میں سرگرمی سے حصہ لینے والوں میں سب سے آگے تھے" -> "سب سے آگے" means foremost or most prominent. The English claim is about time: they were the first. -> OLD: "سندھی ہندو نوآبادیاتی نظام میں سرگرمی سے حصہ لینے والوں میں سب سے آگے تھے" NEW: "نوآبادیاتی نظام میں سب سے پہلے سرگرمی سے حصہ لینے والے سندھی ہندو تھے"
+
+8. [wrong reference] English (Communities, para 26) "Sindh is home to the majority of Pakistan's Hindus, whose number estimates put at between 6 and 10 million ... and over 90 per cent of them belong to ..." | Urdu "پاکستان کے ہندوؤں کی اکثریت سندھ میں بستی ہے۔ ان کی تعداد کا اندازہ 6 سے 10 ملین ..." -> Once the sentence is split, "ان کی" most naturally points back to the sentence's subject, "اکثریت" (the majority living in Sindh). The 6 to 10 million and the "over 90 per cent" would then apply to Sindh's Hindus only, not to all of Pakistan's Hindus. -> OLD: "ان کی تعداد کا اندازہ 6 سے 10 ملین کے درمیان لگایا جاتا ہے" NEW: "پاکستان کے ہندوؤں کی تعداد کا اندازہ 6 سے 10 ملین کے درمیان لگایا جاتا ہے"
+
+9. [wrong reference] English (Communities, para 30) "many upper caste Sindhi Hindus deny or ignore acts of segregation, which Dalit organisations fiercely oppose" | Urdu "اور دلت تنظیمیں اس رویے کی شدید مخالفت کرتی ہیں" -> The nearest antecedent of "which" is "acts of segregation". The Urdu makes the Dalit organisations oppose "this attitude", that is, the denial or ignoring. That changes what they are said to oppose. -> OLD: "اور دلت تنظیمیں اس رویے کی شدید مخالفت کرتی ہیں" NEW: "اور دلت تنظیمیں علیحدگی کے ان واقعات کی شدید مخالفت کرتی ہیں"
+
+NOTES:
+- Headings correspond: زمین اور روزگار / اولیا اور زیارت / برادریاں. This part has no verse. All other numbers and dates check against the English: 1648, 1652, 1696, 1853, 1940, 1847, 1636, 1662, 1758, 1775, 13 October 1657, 25 November 1744, August 1762 to July 1764, 1712 to 1738, 1770, 1843, 1828, 1832, 1740, 1842, 711, 900, 905, 1850, 1947, 1613, 1640s, 1226, 1907, 1843 to 1872, 1881, 1891, 1851, 1920s, 1998, 6 December 1992, 10 to 15 per cent, 10,000 maunds, 6 to 10 million, over 90 per cent. All the hedges are kept: probably, is said, is believed, accounts differ, so far as is known, may, perhaps, in all probability, seems.
+- Land para 6, "its customs and transit dues": in the English, "its" most naturally means the Sindh government's dues. "اس پر عائد" (levied on it, the Company) narrows that to dues imposed on the Company. Defensible, but "سندھ کی حکومت کے کسٹم اور راہداری کے محصول" would match more closely.
+- Land para 1, "channels that change their course" -> "راستہ بدلتی نہریں": نہر usually means a canal. "دریا کی بدلتی گزرگاہیں" or "راستہ بدلتی شاخیں" would fit a river better.
+- Saints para 5, "a great plague" -> "ایک بڑی وبا": acceptable, since "plague" can mean pestilence in general. Land para 3 uses طاعون for plague, if consistency is wanted.
+- Communities para 21, "teens and early twenties" -> "نوعمر اور بیس بائیس برس کی": a slightly narrower range than "early twenties". "بیس کے پیٹے کے ابتدائی برسوں کی" would avoid adding specific ages.
+- Communities para 15, Nanakpanth "probably the dominant religious path" -> "غالباً ... سب سے بڑا مذہبی پنتھ": "dominant" is closer to "غالب". The meaning is near enough.
+- Land para 11, 850,000 is written as "ساڑھے آٹھ لاکھ" (in words). That is correct, and it will not trip the digits check.
+
+=================== GROUP P3 ===================
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] Language, Poetry and Music, para 12. English: "By one account the Bhakti ... reached Sindh only in the sixteenth century, because of the province's isolation." | Urdu: "سولہویں صدی ہی میں پہنچی" -> with a date, "ہی میں" usually reads as "already in / as early as the sixteenth century", the opposite of "only (as late as)". The lateness must be explicit.
+   OLD: ایک بیان کے مطابق ہندوستان کے ہندوؤں کی عقیدتی تحریک بھگتی سندھ کی دور افتادگی کے باعث وہاں سولہویں صدی ہی میں پہنچی۔
+   NEW: ایک بیان کے مطابق ہندوستان کے ہندوؤں کی عقیدتی تحریک بھگتی سندھ کی دور افتادگی کے باعث وہاں سولہویں صدی میں جا کر پہنچی۔
+
+2. [omission] Language, Poetry and Music, para 23 (Sarang). English: "... and closes: 'Dear friend and sweet beloved, make the whole world prosperous' (translated by Christopher Shackle). ... in another rendering: ..." | Urdu drops the translator's name entirely, so "ایک اور ترجمے کے مطابق" now points back to a translation the Urdu never mentioned. The name can go in Urdu script (no Latin needed).
+   OLD: اور کلام اس دعا پر ختم ہوتا ہے: "اے پیارے دوست اور میٹھے محبوب، ساری دنیا کو خوش حال کر دے"۔
+   NEW: اور کرسٹوفر شیکل کے ترجمے میں کلام اس دعا پر ختم ہوتا ہے: "اے پیارے دوست اور میٹھے محبوب، ساری دنیا کو خوش حال کر دے"۔
+
+3. [changed certainty] Language, Poetry and Music, para 31. English: "Of Sindhi's many dialects, that of Hyderabad became the standard, it is said, when in 1853 the British asked the scholars of Hyderabad to write the textbooks ..." | Urdu states the standardisation as plain fact and hedges only the timing ("کہا جاتا ہے کہ ایسا اس وقت ہوا"). The hedge should govern the whole claim (brief: "Hedges must govern the whole claim").
+   OLD: سندھی کی بہت سی بولیوں میں سے حیدرآباد کی بولی معیاری قرار پائی؛ کہا جاتا ہے کہ ایسا اس وقت ہوا جب 1853 میں انگریزوں نے حیدرآباد کے اہلِ علم سے پورے سندھ کے لیے درسی کتابیں لکھنے کو کہا۔
+   NEW: کہا جاتا ہے کہ سندھی کی بہت سی بولیوں میں سے حیدرآباد کی بولی اس وقت معیاری قرار پائی جب 1853 میں انگریزوں نے حیدرآباد کے اہلِ علم سے پورے سندھ کے لیے درسی کتابیں لکھنے کو کہا۔
+
+4. [changed certainty] Shrines and the State, para 3 (Diwan Gidumal). English: "Accounts differ on which invader it was; in one telling it was Nadir Shah, in 1739." | Urdu: "ایک روایت میں وہ نادر شاہ تھا، اور یہ واقعہ 1739 کا ہے۔" -> the second clause, in the present tense after a comma, states the 1739 date as settled fact outside "in one telling". In English the date belongs to that one telling only.
+   OLD: ایک روایت میں وہ نادر شاہ تھا، اور یہ واقعہ 1739 کا ہے۔
+   NEW: ایک روایت کے مطابق یہ 1739 کا واقعہ ہے اور وہ حملہ آور نادر شاہ تھا۔
+
+5. [changed fact] The Province in Books, para 5 (the river). English: "there must have been forty thousand boats, large and small." | Urdu: "چالیس ہزار سے کم نہ رہی ہوں گی" = "no fewer than forty thousand", which turns an estimate of about forty thousand into a minimum.
+   OLD: اور چھوٹی بڑی کشتیاں چالیس ہزار سے کم نہ رہی ہوں گی۔
+   NEW: اور چھوٹی بڑی کشتیاں ضرور چالیس ہزار رہی ہوں گی۔
+
+NOTES (style only, not counted):
+- The Province in Books, para 6: "pig" is rendered "جنگلی سؤر" (wild pig). The list is of game animals, so this is a fair reading, but plain "سؤر" would match the English exactly if the writer wants no added qualifier.
+- Language, Poetry and Music, para 25: "The spinning of cotton, one of the most important occupations of women" is put in the past tense ("میں سے تھا"), while the English has no tense. Harmless.
+- Language, Poetry and Music, para 17: "رسالو کی کہانیوں کو اصلاً ہندو کہانیاں بھی سمجھا گیا ہے" adds "بھی" (also). It is a mild softening, and the next sentence keeps "اس تعبیر کے مطابق", so the meaning holds.
+- Everything else checked paragraph by paragraph and matches: all names, dates (1623, 1711, 1316, 1826, 1843, 1853, 1850s, 1866, 1890s, 1689 to 1752, 1829 to 1831, 1971, late 1990s, late 1960s, 1995, 9 of 168, March 2014, 711, 1836, 1847, 1924, 1940), kos and sarkar figures, hedges ("by one account", "it has been thought", "it seems", "accounts differ", "most often", "it is said" on the liver eaters, "it has been argued"), legends kept as legends, and the three headings. Dropped glosses of familiar words (hafiz, madrasa, kafi, dargah, ʿurs, sajjada nishin) and removed italics on ordinary words are deliberate, per the brief. This part has no verse blocks.
+

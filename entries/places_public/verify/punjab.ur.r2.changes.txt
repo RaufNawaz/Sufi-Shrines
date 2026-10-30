@@ -1,0 +1,21 @@
+Punjab Urdu, fixes after the confirming round 2 (applied by the coordinator as exact replacements, each the verifier's NEW).
+
+[P1] WHY: C_P1 issue 1 [V3]: 'جنوب کی مزاروں' read as broken agreement
+OLD: نے جنوب کی مزاروں سے وابستہ ثقافت کا رخ کیا ہے۔
+NEW: نے جنوب کے مزاروں سے وابستہ ثقافت کا رخ کیا ہے۔
+
+[P1] WHY: C_P1 issue 2 [V3]: تم is the wrong register for a wazir addressing the prince
+OLD: دھیان سنگھ نے شیر سنگھ سے کہا کہ ان شاء اللہ تم جلد پنجاب کے حکمران ہو گے،
+NEW: دھیان سنگھ نے شیر سنگھ سے کہا کہ ان شاء اللہ آپ جلد پنجاب کے حکمران ہوں گے،
+
+[P2] WHY: C_P2 issue 1 [V2]: 'the less sophisticated parts of the countryside' had become the countryside in general
+OLD: جیسا کہ دیہات کے سیدھے سادے ماحول میں آج بھی ہوتا ہے۔
+NEW: جیسا کہ آج بھی ان دیہات میں ہوتا ہے جہاں زندگی سیدھی سادی ہے۔
+
+[P2] WHY: C_P2 issue 2 [V3]: لگ بھگ between a genitive and its noun is unidiomatic
+OLD: چوتھا سفر ہندوستان پر بابر کے تیسرے حملے کے لگ بھگ زمانے میں جنوب مشرق سے پنجاب واپسی پر ختم ہوا۔
+NEW: چوتھا سفر جنوب مشرق سے پنجاب واپسی پر ختم ہوا، اور یہ ہندوستان پر بابر کے تیسرے حملے کے آس پاس کا زمانہ تھا۔
+
+[P3] WHY: C_P3 issue 1 [V3]: 'study ... this study' doubled and 'یہ' misread as the study
+OLD: 1940 کے ایک مطالعے میں پنجاب کو اٹھارھویں صدی کے سندھ کی نظر سے دیکھا گیا ہے، اور اس مطالعے میں یہ افغانوں، سکھوں اور مرہٹوں کی فوجوں کا میدانِ کارزار ہے اور ایسا خطہ جہاں سے مہاجر بھی آئے اور قصے بھی۔
+NEW: 1940 کا ایک مطالعہ اٹھارھویں صدی کے سندھ کی نظر سے پنجاب کو افغانوں، سکھوں اور مرہٹوں کی فوجوں کا میدانِ کارزار اور ایسا خطہ دکھاتا ہے جہاں سے مہاجر بھی آئے اور قصے بھی۔

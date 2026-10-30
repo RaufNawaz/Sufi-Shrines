@@ -10,7 +10,7 @@ import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
-import { placesForShrine } from '../lib/data/places';
+import { placesForShrine, provinceForShrine } from '../lib/data/places';
 
 /* Lazy: a phone-only control, and importing it (with the Sheet it opens)
    eagerly put ShrinePage 4 KB over its bundle budget (15 October 2026). */
@@ -130,7 +130,12 @@ function ShrineContent({
 }) {
   const { lang, t, localizeField, fmtNum } = useLang();
   const teamView = useTeamAccess();
-  const shrinePlaces = React.useMemo(() => placesForShrine(shrine), [shrine]);
+  /* The province first, then the places: the chips read from the widest to the
+     narrowest, as an address does ("Punjab · Kasur"). */
+  const shrinePlaces = React.useMemo(() => {
+    const province = provinceForShrine(shrine, allShrines);
+    return [...(province ? [province] : []), ...placesForShrine(shrine)];
+  }, [shrine, allShrines]);
   const { navItems } = useArticleContent(shrine);
   const { share, copied } = useShareLink();
   /* Read once on mount, like the tours switch and for the same reason: the only

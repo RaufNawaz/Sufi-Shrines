@@ -1,0 +1,19 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Headings correspond one to one in the same order (Overview / تعارف through Karachi in Books / کتابوں میں کراچی). There is no verse in the article. Every figure in the Urdu (1843, 1850, 1861, 1896, 1907, 1937, 1945, 1946, 1947, 1953, 1967, 1968, 1975, 1978, 1983, 20, 2000, 2007, 300) appears in the English, and "about two hundred and fifty" is kept as تقریباً ڈھائی سو. There are no Latin letters in the file.
+2. Every hedge and legend marker carries over: "it is said" (کہا جاتا ہے, twice), "may have known / may have visited" (ممکن ہے / ہو سکتا ہے), "believed to have stood" (مانا جاتا ہے), "accounts differ" (روایتیں مختلف ہیں, three times), "it is told" (بیان کیا جاتا ہے), "as the story goes" (قصہ مشہور ہے), "probably" (غالباً, twice), "may be three or four hundred" (شاید ... ہوں گی), "may have seen" (شاید ... دیکھے ہوں), "generally" (عموماً), "about" (تقریباً), "hardly" (بمشکل).
+3. The glosses dropped for familiar words (qawwali, murid, murshid, ʿurs, zikr, sajjadanashin, madrasa, silsila, khutba, ʿīd, muḥarram, fakirs, hijṛā as خواجہ سرا, qadimi ʿalam) are deliberate under the brief. They are not omissions.
+4. Some renderings are slightly more specific than the English but read as idiomatic equivalents, not added facts. I flag them only for awareness:
+   - اخبار *ڈان* ("the newspaper Dawn"). The previous clause already says his newspaper work.
+   - سمندر پاٹ کر حاصل کی گئی زمین for "reclaimed land", which names the sea.
+   - موبد for "the priest", which is the Parsi priest.
+   - بیدل روہڑی وارو اور سچل سرمست کا کلام for "works of", since both men are poets.
+   - فراک for "dresses".
+   - خاتم النبیین for the quoted "seal of prophecy". This is the standard Urdu title with the same meaning; a more literal option would be "ختمِ نبوت کی مہر", but I do not recommend changing it.
+5. Some sentences are restructured with the meaning kept intact:
+   - Overview paragraph 4 turns "a city ... of the weekly circles of remembrance of a Chishti order whose teaching shaykh lives there" into "a city of a Chishti order whose teaching shaykh lives here and whose circles of zikr meet here every week".
+   - Dara Feroze Mirza's dates "lived from 1937 to 2007" plus "assassination in 2007" become "born in 1937 and killed in 2007".
+   - Brahmashankar Mishra's "lived from 1861 to 1907" becomes "born 1861, died 1907".

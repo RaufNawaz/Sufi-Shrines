@@ -1,0 +1,18 @@
+# V2 and V3 confirming round 3, Lahore (one combined verifier; the six round 2 changes in lahore.ur.r2.changes.txt)
+
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+
+NOTES:
+1. Diff proof (python difflib, SequenceMatcher with autojunk off, line level then character level). ur_P1.md against ur_P1.r2.bak: 147 lines in both, one line differs (105), and the only change there is the zamindar clause. ur_P2.md against ur_P2.r2.bak: 179 lines in both, one line differs (103), only the Miran Badshah / Madho Lal Husain sentences. ur_P3.md against ur_P3.r2.bak: 191 lines in both, four lines differ (43, 135, 153, 185), each carrying exactly one listed change. Replaying the six listed OLD -> NEW pairs on the r2 backups (each OLD occurs exactly once) reproduces ur_P1.md, ur_P2.md and ur_P3.md byte for byte, so nothing outside the listed changes moved. ur_P4.md was last written at 03:34, before the round 2 backups and edits (03:43), so it did not change. ur_trial.py reports "no Urdu errors" for P1, P2 and P3.
+
+2. Each change checked in its paragraph against the English of the same line:
+   a. [P1, line 105] "وہاں کے جو بھی زمیندار تھے، وہ ہلاک ہو گئے" renders "the zamindar or zamindars there were killed": all of them died, their number left open. The correlative جو بھی ... وہ is natural Urdu and the plural verb suits "however many there were". The "پچاس گز تک" earlier in the sentence is spatial, not the تک with a plain past problem, and is unchanged.
+   b. [P2, line 103] "on Thursdays" now governs only Miran Badshah's mazar, as in the English. In "مادھو لال حسین کے دونوں میلوں میں بھی وہ شریک ہوتے", وہ can only mean the Hindus and Muslims of the previous sentence (masculine plural, animate; اجتماعات does not fit شریک ہوتے). The Bhadar Kali clause is unchanged and still right. ہوتے sharing the تھے of جاتے تھے is normal.
+   c. [P3, line 43] "انہیں دیوانی عدالت سے رجوع کرنے کا حکم بھی ملا" keeps the reading accepted in round 2 ("an order for a civil suit followed" = they were directed to sue). دائر and انہیں each occur once now; "مگر کچھ حاصل نہ ہوا اور وہ خاموش ہو بیٹھے" is idiomatic, the dative understood from the clause before, and وہ is the heirs.
+   d. [P3, line 135] "بدستور انہی کے ذمے تھی" gives the English "were still his" and removes the "until then" reading. انہی is Kanhaiya Lal, the subject of the whole paragraph, and the next sentence names him again.
+   e. [P3, line 153] "محکمۂ نزول کے قاضی فقیہ الدین نے اپنے محکمے کے رجسٹر میں درج کر لیا تھا" = entered in the nazul department's register, which is recording it as nazul; the file renders the same English idea as "نزول کے رجسٹر میں درج" at line 137 and نزول is defined at line 33. اپنے correctly points to the subject. The نزول repetition is gone.
+   f. [P3, line 185] "مسجد کی امامت بھی بدستور انہی کے پاس تھی" restores "still held the imamat"; انہی is Khalifa Hamid al-Din, the subject of the same clause. بدستور now occurs twice in P3, fifty lines apart, which is fine.
+
+3. Taste only, not applied: (a) P2 line 103: "وہ مادھو لال حسین کے دونوں میلوں میں بھی شریک ہوتے" (subject first) would read a touch more naturally than "مادھو لال حسین کے دونوں میلوں میں بھی وہ شریک ہوتے". (b) P3 line 153: "اپنے محکمے کے رجسٹر" leaves "as nazul" implicit; "نزول کے رجسٹر" would say it outright, but that brings back the doubled نزول in one clause that round 2 removed, so the current wording is the better balance. (c) P3 line 43: "مالک بن بیٹھا" and "خاموش ہو بیٹھے" echo بیٹھنا in neighbouring sentences; pre-existing and acceptable. (d) P1 line 105: پڑ گئے and ہو گئے close two clauses of one sentence; acceptable.

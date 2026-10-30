@@ -1,0 +1,66 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [agreement / ergative] "اس ہجوم نے ان کے گھر کے پاس والمیکی مندر کو تباہ کر دیا اور انہیں زندہ جلا دینا چاہتا تھا۔" -> one subject marked with نے is made to carry both a transitive perfective verb and the continuous چاہتا تھا; the second verb cannot share the ergative subject, and the tenses clash. -> NEW: "اس ہجوم نے ان کے گھر کے پاس والمیکی مندر کو تباہ کر دیا تھا، اور وہ انہیں زندہ جلا دینا چاہتا تھا۔"
+
+2. [agreement / ergative] "پھر فیروز شاہ کا بیٹا سلطان محمود اپنے دادا سلطان حسین کا جانشین ہوا اور ستائیس برس حکومت کی۔" -> intransitive clause (جانشین ہوا) joined to a transitive perfective (حکومت کی) with no ergative subject; careful prose needs اس نے. -> NEW: "پھر فیروز شاہ کا بیٹا سلطان محمود اپنے دادا سلطان حسین کا جانشین ہوا اور اس نے ستائیس برس حکومت کی۔"
+
+3. [agreement / ergative] "فارسی شاعر فخر الدین عراقی ملتان میں بہاؤالدین سے وابستہ ہوئے اور ان کی شان میں قصیدے کہے، اور بہاؤالدین کی وفات کے کچھ ہی عرصے بعد قونیہ چلے گئے۔" -> same fault (وابستہ ہوئے ... قصیدے کہے without انہوں نے), and the chain of three clauses joined by two اور is loose. -> NEW: "فارسی شاعر فخر الدین عراقی ملتان میں بہاؤالدین سے وابستہ ہوئے اور انہوں نے ان کی شان میں قصیدے کہے؛ بہاؤالدین کی وفات کے کچھ ہی عرصے بعد وہ قونیہ چلے گئے۔"
+
+4. [agreement / ergative] "ابوبکر نامی ایک قوال ملتان سے نظام الدین کے مرشد کی زیارت کو آیا اور ملتانی شیخ کی خانقاہ میں سماع کا حال سنایا۔" -> آیا ... حال سنایا with no نے on the second, transitive clause. -> NEW: "ابوبکر نامی ایک قوال ملتان سے نظام الدین کے مرشد کی زیارت کو آیا اور اس نے ملتانی شیخ کی خانقاہ میں ہونے والے سماع کا حال سنایا۔"
+
+5. [agreement / ergative] "وہ سیدھا راستہ چھوڑ کر چلا تاکہ حاکمِ ملتان کو خبر نہ ہو، اور راستے میں راجا جے پال کے بیٹے راجا آنند پال کو شکست دی۔" -> وہ ... چلا followed by شکست دی with no ergative subject. -> NEW: "وہ سیدھا راستہ چھوڑ کر چلا تاکہ حاکمِ ملتان کو خبر نہ ہو، اور راستے میں اس نے راجا جے پال کے بیٹے راجا آنند پال کو شکست دی۔"
+
+6. [agreement / ergative] "اس کے بعد خود تیمور کابل سے آیا اور ملتان میں پڑاؤ ڈالا۔" -> آیا ... پڑاؤ ڈالا, same fault. -> NEW: "اس کے بعد خود تیمور کابل سے آیا اور اس نے ملتان میں پڑاؤ ڈالا۔"
+
+7. [agreement / ergative] "سلطان بہلول لودھی کے دادا ملک بہرام فیروز شاہ کے عہد میں ملتان چلے آئے اور یہاں کے حاکم ملک مروان کی ملازمت اختیار کر لی۔" -> چلے آئے ... ملازمت اختیار کر لی, same fault. -> NEW: "سلطان بہلول لودھی کے دادا ملک بہرام فیروز شاہ کے عہد میں ملتان چلے آئے اور یہاں کے حاکم ملک مروان کے ملازم ہو گئے۔"
+
+8. [agreement / ergative] "چنانچہ ملتان کے اکابر اور عوام مشورے کے لیے جمع ہوئے اور بالاتفاق شیخ یوسف قریشی کو سلطانی پر بٹھایا۔" -> جمع ہوئے ... بٹھایا without انہوں نے; also سلطانی پر بٹھانا is not idiomatic (one is seated on the مسند or تخت, not on سلطانی). -> NEW: "چنانچہ ملتان کے اکابر اور عوام مشورے کے لیے جمع ہوئے اور انہوں نے بالاتفاق شیخ یوسف قریشی کو مسندِ سلطانی پر بٹھایا۔"
+
+9. [agreement / ergative, repetition] "کمسن سلطان کے عہد میں قوام خان اور لشکر خان ارغون سے جا ملے، کمسن حسین سے لڑے اور شہر لے لیا۔" -> کمسن twice in one short sentence, and جا ملے، لڑے are followed by the transitive شہر لے لیا with no ergative subject. -> NEW: "کمسن سلطان حسین کے عہد میں قوام خان اور لشکر خان ارغون سے جا ملے اور سلطان سے لڑ کر شہر پر قابض ہو گئے۔"
+
+10. [ambiguous reference] "اور برادری نے دوسری جگہوں کو عارضی مندروں میں بدل لیا ہے۔" -> برادری on its own does not say which community; the reader has to guess. -> NEW: "اور ہندو برادری نے دوسری جگہوں کو عارضی مندروں میں بدل لیا ہے۔"
+
+11. [ambiguous pronoun, tense] "اس کے بقول وہاں لوگ چراغ جلاتے ہیں، چڑھاوے چڑھاتے ہیں اور قبر کو سجدہ تک کرتے ہیں، اور اس نے اسے شرک قرار دیا۔" -> اسے has no clear antecedent (one act? all of them?). -> NEW: "اس کے بقول وہاں لوگ چراغ جلاتے ہیں، چڑھاوے چڑھاتے ہیں اور قبر کو سجدہ تک کرتے ہیں، اور اس نے ان سب باتوں کو شرک قرار دیا۔"
+
+12. [ambiguous pronoun] "ان شاعروں کے نزدیک" -> the previous sentence speaks of شاعری, not of شاعر, so ان شاعروں points to nothing. -> NEW: "ان زبانوں کے شاعروں کے نزدیک"
+
+13. [tangled phrasing] "آج کے شہر میں ملتان اور بہاولپور کے بااثر زمیندار سید اپنے اجداد کے مزاروں کا خرچ اٹھاتے ہیں۔" -> آج کے شہر میں (in today's city) clashes with ملتان اور بہاولپور (two places) and reads as a calque. -> NEW: "آج ملتان اور بہاولپور کے بااثر زمیندار سید اپنے اجداد کے مزاروں کا خرچ اٹھاتے ہیں۔"
+
+14. [postposition] "بعد میں ملتان مصر کے فاطمیوں کا تابع ہو گیا" -> the idiom is کے تابع ہونا. -> NEW: "بعد میں ملتان مصر کے فاطمیوں کے تابع ہو گیا"
+
+15. [redundancy] "بادشاہ دارا کے تعاقب میں پیچھے پیچھے آیا" -> تعاقب میں already means "in pursuit"; پیچھے پیچھے repeats it. -> NEW: "بادشاہ دارا کا تعاقب کرتا ہوا آیا"
+
+16. [unidiomatic, tangled] "دارا کی طرف سے شہر جس شخص کے پاس تھا اس نے اطاعت قبول کر لی۔" -> clumsy relative clause; it reads like English word order. -> NEW: "دارا کی طرف سے جو شخص شہر پر مامور تھا، اس نے اطاعت قبول کر لی۔"
+
+17. [repetition] "خزانے کی کشتیوں کا راستہ روکنا چاہا، مگر انہیں روک نہ سکا۔" -> روکنا ... روک نہ سکا back to back. -> NEW: "خزانے کی کشتیوں کا راستہ روکنا چاہا، مگر کامیاب نہ ہو سکا۔"
+
+18. [register] "لیکن وہاں نہیں ٹکا۔" -> ٹکنا is colloquial for this register. -> NEW: "لیکن وہاں نہیں ٹھہرا۔"
+
+19. [unidiomatic / calque] "کوئی مرکزی تقریب نہیں ہوتی، اور ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں اب ہرنیہ کشیپ اور پرہلاد کی کہانی سے شہر کا واحد رشتہ ہیں۔" -> people cannot be a رشتہ; this is the English "are the city's only link". -> NEW: "کوئی مرکزی تقریب نہیں ہوتی، اور ہولی پر ہولیکا جلانے والی کوئی تیس عورتیں ہی اب ہرنیہ کشیپ اور پرہلاد کی کہانی سے شہر کا رشتہ جوڑے ہوئے ہیں۔"
+
+20. [ambiguous name] "لعل نے سب سے پہلے ملتان کا رخ کیا؛" -> لعل on its own is not a name a general reader will recognise, and the article has not introduced him. -> NEW: "لعل شہباز قلندر نے سب سے پہلے ملتان کا رخ کیا؛"
+
+21. [redundancy] "ملتان میں بلبن کے بیٹے کی خدمت میں اس کے ندیموں میں شامل تھے" -> کی خدمت میں and اس کے ندیموں میں say the same thing twice. -> NEW: "ملتان میں بلبن کے بیٹے کے ندیموں میں شامل تھے"
+
+22. [unidiomatic] "لنگاہوں کا سردار اپنا ایک قصبہ رکھتا تھا۔" -> "had a town of his own" turned word for word into Urdu; قصبہ رکھنا is not natural. -> NEW: "لنگاہوں کا سردار ایک قصبے کا مالک تھا۔"
+
+23. [redundancy] "اس کے قرابت دار قلعے کے اندر داخل کر لیے گئے۔" -> اندر داخل repeats itself. -> NEW: "اس کے قرابت دار قلعے میں داخل کر لیے گئے۔"
+
+24. [izafat / stacked کے] "شہر کے آج کے ہندوؤں کی یاد میں زندہ ہے" -> two stacked کے with آج make a heavy chain. -> NEW: "شہر کے موجودہ ہندوؤں کی یاد میں زندہ ہے"
+
+25. [double اور] "مسلمان اولیا کے مزاروں اور جین اور ہندو مندروں کی وجہ سے مشہور تھا۔" (paragraph 4) -> اور ... اور in one short list is clumsy; و is the natural joiner. -> NEW: "مسلمان اولیا کے مزاروں اور جین و ہندو مندروں کی وجہ سے مشہور تھا۔" (Leave the identical wording inside the quotation marks under برادریاں as it is, since it is quoted.)
+
+NOTES:
+- Ambiguity to check against the source, not fixed here because the fix depends on the facts: "ملتان کے قریب اس کا مقابلہ ایک سالار اور پنجاب کے حاکم تاتار خان سے ہوا۔" A reader cannot tell whether this means one man (a commander who was also governor of the Punjab) or two. The next sentence speaks of سالار کے لشکر, which suggests two. If two, write "ایک سالار سے اور پنجاب کے حاکم تاتار خان سے"; if one, "ایک سالار، یعنی پنجاب کے حاکم تاتار خان، سے" or better "پنجاب کے حاکم اور سالار تاتار خان سے".
+- Heading "تاریخ: مغل، افغان اور سکھ عہد کا ملتان اور اس کے بعد" ends with a dangling اور اس کے بعد. A cleaner form: "تاریخ: مغل، افغان اور سکھ عہد، اور اس کے بعد".
+- Repetition across sections. The introduction is meant to summarise, but some sentences come back almost word for word: "بارھویں صدی میں بہت سے صوفی علما نے اسے اپنا مرکز بنایا" (paragraph 3 and اولیا کا شہر), the flaying of Shams Tabriz (three times), Iraqi's poems sung at the tomb door (three times), the Saraiki sentence (twice). Varying the wording in the body would read better.
+- The same saint is سلطان سرور under اولیا کا شہر and سخی سرور under کتابوں میں ملتان. Both names are correct, but one form, or a link such as "سخی سرور (سلطان سرور)", would help the reader.
+- Two different men named ملک بہرام, two named سلطان حسین, two named لشکر خان and two named رکن الدین (the prince and the shaykh, in one sentence) all appear. This follows the facts and is not a language error, but the reader may stumble.
+- "قرامطہ شیعوں کا ایک انتہا پسند گروہ تھا": انتہا پسند is modern journalistic vocabulary; غالی would suit the historical register better.
+- "جب ایک منگول لشکر لاہور اور ملتان کے نواح کو نقصان پہنچانے لگا": تاخت و تاراج کرنے لگا is stronger and more idiomatic.
+- "لشکر خان نے شمس الدین کا کام تمام کیا": کا کام تمام کر دیا is the more usual form.
+- "یہ ایک سے زیادہ مذاہب کا شہر تھا" and "ایک سے زیادہ جگہوں": کئی is more natural Urdu, if "several" keeps the sense.
+- "وہ شہر بھی ہے جہاں کتابیں تیار ہوتی ہیں": چھپتی ہیں is more precise.
+- "مزاروں کے نگرانوں پر تنقید بھی ہوئی ہے" is followed in the same paragraph by an unrelated sentence on river trade. This is a structural matter, not a language one.
+- Mechanics are clean: Urdu punctuation throughout, no Latin letters, no dashes, Western digits, asterisks balanced (4).

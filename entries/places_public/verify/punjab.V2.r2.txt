@@ -1,0 +1,64 @@
+V2 and V3 confirming round 2 for punjab, one confirming worker per heading group doing both (P1 Overview and History; P2 saints and communities; P3 language, the state and the books). Round verdicts are the conjunction of the groups: V2 FAIL (P2), V3 FAIL (P1, P2, P3).
+=================== GROUP P1 ===================
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [V3, agreement read wrongly / garden path] OLD: تبلیغی جماعت اور دیوبندی مکتبِ فکر سمیت کئی اصلاحی تحریکوں نے جنوب کی مزاروں سے وابستہ ثقافت کا رخ کیا ہے۔ -> Change 17 introduced this. The feminine کی belongs to ثقافت, but it now stands right before the masculine plural مزاروں, so the reader first reads "جنوب کی مزاروں" as broken agreement and has to go back. The English is "the shrine culture of the south". -> NEW: تبلیغی جماعت اور دیوبندی مکتبِ فکر سمیت کئی اصلاحی تحریکوں نے جنوب کے مزاروں سے وابستہ ثقافت کا رخ کیا ہے۔
+
+2. [V3, register of address] OLD: دھیان سنگھ نے شیر سنگھ سے کہا کہ ان شاء اللہ تم جلد پنجاب کے حکمران ہو گے، -> Change 65 rightly fixed the referent of وہ by turning the clause into direct speech. But a wazir speaking to Ranjit Singh's son, a prince and the future Maharaja, would not say تم to him. To an educated Urdu reader تم here is disrespectful and sounds wrong. The English is neutral ("he would soon be ruler"), so آپ keeps the meaning and fixes the register. -> NEW: دھیان سنگھ نے شیر سنگھ سے کہا کہ ان شاء اللہ آپ جلد پنجاب کے حکمران ہوں گے،
+
+NOTES:
+- Diff check: I replayed all 81 listed changes on ur_P1.r1.bak with python. Each OLD occurs exactly once, and there are 12 occurrences of مہاراجا turned into مہاراجہ. The result is byte-identical to the current ur_P1.md, so nothing outside the listed changes moved. ur_P1.r1.fixed.bak is also identical to the current file. Mechanics are clean: no Latin letters, no Eastern digits, no em or en dashes, 6 asterisks (balanced), and no doubled words apart from normal reduplicatives (بار بار، رفتہ رفتہ، اپنی اپنی، ساتھ ساتھ …).
+- V2 on the changed sentences: every changed sentence says what the English says. Changes 1 and 2 now keep the Anangpal clause and the slow conversion inside the attributed tradition and view. Change 44 keeps "it is said" and "before his time" over the Balkh and Kabul raids (یہ بھی کہا جاتا ہے کہ ان دنوں). Change 70 keeps "literally", change 74 keeps "never", and change 60's آگے چل کر … اجاڑ ڈالا is a fair rendering of "were to lay waste". Change 68 (منٹگمری اور لارنس) resolves "them" correctly, since the two halls follow the Montgomery and Lawrence sentences. Change 18's خواجہ سلیمان تونسوی matches urdu-i18n/urdu-dictionary.json (Khawaja Shah Muhammad Sulaiman Taunsvi) and the glossary honorific. Change 81 matches the dictionary (مہاراجہ رنجیت سنگھ).
+- V2, borderline but acceptable: change 40 (اس نے دیپالپور اور لاہور دونوں کو لوٹ لیا) names the Tatar army as the plunderer, where the English has an agentless passive. The context makes the agent all but certain, so I don't count it as an addition. Change 29 drops the term "Sindhian culture" but keeps its definition (a shared Sindhi set of social, religious and cultural traits), so no fact is lost.
+- Rejected items: all eight were rightly rejected. The English is the authority for the Muhammad Qasim spelling, for the "fourth … fifth … eighth blow" count, for "the suba still had its Mughal rulers", for "build its towns" (not rebuilding), and for not equating Salim Khan with Islam Shah. Adding a connective that makes the two famine sentences two families would add a fact. The overview repeats and بازگوئی are matters of taste. The partial applications of V3 issues 12, 35, 37, 38, 46, 51, 58, 61, 62 and 65 are justified in each case by the English.
+- Taste only, not failing:
+  (a) Change 66 joins two sentences with a semicolon, so the sentence now runs to five clauses (شورش اٹھی … گزرا … آ گیا؛ یوں … ختم ہوئی اور … بن گئے). A full stop instead of the semicolon would read more easily.
+  (b) Change 27 puts پنجاب three times in one sentence (پنجاب کا نام … ہر دور کا پنجاب دوسرے ادوار کے پنجاب سے مختلف ہے). "… اور تاریخ کے ہر دور کا پنجاب الگ رہا ہے" would lighten it.
+  (c) Change 32 has آنے والے … آیا. The آنے والے could simply be dropped.
+  (d) Change 68 would be more precise as کے ناموں سے موسوم.
+  (e) Change 29's "ایک مشترک سندھی مجموعہ" is correct but a little stiff.
+  (f) Change 42 now has تیمور in two consecutive sentences and twice in one. This is acceptable for clarity.
+  (g) راجا (17 times) and مہاراجہ (12 times) now stand side by side in "سردار، راجا اور مہاراجہ". This follows the dictionary and is not a fault.
+
+=================== GROUP P2 ===================
+V2 VERDICT: FAIL
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [V2, changed scope] OLD: "جیسا کہ دیہات کے سیدھے سادے ماحول میں آج بھی ہوتا ہے۔" -> The English is "as is still the case in the less sophisticated parts of the countryside", which limits the claim to some parts. "دیہات کے سیدھے سادے ماحول" reads as "the simple setting of the villages", so the claim now covers the countryside in general and the restriction is lost. This was introduced by the V3-26 fix. -> NEW: "جیسا کہ آج بھی ان دیہات میں ہوتا ہے جہاں زندگی سیدھی سادی ہے۔"
+
+2. [V3, collocation/word order] OLD: "چوتھا سفر ہندوستان پر بابر کے تیسرے حملے کے لگ بھگ زمانے میں جنوب مشرق سے پنجاب واپسی پر ختم ہوا۔" -> "لگ بھگ" works as an adverb ("لگ بھگ اسی زمانے میں"). Placed between a genitive and its noun ("حملے کے لگ بھگ زمانے میں") it is unidiomatic. The opening "چوتھا سفر ہندوستان پر" also misleads at first as "the fourth journey to India". The NEW keeps the English: the close of the journey is dated, and "around" is kept. -> NEW: "چوتھا سفر جنوب مشرق سے پنجاب واپسی پر ختم ہوا، اور یہ ہندوستان پر بابر کے تیسرے حملے کے آس پاس کا زمانہ تھا۔"
+
+NOTES:
+- Diff check: applying the 53 listed OLD -> NEW pairs to ur_P2.r1.bak (the 52 in the writer's list plus the coordinator's مہاراجا -> مہاراجہ, each OLD found exactly once) reproduces ur_P2.md byte for byte. Nothing outside the listed changes moved. ur_trial.py P2 reports no Urdu errors.
+- All other changed sentences were checked in their paragraphs against en_P2.md and pass both V2 and V3. These include the Bibi Pak Daman split (the hedge now governs all three claims, and the burial claim is gone), the Waris Shah line, the Taunsawi title unification (the English's Khwaja, Shaikh and Shah Sulayman are one man; the dictionary has خواجہ شاہ محمد سلیمان تونسوی), سوہنی میہار, بلند آواز سے, عموماً, the Tablighi and Ahl-e-Hadith sentences and the Lohri split. The pronouns in the changed sentences resolve correctly: انہوں نے after ان کا وصال ہوا is Sulayman; ان in the herders split is the herders; ان کے قبضے میں is the Baluch; وہ ... پیش کرتی ہیں is the organisations.
+- The rejected and unapplied notes were rightly left. The English gives Hazrat Husain and Madho Lal Hussein unlinked, it says Hindustan and "the same blend", it gives both "Kech and Makran" and "Kech Makran", and it has "he too". Linking or glossing any of these would add to the English.
+- "بی بی پاک دامن کی بیبیوں" follows the English "the Bibis of Bibi Pak Daman" exactly. The previous sentences now treat بی بی پاک دامن as one woman, so a reader may wonder who "her Bibis" are. This is acceptable and is a matter of taste.
+- "اپنی وضع داری نبھاتا رہا" for "kept its habits" carries a shade of refined decorum that the neutral "habits" lacks. "اپنی پرانی روش پر قائم رہا" would be more neutral. Taste.
+- "تنظیموں نے بھی جنوبی پنجاب کے معاشرے میں گہری جڑیں پکڑ لی ہیں" is a little stronger than "seeped into the social fabric". "رفتہ رفتہ جنوبی پنجاب کے معاشرے میں اپنی جگہ بنا لی ہے" would be closer in degree. No fact changes.
+- After V3-42 the Janus sentence has two colons ("یہی بات واضح کرتا ہے: ... تو وہ جواب دیتا ہے: "..."). One fix is to end the first clause with a full stop: "یہی بات واضح کرتا ہے۔ اس میں جب پنجابی کو ...".
+- After V2-3 the phrase "بلند آواز سے اذان نہیں" appears twice in one sentence. "اس مسجد کا ملا بھی ایسا ہی کرے گا" would avoid the echo and keep "aloud". Taste.
+- "قبیلوں نے، جو زیادہ تر کسان ہیں اور آپس ہی میں شادیاں کرتے ہیں، 1935 سے 1938 کے درمیان" puts a relative clause between the subject with نے and its verb. It is acceptable Urdu. The present tense correctly follows the English.
+- "ان تنظیموں" now opens two consecutive sentences in the Ahl-e-Hadith paragraph. This is acceptable; it was done to resolve the referent.
+
+=================== GROUP P3 ===================
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+ISSUES:
+1. [V3, repetition / referent] OLD: "1940 کے ایک مطالعے میں پنجاب کو اٹھارھویں صدی کے سندھ کی نظر سے دیکھا گیا ہے، اور اس مطالعے میں یہ افغانوں، سکھوں اور مرہٹوں کی فوجوں کا میدانِ کارزار ہے اور ایسا خطہ جہاں سے مہاجر بھی آئے اور قصے بھی۔" -> change 73 fixed the ambiguous "وہاں" but the fix doubles a phrase in one sentence ("ایک مطالعے میں ... اور اس مطالعے میں"), and "یہ" after "اس مطالعے میں" can first be read as the study. One clause matches the English ("Seen from eighteenth century Sindh, in a study of 1940, the Punjab is ...") with no repetition and no pronoun -> NEW: "1940 کا ایک مطالعہ اٹھارھویں صدی کے سندھ کی نظر سے پنجاب کو افغانوں، سکھوں اور مرہٹوں کی فوجوں کا میدانِ کارزار اور ایسا خطہ دکھاتا ہے جہاں سے مہاجر بھی آئے اور قصے بھی۔"
+NOTES:
+- Diff proof: replaying the 85 OLD->NEW pairs of ur_P3.r1.changes.txt in order on ur_P3.r1.bak reproduces ur_P3.md exactly (each OLD occurs once). A character-level difflib.SequenceMatcher of bak against the current file finds no change outside the NEW spans (the only unmatched hunks belong to change 24, whose text change 84 overwrote; changes 24 and 72 are absent from the file as NEW strings because 84 and 85 replaced them, as listed). Line count 115 in both. No Latin letters, no dashes, asterisks balanced (8), verse paragraphs untouched. صوفیوں، ٹھیٹھ، مہاراجا، کنووں، شاہجہان no longer occur.
+- V2: all 85 changes say what the English says. The six V2 issues and the V2 notes (جاگیریں, اجازت, وسیع توجہ, حیرت, یہی فرق) are correctly resolved.
+- Rejections checked against the English, all rightly made: V3-32 part (the English "no differently" does not settle the reading; "بلھے شاہ کا معاملہ بھی اس سے مختلف نہ تھا" keeps that scope), V3-33 part (English past "awaited"), V3-40 part ("all three reformers" and "باہمی" are not in the English), V3 notes 1, 4, 6, 8, 9 (each would add or remove a statement the English makes or does not make), notes 5, 11 (taste), note 10 part (یلدز kept for one spelling across the article).
+- Change 2 (taste): "یا تو اسی روایت کا آغاز ہیں یا ... چلی آتی اسی روایت کی ایک کڑی" repeats روایت in one clause, with روایت/روایتیں twice more in the paragraph; "... چلی آتی اس کی ایک کڑی" would be lighter. The "but" of "Accounts differ ... but" is no longer marked (the old تاہم went with the split); the meaning survives.
+- Change 16 (taste): "بولی جانے والی سرائیکی" twice in one contrastive sentence; "جبکہ اس سرحدی علاقے کی سرائیکی سندھی سے زیادہ ملتی جلتی ہے" would be lighter.
+- Change 74 (taste): خوراک three times in one sentence; "اور بظاہر یہی بنگالی خوراک" or a full stop before "بظاہر" would ease it.
+- Change 85 (taste): "کا ذکر ... ایک ساتھ کرتی ہیں" puts a long phrase between ذکر and کرتی ہیں; "اکثر سندھ اور پنجاب کا ایک ساتھ ذکر کرتی ہیں اور انہیں مذہبی شاعری کی ایک ہی روایت کے دو صوبے اور کپاس اگانے والا ایک ہی ملک سمجھتی ہیں" reads more easily. Correct as it stands.
+- Change 77 (taste): ہندو occurs three times in the sentence; "ان علاقوں کی برادریوں کی عکاسی نہیں کرتے جہاں ہندو بڑی تعداد میں آباد ہیں" is enough.
+- Change 36 (taste): "جوانی میں وہ" begins a new sentence; the referent (بھائی مردانہ) is clear from the sentence before, though the plural honorific could also fit the میراثی two sentences back.
+- Change 44 (taste): "ہی وہ واحد" doubles the emphasis much as "صرف ... ہی" did; "پنجابی وہ واحد زبان ہے جو" is enough.
+- Change 52 (taste): "فیصلہ کن آزمائش" is acceptable for "test case"; "جیسے تونسہ کا جھگڑا" between commas repeats جھگڑے.
+- Change 71: مورلینڈ takes the singular "کرتا ہے" while the file's other modern authors take the honorific plural (مؤرخ ... کرتی ہیں، مصنف ... سوچتے ہیں); taste.
+- Change 30: تخیل in two consecutive sentences ("محض تخیل کا منظر", "شاعر کے تخیل کی یہ پرواز"); taste.

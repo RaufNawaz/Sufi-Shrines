@@ -1,0 +1,74 @@
+# V3 round 2 (Urdu fluency) on entries/places_public/lahore.short.ur.md, Urdu only, after the round 1 changes; two groups, replies verbatim.
+# Round verdict: FAIL (A FAIL, B FAIL)
+
+======== GROUP A ========
+VERDICT: FAIL
+
+ISSUES:
+1. [ambiguity] "شہر میں اور بہت سے اولیا کے مزار ہیں۔" -> Without "بھی", the "اور" can be read as "and" at the start of the clause, so the sentence stumbles. -> "شہر میں اور بھی بہت سے اولیا کے مزار ہیں۔"
+2. [ambiguous pronoun] "رنجیت سنگھ نے اس کے میناروں کی برجیاں اتروا دیں، اور اس کی موت کے بعد کی کشمکش میں انہی میناروں پر توپیں چڑھا کر قلعے پر گولہ باری کی گئی۔" -> The nearest antecedent of "اس کی موت" is the mosque ("اس کے میناروں"). The reader has to stop and work out that Ranjit Singh is meant. -> "رنجیت سنگھ نے اس کے میناروں کی برجیاں اتروا دیں، اور مہاراجا کی موت کے بعد کی کشمکش میں انہی میناروں پر توپیں چڑھا کر قلعے پر گولہ باری کی گئی۔"
+3. [unidiomatic collocation] "اپنے منصوبوں کے لیے رنجیت سنگھ نے لاہور کے مقبروں کا سنگِ مرمر اور پتھر ایک ایک جگہ سے اکھڑوا لیا۔" -> "ایک ایک جگہ سے" is not idiomatic for "from place after place". The idiom is "جگہ جگہ سے". -> "اپنے منصوبوں کے لیے رنجیت سنگھ نے لاہور کے مقبروں کا سنگِ مرمر اور پتھر جگہ جگہ سے اکھڑوا لیا۔"
+4. [repetition] "شہر کی آبادی پہلے کے کسی بھی زمانے سے دگنی ہو چکی تھی، اور شہر کی ترقی کا سب سے بڑا سبب نئی ریل تھی۔" -> "شہر" occurs four times in this one sentence, counting the clause before it ("اصل شہر کے باہر ایک دوسرا شہر"). The last clause also repeats the introduction almost word for word. -> "آبادی پہلے کے کسی بھی زمانے سے دگنی ہو چکی تھی، اور اس ترقی کا سب سے بڑا سبب نئی ریل تھی۔"
+5. [punctuation / register] "\"ان کا مزار، جو داتا گنج بخش کا مزار کہلاتا ہے، آج بھی لاہور کی ایک مقبول زیارت گاہ ہے\"؛" -> A quotation with no attribution, dropped into the middle of running prose, reads like leftover source text. The marks do nothing for the Urdu reader. They are also straight ASCII quotes. -> "شہر کی عقیدت کا مرکز علی ہجویری کی قبر ہے۔ ان کا مزار، جو داتا گنج بخش کا مزار کہلاتا ہے، آج بھی لاہور کی ایک مقبول زیارت گاہ ہے؛ داتا دربار لاہور کی سب سے نمایاں درگاہ ہے، اور علی ہجویری کو لاہور کا روحانی سرپرست مانا جاتا ہے۔"
+6. [repetition] "گرو ارجن نے اس شہر میں بہت وقت گزارا، یہیں انہیں قتل کیا گیا اور یہیں ان کی باقیات سپردِ خاک ہوئیں؛ اور گرو ہرگوبند نے بھی یہاں بہت وقت گزارا۔" -> "بہت وقت گزارا" appears twice in one sentence. -> "گرو ارجن نے اس شہر میں بہت وقت گزارا، یہیں انہیں قتل کیا گیا اور یہیں ان کی باقیات سپردِ خاک ہوئیں؛ اور گرو ہرگوبند کا بھی یہاں طویل قیام رہا۔"
+7. [gloss of familiar name] "یہ شہر جدید دور کی شخصیات کی آرام گاہ بھی ہے: شاعر محمد اقبال لاہور میں دفن ہیں۔" -> No Urdu reader needs to be told that Iqbal is a poet. "شاعر محمد اقبال" reads as translated English. "لاہور میں" also repeats the subject. -> "یہ شہر جدید دور کی شخصیات کی آرام گاہ بھی ہے: علامہ محمد اقبال یہیں دفن ہیں۔"
+8. [tense inconsistency] "نہر کا پانی باغوں کی پٹی اور اداروں میں رواں تھا: یہ شالیمار کے ہر باغ کے اندر بہتا ہے، دیوان رتن چند کا تالاب بھرتا ہے، اور ریلوے ورکشاپ میں انجن کے ذریعے لوہے کی ایک ٹنکی تک چڑھایا جاتا ہے اور وہاں سے ہر کارخانے میں تقسیم ہوتا ہے۔" -> The sentence opens in the past ("رواں تھا") and the clauses after the colon switch to the present. -> "نہر کا پانی باغوں کی پٹی اور اداروں میں رواں تھا: یہ شالیمار کے ہر باغ کے اندر بہتا تھا، دیوان رتن چند کا تالاب بھرتا تھا، اور ریلوے ورکشاپ میں انجن کے ذریعے لوہے کی ایک ٹنکی تک چڑھایا جاتا اور وہاں سے ہر کارخانے میں تقسیم ہوتا تھا۔"
+
+NOTES:
+- Round 1 fixes are in, and the publisher's decisions are respected: مادھو لال حسین and بکرمی سمت are not flagged. Mechanical checks: no Latin letters, no em or en dashes, no ASCII commas, semicolons or question marks, Western digits throughout, and the asterisks are balanced (4). The only straight quotes are the two pairs on lines 21 and 61.
+- The list "شاہ عالمی کا سیتلا مندر، انار کلی کا جین مندر اور ٹھوکر نیاز بیگ کا بھدر کالی مندر" still appears word for word in the introduction and in "مقدس سرزمین". A light rewording of the second one would help.
+- "صوفی بزرگ شاہ کاکو چشتی نے اسے یقین دلایا کہ یہ شہر خود ان کا اپنا شہر ہے": "خود ... اپنا" is doubled emphasis. "یہ شہر ان کا اپنا شہر ہے" is enough.
+- "اپنا دفاع آپ کر کے" is followed in the next sentence by "اپنا دفاع خود کیا". The brick passage (اینٹوں / اینٹ فروش / اینٹیں, plus "بن گئے ... بن گئیں") is also repetitive.
+- "لاہور احمد شاہ ابدالی سے محفوظ رہا؛ ... احمد شاہ ابدالی نے حاجی محمد سعید کے محلے پر": the full name repeats in adjacent clauses. "خود احمد شاہ نے" would read more smoothly.
+- "اپنی واپسی پر اورنگزیب": the narrative never showed Aurangzeb leaving, so "اپنی واپسی" is unclear. Check the intended sense.
+- "دولت خان لودھی سلطان ابراہیم سے پھر گیا اور لاہور سے بابر کے ساتھ جا ملا": "لاہور سے" sits awkwardly here.
+- "ایک کے بعد ایک مسجد اور ایک کے بعد ایک مقبرہ ... بنتا گیا": the distributive singular is acceptable but heavy. "کئی مسجدیں اور مقبرے ایک ایک کر کے ... بنتے گئے" is smoother.
+- "لاہور کے ہندوؤں اور مسلمانوں نے بڑا شور مچایا": slightly colloquial for a reference work. "سخت احتجاج کیا" is better.
+- "یہیں ان کی باقیات سپردِ خاک ہوئیں": "سپردِ خاک" means burial, which is doubtful for a Sikh guru, and "باقیات" is an odd word for a body. Check the sense against the source.
+- "کشو اور لوہو" and "لو اور کش" appear in consecutive sentences. If the variants are deliberate, fine. Otherwise unify.
+- "نئی سرکاری عمارتوں میں سے ہر ایک کا سال بھی معلوم ہے اور لاگت بھی" is followed by years only, with no costs. This is a content gap, not a language one.
+- "شوالہ بنایا، پھر رنجیت سنگھ کے زمانے میں" could take a full stop before "پھر". "جب وہ حکومت ختم ہوئی" could be "جب ان کی حکومت ختم ہوئی". "قبروں کی عمارت وصیتوں کے مطابق بنتی تھی" could be "قبریں اور مقبرے وصیتوں کے مطابق بنائے جاتے تھے". All three are taste.
+
+======== GROUP B ========
+VERDICT: FAIL
+
+ISSUES:
+1. [agreement / pronoun] "منشی نجم الدین نے سرکار کو درخواست دے کر مسجد اور مقبرہ واگزار کرائے اور اس کی مرمت اپنی جیب سے کرائی۔" -> Two buildings are recovered, so the singular اس کی is wrong. -> اور نیلا گنبد میں منشی نجم الدین نے سرکار کو درخواست دے کر مسجد اور مقبرہ واگزار کرائے اور ان کی مرمت اپنی جیب سے کرائی۔
+2. [calque / word order] "اور وہ ہزاروں لوگ خوشی خوشی آتے جن کے بچے صحت یاب ہو جاتے۔" -> This follows English relative-clause order ("the thousands whose children recovered came"). The relative clause is split from its head and pushed to the end. -> سیتلا ماتا کے استھان پر خاص پوجا چیچک کی وبا کے دنوں میں ہوتی، اور جن کے بچے صحت یاب ہو جاتے، ایسے ہزاروں لوگ خوشی خوشی حاضری دیتے۔
+3. [ambiguous referent] "موراں کے نام پر مہاراجہ نے سکہ ڈھلوایا جو پورے پنجاب میں چلا" -> No Maharaja is named in this section. The last one named in the text is مہاراجہ کھڑک سنگھ (in the مزارات، اوقاف اور ریاست section), so a reader could take the coin to be his. Name the ruler. This should be رنجیت سنگھ, but the caller should confirm against the source. -> دربار کی سطح پر بھی دولت کا لین دین ہوتا تھا: موراں کے نام پر مہاراجہ رنجیت سنگھ نے سکہ ڈھلوایا جو پورے پنجاب میں چلا، ...
+4. [calque] "یہ شہر میل جول کے ساتھ علیحدگی سے بھی واقف تھا۔" -> This is the English "the city knew separation as well as mixing". It is unidiomatic in Urdu. -> اس شہر میں میل جول کے ساتھ ساتھ علیحدگی بھی موجود تھی۔
+5. [calque] "املاک کی واپسی چند افسروں کے ہاتھوں ہوئی جن کے نام ملتے ہیں۔" -> "جن کے نام ملتے ہیں" is a stiff rendering of "named officers". -> کچھ املاک چند ایسے افسروں کی بدولت واپس بھی ہوئیں جن کے نام معلوم ہیں۔
+6. [calque / missing objects] "نوآبادیاتی ریاست اجازت نامے بھی دیتی تھی، انتظام بھی کرتی تھی اور بند بھی کر دیتی تھی۔" -> This copies "licensed, regulated and shut down". انتظام کرنا and بند کر دینا have no object, so the sentence hangs. -> نوآبادیاتی ریاست مذہبی سرگرمیوں کی اجازت بھی دیتی تھی، ان کا انتظام بھی کرتی تھی اور انہیں بند بھی کر دیتی تھی۔
+7. [postposition / awkward] "موراں کی مسجد میں یہ تبدیلی ایک ہی خاندان میں دیکھی جا سکتی ہے۔" -> Two میں phrases clash, so it reads as "in the mosque ... in one family". -> یہ تبدیلی موراں کی مسجد سے وابستہ ایک ہی خاندان میں دیکھی جا سکتی ہے۔
+8. [ambiguous] "حالیہ زمانے میں ریاست کا ہاتھ لاہور کے مزاروں تک اور طریقوں سے بھی پہنچا ہے۔" -> اور طریقوں can be misread as "and methods". -> حالیہ زمانے میں ریاست کا ہاتھ لاہور کے مزاروں تک دوسرے طریقوں سے بھی پہنچا ہے۔
+9. [calque] "معاوضہ دینے میں حکومت کے انصاف کی گواہی مصنف نے اپنے الفاظ میں دی" -> In Urdu, اپنے الفاظ میں means "paraphrased in his own words". The intended sense is "personally, in his own voice". -> معاوضہ دینے میں حکومت کے انصاف کی گواہی مصنف نے خود اپنی زبانی دی، اور جو کچھ وہ بیان کر رہے تھے اس میں وہ خود بھی فریق تھے:
+10. [collocation / ambiguous] "وہاں جس چوک پر یہ ہر سال آ کر ملتا تھا اس کا نام میلاد چوک پڑ گیا۔" -> A single procession does not "meet" anyone. The sense is that it gathered there. -> وہاں جس چوک پر یہ ہر سال جمع ہوتا تھا اس کا نام میلاد چوک پڑ گیا۔
+11. [ambiguous time / register] "1880 کی دہائی تک میاں وڈا کی خانقاہ تقریباً دو سو اندھوں اور لنگڑوں کی کفالت کرتی تھی؛ سب کو قرآن پڑھایا جاتا اور اندھوں کو حفظ کرایا جاتا۔" -> تک with the habitual کرتی تھی can read as "used to support, up until the 1880s". Also, اندھوں اور لنگڑوں is too blunt for a reference work. -> 1880 کی دہائی میں میاں وڈا کی خانقاہ تقریباً دو سو نابیناؤں اور اپاہجوں کی کفالت کرتی تھی؛ سب کو قرآن پڑھایا جاتا اور نابیناؤں کو حفظ کرایا جاتا۔
+12. [inconsistent numerals] "اور چھ دسمبر 1992 کے بعد شہر کے مندروں پر حملے ہوئے۔" -> The same paragraph writes "28 مئی 2010" in digits, so this date should match. -> لاہور کے ہندو تعداد میں کم اور محتاط ہیں، اور 6 دسمبر 1992 کے بعد شہر کے مندروں پر حملے ہوئے۔
+13. [repetition] "ایک ٹھاکر دوارے کے ضروری اخراجات صرف چڑھاوے پر چلتے تھے، نہ کوئی جاگیر مقرر تھی نہ روزینہ، اور چور مور والا میں مہنت اور پجاری صرف چڑھاوے پر گزارا کرتے تھے۔" -> "صرف چڑھاوے پر" appears twice in one sentence, and چڑھاوا appears four times in this short paragraph. -> ایک ٹھاکر دوارے کے ضروری اخراجات صرف چڑھاوے پر چلتے تھے، نہ کوئی جاگیر مقرر تھی نہ روزینہ، اور چور مور والا میں بھی مہنت اور پجاری کا گزارا اسی پر تھا۔
+14. [definiteness / time adverb] "انیسویں صدی میں "تحقیقاتِ چشتی" کمشنر کے حکم پر لکھی گئی" / "مصنف کی رائے میں ابھی تک کوئی ایسی کتاب نہ تھی" -> The bare کمشنر is English "the Commissioner" and leaves the reader asking which one. ابھی تک with a past-tense verb should be اس وقت تک. -> انیسویں صدی میں "تحقیقاتِ چشتی" اس وقت کے کمشنر کے حکم پر لکھی گئی، جنہوں نے لاہور کے نواح کی عمارتوں، مقبروں اور مسجدوں کا مفصل حال طلب کیا تھا۔ مصنف کی رائے میں اس وقت تک کوئی ایسی کتاب نہ تھی جو لاہور کے آثارِ قدیمہ کا پورا احاطہ کرے۔
+15. [tense] "جن میں سادھو چور کے نام سے منسوب کنواں بھی شامل ہے۔" -> The rest of the narrative is in the past, but this clause slips into the present. -> ...اور خیراتی کنویں چوری کے مال سے بھی بنے، جن میں سادھو چور کے نام سے منسوب کنواں بھی شامل تھا۔
+
+NOTES:
+- Mechanical checks passed. There are no Latin letters, no em or en dashes, and no ASCII commas, semicolons or question marks. All digits are Western, the asterisks are balanced (4), and the verse lines are untouched. The publisher's decisions are in place (مادھو لال, لال حسین, ٹالی صاحب, ٹالی). I did not edit the file.
+- Taste: in "سب سے بڑی زمین خور ریلوے تھی", the coinage زمین خور is still odd. "سب سے زیادہ زمین ریلوے کی نذر ہوئی" would be smoother.
+- Taste: "جدید محققین نے لاہور کو بہت مختلف فاصلوں سے دیکھا ہے" is an English image. Consider "جدید محققین کا لاہور سے تعلق بہت مختلف نوعیت کا رہا ہے".
+- Taste: "پہلا گروہ سنیوں کا تھا" starts a numbered list that never continues (there is no دوسرا or تیسرا). Either drop پہلا or number all four groups.
+- Taste: "شیعہ ... بہت ماتم کرتے" is colloquial. "بڑے اہتمام سے ماتم کرتے" reads better.
+- Taste: "صلحِ کل اور بے تعصب فرقہ کہلاتے تھے" puts a plural subject with a singular فرقہ.
+- Taste: "یہ لقب" would be more polished as "یہ القاب".
+- Taste: "مساجد" appears once (para 25) against "مسجدیں" four times. I suggest standardising on مسجدیں.
+- Taste: "تہواری کیلنڈر" sits beside "اسلامی تقویم". Consider "تہواروں کا اپنا کیلنڈر".
+- Taste: "بردہ کا پنجابی روپ" would be clearer as "قصیدہ بردہ کا پنجابی منظوم ترجمہ".
+- Taste: "اس شہر میں مغل دربار میں بھی" has a double میں.
+- Taste: "مسمات جوالا دئی" uses a legal-document honorific that general readers won't expect.
+- Check against the English source (possible content issues, not language):
+  - "سڑک پر جو کچھ چڑھایا جاتا" may mean "سڑک سے" (offerings handed up from the street).
+  - "املاک کے مؤرخ" is an odd collocation, and it is unclear what is meant.
+  - "فرید کی سطر" is still unclear.
+  - "دو پشتوں کے اندر" is used of sons.
+  - "مریم زمانی" is called Jahangir's بیوی, but she is usually his mother.
+  - In "میانی کے گورکن اپنی ایک الگ برادری تھے", the example does not illustrate the claim that communities performed their own rites.
+  - In "دارالسلطنت بھی تھا اور ممالک کا پایۂ تخت بھی", the two terms are near-synonyms.
+- Repetition across sections: the Qizilbash Muharram meals appear in both مذہبی معیشت and میلے اور رسوم. "ہر ملک/دیس کے کاریگر" appears in both برادریاں and کتابوں میں لاہور.
+- Framing: the author of "تاریخِ لاہور" is left unnamed, though he is named as کنہیا لال earlier in the article, so readers may not connect the two. Adding the name would help. The Ahmadi quotation (28 مئی 2010) still stands alone with no lead-in.

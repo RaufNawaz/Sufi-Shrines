@@ -1,0 +1,21 @@
+V2 and V3 confirming round 3 for sindh, one confirming worker over all three heading groups (the round 2 fixes touched four sentences). V2 PASS, V3 FAIL (P3, one sentence).
+
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [P3, V3, brief-named calque "X کا اپنا"] OLD: "نوآبادیاتی سندھ میں خداوادی کے نام سے صوبے کا اپنا ایک رسم الخط نافذ کرنے کی کوشش بھی ہوئی۔" -> The round 2 V2 fix rightly restores "impose" (نافذ کرنا) and "of its own", but it does so with "صوبے کا اپنا", a noun followed by کا اپنا. The brief lists this pattern by name among the faults to remove ("'X's own' is خود X کا, not X کا اپنا"), and this same round removes the parallel "جھونپڑیوں کے اپنے" from P2 for the same reason. The meaning is not misattached here, but the fix brings back a pattern the brief forbids. The brief's own form ("خود صوبے کا ایک رسم الخط") reads stiffly. Writing "سندھ کا اپنا" instead would put سندھ twice in one sentence. Moving the place into "for Sindh" keeps all three English elements: the attempt, "impose" and "a script of its own", meaning a script distinct to Sindh. The sentence keeps its place as the last one in the paragraph and keeps its link to the Hyderabad standard sentence before it. -> NEW: "نوآبادیاتی دور میں سندھ کے لیے خداوادی کے نام سے ایک الگ رسم الخط نافذ کرنے کی کوشش بھی ہوئی۔"
+
+Diff check: I used python difflib on lines for each pair (ur_P1.r2.bak / ur_P1.md, ur_P2.r2.bak / ur_P2.md, ur_P3.r2.bak / ur_P3.md). Only one line changed in P2 (line 23) and one in P3 (line 63). In P1, two lines changed (19 and 117). I also replayed the four OLD -> NEW pairs from coord.changes.txt on the .r2.bak files. Each OLD occurred exactly once, and the replay gives all three current files byte for byte. Nothing outside the listed changes moved.
+
+Changed sentences, checked in their paragraphs against en_P1.md, en_P2.md and en_P3.md:
+- P1 line 19, "1940 میں رسالو کو ... اس وقت تک کا واحد کلاسیکی شاہکار کہا جا سکتا تھا۔": passes V2 and V3. The "until" reading and the تک ... تک clash are gone. "اس وقت تک کا" carries "had yet produced", and the modal keeps "could be called". The next sentence's "اسے" still points to رسالو.
+- P1 line 117, "... دوسری ذاتوں کے 86,663 افراد شمار کیے گئے۔": passes V2 and V3. The simple past now agrees with the time adverb "1870 کی دہائی کے اوائل میں". The figures, ذاتوں and the list of Sikhs, Parsis and Jews are unchanged. The tense moves from the English "count" to a past, but certainty does not change.
+- P2 line 23, "ان کے گرد اپنی جھونپڑیوں کے جھرمٹوں یعنی *لانڈھیوں* میں بسے مسلمان کاشتکار": passes V2 and V3. The reflexive now belongs to the cultivators, the logical subject of بسے, which renders "their landhis". The gloss comes before the term and is not cut off from میں. The italic pair is balanced. No doubled word was introduced.
+- P3 line 63: passes V2. "نافذ کرنے" gives "impose", and "صوبے کا اپنا" gives "of its own". It fails V3 only for issue 1. The article calls Sindh صوبہ throughout P3, including in historical paragraphs, so صوبے is consistent with the file.
+
+NOTES (taste, not counted):
+- P1 line 117: "اعداد و شمار میں ... شمار کیے گئے" has a شمار echo. This was there before the fix. "درج کیے گئے" or "ظاہر کیے گئے" would avoid it. Optional.
+- P1 line 19: "1940 میں" gives "by 1940" as a point in time. That is faithful here. A perfect such as "1940 تک ... کہلانے لگا تھا" would also follow the brief's "by" rule, but no change is needed.
+- P2 line 23: "ان کے گرد" (round them, the traders) renders the English "round it" (the bazaar). This was there before the fix, and the spatial picture is the same because the traders sit in the bazaar. Optional: "بازار کے گرد".
+- P3 line 9 has "اس کی اپنی زبان" (a pronoun followed by اپنی). This is ordinary Urdu and not the noun-plus-کا اپنا pattern of issue 1. It is unchanged and passed earlier rounds, so it is not flagged.
