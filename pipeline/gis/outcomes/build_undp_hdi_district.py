@@ -15,12 +15,13 @@ values into their present-day parts, the parent named.
 Usage (from the repo root):
   python pipeline/gis/outcomes/build_undp_hdi_district.py
 """
-import csv, re, subprocess, sys
+import csv, re, sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import geopandas as gpd
+from pdftext import pdftotext  # poppler only, UTF-8 (see pdftext.py)
 
 HERE = Path(__file__).resolve().parent
 GIS = HERE.parent
@@ -79,8 +80,8 @@ def norm(s):
 def main():
     t = PDF.with_suffix(".txt")
     if not t.exists():
-        subprocess.run(["pdftotext", "-layout", str(PDF), str(t)], check=True)
-    L = t.read_text().splitlines()
+        pdftotext(str(PDF), str(t))
+    L = t.read_text(encoding="utf-8").splitlines()
     i1 = next(k for k, l in enumerate(L) if "Human Development Index and its Components" in l)
     i2 = next(k for k, l in enumerate(L) if "Human Development Index trends, 2005-2015" in l)
     # Table 2 runs over several pages, each repeating its TABLE header; it ends where Table 3 begins.

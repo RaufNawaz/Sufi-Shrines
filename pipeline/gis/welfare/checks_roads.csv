@@ -1,7 +1,7 @@
 check,kind,measured,reference,result,note
 GRIP4 density found for populated cells,integrity,100.00% of people,>= 99%,pass,
 main-road density never above total density,integrity,0 cells,none,pass,
-"main_road_density_popw vs travel_city_min_popw, districts",convergent,"rho = -0.66, n = 160","sign -, |rho| >= 0.4",pass,
+"main_road_density_popw vs travel_city_min_popw, districts",convergent,"rho = -0.68, n = 160","sign -, |rho| >= 0.4",pass,
 "main_road_density_popw vs rural_access_index, districts",convergent,"rho = +0.51, n = 160","sign +, |rho| >= 0.4",pass,
-"road_density_popw vs travel_city_min_popw, districts",convergent,"rho = -0.32, n = 160","sign -, |rho| >= 0.4",warn,All-road density follows mapping effort; read main roads for access
+"road_density_popw vs travel_city_min_popw, districts",convergent,"rho = -0.33, n = 160","sign -, |rho| >= 0.4",warn,All-road density follows mapping effort; read main roads for access
 "road_density_popw vs rural_access_index, districts",convergent,"rho = +0.33, n = 160","sign +, |rho| >= 0.4",warn,All-road density follows mapping effort; read main roads for access

@@ -156,3 +156,6 @@ Claude outputs/
 
 # pipeline/db/migrate_sites.py --dry-run output (rebuilt from data/shrines.csv)
 pipeline/db/out/
+
+# outside-review package, rebuilt by pipeline/gis/viewer/review/make_package.py
+pipeline/gis/viewer/review/*.zip

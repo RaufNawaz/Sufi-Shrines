@@ -119,6 +119,50 @@ there is a second environment on Homebrew's Python 3.12, `~/.venvs/gis312`, wher
 the whole stack (`pyreadr geopandas h3 rasterio scipy pyarrow pdfplumber openpyxl`; h3 4.5.0, the
 version the foundation was built with). Use it for everything.
 
+### Rebuilt on Windows (30 October 2026)
+
+The whole chain ran on a Windows 11 machine from fresh downloads (`docs/research/VIEWER_REVIEW_2026-10-30.md`, decision 5). What it took:
+
+- **Python:** `python -m venv ~/.venvs/gis312`, then `pip install geopandas "h3==4.5.0" rasterio scipy
+  pyarrow pdfplumber openpyxl pyreadr netCDF4`; the interpreter is `~/.venvs/gis312/Scripts/python`
+  (set `PY` for `rebuild.sh`). Set `PYTHONIOENCODING=utf-8`.
+- **GRIP4** fails in Python with `CERTIFICATE_VERIFY_FAILED` (the host's intermediate certificate is
+  not in Python's store). `C:/Windows/System32/curl.exe` uses the Windows store and fetches the six
+  zips; the fetcher then hashes them.
+- **pdftotext.** Git for Windows puts **xpdf's** `pdftotext` on the PATH, not poppler's. Its layout
+  differs: the NNS parser placed 144 of 156 districts and failed ten checks. `outcomes/pdftext.py` now
+  refuses anything but poppler (set `PDFTOTEXT`) and asks for UTF-8 (xpdf's default is Latin-1).
+  Poppler 26.09 for Windows (github.com/oschwartz10612/poppler-windows, unzipped to
+  `~/tools/poppler`) then parsed all four PDFs with every hard check passing and tables identical
+  to the committed ones. With no poppler on a machine, `outcomes/load_committed_pdf_layers.py` loads the NNS, MICS, World Bank
+  and UNDP layers from their committed CSVs, after checking each PDF's SHA-256 against
+  `welfare/fetched_extended.tsv`, so the tables are the poppler parse of the same bytes.
+- **A failing builder can still write its CSV.** The NNS builder wrote its broken table to
+  `outcomes_nns_district.csv` while reporting ten FAILs; it was restored from git. Check `git diff`
+  after any failed step.
+- **pandas writes CRLF on Windows.** 43 tracked CSVs came out with identical values and CRLF line
+  ends; they were restored from git, and the changed ones converted to LF.
+- **Leads were not re-fetched.** The atlas does not read them; the viewer reads the committed
+  `merged_leads.json`, unchanged.
+
+**What changed.** Every one of the 55 wave-two downloads was byte-identical to October's (the hashes
+in `welfare/fetched_extended.tsv`). `atlas/compare_atlas.py` against the committed atlas: of every
+value at district (160 × 337), tehsil (577 × 132) and province, three columns moved and nothing else:
+
+| Column | Districts | Tehsils | Provinces | Why |
+|---|---|---|---|---|
+| `travel_city_min_popw` | 5 | 10 | 2 | negative sea pixels masked |
+| `share_pop_within_60min_city` | 5 | 10 | 2 | the same pixels |
+| `rwi_popw` | 7 (at most 0.0012) | 14 (0.0023) | 0 | duplicate tiles averaged |
+
+**RWI.** Meta's file lists 173 locations twice, 167 of them with different values (by up to 0.78), and
+623 populated cells sat at exactly the same distance from two tiles. Which one a k-d tree returns for
+a tie depends on the build, which is why the Mac and this machine disagreed. `build_welfare_layers.py`
+now averages duplicate rows before matching, and averages any exact tie (none remain), and reports
+both. The wave-one downloads have no October hashes to compare with (their record,
+`sources/fetched.tsv`, is gitignored), so a re-published file cannot be ruled out; the tie is a
+sufficient explanation.
+
 ### Full run order
 
 **`pipeline/gis/rebuild.sh`** runs every builder in dependency order and stops at the first one
@@ -134,7 +178,7 @@ writers on the same file.
 ## The viewer
 
 **Open `pipeline/gis/viewer/index.html` in a browser** (double-click; it needs the internet only
-for map tiles and two libraries). Choose a unit (hexagon, tehsil, district, province) and any
+for map tiles: since 30 Oct 2026 its four libraries are inside the file). Choose a unit (hexagon, tehsil, district, province) and any
 indicator; the archive's 169 sites sit on top, coloured by tradition, each linking to its page on
 the live site; OSM, Wikidata and GeoNames leads can be switched on. The side panel lines the
 indicator up against the archive (sites per million people, counts, density) with a Spearman ρ, a
@@ -143,12 +187,12 @@ It also shows each indicator's definition and source, each open source's measure
 every verification check.
 
 Checked in Chromium on 16 Oct 2026: every unit draws, all four lead toggles work, no console
-errors, no sideways scroll at 390 px. The file is 3.1 MB and committed, so it opens from any
+errors, no sideways scroll at 390 px. The file is 4.9 MB since the 30 Oct 2026 rebuild (3.1 MB before; full-precision hexagons and inline libraries account for the rest) and committed, so it opens from any
 clone; rebuild it after any layer changes. It carries no team-only column.
 
 **Since 17 Oct 2026 it reads the atlas** (below): 243 indicators in 18 themes, the menu and labels
 from `atlas/indicator_catalog.tsv`. The data is embedded gzipped and base64-encoded and inflated
-in the page by `pako` (a third CDN script), so 7.1 MB of JSON ships as a 2.4 MB file. Two things
+in the page by `pako` (inlined since 30 Oct 2026), so 7.1 MB of JSON ships as a 2.4 MB file. Two things
 that would each cost an hour: **`JSON.parse` rejects `NaN`**, which the old JS-literal embedding
 accepted, so the builder turns every NaN into null and dumps with `allow_nan=False`; and **do not
 move the page script into a `type="text/plain"` block** to run it later — Prettier formats that as
@@ -161,7 +205,7 @@ console errors, no sideways scroll at 390 px.
 **Since 29 Oct 2026: a blank map, overlays, a raised tile and one set of leads.** (The paragraphs
 above still describe the data; where they mention GeoNames, that is gone from the page.)
 
-- **Modes.** The menu opens with **None (no welfare measure)**: the basemap and the unit's
+- **Modes.** The menu's first entry is **None (no welfare measure)** (and since 30 Oct 2026, Rauf's decision, the page opens on it, so no correlation is shown before a measure is chosen): the basemap and the unit's
   boundaries as outlines, still hoverable and clickable, and a panel that counts sites per unit
   instead of statistics. Then three modes, as buttons: **One measure** (as before); **Compare
   two**, a 3×3 bivariate map of the two indicators' tertiles at the current unit, in Joshua
@@ -406,6 +450,97 @@ browser's storage or a Downloads folder: RULE 0. The Markdown export ends with t
     (`share_pop_within_60min_walk_health` and four others) assume that `import delimited` keeps
     the original header as the variable label.
 - Moran's I at hexagon level against an outside implementation: the reference has no h3.
+- WebKit.
+
+### Revised after review (30 October 2026)
+
+*The full record, finding by finding, with the calibration table and what is still open, is
+`docs/research/VIEWER_REVIEW_2026-10-30.md`. Where it and the section above disagree, it is
+current.*
+
+The viewer was reviewed by ChatGPT and by three independent Claude reviewers (statistics,
+presentation, code), using the package from `pipeline/gis/viewer/review/make_package.py`. Every
+finding was checked before anything was changed. What changed in how a result is computed:
+
+- **The headline p** is the largest of:
+  - the chosen robust (or classical) p;
+  - the Conley p at every cutoff;
+  - the spatial-noise placebo p.
+
+  It drives the verdict, the log and Benjamini–Hochberg.
+- **Conley SEs.** B (Σᵢ Σⱼ K(dᵢⱼ) uᵢuⱼ xᵢxⱼ′) B, with:
+  - the Bartlett kernel 1 − d/c;
+  - cutoffs 50, 100, 200 and 500 km (hexagons up to 200);
+  - distances between centroids on a local tangent plane;
+  - the robust SEs' small-sample factor, so that 0 km reproduces HC1.
+
+  The score u is the residual (OLS) or y − μ (Poisson). A covariance that is not positive definite
+  is reported as missing.
+- **Spatial-noise placebo** (after Kelly 2019). Each explanatory variable is replaced by Gaussian
+  noise with the same Moran's I; there are 200 draws per family:
+  - neighbour-smoothed over the contiguity graph, up to 16 passes;
+  - a Gaussian kernel over distance, bandwidth 25–600 km (not for hexagons).
+
+  p = (1 + #{|t\*| ≥ |t|}) / (1 + R), and the larger of the two families' p is used.
+  **Measured:**
+  - smooth noise is called significant 47–78% of the time under HC1, and 17–56% under Conley at
+    200 km;
+  - under the headline p it is called significant 0–5% of the time.
+- **Moran's I of OLS residuals.** The Cliff–Ord test:
+  - E[I] = (n/S₀) tr(MW)/(n−k);
+  - Var[I] = (n/S₀)²[tr(MWMW′) + tr(MWMW) + tr(MW)²]/((n−k)(n−k+2)) − E[I]²;
+  - two-sided normal p.
+
+  The traces are computed sparsely. The dense check in the reference reduces to the classical
+  formula when X is an intercept alone. For Poisson residuals: a two-sided permutation test, with
+  E[I] the permutation mean.
+- **Fragility** under every result. The specification is refitted without:
+  - Lahore district;
+  - each province;
+  - the most influential unit (Cook's distance; Poisson by the weighted hat).
+
+  Flags appear when the sign flips, significance is lost, the estimate moves by more than half, or
+  one unit's leverage is high.
+- **Inference only above 10 residual df.** Below that, no p-values and no intervals; the run stays
+  out of the family.
+- **The BH family** counts each distinct hypothesis once, at its first run. Hidden tests stay in it.
+- **Poisson** defaults to the population exposure.
+- **log(1+x)** refuses when any value is ≤ −1; asinh(x) is offered.
+- **The composite** is ranked within the units that have every component, and can be tested as
+  itself (`composite`, with its components in the spec).
+- **Embedded data.**
+  - District, tehsil and province values are now at full precision (`rebuild_from_embedded.py
+    --precise pipeline/gis/atlas`, 77,520 values, checked against the old rounding).
+  - Hexagons too since the rebuild of 30 Oct 2026 (below): every value at full precision.
+  - Exports carry `VIEWER_VERSION` and `DATA_ID`.
+
+**Data defect, fixed at source on 30 Oct 2026.** `travel_city_min_popw` was negative in 28 units:
+the 2015 raster's undeclared negative sea and nodata pixels were averaged in, and the same pixels
+inflated `share_pop_within_60min_city`. `build_welfare_layers.py` now masks them (31 populated cells,
+0.056% of people) and fails on any negative travel time at any level, and the layers and the page
+were rebuilt (below). The page still sets a negative travel time missing and says so, for older
+data; on the rebuilt data it finds none and shows no note.
+
+**Verified** (30 Oct 2026, Chromium, file://):
+
+- `tests/test_conjecture.cjs`: 41 checks.
+- `tests/test_review_fixes.cjs`: 35 checks, one or more per finding and per decision of 30 Oct.
+- `tests/check_conjecture_reference.py`, extended to the Cliff–Ord moments (dense), Conley (brute
+  force) and the refits. It matches to 1e-13, and to jStat's 1e-7 for p-values.
+
+**Native support** (30 Oct 2026). `atlas/native_support.tsv` says, per source, where its values were
+measured (district, division, DHS region, a 5 km modelled surface, points...), with the line in this
+repository that says so; `atlas/check_native_support.py` fails if a quote has gone from its file or a
+source shown in the viewer has no row. Both builds attach it to each indicator. The side panel names
+the level, and a result flags a variable measured for fewer units than the run uses (GDP per capita:
+32 divisions, shown at 160 districts), one whose split districts repeat their parent's value, and a
+modelled estimate whose prediction error is not in the standard errors. The distinct-value guess is
+kept for any source the table does not cover.
+
+**Not verified:**
+
+- the placebo's calibration for hexagons, Poisson models, or outcomes other than literacy;
+- the Stata and R code (neither is installed here);
 - WebKit.
 
 ## Welfare layers (added 16 October 2026)

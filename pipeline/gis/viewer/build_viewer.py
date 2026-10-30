@@ -25,7 +25,7 @@ GIS = HERE.parent
 GPKG = GIS / "shrines_foundation.gpkg"
 LEADS = GIS / "shrine_sources/merged_leads.json"
 sys.path.insert(0, str(HERE))
-from rebuild_from_embedded import load_leads  # noqa: E402  (stdlib only; shared schema check)
+from rebuild_from_embedded import attach_support, inline_libs, load_leads  # noqa: E402  (stdlib only; shared schema check)
 SITE = "https://raufnawaz.github.io/Sufi-Shrines/shrine/"
 
 # The menu comes from atlas/indicator_catalog.tsv (label, theme, direction, year), in file order, so the
@@ -49,13 +49,11 @@ def clean(v):
     if isinstance(v, (np.integer,)):
         return int(v)
     if isinstance(v, (np.floating, float)):
-        # Three significant figures: a septile choropleth and a rank correlation cannot use more, and it
-        # halves the hexagon payload. The atlas layers and CSVs keep full precision.
+        # Full precision: "Test a conjecture" fits regressions on these values, so they must be the
+        # atlas's, not a display rounding of them (until 30 Oct 2026 they were cut to three significant
+        # figures here; docs/research/VIEWER_REVIEW_2026-10-30.md #20). The page rounds for display.
         v = float(v)
-        if v == 0:
-            return 0
-        r = round(v, max(0, 2 - int(np.floor(np.log10(abs(v))))))
-        return int(r) if r == int(r) and abs(r) >= 100 else r
+        return int(v) if v == int(v) and abs(v) < 2**53 else v
     return v
 
 
@@ -82,12 +80,11 @@ def denan(obj):
 
 
 def round_coords(obj, nd=4):
-    if isinstance(obj, list):
-        return [round_coords(x, nd) for x in obj]
-    if isinstance(obj, float):
-        return round(obj, nd)
-    if isinstance(obj, dict):
-        return {k: round_coords(v, nd) for k, v in obj.items()}
+    """Round the coordinates of every feature's geometry; leave the properties (the data) alone."""
+    def r(x):
+        return [r(y) for y in x] if isinstance(x, list) else round(x, nd) if isinstance(x, float) else x
+    for f in obj["features"]:
+        f["geometry"]["coordinates"] = r(f["geometry"]["coordinates"])
     return obj
 
 
@@ -144,6 +141,8 @@ def main():
     cov = pd.read_csv(GIS / "shrine_sources/archive_coverage_by_source.csv")
     data["coverage"] = cov.replace({np.nan: None}).to_dict("records")
 
+    attach_support(data)
+
     for k in ("district", "tehsil", "province"):
         n = sum(f["properties"].get("n_site") or 0 for f in data[k]["features"])
         if k != "tehsil" and k != "province" and n != len(data["sites"]):
@@ -160,6 +159,7 @@ def main():
     html, n = re.subn(r"/\*__DATA__\*/\s*null", lambda m: payload, tpl)
     if n != 1:
         sys.exit(f"template.html: expected one /*__DATA__*/ null placeholder, found {n}")
+    html = inline_libs(html)
     (HERE / "index.html").write_text(html, encoding="utf-8", newline="")
     print(f"index.html {len(html) / 1e6:.1f} MB ({len(raw) / 1e6:.1f} MB of JSON, gzipped): {len(data['district']['features'])} districts, "
           f"{len(data['tehsil']['features'])} tehsils, {len(data['hex']['rows'])} hexagons, "

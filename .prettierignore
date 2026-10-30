@@ -95,3 +95,7 @@ pipeline/gis/shrine_sources/merged_leads.json
 # The Claude desktop app's delivery folder, and project doc copies saved at the root (30 October 2026).
 Claude outputs/
 /shrines_*.md
+
+# Vendored libraries, inlined into the GIS viewer only when their sha384 matches the template;
+# reformatting them would break that hash.
+pipeline/gis/viewer/vendor/

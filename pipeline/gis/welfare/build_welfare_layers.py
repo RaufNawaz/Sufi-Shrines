@@ -118,12 +118,24 @@ def add_sources(k, census_d):
 
     # Relative Wealth Index: nearest tile within 2.5 km (tiles are ~2.4 km across).
     print("Relative Wealth Index (Meta)")
-    rwi = pd.read_csv(SRC / "rwi/ind_pak_relative_wealth_index.csv")
+    # "The nearest tile" was ambiguous twice over (found 30 Oct 2026, when a Windows rebuild moved
+    # rwi_popw in 7 districts by up to 0.001): Meta's file lists 173 locations twice, 167 of them with
+    # different values, and ~600 cells sit exactly halfway between two tiles, where which one a k-d tree
+    # returns depends on the build. Both cases now take the mean, so the result does not depend on the
+    # machine.
+    raw = pd.read_csv(SRC / "rwi/ind_pak_relative_wealth_index.csv")
+    rwi = raw.groupby(["latitude", "longitude"], as_index=False)[["rwi", "error"]].mean()
+    check("RWI locations listed more than once, averaged", "integrity", f"{len(raw) - len(rwi)} extra rows",
+          "reported", True)
     rxy = gpd.GeoSeries(gpd.points_from_xy(rwi.longitude, rwi.latitude), crs=4326).to_crs(PK_LAEA)
-    d, i = cKDTree(np.c_[rxy.x, rxy.y]).query(kxy, k=1, distance_upper_bound=2500)
-    hit = np.isfinite(d)
-    k["rwi"] = np.where(hit, rwi.rwi.to_numpy()[np.minimum(i, len(rwi) - 1)], np.nan)
-    k["rwi_error"] = np.where(hit, rwi.error.to_numpy()[np.minimum(i, len(rwi) - 1)], np.nan)
+    d, i = cKDTree(np.c_[rxy.x, rxy.y]).query(kxy, k=2, distance_upper_bound=2500)
+    hit = np.isfinite(d[:, 0])
+    tie = np.isfinite(d[:, 1]) & (d[:, 1] - d[:, 0] < 1e-3)        # equidistant to the millimetre
+    check("cells equidistant from two RWI tiles, averaged", "integrity", f"{int(tie.sum())} cells", "reported", True)
+    for col, src in [("rwi", rwi.rwi.to_numpy()), ("rwi_error", rwi.error.to_numpy())]:
+        a = src[np.minimum(i[:, 0], len(rwi) - 1)]
+        b = src[np.minimum(i[:, 1], len(rwi) - 1)]
+        k[col] = np.where(hit, np.where(tie, (a + b) / 2, a), np.nan)
     cov = k.loc[hit, "pop"].sum() / k["pop"].sum()
     check("RWI tile found for populated cells", "integrity", f"{cov:.2%} of people", ">= 95%", cov >= 0.95)
 
@@ -133,6 +145,15 @@ def add_sources(k, census_d):
     k["ntl_2013"] = sample(SRC / "ntl/DN_NTL_2013_simVIIRS.tif", k.lon, k.lat)
     k["travel_city_min"] = sample(SRC / "map/accessibility_to_cities_2015.tif", k.lon, k.lat)
     k["travel_health_min"] = sample(SRC / "map/motorized_travel_time_to_healthcare_2020.tif", k.lon, k.lat)
+    # A travel time cannot be negative. The 2015 accessibility raster marks sea and no-data pixels with
+    # a negative value it does not declare as nodata, so sample() let them through and they were
+    # averaged in as real times (Gwadar district came out at -454 minutes; found 30 Oct 2026,
+    # docs/research/VIEWER_REVIEW_2026-10-30.md #19). They also counted as "within 60 minutes".
+    for c in ["travel_city_min", "travel_health_min"]:
+        bad = k[c] < 0
+        check(f"{c}: negative pixels masked", "integrity", f"{int(bad.sum())} cells, "
+              f"{k.loc[bad, 'pop'].sum() / k['pop'].sum():.3%} of people", "reported, then set missing", True)
+        k.loc[bad, c] = np.nan
     for c in ["ntl_2023", "ntl_2013", "travel_city_min", "travel_health_min"]:
         cov = k.loc[k[c].notna(), "pop"].sum() / k["pop"].sum()
         check(f"{c} sampled for populated cells", "integrity", f"{cov:.2%} of people", ">= 99%", cov >= 0.99)
@@ -320,6 +341,10 @@ def main():
     g_teh = aggregate(k, "tehsil_code")
     g_dist = aggregate(k, "district_code")
     g_prov = aggregate(k, "province_code")
+    for lvl, g in [("hexagon", g_grid), ("tehsil", g_teh), ("district", g_dist), ("province", g_prov)]:
+        for c in ["travel_city_min_popw", "travel_health_min_popw"]:
+            n = int((g[c] < 0).sum())
+            check(f"{c} >= 0 at {lvl} level", "integrity", f"{n} negative", "0", n == 0)
     validate_against_census(g_dist, census_d)
     h = heigit_layer(dist)
     p = province_layer(prov)

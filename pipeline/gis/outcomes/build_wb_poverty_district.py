@@ -19,12 +19,13 @@ present-day parts, the parent named.
 Usage (from the repo root):
   python pipeline/gis/outcomes/build_wb_poverty_district.py
 """
-import csv, re, subprocess, sys
+import csv, re, sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import geopandas as gpd
+from pdftext import pdftotext  # poppler only, UTF-8 (see pdftext.py)
 
 HERE = Path(__file__).resolve().parent
 GIS = HERE.parent
@@ -68,8 +69,8 @@ def f(x):
 def main():
     t = PDF.with_suffix(".txt")
     if not t.exists():
-        subprocess.run(["pdftotext", "-layout", str(PDF), str(t)], check=True)
-    lines = t.read_text().splitlines()
+        pdftotext(str(PDF), str(t))
+    lines = t.read_text(encoding="utf-8").splitlines()
     start = next(k for k, l in enumerate(lines) if l.strip().startswith("Annex 1: Tables of Results"))
     end = next(k for k, l in enumerate(lines) if l.strip().startswith("A5. KP: variable comparison"))
     rows = []

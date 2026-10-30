@@ -29,13 +29,14 @@ and are reported, not placed.
 Usage (from the repo root):
   python pipeline/gis/outcomes/build_nns_district.py
 """
-import csv, re, subprocess, sys
+import csv, re, sys
 from collections import Counter
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import geopandas as gpd
+from pdftext import pdftotext  # poppler only, UTF-8 (see pdftext.py)
 
 HERE = Path(__file__).resolve().parent
 GIS = HERE.parent
@@ -112,8 +113,8 @@ def norm(s):
 def text():
     t = SRC / "vol2.txt"
     if not t.exists():
-        subprocess.run(["pdftotext", "-layout", str(SRC / "NNS2018_Volume_2.pdf"), str(t)], check=True)
-    return t.read_text().splitlines()
+        pdftotext(str(SRC / "NNS2018_Volume_2.pdf"), str(t))
+    return t.read_text(encoding="utf-8").splitlines()
 
 
 def section(T, title):

@@ -21984,3 +21984,83 @@ Decisions that are Rauf's, asked in the chat (RULE 5). Each has a default in pla
 - **The BH family is the whole log, unit re-runs included.** So each "Same test at every unit" adds up to three hypotheses.
 - **One-sided expectations are recorded but the p-values are two-sided.**
 - **The log lives in one browser until exported.**
+
+### 9.422, 30 October 2026 (agent, overnight): Stage = notes. GIS viewer reviewed and revised: spatially valid p-values, fragility checks, security fixes
+
+**What happened.** The viewer was reviewed by ChatGPT, using the package from
+`pipeline/gis/viewer/review/make_package.py` and the brief
+`docs/prompts/WELFARE_VIEWER_CRITIQUE_BRIEF.md`, and by three independent Claude reviewers. Every
+finding was verified before it was fixed. The record of all 32 findings, with their status, is
+`docs/research/VIEWER_REVIEW_2026-10-30.md`. The estimators are summarised in
+`docs/GIS_FOUNDATION.md`, under "Revised after review".
+
+**The finding that matters most.** With a spatially smooth outcome (district literacy), the page's
+old p-values called pure spatially smooth noise "significant" 47–78% of the time. Conley SEs alone
+cut that only to 17–56%. The new **headline p**:
+
+- adds a Kelly-style spatial-noise placebo with two noise families;
+- takes the largest of the robust, Conley and placebo p-values;
+- holds at 0–5%, measured with `tests/calibrate_placebo.cjs`.
+
+**Any result tested before 30 Oct 2026 should be re-run before it is cited.**
+
+**Data defect.** `travel_city_min_popw` was negative in 28 units. The cause is in
+`welfare/build_welfare_layers.py`: the 2015 raster's undeclared negative pixels were averaged in.
+
+- Fixed at source, with a failing check.
+- Masked in the page.
+- Needs a rebuild on the machine with the rasters.
+
+**Precision.** District, tehsil and province values are now embedded at full precision:
+`rebuild_from_embedded.py --precise pipeline/gis/atlas`, refusing unless every value rounds back to
+what was there. Hexagons remain at 3 significant figures until `build_viewer.py` runs with the
+GeoPackage (it no longer rounds data).
+
+**Gotchas that cost time.**
+
+1. Python on Windows writes CRLF unless the file is opened with `newline=''`; the template is LF.
+2. The Write tool turned ` ` escapes into the raw characters, which are line terminators
+   inside a JavaScript regex literal. After any patch, extract the page script and run
+   `node --check` on it.
+3. Load-time validation of the stored log silently dropped every new entry until `kind`
+   (`wald.kind`) was added to its allowed text keys. The browser suite caught it; nothing else
+   would have.
+4. A const used by `validSpec` was declared below the log-loading code, so a reload with a non-empty
+   log threw at start-up. Only a reload test finds this.
+5. Another session was editing site files (places, `PlacePage`, `package.json`) in the same working
+   tree that night. They were not touched.
+
+**Verified.** In Chromium, file://:
+
+- `tests/test_conjecture.cjs`: 41 checks.
+- `tests/test_review_fixes.cjs` (new): 30 checks.
+- `tests/check_conjecture_reference.py`, extended to the Cliff–Ord moments by dense matrices, Conley
+  by brute force, and the refits: it matches.
+
+**Needs Rauf.** The decisions at the end of the review record, asked in the chat:
+
+- opening view;
+- inlining the libraries;
+- a native-support column;
+- frozen analysis plans;
+- the rebuild.
+
+Nothing was committed.
+
+### 9.428, 30 October 2026 (interactive, Windows PC): Stage = notes. GIS viewer: Rauf's five decisions acted on, and the whole GIS chain rebuilt from fresh downloads
+
+**Decisions (asked in chat, answered the same morning).** Open on None; inline the libraries; add native support, sourced only; keep frozen analysis plans outside the tool (OSF, AsPredicted); rebuild here by downloading. All five done. Record: `docs/research/VIEWER_REVIEW_2026-10-30.md`, "Decisions for Rauf". (§9.422 and the review record said "31 October" for the overnight work; it was 29 to 30 October, corrected everywhere in this session's files.)
+
+**Rebuild.** Every source re-downloaded; the 55 wave-two files are byte-identical to October's. Foundation, census, both welfare waves, surveys, atlas and viewer rebuilt. `pipeline/gis/atlas/compare_atlas.py` (new) against the committed atlas: only `travel_city_min_popw` and `share_pop_within_60min_city` (5 districts, 10 tehsils, 2 provinces: the coastal defect, fixed at source) and `rwi_popw` (7 districts by at most 0.0012, 14 tehsils by 0.0023) moved. Hexagons are now at full precision; the page is 4.9 MB.
+
+**Found on the way, each now an invariant or a fix:**
+- Meta's RWI file lists 173 locations twice, 167 with different values; 623 populated cells were exactly equidistant from two tiles, and a k-d tree breaks such ties by build. `build_welfare_layers.py` averages them and reports it. That is why the Mac and the PC disagreed on RWI.
+- Git for Windows ships **xpdf's** `pdftotext`; the table parsers need **poppler's** (with xpdf the NNS parser placed 144 of 156 districts). `outcomes/pdftext.py` now refuses anything else and asks for UTF-8. `outcomes/load_committed_pdf_layers.py` loads the four PDF layers from their committed CSVs (after checking each PDF's SHA-256) where poppler is missing. Rauf then allowed poppler: 26.09 is in `~/tools/poppler` on this PC (set `PDFTOTEXT` to its `Library/bin/pdftotext.exe`), and all four parsers re-ran with no FAIL and tables identical to the committed ones.
+- The NNS builder **wrote its CSV while reporting ten FAILs**. Restored from git. Not yet fixed in the builder: worth making every builder refuse to write on a hard FAIL.
+- GRIP4 fails Python's certificate check on Windows; `C:/Windows/System32/curl.exe` fetches it. pandas writes CRLF on Windows (43 CSVs restored). The fetchers wrote backslash paths into the tracked hash record; now POSIX.
+
+**Native support.** `pipeline/gis/atlas/native_support.tsv`, one row per source with the quoted repository line that states its level; `check_native_support.py` fails on a stale quote. GDP per capita is 32 divisions; DHS indicators are 8 regions; PSLM, MPI, HDI and NNS repeat a parent district's value across split districts. Results flag these.
+
+**Verified.** `test_conjecture.cjs` all pass; `test_review_fixes.cjs` 35 checks, all pass; `check_conjecture_reference.py` MATCH. Review package rebuilt (`pipeline/gis/viewer/review/welfare-viewer-review.zip`, 6.0 MB, gitignored).
+
+**Committed** at Rauf's request, this session's files only; the other session's place files share this working tree and stay out of it.

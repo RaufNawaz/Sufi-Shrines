@@ -7,12 +7,30 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      integrity="sha384-c6Rcwz4e4CITMbu/NBmnNS8yN2sC3cUElMEMfP3vqqKFp7GOYaaBBCqmaWBjmkjb"
+      crossorigin="anonymous"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/h3-js@4.1.0/dist/h3-js.umd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako_inflate.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+      integrity="sha384-NElt3Op+9NBMCYaef5HxeJmU4Xeard/Lku8ek6hoPTvYkQPh3zLIrJP7KiRocsxO"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/h3-js@4.1.0/dist/h3-js.umd.js"
+      integrity="sha384-nKUDlg+fT0U/eEt4KWP9n034kLe/eVj6k7CVjbu6qfRhJdEyinlGajS9+9AU+UZ5"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako_inflate.min.js"
+      integrity="sha384-taEjHL+GUvC8IhXeCaTNUxz3O8ItsajGFLDFj4v/VJvM24HU36qP/6sRpuAGGfeT"
+      crossorigin="anonymous"
+    ></script>
     <!-- t, normal, F and chi-squared distributions for "Test a conjecture". The page works without it. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.9.6/jstat.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.9.6/jstat.min.js"
+      integrity="sha384-7uGOMhLhjroTamet5l69PR8EGxKUyWZlZOFFDRymtVqIfsh4Hj7uZRctW67ZCdkD"
+      crossorigin="anonymous"
+    ></script>
     <style>
       :root {
         --bg: #f6f7f9;
@@ -609,7 +627,7 @@
         }
         #app {
           grid-template-columns: minmax(0, 1fr);
-          grid-template-rows: auto 60vh auto;
+          grid-template-rows: auto 50vh auto;
           height: auto;
         }
         aside {
@@ -618,12 +636,49 @@
         }
         header {
           grid-column: 1;
+          padding: 6px 10px;
+          gap: 6px 8px;
         }
+        header h1 {
+          flex: 1 1 100%;
+          font-size: 15px;
+        }
+        #place {
+          flex: 1 1 120px;
+        }
+      }
+      #place {
+        min-height: 44px;
+        font: inherit;
+        padding: 0 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        color: var(--text);
+      }
+      .seg button[aria-disabled='true'] {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+      .verdict {
+        border-top: 1px solid var(--line);
+        padding: 8px 0;
+      }
+      .verdict .vt {
+        font-weight: 600;
+      }
+      ul.flags {
+        margin: 6px 0 0;
+        padding-left: 18px;
+        color: var(--warn);
+      }
+      ul.flags li {
+        margin: 2px 0;
       }
     </style>
   </head>
   <body>
-    <div id="app">
+    <main id="app">
       <header>
         <h1>Shrines and welfare</h1>
         <div class="seg" id="units" role="group" aria-label="Unit"></div>
@@ -635,9 +690,19 @@
           aria-label="Find an indicator"
         />
         <select id="ind" aria-label="Indicator"></select>
+        <input
+          id="place"
+          type="search"
+          list="places"
+          placeholder="Find a place"
+          aria-label="Find a place: opens its card"
+        />
+        <datalist id="places"></datalist>
         <div id="chips" aria-label="Chosen indicators"></div>
         <label class="chk"><input type="checkbox" id="showSites" checked /> Archive sites</label>
-        <label class="chk"><input type="checkbox" id="showLeads" /> Leads (Wikidata + OSM)</label>
+        <label class="chk"
+          ><input type="checkbox" id="showLeads" /> Leads: possible sites (Wikidata + OSM)</label
+        >
         <label class="chk" id="leadsInWrap" hidden
           ><input type="checkbox" id="showLeadsIn" /> include places already in the archive</label
         >
@@ -681,6 +746,8 @@
           archive has looked as much as where shrines are. Check any pattern at more than one unit
           (hexagon, tehsil, district) before reading anything into it.
         </div>
+        <h2>Archive sites</h2>
+        <div id="siteLegend" class="legend"></div>
         <h2>Leads</h2>
         <div id="leadsLegend" class="legend"></div>
         <h2>Open sources, measured against the archive</h2>
@@ -691,15 +758,20 @@
           <table id="checks"></table>
         </details>
       </aside>
-    </div>
+    </main>
     <section id="cj" role="dialog" aria-modal="false" aria-labelledby="cjTitle" hidden>
       <div class="cjhead">
         <h2 id="cjTitle" tabindex="-1">Test a conjecture</h2>
         <button class="iconbtn" id="cjClose" type="button" aria-label="Close">×</button>
       </div>
       <div class="def">
-        Say what you expect before you look. The statement, the sign you expect and the
-        specification are recorded first; the numbers are computed after.
+        An exploratory specification log. Write the conjecture and the sign you expect; every run is
+        kept, earlier versions included, with how many map views came before it. The page cannot
+        know what you saw first, so treat a result as exploratory unless the specification was
+        written down elsewhere before you looked at any data. For a confirmatory test, register it
+        first on <a href="https://osf.io/prereg/" target="_blank" rel="noopener">OSF</a> or
+        <a href="https://aspredicted.org/" target="_blank" rel="noopener">AsPredicted</a>, which
+        timestamp the plan where you cannot change it, then run exactly that specification here.
       </div>
       <div class="cjbtns">
         <button class="btn" id="cjPrefill" type="button">Start from the map</button>
@@ -748,13 +820,43 @@
       <div id="cjLog"></div>
     </section>
     <script>
+      // Leaflet, h3 and pako are inlined into index.html by the build (from viewer/vendor/, checked
+      // against the integrity hashes above). Opened as the bare template, the page loads them from the
+      // CDNs instead. Without them it cannot draw: say so, instead of leaving controls that do nothing.
+      // (jStat is optional: only p-values need it.)
+      const MISSING = [
+        ['Leaflet', typeof L],
+        ['h3-js', typeof h3],
+        ['pako', typeof pako],
+      ].filter(([, t]) => t === 'undefined');
+      if (MISSING.length) {
+        document.body.insertAdjacentHTML(
+          'afterbegin',
+          `<div class="note" role="alert" style="margin:16px">This page could not load ${MISSING.map((m) => m[0]).join(', ')}. The built index.html carries its libraries inside it; if this is template.html, it needs the internet (cdnjs / jsDelivr).</div>`,
+        );
+        throw new Error('libraries missing: ' + MISSING.map((m) => m[0]).join(', '));
+      }
       // build_viewer.py (or rebuild_from_embedded.py) embeds the data gzipped and base64-encoded.
-      const D = JSON.parse(
-        pako.inflate(
-          Uint8Array.from(atob(/*__DATA__*/ null), (c) => c.charCodeAt(0)),
-          { to: 'string' },
-        ),
+      const RAW = pako.inflate(
+        Uint8Array.from(atob(/*__DATA__*/ null), (c) => c.charCodeAt(0)),
+        { to: 'string' },
       );
+      const D = JSON.parse(RAW);
+      // The page's own version, and an identifier of the exact data embedded (cyrb53 of the JSON),
+      // saved with every test and export so a result can be tied to the data it came from.
+      const VIEWER_VERSION = '2026-10-30';
+      const DATA_ID = (() => {
+        let h1 = 0xdeadbeef,
+          h2 = 0x41c6ce57;
+        for (let i = 0; i < RAW.length; i++) {
+          const c = RAW.charCodeAt(i);
+          h1 = Math.imul(h1 ^ c, 2654435761);
+          h2 = Math.imul(h2 ^ c, 1597334677);
+        }
+        h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+        h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+        return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(16).padStart(14, '0');
+      })();
       const $ = (id) => document.getElementById(id);
       const esc = (s) =>
         String(s ?? '').replace(
@@ -810,7 +912,48 @@
         ['n_mus', 'Muslim shrines (count)'],
         ['sites_per_1000km2', 'Archive sites per 1,000 km²'],
       ];
+      // Known defect in the embedded data (docs/research/VIEWER_REVIEW_2026-10-30.md #19): the 2015
+      // travel-time raster's sea and no-data pixels (negative, undeclared) were averaged in, so some
+      // coastal units have negative minutes, and the same pixels counted as "within 60 minutes".
+      // Fixed in welfare/build_welfare_layers.py; until the data is rebuilt, a negative travel time
+      // and that unit's 60-minute share are set missing here, and both indicators say so. With
+      // rebuilt data there is nothing negative and this does nothing.
+      const DEFECT = { travel_city_min_popw: 0, share_pop_within_60min_city: 0 };
+      for (const u of ['district', 'tehsil', 'province'])
+        for (const f of D[u].features) {
+          const q = f.properties;
+          if (q.travel_city_min_popw != null && q.travel_city_min_popw < 0) {
+            q.travel_city_min_popw = null;
+            DEFECT.travel_city_min_popw++;
+            if (q.share_pop_within_60min_city != null) {
+              q.share_pop_within_60min_city = null;
+              DEFECT.share_pop_within_60min_city++;
+            }
+          }
+        }
+      {
+        const c = D.hex.cols,
+          a = c.indexOf('travel_city_min_popw') + 1,
+          b = c.indexOf('share_pop_within_60min_city') + 1;
+        if (a)
+          for (const r of D.hex.rows)
+            if (r[a] != null && r[a] < 0) {
+              r[a] = null;
+              DEFECT.travel_city_min_popw++;
+              if (b && r[b] != null) {
+                r[b] = null;
+                DEFECT.share_pop_within_60min_city++;
+              }
+            }
+      }
       const IND = Object.fromEntries(D.indicators.map((i) => [i.key, i]));
+      // Where an indicator was actually measured (atlas/native_support.tsv, each level quoted from a
+      // file in the repository; blank where none says). Older pages have no .support: say nothing.
+      function supportText(k) {
+        const s = IND[k] && IND[k].support;
+        if (!s) return '';
+        return `Measured per ${s.text}${s.n && !s.text.includes(String(s.n)) ? ` (${s.n.toLocaleString()} units)` : ''}${s.kind === 'modelled' ? '; a modelled estimate' : ''}.`;
+      }
       // Leads: the merged Wikidata + OSM file (one object per place). A page built before that file
       // existed carries the old per-source rows; they are mapped onto the same shape and GeoNames
       // is dropped either way.
@@ -840,12 +983,17 @@
                 in_archive: false,
               },
         );
+      // The map views of this page session (unit, indicators, archive measure): counted on the panel
+      // and saved with each test, because a conjecture formed by browsing them is not a prediction
+      // made before seeing data.
+      const VIEWS = new Set();
       const HEXRES = D.hex.rows.length ? h3.getResolution(D.hex.rows[0][0]) : 6;
 
       let unit = 'district',
         mode = 'single',
-        sel = ['literacy'],
+        sel = [], // opens on None: no correlation is offered before a measure is chosen (Rauf, 30 Oct 2026)
         ykey = 'sites_per_million',
+        ywant = 'sites_per_million', // the user's choice; ykey falls back where a unit lacks it
         V = null, // the current view: kind, keys, per-feature values and colours
         RESID = null; // residuals of a tested conjecture, drawn instead of the indicators (see below)
 
@@ -1029,8 +1177,9 @@
         };
       }
       const median = (a) => {
-        const s = [...a].sort((x, y) => x - y);
-        return s.length ? s[Math.floor(s.length / 2)] : null;
+        const s = [...a].sort((x, y) => x - y),
+          h = s.length >> 1;
+        return !s.length ? null : s.length % 2 ? s[h] : (s[h - 1] + s[h]) / 2;
       };
 
       // ---- the view -----------------------------------------------------------------------------
@@ -1042,9 +1191,39 @@
         if (mode === 'comp' && sel.length >= 2) return { kind: 'comp', keys: sel.slice() };
         return { kind: 'single', keys: [sel[0]] };
       }
+      // Tertile cuts. When a third or more of the units are exactly zero, zero is the low class and
+      // the non-zero values are split at their median, as breaks() does for septiles: otherwise both
+      // cuts are 0 and klass() (v >= cut) puts every unit, zeros included, in the top class.
       function tertiles(vals) {
         const v = vals.filter(ok).sort((a, b) => a - b);
-        return v.length ? [v[Math.floor(v.length / 3)], v[Math.floor((2 * v.length) / 3)]] : [];
+        if (!v.length) return [];
+        const pos = v.filter((x) => x > 0);
+        if (v[0] === 0 && pos.length && (v.length - pos.length) / v.length >= 1 / 3)
+          return [pos[0], pos[Math.floor(pos.length / 2)]];
+        return [v[Math.floor(v.length / 3)], v[Math.floor((2 * v.length) / 3)]];
+      }
+      // How many units fall in each class, for the legends.
+      const classCounts = (vals, b, nc) => {
+        const c = new Array(nc).fill(0);
+        vals.forEach((x) => ok(x) && c[Math.min(klass(x, b), nc - 1)]++);
+        return c;
+      };
+      // The composite: each component's percentile rank (mid-ranks for ties, 0-1) among the units
+      // that have every component, turned so that higher = better off, averaged with equal weight,
+      // times 100. Ranking within the common sample keeps every component on one reference
+      // population. The map and "Test a conjecture" both use this function.
+      function compositeOf(keys, vals) {
+        const n = vals[keys[0]].length,
+          all = Array.from({ length: n }, (_, i) => keys.every((key) => ok(vals[key][i]))),
+          pr = Object.fromEntries(
+            keys.map((key) => [key, pctRanks(vals[key].map((v, i) => (all[i] ? v : null)))]),
+          );
+        return Array.from({ length: n }, (_, i) => {
+          if (!all[i]) return null;
+          let s = 0;
+          for (const key of keys) s += IND[key].good ? pr[key][i] : 1 - pr[key][i];
+          return (100 * s) / keys.length;
+        });
       }
       function computeView(fs) {
         if (RESID && RESID.unit === unit) return residView(fs);
@@ -1068,19 +1247,8 @@
           );
           W.cls.forEach((c, i) => c && (W.col[i] = BIV[c[1]][c[0]]));
         } else if (k.kind === 'comp') {
-          // Unweighted mean of percentile ranks, each turned so that higher = better off. Only units
-          // with every component get a value.
-          const pr = Object.fromEntries(k.keys.map((key) => [key, pctRanks(vals[key])]));
-          W.pr = pr;
-          W.comp = fs.map((_, i) => {
-            let s = 0;
-            for (const key of k.keys) {
-              const p = pr[key][i];
-              if (p == null) return null;
-              s += IND[key].good ? p : 1 - p;
-            }
-            return (100 * s) / k.keys.length;
-          });
+          // Unweighted mean of percentile ranks, each turned so that higher = better off.
+          W.comp = compositeOf(k.keys, vals);
           W.excluded = fs.filter(
             (_, i) => W.comp[i] == null && k.keys.some((key) => ok(vals[key][i])),
           ).length;
@@ -1271,6 +1439,37 @@
           map.getContainer().focus();
         }
       });
+      let cardFrom = null;
+      function placeList() {
+        const inp = $('place');
+        if (unit === 'hex') {
+          inp.disabled = true;
+          inp.placeholder = 'Places: not for hexagons';
+          $('places').innerHTML = '';
+          return;
+        }
+        inp.disabled = false;
+        inp.placeholder = `Find a ${UNIT1[unit]}`;
+        $('places').innerHTML = feats(unit)
+          .map((f) => `<option value="${esc(f.name)}"></option>`)
+          .join('');
+      }
+      function openPlace() {
+        const q = $('place').value.trim().toLowerCase();
+        if (!q || unit === 'hex') return;
+        const fs = feats(unit),
+          i = fs.findIndex((f) => f.name.toLowerCase() === q),
+          j = i >= 0 ? i : fs.findIndex((f) => f.name.toLowerCase().startsWith(q));
+        if (j < 0) return notice(`No ${UNIT1[unit]} called "${$('place').value.trim()}".`);
+        notice('');
+        cardFrom = $('place');
+        select(j, true);
+        map.fitBounds(L.geoJSON(fs[j].geom).getBounds(), { maxZoom: 9, padding: [20, 20] });
+        const h = $('cardTitle');
+        if (h) h.focus();
+      }
+      $('place').addEventListener('change', openPlace);
+      $('place').addEventListener('keydown', (e) => e.key === 'Enter' && openPlace());
       function clearSel() {
         selShapes.forEach((s) => map.removeLayer(s));
         selShapes = [];
@@ -1382,7 +1581,7 @@
         const title = f.hex ? `Hexagon in ${h[0]?.[1] || 'Pakistan'}` : f.name;
         let html = `<button class="iconbtn" type="button" aria-label="Close">×</button>
           <div class="crumbs">${esc(UNITS.find((u) => u[0] === unit)[1])}${h.map((x) => ' · ' + esc(x[0]) + ' ' + esc(x[1])).join('')}</div>
-          <h3 id="cardTitle">${esc(title)}</h3>`;
+          <h3 id="cardTitle" tabindex="-1">${esc(title)}</h3>`;
         if (V.kind === 'resid') {
           const j = RESID.pos.get(i);
           html +=
@@ -1428,7 +1627,11 @@
         const [nl, na] = leadsIn(f);
         html += `<h4>Leads</h4><div>${nl} not in the archive (Wikidata + OSM)${na ? `; ${na} more already in it` : ''}.</div>`;
         card.innerHTML = html;
-        card.querySelector('.iconbtn').onclick = () => clearSel();
+        card.querySelector('.iconbtn').onclick = () => {
+          clearSel();
+          (cardFrom || map.getContainer()).focus();
+          cardFrom = null;
+        };
         card.hidden = false;
         placeCard();
       }
@@ -1483,7 +1686,7 @@
           ];
           el.innerHTML =
             DIV.map((c, i) => `<div><i style="background:${c}"></i>${lab[i]} SD</div>`).join('') +
-            `<div><i style="background:#ccc;opacity:.4"></i>not in the fit</div>
+            `<div><i style="background:#e3e3e3"></i>not in the fit</div>
             <div class="def">Observed minus fitted${RESID.model === 'poisson' ? ' (Pearson residuals)' : ''}, in standard deviations of the residuals. Blue: higher than the model predicts; red: lower.</div>
             <div class="cjbtns"><button class="btn" type="button" id="residOff">Back to the indicator map</button></div>`;
           $('residOff').onclick = () => {
@@ -1505,8 +1708,15 @@
             )
             .join('');
           el.innerHTML = `<div class="biv"><div class="yl" title="${esc(IND[b].label)}">${esc(IND[b].label)} →</div><div class="grid">${cells}</div><div class="xl">${esc(IND[a].label)} →</div></div>
-            <div class="def">Tertiles of each at this unit. Across: ${esc(IND[a].label)} (breaks ${ta.map(fmt).join(', ')}). Up: ${esc(IND[b].label)} (breaks ${tb.map(fmt).join(', ')}). Grey-white = low on both; dark = high on both.</div>
-            <div><i style="background:#ccc;opacity:.4"></i>missing either value</div>`;
+            <div class="def">Each indicator in three equal-count classes (tertiles) at this unit. Across: ${esc(IND[a].label)} (cuts ${ta.map(fmt).join(', ')}; ${classCounts(V.vals[a], ta, 3).join(' / ')} ${UNITN[unit]}). Up: ${esc(IND[b].label)} (cuts ${tb.map(fmt).join(', ')}; ${classCounts(V.vals[b], tb, 3).join(' / ')}). Grey-white = low on both; dark = high on both.${[ta, tb].some((t) => t.length === 2 && t[0] === 0) ? ' Where a third or more are zero, zero is the low class and the rest are split at their median.' : ''}${
+              [
+                [V.vals[a], ta],
+                [V.vals[b], tb],
+              ].some(([v, t]) => classCounts(v, t, 3).includes(0))
+                ? ' <b>One class is empty: ties at a cut, so this map cannot separate three groups on that indicator.</b>'
+                : ''
+            }</div>
+            <div><i style="background:#e3e3e3"></i>missing either value</div>`;
           return;
         }
         const P = V.kind === 'comp' ? PALC : PAL,
@@ -1514,29 +1724,37 @@
         const lo = ['min', ...b.map(fmt)],
           hi = [...b.map(fmt), 'max'];
         const k = V.keys[0];
+        const cnt = classCounts(V.kind === 'comp' ? V.comp : V.vals[k], b, b.length + 1);
         el.innerHTML =
           P.slice(0, b.length + 1)
             .map(
               (c, i) =>
-                `<div><i style="background:${c}"></i>${zero && i === 0 ? 'zero' : `${lo[i]} – ${hi[i]}`}</div>`,
+                `<div><i style="background:${c}"></i>${zero && i === 0 ? 'zero' : `${lo[i]} – ${hi[i]}`} <span class="def">(${cnt[i]})</span></div>`,
             )
             .join('') +
-          `<div><i style="background:#ccc;opacity:.4"></i>${V.kind === 'comp' ? 'missing a component' : 'no value'}</div>` +
+          (b.length + 1 < 7
+            ? `<div class="def">Ties at the cuts leave ${b.length + 1} classes, not 7.</div>`
+            : '') +
+          `<div><i style="background:#e3e3e3"></i>${V.kind === 'comp' ? 'missing a component' : 'no value'}</div>` +
           (V.kind === 'comp'
-            ? '<div style="margin-top:4px">Darker = better off on the chosen measures, on average. Classes are septiles of the composite at this unit.</div>'
-            : `<div style="margin-top:4px">Darker = higher. ${IND[k].good === true ? 'Higher is better.' : IND[k].good === false ? 'Higher is worse.' : ''} ${zero ? 'Zero is its own class; the rest are sextiles of the non-zero values.' : 'Classes are septiles of this unit.'}</div>`);
+            ? '<div style="margin-top:4px">Darker = better off on the chosen measures, on average. Seven equal-count classes (septiles) of the composite at this unit; the count of units is in brackets.</div>'
+            : `<div style="margin-top:4px">Darker = higher. ${IND[k].good === true ? 'Higher is better.' : IND[k].good === false ? 'Higher is worse.' : ''} ${zero ? 'Zero is its own class; the non-zero values are split into six equal-count classes.' : 'Seven equal-count classes (septiles) at this unit.'} The count of units is in brackets.</div>`);
       }
-      function scatter(pts, xl, yl, yFromZero, note) {
+      // archive = true: the y axis is an archive measure (never negative, very skewed), drawn on a
+      // log(1 + y) scale so one small district with a few sites does not flatten the rest; the
+      // correlations are rank-based, so the scale changes nothing they report.
+      function scatter(pts, xl, yl, archive, note) {
         const svg = $('scatter');
         svg.setAttribute('aria-label', `Scatter of ${xl} against ${yl}`);
         const W = 340,
           H = 230,
-          m = { l: 38, r: 8, t: 8, b: 28 },
+          m = { l: 50, r: 8, t: 8, b: 28 },
+          tr = archive ? Math.log1p : (v) => v,
           xs = pts.map((p) => p[0]),
-          ys = pts.map((p) => p[1]);
+          ys = pts.map((p) => tr(p[1]));
         const x0 = Math.min(...xs),
           x1 = Math.max(...xs),
-          y0 = yFromZero ? 0 : Math.min(...ys),
+          y0 = archive ? 0 : Math.min(...ys),
           y1 = Math.max(...ys) || 1;
         const X = (v) => m.l + ((v - x0) / (x1 - x0 || 1)) * (W - m.l - m.r),
           Y = (v) => H - m.b - ((v - y0) / (y1 - y0 || 1)) * (H - m.t - m.b);
@@ -1551,12 +1769,13 @@
           show
             .map(
               (p) =>
-                `<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="3" fill="${p[3] ? '#e4572e' : '#6baed6'}" fill-opacity=".6"><title>${esc(p[2])}: ${fmt(p[0])}, ${fmt(p[1])}</title></circle>`,
+                `<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(tr(p[1])).toFixed(1)}" r="3" fill="${p[3] ? 'currentColor' : '#6baed6'}" fill-opacity="${p[3] ? '.75' : '.6'}"><title>${esc(p[2])}: ${fmt(p[0])}, ${fmt(p[1])}</title></circle>`,
             )
             .join('') +
           // Axis values on one line, the axis title on the next: on one line they overprinted.
           `<text x="${m.l}" y="${H - 15}">${fmt(x0)}</text><text x="${W - m.r}" y="${H - 15}" text-anchor="end">${fmt(x1)}</text><text x="${W / 2}" y="${H - 2}" text-anchor="middle">${esc(xl.length > 60 ? xl.slice(0, 58) + '…' : xl)}</text>` +
-          `<text x="4" y="${m.t + 8}">${fmt(y1)}</text><text x="4" y="${H - m.b}">${fmt(y0)}</text>` +
+          `<text x="${m.l - 4}" y="${m.t + 8}" text-anchor="end">${fmt(archive ? Math.expm1(y1) : y1)}</text><text x="${m.l - 4}" y="${H - m.b}" text-anchor="end">${fmt(archive ? 0 : y0)}</text>` +
+          `<text transform="translate(10 ${(m.t + H - m.b) / 2}) rotate(-90)" text-anchor="middle">${esc((yl.length > 34 ? yl.slice(0, 32) + '…' : yl) + (archive ? ' (log scale)' : ''))}</text>` +
           (unit === 'hex'
             ? `<text x="${W - m.r}" y="${m.t + 8}" text-anchor="end">every hexagon with a site; 1 in 15 without</text>`
             : '') +
@@ -1588,11 +1807,14 @@
           (keys.some((k) => IND[k].group.startsWith('OSM'))
             ? '<div class="note">Built on OpenStreetMap, which holds ~3% of Pakistan\'s schools (5,071 vs 313,418 in PES 2021-22). This measures mapping as much as access.</div>'
             : '') +
+          (keys.some((k) => DEFECT[k])
+            ? `<div class="note"><b>Known data defect.</b> The travel-time raster's sea and no-data pixels were averaged in as real times, so coastal values are too low and some came out negative; the "within 60 minutes" share is too high there. ${DEFECT.travel_city_min_popw} impossible units are shown as missing; others near the coast (Balochistan and Sindh) are still biased. Fixed in the build script; awaiting a rebuild of the data.</div>`
+            : '') +
           (unit === 'province' && keys.length
             ? '<div class="note">Province values. DHS 2017-18 also reports FATA (now part of KP), which has no polygon here; see welfare_province.csv.</div>'
             : '');
         const ysel = YS.filter(([k]) => unit !== 'hex' || k === 'n_site' || k === 'n_mus');
-        if (!ysel.find(([k]) => k === ykey)) ykey = ysel[0][0];
+        ykey = ysel.find(([k]) => k === ywant) ? ywant : ysel[0][0];
         const yl = ysel.find(([k]) => k === ykey)[1];
         if (V.kind === 'none') {
           T.textContent = 'No welfare measure';
@@ -1612,21 +1834,26 @@
             .join('') +
           '</select>';
         $('ysel').onchange = (e) => {
-          ykey = e.target.value;
+          ykey = ywant = e.target.value;
           panel(feats(unit));
         };
+        const fallback =
+          ykey !== ywant
+            ? `<div class="def">${esc(YS.find(([k]) => k === ywant)[1])} is not available for hexagons; showing ${esc(yl.toLowerCase())} here.</div>`
+            : '';
+        if (V.kind !== 'none') VIEWS.add(`${unit}|${keys.join('+')}|${ykey}`);
         const yv = fs.map((f) => f.p[ykey]);
         if (V.kind === 'bi') {
           const [a, b] = keys;
           T.textContent = `${IND[a].label} × ${IND[b].label}`;
-          Df.innerHTML = `<b>Across:</b> ${esc(IND[a].def)}<br><b>Up:</b> ${esc(IND[b].def)}`;
+          Df.innerHTML = `<b>Across:</b> ${esc(IND[a].def)} ${esc(supportText(a))}<br><b>Up:</b> ${esc(IND[b].def)} ${esc(supportText(b))}`;
           const ab = rho(V.vals[a], V.vals[b]),
             ay = rho(V.vals[a], yv),
             by = rho(V.vals[b], yv);
           const r = (x) => (x.r == null ? `too few ${UNITN[unit]} (${x.n})` : x.r.toFixed(2));
           corr.innerHTML = `<div><span class="stat">ρ = ${ab.r == null ? '—' : ab.r.toFixed(2)}</span> <span class="def">Spearman between the two, ${ab.n} ${UNITN[unit]}</span></div>
             <div class="def">With ${esc(yl.toLowerCase())}: ${esc(IND[a].label)} ρ = ${r(ay)}; ${esc(IND[b].label)} ρ = ${r(by)}.</div>
-            <div class="def">Scatter: the two indicators; orange = a ${UNIT1[unit]} with an archive site.</div>`;
+            <div class="def">Scatter: the two indicators; dark dots = a ${UNIT1[unit]} with an archive site, blue = none.</div>`;
           const pts = [];
           fs.forEach((f, i) => {
             const x = V.vals[a][i],
@@ -1634,7 +1861,7 @@
             if (ok(x) && ok(y)) pts.push([x, y, name(f), (f.p.n_site || 0) > 0]);
           });
           if (pts.length < 2) svg.innerHTML = '';
-          else scatter(pts, IND[a].label, IND[b].label, false, 'up: ' + IND[b].label.slice(0, 40));
+          else scatter(pts, IND[a].label, IND[b].label, false);
           return;
         }
         let xv, xl;
@@ -1644,7 +1871,13 @@
           const shaded = V.comp.filter(ok).length;
           T.textContent = `Composite of ${keys.length}: unweighted average of percentile ranks`;
           Df.innerHTML =
-            `Each ${UNIT1[unit]}'s percentile rank on each indicator, among the ${UNITN[unit]} that have it, turned so that higher = better off, then averaged with equal weight (0-100). <b>Not an official index</b>: the weights are equal by default, not by judgement, and a rank says nothing about how far apart two places are.<ul style="margin:4px 0;padding-left:18px">` +
+            `Each ${UNIT1[unit]}'s percentile rank on each indicator, among the ${UNITN[unit]} that have every component, turned so that higher = better off, then averaged with equal weight (0-100). <b>Not an official index</b>: the weights are equal by default, not by judgement, so a theme with more indicators in the list weighs more (${Object.entries(
+              keys.reduce((m, k) => ((m[IND[k].group] = (m[IND[k].group] || 0) + 1), m), {}),
+            )
+              .map(([g, c]) => `${esc(g)} ${c}`)
+              .join(
+                ', ',
+              )}), and a rank says nothing about how far apart two places are.<ul style="margin:4px 0;padding-left:18px">` +
             keys
               .map(
                 (k) =>
@@ -1657,7 +1890,7 @@
           xv = V.vals[keys[0]];
           xl = i.label;
           T.textContent = i.label + ' · ' + i.group;
-          Df.textContent = i.def || '';
+          Df.textContent = [i.def || '', supportText(keys[0])].filter(Boolean).join(' ');
         }
         const pts = [];
         fs.forEach((f, i) => {
@@ -1672,29 +1905,57 @@
             pts.map((p) => p[0]),
             pts.map((p) => p[1]),
           ),
-          withS = pts.filter((p) => p[1] > 0);
+          withS = pts.filter((p) => p[1] > 0),
+          noS = pts.filter((p) => p[1] == 0),
+          what = ykey === 'n_mus' ? 'a Muslim shrine' : 'a site';
+        // Partial Spearman holding population constant: archive presence rises with population, and
+        // so do many indicators.
+        const popKey = ['pop2023', 'pop_kontur_2023'].find((k) => fs.some((f) => ok(f.p[k])));
+        let part = '';
+        if (popKey) {
+          const pp = [];
+          fs.forEach((f, i) => {
+            if (ok(xv[i]) && ok(yv[i]) && ok(f.p[popKey])) pp.push([xv[i], yv[i], f.p[popKey]]);
+          });
+          if (pp.length >= 8) {
+            const c = (a, b) =>
+                spearman(
+                  pp.map((q) => q[a]),
+                  pp.map((q) => q[b]),
+                ),
+              rxy = c(0, 1),
+              rxp = c(0, 2),
+              ryp = c(1, 2),
+              pr = (rxy - rxp * ryp) / Math.sqrt((1 - rxp * rxp) * (1 - ryp * ryp));
+            part = `<div class="def">Holding population constant (partial Spearman): ρ = ${Number.isFinite(pr) ? pr.toFixed(2) : '—'}. ${esc(xl)} and population: ρ = ${rxp.toFixed(2)}.</div>`;
+          }
+        }
         corr.innerHTML = `<div><span class="stat">ρ = ${r.toFixed(2)}</span> <span class="def">Spearman, ${pts.length} ${UNITN[unit]}</span></div>
-    <div class="def">Median ${esc(xl.toLowerCase())}: ${fmt(median(withS.map((p) => p[0])))} where the archive has a site (${withS.length}), ${fmt(median(pts.filter((p) => p[1] == 0).map((p) => p[0])))} where it has none.</div>`;
+    <div class="note">Exploratory: a description, not a test, with no p-value. The archive is curated, so this measures where it has looked as much as where shrines are. You have looked at ${VIEWS.size} view${VIEWS.size === 1 ? '' : 's'} of the map this session; a pattern picked from many is expected by chance. <b>Test a conjecture</b> gives inference that allows for space.</div>
+    ${part}
+    <div class="def">Median ${esc(xl.toLowerCase())}: ${fmt(median(withS.map((p) => p[0])))} in the ${withS.length} ${UNITN[unit]} where the archive has ${what}, ${fmt(median(noS.map((p) => p[0])))} in the ${noS.length} where it has none (each ${UNIT1[unit]} counts once, whatever its population).</div>${fallback}`;
         scatter(pts, xl, yl, true);
       }
 
       // ---- sites and leads ----------------------------------------------------------------------
       const ovl = L.layerGroup().addTo(map);
+      // Only web links are drawn: a lead's URLs come from outside sources.
+      const webUrl = (u) => typeof u === 'string' && /^https?:\/\/[^\s"<>]+$/.test(u);
       function leadHTML(l) {
         const links = [];
-        if (l.qid)
+        if (l.qid && /^Q\d+$/.test(l.qid))
           links.push(
             `<a href="https://www.wikidata.org/wiki/${esc(l.qid)}" target="_blank" rel="noopener">Wikidata ${esc(l.qid)}</a>`,
           );
-        if (l.osm_url)
+        if (webUrl(l.osm_url))
           links.push(
             `<a href="${esc(l.osm_url)}" target="_blank" rel="noopener">OpenStreetMap</a>`,
           );
-        if (l.wiki_en)
+        if (webUrl(l.wiki_en))
           links.push(`<a href="${esc(l.wiki_en)}" target="_blank" rel="noopener">Wikipedia</a>`);
         // url is the record the lead came from; skip it when it repeats a link already given.
         const wdUrl = l.qid && l.url && /wikidata\.org/.test(l.url);
-        if (l.url && !wdUrl && l.url !== l.osm_url && l.url !== l.wiki_en)
+        if (webUrl(l.url) && !wdUrl && l.url !== l.osm_url && l.url !== l.wiki_en)
           links.push(`<a href="${esc(l.url)}" target="_blank" rel="noopener">source record</a>`);
         const ur = (s) => (s ? ` <span lang="ur" dir="rtl">${esc(s)}</span>` : '');
         return (
@@ -1731,11 +1992,10 @@
             mk(
               [l.lat, l.lon],
               {
-                radius: 4,
-                weight: 1.5,
+                radius: 4.5,
+                weight: 2,
                 color: SRC[l.src] || '#666',
-                fillColor: SRC[l.src] || '#666',
-                fillOpacity: 0.25,
+                fillOpacity: 0,
               },
               leadHTML(l),
             );
@@ -1766,13 +2026,21 @@
           ['wikidata', 'osm', 'both']
             .map(
               (s) =>
-                `<div><i style="background:${SRC[s]};opacity:.8;border-radius:50%;width:12px"></i>${SRCL[s]}: ${bySrc(s).toLocaleString()} not in the archive</div>`,
+                `<div><i style="background:transparent;border:2px solid ${SRC[s]};border-radius:50%;width:12px"></i>${SRCL[s]}: ${bySrc(s).toLocaleString()} not in the archive</div>`,
             )
             .join('') +
           `<div><span class="lead-badge" style="display:inline-block"></span> the two sources disagree</div>` +
-          `<div class="def">${nIn ? `${nIn.toLocaleString()} more are already in the archive and hidden unless you tick "include places already in the archive". ` : ''}Leads are for a person to read; none enters the archive unchecked.</div>`;
+          `<div class="def">Leads are places in Wikidata or OpenStreetMap that may be shrines, temples or gurdwaras the archive does not yet hold, drawn as rings. ${nIn ? `${nIn.toLocaleString()} more are already in the archive and hidden unless you tick "include places already in the archive". ` : ''}Leads are for a person to read; none enters the archive unchecked.</div>`;
       }
       ['showSites', 'showLeads', 'showLeadsIn'].forEach((id) => ($(id).onchange = overlays));
+      $('siteLegend').innerHTML =
+        Object.entries(CAT)
+          .map(
+            ([c, col]) =>
+              `<div><i style="background:${col};border-radius:50%;width:12px"></i>${esc(c)}: ${D.sites.filter((x) => x.cat === c).length}</div>`,
+          )
+          .join('') +
+        `<div class="def">Filled dots, coloured by tradition. The archive is curated: ${D.sites.length} geocoded sites, ${D.sites.filter((x) => x.cat === 'Muslim Shrine').length} of them Muslim shrines.</div>`;
 
       // ---- controls -----------------------------------------------------------------------------
       function notice(t) {
@@ -1782,7 +2050,12 @@
         return viewKind().keys;
       }
       function controls() {
-        const u = $('units');
+        const u = $('units'),
+          act = document.activeElement,
+          keep =
+            act && act.dataset && act.dataset.k && act.parentElement
+              ? [act.parentElement.id, act.dataset.k]
+              : null;
         u.innerHTML = '';
         const used = inUse();
         for (const [k, l] of UNITS) {
@@ -1790,12 +2063,15 @@
           b.type = 'button';
           b.textContent = l;
           b.setAttribute('aria-pressed', k === unit);
-          const missing = used.filter((key) => !IND[key].units.includes(k));
-          b.disabled = missing.length > 0;
-          b.title = missing.length
-            ? `Not available at ${UNIT1[k]}: ${missing.map((key) => IND[key].label).join('; ')}`
-            : '';
+          const missing = used.filter((key) => !IND[key].units.includes(k)),
+            why = missing.length
+              ? `Not available at ${UNIT1[k]}: ${missing.map((key) => IND[key].label).join('; ')}`
+              : '';
+          b.dataset.k = k;
+          b.setAttribute('aria-disabled', missing.length > 0);
+          b.title = why;
           b.onclick = () => {
+            if (why) return notice(why + '.');
             unit = k;
             RESID = null;
             clearSel();
@@ -1811,9 +2087,15 @@
           b.type = 'button';
           b.textContent = l;
           b.setAttribute('aria-pressed', k === mode);
+          b.dataset.k = k;
           b.onclick = () => setMode(k);
           m.appendChild(b);
         }
+        if (keep) {
+          const again = $(keep[0]) && $(keep[0]).querySelector(`[data-k="${keep[1]}"]`);
+          if (again) again.focus();
+        }
+        placeList();
         // With 240-odd indicators the menu is filtered by the search field (label, theme or
         // definition, every word must match); chosen indicators always stay listed.
         const words = ($('find').value || '').toLowerCase().split(/\s+/).filter(Boolean),
@@ -1984,11 +2266,41 @@
         log1p: 'log(1+x)',
         z: 'standardised (z)',
         log1p_z: 'log(1+x), then z',
+        asinh: 'asinh(x), defined for negatives',
+        asinh_z: 'asinh(x), then z',
       };
+      const tfFn = (tf) =>
+        tf.startsWith('log1p') ? Math.log1p : tf.startsWith('asinh') ? Math.asinh : null;
       const SIGNL = { '+': 'positive', '-': 'negative', 0: 'no prediction' };
       const isCount = (k) => /^n_/.test(k);
       const EXPO = ['pop2023', 'pop_kontur_2023'];
+      // The composite shown on the map can be tested as a variable: key 'composite', with its
+      // components in spec.composite. Its values are computed into the features at each unit used.
+      function ensureComposite(parts, u) {
+        const units = UNITS.map((x) => x[0]).filter((x) =>
+          parts.every((k) => IND[k].units.includes(x)),
+        );
+        CJV.composite = {
+          key: 'composite',
+          label: `Composite of ${parts.length} (rank average: ${parts.map((k) => IND[k].label).join('; ')})`,
+          group: 'Derived',
+          units,
+        };
+        if (!u || !units.includes(u)) return;
+        const fs = feats(u),
+          vals = Object.fromEntries(parts.map((k) => [k, fs.map((f) => f.p[k])])),
+          c = compositeOf(parts, vals);
+        fs.forEach((f, i) => (f.p.composite = c[i]));
+      }
+      const goodParts = (c) =>
+        Array.isArray(c) &&
+        c.length >= 2 &&
+        c.length <= 30 &&
+        new Set(c).size === c.length &&
+        c.every((k) => Object.hasOwn(IND, k) && IND[k].good != null);
       const cjHas = (key, u) => !!CJV[key] && CJV[key].units.includes(u);
+      // Own properties only: a key such as "__proto__" or "toString" from a file is not a variable.
+      const own = (o, k) => typeof k === 'string' && Object.hasOwn(o, k);
       const cjLab = (key) => (CJV[key] ? CJV[key].label : key);
       function termName(key, tf) {
         const l = cjLab(key);
@@ -2004,10 +2316,12 @@
         [spec.y, ...spec.x, ...spec.c].some((v) => CJV[v.key] && CJV[v.key].group === 'Archive');
 
       // ---- test a conjecture: data --------------------------------------------------------------
-      // Listwise deletion: a unit missing any variable (or the exposure) is left out; so is one where a
-      // transform or the model is undefined (log(1+x) of x <= -1, a non-integer count, exposure <= 0).
+      // Listwise deletion: a unit missing any variable (or the exposure) is left out; so is one where
+      // the model is undefined (a non-integer count, exposure <= 0). log(1+x) of x <= -1 refuses the
+      // whole run instead: dropping those units would select the sample on the variable itself.
       // z-scores use the mean and the n-1 standard deviation of the units that remain.
       function cjData(spec, u) {
+        if (spec.composite) ensureComposite(spec.composite, u);
         const vars = [spec.y, ...spec.x, ...spec.c],
           pois = spec.model === 'poisson',
           ex = pois ? spec.exposure : null,
@@ -2028,11 +2342,12 @@
             continue;
           }
           const yv = p[spec.y.key];
-          if (
-            vars.some((v) => v.tf.startsWith('log1p') && p[v.key] <= -1) ||
-            (ex && p[ex] <= 0) ||
-            (pois && (yv < 0 || !Number.isInteger(yv)))
-          ) {
+          const neg = vars.find((v) => v.tf.startsWith('log1p') && p[v.key] <= -1);
+          if (neg)
+            return {
+              error: `log(1+x) is undefined for ${cjLab(neg.key)} in ${fs[i].name || fs[i].id} (value ${fmt(p[neg.key])}), and dropping such units would select the sample on the variable. Use asinh(x) instead, which is defined for negatives.`,
+            };
+          if ((ex && p[ex] <= 0) || (pois && (yv < 0 || !Number.isInteger(yv)))) {
             nBad++;
             continue;
           }
@@ -2045,8 +2360,9 @@
             error: `Too few ${UNITN[u]} with every value (${n}) to estimate ${k} coefficients.`,
           };
         const col = (v) => {
-          const a = Float64Array.from(idx, (i) => fs[i].p[v.key]);
-          if (v.tf.startsWith('log1p')) for (let i = 0; i < n; i++) a[i] = Math.log1p(a[i]);
+          const a = Float64Array.from(idx, (i) => fs[i].p[v.key]),
+            f = tfFn(v.tf);
+          if (f) for (let i = 0; i < n; i++) a[i] = f(a[i]);
           if (a.every((t) => t === a[0])) return null;
           if (v.tf.endsWith('z')) {
             let m = 0,
@@ -2071,8 +2387,20 @@
         const y = X.splice(1, 1)[0];
         if (pois && !y.some((t) => t > 0))
           return { error: `The count is zero in every one of these ${n} ${UNITN[u]}.` };
-        const off = ex ? Float64Array.from(idx, (i) => Math.log(fs[i].p[ex])) : null;
-        return { fs, idx, n, k, y, X, off, nMiss, nBad };
+        const off = ex ? Float64Array.from(idx, (i) => Math.log(fs[i].p[ex])) : null,
+          // Distinct values apart from the most common one, against the units that do not take it: a
+          // variable measured at a coarser level repeats its few values across many units, while a
+          // zero-inflated rate (most districts have no archive site) is not coarse for that.
+          distinct = Object.fromEntries(
+            vars.map((v) => {
+              const c = new Map();
+              for (const i of idx) c.set(fs[i].p[v.key], (c.get(fs[i].p[v.key]) || 0) + 1);
+              const mode = Math.max(...c.values()),
+                whole = [...c.keys()].every((x) => Number.isInteger(x));
+              return [v.key, { k: c.size - 1, m: n - mode, whole }];
+            }),
+          );
+        return { fs, idx, n, k, y, X, off, nMiss, nBad, distinct };
       }
 
       // ---- test a conjecture: linear algebra ----------------------------------------------------
@@ -2470,23 +2798,124 @@
           });
         return [cx / (6 * A), cy / (6 * A)];
       }
-      // Moran's I of the residuals with row-standardised weights among the units in the fit:
-      // I = (n / S0) * sum_i z_i * mean_{j in N(i)} z_j / sum_i z_i^2, z the centred residuals and S0
-      // the number of units with a neighbour. Pseudo p from permutations, one-sided in the direction
-      // of the observed I against the permutation mean (as PySAL's p_sim).
-      function moranOf(spec, u, idx, e, X) {
+      const COORDS = {};
+      const coordsOf = (u) => COORDS[u] || (COORDS[u] = feats(u).map((_, i) => centroidOf(u, i)));
+      // The district and province holding each unit, from the codes (PK61701 is in PK617, in PK6);
+      // a hexagon is placed by its centre, once per page.
+      const ADMIN = {};
+      function adminOf(u) {
+        if (ADMIN[u]) return ADMIN[u];
+        const fs = feats(u);
+        const dist = fs.map((f) => {
+          if (u === 'tehsil') return f.id.slice(0, 5);
+          if (u === 'district') return f.id;
+          if (u === 'province') return null;
+          const [la, lo] = h3.cellToLatLng(f.hex),
+            t = featAt('tehsil', la, lo);
+          if (t >= 0) return feats('tehsil')[t].id.slice(0, 5);
+          const d = featAt('district', la, lo);
+          return d >= 0 ? feats('district')[d].id : null;
+        });
+        const prov = fs.map((f, i) =>
+          u === 'province' ? f.id : dist[i] ? dist[i].slice(0, 3) : null,
+        );
+        return (ADMIN[u] = { dist, prov });
+      }
+      const LAHORE = 'PK617';
+      const provName = (id) => {
+        const i = feats('province').byId.get(id);
+        return i == null ? id || 'outside any province' : feats('province')[i].name;
+      };
+
+      // Conley (1999) spatial HAC covariance: B (sum_i sum_j K(d_ij) g_i g_j') B, g_i = u_i x_i, with
+      // the Bartlett kernel K = 1 - d/c inside the cutoff c and 0 beyond. Distances in km between
+      // centroids on a local tangent plane (east-west scaled by the cosine of the pair's mean
+      // latitude). At c -> 0 this is the HC0 sandwich; fac is the robust SEs' small-sample factor, so a
+      // 0 km cutoff reproduces them. Every cutoff is computed in one pass over the pairs within the
+      // largest. A covariance with a non-positive variance (possible: the 2-D Bartlett kernel is not
+      // guaranteed positive definite) is returned as null.
+      const KM = (6371.0088 * Math.PI) / 180;
+      const CUTS = [50, 100, 200, 500];
+      const cutsFor = (u) => (u === 'hex' ? CUTS.filter((c) => c <= 200) : CUTS);
+      function conley(B, X, u, C, n, cuts, fac) {
+        const k = X.length,
+          nc = cuts.length,
+          cmax = Math.max(...cuts),
+          G = X.map((c) => Float64Array.from(c, (x, i) => x * u[i])),
+          M = cuts.map(() => Array.from({ length: k }, () => new Array(k).fill(0))),
+          cl = Math.cos(Math.PI / 6),
+          cell = (1.1 * cmax) / KM,
+          grid = new Map(),
+          gx = new Int32Array(n),
+          gy = new Int32Array(n);
+        for (let i = 0; i < n; i++) {
+          gx[i] = Math.floor((C[i][0] * cl) / cell);
+          gy[i] = Math.floor(C[i][1] / cell);
+          const key = gx[i] + ',' + gy[i];
+          if (!grid.has(key)) grid.set(key, []);
+          grid.get(key).push(i);
+        }
+        const s = cuts.map(() => new Float64Array(k)),
+          rad = Math.PI / 360;
+        for (let i = 0; i < n; i++) {
+          for (const a of s) a.fill(0);
+          const [xi, yi] = C[i];
+          for (let a = -1; a <= 1; a++)
+            for (let b = -1; b <= 1; b++) {
+              const Lst = grid.get(gx[i] + a + ',' + (gy[i] + b));
+              if (!Lst) continue;
+              for (const j of Lst) {
+                const dy = (yi - C[j][1]) * KM,
+                  dx = (xi - C[j][0]) * KM * Math.cos((yi + C[j][1]) * rad),
+                  d = Math.sqrt(dx * dx + dy * dy);
+                if (d >= cmax) continue;
+                for (let c = 0; c < nc; c++) {
+                  if (d >= cuts[c]) continue;
+                  const w = 1 - d / cuts[c],
+                    sc = s[c];
+                  for (let q = 0; q < k; q++) sc[q] += w * G[q][j];
+                }
+              }
+            }
+          for (let c = 0; c < nc; c++)
+            for (let a = 0; a < k; a++) {
+              const ga = G[a][i];
+              if (!ga) continue;
+              for (let b = 0; b < k; b++) M[c][a][b] += ga * s[c][b];
+            }
+        }
+        return M.map((Mc) => {
+          for (let a = 0; a < k; a++)
+            for (let b = a + 1; b < k; b++) Mc[a][b] = Mc[b][a] = (Mc[a][b] + Mc[b][a]) / 2;
+          const V = mm(mm(B, Mc), B).map((r) => r.map((x) => x * fac));
+          return V.every((r, j) => r[j] > 0) ? V : null;
+        });
+      }
+      // Moran's I of the residuals, row-standardised weights among the units in the fit:
+      // I = (n / S0) * sum_i z_i * mean_{j in N(i)} z_j / sum_i z_i^2, z the centred residuals, S0 the
+      // number of units with a neighbour (isolates keep a zero row, as spdep's zero.policy = TRUE).
+      // OLS: the Cliff-Ord test for regression residuals (spdep::lm.morantest), with A = W,
+      // H = X(X'X)^-1 X', M = I - H and every trace computed sparsely:
+      //   E[I] = (n/S0) tr(MA) / (n-k)
+      //   Var[I] = (n/S0)^2 [tr(MAMA') + tr(MAMA) + tr(MA)^2] / ((n-k)(n-k+2)) - E[I]^2
+      // and a two-sided normal p. Poisson (Pearson residuals, for which no such moments exist): the
+      // permutation distribution, two-sided about its own mean, and that mean is the E[I] shown, so
+      // the expectation and the p describe the same null.
+      function neighbours(spec, u, idx) {
         const n = idx.length,
           pos = new Map(idx.map((f, j) => [f, j]));
-        let nb, w;
         if (u === 'hex' || spec.weights !== 'knn') {
           const all = contiguity(u);
-          nb = idx.map((f) => all[f].map((g) => pos.get(g)).filter((j) => j != null));
-          w = u === 'hex' ? 'H3 ring-1 neighbours' : 'contiguity (shared boundary point)';
-        } else {
-          const k = Math.max(1, Math.min(spec.k || 6, n - 1)),
-            C = idx.map((f) => centroidOf(u, f)),
-            cl = Math.cos(Math.PI / 6);
-          nb = C.map((a, i) => {
+          return {
+            nb: idx.map((f) => all[f].map((g) => pos.get(g)).filter((j) => j != null)),
+            w: u === 'hex' ? 'H3 ring-1 neighbours' : 'contiguity (shared boundary point)',
+          };
+        }
+        const k = Math.max(1, Math.min(spec.k || 6, n - 1)),
+          C = idx.map((f) => coordsOf(u)[f]),
+          cl = Math.cos(Math.PI / 6);
+        return {
+          nb: C.map((a, i) => {
             const d = [];
             C.forEach(
               (b, j) => j !== i && d.push([((a[0] - b[0]) * cl) ** 2 + (a[1] - b[1]) ** 2, j]),
@@ -2496,9 +2925,44 @@
               .slice(0, k)
               .map((x) => x[1])
               .sort((a, b) => a - b);
-          });
-          w = `${k} nearest centroids`;
-        }
+          }),
+          w: `${k} nearest centroids`,
+        };
+      }
+      // A applied to the columns of X (the spatial lag, Ax) and its transpose (A'x).
+      function lagCols(nb, cols, n, transpose) {
+        return cols.map((c) => {
+          const o = new Float64Array(n);
+          for (let i = 0; i < n; i++) {
+            const a = nb[i];
+            if (!a.length) continue;
+            if (transpose) {
+              const v = c[i] / a.length;
+              for (const j of a) o[j] += v;
+            } else {
+              let l = 0;
+              for (const j of a) l += c[j];
+              o[i] = l / a.length;
+            }
+          }
+          return o;
+        });
+      }
+      const dotc = (a, b) => {
+        let s = 0;
+        for (let i = 0; i < a.length; i++) s += a[i] * b[i];
+        return s;
+      };
+      const cross = (A, B) => A.map((a) => B.map((b) => dotc(a, b))); // A'B for column lists
+      const trProd = (P, Q) => {
+        let t = 0;
+        for (let a = 0; a < P.length; a++)
+          for (let b = 0; b < P.length; b++) t += P[a][b] * Q[b][a];
+        return t;
+      };
+      function moranOf(spec, u, idx, e, X) {
+        const n = idx.length,
+          { nb, w } = neighbours(spec, u, idx);
         const iso = nb.filter((a) => !a.length).length,
           S0 = n - iso;
         if (!S0) return null;
@@ -2520,29 +2984,55 @@
           return ((n / S0) * s) / zz;
         };
         const I0 = I(null);
-        // E[I] for OLS residuals: (n / S0) tr(MW) / (n - k), tr(MW) = -tr((X'X)^-1 X'WX).
-        let EI = -1 / (n - 1);
         if (X && X.XtXi) {
           const k = X.cols.length,
-            XWX = Array.from({ length: k }, () => new Array(k).fill(0));
-          for (let b = 0; b < k; b++) {
-            const lag = new Float64Array(n);
-            for (let i = 0; i < n; i++) {
-              const a = nb[i];
-              if (!a.length) continue;
-              let l = 0;
-              for (const j of a) l += X.cols[b][j];
-              lag[i] = l / a.length;
-            }
-            for (let a = 0; a < k; a++) {
-              let s = 0;
-              for (let i = 0; i < n; i++) s += X.cols[a][i] * lag[i];
-              XWX[a][b] = s;
-            }
+            G = X.XtXi,
+            AX = lagCols(nb, X.cols, n, false),
+            AtX = lagCols(nb, X.cols, n, true),
+            P = cross(X.cols, AX), // X'AX
+            GP = mm(G, P),
+            trMA = -GP.reduce((t, r, a) => t + r[a], 0),
+            sets = nb.map((a) => new Set(a));
+          let trAAt = 0,
+            trAA = 0;
+          for (let i = 0; i < n; i++) {
+            const a = nb[i];
+            if (!a.length) continue;
+            trAAt += 1 / a.length;
+            for (const j of a) if (sets[j].has(i)) trAA += 1 / (a.length * nb[j].length);
           }
-          let tr = 0;
-          for (let a = 0; a < k; a++) for (let b = 0; b < k; b++) tr += X.XtXi[a][b] * XWX[b][a];
-          EI = ((n / S0) * -tr) / (n - k);
+          const trHAAt = trProd(G, cross(AtX, AtX)),
+            trHAtA = trProd(G, cross(AX, AX)),
+            trHAA = trProd(G, cross(AtX, AX)),
+            GPGPt = trProd(
+              GP,
+              mm(
+                G,
+                P[0].map((_, b) => P.map((r) => r[b])),
+              ),
+            ),
+            GPGP = trProd(GP, GP),
+            trMAMAt = trAAt - trHAAt - trHAtA + GPGPt,
+            trMAMA = trAA - 2 * trHAA + GPGP,
+            c = n / S0,
+            EI = (c * trMA) / (n - k),
+            VI = (c * c * (trMAMAt + trMAMA + trMA * trMA)) / ((n - k) * (n - k + 2)) - EI * EI;
+          // A variance at rounding level (every unit neighbours every other, so I cannot vary) is no
+          // variance: no z and no p.
+          if (!(VI > 1e-12 * Math.max(1, EI * EI)))
+            return { I: I0, EI, VI: null, z: null, p: null, iso, w, n, method: 'analytic' };
+          const zI = (I0 - EI) / Math.sqrt(VI);
+          return {
+            I: I0,
+            EI,
+            VI,
+            z: zI,
+            p: ST ? 2 * ST.normal.cdf(-Math.abs(zI), 0, 1) : null,
+            iso,
+            w,
+            n,
+            method: 'analytic',
+          };
         }
         const R = spec.mperms,
           rnd = mulberry32(spec.seed + 1),
@@ -2558,16 +3048,295 @@
         ms /= R;
         for (const s of sims) vs += (s - ms) ** 2;
         const sd = Math.sqrt(vs / (R - 1)),
-          up = I0 >= ms,
-          larger = sims.filter((s) => (up ? s >= I0 - 1e-12 : s <= I0 + 1e-12)).length;
-        return { I: I0, EI, p: (larger + 1) / (R + 1), z: (I0 - ms) / sd, iso, w, n };
+          dev = Math.abs(I0 - ms),
+          larger = sims.filter((s) => Math.abs(s - ms) >= dev - 1e-12).length;
+        return {
+          I: I0,
+          EI: ms,
+          VI: sd * sd,
+          z: (I0 - ms) / sd,
+          p: (larger + 1) / (R + 1),
+          iso,
+          w,
+          n,
+          method: 'permutation',
+        };
       }
 
       // ---- test a conjecture: one run -----------------------------------------------------------
+      // Below MIN_DF residual degrees of freedom no p-value or interval is printed (a province run
+      // has 7 units): heteroskedasticity-robust and spatial SEs are badly biased that small, and the
+      // run stays out of the Benjamini-Hochberg family.
+      const MIN_DF = 10;
+      // Refit on a subset of the units in the fit (transforms and z-scores kept from the full fit, so
+      // coefficients compare). Returns null when the subset cannot be fitted.
+      function refit(d, keep, pois, cls) {
+        const ix = [];
+        for (let i = 0; i < d.n; i++) if (keep[i]) ix.push(i);
+        const n = ix.length;
+        if (n < d.k + 2) return null;
+        const X = d.X.map((c) => Float64Array.from(ix, (i) => c[i])),
+          y = Float64Array.from(ix, (i) => d.y[i]),
+          off = d.off ? Float64Array.from(ix, (i) => d.off[i]) : null;
+        if (pois && !y.some((t) => t > 0)) return null;
+        const G = pois ? fitPoisson(X, y, off, n) : fitOLS(X, y, n);
+        if (G.error) return null;
+        const df = pois ? Infinity : G.df,
+          V = cls ? G.Vc : G.Vr;
+        return {
+          n,
+          b: G.beta,
+          p: G.beta.map((b, j) => (n - d.k < MIN_DF ? null : pval(b / Math.sqrt(V[j][j]), df))),
+        };
+      }
+      // How much the estimate leans on single places: the largest leverage, the most influential unit
+      // (Cook's distance; for Poisson the one-step approximation from the weighted hat matrix) refitted
+      // away, Lahore district (36 of the archive's 169 sites) refitted away, and each province in turn.
+      function fragility(u, d, F, pois, cls) {
+        if (u === 'province') return null;
+        const n = d.n,
+          k = d.k,
+          G = F.XtXi,
+          A = adminOf(u),
+          dName = (id) => {
+            const j = id ? feats('district').byId.get(id) : null;
+            return j == null ? 'no district' : feats('district')[j].name;
+          },
+          nm = (i) => {
+            const f = d.fs[d.idx[i]];
+            return f.hex ? `hexagon ${f.id} (${dName(A.dist[d.idx[i]])} district)` : f.name;
+          };
+        let s2 = 0;
+        if (!pois) {
+          for (let i = 0; i < n; i++) s2 += F.resid[i] ** 2;
+          s2 /= n - k;
+        }
+        let hmax = -1,
+          ih = -1,
+          dmax = -1,
+          id = -1;
+        for (let i = 0; i < n; i++) {
+          let h = 0;
+          for (let a = 0; a < k; a++) {
+            let r = 0;
+            for (let b = 0; b < k; b++) r += G[a][b] * d.X[b][i];
+            h += d.X[a][i] * r;
+          }
+          if (pois) h *= F.fitted[i];
+          const e2 = F.resid[i] ** 2,
+            D = h < 1 ? (e2 * h) / (k * (pois ? 1 : s2) * (1 - h) ** 2) : Infinity;
+          if (h > hmax) {
+            hmax = h;
+            ih = i;
+          }
+          if (D > dmax) {
+            dmax = D;
+            id = i;
+          }
+        }
+        const keepBut = (pred) => Array.from({ length: n }, (_, i) => !pred(i));
+        const dist = d.idx.map((f) => A.dist[f]),
+          prov = d.idx.map((f) => A.prov[f]),
+          nLah = dist.filter((x) => x === LAHORE).length,
+          provs = [...new Set(prov)].filter(Boolean).sort();
+        return {
+          lev: { h: hmax, name: nm(ih), mean: k / n },
+          top: {
+            name: nm(id),
+            D: dmax,
+            fit: refit(
+              d,
+              keepBut((i) => i === id),
+              pois,
+              cls,
+            ),
+          },
+          lahore: nLah
+            ? {
+                nDrop: nLah,
+                fit: refit(
+                  d,
+                  keepBut((i) => dist[i] === LAHORE),
+                  pois,
+                  cls,
+                ),
+              }
+            : null,
+          lopo: provs.map((pid) => ({
+            id: pid,
+            name: provName(pid),
+            nDrop: prov.filter((x) => x === pid).length,
+            fit: refit(
+              d,
+              keepBut((i) => prov[i] === pid),
+              pois,
+              cls,
+            ),
+          })),
+        };
+      }
+      // Spatial-noise placebo (after Kelly, "The standard errors of persistence", 2019). Each
+      // explanatory variable in turn is replaced by spatially smooth Gaussian noise, the regression is
+      // refitted, and the placebo p is the share of noise draws whose |t| (same SEs as the result)
+      // reaches the real one: (1 + #{|t*| >= |t|}) / (1 + R). Two noise families, each matched to the
+      // variable's Moran's I, because each misses what the other catches:
+      //   neighbour: smoothed over the contiguity graph (each pass, a unit becomes the mean of itself
+      //     and its neighbours), the number of passes matched;
+      //   kernel: a Gaussian kernel over centroid distance, the bandwidth matched (long-range
+      //     correlation, which neighbour passes with the same Moran's I understate). n^2, so not for
+      //     hexagons.
+      // The placebo p is the larger of the two. A spatially smooth outcome regressed on a
+      // spatially smooth variable gives large t-statistics by chance; this p is calibrated against
+      // exactly that, where the robust and Conley SEs are not (measured: GIS_FOUNDATION.md).
+      const PLACEBO_R = 200,
+        MAX_PASSES = 16,
+        BWS = [25, 50, 100, 150, 250, 400, 600];
+      function placebo(spec, u, d, F, pois, cls) {
+        const all = contiguity(u),
+          fsN = all.length,
+          pos = new Map(d.idx.map((f, j) => [f, j])),
+          nb = d.idx.map((f) => all[f].map((g) => pos.get(g)).filter((j) => j != null)),
+          rnd = mulberry32(spec.seed + 2),
+          gauss = () => {
+            const a = rnd() || 1e-12,
+              c = rnd();
+            return Math.sqrt(-2 * Math.log(a)) * Math.cos(2 * Math.PI * c);
+          },
+          smooth = (z) => {
+            const o = new Float64Array(fsN);
+            for (let i = 0; i < fsN; i++) {
+              const a = all[i];
+              let m = z[i];
+              for (const j of a) m += z[j];
+              o[i] = m / (a.length + 1);
+            }
+            return o;
+          },
+          moranI = (v) => {
+            const n = v.length;
+            let m = 0;
+            for (let i = 0; i < n; i++) m += v[i];
+            m /= n;
+            let num = 0,
+              den = 0,
+              S0 = 0;
+            for (let i = 0; i < n; i++) {
+              const zi = v[i] - m;
+              den += zi * zi;
+              const a = nb[i];
+              if (!a.length) continue;
+              S0++;
+              let l = 0;
+              for (const j of a) l += v[j] - m;
+              num += (zi * l) / a.length;
+            }
+            return S0 && den ? ((n / S0) * num) / den : 0;
+          },
+          // Noise after p passes, on the units in the fit.
+          draw = (passes) => {
+            let z = Float64Array.from({ length: fsN }, gauss);
+            for (let s = 0; s < passes; s++) z = smooth(z);
+            return Float64Array.from(d.idx, (f) => z[f]);
+          };
+        // Moran's I of noise after each number of passes, averaged over 12 draws.
+        const curve = new Float64Array(MAX_PASSES + 1);
+        for (let r = 0; r < 12; r++) {
+          let z = Float64Array.from({ length: fsN }, gauss);
+          for (let s = 0; s <= MAX_PASSES; s++) {
+            if (s) z = smooth(z);
+            curve[s] += moranI(Float64Array.from(d.idx, (f) => z[f])) / 12;
+          }
+        }
+        // Kernel family (not for hexagons): the kernel matrix for one bandwidth, row-normalised.
+        const kernelOK = u !== 'hex',
+          C = d.idx.map((f) => coordsOf(u)[f]),
+          n = d.n,
+          kmat = (bw) => {
+            const K = new Float64Array(n * n);
+            for (let i = 0; i < n; i++) {
+              let w = 0;
+              for (let j = 0; j < n; j++) {
+                const dy = (C[i][1] - C[j][1]) * KM,
+                  dx = (C[i][0] - C[j][0]) * KM * Math.cos((C[i][1] + C[j][1]) * (Math.PI / 360)),
+                  k = Math.exp(-(dx * dx + dy * dy) / (2 * bw * bw));
+                K[i * n + j] = k;
+                w += k;
+              }
+              for (let j = 0; j < n; j++) K[i * n + j] /= w;
+            }
+            return K;
+          },
+          kdraw = (K) => {
+            const z = Float64Array.from({ length: n }, gauss),
+              o = new Float64Array(n);
+            for (let i = 0; i < n; i++) {
+              let t = 0;
+              for (let j = 0; j < n; j++) t += K[i * n + j] * z[j];
+              o[i] = t;
+            }
+            return o;
+          };
+        const kcurve = kernelOK
+          ? BWS.map((bw) => {
+              const K = kmat(bw);
+              let I = 0;
+              for (let r = 0; r < 8; r++) I += moranI(kdraw(K)) / 8;
+              return I;
+            })
+          : null;
+        const run = (j, gen) => {
+          const V0 = cls ? F.Vc : F.Vr,
+            t0 = Math.abs(F.beta[j] / Math.sqrt(V0[j][j]));
+          let hits = 0,
+            R = 0;
+          for (let r = 0; r < PLACEBO_R; r++) {
+            const X = d.X.slice();
+            X[j] = gen();
+            const G = pois ? fitPoisson(X, d.y, d.off, d.n) : fitOLS(X, d.y, d.n);
+            if (G.error) continue;
+            const V = cls ? G.Vc : G.Vr,
+              t = Math.abs(G.beta[j] / Math.sqrt(V[j][j]));
+            R++;
+            if (t >= t0 - 1e-12) hits++;
+          }
+          return { R, p: R ? (hits + 1) / (R + 1) : null };
+        };
+        const xs = spec.x.map((v, xi) => 1 + xi);
+        return xs.map((j) => {
+          const Ix = moranI(d.X[j]);
+          let passes = 0;
+          for (let s = 1; s <= MAX_PASSES; s++)
+            if (Math.abs(curve[s] - Ix) < Math.abs(curve[passes] - Ix)) passes = s;
+          const nbr = run(j, () => draw(passes));
+          let ker = null,
+            bw = null;
+          if (kernelOK) {
+            let b = 0;
+            for (let q = 1; q < BWS.length; q++)
+              if (Math.abs(kcurve[q] - Ix) < Math.abs(kcurve[b] - Ix)) b = q;
+            bw = BWS[b];
+            const K = kmat(bw);
+            ker = run(j, () => kdraw(K));
+          }
+          const ps = [nbr.p, ker && ker.p].filter((x) => x != null);
+          return {
+            passes,
+            bw,
+            Ix,
+            Inoise: curve[passes],
+            R: nbr.R,
+            pN: nbr.p,
+            pK: ker ? ker.p : null,
+            p: ps.length ? Math.max(...ps) : null,
+            capped: passes === MAX_PASSES && Ix > curve[MAX_PASSES],
+          };
+        });
+      }
       function runSpec(spec, u, full) {
         const d = cjData(spec, u);
         if (d.error) return { unit: u, error: d.error };
         const pois = spec.model === 'poisson',
+          cls = !pois && spec.se === 'classical',
           F = pois ? fitPoisson(d.X, d.y, d.off, d.n) : fitOLS(d.X, d.y, d.n),
           tv = [{ key: null, tf: 'none', role: 'const' }]
             .concat(spec.x.map((v) => ({ ...v, role: 'x' })))
@@ -2581,11 +3350,25 @@
                 : 'The Poisson fit did not converge in 100 iterations (a regressor may separate the zeros from the rest).',
           };
         const df = pois ? Infinity : F.df,
-          q = crit(df);
+          few = d.n - d.k < MIN_DF,
+          q = few ? null : crit(df),
+          P = (t) => (few ? null : pval(t, df));
+        // Conley SEs: the score is the residual for OLS and y - mu for Poisson.
+        const cuts = cutsFor(u),
+          C = d.idx.map((f) => coordsOf(u)[f]),
+          sc = pois ? Float64Array.from(d.y, (t, i) => t - F.fitted[i]) : F.resid,
+          VK = conley(F.XtXi, d.X, sc, C, d.n, cuts, pois ? d.n / (d.n - 1) : d.n / (d.n - d.k));
+        const pl = few ? null : placebo(spec, u, d, F, pois, cls);
         const terms = tv.map((v, j) => {
           const b = F.beta[j],
+            plj = pl && v.role === 'x' ? pl[j - 1] : null,
             seR = Math.sqrt(F.Vr[j][j]),
-            seC = Math.sqrt(F.Vc[j][j]);
+            seC = Math.sqrt(F.Vc[j][j]),
+            seK = VK.map((V) => (V ? Math.sqrt(V[j][j]) : null)),
+            pK = seK.map((se) => (se ? P(b / se) : null)),
+            pR = P(b / seR),
+            pC = P(b / seC),
+            pS = cls ? pC : pR;
           return {
             key: v.key,
             tf: v.tf,
@@ -2594,21 +3377,27 @@
             b,
             seR,
             seC,
-            pR: pval(b / seR, df),
-            pC: pval(b / seC, df),
+            pR,
+            pC,
+            seK,
+            pK,
+            placebo: plj,
+            // The headline p: the largest of the chosen SE's p, every Conley cutoff's and the
+            // spatial-noise placebo's.
+            pH: pS == null ? null : Math.max(pS, ...pK.map((x) => x ?? 0), plj?.p ?? 0),
             loR: q == null ? null : b - q * seR,
             hiR: q == null ? null : b + q * seR,
             loC: q == null ? null : b - q * seC,
             hiC: q == null ? null : b + q * seC,
           };
         });
-        // Joint Wald test of every non-intercept coefficient, robust covariance.
+        // Joint Wald test of every non-intercept coefficient, robust (or classical) covariance.
         const kq = terms.length - 1,
-          Vq = F.Vr.slice(1).map((r) => r.slice(1)),
+          Vq = (cls ? F.Vc : F.Vr).slice(1).map((r) => r.slice(1)),
           Vi = invSmall(Vq),
           bq = F.beta.slice(1);
         let wald = null;
-        if (Vi) {
+        if (Vi && !few) {
           const W = bq.reduce((s, b, a) => s + b * Vi[a].reduce((t, v, c) => t + v * bq[c], 0), 0);
           wald = pois
             ? { stat: W, df1: kq, p: ST ? 1 - ST.chisquare.cdf(W, kq) : null, kind: 'chi2' }
@@ -2629,18 +3418,24 @@
           model: spec.model,
           terms,
           wald,
+          few,
+          cuts,
+          distinct: d.distinct,
           kappa: F.kappa,
           ...(pois
             ? { pseudo: F.pseudo, ll: F.ll, ll0: F.ll0, disp: F.disp, iter: F.iter }
             : { r2: F.r2, adj: F.adj, df }),
         };
         out.moran = moranOf(spec, u, d.idx, F.resid, pois ? null : { cols: d.X, XtXi: F.XtXi });
-        if (full)
+        if (few && out.moran) out.moran = { ...out.moran, z: null, p: null };
+        if (full) {
           out.corr = corrPerm(d.y, d.X.slice(1), spec.perms, spec.seed).map((c, j) => ({
             key: tv[j + 1].key,
             tf: tv[j + 1].tf,
             ...c,
           }));
+          out.frag = fragility(u, d, F, pois, cls);
+        }
         Object.defineProperty(out, '_', {
           value: { idx: d.idx, resid: F.resid, fitted: F.fitted, y: d.y },
           enumerable: false,
@@ -2649,47 +3444,163 @@
       }
 
       // ---- test a conjecture: the log -----------------------------------------------------------
-      // Every run is appended. Saved through localStorage where the browser allows it; the page works
-      // without it. Exports: CSV and Markdown (one row per explanatory variable), JSON (re-runs).
+      // Every run is appended and none is ever removed: "Clear" hides entries from the table but keeps
+      // them in the Benjamini-Hochberg family and in every export, so the family cannot be reset by
+      // deleting the tests that did not work. Saved through localStorage where the browser allows it;
+      // the page works without it. Entries are checked as they are read, since every file:// page in
+      // the browser shares the same storage. Two open tabs merge their logs instead of overwriting.
       const LOGKEY = 'shrines_viewer_conjectures_v1';
-      let LOG = [];
-      try {
-        const s = JSON.parse(localStorage.getItem(LOGKEY) || '[]');
-        if (Array.isArray(s)) LOG = s;
-      } catch {
-        LOG = [];
+      const fin = (v) => v == null || (typeof v === 'number' && Number.isFinite(v));
+      // Text is allowed only under these keys; every other leaf must be a number, boolean or null, so
+      // nothing read back from storage can carry markup into the page.
+      const TEXT_KEYS = new Set([
+        'statement',
+        'ts',
+        'error',
+        'unit',
+        'model',
+        'key',
+        'tf',
+        'role',
+        'sign',
+        'se',
+        'exposure',
+        'weights',
+        'w',
+        'method',
+        'name',
+        'id',
+        'format',
+        'dataId',
+        'composite',
+        'kind',
+      ]);
+      function leavesOk(o, k, depth) {
+        if (depth > 8) return false;
+        if (o == null || typeof o === 'number' || typeof o === 'boolean') return true;
+        if (typeof o === 'string') return TEXT_KEYS.has(k) && o.length < 5000;
+        if (Array.isArray(o)) return o.length < 50000 && o.every((v) => leavesOk(v, k, depth + 1));
+        if (typeof o === 'object')
+          return Object.keys(o).every((kk) => kk !== '__proto__' && leavesOk(o[kk], kk, depth + 1));
+        return false;
       }
-      const SESSION0 = LOG.length;
-      function saveLog() {
+      function goodEntry(e) {
+        if (!e || typeof e !== 'object' || !Number.isInteger(e.id) || e.id < 1) return false;
+        if (!leavesOk(e, '', 0)) return false;
+        if (typeof e.ts !== 'string' || !/^\d{4}-\d\d-\d\dT[\d:.]+Z$/.test(e.ts)) return false;
+        if (e.maupOf != null && !Number.isInteger(e.maupOf)) return false;
+        if (validSpec(e.spec, true)) return false;
+        if (e.error != null) return typeof e.error === 'string';
+        return (
+          UNITS.some((u) => u[0] === e.unit) &&
+          Number.isInteger(e.n) &&
+          Array.isArray(e.terms) &&
+          e.terms.every(
+            (t) =>
+              t &&
+              ['const', 'x', 'c'].includes(t.role) &&
+              (t.key === null || Object.hasOwn(CJV, t.key)) &&
+              Object.hasOwn(TF, t.tf) &&
+              ['b', 'seR', 'seC', 'pR', 'pC', 'pH'].every((k) => fin(t[k])),
+          ) &&
+          (e.moran == null || (typeof e.moran === 'object' && fin(e.moran.I) && fin(e.moran.p)))
+        );
+      }
+      function readStored() {
         try {
-          localStorage.setItem(LOGKEY, JSON.stringify(LOG));
-          return true;
+          const s = JSON.parse(localStorage.getItem(LOGKEY) || '[]');
+          return Array.isArray(s) ? s : [];
         } catch {
-          return false;
+          return [];
         }
       }
-      const nextId = () => LOG.reduce((m, e) => Math.max(m, e.id), 0) + 1;
+      let LOG_BAD = 0;
+      function mergeLog(a, b) {
+        const m = new Map();
+        for (const e of [...a, ...b]) {
+          if (!goodEntry(e)) {
+            LOG_BAD++;
+            continue;
+          }
+          const key = e.id + '|' + e.ts,
+            prev = m.get(key);
+          m.set(key, prev && prev.cleared ? { ...e, cleared: true } : e);
+        }
+        return [...m.values()].sort((x, y) => x.id - y.id || x.ts.localeCompare(y.ts));
+      }
+      let LOG = mergeLog([], readStored());
+      const SESSION0 = LOG.length;
+      let SAVE_OK = true;
+      function saveLog() {
+        try {
+          LOG = mergeLog(readStored(), LOG);
+          localStorage.setItem(LOGKEY, JSON.stringify(LOG));
+          SAVE_OK = true;
+        } catch {
+          SAVE_OK = false;
+        }
+        return SAVE_OK;
+      }
+      window.addEventListener('storage', (ev) => {
+        if (ev.key !== LOGKEY) return;
+        LOG = mergeLog(LOG, readStored());
+        if (!cjEl.hidden) cjLog();
+      });
+      const nextId = () => {
+        LOG = mergeLog(LOG, readStored());
+        return LOG.reduce((m, e) => Math.max(m, e.id), 0) + 1;
+      };
       function signOf(t) {
         if (!t.sign || t.sign === '0')
           return { exp: t.sign || '0', obs: Math.sign(t.b), match: null };
         const obs = Math.sign(t.b);
         return { exp: t.sign, obs, match: obs === (t.sign === '+' ? 1 : -1) };
       }
-      function entryOf(spec, res, ts, maupOf) {
-        const e = { id: nextId(), ts, statement: spec.statement, spec, maupOf: maupOf ?? null };
+      function entryOf(spec, res, ts, maupOf, ctx) {
+        const e = {
+          id: nextId(),
+          ts,
+          dataId: DATA_ID,
+          statement: spec.statement,
+          spec,
+          maupOf: maupOf ?? null,
+          ctx: ctx || null,
+        };
         if (res.error) return { ...e, unit: res.unit, error: res.error };
         const { _, ...r } = res;
         return { ...e, ...r };
       }
-      // Benjamini-Hochberg across every explanatory-variable test in the log (robust p-values).
+      // A hypothesis is a specification at a unit and one of its explanatory variables. The same
+      // hypothesis run again (a re-run, a JSON re-import, a repeated "same test at every unit") is
+      // counted once, at its first run's p: repeating a test must not loosen the adjustment.
+      function hypKey(e, t) {
+        const s = e.spec;
+        return JSON.stringify([
+          e.unit,
+          s.model,
+          s.model === 'ols' ? s.se : s.exposure,
+          s.y.key,
+          s.y.tf,
+          s.x.map((v) => [v.key, v.tf]),
+          s.c.map((v) => [v.key, v.tf]),
+          s.composite || null,
+          t.key,
+        ]);
+      }
+      const headP = (t) => (t.pH !== undefined ? t.pH : t.pR);
+      // Benjamini-Hochberg across every distinct explanatory-variable hypothesis in the log, hidden
+      // ones included, on the headline p (the largest of the chosen SE's p and every Conley cutoff's).
       function bh() {
-        const H = [];
+        const first = new Map();
         for (const e of LOG)
           if (!e.error)
-            e.terms
-              .filter((t) => t.role === 'x' && t.pR != null)
-              .forEach((t) => H.push([`${e.id}:${t.key}`, t.pR]));
-        const m = H.length,
+            for (const t of e.terms)
+              if (t.role === 'x' && headP(t) != null) {
+                const k = hypKey(e, t);
+                if (!first.has(k)) first.set(k, headP(t));
+              }
+        const H = [...first.entries()],
+          m = H.length,
           o = H.map((h, i) => i).sort((a, b) => H[a][1] - H[b][1]),
           adj = new Map();
         let run = 1;
@@ -2697,7 +3608,15 @@
           run = Math.min(run, (H[o[r]][1] * m) / (r + 1));
           adj.set(H[o[r]][0], run);
         }
-        return { m, adj };
+        return {
+          m,
+          runs: LOG.reduce(
+            (s, e) => s + (e.error ? 0 : e.terms.filter((t) => t.role === 'x').length),
+            0,
+          ),
+          hidden: LOG.filter((e) => e.cleared).length,
+          of: (e, t) => adj.get(hypKey(e, t)),
+        };
       }
       const fp = (p) => (p == null ? '—' : p < 0.0001 ? '< 0.0001' : p.toFixed(4));
       const peq = (p) => (p != null && p < 0.0001 ? 'p < 0.0001' : 'p = ' + fp(p));
@@ -2723,6 +3642,8 @@
         k: 6,
         statement: '',
         dirty: false,
+        prefilled: false,
+        composite: null,
       };
       const cjEl = $('cj');
       function cjPrefill() {
@@ -2732,16 +3653,21 @@
         CJ.model = 'ols';
         CJ.exposure = '';
         CJ.c = [];
+        CJ.prefilled = true;
         if (k.kind === 'none') {
           CJ.y = v('n_site');
           CJ.x = [];
         } else if (k.kind === 'bi') {
           CJ.y = v(k.keys[1]);
           CJ.x = [{ ...v(k.keys[0]), sign: '' }];
+        } else if (k.kind === 'comp') {
+          CJ.composite = k.keys.slice();
+          ensureComposite(CJ.composite, null);
+          CJ.y = v('composite');
+          CJ.x = [{ ...v(ykey), sign: '' }];
         } else {
           CJ.y = v(k.keys[0]);
           CJ.x = k.keys[0] === ykey ? [] : [{ ...v(ykey), sign: '' }];
-          if (k.kind === 'comp') CJ.c = k.keys.slice(1).map(v);
         }
         CJ.dirty = false;
         cjForm();
@@ -2787,6 +3713,11 @@
           .join('')}</select>`;
       }
       function cjForm() {
+        const act = document.activeElement,
+          keep =
+            act && act.dataset && act.dataset.k && act.parentElement
+              ? [act.parentElement.id, act.dataset.k]
+              : null;
         $('cjText').value = CJ.statement;
         const u = $('cjUnits');
         u.innerHTML = '';
@@ -2796,6 +3727,7 @@
           b.type = 'button';
           b.textContent = l;
           b.setAttribute('aria-pressed', k === CJ.unit);
+          b.dataset.k = k;
           b.disabled = miss.length > 0;
           b.title = miss.length ? `Not at ${UNIT1[k]}: ${miss.map(cjLab).join('; ')}` : '';
           b.onclick = () => {
@@ -2846,11 +3778,14 @@
           b.type = 'button';
           b.textContent = l;
           b.setAttribute('aria-pressed', k === CJ.model);
+          b.dataset.k = k;
           b.disabled = k === 'poisson' && !canPois;
           b.title = b.disabled
             ? 'Poisson needs a count outcome (n_site, n_mus, n_mus_pre1857)'
             : '';
           b.onclick = () => {
+            if (k === 'poisson' && CJ.model !== 'poisson')
+              CJ.exposure = EXPO.find((x) => cjHas(x, CJ.unit)) || '';
             CJ.model = k;
             CJ.dirty = true;
             cjForm();
@@ -2862,10 +3797,10 @@
         $('cjOpts').innerHTML =
           (CJ.model === 'ols'
             ? `<label class="fld"><span class="lbl">Standard errors</span><select id="cjSe"><option value="hc1" ${CJ.se === 'hc1' ? 'selected' : ''}>Robust (HC1), the default</option><option value="classical" ${CJ.se === 'classical' ? 'selected' : ''}>Classical (assumes equal variance)</option></select></label>`
-            : `<label class="fld"><span class="lbl">Exposure (offset log population)</span><select id="cjEx"><option value="">None: model the count itself</option>${ex.map((k) => `<option value="${k}" ${CJ.exposure === k ? 'selected' : ''}>${esc(cjLab(k))}</option>`).join('')}</select></label><div class="def">Standard errors are robust (sandwich); a Poisson model's own SEs assume the variance equals the mean.</div>`) +
+            : `<label class="fld"><span class="lbl">Exposure (offset log population)</span><select id="cjEx"><option value="">None: model the count itself (mostly measures population)</option>${ex.map((k) => `<option value="${k}" ${CJ.exposure === k ? 'selected' : ''}>${esc(cjLab(k))}</option>`).join('')}</select></label><div class="def">Standard errors are robust (sandwich); a Poisson model's own SEs assume the variance equals the mean.</div>`) +
           (CJ.unit === 'hex'
             ? '<div class="fld"><span class="lbl">Neighbours for Moran\'s I</span>H3 ring-1 neighbours (the six around each hexagon)</div>'
-            : `<div class="fld"><span class="lbl">Neighbours for Moran's I</span><div class="cjbtns" style="margin:0;align-items:center"><select id="cjW" style="flex:1 1 200px;width:auto"><option value="contig" ${CJ.weights === 'contig' ? 'selected' : ''}>Contiguity (shared boundary)</option><option value="knn" ${CJ.weights === 'knn' ? 'selected' : ''}>k nearest centroids</option></select>${CJ.weights === 'knn' ? `<label class="chk">k <input id="cjK" type="number" min="1" max="20" value="${CJ.k}" /></label>` : ''}</div></div>`);
+            : `<div class="fld"><span class="lbl">Neighbours for Moran's I</span><div class="cjbtns" style="margin:0;align-items:center"><select id="cjW" aria-label="Neighbours for Moran's I" style="flex:1 1 200px;width:auto"><option value="contig" ${CJ.weights === 'contig' ? 'selected' : ''}>Contiguity (shared boundary)</option><option value="knn" ${CJ.weights === 'knn' ? 'selected' : ''}>k nearest centroids</option></select>${CJ.weights === 'knn' ? `<label class="chk">k <input id="cjK" type="number" min="1" max="20" value="${CJ.k}" /></label>` : ''}</div></div>`);
         // Wire the rows.
         const wire = (box, arr, role) => {
           box.querySelectorAll('.cjrow').forEach((r) => {
@@ -2885,6 +3820,8 @@
               else arr.splice(+r.dataset.i, 1);
               CJ.dirty = true;
               cjForm();
+              const add = box.querySelector('[data-add]');
+              if (add) add.focus();
             };
           });
           const add = box.querySelector('[data-add]');
@@ -2900,6 +3837,10 @@
               if (again) again.focus();
             };
         };
+        if (keep) {
+          const again = $(keep[0]) && $(keep[0]).querySelector(`[data-k="${keep[1]}"]`);
+          if (again) again.focus();
+        }
         wire($('cjY'), null, 'y');
         wire($('cjX'), CJ.x, 'x');
         wire($('cjC'), CJ.c, 'c');
@@ -2942,6 +3883,9 @@
             perms: 2000,
             mperms: 999,
             seed: 20261030,
+            composite: [CJ.y, ...CJ.x, ...CJ.c].some((v) => v && v.key === 'composite')
+              ? CJ.composite
+              : null,
           }),
         );
       }
@@ -2957,53 +3901,102 @@
           exposure: s.exposure || '',
           weights: s.weights === 'knn' ? 'knn' : 'contig',
           k: s.k || 6,
+          composite: s.composite || null,
           dirty: true,
+          prefilled: false,
         });
         cjForm();
       }
-      // Run a spec now and append it to the log. Recorded (timestamped) before it is computed.
-      function record(spec, maupOf) {
+      // Run a spec now and append it to the log, with when it was run and how it was arrived at.
+      function record(spec, maupOf, ctx) {
         const ts = new Date().toISOString(),
           res = runSpec(spec, spec.unit, maupOf == null),
-          e = entryOf(spec, res, ts, maupOf);
+          e = entryOf(spec, res, ts, maupOf, ctx);
         LOG.push(e);
         saveLog();
         return { e, res };
       }
-      function validSpec(s) {
-        if (!s || typeof s !== 'object' || !s.y || !Array.isArray(s.x) || !Array.isArray(s.c))
+      // Every field of a spec is checked, since specs arrive from files other people send. strict =
+      // false (reading the browser's own log) accepts specs written before a field existed.
+      function validSpec(s, lenient) {
+        if (!s || typeof s !== 'object' || Array.isArray(s)) return 'not a conjecture spec';
+        if (!s.y || typeof s.y !== 'object' || !Array.isArray(s.x) || !Array.isArray(s.c))
           return 'not a conjecture spec';
-        if (!UNITS.some((u) => u[0] === s.unit)) return `unknown unit ${s.unit}`;
-        for (const v of [s.y, ...s.x, ...s.c]) {
-          if (!CJV[v.key]) return `unknown variable ${v.key}`;
-          if (!TF[v.tf]) return `unknown transform ${v.tf}`;
+        if (s.statement != null && (typeof s.statement !== 'string' || s.statement.length > 4000))
+          return 'the statement must be text';
+        if (!UNITS.some((u) => u[0] === s.unit))
+          return `unknown unit ${String(s.unit).slice(0, 40)}`;
+        if (s.x.length > 10 || s.c.length > 20) return 'too many variables';
+        const keys = [];
+        if (s.composite != null) {
+          if (!goodParts(s.composite))
+            return 'the composite needs 2 to 30 indicators with a direction';
+          ensureComposite(s.composite, null);
         }
+        for (const v of [s.y, ...s.x, ...s.c]) {
+          if (!v || typeof v !== 'object') return 'a variable is malformed';
+          if (v.key === 'composite' && s.composite == null)
+            return 'the composite has no components';
+          if (!own(CJV, v.key)) return `unknown variable ${String(v.key).slice(0, 60)}`;
+          if (!own(TF, v.tf)) return `unknown transform ${String(v.tf).slice(0, 40)}`;
+          keys.push(v.key);
+        }
+        if (new Set(keys).size !== keys.length) return 'a variable appears twice';
         if (!s.x.length) return 'no explanatory variable';
-        if (s.x.some((v) => !(v.sign in SIGNL))) return 'an expected sign is missing';
-        if (!['ols', 'poisson'].includes(s.model)) return `unknown model ${s.model}`;
-        for (const k of ['perms', 'mperms', 'seed'])
-          if (!Number.isInteger(s[k])) return `${k} missing`;
+        if (s.x.some((v) => !['+', '-', '0'].includes(v.sign)))
+          return 'an expected sign is missing';
+        if (!['ols', 'poisson'].includes(s.model))
+          return `unknown model ${String(s.model).slice(0, 40)}`;
+        if (s.model === 'poisson' && (!isCount(s.y.key) || s.y.tf !== 'none'))
+          return 'Poisson needs an untransformed count outcome';
+        if (s.model === 'ols' && !['hc1', 'classical'].includes(s.se))
+          return 'unknown standard errors';
+        if (s.exposure != null && !EXPO.includes(s.exposure)) return 'unknown exposure';
+        if (!['contig', 'knn', 'h3'].includes(s.weights) && !(lenient && s.weights == null))
+          return 'unknown neighbour weights';
+        if (!Number.isInteger(s.k) || s.k < 1 || s.k > 20)
+          return 'k must be a whole number, 1 to 20';
+        if (!Number.isInteger(s.perms) || s.perms < 99 || s.perms > 20000)
+          return 'perms must be a whole number, 99 to 20,000';
+        if (!Number.isInteger(s.mperms) || s.mperms < 99 || s.mperms > 9999)
+          return 'mperms must be a whole number, 99 to 9,999';
+        if (!Number.isInteger(s.seed) || s.seed < 0 || s.seed > 4294967295)
+          return 'seed must be a whole number';
         return null;
       }
       function cjRun() {
         cjMsg('');
+        if (!CJ.statement.trim())
+          return cjMsg('Write the conjecture in words first: it is saved with the test.');
         if (!CJ.y) return cjMsg('Choose an outcome.');
         if (!CJ.x.length) return cjMsg('Add at least one explanatory variable.');
         const unset = CJ.x.filter((v) => !v.sign);
         if (unset.length)
           return cjMsg(
-            `First say which sign you expect for ${unset.map((v) => cjLab(v.key)).join('; ')} (or "no prediction"). Stating it before the result is what makes this a test.`,
+            `First say which sign you expect for ${unset.map((v) => cjLab(v.key)).join('; ')} (or "no prediction", which marks the test as exploratory).`,
           );
-        const spec = specOf();
-        $('cjRun').disabled = true;
-        cjMsg('Recorded. Computing…');
+        const spec = specOf(),
+          btn = $('cjRun');
+        btn.setAttribute('aria-busy', 'true');
+        btn.onclick = null;
+        cjMsg('Computing…');
         setTimeout(() => {
-          const { e, res } = record(spec, null);
-          $('cjRun').disabled = false;
-          cjMsg('');
-          cjResult(e, res);
-          cjLog();
-          $('cjOut').scrollIntoView({ block: 'start' });
+          try {
+            const { e, res } = record(spec, null, { prefilled: CJ.prefilled, views: VIEWS.size });
+            cjResult(e, res);
+            cjLog();
+            cjMsg(
+              `Test #${e.id} done${SAVE_OK ? '' : '. This browser did not save it: export before closing'}.`,
+            );
+            $('cjOut').scrollIntoView({ block: 'start' });
+            const h = $('cjOut').querySelector('h3');
+            if (h) h.focus();
+          } catch (err) {
+            cjMsg('The test failed: ' + err.message);
+          } finally {
+            btn.removeAttribute('aria-busy');
+            btn.onclick = cjRun;
+          }
         }, 30);
       }
       $('cjRun').onclick = cjRun;
@@ -3014,47 +4007,170 @@
         const out = $('cjOut'),
           s = e.spec;
         if (e.error) {
-          out.innerHTML = `<h3>Test #${e.id}</h3><div class="note">${esc(e.error)}</div>`;
+          out.innerHTML = `<h3 tabindex="-1">Test #${esc(e.id)}</h3><div class="note">${esc(e.error)}</div>`;
           return;
         }
         const B = bh(),
           pois = s.model === 'poisson',
           cls = !pois && s.se === 'classical',
           lab = pois ? 'robust (sandwich)' : cls ? 'classical' : 'robust (HC1)',
+          cuts = e.cuts || [],
+          M = e.moran,
+          clustered = M && M.p != null && M.p < 0.05 && M.I > M.EI,
           nSess = LOG.length - SESSION0;
-        const signs = e.terms
-          .filter((t) => t.role === 'x')
-          .map((t) => {
+        const xs = e.terms.filter((t) => t.role === 'x');
+        const verdicts = xs
+          .map((t, xi) => {
             const g = signOf(t),
-              pa = B.adj.get(`${e.id}:${t.key}`),
-              obs = g.obs > 0 ? '+' : g.obs < 0 ? '−' : '0';
-            const head =
+              obs = g.obs > 0 ? '+' : g.obs < 0 ? '−' : '0',
+              pS = cls ? t.pC : t.pR,
+              lo = cls ? t.loC : t.loR,
+              hi = cls ? t.hiC : t.hiR,
+              pa = B.of(e, t),
+              F = e.frag,
+              j = e.terms.indexOf(t),
+              flags = [];
+            if (e.few)
+              flags.push(
+                `No p-value: ${e.n} ${UNITN[e.unit]} leave ${e.n - e.k} residual degrees of freedom, fewer than ${MIN_DF}.`,
+              );
+            else {
+              const pK = (t.pK || []).filter((p) => p != null);
+              if (pS != null && pS < 0.05 && t.pH != null && t.pH >= 0.05)
+                flags.push(
+                  'Distinguishable from zero only if the units are independent; not once spatial correlation is allowed for (Conley SEs or the spatial-noise placebo).',
+                );
+              if (clustered)
+                flags.push(
+                  `The residuals are spatially clustered (Moran's I ${fn(M.I, 2)}, ${peq(M.p)}): the ${lab} p understates the uncertainty; read the Conley ones.`,
+                );
+              if (t.placebo && t.placebo.capped)
+                flags.push(
+                  e.unit === 'hex'
+                    ? 'This variable is smoother than the smoothest placebo noise the page draws for hexagons, so the placebo p may be too small; test it at tehsil or district as well.'
+                    : 'This variable is smoother than the smoothest neighbour-smoothed noise; the kernel placebo covers wider correlation.',
+                );
+              if (pK.length < (t.pK || []).length)
+                flags.push(
+                  'At some cutoffs the Conley covariance was not positive definite (shown as —).',
+                );
+            }
+            // Native support first: a level a source states beats a guess from distinct values.
+            const sup = IND[t.key] && IND[t.key].support;
+            const supFlag =
+              sup &&
+              (sup.coarse === 1 || (sup.n && sup.n < e.n) || /parent's value/.test(sup.text));
+            if (supFlag)
+              flags.push(
+                `${esc(cjLab(t.key))} is measured per ${esc(sup.text)}${sup.n && !sup.text.includes(String(sup.n)) ? ` (${sup.n} units)` : ''}, so the ${e.n} ${UNITN[e.unit]} here are not ${e.n} independent observations of it, and the Conley p at the widest cutoff is the better guide.`,
+              );
+            if (sup && sup.kind === 'modelled')
+              flags.push(
+                `${esc(cjLab(t.key))} is a modelled estimate; its own prediction error is not in these standard errors.`,
+              );
+            // Counts and archive variables take few values by nature; they are not "coarse".
+            const dist = e.distinct && e.distinct[t.key];
+            if (
+              !supFlag &&
+              dist &&
+              typeof dist === 'object' &&
+              !isCount(t.key) &&
+              !dist.whole &&
+              CJV[t.key]?.group !== 'Archive' &&
+              dist.k + 1 < dist.m / 2
+            )
+              flags.push(
+                `${esc(cjLab(t.key))} takes only ${dist.k + 1} distinct values across these ${e.n} ${UNITN[e.unit]}. If it was measured for larger areas (an IPC zone, an older district, a province), the ${e.n} units are not ${e.n} independent observations of it, and the Conley p at the widest cutoff is the better guide; check its definition.`,
+              );
+            if (F) {
+              const flip = (f) => f && Math.sign(f.b[j]) !== Math.sign(t.b);
+              const lost = (f) => f && pS != null && pS < 0.05 && f.p[j] != null && f.p[j] >= 0.05;
+              if (F.lahore && (flip(F.lahore.fit) || lost(F.lahore.fit)))
+                flags.push(
+                  `Without Lahore district (${F.lahore.nDrop} ${UNITN[e.unit]}), the estimate ${flip(F.lahore.fit) ? 'changes sign' : 'is no longer distinguishable from zero'}.`,
+                );
+              const fl = F.lopo.filter((o) => flip(o.fit)).map((o) => o.name),
+                ls = F.lopo.filter((o) => !flip(o.fit) && lost(o.fit)).map((o) => o.name);
+              if (fl.length) flags.push(`Dropping ${esc(fl.join(' or '))} changes the sign.`);
+              if (ls.length)
+                flags.push(
+                  `Dropping ${esc(ls.join(' or '))} leaves it indistinguishable from zero.`,
+                );
+              if (flip(F.top.fit) || lost(F.top.fit))
+                flags.push(
+                  `One ${UNIT1[e.unit]}, ${esc(F.top.name)}, decides it: without it the estimate ${flip(F.top.fit) ? 'changes sign' : 'is no longer distinguishable from zero'}.`,
+                );
+              // A large move counts too, whichever way: an estimate that halves or doubles when one
+              // place is left out describes that place as much as the pattern.
+              const moves = [
+                F.lahore ? ['Lahore district', F.lahore.fit] : null,
+                [F.top.name, F.top.fit],
+                ...F.lopo.map((o) => [o.name, o.fit]),
+              ]
+                .filter((m) => m && m[1] && !flip(m[1]))
+                .map(([nm2, f]) => [nm2, f.b[j], (f.b[j] - t.b) / Math.abs(t.b)])
+                .filter((m) => Math.abs(m[2]) > 0.5)
+                .sort((a, b) => Math.abs(b[2]) - Math.abs(a[2]));
+              if (moves.length)
+                flags.push(
+                  `Without ${esc(moves[0][0])} the estimate moves from ${fn(t.b, 3)} to ${fn(moves[0][1], 3)} (${moves[0][2] > 0 ? '+' : ''}${Math.round(100 * moves[0][2])}%)${moves.length > 1 ? `; ${moves.length - 1} other check${moves.length > 2 ? 's' : ''} move it by more than half as well` : ''}.`,
+                );
+              if (xi === 0 && (F.lev.h > 0.5 || F.lev.h > 3 * F.lev.mean))
+                flags.push(
+                  `${esc(F.lev.name)} has leverage ${fn(F.lev.h, 2)}, against an average of ${fn(F.lev.mean, 3)}: the fit leans on it.`,
+                );
+            }
+            const exp =
               g.match == null
-                ? `No sign was predicted; the estimate is ${obs}.`
-                : g.match
-                  ? `Expected ${g.exp === '+' ? '+' : '−'}, observed ${obs}: <b class="match">the sign matches</b>.`
-                  : `Expected ${g.exp === '+' ? '+' : '−'}, observed ${obs}: <b class="opp">the sign is the opposite</b>.`;
-            const weak =
-              t.pR != null && t.pR >= 0.05 ? ' The data do not tell it apart from zero.' : '';
-            return `<div class="row"><div>${esc(termName(t.key, t.tf))}</div><div>${head} Robust ${peq(t.pR)}; adjusted across the ${B.m} test${B.m === 1 ? '' : 's'} in the log (Benjamini–Hochberg), ${peq(pa)}.${weak}</div></div>`;
+                ? `No sign was predicted (exploratory); the estimate is ${obs}.`
+                : `Expected ${g.exp === '+' ? '+' : '−'}; the estimate is ${obs}${g.match ? '' : ', the opposite'}.`;
+            return `<div class="verdict"><div class="vt">${esc(termName(t.key, t.tf))}</div>
+              <div>Estimate ${fn(t.b, 4)}${lo != null ? ` (95% CI ${fn(lo, 3)} to ${fn(hi, 3)}, ${lab})` : ''}. ${exp}</div>
+              ${e.few ? '' : `<div><b>Headline ${peq(t.pH)}</b> <span class="def">(the largest of: the ${lab} p, ${fp(pS)}; the Conley p at ${cuts.map((c) => c + ' km').join(', ')}, ${(t.pK || []).map(fp).join(', ')}; and the spatial-noise placebo p, ${fp(t.placebo?.p)}${t.placebo ? `, ${t.placebo.R} draws per family of noise as spatially smooth as this variable (its Moran's I ${fn(t.placebo.Ix, 2)}): neighbour-smoothed, p ${fp(t.placebo.pN)}${t.placebo.bw ? `; ${t.placebo.bw} km kernel, p ${fp(t.placebo.pK)}` : '; the kernel family is not run for hexagons'}` : ''})</span>; adjusted for the ${B.m} distinct hypotheses in the log (Benjamini–Hochberg): <span data-bh="${esc(e.id)}:${xi}">${peq(pa)}</span>.</div>`}
+              ${flags.length ? `<ul class="flags">${flags.map((f) => `<li>${f}</li>`).join('')}</ul>` : '<div class="def">No fragility flag: the sign and the verdict hold under every check below.</div>'}</div>`;
           })
           .join('');
         const rows = e.terms
           .map((t) => {
             const se = cls ? t.seC : t.seR,
-              p = cls ? t.pC : t.pR,
-              lo = cls ? t.loC : t.loR,
-              hi = cls ? t.hiC : t.hiR;
-            return `<tr><td>${t.role === 'const' ? '(intercept)' : esc(termName(t.key, t.tf))}${t.role === 'c' ? ' <span class="def">control</span>' : ''}</td><td class="num">${fn(t.b, 4)}</td><td class="num">${fn(se, 4)}</td><td class="num">${fn(t.b / se, 2)}</td><td class="num">${fp(p)}</td><td class="num">${fn(lo, 3)} to ${fn(hi, 3)}</td>${pois ? `<td class="num">${fn(Math.exp(t.b), 3)}</td>` : ''}</tr>`;
+              p = cls ? t.pC : t.pR;
+            return `<tr><td>${t.role === 'const' ? '(intercept)' : esc(termName(t.key, t.tf))}${t.role === 'c' ? ' <span class="def">control</span>' : ''}</td><td class="num">${fn(t.b, 4)}</td><td class="num">${fn(se, 4)}</td><td class="num">${fp(p)}</td>${cuts.map((c, ci) => `<td class="num">${fn(t.seK?.[ci], 4)}<br><span class="def">p ${fp(t.pK?.[ci])}</span></td>`).join('')}${pois ? `<td class="num">${fn(Math.exp(t.b), 3)}</td>` : ''}</tr>`;
           })
           .join('');
         const fit = pois
-          ? `McFadden pseudo-R² ${fn(e.pseudo, 3)} · Pearson dispersion ${fn(e.disp, 2)}${e.disp > 1.5 ? ' (overdispersed: the robust SEs allow for it; the model-based ones would not)' : ''} · ${e.iter} IRLS iterations${s.exposure ? ` · exposure: ${esc(cjLab(s.exposure))}` : ''}`
+          ? `McFadden pseudo-R² ${fn(e.pseudo, 3)} · Pearson dispersion ${fn(e.disp, 2)}${e.disp > 1.5 ? ' (overdispersed: the robust SEs allow for it; the model-based ones would not)' : ''} · ${e.iter} IRLS iterations · ${s.exposure ? `exposure: ${esc(cjLab(s.exposure))}` : '<b>no exposure: the count mostly measures how many people live there</b>'}`
           : `R² ${fn(e.r2, 3)} · adjusted R² ${fn(e.adj, 3)} · ${e.df} residual df`;
         const wald = e.wald
           ? e.wald.kind === 'F'
-            ? `Joint test of all slopes (robust Wald): F(${e.wald.df1}, ${e.wald.df2}) = ${fn(e.wald.stat, 2)}, ${peq(e.wald.p)}.`
+            ? `Joint test of all slopes (${lab} Wald): F(${e.wald.df1}, ${e.wald.df2}) = ${fn(e.wald.stat, 2)}, ${peq(e.wald.p)}.`
             : `Joint test of all slopes (robust Wald): χ²(${e.wald.df1}) = ${fn(e.wald.stat, 2)}, ${peq(e.wald.p)}.`
+          : '';
+        const F = e.frag;
+        const fragT = F
+          ? `<h3>How much one place decides it</h3>
+            <div class="def">Largest leverage: ${esc(F.lev.name)}, ${fn(F.lev.h, 3)} (the average is ${fn(F.lev.mean, 3)}). Each row refits the same specification without the units named, keeping the transforms of the full fit; p is ${lab}.</div>
+            <div class="scroll"><table><tr><th>Left out</th><th class="num">n</th>${xs.map((t) => `<th class="num">${esc(termName(t.key, t.tf))}</th>`).join('')}</tr>
+            <tr><td>nothing (as fitted)</td><td class="num">${e.n}</td>${xs.map((t) => `<td class="num">${fn(t.b, 3)}<br><span class="def">p ${fp(cls ? t.pC : t.pR)}</span></td>`).join('')}</tr>
+            ${[
+              F.lahore ? ['Lahore district', F.lahore.fit] : null,
+              [`the most influential ${UNIT1[e.unit]}: ${F.top.name}`, F.top.fit],
+              ...F.lopo.map((o) => [`${o.name} (${o.nDrop})`, o.fit]),
+            ]
+              .filter(Boolean)
+              .map(
+                ([l, f]) =>
+                  `<tr><td>${esc(l)}</td>${
+                    f
+                      ? `<td class="num">${f.n}</td>${xs
+                          .map((t) => {
+                            const j = e.terms.indexOf(t);
+                            return `<td class="num">${fn(f.b[j], 3)}<br><span class="def">p ${fp(f.p[j])}</span></td>`;
+                          })
+                          .join('')}`
+                      : `<td colspan="${xs.length + 1}" class="def">cannot be fitted without them</td>`
+                  }</tr>`,
+              )
+              .join('')}</table></div>`
           : '';
         const corr = (e.corr || [])
           .map(
@@ -3062,19 +4178,19 @@
               `<tr><td>${esc(termName(c.key, c.tf))}</td><td class="num">${fn(c.r, 3)} (p ${fp(c.pr)})</td><td class="num">${fn(c.rho, 3)} (p ${fp(c.ps)})</td></tr>`,
           )
           .join('');
-        const M = e.moran,
-          mtext = moranText(M);
-        out.innerHTML = `<h3>Result of test #${e.id}</h3>
-          <div class="def">${esc(UNITS.find((u) => u[0] === e.unit)[1])} level · ${pois ? 'Poisson' : 'OLS'} · ${lab} SEs · n = ${e.n} ${UNITN[e.unit]}; ${e.nMiss} left out for a missing value${e.nBad ? `, ${e.nBad} where the model or a transform is undefined` : ''}. Recorded ${esc(e.ts.replace('T', ' ').slice(0, 19))} UTC, before the numbers were computed.</div>
+        const ctx = e.ctx || {};
+        out.innerHTML = `<h3 tabindex="-1">Result of test #${esc(e.id)}</h3>
+          <div class="def">${esc(UNITS.find((u) => u[0] === e.unit)[1])} level · ${pois ? 'Poisson' : 'OLS'} · n = ${e.n} ${UNITN[e.unit]}; ${e.nMiss} left out for a missing value${e.nBad ? `, ${e.nBad} where the model is undefined` : ''}. Run ${esc(String(e.ts).replace('T', ' ').slice(0, 19))} UTC${ctx.prefilled ? ', specification taken from the map' : ''}${ctx.views ? `, after ${ctx.views} map view${ctx.views === 1 ? '' : 's'} this session` : ''}.</div>
           ${e.statement ? `<div class="row"><i>${esc(e.statement)}</i></div>` : ''}
-          ${signs}
-          <div class="scroll"><table class="cjres"><tr><th>Term</th><th class="num">Coef${pois ? ' (log rate)' : ''}</th><th class="num">SE</th><th class="num">${pois ? 'z' : 't'}</th><th class="num">p</th><th class="num">95% CI</th>${pois ? '<th class="num">Rate ratio</th>' : ''}</tr>${rows}</table></div>
-          <div class="def">${fit}. ${wald}${e.kappa > 1e7 ? ` <b>Close to collinear</b> (condition number ${e.kappa.toExponential(1)}): the coefficients are unstable.` : ''}${ST ? '' : ' <b>p-values need jStat, which did not load (offline?).</b>'}</div>
+          ${verdicts}
+          <div class="scroll"><table class="cjres"><tr><th>Term</th><th class="num">Coef${pois ? ' (log rate)' : ''}</th><th class="num">SE, ${lab}</th><th class="num">p</th>${cuts.map((c) => `<th class="num">Conley ${c} km<br>SE, p</th>`).join('')}${pois ? '<th class="num">Rate ratio</th>' : ''}</tr>${rows}</table></div>
+          <div class="def">${fit}. ${wald}${e.kappa > 1e7 ? ` <b>Close to collinear</b> (condition number ${e.kappa.toExponential(1)}): the coefficients are unstable.` : ''} Conley SEs: Bartlett kernel on distances between ${e.unit === 'hex' ? 'hexagon centres' : 'area-weighted centroids'}, with the same small-sample factor as the robust SEs.${ST ? '' : ' <b>p-values need jStat, which did not load (offline?).</b>'}</div>
+          <h3>Spatial check</h3><div>${esc(moranText(M))}</div>
+          ${fragT}
           <h3>Correlations, outcome with each regressor</h3>
           <div class="scroll"><table><tr><th>Regressor</th><th class="num">Pearson r</th><th class="num">Spearman ρ</th></tr>${corr}</table></div>
-          <div class="def">p-values from ${s.perms.toLocaleString()} permutations of the outcome (seed ${s.seed}), two-sided; on the same ${e.n} ${UNITN[e.unit]} and transforms as the regression.</div>
-          <h3>Spatial check</h3><div>${esc(mtext)}</div>
-          <div class="note">${nSess} test${nSess === 1 ? '' : 's'} this session, ${LOG.length} in the log: with that many tries some p-values fall under 0.05 by chance, so read the adjusted one. Ecological: these are associations among ${UNITN[e.unit]}, not among people or among shrines, and nothing here shows what causes what.${usesArchive(s) ? ' The archive is curated, not a census: a shrine variable measures where the archive has looked as well as where shrines are.' : ''}${[s.y, ...s.x, ...s.c].some((v) => v.key === 'n_mus_pre1857') ? ' Pre-1857 counts a numeric year below 1857; 25 of the 80 Muslim shrines have no numeric year and count as not pre-1857.' : ''}</div>
+          <div class="def">p-values from ${s.perms.toLocaleString()} permutations of the outcome (seed ${s.seed}), two-sided, on the same ${e.n} ${UNITN[e.unit]} and transforms as the regression. Permutation treats the units as exchangeable, so it shares the regression's blindness to spatial correlation.</div>
+          <div class="note">${nSess} test${nSess === 1 ? '' : 's'} this session; ${B.m} distinct hypotheses in the log, which the Benjamini–Hochberg adjustment covers. It does not cover the map views and side-panel correlations looked at first${ctx.views ? ` (${ctx.views} this session)` : ''}, so it understates the search behind any test prompted by them. Ecological: these are associations among ${UNITN[e.unit]}, not among people or among shrines, and nothing here shows what causes what.${usesArchive(s) ? ' The archive is curated, not a census: a shrine variable measures where the archive has looked as well as where shrines are, so a result about it is a result about archive coverage.' : ''}${[s.y, ...s.x, ...s.c].some((v) => v.key === 'n_mus_pre1857') ? ' Pre-1857 counts a numeric year below 1857; 25 of the 80 Muslim shrines have no numeric year and count as not pre-1857.' : ''}${[s.y, ...s.x, ...s.c].some((v) => DEFECT[v.key]) ? ' <b>Uses a travel-time indicator with a known coastal data defect</b> (see the side panel): coastal values are biased.' : ''}</div>
           <div class="cjbtns"><button class="btn" type="button" id="cjResMap">Show residuals on the map</button><button class="btn" type="button" id="cjMaupBtn">Same test at every unit</button></div>
           <svg id="cjRvf" width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Residuals against fitted values"></svg>
           <div id="cjMaup"></div>
@@ -3106,14 +4222,31 @@
             }),
         );
       }
+      // Benjamini-Hochberg values already on screen are refreshed whenever the log changes.
+      function refreshBH() {
+        const B = bh();
+        document.querySelectorAll('[data-bh]').forEach((el) => {
+          const [id, xi] = el.dataset.bh.split(':').map(Number),
+            e = LOG.find((x) => x.id === id);
+          if (!e || e.error) return;
+          el.textContent = peq(B.of(e, e.terms.filter((t) => t.role === 'x')[xi]));
+        });
+        document.querySelectorAll('[data-bhm]').forEach((el) => (el.textContent = B.m));
+      }
       function moranText(M) {
         if (!M) return "Moran's I: no unit in the fit has a neighbour in the fit.";
-        const head = `Moran's I of the residuals = ${fn(M.I, 3)} (expected ${fn(M.EI, 3)} without spatial pattern), permutation ${peq(M.p)}; ${M.w}${M.iso ? `, ${M.iso} without a neighbour in the fit` : ''}.`;
-        return M.p < 0.05 && M.I > M.EI
-          ? `${head} Neighbouring units share what the model leaves unexplained, so the standard errors above are likely too small and the p-values too optimistic.`
-          : M.p < 0.05
-            ? `${head} Neighbours differ more than chance would make them (negative autocorrelation); the standard errors may be off.`
-            : `${head} No clear spatial pattern in the residuals at this weighting, which does not rule one out at another scale.`;
+        if (M.p == null)
+          return `Moran's I of the residuals = ${fn(M.I, 3)}; ${M.w}. No test: too few units, or neighbours so many that I cannot vary.`;
+        const how =
+          M.method === 'permutation'
+            ? `two-sided permutation ${peq(M.p)} (${'expected value'} = the permutation mean)`
+            : `Cliff–Ord test for regression residuals (as spdep::lm.morantest), z = ${fn(M.z, 2)}, two-sided ${peq(M.p)}`;
+        const head = `Moran's I of the residuals = ${fn(M.I, 3)}, expected ${fn(M.EI, 3)} without spatial pattern; ${how}; ${M.w}${M.iso ? `, ${M.iso} without a neighbour in the fit` : ''}.`;
+        return M.p != null && M.p < 0.05 && M.I > M.EI
+          ? `${head} Neighbouring units share what the model leaves unexplained, so standard errors that treat units as independent are too small; the Conley SEs allow for it within their cutoff.`
+          : M.p != null && M.p < 0.05
+            ? `${head} Neighbours differ more than chance would make them (negative autocorrelation).`
+            : `${head} No clear spatial pattern in the residuals at this weighting. That does not make the independent-unit p-values safe: the test has little power against correlation at other scales, so the Conley p remains the headline.`;
       }
       function rvf(r) {
         const svg = $('cjRvf'),
@@ -3185,48 +4318,63 @@
         }
       }
       // The same specification at every unit where all its variables exist, side by side. Each run
-      // is a further test and goes into the log (and into the Benjamini-Hochberg family).
+      // is a further test and goes into the log (and, once per distinct hypothesis, into the
+      // Benjamini-Hochberg family). Units run one at a time so the page stays responsive.
       function maup(e) {
-        const box = $('cjMaup');
-        box.innerHTML = '<div class="def">Running at every unit…</div>';
-        setTimeout(() => {
-          const runs = UNITS.map(([u]) => {
-            if (u === e.unit) return { u, e };
-            const spec = {
-              ...e.spec,
-              unit: u,
-              weights: u === 'hex' ? 'h3' : e.spec.weights === 'h3' ? 'contig' : e.spec.weights,
-            };
-            const d = cjData(spec, u);
-            if (d.error) return { u, skip: d.error };
-            return { u, e: record(spec, e.id).e };
-          });
+        const box = $('cjMaup'),
+          btn = $('cjMaupBtn'),
+          runs = [];
+        btn.disabled = true;
+        const step = (k) => {
+          if (k < UNITS.length) {
+            const [u, l] = UNITS[k];
+            box.innerHTML = `<div class="def" role="status">Running at ${esc(l.toLowerCase())} level (${k + 1} of ${UNITS.length})…</div>`;
+            setTimeout(() => {
+              if (u === e.unit) runs.push({ u, e });
+              else {
+                const spec = {
+                  ...e.spec,
+                  unit: u,
+                  weights: u === 'hex' ? 'h3' : e.spec.weights === 'h3' ? 'contig' : e.spec.weights,
+                };
+                const d = cjData(spec, u);
+                runs.push(d.error ? { u, skip: d.error } : { u, e: record(spec, e.id, e.ctx).e });
+              }
+              step(k + 1);
+            }, 20);
+            return;
+          }
           const xs = e.spec.x;
           box.innerHTML =
-            `<h3>Same test at every unit</h3><div class="scroll"><table><tr><th>Unit</th><th class="num">n</th>${xs.map((v) => `<th class="num">${esc(termName(v.key, v.tf))}</th>`).join('')}<th class="num">${e.model === 'poisson' ? 'Pseudo-R²' : 'R²'}</th><th class="num">Moran's I</th></tr>` +
+            `<h3>Same test at every unit</h3><div class="scroll"><table><tr><th>Unit</th><th class="num">n (left out)</th>${xs.map((v) => `<th class="num">${esc(termName(v.key, v.tf))}</th>`).join('')}<th class="num">${e.model === 'poisson' ? 'Pseudo-R²' : 'R²'}</th><th class="num">Moran's I</th></tr>` +
             runs
               .map(({ u, e: r, skip }) => {
                 const nm = esc(UNITS.find((x) => x[0] === u)[1]);
                 if (skip || r.error)
                   return `<tr><td>${nm}</td><td colspan="${xs.length + 3}" class="def">${esc(skip || r.error)}</td></tr>`;
-                return `<tr><td>${nm}${r.id === e.id ? ' <span class="def">(as tested)</span>' : ''}</td><td class="num">${r.n}${r.n < 30 ? '<br><span class="def">few units</span>' : ''}</td>${xs
+                return `<tr><td>${nm}${r.id === e.id ? ' <span class="def">(as tested)</span>' : ''}</td><td class="num">${r.n} (${r.nMiss + r.nBad})${r.few ? '<br><span class="def">too few for p</span>' : ''}</td>${xs
                   .map((v) => {
                     const t = r.terms.find((t) => t.role === 'x' && t.key === v.key);
-                    return `<td class="num">${fn(t.b, 3)}<br><span class="def">p ${fp(t.pR)}</span></td>`;
+                    return `<td class="num">${fn(t.b, 3)}<br><span class="def">p ${fp(headP(t))}</span></td>`;
                   })
                   .join(
                     '',
                   )}<td class="num">${fn(r.model === 'poisson' ? r.pseudo : r.r2, 3)}</td><td class="num">${r.moran ? fn(r.moran.I, 3) + `<br><span class="def">p ${fp(r.moran.p)}</span>` : '—'}</td></tr>`;
               })
               .join('') +
-            `</table></div><div class="def">Coefficient with its robust p. A pattern that holds at one unit and not another is about how the units are drawn (the modifiable areal unit problem), not only about places. Each re-run is logged as a further test. A coefficient on a z-scored or log variable compares across units; a raw one may not, because the variable's spread differs.</div>`;
+            `</table></div><div class="def">Coefficient with its headline p (the largest of the robust, Conley and spatial-noise placebo p-values). Read this as <b>scale sensitivity</b>, not as a test of the modifiable areal unit problem, which would also need different zonings at one scale. Each unit has its own sample (the units left out differ, and census measures reach only some tehsils), and z-scores use that unit's own spread, so the coefficients estimate different quantities and need not agree even if nothing about places changed. Each re-run is logged as a further test.</div>`;
+          btn.disabled = false;
           cjLog();
-        }, 30);
+          refreshBH();
+        };
+        step(0);
       }
 
       // ---- test a conjecture: replication code --------------------------------------------------
       // Long names: Stata allows 32 characters. import delimited renames a longer header and keeps it
       // as the variable label, so the code finds it by its label.
+      // A statement goes into a comment line, so nothing in it may start a new line.
+      const oneLine = (t) => String(t).replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]+/g, ' ');
       function stataCode(e) {
         const s = e.spec,
           vars = [
@@ -3236,7 +4384,7 @@
           ],
           L = [
             `* Test #${e.id} from the Shrines and Welfare viewer, recorded ${e.ts}`,
-            ...(s.statement ? [`* "${s.statement.replace(/\n/g, ' ')}"`] : []),
+            ...(s.statement ? [`* "${oneLine(s.statement)}"`] : []),
             ...s.x.map((v, i) => `* expected sign of x${i + 1} (${v.key}): ${SIGNL[v.sign]}`),
             `import delimited using "shrines_${s.unit}.csv", clear case(preserve) varnames(1)`,
           ],
@@ -3247,7 +4395,9 @@
           };
         const names = vars.map(([nm, v]) => {
           const k = src(v.key);
-          L.push(`generate double ${nm} = ${v.tf.startsWith('log1p') ? `ln(1 + ${k})` : k}`);
+          L.push(
+            `generate double ${nm} = ${v.tf.startsWith('log1p') ? `ln(1 + ${k})` : v.tf.startsWith('asinh') ? `asinh(${k})` : k}`,
+          );
           return nm;
         });
         const ex = s.model === 'poisson' && s.exposure ? src(s.exposure) : null;
@@ -3264,7 +4414,11 @@
         if (s.model === 'poisson')
           L.push(`poisson y ${rhs} if touse, vce(robust)${ex ? ` exposure(${ex})` : ''}`);
         else L.push(`regress y ${rhs} if touse${s.se === 'classical' ? '' : ', vce(robust)'}`);
-        L.push(`* Moran's I in the viewer used ${e.moran ? e.moran.w : 'no weights'}.`);
+        L.push(
+          `* The viewer's Conley SEs: Bartlett kernel, cutoffs ${(e.cuts || []).join(', ')} km, between the centroids in cent_lat and cent_lon,`,
+          `* with the robust SEs' small-sample factor. A user-written command (e.g. acreg) may use another kernel or factor: compare, do not expect equality.`,
+          `* Moran's I in the viewer used ${e.moran ? e.moran.w : 'no weights'} (Cliff-Ord test for OLS residuals, two-sided).`,
+        );
         return L.join('\n');
       }
       function rCode(e) {
@@ -3283,16 +4437,17 @@
           ],
           L = [
             `# Test #${e.id} from the Shrines and Welfare viewer, recorded ${e.ts}`,
-            ...(s.statement ? [`# "${s.statement.replace(/\n/g, ' ')}"`] : []),
+            ...(s.statement ? [`# "${oneLine(s.statement)}"`] : []),
             ...s.x.map((v, i) => `# expected sign of x${i + 1} (${v.key}): ${SIGNL[v.sign]}`),
             'library(sandwich); library(lmtest)',
             `d <- read.csv("shrines_${s.unit}.csv")`,
             `d <- d[complete.cases(d[, c(${keys.map((k) => `"${k}"`).join(', ')})]), ]`,
           ];
-        vars.forEach(([, v]) => v.tf.startsWith('log1p') && L.push(`d <- d[d$${v.key} > -1, ]`));
         if (s.model === 'poisson' && s.exposure) L.push(`d <- d[d$${s.exposure} > 0, ]`);
         vars.forEach(([nm, v]) => {
-          L.push(`d$${nm} <- ${v.tf.startsWith('log1p') ? `log1p(d$${v.key})` : `d$${v.key}`}`);
+          L.push(
+            `d$${nm} <- ${v.tf.startsWith('log1p') ? `log1p(d$${v.key})` : v.tf.startsWith('asinh') ? `asinh(d$${v.key})` : `d$${v.key}`}`,
+          );
           if (v.tf.endsWith('z')) L.push(`d$${nm} <- as.numeric(scale(d$${nm}))`);
         });
         const f = `y ~ ${vars
@@ -3311,7 +4466,10 @@
             s.se === 'classical' ? 'summary(m)' : 'coeftest(m, vcov = vcovHC(m, type = "HC1"))',
           );
         L.push(
-          `# Moran's I in the viewer used ${e.moran ? e.moran.w : 'no weights'}; spdep::lm.morantest is the R equivalent.`,
+          `# The viewer's Conley SEs: Bartlett kernel, cutoffs ${(e.cuts || []).join(', ')} km, centroids in cent_lat / cent_lon, with`,
+          "# the robust SEs' small-sample factor. fixest::feols(..., vcov = conley(cutoff = ...)) is comparable; its kernel and",
+          '# small-sample conventions may differ, so compare rather than expect equality.',
+          `# Moran's I in the viewer used ${e.moran ? e.moran.w : 'no weights'}${s.model === 'ols' ? "; with the same weights, spdep::lm.morantest(m, listw, zero.policy = TRUE, alternative = 'two.sided') is the same test" : '; Pearson residuals, two-sided permutation test'}.`,
         );
         return L.join('\n');
       }
@@ -3329,7 +4487,9 @@
         }, 0);
       }
       const csvCell = (v) => {
-        const s = v == null ? '' : String(v);
+        let s = v == null ? '' : String(v);
+        if (typeof v === 'string' && /^[=+\-@\t\r]/.test(s) && !Number.isFinite(Number(s)))
+          s = "'" + s;
         return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
       };
       const stamp = () => new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-');
@@ -3337,6 +4497,7 @@
         const B = bh(),
           out = [];
         for (const e of LOG) {
+          const ctx = e.ctx || {};
           const base = {
             id: e.id,
             timestamp: e.ts,
@@ -3352,24 +4513,35 @@
             exposure: e.spec.exposure || '',
             weights: e.moran ? e.moran.w : '',
             maup_of: e.maupOf ?? '',
+            hidden: e.cleared ? 'yes' : '',
+            prefilled_from_map: ctx.prefilled ? 'yes' : '',
+            map_views_before: ctx.views ?? '',
+            data_id: e.dataId || '',
           };
           if (e.error) {
             out.push({ ...base, error: e.error });
             continue;
           }
           for (const t of e.terms.filter((t) => t.role === 'x')) {
-            const g = signOf(t);
+            const g = signOf(t),
+              pk = Object.fromEntries(
+                CUTS.map((c) => [`p_conley_${c}km`, t.pK?.[(e.cuts || []).indexOf(c)] ?? '']),
+              );
             out.push({
               ...base,
               variable: t.key,
               variable_transform: t.tf,
               expected_sign: SIGNL[t.sign] || '',
+              exploratory: t.sign === '0' ? 'yes' : '',
               coef: t.b,
               se_robust: t.seR,
               p_robust: t.pR,
               se_classical: t.seC,
               p_classical: t.pC,
-              p_bh: B.adj.get(`${e.id}:${t.key}`),
+              ...pk,
+              p_placebo: t.placebo ? t.placebo.p : '',
+              p_headline: headP(t),
+              p_bh: B.of(e, t),
               sign_matches: g.match == null ? '' : g.match ? 'yes' : 'no',
               n: e.n,
               dropped: e.nMiss + e.nBad,
@@ -3377,6 +4549,9 @@
               pseudo_r2: e.model === 'poisson' ? e.pseudo : '',
               moran_i: e.moran ? e.moran.I : '',
               moran_p: e.moran ? e.moran.p : '',
+              moran_test: e.moran
+                ? e.moran.method || 'permutation, one-sided (before 30 Oct 2026)'
+                : '',
               error: '',
             });
           }
@@ -3397,11 +4572,15 @@
         'controls',
         'exposure',
         'expected_sign',
+        'exploratory',
         'coef',
         'se_robust',
         'p_robust',
         'se_classical',
         'p_classical',
+        ...CUTS.map((c) => `p_conley_${c}km`),
+        'p_placebo',
+        'p_headline',
         'p_bh',
         'sign_matches',
         'n',
@@ -3410,8 +4589,13 @@
         'pseudo_r2',
         'moran_i',
         'moran_p',
+        'moran_test',
         'weights',
         'maup_of',
+        'hidden',
+        'prefilled_from_map',
+        'map_views_before',
+        'data_id',
         'error',
       ];
       function logCSV() {
@@ -3427,21 +4611,21 @@
           md = (s) =>
             String(s ?? '')
               .replace(/\|/g, '\\|')
-              .replace(/\n/g, ' ');
+              .replace(/[\r\n\u2028\u2029]+/g, ' ');
         return [
           '# Conjectures tested in the Shrines and Welfare viewer',
           '',
-          `Exported ${new Date().toISOString()}. ${LOG.length} tests in the log, ${B.m} explanatory-variable hypotheses; the BH column adjusts for all of them (Benjamini–Hochberg).`,
+          `Exported ${new Date().toISOString()} from viewer ${VIEWER_VERSION}, data ${DATA_ID}. ${LOG.length} runs in the log (${B.hidden} hidden from the page's table, all listed here), ${B.m} distinct explanatory-variable hypotheses; the BH column adjusts the headline p for all of them (Benjamini–Hochberg). The headline p is the largest of the chosen robust p, the Conley p at every cutoff and the spatial-noise placebo p.`,
           '',
-          "| # | Recorded (UTC) | Conjecture | Specification | Unit | Model | Expected | Coef | Robust p | BH p | Sign | n | Moran's I (p) |",
+          "| # | Run (UTC) | Conjecture | Specification | Unit | Model | Expected | Coef | Headline p | BH p | Sign | n | Moran's I (p) |",
           '|---|---|---|---|---|---|---|---|---|---|---|---|---|',
           ...logRows().map((r) =>
             r.error
               ? `| ${r.id} | ${r.timestamp.slice(0, 19)} | ${md(r.statement)} | | ${r.unit} | ${r.model} | | | | | | | ${md(r.error)} |`
-              : `| ${r.id}${r.maup_of !== '' ? ` (re-run of #${r.maup_of})` : ''} | ${r.timestamp.slice(0, 19)} | ${md(r.statement)} | ${md(`${r.outcome_transform === 'none' ? r.outcome : r.outcome_transform + '(' + r.outcome + ')'} ~ ${r.variable_transform === 'none' ? r.variable : r.variable_transform + '(' + r.variable + ')'}${r.controls ? ' + ' + r.controls : ''}`)} | ${r.unit} | ${r.model} | ${r.expected_sign} | ${fn(r.coef, 4)} | ${fp(r.p_robust)} | ${fp(r.p_bh)} | ${r.sign_matches || '—'} | ${r.n} | ${r.moran_i === '' ? '—' : `${fn(r.moran_i, 3)} (${fp(r.moran_p)})`} |`,
+              : `| ${r.id}${r.maup_of !== '' ? ` (re-run of #${r.maup_of})` : ''}${r.hidden ? ' (hidden)' : ''} | ${r.timestamp.slice(0, 19)} | ${md(r.statement)} | ${md(`${r.outcome_transform === 'none' ? r.outcome : r.outcome_transform + '(' + r.outcome + ')'} ~ ${r.variable_transform === 'none' ? r.variable : r.variable_transform + '(' + r.variable + ')'}${r.controls ? ' + ' + r.controls : ''}`)} | ${r.unit} | ${r.model} | ${r.expected_sign}${r.exploratory ? ' (exploratory)' : ''} | ${fn(r.coef, 4)} | ${fp(r.p_headline)} | ${fp(r.p_bh)} | ${r.sign_matches || '—'} | ${r.n} | ${r.moran_i === '' ? '—' : `${fn(r.moran_i, 3)} (${fp(r.moran_p)})`} |`,
           ),
           '',
-          "Read with: the archive is curated, not a census; these are associations among areal units, not among people or shrines (ecological inference), and none of them is a causal estimate. Where Moran's I of the residuals is significant, the standard errors are likely too small.",
+          'Read with: the archive is curated, not a census, so a result about an archive variable is a result about archive coverage; these are associations among areal units, not among people or shrines (ecological inference), and none of them is a causal estimate. The BH adjustment covers the tests in this log, not the map views that suggested them. Before citing a result, check its fragility table (Lahore, each province, the most influential unit) in the viewer.',
           '',
           'Findings worth keeping belong in the repository (docs/research/), per RULE 0 of CLAUDE.md.',
           '',
@@ -3451,7 +4635,9 @@
         return JSON.stringify(
           {
             format: 'shrines-viewer-conjectures',
-            v: 1,
+            v: 2,
+            viewer: VIEWER_VERSION,
+            data_id: DATA_ID,
             exported: new Date().toISOString(),
             specs: LOG.filter((e) => e.maupOf == null).map((e) => e.spec),
             log: LOG,
@@ -3467,18 +4653,23 @@
           : obj && Array.isArray(obj.specs)
             ? obj.specs
             : [obj];
-        let ran = 0;
+        let ran = 0,
+          last = null;
         const bad = [];
-        let last = null;
-        for (const s of specs) {
+        for (const s of specs.slice(0, 200)) {
           const why = validSpec(s);
           if (why) {
             bad.push(why);
             continue;
           }
-          last = record(s, null);
-          ran++;
+          try {
+            last = record(s, null, { reimported: true });
+            ran++;
+          } catch (err) {
+            bad.push(err.message);
+          }
         }
+        if (specs.length > 200) bad.push('only the first 200 specs are run');
         if (last) {
           loadSpec(last.e.spec);
           cjResult(last.e, last.res);
@@ -3517,7 +4708,8 @@
               : u === 'district'
                 ? ['id', 'name', 'province_id', 'province']
                 : ['id', 'name'];
-        const rows = fs.map((f) => {
+        if (u !== 'hex') head.push('cent_lat', 'cent_lon');
+        const rows = fs.map((f, fi) => {
           let tid = null,
             did = null,
             pid = null,
@@ -3553,42 +4745,53 @@
                 : u === 'district'
                   ? [f.id, f.name, pid, nm('province', pid)]
                   : [f.id, f.name];
+          if (u !== 'hex') {
+            const [lo, la] = coordsOf(u)[fi];
+            pre.push(la.toFixed(5), lo.toFixed(5));
+          }
           return [...pre, ...keys.map((k) => f.p[k])].map(csvCell).join(',');
         });
         return [[...head, ...keys].join(','), ...rows].join('\r\n') + '\r\n';
       }
       let clearArm = false;
       function cjLog() {
-        const B = bh(),
-          nSess = LOG.length - SESSION0,
-          box = $('cjLog');
-        const rows = LOG.slice()
+        const box = $('cjLog');
+        let B;
+        try {
+          B = bh();
+        } catch {
+          B = { m: 0, runs: 0, hidden: 0, of: () => null };
+        }
+        const nSess = LOG.length - SESSION0,
+          shown = LOG.filter((e) => !e.cleared);
+        const rows = shown
+          .slice()
           .reverse()
           .map((e) => {
             if (e.error)
-              return `<tr><td>${e.id}</td><td colspan="6" class="def">${esc(e.statement || specText(e.spec))}: ${esc(e.error)}</td></tr>`;
+              return `<tr><td>${esc(e.id)}</td><td colspan="6" class="def">${esc(e.statement || specText(e.spec))}: ${esc(e.error)}</td></tr>`;
             return e.terms
               .filter((t) => t.role === 'x')
               .map((t, j) => {
                 const g = signOf(t);
-                return `<tr><td>${j ? '' : e.id + (e.maupOf != null ? `<br><span class="def">re-run of #${e.maupOf}</span>` : '')}</td><td>${j ? '' : esc(e.statement || specText(e.spec))}<br><span class="def">${esc(termName(t.key, t.tf))} · ${esc(UNIT1[e.unit])} · ${e.model === 'poisson' ? 'Poisson' : 'OLS'}</span></td><td class="num">${t.sign === '0' ? '·' : t.sign === '+' ? '+' : '−'}</td><td class="num">${fn(t.b, 3)}</td><td class="num">${fp(t.pR)}<br><span class="def">BH ${fp(B.adj.get(`${e.id}:${t.key}`))}</span></td><td>${g.match == null ? '—' : g.match ? '<span class="match">matches</span>' : '<span class="opp">opposite</span>'}</td><td class="num">${e.moran ? fn(e.moran.I, 2) + `<br><span class="def">p ${fp(e.moran.p)}</span>` : '—'}</td></tr>`;
+                return `<tr><td>${j ? '' : esc(e.id) + (e.maupOf != null ? `<br><span class="def">re-run of #${esc(e.maupOf)}</span>` : '')}</td><td>${j ? '' : esc(e.statement || specText(e.spec))}<br><span class="def">${esc(termName(t.key, t.tf))} · ${esc(UNIT1[e.unit])} · ${e.model === 'poisson' ? 'Poisson' : 'OLS'}</span></td><td class="num">${t.sign === '0' ? 'none' : t.sign === '+' ? '+' : '−'}</td><td class="num">${fn(t.b, 3)}</td><td class="num">${fp(headP(t))}<br><span class="def">BH ${fp(B.of(e, t))}</span></td><td>${g.match == null ? '—' : g.match ? 'as expected' : 'opposite'}</td><td class="num">${e.moran ? fn(e.moran.I, 2) + `<br><span class="def">p ${fp(e.moran.p)}</span>` : '—'}</td></tr>`;
               })
               .join('');
           })
           .join('');
-        let saved = true;
+        let saved = SAVE_OK;
         try {
           localStorage.getItem(LOGKEY);
         } catch {
           saved = false;
         }
         box.innerHTML =
-          `<div class="def">${nSess} test${nSess === 1 ? '' : 's'} this session; ${LOG.length} in the log, ${B.m} hypotheses in the Benjamini–Hochberg family. ${saved ? 'Kept in this browser only: export to keep it.' : 'This browser will not keep it (storage blocked): export before closing.'} Findings worth keeping go into the repository (docs/research/).</div>` +
-          (LOG.length
-            ? `<div class="scroll"><table><tr><th>#</th><th>Conjecture</th><th class="num">Exp.</th><th class="num">Coef</th><th class="num">Robust p</th><th>Sign</th><th class="num">Moran's I</th></tr>${rows}</table></div>`
+          `<div class="def">${nSess} test${nSess === 1 ? '' : 's'} this session; ${LOG.length} in the log${B.hidden ? ` (${B.hidden} hidden, still counted)` : ''}, <span data-bhm>${B.m}</span> distinct hypotheses in the Benjamini–Hochberg family. ${saved ? 'Kept in this browser only: export to keep it.' : 'This browser is not keeping it (storage blocked or full): export before closing.'}${LOG_BAD ? ` ${LOG_BAD} unreadable entr${LOG_BAD === 1 ? 'y was' : 'ies were'} ignored.` : ''} Findings worth keeping go into the repository (docs/research/).</div>` +
+          (shown.length
+            ? `<div class="scroll"><table><tr><th>#</th><th>Conjecture</th><th class="num">Expected</th><th class="num">Coef</th><th class="num">Headline p</th><th>Sign</th><th class="num">Moran's I</th></tr>${rows}</table></div>`
             : '') +
           `<div class="cjbtns"><button class="btn" type="button" id="cjCSV" ${LOG.length ? '' : 'disabled'}>Export CSV</button><button class="btn" type="button" id="cjMD" ${LOG.length ? '' : 'disabled'}>Export Markdown</button><button class="btn" type="button" id="cjJSON" ${LOG.length ? '' : 'disabled'}>Export JSON spec</button><button class="btn" type="button" id="cjLoad">Re-run a JSON spec…</button><input type="file" id="cjFile" accept=".json,application/json" hidden /></div>
-          <div class="cjbtns"><button class="btn" type="button" id="cjData">Download data: ${esc(UNIT1[CJ.unit])} (CSV)</button>${LOG.length ? '<button class="btn" type="button" id="cjClear">Clear the log</button>' : ''}</div>`;
+          <div class="cjbtns"><button class="btn" type="button" id="cjData">Download data: ${esc(UNIT1[CJ.unit])} (CSV)</button>${shown.length ? '<button class="btn" type="button" id="cjClear">Hide these tests</button>' : ''}</div>`;
         $('cjCSV').onclick = () => download(`conjectures_${stamp()}.csv`, logCSV(), 'text/csv');
         $('cjMD').onclick = () => download(`conjectures_${stamp()}.md`, logMD(), 'text/markdown');
         $('cjJSON').onclick = () =>
@@ -3598,12 +4801,15 @@
           const f = ev.target.files[0];
           if (!f) return;
           f.text().then((t) => {
+            let obj;
             try {
-              rerun(JSON.parse(t));
+              obj = JSON.parse(t);
             } catch (err) {
-              cjMsg('That file is not valid JSON: ' + err.message);
+              return cjMsg('That file is not valid JSON: ' + err.message);
             }
+            rerun(obj);
           });
+          ev.target.value = '';
         };
         $('cjData').onclick = () =>
           download(`shrines_${CJ.unit}.csv`, unitCSV(CJ.unit), 'text/csv');
@@ -3611,14 +4817,16 @@
           $('cjClear').onclick = (ev) => {
             if (!clearArm) {
               clearArm = true;
-              ev.target.textContent = 'Click again to clear';
+              ev.target.textContent =
+                'Click again: hidden tests stay in the BH family and in every export';
               return;
             }
             clearArm = false;
-            LOG = [];
+            LOG.forEach((e) => (e.cleared = true));
             saveLog();
             $('cjOut').innerHTML = '';
             cjLog();
+            $('cjLoad').focus();
           };
       }
 

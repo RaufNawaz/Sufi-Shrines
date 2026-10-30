@@ -23,12 +23,13 @@ NNS, foundational reading against census youth literacy.
 Usage (from the repo root):
   python pipeline/gis/outcomes/build_mics_district.py
 """
-import csv, re, subprocess, sys
+import csv, re, sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import geopandas as gpd
+from pdftext import pdftotext  # poppler only, UTF-8 (see pdftext.py)
 
 HERE = Path(__file__).resolve().parent
 GIS = HERE.parent
@@ -109,8 +110,8 @@ def f(x):
 def text(pdf):
     t = pdf.with_suffix(".txt")
     if not t.exists() or t.stat().st_mtime < pdf.stat().st_mtime:
-        subprocess.run(["pdftotext", "-layout", str(pdf), str(t)], check=True)
-    return t.read_text().splitlines()
+        pdftotext(str(pdf), str(t))
+    return t.read_text(encoding="utf-8").splitlines()
 
 
 def district_tables(lines):

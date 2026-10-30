@@ -23,10 +23,14 @@ const check = (c, msg) => {
 async function ready(page) {
   await page.goto(url);
   await page.waitForFunction(() => typeof V !== 'undefined' && V && V.kind);
+  // The page opens on None (30 Oct 2026); these checks were written against literacy, so choose it.
+  await page.selectOption('#ind', 'literacy');
   await page.waitForTimeout(400);
 }
 const run = async (page) => {
   const before = await page.evaluate(() => LOG.length);
+  // A written conjecture is required before a run.
+  if (!(await page.inputValue('#cjText'))) await page.fill('#cjText', 'a test conjecture');
   await page.click('#cjRun');
   await page.waitForFunction((b) => LOG.length > b, before, { timeout: 60000 });
   await page.waitForTimeout(100);
@@ -126,7 +130,7 @@ const run = async (page) => {
       /25 of the 80/.test(r1),
     'caveats shown: ecological, curated archive, BH, pre-1857 unknowns',
   );
-  check(/the sign (matches|is the opposite)/.test(r1), 'sign match stated');
+  check(/Expected [+−]; the estimate is [+−0]/.test(r1), 'expected and observed sign stated');
   check(
     !/\b(effect|impact|leads to|drives|causal effect)\b/i.test(r1.replace(e1.statement, '')),
     'no causal wording in the result',
@@ -303,18 +307,23 @@ const run = async (page) => {
   };
   const [csvName, csv] = await dl('#cjCSV');
   const csvLines = csv.trim().split(/\r?\n/);
-  const nHyp = await page.evaluate(() => bh().m);
+  // One row per explanatory variable per run; the BH family counts each distinct hypothesis once.
+  const { m: nHyp, runs: nRows } = await page.evaluate(() => bh());
   check(
     /^conjectures_.*\.csv$/.test(csvName) &&
-      csvLines.length === 1 + nHyp &&
-      /p_bh/.test(csvLines[0]),
-    `CSV export: ${csvLines.length - 1} rows = ${nHyp} hypotheses`,
+      csvLines.length === 1 + nRows &&
+      nHyp <= nRows &&
+      /p_bh/.test(csvLines[0]) &&
+      /p_headline/.test(csvLines[0]) &&
+      /p_placebo/.test(csvLines[0]) &&
+      /data_id/.test(csvLines[0]),
+    `CSV export: ${csvLines.length - 1} rows = ${nRows} runs, ${nHyp} distinct hypotheses`,
   );
   const [, md] = await dl('#cjMD');
   check(
     /^# Conjectures tested/.test(md) &&
       /docs\/research/.test(md) &&
-      md.split('\n').filter((l) => /^\| \d/.test(l)).length === nHyp,
+      md.split('\n').filter((l) => /^\| \d/.test(l)).length === nRows,
     'Markdown export: table rows and RULE 0 note',
   );
   const [jsonName, json] = await dl('#cjJSON');
@@ -391,9 +400,10 @@ const run = async (page) => {
   watch(p2, '(reload) ');
   await ready(p2);
   check(await p2.evaluate(() => LOG.length === 6), 'log survives a reload (localStorage)');
+  // Saving merges with what is stored, so wiping the log means wiping the storage.
   await p2.evaluate(() => {
+    localStorage.removeItem(LOGKEY);
     LOG = [];
-    saveLog();
   });
   await p2.click('#cjOpen');
   await p2.setInputFiles('#cjFile', out('dl_' + jsonName));
@@ -437,7 +447,7 @@ const run = async (page) => {
   await pb.selectOption('#cjX .cjrow [data-sign]', '+');
   const eb = await run(pb);
   check(
-    !eb.error && /will not keep it/.test(await pb.textContent('#cjLog')),
+    !eb.error && /not keeping it/.test(await pb.textContent('#cjLog')),
     'storage blocked: test runs and the log says it will not be kept',
   );
   await ctxB.close();

@@ -66,7 +66,7 @@ def main(a):
             md5 = digest(dest, "md5")
             if r.get("expected_md5") and md5 != r["expected_md5"]:
                 failed.append(f"{r['key']} {dest.name}: md5 {md5} != published {r['expected_md5']}")
-            out.append({"key": r["key"], "file": str(dest.relative_to(SRC)), "bytes": dest.stat().st_size,
+            out.append({"key": r["key"], "file": dest.relative_to(SRC).as_posix(), "bytes": dest.stat().st_size,
                         "sha256": digest(dest, "sha256"), "md5": md5, "md5_published": r.get("expected_md5", ""),
                         "fetched_utc": datetime.datetime.fromtimestamp(
                             dest.stat().st_mtime, datetime.timezone.utc).isoformat(timespec="seconds"),
