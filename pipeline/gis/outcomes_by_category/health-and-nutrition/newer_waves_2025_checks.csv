@@ -1,0 +1,32 @@
+check,kind,measured,reference,result,note
+pv 2024 raster re-downloaded 30 Oct 2026 equals the one the atlas used,integrity,41ad09446d9322fa,41ad09446d9322fa,pass,"https://data.malariaatlas.org/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/geotiff&subset=Long(60.5,78.0)&subset=Lat(23.5,37.2)&coverageId=Malaria__202608_Global_Pv_Incidence_Rate&subset=time(%222024-01-01T00:00:00.000Z%22)"
+pv 2025 raster differs from 2024 (server honoured the time subset),integrity,880c5bcd07bf39c4,!= 41ad09446d9322fa,pass,"https://data.malariaatlas.org/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/geotiff&subset=Long(60.5,78.0)&subset=Lat(23.5,37.2)&coverageId=Malaria__202608_Global_Pv_Incidence_Rate&subset=time(%222025-01-01T00:00:00.000Z%22)"
+pf 2024 raster re-downloaded 30 Oct 2026 equals the one the atlas used,integrity,4e15a3b52da4fca5,4e15a3b52da4fca5,pass,"https://data.malariaatlas.org/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/geotiff&subset=Long(60.5,78.0)&subset=Lat(23.5,37.2)&coverageId=Malaria__202608_Global_Pf_Incidence_Rate&subset=time(%222024-01-01T00:00:00.000Z%22)"
+pf 2025 raster differs from 2024 (server honoured the time subset),integrity,3efed5051f981941,!= 4e15a3b52da4fca5,pass,"https://data.malariaatlas.org/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/geotiff&subset=Long(60.5,78.0)&subset=Lat(23.5,37.2)&coverageId=Malaria__202608_Global_Pf_Incidence_Rate&subset=time(%222025-01-01T00:00:00.000Z%22)"
+[carrier] Kontur cells fall inside the boundary file,integrity,"99.6478% of cells, 99.8736% of people",>= 99% of people,pass,
+[add_map 2024] malaria_pv sampled for populated cells,integrity,98.19% of people,>= 97%,pass,the rest fall on MAP no-data cells and stay empty
+[add_map 2024] malaria_pf sampled for populated cells,integrity,98.10% of people,>= 97%,pass,the rest fall on MAP no-data cells and stay empty
+[add_map 2024] walk_health_min sampled for populated cells,integrity,99.94% of people,>= 99%,pass,
+"[add_map 2024] walking vs motorized time to health care, cells",convergent,rho = +0.88,rho >= 0.8,pass,
+2024 rebuild vs atlas_district.csv,rebuild,0 differing values of 320,0,pass,
+2024 rebuild vs atlas_tehsil.csv,rebuild,0 differing values of 1154,0,pass,
+2024 rebuild vs atlas_province.csv,rebuild,0 differing values of 14,0,pass,
+2024 rebuild vs gpkg atlas_grid_h3_r6,rebuild,0 differing values of 45964,0,pass,
+[add_map 2025] malaria_pv sampled for populated cells,integrity,98.19% of people,>= 97%,pass,the rest fall on MAP no-data cells and stay empty
+[add_map 2025] malaria_pf sampled for populated cells,integrity,98.10% of people,>= 97%,pass,the rest fall on MAP no-data cells and stay empty
+[add_map 2025] walk_health_min sampled for populated cells,integrity,99.94% of people,>= 99%,pass,
+"[add_map 2025] walking vs motorized time to health care, cells",convergent,rho = +0.88,rho >= 0.8,pass,
+2025 no-data cells are the 2024 no-data cells,integrity,same,same,pass,
+district rows = atlas rows,integrity,160,160,pass,
+district malaria_pv_per_1000_2025 filled exactly where the 2024 value is,integrity,160 filled,160 in 2024,pass,
+district malaria_pv_per_1000: 2025 vs 2024 rank correlation,convergent,"rho = +1.000, n = 160",rho >= 0.8,pass,
+district malaria_pf_per_1000_2025 filled exactly where the 2024 value is,integrity,160 filled,160 in 2024,pass,
+district malaria_pf_per_1000: 2025 vs 2024 rank correlation,convergent,"rho = +1.000, n = 160",rho >= 0.8,pass,
+tehsil rows = atlas rows,integrity,577,577,pass,
+tehsil malaria_pv_per_1000_2025 filled exactly where the 2024 value is,integrity,576 filled,576 in 2024,pass,
+tehsil malaria_pv_per_1000: 2025 vs 2024 rank correlation,convergent,"rho = +1.000, n = 576",rho >= 0.8,pass,
+tehsil malaria_pf_per_1000_2025 filled exactly where the 2024 value is,integrity,576 filled,576 in 2024,pass,
+tehsil malaria_pf_per_1000: 2025 vs 2024 rank correlation,convergent,"rho = +1.000, n = 576",rho >= 0.8,pass,
+province rows = atlas rows,integrity,7,7,pass,
+province malaria_pv_per_1000_2025 filled exactly where the 2024 value is,integrity,7 filled,7 in 2024,pass,
+province malaria_pf_per_1000_2025 filled exactly where the 2024 value is,integrity,7 filled,7 in 2024,pass,

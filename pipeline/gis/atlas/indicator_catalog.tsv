@@ -242,3 +242,28 @@ mics_life_satisfaction_women	Life satisfaction, women 15-24 (0-10)	Wellbeing	1	2
 mics_life_satisfaction_men	Life satisfaction, men 15-24 (0-10)	Wellbeing	1	2017-19
 mics_safely_managed_water	Safely managed drinking water (%, MICS)	Water and sanitation	1	2017-19
 mics_social_transfers	Covered by social transfers (%, MICS)	Wealth and poverty	1	2017-19
+mobile_download_mbps_2026q2	Mobile download speed, Mbps (Speedtest) (2026 Q2)	Access and connectivity	1	2026 Q2
+fixed_download_mbps_2026q2	Fixed broadband speed, Mbps (Speedtest) (2026 Q2)	Access and connectivity	1	2026 Q2
+mobile_devices_per_1000_2026q2	Devices testing mobile data per 1,000 (2026 Q2)	Access and connectivity	1	2026 Q2
+fixed_devices_per_1000_2026q2	Devices testing home broadband per 1,000 (2026 Q2)	Access and connectivity	1	2026 Q2
+share_pop_near_mobile_test_2026q2	Near a tile with mobile-data use (%) (2026 Q2)	Access and connectivity	1	2026 Q2
+mobile_download_mbps_2026q3	Mobile download speed, Mbps (Speedtest) (2026 Q3)	Access and connectivity	1	2026 Q3
+fixed_download_mbps_2026q3	Fixed broadband speed, Mbps (Speedtest) (2026 Q3)	Access and connectivity	1	2026 Q3
+mobile_devices_per_1000_2026q3	Devices testing mobile data per 1,000 (2026 Q3)	Access and connectivity	1	2026 Q3
+fixed_devices_per_1000_2026q3	Devices testing home broadband per 1,000 (2026 Q3)	Access and connectivity	1	2026 Q3
+share_pop_near_mobile_test_2026q3	Near a tile with mobile-data use (%) (2026 Q3)	Access and connectivity	1	2026 Q3
+conflict_events_ged261	Conflict events, 2015-24 (GED 26.1)	Shocks and security	0	2015-2024
+conflict_deaths_per_100k_ged261	Conflict deaths per 100,000, 2015-24 (GED 26.1)	Shocks and security	0	2015-2024
+conflict_civilian_deaths_per_100k_ged261	Civilian conflict deaths per 100,000, 2015-24 (GED 26.1)	Shocks and security	0	2015-2024
+conflict_onesided_deaths_per_100k_ged261	Deaths in violence against civilians per 100,000, 2015-24 (GED 26.1)	Shocks and security	0	2015-2024
+share_pop_flooded_2025	Living inside the 2025 flood extent (%)	Shocks and security	0	2025
+ntl_2024_popw	Night lights where people live (2024)	Wealth and poverty	1	2024
+ntl_change_13_24	Change in night lights, 2013-2024	Wealth and poverty	1	2013-2024
+share_pop_lit_at_night_2024	People in a lit cell (%) (2024)	Wealth and poverty	1	2024
+gdp_pc_2024_popw	GDP per capita, PPP $ (division) (2024)	Wealth and poverty	1	2024
+gdp_pc_growth_13_24	GDP per capita growth, %/yr 2013-24 (division)	Wealth and poverty	1	2013-2024
+malaria_pv_per_1000_2025	Malaria, P. vivax cases per 1,000 (2025)	Health and nutrition	0	2025
+malaria_pf_per_1000_2025	Malaria, P. falciparum cases per 1,000 (2025)	Health and nutrition	0	2025
+mpi_district_2020	District MPI, 2019/20	Wealth and poverty	0	2019-20
+mpi_headcount_2020	District MPI poor (%), 2019/20	Wealth and poverty	0	2019-20
+mpi_intensity_2020	District MPI intensity (%), 2019/20	Wealth and poverty	0	2019-20

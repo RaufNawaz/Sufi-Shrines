@@ -86,6 +86,16 @@ CURRENCY = {('travel_city', '2015'): {'latest_available_wave': '2015 (MAP '
                                          'and Q3 by the atlas code path (Q2 2025 reproduced exactly first) '
                                          'are in access-and-connectivity_district_2026Q2.csv and '
                                          '_2026Q3.csv, not wired into the atlas; see README.'},
+ # The newer quarters, in the atlas since 30 October 2026 (outcomes_by_category/newer_waves.tsv).
+ ('ookla', '2026 Q2'): {'latest_available_wave': '2026 Q3',
+                        'latest_available_url': 'https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2026/quarter=3/2026-07-01_performance_mobile_tiles.parquet',
+                        'up_to_date': 'no',
+                        'currency_note': 'Held as the like-for-like season of the 2025 Q2 wave; 2026 Q3 is '
+                                         'also in the atlas. District only.'},
+ ('ookla', '2026 Q3'): {'latest_available_wave': '2026 Q3',
+                        'latest_available_url': 'https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2026/quarter=3/2026-07-01_performance_mobile_tiles.parquet',
+                        'up_to_date': 'yes',
+                        'currency_note': 'Newest quarter in the bucket listing of 30 Oct 2026. District only.'},
  ('ookla', '2020'): {'latest_available_wave': '2020 Q2 (fixed baseline)',
                      'latest_available_url': 'https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2020/quarter=2/2020-04-01_performance_mobile_tiles.parquet',
                      'up_to_date': 'yes',

@@ -64,7 +64,21 @@ designed, no results); World Bank poverty map 2019-20; Meta RWI 2021; OPHI provi
 **Unknown:** UNDP district HDI after 2015; National Nutrition Survey after 2018; newer MICS for Sindh,
 KP or Balochistan.
 
-None of the newer files is in the atlas or the viewer. Whether to take each one is Rauf's decision
+**In the atlas since 30 October 2026** (Rauf: go ahead). Every newer wave sits beside the wave it
+follows under its own key, never replacing it, and is listed in `newer_waves.tsv` (key, unit, file,
+column, label, definition, source, licence), which `atlas/build_atlas.py` reads; the atlas refuses to
+build if the registry and `atlas/indicator_catalog.tsv` disagree, if a file lacks a registered column,
+or if a file has other than one row per unit. 25 new indicators: Ookla 2026 Q2 and Q3 (district), UCDP
+GED 26.1 (district), the 2025 flood (district), night lights 2024 and Kummu GDP 2024 (tehsil, district,
+province), MAP malaria 2025 (tehsil, district, province), district MPI 2019-20 (district; 129 of 160
+districts). Each newer file was built only after its builder reproduced the wave the atlas already held
+with 0 differences. Against the atlas at the start of 30 October, not one existing cell changed.
+
+Not taken: Punjab MICS 2024 (the only copy is an unlicensed archive uploaded by a private account) and
+LGHAP daily PM2.5 2022-24 (~13.8 GB a year, needs a new monthly-mean step).
+
+Kummu GDP is in **2021** international dollars (Zenodo 18429133 v4: "Unit changed to USD in 2021
+international dollars"); the atlas codebook said constant 2017 dollars until 30 October 2026.
 (asked in the chat, 30 October 2026).
 
 ## Found on the way, outside these folders (not yet acted on)

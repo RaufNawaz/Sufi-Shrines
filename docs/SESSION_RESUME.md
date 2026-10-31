@@ -40,13 +40,14 @@ the reason the rest is credible.
 
 1. [x] Viewer: "All shrine records, every source" layer, 3,690 places from `district_counts/sites.csv`, filter by source (any / every / only), sources agreeing (1, 2+, 3+, 4+, exactly 1), tradition, hide archive; popup lists every record with links, a web search link and a satellite link; CSV download of the filtered set. (`rebuild_from_embedded.py --places`, `load_places`.)
 2. [x] Viewer, "Test a conjecture": outcome and regressor menus offer every source's counts, not only the archive (district and province: `n_ext_*`), plus verified (2+ sources) counts.
-3. [ ] Confirm one-source places exist: method to be agreed (asked in the chat).
+3. [ ] Confirm one-source places exist: **on hold at Rauf's request, 30 October 2026.**
 4. [x] Stata and R: run the workbench's generated Stata/R code against the browser's numbers (R 4.6.1 and StataNow 19 are now installed on this PC); then the question of running the tests on a Stata backend (asked in the chat).
 5. [x] Research agents (6, launched 30 October): a separate dataset per outcome category in `pipeline/gis/outcomes_by_category/<theme>/`, and a currency audit of every outcome source. Coordinator writes the folder README when they report.
 6. [ ] Suspect, disputed and shared archive pins: satellite check, CSV patch for the sheet.
 7. [x] Stata/R code under each result is self-contained (data embedded) and ends with the viewer's estimates; verified in Stata and R (HANDOVER 9.437).
-8. [ ] Newer outcome waves into the atlas (Ookla 2026, GED 26.1, 2025 flood, night lights 2024, MAP 2025, district MPI 2019-20, Punjab MICS 2024): asked in the chat.
-9. [ ] HeiGIT catalog year ("2023", data is the 2026 release) and GRIP4 licence (CC0): check and correct.
+8. [x] Newer outcome waves into the atlas: done (HANDOVER 9.438). Punjab MICS 2024 and LGHAP 2022-24 not taken.
+9. [ ] HeiGIT catalog year ("2023", data is the 2026 release) and GRIP4 licence (CC0): check and correct. (The Kummu GDP unit is corrected to 2021 $, HANDOVER 9.438.)
+10. [ ] Local Stata service: the viewer sends a test to Stata on this PC and shows Stata's own output (Rauf: go ahead).
 
 ## 30 October 2026, later still: a verified database of every shrine — the state, measured
 

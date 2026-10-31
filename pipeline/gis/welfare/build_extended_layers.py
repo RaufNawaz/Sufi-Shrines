@@ -258,7 +258,7 @@ def add_gdp(k):
     check("GDP per capita 2023, population-weighted national mean vs Kummu's national figure", "external",
           f"{ours:,.0f}", f"{float(nat['2023']):,.0f} (tabulated_adm0)", abs(ours / float(nat["2023"]) - 1) < 0.15,
           note="Kummu downscales with their own population grid; Kontur 2023 weights differ")
-    CODEBOOK["gdp_pc_2023_popw"] = ("GDP per capita, PPP, constant 2017 international $, 2023: provincial accounts "
+    CODEBOOK["gdp_pc_2023_popw"] = ("GDP per capita, PPP, 2021 international $, 2023: provincial accounts "
                                     "downscaled to 32 divisions (Kummu et al. 2025). Division-level, so it does not "
                                     "vary within a division", "kummu")
     CODEBOOK["gdp_pc_growth_13_23"] = ("Annual growth of GDP per capita 2013-2023, %, same source", "kummu")

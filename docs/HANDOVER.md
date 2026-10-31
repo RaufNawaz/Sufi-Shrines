@@ -22310,3 +22310,26 @@ stay, but must be confirmed real before research use (method still open, asked i
   pipeline/gis/shrine_sources/district_counts/sites.csv` (the GeoPackage is on this PC now too, so
   `build_viewer.py` also works).
 
+### 9.438, 30 October 2026 (interactive, Windows PC): newer outcome waves in the atlas and the viewer
+
+Rauf: go ahead with the newer data (the one-source shrine confirmation is on hold). 25 indicators added
+beside the waves they follow, never replacing them, through one registry,
+`pipeline/gis/outcomes_by_category/newer_waves.tsv`, read by `atlas/build_atlas.py` (checks: registry
+equals the catalog; one description per key across units; every registered column present; one row per
+unit). Ookla 2026 Q2/Q3, UCDP GED 26.1, the 2025 flood (district); night lights 2024, Kummu GDP 2024,
+MAP malaria 2025 (tehsil, district, province); district MPI 2019-20 (district, 129 of 160: 24 AJK/GB
+outside the survey, Chagai, Jhal Magsi, Musakhel, Zhob unavailable per the report, Panjgur absent with
+no reason given, Chaman and Lehri left empty by the 2014-15 split rule). Every new file came from its
+builder after that builder reproduced the held wave with 0 differences. **Against the atlas at the start
+of the day, 0 existing cells changed** at district, tehsil, province and the site table.
+
+- **Correction:** Kummu GDP per capita is in 2021 international dollars (Zenodo v4 says so); the codebook
+  said constant 2017. Fixed in `welfare/build_extended_layers.py` and its codebook.
+- **Unknowns kept in the definitions:** MAP does not say whether 2025 is fitted to 2025 data or carried
+  forward; the MPI report says 127 districts in its text and has 126 in its tables.
+- `native_support.tsv`: a row for the 2019-20 MPI (`Appendix D, pp. 75-82`), and three line references
+  that had moved.
+- Viewer rebuilt from the GeoPackage (`build_viewer.py`; the GeoPackage is on this PC). All viewer tests,
+  the Python reference and the Stata/R check pass.
+- Not taken: Punjab MICS 2024 (unlicensed copy only), LGHAP 2022-24 (~13.8 GB a year).
+

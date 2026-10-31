@@ -1,0 +1,161 @@
+report_district,report_province,district_code,district_name,rule,mpi_parent_2020,note
+Abbottabad,KHYBER PAKHTUNKHWA,PK501,Abbottabad,exact (normalised name),,
+Bajaur,KHYBER PAKHTUNKHWA,PK502,Bajaur,exact (normalised name),,
+Bannu,KHYBER PAKHTUNKHWA,PK503,Bannu,exact (normalised name),,
+Batagram,KHYBER PAKHTUNKHWA,PK504,Batagram,exact (normalised name),,
+Bunair,KHYBER PAKHTUNKHWA,PK505,Buner,alias (this build),,
+Charsada,KHYBER PAKHTUNKHWA,PK506,Charsadda,alias (this build),,
+Chitral,KHYBER PAKHTUNKHWA,PK508,Chitral Upper,split: parent value to child,Chitral,
+Chitral,KHYBER PAKHTUNKHWA,PK507,Chitral Lower,split: parent value to child,Chitral,
+D. I. Khan,KHYBER PAKHTUNKHWA,PK509,D. I. Khan,exact (normalised name),,
+Hangu,KHYBER PAKHTUNKHWA,PK510,Hangu,exact (normalised name),,
+Haripur,KHYBER PAKHTUNKHWA,PK511,Haripur,exact (normalised name),,
+Karak,KHYBER PAKHTUNKHWA,PK512,Karak,exact (normalised name),,
+Khyber,KHYBER PAKHTUNKHWA,PK513,Khyber,exact (normalised name),,
+Kohat,KHYBER PAKHTUNKHWA,PK514,Kohat,exact (normalised name),,
+Kohistan,KHYBER PAKHTUNKHWA,PK516,Kohistan Upper,split: parent value to child,Kohistan,
+Kohistan,KHYBER PAKHTUNKHWA,PK515,Kohistan Lower,split: parent value to child,Kohistan,
+Kohistan,KHYBER PAKHTUNKHWA,PK517,Kolai Palas Kohistan,split: parent value to child,Kohistan,
+Kurram,KHYBER PAKHTUNKHWA,PK518,Kurram,exact (normalised name),,
+Lakki Marwat,KHYBER PAKHTUNKHWA,PK519,Lakki Marwat,exact (normalised name),,
+Lower Dir,KHYBER PAKHTUNKHWA,PK520,Lower Dir,exact (normalised name),,
+Malakand,KHYBER PAKHTUNKHWA,PK521,Malakand,exact (normalised name),,
+Mansehra,KHYBER PAKHTUNKHWA,PK522,Mansehra,exact (normalised name),,
+Mardan,KHYBER PAKHTUNKHWA,PK523,Mardan,exact (normalised name),,
+Mohmand,KHYBER PAKHTUNKHWA,PK524,Mohmand,exact (normalised name),,
+North Waziristan,KHYBER PAKHTUNKHWA,PK525,North Waziristan,exact (normalised name),,
+Nowshera,KHYBER PAKHTUNKHWA,PK526,Nowshera,exact (normalised name),,
+Orakzai,KHYBER PAKHTUNKHWA,PK527,Orakzai,exact (normalised name),,
+Peshawar,KHYBER PAKHTUNKHWA,PK528,Peshawar,exact (normalised name),,
+Shangla,KHYBER PAKHTUNKHWA,PK529,Shangla,exact (normalised name),,
+South Waziristan,KHYBER PAKHTUNKHWA,PK530,South Waziristan,exact (normalised name),,
+Swabi,KHYBER PAKHTUNKHWA,PK531,Swabi,exact (normalised name),,
+Swat,KHYBER PAKHTUNKHWA,PK532,Swat,exact (normalised name),,
+Tank,KHYBER PAKHTUNKHWA,PK533,Tank,exact (normalised name),,
+Tor Garh,KHYBER PAKHTUNKHWA,PK534,Tor Ghar,alias (2014-15 build),,
+Upper Dir,KHYBER PAKHTUNKHWA,PK535,Upper Dir,exact (normalised name),,
+Attock,PUNJAB,PK601,Attock,exact (normalised name),,
+Bahawalnagar,PUNJAB,PK602,Bahawalnagar,exact (normalised name),,
+Bahawalpur,PUNJAB,PK603,Bahawalpur,exact (normalised name),,
+Bhakhar,PUNJAB,PK604,Bhakkar,alias (this build),,
+Chakwal,PUNJAB,PK605,Chakwal,exact (normalised name),,
+Chiniot,PUNJAB,PK606,Chiniot,exact (normalised name),,
+D. G. Khan,PUNJAB,PK607,Dera Ghazi Khan,alias (2014-15 build),,
+Faisalabad,PUNJAB,PK608,Faisalabad,exact (normalised name),,
+Gujranwala,PUNJAB,PK609,Gujranwala,exact (normalised name),,
+Gujrat,PUNJAB,PK610,Gujrat,exact (normalised name),,
+Hafizabad,PUNJAB,PK611,Hafizabad,exact (normalised name),,
+Islamabad,PUNJAB,PK401,Islamabad,exact (normalised name),,
+Jehlum,PUNJAB,PK613,Jhelum,alias (this build),,
+Jhang,PUNJAB,PK612,Jhang,exact (normalised name),,
+Kasur,PUNJAB,PK614,Kasur,exact (normalised name),,
+Khanewal,PUNJAB,PK615,Khanewal,exact (normalised name),,
+Khushab,PUNJAB,PK616,Khushab,exact (normalised name),,
+Lahore,PUNJAB,PK617,Lahore,exact (normalised name),,
+Layyah,PUNJAB,PK618,Leiah,alias (2014-15 build),,
+Lodhran,PUNJAB,PK619,Lodhran,exact (normalised name),,
+Mandi Bahauddin,PUNJAB,PK620,Mandi Bahauddin,exact (normalised name),,
+Mianwali,PUNJAB,PK621,Mianwali,exact (normalised name),,
+Multan,PUNJAB,PK622,Multan,exact (normalised name),,
+Muzaffar Garh,PUNJAB,PK623,Muzaffargarh,exact (normalised name),,
+Nankana Sahib,PUNJAB,PK624,Nankana Sahib,exact (normalised name),,
+Narowal,PUNJAB,PK625,Narowal,exact (normalised name),,
+Okara,PUNJAB,PK626,Okara,exact (normalised name),,
+Pakpattan,PUNJAB,PK627,Pakpattan,exact (normalised name),,
+Rahim Yar Khan,PUNJAB,PK628,Rahim Yar Khan,exact (normalised name),,
+Rajanpur,PUNJAB,PK629,Rajanpur,exact (normalised name),,
+Rawalpindi,PUNJAB,PK630,Rawalpindi,exact (normalised name),,
+Sahiwal,PUNJAB,PK631,Sahiwal,exact (normalised name),,
+Sargodha,PUNJAB,PK632,Sargodha,exact (normalised name),,
+Sheikhupura,PUNJAB,PK633,Sheikhupura,exact (normalised name),,
+Sialkot,PUNJAB,PK634,Sialkot,exact (normalised name),,
+T.T. Singh,PUNJAB,PK635,Toba Tek Singh,alias (2014-15 build),,
+Vehari,PUNJAB,PK636,Vehari,exact (normalised name),,
+Badin,SINDH,PK701,Badin,exact (normalised name),,
+Dadu,SINDH,PK703,Dadu,exact (normalised name),,
+Ghotki,SINDH,PK705,Ghotki,exact (normalised name),,
+Hyderabad,SINDH,PK706,Hyderabad,exact (normalised name),,
+Jacobabad,SINDH,PK707,Jacobabad,exact (normalised name),,
+Jamshoro,SINDH,PK708,Jamshoro,exact (normalised name),,
+Karachi Central,SINDH,PK702,Central Karachi,alias (this build),,
+Karachi East,SINDH,PK704,East Karachi,alias (this build),,
+Karachi Malir,SINDH,PK714,Malir Karachi,alias (this build),,
+Karachi South,SINDH,PK721,South Karachi,alias (this build),,
+Karachi West,SINDH,PK729,West Karachi,alias (this build),,
+Kashmore,SINDH,PK710,Kashmore,exact (normalised name),,
+Khairpur,SINDH,PK711,Khairpur,exact (normalised name),,
+Korangi,SINDH,PK712,Korangi Karachi,alias (this build),,
+Larkana,SINDH,PK713,Larkana,exact (normalised name),,
+Matiari,SINDH,PK715,Matiari,exact (normalised name),,
+Mir Pur Khas,SINDH,PK716,Mirpur Khas,exact (normalised name),,
+Nowshero Feroze,SINDH,PK717,Naushahro Feroze,alias (this build),,
+Sanghar,SINDH,PK718,Sanghar,exact (normalised name),,
+Shahdadkot,SINDH,PK709,Kambar Shahdad Kot,alias (this build),,
+Shaheed Benazir Abad,SINDH,PK719,Shaheed Benazir Abad,exact (normalised name),,
+Shikarpur,SINDH,PK720,Shikarpur,exact (normalised name),,
+Sujawal,SINDH,PK722,Sujawal,exact (normalised name),,
+Sukkur,SINDH,PK723,Sukkur,exact (normalised name),,
+Tando Allah Yar,SINDH,PK724,Tando Allahyar,exact (normalised name),,
+Tando Muhammad Khan,SINDH,PK725,Tando Muhammad Khan,exact (normalised name),,
+Tharparkar,SINDH,PK726,Tharparkar,exact (normalised name),,
+Thatta,SINDH,PK727,Thatta,exact (normalised name),,
+Umer Kot,SINDH,PK728,Umer Kot,exact (normalised name),,
+Awaran,BALOCHISTAN,PK201,Awaran,exact (normalised name),,
+Barkhan,BALOCHISTAN,PK202,Barkhan,exact (normalised name),,
+Dera Bugti,BALOCHISTAN,PK204,Dera Bugti,exact (normalised name),,
+Duki,BALOCHISTAN,PK234,Duki,exact (normalised name),,
+Gwadar,BALOCHISTAN,PK205,Gwadar,exact (normalised name),,
+Harnai,BALOCHISTAN,PK206,Harnai,exact (normalised name),,
+Jaffarabad,BALOCHISTAN,PK207,Jaffarabad,exact (normalised name),,
+Kachhi/ Bolan,BALOCHISTAN,PK209,Kachhi,alias (this build),,
+Kalat,BALOCHISTAN,PK210,Kalat,exact (normalised name),,
+Kech/Turbat,BALOCHISTAN,PK211,Kech,alias (2014-15 build),,
+Kharan,BALOCHISTAN,PK212,Kharan,exact (normalised name),,
+Khuzdar,BALOCHISTAN,PK213,Khuzdar,exact (normalised name),,
+Kohlu,BALOCHISTAN,PK216,Kohlu,exact (normalised name),,
+Lasbela,BALOCHISTAN,PK217,Lasbela,exact (normalised name),,
+Loralai,BALOCHISTAN,PK219,Loralai,exact (normalised name),,
+Mastung,BALOCHISTAN,PK220,Mastung,exact (normalised name),,
+Nasirabad/ Tamboo,BALOCHISTAN,PK222,Nasirabad,alias (this build),,
+Nushki,BALOCHISTAN,PK223,Nushki,exact (normalised name),,
+Pishin,BALOCHISTAN,PK225,Pishin,exact (normalised name),,
+Qilla Abdullah,BALOCHISTAN,PK214,Killa Abdullah,alias (this build),,
+Qilla Saifullah,BALOCHISTAN,PK215,Killa Saifullah,alias (this build),,
+Quetta,BALOCHISTAN,PK226,Quetta,exact (normalised name),,
+Shaheed Sikandar Abad,BALOCHISTAN,PK233,Shaheed Sikandarabad,exact (normalised name),,
+Sherani,BALOCHISTAN,PK227,Sherani,exact (normalised name),,
+Sibbi,BALOCHISTAN,PK228,Sibi,alias (this build),,
+Sohbatpur,BALOCHISTAN,PK229,Sohbatpur,exact (normalised name),,
+Washuk,BALOCHISTAN,PK230,Washuk,exact (normalised name),,
+Ziarat,BALOCHISTAN,PK232,Ziarat,exact (normalised name),,
+,,PK101,Bagh,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK102,Bhimber,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK103,Jhelum Valley,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK104,Haveli,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK105,Kotli,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK106,Mirpur,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK107,Muzaffarabad,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK108,Neelum,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK109,Poonch,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK110,Sudhnoti,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK203,Chagai,no value,,"no 2019-20 data: the report names it among districts not available (p. 31, item 4)"
+,,PK208,Jhal Magsi,no value,,"no 2019-20 data: the report names it among districts not available (p. 31, item 4)"
+,,PK218,Lehri,no value,,"not in Appendix-D; left empty by the 2014-15 build's rule for a district carved from one the report still lists (parent Sibi, whose value is not copied; the parent is not stated by the report)"
+,,PK221,Musakhel,no value,,"no 2019-20 data: the report names it among districts not available (p. 31, item 4)"
+,,PK224,Panjgur,no value,,"not in Appendix-D, and the report does not say why"
+,,PK231,Zhob,no value,,"no 2019-20 data: the report names it among districts not available (p. 31, item 4)"
+,,PK235,Chaman,no value,,"not in Appendix-D; left empty by the 2014-15 build's rule for a district carved from one the report still lists (parent Killa Abdullah, whose value is not copied; the parent is not stated by the report)"
+,,PK301,Astore,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK302,Diamir,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK303,Ghanche,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK304,Ghizer,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK305,Gilgit,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK306,Hunza,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK307,Skardu,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK308,Nagar,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK309,Kharmang,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK310,Shigar,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK311,Darel,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK312,Tangir,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK313,Gupis-Yasin,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame
+,,PK314,Rondu,no value,,Azad Jammu and Kashmir / Gilgit-Baltistan: outside the PSLM 2019-20 frame

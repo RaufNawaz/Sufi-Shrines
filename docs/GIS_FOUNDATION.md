@@ -607,16 +607,16 @@ tracked in `welfare/`.
 
 The aim: every measured welfare outcome for people in Pakistan that is openly available, on one
 frame. **`atlas_district`, `atlas_tehsil`, `atlas_province` and `atlas_grid_h3_r6`** in the
-GeoPackage hold every indicator as a column (336 at district), so ArcGIS or QGIS opens one layer
-and needs no joins; `atlas_codebook` (313 indicators) gives each one's definition, publisher,
+GeoPackage hold every indicator as a column (361 at district), so ArcGIS or QGIS opens one layer
+and needs no joins; `atlas_codebook` (338 indicators) gives each one's definition, publisher,
 licence, year and the units it reaches. Flat copies are tracked in `pipeline/gis/atlas/`.
 `build_atlas.py` refuses a column that arrives from two sources, an indicator with no
 definition, and any change to the archive's site counts.
 
 **`atlas_sites`** (layer and `atlas/atlas_sites.csv`) is the table the shrine-exposure analysis
-starts from: each of the 169 archive sites with all 240 catalog indicators for the place it stands
+starts from: each of the 169 archive sites with all 265 catalog indicators for the place it stands
 in. Each indicator is taken at the finest unit that reaches nearly all sites — hexagon for the
-satellite and modelled layers (56), district for most surveys (153), province for DHS's region figures (28) — and that unit is the codebook's `site_unit`, so no column mixes units. Census
+satellite and modelled layers (56), district for most surveys (171), province for DHS's region figures (28) — and that unit is the codebook's `site_unit`, so no column mixes units. Census
 tehsil values reach only the 77 cleanly matched districts, so for sites they fall back to district.
 Only the sites layer's public columns are carried; the build fails if a team-only one appears.
 

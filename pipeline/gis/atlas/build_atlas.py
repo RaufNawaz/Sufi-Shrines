@@ -48,6 +48,7 @@ import geopandas as gpd
 HERE = Path(__file__).resolve().parent
 GIS = HERE.parent
 GPKG = GIS / "shrines_foundation.gpkg"
+NEWER = GIS / "outcomes_by_category/newer_waves.tsv"
 CHECKS = []
 H3_R6_KM2 = 36.13       # mean area of an H3 resolution-6 cell
 KEYS = {"h3_id", "h3_parent", "tehsil_code", "tehsil_name", "district_code", "district_name", "province_code",
@@ -193,6 +194,20 @@ def main():
                ("NNS 2018", L("outcomes_nns_district")), ("MICS 6", L("outcomes_mics_district")),
                ("World Bank poverty map", L("outcomes_wb_poverty_district")), ("district MPI", L("outcomes_mpi_district")),
                ("UNDP district HDI", L("outcomes_undp_hdi_district"))]
+    # Newer waves (Rauf, 30 October 2026: take them in), beside the waves they follow under their own keys,
+    # never replacing them: outcomes_by_category/newer_waves.tsv names each file, column and unit.
+    reg = pd.read_csv(NEWER, sep="\t", dtype=str).fillna("")
+    newer = {"district": [], "tehsil": [], "province": []}
+    n_units = {"district": 160, "tehsil": 577, "province": 7}
+    for (unit, f), g in reg.groupby(["unit", "file"], sort=False):
+        key = f"{unit}_code"
+        df = pd.read_csv(GIS / "outcomes_by_category" / f, dtype={key: str})
+        miss = sorted(set(g.column) - set(df.columns))
+        check(f"newer wave {f}: every registered column present", "all" if not miss else ", ".join(miss), "all", not miss)
+        check(f"newer wave {f}: one row per {unit}", f"{len(df)} rows, {df[key].nunique()} codes", str(n_units[unit]),
+              len(df) == df[key].nunique() == n_units[unit])
+        newer[unit].append((f"newer wave {f}", df[[key] + list(g.column)].rename(columns=dict(zip(g.column, g.new_key)))))
+    surveys += newer["district"]
     for d in (c1["tehsil"], c1["district"]):     # step one copies the old shrine columns; the welfare base has them
         d.drop(columns=[c for c in ["n_mus", "n_mus_pre1857", "mus_per_1000km2"] if c in d], inplace=True)
 
@@ -201,7 +216,7 @@ def main():
         "grid": join_all(w1["grid_h3_r6"], "h3_id", [("wave 2", w2["grid"])] + extra("grid"), "grid"),
         "tehsil": join_all(w1["tehsil"], "tehsil_code",
                            [("census", c1["tehsil"]), ("census ext", c2["tehsil"]), ("wave 2", w2["tehsil"])]
-                           + extra("tehsil"), "tehsil"),
+                           + extra("tehsil") + newer["tehsil"], "tehsil"),
         "district": join_all(w1["district"], "district_code",
                              [("census", c1["district"]), ("census ext", c2["district"]), ("wave 2", w2["district"])]
                              + extra("district")
@@ -211,7 +226,7 @@ def main():
     prov = w1["province"].merge(adm_p[["province_code", "n_site", "n_mus", "n_mus_pre1857", "area_km2"]],
                                 on="province_code", how="left")
     out["province"] = join_all(prov, "province_code", [("wave 2", w2["province"])] + extra("province")
-                               + [("DHS regions", L("welfare_dhs_regions"))], "province")
+                               + [("DHS regions", L("welfare_dhs_regions"))] + newer["province"], "province")
     out["province"] = out["province"][out["province"].geometry.notna()]          # FATA: data row, no polygon
     for u in out:
         out[u] = derived(out[u], u)
@@ -249,10 +264,19 @@ def main():
         .assign(publisher="UNDP Pakistan, National Human Development Report 2017", licence="UNDP publication", wave="survey"),
         pd.read_csv(GIS / "outcomes/outcomes_mpi_codebook.csv").rename(columns={"census_table": "source_key"})
         .assign(publisher="Ministry of Planning, Development and Reform, UNDP and OPHI (2016)", licence="Government of Pakistan publication", wave="survey"),
+        reg.drop_duplicates("new_key").rename(columns={"new_key": "indicator"}).assign(wave="newer wave"),
         pd.DataFrame([{"indicator": k, "definition": v[0], "source_key": v[1], "wave": "derived",
                        "publisher": "This project" if v[1] == "archive" else "Kontur via HDX",
                        "licence": "" if v[1] == "archive" else "CC BY 4.0"} for k, v in DERIVED_DEFS.items()]),
     ], ignore_index=True)[["indicator", "definition", "source_key", "publisher", "licence", "wave"]]
+    # The registry and the hand-written catalog must say the same thing about every newer-wave key.
+    cat_by = cat.set_index("key")
+    meta = ["label", "theme", "higher_is_better", "year", "definition", "source_key", "publisher", "licence"]
+    split = sorted(k for k, g in reg.groupby("new_key") if len(g[meta].drop_duplicates()) > 1)
+    check("newer_waves.tsv: one description per key across units", "none" if not split else ", ".join(split), "none", not split)
+    drift = [k for k, r in reg.drop_duplicates("new_key").set_index("new_key").iterrows()
+             if k not in cat_by.index or any(cat_by.at[k, c] != r[c] for c in ("label", "theme", "higher_is_better", "year"))]
+    check("newer_waves.tsv and indicator_catalog.tsv agree", "all" if not drift else ", ".join(drift), "all", not drift)
     dup = defs[defs.indicator.duplicated()].indicator.tolist()
     check("every indicator defined once", "none" if not dup else ", ".join(dup), "none", not dup)
 

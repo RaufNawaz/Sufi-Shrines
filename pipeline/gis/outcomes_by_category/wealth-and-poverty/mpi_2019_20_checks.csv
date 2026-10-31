@@ -1,0 +1,34 @@
+check,kind,measured,reference,result,note
+page 75 carries Appendix-D,integrity,found,Appendix-D title,pass,
+"every body line classified (row, name, province header)",integrity,all,all,pass,
+every numeric row has a district name,integrity,all,all,pass,
+national row present once,integrity,1,1,pass,
+Table A1 district count is self-consistent,integrity,"126 districts, 7875 pairs",pairs = n(n-1)/2,pass,
+district rows parsed = Table A1 count,integrity,126,"126 (Table A1, p. 72)",pass,
+district rows parsed = count stated in the text,external,126,"127 (text, pp. 8, 22 and 45; found 3 times)",warn,"The report contradicts itself: the text says 127 districts, Table A1 and Appendix-D have 126. Recorded, not resolved."
+no district repeated,integrity,none,none,pass,
+every district satisfies MPI = H x A,integrity,126 of 126; max |H*A - MPI| = 5.20e-06,"all, within 0.00001",pass,
+every value lies inside its printed 95% interval,integrity,all,all,pass,
+Appendix-C parsed (national + 4 provinces),integrity,5 of 5,5,pass,
+"Appendix-D national row = Appendix-C national (MPI, H, A)",external,"0.146, 30.5, 48.0","0.146, 30.5, 48.0",pass,
+national number of poor: Appendix-D vs Appendix-C,external,"69,973 thousand (D)","68,679 thousand (C)",warn,"The two appendices print different national counts of poor people; the text (p. 8) says '69 million'. Recorded, not resolved."
+district population shares sum to 100,integrity,100.0000,100.0 (national row),pass,
+population-weighted district MPI = national MPI,integrity,0.14640,0.146,pass,The report: higher-level results are population-weighted averages of the districts (p. 31).
+population-weighted district H = national H,integrity,30.491,30.5,pass,
+district number of poor sums to the national row,integrity,"69,970","69,973 (Appendix-D national)",pass,"Each district count is rounded to the thousand, so the sum may differ by up to half a thousand per district."
+"province PK6+PK4: weighted district MPI, H, population share vs Appendix-C",integrity,"0.0900, 19.86, 53.04","0.09, 19.9, 53.0",pass,
+"province PK7: weighted district MPI, H, population share vs Appendix-C",integrity,"0.2005, 40.31, 23.50","0.2, 40.3, 23.5",pass,
+"province PK5: weighted district MPI, H, population share vs Appendix-C",integrity,"0.1929, 39.75, 17.78","0.193, 39.8, 17.8",pass,
+"province PK2: weighted district MPI, H, population share vs Appendix-C",integrity,"0.3034, 60.17, 5.68","0.303, 60.2, 5.7",pass,
+"lowest H is Islamabad at 2.6% (text pp. 22, 45)",external,Islamabad 2.6,Islamabad 2.6,pass,
+"highest H is Sherani at 95.1% (text pp. 22, 45)",external,Sherani 95.1,Sherani 95.1,pass,
+current district frame,integrity,160,160,pass,
+every report district placed in a current district,integrity,126 of 126,all,pass,
+one report district per current district,integrity,none shared,none shared,pass,
+report province section = current district's province,integrity,all,"all (Islamabad under Punjab in the report, PK4 here)",pass,
+"current districts without a value, each with a stated reason",integrity,"31 without; unexplained by the report: Lehri, Panjgur, Chaman",listed in mpi_2019_20_crosswalk.csv,pass,Panjgur is absent from Appendix-D but not in the report's list of unavailable districts.
+MPI 2019-20 vs atlas MPI 2014-15 (district),convergent,"rho = +0.89, r = +0.84, n = 107; mean 0.209 vs 0.284",rho >= 0.7,pass,"Not a like-for-like comparison: the 2019-20 specification changes two indicators; the report's harmonised national MPI for 2014-15 is 0.162 (Table 2, p. 54), the 2016 report's is 0.197. The report prints no district values for 2014-15 (Figs 27, 29 are images)."
+MPI headcount 2019-20 vs census 2023 literacy,convergent,"rho = -0.91, n = 124","sign -, |rho| >= 0.6",pass,
+report's harmonised national 2014-15 vs the 2016 annex national 2014-15,external,"0.162 (Table 2, harmonised)",0.197 (2016 annex),warn,"Different specifications, documented by the report (p. 54): a comparison, not an error."
+written values read back equal to the printed text,integrity,129 of 129,all,pass,
+current districts with a value,integrity,129 of 160,report rows + split children,pass,

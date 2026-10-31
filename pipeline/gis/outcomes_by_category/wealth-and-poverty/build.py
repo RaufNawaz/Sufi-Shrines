@@ -45,6 +45,11 @@ GROUP = {
     "rwi_popw": "rwi",
     "gdp_pc_2023_popw": "kummu", "gdp_pc_growth_13_23": "kummu",
     "ntl_2023_popw": "ntl", "ntl_change_13_23": "ntl", "share_pop_lit_at_night": "ntl",
+    # The 2024 waves, in the atlas since 30 October 2026 (outcomes_by_category/newer_waves.tsv)
+    "gdp_pc_2024_popw": "kummu_2024", "gdp_pc_growth_13_24": "kummu_2024",
+    "mpi_district_2020": "mpi_district_2020", "mpi_headcount_2020": "mpi_district_2020",
+    "mpi_intensity_2020": "mpi_district_2020",
+    "ntl_2024_popw": "ntl_2024", "ntl_change_13_24": "ntl_2024", "share_pop_lit_at_night_2024": "ntl_2024",
     "mpi": "ophi", "mpi_headcount": "ophi", "mpi_severe": "ophi", "mpi_vulnerable": "ophi",
     "ipc_phase3plus": "ipc",
     "pslm_rural_hh_own_agri_land": "pslm1920", "pslm_hh_own_agri_land": "pslm1920",
@@ -78,16 +83,37 @@ CURRENCY = {
         "Zenodo 18429133, 1990-2024 (published 13 Mar 2026; still the latest version)",
         "https://zenodo.org/records/18429133",
         "yes",
-        "The release is current, but the file we already hold runs to 2024 and the atlas uses 2023 "
-        "(and growth 2013-23). A 2024 value exists in the same file; division level, so it would need the "
-        "welfare builder's spatial join, not a name crosswalk.",
+        "The release is current and runs to 2024. Since 30 October 2026 the atlas holds 2024 beside 2023 "
+        "(gdp_pc_2024_popw, gdp_pc_growth_13_24; build_newer_waves_2024.py). Unit: 2021 international $ "
+        "(the atlas codebook said 2017 until 30 October 2026; corrected from the Zenodo record).",
+    ),
+    "mpi_district_2020": (
+        "Pakistan MPI Report 2019-20 (published 2024), Appendix D, 126 districts",
+        "https://ophi.org.uk/sites/default/files/2025-01/Pakistan_MPI_2019%E2%80%9320_%282024%29.pdf",
+        "yes",
+        "The newest district MPI; extracted by build_mpi_2019_20.py (MPI = H x A for all 126 rows; the national "
+        "and four provincial figures reproduced). The next one awaits PDHS/PSLM 2026-27.",
+    ),
+    "kummu_2024": (
+        "Zenodo 18429133, 1990-2024 (published 13 Mar 2026; still the latest version)",
+        "https://zenodo.org/records/18429133",
+        "yes",
+        "The newest year in the newest release; built by build_newer_waves_2024.py through the welfare "
+        "builder (2023 rebuilt first with 0 differences). Modelled: Pakistan's subnational inputs end in 2019.",
+    ),
+    "ntl_2024": (
+        "2024 (figshare 9828827, Harmonized_DN_NTL_2024_simVIIRS.tif)",
+        "https://figshare.com/articles/dataset/9828827",
+        "yes",
+        "The newest year in the series; built by build_newer_waves_2024.py through the welfare builder "
+        "(2023 rebuilt first with 0 differences).",
     ),
     "ntl": (
         "2024 (figshare 9828827, Harmonized_DN_NTL_2024_simVIIRS.tif; record modified 10 Aug 2025)",
         "https://figshare.com/articles/dataset/9828827",
         "no",
-        "The series now has a 2024 raster; the atlas uses 2023 and change 2013-2023. A raster, so updating "
-        "means zonal statistics in pipeline/gis/welfare/, not a district-name join: a lead, not done here.",
+        "The series now has a 2024 raster. Since 30 October 2026 the atlas holds it beside 2023 "
+        "(ntl_2024_popw, ntl_change_13_24, share_pop_lit_at_night_2024; build_newer_waves_2024.py).",
     ),
     "ophi": (
         "Global MPI 2025, Pakistan still from PDHS 2017-18 (HDX dataset date range 2012-2018, updated Oct 2026)",
@@ -110,11 +136,12 @@ CURRENCY = {
         "PBS lists 2019-20 as the latest completed district round. HIES 2024-25 is provincial only.",
     ),
     "mpi_district": (
-        "2019-20: MPDSI/UNICEF/OPHI, Multidimensional Poverty Index Report 2019-20 (2024), Appendix D, 127 districts",
+        "2019-20: MPDSI/UNICEF/OPHI, Multidimensional Poverty Index Report 2019-20 (2024), Appendix D, 126 districts",
         "https://ophi.org.uk/sites/default/files/2025-01/Pakistan_MPI_2019%E2%80%9320_%282024%29.pdf",
         "no",
         "Newer district MPI exists (PSLM 2019-20 based; Appendix D 'Multidimensional Poverty by District', "
-        "p. 75; also change 2014-15 to 2019-20 for 110 districts). PDF only, no data table found: a lead.",
+        "p. 75). Since 30 October 2026 the atlas holds it beside 2014-15 (mpi_district_2020, mpi_headcount_2020, "
+        "mpi_intensity_2020; build_mpi_2019_20.py). The report's text says 127 districts; its tables have 126.",
     ),
     "undp_hdi": (
         "unconfirmed: UNDP NHDR 2020 (Inequality) is said to present district HDI, not verified",
