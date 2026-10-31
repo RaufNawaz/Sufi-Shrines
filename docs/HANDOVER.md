@@ -23062,4 +23062,8 @@ and later, **pin the salt** so a deploy does not sign the team out. Design and r
 - Data stays public by design: the sheet, the repo and `data/kg.json`'s `reviewed`/`source` fields.
 - What a stranger can learn: that `/team/` exists, its file count and sizes, and the KDF parameters.
 
-**Commit:** `feat:` (this section's), not pushed.
+**Commits:** `ff187a1d` (`feat:`) and `452a5b81` (`fix:`), both on `1.7` and deployed on 31 October 2026.
+The first deploy with Rauf's secrets failed at the encrypt step, although the same steps passed on this PC
+with the same salt. The job log needs a GitHub sign-in, so the cause was inferred: a secret pasted with
+surrounding whitespace. Both secrets, and the typed passphrase, are now trimmed, and the second deploy
+succeeded. `/team/` is live with the pinned salt.
