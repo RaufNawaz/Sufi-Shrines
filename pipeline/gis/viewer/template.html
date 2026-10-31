@@ -575,7 +575,8 @@
         width: 100%;
         max-width: 100%;
       }
-      #cj input[type='number'] {
+      #cj input[type='number'],
+      #cj input[type='password'] {
         font: inherit;
         min-height: 44px;
         width: 5em;
@@ -584,6 +585,13 @@
         border: 1px solid var(--line);
         background: var(--panel);
         color: var(--text);
+      }
+      #cj input[type='password'] {
+        width: 14em;
+        max-width: 100%;
+      }
+      #cj .def code {
+        overflow-wrap: anywhere;
       }
       #cj .cjrow {
         display: flex;
@@ -4487,7 +4495,17 @@
             <label class="fld"><span class="lbl">Stata</span><textarea class="code" rows="9" readonly id="cjStata">${esc(stataCode(e))}</textarea></label>
             <label class="fld"><span class="lbl">R</span><textarea class="code" rows="9" readonly id="cjR">${esc(rCode(e))}</textarea></label>
             <div class="cjbtns"><button class="btn" type="button" data-copy="cjStata">Copy Stata</button><button class="btn" type="button" data-copy="cjR">Copy R</button></div>
+          </details>
+          <details open id="cjSt"><summary>Run in Stata on this computer</summary>
+            <div class="def">Sends the Stata code above to the Shrines Stata service on this PC, which runs it in Stata and returns Stata's own output. Start it by double-clicking <code>pipeline/gis/viewer/stata_service/start_stata_service.cmd</code> (or <code>python pipeline/gis/viewer/stata_service/stata_service.py</code>); it prints a token to paste here once.</div>
+            <div class="cjbtns"><label class="fld"><span class="lbl">Token</span><input id="cjStTok" type="password" autocomplete="off" spellcheck="false" aria-label="Stata service token" /></label>
+            <button class="btn" type="button" id="cjStAuto" aria-pressed="false">Run every test in Stata: off</button>
+            <button class="btn" type="button" id="cjStRun">Run in Stata</button></div>
+            <div id="cjStStatus" role="status" aria-live="polite" class="def"></div>
+            <div id="cjStCmp"></div>
+            <label class="fld" id="cjStLogWrap" hidden><span class="lbl">Stata output</span><textarea class="code" rows="14" readonly id="cjStLog"></textarea></label>
           </details>`;
+        stataPanel(e);
         if (res && res._) rvf(res._);
         else $('cjRvf').remove();
         $('cjResMap').onclick = () => residMap(e, res);
@@ -4509,6 +4527,103 @@
               }
             }),
         );
+      }
+      // ---- test a conjecture: Stata on this computer ---------------------------------------------
+      // stata_service/stata_service.py runs the code shown above in Stata and returns its log and
+      // e(b), e(V). The token and the auto-run choice are per-browser conveniences in localStorage.
+      const STK = 'shrines_viewer_stata_token',
+        STA = 'shrines_viewer_stata_auto',
+        STURL = 'http://127.0.0.1:8765';
+      const lsGet = (k) => {
+        try {
+          return localStorage.getItem(k) || '';
+        } catch {
+          return '';
+        }
+      };
+      const lsSet = (k, v) => {
+        try {
+          localStorage.setItem(k, v);
+        } catch {
+          /* private window: kept for this page only */
+        }
+      };
+      function stataCompare(e, r) {
+        const se = e.spec.se === 'classical' ? 'seC' : 'seR',
+          nm = (t) =>
+            t.role === 'const'
+              ? '_cons'
+              : `${t.role}${e.terms.filter((u) => u.role === t.role).indexOf(t) + 1}`,
+          got = Object.fromEntries(r.terms.map((t) => [t.term, t])),
+          rel = (a, b) => Math.abs(a - b) / Math.max(Math.abs(b), 1e-12);
+        let worst = r.n === e.n ? 0 : Infinity;
+        const rows = e.terms.map((t) => {
+          const s = got[nm(t)];
+          const d = s ? Math.max(rel(s.b, t.b), rel(s.se, t[se])) : Infinity;
+          worst = Math.max(worst, d);
+          return `<tr><td>${esc(nm(t))}</td><td>${esc(t.key || 'constant')}</td><td class="num">${fn(t.b, 6)}</td><td class="num">${s ? fn(s.b, 6) : '—'}</td><td class="num">${fn(t[se], 6)}</td><td class="num">${s ? fn(s.se, 6) : '—'}</td></tr>`;
+        });
+        return {
+          ok: worst < 1e-6,
+          html:
+            `<div class="scroll"><table><tr><th>Term</th><th>Variable</th><th class="num">b, viewer</th><th class="num">b, Stata</th><th class="num">SE, viewer</th><th class="num">SE, Stata</th></tr>${rows.join('')}</table></div>` +
+            `<div class="def">N: viewer ${e.n}, Stata ${r.n}. ${worst < 1e-6 ? '<b>Stata agrees</b> with the viewer on every coefficient and standard error (relative difference under 1e-6).' : `<b>Stata differs from the viewer</b> (largest relative difference ${worst === Infinity ? 'a missing term or N' : worst.toExponential(1)}). Trust Stata's numbers, and report this.`}</div>`,
+        };
+      }
+      async function stataRun(e) {
+        const tok = $('cjStTok').value.trim(),
+          st = $('cjStStatus');
+        if (!tok) {
+          st.textContent = 'Paste the token the service printed when it started.';
+          return;
+        }
+        lsSet(STK, tok);
+        $('cjStRun').disabled = true;
+        st.textContent = 'Running in Stata…';
+        try {
+          const resp = await fetch(STURL + '/run', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-Stata-Token': tok },
+            body: JSON.stringify({ code: stataCode(e) }),
+          });
+          const r = await resp.json();
+          if (r.log) {
+            $('cjStLog').value = r.log;
+            $('cjStLogWrap').hidden = false;
+          }
+          if (!r.ok) {
+            st.textContent = `Stata did not run it: ${r.error}`;
+            return;
+          }
+          const c = stataCompare(e, r);
+          $('cjStCmp').innerHTML = c.html;
+          st.textContent = c.ok
+            ? 'Ran in Stata.'
+            : 'Ran in Stata, and the numbers differ: see below.';
+        } catch {
+          st.textContent =
+            'The Stata service is not reachable. Start it (the command above) and try again.';
+        } finally {
+          $('cjStRun').disabled = false;
+        }
+      }
+      function stataPanel(e) {
+        if (!$('cjStRun')) return;
+        $('cjStTok').value = lsGet(STK);
+        const auto = $('cjStAuto'),
+          showAuto = (on) => {
+            auto.setAttribute('aria-pressed', on ? 'true' : 'false');
+            auto.textContent = `Run every test in Stata: ${on ? 'on' : 'off'}`;
+          };
+        showAuto(lsGet(STA) === '1');
+        auto.onclick = () => {
+          const on = auto.getAttribute('aria-pressed') !== 'true';
+          lsSet(STA, on ? '1' : '0');
+          showAuto(on);
+          if (on) stataRun(e);
+        };
+        $('cjStRun').onclick = () => stataRun(e);
+        if (lsGet(STA) === '1' && $('cjStTok').value) stataRun(e);
       }
       // Benjamini-Hochberg values already on screen are refreshed whenever the log changes.
       function refreshBH() {

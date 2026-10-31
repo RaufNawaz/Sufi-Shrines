@@ -47,7 +47,7 @@ the reason the rest is credible.
 7. [x] Stata/R code under each result is self-contained (data embedded) and ends with the viewer's estimates; verified in Stata and R (HANDOVER 9.437).
 8. [x] Newer outcome waves into the atlas: done (HANDOVER 9.438). Punjab MICS 2024 and LGHAP 2022-24 not taken.
 9. [ ] HeiGIT catalog year ("2023", data is the 2026 release) and GRIP4 licence (CC0): check and correct. (The Kummu GDP unit is corrected to 2021 $, HANDOVER 9.438.)
-10. [ ] Local Stata service: the viewer sends a test to Stata on this PC and shows Stata's own output (Rauf: go ahead).
+10. [x] Local Stata service (HANDOVER 9.439): the viewer sends a test to Stata on this PC and shows Stata's own output (Rauf: go ahead).
 
 ## 30 October 2026, later still: a verified database of every shrine — the state, measured
 

@@ -320,6 +320,16 @@ the page. Everything is computed in the browser from the embedded data; nothing 
    can be pasted into either program and run with nothing else (since 30 October 2026; until then
    it read the downloaded CSV).
 
+   **Run in Stata on this computer** (30 October 2026). Under the code, the viewer can send it to
+   `viewer/stata_service/stata_service.py` (start: double-click `start_stata_service.cmd`), which
+   runs it in StataMP in batch mode and returns Stata's own log and e(b)/e(V); the page shows them
+   beside its own numbers and says whether they agree (relative difference under 1e-6). "Run every
+   test in Stata: on" runs each new result in the background. The service listens on 127.0.0.1 only,
+   needs a token (kept in `%LOCALAPPDATA%\ShrinesStataService\token.txt`, pasted once), admits only
+   a page opened from disk, and **runs only code shaped exactly like the viewer's generator output**
+   (an allowlist of line patterns; a shell escape, a macro or a file command is refused before Stata
+   starts). Test: `tests/test_stata_service.cjs`.
+
 **Exported findings belong in the repository** (for example `docs/research/`), not only in a
 browser's storage or a Downloads folder: RULE 0. The Markdown export ends with that line.
 

@@ -22333,3 +22333,21 @@ of the day, 0 existing cells changed** at district, tehsil, province and the sit
   the Python reference and the Stata/R check pass.
 - Not taken: Punjab MICS 2024 (unlicensed copy only), LGHAP 2022-24 (~13.8 GB a year).
 
+### 9.439, 30 October 2026 (interactive, Windows PC): the viewer runs its tests in Stata on this PC
+
+Rauf asked for the tests to run "on the backend in Stata", in the background, with code to paste.
+`pipeline/gis/viewer/stata_service/stata_service.py` (stdlib; start with `start_stata_service.cmd`)
+takes the Stata code the page shows, runs StataMP 19.5 in batch mode, and returns Stata's log and
+e(b)/e(V); the result box shows Stata's numbers beside the viewer's with a verdict, and a toggle runs
+every new test in Stata automatically. **Locks:** 127.0.0.1 only; a token (outside the repo, in
+`%LOCALAPPDATA%\ShrinesStataService\token.txt`); Origin must be `null` (a page opened from disk) or
+absent; and an allowlist: every line must match a pattern the generator writes, so `shell`, `!`,
+`python`, macros, file commands and anything else are refused before Stata starts. The browser
+engine stays: it is what makes the page work without Stata, and it agrees with Stata to 5e-8.
+
+- `tests/test_stata_service.cjs` starts the service, checks the four locks, runs three logged tests
+  (OLS district, Poisson with exposure, OLS tehsil) through the page, and the auto-run. All pass.
+- The auto-run is a toggle button, not a checkbox: `test_conjecture.cjs` holds every control in the
+  panel to 44 px, which a checkbox is not.
+- Not done: R through the service (Rauf asked for Stata; the R code is still there to paste).
+
