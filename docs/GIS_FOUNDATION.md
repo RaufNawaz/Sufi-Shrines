@@ -395,6 +395,14 @@ browser's storage or a Downloads folder: RULE 0. The Markdown export ends with t
     fixed-effect levels; district, tehsil and hexagon) in StataNow 19.5 and R 4.6.1. 80
     comparisons, largest relative difference **4.7e-7**. The slowest run is hexagons with province
     fixed effects clustered by district: 19,162 units, 12 s.
+- **Save the map** (31 October 2026; under the legend, SVG or PNG). The map as it is on screen,
+  drawn again from the data rather than captured: each unit in view in the colour the map gives
+  it, the archive sites, leads and shrine records shown, and the place names where the screen has
+  them. It adds a title, the legend and a sources line built from the measures shown. The
+  projection is the map's own (`latLngToContainerPoint`), so the image lines up with the screen.
+  There is no basemap, since its tiles are not ours to pass on. The PNG is the SVG at twice the
+  size. Checked by `tests/test_map_export.cjs` in every mode, at district and hexagon: every
+  path's colour equals the screen's, and the site, record and name counts equal what is in view.
 - **A link to the view** (31 October 2026). The address after `#` holds the unit, the mode, the
   measures, the map's centre and zoom, the layers switched on and the places filter, for example
   `#u=tehsil&m=single&i=literacy&z=9&c=31.5500,74.3400&l=sites,places&pf=archive.doam.geonames.osm.osmc.wikidata,any,2,muslim,0`.

@@ -851,6 +851,10 @@
         <div id="flag"></div>
         <h2>Legend</h2>
         <div class="legend" id="legend"></div>
+        <div class="cjbtns">
+          <button class="btn" type="button" id="saveSvg">Save the map (SVG)</button>
+          <button class="btn" type="button" id="savePng">Save the map (PNG)</button>
+        </div>
         <h2>Lined up with the archive</h2>
         <div id="yrow" style="margin-bottom: 6px"></div>
         <div id="corr"></div>
@@ -6345,6 +6349,308 @@
         (c) =>
           `<tr><td class="${esc(c.result)}">${esc(c.result)}</td><td>${esc(c.check)}<br><span class="def">${esc(c.measured)} — vs ${esc(c.reference)}</span></td></tr>`,
       ).join('');
+      // ---- save the map as an image (31 October 2026) ------------------------------------------
+      // The map as it is on screen, drawn again from the data rather than captured: every unit in
+      // view with its colour, the archive sites, leads and shrine records shown, the place names
+      // where the screen has them, a title, the legend and the sources. Projected with the map's own
+      // latLngToContainerPoint, so it lines up with the screen. No basemap (its tiles are not ours
+      // to redistribute), so the image needs no tile credit. SVG for papers; PNG at twice the size.
+      const xmlEsc = (t) =>
+        String(t).replace(
+          /[&<>"]/g,
+          (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c],
+        );
+      function wrapText(t, n) {
+        const out = [];
+        let line = '';
+        for (const w of String(t).split(/\s+/)) {
+          if (line && (line + ' ' + w).length > n) {
+            out.push(line);
+            line = w;
+          } else line = line ? line + ' ' + w : w;
+        }
+        if (line) out.push(line);
+        return out;
+      }
+      function mapTitle() {
+        const u = UNITS.find((x) => x[0] === unit)[1].toLowerCase();
+        if (V.kind === 'resid')
+          return ['Residuals of a tested conjecture', `by ${u}, observed minus fitted`];
+        if (V.kind === 'none') return [`${UNITS.find((x) => x[0] === unit)[1]} boundaries`, ''];
+        if (V.kind === 'bi')
+          return [
+            `${IND[V.keys[0]].label} and ${IND[V.keys[1]].label}`,
+            `by ${u}, tertiles of each`,
+          ];
+        if (V.kind === 'comp')
+          return [
+            `Composite of ${V.keys.length} measures`,
+            `by ${u}: ${V.keys.map((k) => IND[k].label).join('; ')}`,
+          ];
+        return [IND[V.keys[0]].label, `by ${u}, seven equal-count classes`];
+      }
+      function legendSVG(x0, y0, w) {
+        const o = [];
+        let y = y0;
+        const box = (c, label, stroke) => {
+          o.push(
+            `<rect x="${x0}" y="${y}" width="14" height="12" fill="${c}" stroke="${stroke || '#999'}" stroke-width="0.5"/>`,
+          );
+          wrapText(label, Math.floor((w - 22) / 6)).forEach((l, j) =>
+            o.push(
+              `<text x="${x0 + 20}" y="${y + 10 + j * 13}" font-size="11">${xmlEsc(l)}</text>`,
+            ),
+          );
+          y += 16 + 13 * (wrapText(label, Math.floor((w - 22) / 6)).length - 1);
+        };
+        const head = (t) => {
+          wrapText(t, Math.floor(w / 6.4)).forEach((l) => {
+            o.push(
+              `<text x="${x0}" y="${y + 11}" font-size="11" font-weight="600">${xmlEsc(l)}</text>`,
+            );
+            y += 14;
+          });
+          y += 2;
+        };
+        if (V.kind === 'resid') {
+          head('Residual, in SD');
+          [
+            'below −2.5',
+            '−2.5 to −1.5',
+            '−1.5 to −0.5',
+            '−0.5 to 0.5',
+            '0.5 to 1.5',
+            '1.5 to 2.5',
+            'above 2.5',
+          ].forEach((l, i) => box(DIV[i], l));
+          box('#e3e3e3', 'not in the fit');
+        } else if (V.kind === 'bi') {
+          const [a, b] = V.keys;
+          head(`Across: ${IND[a].label}`);
+          head(`Up: ${IND[b].label}`);
+          for (let r = 2; r >= 0; r--)
+            for (let c = 0; c < 3; c++)
+              o.push(
+                `<rect x="${x0 + 30 + c * 22}" y="${y + (2 - r) * 22}" width="22" height="22" fill="${BIV[r][c]}"/>`,
+              );
+          o.push(`<text x="${x0 + 30}" y="${y + 80}" font-size="10">low → high (across)</text>`);
+          o.push(
+            `<text x="${x0 + 22}" y="${y + 66}" font-size="10" transform="rotate(-90 ${x0 + 22} ${y + 66})">low → high (up)</text>`,
+          );
+          y += 92;
+          box('#e3e3e3', 'missing either value');
+        } else if (V.kind === 'single' || V.kind === 'comp') {
+          const P = V.kind === 'comp' ? PALC : PAL,
+            { b, zero } = V.br,
+            lo = ['min', ...b.map(fmt)],
+            hi = [...b.map(fmt), 'max'];
+          head(
+            V.kind === 'comp' ? 'Composite, 0 to 100 (higher is better off)' : IND[V.keys[0]].label,
+          );
+          P.slice(0, b.length + 1).forEach((c, i) =>
+            box(c, zero && i === 0 ? 'zero' : `${lo[i]} – ${hi[i]}`),
+          );
+          box('#e3e3e3', V.kind === 'comp' ? 'missing a component' : 'no value');
+        } else box('none', `${UNIT1[unit]} boundary`, '#3b4252');
+        y += 6;
+        if ($('showSites').checked) {
+          head('Archive sites');
+          for (const [k, c] of Object.entries(CAT))
+            if (D.sites.some((s) => s.cat === k)) {
+              o.push(`<circle cx="${x0 + 7}" cy="${y + 6}" r="5" fill="${c}" stroke="#fff"/>`);
+              o.push(`<text x="${x0 + 20}" y="${y + 10}" font-size="11">${xmlEsc(k)}</text>`);
+              y += 16;
+            }
+          y += 6;
+        }
+        if ($('showPlaces').checked) {
+          head('Shrine records, every source');
+          [1, 2, 3, 4].forEach((k) => {
+            o.push(
+              `<circle cx="${x0 + 7}" cy="${y + 6}" r="4" fill="${agreeCol(k)}" stroke="#fff"/>`,
+            );
+            o.push(
+              `<text x="${x0 + 20}" y="${y + 10}" font-size="11">${k === 1 ? 'one source' : k === 4 ? '4 or more sources' : `${k} sources`}</text>`,
+            );
+            y += 16;
+          });
+          wrapText(placesText(placesDef()), Math.floor(w / 6)).forEach((l) => {
+            o.push(`<text x="${x0}" y="${y + 10}" font-size="10" fill="#555">${xmlEsc(l)}</text>`);
+            y += 12;
+          });
+          y += 6;
+        }
+        if ($('showLeads').checked) {
+          head('Leads (possible sites)');
+          for (const s of ['wikidata', 'osm', 'both']) {
+            o.push(
+              `<circle cx="${x0 + 7}" cy="${y + 6}" r="4.5" fill="none" stroke="${SRC[s]}" stroke-width="2"/>`,
+            );
+            o.push(`<text x="${x0 + 20}" y="${y + 10}" font-size="11">${xmlEsc(SRCL[s])}</text>`);
+            y += 16;
+          }
+        }
+        return { svg: o.join(''), h: y - y0 };
+      }
+      function mapSVG() {
+        const sz = map.getSize(),
+          W = sz.x,
+          H = sz.y,
+          LW = 250,
+          pad = 16,
+          [t1, t2] = mapTitle(),
+          titleL = wrapText(t1, Math.floor((W + LW) / 9)),
+          subL = t2 ? wrapText(t2, Math.floor((W + LW) / 6.5)) : [],
+          top = pad + titleL.length * 22 + subL.length * 15 + 8,
+          pt = (lat, lng) => {
+            const p = map.latLngToContainerPoint([lat, lng]);
+            return [Math.round(p.x * 10) / 10, Math.round(p.y * 10) / 10];
+          },
+          bnd = map.getBounds().pad(0.05),
+          out = [];
+        // Units in view, as paths in screen coordinates; points closer than half a pixel dropped.
+        const ring = (r, lngLat) => {
+          let d = '',
+            last = null;
+          for (const c of r) {
+            const q = lngLat ? pt(c[1], c[0]) : pt(c[0], c[1]);
+            if (last && Math.abs(q[0] - last[0]) < 0.5 && Math.abs(q[1] - last[1]) < 0.5) continue;
+            d += (d ? 'L' : 'M') + q[0] + ' ' + q[1];
+            last = q;
+          }
+          return d + 'Z';
+        };
+        const fs = feats(unit),
+          hex = unit === 'hex';
+        let nDrawn = 0;
+        fs.forEach((f, i) => {
+          let d;
+          if (hex) {
+            const [la, lo] = h3.cellToLatLng(f.hex);
+            if (!bnd.contains([la, lo])) return;
+            d = ring(h3.cellToBoundary(f.hex).concat([h3.cellToBoundary(f.hex)[0]]), false);
+          } else {
+            const b = f.bbox;
+            if (
+              b[2] < bnd.getWest() ||
+              b[0] > bnd.getEast() ||
+              b[3] < bnd.getSouth() ||
+              b[1] > bnd.getNorth()
+            )
+              return;
+            const polys = f.geom.type === 'Polygon' ? [f.geom.coordinates] : f.geom.coordinates;
+            d = polys.map((P) => P.map((r) => ring(r, true)).join('')).join('');
+          }
+          const s = styleFor(i, hex);
+          out.push(
+            `<path data-id="${xmlEsc(f.id)}" d="${d}" fill="${s.fill ? s.fillColor : 'none'}" fill-opacity="${s.fill ? s.fillOpacity : 0}" fill-rule="evenodd" stroke="${s.stroke ? s.color : 'none'}" stroke-width="${s.stroke ? s.weight : 0}" stroke-opacity="${s.opacity ?? 1}"/>`,
+          );
+          nDrawn++;
+        });
+        const inView = (lat, lon) => bnd.contains([lat, lon]);
+        if ($('showLeads').checked)
+          for (const l of LEADS)
+            if ((!l.in_archive || $('showLeadsIn').checked) && inView(l.lat, l.lon)) {
+              const [x, y] = pt(l.lat, l.lon);
+              out.push(
+                `<circle cx="${x}" cy="${y}" r="4.5" fill="none" stroke="${SRC[l.src] || '#666'}" stroke-width="2"/>`,
+              );
+            }
+        if ($('showPlaces').checked)
+          for (const p of [...placesShown()].sort((a, b) => a.n - b.n))
+            if (inView(p.lat, p.lon)) {
+              const [x, y] = pt(p.lat, p.lon);
+              out.push(
+                `<circle class="place" cx="${x}" cy="${y}" r="${p.n > 1 ? 4.5 : 3.5}" fill="${agreeCol(p.n)}" stroke="#fff" stroke-width="1"/>`,
+              );
+            }
+        if ($('showSites').checked)
+          for (const s of D.sites)
+            if (inView(s.lat, s.lon)) {
+              const [x, y] = pt(s.lat, s.lon);
+              out.push(
+                `<circle class="site" cx="${x}" cy="${y}" r="5" fill="${CAT[s.cat] || '#000'}" stroke="#fff" stroke-width="1"/>`,
+              );
+            }
+        // Place names exactly where the screen shows them.
+        const mr = $('map').getBoundingClientRect(),
+          names = [];
+        document.querySelectorAll('#map .city-label').forEach((el) => {
+          const r = el.getBoundingClientRect(),
+            fsz = parseFloat(getComputedStyle(el).fontSize) || 12;
+          names.push(
+            `<text x="${(r.left - mr.left).toFixed(1)}" y="${(r.bottom - mr.top - (r.height - fsz) / 2 - 2).toFixed(1)}" font-size="${fsz}" font-weight="600" fill="#1d1f23" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round">${xmlEsc(el.textContent.trim())}</text>`,
+          );
+        });
+        const L = legendSVG(W + pad * 2, top, LW - pad * 2),
+          srcs = [
+            'Boundaries: OCHA COD-AB (via pkmapr).',
+            V.keys && V.keys.length && V.kind !== 'resid'
+              ? `Measures: ${V.keys
+                  .map(
+                    (k) =>
+                      `${IND[k].label}: ${(IND[k].def || '')
+                        .split(/ [—–-] /)
+                        .slice(-1)[0]
+                        .slice(0, 160)}`,
+                  )
+                  .join(' | ')}.`
+              : '',
+            $('showSites').checked
+              ? 'Archive sites: Mapping the Shrines of Pakistan (Adil Ahsan and Rauf Nawaz).'
+              : '',
+            $('showPlaces').checked || $('showLeads').checked
+              ? 'Shrine records: the archive, DOAM inventory, OpenStreetMap (© OpenStreetMap contributors, ODbL), Wikidata (CC0), GeoNames (CC BY 4.0).'
+              : '',
+            names.length ? 'Place names: GeoNames (CC BY 4.0).' : '',
+            `Drawn by the Shrines and Welfare viewer, ${new Date().toISOString().slice(0, 10)}.`,
+          ]
+            .filter(Boolean)
+            .join(' '),
+          srcL = wrapText(srcs, Math.floor((W + LW) / 5.6)),
+          TH = Math.max(top + H, top + L.h) + 12 + srcL.length * 12 + pad;
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W + LW}" height="${TH}" viewBox="0 0 ${W + LW} ${TH}" font-family="system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" fill="#1d1f23">
+<rect width="100%" height="100%" fill="#ffffff"/>
+${titleL.map((l, j) => `<text x="${pad}" y="${pad + 16 + j * 22}" font-size="18" font-weight="700">${xmlEsc(l)}</text>`).join('')}
+${subL.map((l, j) => `<text x="${pad}" y="${pad + titleL.length * 22 + 10 + j * 15}" font-size="12" fill="#5d6470">${xmlEsc(l)}</text>`).join('')}
+<defs><clipPath id="mapclip"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath></defs>
+<g transform="translate(0 ${top})"><rect width="${W}" height="${H}" fill="#f4f6f8"/><g clip-path="url(#mapclip)">${out.join('')}${names.join('')}</g><rect width="${W}" height="${H}" fill="none" stroke="#c9ced6"/></g>
+${L.svg}
+${srcL.map((l, j) => `<text x="${pad}" y="${Math.max(top + H, top + L.h) + 22 + j * 12}" font-size="9.5" fill="#5d6470">${xmlEsc(l)}</text>`).join('')}
+</svg>`;
+        return { svg, W: W + LW, H: TH, n: nDrawn };
+      }
+      const mapFile = () =>
+        `shrines_map_${unit}_${(V.keys && V.keys.length ? V.keys.join('_') : V.kind).slice(0, 60)}`;
+      $('saveSvg').onclick = () => download(mapFile() + '.svg', mapSVG().svg, 'image/svg+xml');
+      $('savePng').onclick = () => {
+        const m = mapSVG(),
+          img = new Image(),
+          u = URL.createObjectURL(new Blob([m.svg], { type: 'image/svg+xml' }));
+        img.onload = () => {
+          const c = document.createElement('canvas');
+          c.width = m.W * 2;
+          c.height = m.H * 2;
+          const g = c.getContext('2d');
+          g.scale(2, 2);
+          g.drawImage(img, 0, 0);
+          URL.revokeObjectURL(u);
+          c.toBlob((b) => {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(b);
+            a.download = mapFile() + '.png';
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+              URL.revokeObjectURL(a.href);
+              a.remove();
+            }, 1000);
+          }, 'image/png');
+        };
+        img.onerror = () =>
+          notice('This browser could not turn the map into a PNG; save the SVG instead.');
+        img.src = u;
+      };
       // ---- a link to this view (31 October 2026) -------------------------------------------------
       // The unit, the measures and how they are shown, the map's centre and zoom, the layers and the
       // places filter live in the address after '#', so a view can be bookmarked or sent. Written

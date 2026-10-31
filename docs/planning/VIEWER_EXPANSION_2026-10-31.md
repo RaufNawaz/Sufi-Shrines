@@ -49,7 +49,7 @@ Chosen for what a regression-minded reader of this map needs next, largest first
 5. [x] **A link to this view.** The unit, the measure(s), the mode, the map's centre and zoom, the layers
    switched on and the places filter, kept in the address's `#` part and restored on opening, so a view
    can be bookmarked or sent.
-6. [ ] **Export the map as an image.** The choropleth, the layers shown, the legend, a title and the
+6. [x] **Export the map as an image.** The choropleth, the layers shown, the legend, a title and the
    sources credit as an SVG (and PNG from it), drawn from the vector data rather than a screenshot, for
    papers and slides.
 
@@ -93,3 +93,7 @@ HANDOVER §9 entry. Nothing here writes to the Google Sheet or changes `sites.cs
   opening: unit, mode, measures, centre and zoom, layers and the places filter. There is a "Copy a
   link to this view" button. Unknown parts are dropped with a notice, and panning adds no history
   entries. As planned.
+- **Item 6, 31 October 2026.** "Save the map (SVG / PNG)" under the legend. It is drawn from the
+  data in the map's own projection, with title, legend and sources, and no basemap. Checked in all
+  modes at district and hexagon: every unit in its screen colour, and sites, records and names as
+  on screen. All six items are done.
