@@ -16,7 +16,8 @@ round-trip, a key order change), it refuses rather than ship a page whose number
 Usage (from the repo root):
   python pipeline/gis/viewer/rebuild_from_embedded.py
   python pipeline/gis/viewer/rebuild_from_embedded.py --leads pipeline/gis/shrine_sources/merged_leads.json
-  python pipeline/gis/viewer/rebuild_from_embedded.py --places pipeline/gis/shrine_sources/district_counts/sites.csv
+  python pipeline/gis/viewer/rebuild_from_embedded.py --places pipeline/gis/shrine_sources/district_counts/sites.csv \
+      --verified pipeline/gis/shrine_sources/verified_db/shrines_verified.csv
   python pipeline/gis/viewer/rebuild_from_embedded.py --cities pipeline/gis/sources/geonames_cities/cities1000.zip
   python pipeline/gis/viewer/rebuild_from_embedded.py --check          # round-trip only, writes nothing
 """
@@ -212,6 +213,34 @@ def load_places(path):
     return out
 
 
+def attach_verified(data, path):
+    """Put the verified shrine database's evidence on every place (shrine_sources/verified_db/
+    shrines_verified.csv, 31 October 2026): t = tier, f = 1 when in the final set (places with evidence
+    they exist, shrines only), k = kind, g / m = the colonial-gazetteer and political-shrines matches that
+    count as sources. Refuses unless every place on the map has a row and every final-set row with a point
+    is on the map (RULE 4)."""
+    with open(path, encoding="utf-8", newline="") as fh:
+        rows = {r["place_id"]: r for r in csv.DictReader(fh)}
+    on_map = {p["id"] for p in data["places"]}
+    missing = sorted(on_map - set(rows))
+    if missing:
+        sys.exit(f"{path}: {len(missing)} places on the map have no row, e.g. {missing[:5]}")
+    unplotted = sorted(pid for pid, r in rows.items() if r["in_final"] == "yes" and r["lat"] and pid not in on_map)
+    if unplotted:
+        sys.exit(f"{path}: {len(unplotted)} final-set places with a point are not on the map, e.g. {unplotted[:5]}")
+    for p in data["places"]:
+        r = rows[p["id"]]
+        p["t"], p["f"], p["k"] = r["tier"], 1 if r["in_final"] == "yes" else 0, r["kind"]
+        for key, col in (("g", "colonial_gazetteer"), ("m", "malik_mirza_politics")):
+            cell = " | ".join(x for x in r[col].split(" | ") if x.startswith("match:"))
+            if cell:
+                p[key] = cell
+            else:
+                p.pop(key, None)
+    n_final = sum(p["f"] for p in data["places"])
+    print(f"verified database: {n_final:,} of {len(data['places']):,} places on the map are in the final set")
+
+
 # Place names for the map (Rauf, 30 October 2026: the welfare map "does not have any city names").
 # GeoNames cities1000 (every populated place over 1,000 people; CC BY 4.0), Pakistan only. Each place
 # carries the lowest zoom at which its label shows: capitals always, then by population.
@@ -362,6 +391,8 @@ def main():
     ap.add_argument("--leads", type=Path, help="merged_leads.json to replace the embedded leads with")
     ap.add_argument("--places", type=Path,
                     help="shrine_sources/district_counts/sites.csv: every source's records, for the source filter")
+    ap.add_argument("--verified", type=Path,
+                    help="shrine_sources/verified_db/shrines_verified.csv: each place's evidence tier and final-set flag")
     ap.add_argument("--cities", type=Path,
                     help="GeoNames cities1000.zip: place names for the map (pipeline/gis/sources/geonames_cities/)")
     ap.add_argument("--check", action="store_true", help="check the round trip and write nothing")
@@ -388,6 +419,9 @@ def main():
         data["places"] = load_places(a.places)
         print(f"places: {len(data['places'])} from {a.places}")
         attach_place_counts(data, a.places)
+        raw, literal = serialise(data)
+    if a.verified:
+        attach_verified(data, a.verified)
         raw, literal = serialise(data)
     if a.cities:
         data["cities"] = load_cities(a.cities)

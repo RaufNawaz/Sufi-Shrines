@@ -233,7 +233,10 @@ const ALL = ['archive', 'doam', 'geonames', 'osm', 'osmc', 'wikidata'];
     applyPlacesDef({ src: ['geonames'], match: 'only', min: 1, trad: '', noArch: false });
     const first = LOG[0];
     loadSpec(first.spec);
-    const panel = JSON.stringify(placesDef()) === JSON.stringify(first.spec.places);
+    // A filter saved without an evidence setting (before 31 October 2026) means every record.
+    const panel =
+      JSON.stringify(placesDef()) ===
+      JSON.stringify({ ...first.spec.places, ev: first.spec.places.ev || 'all' });
     const again = runSpec(first.spec, first.unit, false);
     const missing = validSpec({ ...specs[0], places: null });
     const malformed = validSpec({ ...specs[0], places: { ...muslim2, src: ['nonsense'] } });

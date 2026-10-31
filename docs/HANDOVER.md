@@ -22914,3 +22914,23 @@ railway station, airport or canal. Those points are recorded in `note`, not used
 
 **Commit:** `data:`, pushed with Rauf's go-ahead.
 
+
+### 9.457, 31 October 2026 (Windows PC, the hybrid-worker session): the viewer's shrine layer shows the places with evidence
+
+**What.** Rauf asked for the shrine map to show every shrine recorded in the verified database, the ones
+with evidence that they exist. The research viewer's "All shrine records, every source" layer now carries
+each place's tier, kind and final-set flag, and its study matches, from `verified_db/shrines_verified.csv`
+(`rebuild_from_embedded.py --verified`, which refuses unless every place on the map has a row and every
+final-set place with a point is on the map). A new **Evidence** filter defaults to the final set: **1,033
+places with a point**. The 11 final-set places without a point are 6 archive rows without a pin and the 5
+shrines added from Malik and Mirza; they cannot be drawn until someone finds their points.
+Popups give the evidence tier; the CSV download adds `evidence_tier` and `in_final_set`. View links carry
+the setting, as a sixth `pf` field. A test or link saved before this change has no setting, so it reads as
+"every record" and re-runs on the same places.
+Tests: `test_places_filter` (now also checks the default against a count from the CSV),
+`test_places_variable`, `test_view_link`, `test_map_export` and `test_data_download` all pass.
+
+**Not done:** the public site's map (`src/pages/MapPage`) still shows the archive only, from the sheet. Putting
+research places there is a product decision for Rauf.
+
+**Commit:** `feat(gis):`, pushed.

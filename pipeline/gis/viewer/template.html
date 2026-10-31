@@ -793,6 +793,13 @@
           <div id="placesSrc" class="pf-row"></div>
           <div class="pf-row">
             <label
+              >Evidence
+              <select id="placesEv">
+                <option value="final">shrines with evidence they exist (verified database)</option>
+                <option value="all">every record, with or without evidence</option>
+              </select></label
+            >
+            <label
               >Match
               <select id="placesMatch">
                 <option value="any">any ticked source</option>
@@ -2272,6 +2279,24 @@
         p.n = new Set(p.r.map((x) => indep(x[0]))).size;
         p.name = (p.r.find((x) => x[1]) || [, ''])[1];
       }
+      // The verified shrine database (shrine_sources/verified_db/, 31 October 2026) gives each place a
+      // tier and says whether it is in the final set: places with evidence they exist (two or more
+      // sources, counting the published studies; the archive's documented rows; DOAM, which Rauf ruled
+      // documents a place on its own; or a verbatim quote from an outside page), shrines only.
+      const TIER = {
+        verified: 'verified: two or more independent sources',
+        archive_documented: 'documented by the archive',
+        doam_documented: 'documented by DOAM (the government inventory)',
+        literature_documented: 'documented by a published study',
+        web_confirmed: 'confirmed by an outside web page',
+        plausible: 'plausible: name found online, locality not',
+        unconfirmed: 'unconfirmed: no evidence found yet',
+        contradicted: 'contradicted: reported demolished or elsewhere',
+      };
+      const LITSRC = {
+        g: 'Colonial Punjab District Gazetteers (Malik and Mirza 2015)',
+        m: 'Malik and Mirza (2022), political shrines',
+      };
       const placesL = L.layerGroup().addTo(map);
       $('placesTotal').textContent = ` (${PLACES.length.toLocaleString()} places)`;
       $('placesSrc').innerHTML = Object.entries(PSRC)
@@ -2294,8 +2319,13 @@
         const q = encodeURIComponent(`${p.name} Pakistan`);
         return (
           `<b>${esc(p.name || '(unnamed)')}</b><br>` +
-          `<span style="color:${agreeCol(p.n)}">●</span> ${p.n} independent source${p.n > 1 ? 's' : ''}` +
-          (p.n > 1 ? ' · <b>verified</b>' : ' · <i>unconfirmed</i>') +
+          `<span style="color:${agreeCol(p.n)}">●</span> ${p.n} independent source${p.n > 1 ? 's' : ''} on the map` +
+          (p.t
+            ? `<br>Evidence: <b>${esc(TIER[p.t] || p.t)}</b>${p.f ? '' : ' · <i>not in the final set</i>'}` +
+              (p.k ? ` · ${esc(p.k.replace(/_/g, ' '))}` : '')
+            : p.n > 1
+              ? ' · <b>verified</b>'
+              : ' · <i>unconfirmed</i>') +
           (p.trad !== 'unknown' ? ` · ${esc(p.trad)}` : '') +
           '<ul style="margin:4px 0;padding-inline-start:18px">' +
           p.r
@@ -2303,6 +2333,10 @@
               ([s, n, id]) =>
                 `<li>${esc(PSRC[s].label)}: ${n ? `<span dir="auto">${esc(n)}</span>` : '(unnamed)'} · ${recLink(s, n, id)}</li>`,
             )
+            .join('') +
+          Object.entries(LITSRC)
+            .filter(([k]) => p[k])
+            .map(([k, v]) => `<li>${esc(v)}: ${esc(p[k])}</li>`)
             .join('') +
           '</ul>' +
           `Check it: <a href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">web search</a> · ` +
@@ -2320,6 +2354,7 @@
           min: +$('placesMin').value,
           trad: $('placesTrad').value,
           noArch: $('placesNoArchive').checked,
+          ev: $('placesEv').value,
         };
       }
       function applyPlacesDef(d) {
@@ -2330,17 +2365,19 @@
         $('placesMin').value = String(d.min);
         $('placesTrad').value = d.trad;
         $('placesNoArchive').checked = d.noArch;
+        $('placesEv').value = d.ev || 'all'; // a filter saved before 31 October 2026 had no evidence setting
         drawPlaces();
       }
       const placesShown = () => placesFilter(placesDef());
       function placesFilter(d) {
         const ticked = new Set(d.src),
-          { match, min, trad, noArch } = d;
+          { match, min, trad, noArch, ev } = d;
         return PLACES.filter((p) => {
           if (min === -1 ? p.n !== 1 : p.n < min) return false;
           if (trad && (trad === 'other' ? !['other', 'secular'].includes(p.trad) : p.trad !== trad))
             return false;
           if (noArch && p.srcs.has('archive')) return false;
+          if (ev === 'final' && !p.f) return false;
           const hit = [...p.srcs].filter((s) => ticked.has(s)).length;
           if (match === 'any') return hit > 0;
           if (match === 'all') return ticked.size > 0 && [...ticked].every((s) => p.srcs.has(s));
@@ -2390,6 +2427,8 @@
             'verified',
             'sources',
             'records',
+            'evidence_tier',
+            'in_final_set',
           ].join(','),
         ];
         for (const p of placesShown())
@@ -2404,6 +2443,8 @@
               p.n > 1 ? 'yes' : 'no',
               [...p.srcs].join(';'),
               p.r.map(([s, n, id]) => `${s}:${id}:${n}`).join(' | '),
+              p.t || '',
+              p.f ? 'yes' : 'no',
             ]
               .map(cell)
               .join(','),
@@ -2426,7 +2467,8 @@
               `<div><i style="background:${agreeCol(k)};border-radius:50%;width:12px"></i>${k === 1 ? 'one source, unconfirmed' : k === 4 ? '4 or more sources' : `${k} sources`}: ${byN(k).toLocaleString()}</div>`,
           )
           .join('') +
-        `<div class="def">Every record of a shrine, temple, samadhi or gurdwara in the archive, DOAM's national inventory, OpenStreetMap, Wikidata and GeoNames, joined into one dot per place. A dot is verified when two independent sources record it (OSM's weak matches count as OSM). One-source dots may not exist: open one to search the web or look at it on satellite.</div>`;
+        `<div class="def">Every record of a shrine, temple, samadhi or gurdwara in the archive, DOAM's national inventory, OpenStreetMap, Wikidata and GeoNames, joined into one dot per place. A dot is verified when two independent sources record it (OSM's weak matches count as OSM). One-source dots may not exist: open one to search the web or look at it on satellite.</div>` +
+        `<div class="def">By default the layer shows only the <b>${PLACES.filter((p) => p.f).length.toLocaleString()} places with evidence they exist</b>, the verified shrine database's final set (shrine_sources/verified_db/README.md): two or more independent sources, counting the colonial gazetteers and Malik and Mirza's political shrines; the archive's documented rows; DOAM's inventory; or a word-for-word quote from an outside web page. Mosques, graveyards, secular tombs and Buddhist or Christian sites are left out. Set Evidence to "every record" to see the rest. A dot's colour counts only the sources with a point on the map.</div>`;
 
       // ---- the filtered records as a variable (31 October 2026) ---------------------------------
       // Whatever the filter shows, counted in every unit: n_pf (count), pf_per_million (per million
@@ -2459,6 +2501,7 @@
           PMIN[d.min],
           d.trad ? PTRAD[d.trad] : '',
           d.noArch ? 'not in the archive' : '',
+          d.ev === 'final' ? 'with evidence they exist (the verified database)' : '',
         ]
           .filter(Boolean)
           .join('; ');
@@ -2472,7 +2515,8 @@
         ['any', 'all', 'only'].includes(d.match) &&
         [1, 2, 3, 4, -1].includes(d.min) &&
         own(PTRAD, d.trad) &&
-        typeof d.noArch === 'boolean';
+        typeof d.noArch === 'boolean' &&
+        (d.ev === undefined || ['all', 'final'].includes(d.ev));
       const PF_AT = {},
         AREA = {};
       // A point a few metres offshore (Karachi's coast) or just over a simplified boundary falls in
@@ -6687,7 +6731,10 @@ ${srcL.map((l, j) => `<text x="${pad}" y="${Math.max(top + H, top + L.h) + 22 + 
         );
         if ($('showPlaces').checked || inUse().some((k) => PF_KEYS.includes(k))) {
           const d = placesDef();
-          q.set('pf', [d.src.join('.'), d.match, d.min, d.trad || '-', d.noArch ? 1 : 0].join(','));
+          q.set(
+            'pf',
+            [d.src.join('.'), d.match, d.min, d.trad || '-', d.noArch ? 1 : 0, d.ev].join(','),
+          );
         }
         return '#' + q.toString().replace(/%2C/g, ',');
       }
@@ -6724,13 +6771,14 @@ ${srcL.map((l, j) => `<text x="${pad}" y="${Math.max(top + H, top + L.h) + 22 + 
           for (const [k, id] of Object.entries(LAYERS)) $(id).checked = on.has(k);
         }
         if (q.has('pf')) {
-          const [src, match, min, trad, na] = q.get('pf').split(','),
+          const [src, match, min, trad, na, ev] = q.get('pf').split(','),
             d = {
               src: (src || '').split('.').filter(Boolean).sort(),
               match,
               min: +min,
               trad: trad === '-' ? '' : trad,
               noArch: na === '1',
+              ev: ev || 'all', // a link made before 31 October 2026 had no evidence setting
             };
           if (goodPlacesDef(d)) applyPlacesDef(d);
           else dropped.push('a places filter it cannot read');

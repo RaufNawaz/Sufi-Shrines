@@ -35,6 +35,38 @@ const want = {
   onlyGeonames: all.filter((s) => s.size === 1 && s.has('geonames')).length,
   verifiedNotArchive: all.filter((s) => indep(s) >= 2 && !s.has('archive')).length,
 };
+// The verified database's final set with a point: what the layer shows by default (31 October 2026).
+// A small CSV reader, because names and notes carry quoted commas.
+function readCsv(text) {
+  const rows = [];
+  let row = [],
+    cell = '',
+    q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"' && text[i + 1] === '"') ((cell += '"'), i++);
+      else if (c === '"') q = false;
+      else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ',') (row.push(cell), (cell = ''));
+    else if (c === '\n')
+      (row.push(cell.replace(/\r$/, '')), rows.push(row), (row = []), (cell = ''));
+    else cell += c;
+  }
+  if (cell || row.length) (row.push(cell), rows.push(row));
+  return rows;
+}
+const vrows = readCsv(
+  fs.readFileSync('pipeline/gis/shrine_sources/verified_db/shrines_verified.csv', 'utf8'),
+);
+const vh = vrows[0];
+const col = (n) => vh.indexOf(n);
+want.finalOnMap = vrows
+  .slice(1)
+  .filter(
+    (r) => r[col('in_final')] === 'yes' && r[col('lat')] && places.has(r[col('place_id')]),
+  ).length;
 const num = (t) => (t.match(/\d[\d,]*/g) || []).map((x) => +x.replace(/,/g, ''));
 
 (async () => {
@@ -53,6 +85,12 @@ const num = (t) => (t.match(/\d[\d,]*/g) || []).map((x) => +x.replace(/,/g, ''))
   await page.check('#showPlaces');
   check(await page.isVisible('#placesPanel'), 'filter panel shows when the layer is on');
   let n = num(await page.textContent('#placesCount'));
+  check(
+    (await page.inputValue('#placesEv')) === 'final' && n[0] === want.finalOnMap,
+    `default: the ${want.finalOnMap} places with evidence (page: ${n[0]})`,
+  );
+  await page.selectOption('#placesEv', 'all');
+  n = num(await page.textContent('#placesCount'));
   check(
     n[0] === want.total && n[1] === want.verified && n[2] === want.one,
     `all sources: ${want.total} shown, ${want.verified} verified, ${want.one} one-source (page: ${n})`,
