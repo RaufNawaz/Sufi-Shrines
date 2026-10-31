@@ -50,6 +50,7 @@ the reason the rest is credible.
 10. [x] Local Stata service (HANDOVER 9.439): the viewer sends a test to Stata on this PC and shows Stata's own output (Rauf: go ahead).
 11. [x] Hybrid worker assessed; prompt at `docs/prompts/hybrid_worker_shrine_existence.md`, input exported (HANDOVER 9.440). Rauf runs it.
 12. [x] Welfare map: place names, 570 GeoNames places, collision-aware, by zoom (HANDOVER 9.441).
+13. [ ] Overnight: verify the one-source places with the local models and build the verified shrine database, run by a separate session from `docs/prompts/overnight_verified_shrine_database.md` (Rauf, 31 October 2026). Default tiers set there: `web_confirmed` (one source + quoted web evidence) is separate from `verified` (two sources).
 
 ## 30 October 2026, later still: a verified database of every shrine — the state, measured
 
