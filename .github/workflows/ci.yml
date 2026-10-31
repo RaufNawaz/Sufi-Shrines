@@ -50,6 +50,10 @@ jobs:
       - name: Stata service unit tests
         run: npm run test:stata
 
+      # The team edition's encryption round trip (scripts/team/, node only).
+      - name: Team edition crypto tests
+        run: npm run test:team
+
       # data:validate includes `python3 urdu-i18n/build_dictionary.py --check`,
       # which regenerates the Urdu dictionary in memory and fails on any
       # mismatch with the committed files. build_dictionary.py is stdlib-only
@@ -71,10 +75,20 @@ jobs:
       # vite.config.ts otherwise defaults the base to /Sufi-Shrines/ for the
       # GitHub Pages deploy (deploy-pages.yml builds its own artifact with
       # that real base). Locally, `npm run build:e2e` does the same thing.
+      # VITE_TEAM_GATE=runtime: the e2e suites test both the public and the
+      # team view of the site, so this artifact keeps the switchable gate.
+      # The deployed site is the public build; the next step checks that one.
       - name: Build
         run: npm run build
         env:
           VITE_BASE_PATH: '/'
+          VITE_TEAM_GATE: runtime
+
+      # The public build (the default gate) must carry no team-only module,
+      # string or data (docs/TEAM_ACCESS_PLAN.md). The deploy runs the same
+      # check inside `npm run build`.
+      - name: Public build carries no team-only content
+        run: npx vite build --outDir dist-public && node scripts/check-public-bundle.mjs --dir dist-public
 
       # Compile the Storybook stories (incl. the a11y addon) so story
       # regressions fail CI. Output (storybook-static/) is discarded.

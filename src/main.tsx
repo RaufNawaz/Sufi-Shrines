@@ -37,7 +37,7 @@ import { applyLookPreference, readLookPreference } from './lib/lookPreference';
 import { detectInitialLang } from './lib/i18n/detectLang';
 import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
 import { loadUrduArticle } from './lib/data/urduContentOverride';
-import { loadUiStrings } from './lib/i18n/uiStrings';
+import { loadUiStrings, registerTeamStrings } from './lib/i18n/uiStrings';
 import { prefetchCsvText } from './lib/data/csvPrefetch';
 import { readStorage } from './lib/safeStorage';
 
@@ -128,6 +128,23 @@ if (shrineSlug && initialLang === 'ur') {
 }
 
 /*
+ * The team view's strings (`uiStrings.team.ts`), fetched alongside the reader's
+ * table and awaited with it below, so a team page never paints a heading as an
+ * empty string. Only builds with team code ask: in the public build
+ * `__TEAM_CODE__` is the literal `false`, the import is in a dead branch, and
+ * Rollup never emits the chunk — no public reader can download a team string.
+ * A failed fetch resolves, like `loadUiStrings`: the team view then shows its
+ * headings blank, which beats an unrendered page.
+ */
+const teamStrings: Promise<void> = __TEAM_CODE__
+  ? import('./lib/i18n/uiStrings.team')
+      .then((mod) => registerTeamStrings(mod.TEAM_TEXT))
+      .catch((error: unknown) => {
+        if (import.meta.env.DEV) console.warn('[i18n] team strings failed to load', error);
+      })
+  : Promise.resolve();
+
+/*
  * The interface strings for the reader's language, *awaited* before the first
  * render — the only line in this file that gates paint, and deliberately so.
  *
@@ -146,7 +163,7 @@ if (shrineSlug && initialLang === 'ur') {
  * with the document rather than after this bundle parses. Correctness does not
  * depend on that having worked, only the speed does.
  */
-void loadUiStrings(initialLang).then(() => {
+void Promise.all([loadUiStrings(initialLang), teamStrings]).then(() => {
   /* Vite's own signal that a preloaded chunk failed — the previous deploy's
    files are gone. Reload once for the current build rather than leave the
    reader on a broken page (loading council, 17 October 2026). */

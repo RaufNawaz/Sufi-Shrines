@@ -1,0 +1,223 @@
+<!doctype html>
+<!--
+  The passphrase page of the team edition (31 October 2026). Served at /Sufi-Shrines/team/ while
+  this browser holds no key; scripts/team/encrypt-team.mjs copies it into dist/team/. Plain on
+  purpose: no external scripts, styles or fonts, and nothing here about the archive that the public
+  site does not already say. See scripts/team/shell/unlock.js for what the button does.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Team edition · Mapping the Shrines of Pakistan</title>
+    <style>
+      :root {
+        --bg: #fbfbfa;
+        --fg: #1d1f24;
+        --muted: #50545c;
+        --card: #ffffff;
+        --border: #c9ccd2;
+        --accent: #2a4d9b;
+        --accent-fg: #ffffff;
+        --error-bg: #fdecec;
+        --error-fg: #8a1c1c;
+        --focus: #2a4d9b;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #15171b;
+          --fg: #eceef2;
+          --muted: #b3b8c2;
+          --card: #1e2127;
+          --border: #474c56;
+          --accent: #8fb0ff;
+          --accent-fg: #0d1526;
+          --error-bg: #3a1717;
+          --error-fg: #ffb4b4;
+          --focus: #8fb0ff;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 16px;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          1rem/1.55 system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+      }
+      main {
+        width: 100%;
+        max-width: 30rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+      }
+      h1 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        margin: 0 0 4px;
+      }
+      .site {
+        color: var(--muted);
+        margin: 0 0 16px;
+      }
+      [lang='ur'] {
+        font-family: 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
+        line-height: 1.9;
+      }
+      p {
+        margin: 0 0 12px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin: 20px 0 6px;
+      }
+      input[type='password'],
+      input[type='text'] {
+        width: 100%;
+        min-height: 44px;
+        padding: 8px 12px;
+        font: inherit;
+        color: var(--fg);
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+      input[aria-invalid='true'] {
+        border-color: var(--error-fg);
+      }
+      .show {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 44px;
+        margin: 4px 0 8px;
+        font-weight: 400;
+      }
+      .show input {
+        width: 22px;
+        height: 22px;
+        margin: 0;
+      }
+      button {
+        min-height: 44px;
+        min-width: 44px;
+        width: 100%;
+        padding: 8px 16px;
+        font: inherit;
+        font-weight: 600;
+        color: var(--accent-fg);
+        background: var(--accent);
+        border: 0;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      button[disabled] {
+        opacity: 0.7;
+        cursor: progress;
+      }
+      :focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 2px;
+      }
+      #unlock-error {
+        margin-top: 16px;
+        padding: 12px;
+        border-radius: 8px;
+        background: var(--error-bg);
+        color: var(--error-fg);
+      }
+      #unlock-error p:last-child,
+      #unlock-status p:last-child {
+        margin: 0;
+      }
+      #unlock-status {
+        margin-top: 12px;
+        color: var(--muted);
+      }
+      a {
+        color: var(--accent);
+        display: inline-block;
+        min-height: 44px;
+        padding: 10px 0;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Team edition <span lang="ur" dir="rtl">· ٹیم ایڈیشن</span></h1>
+      <p class="site">
+        Mapping the Shrines of Pakistan ·
+        <span lang="ur" dir="rtl">پاکستان کے صوفی مزارات</span>
+      </p>
+      <p>
+        This is the team edition of the archive, not the public site. It is encrypted. Enter the
+        team passphrase to open it in this browser.
+      </p>
+      <p lang="ur" dir="rtl">
+        یہ آرکائیو کا ٹیم ایڈیشن ہے، عوامی ویب سائٹ نہیں۔ یہ خفیہ (انکرپٹڈ) ہے۔ اسے اس براؤزر میں
+        کھولنے کے لیے ٹیم کا پاس فریز درج کریں۔
+      </p>
+
+      <form id="unlock-form" novalidate>
+        <label for="passphrase">Passphrase · <span lang="ur" dir="rtl">پاس فریز</span></label>
+        <input
+          id="passphrase"
+          name="passphrase"
+          type="password"
+          autocomplete="current-password"
+          autocapitalize="off"
+          spellcheck="false"
+          required
+          aria-describedby="unlock-error"
+        />
+        <label class="show"
+          ><input id="show-passphrase" type="checkbox" /> Show passphrase ·
+          <span lang="ur" dir="rtl">پاس فریز دکھائیں</span></label
+        >
+        <button id="unlock-button" type="submit">
+          Unlock · <span lang="ur" dir="rtl">کھولیں</span>
+        </button>
+        <div id="unlock-status" role="status" aria-live="polite"></div>
+        <div id="unlock-error" role="alert" hidden></div>
+      </form>
+
+      <noscript>
+        <p>The team edition needs JavaScript.</p>
+        <p lang="ur" dir="rtl">ٹیم ایڈیشن کے لیے جاوا اسکرپٹ ضروری ہے۔</p>
+      </noscript>
+
+      <p class="note">
+        Looking for the archive? <a href="../">Open the public site</a> ·
+        <a href="../" lang="ur" dir="rtl">عوامی ویب سائٹ کھولیں</a>
+      </p>
+    </main>
+    <script src="team-crypto.js"></script>
+    <script src="unlock.js"></script>
+  </body>
+</html>

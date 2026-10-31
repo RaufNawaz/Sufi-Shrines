@@ -1532,10 +1532,21 @@ for (const route of APP_ROUTES) {
 // to the map) instead of GitHub's dead-end page. noindex: this document
 // answers many URLs; none of them should enter an index through it.
 {
-  const notFoundHtml = baseHtml.replace(
-    '</head>',
-    '  <meta name="robots" content="noindex" />\n</head>',
-  );
+  /* Team edition deep links (scripts/team/, 31 October 2026). The encrypted team build lives at
+     <base>team/, where its service worker serves every route once a browser has unlocked. On a
+     first visit there is no worker yet, so <base>team/about lands here: send it to the passphrase
+     page with the rest of the path in ?next=, which that page opens after unlocking. First thing
+     in <head>, so nothing else on this page starts loading. The base is read from the entry
+     script, as in the modulepreload sections below. */
+  const entrySrc = /<script[^>]+type="module"[^>]+src="([^"]+)"/.exec(baseHtml)?.[1];
+  const teamBase = `${entrySrc ? entrySrc.slice(0, entrySrc.indexOf('assets/')) : '/'}team/`;
+  const teamRedirect =
+    `<script>(function(){var t=${JSON.stringify(teamBase)},p=location.pathname;` +
+    'if(p.indexOf(t)===0)location.replace(t+"?next="+encodeURIComponent(' +
+    'p.slice(t.length)+location.search+location.hash));})();</script>';
+  const notFoundHtml = baseHtml
+    .replace('<head>', () => `<head>\n    ${teamRedirect}`)
+    .replace('</head>', '  <meta name="robots" content="noindex" />\n</head>');
   writeFileSync(join(distDir, '404.html'), notFoundHtml, 'utf8');
 }
 

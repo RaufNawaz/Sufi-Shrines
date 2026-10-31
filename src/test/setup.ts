@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import { loadUrduSeed } from '../lib/i18n/urduFallback';
-import { loadUiStrings } from '../lib/i18n/uiStrings';
+import { loadUiStrings, registerTeamStrings } from '../lib/i18n/uiStrings';
+import { TEAM_TEXT } from '../lib/i18n/uiStrings.team';
 
 // jsdom does not implement IntersectionObserver (scroll-spy, etc.)
 if (typeof IntersectionObserver === 'undefined') {
@@ -86,3 +87,12 @@ await loadUrduSeed();
  * that guarantee, in the place a test suite can make it.
  */
 await loadUiStrings('ur');
+
+/*
+ * The team view's strings. `main.tsx` loads them with a dynamic import behind
+ * `__TEAM_CODE__` (vitest runs as the runtime build, where that is true); a
+ * component test has no `main.tsx`, so it registers them here, statically —
+ * this file never reaches a bundle. Without it, every team-gated heading a test
+ * renders would read as an empty string.
+ */
+registerTeamStrings(TEAM_TEXT);

@@ -6,11 +6,8 @@ import { tFn } from '../lib/i18n/uiStrings';
 import { useShrineData } from '../hooks/useShrineData';
 import { buildCoverage, TRADITION_KEYS, type CoverageReport } from '../lib/data/coverage';
 import { AUQAF_PUNJAB_REGISTER } from '../lib/data/archiveReport';
-import { Fact, Stat } from '../components/archive/CoverageStats';
-import { ArchiveKnows } from '../components/archive/ArchiveKnows';
-import { ArchiveState } from '../components/archive/ArchiveState';
+import { Stat } from '../components/archive/CoverageStats';
 import { ContentsNav } from '../components/shrine/ContentsNav';
-import graph from '../../data/kg-stats.json';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -111,6 +108,16 @@ function Citable({ label, text }: { label: string; text: string }) {
 function traditionsCovered(coverage: CoverageReport): number {
   return TRADITION_KEYS.filter((key) => coverage.tradition.counts[key] > 0).length;
 }
+
+/* The team's sections, lazily and only in builds with a team view: the public
+   build never emits them (docs/TEAM_ACCESS_PLAN.md). */
+const AboutTeamSections = __TEAM_CODE__
+  ? React.lazy(() =>
+      import('../components/archive/AboutTeamSections').then((m) => ({
+        default: m.AboutTeamSections,
+      })),
+    )
+  : null;
 
 export default function AboutPage() {
   const { lang, t, fmtNum } = useLang();
@@ -213,34 +220,39 @@ export default function AboutPage() {
      the lazily-loaded provenance file arrives. Both are present in every real
      load; neither is worth omitting from the contents to cover the first paint,
      and ContentsNav ignores an id with no element behind it. */
+  /* Only the team view shows the contents nav, and most of its headings are
+     team strings, which the public build does not have: built only for it. */
   const contents = useMemo(
-    () => [
-      { id: 'scope', label: t('aboutScopeHeading') },
-      { id: 'holds', label: t('aboutStateHeading') },
-      { id: 'graph', label: t('aboutGraphHeading') },
-      { id: 'trust', label: t('aboutTrustHeading') },
-      { id: 'traditions', label: t('coverageTraditionHeading') },
-      { id: 'support', label: t('coverageSupportHeading') },
-      { id: 'depth', label: t('coverageInfoHeading') },
-      { id: 'citations', label: t('coverageSourcesHeading') },
-      { id: 'rests-on', label: t('coverageRestsHeading') },
-      { id: 'photography', label: t('coveragePhotosHeading') },
-      { id: 'dates', label: t('coverageDatesHeading') },
-      { id: 'coordinates', label: t('coverageLocationHeading') },
-      { id: 'observances', label: t('coverageObservancesHeading') },
-      { id: 'places', label: t('placesTitle') },
-      { id: 'site-status', label: t('reportStatusHeading') },
-      { id: 'how-the-words-were-made', label: t('reportWordsHeading') },
-      { id: 'urdu-mirror', label: t('reportUrduHeading') },
-      { id: 'corrected-in-public', label: t('reportCorrectionsHeading') },
-      { id: 'what-was-lost', label: t('reportLostHeading') },
-      { id: 'why', label: t('coverageWhyHeading') },
-      { id: 'method', label: t('aboutMethodHeading') },
-      { id: 'licence', label: t('aboutLicenceHeading') },
-      { id: 'cite', label: t('aboutCiteHeading') },
-      { id: 'corrections', label: t('aboutCorrectionsHeading') },
-    ],
-    [t],
+    () =>
+      !teamView
+        ? []
+        : [
+            { id: 'scope', label: t('aboutScopeHeading') },
+            { id: 'holds', label: t('aboutStateHeading') },
+            { id: 'graph', label: t('aboutGraphHeading') },
+            { id: 'trust', label: t('aboutTrustHeading') },
+            { id: 'traditions', label: t('coverageTraditionHeading') },
+            { id: 'support', label: t('coverageSupportHeading') },
+            { id: 'depth', label: t('coverageInfoHeading') },
+            { id: 'citations', label: t('coverageSourcesHeading') },
+            { id: 'rests-on', label: t('coverageRestsHeading') },
+            { id: 'photography', label: t('coveragePhotosHeading') },
+            { id: 'dates', label: t('coverageDatesHeading') },
+            { id: 'coordinates', label: t('coverageLocationHeading') },
+            { id: 'observances', label: t('coverageObservancesHeading') },
+            { id: 'places', label: t('placesTitle') },
+            { id: 'site-status', label: t('reportStatusHeading') },
+            { id: 'how-the-words-were-made', label: t('reportWordsHeading') },
+            { id: 'urdu-mirror', label: t('reportUrduHeading') },
+            { id: 'corrected-in-public', label: t('reportCorrectionsHeading') },
+            { id: 'what-was-lost', label: t('reportLostHeading') },
+            { id: 'why', label: t('coverageWhyHeading') },
+            { id: 'method', label: t('aboutMethodHeading') },
+            { id: 'licence', label: t('aboutLicenceHeading') },
+            { id: 'cite', label: t('aboutCiteHeading') },
+            { id: 'corrections', label: t('aboutCorrectionsHeading') },
+          ],
+    [t, teamView],
   );
 
   return (
@@ -310,81 +322,10 @@ export default function AboutPage() {
               <p className="about-note">{fmtNum(registerNote)}</p>
             </section>
 
-            {teamView && (
-              <>
-                {/* The graph's own state, from data/kg-stats.json.
-                The section above counts the archive's *sites*; this counts the
-                people, silsilas and links behind them — and then counts how much
-                of that a person has actually checked. An archive that publishes
-                "136 figures" and not "94 of their biographies were read out of
-                prose by a machine and by no editor" is publishing the flattering
-                half. The numbers come from a ~400-byte build artefact rather than
-                from the graph itself, because `src/lib/kg.ts` imports kg.json
-                statically and six counts are not worth 426 KB. */}
-                <section className="about-section" id="graph">
-                  <h2 className="about-section-heading">{t('aboutGraphHeading')}</h2>
-                  <p className="about-note">{t('aboutGraphNote')}</p>
-                  <div className="coverage-stat-grid">
-                    <Stat value={graph.figures} label={t('aboutGraphFigures')} />
-                    <Stat value={graph.orders} label={t('aboutGraphOrders')} />
-                    <Stat value={graph.lineageLinks} label={t('aboutGraphLineageLinks')} />
-                    <Stat value={graph.observances} label={t('aboutGraphObservances')} />
-                    <Stat value={graph.sources} label={t('aboutGraphSources')} />
-                    <Stat value={graph.titles} label={t('aboutGraphTitles')} />
-                    <Stat value={graph.places} label={t('aboutGraphPlaces')} />
-                    <Stat value={graph.lineageOnlyFigures} label={t('aboutGraphLineageOnly')} />
-                  </div>
-                </section>
-
-                <section className="about-section" id="trust">
-                  <h2 className="about-section-heading">{t('aboutTrustHeading')}</h2>
-                  <p className="about-note">{t('aboutTrustNote')}</p>
-                  <ul className="coverage-facts">
-                    <Fact
-                      value={graph.biographiesMachineRead}
-                      label={t('aboutTrustBiographies')}
-                      noun=""
-                    />
-                    {/* "80 of 86", not "80 … (86)" — a bare count of unreviewed
-                    links says nothing without its denominator, and the
-                    denominator belongs *inside* the sentence: Urdu puts it in a
-                    different place, which is precisely what tFn is for. The
-                    ratio is the fact here — most of this graph's lineage is
-                    machine-read. */}
-                    <Fact
-                      value={graph.lineageLinksUnreviewed}
-                      label={fmtNum(tFn(lang, 'aboutTrustLineage', graph.lineageLinks))}
-                      noun=""
-                    />
-                    <Fact
-                      value={graph.orderMembershipsUnreviewed}
-                      label={fmtNum(tFn(lang, 'aboutTrustMemberships', graph.orderMemberships))}
-                      noun=""
-                    />
-                    <Fact
-                      value={graph.disputedDateFigures}
-                      label={t('aboutTrustDisputed')}
-                      noun=""
-                    />
-                  </ul>
-                </section>
-
-                {/* Everything `/coverage` was. The support and info breakdowns used to
-                appear here in summary and again in full one route away; they
-                appear once now, in full. */}
-                <ArchiveKnows shrines={shrines} coverage={coverage} />
-
-                {/* Everything `/report` was, minus the three breakdowns it drew a
-                second time from a second builder. What is left is what only it
-                had: the state of the sites, how the prose was made, the Urdu
-                mirror's progress, and the two ledgers. */}
-                <ArchiveState shrines={shrines} />
-
-                <section className="about-section coverage-why" id="why">
-                  <h2 className="about-section-heading">{t('coverageWhyHeading')}</h2>
-                  <p>{t('coverageWhy')}</p>
-                </section>
-              </>
+            {teamView && AboutTeamSections && (
+              <React.Suspense fallback={null}>
+                <AboutTeamSections shrines={shrines} coverage={coverage} />
+              </React.Suspense>
             )}
           </>
         ) : null}

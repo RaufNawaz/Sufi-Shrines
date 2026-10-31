@@ -22989,3 +22989,77 @@ the same coefficients, auto-run). Every earlier viewer suite passes. Hexagon lev
 
 **Not done.** R through the service (unchanged: the R code is still there to paste). Conley SEs are not
 re-estimated in Stata (`acreg` is not installed; the page's own Conley SEs stand).
+
+**Commit:** `3432cd80` (`feat(gis):`), not pushed.
+
+### 9.459, 31 October 2026 (Windows PC, the hybrid-worker session): team view and public view as two builds; the team edition published encrypted
+
+**What Rauf asked.** A switch between the team and public versions that a URL cannot bypass, and that
+keeps team-only content out of what the public downloads, on GitHub Pages with the prerendered routes. He
+was offered four options with costs (team build on localhost only; Cloudflare Pages behind Cloudflare
+Access; the team build encrypted on GitHub Pages; Google sign-in, rejected). His rulings: the goal is
+**"a clean public view site"** (presentation, not privacy); **option C**, encrypted on GitHub Pages;
+and later, **pin the salt** so a deploy does not sign the team out. Design and rulings:
+`docs/TEAM_ACCESS_PLAN.md`.
+
+**What changed.**
+- **`VITE_TEAM_GATE` selects the build** (vite.config.ts `define`):
+  - `public` (the default build): the gate is constant off, and team code sits in dead
+    `__TEAM_CODE__ ? import() : null` branches that Rollup drops. Gone from the public build:
+    `/review` (it now shows not-found), `SourcesProvenance` and `provenance.json`, `/about`'s team half
+    (moved into `src/components/archive/AboutTeamSections.tsx`), the review queue, the book figures, the
+    badge, and **145 team-only interface strings in both languages** (`src/lib/i18n/uiStrings.team.ts`;
+    values compared byte for byte before and after). `?team=1` sends a reader to the team edition.
+  - `team`: built under `/Sufi-Shrines/team/` and published encrypted.
+  - `runtime` (the dev server, vitest, `build:e2e` and the CI e2e artifact): the old switchable gate, so
+    both views stay reviewable and tested.
+- **`scripts/check-public-bundle.mjs`** runs in `npm run build`, and as its own CI step on a public build.
+  It fails on any team chunk, any of 272 team strings, or any of 433 team-only data strings. It holds
+  itself honest: an unencrypted team build must make it fire (`--expect-hits`, 50 hits).
+  `check-bundle-budget.mjs` fails if the public build has `ReviewPage`.
+- **The team edition** (`scripts/team/`, `npm run build:team`, `npm run team:encrypt`):
+  - **Encryption:** AES-256-GCM with a fresh IV per file. The key comes from PBKDF2-SHA256 at 600,000
+    iterations over the `TEAM_PASSPHRASE` secret, with an optional pinned `TEAM_SALT`. Each box is bound
+    to its path.
+  - **What is published:** the path map is encrypted, so no file name or type is in plaintext. Files
+    byte-identical to the public build are not duplicated.
+  - **Unlocking:** a passphrase page and a service worker scoped to `team/` decrypt in the browser. The
+    key is stored non-extractable in IndexedDB until **Lock**, the badge's exit button.
+  - **Deep links:** they work, including on a first visit, through the public `404.html`.
+  - **A changed passphrase** signs everyone out cleanly.
+  - **Deploy:** `deploy-pages.yml` builds the edition only when the secret is set. The public service
+    worker never answers `team/` navigations.
+
+**Tests.**
+- `npm run verify`: green.
+- `npm run test:team`: 9 tests, now in verify and CI.
+- `npm run test:team-site`: 26 checks in Playwright on a Pages-style server, covering:
+  - a wrong passphrase refused, the right one opens the team app;
+  - a deep link, as a first visit and after unlock;
+  - Lock, from the URL and from the badge;
+  - a rotated passphrase;
+  - `?team=1` on the public site;
+  - no page errors.
+
+  On the real build it encrypted 76 files (1,520 KiB) and left 408 to the public copy.
+- **The full e2e suite on the runtime build: 576 of 576.** One spec changed: `typography.spec.ts` now
+  waits for `/about`'s lazily loaded team sections before measuring their headings.
+
+**Gotchas.**
+- A service-worker response passed through as is carries its own URL. A shared chunk then ran as
+  `/Sufi-Shrines/assets/…`, loaded the public chunks, and the page had two Reacts. Re-wrapping the
+  response fixed it (`team-sw.js`).
+- A public denylist of `team/` missed `/Sufi-Shrines/team` without the slash; it is now `team(/|$)`.
+- `build:e2e` uses `VAR=x` syntax, which cmd.exe cannot run. On this PC, set the variables in PowerShell
+  and run `npm run build` (unchanged from before).
+- `test:team-site` writes `dist/team` with a test passphrase. Never run it between the real encrypt and
+  the upload; it is not in CI.
+
+**Not done, and for Rauf.**
+- The two secrets are not set; until they are, the deploy is the public site alone.
+- The Urdu on the passphrase page (`scripts/team/shell/index.html`, `unlock.js`) is a draft and needs an
+  Urdu reader.
+- Data stays public by design: the sheet, the repo and `data/kg.json`'s `reviewed`/`source` fields.
+- What a stranger can learn: that `/team/` exists, its file count and sizes, and the KDF parameters.
+
+**Commit:** `feat:` (this section's), not pushed.

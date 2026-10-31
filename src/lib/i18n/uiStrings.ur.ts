@@ -1,24 +1,5 @@
 import type { UiStrings } from './uiStrings';
 
-/** The oblique/possessed form of a kinship role, for "‹possessor› ‹role›"
- * constructions. See `graphLineageOnlyKinOf` below for why this cannot be the
- * same string as the `kinRole*` chip. */
-const KIN_GENITIVE: Record<string, string> = {
-  بیٹا: 'کے بیٹے',
-  بیٹی: 'کی بیٹی',
-  بیٹیاں: 'کی بیٹیاں',
-  پوتا: 'کے پوتے',
-  'پوتا/نواسا': 'کے پوتے/نواسے',
-  بھتیجا: 'کے بھتیجے',
-  بھانجا: 'کے بھانجے',
-  'بھتیجا/بھانجا': 'کے بھتیجے/بھانجے',
-  'اولاد میں سے': 'کی اولاد میں سے',
-};
-
-function kinGenitive(role: string): string {
-  return KIN_GENITIVE[role] ?? `کے ${role}`;
-}
-
 /**
  * The Urdu interface strings — 42 KB, in their own module so an English reader
  * never downloads them.
@@ -88,13 +69,7 @@ export const UI_TEXT_UR: UiStrings = {
     'جدید انداز میں ہر صفحہ ٹھنڈے سرمئی رنگوں اور گول کنٹرولوں کے ساتھ آتا ہے۔ کلاسیکی انداز آرکائیو کا پہلا ڈیزائن ہے: گرم سفید رنگ اور انگریزی میں سیریف حروف۔ دونوں میں ترتیب اور ہر لفظ ایک جیسا ہے۔',
   settingsLookModern: 'جدید',
   settingsLookClassic: 'کلاسیکی',
-  settingsTeamSection: 'پراجیکٹ ٹیم',
-  settingsTeamLabel: 'ٹیم کا منظر',
-  settingsTeamHelp:
-    'عام قاری صاف صفحہ پڑھتا ہے؛ ٹیم ہر وضاحت پڑھتی ہے — تعارف کے صفحے پر ناپا ہوا احتساب، تاریخوں پر درستی کے نوٹ، ماخذ کا خانہ، جائزہ میز۔ یہ سوئچ صرف اُس براؤزر میں نظر آتا ہے جس نے ٹیم کا لنک کھولا ہو۔',
-  settingsTeamToggle: 'ٹیم کا منظر دکھائیں',
   turnOnTeamView: 'ٹیم کا منظر آن کریں',
-  turnOffTeamView: 'ٹیم کا منظر آف کریں',
   settingsMotionReduced: 'حرکت کم کریں',
   settingsThemeLabel: 'رنگ',
   settingsThemeHelp: 'جب تک آپ یہاں خود انتخاب نہ کریں، آرکائیو آپ کے آلے کی پیروی کرتا ہے۔',
@@ -307,15 +282,6 @@ export const UI_TEXT_UR: UiStrings = {
   saintBiographyNote:
     'یہ تحریر کسی مقام کے اندراج کا حصہ ہے، اِس ہستی کی مستقل سوانح نہیں — یہاں اِس لیے دی گئی ہے کہ یہ اُنہی کے بارے میں ہے۔ ہر اقتباس وہی عنوان رکھتا ہے جو اندراج نے دیا تھا، اور یہ بھی بتاتا ہے کہ کس اندراج سے آیا ہے۔',
   saintBiographyFrom: (entry: string) => `${entry} کے اندراج سے`,
-  saintGapsHeading: 'آرکائیو کیا درج نہیں کرتا',
-  saintGapsNote:
-    'خالی صفحہ چھوڑنے کے بجائے صاف بتا دیا گیا ہے۔ ہر سطر ریکارڈ میں ایک خلا ہے، یہ دعوٰی نہیں کہ ایسی کوئی بات موجود ہی نہیں — اور ہر ایک کو کوئی ماخذ یا میدانی دورہ پُر کر سکتا ہے۔',
-  saintGapDates: 'تاریخِ ولادت یا وصال درج نہیں۔',
-  saintGapOrder: 'سلسلہ درج نہیں۔',
-  saintGapTeachers: 'کوئی مرشد درج نہیں۔',
-  saintGapDisciples: 'کوئی مرید یا جانشین درج نہیں۔',
-  saintGapObservance: 'کسی قسم کی تقریب درج نہیں۔',
-  saintGapPhoto: 'مقام کی کوئی تصویر نہیں۔',
   saintGapBiography: 'مقام کے اپنے اندراج کے سوا کوئی سوانحی تحریر نہیں۔',
   activeFiltersCount: (n: number) => `${n} فلٹرز فعال`,
   nearMe: 'میرے قریب',
@@ -367,11 +333,6 @@ export const UI_TEXT_UR: UiStrings = {
   orderProseNote:
     'اسی آرکائیو کے اپنے اندراجات سے اقتباسات، لفظ بہ لفظ، اور ہر اقتباس کے ساتھ وہ اندراج جس سے وہ لیا گیا۔ جہاں دو اندراج ایک ہی بات مختلف الفاظ میں کہتے ہیں، وہاں دونوں رکھے گئے ہیں۔',
   orderProseFrom: 'اندراج:',
-  orderDescriptionEditorial:
-    'یہ تعارف اسی ویب سائٹ کے لیے لکھا گیا ہے۔ آرکائیو کا کوئی ماخذ اسے بیان نہیں کرتا — نیچے دیے گئے اقتباسات کے برعکس، جو اندراجات سے لفظ بہ لفظ نقل کیے گئے ہیں۔',
-  orderAsRecorded: 'ماخذ میں درج',
-  orderAsRecordedHelp:
-    'سلسلہ بعینہٖ اُن الفاظ میں جو اِس شخصیت کے اپنے ریکارڈ میں لکھے ہیں، بشمول اُس صورت کے جہاں ریکارڈ خود اپنی نفی کرتا ہے۔ یہ اوپر دیے گئے کسی ایک سلسلے کے بجائے خود شخصیت کو بیان کرتا ہے، اِس لیے ایک ہی بار دکھایا جاتا ہے۔',
   teachersHeading: 'اساتذہ',
   disciplesHeading: 'شاگرد و جانشین',
   lineageChainHeading: 'سلسلۂ ارادت',
@@ -426,9 +387,6 @@ export const UI_TEXT_UR: UiStrings = {
   descentAncestor: 'سلسلے میں پیشرو',
   descentDescendant: 'سلسلے میں بعد کی پشت',
   descentRemoves: 'پشتوں کے فاصلے پر',
-  kinNotesHeading: 'ریکارڈ شدہ، مگر بے نام',
-  kinNoteUnnamed:
-    'آرکائیو اس خاندانی رشتے کو درج کرتا ہے مگر جوڑنے کے لیے دوسری کوئی شخصیت موجود نہیں۔',
   orderMembers: 'اس سلسلے کے ولی',
   orderMemberCount: (n: number) => `${n} ولی`,
   orderBranchCount: (n: number) => `${n} شاخ`,
@@ -452,30 +410,9 @@ export const UI_TEXT_UR: UiStrings = {
   founded: 'قیام',
   notFoundSaint: 'ولی نہیں ملے۔',
   /* ── جانچ ڈیسک (/review, ٹیم کے لیے) ─────────────────────────────────── */
-  reviewTitle: 'جانچ ڈیسک',
   reviewIntro:
     'وہ دعاوی جو اِس آرکائیو نے متن سے نکالے اور ابھی کسی شخص نے نہیں پڑھے، ہر ایک کے ساتھ وہ شہادت جس سے وہ نکالا گیا۔ یہاں دیا گیا فیصلہ دعوے کے بارے میں ایک رائے ہے — اِس صفحے پر کوئی چیز آرکائیو میں تبدیلی نہیں کرتی۔',
-  reviewGateNote: 'یہ صفحہ منصوبے کی ٹیم کے لیے ہے۔ قطار دیکھنے کے لیے ٹیم کا ربط استعمال کریں۔',
-  reviewEmpty: 'جانچ کے لیے کچھ باقی نہیں۔',
-  reviewLoading: 'قطار لائی جا رہی ہے…',
-  reviewClaimDiscipleOf: 'کو اِن کا مرید درج کیا گیا ہے:',
-  reviewClaimSuccessorOf: 'کو اِن کا جانشین درج کیا گیا ہے:',
-  reviewClaimBelongsToOrder: 'کو اِس سلسلے میں درج کیا گیا ہے:',
-  reviewClaimBiography: 'یہ تاریخیں اور القاب متن سے نکالے گئے',
-  reviewEvidence: 'ماخذ',
-  reviewConfirm: 'تصدیق',
-  reviewReject: 'رد',
-  reviewUnsure: 'مزید کام درکار',
-  reviewNotePlaceholder: 'شہادت کس بات کی تائید کرتی ہے اور کس کی نہیں…',
-  reviewProgress: 'درج شدہ فیصلے',
-  reviewDownload: 'فیصلے ڈاؤن لوڈ کریں (CSV)',
-  reviewDownloadHelp:
-    'یہ CSV جانچ ورک شیٹ کے اپنے کالموں میں ہے۔ اِسے ہاتھ سے درآمد کریں — یہ صفحہ شیٹ میں کبھی نہیں لکھتا۔',
   reviewClear: 'میرے فیصلے صاف کریں',
-  reviewStale:
-    'اِس دعوے کی شہادت فیصلہ درج ہونے کے بعد بدل گئی، اِس لیے وہ فیصلہ اب اِس پر لاگو نہیں۔',
-  reviewNoQuote:
-    'اِس دعوے کے لیے کوئی اقتباس محفوظ نہیں ہوا۔ اِسے ماخذ کے مقابل جانچیں، یا «مزید کام درکار» کا نشان لگائیں۔',
   notFoundOrder: 'سلسلہ نہیں ملا۔',
   aboutThisSaint: 'اس ولی کے بارے میں',
   viewOrder: 'روحانی سلسلہ دیکھیں',
@@ -492,70 +429,16 @@ export const UI_TEXT_UR: UiStrings = {
        Flagged for a reader's eye on the agreement all the same. */
     'ان مزارات کے پیچھے صوفی سلسلوں اور شخصیات کو دیکھیں، اور جانیں کہ وہ ایک دوسرے سے کیسے جڑے ہیں۔',
   graphExplorerOrders: 'صوفی سلسلے',
-  graphExplorerAllFigures: 'آرکائیو کی شخصیات',
-  graphFigureFilterLabel: 'شخصیت تلاش کریں',
-  graphFigureFilterPlaceholder: 'نام، لقب یا روایت…',
-  graphFigureFilterClear: 'صاف کریں',
-  graphFigureFilterCount: (shown: number, total: number) => `${total} میں سے ${shown}`,
-  graphFigureFilterEmpty: 'اس سے مطابقت رکھنے والی کوئی شخصیت نہیں۔',
-  graphCenturyFilterLabel: 'صدی',
-  graphCenturyAll: 'کوئی بھی',
-  graphCenturyUndated: 'بلا تاریخ',
-  graphCenturyUndatedHelp:
-    'وہ شخصیات جنہیں ریکارڈ صرف ہجری تقویم میں رکھتا ہے، یا کسی سن میں نہیں رکھتا۔ ہجری سن کو یہاں صدی میں بدلنا آرکائیو کی طرف سے تاریخ گھڑنا ہوتا، اِس لیے اُنہیں قیاس کے بجائے الگ گروہ میں رکھا گیا ہے — اور یہ آرکائیو کی تقریباً نصف شخصیات ہیں۔',
-  graphLineageOnlyHeading: 'سلسلے میں نامزد، یہاں دستاویز نہیں',
-  graphLaunchArchiveSub: 'نام، لقب یا صدی سے تلاش کریں',
-  graphLaunchLineageSub: 'وہ مرشد اور مرید جن کا نام ماخذ میں آتا ہے',
-  graphBookFiguresHeading: 'کتابوں میں مذکور، پاکستان میں کوئی مقام نہیں',
-  graphLaunchBookFiguresSub: 'وہ اولیا جن کا ذکر نقل شدہ کتابوں میں ہے، ابھی جانچے نہیں گئے',
-  graphBookFiguresNote:
-    'وہ اولیا جن کا ذکر آرکائیو کی نقل شدہ کتابوں میں ہے مگر جن کا کوئی مزار یا مقام پاکستان میں نہیں — دہلی، کشمیر، حجاز یا کہیں اور مدفون، یا جن کی تدفین کا مقام کتاب میں درج نہیں۔ ہر سطر کتاب کے نوٹس سے لفظ بہ لفظ لی گئی ہے، اُس نقل سے جسے ابھی کسی نے اصل صفحے سے نہیں ملایا۔ جب تک یہ نہ ہو، یہ صرف ٹیم کے لیے ہیں: یہ اولیاء اور سلسلے کی گنتی، تلاش یا شخصیات کے صفحات میں شامل نہیں۔',
-  graphBookFiguresInGraph: 'یہی شخصیت اولیاء اور سلسلے میں',
   sheetDone: 'ہو گیا',
-  graphLineageOnlyNote:
-    'وہ اساتذہ اور مشائخ جن کے نام کسی دوسری شخصیت کے درج شدہ سلسلۂ ارادت میں آتے ہیں اور جن کا کوئی مقام اِس آرکائیو میں درج نہیں۔ اُنہیں آرکائیو کے اندراجات میں شمار نہیں کیا جاتا — وہ یہاں اِس لیے ہیں کہ سلسلہ پہلے ہی ایسے مرشد پر نہ رُک جائے جن کا مزار پاکستان میں درج نہیں۔ اب تک اُن تک پہنچنے کا واحد راستہ وہی زنجیر تھی جس میں اُن کا نام آتا ہے۔',
-  graphLineageOnlyTeacherOf: (name: string) => `${name} کے اُستاد`,
-  graphLineageOnlyTeacherOfMore: (name: string, n: number) => `${name} اور ${n} دیگر کے اُستاد`,
-  graphLineageOnlyDiscipleOf: (name: string) => `${name} کے شاگرد`,
-  graphLineageOnlyDiscipleOfMore: (name: string, n: number) => `${name} اور ${n} دیگر کے شاگرد`,
-  /* Urdu puts the possessor first and the relation after it — "‹name› کے
-     والد", not English's "father of ‹name›" — and the relation then has to
-     agree with it. That is not a کے/کی coin-flip: a masculine noun ending in
-     -ا goes oblique, so «گرو نانک کے بیٹا» is simply wrong and the form is
-     «کے بیٹے». The honorific plural is used throughout rather than the
-     singular «کا بیٹا», which is both grammatical and the right register for
-     figures the archive venerates — and it is the form the project's own
-     dictionary already uses («رام اور سیتا کے بیٹے»).
-
-     Kept as a table keyed by the finished role label rather than composed,
-     because the chip on a figure's page needs the nominative («بیٹا») and this
-     needs the oblique, and one string cannot be both. A role missing from the
-     table falls back to کے + the label, which is correct for every invariant
-     noun in the set (والد، دادا، چچا، ماموں، سسر، داماد، جدِ امجد). */
-  graphLineageOnlyKinOf: (role: string, name: string) => `${name} ${kinGenitive(role)}`,
-  graphLineageOnlyKinOfMore: (role: string, name: string, n: number) =>
-    `${name} اور ${n} دیگر ${kinGenitive(role)}`,
-  graphCenturyNote:
-    'صدی شخصیت کے درج شدہ سنِ وفات سے لی گئی ہے، اور جہاں وفات درج نہیں وہاں سنِ پیدائش سے۔ ہجری تقویم سے کوئی تبدیلی نہیں کی گئی۔',
-  lineageUnreviewed: 'غیر نظر ثانی شدہ',
   titlesLabel: 'القاب و خطابات',
   disputedDatesLabel: 'مآخذ متفق نہیں',
   disputedVersus: 'بمقابلہ',
   yearsApart: 'برس کا فرق',
-  lineageUnreviewedHelp:
-    'اِس آرکائیو کے اپنے مآخذ سے نکالا گیا اور اقتباس کی جانچ ہو چکی ہے، مگر ابھی کسی مدیر نے نہیں پڑھا۔',
   /* ── شخصیت کا ماخذ (SaintPage) ───────────────────────────────────────── */
-  figureBiographyNote:
-    'اوپر دی گئی تاریخیں، القاب اور دیگر نام ہاتھ سے درج نہیں کیے گئے بلکہ نیچے دیے گئے ماخذ سے نکالے گئے ہیں۔',
-  figureProvenanceReadFrom: 'ماخذ',
   figureLineageOnly: 'سلسلے میں نامزد، یہاں اندراج نہیں',
   figureLineageOnlyHelp:
     'اِس شخصیت کا کوئی مقام اِس آرکائیو میں درج نہیں، اِس لیے اُنہیں آرکائیو کے اندراجات میں شمار نہیں کیا جاتا۔ وہ گراف میں اِس لیے موجود ہیں کہ کسی دوسری شخصیت کے درج شدہ سلسلے میں اُن کا نام آتا ہے — ورنہ سلسلۂ ارادت پہلے ہی ایسے مرشد پر رُک جاتا جن کا مزار یہاں درج نہیں۔',
-  figureLineageOnlyNote:
-    'اِس شخصیت کا اپنا کوئی اندراج اِس آرکائیو میں نہیں۔ نیچے جو کچھ ہے وہ دوسری شخصیات کے ریکارڈ اُن کے بارے میں جو کہتے ہیں، اُس سے آیا ہے۔',
   graphLineageNote: 'درج شدہ استاد و مرید کے رشتے:',
-  graphExplorerFiguresNote:
-    'ہر شخصیت کو اُس کے مطابق درجہ بند کیا گیا ہے جو ریکارڈ اُس کے بارے میں کہتا ہے۔ یہ آرکائیو چھ روایات کا احاطہ کرتا ہے، اِس لیے یہاں ہر شخصیت صوفی ولی نہیں۔',
   graphLineageHeading: 'استاد و شاگرد کے تعلقات',
   graphLineageScopeOrder: (order: string, n: number) => `${order} میں (${n})`,
   graphLineageScopeAll: (n: number) => `تمام درج شدہ رشتے (${n})`,
@@ -638,13 +521,10 @@ export const UI_TEXT_UR: UiStrings = {
   placeSpanHeading: 'درج تاریخیں',
   placeSpanNone: 'یہاں کسی مزار کی ایسی تاریخ درج نہیں جو یہ آرکائیو پڑھ سکے۔',
   placeNotFound: 'اِس نام کا کوئی مقام درج نہیں۔',
-  placesIntro:
-    'آرکائیو کہاں ہے — ہر اندراج کے مقام کے خانے سے گنا گیا۔ ایک مزار شہر اور اُس کے ضلع، دونوں کے تحت آ سکتا ہے، کیونکہ وہ دونوں میں ہے۔',
   /* مقام/مقامات, not مزارات: places hold temples and gurdwaras too, and "۱"
      takes the singular (Urdu council, 17 October 2026). */
   placeSiteCount: (n: number) => (n === 1 ? `${n} مقام` : `${n} مقامات`),
   placeSpan: (from: number, to: number) => `${from}ء–${to}ء`,
-  placesUnplaced: (n: number) => `${n} مزارات کا ایسا مقام درج ہے جسے یہ آرکائیو پہچان نہیں سکتا۔`,
   /* ── Accessible names ─────────────────────────────────────────────────
        Drafted here, not reviewed by a fluent speaker. Same standing as the
        dictionary drafts: usable and honest about being a draft. */
@@ -697,15 +577,11 @@ export const UI_TEXT_UR: UiStrings = {
     'پاکستان بھر کے مقدس مقامات کا ایک عوامی، دو لسانی ریکارڈ — مسلم مزارات، ہندو مندر، سکھ گوردوارے، نانک پنتھی و اُداسی دربار، جین مندر اور سیکولر یادگاریں — اِس نیت سے مرتب کیا گیا کہ اِس کا حوالہ دیا جا سکے، اور یہ بھی صاف بتایا جا سکے کہ ابھی کیا معلوم نہیں۔',
   aboutCredit: 'عادل احسن اور رؤف نواز',
   aboutStateHeading: 'اِس آرکائیو کے پاس کیا ہے',
-  aboutStateNote:
-    'اِس حصے کا ہر عدد اُسی ڈیٹا سے شمار ہوتا ہے جو ابھی اِس صفحے نے پڑھا ہے، اِس لیے یہ آرکائیو سے اُس طرح جدا نہیں ہو سکتا جیسے کوئی جملہ ہو جاتا ہے۔ ہر عدد بتاتا ہے کہ آرکائیو میں کیا درج ہے \u2014 یہ اندازہ نہیں کہ باہر کیا موجود ہے۔',
   aboutStateSites: 'مقامات',
   aboutStateSources: 'حوالہ شدہ مآخذ',
   aboutStatePhotos: 'تصاویر',
   aboutStateTraditions: 'روایات',
   aboutKnowsHeading: 'یہ جو کہتا ہے وہ کیسے جانتا ہے',
-  aboutKnowsNote:
-    'ہر اندراج کے ساتھ درج ہے کہ اُس کے پیچھے کس قسم کی شہادت ہے۔ میدانی دورہ اور ویب سے مرتب کردہ معلومات، دونوں دیانت دار ہیں مگر ایک جیسے نہیں، اِس لیے آرکائیو دونوں کو برابر کیے بغیر بتاتا ہے کہ کون سی ہے۔',
   aboutThinHeading: 'یہ کہاں کمزور ہے',
   aboutThinNote: 'خلا، اعداد کی صورت میں۔ کوئی آرکائیو اُتنا ہی کارآمد ہے جتنا اپنی حدود کا بیان۔',
   aboutScopeHeading: 'دائرہ',
@@ -716,28 +592,6 @@ export const UI_TEXT_UR: UiStrings = {
     'اندراجات ایک اسپریڈ شیٹ میں رکھے جاتے ہیں اور یہ سائٹ اُنہیں لوڈ کے وقت پڑھتی ہے، اِس لیے کوئی تصحیح فوراً قاری تک پہنچتی ہے۔',
   aboutMethodProvenance:
     'ہر دعوے کا کسی ماخذ تک پہنچنا مقصود ہے۔ جہاں ماخذ آپس میں مختلف ہوں، آرکائیو خود فیصلہ کرنے کے بجائے اختلاف درج کرتا ہے۔',
-  /* ── یہ آرکائیو کیا جانتا ہے (/about) ─────────────────────────────────── */
-  aboutGraphHeading: 'یہ آرکائیو کیا جانتا ہے',
-  aboutGraphNote:
-    'اوپر کے اندراجات آرکائیو کے مقامات ہیں۔ یہ اُس کا گراف ہے — اُن کے پیچھے کی شخصیات، سلسلے، مقامات اور تقاریب، اور اُن کے باہمی رشتے۔ یہ سب گراف ہی سے شمار کیے جاتے ہیں۔',
-  aboutGraphFigures: 'شخصیات جن کا مقام یہاں درج ہے',
-  aboutGraphLineageOnly: 'سلسلے میں نامزد، جن کا مقام یہاں درج نہیں',
-  aboutGraphOrders: 'صوفی سلسلے',
-  aboutGraphPlaces: 'مقامات',
-  aboutGraphObservances: 'درج شدہ تقاریب',
-  aboutGraphSources: 'الگ الگ مآخذ',
-  aboutGraphTitles: 'القاب و خطابات',
-  aboutGraphLineageLinks: 'درج شدہ استاد و شاگرد کے رشتے',
-  aboutTrustHeading: 'اور کتنے یقین سے جانتا ہے',
-  aboutTrustNote:
-    'وہی گراف، اِس اعتبار سے گنا گیا کہ اُس کا کتنا حصہ کسی شخص نے واقعی جانچا ہے۔ مشین سے نکالے گئے دعاوی کے ساتھ وہ اقتباس بھی موجود ہے جس سے وہ نکالے گئے، اور جہاں بھی آئیں اُن پر «غیر نظر ثانی شدہ» کا نشان ہوتا ہے؛ اُن میں سے کوئی چھپایا نہیں گیا، اور کوئی طے شدہ بھی نہیں بتایا گیا۔',
-  aboutTrustBiographies:
-    'شخصیات جن کی تاریخیں اور القاب مشین نے متن سے نکالے، مدیر نے ابھی نہیں پڑھے',
-  aboutTrustLineage: (total: number) =>
-    `درج شدہ ${total} استاد و شاگرد کے رشتوں میں سے غیر نظر ثانی شدہ`,
-  aboutTrustMemberships: (total: number) =>
-    `درج شدہ ${total} سلسلہ وابستگیوں میں سے غیر نظر ثانی شدہ`,
-  aboutTrustDisputed: 'شخصیات جن کے مآخذ متضاد تاریخیں دیتے ہیں — جو حل کیے بغیر درج کی گئی ہیں',
   aboutMethodUrdu:
     'اردو ایڈیشن ایک مکمل ایڈیشن ہے، ترجمے کی تہہ نہیں۔ مشینی ترجمے اُس وقت تک مسودہ شمار ہوتے ہیں جب تک کوئی اہلِ زبان اُن کی تصدیق نہ کر دے۔',
   aboutMethodGaps: 'آرکائیو جو نہیں جانتا، وہ بھی اُس کے ساتھ شائع کیا جاتا ہے جو جانتا ہے۔',
@@ -758,54 +612,15 @@ export const UI_TEXT_UR: UiStrings = {
   aboutCopy: 'نقل کریں',
   coverageIntro:
     'اِس صفحے کا ہر عدد شائع شدہ ڈیٹا سے شمار کیا گیا ہے، اندازہ نہیں۔ جہاں آرکائیو خاموش ہے، وہاں یہ بات بھی درج ہے۔',
-  coverageSupportHeading: 'ہر اندراج کی بنیاد',
-  coverageInfoHeading: 'ہر اندراج کی گہرائی',
-  coverageTraditionHeading: 'شامل روایات',
-  coverageSourcesHeading: 'حوالے',
   coverageEntriesNoun: (_n: number) => 'اندراجات',
-  coverageSourcesWithAny: 'کتابیات رکھنے والے',
-  coverageSourcesWithThree: 'تین یا زیادہ حوالے دینے والے',
-  coverageSourcesWithNone: 'کوئی حوالہ نہ دینے والے',
   coverageSourcesItems: 'کل حوالے',
   /* ── آرکائیو کس پر قائم ہے (/coverage) ────────────────────────────────── */
-  coverageRestsHeading: 'یہ آرکائیو کس پر قائم ہے',
-  coverageRestsNote:
-    'اِس کے حوالے دوسری طرف سے گنے گئے ہیں — یہ نہیں کہ ہر اندراج کے پاس کتنے حوالے ہیں، بلکہ یہ کہ کتنے اندراج ایک ہی ماخذ پر ٹیکے ہوئے ہیں۔ یہاں کے ہر عدد کی طرح یہ بھی ہر بار شائع شدہ ڈیٹا سے شمار ہوتا ہے۔',
-  coverageRestsDistinct: 'الگ الگ مآخذ',
-  coverageRestsShared: 'مآخذ جو ایک سے زیادہ اندراجات میں درج ہیں',
-  coverageRestsSingle: 'اندراجات جو ایک ہی ماخذ پر قائم ہیں',
-  coverageRestsEvery: 'تمام مآخذ، مکمل فہرست',
-  coverageRestsEveryNote: (n: number) =>
-    `باقی ${n} مآخذ میں سے ہر ایک صرف ایک اندراج میں استعمال ہوا ہے۔ اِنہیں گنتی میں سمیٹنے کے بجائے نام بہ نام دیا گیا ہے: جو دعویٰ ایسے مأخذ پر کھڑا ہو جسے آرکائیو میں اور کہیں استعمال نہیں کیا گیا، اُسے دیکھ سکنا اہم ہے۔`,
-  coverageRestsShow: 'سب دکھائیں',
-  coverageRestsHide: 'چھپائیں',
   sourceAlsoCitedBy: (n: number) => `${n} دیگر اندراجات میں بھی درج`,
-  coverageWorksHeading: 'کتاب کے اعتبار سے شمار',
-  coverageWorksNote:
-    'نیچے دی گئی فہرست حوالوں کو گنتی ہے، اور یہی وہ چیز ہے جو کوئی اندراج دراصل نقل کرتا ہے۔ مگر اُن کے پیچھے موجود کتابوں کے اعتبار سے گنیں تو آرکائیو چند کتابوں پر اُس سے کہیں زیادہ انحصار کرتا ہے جو کوئی ایک سطر دکھا سکے — ایک کتاب دس مختلف حوالوں کے تحت آتی ہے۔',
-  coverageWorksRecords: (n: number) => `${n} حوالوں میں`,
-  coverageRestsTop: 'وہ مآخذ جن پر اِس کا بڑا حصہ قائم ہے',
   coverageRestsEntryCount: (n: number) => `${n} اندراج`,
   coverageRestsTail: (n: number) =>
     `${n} مزید مآخذ ایسے ہیں جن کا حوالہ صرف ایک ایک اندراج میں آتا ہے؛ وہ یہاں درج نہیں۔`,
-  coverageRestsCaveat:
-    'کسی ماخذ کا کئی اندراجات میں آنا کمزوری نہیں — ایک بنیادی حوالہ بار بار آنا ہی چاہیے۔ دیکھنے کی بات یہ ہے کہ اِس سے پتہ چلتا ہے کہ ایک غلطی کہاں تک پھیل سکتی ہے۔',
-  coveragePhotosHeading: 'عکس بندی',
-  coveragePhotosWithNone: 'بغیر تصویر والے',
   coveragePhotosItems: 'کل تصاویر',
-  coverageDatesHeading: 'تاریخیں',
-  coverageDatesWithYear: 'سنِ تعمیر درج کرنے والے',
-  coverageDatesExact: 'اِن میں سے جنہیں آرکائیو خود متعین کہتا ہے',
-  coverageDatesHedged: 'جن کی تاریخ کے ساتھ تحریری تحفظ درج ہے',
-  coverageLocationHeading: 'متعین مقام',
-  coverageLocationApprox: 'جن کی اپنی تحریر پن کو تخمینی بتاتی ہے',
-  coverageObservancesHeading: 'عرس اور میلے',
-  coverageObservancesWithText: 'عرس یا میلہ درج کرنے والے',
-  coverageObservancesWithNone: 'کوئی عرس درج نہ رکھنے والے',
   coverageUnrecorded: 'درج نہیں',
-  coverageWhyHeading: 'یہ کیوں شائع کیا گیا',
-  coverageWhy:
-    'کوئی آرکائیو اُتنا ہی کارآمد ہے جتنا اپنی حدود کا بیان۔ ریپازٹری میں لکھا نوٹ پرانا ہو جاتا ہے؛ ڈیٹا سے شمار ہونے والا صفحہ نہیں ہو سکتا۔ اگر یہاں کوئی عدد کم لگے تو وہی خلا ہے، صاف صاف بیان کیا گیا۔',
   saintNextUrs: 'اگلا عرس',
   saintNextUrsLink: 'تقویم دیکھیں',
   almanacNothingUpcoming: 'آئندہ بارہ مہینوں میں کوئی متعین تاریخ والی تقریب نہیں۔',
@@ -1032,22 +847,6 @@ export const UI_TEXT_UR: UiStrings = {
   reportSupportNote:
     'تصدیق کا درجہ یہ بتاتا ہے کہ معلومات کیسے جمع ہوئیں — کسی مقام کی اہمیت کبھی نہیں۔',
   reportInfoHeading: 'ہر اندراج کتنا بتاتا ہے؟',
-  reportStatusHeading: 'خود مقامات کا حال',
-  reportWordsHeading: 'یہ تحریریں کیسے بنیں',
-  reportWordsNote:
-    'آرکائیو ہر اندراج کے لیے درج رکھتی ہے کہ اُس کا مضمون کیسے تیار ہوا۔ طریقۂ کار کے بارے میں دیانت داری، حوالہ بننے کی قیمت ہے۔',
-  reportWithCitations: 'مضامین جن میں کم از کم ایک حوالہ موجود ہے',
-  reportAiResearched: 'مضامین جو اے آئی سے تحقیق شدہ مسودے ہیں',
-  reportPrimarySource: 'مضامین جو بنیادی مآخذ (چھپے تذکروں کے او سی آر) سے تحقیق ہوئے',
-  reportUrduHeading: 'اردو آئینہ',
-  reportUrduDrafted: 'اندراجات جن کا مکمل اردو مضمون موجود ہے',
-  reportUrduReviewed: 'اِن میں سے جنہیں کسی انسانی قاری نے پڑھ کر منظور کیا',
-  reportUrduReviewNote:
-    'مشینی ہوں یا ہاتھ کے لکھے، سب تراجم اُس وقت تک مسودے ہیں جب تک کوئی شخص اُنہیں پڑھ نہ لے۔ اوپر کا عدد اِس آرکائیو کا سب سے سچا عدد ہے۔',
-  reportCorrectionsHeading: 'برسرِعام درستی',
-  reportCorrectionsNote:
-    'ہر سنجیدہ آرکائیو سے غلطیاں ہوتی ہیں۔ یہ آرکائیو اُنہیں لکھ رکھتی ہے۔ پروجیکٹ کے درستی نامے سے ایک انتخاب:',
-  reportLostHeading: 'جو ضائع ہوا',
   reportUnknownLabel: 'درج نہیں',
   saveShrine: 'محفوظ کریں',
   saveShrineFull: 'اپنی زیارت کی فہرست میں محفوظ کریں (اسی آلے پر رہتی ہے)',
@@ -1065,11 +864,6 @@ export const UI_TEXT_UR: UiStrings = {
   sharedListDismiss: 'بند کریں',
   reportCorrection: 'غلطی کی نشاندہی کریں',
   sourcesHeading: 'مصادر اور ماخذ',
-  unreviewedLabel: 'غیر جانچا گیا',
-  confidenceLabel: 'اعتماد',
-  reviewedByLabel: 'جانچا',
-  citationsLabel: 'حوالہ جات',
-  viewSourceLabel: 'ماخذ دیکھیں',
   pageNotFoundTitle: 'صفحہ نہیں ملا',
   pageNotFoundMessage: 'آپ جو صفحہ ڈھونڈ رہے ہیں وہ دستیاب نہیں ہے۔',
   shrineDirectoryLabel: 'مزارات کی فہرست',
@@ -1125,7 +919,6 @@ export const UI_TEXT_UR: UiStrings = {
   supportLevelTooltip:
     'اس اندراج کی معلومات کہاں سے آئیں — میدانی سروے، کسی کتاب یا متن کا حوالہ، یا ویب۔ یہ صرف ہمارے تحقیقی طریقے کا بیان ہے، مقام کی اہمیت کا پیمانہ نہیں۔',
   verifiedOnlyFilter: 'صرف میدانی دستاویز شدہ',
-  statusActive: 'فعال',
   statusOccasional: 'صرف تہواروں پر',
   statusHeritage: 'ورثہ مقام — عبادت منقطع',
   statusRuin: 'کھنڈر',
@@ -1160,12 +953,6 @@ export const UI_TEXT_UR: UiStrings = {
     'لکیر جتنی چوڑی، معلومات اتنی ہی کم۔ ’تقریباً‘ والی تاریخ درج شدہ سن کے گرد پچاس سال کے وقفے کے طور پر دکھائی جاتی ہے — یہ دکھانے کا طریقہ ہے، ماخذ کا بیان نہیں۔',
   chronologyRangeNote:
     'جن دو مقامات کی تاریخ ’حدود‘ کے طور پر درج ہے، اُن دونوں میں ایک ہی سن دیا گیا ہے، اس لیے حدود کی وسعت اعداد و شمار میں موجود نہیں؛ اُنہیں ’تقریباً‘ جتنی چوڑائی میں دکھایا گیا ہے۔',
-  chronologyUndatedHeading: 'لکیر سے باہر',
-  chronologyUndatedIntro:
-    'یہ مقامات آرکائیو میں موجود ہیں مگر اِن کی کوئی لکیر نہیں۔ یہاں کچھ بھی اندازے سے نہیں: جس مقام کی تاریخ سروے میں درج نہیں وہ غیر مؤرخ ہی رہتا ہے، اور جس تاریخ پر سروے نے شبہ ظاہر کیا وہ اپنے شبہے سمیت درج ہے۔',
-  chronologyNoYear: 'سن درج نہیں',
-  chronologyUnknownYear: 'نامعلوم درج ہے',
-  chronologyQualified: 'درج تاریخ مشروط ہے',
   chronologyEmptyBand: 'کوئی مؤرخ مقام نہیں',
   chronologySpan: (from: string, to: string) => `${from}–${to}`,
   chronologySpanLabel: 'لکیر کا دورانیہ',

@@ -68,6 +68,40 @@ jobs:
       - name: Verify the production base path
         run: npm run verify:pages
 
+      # The team edition (scripts/team/, 31 October 2026): the same code built with the team gate
+      # on, published under /Sufi-Shrines/team/ only as AES-GCM ciphertext and opened in the
+      # browser with a shared passphrase. Built only when the TEAM_PASSPHRASE secret is set;
+      # without it the deploy is the public site alone. The secret is passed only to the steps
+      # that need it, and is never echoed (Actions also masks it in the log).
+      - name: Check for the team passphrase
+        id: team
+        env:
+          TEAM_PASSPHRASE: ${{ secrets.TEAM_PASSPHRASE }}
+        run: |
+          if [ -n "$TEAM_PASSPHRASE" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice title=Team edition not built::The TEAM_PASSPHRASE secret is not set, so this deploy has no /team/ site."
+          fi
+
+      - name: Build the team edition
+        if: steps.team.outputs.enabled == 'true'
+        run: npm run build:team
+        env:
+          VITE_MAPTILER_KEY: ${{ secrets.VITE_MAPTILER_KEY }}
+          VITE_MAPTILER_STYLE_ID: ${{ secrets.VITE_MAPTILER_STYLE_ID }}
+
+      # Writes dist/team/, then runs scripts/check-public-bundle.mjs twice: it must find team
+      # content in dist-team (the canary works) and none in dist/team (nothing readable leaked).
+      - name: Encrypt the team edition into dist/team
+        if: steps.team.outputs.enabled == 'true'
+        run: npm run team:encrypt
+        env:
+          TEAM_PASSPHRASE: ${{ secrets.TEAM_PASSPHRASE }}
+          # Optional (Rauf, 31 October 2026): a fixed salt keeps the team unlocked across deploys
+          # until the passphrase changes. Make one with `openssl rand -base64 16`.
+          TEAM_SALT: ${{ secrets.TEAM_SALT }}
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

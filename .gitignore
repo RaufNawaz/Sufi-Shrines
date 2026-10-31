@@ -8,6 +8,11 @@ venv/
 # Build output
 dist/
 dist-ssr/
+# The team edition's plaintext build (scripts/team/build-team.mjs) and the lead's check builds
+# (31 October 2026). Only the encrypted copy under dist/team/ is ever published.
+dist-team/
+dist-public/
+dist-runtime-check/
 shrines-ocr-library-kit.zip
 dist-data/
 build/

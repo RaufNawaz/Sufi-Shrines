@@ -1,6 +1,14 @@
 import type { Lang } from '../../types/shrine';
+/* Type-only, so it is erased: the team table itself reaches a build only through
+   the dynamic import in main.tsx, and not at all in the public one. */
+import type { TeamStringKey, TeamStrings } from './uiStrings.team';
 
-const UI_TEXT_EN = {
+/**
+ * The public English table — what every reader's bundle carries. Strings that
+ * only the team view renders live in `uiStrings.team.ts` instead, so a public
+ * reader never downloads them; `t()` takes keys from either table.
+ */
+export const UI_TEXT_EN = {
   /* The archive's own name, renamed 30 August 2026. It called itself "Sufi
      Shrines" on every page while 88 of its 171 sites are not Sufi shrines —
      79 Muslim shrines against 35 Hindu temples, 33 Sikh gurdwaras, 14
@@ -86,13 +94,7 @@ const UI_TEXT_EN = {
     'Modern sets every page in cool greys and one sans-serif typeface, with rounded controls. Classic is the archive’s earlier design: warm whites and serif type. The layout and every word are the same in both.',
   settingsLookModern: 'Modern',
   settingsLookClassic: 'Classic',
-  settingsTeamSection: 'Project team',
-  settingsTeamLabel: 'Team view',
-  settingsTeamHelp:
-    'The public reads a clean page; the team reads every qualification — the measured self-account on About, the precision notes on dates, the sources panel, the review desk. This switch appears only in a browser that has followed the team link.',
-  settingsTeamToggle: 'Show the team view',
   turnOnTeamView: 'Turn on the team view',
-  turnOffTeamView: 'Turn off the team view',
   settingsMotionReduced: 'Reduce motion',
   settingsThemeLabel: 'Theme',
   settingsThemeHelp: 'Until you choose here, the archive follows your device.',
@@ -324,17 +326,6 @@ const UI_TEXT_EN = {
   saintBiographyNote:
     'Written as part of a site’s entry rather than as a life of this figure, and shown here because it is about them. Each passage keeps the heading the entry gave it and says which entry it came from.',
   saintBiographyFrom: (entry: string) => `From the entry for ${entry}`,
-  /* The absences, named. `/about` computes what the archive does not know and
-     says so on the page; this is the same move at the scale of one figure. */
-  saintGapsHeading: 'What the archive does not record',
-  saintGapsNote:
-    'Stated rather than left as an empty page. Each line is a gap in the record, not a claim that no such fact exists — and each is something a source or a field visit could close.',
-  saintGapDates: 'No birth or death date.',
-  saintGapOrder: 'No silsila.',
-  saintGapTeachers: 'No teacher.',
-  saintGapDisciples: 'No disciple or successor.',
-  saintGapObservance: 'No observance of any kind.',
-  saintGapPhoto: 'No photograph of the site.',
   saintGapBiography: 'No biographical prose beyond the site’s own entry.',
   activeFiltersCount: (n: number) => `${n} filter${n === 1 ? '' : 's'} active`,
   nearMe: 'Near Me',
@@ -402,11 +393,6 @@ const UI_TEXT_EN = {
   orderProseNote:
     'Passages from this archive’s own entries, quoted exactly and linked to the entry each was read from. Where two entries word the same thing differently, both are kept.',
   orderProseFrom: 'From the entry for',
-  orderDescriptionEditorial:
-    'Background written for this site. No source in the archive states it — unlike the passages below, which are quoted from entries.',
-  orderAsRecorded: 'As recorded',
-  orderAsRecordedHelp:
-    'The silsila exactly as this figure\u2019s own record words it, including where the record contradicts itself. It describes the figure rather than any one of the orders above, so it is shown once.',
   teachersHeading: 'Teachers',
   disciplesHeading: 'Disciples & successors',
   lineageChainHeading: 'Chain of transmission',
@@ -475,8 +461,6 @@ const UI_TEXT_EN = {
   descentAncestor: 'earlier in the lineage',
   descentDescendant: 'later in the lineage',
   descentRemoves: 'generations removed',
-  kinNotesHeading: 'Recorded, and unnamed',
-  kinNoteUnnamed: 'The archive records this family tie and has no second figure to link it to.',
   shrinesAssociated: 'Associated shrines',
   alsoKnownAs: 'Also known as',
   born: 'Born',
@@ -489,30 +473,9 @@ const UI_TEXT_EN = {
   founded: 'Founded',
   notFoundSaint: 'Saint not found.',
   /* ── Review desk (/review, team-gated) ───────────────────────────────── */
-  reviewTitle: 'Review desk',
   reviewIntro:
     'The claims this archive has extracted and no person has read yet, with the evidence each was read from. A verdict here is a judgement about a claim \u2014 nothing on this page edits the archive.',
-  reviewGateNote: 'This page is for the project team. Open it with the team link to see the queue.',
-  reviewEmpty: 'Nothing is waiting for review.',
-  reviewLoading: 'Loading the queue\u2026',
-  reviewClaimDiscipleOf: 'is recorded as a disciple of',
-  reviewClaimSuccessorOf: 'is recorded as the successor of',
-  reviewClaimBelongsToOrder: 'is recorded in the silsila',
-  reviewClaimBiography: 'these dates and titles were read out of prose',
-  reviewEvidence: 'Read from',
-  reviewConfirm: 'Confirm',
-  reviewReject: 'Reject',
-  reviewUnsure: 'Needs work',
-  reviewNotePlaceholder: 'What the evidence does and does not support\u2026',
-  reviewProgress: 'Verdicts recorded',
-  reviewDownload: 'Download verdicts (CSV)',
-  reviewDownloadHelp:
-    'A CSV in the review worksheet\u2019s own columns. Import it by hand \u2014 this page never writes to the sheet.',
   reviewClear: 'Clear my verdicts',
-  reviewStale:
-    'The evidence for this claim changed after the verdict was recorded, so the verdict no longer applies to it.',
-  reviewNoQuote:
-    'No quote was captured for this claim. Judge it against the source, or mark it as needing work.',
   notFoundOrder: 'Order not found.',
   aboutThisSaint: 'About this saint',
   viewOrder: 'View spiritual order',
@@ -538,61 +501,16 @@ const UI_TEXT_EN = {
   graphExplorerIntro:
     'Browse the Sufi orders and the figures behind these shrines, and how they connect to one another.',
   graphExplorerOrders: 'Sufi orders',
-  graphExplorerAllFigures: 'Figures in the archive',
-  graphFigureFilterLabel: 'Find a figure',
-  graphFigureFilterPlaceholder: 'Name, title or tradition…',
-  graphFigureFilterClear: 'Clear',
-  graphFigureFilterCount: (shown: number, total: number) => `${shown} of ${total}`,
-  graphFigureFilterEmpty: 'No figure matches that.',
-  graphCenturyFilterLabel: 'Century',
-  graphCenturyAll: 'Any',
-  graphCenturyUndated: 'Undated',
-  graphCenturyUndatedHelp:
-    'Figures the record places in the Hijri calendar only, or in no year at all. Converting a Hijri year to a century here would be this archive inventing a date, so they are grouped rather than guessed \u2014 and they are nearly half of the figures the archive holds.',
-  graphLineageOnlyHeading: 'Named in a lineage, not documented here',
-  graphLaunchArchiveSub: 'Search by name, title or century',
-  graphLaunchLineageSub: 'Teachers and disciples the sources name',
-  graphBookFiguresHeading: 'Named in the books, no site in Pakistan',
-  graphLaunchBookFiguresSub: 'Saints the transcribed books document, unreviewed',
-  graphBookFiguresNote:
-    'Saints the archive\u2019s transcribed books document who have no grave or shrine in Pakistan \u2014 buried in Delhi, Kashmir, the Hijaz or elsewhere, or not buried anywhere the book records. Each line is the book\u2019s notes word for word, from a transcription nobody has yet checked against the page. Team view only until it has been: they are not in the graph\u2019s counts, its search or its pages.',
-  graphBookFiguresInGraph: 'The same figure in the graph',
   sheetDone: 'Done',
-  graphLineageOnlyNote:
-    'Teachers and masters whose names appear in another figure\u2019s recorded chain of transmission, and who have no site in this archive. They are not counted among its entries \u2014 they are here so a chain does not stop at the first master who happens to have no shrine in Pakistan. Until now the only way to reach one was to already be walking the chain that names it.',
-  graphLineageOnlyTeacherOf: (name: string) => `teacher of ${name}`,
-  graphLineageOnlyTeacherOfMore: (name: string, n: number) => `teacher of ${name} and ${n} more`,
-  graphLineageOnlyDiscipleOf: (name: string) => `disciple of ${name}`,
-  graphLineageOnlyDiscipleOfMore: (name: string, n: number) => `disciple of ${name} and ${n} more`,
-  /* The third way a figure can be in this list and have no site here: named as
-     somebody's family and never as a link in a chain. Eight of them, and
-     without this they were the one population in the roster whose row was a
-     bare name — the same gap that left the 17 disciples blank when the note
-     assumed everyone here was a teacher. `role` arrives already translated. */
-  graphLineageOnlyKinOf: (role: string, name: string) => `${role} of ${name}`,
-  graphLineageOnlyKinOfMore: (role: string, name: string, n: number) =>
-    `${role} of ${name} and ${n} more`,
-  graphCenturyNote:
-    'Centuries are read from a figure\u2019s recorded death year, or birth year where no death is given. Nothing is converted from the Hijri calendar.',
-  lineageUnreviewed: 'unreviewed',
   titlesLabel: 'Titles and honorifics',
   disputedDatesLabel: 'Sources disagree',
   disputedVersus: 'vs',
   yearsApart: 'years apart',
-  lineageUnreviewedHelp:
-    'Extracted from this archive\u2019s own sources and quote-checked, but not yet read by an editor.',
   /* ── Figure provenance (SaintPage) ───────────────────────────────────── */
-  figureBiographyNote:
-    'The dates, titles and other names above were read out of the source below rather than entered by hand.',
-  figureProvenanceReadFrom: 'Read from',
   figureLineageOnly: 'named in a lineage, no entry here',
   figureLineageOnlyHelp:
     'This figure has no site in the archive, so they are not counted among its entries. They are in the graph because another figure\u2019s recorded lineage names them \u2014 without that, a chain of transmission would stop at the first master who happens not to have a shrine here.',
-  figureLineageOnlyNote:
-    'The archive holds no entry of its own for this figure. Everything below comes from what other figures\u2019 records say about them.',
   graphLineageNote: 'Recorded teacher\u2013disciple links:',
-  graphExplorerFiguresNote:
-    'Grouped by what the record says each figure is. The archive covers six traditions, so not every figure here is a Sufi saint.',
   graphLineageHeading: 'Teacher-disciple relationships',
   graphLineageScopeOrder: (order: string, n: number) => `In the ${order} (${n})`,
   graphLineageScopeAll: (n: number) => `All recorded links (${n})`,
@@ -693,12 +611,8 @@ const UI_TEXT_EN = {
   placeSpanHeading: 'Dates recorded',
   placeSpanNone: 'No site here records a date this archive can read.',
   placeNotFound: 'No place by that name is recorded.',
-  placesIntro:
-    'Where the archive is, counted from the Location each entry records. A site can appear under both a town and its district, because it is in both.',
   placeSiteCount: (n: number) => `${n} site${n === 1 ? '' : 's'}`,
   placeSpan: (from: number, to: number) => `${from}–${to}`,
-  placesUnplaced: (n: number) =>
-    `${n} site${n === 1 ? '' : 's'} name${n === 1 ? 's' : ''} no place this archive can identify.`,
   /* ── Accessible names ─────────────────────────────────────────────────
      Every one of these was a hardcoded English literal, so the Urdu site's
      entire accessible layer — landmark names, button labels, the reading
@@ -772,15 +686,11 @@ const UI_TEXT_EN = {
      (project head, 11 September 2026). */
   aboutCredit: 'By Adil Ahsan and Rauf Nawaz',
   aboutStateHeading: 'What this archive holds',
-  aboutStateNote:
-    'Every number in this section is counted from the data this page just loaded, so it cannot drift from the archive the way a sentence can. Each one describes what the archive records \u2014 never an estimate of what is out there.',
   aboutStateSites: 'sites',
   aboutStateSources: 'cited sources',
   aboutStatePhotos: 'photographs',
   aboutStateTraditions: 'traditions',
   aboutKnowsHeading: 'How it knows what it says',
-  aboutKnowsNote:
-    'Every entry records the kind of evidence behind it. A field visit and a web compilation are both honest and they are not the same thing, so the archive says which rather than levelling them.',
   aboutThinHeading: 'Where it is thin',
   aboutThinNote:
     'The gaps, as counts. An archive is only as useful as its account of its own limits.',
@@ -792,28 +702,6 @@ const UI_TEXT_EN = {
     'Entries are maintained in a spreadsheet and read by this site at load time, so a correction reaches readers immediately.',
   aboutMethodProvenance:
     'Every claim is meant to be traceable to a source. Where sources disagree, the archive reports the disagreement rather than choosing for you.',
-  /* ── What the graph holds (/about) ─────────────────────────────────── */
-  aboutGraphHeading: 'What this archive knows',
-  aboutGraphNote:
-    'The entries above are the archive\u2019s sites. This is its graph \u2014 the people, silsilas, places and observances behind them, and the links between. Counted at build time from the graph itself.',
-  aboutGraphFigures: 'figures with a site here',
-  aboutGraphLineageOnly: 'named in a lineage, with no site here',
-  aboutGraphOrders: 'Sufi orders',
-  aboutGraphPlaces: 'places',
-  aboutGraphObservances: 'recorded observances',
-  aboutGraphSources: 'distinct sources',
-  aboutGraphTitles: 'honorifics and titles',
-  aboutGraphLineageLinks: 'recorded teacher\u2013disciple links',
-  aboutTrustHeading: 'How well it knows it',
-  aboutTrustNote:
-    'The same graph, counted by how much of it a person has actually checked. Machine-extracted claims carry the source quote they were read from and are marked unreviewed wherever they appear; none is hidden, and none is presented as settled.',
-  aboutTrustBiographies:
-    'figures whose dates and titles were read out of prose by a machine, not yet read by an editor',
-  aboutTrustLineage: (total: number) =>
-    `of ${total} recorded teacher\u2013disciple links are unreviewed`,
-  aboutTrustMemberships: (total: number) =>
-    `of ${total} recorded silsila affiliations are unreviewed`,
-  aboutTrustDisputed: 'figures whose sources give conflicting dates, reported rather than resolved',
   aboutMethodUrdu:
     'The Urdu edition is a first-class edition, not a translation layer. Machine-drafted translations are marked as drafts until a fluent reader signs them off.',
   aboutMethodGaps: 'What the archive does not know is published alongside what it does.',
@@ -834,32 +722,13 @@ const UI_TEXT_EN = {
   aboutCopy: 'Copy',
   coverageIntro:
     'Every figure on this page is counted from the published data, not estimated. Where the archive is silent, it says so.',
-  coverageSupportHeading: 'How each entry was established',
-  coverageInfoHeading: 'Depth of each entry',
-  coverageTraditionHeading: 'Traditions covered',
-  coverageSourcesHeading: 'Citations',
   coverageEntriesNoun: (n: number) => (n === 1 ? 'entry' : 'entries'),
-  coverageSourcesWithAny: 'with a bibliography',
-  coverageSourcesWithThree: 'citing three or more sources',
-  coverageSourcesWithNone: 'citing nothing',
   coverageSourcesItems: 'citations in total',
-  /* ── What the archive rests on (/coverage) ───────────────────────────── */
-  coverageRestsHeading: 'What the archive rests on',
-  coverageRestsNote:
-    'Its citations counted the other way round \u2014 not how many each entry has, but how many entries lean on the same source. Computed from the shipped data on every load, like every other figure here.',
-  coverageRestsDistinct: 'distinct sources',
-  coverageRestsShared: 'sources cited by more than one entry',
-  coverageRestsSingle: 'entries resting on a single source',
   /* ── The source index, made addressable ────────────────────────────────
      A5. The point of an anchor is that a shrine page can send a reader to
      "everything this archive cites this source for", so the index has to hold
      every source rather than only the shared ones — and the entries have to be
      named, not counted. */
-  coverageRestsEvery: 'Every source, in full',
-  coverageRestsEveryNote: (n: number) =>
-    `The other ${n} are each cited by a single entry. Listed rather than summarised: a claim resting on a source nothing else in the archive uses is worth being able to see.`,
-  coverageRestsShow: 'Show all',
-  coverageRestsHide: 'Hide',
   /* On a shrine page, beside a bibliography line. Only where the answer is more
      than "this entry", so 436 of the 533 citations stay unadorned. */
   sourceAlsoCitedBy: (n: number) =>
@@ -871,32 +740,11 @@ const UI_TEXT_EN = {
      It is the wrong unit for "what does this archive lean on", because one book
      appears as many sources. Both questions are real and the copy has to say so
      rather than present either as a correction of the other. */
-  coverageWorksHeading: 'Counted by book',
-  coverageWorksNote:
-    'The list below counts citations, which is what an entry actually cites. Counted instead by the work behind them, the archive leans much harder on a few books than any single row can show — one appears under ten different citations.',
-  coverageWorksRecords: (n: number) => `across ${n} citation${n === 1 ? '' : 's'}`,
-  coverageRestsTop: 'The sources most of it rests on',
   coverageRestsEntryCount: (n: number) => `${n} ${n === 1 ? 'entry' : 'entries'}`,
   coverageRestsTail: (n: number) =>
     `${n} further sources are each cited by a single entry, and are not listed.`,
-  coverageRestsCaveat:
-    'A source cited by many entries is not a weakness \u2014 a standard reference should recur. It is worth seeing, because it says where a single error would travel furthest.',
-  coveragePhotosHeading: 'Photography',
-  coveragePhotosWithNone: 'with no photograph',
   coveragePhotosItems: 'photographs in total',
-  coverageDatesHeading: 'Dates',
-  coverageDatesWithYear: 'recording a construction year',
-  coverageDatesExact: 'of those the archive itself calls exact',
-  coverageDatesHedged: 'whose date carries a written qualification',
-  coverageLocationHeading: 'Coordinates',
-  coverageLocationApprox: 'whose own text says the pin is approximate',
-  coverageObservancesHeading: 'Urs and festivals',
-  coverageObservancesWithText: 'recording an observance',
-  coverageObservancesWithNone: 'recording none',
   coverageUnrecorded: 'not recorded',
-  coverageWhyHeading: 'Why publish this',
-  coverageWhy:
-    'An archive is only as useful as its account of its own limits. A note in a repository goes stale; a page computed from the data cannot. If a figure here looks low, that is the gap, stated plainly rather than smoothed over.',
   saintNextUrs: 'Next ʿurs',
   saintNextUrsLink: 'See the calendar',
   almanacNothingUpcoming: 'No dated observance falls in the next twelve months.',
@@ -1129,22 +977,6 @@ const UI_TEXT_EN = {
   reportSupportNote:
     'Support level records how the information was gathered \u2014 never a site\u2019s importance.',
   reportInfoHeading: 'How much does each entry say?',
-  reportStatusHeading: 'The state of the sites themselves',
-  reportWordsHeading: 'How the words were made',
-  reportWordsNote:
-    'The archive tracks, per entry, how its article was produced. Honesty about method is the price of asking to be cited.',
-  reportWithCitations: 'articles carrying at least one citation',
-  reportAiResearched: 'articles that are AI-researched drafts',
-  reportPrimarySource: 'articles researched from primary sources (OCR of printed tazkiras)',
-  reportUrduHeading: 'The Urdu mirror',
-  reportUrduDrafted: 'entries with a full Urdu article',
-  reportUrduReviewed: 'of them read and signed off by a human reader',
-  reportUrduReviewNote:
-    'Machine and hand-drafted translations alike are drafts until a person has read them. The number above is this archive\u2019s most honest one.',
-  reportCorrectionsHeading: 'Corrected in public',
-  reportCorrectionsNote:
-    'Every serious archive gets things wrong. This one writes them down. A selection from the project\u2019s correction ledger:',
-  reportLostHeading: 'What was lost',
   reportUnknownLabel: 'not recorded',
   saveShrine: 'Save',
   saveShrineFull: 'Save to your ziyarat list (stored on this device)',
@@ -1162,11 +994,6 @@ const UI_TEXT_EN = {
   sharedListDismiss: 'Dismiss',
   reportCorrection: 'Report a correction',
   sourcesHeading: 'Sources & Provenance',
-  unreviewedLabel: 'Unreviewed',
-  confidenceLabel: 'confidence',
-  reviewedByLabel: 'reviewed by',
-  citationsLabel: 'Citations',
-  viewSourceLabel: 'View source',
   pageNotFoundTitle: 'Page not found',
   pageNotFoundMessage: 'The page you’re looking for doesn’t exist or has been moved.',
   shrineDirectoryLabel: 'Shrine directory',
@@ -1220,7 +1047,6 @@ const UI_TEXT_EN = {
   supportLevelTooltip:
     'How this entry’s information was gathered — a field survey, a cited source, or a web compilation. It reflects our research process only — never the site’s significance.',
   verifiedOnlyFilter: 'Field documented only',
-  statusActive: 'Active',
   statusOccasional: 'Festival-only',
   statusHeritage: 'Heritage site — worship discontinued',
   statusRuin: 'Ruin',
@@ -1263,12 +1089,6 @@ const UI_TEXT_EN = {
     'The wider the bar, the less is known. A circa date is drawn as a fifty-year band around the recorded year — a drawing convention, not a figure from the source.',
   chronologyRangeNote:
     'The two places recorded as a range each give a single year, so the extent the word refers to is not in the data; they are drawn at the same width as circa.',
-  chronologyUndatedHeading: 'Not on the timeline',
-  chronologyUndatedIntro:
-    'These places are in the archive and have no bar. Nothing here is estimated: a site the survey did not date stays undated, and a date the survey qualified keeps its qualification.',
-  chronologyNoYear: 'no year recorded',
-  chronologyUnknownYear: 'recorded as unknown',
-  chronologyQualified: 'the recorded date is qualified',
   chronologyEmptyBand: 'no dated places',
   chronologySpan: (from: string, to: string) => `${from}–${to}`,
   chronologySpanLabel: 'the span drawn',
@@ -1399,29 +1219,92 @@ const UI_TEXT_EN = {
  * English's `(current, total)` is a compile error rather than a missing number
  * on the page.
  */
-export type UiStrings = {
-  [K in keyof typeof UI_TEXT_EN]: (typeof UI_TEXT_EN)[K] extends (...args: infer A) => string
-    ? (...args: A) => string
-    : string;
+export type StringTableOf<T> = {
+  [K in keyof T]: T[K] extends (...args: infer A) => string ? (...args: A) => string : string;
 };
 
-export type UiStringKey = keyof UiStrings;
+/** The public table's shape (see above). The Urdu table is typed with it. */
+export type UiStrings = StringTableOf<typeof UI_TEXT_EN>;
+
+/**
+ * Every key `t()` accepts: the public table's and the team table's. A typo in
+ * either is still a compile error.
+ */
+export type UiStringKey = keyof UiStrings | TeamStringKey;
+
+/**
+ * A language's strings as `t()` reads them: the public table, plus the team
+ * table once `registerTeamStrings()` has run. The team half is `Partial`
+ * because it is genuinely absent until then — always, in the public build.
+ */
+type LoadedStrings = UiStrings & Partial<TeamStrings>;
 
 /**
  * The loaded string tables, keyed by language.
  *
  * Same shape it always had — `UI_TEXT.en.siteTitle`, `keyof (typeof UI_TEXT)['en']`
  * — so the fifty-odd call sites that read the *type* of the English table are
- * untouched. What changed is that `ur` is now `UiStrings | undefined`: it is
- * absent until `loadUiStrings('ur')` resolves.
+ * untouched; that key type now includes the team keys. What changed is that
+ * `ur` is now `UiStrings | undefined`: it is absent until `loadUiStrings('ur')`
+ * resolves.
  *
  * `t()` and `tFn()` already fell back to English for a missing table, which is
  * what makes this safe to do at all — and is also exactly the flash that must
  * never be seen, so `main.tsx` awaits the active language's table before the
  * first render rather than relying on the fallback. The fallback is the safety
  * net, not the plan.
+ *
+ * Each entry is the public table merged with that language's team table, once
+ * one is registered. The pure tables stay in `PUBLIC_TEXT` and `TEAM_TEXT`
+ * below, so the merge can be redone whichever half arrives second.
  */
-export const UI_TEXT: { en: UiStrings; ur?: UiStrings } = { en: UI_TEXT_EN };
+export const UI_TEXT: { en: LoadedStrings; ur?: LoadedStrings } = { en: UI_TEXT_EN };
+
+const PUBLIC_TEXT: Partial<Record<Lang, UiStrings>> = { en: UI_TEXT_EN };
+const TEAM_TEXT: Partial<Record<Lang, TeamStrings>> = {};
+
+/** Rebuild `UI_TEXT[lang]` from whatever halves have arrived. */
+function publish(lang: Lang): void {
+  const publicTable = PUBLIC_TEXT[lang];
+  if (!publicTable) return;
+  const teamTable = TEAM_TEXT[lang];
+  UI_TEXT[lang] = teamTable ? { ...publicTable, ...teamTable } : publicTable;
+}
+
+/**
+ * Make the team view's strings available to `t()` and `tFn()`.
+ *
+ * Called with `TEAM_TEXT` from `uiStrings.team.ts`: by `main.tsx` before the
+ * first render, in builds that have team code (`__TEAM_CODE__`), and by the
+ * test setup. The public build never calls it, and never renders a team key.
+ */
+export function registerTeamStrings(tables: Record<Lang, TeamStrings>): void {
+  for (const lang of Object.keys(tables) as Lang[]) {
+    TEAM_TEXT[lang] = tables[lang];
+    publish(lang);
+  }
+}
+
+/** True once team strings have been registered. */
+export function hasTeamStrings(): boolean {
+  return TEAM_TEXT.en !== undefined;
+}
+
+const warnedMissing = new Set<string>();
+
+/**
+ * A key with no string in any loaded table. In practice that is a team key read
+ * before `registerTeamStrings()` — which, in a build with team code, means
+ * something rendered ahead of `main.tsx`'s await — so it renders as nothing
+ * rather than crashing, and says so once per key while developing.
+ */
+function missing(key: string): string {
+  if (import.meta.env.DEV && !warnedMissing.has(key)) {
+    warnedMissing.add(key);
+    console.warn(`[i18n] "${key}" has no string loaded — team strings not registered yet?`);
+  }
+  return '';
+}
 
 /** Where a language's table comes from. English is static — it is the default
  * and the smaller half, and an English reader should not pay a round trip to
@@ -1459,7 +1342,10 @@ export function loadUiStrings(lang: Lang): Promise<void> {
   const promise = loader()
     .then((mod) => {
       const table = (mod.UI_TEXT_UR ?? mod.default) as UiStrings | undefined;
-      if (table) UI_TEXT[lang] = table;
+      if (table) {
+        PUBLIC_TEXT[lang] = table;
+        publish(lang);
+      }
     })
     .catch((error: unknown) => {
       if (import.meta.env.DEV) {
@@ -1470,10 +1356,11 @@ export function loadUiStrings(lang: Lang): Promise<void> {
   return promise;
 }
 
-export function t(lang: Lang, key: keyof (typeof UI_TEXT)['en']): string {
+export function t(lang: Lang, key: UiStringKey): string {
   const text = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];
+  if (text === undefined) return missing(key);
   if (typeof text === 'function') return '';
-  return String(text ?? '');
+  return String(text);
 }
 
 export function tFn(lang: Lang, key: 'resultCount', n: number): string;
@@ -1721,6 +1608,7 @@ export function tFn(
   ...args: (number | string)[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];
+  if (fn === undefined) return missing(key);
   if (typeof fn === 'function') return (fn as (...a: (number | string)[]) => string)(...args);
-  return String(fn ?? '');
+  return String(fn);
 }

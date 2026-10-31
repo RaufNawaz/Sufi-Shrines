@@ -2,6 +2,9 @@
 node_modules
 dist
 dist-ssr
+dist-team
+dist-public
+dist-runtime-check
 dist-data
 storybook-static
 coverage

@@ -32,6 +32,8 @@ import { UI_TEXT } from '../i18n/uiStrings';
    static import in app source only, because nothing in a test reaches the
    bundle, and asserting *about* the table is the point here. */
 import { UI_TEXT_UR } from '../i18n/uiStrings.ur';
+/* The "unreviewed" chip is team-only, so its strings are in the team table. */
+import { TEAM_TEXT_EN, TEAM_TEXT_UR } from '../i18n/uiStrings.team';
 
 const kg = getKGStore();
 const kinEdges = kg.relations.filter((r) => r.type === 'kin_of');
@@ -197,11 +199,11 @@ describe('kin edges carry the same review marker as every other link type', () =
   it('reuses the lineage marker rather than inventing a second vocabulary', () => {
     // A reader should learn "unreviewed" once. Both languages must have it,
     // because a chip with no string renders as nothing and looks finished.
-    expect(UI_TEXT.en.lineageUnreviewed).toBeTruthy();
-    expect(UI_TEXT_UR.lineageUnreviewed).toBeTruthy();
-    expect(UI_TEXT.en.lineageUnreviewedHelp).toBeTruthy();
-    expect(UI_TEXT_UR.lineageUnreviewedHelp).toBeTruthy();
+    expect(TEAM_TEXT_EN.lineageUnreviewed).toBeTruthy();
+    expect(TEAM_TEXT_UR.lineageUnreviewed).toBeTruthy();
+    expect(TEAM_TEXT_EN.lineageUnreviewedHelp).toBeTruthy();
+    expect(TEAM_TEXT_UR.lineageUnreviewedHelp).toBeTruthy();
     // The help text must not name lineage, or it lies on a kin row.
-    expect(UI_TEXT.en.lineageUnreviewedHelp.toLowerCase()).not.toContain('lineage');
+    expect(TEAM_TEXT_EN.lineageUnreviewedHelp.toLowerCase()).not.toContain('lineage');
   });
 });

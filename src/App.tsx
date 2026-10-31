@@ -25,7 +25,6 @@ import {
 import { withViewTransition } from './lib/nav/viewTransition';
 import { isOnOverlayEntry } from './lib/nav/overlayHistory';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
-import { TeamViewBadge } from './components/ui/TeamViewBadge';
 import { persistAccessParamIfPresent } from './lib/projectAccess';
 import { stripUrPrefix } from './lib/i18n/urlLangPrefix';
 import { useRecordRecentEntries } from './lib/recentEntries';
@@ -41,8 +40,16 @@ const OrderPage = lazy(SEGMENT_MODULES.order);
 const GraphPage = lazy(ROUTE_MODULES['/graph']);
 const AlmanacPage = lazy(ROUTE_MODULES['/almanac']);
 /* Team-only, unlisted, and prerendered like every other route because GitHub
-   Pages serves files rather than routes. See docs/planning/REVIEW_DESK_2026-08-24.md. */
-const ReviewPage = lazy(() => import('./pages/ReviewPage'));
+   Pages serves files rather than routes. See docs/planning/REVIEW_DESK_2026-08-24.md.
+   The public build has no team code (docs/TEAM_ACCESS_PLAN.md): there the route is
+   the not-found page, and the review desk's chunk and queue are never emitted. */
+const ReviewPage = __TEAM_CODE__
+  ? lazy(() => import('./pages/ReviewPage'))
+  : lazy(() => import('./pages/NotFoundPage'));
+/* The "Team view" badge, likewise only in builds that have a team view. */
+const TeamViewBadge = __TEAM_CODE__
+  ? lazy(() => import('./components/ui/TeamViewBadge').then((m) => ({ default: m.TeamViewBadge })))
+  : () => null;
 const TypologyPage = lazy(ROUTE_MODULES['/typology']);
 const SourcesPage = lazy(ROUTE_MODULES['/sources']);
 const SourcePage = lazy(SEGMENT_MODULES.source);
@@ -478,7 +485,9 @@ export default function App() {
                 </Suspense>
               </RouteErrorBoundary>
               <UpdateToast />
-              <TeamViewBadge />
+              <Suspense fallback={null}>
+                <TeamViewBadge />
+              </Suspense>
             </ArchiveSearchProvider>
           </BrowserRouter>
         </ReaderPreferencesProvider>

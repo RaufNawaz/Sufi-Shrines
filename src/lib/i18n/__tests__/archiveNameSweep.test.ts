@@ -1,16 +1,21 @@
 import { describe, it, expect } from 'vitest';
-import { UI_TEXT } from '../uiStrings';
+import { UI_TEXT_EN } from '../uiStrings';
 import { UI_TEXT_UR } from '../uiStrings.ur';
+import { TEAM_TEXT_EN, TEAM_TEXT_UR } from '../uiStrings.team';
 import { CATEGORY_ORDER } from '../../data/categoryKey';
 
 /* Urdu comes from the module, not from `UI_TEXT.ur`, which is optional — the
    Urdu table is a lazy chunk and the object only carries it once a loader has
    run. It *is* populated under vitest, by test setup rather than by the type, so
    every Urdu assertion below would have gone on passing over `undefined` if that
-   setup ever changed. Passing over nothing is not passing. `UI_TEXT.en` is
-   non-optional and needs no such care. */
+   setup ever changed. Passing over nothing is not passing. The team view's
+   strings (uiStrings.team.ts) are read from their module for the same reason,
+   and swept with the public ones: a rename has to reach them too. */
 
-const TABLES = { en: UI_TEXT.en, ur: UI_TEXT_UR } as const;
+const TABLES = {
+  en: { ...UI_TEXT_EN, ...TEAM_TEXT_EN },
+  ur: { ...UI_TEXT_UR, ...TEAM_TEXT_UR },
+} as const;
 
 /**
  * Two claims the archive makes about itself, held open.

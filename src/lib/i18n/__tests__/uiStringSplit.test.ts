@@ -86,8 +86,12 @@ describe('the Urdu string table is not in the eager bundle', () => {
        one place it must not. */
     const main = readFileSync(join(SRC, 'main.tsx'), 'utf8');
     expect(main).toContain('loadUiStrings(');
+    /* Either awaited alone, or inside the `Promise.all` that also awaits the
+       team view's strings (teamStrings.test.ts checks that half). */
     expect(
-      /loadUiStrings\([^)]*\)\s*\.then\(\s*\(\)\s*=>\s*\{[\s\S]{0,400}createRoot/.test(main),
+      /loadUiStrings\([^)]*\)(?:\s*,\s*\w+\s*\]\))?\s*\.then\(\s*\(\)\s*=>\s*\{[\s\S]{0,400}createRoot/.test(
+        main,
+      ),
       'main.tsx renders without waiting for the interface strings, so an Urdu reader ' +
         'gets an English first frame',
     ).toBe(true);

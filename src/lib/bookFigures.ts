@@ -98,10 +98,13 @@ export function groupBookFigures(files: BookFigureFile[]): BookFigure[] {
   return [...out.values()];
 }
 
+/** Team view only (the graph's book-figures sheet). The public build has no team
+ *  view, so there the glob sits in a dead branch and the book files are never
+ *  emitted (docs/TEAM_ACCESS_PLAN.md). */
 export async function loadBookFigures(): Promise<BookFigure[]> {
-  const modules = import.meta.glob<{ default: BookFigureFile }>(
-    '../../data/kg-book-figures-*.json',
-  );
+  const modules = __TEAM_CODE__
+    ? import.meta.glob<{ default: BookFigureFile }>('../../data/kg-book-figures-*.json')
+    : {};
   const files = await Promise.all(
     Object.values(modules).map((load) => load().then((m) => m.default)),
   );

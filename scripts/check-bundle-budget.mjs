@@ -519,8 +519,16 @@ const routes = [
     .map((key) => [key, pageKeyOf(key)])
     .filter(([, page]) => page),
 ];
+/* The public build has no team view (docs/TEAM_ACCESS_PLAN.md, 31 October 2026):
+   its team-only routes must be absent rather than measured, and finding one is
+   the failure. scripts/check-public-bundle.mjs checks the rest of that promise. */
+const PUBLIC_BUILD = (process.env.VITE_TEAM_GATE ?? 'public') === 'public';
+const TEAM_ONLY_PAGES = ['src/pages/ReviewPage.tsx'];
 for (const page of Object.keys(BUDGETS_KB)) {
-  if (!routes.some(([, p]) => p === page)) {
+  const found = routes.some(([, p]) => p === page);
+  if (PUBLIC_BUILD && TEAM_ONLY_PAGES.includes(page)) {
+    if (found) failures.push(`${page}: team-only, but the public build contains it`);
+  } else if (!found) {
     failures.push(`${page}: has a budget but was not found in the build, so it was not measured`);
   }
 }

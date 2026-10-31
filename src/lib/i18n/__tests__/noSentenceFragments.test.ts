@@ -25,11 +25,24 @@
  * language, not about the layout. If you need one, you need `tFn`.
  */
 import { describe, it, expect } from 'vitest';
-import { UI_TEXT, tFn } from '../uiStrings';
+import { UI_TEXT_EN, tFn } from '../uiStrings';
 /* The Urdu table is a lazily-loaded chunk now, so `UI_TEXT.ur` is
    `UiStrings | undefined`. This file is about the *tables*, so it reads the
    module. A static import here does not reach the bundle. */
 import { UI_TEXT_UR } from '../uiStrings.ur';
+/* The team view's strings are a third and fourth table (uiStrings.team.ts), held
+   to the same rules: a team key is read through t() exactly like a public one. */
+import { TEAM_TEXT_EN, TEAM_TEXT_UR } from '../uiStrings.team';
+
+/** Each English table with its Urdu counterpart. */
+const TABLE_PAIRS = [
+  { name: 'public', en: UI_TEXT_EN, ur: UI_TEXT_UR },
+  { name: 'team', en: TEAM_TEXT_EN, ur: TEAM_TEXT_UR },
+] as const satisfies readonly {
+  name: string;
+  en: Record<string, unknown>;
+  ur: Record<string, unknown>;
+}[];
 
 /**
  * Words that only ever glue other words together. Deliberately short: this is
@@ -60,7 +73,7 @@ const FUNCTION_WORDS = new Set([
 describe('UI strings are whole phrases', () => {
   it('no English value is a bare function word', () => {
     const fragments: string[] = [];
-    for (const [key, value] of Object.entries(UI_TEXT.en)) {
+    for (const [key, value] of TABLE_PAIRS.flatMap((pair) => Object.entries(pair.en))) {
       if (typeof value !== 'string') continue; // tFn entries are functions
       const normalized = value.trim().toLowerCase().replace(/[:.]$/, '');
       if (FUNCTION_WORDS.has(normalized)) fragments.push(`${key}: "${value}"`);
@@ -87,12 +100,13 @@ describe('UI strings are whole phrases', () => {
     expect(ur.indexOf('169')).toBeLessThan(ur.indexOf('32'));
   });
 
-  it('every key exists in both languages', () => {
+  it.each(TABLE_PAIRS)('every $name key exists in both languages', ({ name, en, ur }) => {
     // A fragment removed from one table and left in the other is how the
     // English falls back silently.
-    const en = Object.keys(UI_TEXT.en).sort();
-    const ur = Object.keys(UI_TEXT_UR).sort();
-    expect(ur, 'the Urdu table is missing keys the English table has').toEqual(en);
+    expect(
+      Object.keys(ur).sort(),
+      `the Urdu ${name} table is missing keys the English one has`,
+    ).toEqual(Object.keys(en).sort());
   });
 
   it('a key is a function in both languages or a string in both', () => {
@@ -100,10 +114,13 @@ describe('UI strings are whole phrases', () => {
     // returns '' for a function value, so the phrase silently vanishes in one
     // language and nothing throws.
     const mismatched: string[] = [];
-    for (const key of Object.keys(UI_TEXT.en) as (keyof typeof UI_TEXT.en)[]) {
-      const enKind = typeof UI_TEXT.en[key];
-      const urKind = typeof UI_TEXT_UR[key];
-      if (enKind !== urKind) mismatched.push(`${key}: en is ${enKind}, ur is ${urKind}`);
+    for (const { en, ur } of TABLE_PAIRS) {
+      const urTable: Record<string, unknown> = ur;
+      for (const [key, value] of Object.entries(en)) {
+        const enKind = typeof value;
+        const urKind = typeof urTable[key];
+        if (enKind !== urKind) mismatched.push(`${key}: en is ${enKind}, ur is ${urKind}`);
+      }
     }
     expect(mismatched, 't() returns an empty string for a function value').toEqual([]);
   });

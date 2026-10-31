@@ -18,12 +18,14 @@ const MobileContents = React.lazy(() =>
   import('../components/shrine/MobileContents').then((m) => ({ default: m.MobileContents })),
 );
 /* Lazy: team view only (`hasProjectAccess`), so a public reader never renders
-   it and should not download it. */
-const SourcesProvenance = React.lazy(() =>
-  import('../components/shrine/SourcesProvenance').then((m) => ({
-    default: m.SourcesProvenance,
-  })),
-);
+   it; and absent from the public build altogether (docs/TEAM_ACCESS_PLAN.md). */
+const SourcesProvenance = __TEAM_CODE__
+  ? React.lazy(() =>
+      import('../components/shrine/SourcesProvenance').then((m) => ({
+        default: m.SourcesProvenance,
+      })),
+    )
+  : null;
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { ShrineInfobox } from '../components/shrine/ShrineInfobox';
 import { ShrineArticle } from '../components/shrine/ShrineArticle';
@@ -671,7 +673,7 @@ function ShrineContent({
           </p>
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
-          {teamView && (
+          {teamView && SourcesProvenance && (
             <React.Suspense fallback={null}>
               <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />
             </React.Suspense>

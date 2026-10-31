@@ -239,12 +239,21 @@ RULE 2 still holds in the sheet and in the team view; the gate decides only what
 shown. Tests that need the team view set `localStorage` `shrines_team_access` = `'1'`; a
 `<Navigate>` redirect drops `?team=1`. Full list in `docs/HANDOVER.md` §9.183.
 
-**Since 25 October 2026** components read the gate through `useTeamAccess()`, so switching it
-re-renders every page at once. `?team=1` is removed from the address bar after it is read, so a
-copied link no longer hands the team view on, and a **Team view** badge with an exit button shows
-while it is on. It is still a soft gate, not access control: anything team-only ships in the public
-bundle. The plan for real sign-in, and the decision it needs from Rauf, is
-`docs/TEAM_ACCESS_PLAN.md`.
+**Since 31 October 2026 the gate is fixed per build, and the public site carries no team content**
+(Rauf's ruling, option C; `docs/TEAM_ACCESS_PLAN.md`, HANDOVER §9.459). `VITE_TEAM_GATE` selects
+the shape (vite.config.ts `define`):
+
+- **`public`, the default for `vite build`:** the gate is constant off and team modules, strings
+  (`src/lib/i18n/uiStrings.team.ts`) and data are never emitted. `?team=1` opens the team edition's
+  passphrase page.
+- **`team`:** gate on. Published at `/Sufi-Shrines/team/` only encrypted (`scripts/team/`, secret
+  `TEAM_PASSPHRASE`, optional `TEAM_SALT`).
+- **`runtime`, the dev server, vitest and `build:e2e`:** the old switchable `?team=1` gate, so
+  localhost and the tests still show both views.
+
+**New team-only code goes behind `__TEAM_CODE__ ? import(...) : null`, and a team-only string goes
+in the team table.** `scripts/check-public-bundle.mjs`, part of `npm run build`, fails the public build
+on any team chunk, string or data. The data itself (sheet, repo, `data/kg.json`) is still public.
 
 **Credit and citation are two names and the website, nothing else** (Rauf, 11 September 2026):
 "Adil Ahsan and Rauf Nawaz" (that order, ruled 11 September 2026) — no institution, no address, anywhere public.

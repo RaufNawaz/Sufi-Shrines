@@ -324,6 +324,10 @@ test('every section heading on /about rules off at the same x', async ({ page })
   await page.waitForSelector('.about-section-heading, .coverage-section-heading', {
     timeout: 30_000,
   });
+  /* The team sections are their own lazy chunk since 31 October 2026 (they are not in
+     the public build at all), so they arrive after the public ones: wait for the
+     last of them, as AboutPage's own anchor scroll does. */
+  await page.waitForSelector('#how-the-words-were-made', { timeout: 30_000 });
 
   const measured = await page.evaluate(() => {
     const headings = [
