@@ -26,6 +26,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", required=True)
     ap.add_argument("--live", type=Path, help="a CSV export of the sheet, instead of fetching it")
+    ap.add_argument("--review", type=Path, default=REVIEW, help="the review round to apply (one CSV per round)")
+    ap.add_argument("--name", help="import file stem after data/import_ (default: the date)")
     a = ap.parse_args()
     if a.live:
         raw = a.live.read_text(encoding="utf-8")
@@ -38,7 +40,8 @@ def main():
     for c in ("id", "Latitude", "Longitude", "qa_note", "flags", "Description"):
         if c not in ix:
             sys.exit(f"refusing: the sheet has no {c!r} column")
-    moves = [r for r in csv.DictReader(open(REVIEW, encoding="utf-8")) if r["recommend"] == "move"]
+    review = a.review.resolve().relative_to(ROOT).as_posix()
+    moves = [r for r in csv.DictReader(open(a.review, encoding="utf-8")) if r["recommend"] == "move"]
     by_id = {}
     for n, row in enumerate(body):
         by_id.setdefault(row[ix["id"]], []).append(n)
@@ -58,7 +61,7 @@ def main():
         src = m["point_from"].split(";")
         src = src[0] if len(src) == 1 else ", ".join(src[:-1]) + " and " + src[-1]
         note = (f"Pin moved {a.date} ({m['move_m']} m) to the point of {src} for this place, after a satellite check "
-                f"(data/review/pin_check_2026-10-30.csv); it was {m['current_lat']}, {m['current_lon']}.")
+                f"({review}); it was {m['current_lat']}, {m['current_lon']}.")
         row[ix["Latitude"]], row[ix["Longitude"]] = f"{float(m['proposed_lat']):.6f}", f"{float(m['proposed_lon']):.6f}"
         q = row[ix["qa_note"]].rstrip()
         row[ix["qa_note"]] = (q + "\n\n" + note) if q else note
@@ -80,7 +83,7 @@ def main():
     w.writerow(cols)
     w.writerows(out)
     text = b.getvalue()
-    dst = ROOT / f"data/import_{a.date}.csv"
+    dst = ROOT / f"data/import_{a.name or a.date}.csv"
     if dst.exists():
         sys.exit(f"refusing: {dst} exists")
     with open(dst, "w", encoding="utf-8", newline="") as fh:

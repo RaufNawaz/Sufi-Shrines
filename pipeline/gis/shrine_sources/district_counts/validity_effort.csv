@@ -29,11 +29,11 @@ n_doam,ntl_2023_popw,135,-0.135,0.126,-0.168,0.143,0.039
 n_doam,urban_share,135,0.02,0.123,0.056,0.144,-0.044
 n_doam,literacy,135,0.027,0.109,0.055,0.126,-0.038
 n_doam,travel_city_min_popw,135,0.022,0.104,0.026,0.104,-0.022
-n_union_ab,rwi_popw,135,-0.112,0.082,-0.29,0.092,0.228
-n_union_ab,ntl_2023_popw,135,0.025,0.099,-0.116,0.111,0.166
+n_union_ab,rwi_popw,135,-0.111,0.082,-0.289,0.092,0.228
+n_union_ab,ntl_2023_popw,135,0.025,0.099,-0.115,0.111,0.166
 n_union_ab,urban_share,135,0.138,0.1,0.055,0.115,0.102
-n_union_ab,literacy,135,0.133,0.089,0.053,0.095,0.108
-n_union_ab,travel_city_min_popw,135,0.118,0.107,0.096,0.099,0.119
+n_union_ab,literacy,135,0.134,0.089,0.054,0.095,0.108
+n_union_ab,travel_city_min_popw,135,0.117,0.107,0.095,0.099,0.119
 n_osm_pow_effort,rwi_popw,135,0.778,0.093,,,
 n_osm_pow_effort,ntl_2023_popw,135,0.848,0.077,,,
 n_osm_pow_effort,urban_share,135,0.814,0.073,,,

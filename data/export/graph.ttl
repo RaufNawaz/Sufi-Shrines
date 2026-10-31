@@ -8149,8 +8149,8 @@ It is further reported that the land for Dyal Singh College in Lahore, close to 
   schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/abul-muali-qadri/abul-muali-qadri-01.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "31.5772"^^xsd:decimal ;
-    schema:longitude "74.32155"^^xsd:decimal
+    schema:latitude  "31.569969"^^xsd:decimal ;
+    schema:longitude "74.326019"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -8241,8 +8241,8 @@ The shrine is reported to be managed by a body called the Ghazi Ilam Din Shaheed
   schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/ghazi-ilm-din-shaheed/ghazi-ilm-din-shaheed-01.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "31.5498"^^xsd:decimal ;
-    schema:longitude "74.317"^^xsd:decimal
+    schema:latitude  "31.552534"^^xsd:decimal ;
+    schema:longitude "74.308545"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -8406,8 +8406,8 @@ His sayings, his *malfuzat*, were gathered in several collections, among them a 
   schema:image <https://commons.wikimedia.org/wiki/Special:FilePath/Roof_of_Shrine_of_Hazrat_Muhammad_Suleman_Taunsvi.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "30.70826"^^xsd:decimal ;
-    schema:longitude "70.6517"^^xsd:decimal
+    schema:latitude  "30.701264"^^xsd:decimal ;
+    schema:longitude "70.648049"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -8621,8 +8621,8 @@ Separately, the year of his death is drawn from a single word, *gham*, grief.
   schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/tahir-bandagi-qadri/tahir-bandagi-qadri-01.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "31.5498"^^xsd:decimal ;
-    schema:longitude "74.317"^^xsd:decimal
+    schema:latitude  "31.549197"^^xsd:decimal ;
+    schema:longitude "74.308437"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -8734,8 +8734,8 @@ His name also became a figure of speech. In the nineteenth century it was said o
   schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ahmad-ayaz/malik-ahmad-ayaz-01.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "31.57803"^^xsd:decimal ;
-    schema:longitude "74.307"^^xsd:decimal
+    schema:latitude  "31.582455"^^xsd:decimal ;
+    schema:longitude "74.318469"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -8891,8 +8891,8 @@ The shrine remains under the management of Wasif Ali Wasif's family. It is repor
   schema:image <https://raufnawaz.github.io/Sufi-Shrines/photos/wasif-ali-wasif/wasif-ali-wasif-01.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "31.5498"^^xsd:decimal ;
-    schema:longitude "74.317"^^xsd:decimal
+    schema:latitude  "31.549851"^^xsd:decimal ;
+    schema:longitude "74.310982"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -15543,8 +15543,8 @@ He has a literature of his own. Jethmal Parsram devoted the third part of a smal
   schema:image <https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Shrine_Lal_Shahbaz_Qalandar%2C_Sehwan_Shareef%2C_Sindh%2C_Pakistan.jpg/500px-Shrine_Lal_Shahbaz_Qalandar%2C_Sehwan_Shareef%2C_Sindh%2C_Pakistan.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "26.42669"^^xsd:decimal ;
-    schema:longitude "67.87132"^^xsd:decimal
+    schema:latitude  "26.42839"^^xsd:decimal ;
+    schema:longitude "67.862471"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -19125,8 +19125,8 @@ In 2011 his memory was kept on his anniversary by pilgrims from across the borde
   schema:image <https://commons.wikimedia.org/wiki/Special:FilePath/Samadhi%20of%20Ranjit%20Singh%20123.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "31.5847"^^xsd:decimal ;
-    schema:longitude "74.3161"^^xsd:decimal
+    schema:latitude  "31.589295"^^xsd:decimal ;
+    schema:longitude "74.311296"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -22635,8 +22635,8 @@ A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-
 - Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan."""@en ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "33.9933"^^xsd:decimal ;
-    schema:longitude "71.6052"^^xsd:decimal
+    schema:latitude  "33.999437"^^xsd:decimal ;
+    schema:longitude "71.591427"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -22665,8 +22665,8 @@ A general compendium of Pakistani Sufi saints separately records an "Akhund Panj
 - Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan."""@en ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "34.0576"^^xsd:decimal ;
-    schema:longitude "71.7247"^^xsd:decimal
+    schema:latitude  "34.0385"^^xsd:decimal ;
+    schema:longitude "71.7228"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -23723,8 +23723,8 @@ Hafiz Muhammad Jamal Multani is remembered as the master through whom the Chisht
   schema:image <https://commons.wikimedia.org/wiki/Special:FilePath/Shrine_of_Hazrat_Hafiz_Muhammad_Jamal_Multani_by_Usman_ghani.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "30.1993"^^xsd:decimal ;
-    schema:longitude "71.4702"^^xsd:decimal
+    schema:latitude  "30.195406"^^xsd:decimal ;
+    schema:longitude "71.485303"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -24161,8 +24161,8 @@ shrine:shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi
   schema:image <https://commons.wikimedia.org/wiki/Special:FilePath/Tomb_of_Shah_Ali_Akbar.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "30.214"^^xsd:decimal ;
-    schema:longitude "71.453"^^xsd:decimal
+    schema:latitude  "30.217833"^^xsd:decimal ;
+    schema:longitude "71.437914"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -25299,8 +25299,8 @@ His name has also travelled with the story of Data Ganj Bakhsh, whose arrival in
   schema:image <https://commons.wikimedia.org/wiki/Special:FilePath/Miran_Hussain_Zanjani_6.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "31.5897"^^xsd:decimal ;
-    schema:longitude "74.3456"^^xsd:decimal
+    schema:latitude  "31.586364"^^xsd:decimal ;
+    schema:longitude "74.344531"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -27736,8 +27736,8 @@ shrine:tomb-of-bahaal-halim-uch-sharif
   schema:image <https://commons.wikimedia.org/wiki/Special:FilePath/Side_view_of_tomb_-_Shrine_of_Baha%27al-Halim.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "29.238"^^xsd:decimal ;
-    schema:longitude "71.064"^^xsd:decimal
+    schema:latitude  "29.240568"^^xsd:decimal ;
+    schema:longitude "71.052222"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;
@@ -27870,8 +27870,8 @@ The tomb is also the place where one modern book on Sufism in Pakistan begins. I
   schema:image <https://live.staticflickr.com/2264/2536748069_c33904a715_b.jpg> ;
   schema:geo [
     a schema:GeoCoordinates ;
-    schema:latitude  "29.238"^^xsd:decimal ;
-    schema:longitude "71.064"^^xsd:decimal
+    schema:latitude  "29.240889"^^xsd:decimal ;
+    schema:longitude "71.05247"^^xsd:decimal
   ] ;
   schema:address [
     a schema:PostalAddress ;

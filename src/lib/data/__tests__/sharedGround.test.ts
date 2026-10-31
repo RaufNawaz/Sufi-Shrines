@@ -8,7 +8,7 @@ import {
   SAME_PIN_THRESHOLD_M,
   SHARED_GROUND_RADIUS_M,
 } from '../sharedGround';
-import { buildShrines } from '../shrineModel';
+import { buildShrines, haversineKm } from '../shrineModel';
 import type { ShrineRow } from '../../../types/shrine';
 
 /**
@@ -171,9 +171,24 @@ describe('against the shipped snapshot', () => {
   it('every identical-pin group in the data is flagged, not measured', () => {
     return import('../../../data/shrines-fallback.json').then((mod) => {
       const shrines = buildShrines((mod.default as { rows: ShrineRow[] }).rows);
-      // Four such groups exist; each is a documented approximation.
-      const flagged = shrines.filter((s) => findSharedGround(s, shrines).samePinCount > 0);
-      expect(flagged.length).toBeGreaterThanOrEqual(8);
+      /* Derived from the pins, not counted. This read "four such groups exist" with a floor of 8
+         flagged sites until 31 October 2026, when the pin review (HANDOVER 9.440) gave the Miani
+         Sahib darbars, Malik Ayaz and the two Uch tombs their own points: a floor on a defect fails
+         when the defect is fixed. The claim is that every pin another pin sits on is flagged. */
+      const mapped = shrines.filter((s) => s.latLng);
+      const sharing = mapped
+        .filter((a) =>
+          mapped.some(
+            (b) => b.id !== a.id && haversineKm(a.latLng!, b.latLng!) * 1000 <= SAME_PIN_THRESHOLD_M,
+          ),
+        )
+        .map((s) => s.id)
+        .sort();
+      const flagged = shrines
+        .filter((s) => findSharedGround(s, shrines).samePinCount > 0)
+        .map((s) => s.id)
+        .sort();
+      expect(flagged).toEqual(sharing);
     });
   });
 });
@@ -302,9 +317,13 @@ describe('the overview against the shipped snapshot', () => {
     const overview = buildSharedGroundOverview(buildShrines(snapshot.rows));
 
     expect(overview.mappedSites).toBeGreaterThanOrEqual(160);
-    expect(overview.pairs).toBeGreaterThanOrEqual(70);
-    expect(overview.crossTradition.length).toBeGreaterThanOrEqual(38);
-    expect(overview.crossTraditionSites).toBeGreaterThanOrEqual(40);
+    /* Re-measured 31 October 2026 after the pin review (HANDOVER 9.440, 9.442): 67 pairs, 33 across a
+       tradition, 35 sites (74, 40, 42 on 29 August). The nine pairings lost were artefacts of
+       placeholder pins (Malik Ayaz on Data Darbar's point; three Miani Sahib darbars on one point near
+       Mozang; Hafiz Jamal at Multan fort; the Uch tombs in the town centre), two real ones gained. */
+    expect(overview.pairs).toBeGreaterThanOrEqual(67);
+    expect(overview.crossTradition.length).toBeGreaterThanOrEqual(33);
+    expect(overview.crossTraditionSites).toBeGreaterThanOrEqual(35);
     expect(overview.sitesWithNeighbours).toBeGreaterThanOrEqual(60);
 
     // All six. This is the claim the page's headline makes, so it is the claim
@@ -371,7 +390,7 @@ describe('crossTraditionParticipants', () => {
     expect(crossTraditionParticipants(crossTraditionAdjacencies(shrines)).size).toBe(0);
   });
 
-  it('lights 42 of the archive\'s sites and no more', async () => {
+  it('lights the cross-tradition sites and no more', async () => {
     const snapshot = (await import('../../../data/shrines-fallback.json')).default as {
       rows: ShrineRow[];
     };
@@ -379,9 +398,9 @@ describe('crossTraditionParticipants', () => {
     const overview = buildSharedGroundOverview(shrines);
     const lit = crossTraditionParticipants(overview.crossTradition);
     // The lens dims everything else, so this is also the count of dimmed
-    // markers the map should show: 169 - 42 = 127.
+    // markers the map should show: 169 - 35 = 134 (31 October 2026; 42 lit before the pin review).
     expect(lit.size).toBe(overview.crossTraditionSites);
-    expect(lit.size).toBeGreaterThanOrEqual(40);
+    expect(lit.size).toBeGreaterThanOrEqual(35);
     expect(lit.size).toBeLessThan(shrines.length);
   });
 });

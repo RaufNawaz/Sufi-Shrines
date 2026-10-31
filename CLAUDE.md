@@ -524,9 +524,11 @@ Commit in coherent units with a scope prefix (`data:`, `media:`, `feat:`, `docs:
 - `docs/planning/PROJECT_VISION.md` — blue-sky roadmap.
 - `docs/GIS_FOUNDATION.md` — the spatial research layer (`pipeline/gis/`, added 15 October 2026).
   Not read by the website. Built from `data/shrines.csv`, so rebuild it after `npm run data:build`.
-- `docs/planning/SHARED_GROUND_VISION.md` — the current phase: 37% of sites stand within 800 m
-  of another, and **40** of those pairings cross a tradition, over 42 sites, with all six
-  traditions represented (*re-measured 29 August 2026; this line said "eight places" for nine
-  days, and the number is now computed on `/shared-ground` rather than quoted*). **Track A is
+- `docs/planning/SHARED_GROUND_VISION.md` — the current phase: 38% of sites stand within 800 m
+  of another, and **33** of those pairings cross a tradition, over 35 sites, with all six
+  traditions represented (*re-measured 31 October 2026, after the pin review moved fifteen
+  placeholder pins: the nine pairings lost were artefacts of wrong pins, HANDOVER §9.442. It read
+  40 over 42 from 29 August; it said "eight places" for nine days before that, and the number is
+  computed on `/shared-ground` rather than quoted*). **Track A is
   complete** as of 29 August 2026 — the shrine section, `/shared-ground`, and the map lens;
   B shipped; D in progress.

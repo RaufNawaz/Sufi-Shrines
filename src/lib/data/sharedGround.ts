@@ -7,8 +7,9 @@ import { haversineKm } from './shrineModel';
  * traditions are among them.
  *
  * The archive documents six traditions and presents each site as an island.
- * The coordinates say otherwise: 62 of the 169 sites are within 800 m of
- * another, and 40 of those pairings cross a tradition. Data Darbar is 222 m
+ * The coordinates say otherwise: 64 of the 169 sites are within 800 m of
+ * another, and 33 of those pairings cross a tradition (31 October 2026, after
+ * the pin review moved fifteen placeholder pins; 62 and 40 before). Data Darbar is 222 m
  * from Gurdwara Chowmala Sahib; Dargah Pir Ratan Nath is 100 m from Gurdwara
  * Bhai Beba Singh. For much of Punjab and Sindh that adjacency *is* the
  * heritage — these communities built on the same streets — and until now

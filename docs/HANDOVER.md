@@ -22407,3 +22407,54 @@ GeoNames' own English for chaks ("Chak Thirty-one -Eleven Left").
 - Not done: Urdu names (GeoNames carries an Arabic-script alternate for 146 of the 570; the viewer is
   English only), and district names on the map (the hover card and "Find a place" give them).
 
+### 9.442, 31 October 2026 (interactive, Windows PC): the pin import refreshed through the site and the GIS layer; shared ground re-measured; a sixteenth pin
+
+Rauf imported `data/import_2026-10-31.csv`. The published sheet, read after, equals it cell for cell.
+
+**Site data.** `npm run data:build`: exactly the 59 cells changed (15 rows). `data:export` cannot run as
+written after a coordinate change: it runs `data:validate` first, which fails on the stale graph export it
+exists to regenerate. Ran its steps directly (`build-kg.mjs`, `export-jsonld.mjs`, `export-rdf.mjs`); the
+KG files changed only their `generated` stamps, the exports 30 lines each (the 15 points). New restore
+point `data/snapshot_2026-10-31.csv` (`npm run data:restore-point`, as snapshotFidelity asks).
+
+**Three test failures, each read before changing anything:**
+- `SourceNotes.test.tsx` assumed any non-empty `qa_note` is a doubt a reader must be told; five rows had
+  none until the pin import added a "Pin moved …" sentence. A note made only of such sentences is now an
+  audit trail, not a doubt; a real doubt still demands a public note.
+- `sharedGround.test.ts`, "every identical-pin group is flagged": a floor of 8 counted the shared-pin
+  defect itself ("four such groups exist"), which the pin review fixed. Now derived: the flagged set must
+  equal the set of pins within 25 m of another, measured from the data.
+- `sharedGround.test.ts` floors (70 pairs, 38/40 cross-tradition) and "lights 42": **shared ground
+  re-measured**: 64 of 169 sites within 800 m of another (62 before), 67 pairs (74), **33 across a
+  tradition over 35 sites (40 over 42)**, all six traditions still present. Measured with the site's own
+  functions, before and after. The nine pairings lost were artefacts of wrong pins: Malik Ayaz on Data
+  Darbar's point (Gurdwara Chowmala, Aibak's tomb); three Miani Sahib darbars on one point near Mozang
+  (Gurdwara Chhevin Patshahi, Mozang, three times); Hafiz Jamal at Multan fort (Prahladpuri Temple); the
+  Uch tombs in town (Ustad Nuriya, twice); Ranjit Singh's samadhi (Gurdwara Guru Ram Das). Two real ones
+  gained: Ranjit Singh's samadhi with the Loh Temple in Lahore Fort, Malik Ayaz with Gurdwara Guru Ram Das.
+  Floors reset to the new measurement; the figures quoted in `sharedGround.ts`, `SharedGround.tsx`,
+  CLAUDE.md and `SHARED_GROUND_VISION.md` updated with dates.
+- Line endings: Python on Windows wrote CLAUDE.md with CRLF and `publishedPhotos.test.ts` could no longer
+  find its block; restored LF there and in twelve other files this session wrote.
+
+**GIS layer, without a full rebuild.** `build_foundation.py` deletes the GeoPackage, and `rebuild.sh
+--full` would re-download every source, OSM included, changing counts for reasons unrelated to the pins.
+Instead: the foundation built to a temporary GeoPackage; every layer compared (boundaries identical; sites
+differ in 17 rows, the 15 moved plus Data Darbar and Feroz-ud-Din no longer sharing a pin; grid and 4
+tehsils in site counts); its eight layers copied into the real GeoPackage (all 54 layers kept); then
+`build_welfare_layers.py` (4 tehsil rows changed), the district counts, calibration, validity and
+**location check: confirmed 61 → 76, suspect 10 → 0, disputed 6 → 1 (Chandragup, kept on purpose)**;
+the union keeps its 4,346 records (3,689 places; one archive pin joined its shrine's records; IDs renumber
+on every build), the atlas (0 failures), the 17 category datasets, the viewer, all viewer tests and the
+Python reference. `build_external_sites.py` could not run (`sources/shrine_dbs/osm_overpass.json` is not on
+this PC; it needs an Overpass download); the leads rebuilt from the existing `external_sites.csv` came out
+unchanged (817, 93 in the archive). The hybrid-worker input was re-exported (place IDs renumbered): 3,376.
+
+**A sixteenth pin.** The shared-ground diff showed Ustad Nuriya's pin 51 m from the old Uch placeholder;
+its row's note says the tomb sits on the same mound as Bibi Jawindi and Baha'al-Halim. DOAM's "Tomb of
+Nuria" is on that mound (the union had not joined it: names differ, 1.1 km apart). Reviewed as a second
+round (`pin_review.py --only … --out data/review/pin_check_2026-10-31.csv`; the first round's file and
+images are kept as history, after a rerun had overwritten them and they were restored from git).
+`data/import_2026-10-31b.csv`: 4 cells in one row. DOAM's point is 6 m from its Baha'al-Halim point, so
+the site will show the two as sharing a pin. **Waiting on Rauf to import.**
+

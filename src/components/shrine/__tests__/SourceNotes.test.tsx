@@ -48,8 +48,17 @@ describe('source-notes content contract', () => {
     const slugByName = new Map(
       buildShrines(shrineSnapshot.rows as unknown as ShrineRow[]).map((s) => [s.name, s.slug]),
     );
+    /* A "Pin moved <date> …" sentence is the audit trail of a coordinate correction
+       (pipeline/gis/shrine_sources/pin_review/, 31 October 2026), not a doubt about the
+       article, so a qa_note holding only such sentences asks for no reader's note. */
+    const doubts = (note: unknown) =>
+      String(note ?? '')
+        .split(/\n+/)
+        .filter((line) => !/^Pin moved \d{4}-\d{2}-\d{2} /.test(line.trim()))
+        .join('\n')
+        .trim();
     const expected = shrineSnapshot.rows
-      .filter((row) => row.qa_note?.trim())
+      .filter((row) => doubts(row.qa_note))
       /* The October 2026 book rows (318) carry the new rows build's own review
          flag in qa_note and have no Description: there is no article for a
          reader's source note to qualify, so they are outside this contract

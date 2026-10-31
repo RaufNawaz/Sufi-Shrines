@@ -99,7 +99,7 @@ well under one pixel, so a polyline layer alone is a layer of nothing. The guess
 was "a halo at a locality, resolving into lines as you approach" — and a halo over a locality
 is a group, which is the one thing this document says never to draw.
 
-What works instead needs no new geometry at all: **the lens dims.** The 42 sites that stand
+What works instead needs no new geometry at all: **the lens dims.** The 42 sites (35 since the pin review of 31 October 2026) that stand
 beside another tradition keep full opacity and the other 127 recede, and a marker has a minimum
 size at every zoom, so the signal survives where a line does not. The lines are still drawn,
 and they are what the walled city resolves *into* as you approach — but they are the reward for

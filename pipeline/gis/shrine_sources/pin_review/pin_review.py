@@ -71,6 +71,11 @@ DECISIONS = {
         "OSM 'Shrine of Hazrat Wasif Ali Wasif' in Miani Sahib graveyard. The pin is the shared Miani Sahib point of four rows."),
     "chandragup-baba-chandragup": ("B", ["osm:node/4081039771"], [],
         "OSM 'Chandragup' (the mud volcano); the pin is 370 m away."),
+    # Added 31 October 2026, after the first import: the shared-ground tests showed this pin 51 m from the
+    # old Uch placeholder; the union had not joined it to DOAM's "Tomb of Nuria" (names differ, 1.1 km apart).
+    "tomb-of-ustad-nuriya": ("B", ["doam:sites/6551"], [],
+        "DOAM 'Tomb of Nuria', between DOAM's Baha'al-Halim and Bibi Jawindi records; the row's own note says the tomb "
+        "'sits on the same mound as' those two, and its coordinates are approximate."),
     "khawaja-feroz-ud-din-gharib-nawaz": ("C", [], [],
         "No independent record. Shares the Miani Sahib point with three rows that move; this one stays until a person places it."),
     "sevapanthi-darbar-bhai-gurdas-gandava": ("C", [], [],
@@ -99,6 +104,9 @@ SATELLITE = {
     "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a": ("move", "Proposed point on a large white-domed shrine with a courtyard; the pin is in housing 850 m away."),
     "wasif-ali-wasif": ("move", "Proposed point on a white built structure at the edge of Miani Sahib graveyard (the row's Location)."),
     "chandragup-baba-chandragup": ("keep", "The pin is on the mud volcano's crater, the sacred site itself; OSM's point is in open plain 370 m away. Keep the pin."),
+    "tomb-of-ustad-nuriya": ("move", "Proposed point inside the walled Uch tomb complex, on its western tomb; the pin is in the town "
+        "1.1 km away. DOAM's point is 6 m from its Baha'al-Halim record, so the two will show as sharing a pin (under 25 m): "
+        "right mound, tomb within it not resolved, as the row's own note already says."),
     "khawaja-feroz-ud-din-gharib-nawaz": ("flag", "No independent point. Stays on the shared Miani Sahib point; needs a person who knows the grave."),
     "sevapanthi-darbar-bhai-gurdas-gandava": ("flag", "No independent point; a 3-decimal town point. Needs a person or a field visit."),
     "shrine-of-hazrat-muhammad-ayub-shah-bukhari": ("flag", "No independent point; a 3-decimal town point. Needs a person or a field visit."),
@@ -169,13 +177,21 @@ def panel(cur, new, size, zoom=None, colour=(230, 40, 40)):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--only", nargs="+", help="review just these archive ids (a later round)")
+    ap.add_argument("--out", type=Path, default=OUT_CSV, help="review CSV to write (one file per round)")
+    a = ap.parse_args()
     recs = {f"{r['source']}:{r['source_id']}": r for r in csv.DictReader(open(DC / "sites.csv", encoding="utf-8"))}
     sheet = {r["id"]: r for r in csv.DictReader(open(ROOT / "data/shrines.csv", encoding="utf-8"))}
-    OUT_IMG.mkdir(parents=True, exist_ok=True)
+    img_dir = a.out.with_suffix("")              # each round's images beside its own CSV
+    img_dir.mkdir(parents=True, exist_ok=True)
     rows, bad = [], []
     if set(SATELLITE) != set(DECISIONS):
         sys.exit("refusing: every pin needs a satellite reading, and only those")
     for sid, (tier, setters, corrob, why) in DECISIONS.items():
+        if a.only and sid not in a.only:
+            continue
         if sid not in sheet:
             bad.append(f"{sid}: not in data/shrines.csv")
             continue
@@ -191,21 +207,23 @@ def main():
             bad.append(f"{sid}: the setting records are {spread:.0f} m apart (> {AGREE_M})")
             continue
         new = (round(sum(p[0] for p in pts) / len(pts), 6), round(sum(p[1] for p in pts) / len(pts), 6)) if pts else None
-        picture(cur, new, OUT_IMG / f"{sid}.jpg")
+        picture(cur, new, img_dir / f"{sid}.jpg")
         ev = [f"{k} '{recs[k]['name']}' {LINK[k.split(':')[0]].format(k.split(':', 1)[1])}" for k in setters + corrob]
         rows.append({"id": sid, "name": s["Name"], "tier": tier, "current_lat": s["Latitude"], "current_lon": s["Longitude"],
                      "proposed_lat": new[0] if new else "", "proposed_lon": new[1] if new else "",
                      "move_m": round(hav(*cur, *new)) if new else "", "point_from": ";".join(setters), "setting_records_spread_m": round(spread) if pts else "",
-                     "evidence": " | ".join(ev), "reasoning": why, "satellite": f"data/review/pin_check_2026-10-30/{sid}.jpg",
+                     "evidence": " | ".join(ev), "reasoning": why, "satellite": (img_dir / f"{sid}.jpg").resolve().relative_to(ROOT).as_posix(),
                      "satellite_read": SATELLITE[sid][1], "recommend": SATELLITE[sid][0]})
         print(f"{tier} {sid}: move {rows[-1]['move_m']} m" if new else f"{tier} {sid}: no independent point")
     if bad:
         sys.exit("refusing:\n  " + "\n  ".join(bad))
-    with open(OUT_CSV, "w", encoding="utf-8", newline="") as fh:
+    if a.out == OUT_CSV and a.only:
+        sys.exit("refusing: a partial round must go to its own --out file, not over the first round's record")
+    with open(a.out, "w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
-    print(f"{len(rows)} pins -> {OUT_CSV}")
+    print(f"{len(rows)} pins -> {a.out}")
 
 
 if __name__ == "__main__":
