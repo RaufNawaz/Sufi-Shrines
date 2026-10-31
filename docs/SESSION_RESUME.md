@@ -51,6 +51,7 @@ the reason the rest is credible.
 11. [x] Hybrid worker assessed; prompt at `docs/prompts/hybrid_worker_shrine_existence.md`, input exported (HANDOVER 9.440). Rauf runs it.
 12. [x] Welfare map: place names, 570 GeoNames places, collision-aware, by zoom (HANDOVER 9.441).
 13. [ ] Overnight: verify the one-source places with the local models and build the verified shrine database, run by a separate session from `docs/prompts/overnight_verified_shrine_database.md` (Rauf, 31 October 2026). Default tiers set there: `web_confirmed` (one source + quoted web evidence) is separate from `verified` (two sources).
+14. [x] Overnight, 31 October 2026 (Rauf: "work overnight to expand the functionality of the tool"): the research viewer gained fixed effects and clustered SEs, the shrine-records filter as a variable, a specification curve, data downloads with Stata/R loaders, a link to the view, and map export (SVG/PNG). Plan and log: `docs/planning/VIEWER_EXPANSION_2026-10-31.md`; HANDOVER §9.444.
 
 ## 30 October 2026, later still: a verified database of every shrine — the state, measured
 

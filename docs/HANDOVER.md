@@ -22458,3 +22458,42 @@ images are kept as history, after a rerun had overwritten them and they were res
 `data/import_2026-10-31b.csv`: 4 cells in one row. DOAM's point is 6 m from its Baha'al-Halim point, so
 the site will show the two as sharing a pin. **Waiting on Rauf to import.**
 
+
+### 9.444, 31 October 2026 (interactive, overnight, Windows PC): the research viewer expanded, six items
+
+Rauf: "work overnight to expand the functionality of the tool … first plan then implement". The plan, with
+a progress log per item, is `docs/planning/VIEWER_EXPANSION_2026-10-31.md`. Formulas and checks are in
+`docs/GIS_FOUNDATION.md`. Every item is in `pipeline/gis/viewer/template.html` and has its own browser
+test in `pipeline/gis/viewer/tests/`. Each commit passed every earlier viewer suite and verify's steps.
+
+1. **Fixed effects and clustered SEs** (`9f5cfbe7`, `test_fixed_effects.cjs`). Province fixed effects,
+   or district at tehsil level only: 160 dummies over 19,162 hexagons took 4.5 min in the page. SEs
+   can be clustered by province or district (CR1, t on G−1 df), for OLS and Poisson, and the Stata
+   and R code and the Stata service's allowlist follow. **Found by the first Stata comparison:**
+   with Poisson fixed effects, a province with no archive site in any tehsil has an infinite fixed
+   effect. Its units are now dropped in the page, in Stata and in R, as fixest does. Stata and R: 9
+   specifications, 80 comparisons, largest relative difference 4.7e-7.
+2. **The shrine-records filter as a variable** (`77fbb780`, `test_places_variable.cjs`). It gives
+   `n_pf`, `pf_per_million` (Kontur) and `pf_per_1000km2` per unit, on the map and in tests, and
+   the filter is saved in the spec. Offshore points snap within 2 km, as `build_district_counts.py`
+   does. Totals then equal the build's exactly (3,684; 207 verified), and 133 of 160 districts
+   agree exactly (simplified polygons move a few places at boundaries). Spherical areas are within
+   0.2% (median) of the GIS layer's. Stata and R: 28 comparisons, largest relative difference 3.2e-7.
+3. **Specification curve** (`3e2afc1e`, `test_spec_curve.cjs`). It varies control subsets, the
+   unit, the outcome's transform and province fixed effects. It is not logged, so it adds nothing
+   to the BH family. The recorded specification reproduces the test exactly.
+4. **Download the data** (`b2b0091a`, `test_data_download.cjs`). For any unit: the table, a
+   codebook, a do-file and an R script, both of which label every column. **Stata needs
+   `asdouble`:** without it, `import delimited` stores float, good only to 1e-7. Run in Stata and
+   R at district, tehsil and hexagon: 1.3 M cells exact to 1.5e-15.
+5. **A link to the view** (`5f7b1c86`, `test_view_link.cjs`). Unit, mode, measures, centre and
+   zoom, layers and places filter go after `#`. Panning adds no history entries; unknown parts are
+   dropped with a notice.
+6. **Save the map, SVG or PNG** (`1dcfccae`, `test_map_export.cjs`). Drawn from the data in the
+   map's projection, with title, legend and sources, and no basemap.
+
+**Gotchas.** A Python `open(..., 'w')` on this PC writes CRLF. Git normalised the committed docs,
+but write in binary when it matters. The Bash tool can eat backslashes in heredocs: build them with
+`chr(92)` or use the Edit tool. `npm run verify`'s format check fails on
+`pipeline/gis/shrine_sources/verified_db/shrines_verified.geojson`, which belongs to the overnight
+verification session and is not committed. Every other verify step passes.
