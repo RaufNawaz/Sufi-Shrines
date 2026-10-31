@@ -43,7 +43,7 @@ Chosen for what a regression-minded reader of this map needs next, largest first
    the coefficient of interest sorted, with its interval, and below it which choices made each estimate.
    Report the share of specifications with the expected sign and with p < 0.05. All of them run in the
    browser on the existing estimator; the curve's numbers download as CSV.
-4. [ ] **Download the table behind the map.** Every indicator at the current unit as one CSV (unit id,
+4. [x] **Download the table behind the map.** Every indicator at the current unit as one CSV (unit id,
    name, province, every measure), with a codebook CSV (key, label, definition, source, units); so the
    data can go into Stata or R without the conjecture form.
 5. [ ] **A link to this view.** The unit, the measure(s), the mode, the map's centre and zoom, the layers
@@ -84,3 +84,8 @@ HANDOVER §9 entry. Nothing here writes to the Google Sheet or changes `sites.cs
   not logged. The recorded specification reproduces the test exactly, and full refits of a sample
   agree exactly. As planned, except that the unit choice skips units a variable does not reach,
   rather than reporting them as failures.
+- **Item 4, 31 October 2026.** A "Download the data" section in the side panel offers, for any
+  unit, the table, a codebook, a Stata do-file and an R script. The table already existed in the
+  conjecture drawer; the codebook and the two loaders are new. Run in Stata and R on all three
+  sub-province units: every label is right, and values are exact to 1.5e-15. That needed
+  `asdouble`, since without it Stata stored float, accurate only to 1e-7.

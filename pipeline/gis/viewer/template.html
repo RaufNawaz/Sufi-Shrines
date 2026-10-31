@@ -881,6 +881,8 @@
         <div id="placesLegend" class="legend"></div>
         <h2>Open sources, measured against the archive</h2>
         <div id="coverage"></div>
+        <h2>Download the data</h2>
+        <div id="dataBox"></div>
         <h2>Verification</h2>
         <details>
           <summary id="checksum"></summary>
@@ -6157,6 +6159,173 @@
       });
       // CJ's unit follows the form; refresh the data button when it changes.
       $('cjUnits').addEventListener('click', () => cjLog());
+
+      // ---- the table behind the map, for Stata and R (31 October 2026) --------------------------
+      // The unit's whole table (unitCSV, the same file the conjecture drawer offers), its codebook,
+      // and a do-file and an R script that read the table and label every column, so the data goes
+      // into Stata or R without the conjecture form. tests/test_data_download.cjs runs both scripts
+      // in Stata and R on the downloaded table.
+      const ADMIN_COLS = {
+        id: 'Unit id (district PK + 3 digits, tehsil PK + 5 digits, province PK + 1 digit)',
+        name: 'Unit name',
+        h3: 'H3 cell id (resolution 6)',
+        lat: 'Latitude of the hexagon centre',
+        lon: 'Longitude of the hexagon centre',
+        cent_lat: 'Latitude of the area-weighted centroid',
+        cent_lon: 'Longitude of the area-weighted centroid',
+        tehsil_id: 'Tehsil the hexagon centre falls in',
+        tehsil: 'Tehsil name',
+        district_id: 'District id',
+        district: 'District name',
+        province_id: 'Province id',
+        province: 'Province name',
+      };
+      const tableHead = (csv) => csv.slice(0, csv.indexOf('\r\n')).split(',');
+      // Long column names, in order, each with its Stata name (stataName numbers them).
+      const longCols = (cols) =>
+        cols.filter((k) => k.length > 32).map((k, i) => [k, stataName(k, i)]);
+      function colInfo(k) {
+        if (own(ADMIN_COLS, k)) return { label: ADMIN_COLS[k], group: 'Identifiers', def: '' };
+        const i = IND[k] || CJV[k];
+        return i
+          ? { label: i.label, group: i.group, def: i.def || '', i }
+          : { label: k, group: '', def: '' };
+      }
+      function codebookCSV(u, cols) {
+        const head = [
+            'column',
+            'stata_name',
+            'label',
+            'group',
+            'units_available',
+            'higher_is',
+            'measured_per',
+            'kind',
+            'definition',
+          ],
+          long = new Map(longCols(cols));
+        return (
+          [head.join(',')]
+            .concat(
+              cols.map((k) => {
+                const c = colInfo(k),
+                  i = c.i || {},
+                  s = i.support || {};
+                return [
+                  k,
+                  long.get(k) || k,
+                  c.label,
+                  c.group,
+                  (i.units || []).join(' '),
+                  i.good === true ? 'better' : i.good === false ? 'worse' : '',
+                  s.text || '',
+                  s.kind || '',
+                  c.def,
+                ]
+                  .map(csvCell)
+                  .join(',');
+              }),
+            )
+            .join('\r\n') + '\r\n'
+        );
+      }
+      // Stata: inside "…" a $ or a backquote would start a macro; a backslash keeps them literal.
+      const stataStr = (t) =>
+        String(t)
+          .replace(/[\r\n"]+/g, ' ')
+          .replace(/([$`])/g, '\\$1')
+          .slice(0, 80);
+      function tableDo(u, cols, n) {
+        const file = `shrines_${u}.csv`,
+          strs = cols
+            .map((k, j) => (own(ADMIN_COLS, k) && !/lat|lon/.test(k) ? j + 1 : null))
+            .filter(Boolean);
+        const L = [
+          `* Shrines and Welfare viewer: the ${UNIT1[u]} table (${n} rows, ${cols.length} columns), downloaded ${new Date().toISOString().slice(0, 10)}.`,
+          `* Put this file in the same folder as ${file}, then run it (Do). The codebook (shrines_${u}_codebook.csv)`,
+          '* says what each column measures, at which level, and whether it is measured or modelled.',
+          ...(cols.some((k) => PF_KEYS.includes(k))
+            ? [`* n_pf and pf_*: shrine records ${oneLine(placesText(placesDef()))}`]
+            : []),
+          `import delimited using "${file}", clear varnames(1) encoding("utf-8") case(preserve) stringcols(${strs.join(' ')}) bindquote(strict) asdouble`,
+        ];
+        // import delimited renames a header over 32 characters and keeps it as the variable label.
+        const long = longCols(cols);
+        if (long.length)
+          L.push(
+            '* Names over 32 characters: Stata renamed them on import and kept the name as the label; give each its codebook name.',
+            'foreach v of varlist _all {',
+            "    local l : variable label `v'",
+            ...long.map(([k, s]) => `    if "\`l'" == "${k}" rename \`v' ${s}`),
+            '}',
+          );
+        const long2 = new Map(long);
+        L.push(
+          ...cols.map((k) => `label variable ${long2.get(k) || k} "${stataStr(colInfo(k).label)}"`),
+          `label data "Shrines and Welfare viewer, ${UNIT1[u]} level"`,
+          `assert _N == ${n}`,
+          'describe, short',
+        );
+        return L.join('\n') + '\n';
+      }
+      function tableR(u, cols, n) {
+        const file = `shrines_${u}.csv`,
+          q = (t) => JSON.stringify(String(t));
+        const ids = cols.filter((k) => own(ADMIN_COLS, k) && !/lat|lon/.test(k));
+        return (
+          [
+            `# Shrines and Welfare viewer: the ${UNIT1[u]} table (${n} rows, ${cols.length} columns), downloaded ${new Date().toISOString().slice(0, 10)}.`,
+            `# Put this file in the same folder as ${file} and source() it, or set the working directory there first.`,
+            ...(cols.some((k) => PF_KEYS.includes(k))
+              ? [`# n_pf and pf_*: shrine records ${oneLine(placesText(placesDef()))}`]
+              : []),
+            `d <- read.csv(${q(file)}, check.names = FALSE, encoding = "UTF-8", colClasses = c(${ids.map((k) => `${k} = "character"`).join(', ')}))`,
+            `stopifnot(nrow(d) == ${n})`,
+            '# Every column labelled, as haven and labelled read them (attr "label").',
+            'labels <- c(',
+            cols.map((k) => `  ${q(k)} = ${q(colInfo(k).label)}`).join(',\n'),
+            ')',
+            'for (k in names(labels)) attr(d[[k]], "label") <- labels[[k]]',
+          ].join('\n') + '\n'
+        );
+      }
+      function dataBox() {
+        const u = $('dlUnit') ? $('dlUnit').value : unit;
+        $('dataBox').innerHTML =
+          `<label class="fld"><span class="lbl">Unit</span><select id="dlUnit">${UNITS.map(([k, l]) => `<option value="${k}" ${k === u ? 'selected' : ''}>${l}</option>`).join('')}</select></label>
+          <div class="cjbtns">
+            <button class="btn" type="button" data-dl="csv">Table (CSV)</button>
+            <button class="btn" type="button" data-dl="codebook">Codebook (CSV)</button>
+            <button class="btn" type="button" data-dl="do">Stata do-file</button>
+            <button class="btn" type="button" data-dl="r">R script</button>
+          </div>
+          <div class="def">Every unit, every measure the map has at that level (ids, names, the district and province each falls in, centroids), as the viewer holds them. The do-file and R script read the table and label every column; put them in the same folder as the table. The filter measures (n_pf, pf_*) count what the shrine-records filter selects now.</div>`;
+        $('dlUnit').onchange = dataBox;
+        $('dataBox')
+          .querySelectorAll('[data-dl]')
+          .forEach(
+            (b) =>
+              (b.onclick = () => {
+                const v = $('dlUnit').value;
+                ensurePlaces(placesDef());
+                const csv = unitCSV(v),
+                  cols = tableHead(csv),
+                  n = csv.split('\r\n').length - 2;
+                const f = {
+                  csv: [`shrines_${v}.csv`, csv, 'text/csv'],
+                  codebook: [
+                    `shrines_${v}_codebook.csv`,
+                    '﻿' + codebookCSV(v, cols),
+                    'text/csv;charset=utf-8',
+                  ],
+                  do: [`shrines_${v}.do`, tableDo(v, cols, n), 'text/plain'],
+                  r: [`shrines_${v}.R`, tableR(v, cols, n), 'text/plain'],
+                }[b.dataset.dl];
+                download(...f);
+              }),
+          );
+      }
+      dataBox();
 
       $('coverage').innerHTML =
         '<table><tr><th>Source</th><th>Features</th><th>Archive sites it has</th><th>Median offset</th><th>p90</th></tr>' +

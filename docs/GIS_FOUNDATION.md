@@ -395,6 +395,23 @@ browser's storage or a Downloads folder: RULE 0. The Markdown export ends with t
     fixed-effect levels; district, tehsil and hexagon) in StataNow 19.5 and R 4.6.1. 80
     comparisons, largest relative difference **4.7e-7**. The slowest run is hexagons with province
     fixed effects clustered by district: 19,162 units, 12 s.
+- **Download the data** (31 October 2026; side panel, "Download the data"). For any unit, the
+  page offers four files:
+  - **the table:** every measure the map has at that level, with ids, names, the district and
+    province each unit falls in, and centroids. The same file as the conjecture drawer's download.
+  - **a codebook:** column, Stata name, label, theme, the units it exists at, whether higher is
+    better or worse, the level it is measured at (native support), measured or modelled, and the
+    definition.
+  - **a Stata do-file:** `import delimited … asdouble`, so nothing is rounded to float. Nine names
+    are longer than 32 characters; Stata renames those on import, so the do-file finds each by the
+    label Stata keeps and renames it to the codebook's Stata name. It then labels every variable
+    and asserts N.
+  - **an R script:** `read.csv` with the ids as character, and every column given the "label"
+    attribute that haven and labelled read.
+  Checked by `tests/test_data_download.cjs`, which runs both scripts in StataNow 19.5 and R 4.6.1
+  on the downloaded tables at district (160 × 261), tehsil (577 × 120) and hexagon (19,197 × 74).
+  Every row and column arrives, every label matches the codebook, `$` and quotes in labels
+  survive, and all 1.3 million numeric cells equal the table's in Stata (worst 1.5e-15 relative).
 - **Specification curve** (31 October 2026, after Simonsohn, Simmons and Nelson 2020). Under a
   result, the test is re-estimated under every combination of the choices ticked:
   - which of its controls are in (every subset of up to 6; more are kept in throughout);
