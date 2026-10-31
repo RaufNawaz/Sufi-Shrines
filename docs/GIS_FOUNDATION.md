@@ -370,6 +370,31 @@ browser's storage or a Downloads folder: RULE 0. The Markdown export ends with t
     - Pearson dispersion Σ((y − μ)²/μ)/(n − k). Above 1.5 the page notes that only the robust
       SEs allow for it.
   - Joint robust Wald test: χ²(q).
+- **Fixed effects and clustered SEs** (31 October 2026). Either model can take fixed effects for
+  province (any unit below province) or district (tehsil only), and either can take SEs
+  clustered by province or district (district: tehsil and hexagon) instead of HC1/robust. District
+  fixed effects at hexagon level are refused: 160 dummies over 19,162 hexagons took 4.5 minutes in
+  the page, with the tab frozen.
+  - Fixed effects enter as dummies placed after the named regressors. The base is the lowest group
+    id, which is also the base of Stata's `i.` and R's `factor()`, so the intercept matches too. The
+    QR, Conley, placebo and Moran's I code then runs as before. The table shows only the named terms,
+    and the joint Wald test covers only them.
+  - Clustered: V = c · B (Σ_g s_g s_g′) B, with s_g = Σ_{i∈g} scoreᵢ xᵢ. For OLS, c = G/(G−1) ·
+    (n−1)/(n−k) and the t-tests use G−1 df, as Stata's `regress, vce(cluster)` and R's
+    `vcovCL(type = "HC1")` with `coeftest(df = G − 1)` do. For Poisson, c = G/(G−1), as Stata's
+    `poisson, vce(cluster)` and `vcovCL(type = "HC0")` do. Below 30 clusters the result warns that
+    the SEs are unreliable. With more slopes than G−1 there is no joint test.
+  - Poisson with fixed effects drops the units of any group whose count is zero everywhere: that
+    group's coefficient is minus infinity (separation), as `fixest::fepois` and `ppmlhdfe` handle
+    it. The Stata and R code drop the same units. Found because one province has no archive site
+    in any tehsil, and the first comparison there failed.
+  - A regressor that does not vary within the groups is reported as absorbed, not as a crash.
+  - Checked by `tests/test_fixed_effects.cjs`: every OLS fixed-effect slope equals the within
+    (demeaned) regression computed independently, to 1e-14. Then `check_stata_r.py` runs the page's
+    code for 9 specifications (both models; HC1, classical, robust and both cluster levels; both
+    fixed-effect levels; district, tehsil and hexagon) in StataNow 19.5 and R 4.6.1. 80
+    comparisons, largest relative difference **4.7e-7**. The slowest run is hexagons with province
+    fixed effects clustered by district: 19,162 units, 12 s.
 - **Correlations.** Pearson r and Spearman ρ (mid-ranks) between the outcome and each regressor,
   on the same units and transforms as the regression.
   - Two-sided permutation p = (1 + #{|r*| ≥ |r|}) / (1 + R), with R = 2,000 shuffles of the

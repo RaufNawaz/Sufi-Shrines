@@ -2723,15 +2723,36 @@
       // the model is undefined (a non-integer count, exposure <= 0). log(1+x) of x <= -1 refuses the
       // whole run instead: dropping those units would select the sample on the variable itself.
       // z-scores use the mean and the n-1 standard deviation of the units that remain.
+      // Fixed effects and clustered SEs group units by an administrative level above them: province
+      // for every unit below it, district for tehsils and hexagons (added 31 October 2026).
+      // District fixed effects at hexagon level are left out: 160 dummies over 19,000 hexagons took
+      // 4.5 minutes in the page (measured 31 October 2026), with the tab frozen. Clusters cost nothing.
+      const GROUPS = { province: ['hex', 'tehsil', 'district'], district: ['hex', 'tehsil'] };
+      const FE_AT = { province: ['hex', 'tehsil', 'district'], district: ['tehsil'] };
+      const groupOk = (g, u, fe) => !g || (own(GROUPS, g) && (fe ? FE_AT : GROUPS)[g].includes(u));
+      const clusterOf = (se) => (/^cl_/.test(se || '') ? se.slice(3) : null);
+      const groupOf = (g, u) => (g === 'province' ? adminOf(u).prov : adminOf(u).dist);
+      // Codes 0..G-1 for each unit's group, in sorted order of the group ids.
+      function codes(ids) {
+        const lv = [...new Set(ids)].sort(),
+          at = new Map(lv.map((v, i) => [v, i]));
+        return { g: Int32Array.from(ids, (v) => at.get(v)), G: lv.length, levels: lv };
+      }
       function cjData(spec, u) {
         if (spec.composite) ensureComposite(spec.composite, u);
         const vars = [spec.y, ...spec.x, ...spec.c],
           pois = spec.model === 'poisson',
           ex = pois ? spec.exposure : null,
+          fe = spec.fe || null,
+          clv = clusterOf(spec.se),
           miss = vars.filter((v) => !cjHas(v.key, u)).map((v) => cjLab(v.key));
         if (ex && !cjHas(ex, u)) miss.push(cjLab(ex) + ' (exposure)');
+        if (!groupOk(fe, u, true)) miss.push(`${fe} fixed effects`);
+        if (!groupOk(clv, u)) miss.push(`standard errors clustered by ${clv}`);
         if (miss.length)
           return { error: `Not available at ${UNIT1[u]} level: ${miss.join('; ')}.` };
+        const feIds = fe ? groupOf(fe, u) : null,
+          clIds = clv ? groupOf(clv, u) : null;
         if (pois && spec.y.tf !== 'none')
           return { error: 'A Poisson model takes the count as it is, untransformed.' };
         const fs = feats(u),
@@ -2741,6 +2762,11 @@
         for (let i = 0; i < fs.length; i++) {
           const p = fs[i].p;
           if (vars.some((v) => !ok(p[v.key])) || (ex && !ok(p[ex]))) {
+            nMiss++;
+            continue;
+          }
+          // A unit in no district or province (a hexagon off the boundaries) has no group.
+          if ((feIds && !feIds[i]) || (clIds && !clIds[i])) {
             nMiss++;
             continue;
           }
@@ -2756,8 +2782,24 @@
           }
           idx.push(i);
         }
+        // Poisson with fixed effects: a group whose count is zero in every unit has a coefficient of
+        // minus infinity (separation), so its units carry no information about the slopes and are
+        // dropped, as fixest::fepois and ppmlhdfe drop them. The Stata and R code drop the same.
+        let nZeroFe = 0;
+        if (pois && fe) {
+          const any = new Set(idx.filter((i) => fs[i].p[spec.y.key] > 0).map((i) => feIds[i]));
+          const keep = idx.filter((i) => any.has(feIds[i]));
+          nZeroFe = idx.length - keep.length;
+          idx.length = 0;
+          idx.push(...keep);
+        }
         const n = idx.length,
-          k = 1 + spec.x.length + spec.c.length;
+          FE = fe ? codes(idx.map((i) => feIds[i])) : null,
+          CL = clv ? codes(idx.map((i) => clIds[i])) : null,
+          nFe = FE ? FE.G - 1 : 0,
+          k = 1 + spec.x.length + spec.c.length + nFe;
+        if (CL && CL.G < 2)
+          return { error: `Every one of these ${n} ${UNITN[u]} is in one ${clv}: no clusters.` };
         if (n < k + 2)
           return {
             error: `Too few ${UNITN[u]} with every value (${n}) to estimate ${k} coefficients.`,
@@ -2788,6 +2830,11 @@
           X.push(a);
         }
         const y = X.splice(1, 1)[0];
+        // Fixed effects as dummies after every named regressor, the first group the base (Stata's
+        // i. and R's factor() choose the same base, the lowest level), so the estimator, Conley,
+        // the placebo and Moran's I carry over unchanged; the results show only the named terms.
+        if (FE)
+          for (let g = 1; g < FE.G; g++) X.push(Float64Array.from(FE.g, (c) => (c === g ? 1 : 0)));
         if (pois && !y.some((t) => t > 0))
           return { error: `The count is zero in every one of these ${n} ${UNITN[u]}.` };
         const off = ex ? Float64Array.from(idx, (i) => Math.log(fs[i].p[ex])) : null,
@@ -2803,7 +2850,22 @@
               return [v.key, { k: c.size - 1, m: n - mode, whole }];
             }),
           );
-        return { fs, idx, n, k, y, X, off, nMiss, nBad, distinct };
+        return {
+          fs,
+          idx,
+          n,
+          k,
+          y,
+          X,
+          off,
+          nMiss,
+          nBad,
+          distinct,
+          nFe,
+          nFeG: FE ? FE.G : 0,
+          nZeroFe,
+          cl: CL ? CL.g : null,
+        };
       }
 
       // ---- test a conjecture: linear algebra ----------------------------------------------------
@@ -2911,6 +2973,23 @@
           }
         return mm(mm(B, M), B);
       }
+      // B (sum_g s_g s_g') B, s_g = sum over the units of cluster g of score_i x_i: the cluster-robust
+      // sandwich (Liang-Zeger), before any small-sample factor. Codes cl are 0..G-1 but a subset may
+      // miss some, so the G returned counts the clusters present.
+      function clusterSandwich(B, X, score, cl, n) {
+        const k = X.length,
+          S = new Map();
+        for (let i = 0; i < n; i++) {
+          let s = S.get(cl[i]);
+          if (!s) S.set(cl[i], (s = new Float64Array(k)));
+          for (let a = 0; a < k; a++) s[a] += score[i] * X[a][i];
+        }
+        const M = Array.from({ length: k }, () => new Array(k).fill(0));
+        for (const s of S.values())
+          for (let a = 0; a < k; a++) for (let b = a; b < k; b++) M[a][b] += s[a] * s[b];
+        for (let a = 0; a < k; a++) for (let b = 0; b < a; b++) M[a][b] = M[b][a];
+        return { V: mm(mm(B, M), B), G: S.size };
+      }
       function invSmall(M) {
         const k = M.length,
           A = M.map((r, i) => [...r, ...r.map((_, j) => (i === j ? 1 : 0))]);
@@ -2929,7 +3008,9 @@
         }
         return A.map((r) => r.slice(k));
       }
-      function fitOLS(X, y, n) {
+      // cl (optional): each unit's cluster code. Then Vr is clustered, with Stata's regress factor
+      // G/(G-1) (n-1)/(n-k), and t-tests take G-1 degrees of freedom (dfP), as Stata's do.
+      function fitOLS(X, y, n, cl) {
         const k = X.length,
           L = lsq(X, y, n);
         if (L.error) return L;
@@ -2949,16 +3030,21 @@
         my /= n;
         for (let i = 0; i < n; i++) tss += (y[i] - my) ** 2;
         const s2 = sse / (n - k),
-          Vr = sandwich(
-            L.XtXi,
-            X,
-            e.map((t) => t * t),
-            n,
-          ).map((r) => r.map((x) => (x * n) / (n - k)));
+          C = cl ? clusterSandwich(L.XtXi, X, e, cl, n) : null,
+          Vr = C
+            ? C.V.map((r) => r.map((x) => ((x * C.G) / (C.G - 1)) * ((n - 1) / (n - k))))
+            : sandwich(
+                L.XtXi,
+                X,
+                e.map((t) => t * t),
+                n,
+              ).map((r) => r.map((x) => (x * n) / (n - k)));
         return {
           beta: L.beta,
           Vc: L.XtXi.map((r) => r.map((x) => x * s2)),
           Vr,
+          G: C ? C.G : null,
+          dfP: C ? C.G - 1 : n - k,
           fitted: fit,
           resid: e,
           r2: 1 - sse / tss,
@@ -2975,7 +3061,8 @@
       };
       // Poisson with a log link by iteratively reweighted least squares; each step a weighted QR
       // solve. Converged when the deviance changes by less than 1e-12 relative (glm uses 1e-8).
-      function fitPoisson(X, y, off, n) {
+      // cl (optional): clustered Vr with the factor G/(G-1), Stata's poisson vce(cluster).
+      function fitPoisson(X, y, off, n, cl) {
         const k = X.length,
           o = off || new Float64Array(n);
         let mu = Float64Array.from(y, (t) => t + 0.5),
@@ -3021,7 +3108,18 @@
           );
         if (B.error) return B;
         const u2 = Float64Array.from(y, (t, i) => (t - mu[i]) ** 2),
-          Vr = sandwich(B.XtXi, X, u2, n).map((r) => r.map((x) => (x * n) / (n - 1)));
+          C = cl
+            ? clusterSandwich(
+                B.XtXi,
+                X,
+                Float64Array.from(y, (t, i) => t - mu[i]),
+                cl,
+                n,
+              )
+            : null,
+          Vr = C
+            ? C.V.map((r) => r.map((x) => (x * C.G) / (C.G - 1)))
+            : sandwich(B.XtXi, X, u2, n).map((r) => r.map((x) => (x * n) / (n - 1)));
         let ll = 0,
           ll0 = 0,
           sy = 0,
@@ -3044,6 +3142,7 @@
           beta: L.beta,
           Vc: B.XtXi,
           Vr,
+          G: C ? C.G : null,
           fitted: mu,
           resid: pr,
           ll,
@@ -3478,13 +3577,18 @@
         for (let i = 0; i < d.n; i++) if (keep[i]) ix.push(i);
         const n = ix.length;
         if (n < d.k + 2) return null;
-        const X = d.X.map((c) => Float64Array.from(ix, (i) => c[i])),
+        const nNamed = d.X.length - d.nFe,
+          // A fixed-effect dummy whose group was dropped entirely is all zero: leave it out.
+          X = d.X.map((c) => Float64Array.from(ix, (i) => c[i])).filter(
+            (c, j) => j < nNamed || c.some((t) => t !== 0),
+          ),
           y = Float64Array.from(ix, (i) => d.y[i]),
-          off = d.off ? Float64Array.from(ix, (i) => d.off[i]) : null;
+          off = d.off ? Float64Array.from(ix, (i) => d.off[i]) : null,
+          cl = d.cl ? Int32Array.from(ix, (i) => d.cl[i]) : null;
         if (pois && !y.some((t) => t > 0)) return null;
-        const G = pois ? fitPoisson(X, y, off, n) : fitOLS(X, y, n);
-        if (G.error) return null;
-        const df = pois ? Infinity : G.df,
+        const G = pois ? fitPoisson(X, y, off, n, cl) : fitOLS(X, y, n, cl);
+        if (G.error || (G.G != null && G.G < 2)) return null;
+        const df = pois ? Infinity : G.dfP,
           V = cls ? G.Vc : G.Vr;
         return {
           n,
@@ -3695,7 +3799,7 @@
           for (let r = 0; r < PLACEBO_R; r++) {
             const X = d.X.slice();
             X[j] = gen();
-            const G = pois ? fitPoisson(X, d.y, d.off, d.n) : fitOLS(X, d.y, d.n);
+            const G = pois ? fitPoisson(X, d.y, d.off, d.n, d.cl) : fitOLS(X, d.y, d.n, d.cl);
             if (G.error) continue;
             const V = cls ? G.Vc : G.Vr,
               t = Math.abs(G.beta[j] / Math.sqrt(V[j][j]));
@@ -3740,7 +3844,7 @@
         if (d.error) return { unit: u, error: d.error };
         const pois = spec.model === 'poisson',
           cls = !pois && spec.se === 'classical',
-          F = pois ? fitPoisson(d.X, d.y, d.off, d.n) : fitOLS(d.X, d.y, d.n),
+          F = pois ? fitPoisson(d.X, d.y, d.off, d.n, d.cl) : fitOLS(d.X, d.y, d.n, d.cl),
           tv = [{ key: null, tf: 'none', role: 'const' }]
             .concat(spec.x.map((v) => ({ ...v, role: 'x' })))
             .concat(spec.c.map((v) => ({ ...v, role: 'c' })));
@@ -3749,10 +3853,12 @@
             unit: u,
             error:
               F.error === 'collinear'
-                ? `The regressors are (nearly) collinear at ${UNIT1[u]} level: ${F.col ? termName(tv[F.col].key, tv[F.col].tf) : 'the intercept'} is close to a combination of the others${F.kappa ? ` (condition number ${F.kappa.toExponential(1)})` : ''}.`
+                ? F.col >= tv.length
+                  ? `A regressor does not vary within ${spec.fe}s at ${UNIT1[u]} level (or one ${spec.fe} decides it), so the ${spec.fe} fixed effects absorb it: there is nothing left to estimate. Drop the fixed effects or that variable.`
+                  : `The regressors are (nearly) collinear at ${UNIT1[u]} level: ${F.col ? termName(tv[F.col].key, tv[F.col].tf) : 'the intercept'} is close to a combination of the others${F.kappa ? ` (condition number ${F.kappa.toExponential(1)})` : ''}.`
                 : 'The Poisson fit did not converge in 100 iterations (a regressor may separate the zeros from the rest).',
           };
-        const df = pois ? Infinity : F.df,
+        const df = pois ? Infinity : F.dfP,
           few = d.n - d.k < MIN_DF,
           q = few ? null : crit(df),
           P = (t) => (few ? null : pval(t, df));
@@ -3795,10 +3901,13 @@
           };
         });
         // Joint Wald test of every non-intercept coefficient, robust (or classical) covariance.
+        // Only the named terms: the fixed effects are not part of the hypothesis. With clustered SEs
+        // the covariance has rank at most G-1, so a joint test of more terms than that is not made
+        // (Stata drops constraints in the same case).
         const kq = terms.length - 1,
-          Vq = (cls ? F.Vc : F.Vr).slice(1).map((r) => r.slice(1)),
-          Vi = invSmall(Vq),
-          bq = F.beta.slice(1);
+          Vq = (cls ? F.Vc : F.Vr).slice(1, kq + 1).map((r) => r.slice(1, kq + 1)),
+          Vi = F.G != null && kq > F.G - 1 ? null : invSmall(Vq),
+          bq = F.beta.slice(1, kq + 1);
         let wald = null;
         if (Vi && !few) {
           const W = bq.reduce((s, b, a) => s + b * Vi[a].reduce((t, v, c) => t + v * bq[c], 0), 0);
@@ -3825,14 +3934,18 @@
           cuts,
           distinct: d.distinct,
           kappa: F.kappa,
+          nFe: d.nFe,
+          nFeG: d.nFeG,
+          nZeroFe: d.nZeroFe,
+          G: F.G,
           ...(pois
             ? { pseudo: F.pseudo, ll: F.ll, ll0: F.ll0, disp: F.disp, iter: F.iter }
-            : { r2: F.r2, adj: F.adj, df }),
+            : { r2: F.r2, adj: F.adj, df: F.df, ...(F.G != null ? { dfP: df } : {}) }),
         };
         out.moran = moranOf(spec, u, d.idx, F.resid, pois ? null : { cols: d.X, XtXi: F.XtXi });
         if (few && out.moran) out.moran = { ...out.moran, z: null, p: null };
         if (full) {
-          out.corr = corrPerm(d.y, d.X.slice(1), spec.perms, spec.seed).map((c, j) => ({
+          out.corr = corrPerm(d.y, d.X.slice(1, tv.length), spec.perms, spec.seed).map((c, j) => ({
             key: tv[j + 1].key,
             tf: tv[j + 1].tf,
             ...c,
@@ -3877,6 +3990,7 @@
         'dataId',
         'composite',
         'kind',
+        'fe',
       ]);
       function leavesOk(o, k, depth) {
         if (depth > 8) return false;
@@ -3988,6 +4102,8 @@
           s.c.map((v) => [v.key, v.tf]),
           s.composite || null,
           t.key,
+          // Added 31 October 2026; absent (so earlier keys are unchanged) unless used.
+          ...(s.fe || clusterOf(s.se) ? [[s.fe || null, s.se]] : []),
         ]);
       }
       const headP = (t) => (t.pH !== undefined ? t.pH : t.pR);
@@ -4040,6 +4156,7 @@
         c: [],
         model: 'ols',
         se: 'hc1',
+        fe: '',
         exposure: '',
         weights: 'contig',
         k: 6,
@@ -4054,6 +4171,7 @@
           v = (key) => ({ key, tf: 'none' });
         CJ.unit = unit;
         CJ.model = 'ols';
+        CJ.fe = '';
         CJ.exposure = '';
         CJ.c = [];
         CJ.prefilled = true;
@@ -4198,10 +4316,36 @@
         }
         const ex = EXPO.filter((k) => cjHas(k, CJ.unit));
         if (CJ.exposure && !ex.includes(CJ.exposure)) CJ.exposure = '';
+        if (!groupOk(CJ.fe, CJ.unit, true)) CJ.fe = '';
+        if (!groupOk(clusterOf(CJ.se), CJ.unit) || (pois && CJ.se === 'classical')) CJ.se = 'hc1';
+        const opt = (v, cur, l) =>
+            `<option value="${v}" ${cur === v ? 'selected' : ''}>${l}</option>`,
+          clOpts = Object.keys(GROUPS)
+            .filter((g) => groupOk(g, CJ.unit))
+            .map((g) => opt('cl_' + g, CJ.se, `Clustered by ${g} (CR1, as Stata's vce(cluster))`))
+            .join(''),
+          feSel = Object.keys(GROUPS).some((g) => groupOk(g, CJ.unit, true))
+            ? `<label class="fld"><span class="lbl">Fixed effects</span><select id="cjFe">${opt('', CJ.fe, 'None')}${Object.keys(
+                GROUPS,
+              )
+                .filter((g) => groupOk(g, CJ.unit, true))
+                .map((g) =>
+                  opt(
+                    g,
+                    CJ.fe,
+                    `${g[0].toUpperCase() + g.slice(1)}: compare ${UNITN[CJ.unit]} within the same ${g}`,
+                  ),
+                )
+                .join('')}</select></label>`
+            : '';
         $('cjOpts').innerHTML =
           (CJ.model === 'ols'
-            ? `<label class="fld"><span class="lbl">Standard errors</span><select id="cjSe"><option value="hc1" ${CJ.se === 'hc1' ? 'selected' : ''}>Robust (HC1), the default</option><option value="classical" ${CJ.se === 'classical' ? 'selected' : ''}>Classical (assumes equal variance)</option></select></label>`
-            : `<label class="fld"><span class="lbl">Exposure (offset log population)</span><select id="cjEx"><option value="">None: model the count itself (mostly measures population)</option>${ex.map((k) => `<option value="${k}" ${CJ.exposure === k ? 'selected' : ''}>${esc(cjLab(k))}</option>`).join('')}</select></label><div class="def">Standard errors are robust (sandwich); a Poisson model's own SEs assume the variance equals the mean.</div>`) +
+            ? `<label class="fld"><span class="lbl">Standard errors</span><select id="cjSe">${opt('hc1', CJ.se, 'Robust (HC1), the default')}${opt('classical', CJ.se, 'Classical (assumes equal variance)')}${clOpts}</select></label>`
+            : `<label class="fld"><span class="lbl">Exposure (offset log population)</span><select id="cjEx"><option value="">None: model the count itself (mostly measures population)</option>${ex.map((k) => `<option value="${k}" ${CJ.exposure === k ? 'selected' : ''}>${esc(cjLab(k))}</option>`).join('')}</select></label><label class="fld"><span class="lbl">Standard errors</span><select id="cjSe">${opt('hc1', CJ.se, 'Robust (sandwich), the default')}${clOpts}</select></label><div class="def">A Poisson model's own SEs assume the variance equals the mean, so they are never used.</div>`) +
+          feSel +
+          (clusterOf(CJ.se) || CJ.fe
+            ? `<div class="def">${CJ.fe ? `With ${CJ.fe} fixed effects the estimate compares ${UNITN[CJ.unit]} only with others in the same ${CJ.fe}: anything that differs between ${CJ.fe}s as a whole (law, Auqaf administration, how a census was run) cannot drive it, and a variable measured per ${CJ.fe} cannot be estimated. ` : ''}${clusterOf(CJ.se) ? `Clustered SEs allow any correlation inside a ${clusterOf(CJ.se)}; t-tests take G − 1 degrees of freedom. With fewer than about 30 clusters (Pakistan has 4 to 7 provinces in these data) they are themselves unreliable and usually too small: read the Conley SEs and the placebo beside them.` : ''}</div>`
+            : '') +
           (CJ.unit === 'hex'
             ? '<div class="fld"><span class="lbl">Neighbours for Moran\'s I</span>H3 ring-1 neighbours (the six around each hexagon)</div>'
             : `<div class="fld"><span class="lbl">Neighbours for Moran's I</span><div class="cjbtns" style="margin:0;align-items:center"><select id="cjW" aria-label="Neighbours for Moran's I" style="flex:1 1 200px;width:auto"><option value="contig" ${CJ.weights === 'contig' ? 'selected' : ''}>Contiguity (shared boundary)</option><option value="knn" ${CJ.weights === 'knn' ? 'selected' : ''}>k nearest centroids</option></select>${CJ.weights === 'knn' ? `<label class="chk">k <input id="cjK" type="number" min="1" max="20" value="${CJ.k}" /></label>` : ''}</div></div>`);
@@ -4249,7 +4393,16 @@
         wire($('cjX'), CJ.x, 'x');
         wire($('cjC'), CJ.c, 'c');
         const on = (id, f) => $(id) && ($(id).onchange = f);
-        on('cjSe', (e) => ((CJ.se = e.target.value), (CJ.dirty = true)));
+        on('cjSe', (e) => {
+          CJ.se = e.target.value;
+          CJ.dirty = true;
+          cjForm();
+        });
+        on('cjFe', (e) => {
+          CJ.fe = e.target.value;
+          CJ.dirty = true;
+          cjForm();
+        });
         on('cjEx', (e) => ((CJ.exposure = e.target.value), (CJ.dirty = true)));
         on('cjW', (e) => {
           CJ.weights = e.target.value;
@@ -4280,7 +4433,8 @@
             x: CJ.x,
             c: CJ.c,
             model: CJ.model,
-            se: CJ.model === 'ols' ? CJ.se : 'robust',
+            se: CJ.model === 'ols' ? CJ.se : clusterOf(CJ.se) ? CJ.se : 'robust',
+            fe: CJ.fe || null,
             exposure: CJ.model === 'poisson' ? CJ.exposure || null : null,
             weights: CJ.unit === 'hex' ? 'h3' : CJ.weights,
             k: CJ.k,
@@ -4301,7 +4455,8 @@
           x: s.x.map((v) => ({ ...v })),
           c: s.c.map((v) => ({ ...v })),
           model: s.model,
-          se: s.se === 'classical' ? 'classical' : 'hc1',
+          se: ['classical', 'cl_province', 'cl_district'].includes(s.se) ? s.se : 'hc1',
+          fe: s.fe || '',
           exposure: s.exposure || '',
           weights: s.weights === 'knn' ? 'knn' : 'contig',
           k: s.k || 6,
@@ -4353,8 +4508,14 @@
           return `unknown model ${String(s.model).slice(0, 40)}`;
         if (s.model === 'poisson' && (!isCount(s.y.key) || s.y.tf !== 'none'))
           return 'Poisson needs an untransformed count outcome';
-        if (s.model === 'ols' && !['hc1', 'classical'].includes(s.se))
+        if (
+          !(s.model === 'ols' ? ['hc1', 'classical'] : ['robust']).includes(s.se) &&
+          !(clusterOf(s.se) && own(GROUPS, clusterOf(s.se)))
+        )
           return 'unknown standard errors';
+        if (s.fe != null && !own(GROUPS, s.fe)) return 'unknown fixed effects';
+        if (!groupOk(s.fe, s.unit, true) || !groupOk(clusterOf(s.se), s.unit))
+          return 'fixed effects or clusters at a level the unit is not below';
         if (s.exposure != null && !EXPO.includes(s.exposure)) return 'unknown exposure';
         if (!['contig', 'knn', 'h3'].includes(s.weights) && !(lenient && s.weights == null))
           return 'unknown neighbour weights';
@@ -4417,7 +4578,14 @@
         const B = bh(),
           pois = s.model === 'poisson',
           cls = !pois && s.se === 'classical',
-          lab = pois ? 'robust (sandwich)' : cls ? 'classical' : 'robust (HC1)',
+          clv = clusterOf(s.se),
+          lab = clv
+            ? `clustered by ${clv} (${e.G} clusters)`
+            : pois
+              ? 'robust (sandwich)'
+              : cls
+                ? 'classical'
+                : 'robust (HC1)',
           cuts = e.cuts || [],
           M = e.moran,
           clustered = M && M.p != null && M.p < 0.05 && M.I > M.EI,
@@ -4434,6 +4602,10 @@
               F = e.frag,
               j = e.terms.indexOf(t),
               flags = [];
+            if (clv && e.G < 30)
+              flags.push(
+                `Only ${e.G} clusters: clustered SEs with fewer than about 30 clusters are unreliable and usually too small (Cameron, Gelbach and Miller 2008). Do not rest a conclusion on this p; a wild cluster bootstrap (Stata's boottest) is the standard remedy.`,
+              );
             if (e.few)
               flags.push(
                 `No p-value: ${e.n} ${UNITN[e.unit]} leave ${e.n - e.k} residual degrees of freedom, fewer than ${MIN_DF}.`,
@@ -4543,12 +4715,14 @@
           .join('');
         const fit = pois
           ? `McFadden pseudo-R² ${fn(e.pseudo, 3)} · Pearson dispersion ${fn(e.disp, 2)}${e.disp > 1.5 ? ' (overdispersed: the robust SEs allow for it; the model-based ones would not)' : ''} · ${e.iter} IRLS iterations · ${s.exposure ? `exposure: ${esc(cjLab(s.exposure))}` : '<b>no exposure: the count mostly measures how many people live there</b>'}`
-          : `R² ${fn(e.r2, 3)} · adjusted R² ${fn(e.adj, 3)} · ${e.df} residual df`;
+          : `R² ${fn(e.r2, 3)} · adjusted R² ${fn(e.adj, 3)} · ${e.df} residual df${e.dfP != null ? `; t-tests on ${e.dfP} df (clusters − 1)` : ''}`;
         const wald = e.wald
           ? e.wald.kind === 'F'
             ? `Joint test of all slopes (${lab} Wald): F(${e.wald.df1}, ${e.wald.df2}) = ${fn(e.wald.stat, 2)}, ${peq(e.wald.p)}.`
-            : `Joint test of all slopes (robust Wald): χ²(${e.wald.df1}) = ${fn(e.wald.stat, 2)}, ${peq(e.wald.p)}.`
-          : '';
+            : `Joint test of all slopes (${lab} Wald): χ²(${e.wald.df1}) = ${fn(e.wald.stat, 2)}, ${peq(e.wald.p)}.`
+          : clusterOf(s.se) && e.terms.length - 1 > e.G - 1
+            ? `No joint test: ${e.terms.length - 1} slopes against ${e.G} clusters, more than the clustered covariance can test at once.`
+            : '';
         const F = e.frag;
         const fragT = F
           ? `<h3>How much one place decides it</h3>
@@ -4584,7 +4758,7 @@
           .join('');
         const ctx = e.ctx || {};
         out.innerHTML = `<h3 tabindex="-1">Result of test #${esc(e.id)}</h3>
-          <div class="def">${esc(UNITS.find((u) => u[0] === e.unit)[1])} level · ${pois ? 'Poisson' : 'OLS'} · n = ${e.n} ${UNITN[e.unit]}; ${e.nMiss} left out for a missing value${e.nBad ? `, ${e.nBad} where the model is undefined` : ''}. Run ${esc(String(e.ts).replace('T', ' ').slice(0, 19))} UTC${ctx.prefilled ? ', specification taken from the map' : ''}${ctx.views ? `, after ${ctx.views} map view${ctx.views === 1 ? '' : 's'} this session` : ''}.</div>
+          <div class="def">${esc(UNITS.find((u) => u[0] === e.unit)[1])} level · ${pois ? 'Poisson' : 'OLS'}${s.fe ? ` · ${s.fe} fixed effects (${e.nFeG} ${s.fe}s; their ${e.nFe} coefficients not shown)` : ''} · n = ${e.n} ${UNITN[e.unit]}; ${e.nMiss} left out for a missing value${e.nBad ? `, ${e.nBad} where the model is undefined` : ''}${e.nZeroFe ? `, ${e.nZeroFe} in ${s.fe}s whose count is zero everywhere (their fixed effect is infinite, so they say nothing about the slopes)` : ''}. Run ${esc(String(e.ts).replace('T', ' ').slice(0, 19))} UTC${ctx.prefilled ? ', specification taken from the map' : ''}${ctx.views ? `, after ${ctx.views} map view${ctx.views === 1 ? '' : 's'} this session` : ''}.</div>
           ${e.statement ? `<div class="row"><i>${esc(e.statement)}</i></div>` : ''}
           ${verdicts}
           <div class="scroll"><table class="cjres"><tr><th>Term</th><th class="num">Coef${pois ? ' (log rate)' : ''}</th><th class="num">SE, ${lab}</th><th class="num">p</th>${cuts.map((c) => `<th class="num">Conley ${c} km<br>SE, p</th>`).join('')}${pois ? '<th class="num">Rate ratio</th>' : ''}</tr>${rows}</table></div>
@@ -4899,10 +5073,18 @@
               .concat(s.model === 'poisson' && s.exposure ? [s.exposure] : []),
           ),
         ];
-        const num = (v) => (ok(v) && Number.isFinite(+v) ? String(+v) : null);
+        const num = (v) => (ok(v) && Number.isFinite(+v) ? String(+v) : null),
+          // The groups for fixed effects and clusters, as ids (province PK6, district PK617).
+          groups = [...new Set([s.fe, clusterOf(s.se)].filter(Boolean))].sort().reverse(),
+          gid = Object.fromEntries(groups.map((g) => [g, groupOf(g, s.unit)]));
         return {
           keys,
-          rows: feats(s.unit).map((f) => [String(f.id), ...keys.map((k) => num(f.p[k]))]),
+          groups,
+          rows: feats(s.unit).map((f, i) => [
+            String(f.id),
+            ...groups.map((g) => gid[g][i] || null),
+            ...keys.map((k) => num(f.p[k])),
+          ]),
         };
       }
       // Stata names are at most 32 characters: a longer key is cut and numbered.
@@ -4937,19 +5119,26 @@
           T = testData(e),
           short = Object.fromEntries(T.keys.map((k, i) => [k, stataName(k, i)])),
           idw = Math.max(1, ...T.rows.map((r) => r[0].length)),
-          src = (key) => short[key];
+          ng = T.groups.length,
+          gw = T.groups.map((g, j) => Math.max(1, ...T.rows.map((r) => (r[1 + j] || '').length))),
+          src = (key) => short[key],
+          clv = clusterOf(s.se);
         L.push(
-          `* Data: every ${UNIT1[s.unit]} (${T.rows.length}), its id and the ${T.keys.length} columns this test reads. Missing is "."`,
+          `* Data: every ${UNIT1[s.unit]} (${T.rows.length}), its id${ng ? `, its ${T.groups.join(' and ')}` : ''} and the ${T.keys.length} columns this test reads. Missing is "."`,
           'clear',
-          `input str${idw} id double(${T.keys.map((k) => short[k]).join(' ')})`,
+          `input str${idw} id${T.groups.map((g, j) => ` str${gw[j]} ${g}`).join('')} double(${T.keys.map((k) => short[k]).join(' ')})`,
           ...T.rows.map(
             (r) =>
               `"${r[0]}" ${r
-                .slice(1)
+                .slice(1, 1 + ng)
+                .map((v) => `"${v ?? ''}" `)
+                .join('')}${r
+                .slice(1 + ng)
                 .map((v) => v ?? '.')
                 .join(' ')}`,
           ),
           'end',
+          ...T.groups.map((g) => `encode ${g}, generate(g_${g})`),
         );
         const names = vars.map(([nm, v]) => {
           const k = src(v.key);
@@ -4959,8 +5148,17 @@
           return nm;
         });
         const ex = s.model === 'poisson' && s.exposure ? src(s.exposure) : null;
-        L.push('mark touse', `markout touse ${names.join(' ')}${ex ? ' ' + ex : ''}`);
+        L.push(
+          'mark touse',
+          `markout touse ${names.join(' ')}${ex ? ' ' + ex : ''}${T.groups.map((g) => ' g_' + g).join('')}`,
+        );
         if (ex) L.push(`replace touse = 0 if ${ex} <= 0`);
+        // As the viewer: under fixed effects a group with a zero count everywhere is dropped.
+        if (s.model === 'poisson' && s.fe)
+          L.push(
+            `bysort g_${s.fe}: egen double __any = max(y * touse)`,
+            'replace touse = 0 if __any == 0',
+          );
         vars.forEach(([nm, v]) => {
           if (v.tf.endsWith('z'))
             L.push(
@@ -4968,10 +5166,11 @@
               `replace ${nm} = (${nm} - r(mean)) / r(sd) if touse`,
             );
         });
-        const rhs = names.slice(1).join(' ');
+        const rhs = names.slice(1).join(' ') + (s.fe ? ` i.g_${s.fe}` : ''),
+          vce = clv ? `vce(cluster g_${clv})` : 'vce(robust)';
         if (s.model === 'poisson')
-          L.push(`poisson y ${rhs} if touse, vce(robust)${ex ? ` exposure(${ex})` : ''}`);
-        else L.push(`regress y ${rhs} if touse${s.se === 'classical' ? '' : ', vce(robust)'}`);
+          L.push(`poisson y ${rhs} if touse, ${vce}${ex ? ` exposure(${ex})` : ''}`);
+        else L.push(`regress y ${rhs} if touse${s.se === 'classical' ? '' : ', ' + vce}`);
         L.push(
           `* The viewer's Conley SEs: Bartlett kernel, cutoffs ${(e.cuts || []).join(', ')} km, between the centroids in cent_lat and cent_lon,`,
           `* with the robust SEs' small-sample factor. A user-written command (e.g. acreg) may use another kernel or factor: compare, do not expect equality.`,
@@ -4997,13 +5196,19 @@
             'for (p in c("sandwich", "lmtest")) if (!requireNamespace(p, quietly = TRUE)) install.packages(p)',
             'library(sandwich); library(lmtest)',
             `# Data: every ${UNIT1[s.unit]} (${T.rows.length}), its id and the ${keys.length} columns this test reads. Missing is NA`,
-            'd <- read.csv(colClasses = c(id = "character"), text = "',
-            ['id', ...keys].join(','),
+            `d <- read.csv(colClasses = c(${['id', ...T.groups].map((g) => `${g} = "character"`).join(', ')}), text = "`,
+            ['id', ...T.groups, ...keys].join(','),
             ...T.rows.map((r) => r.map((v) => v ?? 'NA').join(',')),
             '")',
-            `d <- d[complete.cases(d[, c(${keys.map((k) => `"${k}"`).join(', ')})]), ]`,
-          ];
+            `d <- d[complete.cases(d[, c(${[...keys, ...T.groups].map((k) => `"${k}"`).join(', ')})]), ]`,
+          ],
+          clv = clusterOf(s.se);
         if (s.model === 'poisson' && s.exposure) L.push(`d <- d[d$${s.exposure} > 0, ]`);
+        if (s.model === 'poisson' && s.fe)
+          L.push(
+            `# as the viewer: a ${s.fe} whose count is zero everywhere has an infinite fixed effect; drop it`,
+            `d <- d[ave(d$${s.y.key}, d$${s.fe}, FUN = max) > 0, ]`,
+          );
         vars.forEach(([nm, v]) => {
           L.push(
             `d$${nm} <- ${v.tf.startsWith('log1p') ? `log1p(d$${v.key})` : v.tf.startsWith('asinh') ? `asinh(d$${v.key})` : `d$${v.key}`}`,
@@ -5013,17 +5218,34 @@
         const f = `y ~ ${vars
           .slice(1)
           .map(([nm]) => nm)
+          .concat(s.fe ? [`factor(${s.fe})`] : [])
           .join(' + ')}`;
         if (s.model === 'poisson')
           L.push(
             `m <- glm(${f}, family = poisson, data = d${s.exposure ? `, offset = log(${s.exposure})` : ''})`,
-            '# robust (sandwich) SEs with the n/(n-1) factor the viewer and Stata use',
-            'coeftest(m, vcov = vcovHC(m, type = "HC0") * nrow(d) / (nrow(d) - 1))',
+            ...(clv
+              ? [
+                  `# clustered by ${clv}, with the G/(G-1) factor Stata's poisson vce(cluster) uses`,
+                  `coeftest(m, vcov = vcovCL(m, cluster = ~${clv}, type = "HC0"))`,
+                ]
+              : [
+                  '# robust (sandwich) SEs with the n/(n-1) factor the viewer and Stata use',
+                  'coeftest(m, vcov = vcovHC(m, type = "HC0") * nrow(d) / (nrow(d) - 1))',
+                ]),
           );
         else
           L.push(
             `m <- lm(${f}, data = d)`,
-            s.se === 'classical' ? 'summary(m)' : 'coeftest(m, vcov = vcovHC(m, type = "HC1"))',
+            ...(clv
+              ? [
+                  `# clustered by ${clv}: CR1, Stata's vce(cluster), and t on G - 1 df as Stata reports`,
+                  `coeftest(m, vcov = vcovCL(m, cluster = ~${clv}, type = "HC1"), df = length(unique(d$${clv})) - 1)`,
+                ]
+              : [
+                  s.se === 'classical'
+                    ? 'summary(m)'
+                    : 'coeftest(m, vcov = vcovHC(m, type = "HC1"))',
+                ]),
           );
         L.push(
           `# The viewer's Conley SEs: Bartlett kernel, cutoffs ${(e.cuts || []).join(', ')} km, centroids in cent_lat / cent_lon, with`,

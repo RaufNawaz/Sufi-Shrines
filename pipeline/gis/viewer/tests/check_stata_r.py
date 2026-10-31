@@ -55,7 +55,9 @@ def r_capture(code):
 
 def read(path):
     with open(path, encoding="utf-8") as fh:
-        return {r["term"]: (float(r["b"]), float(r["se"])) for r in csv.DictReader(fh)}
+        # Stata writes "." for a term it omits (the base level of a fixed effect, since 31 October 2026).
+        num = lambda v: float("nan") if v.strip() in (".", "NA", "") else float(v)
+        return {r["term"]: (num(r["b"]), num(r["se"])) for r in csv.DictReader(fh)}
 
 
 def name(t):

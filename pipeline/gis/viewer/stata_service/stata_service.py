@@ -35,23 +35,27 @@ LOCK = threading.Lock()        # one Stata at a time
 
 NAME = r"[A-Za-z_][A-Za-z0-9_]{0,31}"
 TERM = r"(?:y|x\d{1,2}|c\d{1,2})"
+GROUP = r"(?:province|district)"   # fixed effects and clusters (added 31 October 2026)
 NUM = r"(?:\.|-?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?)"
 ALLOWED = [re.compile(p) for p in (
     r"",                                                         # blank
     r"\*[^\r\n]*",                                               # a comment line
     r"clear",
-    rf"input str\d{{1,3}} id double\({NAME}(?: {NAME})*\)",
+    rf"input str\d{{1,3}} id(?: str\d{{1,3}} {GROUP})* double\({NAME}(?: {NAME})*\)",
+    rf"encode ({GROUP}), generate\(g_\1\)",
     r"end",
     rf"generate double {TERM} = (?:ln\(1 \+ {NAME}\)|asinh\({NAME}\)|{NAME})",
     r"mark touse",
     rf"markout touse(?: {NAME})+",
     rf"replace touse = 0 if {NAME} <= 0",
+    rf"bysort g_{GROUP}: egen double __any = max\(y \* touse\)",
+    r"replace touse = 0 if __any == 0",
     rf"quietly summarize {TERM} if touse",
     rf"replace ({TERM}) = \(\1 - r\(mean\)\) / r\(sd\) if touse",
-    rf"regress y(?: {TERM})+ if touse(?:, vce\(robust\))?",
-    rf"poisson y(?: {TERM})+ if touse, vce\(robust\)(?: exposure\({NAME}\))?",
+    rf"regress y(?: {TERM})+(?: i\.g_{GROUP})? if touse(?:, vce\((?:robust|cluster g_{GROUP})\))?",
+    rf"poisson y(?: {TERM})+(?: i\.g_{GROUP})? if touse, vce\((?:robust|cluster g_{GROUP})\)(?: exposure\({NAME}\))?",
 )]
-DATA_ROW = re.compile(rf'"[A-Za-z0-9_-]{{1,40}}"(?: {NUM})+')
+DATA_ROW = re.compile(rf'"[A-Za-z0-9_-]{{1,40}}"(?: "[A-Za-z0-9]{{0,12}}")*(?: {NUM})+')
 
 TAIL = r"""
 * ---- read back by the Shrines Stata service ----
