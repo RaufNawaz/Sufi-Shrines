@@ -925,6 +925,32 @@ viewer's workbench reads the counts (`build_viewer.py`). **Read its `README.md` 
 them**: the sources disagree on which districts are dense, and OSM's coverage follows wealth.
 HANDOVER §9.434.
 
+**The filtered records as a variable** (31 October 2026). Whatever the viewer's "All shrine records"
+filter selects is also counted per unit. That filter covers which sources, any / every / only, how
+many sources agree, the tradition, and whether to hide archive places. The counts appear as three
+measures under "Shrines, every source": `n_pf` (count), `pf_per_million` (Kontur 2023 population,
+the one population every unit has) and `pf_per_1000km2`. They go on the map ("Map these per million
+people, by unit") and into "Test a conjecture" as outcome, regressor or control.
+- **Counting.** A place counts in the unit its point falls in, by point in polygon (an H3 lookup for
+  hexagons). A point within 2 km of a unit but in none, such as on Karachi's coast or just over a
+  simplified boundary, goes to the nearest unit, as `build_district_counts.py` does. A place in an
+  unpopulated hexagon is in none.
+- **Area.** Computed on the sphere from the embedded polygons. Against the GIS layer's own area
+  (n_site / sites_per_1000km2), the median difference is 0.2% at district and tehsil. The largest
+  is 4.5%, in small coastal Karachi units where the embedded geometry is simplified.
+- **Agreement with the build.** With every source, the district total is 3,684, exactly the
+  build's. 133 of 160 districts agree exactly, 21 differ by one, and the worst (South Karachi)
+  differs by 5. The differences are places near a boundary, which the simplified polygons put on
+  the other side. For verified places (2+ sources), the total is 207, again exactly the build's,
+  and 158 of 160 districts agree.
+- **Reproducibility.** A test records the filter in `spec.places`. Loading the test puts the
+  filter back in the panel, and a re-run gives identical estimates whatever the panel showed in
+  between. The Stata and R code name the filter in a comment and embed the counts used. A spec that
+  uses these variables without a filter, or with a malformed one, is refused.
+- **Checks.** `pipeline/gis/viewer/tests/test_places_variable.cjs`. Stata and R agree on 3
+  specifications (OLS with the mapping-effort control, Poisson with Kontur exposure, OLS clustered
+  by province): 28 comparisons, largest relative difference 3.2e-7.
+
 ## Licences
 
 Boundaries come from OCHA COD-AB through `pkmapr` 1.4.0, which is GPL-3. Census figures are

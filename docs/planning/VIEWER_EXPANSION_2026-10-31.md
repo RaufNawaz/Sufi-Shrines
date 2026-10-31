@@ -31,7 +31,7 @@ Chosen for what a regression-minded reader of this map needs next, largest first
    many there are. Stata code: `i.prov` / `vce(cluster prov)`; R: `factor(prov)` and
    `sandwich::vcovCL(type = "HC1")`. Checked against Stata and R by `tests/check_stata_r.py`, as now.
    With few clusters (the province has 4 to 7), say so: CR1 with under ~30 clusters overstates certainty.
-2. [ ] **The filtered places as a variable.** The "All shrine records" filter (sources, match, how many
+2. [x] **The filtered places as a variable.** The "All shrine records" filter (sources, match, how many
    agree, tradition) defines a set; count that set in each unit and offer it as a map indicator and as an
    outcome or regressor in "Test a conjecture" (count, per million people, per 1,000 km²). The count is
    made in the browser: district from each place's district code, hexagon from `h3.latLngToCell`, tehsil
@@ -70,3 +70,11 @@ HANDOVER §9 entry. Nothing here writes to the Google Sheet or changes `sites.cs
   specifications, 80 comparisons, largest relative difference 4.7e-7. The earlier suites all
   still pass (test_conjecture, the reference check, the original Stata/R check, review fixes,
   places filter, place names, the Stata service on both logs). Formulas: `docs/GIS_FOUNDATION.md`.
+- **Item 2, 31 October 2026.** The places filter as three measures per unit (count, per million
+  people, per 1,000 km²), on the map and in "Test a conjecture", with the filter saved in the spec.
+  Offshore points snap to the nearest unit within 2 km, as the Python build does. After that, the
+  totals equal the build's exactly (3,684 places; 207 verified), and 133 of 160 districts agree
+  exactly. Areas are within 0.2% (median) of the GIS layer's. The plan's "refuse if the district
+  sum differs" became the test's check that district counts plus places in no district equal the
+  filter's total. Stata/R: 28 comparisons, largest relative difference 3.2e-7. Details in
+  `docs/GIS_FOUNDATION.md`, "Shrines per district beyond the archive".

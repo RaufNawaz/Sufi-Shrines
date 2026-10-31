@@ -827,6 +827,9 @@
               archive</label
             >
             <button id="placesCsv" class="btn" type="button">Download these as CSV</button>
+            <button id="placesMap" class="btn" type="button">
+              Map these per million people, by unit
+            </button>
             <span id="placesCount" role="status" aria-live="polite"></span>
           </div>
         </fieldset>
@@ -1453,7 +1456,10 @@
         };
       }
       // A change of indicator or mode restyles the existing shapes; only a change of unit rebuilds.
+      // Set by the places section: recount the filter measure before drawing it (var: no TDZ at load).
+      var PF_SYNC = null;
       function draw() {
+        if (PF_SYNC) PF_SYNC();
         const fs = feats(unit),
           sh = shapesFor(unit);
         V = computeView(fs);
@@ -2295,14 +2301,32 @@
           `<br><span class="def">${esc(p.id)} · ${p.lat}, ${p.lon}</span>`
         );
       }
-      function placesShown() {
-        const ticked = new Set(
-          [...$('placesSrc').querySelectorAll('input:checked')].map((i) => i.dataset.src),
-        );
-        const match = $('placesMatch').value,
-          min = +$('placesMin').value,
-          trad = $('placesTrad').value,
-          noArch = $('placesNoArchive').checked;
+      // The filter as data, so a test can record it and re-run on the same set (31 October 2026).
+      function placesDef() {
+        return {
+          src: [...$('placesSrc').querySelectorAll('input:checked')]
+            .map((i) => i.dataset.src)
+            .sort(),
+          match: $('placesMatch').value,
+          min: +$('placesMin').value,
+          trad: $('placesTrad').value,
+          noArch: $('placesNoArchive').checked,
+        };
+      }
+      function applyPlacesDef(d) {
+        $('placesSrc')
+          .querySelectorAll('input')
+          .forEach((i) => (i.checked = d.src.includes(i.dataset.src)));
+        $('placesMatch').value = d.match;
+        $('placesMin').value = String(d.min);
+        $('placesTrad').value = d.trad;
+        $('placesNoArchive').checked = d.noArch;
+        drawPlaces();
+      }
+      const placesShown = () => placesFilter(placesDef());
+      function placesFilter(d) {
+        const ticked = new Set(d.src),
+          { match, min, trad, noArch } = d;
         return PLACES.filter((p) => {
           if (min === -1 ? p.n !== 1 : p.n < min) return false;
           if (trad && (trad === 'other' ? !['other', 'secular'].includes(p.trad) : p.trad !== trad))
@@ -2342,6 +2366,7 @@
         const ver = shown.filter((p) => p.n > 1).length;
         $('placesCount').textContent =
           `${shown.length.toLocaleString()} shown: ${ver.toLocaleString()} verified, ${(shown.length - ver).toLocaleString()} from one source`;
+        if (PF_SYNC && inUse().some((k) => PF_KEYS.includes(k))) draw();
       }
       $('placesCsv').onclick = () => {
         const cell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
@@ -2393,6 +2418,145 @@
           )
           .join('') +
         `<div class="def">Every record of a shrine, temple, samadhi or gurdwara in the archive, DOAM's national inventory, OpenStreetMap, Wikidata and GeoNames, joined into one dot per place. A dot is verified when two independent sources record it (OSM's weak matches count as OSM). One-source dots may not exist: open one to search the web or look at it on satellite.</div>`;
+
+      // ---- the filtered records as a variable (31 October 2026) ---------------------------------
+      // Whatever the filter shows, counted in every unit: n_pf (count), pf_per_million (per million
+      // people, Kontur 2023, the one population every unit has) and pf_per_1000km2 (per 1,000 km² of
+      // the unit's own geometry). Each is a map measure and a variable in "Test a conjecture"; a test
+      // keeps the filter in spec.places, so it re-runs on the same set whatever the panel shows later.
+      // A place is counted in the unit its point falls in (point in polygon; an H3 lookup for
+      // hexagons, so a place in an unpopulated hexagon is in none).
+      const PF_KEYS = ['n_pf', 'pf_per_million', 'pf_per_1000km2'];
+      const PTRAD = {
+        '': 'any tradition',
+        muslim: 'Muslim',
+        hindu: 'Hindu',
+        sikh: 'Sikh',
+        jain: 'Jain',
+        other: 'other or secular',
+        unknown: 'tradition not stated',
+      };
+      const PMIN = {
+        1: '',
+        2: '2 or more sources',
+        3: '3 or more sources',
+        4: '4 or more sources',
+      };
+      PMIN[-1] = 'exactly 1 source';
+      function placesText(d) {
+        const srcs = d.src.map((k) => PSRC[k].label).join(', ') || 'no source';
+        return [
+          `recorded by ${{ any: 'any of', all: 'every one of', only: 'only' }[d.match]} ${srcs}`,
+          PMIN[d.min],
+          d.trad ? PTRAD[d.trad] : '',
+          d.noArch ? 'not in the archive' : '',
+        ]
+          .filter(Boolean)
+          .join('; ');
+      }
+      const goodPlacesDef = (d) =>
+        !!d &&
+        typeof d === 'object' &&
+        Array.isArray(d.src) &&
+        d.src.length <= 10 &&
+        d.src.every((k) => own(PSRC, k)) &&
+        ['any', 'all', 'only'].includes(d.match) &&
+        [1, 2, 3, 4, -1].includes(d.min) &&
+        own(PTRAD, d.trad) &&
+        typeof d.noArch === 'boolean';
+      const PF_AT = {},
+        AREA = {};
+      // A point a few metres offshore (Karachi's coast) or just over a simplified boundary falls in
+      // no polygon: it goes to the unit found nearest within 2 km (rings of 16 points at 0.25 km
+      // steps), as build_district_counts.py does with sjoin_nearest. Hexagons cover populated land
+      // only, so a place in an unpopulated hexagon stays in none.
+      function pfAt(u, p) {
+        const i = featAt(u, p.lat, p.lon),
+          deg = (6371.0088 * Math.PI) / 180; // km per degree (KM is declared further down)
+        if (i >= 0 || u === 'hex') return i;
+        for (let r = 0.25; r <= 2; r += 0.25)
+          for (let a = 0; a < 16; a++) {
+            const t = (a * Math.PI) / 8,
+              j = featAt(
+                u,
+                p.lat + (r / deg) * Math.sin(t),
+                p.lon + (r / deg / Math.cos((p.lat * Math.PI) / 180)) * Math.cos(t),
+              );
+            if (j >= 0) return j;
+          }
+        return -1;
+      }
+      const pfIndex = (u) => PF_AT[u] || (PF_AT[u] = Int32Array.from(PLACES, (p) => pfAt(u, p)));
+      // Area on the sphere (R = 6371.0088 km): for each ring, R²/2 |Σ (λ₂ − λ₁)(2 + sin φ₁ + sin φ₂)|,
+      // holes subtracted. tests/test_places_variable.cjs holds it against the archive's own
+      // sites_per_1000km2, which the GIS layer computed from projected areas.
+      function ringKm2(r) {
+        const rad = Math.PI / 180;
+        let s = 0;
+        for (let i = 0; i < r.length - 1; i++)
+          s +=
+            (r[i + 1][0] - r[i][0]) *
+            rad *
+            (2 + Math.sin(r[i][1] * rad) + Math.sin(r[i + 1][1] * rad));
+        return (Math.abs(s) * 6371.0088 ** 2) / 2;
+      }
+      const polyKm2 = (P) => P.reduce((t, r, j) => t + (j ? -1 : 1) * ringKm2(r), 0);
+      function areaKm2(u) {
+        if (AREA[u]) return AREA[u];
+        return (AREA[u] = feats(u).map((f) =>
+          f.hex
+            ? h3.cellArea(f.hex, 'km2')
+            : f.geom.type === 'Polygon'
+              ? polyKm2(f.geom.coordinates)
+              : f.geom.coordinates.reduce((t, P) => t + polyKm2(P), 0),
+        ));
+      }
+      let PF_NOW = null;
+      function ensurePlaces(d) {
+        const key = JSON.stringify(d);
+        if (key === PF_NOW) return;
+        PF_NOW = key;
+        const keep = new Set(placesFilter(d));
+        for (const [u] of UNITS) {
+          const fs = feats(u),
+            at = pfIndex(u),
+            A = areaKm2(u),
+            c = new Float64Array(fs.length);
+          PLACES.forEach((p, j) => at[j] >= 0 && keep.has(p) && c[at[j]]++);
+          fs.forEach((f, i) => {
+            const pop = f.p.pop_kontur_2023;
+            f.p.n_pf = c[i];
+            f.p.pf_per_million = ok(pop) && pop > 0 ? (c[i] / pop) * 1e6 : null;
+            f.p.pf_per_1000km2 = A[i] > 0 ? (c[i] / A[i]) * 1000 : null;
+          });
+        }
+        const t = `Counts the shrine records the "All shrine records" filter selects: ${placesText(d)} (${keep.size.toLocaleString()} places). Change the filter and this measure follows it; a recorded test keeps the filter it was run with. A place counts in the unit its point falls in. One-source places may not exist, and the sources map unevenly (OpenStreetMap follows wealth, GeoNames the old survey maps): read shrine_sources/district_counts/README.md before reading a welfare result into it.`;
+        for (const k of PF_KEYS) IND[k].def = t;
+      }
+      for (const [key, label] of [
+        ['n_pf', 'Shrine records in the places filter (count)'],
+        ['pf_per_million', 'Shrine records in the places filter, per million people (Kontur 2023)'],
+        ['pf_per_1000km2', 'Shrine records in the places filter, per 1,000 km²'],
+      ]) {
+        const i = {
+          key,
+          label,
+          group: 'Shrines, every source',
+          good: null,
+          units: UNITS.map((u) => u[0]),
+          def: '',
+        };
+        D.indicators.push(i);
+        IND[key] = i;
+      }
+      ensurePlaces(placesDef());
+      PF_SYNC = () => {
+        if (inUse().some((k) => PF_KEYS.includes(k))) ensurePlaces(placesDef());
+      };
+      $('placesMap').onclick = () => {
+        if (mode !== 'single') setMode('single');
+        choose('pf_per_million');
+      };
 
       // ---- controls -----------------------------------------------------------------------------
       function notice(t) {
@@ -2740,6 +2904,7 @@
       }
       function cjData(spec, u) {
         if (spec.composite) ensureComposite(spec.composite, u);
+        if (spec.places) ensurePlaces(spec.places);
         const vars = [spec.y, ...spec.x, ...spec.c],
           pois = spec.model === 'poisson',
           ex = pois ? spec.exposure : null,
@@ -3991,6 +4156,9 @@
         'composite',
         'kind',
         'fe',
+        'src',
+        'match',
+        'trad',
       ]);
       function leavesOk(o, k, depth) {
         if (depth > 8) return false;
@@ -4104,6 +4272,7 @@
           t.key,
           // Added 31 October 2026; absent (so earlier keys are unchanged) unless used.
           ...(s.fe || clusterOf(s.se) ? [[s.fe || null, s.se]] : []),
+          ...(s.places ? [s.places] : []),
         ]);
       }
       const headP = (t) => (t.pH !== undefined ? t.pH : t.pR);
@@ -4441,6 +4610,9 @@
             perms: 2000,
             mperms: 999,
             seed: 20261030,
+            places: [CJ.y, ...CJ.x, ...CJ.c].some((v) => v && PF_KEYS.includes(v.key))
+              ? placesDef()
+              : null,
             composite: [CJ.y, ...CJ.x, ...CJ.c].some((v) => v && v.key === 'composite')
               ? CJ.composite
               : null,
@@ -4448,6 +4620,7 @@
         );
       }
       function loadSpec(s) {
+        if (s.places) applyPlacesDef(s.places);
         Object.assign(CJ, {
           statement: s.statement || '',
           unit: s.unit,
@@ -4471,6 +4644,7 @@
         const ts = new Date().toISOString(),
           res = runSpec(spec, spec.unit, maupOf == null),
           e = entryOf(spec, res, ts, maupOf, ctx);
+        if (spec.places) ensurePlaces(placesDef());
         LOG.push(e);
         saveLog();
         return { e, res };
@@ -4501,6 +4675,9 @@
           keys.push(v.key);
         }
         if (new Set(keys).size !== keys.length) return 'a variable appears twice';
+        if (s.places != null && !goodPlacesDef(s.places)) return 'the places filter is malformed';
+        if (s.places == null && keys.some((k) => PF_KEYS.includes(k)))
+          return 'a places-filter variable without the filter it counts';
         if (!s.x.length) return 'no explanatory variable';
         if (s.x.some((v) => !['+', '-', '0'].includes(v.sign)))
           return 'an expected sign is missing';
@@ -4768,7 +4945,7 @@
           <h3>Correlations, outcome with each regressor</h3>
           <div class="scroll"><table><tr><th>Regressor</th><th class="num">Pearson r</th><th class="num">Spearman ρ</th></tr>${corr}</table></div>
           <div class="def">p-values from ${s.perms.toLocaleString()} permutations of the outcome (seed ${s.seed}), two-sided, on the same ${e.n} ${UNITN[e.unit]} and transforms as the regression. Permutation treats the units as exchangeable, so it shares the regression's blindness to spatial correlation.</div>
-          <div class="note">${nSess} test${nSess === 1 ? '' : 's'} this session; ${B.m} distinct hypotheses in the log, which the Benjamini–Hochberg adjustment covers. It does not cover the map views and side-panel correlations looked at first${ctx.views ? ` (${ctx.views} this session)` : ''}, so it understates the search behind any test prompted by them. Ecological: these are associations among ${UNITN[e.unit]}, not among people or among shrines, and nothing here shows what causes what.${usesArchive(s) ? ' The archive is curated, not a census: a shrine variable measures where the archive has looked as well as where shrines are, so a result about it is a result about archive coverage.' : ''}${usesOtherSources(s) ? ` The other sources do not agree on which districts have many shrines (OpenStreetMap against GeoNames, Spearman 0.09 per person across 135 districts), and OpenStreetMap's mapping follows wealth; GeoNames runs the other way.${controlsEffort(s) ? '' : ' <b>Add the mapping-effort count as a control</b> before reading a welfare result.'} See shrine_sources/district_counts/README.md.` : ''}${[s.y, ...s.x, ...s.c].some((v) => v.key === 'n_mus_pre1857') ? ' Pre-1857 counts a numeric year below 1857; 25 of the 80 Muslim shrines have no numeric year and count as not pre-1857.' : ''}${[s.y, ...s.x, ...s.c].some((v) => DEFECT[v.key]) ? ' <b>Uses a travel-time indicator with a known coastal data defect</b> (see the side panel): coastal values are biased.' : ''}</div>
+          <div class="note">${nSess} test${nSess === 1 ? '' : 's'} this session; ${B.m} distinct hypotheses in the log, which the Benjamini–Hochberg adjustment covers. It does not cover the map views and side-panel correlations looked at first${ctx.views ? ` (${ctx.views} this session)` : ''}, so it understates the search behind any test prompted by them. Ecological: these are associations among ${UNITN[e.unit]}, not among people or among shrines, and nothing here shows what causes what.${usesArchive(s) ? ' The archive is curated, not a census: a shrine variable measures where the archive has looked as well as where shrines are, so a result about it is a result about archive coverage.' : ''}${usesOtherSources(s) ? ` The other sources do not agree on which districts have many shrines (OpenStreetMap against GeoNames, Spearman 0.09 per person across 135 districts), and OpenStreetMap's mapping follows wealth; GeoNames runs the other way.${controlsEffort(s) ? '' : ' <b>Add the mapping-effort count as a control</b> before reading a welfare result.'} See shrine_sources/district_counts/README.md.` : ''}${s.places ? ` The shrine-record variables count the records ${esc(placesText(s.places))}; the filter is saved with the test, and loading the test puts it back in the panel.` : ''}${[s.y, ...s.x, ...s.c].some((v) => v.key === 'n_mus_pre1857') ? ' Pre-1857 counts a numeric year below 1857; 25 of the 80 Muslim shrines have no numeric year and count as not pre-1857.' : ''}${[s.y, ...s.x, ...s.c].some((v) => DEFECT[v.key]) ? ' <b>Uses a travel-time indicator with a known coastal data defect</b> (see the side panel): coastal values are biased.' : ''}</div>
           <div class="cjbtns"><button class="btn" type="button" id="cjResMap">Show residuals on the map</button><button class="btn" type="button" id="cjMaupBtn">Same test at every unit</button></div>
           <svg id="cjRvf" width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Residuals against fitted values"></svg>
           <div id="cjMaup"></div>
@@ -5066,6 +5243,7 @@
       function testData(e) {
         const s = e.spec;
         if (s.composite) ensureComposite(s.composite, s.unit);
+        if (s.places) ensurePlaces(s.places);
         const keys = [
           ...new Set(
             [s.y, ...s.x, ...s.c]
@@ -5115,6 +5293,9 @@
             `* Test #${e.id} from the Shrines and Welfare viewer, recorded ${e.ts}`,
             ...(s.statement ? [`* "${oneLine(s.statement)}"`] : []),
             ...s.x.map((v, i) => `* expected sign of x${i + 1} (${v.key}): ${SIGNL[v.sign]}`),
+            ...(s.places
+              ? [`* n_pf and pf_*: shrine records ${oneLine(placesText(s.places))}`]
+              : []),
           ],
           T = testData(e),
           short = Object.fromEntries(T.keys.map((k, i) => [k, stataName(k, i)])),
@@ -5192,6 +5373,9 @@
             `# Test #${e.id} from the Shrines and Welfare viewer, recorded ${e.ts}`,
             ...(s.statement ? [`# "${oneLine(s.statement)}"`] : []),
             ...s.x.map((v, i) => `# expected sign of x${i + 1} (${v.key}): ${SIGNL[v.sign]}`),
+            ...(s.places
+              ? [`# n_pf and pf_*: shrine records ${oneLine(placesText(s.places))}`]
+              : []),
             '# Two packages from CRAN, installed on first use',
             'for (p in c("sandwich", "lmtest")) if (!requireNamespace(p, quietly = TRUE)) install.packages(p)',
             'library(sandwich); library(lmtest)',
