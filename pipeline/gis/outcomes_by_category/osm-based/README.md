@@ -37,8 +37,8 @@ the currency audit is incomplete or says "no" without a URL. All pass (30 Octobe
 - HDX's API reports the dataset last modified 2026-10-12, with the same resource URLs as
   `welfare/sources.tsv`. The local copy was fetched 2026-10-30, and **all 160 atlas `rural_access_index`
   values equal `RAI_total_pop` in it, P-code by P-code**, so the atlas holds the current release.
-- **The catalog's year for these four, "2023", does not describe this release.** It is not changed
-  here (the catalog is outside this folder); it is flagged for the coordinator.
+- **The catalog's year for these four said "2023", which did not describe this release.** Corrected to
+  2026 in `atlas/indicator_catalog.tsv` on 30 October 2026, with the release dates in each definition.
 - HeiGIT also publishes a separate Pakistan accessibility indicators dataset
   (https://data.humdata.org/dataset/pakistan-accessibility-indicators, dated 2026-01-30). The atlas does
   not use it, and it was not assessed.

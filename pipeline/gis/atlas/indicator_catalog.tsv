@@ -137,10 +137,10 @@ pslm_satisfied_hospital	Users satisfied with their hospital or clinic (%)	Public
 pslm_satisfied_primary_school	Users satisfied with their primary school (%)	Public services	1	2019-20
 pslm_satisfied_police	Users satisfied with the police (%)	Public services	1	2019-20
 undp_health_satisfaction_2015	Households satisfied with their health facility (%, UNDP)	Public services	1	2015
-rural_access_index	Rural Access Index (OSM roads)	OSM-based (read the caveat)	1	2023
-share_access_hospitals_1h	Within 1 h of an OSM hospital (%)	OSM-based (read the caveat)	1	2023
-share_access_primary_healthcare_1h	Within 1 h of OSM primary care (%)	OSM-based (read the caveat)	1	2023
-share_access_education_5km	Within 5 km of an OSM school (%)	OSM-based (read the caveat)	1	2023
+rural_access_index	Rural Access Index (OSM roads)	OSM-based (read the caveat)	1	2026
+share_access_hospitals_1h	Within 1 h of an OSM hospital (%)	OSM-based (read the caveat)	1	2026
+share_access_primary_healthcare_1h	Within 1 h of OSM primary care (%)	OSM-based (read the caveat)	1	2026
+share_access_education_5km	Within 5 km of an OSM school (%)	OSM-based (read the caveat)	1	2026
 age_heaping_whipple	Age heaping (Whipple index; 100 = none)	Data quality		2023
 rwi_cell_share	Share of people with an RWI tile nearby (%)	Data quality		2021
 n_site	Archive sites (all traditions)	Archive		

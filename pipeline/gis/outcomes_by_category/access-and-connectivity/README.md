@@ -47,8 +47,8 @@ Notes:
 - **MAP:** no coverage newer than 2015 (cities) or 2020 (health care) in MAP's own catalogue. A lead,
   not a successor: arXiv 2609.12696 (https://arxiv.org/abs/2609.12696, Sept 2026) maps travel time to
   emergency and tertiary hospitals, a different measure; its data repository was not opened.
-- **GRIP4 licence:** the PBL portal page links a CC0 1.0 deed; the atlas codebook says "No licence named
-  in the download". Recorded here, not changed in the atlas.
+- **GRIP4 licence:** the PBL portal page states CC0 1.0. The atlas codebook said "No licence named in
+  the download" until 30 October 2026, when it was corrected.
 - **Health facilities:** newer Pakistan facility lists exist but are different sources, not successors,
   and both are OpenStreetMap-based: Healthsites.io (https://data.humdata.org/dataset/pakistan-healthsites,
   to 2026-09-29) and HOT (https://data.humdata.org/dataset/hotosm_pak_health_facilities, 2026-10-12).

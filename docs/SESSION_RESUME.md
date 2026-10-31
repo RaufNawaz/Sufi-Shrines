@@ -43,11 +43,13 @@ the reason the rest is credible.
 3. [ ] Confirm one-source places exist: **on hold at Rauf's request, 30 October 2026.**
 4. [x] Stata and R: run the workbench's generated Stata/R code against the browser's numbers (R 4.6.1 and StataNow 19 are now installed on this PC); then the question of running the tests on a Stata backend (asked in the chat).
 5. [x] Research agents (6, launched 30 October): a separate dataset per outcome category in `pipeline/gis/outcomes_by_category/<theme>/`, and a currency audit of every outcome source. Coordinator writes the folder README when they report.
-6. [ ] Suspect, disputed and shared archive pins: satellite check, CSV patch for the sheet.
+6. [x] Archive pins: 15 to move, `data/import_2026-10-31.csv` built, **waiting on Rauf to import** (HANDOVER 9.440). Chandragup kept; Feroz-ud-Din and the two Gandava rows need a person.
 7. [x] Stata/R code under each result is self-contained (data embedded) and ends with the viewer's estimates; verified in Stata and R (HANDOVER 9.437).
 8. [x] Newer outcome waves into the atlas: done (HANDOVER 9.438). Punjab MICS 2024 and LGHAP 2022-24 not taken.
-9. [ ] HeiGIT catalog year ("2023", data is the 2026 release) and GRIP4 licence (CC0): check and correct. (The Kummu GDP unit is corrected to 2021 $, HANDOVER 9.438.)
+9. [x] HeiGIT catalog year ("2023", data is the 2026 release) and GRIP4 licence (CC0): check and correct. (The Kummu GDP unit is corrected to 2021 $, HANDOVER 9.438.)
 10. [x] Local Stata service (HANDOVER 9.439): the viewer sends a test to Stata on this PC and shows Stata's own output (Rauf: go ahead).
+11. [x] Hybrid worker assessed; prompt at `docs/prompts/hybrid_worker_shrine_existence.md`, input exported (HANDOVER 9.440). Rauf runs it.
+12. [ ] Welfare map: place names (cities, towns) as a vector layer (Rauf, 30 October 2026).
 
 ## 30 October 2026, later still: a verified database of every shrine — the state, measured
 

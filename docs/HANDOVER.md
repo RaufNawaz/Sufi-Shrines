@@ -22351,3 +22351,38 @@ engine stays: it is what makes the page work without Stata, and it agrees with S
   panel to 44 px, which a checkbox is not.
 - Not done: R through the service (Rauf asked for Stata; the R code is still there to paste).
 
+### 9.440, 30 October 2026 (interactive, Windows PC): archive pins checked on satellite; an import moves fifteen; two catalog corrections; the hybrid-worker prompt
+
+**Pins (to-do #6).** `pipeline/gis/shrine_sources/pin_review/pin_review.py` takes the pins the location
+check flagged plus every shared pin: 19 rows. A proposed point is the mean of named independent records
+chosen per row in `DECISIONS` (OSM, Wikidata, DOAM; GeoNames never sets a point), which must agree within
+150 m. Each gets a satellite image (Esri World Imagery, the viewer's basemap): red the pin, green the
+proposal, and a close-up at zoom 18; Claude read all of them and the reading is in the review CSV
+(`data/review/pin_check_2026-10-30.csv`, images beside it). Two traps the check's averaged centre had:
+Shah Ali Akbar's centre included his mother's tomb, Ranjit Singh's the samadhis of Kharak Singh and Nau
+Nihal Singh; both use the records for the person alone. **Result:** 15 move (10 on two or three agreeing
+sources, 5 on one precise source with the satellite showing the shrine or the graveyard the row's
+Location names); **Chandragup stays** (the pin is on the mud volcano, the sacred site; OSM's point is open
+plain); three have no independent point and stay flagged (Khawaja Feroz-ud-Din at Miani Sahib; the two
+Gandava rows on a town-centre point; OSM has nothing within 4 km of it). `build_pin_import.py` built
+`data/import_2026-10-31.csv` from the live sheet (identical to the 30 October import): 59 cells in 15
+rows (coordinates, a provenance sentence in `qa_note`, `COORD_FIXED`), refusing any other change or a pin
+moved since the review. **Waiting on Rauf to import** (`data/import_2026-10-31.INSTRUCTIONS.md`).
+
+**Catalog corrections (to-do #9).** HeiGIT's four OSM-based indicators were dated "2023"; our copy is the
+HDX release dated 26 February to 27 August 2026 (HDX API; fetched 30 October), so now 2026, with the
+release dates in each definition. GRIP4's licence is CC0 1.0 (the PBL download page: "GRIP4 is provided
+under a Creative Commons License (CC-0)"); the codebook said none was named. Corrected where written
+(`welfare/build_welfare_layers.py`, `build_roads.py`, their codebooks, `sources_extended.tsv`). A plain
+text replace broke the roads codebook (the new licence has commas; the old field was unquoted): rewritten
+through the csv module; the atlas's "every indicator defined once" check caught it. 0 atlas values changed.
+
+**Hybrid worker.** Rauf's `C:\Users\g16\Desktop\hybrid-worker` (a local Ollama model managed by Claude
+Code) assessed for confirming the 3,377 named one-source places: viable for judging evidence per place
+with verbatim quotes, not for searching as it stands (Ollama search has no credits; a URL task cannot
+carry per-place context). The prompt is `docs/prompts/hybrid_worker_shrine_existence.md`: a script
+gathers evidence per place from free APIs (Wikipedia en/ur search and geosearch, Commons photo geosearch,
+Wikidata, Ollama search if credited), the worker judges each place, Claude spot-checks, and results come
+back to `pipeline/gis/shrine_sources/existence_checks/results/`. Input:
+`existence_checks/places_to_confirm.jsonl` (`export_places_to_confirm.py`). Rauf starts the run.
+

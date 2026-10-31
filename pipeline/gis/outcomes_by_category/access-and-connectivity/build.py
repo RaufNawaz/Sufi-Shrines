@@ -61,8 +61,8 @@ CURRENCY = {('travel_city', '2015'): {'latest_available_wave': '2015 (MAP '
                       'up_to_date': 'yes',
                       'currency_note': "PBL's download portal serves GRIP4 only; /downloads/GRIP5/ answers "
                                        "'Folder of bestand is niet gevonden' (30 Oct 2026). The GRIP4 portal "
-                                       "page links a CC0 1.0 deed, which the atlas codebook's licence field "
-                                       "('No licence named in the download') does not record."},
+                                       "page links a CC0 1.0 deed; the atlas codebook records it since "
+                                       "30 October 2026 (it said no licence was named until then)."},
  ('health_facilities', '2017'): {'latest_available_wave': '2017-11-15 (the same compilation)',
                                  'latest_available_url': 'https://data.humdata.org/dataset/pakistan-health-facilities',
                                  'up_to_date': 'yes',

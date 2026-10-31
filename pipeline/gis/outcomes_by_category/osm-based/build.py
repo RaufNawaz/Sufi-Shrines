@@ -34,7 +34,7 @@ CURRENCY_COLS = ["latest_available_wave", "latest_available_url", "up_to_date", 
 # Currency audit, 30 October 2026. Keyed by (source_key, wave_held); every claim carries the URL it was
 # checked against. up_to_date: yes = nothing newer from this publisher for this measure; no = a newer
 # release exists at the URL given; unknown = could not be confirmed either way.
-CURRENCY = {('heigit', '2023'): {'latest_available_wave': 'HDX release dated 2026-02-26 to 2026-08-27 (files last '
+CURRENCY = {('heigit', '2026'): {'latest_available_wave': 'HDX release dated 2026-02-26 to 2026-08-27 (files last '
                                                'modified 26 Aug 2026)',
                       'latest_available_url': 'https://data.humdata.org/dataset/pakistan---risk-assessment-indicators',
                       'up_to_date': 'yes',
@@ -42,8 +42,8 @@ CURRENCY = {('heigit', '2023'): {'latest_available_wave': 'HDX release dated 202
                                        'resource URLs are those in welfare/sources.tsv. The local copy was '
                                        'fetched 2026-10-30 and all 160 atlas rural_access_index values equal '
                                        'RAI_total_pop in it by P-code, so the atlas holds the current '
-                                       "release. The catalog's year '2023' therefore does not describe this "
-                                       'release; it is not edited here. HeiGIT also publishes a separate '
+                                       "release. The catalog said '2023' until 30 October 2026, when it was "
+                                       'corrected to 2026 (HANDOVER 9.440). HeiGIT also publishes a separate '
                                        'Pakistan accessibility indicators dataset '
                                        '(https://data.humdata.org/dataset/pakistan-accessibility-indicators, '
                                        '2026-01-30), not used by the atlas.'}}

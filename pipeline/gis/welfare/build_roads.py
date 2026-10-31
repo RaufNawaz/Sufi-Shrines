@@ -91,7 +91,7 @@ def main():
         {"indicator": "main_road_density_popw", "definition": "Density of highways, primary and secondary roads around "
          "residents, metres per km2 (GRIP4 types 1-3; population-weighted)"},
     ]).assign(source_key="grip4", publisher="Meijer et al. (2018), GRIP4, PBL Netherlands Environmental Assessment Agency",
-              licence="No licence named in the download; its ReadMe asks that Meijer et al. (2018) be cited").to_csv(HERE / "welfare_roads_codebook.csv", index=False)
+              licence="CC0 1.0 (stated on the PBL download page, https://dataportaal.pbl.nl/downloads/GRIP4/, checked 30 October 2026); its ReadMe asks that Meijer et al. (2018) be cited").to_csv(HERE / "welfare_roads_codebook.csv", index=False)
     pd.DataFrame(CHECKS).to_csv(HERE / "checks_roads.csv", index=False, quoting=csv.QUOTE_MINIMAL)
     fails = [c for c in CHECKS if c["result"] == "FAIL"]
     print(f"\n{len(CHECKS)} checks: {sum(c['result'] == 'pass' for c in CHECKS)} pass, {len(fails)} FAIL")

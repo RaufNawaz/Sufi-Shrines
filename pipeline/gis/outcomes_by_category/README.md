@@ -81,8 +81,9 @@ Kummu GDP is in **2021** international dollars (Zenodo 18429133 v4: "Unit change
 international dollars"); the atlas codebook said constant 2017 dollars until 30 October 2026.
 (asked in the chat, 30 October 2026).
 
-## Found on the way, outside these folders (not yet acted on)
+## Found on the way, outside these folders (corrected 30 October 2026)
 
-- The catalog dates the four HeiGIT indicators "2023"; the values match the HDX release of 2026
-  (all 160 districts' `rural_access_index`). The label looks wrong; check before changing it.
-- GRIP4's download page links a CC0 licence; the atlas codebook says no licence was named.
+- The catalog dated the four HeiGIT indicators "2023"; our copy is the HDX release dated February to
+  August 2026 (fetched 30 October; all 160 districts' `rural_access_index` match it). Now 2026.
+- GRIP4's licence is CC0 1.0, as the PBL download page states; the codebook said no licence was named.
+  Corrected in `welfare/build_roads.py`, its codebook and `welfare/sources_extended.tsv`.
