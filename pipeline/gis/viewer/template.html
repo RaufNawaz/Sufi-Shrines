@@ -842,6 +842,7 @@
         >
           Test a conjecture
         </button>
+        <button id="copyLink" class="btn" type="button">Copy a link to this view</button>
         <div id="notice" role="status" aria-live="polite"></div>
       </header>
       <div id="mapwrap">
@@ -1459,7 +1460,8 @@
       }
       // A change of indicator or mode restyles the existing shapes; only a change of unit rebuilds.
       // Set by the places section: recount the filter measure before drawing it (var: no TDZ at load).
-      var PF_SYNC = null;
+      var PF_SYNC = null,
+        HASH_READY = false; // the address follows the view only once a linked view is read
       function draw() {
         if (PF_SYNC) PF_SYNC();
         const fs = feats(unit),
@@ -1478,6 +1480,7 @@
         hoverIdx = -1;
         clearHover();
         if (selIdx >= 0) select(selIdx, false);
+        writeHash();
       }
 
       // ---- hover and selection ------------------------------------------------------------------
@@ -6348,9 +6351,122 @@
         (c) =>
           `<tr><td class="${esc(c.result)}">${esc(c.result)}</td><td>${esc(c.check)}<br><span class="def">${esc(c.measured)} — vs ${esc(c.reference)}</span></td></tr>`,
       ).join('');
+      // ---- a link to this view (31 October 2026) -------------------------------------------------
+      // The unit, the measures and how they are shown, the map's centre and zoom, the layers and the
+      // places filter live in the address after '#', so a view can be bookmarked or sent. Written
+      // with history.replaceState (no history entry per pan), read once on opening. Anything the page
+      // does not know (an indicator renamed since the link was made) is dropped, and the notice says
+      // so; the rest of the view is restored.
+      const LAYERS = {
+        names: 'showNames',
+        sites: 'showSites',
+        leads: 'showLeads',
+        leadsin: 'showLeadsIn',
+        places: 'showPlaces',
+      };
+      function viewHash() {
+        const c = map.getCenter(),
+          q = new URLSearchParams();
+        q.set('u', unit);
+        q.set('m', mode);
+        if (sel.length) q.set('i', sel.join(','));
+        q.set('z', String(map.getZoom()));
+        q.set('c', `${c.lat.toFixed(4)},${c.lng.toFixed(4)}`);
+        q.set(
+          'l',
+          Object.entries(LAYERS)
+            .filter(([, id]) => $(id).checked)
+            .map(([k]) => k)
+            .join(','),
+        );
+        if ($('showPlaces').checked || inUse().some((k) => PF_KEYS.includes(k))) {
+          const d = placesDef();
+          q.set('pf', [d.src.join('.'), d.match, d.min, d.trad || '-', d.noArch ? 1 : 0].join(','));
+        }
+        return '#' + q.toString().replace(/%2C/g, ',');
+      }
+      function writeHash() {
+        if (!HASH_READY) return;
+        const h = viewHash();
+        if (location.hash === h) return;
+        try {
+          history.replaceState(null, '', h);
+        } catch {
+          try {
+            location.replace(h);
+          } catch {
+            HASH_READY = false; // this browser will not let the page change its address
+          }
+        }
+      }
+      function readHash() {
+        const q = new URLSearchParams(location.hash.slice(1));
+        if (!q.has('u')) return false;
+        const dropped = [];
+        const u = q.get('u'),
+          m = q.get('m');
+        if (UNITS.some((x) => x[0] === u)) unit = u;
+        else dropped.push(`the unit "${u}"`);
+        if (MODES.some((x) => x[0] === m)) mode = m;
+        sel = (q.get('i') || '')
+          .split(',')
+          .filter(Boolean)
+          .filter((k) => own(IND, k) || (dropped.push(`the measure "${k}"`), false))
+          .slice(0, mode === 'single' ? 1 : mode === 'bi' ? 2 : 30);
+        if (q.has('l')) {
+          const on = new Set(q.get('l').split(','));
+          for (const [k, id] of Object.entries(LAYERS)) $(id).checked = on.has(k);
+        }
+        if (q.has('pf')) {
+          const [src, match, min, trad, na] = q.get('pf').split(','),
+            d = {
+              src: (src || '').split('.').filter(Boolean).sort(),
+              match,
+              min: +min,
+              trad: trad === '-' ? '' : trad,
+              noArch: na === '1',
+            };
+          if (goodPlacesDef(d)) applyPlacesDef(d);
+          else dropped.push('a places filter it cannot read');
+        }
+        const z = +q.get('z'),
+          c = (q.get('c') || '').split(',').map(Number);
+        if (
+          Number.isInteger(z) &&
+          z >= 3 &&
+          z <= 18 &&
+          c.length === 2 &&
+          c.every(Number.isFinite) &&
+          Math.abs(c[0]) <= 90 &&
+          Math.abs(c[1]) <= 180
+        )
+          map.setView(c, z, { animate: false });
+        if (dropped.length)
+          notice(
+            `This link has ${dropped.join(', ')}, which this page cannot use; the rest of the view is restored.`,
+          );
+        return true;
+      }
+      $('copyLink').onclick = () => {
+        writeHash();
+        const href = location.href,
+          done = () => notice('Link to this view copied.');
+        if (navigator.clipboard && navigator.clipboard.writeText)
+          navigator.clipboard
+            .writeText(href)
+            .then(done, () => notice(`Link to this view: ${href}`));
+        else notice(`Link to this view: ${href}`);
+      };
+      readHash();
       overlays();
-      controls();
-      draw();
+      drawNames();
+      drawPlaces();
+      refresh();
+      HASH_READY = true;
+      writeHash();
+      map.on('moveend', writeHash);
+      Object.values(LAYERS).forEach((id) => $(id).addEventListener('change', writeHash));
+      $('placesPanel').addEventListener('change', writeHash);
     </script>
   </body>
 </html>

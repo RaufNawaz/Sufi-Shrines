@@ -46,7 +46,7 @@ Chosen for what a regression-minded reader of this map needs next, largest first
 4. [x] **Download the table behind the map.** Every indicator at the current unit as one CSV (unit id,
    name, province, every measure), with a codebook CSV (key, label, definition, source, units); so the
    data can go into Stata or R without the conjecture form.
-5. [ ] **A link to this view.** The unit, the measure(s), the mode, the map's centre and zoom, the layers
+5. [x] **A link to this view.** The unit, the measure(s), the mode, the map's centre and zoom, the layers
    switched on and the places filter, kept in the address's `#` part and restored on opening, so a view
    can be bookmarked or sent.
 6. [ ] **Export the map as an image.** The choropleth, the layers shown, the legend, a title and the
@@ -89,3 +89,7 @@ HANDOVER §9 entry. Nothing here writes to the Google Sheet or changes `sites.cs
   conjecture drawer; the codebook and the two loaders are new. Run in Stata and R on all three
   sub-province units: every label is right, and values are exact to 1.5e-15. That needed
   `asdouble`, since without it Stata stored float, accurate only to 1e-7.
+- **Item 5, 31 October 2026.** The view lives in the address after `#` and is restored on
+  opening: unit, mode, measures, centre and zoom, layers and the places filter. There is a "Copy a
+  link to this view" button. Unknown parts are dropped with a notice, and panning adds no history
+  entries. As planned.

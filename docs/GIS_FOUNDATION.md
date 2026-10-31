@@ -395,6 +395,14 @@ browser's storage or a Downloads folder: RULE 0. The Markdown export ends with t
     fixed-effect levels; district, tehsil and hexagon) in StataNow 19.5 and R 4.6.1. 80
     comparisons, largest relative difference **4.7e-7**. The slowest run is hexagons with province
     fixed effects clustered by district: 19,162 units, 12 s.
+- **A link to the view** (31 October 2026). The address after `#` holds the unit, the mode, the
+  measures, the map's centre and zoom, the layers switched on and the places filter, for example
+  `#u=tehsil&m=single&i=literacy&z=9&c=31.5500,74.3400&l=sites,places&pf=archive.doam.geonames.osm.osmc.wikidata,any,2,muslim,0`.
+  It is written with `history.replaceState`, so panning adds no history entries, and read once
+  on opening. "Copy a link to this view" puts it on the clipboard. If the link names something the
+  page does not have (a renamed measure, a malformed filter), that part is dropped and the notice
+  names it; the rest of the view is restored. A measure the linked unit lacks moves the unit, as
+  the menu does. Checked by `tests/test_view_link.cjs`.
 - **Download the data** (31 October 2026; side panel, "Download the data"). For any unit, the
   page offers four files:
   - **the table:** every measure the map has at that level, with ids, names, the district and
