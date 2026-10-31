@@ -2,9 +2,11 @@
 Build the verified shrine database: one row per place, every place of district_counts/sites.csv plus the
 archive rows that have no pin, each with a tier saying how well its existence is established.
 
-Tiers (the conservative default of 31 October 2026; Rauf may change them):
+Tiers (the conservative default of 31 October 2026, with Rauf's ruling of the same day that a DOAM record
+counts as documented on its own):
   verified            two or more independent sources (archive, DOAM, OSM, Wikidata, GeoNames; OSM tiers once)
   archive_documented  archive only, support_level Field-verified or Source-documented
+  doam_documented     DOAM only (the government's inventory), unless the check confirmed or contradicted it
   web_confirmed       one source, and the existence check found a verbatim quote naming it in its locality
   plausible           one source, the check found the name but not the locality
   unconfirmed         one source, no evidence found, or not checked (NOT "does not exist")
@@ -42,14 +44,15 @@ LINK = {"osm": "https://www.openstreetmap.org/{}", "doam": "https://doam.gov.pk/
 COORD_ORDER = ["archive", "wikidata", "osm", "doam", "geonames"]
 NAME_ORDER = ["archive", "wikidata", "osm", "doam", "geonames"]
 OSM_TIER_ORDER = {"A": 0, "B": 1, "C": 2}
-FINAL_TIERS = {"verified", "archive_documented", "web_confirmed"}
+FINAL_TIERS = {"verified", "archive_documented", "doam_documented", "web_confirmed"}
 NOT_SHRINE = {"secular_tomb_or_memorial", "mosque_only", "graveyard", "buddhist_or_christian_out_of_scope"}
 # The archive's traditions are Muslim, Hindu, Sikh, Nanakpanthi/Udasi, Jain and secular (CLAUDE.md). Buddhist and
 # Christian sites are kept in the file, labelled, but out of the final set: the conservative reading of
 # 31 October 2026, a question for Rauf.
 OUT_OF_SCOPE = re.compile(r"\b(buddhist|buddha|stupa|monastery|church|cathedral|marian)\b", re.I)
 ARCHIVE_DOCUMENTED = {"Field-verified", "Source-documented"}
-TIERS = ["verified", "archive_documented", "web_confirmed", "plausible", "unconfirmed", "contradicted"]
+TIERS = ["verified", "archive_documented", "doam_documented", "web_confirmed", "plausible", "unconfirmed",
+         "contradicted"]
 ARCHIVE_KIND = {"Muslim Shrine": "sufi_shrine_or_saints_tomb", "Hindu Temple": "hindu_temple_or_samadhi",
                 "Sikh Gurdwara": "sikh_gurdwara_or_samadhi", "Nanakpanthi / Udasi Darbar": "nanakpanthi_udasi_darbar",
                 "Jain Temple": "jain_temple", "Secular / Memorial": "secular_tomb_or_memorial"}
@@ -77,7 +80,7 @@ CODEBOOK = [
     ("coord_source", "Which source the point is: archive, then wikidata, osm, doam; geonames only when it is the only source.", "derived"),
     ("district_code", "District code of the point's record.", "sites.csv district_code"),
     ("province", "Province of that district.", "district_counts.csv province_name"),
-    ("tier", "verified / archive_documented / web_confirmed / plausible / unconfirmed / contradicted; rules in README.md.", "derived"),
+    ("tier", "verified / archive_documented / doam_documented / web_confirmed / plausible / unconfirmed / contradicted; rules in README.md.", "derived"),
     ("n_independent_sources", "Number of distinct sources among archive, doam, osm, wikidata, geonames (OSM tiers count once).", "derived from sources"),
     ("sources", "Those sources, `; ` separated.", "sites.csv source"),
     ("source_record_ids", "Every record as `source:id`, OSM with its tier in brackets.", "sites.csv source_id, tier"),
@@ -87,7 +90,7 @@ CODEBOOK = [
     ("web_verdict", "The existence check's verdict for a one-source place (confirmed / plausible / no_evidence / contradicted), after its quote checks and the hand spot check; empty when not checked.", "existence_results.csv verdict"),
     ("web_evidence_urls", "The outside pages the verdict rests on, `; ` separated. Never the record's own page.", "existence_results.csv evidence_urls"),
     ("web_evidence_quotes", "Word-for-word quotes from those pages' titles or snippets, ` | ` separated.", "existence_results.csv evidence_quotes"),
-    ("in_final", "yes when tier is verified, archive_documented or web_confirmed and kind is not secular_tomb_or_memorial, mosque_only, graveyard or buddhist_or_christian_out_of_scope.", "derived"),
+    ("in_final", "yes when tier is verified, archive_documented, doam_documented or web_confirmed and kind is not secular_tomb_or_memorial, mosque_only, graveyard or buddhist_or_christian_out_of_scope.", "derived"),
     ("note", "Where kind came from, and anything a reader must know about the row.", "derived"),
 ]
 
@@ -153,6 +156,10 @@ def main():
             tier = "archive_documented" if arow and arow["support_level"] in ARCHIVE_DOCUMENTED else "unconfirmed"
         elif verdict == "confirmed":
             tier = "web_confirmed"
+        elif fams == ["doam"] and verdict != "contradicted":
+            # Rauf, 31 October 2026: the government's inventory documents a place on its own. A web
+            # confirmation is kept as the stronger tier; a contradiction is left for a person to settle.
+            tier = "doam_documented"
         elif verdict == "plausible":
             tier = "plausible"
         elif verdict == "contradicted":
@@ -289,6 +296,11 @@ def run_checks(rows, places, sites, archive, web, cited):
     check(f"places of two or more sources (was {MULTI_SOURCE_PLACES_31_OCT} on 31 October 2026; a different count "
           "means sites.csv has been rebuilt)", len(multi), MULTI_SOURCE_PLACES_31_OCT, len(multi) == MULTI_SOURCE_PLACES_31_OCT)
     by_id = {r["place_id"]: r for r in rows}
+    doam_only = [p for p, recs in places.items() if {r["source"] for r in recs} == {"doam"}]
+    doam_bad = [p for p in doam_only if by_id[p]["tier"] not in ("doam_documented", "web_confirmed", "contradicted")]
+    check("every DOAM-only place is doam_documented, web_confirmed or contradicted", len(doam_bad), 0, not doam_bad)
+    misplaced = [r["place_id"] for r in rows if r["tier"] == "doam_documented" and r["sources"] != "doam"]
+    check("doam_documented rows are DOAM-only places", len(misplaced), 0, not misplaced)
     not_verified = [p for p in multi if by_id[p]["tier"] != "verified"]
     check("every place of two or more sources is verified", len(not_verified), 0, not not_verified)
 

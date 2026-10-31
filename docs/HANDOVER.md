@@ -22530,3 +22530,20 @@ Full report and seven questions for Rauf: `docs/research/VERIFIED_DB_OVERNIGHT_2
 
 **Commit:** `data:` the results folder, `verified_db/`, the report, its link in `docs/README.md`, and this
 entry. Not pushed. Other sessions' uncommitted work in this checkout was left untouched.
+
+### 9.453, 31 October 2026 (morning, Windows PC, the hybrid-worker session): DOAM counted as documented; the verified shrine database rebuilt
+
+**What.** Rauf answered question 1 of 9.447: a DOAM record documents a place on its own.
+`verified_db/build_verified_db.py` has a new tier, `doam_documented`, for DOAM-only places, and the final
+set admits it. A DOAM place the existence check confirmed stays `web_confirmed`; the 2 it contradicted stay
+`contradicted`. The final set grows from 368 to **1,025 places** (657 of them DOAM-documented). Counts and
+the new question: `docs/research/VERIFIED_DB_OVERNIGHT_2026-10-31.md` §7, and `verified_db/README.md`.
+
+**Measured.** Tiers: verified 208, archive_documented 61, doam_documented 659, web_confirmed 124,
+plausible 44, unconfirmed 2,910, contradicted 3. All 17 checks pass, 2 of them new for the tier.
+
+**Gotcha.** DOAM lists monuments, not shrines. 473 of the 657 are only `muslim_tomb_or_shrine`, and they
+include graveyard tombs, numbered unknown tombs and 24 Noorbakhshi khanqahs. A study that wants saints'
+shrines only should filter on `kind` (question 8 for Rauf).
+
+**Commit:** `data:` the build script, its outputs, the README, the report and this entry. Not pushed.

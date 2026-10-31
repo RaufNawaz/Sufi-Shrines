@@ -1,7 +1,7 @@
 # The verified shrine database
 
-_Built 31 October 2026 overnight (`docs/research/VERIFIED_DB_OVERNIGHT_2026-10-31.md`). A research
-layer, not the archive: nothing here enters the sheet or the site (RULE 3), and no point is moved._
+_Built 31 October 2026 overnight (`docs/research/VERIFIED_DB_OVERNIGHT_2026-10-31.md`) and rebuilt the
+same day after Rauf ruled that a DOAM record counts as documented on its own. A research layer, not the archive: nothing here enters the sheet or the site (RULE 3), and no point is moved._
 
 **What it is.** One row per place for every place in `district_counts/sites.csv` (3,689, from the archive,
 the DOAM national inventory, OpenStreetMap, Wikidata and GeoNames, joined by the measured matcher), plus
@@ -11,43 +11,52 @@ treat as established shrines, temples, gurdwaras and samadhis.
 
 ## Tiers
 
-The conservative default of 31 October 2026. Rauf's rule (30 October): a place two independent sources
-record is verified.
+Rauf's rules: a place two independent sources record is verified (30 October), and a DOAM record documents a
+place on its own (31 October). Everything else is the conservative default of 31 October 2026.
 
 | tier                 | rule                                                                                                                                                                         | places |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
 | `verified`           | two or more independent sources (archive, DOAM, OSM, Wikidata, GeoNames; OSM's tiers count once)                                                                             |    208 |
 | `archive_documented` | the archive only, with `support_level` Field-verified or Source-documented                                                                                                   |     61 |
+| `doam_documented`    | DOAM only (the government's inventory of protected and listed monuments), unless the check confirmed it (then `web_confirmed`) or contradicted it                            |    659 |
 | `web_confirmed`      | one source, and the existence check found a word-for-word quote from an outside page naming it in its locality, surviving the quote, type and name checks and the spot check |    124 |
-| `plausible`          | one source; the check found the name but not the locality                                                                                                                    |     68 |
-| `unconfirmed`        | one source and no outside evidence found, or (archive rows) Source-seeded or Web-compiled                                                                                    |  3,545 |
+| `plausible`          | one source other than DOAM; the check found the name but not the locality                                                                                                    |     44 |
+| `unconfirmed`        | one source and no outside evidence found, or (archive rows) Source-seeded or Web-compiled                                                                                    |  2,910 |
 | `contradicted`       | the check found the place demolished, moved or recorded elsewhere                                                                                                            |      3 |
 
 **`unconfirmed` does not mean a place does not exist.** It means none of the sources searched (Wikipedia
 in English and Urdu, Wikimedia Commons, Wikidata) names it in its locality. Most rural shrines have no
 presence there, and GeoNames' shrines come from old topographic maps: 1,727 of its 1,758 one-source places
-are unconfirmed. Treat the tier as how far existence is documented, not as a census.
+are unconfirmed. `doam_documented` rows keep their `web_verdict` (`no_evidence` 635, `plausible` 24). Treat the tier as how far existence is documented, not as a census.
 
 ## The final set (`in_final = yes`)
 
-**368 places**: 206 verified, 60 archive-documented, 102 web-confirmed. The admitted tiers lose 21 secular
-tombs or memorials, 1 mosque, 1 graveyard and 2 Buddhist sites (Mohra Moradu, Jaulian) to the kind rule;
-366 have a point (the GeoJSON), and 2 are archive rows without one.
+**1,025 places**: 206 verified, 60 archive-documented, 657 DOAM-documented, 102 web-confirmed. The
+admitted tiers lose 22 secular tombs or memorials, 1 mosque, 2 graveyards and 2 Buddhist sites (Mohra
+Moradu, Jaulian) to the kind rule; 1,023 have a point (the GeoJSON), and 2 are archive rows without one.
+Before DOAM counted (the overnight build) the final set was 368.
 
 | By tradition | places |     | By province            | places |
 | ------------ | -----: | --- | ---------------------- | -----: |
-| Muslim       |    231 |     | Punjab                 |    229 |
-| Hindu        |     74 |     | Sindh                  |     81 |
-| Sikh         |     48 |     | Khyber Pakhtunkhwa     |     30 |
-| Jain         |      4 |     | Balochistan            |     15 |
-| unknown      |     11 |     | Islamabad              |      4 |
-|              |        |     | Azad Kashmir           |      4 |
-|              |        |     | Gilgit-Baltistan       |      2 |
-|              |        |     | no district / no point |  1 / 2 |
+| Muslim       |    708 |     | Punjab                 |    466 |
+| Hindu        |    194 |     | Sindh                  |    355 |
+| Sikh         |     76 |     | Khyber Pakhtunkhwa     |     96 |
+| Jain         |      4 |     | Gilgit-Baltistan       |     49 |
+| unknown      |     43 |     | Balochistan            |     28 |
+|              |        |     | Azad Kashmir           |     18 |
+|              |        |     | Islamabad              |      9 |
+|              |        |     | no district / no point |  2 / 2 |
 
-By kind: Sufi shrine or saint's tomb 110, Muslim tomb or shrine (a source says only "muslim") 123, Hindu
-temple or samadhi 70, Sikh gurdwara or samadhi 43, Jain temple 9, Nanakpanthi or Udasi darbar 8, unclear 5.
+By kind: Muslim tomb or shrine (a source says only "muslim") 596, Hindu temple or samadhi 190, Sufi shrine
+or saint's tomb 114, Sikh gurdwara or samadhi 71, Jain temple 9, Nanakpanthi or Udasi darbar 8, unclear 37.
 `muslim_tomb_or_shrine` includes nobles' tombs a source did not distinguish from saints' shrines.
+
+**What DOAM brings in, and what to watch.** 473 of the 657 DOAM-documented places are
+`muslim_tomb_or_shrine`, because DOAM's records say only "muslim". DOAM lists monuments, not shrines, so these
+include tombs of clan members in old graveyards ("Tomb of Bahran Faqir at Khoso Graveyard"; 15 names say
+graveyard or qabristan), numbered or unknown tombs ("Unknown Tomb No.3 at Arrora Mukam Graveyard", 9), and
+24 Noorbakhshi khanqahs in Gilgit-Baltistan (`Khanqah-e-Moallah …`), which are places of prayer. They are
+left in: telling a saint's shrine from a noble's tomb needs a source, not a name pattern.
 
 **102 places moved from one source to `web_confirmed`** in the final set (OSM 48, DOAM 40, GeoNames 7,
 Wikidata 7).
@@ -82,6 +91,8 @@ The existence check of 30–31 October (`existence_checks/results/existence_repo
   - every `web_confirmed` quote is verbatim in its gathered evidence;
   - every `in_final` row is admitted by the rule;
   - every point is inside Pakistan;
+  - every DOAM-only place is `doam_documented`, `web_confirmed` or `contradicted`, and no other place is
+    `doam_documented`;
   - the 208 multi-source places are all `verified`;
   - every archive row appears once.
   - the out-of-scope pattern actually matches a known name and not a near miss.

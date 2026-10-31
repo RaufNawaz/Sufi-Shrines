@@ -13,6 +13,7 @@ Each question lists the conservative choice made in the meantime; nothing waits 
    inventory, the baseline `district_counts` already calibrates against. 635 DOAM-only places found no
    web evidence and are `unconfirmed`. _Meanwhile:_ DOAM counts as one source like any other, so they
    stay `unconfirmed`. Counting DOAM as documented would add up to about 600 places to the final set.
+   **Answered the same morning: yes.** The database was rebuilt with a `doam_documented` tier (§7).
 2. **How should the 1,727 unconfirmed GeoNames places be checked, if at all?** The web almost never names
    them: 8 of 1,758 were confirmed. The options are a random sample checked by hand on imagery and Google
    Maps (giving an accuracy rate per source), or the Google Places API (about $100 for every place).
@@ -85,7 +86,8 @@ no_evidence. By source:
 **Tiers (4,009 rows: the 3,689 places of `sites.csv` and the 320 unpinned archive rows):** verified 208,
 archive_documented 61, web_confirmed 124, plausible 68, unconfirmed 3,545, contradicted 3.
 
-**The final set:** 368 places (206 verified, 60 archive_documented, 102 web_confirmed). The kind rule
+**The final set (overnight build; §7 has the rebuild):** 368 places (206 verified, 60 archive_documented,
+102 web_confirmed). The kind rule
 removed 21 secular tombs, 1 mosque, 1 graveyard and 2 Buddhist sites.
 - **By tradition:** Muslim 231, Hindu 74, Sikh 48, Jain 4, unknown 11.
 - **By province:** Punjab 229, Sindh 81, Khyber Pakhtunkhwa 30, Balochistan 15, Islamabad 4, Azad
@@ -132,3 +134,29 @@ removed 21 secular tombs, 1 mosque, 1 graveyard and 2 Buddhist sites.
 5. **The union still has missed links** (question 6), so a few temples or shrines may appear twice.
 6. **Places outside the five sources are not here at all.** `district_counts/README.md` estimates that
    all the sources together see perhaps one shrine in seven to ten.
+
+## 7. Rebuilt after Rauf's answer to question 1 (31 October 2026, morning)
+
+Rauf: count DOAM as documented. `build_verified_db.py` now gives a DOAM-only place the tier
+`doam_documented`, which the final set admits. Two exceptions keep their tiers: places the existence check
+confirmed stay `web_confirmed` (50), and the 2 contradicted stay `contradicted`, so Mir Chakar Khan's tomb
+(question 7) is still for a person to settle. The existence check itself did not change.
+
+- **Tiers (4,009 rows):** verified 208, archive_documented 61, doam_documented 659, web_confirmed 124,
+  plausible 44, unconfirmed 2,910, contradicted 3. The 659 are the 635 DOAM places with no web evidence
+  and the 24 the check found plausible.
+- **The final set: 1,025 places** (206 verified, 60 archive_documented, 657 doam_documented, 102
+  web_confirmed). Two DOAM places stay out by kind: the Tomb of Mir Shahdad (secular, from its evidence) and
+  the Tomb and Mosque of Pir Patho (graveyard).
+- **By tradition:** Muslim 708, Hindu 194, Sikh 76, Jain 4, unknown 43. **By province:** Punjab 466, Sindh
+  355, Khyber Pakhtunkhwa 96, Gilgit-Baltistan 49, Balochistan 28, Azad Kashmir 18, Islamabad 9; 2 with
+  no district and 2 with no point.
+- **Checks:** 17 of 17 pass, including two new ones: every DOAM-only place is `doam_documented`,
+  `web_confirmed` or `contradicted`, and no other place is `doam_documented`.
+
+**A new question this raises (8).** 473 of the 657 DOAM-documented places in the final set are only
+`muslim_tomb_or_shrine`, because DOAM's records say only "muslim". DOAM lists monuments, not shrines, so
+these include clan members' tombs in old graveyards (15 names say graveyard or qabristan), numbered or
+unknown tombs (9), and 24 Noorbakhshi khanqahs in Gilgit-Baltistan, which are places of prayer. Should
+they stay in the final set? _Meanwhile:_ left in, since telling a saint's shrine from a noble's tomb needs
+a source, not a name pattern, and `kind` marks them for any study that wants to leave them out.
