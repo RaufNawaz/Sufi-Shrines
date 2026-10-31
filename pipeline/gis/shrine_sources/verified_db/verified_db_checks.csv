@@ -1,7 +1,7 @@
 check,value,expected,pass
 every place of sites.csv appears exactly once,3689,3689,yes
 no place_id repeats,1,1,yes
-tier counts sum to the row count,4009,4009,yes
+tier counts sum to the row count,4014,4014,yes
 "web_confirmed rows each have a quote and an outside URL, every quote verbatim in that place's gathered evidence and every URL among its results",0,0,yes
 every existence-check result is a place of sites.csv,0,0,yes
 no existence-check result is for a place with two or more sources,0,0,yes
@@ -15,7 +15,9 @@ places of two or more sources (was 208 on 31 October 2026; a different count mea
 doam_documented rows are DOAM-only places,0,0,yes
 every place of two or more sources is verified,0,0,yes
 every colonial-gazetteer match names a place of this file,0,0,yes
-colonial_gazetteer is a source exactly where a gazetteer row is a `match`,0,0,yes
-every place with a gazetteer match is verified (it has its own record besides),0,0,yes
+every political-shrines match names a place of this file,0,0,yes
+a published study is a source exactly where one of its rows is a `match`,0,0,yes
+"every added literature place has a matching study row, no point, and the tier its sources give",0,0,yes
+"every place of two or more sources, counting the studies, is verified",0,0,yes
 "the archive's pinned rows each appear once, under their archive_id",169,169,yes
 every archive row appears exactly once,489,489,yes

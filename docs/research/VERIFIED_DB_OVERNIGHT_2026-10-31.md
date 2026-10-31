@@ -184,3 +184,9 @@ recorded in the column, not counted. **Answered the same day: yes, a match count
 `verified` and brought the final set to **1,037** (230 verified, 58 archive-documented, 649 DOAM-documented,
 100 web-confirmed). A `possible` match is still recorded only. 20 of 20 checks pass.
 
+**Then (Rauf: add everything found).** Malik and Mirza's political-shrines table and figure (JEEA online
+appendix) are transcribed and matched; a match counts as a source. Five shrines no source here records
+(Makhad Sharif, Shah Jewana, Jamal Din Wali, Mau Mubarak, Sandhilianwali) are added without a point. The final
+set is **1,044**: 233 verified, 58 archive-documented, 649 DOAM-documented, 4 literature-documented and 100
+web-confirmed. 22 of 22 checks pass.
+

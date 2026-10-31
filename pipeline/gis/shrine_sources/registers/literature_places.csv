@@ -1,0 +1,6 @@
+place_id,name,district_code,district_as_written,settlement_locator
+lit:makhad-sharif,Makhad Sharif,PK601,Attock/Pindigheb (P4); Attock (F3),"Makhad, a village of Attock district: OSM node 866704263 (place=village), the settlement, not the shrine"
+lit:shah-jewana,Shah Jewana,PK612,Jhang (P5),"Shah Jewana, Jhang district: Wikidata Q18515999 is its railway station, not the shrine"
+lit:jamal-din-wali,Shrine of Jamal Din Wali,PK628,Rahimyar Khan/Sadiqabad (P9); Rahimyar Khan (F8),"Jamal Din Wali, Sadiqabad tehsil: OSM way 240178106 is its airport, not the shrine"
+lit:mau-mubarak,Mau Mubarak and other shrines of the families of Mianwali Qureshian,PK628,Rahimyar Khan (P10),"Mau Mubarak: Wikidata Q34732434 is a canal of that name, not the shrine"
+lit:sandhilianwali,Darbar Sandhlianwali,PK635,"Toba Tek Singh (P11; F1, F6)","Sandhilianwali, Pir Mahal tehsil: OSM node 2789636073 (place=town), the settlement, not the shrine"

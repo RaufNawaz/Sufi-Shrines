@@ -13,18 +13,20 @@ treat as established shrines, temples, gurdwaras and samadhis.
 ## Tiers
 
 Rauf's rules: a place two independent sources record is verified (30 October); a DOAM record documents a
-place on its own, and a hand-judged match to the colonial Punjab District Gazetteers is a source (31 October).
+place on its own, and a hand-judged match to a published study (the colonial Punjab District Gazetteers as Malik
+and Mirza list them, and their political-shrines table) is a source (31 October).
 Everything else is the conservative default of 31 October 2026.
 
-| tier                 | rule                                                                                                                                                                         | places |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
-| `verified`           | two or more independent sources (archive, DOAM, OSM, Wikidata, GeoNames, colonial gazetteer; OSM's tiers count once)                                                         |    232 |
-| `archive_documented` | the archive only, with `support_level` Field-verified or Source-documented                                                                                                   |     59 |
-| `doam_documented`    | DOAM only (the government's inventory of protected and listed monuments), unless the check confirmed it (then `web_confirmed`) or contradicted it                            |    651 |
-| `web_confirmed`      | one source, and the existence check found a word-for-word quote from an outside page naming it in its locality, surviving the quote, type and name checks and the spot check |    122 |
-| `plausible`          | one source other than DOAM; the check found the name but not the locality                                                                                                    |     43 |
-| `unconfirmed`        | one source and no outside evidence found, or (archive rows) Source-seeded or Web-compiled                                                                                    |  2,899 |
-| `contradicted`       | the check found the place demolished, moved or recorded elsewhere                                                                                                            |      3 |
+| tier                    | rule                                                                                                                                                                         | places |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
+| `verified`              | two or more independent sources (archive, DOAM, OSM, Wikidata, GeoNames, colonial gazetteer, Malik and Mirza's political shrines; OSM's tiers count once)                    |    235 |
+| `archive_documented`    | the archive only, with `support_level` Field-verified or Source-documented                                                                                                   |     59 |
+| `doam_documented`       | DOAM only (the government's inventory of protected and listed monuments), unless the check confirmed it (then `web_confirmed`) or contradicted it                            |    651 |
+| `literature_documented` | only Malik and Mirza's political-shrines table names it; no source of `sites.csv` records it, so it has no point                                                             |      4 |
+| `web_confirmed`         | one source, and the existence check found a word-for-word quote from an outside page naming it in its locality, surviving the quote, type and name checks and the spot check |    122 |
+| `plausible`             | one source other than DOAM; the check found the name but not the locality                                                                                                    |     43 |
+| `unconfirmed`           | one source and no outside evidence found, or (archive rows) Source-seeded or Web-compiled                                                                                    |  2,897 |
+| `contradicted`          | the check found the place demolished, moved or recorded elsewhere                                                                                                            |      3 |
 
 **`unconfirmed` does not mean a place does not exist.** It means none of the sources searched (Wikipedia
 in English and Urdu, Wikimedia Commons, Wikidata) names it in its locality. Most rural shrines have no
@@ -33,14 +35,16 @@ are unconfirmed. `doam_documented` rows keep their `web_verdict` (`no_evidence` 
 
 ## The final set (`in_final = yes`)
 
-**1,037 places**: 230 verified, 58 archive-documented, 649 DOAM-documented, 100 web-confirmed. The
-admitted tiers lose 22 secular tombs or memorials, 1 mosque, 2 graveyards and 2 Buddhist sites (Mohra
-Moradu, Jaulian) to the kind rule; 1,031 have a point (the GeoJSON), and 6 are archive rows without one.
-The final set was 368 in the overnight build, 1,025 once DOAM counted, and 1,037 once the gazetteer counted.
+**1,044 places**: 233 verified, 58 archive-documented, 649 DOAM-documented, 4 literature-documented, 100
+web-confirmed. The admitted tiers lose 22 secular tombs or memorials, 1 mosque, 2 graveyards and 2 Buddhist
+sites (Mohra Moradu, Jaulian) to the kind rule. 1,033 have a point (the GeoJSON); 11 have none: 6 archive rows
+without a pin and the 5 shrines added from Malik and Mirza (`lit:` ids). The final set was 368 in the
+overnight build, 1,025 once DOAM counted, 1,037 once the gazetteer counted, and 1,044 with the political
+shrines.
 
 | By tradition | places |     | By province            | places |
 | ------------ | -----: | --- | ---------------------- | -----: |
-| Muslim       |    719 |     | Punjab                 |    473 |
+| Muslim       |    726 |     | Punjab                 |    480 |
 | Hindu        |    194 |     | Sindh                  |    355 |
 | Sikh         |     76 |     | Khyber Pakhtunkhwa     |     96 |
 | Jain         |      4 |     | Gilgit-Baltistan       |     49 |
@@ -49,8 +53,8 @@ The final set was 368 in the overnight build, 1,025 once DOAM counted, and 1,037
 |              |        |     | Islamabad              |     10 |
 |              |        |     | no district / no point |  2 / 6 |
 
-By kind: Muslim tomb or shrine (a source says only "muslim") 602, Hindu temple or samadhi 190, Sufi shrine
-or saint's tomb 119, Sikh gurdwara or samadhi 71, Jain temple 9, Nanakpanthi or Udasi darbar 8, unclear 38.
+By kind: Muslim tomb or shrine (a source says only "muslim") 604, Hindu temple or samadhi 190, Sufi shrine
+or saint's tomb 124, Sikh gurdwara or samadhi 71, Jain temple 9, Nanakpanthi or Udasi darbar 8, unclear 38.
 `muslim_tomb_or_shrine` includes nobles' tombs a source did not distinguish from saints' shrines.
 
 **What DOAM brings in, and what to watch.** 465 of the 649 DOAM-documented places in the final set are
@@ -93,6 +97,22 @@ archive-documented archive rows, and 4 archive rows without a pin, which stay un
 the final set.
 A gazetteer attests the shrine and its fair around 1880–1930, and the match rests on the name and district,
 so a verified place whose second source is the gazetteer says so in `note`.
+
+## Malik and Mirza's political shrines (`malik_mirza_politics`)
+
+The online appendix of Malik and Mirza (2022) names the shrines whose families were elected to the assemblies
+(Table A.1, 11 rows) and the sajjada nashins married into Yusuf Raza Gilani's family (Figure A.2, 8 shrines),
+transcribed in `registers/political_shrines_malik_mirza.csv`. Matched by hand
+(`registers/political_shrine_match_verdicts.tsv`), they name 9 places of this file (one only `possible`, Uch)
+and 5 shrines no source here records: Makhad Sharif, Shah Jewana, Jamal Din Wali, Mau Mubarak (the Mianwali
+Qureshian shrines, one row as the table gives it) and Sandhilianwali. Those five are added with `lit:` ids,
+their district as the study states it and **no point**: no record of the shrine itself was found in OSM or
+Wikidata, only of the settlement, and a settlement's point is not the shrine's. Shah Jewana is also in the
+gazetteer, so it is `verified`; the other four are `literature_documented`. A `match` counts as the source
+`malik_mirza_politics`; it made two OSM places `verified` (the Shrine of Shaikh Ismail Bukhari, Chiniot, and
+the Tomb of Syed Shah Muqeem, Hujra Shah Muqeem). The same paper's tables of shrine families as colonial
+zaildars and their Court of Wards estates are transcribed in `registers/shrine_families_malik_mirza.csv`, as
+context: they name families and estates, not shrines, and change nothing here.
 
 ## Columns, checks, rebuild
 

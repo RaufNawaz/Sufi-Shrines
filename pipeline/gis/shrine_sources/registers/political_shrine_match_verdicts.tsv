@@ -1,0 +1,20 @@
+row	place_id	verdict	reason
+P1	U00108	match	Daud Bandagi, Shergarh: 'Mausoleum of Hazrat Daud Bandgi, Shergarh'
+P2	U00013	match	Taunsa Sharif: the shrine of Khawaja Shah Muhammad Sulaiman Taunsvi
+P3	U00124	match	Pakpattan Sharif (Baba Farid): the shrine of Fariduddin Ganjshakar
+P4	lit:makhad-sharif	match	Makhad Sharif, Attock/Pindigheb: in no source of sites.csv; added as a place
+P5	lit:shah-jewana	match	Shah Jewana, Jhang: in no source of sites.csv; added as a place
+P6	U01090	match	Shrine of Shaikh Ismail, Jhang/Chiniot: 'Shrine of Shaikh Ismail Bukhari' (OSM), Chiniot district
+P7	U00152	match	Shah Rukn-e-Alam, Multan
+P8	U00155	match	Musa Pak Shahid, Multan: 'Shrine of Syed Musa Pak' (Tomb of Musa Pak Shaheed), Multan district
+P9	lit:jamal-din-wali	match	Shrine of Jamal Din Wali, Sadiqabad: in no source of sites.csv; added as a place
+P10	lit:mau-mubarak	match	Mau Mubarak and other shrines of the Mianwali Qureshian, Rahim Yar Khan: in no source of sites.csv; added as one place for the group, as the table gives it
+P11	lit:sandhilianwali	match	Darbar Sandhlianwali, Toba Tek Singh: in no source of sites.csv; added as a place
+F1	lit:sandhilianwali	match	Sandhlianwali Sarkar, Toba Tek Singh
+F2	U00027	match	Golra Sharif, Islamabad
+F3	lit:makhad-sharif	match	Makhad Sharif, Attock
+F4	U00155	match	Pir-e-Piraan Musa Pak Shaheed, Multan
+F5	U00543	match	Hujra Shah Muqeem, Okara: 'Tomb of Syed Shah Muqeem' (OSM), Okara district
+F6	lit:sandhilianwali	match	Sandhlianwali Sarkar, Toba Tek Singh
+F7	archive:sayyid-muhammad-ghaus-uchi-jili-gilani	possible	Uch Sharif's Gilani sajjada nashin: the Gilani shrine of Uch is Muhammad Ghaus's, but the figure names only 'Uch Sharif'
+F8	lit:jamal-din-wali	match	the shrine of Jamal al-Din Wali, Rahim Yar Khan

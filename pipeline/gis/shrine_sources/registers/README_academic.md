@@ -127,6 +127,16 @@ registers, `README_auqaf.md`) or the Malik and Mirza gazetteer list below.
    independent source** (Rauf, 31 October 2026); a `possible` is recorded only. 24 one-source places became
    `verified` that way, 12 of them new to the final set (`verified_db/README.md`).
 
+4. **`political_shrines_malik_mirza.csv`**: the JEEA online appendix's Table A.1 (11 shrines or gaddis with
+   the family members elected from them) and Figure A.2 (8 shrines whose sajjada nashins married into Yusuf
+   Raza Gilani's family), as printed. `political_shrine_match_verdicts.tsv` matches them by hand. **A `match`
+   counts as a source** (`malik_mirza_politics`), as the gazetteer does. The five shrines no source here
+   records are added to the verified database as places without a point (`literature_places.csv`; the
+   settlement each is in is recorded, but its point is not used).
+5. **`shrine_families_malik_mirza.csv`**: WP 30's Tables A.1 (zaildars from shrine families, 1914–1929) and
+   A.2 (estates of shrine families under the Court of Wards). These are families and estates, not shrines,
+   so they are context only.
+
 ## Limits
 
 - The gazetteer list is the colonial view of the notable shrines: those with a fair worth reporting.

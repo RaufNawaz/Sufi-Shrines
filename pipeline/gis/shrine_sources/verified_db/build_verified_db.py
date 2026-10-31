@@ -8,6 +8,8 @@ counts as documented on its own):
                       match to the colonial Punjab District Gazetteers; OSM tiers once)
   archive_documented  archive only, support_level Field-verified or Source-documented
   doam_documented     DOAM only (the government's inventory), unless the check confirmed or contradicted it
+  literature_documented  a place only a published study names (Malik and Mirza's political-shrines table), with
+                      no record of its own in sites.csv and so no point
   web_confirmed       one source, and the existence check found a verbatim quote naming it in its locality
   plausible           one source, the check found the name but not the locality
   unconfirmed         one source, no evidence found, or not checked (NOT "does not exist")
@@ -18,7 +20,10 @@ existence_checks/results/existence_results.csv with existence_evidence_cited.jso
 check, docs/prompts/hybrid_worker_shrine_existence.md), and registers/gazetteer_shrines_malik_mirza.csv with
 registers/gazetteer_match_verdicts.tsv (shrines the colonial Punjab District Gazetteers name, as Malik and Mirza
 list them, matched by hand; registers/README_academic.md). A `match` counts as an independent source (Rauf,
-31 October 2026); a `possible` is recorded only. Nothing is invented (RULE 2): names, points and
+31 October 2026); a `possible` is recorded only. Likewise registers/political_shrines_malik_mirza.csv with
+registers/political_shrine_match_verdicts.tsv (shrines whose families entered politics, Malik and Mirza 2022,
+online appendix), whose matches count as the source malik_mirza_politics; registers/literature_places.csv holds
+the shrines that table names and no other source records, added as places without a point. Nothing is invented (RULE 2): names, points and
 links are the source records' own; no point is averaged or moved.
 
 Writes shrines_verified.csv, shrines_verified.geojson (in_final = yes, with a point),
@@ -49,14 +54,14 @@ LINK = {"osm": "https://www.openstreetmap.org/{}", "doam": "https://doam.gov.pk/
 COORD_ORDER = ["archive", "wikidata", "osm", "doam", "geonames"]
 NAME_ORDER = ["archive", "wikidata", "osm", "doam", "geonames"]
 OSM_TIER_ORDER = {"A": 0, "B": 1, "C": 2}
-FINAL_TIERS = {"verified", "archive_documented", "doam_documented", "web_confirmed"}
+FINAL_TIERS = {"verified", "archive_documented", "doam_documented", "literature_documented", "web_confirmed"}
 NOT_SHRINE = {"secular_tomb_or_memorial", "mosque_only", "graveyard", "buddhist_or_christian_out_of_scope"}
 # The archive's traditions are Muslim, Hindu, Sikh, Nanakpanthi/Udasi, Jain and secular (CLAUDE.md). Buddhist and
 # Christian sites are kept in the file, labelled, but out of the final set: the conservative reading of
 # 31 October 2026, a question for Rauf.
 OUT_OF_SCOPE = re.compile(r"\b(buddhist|buddha|stupa|monastery|church|cathedral|marian)\b", re.I)
 ARCHIVE_DOCUMENTED = {"Field-verified", "Source-documented"}
-TIERS = ["verified", "archive_documented", "doam_documented", "web_confirmed", "plausible", "unconfirmed",
+TIERS = ["verified", "archive_documented", "doam_documented", "literature_documented", "web_confirmed", "plausible", "unconfirmed",
          "contradicted"]
 ARCHIVE_KIND = {"Muslim Shrine": "sufi_shrine_or_saints_tomb", "Hindu Temple": "hindu_temple_or_samadhi",
                 "Sikh Gurdwara": "sikh_gurdwara_or_samadhi", "Nanakpanthi / Udasi Darbar": "nanakpanthi_udasi_darbar",
@@ -73,7 +78,7 @@ MULTI_SOURCE_PLACES_31_OCT = 208
 COLUMNS = ["place_id", "name", "other_names", "tradition", "kind", "lat", "lon", "coord_source",
            "district_code", "province", "tier", "n_independent_sources", "sources", "source_record_ids",
            "source_urls", "archive_id", "archive_support_level", "web_verdict", "web_evidence_urls",
-           "web_evidence_quotes", "colonial_gazetteer", "in_final", "note"]
+           "web_evidence_quotes", "colonial_gazetteer", "malik_mirza_politics", "in_final", "note"]
 CODEBOOK = [
     ("place_id", "The place's id in district_counts/sites.csv (`place`); `archive:<id>` for an archive row with no pin, which sites.csv does not hold.", "sites.csv; data/shrines.csv"),
     ("name", "The name of the most authoritative record: archive, then Wikidata, OSM (tier A, B, C), DOAM, GeoNames.", "sites.csv name; data/shrines.csv Name"),
@@ -86,7 +91,7 @@ CODEBOOK = [
     ("district_code", "District code of the point's record.", "sites.csv district_code"),
     ("province", "Province of that district.", "district_counts.csv province_name"),
     ("tier", "verified / archive_documented / doam_documented / web_confirmed / plausible / unconfirmed / contradicted; rules in README.md.", "derived"),
-    ("n_independent_sources", "Number of distinct sources among archive, doam, osm, wikidata, geonames and colonial_gazetteer (OSM tiers count once; the gazetteer only for a hand-judged `match`).", "derived from sources"),
+    ("n_independent_sources", "Number of distinct sources among archive, doam, osm, wikidata, geonames, colonial_gazetteer and malik_mirza_politics (OSM tiers count once; the last two only for a hand-judged `match`).", "derived from sources"),
     ("sources", "Those sources, `; ` separated.", "sites.csv source"),
     ("source_record_ids", "Every record as `source:id`, OSM with its tier in brackets.", "sites.csv source_id, tier"),
     ("source_urls", "Each non-archive record's own page.", "built from source_id"),
@@ -96,6 +101,7 @@ CODEBOOK = [
     ("web_evidence_urls", "The outside pages the verdict rests on, `; ` separated. Never the record's own page.", "existence_results.csv evidence_urls"),
     ("web_evidence_quotes", "Word-for-word quotes from those pages' titles or snippets, ` | ` separated.", "existence_results.csv evidence_quotes"),
     ("colonial_gazetteer", "Shrines the colonial Punjab District Gazetteers name (1880s-1930s), as listed in Malik and Mirza (2015), Appendix 1, matched to this place by hand: `match` or `possible`, the appendix row, name, colonial district/tehsil and fair attendance as printed. ` | ` separated. A `match` counts as the source colonial_gazetteer; a `possible` is recorded only.", "registers/gazetteer_shrines_malik_mirza.csv; registers/gazetteer_match_verdicts.tsv"),
+    ("malik_mirza_politics", "Shrines whose families were elected to the assemblies, in Malik and Mirza (2022), online appendix, Table A.1 (rows P1-P11) and Figure A.2 (rows F1-F8), matched by hand: `match` or `possible`, the row and the shrine as printed. A `match` counts as the source malik_mirza_politics; a `possible` is recorded only.", "registers/political_shrines_malik_mirza.csv; registers/political_shrine_match_verdicts.tsv"),
     ("in_final", "yes when tier is verified, archive_documented, doam_documented or web_confirmed and kind is not secular_tomb_or_memorial, mosque_only, graveyard or buddhist_or_christian_out_of_scope.", "derived"),
     ("note", "Where kind came from, and anything a reader must know about the row.", "derived"),
 ]
@@ -123,6 +129,7 @@ def main():
                 cited[c["place_id"]] = c["results"]
 
     gaz = gazetteer()
+    pol = political()
 
     places = collections.OrderedDict()
     for r in sites:
@@ -131,9 +138,7 @@ def main():
     rows = []
     for pid, recs in places.items():
         fams = sorted({r["source"] for r in recs})
-        gaz_match = "match:" in gaz.get(pid, "")
-        # Rauf, 31 October 2026: a colonial-gazetteer match counts as an independent source.
-        all_sources = fams + (["colonial_gazetteer"] if gaz_match else [])
+        all_sources = fams + literature_sources(pid, gaz, pol)
         n = len(all_sources)
 
         def ordered(order):
@@ -164,7 +169,7 @@ def main():
         if n >= 2:
             tier = "verified"
             if len(fams) == 1:
-                notes.append("verified with the colonial gazetteer as its second source")
+                notes.append("verified with a published study's record as its second source")
         elif fams[0] == "archive":
             tier = "archive_documented" if arow and arow["support_level"] in ARCHIVE_DOCUMENTED else "unconfirmed"
         elif verdict == "confirmed":
@@ -197,7 +202,7 @@ def main():
             "archive_id": arch["source_id"] if arch else "", "archive_support_level": arow["support_level"] if arow else "",
             "web_verdict": verdict, "web_evidence_urls": w.get("evidence_urls", ""),
             "web_evidence_quotes": w.get("evidence_quotes", ""),
-            "colonial_gazetteer": gaz.get(pid, ""),
+            "colonial_gazetteer": gaz.get(pid, ""), "malik_mirza_politics": pol.get(pid, ""),
             "in_final": "yes" if tier in FINAL_TIERS and kind not in NOT_SHRINE else "no",
             "note": "; ".join(notes),
         })
@@ -206,8 +211,8 @@ def main():
     for aid, a in archive.items():
         if aid in pinned:
             continue
-        gaz_match = "match:" in gaz.get(f"archive:{aid}", "")
-        if gaz_match:
+        lit = literature_sources(f"archive:{aid}", gaz, pol)
+        if lit:
             tier = "verified"
         else:
             tier = "archive_documented" if a["support_level"] in ARCHIVE_DOCUMENTED else "unconfirmed"
@@ -216,23 +221,64 @@ def main():
             "place_id": f"archive:{aid}", "name": a["Name"], "other_names": "",
             "tradition": ARCHIVE_TRADITION.get(a["category"], "unknown"), "kind": kind, "lat": "", "lon": "",
             "coord_source": "", "district_code": "", "province": "", "tier": tier,
-            "n_independent_sources": 2 if gaz_match else 1,
-            "sources": "archive; colonial_gazetteer" if gaz_match else "archive", "source_record_ids": f"archive:{aid}", "source_urls": "", "archive_id": aid,
+            "n_independent_sources": 1 + len(lit),
+            "sources": "; ".join(["archive"] + lit), "source_record_ids": f"archive:{aid}", "source_urls": "", "archive_id": aid,
             "archive_support_level": a["support_level"], "web_verdict": "", "web_evidence_urls": "",
             "web_evidence_quotes": "", "colonial_gazetteer": gaz.get(f"archive:{aid}", ""),
+            "malik_mirza_politics": pol.get(f"archive:{aid}", ""),
             "in_final": "yes" if tier in FINAL_TIERS and kind not in NOT_SHRINE else "no",
             "note": "kind from the archive's category and site_type; archive row without a pin, so not in sites.csv "
-                    "and not placed (no lat/lon)" + ("; verified with the colonial gazetteer as its second source"
-                                                     if gaz_match else ""),
+                    "and not placed (no lat/lon)" + ("; verified with a published study's record as its second source"
+                                                     if lit else ""),
         })
 
-    checks = run_checks(rows, places, sites, archive, web, cited, gaz)
+    # Shrines a published study names that no source of sites.csv records (registers/literature_places.csv).
+    for lp in read_csv(REG / "literature_places.csv") if (REG / "literature_places.csv").exists() else []:
+        lit = literature_sources(lp["place_id"], gaz, pol)
+        tier = "verified" if len(lit) >= 2 else "literature_documented"
+        kind = "sufi_shrine_or_saints_tomb"
+        rows.append({
+            "place_id": lp["place_id"], "name": lp["name"], "other_names": "", "tradition": "muslim", "kind": kind,
+            "lat": "", "lon": "", "coord_source": "", "district_code": lp["district_code"],
+            "province": province.get(lp["district_code"], ""), "tier": tier, "n_independent_sources": len(lit),
+            "sources": "; ".join(lit), "source_record_ids": "", "source_urls": "", "archive_id": "",
+            "archive_support_level": "", "web_verdict": "", "web_evidence_urls": "", "web_evidence_quotes": "",
+            "colonial_gazetteer": gaz.get(lp["place_id"], ""), "malik_mirza_politics": pol.get(lp["place_id"], ""),
+            "in_final": "yes" if tier in FINAL_TIERS and kind not in NOT_SHRINE else "no",
+            "note": "a shrine of a family Malik and Mirza record in politics ('Shrine/Gaddi'), so kind "
+                    "sufi_shrine_or_saints_tomb; in no source of sites.csv; no point, because no record of the shrine "
+                    f"itself was found (district as the study states it: {lp['district_as_written']}; the settlement: "
+                    f"{lp['settlement_locator']})",
+        })
+
+    checks = run_checks(rows, places, sites, archive, web, cited, gaz, pol)
     write(rows, checks)
     summarise(rows)
     failed = [c for c in checks if c["pass"] != "yes"]
     for c in checks:
         print(f"{'ok  ' if c['pass'] == 'yes' else 'FAIL'} {c['check']}: {c['value']} (expected {c['expected']})")
     sys.exit(1 if failed else 0)
+
+
+def literature_sources(pid, gaz, pol):
+    """The published-study sources a place has a hand-judged `match` in (Rauf, 31 October 2026: they count)."""
+    return [name for name, cells in (("colonial_gazetteer", gaz), ("malik_mirza_politics", pol))
+            if "match:" in cells.get(pid, "")]
+
+
+def political():
+    """place_id -> the political-shrines matches judged by hand, as one cell."""
+    if not (REG / "political_shrine_match_verdicts.tsv").exists():
+        return {}
+    listed = {r["row"]: r for r in read_csv(REG / "political_shrines_malik_mirza.csv")}
+    out = collections.defaultdict(list)
+    with open(REG / "political_shrine_match_verdicts.tsv", encoding="utf-8", newline="") as fh:
+        for v in csv.DictReader(fh, delimiter="\t", quoting=csv.QUOTE_NONE):
+            g = listed.get(v["row"])
+            if g is None or v["verdict"] not in ("match", "possible"):
+                sys.exit(f"political_shrine_match_verdicts.tsv: bad row {v}")
+            out[v["place_id"]].append(f"{v['verdict']}: {g['row']} {g['shrine_as_written']} ({g['district_as_written']})")
+    return {k: " | ".join(x) for k, x in out.items()}
 
 
 def gazetteer():
@@ -270,6 +316,8 @@ def summarise(rows):
     gz = [r for r in rows if r["colonial_gazetteer"]]
     print("colonial gazetteer:", len(gz), "places;", dict(c(("match" if "match:" in r["colonial_gazetteer"] else "possible", r["tier"])
                                                              for r in gz)))
+    pl = [r for r in rows if r["malik_mirza_politics"]]
+    print("malik_mirza_politics:", len(pl), "places;", dict(c(r["tier"] for r in pl)))
     print("web verdict by source:", {s: dict(c(r["web_verdict"] for r in one_source_checked if r["sources"] == s))
                                      for s in sorted({r["sources"] for r in one_source_checked})})
 
@@ -283,7 +331,7 @@ def archive_kind(a):
     return ARCHIVE_KIND.get(a.get("category", ""), "unclear")
 
 
-def run_checks(rows, places, sites, archive, web, cited, gaz):
+def run_checks(rows, places, sites, archive, web, cited, gaz, pol):
     checks = []
 
     def check(name, value, expected, ok):
@@ -330,7 +378,7 @@ def run_checks(rows, places, sites, archive, web, cited, gaz):
     out_box = [r["place_id"] for r in rows if r["lat"] and not (lo_lat <= float(r["lat"]) <= hi_lat
                                                                  and lo_lon <= float(r["lon"]) <= hi_lon)]
     check("no lat/lon outside Pakistan's box", len(out_box), 0, not out_box)
-    unplaced = [r["place_id"] for r in rows if not r["lat"] and not r["place_id"].startswith("archive:")]
+    unplaced = [r["place_id"] for r in rows if not r["lat"] and not r["place_id"].startswith(("archive:", "lit:"))]
     check("every place of sites.csv has a point", len(unplaced), 0, not unplaced)
 
     multi = [p for p, recs in places.items() if len({r["source"] for r in recs}) >= 2]
@@ -348,10 +396,18 @@ def run_checks(rows, places, sites, archive, web, cited, gaz):
 
     unknown_gaz = sorted(set(gaz) - set(by_id))
     check("every colonial-gazetteer match names a place of this file", len(unknown_gaz), 0, not unknown_gaz)
-    gaz_bad = [p for p, cell in gaz.items() if p in by_id and ("match:" in cell) != ("colonial_gazetteer" in by_id[p]["sources"])]
-    check("colonial_gazetteer is a source exactly where a gazetteer row is a `match`", len(gaz_bad), 0, not gaz_bad)
-    gaz_tier = [p for p, cell in gaz.items() if "match:" in cell and by_id[p]["tier"] != "verified"]
-    check("every place with a gazetteer match is verified (it has its own record besides)", len(gaz_tier), 0, not gaz_tier)
+    unknown_pol = sorted(set(pol) - set(by_id))
+    check("every political-shrines match names a place of this file", len(unknown_pol), 0, not unknown_pol)
+    lit_bad = [p for p, r in by_id.items() for name, cells in (("colonial_gazetteer", gaz), ("malik_mirza_politics", pol))
+               if ("match:" in cells.get(p, "")) != (name in r["sources"].split("; "))]
+    check("a published study is a source exactly where one of its rows is a `match`", len(lit_bad), 0, not lit_bad)
+    lit_rows = [r for r in rows if r["place_id"].startswith("lit:")]
+    lit_tier = [r["place_id"] for r in lit_rows if not r["sources"] or r["lat"]
+                or r["tier"] != ("verified" if int(r["n_independent_sources"]) >= 2 else "literature_documented")]
+    check("every added literature place has a matching study row, no point, and the tier its sources give",
+          len(lit_tier), 0, not lit_tier)
+    two = [r["place_id"] for r in rows if int(r["n_independent_sources"]) >= 2 and r["tier"] != "verified"]
+    check("every place of two or more sources, counting the studies, is verified", len(two), 0, not two)
 
     pinned = [r["source_id"] for r in sites if r["source"] == "archive"]
     arch_ids = collections.Counter(r["archive_id"] for r in rows if r["archive_id"])

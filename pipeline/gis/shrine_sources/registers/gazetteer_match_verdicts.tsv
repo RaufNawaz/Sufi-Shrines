@@ -1,6 +1,7 @@
 gazetteer_row	place_id	verdict	reason
 1	U03388	match	"Tomb Shah Rehman" (DOAM), Gujranwala district; the gazetteer's "Khangah Shah Rehman", Gujranwala tehsil
 2	U03164	possible	"Chillah-Gah of Hazarat Sakhi Sarwar" (DOAM), Gujranwala district; a chillah-gah of the same saint, but the gazetteer gives Wazirabad tehsil and the record does not
+4	lit:shah-jewana	match	the gazetteer's "Shah Jeewana", Jhang tehsil; the shrine of Shah Jewana, added as a place from Malik and Mirza's political-shrines table (P5)
 5	U01359	match	"Ziarat Pir Abdul Qadir" (GeoNames), Jhang district; same name, same district
 6	U03327	match	"Shrine of Hazrat Tajj-u-din Makhdum" (DOAM), Jhang district; the gazetteer's "Pir Taj-ud-din", Jhang tehsil
 10	U03317	match	"Shrine of Hazrat Pir Abdur Rehman Qureshi" (DOAM), Jhang district; the gazetteer's "Pir Abdul Rehman", Shorkot tehsil of Jhang

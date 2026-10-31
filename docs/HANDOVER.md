@@ -22899,3 +22899,18 @@ _Modern Asian Studies_) holds the politics database and is closed access.
 nothing. `pypdfium2` (installed on this PC) renders them to PNG for reading.
 
 **Commit:** `data:`. Not pushed.
+
+### 9.456, 31 October 2026 (Windows PC, the hybrid-worker session): everything found on Malik's shrines added to the verified database
+
+**What.** Rauf: add everything found. `registers/political_shrines_malik_mirza.csv` transcribes the JEEA online
+appendix's political-shrines table (P1-P11) and marriage figure (F1-F8). `political_shrine_match_verdicts.tsv`
+matches them by hand, and a match counts as the source `malik_mirza_politics`. Five shrines no source here
+records are added from `registers/literature_places.csv` with `lit:` ids and no point; a new tier,
+`literature_documented`, is admitted to the final set. `registers/shrine_families_malik_mirza.csv` (WP 30
+Tables A.1 and A.2) is context only. Final set **1,044**; 22 of 22 checks pass.
+
+**Gotcha.** None of the five has an OSM or Wikidata record of the shrine itself, only of its settlement,
+railway station, airport or canal. Those points are recorded in `note`, not used.
+
+**Commit:** `data:`, pushed with Rauf's go-ahead.
+
