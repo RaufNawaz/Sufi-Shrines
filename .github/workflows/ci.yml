@@ -45,6 +45,11 @@ jobs:
       - name: Test
         run: npm run test
 
+      # The research viewer's Stata service: schema, do-file, results parsing and HTTP locks.
+      # Standard-library Python and no Stata, so the runner's python3 is enough.
+      - name: Stata service unit tests
+        run: npm run test:stata
+
       # data:validate includes `python3 urdu-i18n/build_dictionary.py --check`,
       # which regenerates the Urdu dictionary in memory and fails on any
       # mismatch with the committed files. build_dictionary.py is stdlib-only

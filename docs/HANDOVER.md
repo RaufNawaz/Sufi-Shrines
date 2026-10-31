@@ -22934,3 +22934,58 @@ Tests: `test_places_filter` (now also checks the default against a count from th
 research places there is a product decision for Rauf.
 
 **Commit:** `feat(gis):`, pushed.
+
+### 9.458, 31 October 2026 (Windows PC, the hybrid-worker session): the viewer's Stata tool rebuilt: the page sends data, the service writes the code; diagnostics, bootstrap, robustness, a reproducible zip
+
+**What Rauf asked.** Make the Stata tool in "Test a conjecture" more useful as an econometric tool, and make
+the way the page talks to the local Stata service secure and reliable. His rulings, asked in chat: the
+**structured contract** (the page sends the test as data and the service writes the do-file); build **all
+four additions** (the full table with diagnostics, a reproducible export, the wild cluster bootstrap, more
+estimators with rate ratios and marginal effects); `boottest` may be installed (done, 4.5.5, from SSC);
+estimators the page cannot reproduce go in a **robustness panel, out of the log and the BH family**. The
+Python unit tests join `npm run verify` and CI (he was told, and did not object).
+
+**Security and reliability (protocol 2).** Before, the page sent Stata code and the service checked each line
+against an allowlist; the checker and Stata parse a do-file separately (`///` joins, `/* */`), so the check
+could disagree with what Stata ran. Now no request text becomes Stata code: the schema is closed (enums for
+model, SEs, fixed effects, transforms; names `[a-z][a-z0-9_]{0,31}` minus reserved ones; ids, group codes and
+numbers in fixed formats; unknown or duplicate keys, NaN and Infinity refused). Also new: a Host check (DNS
+rebinding), 400/415/413 for malformed requests instead of a crash, "busy" at once rather than an unbounded
+queue, a 300 s limit (`--timeout`) that stops Stata's whole process tree, `--new-token`, `/health` with the
+protocol and a start-up Stata check (version, ado versions), an error kind on every failure, and a page
+that type-checks every reply before showing it and escapes all of it (before, `n` went into `innerHTML`
+unescaped). An old page sending code is told to rebuild. A stale answer (a newer result on screen) is
+dropped; auto-run waits out "busy".
+
+**Econometrics.** Stata's full table (t or z, p, CI, rate ratios for Poisson), fit statistics, and with
+"Diagnostics and robustness: on": VIF, RESET, Breusch–Pagan, Cook's D (units named) for OLS; marginal
+effects, overdispersion LR and `estat gof` for Poisson; `boottest` per regressor when SEs are clustered;
+robustness estimators (OLS without influential units, `qreg`, `reghdfe` absorbing district fixed effects at
+tehsil and hexagon, Poisson on a raw count, `nbreg`, `ppmlhdfe`, logit of "has any" with its AME). Each
+reading is in plain language. "Download this Stata run (zip)": `run.do`, `data.csv` (SHA-256 recorded by the
+service), `stata.log`, `results.json`, `table.csv`, `table.tex`. `testData()` now carries every group above
+the unit (the district codes feed `reghdfe`/`ppmlhdfe`); only fixed-effect and cluster groups enter the
+sample, so the copy-paste code's estimates are unchanged. Full description: `docs/GIS_FOUNDATION.md`.
+
+**Tests.** `npm run test:stata` (30, no Stata: schema, do-file, results parsing, locks, busy, timeout).
+`tests/test_stata_parity.cjs` (10 specifications across every unit, SE, fixed effect and transform: the
+service's data and model lines equal the page's code, 17 to 19,210 lines each; the zip's data hash equals
+the service's). `tests/test_stata_page.cjs` (41 checks against a scripted stand-in: hostile markup in
+every string field, six malformed replies, busy, seven failure messages, a stale answer, the zip's CRCs).
+`tests/test_stata_service.cjs` (22, real Stata: the locks, three logged tests agree with every section
+computed, a clustered tehsil test with the bootstrap and `reghdfe`, the zip's `run.do` re-run in Stata to
+the same coefficients, auto-run). Every earlier viewer suite passes. Hexagon level with every extra:
+14 s (OLS) and 17 s (Poisson).
+
+**Gotchas.**
+- Stata writes 0.5 as `.5` under `%24.17g`; the first parser read any value starting with a dot as
+  missing. Missing is exactly `.` or `.a`–`.z` (`_num()`, unit-tested).
+- Stata launched from the agent's sandboxed Git Bash hung with no log at all; from PowerShell it runs.
+- `qreg` fails with r(498) on a mostly-zero outcome at hexagon level (the median is degenerate); the panel
+  says "could not fit it (r(498))" rather than hiding the row. `ppmlhdfe` drops districts whose count is
+  zero everywhere (7,233 of 17,938 hexagons in one test), so each robustness row shows its own N.
+- After `poisson`, `boottest` refits with the null imposed; every extra therefore starts with
+  `estimates restore __main`.
+
+**Not done.** R through the service (unchanged: the R code is still there to paste). Conley SEs are not
+re-estimated in Stata (`acreg` is not installed; the page's own Conley SEs stand).

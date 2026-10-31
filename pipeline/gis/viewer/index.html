@@ -5004,12 +5004,16 @@
             <div class="cjbtns"><button class="btn" type="button" data-copy="cjStata">Copy Stata</button><button class="btn" type="button" data-copy="cjR">Copy R</button></div>
           </details>
           <details open id="cjSt"><summary>Run in Stata on this computer</summary>
-            <div class="def">Sends the Stata code above to the Shrines Stata service on this PC, which runs it in Stata and returns Stata's own output. Start it by double-clicking <code>pipeline/gis/viewer/stata_service/start_stata_service.cmd</code> (or <code>python pipeline/gis/viewer/stata_service/stata_service.py</code>); it prints a token to paste here once.</div>
+            <div class="def">Sends this test to the Shrines Stata service on this PC as data (the model, the variables and the rows), never as code: the service checks every field, writes the do-file itself, with the same data and model lines as the Stata code above, and runs it in Stata. With diagnostics and robustness on, it also returns Stata's full table, diagnostics, a wild cluster bootstrap when the SEs are clustered, and other estimators as checks. Start it by double-clicking <code>pipeline/gis/viewer/stata_service/start_stata_service.cmd</code> (or <code>python pipeline/gis/viewer/stata_service/stata_service.py</code>); it prints a token to paste here once.</div>
             <div class="cjbtns"><label class="fld"><span class="lbl">Token</span><input id="cjStTok" type="password" autocomplete="off" spellcheck="false" aria-label="Stata service token" /></label>
+            <button class="btn" type="button" id="cjStForget">Forget token</button></div>
+            <div class="cjbtns"><button class="btn" type="button" id="cjStExtra" aria-pressed="true">Diagnostics and robustness: on</button>
             <button class="btn" type="button" id="cjStAuto" aria-pressed="false">Run every test in Stata: off</button>
             <button class="btn" type="button" id="cjStRun">Run in Stata</button></div>
             <div id="cjStStatus" role="status" aria-live="polite" class="def"></div>
+            <div id="cjStInfo" class="def"></div>
             <div id="cjStCmp"></div>
+            <div id="cjStMore"></div>
             <label class="fld" id="cjStLogWrap" hidden><span class="lbl">Stata output</span><textarea class="code" rows="14" readonly id="cjStLog"></textarea></label>
           </details>`;
         stataPanel(e);
@@ -5040,11 +5044,18 @@
         );
       }
       // ---- test a conjecture: Stata on this computer ---------------------------------------------
-      // stata_service/stata_service.py runs the code shown above in Stata and returns its log and
-      // e(b), e(V). The token and the auto-run choice are per-browser conveniences in localStorage.
+      // stata_service/stata_service.py takes the test as data (stataRequest), writes the do-file itself,
+      // runs it in Stata and returns Stata's full table, diagnostics, a wild cluster bootstrap and
+      // robustness estimators (protocol 2, 31 October 2026). Every field of a reply is type-checked
+      // before it is shown, and all text from it is escaped. The token, the auto-run and the extras
+      // choices are per-browser conveniences in localStorage.
       const STK = 'shrines_viewer_stata_token',
         STA = 'shrines_viewer_stata_auto',
-        STURL = 'http://127.0.0.1:8765';
+        STX = 'shrines_viewer_stata_extras',
+        STURL = 'http://127.0.0.1:8765',
+        ST_PROTOCOL = 2;
+      // gen: a newer run (or a new result on screen) makes an older answer stale; it is dropped.
+      const STS = { gen: 0, ctrl: null, health: null, tok: '', pref: {} };
       const lsGet = (k) => {
         try {
           return localStorage.getItem(k) || '';
@@ -5059,82 +5070,659 @@
           /* private window: kept for this page only */
         }
       };
+      const lsDel = (k) => {
+        try {
+          localStorage.removeItem(k);
+        } catch {
+          /* nothing was kept */
+        }
+      };
+      const isNum = (v) => v === null || (typeof v === 'number' && Number.isFinite(v));
+      const isTerm = (t) => typeof t === 'string' && /^(?:[xc]\d{1,2}|_cons)$/.test(t);
+      const stRow = (t) =>
+        !!t &&
+        isTerm(t.term) &&
+        ['b', 'se', 'stat', 'p', 'lo', 'hi', 'irr', 'irr_lo', 'irr_hi'].every((k) =>
+          isNum(t[k] ?? null),
+        );
+      const isObj = (o) => !!o && typeof o === 'object' && !Array.isArray(o);
+      // A reply is shown only if every field has the type the page expects, so a wrong or hostile
+      // process on the port cannot put markup or script into the page. Returns what is wrong, or null.
+      function stataShape(r) {
+        if (!isObj(r) || typeof r.ok !== 'boolean') return 'not a reply from the Stata service';
+        if (!r.ok) return typeof r.error === 'string' ? null : 'an error without a message';
+        if (r.protocol !== ST_PROTOCOL) return 'another protocol';
+        if (
+          !Number.isInteger(r.n) ||
+          !Array.isArray(r.table) ||
+          !r.table.length ||
+          !r.table.every(stRow)
+        )
+          return 'the estimates';
+        if (!isObj(r.stats) || !Object.values(r.stats).every(isNum)) return 'the fit statistics';
+        if (!Array.isArray(r.ame) || !r.ame.every(stRow)) return 'the marginal effects';
+        if (
+          !Array.isArray(r.vif) ||
+          !r.vif.every((v) => isObj(v) && typeof v.term === 'string' && isNum(v.vif))
+        )
+          return 'the VIFs';
+        if (
+          !isObj(r.diagnostics) ||
+          !Object.values(r.diagnostics).every((d) => isObj(d) && Object.values(d).every(isNum))
+        )
+          return 'the diagnostics';
+        const I = r.influential;
+        if (
+          I != null &&
+          !(
+            isObj(I) &&
+            isNum(I.cutoff) &&
+            Number.isInteger(I.count) &&
+            Array.isArray(I.top) &&
+            I.top.every((u) => isObj(u) && typeof u.id === 'string' && isNum(u.cooksd))
+          )
+        )
+          return 'the influential units';
+        const B = r.bootstrap;
+        if (
+          B != null &&
+          !(
+            isObj(B) &&
+            isNum(B.reps) &&
+            isNum(B.seed) &&
+            Array.isArray(B.rows) &&
+            B.rows.every(
+              (b) =>
+                isObj(b) &&
+                isTerm(b.term) &&
+                isNum(b.p) &&
+                Array.isArray(b.ci) &&
+                b.ci.every((c) => Array.isArray(c) && c.length === 2 && c.every(isNum)),
+            )
+          )
+        )
+          return 'the bootstrap';
+        if (
+          !Array.isArray(r.robustness) ||
+          !r.robustness.every(
+            (q) =>
+              isObj(q) &&
+              typeof q.key === 'string' &&
+              isNum(q.n ?? null) &&
+              (q.rc == null || typeof q.rc === 'string') &&
+              Array.isArray(q.terms) &&
+              q.terms.every(stRow),
+          )
+        )
+          return 'the robustness rows';
+        if (
+          r.fe != null &&
+          !(isObj(r.fe) && typeof r.fe.group === 'string' && Number.isInteger(r.fe.count))
+        )
+          return 'the fixed effects';
+        if (
+          !Array.isArray(r.errors) ||
+          !r.errors.every(
+            (x) => isObj(x) && typeof x.section === 'string' && typeof x.rc === 'string',
+          )
+        )
+          return 'the error list';
+        if (
+          !isObj(r.stata) ||
+          !isObj(r.ado) ||
+          !Object.values(r.ado).every((v) => v === null || typeof v === 'string')
+        )
+          return 'the versions';
+        if (
+          typeof r.log !== 'string' ||
+          typeof r.do_file !== 'string' ||
+          !/^[0-9a-f]{64}$/.test(r.data_sha256) ||
+          !isNum(r.seconds)
+        )
+          return 'the log, do-file or data hash';
+        return null;
+      }
+      // x1, c2, _cons -> the variable as the result table names it.
+      function stVar(e, t) {
+        const m = /^([xc])(\d+)$/.exec(t);
+        if (!m) return t === '_cons' ? 'constant' : t;
+        const v = (m[1] === 'x' ? e.spec.x : e.spec.c)[+m[2] - 1];
+        return v ? termName(v.key, v.tf) : t;
+      }
+      const stNm = (e, t) =>
+        t.role === 'const'
+          ? '_cons'
+          : `${t.role}${e.terms.filter((u) => u.role === t.role).indexOf(t) + 1}`;
+      const sig = (p) => ok(p) && p < 0.05;
+      const unitName = (u, id) => {
+        const i = feats(u).byId.get(id);
+        return i == null || u === 'hex' ? `${UNIT1[u]} ${id}` : feats(u)[i].name;
+      };
       function stataCompare(e, r) {
         const se = e.spec.se === 'classical' ? 'seC' : 'seR',
-          nm = (t) =>
-            t.role === 'const'
-              ? '_cons'
-              : `${t.role}${e.terms.filter((u) => u.role === t.role).indexOf(t) + 1}`,
-          got = Object.fromEntries(r.terms.map((t) => [t.term, t])),
+          got = Object.fromEntries(r.table.map((t) => [t.term, t])),
           rel = (a, b) => Math.abs(a - b) / Math.max(Math.abs(b), 1e-12);
         let worst = r.n === e.n ? 0 : Infinity;
         const rows = e.terms.map((t) => {
-          const s = got[nm(t)];
-          const d = s ? Math.max(rel(s.b, t.b), rel(s.se, t[se])) : Infinity;
-          worst = Math.max(worst, d);
-          return `<tr><td>${esc(nm(t))}</td><td>${esc(t.key || 'constant')}</td><td class="num">${fn(t.b, 6)}</td><td class="num">${s ? fn(s.b, 6) : '—'}</td><td class="num">${fn(t[se], 6)}</td><td class="num">${s ? fn(s.se, 6) : '—'}</td></tr>`;
+          const s = got[stNm(e, t)],
+            fit = s && !s.omitted && s.b != null && s.se != null;
+          worst = Math.max(worst, fit ? Math.max(rel(s.b, t.b), rel(s.se, t[se])) : Infinity);
+          return `<tr><td>${esc(stNm(e, t))}</td><td>${esc(t.key ? termName(t.key, t.tf) : 'constant')}</td><td class="num">${fn(t.b, 6)}</td><td class="num">${fit ? fn(s.b, 6) : s && s.omitted ? 'omitted' : '—'}</td><td class="num">${fn(t[se], 6)}</td><td class="num">${fit ? fn(s.se, 6) : '—'}</td></tr>`;
         });
         return {
           ok: worst < 1e-6,
+          worst,
           html:
             `<div class="scroll"><table><tr><th>Term</th><th>Variable</th><th class="num">b, viewer</th><th class="num">b, Stata</th><th class="num">SE, viewer</th><th class="num">SE, Stata</th></tr>${rows.join('')}</table></div>` +
-            `<div class="def">N: viewer ${e.n}, Stata ${r.n}. ${worst < 1e-6 ? '<b>Stata agrees</b> with the viewer on every coefficient and standard error (relative difference under 1e-6).' : `<b>Stata differs from the viewer</b> (largest relative difference ${worst === Infinity ? 'a missing term or N' : worst.toExponential(1)}). Trust Stata's numbers, and report this.`}</div>`,
+            `<div class="def">N: viewer ${esc(e.n)}, Stata ${esc(r.n)}. ${worst < 1e-6 ? '<b>Stata agrees</b> with the viewer on every coefficient and standard error (relative difference under 1e-6).' : `<b>Stata differs from the viewer</b> (largest relative difference ${worst === Infinity ? 'a missing or omitted term, or N' : worst.toExponential(1)}). Trust Stata's numbers, and report this.`}</div>`,
         };
+      }
+      function stataFit(e, r) {
+        const S = r.stats,
+          L = [`N = ${r.n}`];
+        if (e.spec.model === 'poisson') {
+          if (ok(S.r2_p)) L.push(`pseudo-R² ${fn(S.r2_p, 4)}`);
+          if (ok(S.chi2)) L.push(`Wald χ²(${fn(S.df_m, 0)}) = ${fn(S.chi2, 2)}, p ${fp(S.p)}`);
+        } else {
+          if (ok(S.r2)) L.push(`R² ${fn(S.r2, 4)}`);
+          if (ok(S.r2_a)) L.push(`adjusted R² ${fn(S.r2_a, 4)}`);
+          if (ok(S.F))
+            L.push(`F(${fn(S.df_m, 0)}, ${fn(S.df_r, 0)}) = ${fn(S.F, 2)}, p ${fp(S.p)}`);
+          else L.push('no overall F (too few clusters for the number of terms)');
+        }
+        if (ok(S.ll)) L.push(`log-likelihood ${fn(S.ll, 2)}`);
+        if (ok(S.aic)) L.push(`AIC ${fn(S.aic, 1)}`, `BIC ${fn(S.bic, 1)}`);
+        if (ok(S.N_clust)) L.push(`${fn(S.N_clust, 0)} clusters`);
+        return L.join(' · ');
+      }
+      function stataFull(e, r) {
+        const pois = e.spec.model === 'poisson',
+          om = r.table.filter((t) => t.omitted).map((t) => stVar(e, t.term)),
+          rows = r.table
+            .map(
+              (t) =>
+                `<tr><td>${esc(stVar(e, t.term))}</td><td class="num">${t.omitted ? 'omitted' : fn(t.b, 4)}</td><td class="num">${fn(t.se, 4)}</td><td class="num">${fn(t.stat, 2)}</td><td class="num">${fp(t.p)}</td><td class="num">${fn(t.lo, 4)} to ${fn(t.hi, 4)}</td>${pois ? `<td class="num">${t.term === '_cons' ? '—' : `${fn(t.irr, 3)} (${fn(t.irr_lo, 3)} to ${fn(t.irr_hi, 3)})`}</td>` : ''}</tr>`,
+            )
+            .join('');
+        return `<h3>Stata's estimates</h3><div class="scroll"><table><tr><th>Term</th><th class="num">Coef${pois ? ' (log rate)' : ''}</th><th class="num">SE</th><th class="num">${r.stat === 'z' ? 'z' : 't'}</th><th class="num">p</th><th class="num">95% CI</th>${pois ? '<th class="num">Rate ratio (95% CI)</th>' : ''}</tr>${rows}</table></div>
+          <div class="def">${esc(stataFit(e, r))}${r.fe ? `. ${esc(r.fe.group)} fixed effects: ${esc(r.fe.count)} coefficients, not shown` : ''}.</div>${om.length ? `<div class="note"><b>Stata dropped ${esc(om.join('; '))} as collinear.</b> Nothing can be said about it from this test, and the other coefficients are estimated without it.</div>` : ''}`;
+      }
+      const stataAme = (e, r) =>
+        !r.ame.length
+          ? ''
+          : `<h3>Average marginal effects</h3><div class="scroll"><table><tr><th>Variable</th><th class="num">dy/dx</th><th class="num">SE</th><th class="num">p</th><th class="num">95% CI</th></tr>${r.ame.map((t) => `<tr><td>${esc(stVar(e, t.term))}</td><td class="num">${fn(t.b, 4)}</td><td class="num">${fn(t.se, 4)}</td><td class="num">${fp(t.p)}</td><td class="num">${fn(t.lo, 4)} to ${fn(t.hi, 4)}</td></tr>`).join('')}</table></div><div class="def">The average change in the expected count for a one-unit change in each variable (as transformed), over the ${esc(r.n)} ${UNITN[e.unit]}: Stata's margins, delta-method SEs.</div>`;
+      function stataDiag(e, r) {
+        const D = r.diagnostics,
+          L = [],
+          vif = r.vif.filter((v) => /^[xc]\d+$/.test(v.term) && ok(v.vif));
+        if (vif.length) {
+          const top = vif.reduce((a, b) => (b.vif > a.vif ? b : a));
+          L.push(
+            `<b>Collinearity (VIF).</b> Largest ${fn(top.vif, 2)}, for ${esc(stVar(e, top.term))}. ${top.vif > 10 ? 'Serious: that coefficient is imprecise and unstable; drop or combine the variables that move with it.' : top.vif > 5 ? 'Moderate: that coefficient is less precise than it would be on its own.' : 'No sign of a collinearity problem (every VIF under 5).'}`,
+          );
+        }
+        if (D.reset)
+          L.push(
+            `<b>Functional form (Ramsey RESET).</b> F(${fn(D.reset.df, 0)}, ${fn(D.reset.df_r, 0)}) = ${fn(D.reset.F, 2)}, ${peq(D.reset.p)}. ${sig(D.reset.p) ? 'Powers of the fitted values add explanatory power: the relationship may be curved, or a variable may be missing. Try a transform, or the specification curve.' : 'No evidence against the linear form.'}`,
+          );
+        if (D.hettest)
+          L.push(
+            `<b>Unequal variance (Breusch–Pagan).</b> χ²(${fn(D.hettest.df, 0)}) = ${fn(D.hettest.chi2, 2)}, ${peq(D.hettest.p)}. ${sig(D.hettest.p) ? (e.spec.se === 'classical' ? 'The error variance is not constant, so the classical SEs chosen here are wrong: use robust SEs.' : 'The error variance is not constant; the robust or clustered SEs used here allow for that.') : 'No evidence of unequal variance.'}`,
+          );
+        const I = r.influential;
+        if (I)
+          L.push(
+            `<b>Influential units (Cook's D).</b> ${esc(I.count)} of ${esc(r.n)} ${UNITN[e.unit]} above 4/N = ${fn(I.cutoff, 4)}${I.count ? `; the largest: ${I.top.map((u) => `${esc(unitName(e.unit, u.id))} (${fn(u.cooksd, 3)})`).join(', ')}. The robustness table re-runs the model without them.` : '.'}`,
+          );
+        if (D.overdisp)
+          L.push(
+            `<b>Overdispersion.</b> Negative binomial α = ${fn(D.overdisp.alpha, 3)}; likelihood-ratio test of α = 0: χ² = ${fn(D.overdisp.chi2_c, 2)}, ${peq(D.overdisp.p)}. ${sig(D.overdisp.p) ? 'The counts vary more than a Poisson model assumes. The coefficients are still consistent and the robust SEs allow for it; the negative binomial row below is the usual check.' : 'No evidence of overdispersion.'}`,
+          );
+        if (D.gof)
+          L.push(
+            `<b>Goodness of fit.</b> Deviance χ²(${fn(D.gof.df, 0)}) = ${fn(D.gof.chi2_d, 1)}, ${peq(D.gof.p_d)}; Pearson χ² = ${fn(D.gof.chi2_p, 1)}, ${peq(D.gof.p_p)}. ${sig(D.gof.p_d) ? 'The model does not reproduce the counts well: read the coefficients as average associations, not as a model of where the counts come from.' : 'No evidence of poor fit.'}`,
+          );
+        const failed = r.errors.filter((x) => !/^rob:/.test(x.section));
+        if (failed.length)
+          L.push(
+            `<b>Not computed:</b> ${failed.map((x) => `${esc(x.section)} (Stata ${x.rc === 'missing' ? 'lacks the command' : `r(${esc(x.rc)})`})`).join(', ')}. Stata's log below says why.`,
+          );
+        return L.length
+          ? `<h3>Diagnostics</h3><ul>${L.map((i) => `<li>${i}</li>`).join('')}</ul>`
+          : '';
+      }
+      function stataBoot(e, r) {
+        const B = r.bootstrap;
+        if (!B) return '';
+        const main = Object.fromEntries(r.table.map((t) => [t.term, t])),
+          rows = B.rows
+            .map(
+              (b) =>
+                `<tr><td>${esc(stVar(e, b.term))}</td><td class="num">${fp(main[b.term] ? main[b.term].p : null)}</td><td class="num">${fp(b.p)}</td><td class="num">${b.ci.length ? b.ci.map((c) => `${fn(c[0], 4)} to ${fn(c[1], 4)}`).join(' ∪ ') : '—'}</td></tr>`,
+            )
+            .join('');
+        return `<h3>Wild cluster bootstrap</h3>${r.errors.some((x) => x.section === 'boottest') ? '<div class="note"><b>boottest is not installed in Stata</b> (in Stata: ssc install boottest), so the bootstrap did not run.</div>' : ''}${rows ? `<div class="scroll"><table><tr><th>Variable</th><th class="num">p, clustered SEs</th><th class="num">p, wild bootstrap</th><th class="num">95% CI, bootstrap</th></tr>${rows}</table></div>` : ''}
+          <div class="def">With ${fn(r.stats.N_clust, 0)} clusters the clustered SEs are unreliable, and the wild cluster bootstrap is the standard remedy: boottest, Webb six-point weights, ${fn(B.reps, 0)} replications, seed ${fn(B.seed, 0)}, null imposed${e.spec.model === 'poisson' ? '; for Poisson the score bootstrap, which gives a p but no interval' : ''}. Where the two p-values disagree, rely on the bootstrap's. With very few clusters even it is coarse: Webb weights allow only 6^G distinct draws.</div>`;
+      }
+      const ST_ROB = {
+        noinfl: "OLS without the influential units (Cook's D > 4/N)",
+        qreg: 'Median regression (qreg, robust SEs)',
+        hdfe: 'District fixed effects, absorbed (reghdfe)',
+        pois: 'Poisson on the raw count',
+        nbreg: 'Negative binomial',
+        ppmlhdfe: 'Poisson with district fixed effects absorbed (ppmlhdfe)',
+        logit: 'Logit, has any: average marginal effect on the probability',
+      };
+      function stataRob(e, r) {
+        if (!r.robustness.length) return '';
+        const xs = e.spec.x.map((v, i) => ['x' + (i + 1), v]),
+          main = Object.fromEntries(r.table.map((t) => [t.term, t])),
+          cell = (q, x) => {
+            const t = q.terms.find((u) => u.term === x),
+              m = main[x];
+            if (!t) return '<td class="num">—</td>';
+            if (t.omitted || t.b == null) return '<td class="num">omitted</td>';
+            const same = m && ok(m.b) && Math.sign(t.b) === Math.sign(m.b);
+            return `<td class="num">${fn(t.b, 4)} (${fn(t.se, 4)})<br>p ${fp(t.p)}, ${same ? 'same sign' : '<b>opposite sign</b>'}</td>`;
+          },
+          rows = r.robustness
+            .map(
+              (q) =>
+                `<tr><td>${esc(ST_ROB[q.key] || q.key)}</td><td class="num">${fn(q.n, 0)}</td>${q.rc ? `<td colspan="${xs.length}">Stata could not fit it (r(${esc(q.rc)})); see the log</td>` : xs.map(([x]) => cell(q, x)).join('')}</tr>`,
+            )
+            .join('');
+        return `<h3>Stata robustness</h3><div class="scroll"><table><tr><th>Estimator</th><th class="num">N</th>${xs.map(([, v]) => `<th class="num">${esc(termName(v.key, v.tf))}</th>`).join('')}</tr>${rows}</table></div>
+          <div class="def">Not logged and not counted in the Benjamini–Hochberg family: the page cannot reproduce these estimators, so they are checks on this test, not new tests. They estimate different things (a median, a probability, a log rate), so compare signs and significance, not sizes. "Same sign" is against Stata's estimate above.</div>`;
+      }
+      // ---- the run as a zip: do-file, data, log, results, tables ---------------------------------
+      // Stored (uncompressed) zip, written here so the page needs no library: local headers, a
+      // central directory and its end record, CRC-32 per file, UTF-8 names.
+      const CRC32 = (() => {
+        const t = new Uint32Array(256);
+        for (let n = 0; n < 256; n++) {
+          let c = n;
+          for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+          t[n] = c >>> 0;
+        }
+        return t;
+      })();
+      function crc32(b) {
+        let c = 0xffffffff;
+        for (let i = 0; i < b.length; i++) c = CRC32[(c ^ b[i]) & 255] ^ (c >>> 8);
+        return (c ^ 0xffffffff) >>> 0;
+      }
+      function zipStore(files) {
+        const enc = new TextEncoder(),
+          d = new Date(),
+          time = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1),
+          date = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate(),
+          parts = [],
+          dir = [];
+        let off = 0;
+        for (const f of files) {
+          const name = enc.encode(f.name),
+            data = enc.encode(f.text),
+            crc = crc32(data),
+            h = new DataView(new ArrayBuffer(30)),
+            c = new DataView(new ArrayBuffer(46));
+          [
+            [0, 0x04034b50, 4],
+            [4, 20, 2],
+            [6, 0x0800, 2],
+            [10, time, 2],
+            [12, date, 2],
+            [14, crc, 4],
+            [18, data.length, 4],
+            [22, data.length, 4],
+            [26, name.length, 2],
+          ].forEach(([o, v, n]) => (n === 4 ? h.setUint32(o, v, true) : h.setUint16(o, v, true)));
+          [
+            [0, 0x02014b50, 4],
+            [4, 20, 2],
+            [6, 20, 2],
+            [8, 0x0800, 2],
+            [12, time, 2],
+            [14, date, 2],
+            [16, crc, 4],
+            [20, data.length, 4],
+            [24, data.length, 4],
+            [28, name.length, 2],
+            [42, off, 4],
+          ].forEach(([o, v, n]) => (n === 4 ? c.setUint32(o, v, true) : c.setUint16(o, v, true)));
+          parts.push(h, name, data);
+          dir.push(c, name);
+          off += 30 + name.length + data.length;
+        }
+        const size = dir.reduce((a, x) => a + x.byteLength, 0),
+          end = new DataView(new ArrayBuffer(22));
+        end.setUint32(0, 0x06054b50, true);
+        end.setUint16(8, files.length, true);
+        end.setUint16(10, files.length, true);
+        end.setUint32(12, size, true);
+        end.setUint32(16, off, true);
+        return new Blob([...parts, ...dir, end], { type: 'application/zip' });
+      }
+      const texEsc = (t) =>
+        String(t).replace(
+          /[\\{}&%$#_^~]/g,
+          (ch) =>
+            ({
+              '\\': '\\textbackslash{}',
+              '{': '\\{',
+              '}': '\\}',
+              '&': '\\&',
+              '%': '\\%',
+              $: '\\$',
+              '#': '\\#',
+              _: '\\_',
+              '^': '\\^{}',
+              '~': '\\~{}',
+            })[ch],
+        );
+      const seLabel = (s) =>
+        clusterOf(s.se)
+          ? `clustered by ${clusterOf(s.se)}`
+          : s.model === 'poisson'
+            ? 'robust (sandwich)'
+            : s.se === 'classical'
+              ? 'classical'
+              : 'robust (HC1)';
+      function stataTex(e, r) {
+        const star = (p) =>
+            !ok(p) ? '' : p < 0.01 ? '^{***}' : p < 0.05 ? '^{**}' : p < 0.1 ? '^{*}' : '',
+          S = r.stats,
+          L = [
+            `% Test #${e.id} from the Shrines and Welfare viewer, run in Stata ${r.stata.version || ''}`,
+            '\\begin{tabular}{lc}',
+            '\\hline',
+            ` & ${texEsc(termName(e.spec.y.key, e.spec.y.tf))} \\\\`,
+            '\\hline',
+          ];
+        r.table.forEach((t) =>
+          L.push(
+            `${texEsc(stVar(e, t.term))} & ${t.omitted || !ok(t.b) ? 'omitted' : `$${t.b.toFixed(4)}${star(t.p)}$`} \\\\`,
+            ` & ${ok(t.se) ? `$(${t.se.toFixed(4)})$` : ''} \\\\`,
+          ),
+        );
+        L.push('\\hline', `$N$ & ${r.n} \\\\`);
+        if (ok(S.r2)) L.push(`$R^2$ & ${S.r2.toFixed(3)} \\\\`);
+        if (ok(S.r2_p)) L.push(`Pseudo-$R^2$ & ${S.r2_p.toFixed(3)} \\\\`);
+        if (r.fe) L.push(`${texEsc(r.fe.group)} fixed effects & Yes \\\\`);
+        L.push(
+          '\\hline',
+          '\\end{tabular}',
+          `% ${e.spec.model === 'poisson' ? 'Poisson' : 'OLS'}; SEs ${seLabel(e.spec)}. * p < 0.10, ** p < 0.05, *** p < 0.01.`,
+        );
+        return L.join('\n') + '\n';
+      }
+      function stataExport(e, r, q, c) {
+        const se = e.spec.se === 'classical' ? 'seC' : 'seR',
+          num = (v) => (ok(v) ? String(v) : ''),
+          pois = e.spec.model === 'poisson',
+          { log, do_file, ...res } = r,
+          ado = Object.entries(r.ado)
+            .map(([k, v]) => `${k} ${v || 'not installed'}`)
+            .join('; '),
+          table = [
+            [
+              'term',
+              'variable',
+              'b',
+              'se',
+              r.stat,
+              'p',
+              'ci_lo',
+              'ci_hi',
+              ...(pois ? ['irr', 'irr_lo', 'irr_hi'] : []),
+            ],
+            ...r.table.map((t) => [
+              t.term,
+              stVar(e, t.term),
+              ...[t.b, t.se, t.stat, t.p, t.lo, t.hi].map(num),
+              ...(pois ? [t.irr, t.irr_lo, t.irr_hi].map(num) : []),
+            ]),
+          ]
+            .map((row) => row.map(csvCell).join(','))
+            .join('\n'),
+          results = {
+            format: 'shrines-stata-run',
+            v: 1,
+            test: e.id,
+            statement: e.spec.statement || '',
+            recorded: e.ts,
+            downloaded: new Date().toISOString(),
+            spec: e.spec,
+            data: { file: 'data.csv', sha256: r.data_sha256, rows: q.rows.length },
+            viewer: {
+              n: e.n,
+              se: seLabel(e.spec),
+              terms: e.terms.map((t) => ({ term: stNm(e, t), variable: t.key, b: t.b, se: t[se] })),
+            },
+            agreement: {
+              agrees: c.ok,
+              largest_relative_difference: c.worst === Infinity ? null : c.worst,
+            },
+            stata_results: res,
+          },
+          readme = [
+            `Shrines and Welfare viewer: test #${e.id}, run in Stata by the Shrines Stata service.`,
+            e.spec.statement ? `Conjecture: "${oneLine(e.spec.statement)}"` : '',
+            `Recorded ${e.ts}; Stata ${r.stata.version || '?'} took ${r.seconds} s. ${ado}.`,
+            '',
+            'run.do        the do-file the service wrote and ran, with the data inside. To re-run:',
+            '              open Stata, cd to this folder, and type  do run.do  (it writes results.tsv).',
+            `data.csv      the test's data (id, groups, columns under their Stata names). SHA-256 ${r.data_sha256}`,
+            "stata.log     Stata's log of the run (the echo of the data rows left out)",
+            "results.json  the specification, the viewer's and Stata's estimates, diagnostics, bootstrap,",
+            '              robustness estimators, versions and the data hash',
+            "table.csv     Stata's estimates at full precision",
+            'table.tex     the same as a LaTeX table',
+            '',
+            'The robustness estimators are checks on this test, not further tests: they are not in the',
+            "viewer's log or its Benjamini-Hochberg adjustment.",
+          ]
+            .filter((l, i) => l || i > 1)
+            .join('\n');
+        download(
+          `stata_test_${e.id}.zip`,
+          zipStore([
+            { name: 'README.txt', text: readme + '\n' },
+            { name: 'run.do', text: do_file },
+            { name: 'data.csv', text: stataDataCsv(q) },
+            { name: 'stata.log', text: log },
+            { name: 'results.json', text: JSON.stringify(results, null, 1) + '\n' },
+            { name: 'table.csv', text: table + '\n' },
+            { name: 'table.tex', text: stataTex(e, r) },
+          ]),
+          'application/zip',
+        );
+      }
+      // ---- talking to the service ----------------------------------------------------------------
+      async function stataGet(path, tok, ms, body) {
+        const ctrl = new AbortController(),
+          timer = setTimeout(() => ctrl.abort(), ms);
+        STS.ctrl = ctrl;
+        try {
+          const resp = await fetch(
+            STURL + path,
+            body
+              ? {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'X-Stata-Token': tok },
+                  body,
+                  signal: ctrl.signal,
+                }
+              : { headers: { 'X-Stata-Token': tok }, signal: ctrl.signal },
+          );
+          let r = null;
+          try {
+            r = await resp.json();
+          } catch {
+            r = null;
+          }
+          return { status: resp.status, r };
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+      function stataErr(status, r) {
+        const k = isObj(r) ? r.kind : null,
+          m = isObj(r) && typeof r.error === 'string' ? r.error : `HTTP ${status}`;
+        return k === 'auth'
+          ? 'Stata did not run it: the token is wrong. Paste the one the service printed when it started.'
+          : k === 'origin'
+            ? 'Stata did not run it: the service only answers the viewer opened from disk (index.html).'
+            : k === 'busy'
+              ? 'Stata did not run it: it is still busy with another test. Try again shortly.'
+              : k === 'timeout'
+                ? `Stata did not run it to the end: ${m}. The log below shows how far it got.`
+                : k === 'stata_error'
+                  ? `Stata did not run it: ${m}.`
+                  : k === 'protocol'
+                    ? `Stata did not run it: the page and the service are different versions. ${m}`
+                    : `Stata did not run it: ${m}`;
+      }
+      // What the service said about itself: its protocol, time limit, and the Stata check it ran at start.
+      function stataInfo(h) {
+        const el = $('cjStInfo');
+        if (!el) return;
+        const C = isObj(h.check) ? h.check : {},
+          ado = isObj(C.ado)
+            ? Object.entries(C.ado)
+                .map(
+                  ([k, v]) =>
+                    `${k} ${typeof v === 'string' ? (/\d+(?:\.\d+)+/.exec(v) || [v])[0] : 'MISSING'}`,
+                )
+                .join(', ')
+            : '';
+        el.textContent = `Service: protocol ${h.protocol}, time limit ${Number(h.timeout) || '?'} s. ${
+          !C.checked
+            ? 'Its start-up check of Stata is still running.'
+            : C.ok
+              ? `Stata ${isObj(C.stata) ? C.stata.version : '?'} checked at start; ${ado}.${Array.isArray(C.failed) && C.failed.length ? ` These parts failed in the check: ${C.failed.join(', ')}.` : ''}`
+              : `Its start-up check of Stata FAILED: ${String(C.error)}.`
+        }`;
       }
       async function stataRun(e) {
         const tok = $('cjStTok').value.trim(),
-          st = $('cjStStatus');
-        if (!tok) {
-          st.textContent = 'Paste the token the service printed when it started.';
-          return;
-        }
+          gen = ++STS.gen,
+          say = (t) => {
+            if (gen === STS.gen && $('cjStStatus')) $('cjStStatus').textContent = t;
+          };
+        if (STS.ctrl) STS.ctrl.abort();
+        if (!tok) return say('Paste the token the service printed when it started.');
         lsSet(STK, tok);
         $('cjStRun').disabled = true;
-        st.textContent = 'Running in Stata…';
         try {
-          const resp = await fetch(STURL + '/run', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-Stata-Token': tok },
-            body: JSON.stringify({ code: stataCode(e) }),
-          });
-          const r = await resp.json();
-          if (r.log) {
+          if (!STS.health || STS.tok !== tok) {
+            say('Checking the Stata service…');
+            const h = await stataGet('/health', tok, 10000);
+            if (gen !== STS.gen) return;
+            if (h.status !== 200 || !isObj(h.r) || h.r.ok !== true)
+              return say(stataErr(h.status, h.r));
+            if (h.r.protocol !== ST_PROTOCOL)
+              return say(
+                `Stata did not run it: the service speaks protocol ${String(h.r.protocol)}, this page ${ST_PROTOCOL}. Start the service from this repository, or rebuild the page.`,
+              );
+            STS.health = h.r;
+            STS.tok = tok;
+            stataInfo(h.r);
+          }
+          const q = stataRequest(e, STS.extras()),
+            body = JSON.stringify(q),
+            limit = ((Number(STS.health.timeout) || 300) + 60) * 1000,
+            t0 = Date.now();
+          say(`Running in Stata${q.extras ? ', with diagnostics and robustness' : ''}…`);
+          let res;
+          for (;;) {
+            res = await stataGet('/run', tok, limit, body);
+            if (gen !== STS.gen) return;
+            if (
+              !(res.status === 503 && isObj(res.r) && res.r.kind === 'busy') ||
+              Date.now() - t0 > limit
+            )
+              break;
+            say('Stata is finishing another test; this one starts when it is done…');
+            await new Promise((done) => setTimeout(done, 3000));
+            if (gen !== STS.gen) return;
+          }
+          const r = res.r,
+            bad = stataShape(r);
+          if (bad)
+            return say(
+              `The reply from the Stata service was not understood (${bad}). Start the service from this repository.`,
+            );
+          if (typeof r.log === 'string' && r.log) {
             $('cjStLog').value = r.log;
             $('cjStLogWrap').hidden = false;
           }
-          if (!r.ok) {
-            st.textContent = `Stata did not run it: ${r.error}`;
-            return;
-          }
+          if (!r.ok) return say(stataErr(res.status, r));
           const c = stataCompare(e, r);
           $('cjStCmp').innerHTML = c.html;
-          st.textContent = c.ok
-            ? 'Ran in Stata.'
-            : 'Ran in Stata, and the numbers differ: see below.';
-        } catch {
-          st.textContent =
-            'The Stata service is not reachable. Start it (the command above) and try again.';
+          $('cjStMore').innerHTML =
+            stataFull(e, r) +
+            stataAme(e, r) +
+            stataDiag(e, r) +
+            stataBoot(e, r) +
+            stataRob(e, r) +
+            '<div class="cjbtns"><button class="btn" type="button" id="cjStZip">Download this Stata run (zip)</button></div>';
+          $('cjStZip').onclick = () => stataExport(e, r, q, c);
+          say(
+            `${c.ok ? 'Ran in Stata' : 'Ran in Stata, and the numbers differ: see below'} (${fn(r.seconds, 1)} s).`,
+          );
+        } catch (err) {
+          if (gen !== STS.gen) return;
+          STS.health = null;
+          say(
+            err && err.name === 'AbortError'
+              ? 'No answer from the Stata service within its time limit. Stata may still be running: wait, then try again.'
+              : 'The Stata service is not reachable. Start it (the command above) and try again.',
+          );
         } finally {
-          $('cjStRun').disabled = false;
+          if (gen === STS.gen && $('cjStRun')) $('cjStRun').disabled = false;
         }
+      }
+      // A two-state button kept in localStorage, with the choice held in memory where storage is blocked.
+      function stToggle(id, key, label, dflt) {
+        const b = $(id),
+          get = () => (Object.hasOwn(STS.pref, key) ? STS.pref[key] : (lsGet(key) || dflt) === '1'),
+          show = () => {
+            b.setAttribute('aria-pressed', get() ? 'true' : 'false');
+            b.textContent = `${label}: ${get() ? 'on' : 'off'}`;
+          };
+        show();
+        return {
+          b,
+          get,
+          set: (on) => {
+            STS.pref[key] = on;
+            lsSet(key, on ? '1' : '0');
+            show();
+          },
+        };
       }
       function stataPanel(e) {
         if (!$('cjStRun')) return;
+        STS.gen++; // a new result on screen: an answer still coming for the previous one is dropped
+        if (STS.ctrl) STS.ctrl.abort();
         $('cjStTok').value = lsGet(STK);
-        const auto = $('cjStAuto'),
-          showAuto = (on) => {
-            auto.setAttribute('aria-pressed', on ? 'true' : 'false');
-            auto.textContent = `Run every test in Stata: ${on ? 'on' : 'off'}`;
-          };
-        showAuto(lsGet(STA) === '1');
-        auto.onclick = () => {
-          const on = auto.getAttribute('aria-pressed') !== 'true';
-          lsSet(STA, on ? '1' : '0');
-          showAuto(on);
-          if (on) stataRun(e);
+        if (STS.health) stataInfo(STS.health);
+        const auto = stToggle('cjStAuto', STA, 'Run every test in Stata', '0'),
+          extras = stToggle('cjStExtra', STX, 'Diagnostics and robustness', '1');
+        STS.extras = extras.get;
+        auto.b.onclick = () => {
+          auto.set(!auto.get());
+          if (auto.get()) stataRun(e);
+        };
+        extras.b.onclick = () => extras.set(!extras.get());
+        $('cjStForget').onclick = () => {
+          lsDel(STK);
+          $('cjStTok').value = '';
+          STS.health = null;
+          $('cjStStatus').textContent = 'Token forgotten in this browser.';
         };
         $('cjStRun').onclick = () => stataRun(e);
-        if (lsGet(STA) === '1' && $('cjStTok').value) stataRun(e);
+        if (auto.get() && $('cjStTok').value) stataRun(e);
       }
       // Benjamini-Hochberg values already on screen are refreshed whenever the log changes.
       function refreshBH() {
@@ -5635,12 +6223,19 @@
           ),
         ];
         const num = (v) => (ok(v) && Number.isFinite(+v) ? String(+v) : null),
-          // The groups for fixed effects and clusters, as ids (province PK6, district PK617).
-          groups = [...new Set([s.fe, clusterOf(s.se)].filter(Boolean))].sort().reverse(),
+          // Every group above the unit, as ids (province PK6, district PK617): the Stata service's
+          // robustness estimators absorb district fixed effects. used: the ones this model reads
+          // (fixed effects, clusters); only those enter the sample (31 October 2026).
+          groups = Object.keys(GROUPS)
+            .filter((g) => groupOk(g, s.unit))
+            .sort()
+            .reverse(),
+          used = groups.filter((g) => g === s.fe || g === clusterOf(s.se)),
           gid = Object.fromEntries(groups.map((g) => [g, groupOf(g, s.unit)]));
         return {
           keys,
           groups,
+          used,
           rows: feats(s.unit).map((f, i) => [
             String(f.id),
             ...groups.map((g) => gid[g][i] || null),
@@ -5650,6 +6245,35 @@
       }
       // Stata names are at most 32 characters: a longer key is cut and numbered.
       const stataName = (k, i) => (k.length <= 32 ? k : `${k.slice(0, 28)}_v${i + 1}`);
+      // What the page sends the Stata service (protocol 2, 31 October 2026): the test as data, never as
+      // code. The service checks every field and writes the do-file itself; its data and model lines are
+      // stataCode()'s (tests/test_stata_parity.cjs). extras: diagnostics, bootstrap and robustness.
+      function stataRequest(e, extras) {
+        const s = e.spec,
+          T = testData(e),
+          short = Object.fromEntries(T.keys.map((k, i) => [k, stataName(k, i)])),
+          v = (x) => ({ col: short[x.key], tf: x.tf });
+        return {
+          protocol: ST_PROTOCOL,
+          test: { id: e.id, unit: s.unit },
+          model: s.model,
+          se: s.se,
+          fe: s.fe || null,
+          exposure: s.model === 'poisson' && s.exposure ? short[s.exposure] : null,
+          y: v(s.y),
+          x: s.x.map(v),
+          c: s.c.map(v),
+          columns: T.keys.map((k) => short[k]),
+          groups: T.groups,
+          rows: T.rows,
+          extras: !!extras,
+        };
+      }
+      // The request's data as CSV, byte for byte as the service hashes it (data_csv in stata_service.py).
+      const stataDataCsv = (q) =>
+        [['id', ...q.groups, ...q.columns], ...q.rows]
+          .map((r) => r.map((v) => (v == null ? '' : v)).join(','))
+          .join('\n') + '\n';
       // The viewer's own estimates, as comments under the code, so a pasted run can be checked by eye.
       function viewerResult(e, c) {
         const se = e.spec.se === 'classical' ? 'seC' : 'seR',
@@ -5714,7 +6338,7 @@
         const ex = s.model === 'poisson' && s.exposure ? src(s.exposure) : null;
         L.push(
           'mark touse',
-          `markout touse ${names.join(' ')}${ex ? ' ' + ex : ''}${T.groups.map((g) => ' g_' + g).join('')}`,
+          `markout touse ${names.join(' ')}${ex ? ' ' + ex : ''}${T.used.map((g) => ' g_' + g).join('')}`,
         );
         if (ex) L.push(`replace touse = 0 if ${ex} <= 0`);
         // As the viewer: under fixed effects a group with a zero count everywhere is dropped.
@@ -5767,7 +6391,7 @@
             ['id', ...T.groups, ...keys].join(','),
             ...T.rows.map((r) => r.map((v) => v ?? 'NA').join(',')),
             '")',
-            `d <- d[complete.cases(d[, c(${[...keys, ...T.groups].map((k) => `"${k}"`).join(', ')})]), ]`,
+            `d <- d[complete.cases(d[, c(${[...keys, ...T.used].map((k) => `"${k}"`).join(', ')})]), ]`,
           ],
           clv = clusterOf(s.se);
         if (s.model === 'poisson' && s.exposure) L.push(`d <- d[d$${s.exposure} > 0, ]`);

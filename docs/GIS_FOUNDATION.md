@@ -324,15 +324,36 @@ the page. Everything is computed in the browser from the embedded data; nothing 
    population as the map zooms in, placed so that no two overlap; "Place names" in the header
    switches them off. Source `pipeline/gis/sources/geonames_cities/cities1000.zip` (CC BY 4.0).
 
-   **Run in Stata on this computer** (30 October 2026). Under the code, the viewer can send it to
-   `viewer/stata_service/stata_service.py` (start: double-click `start_stata_service.cmd`), which
-   runs it in StataMP in batch mode and returns Stata's own log and e(b)/e(V); the page shows them
-   beside its own numbers and says whether they agree (relative difference under 1e-6). "Run every
-   test in Stata: on" runs each new result in the background. The service listens on 127.0.0.1 only,
-   needs a token (kept in `%LOCALAPPDATA%\ShrinesStataService\token.txt`, pasted once), admits only
-   a page opened from disk, and **runs only code shaped exactly like the viewer's generator output**
-   (an allowlist of line patterns; a shell escape, a macro or a file command is refused before Stata
-   starts). Test: `tests/test_stata_service.cjs`.
+   **Run in Stata on this computer** (30 October 2026; protocol 2 since 31 October, HANDOVER
+   9.458). Under the code, the viewer can send the test to `viewer/stata_service/stata_service.py`
+   (start: double-click `start_stata_service.cmd`). **It sends data, never code:** the model, SEs,
+   fixed effects, each variable's Stata name and transform, and the rows. The service checks every
+   field against a closed schema, writes the do-file itself (its data and model lines equal the
+   page's copy-paste code, held by `tests/test_stata_parity.cjs`), runs StataMP in batch mode and
+   returns Stata's log and full table; the page shows them beside its own numbers and says whether
+   they agree (relative difference under 1e-6). With "Diagnostics and robustness: on" (the default)
+   it also returns, each read in plain language:
+   - **OLS:** VIF, Ramsey RESET, Breusch–Pagan, and Cook's D (units above 4/N, named);
+   - **Poisson:** average marginal effects, rate ratios, the negative binomial's LR test of α = 0
+     (overdispersion) and `estat gof`;
+   - **clustered SEs:** a wild cluster bootstrap per regressor (`boottest`, Webb weights, 9,999
+     replications, seed 20261030; the score bootstrap for Poisson, which gives no interval);
+   - **robustness estimators**, shown in their own panel and kept out of the log and the
+     Benjamini–Hochberg family: OLS without the influential units, median regression, `reghdfe`
+     absorbing district fixed effects (tehsil and hexagon; the page cannot, at hexagon level),
+     Poisson on a raw count outcome, negative binomial, `ppmlhdfe` with district fixed effects, and
+     logit of "has any" with its average marginal effect.
+   "Download this Stata run (zip)" gives `run.do` (re-runs as is), `data.csv` (its SHA-256 recorded
+   by the service), `stata.log`, `results.json` (spec, both sets of estimates, versions of Stata and
+   of boottest/reghdfe/ppmlhdfe/ftools), `table.csv` and `table.tex`. "Run every test in Stata: on"
+   runs each new result in the background; an answer for a result no longer on screen is dropped,
+   and a run that meets a busy Stata waits for it. Locks: 127.0.0.1 only, Host must be 127.0.0.1 or
+   localhost (DNS rebinding), a token (`%LOCALAPPDATA%\ShrinesStataService\token.txt`, pasted once;
+   `--new-token` replaces it), Origin `null` (a page opened from disk) only, one Stata at a time
+   (a second request is told "busy"), and a time limit (300 s, `--timeout`) after which Stata's
+   process tree is stopped. Every reply is type-checked by the page before it is shown. Tests:
+   `npm run test:stata` (no Stata), `tests/test_stata_parity.cjs` and `tests/test_stata_page.cjs`
+   (browser, no Stata), `tests/test_stata_service.cjs` (real Stata, this PC).
 
 **Exported findings belong in the repository** (for example `docs/research/`), not only in a
 browser's storage or a Downloads folder: RULE 0. The Markdown export ends with that line.
