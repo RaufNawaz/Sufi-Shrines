@@ -49,7 +49,7 @@ the reason the rest is credible.
 9. [x] HeiGIT catalog year ("2023", data is the 2026 release) and GRIP4 licence (CC0): check and correct. (The Kummu GDP unit is corrected to 2021 $, HANDOVER 9.438.)
 10. [x] Local Stata service (HANDOVER 9.439): the viewer sends a test to Stata on this PC and shows Stata's own output (Rauf: go ahead).
 11. [x] Hybrid worker assessed; prompt at `docs/prompts/hybrid_worker_shrine_existence.md`, input exported (HANDOVER 9.440). Rauf runs it.
-12. [ ] Welfare map: place names (cities, towns) as a vector layer (Rauf, 30 October 2026).
+12. [x] Welfare map: place names, 570 GeoNames places, collision-aware, by zoom (HANDOVER 9.441).
 
 ## 30 October 2026, later still: a verified database of every shrine — the state, measured
 

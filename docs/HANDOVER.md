@@ -22386,3 +22386,24 @@ Wikidata, Ollama search if credited), the worker judges each place, Claude spot-
 back to `pipeline/gis/shrine_sources/existence_checks/results/`. Input:
 `existence_checks/places_to_confirm.jsonl` (`export_places_to_confirm.py`). Rauf starts the run.
 
+### 9.441, 30 October 2026 (interactive, Windows PC): place names on the welfare map
+
+Rauf: the map "does not have any city names". The basemap (Esri light-gray canvas) carries none, so the
+viewer now draws its own: GeoNames `cities1000` (CC BY 4.0, downloaded to
+`pipeline/gis/sources/geonames_cities/`, gitignored), Pakistan's 570 populated places, embedded by
+`load_cities` (`build_viewer.py`, or `rebuild_from_embedded.py --cities`). A name shows from a zoom set
+by population (capitals and 1M+ at 5, 300k at 6, 100k at 7, 30k and every district headquarters at 8,
+10k at 9, the rest at 10), in a `labels` pane between the choropleth and the markers, unclickable.
+Placement is collision-aware: capital first, then provincial capitals, then by population; a name goes to
+the right of its dot or, when that is taken, to the left, or is left out. Dark text with a white halo,
+since the map ground is light in both themes. "Place names" in the header switches it; GeoNames is
+credited while it shows. Names are GeoNames' ASCII forms ("Muzaffarabad", not "Muzaffarābād"); some are
+GeoNames' own English for chaks ("Chak Thirty-one -Eleven Left").
+
+- `tests/test_place_names.cjs`: no two names overlap at zooms 6, 7, 8 and 10 (rendered boxes), the capital
+  and the four provincial capitals show at the opening view, zooming in names more, the switch removes and
+  restores names and credit. It found a real bug: Leaflet counts `addAttribution` calls, and the credit was
+  added on every pan, so switching names off left it; now added once.
+- Not done: Urdu names (GeoNames carries an Arabic-script alternate for 146 of the 570; the viewer is
+  English only), and district names on the map (the hover card and "Find a place" give them).
+

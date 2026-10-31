@@ -26,7 +26,9 @@ GPKG = GIS / "shrines_foundation.gpkg"
 LEADS = GIS / "shrine_sources/merged_leads.json"
 sys.path.insert(0, str(HERE))
 PLACES = GIS / "shrine_sources/district_counts/sites.csv"
-from rebuild_from_embedded import attach_place_counts, attach_support, inline_libs, load_leads, load_places  # noqa: E402  (stdlib only; shared schema check)
+# GeoNames cities1000.zip, https://download.geonames.org/export/dump/ (CC BY 4.0), kept in sources/ (gitignored)
+CITIES = GIS / "sources/geonames_cities/cities1000.zip"
+from rebuild_from_embedded import attach_place_counts, attach_support, inline_libs, load_cities, load_leads, load_places  # noqa: E402  (stdlib only; shared schema check)
 SITE = "https://raufnawaz.github.io/Sufi-Shrines/shrine/"
 
 # The menu comes from atlas/indicator_catalog.tsv (label, theme, direction, year), in file order, so the
@@ -148,6 +150,7 @@ def main():
     # Every source's records grouped into places, for the page's source filter (HANDOVER 9.434).
     data["places"] = load_places(PLACES)
     attach_place_counts(data, PLACES)
+    data["cities"] = load_cities(CITIES)
 
     cb = pd.read_csv(GIS / "atlas/atlas_codebook.csv")
     defs = {r.indicator: f"{r.definition} — {r.publisher}" for r in cb.itertuples()}

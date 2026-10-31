@@ -465,6 +465,46 @@
         margin: 0;
         padding-left: 18px;
       }
+      /* Place names sit on the map, whose ground is light grey in both themes: fixed dark text, a
+         white halo so a name stays legible over any choropleth colour. */
+      .city-label {
+        white-space: nowrap;
+        color: #1d1f23;
+        font:
+          600 11px/1.1 system-ui,
+          sans-serif;
+        text-shadow:
+          0 0 2px #fff,
+          0 0 2px #fff,
+          0 0 3px #fff;
+        pointer-events: none;
+        transform: translate(5px, -50%);
+      }
+      .city-label::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 50%;
+        width: 4px;
+        height: 4px;
+        margin-top: -2px;
+        border-radius: 50%;
+        background: #1d1f23;
+        box-shadow: 0 0 0 1.5px #fff;
+      }
+      .city-label.left {
+        transform: translate(calc(-100% - 5px), -50%);
+      }
+      .city-label.left::before {
+        left: auto;
+        right: -6px;
+      }
+      .city-label.big {
+        font-size: 13px;
+      }
+      .city-label.mid {
+        font-size: 12px;
+      }
       .lead-badge {
         width: 8px;
         height: 8px;
@@ -735,6 +775,7 @@
         />
         <datalist id="places"></datalist>
         <div id="chips" aria-label="Chosen indicators"></div>
+        <label class="chk"><input type="checkbox" id="showNames" checked /> Place names</label>
         <label class="chk"><input type="checkbox" id="showSites" checked /> Archive sites</label>
         <label class="chk"
           ><input type="checkbox" id="showLeads" /> Leads: possible sites (Wikidata + OSM)</label
@@ -1368,6 +1409,8 @@
         ['marks', 610],
         ['badges', 615],
       ].forEach(([n, z]) => (map.createPane(n).style.zIndex = z));
+      map.createPane('labels').style.zIndex = 600;
+      map.getPane('labels').style.pointerEvents = 'none';
       map.getPane('badges').style.pointerEvents = 'none';
       // The choropleth is one canvas and takes no events: hover and click are resolved by featAt(),
       // so 19,000 hexagons cost nothing per mousemove and markers never fight the regions for clicks.
@@ -2126,6 +2169,71 @@
           )
           .join('') +
         `<div class="def">Filled dots, coloured by tradition. The archive is curated: ${D.sites.length} geocoded sites, ${D.sites.filter((x) => x.cat === 'Muslim Shrine').length} of them Muslim shrines.</div>`;
+
+      // ---- place names ----------------------------------------------------------------------------
+      // GeoNames' populated places in Pakistan (D.cities: name, lat, lon, population, the lowest zoom
+      // at which the name shows, rank: 0 the capital, 1 a provincial capital, 2 the rest). Larger places appear first as the map zooms in; capitals always.
+      const CITIES = D.cities || [],
+        namesL = L.layerGroup().addTo(map),
+        cityMarks = CITIES.map(([n, lat, lon, pop, z]) => [
+          z,
+          L.marker([lat, lon], {
+            pane: 'labels',
+            interactive: false,
+            keyboard: false,
+          }),
+          // The name to the right of its dot, or, when that spot is taken, to the left.
+          ...['', ' left'].map((side) =>
+            L.divIcon({
+              className: '',
+              html: `<div class="city-label${side}${pop >= 1e6 || z === 5 ? ' big' : pop >= 3e5 ? ' mid' : ''}">${esc(n)}</div>`,
+              iconSize: [0, 0],
+            }),
+          ),
+        ]);
+      const GEONAMES =
+        'Place names © <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (CC BY 4.0)';
+      // Names are placed largest first (capitals before all), and a name whose box would overlap one
+      // already placed is left out, so crowded places (Lahore, Islamabad) stay legible at every zoom.
+      const nameOrder = cityMarks
+        .map((c, i) => [c, CITIES[i]])
+        .sort((a, b) => a[0][0] - b[0][0] || a[1][5] - b[1][5] || b[1][3] - a[1][3]);
+      let credited = false;
+      function drawNames() {
+        const on = $('showNames').checked && CITIES.length,
+          z = map.getZoom(),
+          size = map.getSize(),
+          boxes = [];
+        namesL.clearLayers();
+        if (on)
+          for (const [[mz, m, iconR, iconL], c] of nameOrder) {
+            if (z < mz) continue;
+            const pt = map.latLngToContainerPoint([c[1], c[2]]);
+            if (pt.x < -50 || pt.y < -20 || pt.x > size.x + 50 || pt.y > size.y + 20) continue;
+            const fs = c[3] >= 1e6 || mz === 5 ? 13 : c[3] >= 3e5 ? 12 : 11,
+              w = c[0].length * fs * 0.58,
+              y0 = pt.y - fs / 2 - 3,
+              y1 = pt.y + fs / 2 + 3,
+              free = (b) =>
+                !boxes.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]),
+              right = [pt.x - 8, y0, pt.x + 8 + w, y1],
+              left = [pt.x - 8 - w, y0, pt.x + 8, y1],
+              side = free(right) ? 0 : free(left) ? 1 : -1;
+            if (side < 0) continue;
+            const b = side ? left : right;
+            m.setIcon(side ? iconL : iconR);
+            boxes.push(b);
+            namesL.addLayer(m);
+          }
+        // Leaflet counts each addAttribution, so the credit is added once and removed once.
+        if (!!on !== credited) {
+          map.attributionControl[on ? 'addAttribution' : 'removeAttribution'](GEONAMES);
+          credited = !!on;
+        }
+      }
+      $('showNames').onchange = drawNames;
+      map.on('moveend', drawNames);
+      drawNames();
 
       // ---- all shrine records, filtered by source ------------------------------------------------
       // D.places: every record of every source (shrine_sources/district_counts/sites.csv), one object

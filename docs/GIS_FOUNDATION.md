@@ -320,6 +320,10 @@ the page. Everything is computed in the browser from the embedded data; nothing 
    can be pasted into either program and run with nothing else (since 30 October 2026; until then
    it read the downloaded CSV).
 
+   **Place names** (30 October 2026): GeoNames' 570 populated places in Pakistan, shown by
+   population as the map zooms in, placed so that no two overlap; "Place names" in the header
+   switches them off. Source `pipeline/gis/sources/geonames_cities/cities1000.zip` (CC BY 4.0).
+
    **Run in Stata on this computer** (30 October 2026). Under the code, the viewer can send it to
    `viewer/stata_service/stata_service.py` (start: double-click `start_stata_service.cmd`), which
    runs it in StataMP in batch mode and returns Stata's own log and e(b)/e(V); the page shows them
