@@ -314,8 +314,11 @@ the page. Everything is computed in the browser from the embedded data; nothing 
    the analysis-ready table for the drawer's unit, `shrines_<unit>.csv`. It holds the id, the name
    and the parent admin codes and names (for a hexagon: its H3 index, its centre, and the tehsil,
    district and province holding that centre), then every column in the data at that unit. Under
-   each result, **Replicate in Stata or R** gives code that reads that CSV and runs the same
-   specification.
+   each result, **Stata and R code for this test** (open by default) gives complete code that
+   carries its own data (every unit's id and the columns the test reads, as an `input … end` block
+   in Stata and `read.csv(text = …)` in R) and ends with the viewer's estimates as comments, so it
+   can be pasted into either program and run with nothing else (since 30 October 2026; until then
+   it read the downloaded CSV).
 
 **Exported findings belong in the repository** (for example `docs/research/`), not only in a
 browser's storage or a Downloads folder: RULE 0. The Markdown export ends with that line.
@@ -445,10 +448,14 @@ browser's storage or a Downloads folder: RULE 0. The Markdown export ends with t
 
 **Not verified:**
 
-- The Stata and R code has not been run, because neither is on this machine.
-  - In particular, the Stata lines for the five variable names longer than 32 characters
-    (`share_pop_within_60min_walk_health` and four others) assume that `import delimited` keeps
-    the original header as the variable label.
+- ~~The Stata and R code has not been run.~~ **Run, 30 October 2026**, in StataNow 19.5 MP and
+  R 4.6.1 (sandwich, lmtest 0.9.40): `tests/export_replication.cjs` asks the page for the code of
+  every test `test_conjecture.cjs` logs, and `tests/check_stata_r.py` runs it with no data file
+  beside it and compares each coefficient and SE. 6 tests (OLS HC1 with a log1p regressor and a
+  control, Poisson with exposure, z-scored OLS at hexagon, tehsil, district and province), 72
+  comparisons, largest relative difference **4.9e-8**. Variable names over 32 characters are now cut
+  and numbered in the code itself (`stataName`), so the old `import delimited` label assumption is
+  gone; no logged test yet uses one, so that path is unexercised.
 - Moran's I at hexagon level against an outside implementation: the reference has no h3.
 - WebKit.
 

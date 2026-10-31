@@ -22274,3 +22274,39 @@ Full source log and gaps: `pipeline/gis/shrine_sources/registers/README_auqaf.md
 **The archive's pins.** 84 sites have independent records: 61 confirmed within 150 m; **10 suspect**, each placed elsewhere by DOAM and OSM or Wikidata agreeing within metres: Hafiz Jamal Multani, Shah Ali Akbar, Malik Ayaz (1.2–1.5 km), Baha'al-Halim and Bibi Jawindi (one shared placeholder pin), Abul Muali Qadri, **Lal Shahbaz Qalandar (≈ 900 m)**, Tahir Bandagi (a pin shared with Ghazi Ilm Din and Wasif Ali Wasif), Ranjit Singh's samadhi, Miran Hussain Zanjani. Nothing was moved (RULE 2/3); proposed points are in `archive_location_check.csv`.
 
 **Gotchas.** Overpass refused the first wide query on all three mirrors and answered a retry a minute later. The register name-matcher is O(names × candidates) in pure Python: ~15 minutes. Another session (the place-articles watcher) was writing in this checkout at the same time; only this work's files were committed.
+
+### 9.437, 30 October 2026 (interactive, Windows PC): every source's shrines on the map, verified counts, Stata and R run, outcome datasets by category
+
+**Ruled by Rauf:** a place recorded by **two independent sources is verified**. One-source places may
+stay, but must be confirmed real before research use (method still open, asked in the chat).
+
+- **The viewer's "All shrine records, every source" layer** (`pipeline/gis/viewer/`): the 3,690
+  places of `shrine_sources/district_counts/sites.csv` (4,346 records), filterable by source (archive,
+  DOAM, OSM A/B, OSM weak C, Wikidata, GeoNames; match any / every / only), sources agreeing (1, 2+,
+  3+, 4+, exactly 1), tradition, and "hide places already in the archive"; colour by agreement; each
+  popup lists every record with its link, plus a web search and a satellite link to check it by
+  hand; CSV download of what is shown. **208 places are verified, 3,482 rest on one source; 124
+  verified places are not in the archive.** OSM's weak tier C counts as OSM when counting agreement.
+  `load_places` refuses a malformed id, a point outside Pakistan, two religious traditions in one
+  place, or two archive rows in one place. It found that the union treats "secular" like "unknown"
+  (Ranjit Singh's samadhi, Aibak's tomb): the loader follows the same rule. Test:
+  `tests/test_places_filter.cjs` (counts held against an independent count from sites.csv).
+- **Conjecture menu:** the shrine counts from every source were there but sorted last, under 240
+  welfare measures; Rauf could not find them. Now second, as "Shrines, every source", with three new
+  variables: `n_ext_verified`, `ext_verified_per_million`, `n_ext_single` (district and province).
+  `attach_place_counts` refuses to write unless verified + single equals `n_union_abc` in every
+  district (it does in all 160).
+- **Stata and R:** StataNow 19.5 MP and R 4.6.1 are installed on this PC (the notes said neither
+  was); `lmtest` installed into the R user library. The code under each result is now
+  self-contained (data embedded) and ends with the viewer's estimates. Run in both: 72 comparisons
+  over 6 tests, largest relative difference 4.9e-8 (GIS_FOUNDATION "Not verified", struck). Rerun:
+  `test_conjecture.cjs <html> <dir>`, `export_replication.cjs <html> <dir>/cj_results.json <dir2>`,
+  `python -I tests/check_stata_r.py <dir2>`.
+- **Outcome datasets by category** (`pipeline/gis/outcomes_by_category/`, README there): 17 folders,
+  one per theme, each checked cell by cell against the atlas. Currency audit: Ookla, UCDP GED,
+  night lights, Kummu, MAP, district MPI, Punjab MICS and LGHAP have newer releases; three newer
+  files built separately (Ookla 2026 Q2/Q3, GED 26.1, 2025 flood), none wired into the atlas.
+- Rebuild of the viewer: `python -I pipeline/gis/viewer/rebuild_from_embedded.py --places
+  pipeline/gis/shrine_sources/district_counts/sites.csv` (the GeoPackage is on this PC now too, so
+  `build_viewer.py` also works).
+

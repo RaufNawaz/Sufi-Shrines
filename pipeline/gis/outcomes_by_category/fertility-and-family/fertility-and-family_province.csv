@@ -1,0 +1,8 @@
+province_code,province_name,dhs_tfr,dhsms_modern_contraception,dhsms_unmet_need_fp,dhsms_demand_satisfied_modern,dhs_modern_contraception
+PK1,Azad Kashmir,3.5,18.4743,17.5867,43.6828,19.1
+PK2,Balochistan,4.0,12.2638,23.5814,28.9685,14.0
+PK3,Gilgit Baltistan,4.7,8.4659,29.818,16.2197,30.2
+PK4,Islamabad,3.0,31.4267,16.0473,52.5475,34.7
+PK5,Khyber Pakhtunkhwa,4.0,18.7476,17.253,40.1208,23.2
+PK6,Punjab,3.4,26.5296,15.4924,48.7545,27.2
+PK7,Sindh,3.6,23.2957,16.903,47.193,24.4

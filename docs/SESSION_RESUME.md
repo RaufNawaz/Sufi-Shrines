@@ -34,6 +34,37 @@ the reason the rest is credible.
 
 ---
 
+## Running to-do list (Rauf, 30 October 2026: "set them up as a to do list and work on them as you go")
+
+**Ruled by Rauf, 30 October 2026:** a place recorded by **two independent sources is verified**. One-source places may stay, but for research they must be confirmed real (not synthetic) before use.
+
+1. [x] Viewer: "All shrine records, every source" layer, 3,690 places from `district_counts/sites.csv`, filter by source (any / every / only), sources agreeing (1, 2+, 3+, 4+, exactly 1), tradition, hide archive; popup lists every record with links, a web search link and a satellite link; CSV download of the filtered set. (`rebuild_from_embedded.py --places`, `load_places`.)
+2. [x] Viewer, "Test a conjecture": outcome and regressor menus offer every source's counts, not only the archive (district and province: `n_ext_*`), plus verified (2+ sources) counts.
+3. [ ] Confirm one-source places exist: method to be agreed (asked in the chat).
+4. [x] Stata and R: run the workbench's generated Stata/R code against the browser's numbers (R 4.6.1 and StataNow 19 are now installed on this PC); then the question of running the tests on a Stata backend (asked in the chat).
+5. [x] Research agents (6, launched 30 October): a separate dataset per outcome category in `pipeline/gis/outcomes_by_category/<theme>/`, and a currency audit of every outcome source. Coordinator writes the folder README when they report.
+6. [ ] Suspect, disputed and shared archive pins: satellite check, CSV patch for the sheet.
+7. [x] Stata/R code under each result is self-contained (data embedded) and ends with the viewer's estimates; verified in Stata and R (HANDOVER 9.437).
+8. [ ] Newer outcome waves into the atlas (Ookla 2026, GED 26.1, 2025 flood, night lights 2024, MAP 2025, district MPI 2019-20, Punjab MICS 2024): asked in the chat.
+9. [ ] HeiGIT catalog year ("2023", data is the 2026 release) and GRIP4 licence (CC0): check and correct.
+
+## 30 October 2026, later still: a verified database of every shrine — the state, measured
+
+Rauf: "finalize a database of all the shrines in Pakistan … first build one that has all the shrines that are verified and double checked." Measured from `data/shrines.csv` (489 rows) and `pipeline/gis/shrine_sources/district_counts/archive_location_check.csv`, 30 October 2026:
+
+- **171 described rows, 318 book-seeded rows.** The 318 (Tareekh-e-Lahore 165, Hadeeqat-ul-Aulia 153) have no coordinates, no description, no status; 118 carry `needs_review`. 36 are mosques, 4 graveyards: not shrines.
+- **Support:** Field-verified 19 · Source-documented 100 · Source-seeded 368 · Web-compiled 2. Info: Full 19, Moderate 150, Low 320.
+- **Pins:** 169 pinned. Against independent records: confirmed 61, near 5, disputed 6, `pin_suspect` 10, GeoNames only 2, **no independent record 85**.
+- **Shared pins (placeholders):** four Lahore darbars (Ghazi Ilm Din, Feroz-ud-Din, Tahir Bandagi, Wasif Ali Wasif) on one point; Malik Ayaz on Data Darbar's; Sevapanthi Darbar Gandava on Ayub Shah Bukhari's; Javindi Bibi on Baha'al-Halim's.
+- **Strict tier** (Field-verified or Source-documented, no open `needs_review`, pin confirmed independently): **43 rows**. Without the pin test: 109.
+- **Scale outside the archive:** deduplicated union of OSM A/B + GeoNames + Wikidata + DOAM = 3,637 places; Chapman estimate ~35,000 (25,900 to 44,100). Punjab Auqaf register: 534.
+
+**The "thousands" (`pipeline/gis/shrine_sources/district_counts/sites.csv`, commit `cd32228c`):** 4,346 source records → 3,690 places (GeoNames 1,856 · OSM 1,194 · DOAM 1,034 · archive 169 · Wikidata 93). Built to count shrines per district, not as entries. **3,482 places (94%) rest on one source**; 215 on two or more. **124 places are in two or more independent sources and not in the archive** (110 Muslim): the natural first pool for a corroborated register. Noise in one-source rows is real (an OSM tier-C sample includes a CNG station). Beside it: `registers/auqaf_registers.csv` (560 named, 13 with a district, no coordinates) and `registers/heritage_monuments.csv` (9,030 monuments, 1,621 `tomb_shrine`, 5,832 not religious).
+
+**Asked in the chat (RULE 5):** what "verified and double-checked" means (the tier rule), whether "shrines" means all six traditions or Muslim shrines only, and whether the 318 book rows are in scope for this pass.
+
+---
+
 ## 30 October 2026, night (later): deploy fixed, read-only folders, shrine counts beyond the archive (read HANDOVER §9.432 to §9.434)
 
 **State.** `1.7` = `096b8a08`, deployed (Pages run succeeded): the deploy of `9f2a428b` had failed on the docs index; four place tests and one Urdu budget were stale after the provinces became places. The "Deletion of directory failed" loop was 8,977 read-only folders, cleared (`scripts/windows/clear-readonly-dirs.ps1`). The shrine-count work is in `pipeline/gis/shrine_sources/district_counts/` and the viewer.

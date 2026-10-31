@@ -1,0 +1,8 @@
+province_code,province_name,share_pop_flooded_2022,share_pop_flooded_2010,conflict_deaths_per_100k,conflict_civilian_deaths_per_100k,conflict_onesided_deaths_per_100k,conflict_events
+PK1,Azad Kashmir,0.5538,0.0273,3.5197,2.3379,0.0,86.0
+PK2,Balochistan,11.3055,2.5182,23.9417,8.2515,5.7343,609.0
+PK3,Gilgit Baltistan,0.7663,0.0,0.7826,0.1739,0.0,2.0
+PK4,Islamabad,0.3079,0.0,0.4152,0.0,0.0,5.0
+PK5,Khyber Pakhtunkhwa,2.8413,0.0227,15.4699,1.8666,1.2069,1425.0
+PK6,Punjab,8.4114,0.5763,0.4139,0.1537,0.0877,111.0
+PK7,Sindh,37.0443,5.0339,1.1209,0.4723,0.4476,123.0

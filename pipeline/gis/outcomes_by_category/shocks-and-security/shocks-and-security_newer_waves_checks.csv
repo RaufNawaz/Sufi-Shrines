@@ -1,0 +1,7 @@
+check,measured,reference,result
+sha256 ged261-csv.zip,8c941d84954e555e,8c941d84954e555e,pass
+sha256 FL20250818PAK_SHP.zip,831c65e71561c0af,831c65e71561c0af,pass
+UCDP GED 25.1 through the builder's ucdp(): reproduces atlas_district.csv,0 of 640 values differ,0,pass
+UNOSAT 2022 and 2010 through the builder's flood(): reproduces atlas_district.csv,0 of 320 values differ,0,pass
+shocks-and-security_district_ged261.csv: every atlas district has a value,160 of 160,160,pass
+shocks-and-security_district_unosat2025.csv: every atlas district has a value,160 of 160,160,pass

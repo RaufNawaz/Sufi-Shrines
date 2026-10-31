@@ -16,6 +16,7 @@ round-trip, a key order change), it refuses rather than ship a page whose number
 Usage (from the repo root):
   python pipeline/gis/viewer/rebuild_from_embedded.py
   python pipeline/gis/viewer/rebuild_from_embedded.py --leads pipeline/gis/shrine_sources/merged_leads.json
+  python pipeline/gis/viewer/rebuild_from_embedded.py --places pipeline/gis/shrine_sources/district_counts/sites.csv
   python pipeline/gis/viewer/rebuild_from_embedded.py --check          # round-trip only, writes nothing
 """
 import argparse, base64, csv, gzip, hashlib, json, math, re, sys
@@ -148,6 +149,118 @@ def load_leads(path):
     return [{k: (round(l[k], 5) if k in ("lat", "lon") else l[k]) for k in LEAD_KEYS} for l in leads]
 
 
+# Every shrine record from every source, grouped into places (shrine_sources/district_counts/sites.csv,
+# HANDOVER 9.434): the archive, DOAM's national inventory, OSM (tiers A, B and the weaker C), Wikidata
+# and GeoNames. The page filters them by source; a place two sources agree on is what Rauf counts as
+# verified (30 October 2026). OSM tier C is its own source key here because it is ~65-70% precise.
+PLACE_SRC = ("archive", "doam", "osm", "osmc", "wikidata", "geonames")
+PLACE_TRAD = {"muslim", "hindu", "sikh", "jain", "secular", "other", "unknown"}
+# Which record's point stands for the place: the most precise source first (README "Sources").
+PLACE_RANK = {"archive": 0, "wikidata": 1, "osm": 2, "osmc": 2, "doam": 3, "geonames": 4}
+PLACE_ID_RE = {"archive": r"[a-z0-9-]+", "doam": r"sites/\d+", "osm": r"(node|way|relation)/\d+",
+               "osmc": r"(node|way|relation)/\d+", "wikidata": r"Q\d+", "geonames": r"\d+"}
+
+
+def load_places(path):
+    """Read sites.csv into one object per place: {id, lat, lon, trad, r: [[src, name, source_id], ...]}.
+    Fails loudly on an unknown source, a malformed id, or a point outside Pakistan (RULE 4)."""
+    with open(path, encoding="utf-8", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    if not rows:
+        sys.exit(f"{path}: no rows")
+    places, bad = {}, []
+    for i, r in enumerate(rows, 2):
+        src = "osmc" if r["source"] == "osm" and r["tier"] == "C" else r["source"]
+        try:
+            lat, lon = float(r["lat"]), float(r["lon"])
+        except ValueError:
+            lat = lon = float("nan")
+        if src not in PLACE_SRC:
+            bad.append(f"line {i}: source {r['source']!r} tier {r['tier']!r}")
+        elif not re.fullmatch(PLACE_ID_RE[src], r["source_id"]):
+            bad.append(f"line {i}: {src} id {r['source_id']!r}")
+        elif r["tradition"] not in PLACE_TRAD:
+            bad.append(f"line {i}: tradition {r['tradition']!r}")
+        elif not (23.5 <= lat <= 37.2 and 60.8 <= lon <= 77.9):
+            bad.append(f"line {i}: point {r['lat']},{r['lon']} outside Pakistan")
+        elif not re.fullmatch(r"U\d{5}", r["place"]):
+            bad.append(f"line {i}: place id {r['place']!r}")
+        if bad:
+            if len(bad) >= 10:
+                break
+            continue
+        p = places.setdefault(r["place"], {"id": r["place"], "best": None, "trads": set(), "r": []})
+        p["r"].append([src, r["name"], r["source_id"]])
+        if r["tradition"] != "unknown":
+            p["trads"].add(r["tradition"])
+        if p["best"] is None or PLACE_RANK[src] < p["best"][0]:
+            p["best"] = (PLACE_RANK[src], round(lat, 5), round(lon, 5))
+    if bad:
+        sys.exit(f"{path}: rows break the schema:\n  " + "\n  ".join(bad))
+    out = []
+    for p in places.values():
+        # The union never joins two known traditions, treating "secular" like "unknown" (it is the archive's
+        # Secular / Memorial: Ranjit Singh's samadhi, Aibak's tomb), so one religious tradition is left at most.
+        rel = p["trads"] - {"secular"}
+        if len(rel) > 1:
+            sys.exit(f"{path}: place {p['id']} mixes traditions {sorted(rel)}")
+        if sum(1 for x in p["r"] if x[0] == "archive") > 1:
+            sys.exit(f"{path}: place {p['id']} holds two archive rows")
+        out.append({"id": p["id"], "lat": p["best"][1], "lon": p["best"][2],
+                    "trad": next(iter(rel or p["trads"]), "unknown"), "r": p["r"]})
+    return out
+
+
+def attach_place_counts(data, sites_csv):
+    """Put n_ext_verified (places two independent sources record) and n_ext_single (one source) on every
+    district and province, with the verified count per million people. A place belongs to the district of
+    its first-ranked member, the rule build_district_counts.py uses, and verified + single must equal that
+    build's n_union_abc in every district, or nothing is written (RULE 4)."""
+    rank = {"archive": 0, "wikidata": 1, "osm": 2, "doam": 3, "geonames": 4}
+    with open(sites_csv, encoding="utf-8", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    place_dc, srcs = {}, {}
+    for r in sorted(rows, key=lambda r: rank[r["source"]]):
+        place_dc.setdefault(r["place"], r["district_code"])
+        srcs.setdefault(r["place"], set()).add(r["source"])      # OSM tiers are one source here
+    ver, one = {}, {}
+    for p, s in srcs.items():
+        tgt = ver if len(s) >= 2 else one
+        tgt[place_dc[p]] = tgt.get(place_dc[p], 0) + 1
+    dc_csv = Path(sites_csv).parent / "district_counts.csv"
+    with open(dc_csv, encoding="utf-8", newline="") as fh:
+        dist = {r["district_code"]: r for r in csv.DictReader(fh)}
+    bad = [f"{d}: {ver.get(d, 0)} + {one.get(d, 0)} != n_union_abc {r['n_union_abc']}"
+           for d, r in dist.items() if ver.get(d, 0) + one.get(d, 0) != int(float(r["n_union_abc"]))]
+    if bad:
+        sys.exit("refusing: verified + single places disagree with district_counts.csv:\n  " + "\n  ".join(bad[:10]))
+    prov = {}
+    for d, r in dist.items():
+        pv = prov.setdefault(r["province_name"], [0, 0])
+        pv[0] += ver.get(d, 0)
+        pv[1] += one.get(d, 0)
+    for unit in ("district", "province"):
+        hit = 0
+        for f in data[unit]["features"]:
+            p = f["properties"]
+            if unit == "district":
+                if p["id"] not in dist:
+                    continue
+                v = (ver.get(p["id"], 0), one.get(p["id"], 0))
+            else:
+                if p["name"] not in prov:
+                    continue
+                v = tuple(prov[p["name"]])
+            hit += 1
+            p["n_ext_verified"], p["n_ext_single"] = v
+            pop = p.get("pop2023")
+            p["ext_verified_per_million"] = v[0] / pop * 1e6 if pop else None
+        if hit != len(data[unit]["features"]):
+            sys.exit(f"refusing: place counts matched {hit} of {len(data[unit]['features'])} {unit} features")
+    n = sum(ver.values()), sum(one.values())
+    print(f"place counts: {n[0]:,} verified and {n[1]:,} one-source places on {len(dist)} districts")
+
+
 def extract(html):
     found = PAYLOAD_RE.findall(html)
     if len(found) != 1:
@@ -208,6 +321,8 @@ def main():
     ap.add_argument("--template", default=HERE / "template.html", type=Path)
     ap.add_argument("--out", default=HERE / "index.html", type=Path)
     ap.add_argument("--leads", type=Path, help="merged_leads.json to replace the embedded leads with")
+    ap.add_argument("--places", type=Path,
+                    help="shrine_sources/district_counts/sites.csv: every source's records, for the source filter")
     ap.add_argument("--check", action="store_true", help="check the round trip and write nothing")
     ap.add_argument("--precise", type=Path, metavar="ATLAS_DIR",
                     help="restore full precision at district, tehsil and province from atlas_*.csv")
@@ -227,6 +342,11 @@ def main():
     if a.leads:
         data["leads"] = load_leads(a.leads)
         print(f"leads: {len(data['leads'])} from {a.leads}")
+        raw, literal = serialise(data)
+    if a.places:
+        data["places"] = load_places(a.places)
+        print(f"places: {len(data['places'])} from {a.places}")
+        attach_place_counts(data, a.places)
         raw, literal = serialise(data)
     if a.precise:
         restore_precision(data, a.precise)

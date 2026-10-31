@@ -1,0 +1,161 @@
+district_code,district_name,province_code,mics_life_satisfaction_women,mics_life_satisfaction_men
+PK101,Bagh,PK1,,
+PK102,Bhimber,PK1,,
+PK103,Jhelum Valley,PK1,,
+PK104,Haveli,PK1,,
+PK105,Kotli,PK1,,
+PK106,Mirpur,PK1,,
+PK107,Muzaffarabad,PK1,,
+PK108,Neelum,PK1,,
+PK109,Poonch,PK1,,
+PK110,Sudhnoti,PK1,,
+PK201,Awaran,PK2,,
+PK202,Barkhan,PK2,,
+PK203,Chagai,PK2,,
+PK204,Dera Bugti,PK2,,
+PK205,Gwadar,PK2,,
+PK206,Harnai,PK2,,
+PK207,Jaffarabad,PK2,,
+PK208,Jhal Magsi,PK2,,
+PK209,Kachhi,PK2,,
+PK210,Kalat,PK2,,
+PK211,Kech,PK2,,
+PK212,Kharan,PK2,,
+PK213,Khuzdar,PK2,,
+PK214,Killa Abdullah,PK2,,
+PK215,Killa Saifullah,PK2,,
+PK216,Kohlu,PK2,,
+PK217,Lasbela,PK2,,
+PK218,Lehri,PK2,,
+PK219,Loralai,PK2,,
+PK220,Mastung,PK2,,
+PK221,Musakhel,PK2,,
+PK222,Nasirabad,PK2,,
+PK223,Nushki,PK2,,
+PK224,Panjgur,PK2,,
+PK225,Pishin,PK2,,
+PK226,Quetta,PK2,,
+PK227,Sherani,PK2,,
+PK228,Sibi,PK2,,
+PK229,Sohbatpur,PK2,,
+PK230,Washuk,PK2,,
+PK231,Zhob,PK2,,
+PK232,Ziarat,PK2,,
+PK233,Shaheed Sikandarabad,PK2,,
+PK234,Duki,PK2,,
+PK235,Chaman,PK2,,
+PK301,Astore,PK3,,
+PK302,Diamir,PK3,,
+PK303,Ghanche,PK3,,
+PK304,Ghizer,PK3,,
+PK305,Gilgit,PK3,,
+PK306,Hunza,PK3,,
+PK307,Skardu,PK3,,
+PK308,Nagar,PK3,,
+PK309,Kharmang,PK3,,
+PK310,Shigar,PK3,,
+PK311,Darel,PK3,,
+PK312,Tangir,PK3,,
+PK313,Gupis-Yasin,PK3,,
+PK314,Rondu,PK3,,
+PK401,Islamabad,PK4,,
+PK501,Abbottabad,PK5,,
+PK502,Bajaur,PK5,,
+PK503,Bannu,PK5,,
+PK504,Batagram,PK5,,
+PK505,Buner,PK5,,
+PK506,Charsadda,PK5,,
+PK507,Chitral Lower,PK5,,
+PK508,Chitral Upper,PK5,,
+PK509,D. I. Khan,PK5,,
+PK510,Hangu,PK5,,
+PK511,Haripur,PK5,,
+PK512,Karak,PK5,,
+PK513,Khyber,PK5,,
+PK514,Kohat,PK5,,
+PK515,Kohistan Lower,PK5,,
+PK516,Kohistan Upper,PK5,,
+PK517,Kolai Palas Kohistan,PK5,,
+PK518,Kurram,PK5,,
+PK519,Lakki Marwat,PK5,,
+PK520,Lower Dir,PK5,,
+PK521,Malakand,PK5,,
+PK522,Mansehra,PK5,,
+PK523,Mardan,PK5,,
+PK524,Mohmand,PK5,,
+PK525,North Waziristan,PK5,,
+PK526,Nowshera,PK5,,
+PK527,Orakzai,PK5,,
+PK528,Peshawar,PK5,,
+PK529,Shangla,PK5,,
+PK530,South Waziristan,PK5,,
+PK531,Swabi,PK5,,
+PK532,Swat,PK5,,
+PK533,Tank,PK5,,
+PK534,Tor Ghar,PK5,,
+PK535,Upper Dir,PK5,,
+PK601,Attock,PK6,7.6299,7.7253
+PK602,Bahawalnagar,PK6,6.6818,6.8834
+PK603,Bahawalpur,PK6,7.0547,6.7895
+PK604,Bhakkar,PK6,7.0786,8.2634
+PK605,Chakwal,PK6,7.0847,7.0819
+PK606,Chiniot,PK6,7.6612,6.7622
+PK607,Dera Ghazi Khan,PK6,6.1862,5.4579
+PK608,Faisalabad,PK6,7.6767,7.4548
+PK609,Gujranwala,PK6,8.0774,7.5361
+PK610,Gujrat,PK6,8.4368,7.3832
+PK611,Hafizabad,PK6,7.8962,8.0715
+PK612,Jhang,PK6,6.2456,7.3436
+PK613,Jhelum,PK6,6.9109,5.222
+PK614,Kasur,PK6,7.6786,6.4585
+PK615,Khanewal,PK6,6.7769,6.3265
+PK616,Khushab,PK6,6.3675,4.3382
+PK617,Lahore,PK6,7.3013,7.229
+PK618,Leiah,PK6,7.308,6.1859
+PK619,Lodhran,PK6,6.8983,5.7049
+PK620,Mandi Bahauddin,PK6,7.6551,7.143
+PK621,Mianwali,PK6,6.7787,6.309
+PK622,Multan,PK6,6.8945,7.2249
+PK623,Muzaffargarh,PK6,7.5061,5.4312
+PK624,Nankana Sahib,PK6,7.8295,7.1155
+PK625,Narowal,PK6,8.0439,6.9222
+PK626,Okara,PK6,7.0132,6.3783
+PK627,Pakpattan,PK6,6.1788,6.7541
+PK628,Rahim Yar Khan,PK6,7.8084,7.2434
+PK629,Rajanpur,PK6,7.7852,6.3977
+PK630,Rawalpindi,PK6,7.4012,6.7724
+PK631,Sahiwal,PK6,4.3328,7.0364
+PK632,Sargodha,PK6,7.1316,4.8482
+PK633,Sheikhupura,PK6,7.6947,6.9743
+PK634,Sialkot,PK6,7.6864,7.3974
+PK635,Toba Tek Singh,PK6,7.1719,6.1691
+PK636,Vehari,PK6,6.5578,5.9957
+PK701,Badin,PK7,5.2298,4.7939
+PK702,Central Karachi,PK7,7.4607,6.7685
+PK703,Dadu,PK7,4.3899,5.6901
+PK704,East Karachi,PK7,6.8065,5.9405
+PK705,Ghotki,PK7,7.6745,3.9458
+PK706,Hyderabad,PK7,6.591,5.5915
+PK707,Jacobabad,PK7,7.428,6.1569
+PK708,Jamshoro,PK7,5.3455,5.8953
+PK709,Kambar Shahdad Kot,PK7,5.7295,7.0528
+PK710,Kashmore,PK7,7.3722,6.3853
+PK711,Khairpur,PK7,6.8213,5.0263
+PK712,Korangi Karachi,PK7,6.8953,7.4244
+PK713,Larkana,PK7,7.3591,6.36
+PK714,Malir Karachi,PK7,7.8735,6.6653
+PK715,Matiari,PK7,7.62,7.0933
+PK716,Mirpur Khas,PK7,7.3327,6.5475
+PK717,Naushahro Feroze,PK7,7.1125,4.3453
+PK718,Sanghar,PK7,6.9775,6.8777
+PK719,Shaheed Benazir Abad,PK7,7.6177,6.7757
+PK720,Shikarpur,PK7,4.9811,5.5662
+PK721,South Karachi,PK7,7.7448,5.4984
+PK722,Sujawal,PK7,5.669,5.7543
+PK723,Sukkur,PK7,5.666,6.4361
+PK724,Tando Allahyar,PK7,6.4559,5.6437
+PK725,Tando Muhammad Khan,PK7,5.5059,4.1523
+PK726,Tharparkar,PK7,6.5932,5.213
+PK727,Thatta,PK7,6.835,6.7733
+PK728,Umer Kot,PK7,5.6647,6.0614
+PK729,West Karachi,PK7,7.3173,6.4931

@@ -148,6 +148,34 @@
         min-height: 44px;
         cursor: pointer;
       }
+      #placesPanel {
+        flex-basis: 100%;
+        margin: 0;
+        padding: 4px 10px 6px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 13px;
+        color: var(--muted);
+        min-width: 0;
+      }
+      #placesPanel legend {
+        padding: 0 4px;
+      }
+      #placesPanel .pf-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+        align-items: center;
+      }
+      #placesPanel .pf-row > label:not(.chk) {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+      }
+      #placesCount {
+        color: var(--text);
+        font-weight: 600;
+      }
       #chips {
         display: flex;
         flex-wrap: wrap;
@@ -706,6 +734,53 @@
         <label class="chk" id="leadsInWrap" hidden
           ><input type="checkbox" id="showLeadsIn" /> include places already in the archive</label
         >
+        <label class="chk"
+          ><input type="checkbox" id="showPlaces" /> All shrine records, every source<span
+            id="placesTotal"
+          ></span
+        ></label>
+        <fieldset id="placesPanel" hidden>
+          <legend>Show places recorded by</legend>
+          <div id="placesSrc" class="pf-row"></div>
+          <div class="pf-row">
+            <label
+              >Match
+              <select id="placesMatch">
+                <option value="any">any ticked source</option>
+                <option value="all">every ticked source</option>
+                <option value="only">ticked sources only, no other</option>
+              </select></label
+            >
+            <label
+              >Sources agreeing
+              <select id="placesMin">
+                <option value="1">any number</option>
+                <option value="2">2 or more (verified)</option>
+                <option value="3">3 or more</option>
+                <option value="4">4 or more</option>
+                <option value="-1">exactly 1 (unconfirmed)</option>
+              </select></label
+            >
+            <label
+              >Tradition
+              <select id="placesTrad">
+                <option value="">all</option>
+                <option value="muslim">Muslim</option>
+                <option value="hindu">Hindu</option>
+                <option value="sikh">Sikh</option>
+                <option value="jain">Jain</option>
+                <option value="other">other or secular</option>
+                <option value="unknown">not stated</option>
+              </select></label
+            >
+            <label class="chk"
+              ><input type="checkbox" id="placesNoArchive" /> hide places already in the
+              archive</label
+            >
+            <button id="placesCsv" class="btn" type="button">Download these as CSV</button>
+            <span id="placesCount" role="status" aria-live="polite"></span>
+          </div>
+        </fieldset>
         <button
           id="cjOpen"
           class="btn primary"
@@ -750,6 +825,8 @@
         <div id="siteLegend" class="legend"></div>
         <h2>Leads</h2>
         <div id="leadsLegend" class="legend"></div>
+        <h2>All shrine records</h2>
+        <div id="placesLegend" class="legend"></div>
         <h2>Open sources, measured against the archive</h2>
         <div id="coverage"></div>
         <h2>Verification</h2>
@@ -2042,6 +2119,165 @@
           .join('') +
         `<div class="def">Filled dots, coloured by tradition. The archive is curated: ${D.sites.length} geocoded sites, ${D.sites.filter((x) => x.cat === 'Muslim Shrine').length} of them Muslim shrines.</div>`;
 
+      // ---- all shrine records, filtered by source ------------------------------------------------
+      // D.places: every record of every source (shrine_sources/district_counts/sites.csv), one object
+      // per place. Two independent sources agreeing on a place is what Rauf counts as verified (30
+      // October 2026). OSM's weak tier C is its own checkbox but the same source as OSM when counting
+      // agreement, so OSM can never confirm itself.
+      const PLACES = D.places || [];
+      const PSRC = {
+        archive: { label: 'Archive', note: 'this project' },
+        doam: { label: 'DOAM inventory', note: 'Dept. of Archaeology & Museums' },
+        osm: { label: 'OpenStreetMap', note: 'tiers A and B' },
+        osmc: { label: 'OSM, weak matches', note: 'tier C, about 2 in 3 are shrines' },
+        wikidata: { label: 'Wikidata', note: '' },
+        geonames: { label: 'GeoNames', note: 'gazetteer, pins often 150 m to 1 km off' },
+      };
+      const AGREE = ['#d97706', '#16a34a', '#047857', '#065f46'];
+      const agreeCol = (n) => AGREE[Math.min(n, 4) - 1];
+      const indep = (s) => (s === 'osmc' ? 'osm' : s);
+      for (const p of PLACES) {
+        p.srcs = new Set(p.r.map((x) => x[0]));
+        p.n = new Set(p.r.map((x) => indep(x[0]))).size;
+        p.name = (p.r.find((x) => x[1]) || [, ''])[1];
+      }
+      const placesL = L.layerGroup().addTo(map);
+      $('placesTotal').textContent = ` (${PLACES.length.toLocaleString()} places)`;
+      $('placesSrc').innerHTML = Object.entries(PSRC)
+        .map(
+          ([k, v]) =>
+            `<label class="chk" title="${esc(v.note)}"><input type="checkbox" data-src="${k}" checked /> ${esc(v.label)} (${PLACES.filter((p) => p.srcs.has(k)).length.toLocaleString()})</label>`,
+        )
+        .join('');
+      function recLink(src, name, sid) {
+        const a = (u, t) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`;
+        if (src === 'doam') return a('https://doam.gov.pk/public/' + sid, 'DOAM record');
+        if (src === 'osm' || src === 'osmc')
+          return a('https://www.openstreetmap.org/' + sid, 'OSM ' + sid);
+        if (src === 'wikidata') return a('https://www.wikidata.org/wiki/' + sid, sid);
+        if (src === 'geonames') return a('https://www.geonames.org/' + sid, 'GeoNames ' + sid);
+        const s = D.sites.find((x) => x.name === name);
+        return s ? a(s.url, 'archive page') : esc(sid);
+      }
+      function placeHTML(p) {
+        const q = encodeURIComponent(`${p.name} Pakistan`);
+        return (
+          `<b>${esc(p.name || '(unnamed)')}</b><br>` +
+          `<span style="color:${agreeCol(p.n)}">●</span> ${p.n} independent source${p.n > 1 ? 's' : ''}` +
+          (p.n > 1 ? ' · <b>verified</b>' : ' · <i>unconfirmed</i>') +
+          (p.trad !== 'unknown' ? ` · ${esc(p.trad)}` : '') +
+          '<ul style="margin:4px 0;padding-inline-start:18px">' +
+          p.r
+            .map(
+              ([s, n, id]) =>
+                `<li>${esc(PSRC[s].label)}: ${n ? `<span dir="auto">${esc(n)}</span>` : '(unnamed)'} · ${recLink(s, n, id)}</li>`,
+            )
+            .join('') +
+          '</ul>' +
+          `Check it: <a href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">web search</a> · ` +
+          `<a href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}" target="_blank" rel="noopener">satellite / map</a>` +
+          `<br><span class="def">${esc(p.id)} · ${p.lat}, ${p.lon}</span>`
+        );
+      }
+      function placesShown() {
+        const ticked = new Set(
+          [...$('placesSrc').querySelectorAll('input:checked')].map((i) => i.dataset.src),
+        );
+        const match = $('placesMatch').value,
+          min = +$('placesMin').value,
+          trad = $('placesTrad').value,
+          noArch = $('placesNoArchive').checked;
+        return PLACES.filter((p) => {
+          if (min === -1 ? p.n !== 1 : p.n < min) return false;
+          if (trad && (trad === 'other' ? !['other', 'secular'].includes(p.trad) : p.trad !== trad))
+            return false;
+          if (noArch && p.srcs.has('archive')) return false;
+          const hit = [...p.srcs].filter((s) => ticked.has(s)).length;
+          if (match === 'any') return hit > 0;
+          if (match === 'all') return ticked.size > 0 && [...ticked].every((s) => p.srcs.has(s));
+          return hit > 0 && hit === p.srcs.size;
+        });
+      }
+      function drawPlaces() {
+        placesL.clearLayers();
+        const on = $('showPlaces').checked;
+        $('placesPanel').hidden = !on;
+        if (!on) return;
+        const shown = placesShown();
+        // Fewest sources first, so the verified dots are drawn on top where they overlap.
+        for (const p of [...shown].sort((a, b) => a.n - b.n))
+          L.circleMarker([p.lat, p.lon], {
+            renderer: markR,
+            bubblingMouseEvents: false,
+            radius: p.n > 1 ? 4.5 : 3.5,
+            weight: 1,
+            color: '#fff',
+            fillColor: agreeCol(p.n),
+            fillOpacity: 0.9,
+          })
+            .bindPopup(() => placeHTML(p), { autoPanPadding: [16, 16], maxWidth: 360 })
+            .on('mouseover', () => {
+              overMarker = true;
+              hoverIdx = -1;
+              clearHover();
+            })
+            .on('mouseout', () => (overMarker = false))
+            .addTo(placesL);
+        const ver = shown.filter((p) => p.n > 1).length;
+        $('placesCount').textContent =
+          `${shown.length.toLocaleString()} shown: ${ver.toLocaleString()} verified, ${(shown.length - ver).toLocaleString()} from one source`;
+      }
+      $('placesCsv').onclick = () => {
+        const cell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+        const lines = [
+          [
+            'place',
+            'name',
+            'lat',
+            'lon',
+            'tradition',
+            'n_sources',
+            'verified',
+            'sources',
+            'records',
+          ].join(','),
+        ];
+        for (const p of placesShown())
+          lines.push(
+            [
+              p.id,
+              p.name,
+              p.lat,
+              p.lon,
+              p.trad,
+              p.n,
+              p.n > 1 ? 'yes' : 'no',
+              [...p.srcs].join(';'),
+              p.r.map(([s, n, id]) => `${s}:${id}:${n}`).join(' | '),
+            ]
+              .map(cell)
+              .join(','),
+          );
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(
+          new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' }),
+        );
+        a.download = 'shrine_places_filtered.csv';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      };
+      $('showPlaces').onchange = drawPlaces;
+      $('placesPanel').addEventListener('change', drawPlaces);
+      const byN = (k) => PLACES.filter((p) => (k === 4 ? p.n >= 4 : p.n === k)).length;
+      $('placesLegend').innerHTML =
+        [1, 2, 3, 4]
+          .map(
+            (k) =>
+              `<div><i style="background:${agreeCol(k)};border-radius:50%;width:12px"></i>${k === 1 ? 'one source, unconfirmed' : k === 4 ? '4 or more sources' : `${k} sources`}: ${byN(k).toLocaleString()}</div>`,
+          )
+          .join('') +
+        `<div class="def">Every record of a shrine, temple, samadhi or gurdwara in the archive, DOAM's national inventory, OpenStreetMap, Wikidata and GeoNames, joined into one dot per place. A dot is verified when two independent sources record it (OSM's weak matches count as OSM). One-source dots may not exist: open one to search the web or look at it on satellite.</div>`;
+
       // ---- controls -----------------------------------------------------------------------------
       function notice(t) {
         $('notice').textContent = t || '';
@@ -2247,27 +2483,45 @@
         sites_per_1000km2: { label: 'Archive sites per 1,000 km²', group: 'Archive' },
         // Counts beyond the archive (shrine_sources/district_counts/README.md). District and
         // province only. They disagree with one another: read the README before choosing one.
+        n_ext_verified: {
+          label: 'Verified shrines and temples: two or more independent sources (count)',
+          group: 'Shrines, every source',
+        },
+        ext_verified_per_million: {
+          label: 'Verified shrines and temples per million people',
+          group: 'Shrines, every source',
+        },
+        n_ext_single: {
+          label: 'Shrines and temples in one source only, unconfirmed (count)',
+          group: 'Shrines, every source',
+        },
         n_ext_union: {
           label: 'Shrines and temples in any source, deduplicated (count)',
-          group: 'Other sources',
+          group: 'Shrines, every source',
         },
         ext_union_per_million: {
           label: 'Shrines and temples in any source, per million people',
-          group: 'Other sources',
+          group: 'Shrines, every source',
         },
-        n_ext_osm: { label: 'OpenStreetMap shrines and temples (count)', group: 'Other sources' },
+        n_ext_osm: {
+          label: 'OpenStreetMap shrines and temples (count)',
+          group: 'Shrines, every source',
+        },
         n_ext_geonames: {
           label: 'GeoNames shrines and tombs, from old gazetteer maps (count)',
-          group: 'Other sources',
+          group: 'Shrines, every source',
         },
-        n_ext_wikidata: { label: 'Wikidata shrines and temples (count)', group: 'Other sources' },
+        n_ext_wikidata: {
+          label: 'Wikidata shrines and temples (count)',
+          group: 'Shrines, every source',
+        },
         n_ext_doam: {
           label: 'Dept. of Archaeology inventory: tombs, shrines, temples, gurdwaras (count)',
-          group: 'Other sources',
+          group: 'Shrines, every source',
         },
         n_osm_pow_effort: {
           label: 'OpenStreetMap mosques mapped, a measure of mapping effort (count)',
-          group: 'Other sources',
+          group: 'Shrines, every source',
         },
       };
       const CJV = Object.fromEntries(
@@ -2340,7 +2594,10 @@
         [spec.y, ...spec.x, ...spec.c].some((v) => CJV[v.key] && CJV[v.key].group === 'Archive');
       const usesOtherSources = (spec) =>
         [spec.y, ...spec.x, ...spec.c].some(
-          (v) => CJV[v.key] && CJV[v.key].group === 'Other sources' && v.key !== 'n_osm_pow_effort',
+          (v) =>
+            CJV[v.key] &&
+            CJV[v.key].group === 'Shrines, every source' &&
+            v.key !== 'n_osm_pow_effort',
         );
       const controlsEffort = (spec) =>
         [spec.x, spec.c].flat().some((v) => v.key === 'n_osm_pow_effort');
@@ -3709,9 +3966,10 @@
               chosen.includes(v.key) ||
               words.every((w) => `${v.label} ${v.group} ${v.key}`.toLowerCase().includes(w)),
           ),
-          groups = [...new Set(all.map((v) => v.group))].sort((a, b) =>
-            a === 'Archive' ? -1 : b === 'Archive' ? 1 : 0,
-          );
+          // The shrine counts lead: the archive, then every source (they were last, under
+          // 240 welfare measures, and went unfound).
+          top = (g) => (g === 'Archive' ? 0 : g === 'Shrines, every source' ? 1 : 2),
+          groups = [...new Set(all.map((v) => v.group))].sort((a, b) => top(a) - top(b));
         return (
           `<option value="">${esc(placeholder)}</option>` +
           groups
@@ -4224,8 +4482,8 @@
           <div class="cjbtns"><button class="btn" type="button" id="cjResMap">Show residuals on the map</button><button class="btn" type="button" id="cjMaupBtn">Same test at every unit</button></div>
           <svg id="cjRvf" width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Residuals against fitted values"></svg>
           <div id="cjMaup"></div>
-          <details><summary>Replicate in Stata or R</summary>
-            <div class="def">Download the data for this unit (button under the log), then:</div>
+          <details open><summary>Stata and R code for this test</summary>
+            <div class="def">Complete and self-contained: the data is inside the code. Paste either into Stata (do-file editor, then Do) or into R, and run it. The viewer's estimates are at the end, to compare.</div>
             <label class="fld"><span class="lbl">Stata</span><textarea class="code" rows="9" readonly id="cjStata">${esc(stataCode(e))}</textarea></label>
             <label class="fld"><span class="lbl">R</span><textarea class="code" rows="9" readonly id="cjR">${esc(rCode(e))}</textarea></label>
             <div class="cjbtns"><button class="btn" type="button" data-copy="cjStata">Copy Stata</button><button class="btn" type="button" data-copy="cjR">Copy R</button></div>
@@ -4405,6 +4663,42 @@
       // as the variable label, so the code finds it by its label.
       // A statement goes into a comment line, so nothing in it may start a new line.
       const oneLine = (t) => String(t).replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]+/g, ' ');
+      // The code carries its own data (Rauf, 30 October 2026: "copy and paste into the applications"):
+      // every unit's id and the columns the test reads, values exactly as the viewer holds them, so it
+      // runs with nothing else downloaded. tests/check_stata_r.py runs it in Stata and R and compares.
+      function testData(e) {
+        const s = e.spec;
+        if (s.composite) ensureComposite(s.composite, s.unit);
+        const keys = [
+          ...new Set(
+            [s.y, ...s.x, ...s.c]
+              .map((v) => v.key)
+              .concat(s.model === 'poisson' && s.exposure ? [s.exposure] : []),
+          ),
+        ];
+        const num = (v) => (ok(v) && Number.isFinite(+v) ? String(+v) : null);
+        return {
+          keys,
+          rows: feats(s.unit).map((f) => [String(f.id), ...keys.map((k) => num(f.p[k]))]),
+        };
+      }
+      // Stata names are at most 32 characters: a longer key is cut and numbered.
+      const stataName = (k, i) => (k.length <= 32 ? k : `${k.slice(0, 28)}_v${i + 1}`);
+      // The viewer's own estimates, as comments under the code, so a pasted run can be checked by eye.
+      function viewerResult(e, c) {
+        const se = e.spec.se === 'classical' ? 'seC' : 'seR',
+          nm = (t) =>
+            t.role === 'const'
+              ? 'constant'
+              : `${t.role}${e.terms.filter((u) => u.role === t.role).indexOf(t) + 1}`;
+        return [
+          `${c} The viewer's estimates (N = ${e.n}), which the code above reproduces:`,
+          ...e.terms.map(
+            (t) =>
+              `${c}   ${nm(t).padEnd(9)} b = ${t.b.toPrecision(10)}   se = ${t[se].toPrecision(10)}`,
+          ),
+        ];
+      }
       function stataCode(e) {
         const s = e.spec,
           vars = [
@@ -4416,13 +4710,24 @@
             `* Test #${e.id} from the Shrines and Welfare viewer, recorded ${e.ts}`,
             ...(s.statement ? [`* "${oneLine(s.statement)}"`] : []),
             ...s.x.map((v, i) => `* expected sign of x${i + 1} (${v.key}): ${SIGNL[v.sign]}`),
-            `import delimited using "shrines_${s.unit}.csv", clear case(preserve) varnames(1)`,
           ],
-          src = (key) => {
-            if (key.length <= 32) return key;
-            L.push(`ds, has(varlabel "${key}")`, `local v_${key.slice(0, 20)} \`r(varlist)'`);
-            return `\`v_${key.slice(0, 20)}'`;
-          };
+          T = testData(e),
+          short = Object.fromEntries(T.keys.map((k, i) => [k, stataName(k, i)])),
+          idw = Math.max(1, ...T.rows.map((r) => r[0].length)),
+          src = (key) => short[key];
+        L.push(
+          `* Data: every ${UNIT1[s.unit]} (${T.rows.length}), its id and the ${T.keys.length} columns this test reads. Missing is "."`,
+          'clear',
+          `input str${idw} id double(${T.keys.map((k) => short[k]).join(' ')})`,
+          ...T.rows.map(
+            (r) =>
+              `"${r[0]}" ${r
+                .slice(1)
+                .map((v) => v ?? '.')
+                .join(' ')}`,
+          ),
+          'end',
+        );
         const names = vars.map(([nm, v]) => {
           const k = src(v.key);
           L.push(
@@ -4448,6 +4753,7 @@
           `* The viewer's Conley SEs: Bartlett kernel, cutoffs ${(e.cuts || []).join(', ')} km, between the centroids in cent_lat and cent_lon,`,
           `* with the robust SEs' small-sample factor. A user-written command (e.g. acreg) may use another kernel or factor: compare, do not expect equality.`,
           `* Moran's I in the viewer used ${e.moran ? e.moran.w : 'no weights'} (Cliff-Ord test for OLS residuals, two-sided).`,
+          ...viewerResult(e, '*'),
         );
         return L.join('\n');
       }
@@ -4458,19 +4764,20 @@
             ...s.x.map((v, i) => ['x' + (i + 1), v]),
             ...s.c.map((v, i) => ['c' + (i + 1), v]),
           ],
-          keys = [
-            ...new Set(
-              vars
-                .map(([, v]) => v.key)
-                .concat(s.model === 'poisson' && s.exposure ? [s.exposure] : []),
-            ),
-          ],
+          T = testData(e),
+          keys = T.keys,
           L = [
             `# Test #${e.id} from the Shrines and Welfare viewer, recorded ${e.ts}`,
             ...(s.statement ? [`# "${oneLine(s.statement)}"`] : []),
             ...s.x.map((v, i) => `# expected sign of x${i + 1} (${v.key}): ${SIGNL[v.sign]}`),
+            '# Two packages from CRAN, installed on first use',
+            'for (p in c("sandwich", "lmtest")) if (!requireNamespace(p, quietly = TRUE)) install.packages(p)',
             'library(sandwich); library(lmtest)',
-            `d <- read.csv("shrines_${s.unit}.csv")`,
+            `# Data: every ${UNIT1[s.unit]} (${T.rows.length}), its id and the ${keys.length} columns this test reads. Missing is NA`,
+            'd <- read.csv(colClasses = c(id = "character"), text = "',
+            ['id', ...keys].join(','),
+            ...T.rows.map((r) => r.map((v) => v ?? 'NA').join(',')),
+            '")',
             `d <- d[complete.cases(d[, c(${keys.map((k) => `"${k}"`).join(', ')})]), ]`,
           ];
         if (s.model === 'poisson' && s.exposure) L.push(`d <- d[d$${s.exposure} > 0, ]`);
@@ -4500,6 +4807,7 @@
           "# the robust SEs' small-sample factor. fixest::feols(..., vcov = conley(cutoff = ...)) is comparable; its kernel and",
           '# small-sample conventions may differ, so compare rather than expect equality.',
           `# Moran's I in the viewer used ${e.moran ? e.moran.w : 'no weights'}${s.model === 'ols' ? "; with the same weights, spdep::lm.morantest(m, listw, zero.policy = TRUE, alternative = 'two.sided') is the same test" : '; Pearson residuals, two-sided permutation test'}.`,
+          ...viewerResult(e, '#'),
         );
         return L.join('\n');
       }

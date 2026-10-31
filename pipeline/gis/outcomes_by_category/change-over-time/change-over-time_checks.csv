@@ -1,0 +1,13 @@
+check,measured,reference,result,note
+catalog keys of the theme are unique,10,10,pass,
+every theme indicator has a codebook row,10 of 10,10,pass,
+no theme indicator has two codebook rows,0,0,pass,
+every theme indicator is in at least one atlas file,10 of 10,10,pass,
+codebook units agree with the atlas columns,0,0,pass,
+district: id columns present in atlas,3,3,pass,
+district: row count equals the atlas,160,160,pass,
+district: ids unique,160,160,pass,
+district: every value equals the atlas,0 differing of 2080 cells,0,pass,
+district: rows with at least one theme value (information only),122,160,pass,
+every theme indicator has a currency entry,10,10,pass,
+currency verdicts are yes/no/unknown and every 'no' has a URL,0,0,pass,

@@ -1,0 +1,26 @@
+check,result,detail
+catalog_has_theme,pass,29 indicators
+district_id_columns,pass,
+district_columns,pass,16 indicators
+district_row_count,pass,160 written vs 160 atlas
+district_id_order,pass,
+district_values_equal_atlas,pass,0 differing cells
+district_nonempty_cells,pass,2035 of 2560
+tehsil_id_columns,pass,
+tehsil_columns,pass,1 indicators
+tehsil_row_count,pass,577 written vs 577 atlas
+tehsil_id_order,pass,
+tehsil_values_equal_atlas,pass,0 differing cells
+tehsil_nonempty_cells,pass,299 of 577
+province_id_columns,pass,
+province_columns,pass,13 indicators
+province_row_count,pass,7 written vs 7 atlas
+province_id_order,pass,
+province_values_equal_atlas,pass,0 differing cells
+province_nonempty_cells,pass,91 of 91
+every_catalog_indicator_in_atlas,pass,
+every_indicator_has_codebook_row,pass,
+every_source_audited,pass,
+codebook_rows,pass,29 rows vs 29 indicators
+codebook_matches_atlas_codebook,pass,
+up_to_date_vocabulary,pass,

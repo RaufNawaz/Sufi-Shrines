@@ -1,0 +1,8 @@
+province_code,province_name,dhsms_women_literate,dhsms_men_literate,dhs_women_secondary_plus
+PK1,Azad Kashmir,37.896,69.0608,48.9
+PK2,Balochistan,19.0633,62.2598,10.6
+PK3,Gilgit Baltistan,8.2664,59.9293,35.0
+PK4,Islamabad,77.9966,81.9058,58.2
+PK5,Khyber Pakhtunkhwa,34.1728,68.9772,24.1
+PK6,Punjab,55.5265,70.9193,41.2
+PK7,Sindh,41.8982,69.3633,32.2

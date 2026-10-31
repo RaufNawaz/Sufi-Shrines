@@ -25,7 +25,8 @@ GIS = HERE.parent
 GPKG = GIS / "shrines_foundation.gpkg"
 LEADS = GIS / "shrine_sources/merged_leads.json"
 sys.path.insert(0, str(HERE))
-from rebuild_from_embedded import attach_support, inline_libs, load_leads  # noqa: E402  (stdlib only; shared schema check)
+PLACES = GIS / "shrine_sources/district_counts/sites.csv"
+from rebuild_from_embedded import attach_place_counts, attach_support, inline_libs, load_leads, load_places  # noqa: E402  (stdlib only; shared schema check)
 SITE = "https://raufnawaz.github.io/Sufi-Shrines/shrine/"
 
 # The menu comes from atlas/indicator_catalog.tsv (label, theme, direction, year), in file order, so the
@@ -144,6 +145,9 @@ def main():
     # against the schema by the same function rebuild_from_embedded.py --leads uses, so the two builds
     # cannot disagree about the shape the page reads.
     data["leads"] = load_leads(LEADS)
+    # Every source's records grouped into places, for the page's source filter (HANDOVER 9.434).
+    data["places"] = load_places(PLACES)
+    attach_place_counts(data, PLACES)
 
     cb = pd.read_csv(GIS / "atlas/atlas_codebook.csv")
     defs = {r.indicator: f"{r.definition} — {r.publisher}" for r in cb.itertuples()}
