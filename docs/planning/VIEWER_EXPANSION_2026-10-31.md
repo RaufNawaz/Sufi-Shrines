@@ -38,7 +38,7 @@ Chosen for what a regression-minded reader of this map needs next, largest first
    and province by point in polygon. A check refuses the layer if the district sum differs from the
    filtered total by more than the places with no district. The spec records the filter, so a logged test
    can be re-run and exported with the same set, and the Stata/R code embeds the counts it used.
-3. [ ] **Specification curve.** For a recorded test, re-estimate it over every subset of its controls
+3. [x] **Specification curve.** For a recorded test, re-estimate it over every subset of its controls
    (up to 2⁶ = 64), at every unit, and with each transformation of the outcome the form offers, and show
    the coefficient of interest sorted, with its interval, and below it which choices made each estimate.
    Report the share of specifications with the expected sign and with p < 0.05. All of them run in the
@@ -78,3 +78,9 @@ HANDOVER §9 entry. Nothing here writes to the Google Sheet or changes `sites.cs
   sum differs" became the test's check that district counts plus places in no district equal the
   filter's total. Stata/R: 28 comparisons, largest relative difference 3.2e-7. Details in
   `docs/GIS_FOUNDATION.md`, "Shrines per district beyond the archive".
+- **Item 3, 31 October 2026.** "Specification curve" under each result. It varies the controls,
+  the unit (where every variable exists), the outcome's transform and province fixed effects.
+  The chart is sorted, with intervals and a choice matrix, plus a table by choice and a CSV. It is
+  not logged. The recorded specification reproduces the test exactly, and full refits of a sample
+  agree exactly. As planned, except that the unit choice skips units a variable does not reach,
+  rather than reporting them as failures.

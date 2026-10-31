@@ -395,6 +395,22 @@ browser's storage or a Downloads folder: RULE 0. The Markdown export ends with t
     fixed-effect levels; district, tehsil and hexagon) in StataNow 19.5 and R 4.6.1. 80
     comparisons, largest relative difference **4.7e-7**. The slowest run is hexagons with province
     fixed effects clustered by district: 19,162 units, 12 s.
+- **Specification curve** (31 October 2026, after Simonsohn, Simmons and Nelson 2020). Under a
+  result, the test is re-estimated under every combination of the choices ticked:
+  - which of its controls are in (every subset of up to 6; more are kept in throughout);
+  - the unit, where every variable exists;
+  - the outcome's transform (OLS: as recorded, plus the other two of none / log(1+x) / asinh);
+  - province fixed effects, with and without (not at province level).
+  Each fit computes only the coefficient of the chosen regressor and its SE (the test's own kind
+  where the unit allows it, else robust): no Conley, placebo or Moran. The curve shows the
+  standardised coefficient (SD of outcome per SD of regressor; Poisson, log rate per SD), sorted,
+  with 95% intervals, and below it which choices each specification made. A table gives the
+  median and the share with p < 0.05 for each choice, and the curve downloads as CSV. It is not
+  logged and adds nothing to the Benjamini–Hochberg family: it shows every specification, so it
+  shows how much the result rests on choices without becoming a search for the one that works. Up
+  to 1,536 specifications. 48 at district and tehsil take under 0.1 s. Checked by
+  `tests/test_spec_curve.cjs`: the recorded specification appears in the curve with the test's own
+  coefficient and SE, and a full `runSpec` of every fifth specification agrees exactly.
 - **Correlations.** Pearson r and Spearman ρ (mid-ranks) between the outcome and each regressor,
   on the same units and transforms as the regression.
   - Two-sided permutation p = (1 + #{|r*| ≥ |r|}) / (1 + R), with R = 2,000 shuffles of the

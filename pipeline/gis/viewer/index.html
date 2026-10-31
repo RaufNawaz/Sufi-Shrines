@@ -4940,9 +4940,10 @@
           <div class="scroll"><table><tr><th>Regressor</th><th class="num">Pearson r</th><th class="num">Spearman ρ</th></tr>${corr}</table></div>
           <div class="def">p-values from ${s.perms.toLocaleString()} permutations of the outcome (seed ${s.seed}), two-sided, on the same ${e.n} ${UNITN[e.unit]} and transforms as the regression. Permutation treats the units as exchangeable, so it shares the regression's blindness to spatial correlation.</div>
           <div class="note">${nSess} test${nSess === 1 ? '' : 's'} this session; ${B.m} distinct hypotheses in the log, which the Benjamini–Hochberg adjustment covers. It does not cover the map views and side-panel correlations looked at first${ctx.views ? ` (${ctx.views} this session)` : ''}, so it understates the search behind any test prompted by them. Ecological: these are associations among ${UNITN[e.unit]}, not among people or among shrines, and nothing here shows what causes what.${usesArchive(s) ? ' The archive is curated, not a census: a shrine variable measures where the archive has looked as well as where shrines are, so a result about it is a result about archive coverage.' : ''}${usesOtherSources(s) ? ` The other sources do not agree on which districts have many shrines (OpenStreetMap against GeoNames, Spearman 0.09 per person across 135 districts), and OpenStreetMap's mapping follows wealth; GeoNames runs the other way.${controlsEffort(s) ? '' : ' <b>Add the mapping-effort count as a control</b> before reading a welfare result.'} See shrine_sources/district_counts/README.md.` : ''}${s.places ? ` The shrine-record variables count the records ${esc(placesText(s.places))}; the filter is saved with the test, and loading the test puts it back in the panel.` : ''}${[s.y, ...s.x, ...s.c].some((v) => v.key === 'n_mus_pre1857') ? ' Pre-1857 counts a numeric year below 1857; 25 of the 80 Muslim shrines have no numeric year and count as not pre-1857.' : ''}${[s.y, ...s.x, ...s.c].some((v) => DEFECT[v.key]) ? ' <b>Uses a travel-time indicator with a known coastal data defect</b> (see the side panel): coastal values are biased.' : ''}</div>
-          <div class="cjbtns"><button class="btn" type="button" id="cjResMap">Show residuals on the map</button><button class="btn" type="button" id="cjMaupBtn">Same test at every unit</button></div>
+          <div class="cjbtns"><button class="btn" type="button" id="cjResMap">Show residuals on the map</button><button class="btn" type="button" id="cjMaupBtn">Same test at every unit</button><button class="btn" type="button" id="cjCurveBtn">Specification curve</button></div>
           <svg id="cjRvf" width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Residuals against fitted values"></svg>
           <div id="cjMaup"></div>
+          <div id="cjCurve"></div>
           <details open><summary>Stata and R code for this test</summary>
             <div class="def">Complete and self-contained: the data is inside the code. Paste either into Stata (do-file editor, then Do) or into R, and run it. The viewer's estimates are at the end, to compare.</div>
             <label class="fld"><span class="lbl">Stata</span><textarea class="code" rows="9" readonly id="cjStata">${esc(stataCode(e))}</textarea></label>
@@ -4964,6 +4965,10 @@
         $('cjResMap').onclick = () => residMap(e, res);
         $('cjResMap').disabled = !(res && res._);
         $('cjMaupBtn').onclick = () => maup(e);
+        $('cjCurveBtn').onclick = () => {
+          curveUI(e);
+          $('cjCurve').querySelector('h3').scrollIntoView({ block: 'start' });
+        };
         out.querySelectorAll('[data-copy]').forEach(
           (b) =>
             (b.onclick = () => {
@@ -5224,6 +5229,337 @@
           refreshBH();
         };
         step(0);
+      }
+
+      // ---- test a conjecture: specification curve (31 October 2026) -----------------------------
+      // After Simonsohn, Simmons and Nelson (2020, Nature Human Behaviour). The recorded test is
+      // re-estimated under every combination of choices a reader could reasonably have made instead:
+      // which of its controls (every subset, up to 6; more are kept in throughout), the unit, the
+      // outcome's transform (OLS) and province fixed effects. Each fit computes the coefficient and its
+      // SE (the test's own kind where the unit allows it), nothing else: no Conley, placebo or Moran,
+      // so a curve of hundreds runs in seconds. Coefficients are standardised (SD of outcome per SD of
+      // the regressor; Poisson: log rate per SD), because units and transforms change the scale.
+      // Not logged and not in the Benjamini-Hochberg family: it shows how much one result rests on
+      // choices; it is not a search for the choice that works, which is why it shows every one.
+      const SC_MAX_C = 6,
+        SC_MAX = 1536,
+        SC_TF = ['none', 'log1p', 'asinh'];
+      function curveSpecs(e, dims) {
+        const s = e.spec,
+          vary = s.c.slice(0, SC_MAX_C),
+          fixed = s.c.slice(SC_MAX_C),
+          subsets =
+            dims.c && vary.length
+              ? [...Array(1 << vary.length).keys()].map((m) =>
+                  vary.filter((_, i) => m & (1 << i)).concat(fixed),
+                )
+              : [s.c],
+          // Only units where every variable exists (literacy has no hexagon figure, for one).
+          units = dims.u
+            ? UNITS.map((u) => u[0]).filter(
+                (u) =>
+                  [s.y, ...s.x, ...s.c].every((v) => cjHas(v.key, u)) &&
+                  (!(s.model === 'poisson' && s.exposure) || cjHas(s.exposure, u)),
+              )
+            : [s.unit],
+          tfs =
+            dims.tf && s.model === 'ols'
+              ? [
+                  ...new Set([
+                    s.y.tf,
+                    ...SC_TF.filter((t) => t !== (s.y.tf.replace(/_?z$/, '') || 'none')),
+                  ]),
+                ]
+              : [s.y.tf],
+          fes = dims.fe ? [...new Set([s.fe || null, s.fe ? null : 'province'])] : [s.fe || null],
+          out = [];
+        for (const u of units)
+          for (const tf of tfs)
+            for (const fe of fes) {
+              if (fe && !groupOk(fe, u, true)) continue;
+              const se = groupOk(clusterOf(s.se), u) ? s.se : s.model === 'ols' ? 'hc1' : 'robust';
+              for (const c of subsets)
+                out.push({
+                  ...s,
+                  unit: u,
+                  y: { ...s.y, tf },
+                  c,
+                  fe,
+                  se,
+                  weights: u === 'hex' ? 'h3' : s.weights === 'h3' ? 'contig' : s.weights,
+                });
+            }
+        return out;
+      }
+      const sdOf = (a) => {
+        let m = 0,
+          v = 0;
+        for (const t of a) m += t;
+        m /= a.length;
+        for (const t of a) v += (t - m) ** 2;
+        return Math.sqrt(v / (a.length - 1));
+      };
+      // Coefficient j (1 = the first explanatory variable) of a spec, with its SE and p.
+      function quickFit(spec, j) {
+        const d = cjData(spec, spec.unit);
+        if (d.error) return { error: d.error };
+        const pois = spec.model === 'poisson',
+          F = pois ? fitPoisson(d.X, d.y, d.off, d.n, d.cl) : fitOLS(d.X, d.y, d.n, d.cl);
+        if (F.error) return { error: F.error === 'collinear' ? 'collinear' : 'did not converge' };
+        const V = !pois && spec.se === 'classical' ? F.Vc : F.Vr,
+          b = F.beta[j],
+          se = Math.sqrt(V[j][j]),
+          few = d.n - d.k < MIN_DF,
+          df = pois ? Infinity : F.dfP,
+          q = few ? null : crit(df),
+          sc = sdOf(d.X[j]) / (pois ? 1 : sdOf(d.y));
+        return {
+          b,
+          se,
+          p: few ? null : pval(b / se, df),
+          n: d.n,
+          std: b * sc,
+          lo: q == null ? null : (b - q * se) * sc,
+          hi: q == null ? null : (b + q * se) * sc,
+        };
+      }
+      function curveUI(e) {
+        const box = $('cjCurve'),
+          s = e.spec,
+          xs = s.x;
+        box.innerHTML = `<h3>Specification curve</h3>
+          <div class="def">Re-estimates this test under every combination of the choices ticked below and shows the coefficient each one gives, sorted, with the choices beneath it. It is not logged and adds no hypothesis to the multiple-testing count: it shows how much this result rests on choices, and it shows every one of them, so it cannot be used to pick the one that works. Coefficients are standardised so that units and transforms compare.</div>
+          <div class="cjbtns" role="group" aria-label="Choices to vary">
+            <label class="chk"><input type="checkbox" id="scC" ${s.c.length ? 'checked' : 'disabled'} /> which controls (${s.c.length ? `every subset of ${Math.min(s.c.length, SC_MAX_C)}` : 'none in this test'})</label>
+            <label class="chk"><input type="checkbox" id="scU" checked /> the unit (where every variable exists)</label>
+            <label class="chk"><input type="checkbox" id="scT" ${s.model === 'ols' ? 'checked' : 'disabled'} /> the outcome's transform${s.model === 'ols' ? '' : ' (OLS only)'}</label>
+            <label class="chk"><input type="checkbox" id="scF" /> province fixed effects, with and without</label>
+          </div>
+          ${xs.length > 1 ? `<label class="fld"><span class="lbl">Coefficient of</span><select id="scX">${xs.map((v, i) => `<option value="${i}">${esc(termName(v.key, v.tf))}</option>`).join('')}</select></label>` : ''}
+          <div class="cjbtns"><button class="btn primary" type="button" id="scRun">Draw the curve</button><span id="scN" class="def"></span></div>
+          <div id="scOut"></div>`;
+        const dims = () => ({
+          c: $('scC').checked,
+          u: $('scU').checked,
+          tf: $('scT').checked,
+          fe: $('scF').checked,
+        });
+        const count = () => {
+          const n = curveSpecs(e, dims()).length;
+          $('scN').textContent =
+            `${n.toLocaleString()} specifications${n > SC_MAX ? `: more than ${SC_MAX.toLocaleString()}, untick a choice` : ''}`;
+          $('scRun').disabled = n > SC_MAX;
+        };
+        box.querySelectorAll('input').forEach((i) => (i.onchange = count));
+        count();
+        let stop = false;
+        $('scRun').onclick = () => {
+          if ($('scRun').dataset.running) {
+            stop = true;
+            return;
+          }
+          const specs = curveSpecs(e, dims()),
+            xi = $('scX') ? +$('scX').value : 0,
+            res = [],
+            t0 = performance.now();
+          stop = false;
+          $('scRun').dataset.running = '1';
+          $('scRun').textContent = 'Stop';
+          const out = $('scOut');
+          const step = (k) => {
+            if (k >= specs.length || stop) {
+              delete $('scRun').dataset.running;
+              $('scRun').textContent = 'Draw the curve';
+              if (s.places) ensurePlaces(placesDef());
+              const C = {
+                e,
+                xi,
+                specs: specs.slice(0, k),
+                res,
+                stopped: k < specs.length,
+                ms: performance.now() - t0,
+              };
+              curveShow(C);
+              return;
+            }
+            const end = Math.min(specs.length, k + 8);
+            for (let i = k; i < end; i++) {
+              let r;
+              try {
+                r = quickFit(specs[i], 1 + xi);
+              } catch (err) {
+                r = { error: err.message };
+              }
+              res.push(r);
+            }
+            out.innerHTML = `<div class="def" role="status">Estimated ${end} of ${specs.length}…</div>`;
+            setTimeout(() => step(end), 0);
+          };
+          step(0);
+        };
+      }
+      // The choices a spec made, as rows of the lower panel: [row label, chosen?].
+      function curveRows(C) {
+        const s = C.e.spec,
+          rows = [];
+        const units = [...new Set(C.specs.map((x) => x.unit))],
+          tfs = [...new Set(C.specs.map((x) => x.y.tf))],
+          fes = [...new Set(C.specs.map((x) => x.fe || ''))];
+        s.c.slice(0, SC_MAX_C).forEach((v) => {
+          if (new Set(C.specs.map((x) => x.c.some((w) => w.key === v.key))).size > 1)
+            rows.push([
+              `control: ${termName(v.key, v.tf)}`,
+              (x) => x.c.some((w) => w.key === v.key),
+            ]);
+        });
+        if (units.length > 1)
+          units.forEach((u) => rows.push([`unit: ${UNIT1[u]}`, (x) => x.unit === u]));
+        if (tfs.length > 1)
+          tfs.forEach((t) => rows.push([`outcome: ${TF[t]}`, (x) => x.y.tf === t]));
+        if (fes.length > 1) rows.push(['province fixed effects', (x) => x.fe === 'province']);
+        return rows;
+      }
+      function curveShow(C) {
+        const s = C.e.spec,
+          v = s.x[C.xi],
+          want = v.sign === '+' ? 1 : v.sign === '-' ? -1 : 0,
+          items = C.specs
+            .map((sp, i) => ({ sp, r: C.res[i] }))
+            .filter((x) => !x.r.error && Number.isFinite(x.r.std)),
+          bad = C.res.length - items.length;
+        items.sort((a, b) => a.r.std - b.r.std);
+        const n = items.length,
+          sig = (r) => r.p != null && r.p < 0.05,
+          nSame = items.filter((x) => want && Math.sign(x.r.std) === want).length,
+          nSig = items.filter((x) => sig(x.r)).length,
+          nSigSame = items.filter((x) => sig(x.r) && want && Math.sign(x.r.std) === want).length,
+          nSigOpp = items.filter((x) => sig(x.r) && want && Math.sign(x.r.std) === -want).length,
+          med = n ? items[n >> 1].r.std : null,
+          asTested = items.findIndex(
+            (x) =>
+              x.sp.unit === s.unit &&
+              x.sp.y.tf === s.y.tf &&
+              (x.sp.fe || null) === (s.fe || null) &&
+              x.sp.c.length === s.c.length,
+          ),
+          rows = curveRows(C);
+        // The chart: estimates with 95% intervals above, the choices below.
+        // As wide as the panel (labels stay at their size), at least 460 px; wider scrolls.
+        const W = Math.max(460, Math.min(900, ($('scOut').clientWidth || 680) - 4)),
+          L0 = 190,
+          top = 12,
+          H1 = 200,
+          rh = 13,
+          H = top + H1 + 18 + rows.length * rh + 8,
+          lo = Math.min(0, ...items.map((x) => x.r.lo ?? x.r.std)),
+          hi = Math.max(0, ...items.map((x) => x.r.hi ?? x.r.std)),
+          sy = (t) => top + H1 - ((t - lo) / (hi - lo || 1)) * H1,
+          dx = (W - L0 - 8) / Math.max(n, 1),
+          X = (i) => L0 + (i + 0.5) * dx,
+          col = (r) =>
+            !sig(r)
+              ? 'var(--muted)'
+              : !want || Math.sign(r.std) === want
+                ? 'var(--accent)'
+                : 'var(--fail)';
+        const svg = [
+          `<line x1="${L0}" x2="${W - 8}" y1="${sy(0)}" y2="${sy(0)}" stroke="var(--line)" />`,
+          `<text x="${L0 - 6}" y="${sy(hi) + 4}" text-anchor="end" font-size="10" fill="var(--muted)">${fn(hi, 2)}</text>`,
+          `<text x="${L0 - 6}" y="${sy(0) + 4}" text-anchor="end" font-size="10" fill="var(--muted)">0</text>`,
+          `<text x="${L0 - 6}" y="${sy(lo) + 4}" text-anchor="end" font-size="10" fill="var(--muted)">${fn(lo, 2)}</text>`,
+          `<text x="4" y="${top + H1 / 2}" font-size="11" fill="var(--muted)">standardised coefficient</text>`,
+        ];
+        items.forEach((x, i) => {
+          const r = x.r,
+            c = col(r);
+          if (r.lo != null && dx >= 1.5)
+            svg.push(
+              `<line x1="${X(i)}" x2="${X(i)}" y1="${sy(r.lo)}" y2="${sy(r.hi)}" stroke="${c}" stroke-opacity="0.35" />`,
+            );
+          svg.push(
+            `<circle cx="${X(i)}" cy="${sy(r.std)}" r="${Math.max(1, Math.min(3, dx / 2))}" fill="${c}" />`,
+          );
+        });
+        if (asTested >= 0)
+          svg.push(
+            `<circle cx="${X(asTested)}" cy="${sy(items[asTested].r.std)}" r="6" fill="none" stroke="var(--text)" stroke-width="1.5" />`,
+          );
+        rows.forEach(([lab, f], k) => {
+          const y = top + H1 + 18 + k * rh;
+          svg.push(
+            `<text x="${L0 - 6}" y="${y + 4}" text-anchor="end" font-size="10" fill="var(--text)">${esc(lab.length > 34 ? lab.slice(0, 33) + '…' : lab)}</text>`,
+          );
+          items.forEach((x, i) => {
+            if (f(x.sp))
+              svg.push(
+                `<rect x="${X(i) - Math.max(0.5, dx / 2 - 0.3)}" y="${y - 3}" width="${Math.max(1, dx - 0.6)}" height="7" fill="var(--text)" fill-opacity="0.55" />`,
+              );
+          });
+        });
+        // By choice: the median estimate and the share significant where each choice was made.
+        const byRow = rows
+          .map(([lab, f]) => {
+            const g = items.filter((x) => f(x.sp)).map((x) => x.r);
+            if (!g.length) return '';
+            const gs = g.map((r) => r.std).sort((a, b) => a - b);
+            return `<tr><td>${esc(lab)}</td><td class="num">${g.length}</td><td class="num">${fn(gs[gs.length >> 1], 3)}</td><td class="num">${Math.round((100 * g.filter(sig).length) / g.length)}%</td></tr>`;
+          })
+          .join('');
+        const pct = (a) => (n ? `${Math.round((100 * a) / n)}%` : '—');
+        const summary = `${n} specifications estimated${bad ? `, ${bad} could not be (a variable missing at that unit, a transform undefined, collinear)` : ''}${C.stopped ? ', <b>stopped before the end</b>' : ''}, in ${C.ms < 1000 ? Math.round(C.ms) + ' ms' : (C.ms / 1000).toFixed(1) + ' s'}. Median standardised coefficient ${fn(med, 3)}. ${want ? `${pct(nSame)} have the expected sign (${SIGNL[v.sign]}); ${pct(nSigSame)} have it with p < 0.05, and ${pct(nSigOpp)} have the opposite sign with p < 0.05.` : `No sign was predicted; ${pct(nSig)} have p < 0.05.`}`;
+        C.summary = summary.replace(/<[^>]+>/g, '');
+        $('scOut').innerHTML = `<div class="row">${summary}</div>
+          <div class="scroll"><svg id="scSvg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Specification curve: ${esc(C.summary)}">${svg.join('')}</svg></div>
+          <div class="def">Dots: each specification's standardised coefficient of ${esc(termName(v.key, v.tf))}, sorted, with its 95% interval. Blue: p < 0.05 with ${want ? 'the expected sign' : 'either sign'}; red: p < 0.05 against it; grey: p ≥ 0.05. The ringed dot is the test as recorded. Below, a mark shows which choices each specification made. p uses the test's own standard errors (robust, classical or clustered) where the unit allows them, otherwise robust; it does not allow for spatial correlation, so read the recorded test's Conley and placebo p beside it.</div>
+          ${rows.length ? `<div class="scroll"><table><tr><th>Choice</th><th class="num">Specifications</th><th class="num">Median coefficient</th><th class="num">p < 0.05</th></tr>${byRow}</table></div>` : ''}
+          <div class="cjbtns"><button class="btn" type="button" id="scCsv">Download the curve as CSV</button></div>`;
+        $('scCsv').onclick = () => {
+          const head = [
+            'rank',
+            'unit',
+            'outcome_transform',
+            'fixed_effects',
+            'se',
+            'controls',
+            'n',
+            'b',
+            'se_b',
+            'p',
+            'std_coef',
+            'std_lo95',
+            'std_hi95',
+            'as_tested',
+          ];
+          const cell = (t) => `"${String(t ?? '').replace(/"/g, '""')}"`;
+          const lines = [head.join(',')].concat(
+            items.map((x, i) =>
+              [
+                i + 1,
+                x.sp.unit,
+                x.sp.y.tf,
+                x.sp.fe || '',
+                x.sp.se,
+                x.sp.c.map((w) => `${w.key}:${w.tf}`).join(' '),
+                x.r.n,
+                x.r.b,
+                x.r.se,
+                x.r.p,
+                x.r.std,
+                x.r.lo,
+                x.r.hi,
+                i === asTested ? 'yes' : '',
+              ]
+                .map(cell)
+                .join(','),
+            ),
+          );
+          download(
+            `specification_curve_test_${C.e.id}.csv`,
+            '﻿' + lines.join('\r\n'),
+            'text/csv;charset=utf-8',
+          );
+        };
+        window.LAST_CURVE = C;
       }
 
       // ---- test a conjecture: replication code --------------------------------------------------
