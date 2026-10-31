@@ -1,0 +1,169 @@
+{
+  "places": 3376,
+  "places_without_a_verdict": [],
+  "verdicts": {
+    "confirmed": 124,
+    "no_evidence": 3181,
+    "plausible": 68,
+    "contradicted": 3
+  },
+  "verdicts_by_source": {
+    "doam": {
+      "no_evidence": 635,
+      "plausible": 24,
+      "confirmed": 50,
+      "contradicted": 2
+    },
+    "geonames": {
+      "no_evidence": 1727,
+      "plausible": 23,
+      "confirmed": 8
+    },
+    "osm": {
+      "confirmed": 54,
+      "no_evidence": 758,
+      "plausible": 18,
+      "contradicted": 1
+    },
+    "osm (weak tier C)": {
+      "confirmed": 2,
+      "no_evidence": 47,
+      "plausible": 2
+    },
+    "wikidata": {
+      "no_evidence": 14,
+      "confirmed": 10,
+      "plausible": 1
+    }
+  },
+  "kinds_where_evidence": {
+    "secular_tomb_or_memorial": 21,
+    "unclear": 36,
+    "sufi_shrine_or_saints_tomb": 68,
+    "hindu_temple_or_samadhi": 45,
+    "mosque_only": 1,
+    "graveyard": 4,
+    "sikh_gurdwara_or_samadhi": 14,
+    "jain_temple": 6
+  },
+  "judged_by": {
+    "Claude Sonnet 5.5 subagents (claude-sonnet-5-5), judge_instructions.md": 1700,
+    "mechanical pass (prefilter_candidates.py)": 1676
+  },
+  "demoted": {
+    "plausible->no_evidence (type conflict)": {
+      "n": 1,
+      "places": ["U00296"]
+    },
+    "plausible->no_evidence (no verbatim quote)": {
+      "n": 14,
+      "places": [
+        "U01822",
+        "U02519",
+        "U02539",
+        "U02947",
+        "U02950",
+        "U02958",
+        "U02963",
+        "U02965",
+        "U02966",
+        "U02969",
+        "U02975",
+        "U02976",
+        "U02977",
+        "U03358"
+      ]
+    },
+    "confirmed->plausible (no verbatim quote)": {
+      "n": 10,
+      "places": [
+        "U02947",
+        "U02950",
+        "U02958",
+        "U02963",
+        "U02965",
+        "U02966",
+        "U02969",
+        "U02975",
+        "U02976",
+        "U02977"
+      ]
+    }
+  },
+  "hand_overrides": [
+    {
+      "place_id": "U00330",
+      "from": "confirmed",
+      "to": "plausible",
+      "reason": "Hand spot check 31 Oct 2026: the snippet names the Panchmukhi Hanuman Temple in Soldier Bazaar; Hanuman is a deity name shared by several Karachi temples, so the result does not show it is this place."
+    }
+  ],
+  "cross_script_for_hand_check": [
+    "U00169",
+    "U00195",
+    "U00196",
+    "U00338",
+    "U00600",
+    "U00642",
+    "U00856",
+    "U01155",
+    "U03313"
+  ],
+  "quotes_25_words_or_more": ["U00297"],
+  "spot_check_confirmed": [
+    "U00184",
+    "U00196",
+    "U00203",
+    "U00284",
+    "U00297",
+    "U00330",
+    "U00338",
+    "U00439",
+    "U00547",
+    "U00746",
+    "U00802",
+    "U00826",
+    "U00933",
+    "U01000",
+    "U01053",
+    "U01095",
+    "U01100",
+    "U01122",
+    "U02675",
+    "U02954",
+    "U02957",
+    "U02962",
+    "U02971",
+    "U03066",
+    "U03112",
+    "U03236",
+    "U03338",
+    "U03374",
+    "U03416",
+    "U03506"
+  ],
+  "spot_check_no_evidence_judged": [
+    "U00382",
+    "U00392",
+    "U00440",
+    "U00735",
+    "U01173",
+    "U02060",
+    "U02760",
+    "U02864",
+    "U02898",
+    "U02918"
+  ],
+  "spot_check_no_evidence_mechanical": [
+    "U00786",
+    "U00953",
+    "U01600",
+    "U01676",
+    "U02081",
+    "U02556",
+    "U02632",
+    "U02666",
+    "U03120",
+    "U03684"
+  ]
+}

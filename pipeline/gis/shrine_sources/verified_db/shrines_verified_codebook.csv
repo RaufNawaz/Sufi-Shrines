@@ -1,0 +1,23 @@
+column,meaning,from
+place_id,"The place's id in district_counts/sites.csv (`place`); `archive:<id>` for an archive row with no pin, which sites.csv does not hold.",sites.csv; data/shrines.csv
+name,"The name of the most authoritative record: archive, then Wikidata, OSM (tier A, B, C), DOAM, GeoNames.",sites.csv name; data/shrines.csv Name
+other_names,"Every other distinct name the place's records give, separated by `; `.",sites.csv name
+tradition,"First stated tradition in the same order (muslim, hindu, sikh, jain, secular, other, unknown).",sites.csv tradition; data/shrines.csv category
+kind,"What the place is. From the existence check's evidence where it named a kind; else the archive's category and site_type; else the source's tradition (`muslim_tomb_or_shrine` when a source says only muslim). A name or evidence quote saying Buddhist, stupa, monastery, church, cathedral or Marian makes it `buddhist_or_christian_out_of_scope`. `note` says which.",existence_results.csv kind; data/shrines.csv; sites.csv
+lat,"Latitude of the most precise source's point, unchanged. Empty for an unpinned archive row.",sites.csv
+lon,"Longitude, as lat.",sites.csv
+coord_source,"Which source the point is: archive, then wikidata, osm, doam; geonames only when it is the only source.",derived
+district_code,District code of the point's record.,sites.csv district_code
+province,Province of that district.,district_counts.csv province_name
+tier,verified / archive_documented / web_confirmed / plausible / unconfirmed / contradicted; rules in README.md.,derived
+n_independent_sources,"Number of distinct sources among archive, doam, osm, wikidata, geonames (OSM tiers count once).",derived from sources
+sources,"Those sources, `; ` separated.",sites.csv source
+source_record_ids,"Every record as `source:id`, OSM with its tier in brackets.","sites.csv source_id, tier"
+source_urls,Each non-archive record's own page.,built from source_id
+archive_id,The archive row's id when the archive records the place.,sites.csv source_id; data/shrines.csv id
+archive_support_level,That row's support_level.,data/shrines.csv
+web_verdict,"The existence check's verdict for a one-source place (confirmed / plausible / no_evidence / contradicted), after its quote checks and the hand spot check; empty when not checked.",existence_results.csv verdict
+web_evidence_urls,"The outside pages the verdict rests on, `; ` separated. Never the record's own page.",existence_results.csv evidence_urls
+web_evidence_quotes,"Word-for-word quotes from those pages' titles or snippets, ` | ` separated.",existence_results.csv evidence_quotes
+in_final,"yes when tier is verified, archive_documented or web_confirmed and kind is not secular_tomb_or_memorial, mosque_only, graveyard or buddhist_or_christian_out_of_scope.",derived
+note,"Where kind came from, and anything a reader must know about the row.",derived

@@ -22497,3 +22497,36 @@ but write in binary when it matters. The Bash tool can eat backslashes in heredo
 `chr(92)` or use the Edit tool. `npm run verify`'s format check fails on
 `pipeline/gis/shrine_sources/verified_db/shrines_verified.geojson`, which belongs to the overnight
 verification session and is not committed. Every other verify step passes.
+
+### 9.447, 31 October 2026 (overnight, Windows PC, the hybrid-worker session): the one-source places checked for outside evidence; the verified shrine database built
+
+**What.** Every one of the 3,376 one-source places of `existence_checks/places_to_confirm.jsonl` now has an
+existence verdict with word-for-word quotes (`existence_checks/results/`). `pipeline/gis/shrine_sources/verified_db/`
+is the verified shrine database: 4,009 rows (every place of `sites.csv` plus the 320 unpinned archive rows),
+each with a tier, and a final set of **368 places** (206 verified, 60 archive-documented, 102 web-confirmed).
+Full report and seven questions for Rauf: `docs/research/VERIFIED_DB_OVERNIGHT_2026-10-31.md`.
+
+**Measured.**
+- Existence check: 124 confirmed, 68 plausible, 3 contradicted, 3,181 no_evidence. Confirmed by source:
+  DOAM 50 of 711, OSM 56 of 882, Wikidata 10 of 25, GeoNames 8 of 1,758.
+- Spot check: 1 of 30 confirmed changed, 0 of 20 no_evidence. Claude judge pilot: 0 of 54 changed.
+- Gather: 3,376 places, 0 API errors, web search unavailable (Ollama HTTP 402).
+
+**Gotchas.**
+- **The local model was not good enough, and was stopped.** `qwen3.5:9b` missed matches in Urdu, lists
+  and photo titles and failed two pilots. `gemma4:12b` passed a pilot, then confirmed a temple from a Sufi
+  shrine of the same town and gave different answers on reruns. Rauf had it stopped; Sonnet subagents
+  judged instead, after a mechanical name-word pass that settles half the places.
+- **The hybrid worker's output folders are named by place id alone**, so the worker never re-judges a
+  place whose evidence changed (`snapshot_ready.py` there removes the done marker).
+- **Wikimedia geosearch refuses about 40% of calls as "too busy" whether or not you are polite.**
+  Retrying after 2 to 9 seconds gets them all through; a 10 to 60 second backoff cost 30 s a place.
+- **A regex edited through a shell heredoc lost its `\b` to backspace characters** and silently never
+  matched, so two Buddhist sites stayed in the final set until the counts looked wrong. The build now
+  checks that the pattern fires on a known name and not on a near miss (RULE 4: test that a pattern
+  matches, not that it compiles).
+- **The union still misses links.** Tomri Sahib temple is two one-source places (U00184 and U02962) that
+  the check confirmed from the same photo.
+
+**Commit:** `data:` the results folder, `verified_db/`, the report, its link in `docs/README.md`, and this
+entry. Not pushed. Other sessions' uncommitted work in this checkout was left untouched.

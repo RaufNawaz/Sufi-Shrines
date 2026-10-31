@@ -191,6 +191,7 @@ Findings and reviews from the GIS research viewer (`pipeline/gis/viewer/index.ht
 
 - [`research/VIEWER_REVIEW_2026-10-30.md`](research/VIEWER_REVIEW_2026-10-30.md) — the review of the Shrines and Welfare viewer, 30 October 2026
 - [`research/VIEWER_STUDY_GUIDE.md`](research/VIEWER_STUDY_GUIDE.md) — the viewer's study guide (repository record of the Claude doc)
+- [`research/VERIFIED_DB_OVERNIGHT_2026-10-31.md`](research/VERIFIED_DB_OVERNIGHT_2026-10-31.md) — the one-source shrine places checked for outside evidence, and the verified shrine database built from them (`pipeline/gis/shrine_sources/verified_db/`), with seven questions for Rauf, 31 October 2026
 
 Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu dictionary +
 content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provenance, exports).
