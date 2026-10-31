@@ -31,6 +31,13 @@ var NETWORK_ONLY = { 'unlock.js': 1, 'team-crypto.js': 1, 'team-sw.js': 1, 'mani
    Re-checked against the network's manifest on every navigation. */
 var state = null;
 var pending = null;
+/* After Lock, the page that pressed it is still loading chunks while it navigates away. Refusing
+   those made its chunk-error handler reload the old address, so it landed on the passphrase page
+   with ?next= instead of the team root, and threw on the way (about one run in three of
+   test-team-site.mjs, 31 October 2026). For a few seconds the files it asks for are still served;
+   navigations are not, so nothing new opens. The page could already read them. */
+var LOCK_GRACE_MS = 5000;
+var grace = null;
 
 self.addEventListener('install', function () {
   // Nothing to precache, and an old copy of this file has nothing worth waiting for.
@@ -120,6 +127,7 @@ async function handle(request, url, rel) {
   var navigate = request.mode === 'navigate';
 
   if (rel === 'lock') {
+    if (state) grace = { state: state, until: Date.now() + LOCK_GRACE_MS };
     await forget();
     return redirect(TEAM_BASE);
   }
@@ -132,6 +140,7 @@ async function handle(request, url, rel) {
     s = state;
   }
 
+  if (!s && !navigate && grace && Date.now() < grace.until) s = grace.state;
   if (!s) {
     if (!navigate)
       return new Response('Locked', { status: 403, headers: { 'Content-Type': 'text/plain' } });

@@ -221,7 +221,9 @@ const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(imp
 if (isMain) {
   try {
     const opts = parseArgs(process.argv.slice(2));
-    const passphrase = process.env.TEAM_PASSPHRASE ?? '';
+    /* Trimmed, as the passphrase page trims what is typed: a secret pasted into GitHub with a
+       trailing newline or space must not make a key nobody can type (31 October 2026). */
+    const passphrase = (process.env.TEAM_PASSPHRASE ?? '').trim();
     if (passphrase.length < 12) {
       console.error(
         'encrypt-team: TEAM_PASSPHRASE is missing or shorter than 12 characters; refusing to ' +
@@ -229,7 +231,7 @@ if (isMain) {
       );
       process.exit(1);
     }
-    const salt = process.env.TEAM_SALT || undefined;
+    const salt = (process.env.TEAM_SALT ?? '').trim() || undefined;
     if (salt !== undefined && !validSalt(salt)) {
       console.error('encrypt-team: TEAM_SALT is set but is not base64 of at least 16 bytes.');
       process.exit(1);

@@ -108,7 +108,8 @@
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     clearError();
-    var passphrase = input.value;
+    // Trimmed here and at encryption alike, so a space typed or pasted at either end changes nothing.
+    var passphrase = input.value.trim();
     if (!passphrase) {
       showError('empty');
       input.focus();
