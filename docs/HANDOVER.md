@@ -22880,3 +22880,22 @@ matched by hand (`registers/gazetteer_match_verdicts.tsv`): 29 rows match 33 pla
 
 **Commit:** `data:` the registers files, the build script, the verified database, the READMEs, the report and
 this entry. Not pushed.
+
+### 9.455, 31 October 2026 (Windows PC, the hybrid-worker session): the colonial gazetteer counted as a source; every public record of Malik's shrine work
+
+**What.** Rauf ruled that a colonial-gazetteer match counts as a source (question 9 of 9.454). In
+`verified_db/build_verified_db.py`, a hand-judged `match` now adds `colonial_gazetteer` to a place's sources;
+a `possible` is recorded only. That made 24 one-source places `verified`: 9 DOAM, 6 GeoNames, 3 OSM, and 6
+archive rows, 4 of them without a pin. The final set is **1,037** (230 verified, 58 archive-documented, 649
+DOAM-documented, 100 web-confirmed). 20 of 20 checks pass; 2 of them are new.
+He also asked whether any public record lists the shrines Adeel Malik worked on.
+`registers/README_academic.md` now lists every record found. The 598-shrine database and any replication
+package are not public. The JEEA online appendix (open; saved under `sources/.../academic_malik_mirza/`)
+names about 15 political shrines or gaddis, and five of them are in no source here: Makhad Sharif,
+Sandhilianwali, Jamal Din Wali, the Mianwali Qureshian shrines and Shah Jewana. Malik and Malik (2017,
+_Modern Asian Studies_) holds the politics database and is closed access.
+
+**Gotcha.** The JEEA online appendix's prose pages are drawn as glyphs with no text layer: pypdf returns
+nothing. `pypdfium2` (installed on this PC) renders them to PNG for reading.
+
+**Commit:** `data:`. Not pushed.

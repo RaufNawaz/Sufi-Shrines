@@ -49,6 +49,29 @@ shrines, which contains a total of 598 shrines" (WP 30, p. 13):
 gives the colonial district, tehsil, name and fair attendance. The 598-shrine database is not published,
 and the paper's text gives no names from it beyond examples.
 
+### Every public record of Malik's shrine work (searched 31 October 2026)
+
+Rauf asked whether any public record lists the shrines Malik worked on. Everything found:
+
+| Record                                                                                                                                             | Access                                                                          | Shrines named                                                                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WP 30 (2015), Appendix 1                                                                                                                           | open; saved                                                                     | **142 gazetteer shrines**, with colonial district, tehsil and fair attendance. Transcribed and matched below.                                                                                                                                                                                                                                                       |
+| WP 30, Table A.1, "Zaildars from Shrine Families" (1914–1929, from the gazetteers)                                                                 | open; saved                                                                     | Shrine families, not shrines: 18 zails in Muzaffargarh, Mianwali, Shahpur and Jhang (e.g. Shah Jewana; Rajoa Sayids; Pir of Pail).                                                                                                                                                                                                                                  |
+| WP 30, Table A.2, "Estates of Leading Shrine Families Under Court of Wards" (Punjab Record Office)                                                 | open; saved                                                                     | Estates: Jahanian Shah, Makhad (Pir of Makhad), Shah Jiwana, Sher Shah (Multan), Salarwahan (Gardezi Syeds), Jalalpur Pirwala, Daira Din Panah, Sitpur and others, with acreage.                                                                                                                                                                                    |
+| JEEA (2022) online appendix, Table A.1                                                                                                             | open; saved as `malik_mirza_2022_jeea_online_appendix.pdf` (sha256 `4ce55a1b…`) | 11 shrines or gaddis with the family members elected from them, "purely illustrative": Daud Bandagi (Shergarh), Taunsa Sharif, Pakpattan (Baba Farid), Makhad Sharif, Shah Jewana, Shrine of Shaikh Ismail (Chiniot), Shah Rukn-e-Alam, Musa Pak Shahid, Shrine of Jamal Din Wali (Sadiqabad), the Mianwali Qureshian shrines (Mau Mubarak), Darbar Sandhilianwali. |
+| JEEA online appendix, Figure A.2 (from Malik and Malik 2017)                                                                                       | open                                                                            | The sajjada nashins of Golra Sharif, Makhad Sharif, Musa Pak Shaheed, Hujra Shah Muqeem, Sandhilianwali, Uch Sharif and Jamal al-Din Wali, as relatives by marriage of Yusuf Raza Gilani.                                                                                                                                                                           |
+| JEEA online appendix, Figure A.3                                                                                                                   | open                                                                            | A map of gazetteer shrines per tehsil: counts only.                                                                                                                                                                                                                                                                                                                 |
+| Malik, A. and Malik, T. (2017). Pīrs and Politics in Punjab, 1937–2013. _Modern Asian Studies_ 51(6): 1818–1861                                    | closed (Cambridge); no repository copy (Unpaywall)                              | The politics database (shrine families elected 1937–2013) is described here. Not read.                                                                                                                                                                                                                                                                              |
+| Malik and Mirza (2022). Islam and the politics of development: shrines and literacy in Pakistan. _Oxford Handbook of Politics in Muslim Societies_ | closed; the Kent record (98495) has no open file                                | Not read.                                                                                                                                                                                                                                                                                                                                                           |
+| The 598-shrine database, and any replication package                                                                                               | **not public**                                                                  | None: not on Zenodo (the JEEA replication community has no package for the paper), Mendeley Data, Malik's Oxford page or ORA (whose record holds only a 24.5 KB file).                                                                                                                                                                                              |
+
+So the only public list of shrines is the gazetteer appendix. The politics tables name about 15 shrines or
+gaddis. Pakpattan, Taunsa, Shah Rukn-e-Alam, Musa Pak Shahid, Golra, Daud Bandagi, Uch and Hujra Shah Muqeem
+are in the verified database by name. **Makhad Sharif, Sandhilianwali, Jamal Din Wali (Sadiqabad), the
+Mianwali Qureshian shrines and Shah Jewana are not**: no source here records them. None was added, because a
+place outside `sites.csv` would need a point and a rebuild that renumbers the ids. To see the full 598, or the 64 shrines with elected families, one would have to write to
+Malik, or read Malik and Malik (2017) through a library.
+
 ## Mehmood and Seror: religious leaders and rule of law (Sultan Mehmood, New Economic School; Avner Seror, Aix-Marseille)
 
 **The paper.** Mehmood, S. and Seror, A. (2023). Religious leaders and rule of law. _Journal of
@@ -100,11 +123,9 @@ registers, `README_auqaf.md`) or the Malik and Mirza gazetteer list below.
      today by a wholly different name can still be missed.
    - Two pairs of matches show the union holds the same shrine twice: Bari Imam (U00002 and U01568) and
      Imam Ali-ul-Haq (U00131 and U01063).
-3. **The verified database's `colonial_gazetteer` column** carries these matches. **It changes no tier.** A
-   gazetteer mention attests a shrine and its fair around 1880–1930, and the match is by name alone, so
-   whether it should count as an independent source is Rauf's question. Counting the 33 matches would bring
-   12 places into the final set (`docs/research/VERIFIED_DB_OVERNIGHT_2026-10-31.md`,
-   question 9).
+3. **The verified database's `colonial_gazetteer` column** carries these matches, and **a `match` counts as an
+   independent source** (Rauf, 31 October 2026); a `possible` is recorded only. 24 one-source places became
+   `verified` that way, 12 of them new to the final set (`verified_db/README.md`).
 
 ## Limits
 

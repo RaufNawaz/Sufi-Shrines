@@ -41,8 +41,8 @@
         "district_code": "PK401",
         "province": "Islamabad",
         "tier": "verified",
-        "n_independent_sources": 4,
-        "sources": "archive; doam; osm; wikidata",
+        "n_independent_sources": 5,
+        "sources": "archive; doam; osm; wikidata; colonial_gazetteer",
         "source_record_ids": "archive:bari-imam; doam:sites/6347; osm:node/4139137690 [B]; osm:way/595938766 [B]; wikidata:Q125867499",
         "source_urls": "https://doam.gov.pk/public/sites/6347; https://www.openstreetmap.org/node/4139137690; https://www.openstreetmap.org/way/595938766; https://www.wikidata.org/wiki/Q125867499",
         "archive_id": "bari-imam",
@@ -364,9 +364,9 @@
         "coord_source": "archive",
         "district_code": "PK630",
         "province": "Punjab",
-        "tier": "archive_documented",
-        "n_independent_sources": 1,
-        "sources": "archive",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "archive; colonial_gazetteer",
         "source_record_ids": "archive:darbar-sakhi-shah-chan-charagh",
         "source_urls": "",
         "archive_id": "darbar-sakhi-shah-chan-charagh",
@@ -376,7 +376,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 17 Shah Chiragh (Rawalpindi/Rawalpindi, fair attendance 10,000)",
         "in_final": "yes",
-        "note": "kind from the archive's category and site_type"
+        "note": "kind from the archive's category and site_type; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -2849,8 +2849,8 @@
         "district_code": "PK627",
         "province": "Punjab",
         "tier": "verified",
-        "n_independent_sources": 4,
-        "sources": "archive; doam; geonames; osm",
+        "n_independent_sources": 5,
+        "sources": "archive; doam; geonames; osm; colonial_gazetteer",
         "source_record_ids": "archive:shrine-of-fariduddin-ganjshakar; doam:sites/9694; geonames:11543765; osm:way/174504957 [B]",
         "source_urls": "https://doam.gov.pk/public/sites/9694; https://www.geonames.org/11543765; https://www.openstreetmap.org/way/174504957",
         "archive_id": "shrine-of-fariduddin-ganjshakar",
@@ -3011,8 +3011,8 @@
         "district_code": "PK610",
         "province": "Punjab",
         "tier": "verified",
-        "n_independent_sources": 2,
-        "sources": "archive; doam",
+        "n_independent_sources": 3,
+        "sources": "archive; doam; colonial_gazetteer",
         "source_record_ids": "archive:shrine-of-hazrat-shah-daula-daryai; doam:sites/10118",
         "source_urls": "https://doam.gov.pk/public/sites/10118",
         "archive_id": "shrine-of-hazrat-shah-daula-daryai",
@@ -3037,9 +3037,9 @@
         "coord_source": "archive",
         "district_code": "PK634",
         "province": "Punjab",
-        "tier": "archive_documented",
-        "n_independent_sources": 1,
-        "sources": "archive",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "archive; colonial_gazetteer",
         "source_record_ids": "archive:shrine-of-imam-ali-ul-haq",
         "source_urls": "",
         "archive_id": "shrine-of-imam-ali-ul-haq",
@@ -3049,7 +3049,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 23 Imam Ali-ul-Haq (Sialkot/Sialkot)",
         "in_final": "yes",
-        "note": "kind from the archive's category and site_type"
+        "note": "kind from the archive's category and site_type; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -3065,8 +3065,8 @@
         "district_code": "PK603",
         "province": "Punjab",
         "tier": "verified",
-        "n_independent_sources": 3,
-        "sources": "archive; doam; wikidata",
+        "n_independent_sources": 4,
+        "sources": "archive; doam; wikidata; colonial_gazetteer",
         "source_record_ids": "archive:shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari; doam:sites/7041; wikidata:Q18210991",
         "source_urls": "https://doam.gov.pk/public/sites/7041; https://www.wikidata.org/wiki/Q18210991",
         "archive_id": "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
@@ -3146,8 +3146,8 @@
         "district_code": "PK603",
         "province": "Punjab",
         "tier": "verified",
-        "n_independent_sources": 3,
-        "sources": "archive; doam; wikidata",
+        "n_independent_sources": 4,
+        "sources": "archive; doam; wikidata; colonial_gazetteer",
         "source_record_ids": "archive:shrine-of-makhdoom-jahaniyan-jahangasht; doam:sites/7043; wikidata:Q100287102",
         "source_urls": "https://doam.gov.pk/public/sites/7043; https://www.wikidata.org/wiki/Q100287102",
         "archive_id": "shrine-of-makhdoom-jahaniyan-jahangasht",
@@ -3497,8 +3497,8 @@
         "district_code": "PK622",
         "province": "Punjab",
         "tier": "verified",
-        "n_independent_sources": 5,
-        "sources": "archive; doam; geonames; osm; wikidata",
+        "n_independent_sources": 6,
+        "sources": "archive; doam; geonames; osm; wikidata; colonial_gazetteer",
         "source_record_ids": "archive:shrine-of-shah-shams-ud-din-sabzwari; doam:sites/10267; doam:sites/6429; geonames:1409700; geonames:1465475; osm:way/900538787 [B]; wikidata:Q100457785",
         "source_urls": "https://doam.gov.pk/public/sites/10267; https://doam.gov.pk/public/sites/6429; https://www.geonames.org/1409700; https://www.geonames.org/1465475; https://www.openstreetmap.org/way/900538787; https://www.wikidata.org/wiki/Q100457785",
         "archive_id": "shrine-of-shah-shams-ud-din-sabzwari",
@@ -4404,6 +4404,33 @@
     },
     {
       "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [71.661569, 28.975396] },
+      "properties": {
+        "place_id": "U00340",
+        "name": "Channan Peer Cholistan  چنن پیر چولستان",
+        "other_names": "",
+        "tradition": "muslim",
+        "kind": "muslim_tomb_or_shrine",
+        "coord_source": "osm",
+        "district_code": "PK603",
+        "province": "Punjab",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "osm; colonial_gazetteer",
+        "source_record_ids": "osm:node/6920504004 [C]",
+        "source_urls": "https://www.openstreetmap.org/node/6920504004",
+        "archive_id": "",
+        "archive_support_level": "",
+        "web_verdict": "no_evidence",
+        "web_evidence_urls": "",
+        "web_evidence_quotes": "",
+        "colonial_gazetteer": "match: row 92 Channar Pīr (Bahawalpur/Bahawalpur)",
+        "in_final": "yes",
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source; OSM weak tier C only"
+      }
+    },
+    {
+      "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [67.903522, 24.775952] },
       "properties": {
         "place_id": "U00347",
@@ -4886,6 +4913,33 @@
         "colonial_gazetteer": "",
         "in_final": "yes",
         "note": "kind from the source's tradition"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.386103, 30.990763] },
+      "properties": {
+        "place_id": "U00590",
+        "name": "Shrine of Sheikhu Sharif",
+        "other_names": "",
+        "tradition": "muslim",
+        "kind": "muslim_tomb_or_shrine",
+        "coord_source": "osm",
+        "district_code": "PK626",
+        "province": "Punjab",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "osm; colonial_gazetteer",
+        "source_record_ids": "osm:node/9247058807 [B]",
+        "source_urls": "https://www.openstreetmap.org/node/9247058807",
+        "archive_id": "",
+        "archive_support_level": "",
+        "web_verdict": "no_evidence",
+        "web_evidence_urls": "",
+        "web_evidence_quotes": "",
+        "colonial_gazetteer": "match: row 45 Sheikhu (Montgomery/Okara, fair attendance 5,000)",
+        "in_final": "yes",
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -6213,6 +6267,33 @@
     },
     {
       "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [70.696091, 28.666727] },
+      "properties": {
+        "place_id": "U00911",
+        "name": "Darbar Jetha Butha",
+        "other_names": "",
+        "tradition": "muslim",
+        "kind": "muslim_tomb_or_shrine",
+        "coord_source": "osm",
+        "district_code": "PK628",
+        "province": "Punjab",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "osm; colonial_gazetteer",
+        "source_record_ids": "osm:way/548452409 [B]",
+        "source_urls": "https://www.openstreetmap.org/way/548452409",
+        "archive_id": "",
+        "archive_support_level": "",
+        "web_verdict": "no_evidence",
+        "web_evidence_urls": "",
+        "web_evidence_quotes": "",
+        "colonial_gazetteer": "match: row 107 Jetha Bhutta (Bahawalpur/Khanpur, fair attendance 4,000)",
+        "in_final": "yes",
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
+      }
+    },
+    {
+      "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [68.20484, 27.544329] },
       "properties": {
         "place_id": "U00916",
@@ -7169,8 +7250,8 @@
         "district_code": "PK634",
         "province": "Punjab",
         "tier": "verified",
-        "n_independent_sources": 2,
-        "sources": "doam; osm",
+        "n_independent_sources": 3,
+        "sources": "doam; osm; colonial_gazetteer",
         "source_record_ids": "doam:sites/10317; osm:relation/12253085 [B]; osm:way/902081421 [A]",
         "source_urls": "https://doam.gov.pk/public/sites/10317; https://www.openstreetmap.org/relation/12253085; https://www.openstreetmap.org/way/902081421",
         "archive_id": "",
@@ -7752,6 +7833,33 @@
     },
     {
       "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [71.80105, 32.68108] },
+      "properties": {
+        "place_id": "U01217",
+        "name": "Ziarat Hafizji",
+        "other_names": "",
+        "tradition": "muslim",
+        "kind": "muslim_tomb_or_shrine",
+        "coord_source": "geonames",
+        "district_code": "PK621",
+        "province": "Punjab",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "geonames; colonial_gazetteer",
+        "source_record_ids": "geonames:1333340",
+        "source_urls": "https://www.geonames.org/1333340",
+        "archive_id": "",
+        "archive_support_level": "",
+        "web_verdict": "no_evidence",
+        "web_evidence_urls": "",
+        "web_evidence_quotes": "",
+        "colonial_gazetteer": "match: row 33 Khangah Hafizji (Mianwali/Mianwali)",
+        "in_final": "yes",
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
+      }
+    },
+    {
+      "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [68.622197, 25.5394] },
       "properties": {
         "place_id": "U01303",
@@ -7914,6 +8022,60 @@
     },
     {
       "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.1627, 31.27471] },
+      "properties": {
+        "place_id": "U01359",
+        "name": "Ziarat Pir Abdul Qadir",
+        "other_names": "",
+        "tradition": "muslim",
+        "kind": "muslim_tomb_or_shrine",
+        "coord_source": "geonames",
+        "district_code": "PK612",
+        "province": "Punjab",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "geonames; colonial_gazetteer",
+        "source_record_ids": "geonames:1372094",
+        "source_urls": "https://www.geonames.org/1372094",
+        "archive_id": "",
+        "archive_support_level": "",
+        "web_verdict": "no_evidence",
+        "web_evidence_urls": "",
+        "web_evidence_quotes": "",
+        "colonial_gazetteer": "match: row 5 Pīr Abdul Qadir (Jhang/Jhang)",
+        "in_final": "yes",
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.58118, 30.25336] },
+      "properties": {
+        "place_id": "U01428",
+        "name": "Ziarat Pir Jatti Shah",
+        "other_names": "",
+        "tradition": "muslim",
+        "kind": "muslim_tomb_or_shrine",
+        "coord_source": "geonames",
+        "district_code": "PK631",
+        "province": "Punjab",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "geonames; colonial_gazetteer",
+        "source_record_ids": "geonames:1387366",
+        "source_urls": "https://www.geonames.org/1387366",
+        "archive_id": "",
+        "archive_support_level": "",
+        "web_verdict": "no_evidence",
+        "web_evidence_urls": "",
+        "web_evidence_quotes": "",
+        "colonial_gazetteer": "match: row 43 Hazrat Jatti Shah Sahib (Montgomery/Montgomery, fair attendance 3,000)",
+        "in_final": "yes",
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
+      }
+    },
+    {
+      "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [70.327474, 29.35115] },
       "properties": {
         "place_id": "U01498",
@@ -7978,9 +8140,9 @@
         "coord_source": "geonames",
         "district_code": "PK603",
         "province": "Punjab",
-        "tier": "web_confirmed",
-        "n_independent_sources": 1,
-        "sources": "geonames",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "geonames; colonial_gazetteer",
         "source_record_ids": "geonames:1411261",
         "source_urls": "https://www.geonames.org/1411261",
         "archive_id": "",
@@ -7990,7 +8152,7 @@
         "web_evidence_quotes": "File:Hazrat Syed Hassan Darya Kabir uch sharif.jpg | Shrine of Hazrat Hasan Darya Kabir مزار Uch Sharif بہاولپور",
         "colonial_gazetteer": "match: row 106 Hassan Darya (Bahawalpur/Ahmadpur)",
         "in_final": "yes",
-        "note": "kind from the existence check's evidence"
+        "note": "kind from the existence check's evidence; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -8018,6 +8180,33 @@
         "colonial_gazetteer": "",
         "in_final": "yes",
         "note": "kind from the source's tradition"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.11578, 33.7467] },
+      "properties": {
+        "place_id": "U01568",
+        "name": "Ziarat Barri Shah Latif",
+        "other_names": "",
+        "tradition": "muslim",
+        "kind": "sufi_shrine_or_saints_tomb",
+        "coord_source": "geonames",
+        "district_code": "PK401",
+        "province": "Islamabad",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "geonames; colonial_gazetteer",
+        "source_record_ids": "geonames:7038601",
+        "source_urls": "https://www.geonames.org/7038601",
+        "archive_id": "",
+        "archive_support_level": "",
+        "web_verdict": "plausible",
+        "web_evidence_urls": "https://en.wikipedia.org/wiki/Shia_Islam_in_South_Asia",
+        "web_evidence_quotes": "visited the famous Shia saint, Barri Shah Latif, then living in a",
+        "colonial_gazetteer": "match: row 20 Barri Shah Latif (Rawalpindi/Rawalpindi, fair attendance 20,000)",
+        "in_final": "yes",
+        "note": "kind from the existence check's evidence; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -8153,6 +8342,33 @@
         "colonial_gazetteer": "",
         "in_final": "yes",
         "note": "kind from the existence check's evidence"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [69.9702, 28.24216] },
+      "properties": {
+        "place_id": "U01862",
+        "name": "Ziarat Musa Nawab",
+        "other_names": "",
+        "tradition": "unknown",
+        "kind": "unclear",
+        "coord_source": "geonames",
+        "district_code": "PK628",
+        "province": "Punjab",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "geonames; colonial_gazetteer",
+        "source_record_ids": "geonames:11020420",
+        "source_urls": "https://www.geonames.org/11020420",
+        "archive_id": "",
+        "archive_support_level": "",
+        "web_verdict": "no_evidence",
+        "web_evidence_urls": "",
+        "web_evidence_quotes": "",
+        "colonial_gazetteer": "match: row 113 Pīr Musan Nawab (Bahawalpur/Sadiqabad, fair attendance 5,000)",
+        "in_final": "yes",
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -8357,8 +8573,8 @@
         "district_code": "PK626",
         "province": "Punjab",
         "tier": "verified",
-        "n_independent_sources": 2,
-        "sources": "doam; geonames",
+        "n_independent_sources": 3,
+        "sources": "doam; geonames; colonial_gazetteer",
         "source_record_ids": "doam:sites/10300; geonames:11543975",
         "source_urls": "https://doam.gov.pk/public/sites/10300; https://www.geonames.org/11543975",
         "archive_id": "",
@@ -8708,8 +8924,8 @@
         "district_code": "PK622",
         "province": "Punjab",
         "tier": "verified",
-        "n_independent_sources": 2,
-        "sources": "doam; wikidata",
+        "n_independent_sources": 3,
+        "sources": "doam; wikidata; colonial_gazetteer",
         "source_record_ids": "doam:sites/10275; wikidata:Q97940346",
         "source_urls": "https://doam.gov.pk/public/sites/10275; https://www.wikidata.org/wiki/Q97940346",
         "archive_id": "",
@@ -13027,9 +13243,9 @@
         "coord_source": "doam",
         "district_code": "PK636",
         "province": "Punjab",
-        "tier": "doam_documented",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/6120",
         "source_urls": "https://doam.gov.pk/public/sites/6120",
         "archive_id": "",
@@ -13039,7 +13255,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 57 Abubakar Warak (Multan/Mailsi, fair attendance 5,000)",
         "in_final": "yes",
-        "note": "kind from the source's tradition"
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -13729,9 +13945,9 @@
         "coord_source": "doam",
         "district_code": "PK623",
         "province": "Punjab",
-        "tier": "doam_documented",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/6178",
         "source_urls": "https://doam.gov.pk/public/sites/6178",
         "archive_id": "",
@@ -13741,7 +13957,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 68 Din Panah (Muzaffargarh/Kot Addu)",
         "in_final": "yes",
-        "note": "kind from the source's tradition"
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -14485,9 +14701,9 @@
         "coord_source": "doam",
         "district_code": "PK618",
         "province": "Punjab",
-        "tier": "doam_documented",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/9144",
         "source_urls": "https://doam.gov.pk/public/sites/9144",
         "archive_id": "",
@@ -14497,7 +14713,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 40 Hazrat Lal Esan (Mianwali/Layyah, fair attendance 50,000)",
         "in_final": "yes",
-        "note": "kind from the source's tradition"
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -17833,9 +18049,9 @@
         "coord_source": "doam",
         "district_code": "PK612",
         "province": "Punjab",
-        "tier": "doam_documented",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/10127",
         "source_urls": "https://doam.gov.pk/public/sites/10127",
         "archive_id": "",
@@ -17845,7 +18061,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 10 Pīr Abdul Rehman (Jhang/Shorkot)",
         "in_final": "yes",
-        "note": "kind from the source's tradition"
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -17887,9 +18103,9 @@
         "coord_source": "doam",
         "district_code": "PK612",
         "province": "Punjab",
-        "tier": "doam_documented",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/10126",
         "source_urls": "https://doam.gov.pk/public/sites/10126",
         "archive_id": "",
@@ -17899,7 +18115,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 12 Shah Sadiq Nihang (Jhang/Shorkot)",
         "in_final": "yes",
-        "note": "kind from the source's tradition"
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -18076,9 +18292,9 @@
         "coord_source": "doam",
         "district_code": "PK619",
         "province": "Punjab",
-        "tier": "doam_documented",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/10256; doam:sites/6154",
         "source_urls": "https://doam.gov.pk/public/sites/10256; https://doam.gov.pk/public/sites/6154",
         "archive_id": "",
@@ -18088,7 +18304,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 56 Pīr Ayub Kattal (Multan/Lodhran, fair attendance 10,000)",
         "in_final": "yes",
-        "note": "kind from the source's tradition"
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -18103,9 +18319,9 @@
         "coord_source": "doam",
         "district_code": "PK612",
         "province": "Punjab",
-        "tier": "doam_documented",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/10128",
         "source_urls": "https://doam.gov.pk/public/sites/10128",
         "archive_id": "",
@@ -18115,7 +18331,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 6 Pīr Taj-ud-din (Jhang/Jhang)",
         "in_final": "yes",
-        "note": "kind from the source's tradition"
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -19588,9 +19804,9 @@
         "coord_source": "doam",
         "district_code": "PK603",
         "province": "Punjab",
-        "tier": "web_confirmed",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/7045",
         "source_urls": "https://doam.gov.pk/public/sites/7045",
         "archive_id": "",
@@ -19600,7 +19816,7 @@
         "web_evidence_quotes": "File:Mazar Hazrat Makhdoom Syed Rajan Qattal Bukhari.jpg | File:Darbar Hazrat Makhdoom Syed Rajan Qattal Bukhari.jpg",
         "colonial_gazetteer": "match: row 97 Rajan Qattal (Bahawalpur/Ahmadpur)",
         "in_final": "yes",
-        "note": "kind from the existence check's evidence"
+        "note": "kind from the existence check's evidence; verified with the colonial gazetteer as its second source"
       }
     },
     {
@@ -19723,9 +19939,9 @@
         "coord_source": "doam",
         "district_code": "PK609",
         "province": "Punjab",
-        "tier": "doam_documented",
-        "n_independent_sources": 1,
-        "sources": "doam",
+        "tier": "verified",
+        "n_independent_sources": 2,
+        "sources": "doam; colonial_gazetteer",
         "source_record_ids": "doam:sites/9043",
         "source_urls": "https://doam.gov.pk/public/sites/9043",
         "archive_id": "",
@@ -19735,7 +19951,7 @@
         "web_evidence_quotes": "",
         "colonial_gazetteer": "match: row 1 Khangah Shah Rehman (Gujranwala/Gujranwala, fair attendance 12,000)",
         "in_final": "yes",
-        "note": "kind from the source's tradition"
+        "note": "kind from the source's tradition; verified with the colonial gazetteer as its second source"
       }
     },
     {

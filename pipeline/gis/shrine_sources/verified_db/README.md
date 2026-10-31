@@ -1,7 +1,8 @@
 # The verified shrine database
 
 _Built 31 October 2026 overnight (`docs/research/VERIFIED_DB_OVERNIGHT_2026-10-31.md`) and rebuilt the
-same day after Rauf ruled that a DOAM record counts as documented on its own. A research layer, not the archive: nothing here enters the sheet or the site (RULE 3), and no point is moved._
+same day after Rauf ruled that a DOAM record counts as documented on its own, and that a match to the colonial
+Punjab District Gazetteers counts as a source. A research layer, not the archive: nothing here enters the sheet or the site (RULE 3), and no point is moved._
 
 **What it is.** One row per place for every place in `district_counts/sites.csv` (3,689, from the archive,
 the DOAM national inventory, OpenStreetMap, Wikidata and GeoNames, joined by the measured matcher), plus
@@ -11,55 +12,56 @@ treat as established shrines, temples, gurdwaras and samadhis.
 
 ## Tiers
 
-Rauf's rules: a place two independent sources record is verified (30 October), and a DOAM record documents a
-place on its own (31 October). Everything else is the conservative default of 31 October 2026.
+Rauf's rules: a place two independent sources record is verified (30 October); a DOAM record documents a
+place on its own, and a hand-judged match to the colonial Punjab District Gazetteers is a source (31 October).
+Everything else is the conservative default of 31 October 2026.
 
 | tier                 | rule                                                                                                                                                                         | places |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
-| `verified`           | two or more independent sources (archive, DOAM, OSM, Wikidata, GeoNames; OSM's tiers count once)                                                                             |    208 |
-| `archive_documented` | the archive only, with `support_level` Field-verified or Source-documented                                                                                                   |     61 |
-| `doam_documented`    | DOAM only (the government's inventory of protected and listed monuments), unless the check confirmed it (then `web_confirmed`) or contradicted it                            |    659 |
-| `web_confirmed`      | one source, and the existence check found a word-for-word quote from an outside page naming it in its locality, surviving the quote, type and name checks and the spot check |    124 |
-| `plausible`          | one source other than DOAM; the check found the name but not the locality                                                                                                    |     44 |
-| `unconfirmed`        | one source and no outside evidence found, or (archive rows) Source-seeded or Web-compiled                                                                                    |  2,910 |
+| `verified`           | two or more independent sources (archive, DOAM, OSM, Wikidata, GeoNames, colonial gazetteer; OSM's tiers count once)                                                         |    232 |
+| `archive_documented` | the archive only, with `support_level` Field-verified or Source-documented                                                                                                   |     59 |
+| `doam_documented`    | DOAM only (the government's inventory of protected and listed monuments), unless the check confirmed it (then `web_confirmed`) or contradicted it                            |    651 |
+| `web_confirmed`      | one source, and the existence check found a word-for-word quote from an outside page naming it in its locality, surviving the quote, type and name checks and the spot check |    122 |
+| `plausible`          | one source other than DOAM; the check found the name but not the locality                                                                                                    |     43 |
+| `unconfirmed`        | one source and no outside evidence found, or (archive rows) Source-seeded or Web-compiled                                                                                    |  2,899 |
 | `contradicted`       | the check found the place demolished, moved or recorded elsewhere                                                                                                            |      3 |
 
 **`unconfirmed` does not mean a place does not exist.** It means none of the sources searched (Wikipedia
 in English and Urdu, Wikimedia Commons, Wikidata) names it in its locality. Most rural shrines have no
 presence there, and GeoNames' shrines come from old topographic maps: 1,727 of its 1,758 one-source places
-are unconfirmed. `doam_documented` rows keep their `web_verdict` (`no_evidence` 635, `plausible` 24). Treat the tier as how far existence is documented, not as a census.
+are unconfirmed. `doam_documented` rows keep their `web_verdict` (`no_evidence` 627, `plausible` 24). Treat the tier as how far existence is documented, not as a census.
 
 ## The final set (`in_final = yes`)
 
-**1,025 places**: 206 verified, 60 archive-documented, 657 DOAM-documented, 102 web-confirmed. The
+**1,037 places**: 230 verified, 58 archive-documented, 649 DOAM-documented, 100 web-confirmed. The
 admitted tiers lose 22 secular tombs or memorials, 1 mosque, 2 graveyards and 2 Buddhist sites (Mohra
-Moradu, Jaulian) to the kind rule; 1,023 have a point (the GeoJSON), and 2 are archive rows without one.
-Before DOAM counted (the overnight build) the final set was 368.
+Moradu, Jaulian) to the kind rule; 1,031 have a point (the GeoJSON), and 6 are archive rows without one.
+The final set was 368 in the overnight build, 1,025 once DOAM counted, and 1,037 once the gazetteer counted.
 
 | By tradition | places |     | By province            | places |
 | ------------ | -----: | --- | ---------------------- | -----: |
-| Muslim       |    708 |     | Punjab                 |    466 |
+| Muslim       |    719 |     | Punjab                 |    473 |
 | Hindu        |    194 |     | Sindh                  |    355 |
 | Sikh         |     76 |     | Khyber Pakhtunkhwa     |     96 |
 | Jain         |      4 |     | Gilgit-Baltistan       |     49 |
-| unknown      |     43 |     | Balochistan            |     28 |
+| unknown      |     44 |     | Balochistan            |     28 |
 |              |        |     | Azad Kashmir           |     18 |
-|              |        |     | Islamabad              |      9 |
-|              |        |     | no district / no point |  2 / 2 |
+|              |        |     | Islamabad              |     10 |
+|              |        |     | no district / no point |  2 / 6 |
 
-By kind: Muslim tomb or shrine (a source says only "muslim") 596, Hindu temple or samadhi 190, Sufi shrine
-or saint's tomb 114, Sikh gurdwara or samadhi 71, Jain temple 9, Nanakpanthi or Udasi darbar 8, unclear 37.
+By kind: Muslim tomb or shrine (a source says only "muslim") 602, Hindu temple or samadhi 190, Sufi shrine
+or saint's tomb 119, Sikh gurdwara or samadhi 71, Jain temple 9, Nanakpanthi or Udasi darbar 8, unclear 38.
 `muslim_tomb_or_shrine` includes nobles' tombs a source did not distinguish from saints' shrines.
 
-**What DOAM brings in, and what to watch.** 473 of the 657 DOAM-documented places are
+**What DOAM brings in, and what to watch.** 465 of the 649 DOAM-documented places in the final set are
 `muslim_tomb_or_shrine`, because DOAM's records say only "muslim". DOAM lists monuments, not shrines, so these
 include tombs of clan members in old graveyards ("Tomb of Bahran Faqir at Khoso Graveyard"; 15 names say
 graveyard or qabristan), numbered or unknown tombs ("Unknown Tomb No.3 at Arrora Mukam Graveyard", 9), and
 24 Noorbakhshi khanqahs in Gilgit-Baltistan (`Khanqah-e-Moallah …`), which are places of prayer. They are
 left in: telling a saint's shrine from a noble's tomb needs a source, not a name pattern.
 
-**102 places moved from one source to `web_confirmed`** in the final set (OSM 48, DOAM 40, GeoNames 7,
-Wikidata 7).
+**100 places moved from one source to `web_confirmed`** in the final set (OSM 48, DOAM 39, Wikidata 7,
+GeoNames 6).
 
 ## What `web_confirmed` rests on
 
@@ -85,8 +87,12 @@ The existence check of 30–31 October (`existence_checks/results/existence_repo
 Malik and Mirza (2015) list the 142 shrines that the colonial Punjab District Gazetteers name, most with
 their fair attendance (`registers/README_academic.md`, which also covers Mehmood and Seror's data). Each
 was compared by hand with this file: 29 gazetteer rows match 33 places, and 13 possibly match 14 more. The
-column records the match. **It changes no tier.** Counting a match as a second source would bring 12
-places into the final set (question 9 of the overnight report).
+column records both. **A `match` counts as the source `colonial_gazetteer`** (Rauf, 31 October 2026); a
+`possible` is recorded only. That made 24 one-source places `verified`: 9 DOAM, 6 GeoNames, 3 OSM, 2
+archive-documented archive rows, and 4 archive rows without a pin, which stay unplaced. 12 of them are new to
+the final set.
+A gazetteer attests the shrine and its fair around 1880–1930, and the match rests on the name and district,
+so a verified place whose second source is the gazetteer says so in `note`.
 
 ## Columns, checks, rebuild
 
@@ -99,12 +105,13 @@ places into the final set (question 9 of the overnight report).
   - every `web_confirmed` quote is verbatim in its gathered evidence;
   - every `in_final` row is admitted by the rule;
   - every point is inside Pakistan;
-  - every DOAM-only place is `doam_documented`, `web_confirmed` or `contradicted`, and no other place is
+  - every DOAM-only place without a gazetteer match is `doam_documented`, `web_confirmed` or `contradicted`, and no other place is
     `doam_documented`;
   - the 208 multi-source places are all `verified`;
   - every archive row appears once;
   - the out-of-scope pattern actually matches a known name and not a near miss;
-  - every colonial-gazetteer match names a place of this file.
+  - every colonial-gazetteer match names a place of this file, the gazetteer is a source exactly where a
+    row is a `match`, and every such place is `verified`.
 
   The 208 is the count of 31 October 2026. If `sites.csv` is rebuilt, its place ids are renumbered, and
   the existence-check results must be re-keyed by source record ids before this runs again.

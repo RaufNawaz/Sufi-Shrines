@@ -180,5 +180,7 @@ Rauf asked what data Adeel Malik's and Sultan Mehmood's shrine databases rely on
 **Question 9.** Should a colonial-gazetteer match count as an independent source for `verified`? It
 attests the shrine and its fair around 1880–1930, but the match is by name. Counting it would bring 12
 places into the final set: 8 now `unconfirmed` or `plausible`, and 4 unpinned archive rows. _Meanwhile:_
-recorded in the column, not counted.
+recorded in the column, not counted. **Answered the same day: yes, a match counts.** The rebuild made 24 one-source places
+`verified` and brought the final set to **1,037** (230 verified, 58 archive-documented, 649 DOAM-documented,
+100 web-confirmed). A `possible` match is still recorded only. 20 of 20 checks pass.
 
