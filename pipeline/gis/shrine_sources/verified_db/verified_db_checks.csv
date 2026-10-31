@@ -14,5 +14,6 @@ places of two or more sources (was 208 on 31 October 2026; a different count mea
 "every DOAM-only place is doam_documented, web_confirmed or contradicted",0,0,yes
 doam_documented rows are DOAM-only places,0,0,yes
 every place of two or more sources is verified,0,0,yes
+every colonial-gazetteer match names a place of this file,0,0,yes
 "the archive's pinned rows each appear once, under their archive_id",169,169,yes
 every archive row appears exactly once,489,489,yes

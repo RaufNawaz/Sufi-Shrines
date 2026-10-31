@@ -80,6 +80,14 @@ The existence check of 30–31 October (`existence_checks/results/existence_repo
 - **The local models** (qwen3.5:9b, gemma4:12b) were tried first and are not used: the first failed its
   pilots, and Rauf stopped the second.
 
+## The colonial gazetteers (`colonial_gazetteer`)
+
+Malik and Mirza (2015) list the 142 shrines that the colonial Punjab District Gazetteers name, most with
+their fair attendance (`registers/README_academic.md`, which also covers Mehmood and Seror's data). Each
+was compared by hand with this file: 29 gazetteer rows match 33 places, and 13 possibly match 14 more. The
+column records the match. **It changes no tier.** Counting a match as a second source would bring 12
+places into the final set (question 9 of the overnight report).
+
 ## Columns, checks, rebuild
 
 - **Columns:** every column is in `shrines_verified_codebook.csv`.
@@ -94,8 +102,9 @@ The existence check of 30–31 October (`existence_checks/results/existence_repo
   - every DOAM-only place is `doam_documented`, `web_confirmed` or `contradicted`, and no other place is
     `doam_documented`;
   - the 208 multi-source places are all `verified`;
-  - every archive row appears once.
-  - the out-of-scope pattern actually matches a known name and not a near miss.
+  - every archive row appears once;
+  - the out-of-scope pattern actually matches a known name and not a near miss;
+  - every colonial-gazetteer match names a place of this file.
 
   The 208 is the count of 31 October 2026. If `sites.csv` is rebuilt, its place ids are renumbered, and
   the existence-check results must be re-keyed by source record ids before this runs again.

@@ -14,7 +14,10 @@ counts as documented on its own):
 
 Inputs: district_counts/sites.csv, district_counts/district_counts.csv, data/shrines.csv, and, when present,
 existence_checks/results/existence_results.csv with existence_evidence_cited.jsonl (the hybrid worker's
-check, docs/prompts/hybrid_worker_shrine_existence.md). Nothing is invented (RULE 2): names, points and
+check, docs/prompts/hybrid_worker_shrine_existence.md), and registers/gazetteer_shrines_malik_mirza.csv with
+registers/gazetteer_match_verdicts.tsv (shrines the colonial Punjab District Gazetteers name, as Malik and Mirza
+list them, matched by hand; registers/README_academic.md). A gazetteer match is recorded, not counted as a
+source: it changes no tier. Nothing is invented (RULE 2): names, points and
 links are the source records' own; no point is averaged or moved.
 
 Writes shrines_verified.csv, shrines_verified.geojson (in_final = yes, with a point),
@@ -35,6 +38,7 @@ HERE = Path(__file__).resolve().parent
 SS = HERE.parent
 DC = SS / "district_counts"
 RES = SS / "existence_checks" / "results"
+REG = SS / "registers"
 ROOT = SS.parents[2]
 
 LINK = {"osm": "https://www.openstreetmap.org/{}", "doam": "https://doam.gov.pk/public/{}",
@@ -68,7 +72,7 @@ MULTI_SOURCE_PLACES_31_OCT = 208
 COLUMNS = ["place_id", "name", "other_names", "tradition", "kind", "lat", "lon", "coord_source",
            "district_code", "province", "tier", "n_independent_sources", "sources", "source_record_ids",
            "source_urls", "archive_id", "archive_support_level", "web_verdict", "web_evidence_urls",
-           "web_evidence_quotes", "in_final", "note"]
+           "web_evidence_quotes", "colonial_gazetteer", "in_final", "note"]
 CODEBOOK = [
     ("place_id", "The place's id in district_counts/sites.csv (`place`); `archive:<id>` for an archive row with no pin, which sites.csv does not hold.", "sites.csv; data/shrines.csv"),
     ("name", "The name of the most authoritative record: archive, then Wikidata, OSM (tier A, B, C), DOAM, GeoNames.", "sites.csv name; data/shrines.csv Name"),
@@ -90,6 +94,7 @@ CODEBOOK = [
     ("web_verdict", "The existence check's verdict for a one-source place (confirmed / plausible / no_evidence / contradicted), after its quote checks and the hand spot check; empty when not checked.", "existence_results.csv verdict"),
     ("web_evidence_urls", "The outside pages the verdict rests on, `; ` separated. Never the record's own page.", "existence_results.csv evidence_urls"),
     ("web_evidence_quotes", "Word-for-word quotes from those pages' titles or snippets, ` | ` separated.", "existence_results.csv evidence_quotes"),
+    ("colonial_gazetteer", "Shrines the colonial Punjab District Gazetteers name (1880s-1930s), as listed in Malik and Mirza (2015), Appendix 1, matched to this place by hand: `match` or `possible`, the appendix row, name, colonial district/tehsil and fair attendance as printed. ` | ` separated. Recorded only; it changes no tier.", "registers/gazetteer_shrines_malik_mirza.csv; registers/gazetteer_match_verdicts.tsv"),
     ("in_final", "yes when tier is verified, archive_documented, doam_documented or web_confirmed and kind is not secular_tomb_or_memorial, mosque_only, graveyard or buddhist_or_christian_out_of_scope.", "derived"),
     ("note", "Where kind came from, and anything a reader must know about the row.", "derived"),
 ]
@@ -115,6 +120,8 @@ def main():
             for line in fh:
                 c = json.loads(line)
                 cited[c["place_id"]] = c["results"]
+
+    gaz = gazetteer()
 
     places = collections.OrderedDict()
     for r in sites:
@@ -184,6 +191,7 @@ def main():
             "archive_id": arch["source_id"] if arch else "", "archive_support_level": arow["support_level"] if arow else "",
             "web_verdict": verdict, "web_evidence_urls": w.get("evidence_urls", ""),
             "web_evidence_quotes": w.get("evidence_quotes", ""),
+            "colonial_gazetteer": gaz.get(pid, ""),
             "in_final": "yes" if tier in FINAL_TIERS and kind not in NOT_SHRINE else "no",
             "note": "; ".join(notes),
         })
@@ -200,18 +208,36 @@ def main():
             "coord_source": "", "district_code": "", "province": "", "tier": tier, "n_independent_sources": 1,
             "sources": "archive", "source_record_ids": f"archive:{aid}", "source_urls": "", "archive_id": aid,
             "archive_support_level": a["support_level"], "web_verdict": "", "web_evidence_urls": "",
-            "web_evidence_quotes": "", "in_final": "yes" if tier in FINAL_TIERS and kind not in NOT_SHRINE else "no",
+            "web_evidence_quotes": "", "colonial_gazetteer": gaz.get(f"archive:{aid}", ""),
+            "in_final": "yes" if tier in FINAL_TIERS and kind not in NOT_SHRINE else "no",
             "note": "kind from the archive's category and site_type; archive row without a pin, so not in sites.csv "
                     "and not placed (no lat/lon)",
         })
 
-    checks = run_checks(rows, places, sites, archive, web, cited)
+    checks = run_checks(rows, places, sites, archive, web, cited, gaz)
     write(rows, checks)
     summarise(rows)
     failed = [c for c in checks if c["pass"] != "yes"]
     for c in checks:
         print(f"{'ok  ' if c['pass'] == 'yes' else 'FAIL'} {c['check']}: {c['value']} (expected {c['expected']})")
     sys.exit(1 if failed else 0)
+
+
+def gazetteer():
+    """place_id -> the colonial-gazetteer matches judged by hand, as one cell."""
+    if not (REG / "gazetteer_match_verdicts.tsv").exists():
+        return {}
+    listed = {r["row"]: r for r in read_csv(REG / "gazetteer_shrines_malik_mirza.csv")}
+    out = collections.defaultdict(list)
+    with open(REG / "gazetteer_match_verdicts.tsv", encoding="utf-8", newline="") as fh:
+        for v in csv.DictReader(fh, delimiter="	", quoting=csv.QUOTE_NONE):
+            g = listed.get(v["gazetteer_row"])
+            if g is None or v["verdict"] not in ("match", "possible"):
+                sys.exit(f"gazetteer_match_verdicts.tsv: bad row {v}")
+            att = f", fair attendance {g['fair_attendance_as_written']}" if g["fair_attendance_as_written"] else ""
+            out[v["place_id"]].append(f"{v['verdict']}: row {g['row']} {g['name_as_written']} "
+                                      f"({g['colonial_district']}/{g['tehsil_as_written'] or '?'}{att})")
+    return {k: " | ".join(x) for k, x in out.items()}
 
 
 def summarise(rows):
@@ -229,6 +255,9 @@ def summarise(rows):
     print("final by province:", dict(c(r["province"] or ("(no district)" if r["lat"] else "(no point)") for r in final)))
     one_source_checked = [r for r in rows if r["web_verdict"]]
     print("one-source places checked:", len(one_source_checked), dict(c(r["web_verdict"] for r in one_source_checked)))
+    gz = [r for r in rows if r["colonial_gazetteer"]]
+    print("colonial gazetteer:", len(gz), "places;", dict(c(("match" if "match:" in r["colonial_gazetteer"] else "possible", r["tier"])
+                                                             for r in gz)))
     print("web verdict by source:", {s: dict(c(r["web_verdict"] for r in one_source_checked if r["sources"] == s))
                                      for s in sorted({r["sources"] for r in one_source_checked})})
 
@@ -242,7 +271,7 @@ def archive_kind(a):
     return ARCHIVE_KIND.get(a.get("category", ""), "unclear")
 
 
-def run_checks(rows, places, sites, archive, web, cited):
+def run_checks(rows, places, sites, archive, web, cited, gaz):
     checks = []
 
     def check(name, value, expected, ok):
@@ -303,6 +332,9 @@ def run_checks(rows, places, sites, archive, web, cited):
     check("doam_documented rows are DOAM-only places", len(misplaced), 0, not misplaced)
     not_verified = [p for p in multi if by_id[p]["tier"] != "verified"]
     check("every place of two or more sources is verified", len(not_verified), 0, not not_verified)
+
+    unknown_gaz = sorted(set(gaz) - set(by_id))
+    check("every colonial-gazetteer match names a place of this file", len(unknown_gaz), 0, not unknown_gaz)
 
     pinned = [r["source_id"] for r in sites if r["source"] == "archive"]
     arch_ids = collections.Counter(r["archive_id"] for r in rows if r["archive_id"])

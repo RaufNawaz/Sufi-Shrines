@@ -19,5 +19,6 @@ archive_support_level,That row's support_level.,data/shrines.csv
 web_verdict,"The existence check's verdict for a one-source place (confirmed / plausible / no_evidence / contradicted), after its quote checks and the hand spot check; empty when not checked.",existence_results.csv verdict
 web_evidence_urls,"The outside pages the verdict rests on, `; ` separated. Never the record's own page.",existence_results.csv evidence_urls
 web_evidence_quotes,"Word-for-word quotes from those pages' titles or snippets, ` | ` separated.",existence_results.csv evidence_quotes
+colonial_gazetteer,"Shrines the colonial Punjab District Gazetteers name (1880s-1930s), as listed in Malik and Mirza (2015), Appendix 1, matched to this place by hand: `match` or `possible`, the appendix row, name, colonial district/tehsil and fair attendance as printed. ` | ` separated. Recorded only; it changes no tier.",registers/gazetteer_shrines_malik_mirza.csv; registers/gazetteer_match_verdicts.tsv
 in_final,"yes when tier is verified, archive_documented, doam_documented or web_confirmed and kind is not secular_tomb_or_memorial, mosque_only, graveyard or buddhist_or_christian_out_of_scope.",derived
 note,"Where kind came from, and anything a reader must know about the row.",derived

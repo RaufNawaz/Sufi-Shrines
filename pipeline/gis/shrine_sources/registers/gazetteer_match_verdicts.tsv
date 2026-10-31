@@ -1,0 +1,48 @@
+gazetteer_row	place_id	verdict	reason
+1	U03388	match	"Tomb Shah Rehman" (DOAM), Gujranwala district; the gazetteer's "Khangah Shah Rehman", Gujranwala tehsil
+2	U03164	possible	"Chillah-Gah of Hazarat Sakhi Sarwar" (DOAM), Gujranwala district; a chillah-gah of the same saint, but the gazetteer gives Wazirabad tehsil and the record does not
+5	U01359	match	"Ziarat Pir Abdul Qadir" (GeoNames), Jhang district; same name, same district
+6	U03327	match	"Shrine of Hazrat Tajj-u-din Makhdum" (DOAM), Jhang district; the gazetteer's "Pir Taj-ud-din", Jhang tehsil
+10	U03317	match	"Shrine of Hazrat Pir Abdur Rehman Qureshi" (DOAM), Jhang district; the gazetteer's "Pir Abdul Rehman", Shorkot tehsil of Jhang
+12	U03319	match	"Shrine of Hazrat Sadiq Nihang" (DOAM), Jhang district; the gazetteer's "Shah Sadiq Nihang", Shorkot tehsil
+17	U00016	match	"Darbar Sakhi Shah Chan Charagh" (archive), Rawalpindi; the gazetteer's "Shah Chiragh", Rawalpindi tehsil
+20	U00002	match	Bari Imam, Islamabad (then Rawalpindi tehsil); the gazetteer's "Barri Shah Latif"
+20	U01568	match	"Ziarat Barri Shah Latif" (GeoNames), Islamabad; the same name; probably the same shrine as U00002, which the union did not join
+22	U01393	possible	"Ziarat Gulla Shah" (GeoNames), Sialkot district; the gazetteer's "Gullu Shah", Pasrur tehsil; spelling differs and the tehsil is not checked
+23	U00131	match	"Shrine of Imam Ali-ul-Haq" (archive), Sialkot; same name
+23	U01063	match	"Shrine of Imam Ali-ul-Haq Sahib" (DOAM, OSM), Sialkot; same name; probably the same shrine as U00131, which the union did not join
+25	U00130	match	"Shrine of Hazrat Shah Daula Daryai" (archive, DOAM), Gujrat; the gazetteer's "Shah Daula", Gujrat tehsil
+31	U02540	possible	"Ziarat Pir Jamal Shah" (GeoNames), Mianwali district; the gazetteer's "Shah Jamal", Esa Khel tehsil; a common name and the tehsil is not checked
+33	U01217	match	"Ziarat Hafizji" (GeoNames), Mianwali district; the gazetteer's "Khangah Hafizji", Mianwali tehsil
+40	U03193	match	"Hazrat La'l Eisan Tomb" (DOAM), Layyah district; the gazetteer's "Hazrat Lal Esan", Layyah tehsil
+43	U01428	match	"Ziarat Pir Jatti Shah" (GeoNames), Sahiwal district (Montgomery tehsil); the gazetteer's "Hazrat Jatti Shah Sahib"
+44	U02516	match	"Tomb of Hazrat Ghous Muhammad Bala Pir" (DOAM, GeoNames), Okara district; the gazetteer's "Muhammad Ghaus", Okara tehsil
+44	archive:sayyid-muhammad-ghaus-bala-pir	match	the archive's row for the same saint, Muhammad Ghaus Bala Pir; the row has no pin
+45	U00590	match	"Shrine of Sheikhu Sharif" (OSM), Okara district; the gazetteer's "Sheikhu", Okara tehsil
+46	U02462	possible	"Ziarat Saiyid Sher Muhammad" (GeoNames), Okara district; the gazetteer's "Pir Sher Muhammad", Okara tehsil; a common name
+47	U00108	possible	"Mausoleum of Hazrat Daud Bandgi, Shergarh" (archive, DOAM, GeoNames), Dipalpur tehsil; the gazetteer's "Hazrat Daud Sahib Gilani", Dipalpur; the gazetteer says Gilani, the record does not
+48	U00124	match	"Shrine of Fariduddin Ganjshakar", Pakpattan; the gazetteer's "Bahisti Baba Farid Ganj", Pakpattan tehsil
+51	archive:sher-shah-qadri-multani	possible	the archive's "Sher Shah Qadri Multani"; the gazetteer's "Sher Shah", Multan tehsil; the row has no pin, so the place is not checked
+52	U02970	match	"Shrine of Hazrat Makhdoom Rashid" (DOAM, Wikidata), Multan district; the gazetteer's "Makhdum Rashid", Multan tehsil
+53	U00153	match	"Shrine of Shah Shams-ud-Din Sabzwari", Multan, the shrine known as Shah Shams Tabrez's; the gazetteer's "Shams Tabrez", Multan tehsil
+54	U03333	possible	"Shrine of Sultan Ahmad Qattal" (DOAM), Multan district; the gazetteer's "Pir Kattal", Shujabad tehsil; the gazetteer gives no first name
+56	U03326	match	"Shrine of Hazrat Sultan Ayub Qattal" (DOAM), Lodhran district; the gazetteer's "Pir Ayub Kattal", Lodhran tehsil
+57	U03139	match	"Abu Bakar Waraq Tomb" (DOAM), Vehari district; the gazetteer's "Abubakar Warak", Mailsi tehsil (Vehari)
+62	U01721	possible	"Ziarat Mir Hayat" (GeoNames), Muzaffargarh district; the gazetteer's "Miran Hayat", Muzaffargarh tehsil; spelling differs
+68	U03165	match	"Daira Din Panah" (DOAM), Muzaffargarh district; the gazetteer's "Din Panah", Kot Addu tehsil
+69	U03306	possible	"Shrine of Abdul Wahab Bukhari" (DOAM), Muzaffargarh district; the gazetteer's "Syed Isa Abdul Wahab", Kot Addu tehsil; part of the name only
+70	U01684	possible	"Ziarat Nur Shah Bukhari" (DOAM, GeoNames), Muzaffargarh district; the gazetteer's "Nur Shah", Kot Addu tehsil; a common name
+70	U03257	possible	"Nur Shah Tomb" (DOAM), Muzaffargarh district; as U01684, which may be the same tomb
+85	U03223	possible	"Khanqah Pir Abdul Khaliq" (DOAM), Bahawalnagar district; the gazetteer's "Pir Abdul Khaliq", Khairpur (Tamewali) tehsil of Bahawalpur; the districts differ
+88	U01405	possible	"Khanqah Gharib Shah" (GeoNames), Bahawalpur district; the gazetteer's row "Garib Shah, Chhatan Lal", Bahawalpur tehsil
+89	archive:shaikh-muhkam-al-din-sahib-al-sair-uwaisi	match	the archive's "Shaikh Muhkam al-Din Sahib al-Sair Uwaisi"; the gazetteer's "Sahib-us-Sair", Bahawalpur tehsil; the row has no pin
+91	U01523	possible	"Ziarat Zauir Pir" (GeoNames), Bahawalpur district; the gazetteer's "Zahir Pir", Bahawalpur tehsil; spelling differs
+92	U00340	match	"Channan Peer Cholistan" (OSM), Bahawalpur district; the gazetteer's "Channar Pir", Bahawalpur tehsil
+93	U00132	match	"Shrine of Jalaluddin Surkh-Posh Bukhari", Uch; the gazetteer's "Sher Shah Syed Jalal", Ahmadpur tehsil (fair attendance 50,000), the title Sher Shah Jalal by which he is known
+94	archive:sayyid-muhammad-ghaus-uchi-jili-gilani	match	the archive's "Sayyid Muhammad Ghaus Uchi Jili Gilani", of Uch; the gazetteer's "Muhammad Ghaus", Ahmadpur (East) tehsil, which holds Uch; the row has no pin
+96	U00135	match	"Shrine of Makhdoom Jahaniyan Jahangasht", Uch; the gazetteer's "Makhdum Jahanian", Ahmadpur tehsil
+97	U03383	match	"Tomb of Syed Sadaruddin Rajan Qattal Bokhari" (DOAM), Bahawalpur district; the gazetteer's "Rajan Qattal", Ahmadpur tehsil
+97	archive:sayyid-sadr-al-din-known-as-shaikh-rajan-qattal	match	the archive's row for the same saint; the row has no pin
+106	U01506	match	"Ziarat Hasan Darya" (GeoNames), Bahawalpur district; the gazetteer's "Hassan Darya", Ahmadpur tehsil
+107	U00911	match	"Darbar Jetha Butha" (OSM), Rahim Yar Khan district; the gazetteer's "Jetha Bhutta", Khanpur tehsil
+113	U01862	match	"Ziarat Musa Nawab" (GeoNames), Rahim Yar Khan district; the gazetteer's "Pir Musan Nawab", Sadiqabad tehsil

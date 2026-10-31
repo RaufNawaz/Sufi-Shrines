@@ -87,7 +87,8 @@ English only, so `name_ur` is empty.
   that list is organised by circles that overlap district and tehsil boundaries, and that it is "an old
   compilation". The authors assigned each shrine to a tehsil and supplemented the list from the web
   and interviews, reaching 598 shrines. Their database is not published in the paper, and it is not an
-  Auqaf register, so nothing was taken from it.
+  Auqaf register, so nothing was taken from it here. Its one published list, the shrines the colonial
+  gazetteers name, is transcribed in `gazetteer_shrines_malik_mirza.csv` (`README_academic.md`).
 
 ## Sindh: Auqaf, Religious Affairs, Zakat & Ushr Department
 

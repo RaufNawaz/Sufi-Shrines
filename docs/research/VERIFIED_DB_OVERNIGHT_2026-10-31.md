@@ -160,3 +160,25 @@ these include clan members' tombs in old graveyards (15 names say graveyard or q
 unknown tombs (9), and 24 Noorbakhshi khanqahs in Gilgit-Baltistan, which are places of prayer. Should
 they stay in the final set? _Meanwhile:_ left in, since telling a saint's shrine from a noble's tomb needs
 a source, not a name pattern, and `kind` marks them for any study that wants to leave them out.
+
+## 8. The economists' shrine databases (31 October 2026, later)
+
+Rauf asked what data Adeel Malik's and Sultan Mehmood's shrine databases rely on and where it comes from
+(`pipeline/gis/shrine_sources/registers/README_academic.md`).
+
+- **Malik and Mirza** built 598 Punjab shrines from the Punjab Auqaf Department's internal list, Auqaf
+  and TMA websites, Google searches and Google Maps, Wikipedia, interviews with shrine caretakers and two
+  Urdu books. They add the 146 shrines named in the colonial Punjab District Gazetteers and a database of
+  shrine families in elections. Only the gazetteer list is published (WP 30, Appendix 1, 142 rows).
+- **Mehmood and Seror** count shrines per judicial district. Their Punjab and Sindh counts come from
+  colonial gazettes, as compiled by Rinchan Ali Mirza; their Khyber Pakhtunkhwa and Balochistan counts come
+  from Auqaf records of about 1950. Nothing at the level of a shrine is published.
+- **Added:** the gazetteer list, transcribed (`registers/gazetteer_shrines_malik_mirza.csv`), and matched
+  by hand to this database. 29 rows match 33 places, 13 possibly match 14 more, and 100 have no place here.
+  The new column `colonial_gazetteer` holds the matches; no tier changed, and 18 of 18 checks pass.
+
+**Question 9.** Should a colonial-gazetteer match count as an independent source for `verified`? It
+attests the shrine and its fair around 1880–1930, but the match is by name. Counting it would bring 12
+places into the final set: 8 now `unconfirmed` or `plausible`, and 4 unpinned archive rows. _Meanwhile:_
+recorded in the column, not counted.
+

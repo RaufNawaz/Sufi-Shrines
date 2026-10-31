@@ -22854,3 +22854,29 @@ include graveyard tombs, numbered unknown tombs and 24 Noorbakhshi khanqahs. A s
 shrines only should filter on `kind` (question 8 for Rauf).
 
 **Commit:** `data:` the build script, its outputs, the README, the report and this entry. Not pushed.
+
+### 9.454, 31 October 2026 (Windows PC, the hybrid-worker session): Malik and Mirza's and Mehmood and Seror's shrine data read; the colonial gazetteer list added
+
+**What.** Rauf asked what data Adeel Malik's and Sultan Mehmood's shrine databases rely on and where it comes
+from, and to add it. `pipeline/gis/shrine_sources/registers/README_academic.md` answers that with quotations
+and page numbers. Neither team publishes a shrine-level database: Malik and Mirza's 598 Punjab shrines (Auqaf
+list, websites, Google, caretaker interviews) are unpublished, and Mehmood and Seror publish only counts per
+judicial district (colonial gazettes for Punjab and Sindh, from Mirza; Auqaf records of about 1950 for KP and
+Balochistan). The one published list, the 142 rows of shrines named in the colonial Punjab District
+Gazetteers (Malik and Mirza 2015, Appendix 1), is transcribed by `registers/build_gazetteer_shrines.py` and
+matched by hand (`registers/gazetteer_match_verdicts.tsv`): 29 rows match 33 places, 13 possibly match 14.
+`verified_db/build_verified_db.py` writes them to a new `colonial_gazetteer` column; no tier changes
+(question 9 in `docs/research/VERIFIED_DB_OVERNIGHT_2026-10-31.md` §8). 18 of 18 checks pass.
+
+**Gotchas.**
+- **The appendix prints 142 rows where the text says 146**, and 14 for Ahmadpur where the text says 15.
+  The build checks the 142 counted by eye; the difference is recorded, not reconciled.
+- **Fuzzy word matching misses names written as one word** ("Jalal" against "Jalaluddin"). A prefix
+  pass found Sher Shah Syed Jalal (Jalaluddin Surkh-Posh, Uch) that the first pass had missed.
+- **The papers' PDFs** are in `pipeline/gis/sources/shrine_dbs/registers/academic_*` (gitignored). HAL's
+  copy of Mehmood and Seror is behind bot protection; the AEA 2022 copy downloads.
+- **The matches show two more duplicates in the union:** Bari Imam (U00002 and U01568), and Imam Ali-ul-Haq
+  (U00131 and U01063).
+
+**Commit:** `data:` the registers files, the build script, the verified database, the READMEs, the report and
+this entry. Not pushed.
