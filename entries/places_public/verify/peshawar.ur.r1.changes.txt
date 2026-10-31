@@ -1,0 +1,151 @@
+peshawar.ur.md, round 1 fixes (after V2 r1 PASS and V3 r1 FAIL)
+Backup of the round 1 text: /home/claude/work/fix/peshawar.ur.r1.bak
+Applied by a script that asserts each OLD occurs exactly once.
+Counts: 24 V3 issues applied (#2 to #4 and #6 to #26), 20 in the verifier's wording, #4 and #24 with small wording adjustments, #18 and #20 in modified form so as to keep the English facts. Rejected: V3 #1, V3 #5, V2 note 1, and the V3 notes listed below.
+
+CHANGE 1
+WHY: V3 #2: "کا آغاز کیا" with the book itself is a calque, and قاموس is masculine in standard Urdu while the article gave it feminine agreement; use لغت (feminine), the word line 57 already uses. Infinitive agrees with the feminine object (مرتب کرنی), the standard form.
+OLD: صوفیانہ اصطلاحات کی اپنی قاموس کا آغاز کیا۔
+NEW: صوفیانہ اصطلاحات کی اپنی لغت مرتب کرنی شروع کی۔
+
+CHANGE 2
+WHY: V3 #4: the section opened by repeating the article's first sentence; merged, list of names takes a plural verb. Peshawar named rather than "اس قدیم شہر" so the section's first sentence does not depend on a referent outside the section; the fact "ancient" is kept.
+OLD: پشاور ایک قدیم شہر ہے، اور پرانی تحریروں میں اس کا نام فرشاور، پرشاور اور بگرام ملتا ہے۔
+NEW: پرانی تحریروں میں قدیم شہر پشاور کے نام فرشاور، پرشاور اور بگرام ملتے ہیں۔
+
+CHANGE 3
+WHY: V3 #6: راجہ repeated within one clause; pronoun for Jaipal.
+OLD: راجہ جے پال کا سامنا کرتے ہیں اور راجہ کو قید کر لیتے ہیں۔
+NEW: راجہ جے پال کا سامنا کرتے ہیں اور انہیں قید کر لیتے ہیں۔
+
+CHANGE 4
+WHY: V3 #7: the relative جہاں کی after verb and object was unclear in reference; reordered, facts unchanged.
+OLD: دارا نے پشاور اور کابل کی فوجوں کو خلعتیں بھیجیں، جہاں کی صوبیداری مہابت خان کے سپرد تھی۔
+NEW: پشاور اور کابل کی صوبیداری مہابت خان کے سپرد تھی، اور دارا نے وہاں کی فوجوں کو خلعتیں بھیجیں۔
+
+CHANGE 5
+WHY: V3 #8: English appositive comma cut چشتیہ off from its phrase.
+OLD: یہ سلسلہ جنوبی ایشیا کے ممتاز صوفی سلسلے، چشتیہ کی ایک شاخ ہے۔
+NEW: یہ سلسلہ جنوبی ایشیا کے ممتاز صوفی سلسلۂ چشتیہ کی ایک شاخ ہے۔
+
+CHANGE 6
+WHY: V3 #9: "اخبارات کے لیے کام کیا" is a calque of "worked for newspapers".
+OLD: اسی صدی کے چشتی صوفی ذوقی شاہ نے چار شہروں میں اخبارات کے لیے کام کیا:
+NEW: اسی صدی کے چشتی صوفی ذوقی شاہ چار شہروں میں اخبارات سے وابستہ رہے:
+
+CHANGE 7
+WHY: V3 #10: "کے درمیان گزری" reads geographically; "جا بسے" for the final place of a life.
+OLD: اور اجمیر کے درمیان گزری، اور آخرکار وہ کراچی میں جا ٹھہرے۔
+NEW: اور اجمیر میں آتے جاتے گزری، اور آخرکار وہ کراچی میں جا بسے۔
+
+CHANGE 8
+WHY: V3 #3: same calque and agreement fault as #2; لغت throughout.
+OLD: *سرِّ دلبراں* کا آغاز کیا، جو صوفیانہ اصطلاحات کی ایک جامع قاموس ہے۔
+NEW: *سرِّ دلبراں* کی تالیف شروع کی، جو صوفیانہ اصطلاحات کی ایک جامع لغت ہے۔
+
+CHANGE 9
+WHY: V3 #11: a route is طے کیا جاتا, not پار.
+OLD: اور فوجیں اسے بڑی مشکل ہی سے پار کر پاتی تھیں۔
+NEW: اور فوجیں اسے بڑی مشکل ہی سے طے کر پاتی تھیں۔
+
+CHANGE 10
+WHY: V3 #12: one singular تھا closed three predicates (گھاٹیاں تنگ ... تھا).
+OLD: اس کی گھاٹیاں تنگ، کوتل دشوار اور پانی کمیاب تھا۔
+NEW: اس کی گھاٹیاں تنگ اور کوتل دشوار تھے، اور پانی کمیاب تھا۔
+
+CHANGE 11
+WHY: V3 #13: the passes belong to the stretch of road, not to the سفر.
+OLD: اور پھر کابل تک مزید چالیس کوس کا سفر تھا، جس کے کوتل کچھ زیادہ دشوار نہ تھے۔
+NEW: اور پھر کابل تک چالیس کوس کا مزید فاصلہ تھا، جس میں کوتل کچھ زیادہ دشوار نہ تھے۔
+
+CHANGE 12
+WHY: V3 #14: could be read as a historian living in India; the English means a historian of Sufism in India.
+OLD: ہندوستان میں تصوف کے ایک مؤرخ کے الفاظ میں:
+NEW: ہندوستان میں تصوف کی تاریخ لکھنے والے ایک مؤرخ کے الفاظ میں:
+
+CHANGE 13
+WHY: V3 #15: رسوم and قیود are feminine; postposition کی.
+OLD: عام مذہبی زندگی کے رسوم و قیود سے آزاد
+NEW: عام مذہبی زندگی کی رسوم و قیود سے آزاد
+
+CHANGE 14
+WHY: V3 #16: "کے تجربے میں" is a calque; "ایک خاتون" then "ایک مریدنی" read as two women (the English means one: "one woman's experience" is then specified as the woman disciple from Peshawar whose words follow); the Pakpattan clause held the main clause open. The quotation and the closing sentence are unchanged.
+OLD: ایک خاتون کے تجربے میں سرحد کے مزار عورتوں کے لیے کھلے ہیں۔ پشاور کی ایک مریدنی نے اپنے علاقے کا موازنہ پاکپتن سے کیا، جہاں عورتیں بزرگ کے مزار کے اندرونی حصے میں نہیں جا سکتیں، اور کہا:
+NEW: پشاور کی ایک مریدنی کے تجربے کے مطابق سرحد کے مزار عورتوں کے لیے کھلے ہیں۔ انہوں نے اپنے علاقے کا موازنہ پاکپتن سے کیا، جہاں عورتیں بزرگ کے مزار کے اندرونی حصے میں نہیں جا سکتیں۔ ان کا کہنا تھا:
+
+CHANGE 15
+WHY: V3 #17: "ان شہروں میں بھی ہے" is loose; idiom کا شمار ... میں ہوتا ہے.
+OLD: پشاور ان شہروں میں بھی ہے جہاں سکھ آ کر بستے ہیں۔
+NEW: پشاور کا شمار بھی ان شہروں میں ہوتا ہے جہاں سکھ آ کر بستے ہیں۔
+
+CHANGE 16
+WHY: V3 #18, applied in modified form: the sentence used two words (پناہ گزین, مہاجرین) as if for the same group. V3's fix (پناہ گزینوں) would call the earlier group refugees, but the English distinguishes "refugees" from "the migrants before them", so that would change a fact. Written as "those who migrated before them": no second label for the refugees, and the earlier group stays migrants as in the English.
+OLD: اپنے سے پہلے آنے والے مہاجرین کی طرح گوردواروں میں رہنے لگے۔
+NEW: اپنے سے پہلے نقل مکانی کرنے والوں کی طرح گوردواروں میں رہنے لگے۔
+
+CHANGE 17
+WHY: V3 #19: gloss of a familiar word (Diwali) dropped; the brief allows dropping glosses of familiar words and V2 does not count it as an omission.
+OLD: پریم گپتا کے نزدیک ہندوؤں کا تہوارِ چراغاں دیوالی پشاور جانے کی ایک وجہ ہے:
+NEW: پریم گپتا کے نزدیک دیوالی پشاور جانے کی ایک وجہ ہے:
+
+CHANGE 18
+WHY: V3 #20, applied in modified form: "ان میں سے" seemed to draw the 2011 hundred from the 2010 party; now "یہیں کے" (of Peshawar), as the English "about a hundred of them" (Hindus from Peshawar) means. V3 also dropped the opening sentence as a repeat of line 43, but the English states it in this paragraph ("The city's Hindus also travel as pilgrims."), so it is kept, joined by a colon to the two examples and opening with پشاور rather than شہر so it does not echo line 43 word for word.
+OLD: شہر کے ہندو یاترا پر بھی جاتے ہیں۔ 2010 میں پشاور کے ہندو کٹاس آئے، اور 2011 میں ان میں سے کوئی سو افراد دو بڑی بسوں میں وہاں پہنچے۔
+NEW: پشاور کے ہندو یاترا پر بھی جاتے ہیں: 2010 میں یہاں کے یاتری کٹاس آئے، اور 2011 میں یہیں کے کوئی سو ہندو دو بڑی بسوں میں وہاں پہنچے۔
+
+CHANGE 19
+WHY: V3 #21: بس (only) is conversational.
+OLD: بہت سے مصنفین پشاور کا ذکر بس سرسری طور پر کرتے ہیں۔
+NEW: بہت سے مصنفین پشاور کا ذکر محض سرسری طور پر کرتے ہیں۔
+
+CHANGE 20
+WHY: V3 #22: English word order.
+OLD: تو لفظ پشاوری اس میں آتا ہے:
+NEW: تو اس میں لفظ پشاوری بھی آتا ہے:
+
+CHANGE 21
+WHY: V3 #23: same calques as #9 and #2, and the stranded possessive in "صوفیانہ اصطلاحات کی ان کی لغت". Infinitive agrees with لغت (مرتب کرنی), as in #2.
+OLD: جہاں ذوقی شاہ نے اخبارات کے لیے کام کیا۔ یہ ان کے سفر کی ایک منزل بھی ہے اور وہ جگہ بھی جہاں صوفیانہ اصطلاحات کی ان کی لغت کا آغاز ہوا۔
+NEW: جہاں ذوقی شاہ اخبارات سے وابستہ رہے۔ یہ ان کے سفر کی ایک منزل بھی ہے اور وہ جگہ بھی جہاں انہوں نے صوفیانہ اصطلاحات کی اپنی لغت مرتب کرنی شروع کی۔
+
+CHANGE 22
+WHY: V3 #24: unclear whether the name appears in the study or the novel. V3's wording, except "ایک ناول" (a calqued ایک that would suggest one of several novels; the English says "Abadhut's novel") and "جس میں یہ" made explicit as "یہ شہر" so the pronoun cannot point at نام.
+OLD: اور وہ بھی ابدھوت کے ناول میں ڈاکوؤں کے مسکن کے طور پر۔
+NEW: اور وہ بھی ابدھوت کے ناول کے حوالے سے، جس میں یہ شہر ڈاکوؤں کا مسکن ہے۔
+
+CHANGE 23
+WHY: V3 #25: "سب سے زیادہ جگہ دیتی ہے" and "اس کی جنگ" are calques.
+OLD: پرانی تاریخوں میں اس شہر کو سب سے زیادہ جگہ اورنگزیب کے عہد میں لکھی گئی فارسی تاریخ دیتی ہے: اس کے قدیم نام، اس کی جنگ،
+NEW: پرانی تاریخوں میں اس شہر کا سب سے مفصل ذکر اورنگزیب کے عہد میں لکھی گئی فارسی تاریخ میں ملتا ہے: اس کے قدیم نام، یہاں لڑی گئی جنگ،
+
+CHANGE 24
+WHY: V3 #26: جدید does not describe a person's period.
+OLD: سفر کرنے والے ایک جدید سیاح کے لیے
+NEW: سفر کرنے والے آج کے ایک سیاح کے لیے
+
+REJECTED ISSUES
+
+V3 #1 ("یہیں سے تین راستے کابل کو جاتے ہیں" -> "جاتے تھے"). Rejected: the English Overview states it in the present, "three roads lead from it to Kabul", while only the body section (Aurangzeb's time) uses the past "went". Putting the Overview in the past would change what the English states; the Urdu follows the English in each place.
+
+V3 #5 ("سن 391" -> "سن 391 ہجری"). Rejected: the English gives "the year 391" with no era. Adding ہجری adds a fact the English does not state (the brief names exactly this case). The verifier itself asked for the era to be confirmed against the source; that is a matter for the English (V1/team version), not for the Urdu.
+
+NOTES NOT APPLIED
+
+V2 note 1 (کلام -> تحریروں for "a Pashto selection of Khushhal Khan Khattak"). Not applied: V2 marks it optional style, says the current reading is natural, and the change is not needed for meaning (the English "selection of Khushhal Khan Khattak" leaves the kind of writing open; کلام is the usual word for a poet's works). Left for V2 to raise as an issue if it wishes.
+V2 notes 2 to 5. Confirmations, nothing to apply.
+
+V3 note, structural repetition (the woman's quotation, Diwali, Sikh families and Hindu pilgrims each appear three times). Not applied: the English repeats them in the same places (Overview, body, Peshawar in Books); trimming would drop sentences the English has.
+V3 note, quotation marks around کفار. Not applied: the English does not quote the word ("five thousand of the unbelievers were put to the sword", attributed to the Persian history but not in quotation marks); quotation marks would present it as a direct quotation. The attribution کے بیان کے مطابق is kept.
+V3 note, glosses of قلندر, توران, جنوبی ایشیا کے ممتاز صوفی سلسلے. Not applied: the brief keeps the قلندر gloss explicitly; the other two are taste, not meaning.
+V3 note, punctuation inside or outside closing quotation marks. Not applied: a punctuation convention, not meaning, agreement, referent or spelling; the Urdu follows the English placement in each quotation.
+V3 note, Shahidullah Faridi and Diyal appear without introduction. Not applied: the verifier says no fact can be added; the English introduces neither.
+V3 note, "فصلوں اور غلے کی فراوانی تھی". Not applied: taste; the current agreement is correct.
+V3 note, "چشمۂ جمشید سے، جسے جمرود کہتے ہیں،". Not applied: taste; the verifier says the original is correct.
+V3 note, "سلسلے کی جانب سے" vague. Not applied: the English says only "by the silsila"; naming the order would add a name the English leaves unnamed, and "سلسلے ہی" would add an emphasis the English lacks. The referent is the چشتی صابری سلسلہ of the preceding paragraph.
+V3 note, "... کے سوا کچھ نہیں رہ جاتے". Not applied: inside a quotation; the verifier left it.
+V3 note, "یہاں آ بسے" for the Surjeet Singh family. Not applied: taste, and "آ بسے" (settled) says more than the English "moved there".
+V3 note, split line 61 second sentence. Not applied: taste; the sentence has three clauses, within the brief's limit.
+
+CHECKS AFTER THE FIXES
+Spellings: every name changed or touched (ذوقی شاہ، پشاور، پاکپتن، ننکانہ صاحب، حیدرآباد، کراچی، لاہور، دیوالی) matches urdu-i18n/urdu-dictionary.json where it has the name; قاموس no longer occurs, لغت is used three times for the same work.
+Every changed sentence reread in its paragraph: no doubled word; agreement checked (لغت ... مرتب کرنی شروع کی، شائع ہوئی; گھاٹیاں ... کوتل ... تھے; رسوم و قیود کی); pronouns: انہیں (line 11) = Jaipal, انہوں نے / ان کا (line 35) = the مریدنی, جس میں یہ شہر (line 59) = Abadhut's novel / Peshawar; no fact the English lacks.

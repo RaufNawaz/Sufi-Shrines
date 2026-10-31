@@ -1,0 +1,9 @@
+Khairpur public English, changes after V1 round 1 (PASS with precision notes), applied by the coordinator in the verifier's wording.
+
+WHY: V1 r1 note 1: the fronted time anchor could date the patronage too; the team dates only the building of the imambaras
+OLD: In the nineteenth century they built *imambaras*, halls for Shia mourning gatherings, and they were nonetheless generous patrons of all the religious buildings.
+NEW: They built *imambaras*, halls for Shia mourning gatherings, in the nineteenth century, and they were nonetheless generous patrons of all the religious buildings.
+
+WHY: V1 r1 note 2: residual source framing (the team's 'serves him only as a point of reference'), and 'neighbours' says a little more than the source
+OLD: The town also serves to place its neighbours. Halani lies
+NEW: Halani lies

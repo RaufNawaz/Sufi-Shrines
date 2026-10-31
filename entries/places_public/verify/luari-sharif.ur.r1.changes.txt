@@ -1,0 +1,25 @@
+luari-sharif Urdu, changes after round 1 (V2 PASS, V3 FAIL), applied by the coordinator as exact replacements (each OLD asserted once). Rejected: none outright; where the coordinator changed a verifier's wording, the WHY line says so.
+
+WHY: V3 1 (سلسلہ three times; سلسلہ تصوف misreads as an izafat), verifier's wording
+OLD: نقشبندی سلسلہ تصوف کے بڑے سلسلوں میں شمار ہوتا ہے، اور لواری شریف اسی سلسلے کے علما کے ایک حلقے کا مسکن ہے۔
+NEW: نقشبندیہ تصوف کے بڑے سلسلوں میں شمار ہوتا ہے، اور لواری شریف اسی سلسلے کے علما کے ایک حلقے کا مسکن ہے۔
+
+WHY: V3 2 (باضابطہ is for official proceedings; پر کتاب for کے بارے میں ... تصنیف), verifier's wording
+OLD: یہاں کے نقشبندیوں کے بارے میں باضابطہ کتاب ایک ہندو پیروکار نے تصنیف کی تھی۔
+NEW: یہاں کے نقشبندیوں پر باقاعدہ کتاب ایک ہندو پیروکار نے تصنیف کی تھی۔
+
+WHY: V3 3 (calque of 'the mystical tradition within Islam'; میں سے ایک), verifier's wording; the alternative name is kept, as the English gives it
+OLD: نقشبندی سلسلہ، جو نقشبندیہ بھی کہلاتا ہے، اسلام کی صوفیانہ روایت کے بڑے طریقوں میں سے ہے۔
+NEW: نقشبندی سلسلہ، جسے نقشبندیہ بھی کہتے ہیں، اسلامی تصوف کے بڑے سلسلوں میں سے ایک ہے۔
+
+WHY: V3 4 (repeats the Overview word for word), verifier's wording
+OLD: جنوبی سندھ میں بدین کے قریب لواری شریف کا گاؤں اسی سلسلے کے علما کے ایک حلقے کا مسکن ہے۔
+NEW: جنوبی سندھ میں بدین کے قریب لواری شریف کے گاؤں میں اسی سلسلے کے علما کا ایک حلقہ آباد ہے۔
+
+WHY: V3 5 (کے ساتھ نام لیا جاتا ہے is a calque), verifier's wording; وابستہ keeps the English's caution (it does not say he came from the village)
+OLD: ان علما کے ساتھ مخدوم محمد ہاشم (1692 تا 1762) کا نام بھی لیا جاتا ہے،
+NEW: ان علما سے مخدوم محمد ہاشم (1692 تا 1762) کا نام بھی وابستہ ہے،
+
+WHY: V3 6 (two indefinite Hindus read as two men; باضابطہ), verifier's wording, with V2 note 1: ان بزرگوں (reverential, not in the English) written ان; the English's two sentences are about one Hindu devotee, so اسی is faithful
+OLD: لواری شریف کے نقشبندیوں کا رشتہ ایک ہندو عقیدت مند سے بھی جڑا ہوا ہے۔ ان بزرگوں کے بارے میں باضابطہ کتاب ایک ہندو پیروکار کے قلم سے نکلی۔
+NEW: لواری شریف کے نقشبندیوں کا رشتہ ایک ہندو عقیدت مند سے بھی جڑا ہوا ہے، اور ان پر باقاعدہ کتاب اسی عقیدت مند کے قلم سے نکلی۔

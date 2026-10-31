@@ -1,0 +1,16 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Sentence by sentence, every statement is in the team version: the village close to Badin in southern Sindh (p. 22 passage); the home of a group of Naqshbandi scholars; Makhdum Muhammad Hashim, "the main author", years 1692 to 1762, qazi in Thatta; the official book on the Naqshbandis of the place written by a Hindu follower, and the tie to a Hindu devotee. The glosses (Naqshbandi order as a major Sufi order, as data/glossary.csv gives it; Naqshbandiyya; tariqa; qazi as a judge of Islamic law) are definitions, not facts about the site. No citation, page, author narration, process or printing language survives; no time anchor is used; the team version records no disagreement, so rule 4 does not bite. Bibliography is the team's one item, verbatim.
+
+2. Omissions checked, all rightly made. (a) "one of the important Naqshbandi centres in Sindh": the team version says "On that page the name of the place is uncertainly printed", and the claim rests on exactly that name, so rule 5 removes it; the writer's notes record it for Rauf, with the sentence that could return if he rules the run a plain misprint. The Hindu follower sentence on the same page names the place without any uncertainty mark in the team version, so keeping it is correct. (b) "which his book spells Lowari Sharif": a variant spelling and a remark about the book; rule 4 drops it silently. (c) The team's Communities section folded into the Naqshbandi section rather than left as a one sentence section: allowed by the brief. Nothing obviously important in the team version is missing.
+
+3. "Named with these scholars is Makhdum Muhammad Hashim (1692 to 1762), "the main author"." This keeps the team's caution (it does not place him in the village or say what he wrote), and it narrates no author or book, so it is not source talk. But "Named with" is faintly about the text rather than the place, and "the main author" with no stated work leaves the reader asking "of what?". The team version gives no referent, so nothing can be added; the sentence may stand. Taste only, no change required.
+
+4. Gloss repeated (taste): the Overview already says "one of the major Sufi orders", and the next section opens "is a major Sufi order". Optional trim:
+   OLD: The Naqshbandi order, or Naqshbandiyya, is a major Sufi order, a *tariqa* or path of the mystical tradition within Islam.
+   NEW: The Naqshbandi order, or Naqshbandiyya, is a *tariqa*, a path of the mystical tradition within Islam.
+
+5. Tense: "It is the home of a group of scholars" and "is the home of a group of its scholars" put the scholars in the present, while the team version gives the group no date (only Makhdum Muhammad Hashim's 1692 to 1762). This is the normal de-narration of the team's "names it as the home of a group of Naqshbandi scholars" and claims no more than the team does, so no change is required.

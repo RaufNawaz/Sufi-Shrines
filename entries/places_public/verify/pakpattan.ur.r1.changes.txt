@@ -1,0 +1,31 @@
+# pakpattan: Urdu changes applied after V2/V3 round 1 (coordinator, the verifiers' own wording unless noted)
+
+WHY: V2 r1 issue 1 (غار نما means cave-like; the English says a cave)
+OLD: جس جگہ ان کا وصال ہوا، اس کے قریب شیخ صابر کی غار نما خلوت گاہ محفوظ ہے۔
+NEW: جس جگہ ان کا وصال ہوا، اس کے قریب شیخ صابر کی خلوت کا غار محفوظ ہے۔
+
+WHY: V3 r1 issue 5 (calqued ایک, one term for the route) with V2 r1 note 1 (اہم ترین is stronger than 'main')
+OLD: معین الدین کی وفات کے بعد کی صدی میں زیارت کے ایک مقررہ راستے پر پاکپتن کا شمار اجمیر اور دہلی کے ساتھ اہم ترین منزلوں میں ہوتا تھا۔
+NEW: معین الدین کی وفات کے بعد کی صدی میں زائرین کے مقررہ سفری راستے پر پاکپتن کا شمار اجمیر اور دہلی کے ساتھ بڑی منزلوں میں ہوتا تھا۔
+
+WHY: V3 r1 issue 2 (جبکہ sets up a false contrast; tense; repetition); coordinator wrote بڑے پڑاؤ for V3's اہم پڑاؤ to keep the English 'main'
+OLD: معین الدین کی وفات کے بعد کی صدی میں اجمیر زائرین کے ایک مقررہ سفری راستے کی بڑی منزلوں میں شمار ہونے لگا، جبکہ دہلی اور پاکپتن بھی اسی راستے کی اہم منزلیں تھیں۔
+NEW: معین الدین کی وفات کے بعد کی صدی میں اجمیر زائرین کے ایک مقررہ سفری راستے کی بڑی منزلوں میں شمار ہونے لگا۔ دہلی اور پاکپتن بھی اسی راستے کے بڑے پڑاؤ تھے۔
+
+WHY: V3 r1 issue 1 and V2 r1 note 2 (relative clause between commas cuts the name off from its verb)
+OLD: 1352 میں شیخ زین الدین شیرازی نے، جو خلد آباد میں برہان الدین غریب کے سب سے اہم جانشین تھے، یہی راستہ اختیار کیا۔
+NEW: خلد آباد میں برہان الدین غریب کے سب سے اہم جانشین شیخ زین الدین شیرازی نے 1352 میں یہی راستہ اختیار کیا۔
+
+WHY: V3 r1 issue 3 (ہجوم کی بھگدڑ is redundant)
+OLD: پاکپتن شریف میں ہجوم کی بھگدڑ بھی مچ چکی ہے۔
+NEW: پاکپتن شریف میں بھگدڑ بھی مچ چکی ہے۔
+
+WHY: V3 r1 issue 4 (a second بھی adds nothing)
+OLD: 2001 کا سانحۂ پاکپتن بھی اسی قصبے کے نام سے موسوم ہے۔
+NEW: 2001 کا سانحۂ پاکپتن اسی قصبے کے نام سے موسوم ہے۔
+
+WHY: V3 r1 issue 6 (one form of the saint's name; comma) with V2 r1 issue 2 (cave, not cave-like)
+OLD: فرید الدین نے پاکپتن میں وفات پائی، اور جس جگہ ان کا انتقال ہوا اس کے قریب شیخ صابر کی غار نما خلوت گاہ محفوظ ہے۔
+NEW: حضرت فرید الدین نے پاکپتن میں وفات پائی، اور جس جگہ ان کا انتقال ہوا، اس کے قریب شیخ صابر کی خلوت کا غار محفوظ ہے۔
+
+Rejected: none. Not applied (taste or outside the English): V3 r1 note on خواجہ before معین الدین (the English has no title); other taste notes as recorded in the reports.

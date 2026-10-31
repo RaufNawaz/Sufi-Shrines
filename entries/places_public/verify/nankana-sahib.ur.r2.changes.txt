@@ -1,0 +1,10 @@
+Nankana Sahib Urdu, round 2 fixes applied by the coordinator in the confirming verifier's wording (verify/nankana-sahib.V3.r2.txt), watcher firing 2026-10-30T2215Z
+
+1. WHY: V3 r2 issue 1 (گنتیوں is not used for 'reckonings'; the idiom keeps 'by different counts')
+OLD: جن کی تعداد مختلف گنتیوں کے مطابق چھ یا سات ہے۔
+NEW: جن کی تعداد کسی حساب سے چھ ہے اور کسی حساب سے سات۔
+
+2. WHY: V3 r2 issue 2 (بتاتے ہیں repeated in the next sentence; the English has 'recalls' and 'explains')
+OLD: کرتار نام کے ایک مقامی سکھ بتاتے ہیں:
+NEW: کرتار نام کے ایک مقامی سکھ کہتے ہیں:
+

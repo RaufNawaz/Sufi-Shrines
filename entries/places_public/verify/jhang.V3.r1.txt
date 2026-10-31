@@ -1,0 +1,21 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [ambiguous relative clause] "اس کے مطابق ہیر کا باپ چوچک سیال جھنگ سیال کا طاقتور جاٹ سردار تھا، جو "پاکستان میں لاہور کے جنوب مغرب میں واقع ایک وسیع زرعی علاقہ" ہے۔" -> after the comma, «جو» attaches to the nearest noun, «سردار», so the sentence reads as if the chief were "a vast agricultural region"; the clash of «تھا» and «ہے» makes it worse. «اس کے مطابق» is also loose, since «اس» has to reach back to the previous sentence's «داستان». -> NEW: "اس داستان کے مطابق ہیر کا باپ چوچک سیال جھنگ سیال کا طاقتور جاٹ سردار تھا۔ جھنگ سیال "پاکستان میں لاہور کے جنوب مغرب میں واقع ایک وسیع زرعی علاقہ" ہے۔"
+
+2. [wrong noun / inconsistent term / punctuation] "جھنگ سیال جاٹوں کی سرزمین ہے، اور ہیر کا تعلق اسی خاندان سے تھا۔" -> «سیال جاٹوں» is a people or tribe, so «اسی خاندان» does not refer back to it properly, and the article itself calls it «قبیلے» in paragraph 3. The comma before «اور» follows English punctuation. -> NEW: "جھنگ سیال جاٹوں کی سرزمین ہے اور ہیر کا تعلق اسی قبیلے سے تھا۔"
+
+3. [repetition / calque] "داستان کے مطابق ہیر جھنگ سیال کے طاقتور جاٹ سردار چوچک سیال کی حسین اور حاضر جواب بیٹی تھی۔ اس کا تعلق جھنگ کے طاقتور سیال جاٹوں کے خاندان سے تھا۔" -> «طاقتور» appears in both sentences, and a third time in the quotation in the next paragraph. The second sentence stands alone as a near-echo of the first. «سیال جاٹوں کے خاندان» is a literal copy of "the family of the Sial Jats". -> NEW: "داستان کے مطابق ہیر جھنگ سیال کے طاقتور جاٹ سردار چوچک سیال کی حسین اور حاضر جواب بیٹی تھی اور اس کا تعلق جھنگ کے بااثر سیال جاٹ خاندان سے تھا۔"
+
+4. [calque] "یہ قبیلہ اپنی عورتوں کا معمول سے بڑھ کر خیال رکھتا ہے" -> «معمول سے بڑھ کر» is a word-for-word rendering of "unusually"; «غیر معمولی» is the natural Urdu. -> NEW: "یہ قبیلہ اپنی عورتوں کا غیر معمولی خیال رکھتا ہے اور "پنجاب کے ان چند قبیلوں میں شامل ہے جو رواجی قانون کے تحت عورتوں کو جائیداد میں وراثت کا حق دیتے ہیں"۔"
+
+5. [unidiomatic / ambiguous pronoun] "ہیر کے قبیلے کا نام سیال ہے، جس کے لوگ "پنجاب کے طاقتور زمیندار" ہیں۔" -> «قبیلے کا نام ... ہے، جس کے لوگ» is heavy, English-shaped syntax («the tribe's name is X, whose people...»), and «جس» can be read as pointing at «نام». -> NEW: "ہیر کا قبیلہ سیال ہے اور اس کے لوگ "پنجاب کے طاقتور زمیندار" ہیں۔"
+
+6. [repetition] "ہیر کی اساطیری داستان کئی سو برس پرانی ہے، مگر ضلع جھنگ کے دیہاتی آج تک ہیر کی قبر کی نشان دہی کرتے ہیں۔" -> this repeats two sentences of the introduction almost word for word, and uses «ہیر» twice within one sentence. The same facts can be stated without echoing the opening. -> NEW: "یہ داستان کئی سو برس پرانی سہی، مگر ضلع جھنگ کے دیہاتی آج بھی ہیر کی قبر کی نشان دہی کرتے ہیں۔"
+
+NOTES:
+- «اساطیری داستان»: «اساطیری» suggests mythology; «لوک داستان» is the more familiar term for the Heer story. A matter of taste.
+- «ہیر کا باپ»: «والد» suits a reference work better, but «باپ» is acceptable in a retelling of a legend.
+- «رواجی قانون سے مراد مقامی رسم و رواج کا غیر تحریری قانون ہے۔»: the gloss is justified because the term is not common. «رسم و رواج پر مبنی غیر تحریری مقامی قانون» would read a little more smoothly.
+- The article is short, and the introduction, paragraph 2 and the last paragraph all repeat the same three points (the Sials, Chuchak, the grave). That structural repetition is an editorial decision rather than a language error; issues 3 and 6 reduce it without dropping any fact.
+- Checked: no dashes, no Latin letters, no digits, no asterisks, no verse paragraphs.

@@ -1,0 +1,13 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] English (## Music, Patronage and the State, paragraph 2): "at a concert the university sponsored for the benefit of senior government officials and faculty" | Urdu: "یہ محفل یونیورسٹی نے اعلیٰ سرکاری افسروں اور اپنے اساتذہ کے لیے منعقد کی تھی۔" -> "sponsored" (paid for) becomes "منعقد کی تھی" (organised/held). The paragraph is about the state as patron ("Here the state itself is the patron"), so who paid is the point, and the Urdu loses it. -> corrected Urdu:
+   OLD: یہ محفل یونیورسٹی نے اعلیٰ سرکاری افسروں اور اپنے اساتذہ کے لیے منعقد کی تھی۔
+   NEW: یہ محفل یونیورسٹی نے اپنے خرچ پر اعلیٰ سرکاری افسروں اور اپنے اساتذہ کے لیے منعقد کی تھی۔
+
+NOTES:
+- Checked paragraph by paragraph. All other facts, names, numbers and dates match the English: 2 March 2011, 2012, 1994, mid 2010s, 1989, the 2000s, Book 13 (1995), Book 14 (1996), three hours, 22 and 24 March 2001, 1976, 1978, 1989, third century BCE. All hedges are kept: "may also hold" (ممکن ہے), "is dated to" (بتایا جاتا ہے), "is believed to have been built" (مانا جاتا ہے), "a couple of months later" (کوئی دو ایک مہینے بعد). The headings match the English, and the Urdu correctly has no bibliography. The file has no verse.
+- The brief allows these, and they are not omissions: the glosses dropped for pir, Sunnah, ustad, Seerat and "the legendary lovers" (Layla and Majnun), and the italics removed from murid, halqa and the titles. stupa keeps its italics and gloss, and Bodhisattva keeps its gloss. Both are right, because these terms are unfamiliar.
+- Overview paragraph 3: "the state's institutions in the city sponsor concerts" is rendered "موسیقی کی محفلیں منعقد کرواتے ہیں". The causative is acceptable here. If you want the wording to match issue 1, you could use "اپنے خرچ پر موسیقی کی محفلیں منعقد کرواتے ہیں".
+- Style only: "ایک بار" in the Anam sentence and "ایک دورے کے موقع پر" render the English "has driven back" and "on one visit" well. They add no new facts.
+- Style only: in "اس اسطورے کے ذریعے", English "through myth" is generic. "اساطیر کے ذریعے" or "اسطورے کے ذریعے" without اس would be slightly closer. This does not change the meaning.

@@ -1,0 +1,42 @@
+Nankana Sahib public English, V1 round 1 issues and the notes that correct meaning or precision, applied by the coordinator in V1's wording (verify/nankana-sahib.V1.r1.txt), watcher firing 2026-10-30T2215Z
+
+1. WHY: V1 r1 issue 1 (the 'because' belongs to the number of gurdwaras)
+OLD: Nankana Sahib has six or seven gurdwaras, by different counts, most of them associated with incidents from the life of Guru Nanak, and because he spent his early years here pilgrims visit them all.
+NEW: Because Guru Nanak spent his early years here, Nankana Sahib has several gurdwaras, six or seven by different counts, most of them associated with incidents from his life, and pilgrims visit them all.
+
+2. WHY: V1 r1 issue 2 (one writer's impression stated as fact)
+OLD: The respect for Nanak that the Muslims around Sachkand show is not found among the Muslims of Nankana Sahib, most of whom came from across the border at Partition.
+NEW: One visitor found that the respect for Nanak shown by the Muslims around Sachkand was not to be found among the Muslims of Nankana Sahib; most of them, Iqbal Qaiser explains, came from across the border at Partition.
+
+3. WHY: V1 r1 issue 3 (tradition stated as fact)
+OLD: and somewhere not far from the village stood the ancient temple on a mound where Mata Tripta prayed for a child.
+NEW: and tradition places, not far from the village, the ancient temple on a mound where Mata Tripta prayed for a child.
+
+4. WHY: V1 r1 issue 4 (he read as Kartar's father; time anchor not firm)
+OLD: made Kartar's father a *sewaadar*, a worker at the gurdwara, and he died in Lahore not long ago.
+NEW: made Kartar's father a *sewaadar*, a worker at the gurdwara. Giani Pratap later died in Lahore.
+
+5. WHY: V1 r1 issue 5 (interpretive link the team version does not make)
+OLD: and its standing changes with his: it grows from an obscure little village into a place of pilgrimage
+NEW: and the village changes: by the time he comes back from Pak Pattan, it has grown from an obscure little village into a place of pilgrimage
+
+6. WHY: V1 r1 note 1 (the writer's question: the grandfather detail rests on nothing uncertain; restored in V1's wording)
+OLD: are unanimous that he was born in Rai Bhoi di Talwandi.
+NEW: are unanimous that he was born in Rai Bhoi di Talwandi. He lived in his grandfather's house in the place where he was born.
+
+7. WHY: V1 r1 note (ambiguous 'its')
+OLD: For several years Jatha Singh has played the role of its leader.
+NEW: For several years Jatha Singh has played the role of the community's leader.
+
+8. WHY: V1 r1 note (a figure of the early 2010s given in the present)
+OLD: Its population is over a million.
+NEW: By the early 2010s its population was over a million.
+
+9. WHY: V1 r1 note (one procession made habitual)
+OLD: When a Sikh procession passes through the town, Muslims in the shops and on bikes watch with burning curiosity.
+NEW: During one Sikh procession through the town, Muslims in the shops and on bikes watched with burning curiosity.
+
+10. WHY: V1 r1 note (one rooftop and one observation; 'still' a light addition)
+OLD: From the rooftops the remains of a few Hindu temples can still be seen
+NEW: From a rooftop the remains of a few Hindu temples could be seen
+

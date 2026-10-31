@@ -1,0 +1,22 @@
+Punjab short Urdu, round 2 fixes applied by the coordinator in the confirming verifier's wording (verify/punjab.short.V2.r2.txt = V3.r2.txt), watcher firing 2026-10-30T2215Z
+
+1. WHY: V3 r2 issue 1 (round 1 change 54 made دھارا feminine; the long Urdu has it masculine)
+OLD: جہاں سے ساری دھارا سندھ کہلاتی ہے۔
+NEW: جہاں سے سارا دھارا سندھ کہلاتا ہے۔
+
+2. WHY: V3 r2 issue 2 (ان now could point to the governors)
+OLD: جیسا ان کے عہد میں تھا۔
+NEW: جیسا خود ان کے زمانے میں تھا۔
+
+3. WHY: V3 r2 issue 3 (bare کرتے for قبول کرنا)
+OLD: اتنی آسانی سے وہ مہاجر نہیں کرتے
+NEW: اتنی آسانی سے وہ مہاجر قبول نہیں کرتے
+
+4. WHY: V2 r2 issue 4 (تعمیرِ نو adds 'rebuilding'; the English says 'build')
+OLD: اس کے قصبوں کی تعمیرِ نو میں ہاتھ بٹایا
+NEW: اس کے قصبوں کی تعمیر میں ہاتھ بٹایا
+
+5. WHY: V2 and V3 r2 issue 5 (اس صوبے now reads as Sindh)
+OLD: مرزا صاحباں بھی اس صوبے کی ایک مشہور عشقیہ داستان ہے۔
+NEW: مرزا صاحباں بھی پنجاب کی ایک مشہور عشقیہ داستان ہے۔
+

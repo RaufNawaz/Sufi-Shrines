@@ -1,0 +1,24 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Diff check. I diffed /home/claude/work/bak/jhelum.V1r1.bak.md against the current entries/places_public/jhelum.md using python difflib, at line and character level. Only three lines changed: Overview, Sacred Trees paragraph 2 and The River and the Town. The character level changes match the five listed replacements exactly. I also applied the five OLD -> NEW pairs from jhelum.V1.r1.changes.txt to the backup (each OLD occurred exactly once), and the result is byte-identical to the current file. Nothing else moved, and the headings and bibliography are unchanged. There is no em or en dash anywhere.
+- Change 1, The River and the Town: "In the reign of the emperor Aurangzeb, the river called the Bihat passed below the town of Jhelum, and there it took the name Jhelum." The team version supports it ("passes below the town of Jhelum ... and there takes the name Jhelum"). It resolves r1 issue 1 because nothing now rests on شاهگذر[OCR?]. "There" now refers to "below the town of Jhelum", which reads cleanly, and no word is doubled. It now also agrees with the Overview, which never had the crossing.
+- Changes 2 and 3: "One man has heard of a bodhi tree near Jhelum" (Overview and Sacred Trees). The team version supports "man" with its own pronoun ("Salman Rashid says he has heard of a bodhi tree near Jhelum"), and "man" adds no description of who he is. This resolves r1 issue 2. Both sentences still frame the tree as hearsay, and in Sacred Trees "only from hearsay" comes right before it. The bodhi tree is still not placed more precisely and not said to exist.
+- Change 4, Overview: "tells of two talking trees a little distance from Jhelum." This is the letter's own wording ("at a little distance from Jhelum"), so it no longer decides whether the town or the river is meant. This resolves r1 issue 3.
+- Change 5, Overview: "Jhelum shares its name with a river." The team version supports it, since the Bihat "there takes the name Jhelum". It no longer states in the present tense a description from Aurangzeb's day. The next sentence still says "the town of Jhelum", so a reader loses nothing about what Jhelum is.
+- Whole-article reread against the six V1 tests:
+  (1) Every statement is supported. The glosses ("Porus, an Indian king"; the bodhi tree as the sacred fig) are definitions only.
+  (2) The Alexander story stays framed as legend: "A legend", "said to hold", "said to contain", "the story goes".
+  (3) There are no disagreements and no side-by-side variants.
+  (4) Nothing rests on an uncertain reading now that the crossing is gone.
+  (5) There are no citations and no source, archive or process talk. The time anchors are firm: "In the reign of the emperor Aurangzeb" comes from the bibliography's regnal year, and "late nineteenth century" is the team's quoted wording.
+  (6) Nothing important is missing. The crossing is now a rule 5 omission. Salman Rashid's name and the link to Khalid's family count as source talk that was dropped, which r1 already accepted.
+- Taste (does not fail the round): the Bihat sentence still appears almost word for word in both the Overview and The River and the Town, and the Overview's sentence has no comma before "and there". "The town and its river share a name" also repeats the Overview's opening line. "near Jhelum" comes in two consecutive sentences of Sacred Trees paragraph 2 (unchanged from r1), and "Jhelum" appears six times in the four-sentence Overview. Shortening the Overview's Bihat sentence, as r1 suggested, would fix most of this.
+- Housekeeping in the public notes (entries/places_public/jhelum.notes.md), outside the article; this does not fail the round. The appended "V1 round 1" paragraph records the changes, but the body is out of date in three places:
+  (a) The bodhi tree bullet still says "one traveller" and still asks V1 to rule. It should say "one man".
+  (b) The river bullet still quotes the old sentence with "at a place where a crossing lay".
+  (c) The "Left out" crossing bullet still says "the public keeps only 'a place where a crossing lay'". It should say the crossing is now left out entirely.
+  The length line also still reads 0.72 / 1652 chars. I re-ran pipeline/book_queue/check_place_description.py public jhelum --english-only, which is read-only. It printed "ok jhelum team 2301 -> public 1590 chars (0.69)" and exited 0, so the article is well inside L1. The "Why 0.72" paragraph also still lists the crossing among the apparatus that was left out, which is still true, but its figure needs updating.
+- The Urdu (entries/places_public/jhelum.ur.md) does not exist yet, so the English is ready for the Urdu draft and then V2/V3.

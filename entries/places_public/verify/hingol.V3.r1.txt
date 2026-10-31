@@ -1,0 +1,29 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [collocation / register] "ہنگلاج دیوی کا یہ ہندو مندر بلوچستان کے اس حصے میں زیارت کا ایک مرکز ہے جہاں سندھی بولی جاتی ہے۔" -> زیارت is the Muslim term for a visit to a shrine; for a Hindu temple the natural word is یاترا, which the article itself uses later (یاترا، یاتری). Mixing the two in the same article for the same place reads as a slip. -> NEW: "ہنگلاج دیوی کا یہ ہندو مندر بلوچستان کے اس حصے میں یاترا کا ایک مرکز ہے جہاں سندھی بولی جاتی ہے۔" (For the same reason the heading "## زیارت اور شاعری" reads better as "## یاترا اور شاعری"; change it only if headings are not used as keys.)
+
+2. [order / gloss after use] "ایچ ایس ایم نامی تنظیم زیادہ تر لسبیلہ کے لوہانوں پر مشتمل رہی ہے۔ لوہانہ ہندو تاجروں کی ایک ذات ہے۔" -> لوہانوں is used first and explained only in the next sentence, which stands alone as a stiff sentence of its own. Fold the gloss into the sentence where the word first appears. -> NEW: "ایچ ایس ایم نامی تنظیم کے ارکان زیادہ تر لسبیلہ کے لوہانے رہے ہیں، جو ہندو تاجروں کی ایک ذات ہے۔"
+
+3. [repetition / unidiomatic] "لسبیلہ ہنگلاج کے قریب کا ایک ضلع ہے، اور اسی ضلع میں تمبل نے دیوی کی شہرت پھیلائی۔" -> "کے قریب کا ایک ضلع" is loose, conversational phrasing, and the sentence repeats the word ضلع (ضلع ... اسی ضلع) while saying almost word for word what the introduction has already said. One clause is enough. -> NEW: "ہنگلاج کے قریب واقع ضلع لسبیلہ ہی میں تمبل نے دیوی کی شہرت پھیلائی۔"
+
+4. [repetition] "ایچ ایس ایم کا آغاز بھی لسبیلہ ہی میں ہوا۔ یہ تنظیم 5 جنوری 1986 کو بلوچستان کے ضلع لسبیلہ میں بیلہ کے مقام پر قائم ہوئی، اور شروع ہی سے اس کے ارکان زیادہ تر اسی ضلع کے لوہانے رہے ہیں۔" -> لسبیلہ is named in the first sentence, named again in full ("بلوچستان کے ضلع لسبیلہ") in the very next one, and then referred to as "اسی ضلع". The second full naming is redundant. -> NEW: "ایچ ایس ایم کا آغاز بھی لسبیلہ ہی میں ہوا۔ یہ تنظیم 5 جنوری 1986 کو بلوچستان کے اسی ضلع میں بیلہ کے مقام پر قائم ہوئی، اور شروع ہی سے اس کے ارکان زیادہ تر یہیں کے لوہانے رہے ہیں۔"
+
+5. [collocation / logic] "شاہ عبداللطیف غالباً دوارکا اور ہنگلاج سمیت کئی ہندو یاتراؤں پر ناتھ پنتھی جوگیوں کے ساتھ گئے تھے۔" -> دوارکا and ہنگلاج are places, but the sentence counts them among یاترائیں (journeys). "X and Y among several journeys" is a category mismatch. -> NEW: "شاہ عبداللطیف غالباً ناتھ پنتھی جوگیوں کے ساتھ کئی ہندو مقدس مقامات کی یاترا پر گئے تھے، جن میں دوارکا اور ہنگلاج بھی شامل ہیں۔"
+
+6. [tautological gloss] "ناتھ پنتھی جوگی ناتھ فرقے سے وابستہ ہندو سادھو ہیں۔" -> "ناتھ پنتھی جوگی ناتھ ..." repeats ناتھ back to back and partly explains the term with itself. It reads better if the sentence picks up "these jogis". -> NEW: "یہ جوگی ناتھ فرقے سے وابستہ ہندو سادھو ہوتے ہیں۔"
+
+7. [calque] "ہنگلاج شعر و سخن میں بھی جگہ پاتا ہے۔" -> a word-for-word rendering of 'finds a place in poetry'. In the present habitual (جگہ پاتا ہے) it does not sound natural in Urdu. -> NEW: "ہنگلاج کا ذکر شعر و سخن میں بھی ملتا ہے۔"
+
+8. [gloss of a familiar word] "جن میں ہنگلاج، سری لنکا، گنگا اور کاسی یا کاشی یعنی شہرِ بنارس شامل ہیں۔" -> بنارس is familiar to every Urdu reader, so "شہرِ" adds nothing, and the izafat makes it sound stilted. -> NEW: "جن میں ہنگلاج، سری لنکا، گنگا اور کاسی یا کاشی یعنی بنارس شامل ہیں۔"
+
+9. [calque] "آفاقی حکمت سندھ میں محفوظ ہے، اور ٹھیک ٹھیک کہا جائے تو ہنگلاج میں" -> "ٹھیک ٹھیک کہا جائے تو" is a stiff rendering of 'to be precise / more precisely'. -> NEW: "آفاقی حکمت سندھ میں محفوظ ہے، اور زیادہ صحیح کہا جائے تو ہنگلاج میں"
+
+10. [ambiguous relative / repetition] "پرسرام کا یہ دعویٰ ایک ایسی آفاقی اور ازلی حکمت کی داستان کا حصہ ہے جس کے وسیلے سے نوعِ انسانی حیاتِ جاوداں پا سکتی تھی۔" -> جس could refer to داستان as easily as to حکمت, so a reader may take it as "the story through which mankind could gain eternal life". "پرسرام کا ... دعویٰ" also repeats the previous sentence's subject in full. -> NEW: "یہ دعویٰ ایک ایسی آفاقی اور ازلی حکمت کی داستان کا حصہ ہے، وہ حکمت جس کے وسیلے سے نوعِ انسانی حیاتِ جاوداں پا سکتی تھی۔"
+
+NOTES:
+- Repetition by design: the introduction summarises the body almost sentence for sentence. For example, "ہنگلاج کا استھان ہنگول نیشنل پارک کی حدود میں ہے" repeats the opening sentence, and the Sachal sentence repeats the introduction's wording. A native reader notices this. If the summary-then-body structure is fixed, varying the wording of the body sentences (as in issues 3 and 4) is enough.
+- تمبل and پرسرام appear with no introduction, and "ایچ ایس ایم" is never spelt out. The reader is left asking who or what each one is. This cannot be fixed without adding facts, so it is left to the author.
+- "تھیوسوفی سے متعلق ایک بیان میں بھی ہنگلاج کا ذکر آتا ہے۔" followed by "پرسرام کا دعویٰ تھا ..." leaves it implicit that the بیان is Parsram's. If the source supports it, "یہ بیان پرسرام کا ہے، جن کا دعویٰ تھا کہ ..." would join the two.
+- In the introduction, "شاہ عبداللطیف ... گئے تھے، اور سچل سرمست کی شاعری میں ..." uses اور to join two unrelated clauses. Splitting it into two sentences would read more cleanly. This is taste.
+- Checked: no Latin letters, Western digits (5، 1986) kept, no asterisks, no dashes, Urdu punctuation correct, and spellings consistent (عبداللطیف، سچل سرمست، لوہانہ/لوہانے/لوہانوں، ہنگول، استھان).

@@ -1,0 +1,20 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] English: "the cave retreat of Shaykh Sabir is preserved" (Overview, paragraph 1, sentence 2) | Urdu: "شیخ صابر کی غار نما خلوت گاہ محفوظ ہے" -> غار نما means "cave-like, shaped like a cave". The English says the retreat is a cave. The Urdu says it only resembles one, which weakens the fact.
+   OLD: جس جگہ ان کا وصال ہوا، اس کے قریب شیخ صابر کی غار نما خلوت گاہ محفوظ ہے۔
+   NEW: جس جگہ ان کا وصال ہوا، اس کے قریب شیخ صابر کی خلوت کا غار محفوظ ہے۔
+
+2. [changed fact] English: "near the place where he died the cave retreat of Shaykh Sabir is preserved" (Holy Places) | Urdu: "شیخ صابر کی غار نما خلوت گاہ محفوظ ہے" -> This is the same problem as issue 1: "cave retreat" has become "cave-like retreat".
+   OLD: فرید الدین نے پاکپتن میں وفات پائی، اور جس جگہ ان کا انتقال ہوا اس کے قریب شیخ صابر کی غار نما خلوت گاہ محفوظ ہے۔
+   NEW: فرید الدین نے پاکپتن میں وفات پائی، اور جس جگہ ان کا انتقال ہوا اس کے قریب شیخ صابر کی خلوت کا غار محفوظ ہے۔
+
+Everything else matches the English. Headings: تعارف / تاریخ / مقدس مقامات match Overview / History / Holy Places. The town, Pakistan, Farid al-Din, Shaykh Sabir, Mu'in ad-Din, Ajmer, Delhi, the century after Mu'in ad-Din's death, 1352, Shaykh Zayn ad-Din Shirazi, Burhan ad-Din Gharib, Khuldabad, the stampede, 2001 and "two saints" are all present with the same meaning. "Near" (کے قریب) is kept both times. The stampede and the 2001 tragedy stay as two separate statements, as in the English. ان in the Overview refers to Farid al-Din. The glosses of sharif and shaykh were dropped on purpose (familiar words). Honorifics حضرت and وصال are fine. The overview's مقررہ ("set") is supported by the English History section, so it adds nothing. There is no verse. The file has no Latin letters, dashes or asterisks. The prose length ratio is about 0.87 by my count.
+
+NOTES:
+1. Overview: "among the main points" is rendered اہم ترین منزلوں ("the most important stops"), which is slightly stronger than "main". The History section uses بڑی منزلوں / اہم منزلیں for the same English word, so for consistency:
+   OLD: پاکپتن کا شمار اجمیر اور دہلی کے ساتھ اہم ترین منزلوں میں ہوتا تھا۔
+   NEW: پاکپتن کا شمار اجمیر اور دہلی کے ساتھ بڑی منزلوں میں ہوتا تھا۔
+2. History: the brief asks for plain Urdu order instead of a relative clause set between commas after the name.
+   OLD: 1352 میں شیخ زین الدین شیرازی نے، جو خلد آباد میں برہان الدین غریب کے سب سے اہم جانشین تھے، یہی راستہ اختیار کیا۔
+   NEW: خلد آباد میں برہان الدین غریب کے سب سے اہم جانشین شیخ زین الدین شیرازی نے 1352 میں یہی راستہ اختیار کیا۔

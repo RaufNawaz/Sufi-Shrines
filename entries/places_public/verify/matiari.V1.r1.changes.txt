@@ -1,0 +1,15 @@
+WHY: V1 r1 note 1 (precision): the disagreement is inside one book; 'accounts differ' suggests several sources
+OLD: Accounts differ on where the shrine itself stands, whether in Hala or at Bhit Shah, and there is no settled view.
+NEW: Where the shrine itself stands is not settled: it is placed both in Hala and at Bhit Shah.
+
+WHY: V1 r1 note 2 (precision): 'the oldest name' reads as a claim about the town's first name
+OLD: The oldest name given to the town comes from a legend.
+NEW: An older name for the town comes from a legend.
+
+WHY: V1 r1 note 3 (consistency): Goddess capitalised throughout, as in the team version
+OLD: A legend of the Hindu goddess Hinglaj holds
+NEW: A legend of the Hindu Goddess Hinglaj holds
+
+WHY: V1 r1 note 3 (consistency), second occurrence
+OLD: An account of the origins of the goddess Hinglaj tells
+NEW: An account of the origins of the Goddess Hinglaj tells

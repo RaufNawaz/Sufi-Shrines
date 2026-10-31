@@ -1,0 +1,18 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+
+DIFF CHECK:
+A python difflib comparison of /home/claude/work/nankana/ur.r2.bak against /home/claude/repo/entries/places_public/nankana-sahib.ur.md shows 95 lines in each file and changes on 2 lines only (31 and 37). As a stronger test, applying the 2 listed OLD to NEW replacements to the backup (each OLD occurs exactly once) reproduces the current file byte for byte. Nothing outside the listed changes moved. The current file has no Latin letters and no em or en dashes.
+
+CHECK OF EACH CHANGE (read in its paragraph):
+1. جن کی تعداد کسی حساب سے چھ ہے اور کسی حساب سے سات۔
+   V2: the English says "several gurdwaras, six or seven by different counts". The Urdu keeps "several" (کئی گوردوارے), keeps both figures, and کسی حساب سے ... اور کسی حساب سے says that the number depends on how one counts, which is "by different counts". No hedge is added or lost; no figure is new. PASS.
+   V3: correct and idiomatic. کسی حساب سے is the natural Urdu for "by one reckoning", the paired form reads well, and the ellipsis of ہے after سات is normal. The relative clause still agrees with گوردوارے (جن کی تعداد). The next sentence (ان میں سے زیادہ تر ...) follows without difficulty. حساب occurs elsewhere only in paragraph 15 (حساب کتاب), far away, so there is no repetition. PASS.
+2. کرتار نام کے ایک مقامی سکھ کہتے ہیں:
+   V2: the English has "a Sikh of the town named Kartar recalls". کہتے ہیں is "says", but the quoted words themselves are a recollection of the years after Partition, so the sense of recalling is carried by the quotation; no fact, person, or certainty changes. This is the wording round 2 proposed to avoid the calque یاد کرتے ہیں. PASS.
+   V3: correct and natural; a reporting verb in the present before a quotation is ordinary magazine Urdu. The repetition round 2 flagged is gone: the next sentence keeps اقبال قیصر بتاتے ہیں کہ, and the other کہتے ہیں in the file (paragraphs 69 and 83) are far away. PASS.
+
+NOTES (taste only; they do not fail the round):
+(a) Change 1: ایک حساب سے چھ ہے اور دوسرے حساب سے سات would be an equally good alternative; the present form is idiomatic and need not change.
+(b) Change 2: if an editor wanted to keep the shade of "recalls", یاد کرتے ہوئے کہتے ہیں would do it without the calque, but the quotation already makes the recollection clear, so this is not needed.

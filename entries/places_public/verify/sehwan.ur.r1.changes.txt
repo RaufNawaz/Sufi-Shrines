@@ -1,0 +1,129 @@
+sehwan.ur.md: changes after V2 r1 (PASS, notes) and V3 r1 (FAIL, 23 issues), 2026-10-31
+Backup of the pre-fix file: /tmp/claude-0/-home-claude/777bd5e8-57b4-5490-aa74-c174bc7ff485/scratchpad/sehwan.ur.r1.bak.md
+
+APPLIED: 27 edits
+
+1. WHY: V3#1, modified: '1947 سے' with a completed verb is the 'since 1947' calque; doubled locative and doubled کی removed in V3's wording. V3's '1947 کے بعد' (after 1947) would drop 1947 itself from the English 'From 1947', so the year is kept as '1947 اور اس کے بعد کے برسوں میں'.
+   OLD: 1947 سے یہاں کے لگ بھگ سبھی ہندو ہجرت کر کے ہندوستان چلے گئے، جہاں بمبئی میں سیہونیوں کی برادری کی پنچایت آج بھی قائم ہے۔
+   NEW: 1947 اور اس کے بعد کے برسوں میں یہاں کے لگ بھگ سبھی ہندو ہجرت کر کے ہندوستان چلے گئے، اور بمبئی میں سیہونی برادری کی پنچایت آج بھی قائم ہے۔
+
+2. WHY: V3#2, modified as #1: English 'From 1947 onwards' keeps 1947 itself, so not '1947 کے بعد'.
+   OLD: 1947 سے ان میں سے تقریباً سبھی ہجرت کر کے ہندوستان چلے گئے۔
+   NEW: 1947 اور اس کے بعد کے برسوں میں ان میں سے تقریباً سبھی ہجرت کر کے ہندوستان چلے گئے۔
+
+3. WHY: V3#3: 'قلعے پر قبضہ بدلا' unidiomatic and 'اس کے قلعے' right after 'ایک بڑے قلعے'. V3's wording.
+   OLD: اس کے قلعے پر ایک سے زیادہ بار قبضہ بدلا۔
+   NEW: یہ قلعہ ایک سے زیادہ بار ایک ہاتھ سے دوسرے ہاتھ میں گیا۔
+
+4. WHY: V3 note (grammar): one subject with نے and then the intransitive 'لوٹ گیا'; a fresh subject وہ for the intransitive verb.
+   OLD: پھر سیہون کا قلعہ بھی فتح کیا اور قندھار لوٹ گیا۔
+   NEW: پھر سیہون کا قلعہ بھی فتح کیا، اور اس کے بعد وہ قندھار لوٹ گیا۔
+
+5. WHY: V3#4: restated the fall of the fort announced in the sentence before. V3's wording.
+   OLD: خان خاناں کے لشکر نے پہلے سیہون کا قلعہ فتح کیا اور پھر آگے بڑھا۔
+   NEW: خان خاناں کا لشکر پہلے سیہون کا قلعہ لے کر پھر آگے بڑھا۔
+
+6. WHY: V3#5: two اور in a three-part series, comma misplaced. V3's wording.
+   OLD: مرزا جانی بیگ نے صلح کر لی اور ملکِ سیہون کو سلطنت کے ممالکِ محروسہ میں شامل کر دیا، اور اپنی بیٹی
+   NEW: مرزا جانی بیگ نے صلح کر لی، ملکِ سیہون کو سلطنت کے ممالکِ محروسہ میں شامل کر دیا اور اپنی بیٹی
+
+7. WHY: V3#6 and V2 note 1 (same fix): 'قلعے کے ... قلعہ دار' says fort twice and then 'قلعے سے'; the plain form also keeps the English ambiguity exactly.
+   OLD: قلعے کے فوجدار اور قلعہ دار محمد صالح
+   NEW: فوجدار اور قلعہ دار محمد صالح
+
+8. WHY: V3 note (spelling): شترنال is written as one word.
+   OLD: بندوقچیوں اور شتر نالوں سمیت
+   NEW: بندوقچیوں اور شترنالوں سمیت
+
+9. WHY: V3#7: the idiom is مورچہ باندھنا.
+   OLD: مورچہ قائم کرنا تھا
+   NEW: مورچہ باندھنا تھا
+
+10. WHY: V3#8, modified: V3's 'سیوستان میں دارا پر خوف طاری تھا ... وہ وہاں سے بچ نکلا' puts Dara inside Siwistan and makes the fear his state, where the English says he got past Siwistan, a place of dread and mortal danger. Calque 'خوف اور جان لیوا خطرے کی جگہ' replaced by the idiomatic 'جان کا خطرہ', and the ambiguous 'اس سے' by 'وہاں سے گزر کر' (got past).
+   OLD: سیوستان دارا کے لیے خوف اور جان لیوا خطرے کی جگہ تھا، مگر وہ اس سے بچ کر نکل گیا اور ٹھٹھہ جا پہنچا۔
+   NEW: سیوستان دارا کے لیے دہشت اور جان کے خطرے کا مقام تھا، مگر وہ وہاں سے گزر کر ٹھٹھہ جا پہنچا۔
+
+11. WHY: V3#9, modified for tense: 'کا ایک مقام ہے' calque replaced by V3's 'کو ایک مقام حاصل'; English 'had a place' is past, so 'حاصل رہا ہے' rather than 'حاصل ہے'.
+   OLD: صوفیوں کی تاریخ میں بھی اس قصبے کا ایک مقام ہے۔
+   NEW: صوفیوں کی تاریخ میں بھی اس قصبے کو ایک مقام حاصل رہا ہے۔
+
+12. WHY: V3#10 and V2 note 2, merged: 'کی اپنی سرکار' is the 'its own' calque. V3 drops it; V2 proposes 'خود سیوستان کی' for the English 'of Siwistan itself', which keeps the English emphasis. Rewritten in plain order so 'خود' does not follow 'واقع'.
+   OLD: دریائے سندھ کے کنارے واقع سیوستان کی اپنی *سرکار* صوبۂ ٹھٹھہ کی ان چار سرکاروں میں سے ایک تھی جو ضلعوں کی حیثیت رکھتی تھیں۔
+   NEW: خود سیوستان کی *سرکار* دریائے سندھ کے کنارے واقع تھی اور صوبۂ ٹھٹھہ کی ان چار سرکاروں میں سے ایک تھی جو ضلعوں کی حیثیت رکھتی تھیں۔
+
+13. WHY: V3 note (idiom): 'گزر بسر ... پر ہوتی تھی'.
+   OLD: زیادہ تر مچھلی کے شکار پر تھی۔
+   NEW: زیادہ تر مچھلی کے شکار پر ہوتی تھی۔
+
+14. WHY: V3#11: 'یہاں' could read as central Sindh. Checked against the English and the team version (entries/places/sehwan.md: Boivin places the town in central Sindh and writes that to be born there was different from Hyderabad): 'there' is the town, so naming Sehwan is faithful.
+   OLD: یہاں پیدا ہونا حیدرآباد میں پیدا ہونے سے مختلف بات تھی۔
+   NEW: سیہون میں پیدا ہونا حیدرآباد میں پیدا ہونے سے مختلف بات تھی۔
+
+15. WHY: V3#12: شہر twice and two sentences in a row opening with سیہون after #11. V3's wording.
+   OLD: سیہون کراچی جیسا بڑا شہر نہیں بلکہ ایک چھوٹا شہر ہے۔
+   NEW: یہ کراچی جیسا بڑا شہر نہیں، ایک چھوٹا سا شہر ہے۔
+
+16. WHY: V3#13, first sentence modified: repeated the introduction word for word. V3's 'سیہون، جہاں ... ہے، ...' sets a relative clause between commas after the name, which the brief asks to avoid, so the same facts (dargah town, very reputed centre of pilgrimage, Sufi ambiance) are put in plain order. Second sentence in V3's wording: the hedge مانا جاتا ہے governs the main predicate (once a temple), and the importance stays in its own clause, as in the English.
+   OLD: سیہون لعل شہباز قلندر کی درگاہ کا قصبہ اور صوفی زیارت کا نہایت معروف مرکز ہے، جس کی فضا میں تصوف رچا بسا ہے۔ سیہون شریف کا مزار سندھ میں مسلمانوں کے اہم ترین مزارات میں سے ایک ہے، اور مانا جاتا ہے کہ یہ کبھی بھگوان شیو کا ہندو مندر تھا۔
+   NEW: سیہون میں لعل شہباز قلندر کی درگاہ ہے، اور یہ قصبہ صوفی زائرین کی ایک نہایت معروف منزل ہے جس کی فضا میں تصوف رچا بسا ہے۔ مانا جاتا ہے کہ سیہون شریف کا مزار، جسے سندھ میں مسلمانوں کے اہم ترین مزارات میں شمار کیا جاتا ہے، کبھی بھگوان شیو کا ہندو مندر تھا۔
+
+17. WHY: V3#14: 'قصبے کے اپنے' calque, 'کھڑا تھا' for 'stood', 'پہلا' for one of two. V3's wording; 'بھی' still carries 'of its own' after the shrine sentence.
+   OLD: تقسیم سے پہلے قصبے کے اپنے دو بڑے ہندو مندر بھی تھے۔ پہلا شیو کا مندر تھا اور قصبے کے شمال مشرق میں واقع تھا؛ دوسرا سندھی ہندوؤں کے معبود جھولے لال کا تھا اور قصبے کی شمال مغربی جانب کھڑا تھا۔
+   NEW: تقسیم سے پہلے قصبے میں دو بڑے ہندو مندر بھی تھے۔ ایک شیو کا تھا اور قصبے کے شمال مشرق میں واقع تھا؛ دوسرا سندھی ہندوؤں کے معبود جھولے لال کا تھا اور قصبے کے شمال مغرب میں تھا۔
+
+18. WHY: V3#15: relative clause sliding into a main clause, 'اس' unclear. V3's wording.
+   OLD: بمبئی میں آج بھی ایک سیہونی پنچایت موجود ہے، جو تقسیم کے بعد سے ہندوستان
+   NEW: بمبئی میں آج بھی ایک سیہونی پنچایت موجود ہے۔ تقسیم کے بعد سے یہ ہندوستان
+
+19. WHY: V3#16, modified: 'سے اور ... سے تھا' is clumsy. V3's 'وہ عامل برادری کی فرد تھیں' makes Nandirani Merani a woman, a fact the English does not state (the English gives no gender, and the Urdu keeps the neutral انہوں نے), so the fix joins place and community in one gender-neutral phrase.
+   OLD: نندی رانی میرانی کا تعلق سیہون شریف سے اور عامل برادری سے تھا، جو سندھ کی ہندو برادریوں میں سے ایک ہے۔
+   NEW: نندی رانی میرانی کا تعلق سیہون شریف کی عامل برادری سے تھا، جو سندھ کی ہندو برادریوں میں سے ایک ہے۔
+
+20. WHY: V3#17, with the V3 note on سیہون شریف / سیہون alternating in one sentence: three clauses split, 'رچے بسے' replaced by 'گھلے ملے', the decision to stay put next to the integration (no causal link added: plain اور). V3's wording would repeat سیہون شریف twice in one sentence, so the paragraph keeps سیہون شریف for its first mention (Nandirani) and here uses سیہون and یہیں.
+   OLD: مول چند اپنے خاندان کے واسطے سے سیہون شریف کے صوفیانہ حلقوں میں پوری طرح رچے بسے تھے، اور ان کی کہانی میں سیہون کے شاہی بازار کا ذکر بھی آتا ہے؛ انہوں نے سیہون شریف ہی میں رہنے کا فیصلہ کیا۔
+   NEW: مول چند اپنے خاندان کے واسطے سے سیہون کے صوفیانہ حلقوں میں پوری طرح گھلے ملے تھے، اور انہوں نے یہیں رہنے کا فیصلہ کیا۔ ان کی کہانی میں سیہون کے شاہی بازار کا ذکر بھی آتا ہے۔
+
+21. WHY: V3#18: 'مزار کے ... علاقے کے آس پاس' chains two کے. V3's wording.
+   OLD: مزار کے گنجان آباد علاقے کے آس پاس رہنے والی عورتیں
+   NEW: مزار کے گرد گنجان آبادی میں رہنے والی عورتیں
+
+22. WHY: V3#19: 'جس کی تاریخیں ... آتی ہیں' calques 'whose dates fall in'. V3's wording.
+   OLD: اور یہاں ایک میلہ بھی لگتا ہے جس کی تاریخیں شوال کے مہینے میں آتی ہیں۔
+   NEW: اور یہاں شوال کے مہینے میں ایک میلہ بھی لگتا ہے۔
+
+23. WHY: V3#20: two unrelated facts about two people joined by a second اور; 'میں موجود ایک زائر' calques 'a pilgrim at'. V3's wording.
+   OLD: راج کمار نے سیہون کا سفر ترک کر دیا اور اس کی جگہ ہنگلاج دیوی کے ہندو مندر کا رخ کیا، اور 2010 میں لاہوت لامکان میں موجود ایک زائر سیہون ہی سے چل کر وہاں پہنچا تھا۔
+   NEW: راج کمار نے سیہون کا سفر ترک کر کے ہنگلاج دیوی کے ہندو مندر کا رخ کیا۔ 2010 میں لاہوت لامکان کا ایک زائر سیہون ہی سے چل کر وہاں پہنچا تھا۔
+
+24. WHY: V3#21, with one word changed: 'ایک' added before فارسی تاریخ; 'اس میں' resolved. V3 has 'اس تاریخ میں', which would put تاریخ three times in the paragraph (فارسی تاریخ، اس تاریخ، جدید تاریخ), so 'اس کتاب میں', which resolves the referent the same way.
+   OLD: اورنگزیب کے عہد میں لکھی گئی فارسی تاریخ میں
+   NEW: اورنگزیب کے عہد میں لکھی گئی ایک فارسی تاریخ میں
+
+25. WHY: V3#21 (second half): ambiguous 'اس میں' (history or ملک).
+   OLD: ؛ اس میں وہاں کے کسی مزار یا ولی کا ذکر تک نہیں۔
+   NEW: ؛ اس کتاب میں وہاں کے کسی مزار یا ولی کا ذکر تک نہیں۔
+
+26. WHY: V3#22: 'زیارتی قصبہ' is not an established expression. V3's wording.
+   OLD: جدید مصنفین کو یہاں ایک زیارتی قصبہ نظر آتا ہے۔
+   NEW: جدید مصنفین کو یہاں زائرین کا ایک قصبہ نظر آتا ہے۔
+
+27. WHY: V3#23: English list pattern with loose appositions after the verb. V3's wording.
+   OLD: میں سیہون لعل شہباز قلندر کی درگاہ کا قصبہ ہے، ایک ایسی منزل جسے ایک زائر نے ہنگلاج کی خاطر چھوڑ دیا، اور وہ جگہ جہاں سے ایک اور زائر اپنے سفر پر نکلا۔
+   NEW: میں سیہون لعل شہباز قلندر کی درگاہ کا قصبہ بھی ہے، وہ منزل بھی جسے ایک زائر نے ہنگلاج کی خاطر چھوڑ دیا، اور وہ جگہ بھی جہاں سے ایک اور زائر اپنے سفر پر نکلا۔
+
+REJECTED (or applied only in a modified form): 14
+
+R1. V3#1 and #2 as written ('1947 کے بعد'): 'after 1947' drops 1947 itself from the English 'From 1947 (onwards)'; applied as '1947 اور اس کے بعد کے برسوں میں' instead (language fault fixed, date kept).
+R2. V3#8 as written: puts Dara inside Siwistan and turns 'a place of dread' into his state of mind; the English says he got past Siwistan. Applied in a reworded form (see change list).
+R3. V3#9 as written ('حاصل ہے'): present tense where the English has 'had a place'; applied as 'حاصل رہا ہے'.
+R4. V3#16 as written ('وہ عامل برادری کی فرد تھیں'): assigns Nandirani Merani a gender the English does not state; applied in a gender-neutral form.
+R5. V3 note, 'جہاں وچولی بولی جاتی تھی' past tense: checked against the English ('where Vicholi was spoken') and the team version; the past tense is the source's, so kept.
+R6. V3 note, 'شہر کی گہری صوفیانہ فضا کے باوجود ... چلی گئیں': checked against the English ('despite the strong Sufi ambiance of the city she left'); 'despite' is the English's own logic, so kept.
+R7. V3 note, intro 'تاریخ کی کتابیں اسے سیوستان کے نام سے بھی جانتی ہیں': marked taste by V3; the proposed form would leave the following 'جو دریا کے کنارے ایک قلعہ تھا' pointing at the name rather than the place. Not applied.
+R8. V3 note, 'روحانی مکاشفات' to 'مکاشفات': the English says 'spiritual visions'; taste. Not applied.
+R9. V3 note, 'ڈائریکٹریاں' / 'فہرستیں': V3 calls the loanword acceptable; taste. Not applied.
+R10. V3 note, 'ہندو' redundant in 'شیو کا ہندو مندر' and 'ہنگلاج دیوی کے ہندو مندر': taste (V3 keeps 'ہندو' in its own fixes #13, #20, #23); the English says 'Hindu temple'. Not applied.
+R11. V3 note, Thakur sentence ('ان ہندوؤں میں ٹھاکر بھی تھے، جو ... ذات ہے'): taste ('correct but heavy'), and the proposed form mixes plural ٹھاکر with singular ذات ہے. Not applied.
+R12. V3 note, straight double quotes around the quoted title: taste/site convention, not a language fault; the English page uses the same quotation. Not applied.
+R13. V2 note 3 ('اس کے کنارے' for 'there'): V2 calls it a reasonable reading that adds no fact; style only. Not applied.
+R14. V2 notes 4 and 5: confirmations, no change proposed.

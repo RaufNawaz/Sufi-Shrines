@@ -1,0 +1,15 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [ambiguity] "رانجھا چودھری معظم کے آٹھ بیٹوں میں سب سے چھوٹا تھا۔" -> two names stand side by side with nothing between them, and since رانجھا is also the clan's name (it appears as رانجھا قبیلے in this same paragraph), a reader can take "رانجھا چودھری معظم" as one name, "Chaudhri Muazzam of the Ranjha clan", until the sentence ends. Naming the relation removes the stumble and adds no fact, because "his eight sons" already makes Muazzam the father. -> NEW: "رانجھا اپنے باپ چودھری معظم کے آٹھ بیٹوں میں سب سے چھوٹا تھا۔"
+
+2. [repetition / choppy sentences] "وہ تخت ہزارہ کا جاٹ تھا اور رانجھا قبیلے سے تعلق رکھتا تھا۔ تخت ہزارہ "اب پاکستان کا ضلع گجرات ہے"۔" -> تخت ہزارہ closes one sentence and opens the next, and the paragraph ends on a bare four-word sentence that repeats the intro word for word. Joining the two sentences removes the repetition and keeps every fact and the quotation as it is. -> NEW: "وہ رانجھا قبیلے کا جاٹ اور تخت ہزارہ کا رہنے والا تھا، جو "اب پاکستان کا ضلع گجرات ہے"۔"
+
+3. [unidiomatic collocation] "ضلع گجرات کا نام سوہنی کی داستان میں بھی آتا ہے اور رانجھا کے خاندان سے بھی جڑا ہوا ہے۔" -> one subject (کا نام) serves both verbs. "The name appears in the tale" works, but "the name is joined to Ranjha's family" does not: what the article goes on to say is that the district was the family's home, not that its name is linked to them. ذکر works for the first half, and a separate اس کا تعلق for the second. -> NEW: "ضلع گجرات کا ذکر سوہنی کی داستان میں بھی آتا ہے اور اس کا تعلق رانجھا کے خاندان سے بھی ہے۔"
+
+NOTES:
+- Taste: the intro repeats the body almost verbatim (Tula the potter living in the district, Takht Hazara "اب پاکستان کا ضلع گجرات ہے"). In a four-paragraph article this reads as saying the same thing twice. Issue 2 removes the sharpest case. Whether to cut the intro further is a structural choice and goes beyond a language fix.
+- Taste: رانجھا is left uninflected before postpositions (رانجھا کے باپ، رانجھا کا خاندان). Many Urdu writers would write رانجھے کے باپ / رانجھے کا خاندان, as in ہیر رانجھے کی کہانی. The uninflected form is acceptable for a proper name and is used consistently in this file, so leave it unless the house style for this name says otherwise.
+- Taste: "اس نام کا مطلب ہی "خوبصورت" ہے" glosses a word many Urdu readers already know (سوہنا/سوہنی). Here, though, it is a statement about the name, not a gloss on the prose, so it stays.
+- Spellings are consistent (چودھری twice, تُلا with pesh both times, تخت ہزارہ). Punctuation is Urdu throughout: no em or en dashes, no Latin letters, Western digits only, no asterisks.
+- The colon before the opening quotation in paragraph 2 is acceptable in Urdu prose.

@@ -1,0 +1,19 @@
+WHY: embellishment (V1 r1 note 1)
+OLD: It was long famous for its paper, its silk embroidery and its blades.
+NEW: It was known for its paper, its silk embroidery and its blades.
+
+WHY: time anchor (V1 r1 note 2)
+OLD: and today Sialkot has become one of the most important cities in Pakistan
+NEW: and by the early twenty first century Sialkot had become one of the most important cities in Pakistan
+
+WHY: tense (V1 r1 note 3)
+OLD: Sialkot is a bustling city in the foothills of the Himalayas.
+NEW: Sialkot was a bustling city in the foothills of the Himalayas.
+
+WHY: narrator's voice (V1 r1 note 4)
+OLD: He was the most excellent of the excellent and the most perfect of scholars,
+NEW: He was praised as the most excellent of the excellent and the most perfect of scholars,
+
+WHY: tense (V1 r1 note 5)
+OLD: On the way into the city stand several factories and many mounds, probably archaeological ruins, that have been turned into graveyards.
+NEW: On the way into the city stood several factories and many mounds, probably archaeological ruins, that had been turned into graveyards.

@@ -1,0 +1,14 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [diff check] python difflib between /home/claude/work/sehwan.r1.bak and entries/places_public/sehwan.md shows exactly three changed lines (Overview paragraph 2, History paragraph 1, The Town and Its Country paragraph 2), each matching the OLD -> NEW pair in sehwan.V1.r1.changes.txt. Nothing else moved. Each NEW string occurs once in the file.
+
+2. [change 1, Overview paragraph 2] "From 1947 almost all of its Hindus migrated to India, where Sehwanis in Bombay still have a community council." Supported: the team version has "from 1947 almost all of its Hindus migrated to India" and "in Bombay a Sehwani *panchayat*" / "there is still a Sehwani panchayat". The ambiguous "them" (temples) is gone. "its" picks up "it" in the previous clause ("it had two main Hindu temples"), which is the town, so the referent is clear. "Community council" is a plain gloss of *panchayat*, and the article glosses *panchayat* the same way later. Nothing new is added. "keep ... of their own" is gone. Grammar is sound, with no doubled words, dashes or hyphens.
+
+3. [change 2, History paragraph 1] "Sehwan is said to be a historic city built within a large fortress from the time of Alexander the Great." Supported word for word by Abbas's phrase in the team version ("the historic city built within a large fortress from the time of Alexander the Great"), and still framed as hearsay ("is said to be"). The writer's own "an ancient place" is gone. The next sentence ("Its fort changed hands more than once.") still follows naturally. No new fact and no grammar fault.
+
+4. [change 3, The Town and Its Country paragraph 2] "Fishermen lived there, mostly by fishing." Supported: the team version says fishermen "live mostly by fishing" in the lake country. "There" refers back to the great lake and "these parts of the province" in the sentence before. It no longer suggests dwellings on the water, which rest on a reading the team notes mark uncertain. The past tense matches the paragraph. One taste point that does not fail the round: "Fishermen ... mostly by fishing" repeats the idea, as the earlier wording also did. "People lived there mostly by fishing" would avoid the echo, but the team version itself pairs fishermen with fishing, so this can stay.
+
+5. [taste, not applied] Round 1 notes 4 to 6 were not applied. They are matters of taste or optional, and leaving them unapplied is consistent with the brief's stopping rule.

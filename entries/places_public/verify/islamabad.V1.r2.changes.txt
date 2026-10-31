@@ -1,0 +1,8 @@
+1. WHY: V1 r2 issue 1 ("the law" has no referent in the article; revert to the round 1 wording)
+OLD: Salman Taseer, was shot dead in Islamabad by his own bodyguard for criticising the law, and
+NEW: Salman Taseer, was shot dead in Islamabad by his own bodyguard, and
+
+1. WHY: the same change as V1 r2 issue 1, carried into the Urdu before V2 and V3 read it
+OLD: پنجاب کے گورنر سلمان تاثیر کو قانون پر تنقید کرنے کی پاداش میں اسلام آباد میں
+NEW: پنجاب کے گورنر سلمان تاثیر کو اسلام آباد میں
+

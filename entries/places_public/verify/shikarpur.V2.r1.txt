@@ -1,0 +1,11 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Headings match one to one: Overview / تعارف; A City of Merchants / تاجروں کا شہر; Communities and Creeds / برادریاں اور عقائد; Shikarpur in Books / کتابوں میں شکارپور. There is no Bibliography in the Urdu, which is correct. The article has no verse.
+2. Overview: the English glosses baniyas as "members of the trading castes". The Urdu drops this gloss of a familiar word (بنیے) and also drops the italics. The brief allows both, so neither counts as an omission.
+3. Overview, "With Rohri and Sukkur, on both sides of the Indus River": the Urdu ties "on both sides" to Rohri and Sukkur (دریائے سندھ کے دونوں کناروں پر آباد روہڑی اور سکھر). That is the sensible reading of the English, and paragraph 15 uses the same wording. It is not a change of fact.
+4. Every qualifier and attribution is kept: "as one historian of the Hindu Sufis put it" (ہندو صوفیوں کے ایک مؤرخ کے الفاظ میں), both quotations as quotations, "brief passages", and "knows the town only as a family origin" (صرف ایک خاندانی نسبت کے حوالے سے واقف ہے). Sami, Nimano Faqir, Amritsar, Thatta and Humayun all refer to the same people and places as in the English.
+5. Style only: in paragraph 3, تجارت کرنے والے تاجروں کے حلقوں is slightly redundant (تجارت / تاجروں). One option is وسطی ایشیا اور سمندر پار ملکوں کے درمیان تجارتی حلقوں کا محور بھی. This is optional.
+6. Checks: no Latin letters and no en or em dashes in the file.

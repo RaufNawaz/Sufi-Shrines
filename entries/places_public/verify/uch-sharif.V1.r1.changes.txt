@@ -1,0 +1,32 @@
+1. WHY: V1 r1 issue 1 (unsupported causal claim)
+OLD: The town's fame, though, came from its saints. Jalaluddin Surkhposh Bukhari
+NEW: Uch was also a city of saints. Jalaluddin Surkhposh Bukhari
+
+2. WHY: V1 r1 issue 2 (both clauses are one retelling)
+OLD: Uch Sharif was then one of the most famous Muslim shrines in southern Punjab, and in one retelling of the visit Nanak had arrived only a day before, travelling from Kartarpur.
+NEW: In one retelling of the visit, Uch Sharif was then one of the most famous Muslim shrines in southern Punjab, and Nanak had arrived only a day before, travelling from Kartarpur.
+
+3. WHY: V1 r1 issue 3 ("of Lahore" unsupported)
+OLD: In a nineteenth century account of Lahore it is the home of Sayyid families
+NEW: In a nineteenth century account it is the home of Sayyid families
+
+4. WHY: V1 r1 note (precision: referent)
+OLD: these buildings stood intact
+NEW: the town's old shrines stood intact
+
+5. WHY: V1 r1 note (precision: the flying contest is a separate story)
+OLD: and one tells of a flying contest with a yogi at Uch.
+NEW: and a story is also told of a flying contest with a yogi at Uch.
+
+6. WHY: V1 r1 notes (precision: no record survives; no address to the reader)
+OLD: Its famous Qadiri saint seems to have left no written record of his life, and for the town itself a reader can turn to Mas'ud Hasan Shahab's *Khitta-i pak Uch*, published in Bahawalpur by the Urdu Academy.
+NEW: No written record of its famous Qadiri saint's life seems to survive. A book devoted to the town itself is Mas'ud Hasan Shahab's *Khitta-i pak Uch*, published in Bahawalpur by the Urdu Academy.
+
+7. WHY: V1 r1 note (time: a nineteenth century statement)
+OLD: Some of the descendants of Abd al-Qadir Sani hold the *sajjada*
+NEW: In the nineteenth century some of the descendants of Abd al-Qadir Sani held the *sajjada*
+
+8. WHY: V1 r1 note (precision: "led by" settles what the team leaves open)
+OLD: the pursuit led by Khawas Khan went as far as Multan and Uch
+NEW: Khawas Khan's pursuit went as far as Multan and Uch
+

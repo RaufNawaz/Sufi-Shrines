@@ -1,0 +1,20 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [broken referent, introduced by change 4] OLD: "The Governor of Punjab, Salman Taseer, was shot dead in Islamabad by his own bodyguard for criticising the law, and a couple of months later, on 2 March 2011, Shahbaz Bhatti was murdered in Islamabad outside his residence." (The Capital, paragraph 3) -> The motive itself is supported: the team version quotes Gupta, "gunned down by his bodyguard in Islamabad for criticizing the law" (A White Trail, p. 48). But in Gupta's quoted speech the law is understood from context, and the public article names no law anywhere: not in this paragraph, not elsewhere in The Capital, and not in the Overview. "The law" therefore has no referent. A reader either cannot tell which law is meant or takes it to mean the law in general, which would say Taseer was killed for criticising the legal order. Naming the law would bring in a fact the team version does not give, and "a law" would leave the reader with an unexplained gap. Round 1 marked this restoration optional for exactly this reason ("the law is not named"). Revert to the pre-fix wording. -> exact fix:
+   OLD: Salman Taseer, was shot dead in Islamabad by his own bodyguard for criticising the law, and
+   NEW: Salman Taseer, was shot dead in Islamabad by his own bodyguard, and
+
+NOTES:
+
+- Diff (python difflib, unified, n=0) of /home/claude/work/fix/islamabad.V1.r1.bak against /home/claude/repo/entries/places_public/islamabad.md: exactly 8 hunks, on lines 13, 15, 25, 31, 35, 43, 45 and 57. Each one is one of the 8 listed changes, with OLD and NEW matching the changes file exactly. Nothing else moved, including the Overview and the bibliography.
+- Round 1 issue 1 is resolved. "Protest has also turned towards the diplomatic enclave." matches the source's "was heading towards" and no longer says the protest arrived. Taste: "also" has only a loose antecedent (the preceding paragraph describes the city of government and its embassies). It reads acceptably, and "Protest has turned towards the diplomatic enclave too" or dropping "also" would be equally fine. This is not applied.
+- Round 1 issue 2 is resolved. "by the mid 2010s" fits "in the past few years" in a book first published in 2015. That date is firm in the bibliography, the anchor is no more precise than the source, and it is written without a hyphen, so no coined compound.
+- Round 1 issue 3 is resolved. "used to host ... but the practice has since been discontinued" keeps the source's "recently been discontinued" without fixing a year. The grammar is sound.
+- Change 5 ("the minority provinces or the marginalised groups of the country") matches the source's "or". The sentence still reads correctly.
+- Change 6 ("The volume also carries an essay on the Prophet by Gerhard Bowering.") is supported by "in the same publication". "The volume" clearly refers back to *The Message of the Prophet* in the previous sentence. It no longer implies that the essay was among the Congress papers.
+- Change 7 ("Dharmarajika is dated to the third century BCE and is believed to have been built ...") keeps the dating as a stated one without narrating Khalid. Ashoka is still "is believed". The doubled "is ... and is" is grammatical, not a doubled word.
+- Change 8 ("have sent a performer abroad") is supported by Lok Virsa paying for one performer's trips. It now agrees with the Overview ("have sent a performer abroad") and with "one woman performer" two sentences later.
+- Fault sweep of all changed sentences: no doubled words, no source narration, no new names, dates or numbers, and no em or en dash anywhere in the file (count 0 and 0).
+- If issue 1 is fixed by reverting, the article returns to the round 1 text for that sentence, which round 1 found supported. The Overview's "the killings of Salman Taseer and Shahbaz Bhatti" is unaffected.

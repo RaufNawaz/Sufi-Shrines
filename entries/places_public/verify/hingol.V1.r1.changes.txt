@@ -1,0 +1,3 @@
+WHY: V1 r1 issue 1 (unsupported: the commas made the Lohana caste as a whole come from Las Bela)
+OLD: Close to Hinglaj lies the district of Las Bela, where the Goddess's fame was spread, and from where came the Lohanas, a Hindu trading caste, who have chiefly made up a body known as the HSM.
+NEW: Close to Hinglaj lies the district of Las Bela, where the Goddess's fame was spread. Lohanas from Las Bela, members of a Hindu trading caste, have chiefly made up a body known as the HSM.

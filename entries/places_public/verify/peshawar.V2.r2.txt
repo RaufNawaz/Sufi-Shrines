@@ -1,0 +1,32 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+
+NOTES:
+Scope check. Python difflib between /home/claude/work/fix/peshawar.ur.r1.bak and /home/claude/repo/entries/places_public/peshawar.ur.md shows changes on 17 lines only (5, 9, 11, 13, 17, 19, 25, 27, 31, 35, 41, 47, 49, 53, 57, 59, 61, 63). Applying the 24 listed OLD -> NEW pairs to the backup (each OLD found exactly once) reproduces the current file byte for byte, so nothing outside the listed changes moved. After the fixes: قاموس 0, لغت 3; no Latin letters, no en or em dashes, 6 asterisks (balanced); prose length ratio Urdu/English 0.93 (0.92 before).
+
+Changed sentences, each checked in its paragraph against the English. All 24 are faithful (no omission, addition, change of certainty or wrong reference) and correct Urdu. Specific checks:
+- Changes 1, 8, 21 (لغت مرتب کرنی شروع کی / کی تالیف شروع کی): feminine agreement now holds through شائع ہوئی; the jump from تالیف شروع کی to انہوں نے ... اسے مرتب کیا follows the English "began ... compiled it over a number of years". لغت for "encyclopedia" is no further from the English than the قاموس that V2 r1 passed, and the English itself calls the work a "lexicon" in Peshawar in Books.
+- Change 2: "ancient" kept as an attribute; the plural verb with three names is right.
+- Change 3: انہیں can only be Jaipal (the subject محمود cannot be his own object).
+- Change 4: same facts; the governorship now comes first, then Dara's robes, with no implied cause.
+- Change 10: گھاٹیاں تنگ اور کوتل دشوار تھے agrees correctly (mixed gender, nearest conjunct masculine plural).
+- Change 13: رسوم و قیود takes کی, correct.
+- Change 14: one woman throughout, as the English means; انہوں نے / ان کا can only be the مریدنی (the other noun in the sentence is the inanimate مزار).
+- Change 16: rightly kept the English distinction between the refugees and "the migrants before them".
+- Change 18: "about a hundred of them" is now correctly Peshawar's Hindus; the English's opening sentence is kept.
+- Change 22: جس میں یہ شہر is unambiguous, and اور وہ بھی ... کے حوالے سے keeps the English "only as".
+
+Rejected items: all rightly rejected.
+- V3 #1: the English Overview has the present "three roads lead from it to Kabul" and only the body has the past; the Urdu follows each place.
+- V3 #5: adding ہجری would add an era the English does not give; the brief names exactly this case.
+- V2 note 1 (کلام): optional; کلام is natural for Khushhal Khan Khattak and does not misstate the English.
+- V3 notes: each is taste, is inside a quotation, or would add or drop something the English has. That includes the repetitions that mirror the English and the quotation marks around کفار, which the English does not put in quotation marks.
+
+Taste only (none fails the round):
+1. Line 49, deixis: "2010 میں یہاں کے یاتری کٹاس آئے، ... وہاں پہنچے" sets the speaker in Peshawar (یہاں ... وہاں) but uses آئے (came) for Katas. It is acceptable as narrative آنا, but گئے would match the یہاں/وہاں frame. Optional: "2010 میں یہاں کے یاتری کٹاس گئے، اور 2011 میں یہیں کے کوئی سو ہندو دو بڑی بسوں میں وہاں پہنچے۔" The last sentence, "پشاور ہی سے آئے تھے", is fine either way.
+2. Line 17: "یہ سلسلہ جنوبی ایشیا کے ممتاز صوفی سلسلۂ چشتیہ کی ایک شاخ ہے" has سلسلہ twice in one sentence, three times with the sentence before. Dropping the subject reads more lightly and keeps every fact: "یہ جنوبی ایشیا کے ممتاز صوفی سلسلۂ چشتیہ کی ایک شاخ ہے۔"
+3. Line 31: "تصوف کی تاریخ لکھنے والے ایک مؤرخ" is slightly pleonastic (a historian who writes history), but it does remove the round 1 ambiguity and matches line 61. Fine as is.
+4. Line 27: "چالیس کوس کا مزید فاصلہ" would sit a little more naturally as "مزید چالیس کوس کا فاصلہ". Both are correct.
+5. Lines 5 and 57 now share the identical phrase "صوفیانہ اصطلاحات کی اپنی لغت مرتب کرنی شروع کی". The English repeats the fact in the same two places, so this is acceptable.
+6. Consistency of the fixer's reasoning, not of the text: the "یہاں آ بسے" note was rejected as saying more than "moved there", while change 7 brings in جا بسے and line 41 already has آ کر بستے ہیں. Both are defensible: "finally, Karachi" marks the last stage of a life, and moving to a city to live is settling there. Neither is a fidelity fault.

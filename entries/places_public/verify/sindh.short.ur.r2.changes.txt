@@ -1,0 +1,18 @@
+Sindh short Urdu, round 2 fixes applied by the coordinator in the confirming verifier's wording (verify/sindh.short.V3.r2.txt), watcher firing 2026-10-30T2215Z
+
+1. WHY: V3 r2 issue 1 (بلوچ مسلم معاشرے read as one phrase)
+OLD: 1843 تک بلوچ مسلم معاشرے میں سب سے اوپر پہنچ چکے تھے۔
+NEW: 1843 تک مسلم معاشرے میں بلوچ سب سے اوپر پہنچ چکے تھے۔
+
+2. WHY: V3 r2 issue 2 (Talpur named four times in three sentences; 'by then' placed as the English places it, r2 note b)
+OLD: تالپوروں کے برسرِ اقتدار آنے تک بلوچ ملک کی سب سے مضبوط فوجی قوت بن چکے تھے، اور انہوں نے کلہوڑوں کی ڈوبتی طاقت کو مٹانے میں تالپوروں کا ہاتھ بٹایا۔
+NEW: کلہوڑوں کی ڈوبتی طاقت کو مٹانے میں بلوچوں نے تالپوروں کا ہاتھ بٹایا؛ بلوچ اس وقت تک ملک کی سب سے مضبوط فوجی قوت بن چکے تھے۔
+
+3. WHY: V3 r2 issue 3 (صرف twice in one sentence after round 1 change 29)
+OLD: اور سندھ میں صرف یہی ایک جگہ رہ گئی تھی جہاں ان کا آنا جانا باقی تھا۔
+NEW: اور سندھ میں یہی ایک جگہ رہ گئی تھی جہاں ان کا آنا جانا باقی تھا۔
+
+4. WHY: V3 r2 issue 4 (باقی ماندہ نشانی with a masculine verb; English apposition)
+OLD: اٹھارھویں صدی کا سندھ ایک پرانی دنیا کی باقی ماندہ نشانی تھا، قرونِ وسطیٰ کے مسلم ہندوستان کی ایک یادگار۔
+NEW: اٹھارھویں صدی کا سندھ ایک پرانی دنیا کا باقی ماندہ حصہ تھا اور قرونِ وسطیٰ کے مسلم ہندوستان کی ایک یادگار۔
+

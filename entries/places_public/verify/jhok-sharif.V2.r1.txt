@@ -1,0 +1,8 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Overview, "Sufi Hazrat Abdul Sattar Shah of Jhok Sharif, a mystic of Islam" | "یہیں کے صوفی بزرگ حضرت عبدالستار شاہ": "a mystic of Islam" is a gloss of "Sufi" and is rightly dropped (صوفی is familiar to an Urdu reader). بزرگ is a conventional reverential word, not a new fact. یہیں کے points unambiguously to Jhok Sharif, the subject of the preceding sentence.
+2. Second section, the sentence glossing "Sufi" and "Hazrat" for the English reader is dropped. Both are familiar Urdu words, so under the brief this is deliberate, not an omission.
+3. Headings correspond: Overview = تعارف; "Bedil's Visit and the Cup of Unity" = "بیدل کی آمد اور وحدت کا جام". The Bibliography is left out, as the brief requires (the site shows the English bibliography).
+4. Names follow urdu-i18n/urdu-dictionary.json: جھوک شریف، دڑازہ. Bedil = بیدل throughout. The Sindhi phrase *جام وحدت جو* stays italic, which is right for a term that is not ordinary Urdu. Its meaning "وحدت کا جام" matches "the cup of unity". Tenses match the English: the visit is in the past (تشریف لے گئے، سفر کیا), and "speaks of" is in the present (ذکر کرتے ہیں).
+5. Style only: "بیدل نے جن مقامات کا سفر کیا" might read slightly better as "بیدل جن مقامات پر گئے". This is a matter for V3 and does not affect fidelity.

@@ -1,0 +1,23 @@
+WHY: V1 r1 issue 1: with the books removed the sentence made Uch Gilanian Bahawalpur's only holy place.
+OLD: The holy place that lies in Bahawalpur is Uch Gilanian, the city of saints. A family of Syeds
+NEW: Uch Gilanian, the city of saints, lies in Bahawalpur. A family of Syeds
+
+WHY: V1 r1 issue 2: the team version gives no dates for the journeys.
+OLD: On a later journey the same writer found it
+NEW: In a later book the same writer found it
+
+WHY: V1 r1 issue 3: one author placing one village, not a general practice.
+OLD: The countryside of southern Punjab is measured from it: the rural village of Allahabad lies sixty miles southwest of the city of Bahawalpur, in southern Punjab.
+NEW: The rural village of Allahabad, in southern Punjab, lies sixty miles southwest of the city of Bahawalpur.
+
+WHY: V1 r1 issue 4 (important omission): the Urdu Academy, the one institution in Bahawalpur the material names; as the Uch Sharif public article gives it.
+OLD: He measured the village of Allahabad from it and named its Nawab as a patron of Wahid Bakhsh.
+NEW: He measured the village of Allahabad from it, named its Nawab as a patron of Wahid Bakhsh, and, for further reading on Uch, pointed to Mas'ud Hasan Shahab's *Khitta-i pak Uch*, published in Bahawalpur by the Urdu Academy.
+
+WHY: V1 r1 note: tense consistent with the later section.
+OLD: Bahawalpur is also an area with a considerable population of Hindus,
+NEW: Bahawalpur was also an area with a considerable population of Hindus,
+
+WHY: V1 r1 note: the old phrase could make the writer a member of a minority.
+OLD: For one traveller among Pakistan's religious minorities,
+NEW: For a writer travelling among Pakistan's religious minorities,

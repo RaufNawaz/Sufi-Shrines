@@ -1,0 +1,3 @@
+WHY: V1 r1 note 2 (a word the source does not have): the team version never says India
+OLD: after the demolition of the Babri Mosque, a mosque in India.
+NEW: after the demolition of the Babri Mosque.

@@ -1,0 +1,23 @@
+# gujrat: Urdu changes applied after V2/V3 round 1 (coordinator, the verifiers' own wording unless noted)
+
+WHY: V3 r1 issue 3 (the district, not its name, links to Ranjha's family)
+OLD: ضلع گجرات کا نام سوہنی کی داستان میں بھی آتا ہے اور رانجھا کے خاندان سے بھی جڑا ہوا ہے۔
+NEW: ضلع گجرات کا ذکر سوہنی کی داستان میں بھی آتا ہے اور اس کا تعلق رانجھا کے خاندان سے بھی ہے۔
+
+WHY: V2 r1 note 2 (the quoted words should match the English quotation; جو outside the marks)
+OLD: کا وطن تخت ہزارہ تھا، "جو اب پاکستان کا ضلع گجرات ہے"۔
+NEW: کا وطن تخت ہزارہ تھا، جو "اب پاکستان کا ضلع گجرات ہے"۔
+
+WHY: V2 r1 note 3 (ہی adds emphasis the English lacks)
+OLD: اور اس نام کا مطلب ہی "خوبصورت" ہے۔
+NEW: اور اس نام کا مطلب "خوبصورت" ہے۔
+
+WHY: V3 r1 issue 1 (two names side by side read as one)
+OLD: رانجھا چودھری معظم کے آٹھ بیٹوں میں سب سے چھوٹا تھا۔
+NEW: رانجھا اپنے باپ چودھری معظم کے آٹھ بیٹوں میں سب سے چھوٹا تھا۔
+
+WHY: V3 r1 issue 2 (repetition; choppy)
+OLD: وہ تخت ہزارہ کا جاٹ تھا اور رانجھا قبیلے سے تعلق رکھتا تھا۔ تخت ہزارہ "اب پاکستان کا ضلع گجرات ہے"۔
+NEW: وہ رانجھا قبیلے کا جاٹ اور تخت ہزارہ کا رہنے والا تھا، جو "اب پاکستان کا ضلع گجرات ہے"۔
+
+Rejected: none. Taste notes not applied are recorded in the reports.

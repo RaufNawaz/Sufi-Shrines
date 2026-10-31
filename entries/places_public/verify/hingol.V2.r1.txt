@@ -1,0 +1,9 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Overview, first sentence: the English opens with the Park ("Hingol National Park is the setting of the shrine of Hinglaj"), and the Urdu opens with the shrine (ہنگلاج کا استھان ہنگول نیشنل پارک میں واقع ہے۔). The facts are the same and the Urdu order is natural. The identification of the shrine with the temple of Hinglaj Devi is kept by "یہ ہندو مندر".
+2. "a body known as the HSM" / "The body" is rendered as تنظیم. That is a normal rendering, not a change of fact.
+3. Theosophy paragraph: the English quotation includes "claimed that" inside the quotation marks. The Urdu puts the verb outside (پرسرام کا دعویٰ تھا کہ "...")، and the quoted content, the speaker and the meaning are all kept. "the story holds" is kept as اس داستان کے مطابق, and "usually located in Tibet" as عموماً تبت بتایا جاتا تھا. Certainty is unchanged.
+4. Hedges: both instances of "probably" (Shah Abdul Latif's pilgrimage) are given as غالباً, which governs the whole claim. The added glosses (لوہانہ ... ذات, ناتھ پنتھی جوگی ... سادھو, تھیوسوفی ... تحریک) match the English glosses. They are given as separate sentences, so they do not come between a noun and its postposition.
+5. Minor style: "دیوانی نام کا ایک سندھی لوہانہ خاندان" is acceptable. "لسبیلہ کا دیوانی خاندان بھی، جو ایک سندھی لوہانہ خاندان ہے، ..." would avoid the "نام کا ایک" construction, but this is optional.
+6. Headings correspond: تعارف / نیشنل پارک اور لسبیلہ / زیارت اور شاعری. There is no bibliography, as the brief requires. There is no verse in this article.

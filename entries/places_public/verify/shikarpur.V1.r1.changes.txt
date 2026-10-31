@@ -1,0 +1,19 @@
+WHY: V1 r1 note 1 (precision: the team speaks of commerce between the two, not of the networks' reach)
+OLD: the core of merchant networks that reached from Central Asia to overseas countries
+NEW: the core of merchant networks for commerce between Central Asia and overseas countries
+
+WHY: V1 r1 note 2 (precision: the team says only that the town is named in connection with merchants and moneylenders)
+OLD: Moneylenders worked there beside its merchants.
+NEW: It was a town of merchants and moneylenders.
+
+WHY: V1 r1 note 3 (attribution: a quotation with no speaker reads as the narrator's own view)
+OLD: it made up a triangle that was "the locale for an amazingly rich dialogue between different creeds".
+NEW: it made up a triangle that was, as one historian of the Hindu Sufis put it, "the locale for an amazingly rich dialogue between different creeds".
+
+WHY: V1 r1 note 4 ("born" twice in one sentence)
+OLD: Shikarpur was also the birthplace of Nimano Faqir, who was born into a rich Hindu family of the town.
+NEW: Nimano Faqir was born there, into a rich Hindu family of the town.
+
+WHY: coordinator, folding note 2's sentence into the opening one so 'town' is not said twice in three sentences (same content)
+OLD: Shikarpur was a town of trade. As a hub of international commerce, it was the core of merchant networks through which commerce between Central Asia and overseas countries was controlled. It was a town of merchants and moneylenders.
+NEW: Shikarpur was a town of trade, of merchants and moneylenders. As a hub of international commerce, it was the core of merchant networks through which commerce between Central Asia and overseas countries was controlled.

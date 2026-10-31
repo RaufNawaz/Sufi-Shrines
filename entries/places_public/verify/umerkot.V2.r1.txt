@@ -1,0 +1,12 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed certainty] Communities, paragraph 2. English: "In Aurangzeb's time, the stretch from Bhakkar to Nasirpur and Umerkot, described with the province, or suba, of Thatta and its four sarkars, or districts, was home to the Jarija and others." | Urdu: "اورنگزیب کے عہد میں صوبۂ ٹھٹھہ کا احوال اس کے چار اضلاع سمیت لکھا گیا ... اس احوال کے مطابق بھکر سے نصیرپور ... آباد تھیں۔" -> The English uses "In Aurangzeb's time" to date when the Jarija and others lived there, and it states this as plain fact. The Urdu moves "In Aurangzeb's time" so that it dates the writing of the account instead, and it adds "according to this account" (اس احوال کے مطابق). That turns a plain statement into a claim credited to a source and leaves the time of settlement unstated. The English point that the stretch is described along with Thatta and its four sarkars should be kept, without the hedge.
+   OLD: اورنگزیب کے عہد میں صوبۂ ٹھٹھہ کا احوال اس کے چار اضلاع سمیت لکھا گیا، جنہیں *سرکار* کہا جاتا تھا۔ اس احوال کے مطابق بھکر سے نصیرپور اور عمرکوٹ تک کے علاقے میں جاڑیجا اور دوسری قومیں آباد تھیں۔
+   NEW: اورنگزیب کے عہد میں بھکر سے نصیرپور اور عمرکوٹ تک کے علاقے میں جاڑیجا اور دوسری قومیں آباد تھیں۔ اس علاقے کا ذکر صوبۂ ٹھٹھہ اور اس کے ان چار اضلاع کے بیان میں آتا ہے جنہیں *سرکار* کہا جاتا تھا۔
+
+NOTES:
+- Overview: "راجپوت قبیلے اس پر آپس میں لڑتے رہے" adds "آپس میں" (among themselves) to "fought over by Rajputs". The History section says the fighting was between two Rajput groups, so this does not change the meaning. It is acceptable, but "راجپوت قبیلے اس پر لڑتے رہے" would follow the English more closely.
+- Umerkot in Books: the Latin spellings "Umarkot and Omarkot" cannot be kept, because the brief allows no Latin letters. Rendering them as "لاطینی حروف میں اس قصبے کا نام ایک سے زیادہ طرح لکھا گیا ہے" is a reasonable adaptation, not an omission.
+- These dropped glosses are allowed by the brief and are not omissions: the gloss of Rajputs ("clans of a warrior caste"), of pir, of Rajab ("the seventh month of the Islamic year"), of the untouchables ("outside and below the Hindu caste order", since اچھوت is ordinary Urdu) and of suba. Rano and sarkar keep an Urdu gloss or explanation, as they should.
+- Everything else matches the English: all names, numbers (1351, the fifth of Rajab, 1907, four, around 600 kilometres) and qualifiers (خیال ہے for "is thought", پہلے for "formerly", تقریباً for "around"). The headings match, and the legends (Mumal, Omar of Omarkot) are still told as legends.

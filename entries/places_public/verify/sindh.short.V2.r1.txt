@@ -1,0 +1,27 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [wrong reference] English (History: Mughal, Kalhora..., para 1): "Under Akbar the country as a whole was made part of the suba of Multan, with two sarkars, Bhakkar for Upper Sindh and Thatta for Lower Sindh." | Urdu: the relative جس follows صوبۂ ملتان, so the two sarkars become the sarkars of the whole suba of Multan rather than the two into which Sindh was divided -> the two sarkars must belong to the country (Sindh), not to the suba of Multan.
+OLD: اکبر کے عہد میں پورا ملک صوبۂ ملتان کا حصہ بنایا گیا، جس کی دو سرکاریں تھیں: بالائی سندھ کے لیے بھکر اور زیریں سندھ کے لیے ٹھٹھہ۔
+NEW: اکبر کے عہد میں پورا ملک صوبۂ ملتان کا حصہ بنایا گیا، اور اسے دو سرکاروں میں بانٹا گیا: بالائی سندھ کے لیے بھکر اور زیریں سندھ کے لیے ٹھٹھہ۔
+
+2. [changed fact] English (Communities, para 3): "By 1843 the Baluchis stood at the top of Muslim society" | Urdu: تک with a plain past reads as "until 1843", implying the Baluchis ceased to stand at the top after that year -> use a perfect so it reads "by 1843".
+OLD: 1843 تک مسلم معاشرے میں سب سے اوپر بلوچ تھے۔
+NEW: 1843 تک بلوچ مسلم معاشرے میں سب سے اوپر پہنچ چکے تھے۔
+
+3. [changed certainty] English (History: Mughal, Kalhora..., para 2): "their Naqshbandi group helped to promote a more sober mystical piety" | Urdu: کو فروغ دیا ("promoted") makes the group the sole agent; the English says it helped -> restore "helped to".
+OLD: مخدوم محمد ہاشم کے نقشبندی حلقے نے ایک زیادہ متین صوفیانہ دین داری کو فروغ دیا۔
+NEW: مخدوم محمد ہاشم کے نقشبندی حلقے نے ایک زیادہ متین صوفیانہ دین داری کے فروغ میں مدد دی۔
+
+4. [changed fact] English (The Land and Its Livelihood, para 2): "several of the biggest canals were dug by begari, forced labour" | Urdu: کئی بڑی نہریں ("several big canals") loses the superlative "of the biggest" -> restore it.
+OLD: کئی بڑی نہریں بیگار سے کھدوائی گئیں
+NEW: سب سے بڑی نہروں میں سے کئی بیگار سے کھدوائی گئیں
+
+Everything else checked paragraph by paragraph and found faithful: all nine headings correspond (no bibliography, by design); every date, number and figure matches (711, 712, 710, 1221, 1228, 1351, 1367, about 1461, 1520, 1592, 1605, 1648 to 1651, 1658, 1659, 1699, 1701, 1717, 1736, 1739, about 1747, 1760, 1778, 1781, 1843, 1636, 1662, 1758, 1775, 1770, 1828, 1832, 1740, 1847, about 1850, 1851, 1853, 1866, 1881, 1891, 1,718,688, 393,092, about 21 per cent, 246,000, January 1948, about a million or closer to 0.8 million, 6 to 10 million, over 90 per cent, 6 December 1992, 1623, 1711, 1689 to 1752, 1826, 1924, 1940, May 1836, 250 and 100 kos, 57 mahals, five ports, forty thousand boats, 100,000 tombs, thirty six princes, five hundred years, 1,400 towers); every hedge is kept (it is said, is said to have reigned, accounts differ on Mansura, on the year of 1592 and 1739, on how far Sufism spread, on the poet's dates, on when the stories are set, on which invader; held to have entered; believed; probably; in all probability; perhaps; it seems; it has been argued; on this reading; by one estimate; may be said; so far as is known); legends stay legends (liver eaters, Gidumal's two bags, Jakhiro's episode); the Shackle quotation keeps its credit; no verse block to compare.
+
+NOTES (style only):
+a. Overview para 3 says تین صورتوں میں where the English overview lists the three ties without counting them; the count is stated later in the body (Saints and Pilgrimage, para 7), so this is not a new fact, but the overview could drop تین to mirror the English exactly.
+b. "Jats" is spelled جٹ in the Overview and جت in Communities para 1; pick one spelling.
+c. Shrines and the State para 4: ذکر کم ہی ملتا ہے (present) sits beside ذکر باقاعدگی سے ہوتا تھا (past); ذکر کم ہی ہوتا تھا would match the English past tense and the second clause.
+d. The closing quotation is rendered سندھی سماج in Shrines and the State but the same idea is سندھی معاشرے in the Overview; harmless, but one wording would read more consistently.

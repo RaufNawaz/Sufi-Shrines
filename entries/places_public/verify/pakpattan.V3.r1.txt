@@ -1,0 +1,21 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [English word order / name cut off from its postposition] "1352 میں شیخ زین الدین شیرازی نے، جو خلد آباد میں برہان الدین غریب کے سب سے اہم جانشین تھے، یہی راستہ اختیار کیا۔" -> a relative clause set between commas, English style, separates the name and its نے from the verb; the house rules ask for plain Urdu order here. -> NEW: "خلد آباد میں برہان الدین غریب کے سب سے اہم جانشین شیخ زین الدین شیرازی نے 1352 میں یہی راستہ اختیار کیا۔"
+
+2. [wrong connective / tense mismatch / repetition] "معین الدین کی وفات کے بعد کی صدی میں اجمیر زائرین کے ایک مقررہ سفری راستے کی بڑی منزلوں میں شمار ہونے لگا، جبکہ دہلی اور پاکپتن بھی اسی راستے کی اہم منزلیں تھیں۔" -> جبکہ means "whereas" and sets up a contrast where none exists (Delhi and Pakpattan are on the same route, not opposed to Ajmer). The inceptive شمار ہونے لگا is joined to a plain past تھیں in the same sentence, and منزلوں ... منزلیں repeats. Splitting the sentence fixes all three. -> NEW: "معین الدین کی وفات کے بعد کی صدی میں اجمیر زائرین کے ایک مقررہ سفری راستے کی بڑی منزلوں میں شمار ہونے لگا۔ دہلی اور پاکپتن بھی اسی راستے کے اہم پڑاؤ تھے۔"
+
+3. [redundant collocation / calque] "پاکپتن شریف میں ہجوم کی بھگدڑ بھی مچ چکی ہے۔" -> ہجوم کی بھگدڑ is a word-for-word rendering of "crowd stampede"; بھگدڑ already means a crowd's stampede, so ہجوم کی is redundant. -> NEW: "پاکپتن شریف میں بھگدڑ بھی مچ چکی ہے۔"
+
+4. [repetition of بھی] "2001 کا سانحۂ پاکپتن بھی اسی قصبے کے نام سے موسوم ہے۔" -> this follows a sentence that also turns on بھی, so the two sentences read as a chain of afterthoughts. Here the بھی adds nothing. -> NEW: "2001 کا سانحۂ پاکپتن اسی قصبے کے نام سے موسوم ہے۔"
+
+5. [calqued article] "معین الدین کی وفات کے بعد کی صدی میں زیارت کے ایک مقررہ راستے پر پاکپتن کا شمار اجمیر اور دہلی کے ساتھ اہم ترین منزلوں میں ہوتا تھا۔" -> ایک renders English "a" and makes the sentence heavier; Urdu does not need it here. Note also that the History section calls the same route زائرین کا مقررہ سفری راستہ; one term in both places would read better. -> NEW: "معین الدین کی وفات کے بعد کی صدی میں زائرین کے مقررہ سفری راستے پر پاکپتن کا شمار اجمیر اور دہلی کے ساتھ اہم ترین منزلوں میں ہوتا تھا۔"
+
+6. [inconsistent honorific] "پاکستان کا وہ قصبہ ہے جہاں حضرت فرید الدین نے وفات پائی۔" against "فرید الدین نے پاکپتن میں وفات پائی، اور جس جگہ ان کا انتقال ہوا اس کے قریب شیخ صابر کی غار نما خلوت گاہ محفوظ ہے۔" -> the same saint has حضرت in the introduction but not in Holy Sites. Use one form throughout (house practice is to give the honorific at first mention and keep it consistent). -> NEW (Holy Sites): "حضرت فرید الدین نے پاکپتن میں وفات پائی، اور جس جگہ ان کا انتقال ہوا، اس کے قریب شیخ صابر کی غار نما خلوت گاہ محفوظ ہے۔" (This also adds the comma after ہوا, matching the same construction in the introduction.)
+
+NOTES:
+- معین الدین comes in twice with no honorific and no identifying word, so a general reader may not realise that this is Khwaja Moinuddin of Ajmer. If the house glossary allows it, خواجہ معین الدین at first mention would help, since it is an honorific and adds no fact. Editor's call.
+- The introduction says Pakpattan was among the اہم ترین (most important) stops with Ajmer and Delhi. The History section calls Ajmer one of the بڑی منزلیں and Delhi and Pakpattan اہم منزلیں. This is a difference in degree, not a contradiction. Check it against the source wording rather than smoothing it here.
+- The death is called وفات، وصال and انتقال in turn. The variation is fine, and وصال suits a saint well. پاکپتن and پاکپتن شریف alternate, and that is acceptable because the introduction gives پاکپتن شریف as an alternate name.
+- The article is short and repeats the introduction almost word for word in History and Holy Sites. That comes from the structure, not from the Urdu.
+- Mechanics are clean: Western digits, no Latin letters, no asterisks, no em or en dashes, Urdu punctuation throughout, and no verse paragraphs.

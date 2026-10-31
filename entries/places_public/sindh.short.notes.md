@@ -1,6 +1,6 @@
 V1 English fidelity: PASS (round 2) en:c643bf4b
-V2 Urdu fidelity: PENDING
-V3 Urdu fluency: PENDING
+V2 Urdu fidelity: PASS (round 3) en:c643bf4b ur:eded2d2e
+V3 Urdu fluency: PASS (round 3) ur:eded2d2e
 
 # Sindh short article: notes
 
@@ -38,3 +38,19 @@ The confirming V1 checked every change (a replay of the listed changes on the ro
 ## Short Urdu written
 
 One writer, reusing the long Urdu's verified wording wherever the short English keeps a long sentence; every name as the long Urdu spells it; checker (`short sindh --no-verdicts`) ok. Next: V2 and V3 round 1.
+
+## V2 and V3 round 1 (FAIL), 30 October 2026, watcher firing ~22:15Z
+
+V2 failed on 4 issues (the two sarkars attached to the suba of Multan, "by 1843" read as "until", "helped to promote" made "promoted", "of the biggest" canals dropped), V3 on 45. One writer applied them: 53 edits, 45 in the verifiers' wording, 4 adapted (جت and لاہری بندر chosen as the one spelling, as the long Urdu mostly has them; آزادی kept for "independence"; a repetition avoided in V3 28), none rejected; the V3 notes on ٹرمپ, سندھی مہاجرین, مہانو / موہانا and the three orders were checked against the English and left as the English has them. Reports `verify/sindh.short.V2.r1.txt`, `V3.r1.txt`; changes `verify/sindh.short.ur.r1.changes.txt`. Checker ok.
+
+## V2 and V3 round 2 confirming (V2 PASS, V3 FAIL)
+
+One confirming worker (`verify/sindh.short.V2.r2.txt`, the same reply saved as `V3.r2.txt`) replayed the 53 changes on the backup and got the current file exactly. V2 passed; V3 found 4 faults: بلوچ مسلم معاشرے read as one phrase, Talpur named four times in three sentences (rewritten with "by then" where the English puts it), صرف twice in one sentence, باقی ماندہ نشانی with a masculine verb. The coordinator applied the four in the verifier's wording (`verify/sindh.short.ur.r2.changes.txt`); checker ok. Its taste notes (d, g to i) are recorded there and not applied. Next: confirming round 3 (V2 and V3, since the Urdu changed).
+
+## For Rauf (from the round 1 writer)
+
+The long Urdu `sindh.ur.md` still has the spellings the short one now unifies: جٹ 2 against جت 7, لاڑی بندر 1 against لاہری بندر 2, کاشتکار 8 against کاشت کار 5, and لگڑبگڑ where the short has لکڑبگھے. Left as passed; changing them means a confirming round on the long Urdu.
+
+## V2 and V3 round 3 confirming (PASS both)
+
+The confirming worker (`verify/sindh.short.V2.r3.txt`, the same reply as `V3.r3.txt`) replayed the four round 2 changes on the backup and got the current file exactly; all four pass both, the reordered Baluchi and Talpur sentence included. Its taste notes (بلوچ twice in one sentence by design; an optional بھی after یادگار) are recorded here and not applied. **The short article is done.**

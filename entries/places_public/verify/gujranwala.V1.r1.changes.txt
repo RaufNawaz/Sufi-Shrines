@@ -1,0 +1,13 @@
+# gujranwala: changes applied after V1 round 1 (coordinator, verifier's own wording)
+
+WHY: V1 r1 issue 1: unsupported time anchor
+OLD: In recent years Gujranwala has replaced Eminabad as an important trading centre, and it is one of the cities whose Sikh communities have newly become assertive.
+NEW: Gujranwala has replaced Eminabad as an important trading centre, and it is one of the cities whose Sikh communities have newly become assertive.
+
+WHY: V1 r1 issue 2: added claim about the city's Sikhs
+OLD: The city's Sikhs, followers of the faith founded by Guru Nanak, have a place in its recent story too. Gujranwala is one of the cities whose Sikh communities have newly become assertive.
+NEW: Gujranwala is one of the cities whose Sikh communities have newly become assertive, Sikhs being followers of the faith founded by Guru Nanak.
+
+WHY: V1 r1 precision note: redundant clause
+OLD: Gujranwala has replaced Eminabad as an important trading centre, taking over a role that Eminabad once held.
+NEW: Gujranwala has replaced Eminabad as an important trading centre.

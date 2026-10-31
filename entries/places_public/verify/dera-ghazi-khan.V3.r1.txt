@@ -1,0 +1,6 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [repetition / calque] کئی قلمی نسخوں میں سے ایک کا تعلق ڈیرہ غازی خان سے ہے، یعنی وہ نسخہ اسی مقام سے آیا ہے۔ -> The sentence says the same thing twice. The "یعنی" clause only explains what "کا تعلق ... سے ہے" means, a gloss carried over from an English "is associated with X, i.e. it came from there". "وہ نسخہ اسی مقام سے" also repeats both the noun and the place. A native writer would state the provenance once and directly. The facts stay the same: one of several manuscripts came from Dera Ghazi Khan. -> کئی قلمی نسخوں میں سے ایک ڈیرہ غازی خان سے آیا ہے۔
+
+NOTES: The article is one sentence. "کئی قلمی نسخوں" has nothing before it to show which manuscripts are meant, so a general reader will not know which work or collection this refers to. That cannot be fixed without adding facts, so it is noted here and not counted as an issue. Punctuation (، ۔), spelling and the asterisk count (none) are fine, and there are no Latin letters or digits. If a softer verb is wanted, "ڈیرہ غازی خان سے ملا ہے" reads naturally, but "ملا" (was found) and "آیا" (came from) do not mean the same thing, so "آیا" is kept.

@@ -1,0 +1,3 @@
+WHY: round 2 confirming V2 issue 1 (changed speaker: bare تاریخ کے مطابق reads as 'according to history', not 'the chronicle'). The coordinator took the verifier's اس تاریخ and added فارسی, because تاریخ also means 'date' and اس تاریخ کے مطابق right after a sentence could read 'according to this date'; فارسی تاریخ is how the paragraph before names the chronicle.
+OLD: تاریخ کے مطابق بیالیسویں برس کے سفر میں اس شخص کو اسی منزل پر بادشاہ کے حضور پیش کیا گیا اور وہیں فوراً اسے سزا دی گئی۔
+NEW: اس فارسی تاریخ کے مطابق بیالیسویں برس کے سفر میں اس شخص کو اسی منزل پر بادشاہ کے حضور پیش کیا گیا اور وہیں فوراً اسے سزا دی گئی۔

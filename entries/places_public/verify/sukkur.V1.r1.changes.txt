@@ -1,0 +1,11 @@
+WHY: unsupported framing, archive talk (V1 r1 issue 1)
+OLD: With Rohri and Shikarpur, Sukkur makes one corner of a triangle of towns, and much of the story of the place belongs to Rohri, with its shrines and its poets.
+NEW: With Rohri and Shikarpur, Sukkur makes one corner of a triangle of towns. Rohri has shrines of its own and was the home of two mystic poets.
+
+WHY: precision, article added (V1 r1 note)
+OLD: and the seat of the shrines of Sain Vasan Shah and of Isarlal.
+NEW: and the seat of shrines of Sain Vasan Shah and of Isarlal.
+
+WHY: ambiguous referent (V1 r1 note)
+OLD: In the twentieth century it was a city of riots, whose first victim was Bhagat Kanwar Ram.
+NEW: In the twentieth century it was a city of riots, and the first victim of the Sukkur riots was Bhagat Kanwar Ram.

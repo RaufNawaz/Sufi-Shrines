@@ -1,0 +1,87 @@
+Bahawalpur Urdu, round 1 fixes (V2.r1 FAIL, 2 issues; V3.r1 FAIL, 12 issues)
+Applied changes: 15 (all 2 V2 issues, all 12 V3 issues, of which V2 1 + V3 6 and V2 2 + V3 8 were merged into one sentence each; plus 2 V2 notes and 1 V3 note on precision). V3 issue 9 applied in a different wording, reason below.
+Rejected issues: 0. Notes not applied: listed at the end.
+
+1. WHY: V2 note (Overview): ملتان کی طرح means 'like Multan'; the English says 'with Multan', and para 3 already renders it ملتان کے ساتھ ساتھ (precision).
+   OLD: ملتان کی طرح بہاولپور بھی
+   NEW: ملتان کے ساتھ ساتھ بہاولپور بھی
+
+2. WHY: V2 note (Between Punjab and Sindh): emphatic ہی not in the English; plain form is more exact.
+   OLD: سرائیکی پٹی ہی کا ایک مقام
+   NEW: سرائیکی پٹی کا ایک مقام
+
+3. WHY: V3 issue 1: دیہاتی گاؤں is a tautology (calque of 'rural village').
+   OLD: الہ آباد جنوبی پنجاب کا ایک دیہاتی گاؤں ہے
+   NEW: الہ آباد جنوبی پنجاب کا ایک گاؤں ہے
+
+4. WHY: V3 issue 2: سید مزاروں parses as 'Sayyid shrines'; use the plural noun سادات.
+   OLD: سید مزاروں کا سہارا بھی ہیں:
+   NEW: سادات مزاروں کا سہارا بھی ہیں:
+
+5. WHY: V3 issue 3: سرپرستی کی had no object and suggested the Nawab patronised the shrines; V3's wording. Plus V2 note: plain نواب کا ہاتھ, the English has no emphatic ہی.
+   OLD: بہاولپور کے ایک نواب نے بھی سرپرستی کی۔ یہ مقامی نواب واحد بخش کے سرپرست تھے، اور واحد بخش کا کمیشن، ان کی تعلیم اور سول سیکرٹریٹ میں ان کا عہدہ، ان سب کے پیچھے نواب ہی کا ہاتھ تھا۔
+   NEW: سرپرستی کی ایک مثال بہاولپور کے ایک مقامی نواب کی بھی ہے، جو واحد بخش کے سرپرست تھے: واحد بخش کا کمیشن، ان کی تعلیم اور سول سیکرٹریٹ میں ان کا عہدہ، ان سب کے پیچھے نواب کا ہاتھ تھا۔
+
+6. WHY: V3 issue 4: the distance at the head of the sentence had no point of reference; V3's wording (the distance between the two towns is unchanged).
+   OLD: لگ بھگ ایک سو پینسٹھ کلومیٹر دور بہاولنگر کے منتظمین نے سازندوں کی ایک ٹولی بہاولپور سے بلوائی۔
+   NEW: بہاولنگر کے منتظمین نے سازندوں کی ایک ٹولی لگ بھگ ایک سو پینسٹھ کلومیٹر دور بہاولپور سے بلوائی۔
+
+7. WHY: V3 issue 5: نوراتری دیوی read as a goddess's name, and a present definition was spliced to a past narrative with اور; V3's wording, split into two sentences.
+   OLD: نوراتری دیوی کی تعظیم میں منایا جانے والا نو راتوں کا ہندو تہوار ہے، اور اس میں شرکت کے لیے بارہ لڑکے سائیکلوں پر بہاولپور سے آئے۔
+   NEW: نوراتری نو راتوں کا ہندو تہوار ہے جو دیوی کی تعظیم میں منایا جاتا ہے۔ اس میں شرکت کے لیے بارہ لڑکے سائیکلوں پر بہاولپور سے آئے۔
+
+8. WHY: V2 issue 1 + V3 issue 6, one sentence for both: V2 drops سارے راستے (the English gives no duration, only 'as they came'); V3 drops the backwards gloss یعنی ماتا for the standard دیوی ماتا. Recast as آتے ہوئے ... جاپ کر رہے تھے so that آئے does not end two sentences in a row after V3 issue 5's split.
+   OLD: سارے راستے وہ دیوی ماں یعنی ماتا کا جاپ کرتے آئے۔
+   NEW: آتے ہوئے وہ دیوی ماتا کا جاپ کر رہے تھے۔
+
+9. WHY: V3 issue 7: بھی twice in one sentence; the second dropped.
+   OLD: ہندو یاتریوں سے بھری بسیں بھی اسی منزل کی طرف رواں تھیں۔
+   NEW: ہندو یاتریوں سے بھری بسیں اسی منزل کی طرف رواں تھیں۔
+
+10. WHY: V2 issue 2 + V3 issue 8, one sentence for both: V2 drops دور دور تک (the English says only 'travel out', no range); V3 replaces the calque کے لیے یہ ... ہے with کی نظر میں and removes the second سفر. باہر جاتے ہیں renders 'travel out' without a range and without repeating سفر.
+   OLD: ایک مصنف کے لیے یہ ان ہندوؤں کا وطن ہے جو یہاں سے دور دور تک سفر کرتے ہیں:
+   NEW: ایک مصنف کی نظر میں یہ ان ہندوؤں کا وطن ہے جو یہاں سے باہر جاتے ہیں:
+
+11. WHY: V3 note: نوراتری is a festival, not a place; نوراتری کے لیے is more precise.
+   OLD: سائیکلوں پر نوراتری جاتے لڑکے
+   NEW: سائیکلوں پر نوراتری کے لیے جاتے لڑکے
+
+12. WHY: V3 issue 9: بہاولپور سڑک read as a road name, and 'عائشہ صدیقہ کا وطن ... جو بہاولپور ہی کی رہنے والی ہیں' said the same thing twice. Not V3's wording as written: its fix keeps بہاولپور directly before سڑک (the same misparse) and uses the calque کے طور پر; recast with بہاولپور کو ... پایا, which also follows the English 'the same writer found it'. Dropping the relative clause loses no fact: 'the home of Ayesha Siddiqa' already says she belongs to Bahawalpur.
+   OLD: اسی مصنف کی بعد کی ایک کتاب میں بہاولپور سڑک کا وہ ٹکڑا ہے جہاں صوبوں کی حدیں دھندلی پڑ جاتی ہیں، اور عائشہ صدیقہ کا وطن بھی، جو بہاولپور ہی کی رہنے والی ہیں۔
+   NEW: بعد کی ایک کتاب میں اسی مصنف نے بہاولپور کو سڑک کا وہ ٹکڑا پایا جہاں صوبوں کی حدیں دھندلی پڑ جاتی ہیں، اور عائشہ صدیقہ کا وطن بھی۔
+
+13. WHY: V3 issue 10: فاصلہ ناپا means a physical measurement; the sense is 'gave the distance from this city'. V3's wording.
+   OLD: اسی شہر سے انہوں نے الہ آباد گاؤں کا فاصلہ ناپا اور یہاں کے نواب کو واحد بخش کا سرپرست بتایا۔
+   NEW: الہ آباد گاؤں کا فاصلہ انہوں نے اسی شہر سے بتایا، اور یہاں کے نواب کو واحد بخش کا سرپرست قرار دیا۔
+
+14. WHY: V3 issue 11: جسے after مشورہ دیا pointed to مشورہ, not the book; V3's wording.
+   OLD: *خطۂ پاک اوچ* پڑھنے کا مشورہ دیا، جسے
+   NEW: *خطۂ پاک اوچ* تجویز کی، جسے
+
+15. WHY: V3 issue 12: اوچ گیلانیاں کے شہرِ اولیا meant 'the city of saints belonging to Uch Gilanian'; the article elsewhere calls Uch Gilanian itself the city of saints. V3's wording.
+   OLD: اور اوچ گیلانیاں کے شہرِ اولیا سے بھی۔
+   NEW: اور شہرِ اولیا اوچ گیلانیاں سے بھی۔
+
+NOT APPLIED (notes only; no verifier ISSUE was rejected)
+
+1. V3 note: بسا ہوا شہر ... کنارے پر -> سنگم پر / سرحد پر.
+   REASON: Taste, and the English says 'on the edge of two provinces'; کنارے پر is the faithful word. Not applied.
+
+2. V3 note: یہاں twice in the Overview's last sentence.
+   REASON: Taste; no meaning, agreement or referent at stake. Not applied.
+
+3. V3 note: اکیسویں صدی کے اوائل میں بہاولپور میں -> ... اوائل تک.
+   REASON: Rejected on the English: 'In the early twenty first century' is a point in time, and تک with a plain past reads as 'until' (brief, The Urdu version). Taste otherwise. Not applied.
+
+4. V3 note: آئے -> پہنچے / گئے (narrator at the destination).
+   REASON: Taste; the English itself says 'as they came'. Not applied.
+
+5. V3 note: شہر and قصبہ for the same place in consecutive sentences.
+   REASON: V3 calls it harmless, and the English itself has 'city of saints' then 'the town where Bulle Shah was born'. Not applied.
+
+6. V3 note: summary repetition between the Overview and the body.
+   REASON: By design: the English repeats the same statements in the Overview and body; varying them is taste. Not applied.
+
+7. V2 notes on dropped glosses (Syeds, Nawab), numbers, names, یاتریوں سے بھری بسیں.
+   REASON: Confirmations, no change asked.
+

@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-10-31T01:34:22Z",
+  "expires_at": "2026-10-31T03:04:22Z",
+  "note": "place article watcher firing [renewing own claim; previous holder watcher-2026-10-31T0113Z]",
+  "released_at": "2026-10-31T01:46:50Z",
+  "released_by": "watcher-2026-10-31T0113Z",
+  "session": "watcher-2026-10-31T0113Z",
+  "slug": "place__bahawalpur",
+  "status": "released"
+}

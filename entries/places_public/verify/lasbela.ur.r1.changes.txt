@@ -1,0 +1,21 @@
+lasbela Urdu, changes after round 1 (V2 PASS, V3 FAIL), applied by the coordinator as exact replacements (each OLD asserted once). Rejected: none outright; where the coordinator changed a verifier's wording, the WHY line says so.
+
+WHY: V3 1 (ہنگلاج twice in apposition, unclear whether goddess, temple or place); the verifier's NEW (… جہاں ہنگلاج دیوی کا ہندو مندر ہے) would put the temple inside Las Bela, which the English does not say, so the coordinator wrote a separate defining sentence: Hinglaj is the temple
+OLD: بلوچستان کا ضلع لسبیلہ ہنگلاج دیوی کے ہندو مندر ہنگلاج کے قریب واقع ہے۔
+NEW: بلوچستان کا ضلع لسبیلہ ہنگلاج کے قریب واقع ہے۔ ہنگلاج سے مراد ہنگلاج دیوی کا ہندو مندر ہے۔
+
+WHY: V2 note 1 (emphatic ہی claims more than the English)
+OLD: لسبیلہ ہی میں تمبل نے دیوی کی شہرت پھیلائی۔
+NEW: لسبیلہ میں تمبل نے دیوی کی شہرت پھیلائی۔
+
+WHY: V3 2 (ہمیشہ سے زیادہ تر calques 'have always mostly been'), verifier's wording
+OLD: اور اس کے ارکان ہمیشہ سے زیادہ تر لسبیلہ کے لوہانے رہے ہیں، جو ہندو تاجروں کی ایک ذات سے تعلق رکھتے ہیں۔
+NEW: اور شروع سے اس کے ارکان کی اکثریت لسبیلہ کے لوہانوں پر مشتمل رہی ہے، جو ہندو تاجروں کی ایک ذات سے تعلق رکھتے ہیں۔
+
+WHY: V3 3 (the section opened by restating the Overview), verifier's wording; it keeps 'close to' and the park without saying the park lies in the district
+OLD: لسبیلہ ہنگلاج کے قریب واقع ضلع ہے۔ خود ہنگلاج کا استھان ہنگول نیشنل پارک کی حدود میں ہے۔ لسبیلہ میں تمبل نے دیوی کی شہرت پھیلائی۔
+NEW: ہنگلاج کا استھان لسبیلہ کے قریب ہی ہنگول نیشنل پارک کی حدود میں واقع ہے۔ لسبیلہ میں دیوی کی شہرت تمبل نے پھیلائی۔
+
+WHY: V3 4 (the founding place said three times), verifier's wording, except that ضلع لسبیلہ and بلوچستان are named, since اسی ضلع at the head of a paragraph had no clear antecedent and the English names Balochistan here
+OLD: ایچ ایس ایم کا آغاز بھی لسبیلہ ہی میں ہوا۔ یہ تنظیم 5 جنوری 1986 کو بلوچستان کے اسی ضلع میں بیلہ کے مقام پر قائم ہوئی، اور شروع ہی سے اس کے ارکان زیادہ تر لسبیلہ کے لوہانے رہے ہیں۔
+NEW: ایچ ایس ایم 5 جنوری 1986 کو بلوچستان کے ضلع لسبیلہ میں بیلہ کے مقام پر قائم ہوئی، اور شروع ہی سے اس کے ارکان زیادہ تر یہیں کے لوہانے رہے ہیں۔

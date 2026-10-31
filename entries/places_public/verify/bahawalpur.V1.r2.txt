@@ -1,0 +1,29 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Changes applied since round 1, each read in its paragraph against the team version:
+  1. "Uch Gilanian, the city of saints, lies in Bahawalpur. A family of Syeds had settled there, in the town where Bulle Shah was born." Supported (team: Abbas's family of Syeds "who had settled in Uch Gilanian, the city of saints in Bahawalpur, where Bulle Shah was born"). It no longer makes Uch Gilanian Bahawalpur's only holy place. No new fault.
+  2. "In a later book the same writer found it a stretch of road where the provinces blur, and the home of Ayesha Siddiqa, who belongs to Bahawalpur." Supported. "Later" now refers to the book (2013, then 2016, both firm in the bibliography), not to a journey. No new fault.
+  3. "The rural village of Allahabad, in southern Punjab, lies sixty miles southwest of the city of Bahawalpur." Supported (team: "he places the rural village of Allahabad sixty miles southwest of the city of Bahawalpur, in southern Punjab"). "Southern Punjab" still describes Allahabad, not Bahawalpur. No new fault.
+  4. "He measured the village of Allahabad from it, named its Nawab as a patron of Wahid Bakhsh, and, for further reading on Uch, pointed to Mas'ud Hasan Shahab's *Khitta-i pak Uch*, published in Bahawalpur by the Urdu Academy." Supported (team: "among the further reading he gives on Uch, cites Mas'ud Hasan Shahab's *Khitta-i pak Uch*, with the imprint Bahawalpur: Urdu Academy, 1967/1993"). Leaving out the ambiguous "1967/1993" is a minor omission, and it is correct. The round 1 omission is restored. No new fault.
+  5. "Bahawalpur was also an area with a considerable population of Hindus, whose musicians, boys and pilgrims travel out to festivals and holy places." This change is supported, but it brings in a small grammatical fault: the main verb is now past ("was") while the relative clause stays present ("travel out"). This is not a FAIL type, because no fact is unsupported. Because the change caused it, the coordinator should apply this as a grammatical correction:
+     OLD: Bahawalpur was also an area with a considerable population of Hindus, whose musicians, boys and pilgrims travel out to festivals and holy places.
+     NEW: Bahawalpur was also an area with a considerable population of Hindus, whose musicians, boys and pilgrims travelled out to festivals and holy places.
+     (The Urdu, once written, should follow the past tense.)
+  6. "For a writer travelling among Pakistan's religious minorities, it is a home of Hindus who travel out: ..." Supported. The ambiguity of round 1 is gone. No new fault.
+- Whole text swept again, sentence by sentence. Every statement is supported by the team version. Specifically checked: the blur between Sindh and Punjab; the Siraiki belt; Uch Gilanian as the city of saints in Bahawalpur; the settled family of Syeds; Bulle Shah's birthplace; Bahawalpur with Multan as the seat of landowning Syeds who "support" their ancestors' shrines (not turned into custodianship); the Nawab as patron of Wahid Bakhsh's commission, schooling and Civil Secretariat post; the Bahawalnagar musicians and the 165 km; the twelve boys on bicycles to Navratri; the Katas buses from Rahim Yaar Khan and Bahawalpur; Ayesha Siddiqa (with the "seventy kilometres from here" rightly dropped); the fieldwork base and the interview dates; the Urdu Academy imprint; Abbas's three placings.
+- The glosses are definitional: Siraiki belt, Syeds, Nawab, Navratri, the Mata.
+- The text has no legends to frame, no disagreements (the team version records none), no verse, no [OCR?] or uncertain reading, no citations, page references or dashes, and no new process language.
+- Time anchors are firm: "early twenty first century" from *A White Trail* (2013), and "twenty first century Pakistan" from Rozehnal's title.
+- No important omission remains.
+- "He held interviews there" for the team's "he dates interviews held there". This is acceptable in the context of a fieldwork base. The team version does not say whom he interviewed, and the public text does not say either.
+- "Uch Gilanian, the city of saints, lies in Bahawalpur" appears word for word in both the Overview and Saints, Syeds and Patrons. The repetition is a matter of taste.
+- The round 1 taste notes were not applied, and they remain taste:
+  - "A Nawab of Bahawalpur was a patron too. The local Nawab, ... was a patron of Wahid Bakhsh" says "was a patron" twice.
+  - "on the way to Katas, ... were also on their way" repeats itself.
+- The public notes file is stale and should be updated to match the text (this does not affect the public text):
+  - "Left out, and why" still says the Shahab / Urdu Academy imprint is dropped. It is now kept, without "1967/1993".
+  - "Time anchors used" still quotes "On a later journey the same writer". The text now says "In a later book".
+  - The house-style line still quotes "one traveller among Pakistan's religious minorities". The text now says "a writer travelling among Pakistan's religious minorities".

@@ -1,0 +1,59 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [grammar: ergative] "یہ بھی بیان کیا جاتا ہے کہ لاہور میں ناکامی کے بعد شہاب الدین سیالکوٹ آیا، پرانے قلعے کو دوبارہ تعمیر کیا اور اپنی فوج وہیں چھوڑ دی۔" -> the subject has no نے, but «تعمیر کیا» and «چھوڑ دی» are transitive and need it. Educated prose doesn't let one bare subject carry both آیا and تعمیر کیا -> "یہ بھی بیان کیا جاتا ہے کہ لاہور میں ناکامی کے بعد شہاب الدین نے سیالکوٹ آ کر پرانے قلعے کو دوبارہ تعمیر کیا اور اپنی فوج وہیں چھوڑ دی۔"
+
+2. [grammar: idiom] "وہ وہیں دم توڑ گیا، اور نانک اور مردانہ اس کی آخری رسوم میں شریک ہوئے۔" -> the idiom is «دم توڑ دینا» (transitive, takes نے). «دم توڑ گیا» is non-standard -> "اس نے وہیں دم توڑ دیا، اور نانک اور مردانہ اس کی آخری رسوم میں شریک ہوئے۔"
+
+3. [syntax] "عالم خان اور کچھ دوسرے لوگوں نے سنا کہ شاہی علم سیالکوٹ کے قریب آ پہنچے ہیں تو وہ بابر سے آ ملے" -> the clause has «تو» but no «جب» to pair with it, so the opening reads as a main clause and then breaks -> "جب عالم خان اور کچھ دوسرے لوگوں نے سنا کہ شاہی علم سیالکوٹ کے قریب آ پہنچے ہیں تو وہ بابر سے آ ملے"
+
+4. [inconsistent spelling] "شاہ دولا کے پہلے مرشد سیالکوٹ میں رہتے تھے۔" -> twice elsewhere (same paragraph and the last section) the name is شاہ دولہ -> "شاہ دولہ کے پہلے مرشد سیالکوٹ میں رہتے تھے۔"
+
+5. [inconsistent name] "کہا جاتا ہے کہ بعد میں کرار نانک سے چھپ گیا" -> he is introduced as «مولا کرار». «کرار» is his trade or caste label, not his name, and using it on its own reads like a different person -> "کہا جاتا ہے کہ بعد میں مولا نانک سے چھپ گیا"
+
+6. [ambiguity / calque] "اورنگزیب کے زمانے میں بھی سیالکوٹ آبادی میں صوبے کے ہر دوسرے قصبے سے بڑھ کر تھا۔" -> this renders 'every other town', but in Urdu «ہر دوسرا» normally means 'every second one', which gives the wrong sense -> "اورنگزیب کے زمانے میں بھی سیالکوٹ آبادی میں صوبے کے باقی تمام قصبوں سے بڑھ کر تھا۔"
+
+7. [ambiguous pronoun] "روایت ہے کہ پورن کے ہاتھ پاؤں کاٹ کر انہیں اسی کنویں میں پھینکا گیا تھا" -> «انہیں» most naturally refers back to «ہاتھ پاؤں», so the reader takes it that the limbs were thrown in. In the story it is Puran -> "روایت ہے کہ ہاتھ پاؤں کاٹنے کے بعد پورن کو اسی کنویں میں پھینک دیا گیا تھا"
+
+8. [ambiguous subject] "یہاں وہ اپنے ایک حلیف سے جا ملا جو پنجاب میں تیمور کی قید سے فرار ہو گیا تھا، اور پھر علی شاہ پر چڑھ دوڑا۔" -> «اور پھر ... چڑھ دوڑا» can be read as continuing the relative clause, which makes the ally the one who attacked -> "یہاں وہ اپنے ایک ایسے حلیف سے جا ملا جو پنجاب میں تیمور کی قید سے فرار ہو گیا تھا۔ اس کے بعد شاہی خان علی شاہ پر چڑھ دوڑا۔"
+
+9. [ambiguous pronoun] "صفدر خان نے قلعہ اور اس کا برج ازسرِنو تعمیر کرایا، اور ان دونوں کے بعد آنے والے اکثر حاکم بھی قلعے کی مرمت کراتے رہے۔" -> «ان دونوں» comes straight after «قلعہ اور اس کا برج», so it first reads as the fort and the tower, not Man Singh and Safdar Khan -> "صفدر خان نے قلعہ اور اس کا برج ازسرِنو تعمیر کرایا۔ مان سنگھ اور صفدر خان کے بعد آنے والے اکثر حاکم بھی قلعے کی مرمت کراتے رہے۔"
+
+10. [ambiguous pronoun] "اس پر حمزہ غوث نے اہلِ سیالکوٹ سے کہا کہ وہ چالیس دن تک دعا میں مشغول رہیں گے۔" -> «وہ ... رہیں گے» can just as easily mean the people of Sialkot will spend forty days in prayer -> "اس پر حمزہ غوث نے اہلِ سیالکوٹ سے کہا کہ وہ خود چالیس دن تک دعا میں مشغول رہیں گے۔"
+
+11. [tangled sentence / redundancy] "شہاب الدین محمد غوری نے اپنی پانچویں مہم میں راوی اور چناب کے درمیان واقع اس قلعے کی تجدید اور مرمت کرائی، جس کے ستون خستہ ہو چکے تھے، اور اپنا نائب وہاں چھوڑ کر واپس لوٹ گیا۔" -> the relative clause «جس کے ستون» is cut off from «قلعے» and hangs after the verb, and «واپس لوٹ گیا» is a pleonasm -> "راوی اور چناب کے درمیان واقع اس قلعے کے ستون خستہ ہو چکے تھے۔ شہاب الدین محمد غوری نے اپنی پانچویں مہم میں اس کی تجدید اور مرمت کرائی، اور اپنا نائب وہاں چھوڑ کر لوٹ گیا۔"
+
+12. [syntax: voice switch / word order] "بابر نے چناب کے کنارے بہلول پور قصبے کے قریب پڑاؤ ڈالا، اور حکم دیا گیا کہ سیالکوٹ کو ویران کر کے اس کے باشندوں کو بہلول پور میں بسا دیا جائے۔" -> with one subject marked نے, the switch to a passive reads as «بابر نے ... حکم دیا گیا», and «بہلول پور قصبے» is English word order -> "بابر نے چناب کے کنارے قصبہ بہلول پور کے قریب پڑاؤ ڈالا۔ پھر یہ حکم دیا گیا کہ سیالکوٹ کو ویران کر کے اس کے باشندوں کو بہلول پور میں بسا دیا جائے۔"
+
+13. [calque] "سیالکوٹ نے کوئی مزاحمت نہیں کی اور معمول کے قتلِ عام اور لوٹ مار سے بچ گیا۔" -> «معمول کے قتلِ عام» renders 'the usual massacre'. The نے/intransitive pairing also grates -> "سیالکوٹ نے کوئی مزاحمت نہیں کی، اور شہر اس قتلِ عام اور لوٹ مار سے بچ گیا جو ایسے موقعوں پر معمول تھی۔"
+
+14. [tangled relative clause] "یہاں کی کاروباری برادری نے اپنے ہوائی اڈے کا خرچ خود اٹھایا تھا، جہاں سے بین الاقوامی پروازیں آتی جاتی تھیں، اور شاہراہ کا خرچ بھی اسی نے برداشت کیا تھا۔" -> the verb separates «جہاں سے» from «ہوائی اڈے», and the sentence runs on -> "شہر کے ہوائی اڈے سے بین الاقوامی پروازیں آتی جاتی تھیں، اور اس کا خرچ یہاں کی کاروباری برادری نے خود اٹھایا تھا۔ شاہراہ کا خرچ بھی اسی برادری نے برداشت کیا تھا۔"
+
+15. [unidiomatic / incomplete] "اور خیال ہے کہ نانک بھی ملتے جلتے راستے سے گئے تھے۔" -> «ملتے جلتے راستے» renders 'a similar route', and «گئے تھے» has no destination -> "اور خیال ہے کہ گرو نانک بھی کم و بیش اسی راستے سے گزرے تھے۔"
+
+16. [unclear phrase] "کشمیر کے حکمران خان سے رنجیدہ ہو کر" -> «حکمران خان» reads either as a personal name or as a stray title. The paragraph itself names the ruler of that time as حسین خان -> "کشمیر کے حکمران حسین خان سے رنجیدہ ہو کر" (if «خان» is not meant to identify him, use "کشمیر کے حکمران سے رنجیدہ ہو کر")
+
+17. [calque] "اپنے زمانے میں وہ اپنی درویشانہ زندگی کی خوبیوں کے سبب مشہور تھے، اور حسین خان کے عہد میں کشمیر چھوڑ کر سیالکوٹ میں پڑھانے کے لیے وقف ہو گئے تھے۔" -> «پڑھانے کے لیے وقف ہو گئے» renders 'devoted to teaching'. The idiom is «خود کو ... وقف کر دینا» -> "اپنے زمانے میں وہ اپنی درویشانہ زندگی کی خوبیوں کے سبب مشہور تھے، اور حسین خان کے عہد میں کشمیر چھوڑ کر انہوں نے خود کو سیالکوٹ میں درس و تدریس کے لیے وقف کر دیا تھا۔"
+
+18. [calque] "شہر کس نے بسایا، یہ داستانوں کا معاملہ ہے، اور اس بارے میں کوئی ایک بیان طے شدہ نہیں۔" -> «داستانوں کا معاملہ» renders 'a matter of legend', and «کوئی ایک بیان طے شدہ نہیں» is stiff -> "شہر کس نے بسایا، اس کا جواب داستانوں ہی میں ملتا ہے، اور ان میں بھی کسی ایک بیان پر اتفاق نہیں۔"
+
+19. [calque] "اورنگزیب کے عہد میں لکھی گئی فارسی تاریخ اس شہر کو سب سے زیادہ جگہ دیتی ہے۔" -> «جگہ دیتی ہے» renders 'gives space'. The sentence also needs «ایک», since the book has not been introduced -> "اس شہر کا سب سے مفصل ذکر اورنگزیب کے عہد میں لکھی گئی ایک فارسی تاریخ میں ملتا ہے۔"
+
+20. [calque] "کتاب کے دوسرے حصوں میں یہ قصبہ لشکر کشیوں کے سلسلے میں بھی سامنے آتا ہے اور ان لوگوں کے مناصب کے ذکر میں بھی جو اس پر حاکم رہے۔" -> «سامنے آتا ہے» renders 'appears' -> "کتاب کے دوسرے حصوں میں اس قصبے کا ذکر لشکر کشیوں کے سلسلے میں بھی آتا ہے اور ان لوگوں کے مناصب کے ضمن میں بھی جو اس پر حاکم رہے۔"
+
+21. [calque] "نانک کے راستے پر سفر کرنے والے ایک جدید سیاح کو" -> «جدید سیاح» renders 'a modern traveller' (in Urdu «جدید» describes things, not a person of today) -> "گرو نانک کے نقشِ قدم پر سفر کرنے والے ہمارے زمانے کے ایک سیاح کو"
+
+22. [English word order / overlong] "صوفی عقیدت پر ایک مطالعہ اس کا نام صرف ایک بار لیتا ہے، یہ بتانے کے لیے کہ شاہ دولہ اسے چھوڑ کر گئے تھے، اور ہندوستان میں تصوف کی ایک تاریخ بھی اس قصبے کا نام بس ایک بار، گرو نانک کے سفر کی منزلوں کے بیان میں لیتی ہے۔" -> two book reports are joined into one sentence, and the comma after «بس ایک بار» splits the object from its verb in English order ('mentions it once, in ...') -> "صوفی عقیدت پر ایک مطالعہ اس کا نام صرف ایک بار لیتا ہے، یہ بتانے کے لیے کہ شاہ دولہ اسے چھوڑ کر گئے تھے۔ ہندوستان میں تصوف کی ایک تاریخ میں بھی اس قصبے کا نام صرف ایک بار آتا ہے، جہاں گرو نانک کے سفر کی منزلیں بیان ہوئی ہیں۔"
+
+23. [punctuation: title unmarked] "کتاب تاریخ گرو خالصہ کے مصنف سیالکوٹ کے رہنے والے تھے۔" -> the title has no mark and runs into the sentence ('the author of the book of the history of Guru Khalsa'). «کتاب» before it is a calque of 'the book' -> "*تاریخ گرو خالصہ* کے مصنف سیالکوٹ کے رہنے والے تھے۔"
+
+24. [calque] "ایک صوفی بزرگ کی زندگی میں بھی اس شہر کا مقام ہے۔" -> «کا مقام ہے» renders 'has a place in' -> "ایک صوفی بزرگ کی زندگی میں بھی اس شہر کا ذکر آتا ہے۔"
+
+NOTES:
+- سالباہن (§تاریخ, second tradition) and سالیواہن (third) may be one figure spelled two ways. Since the article presents them as separate traditions, I left them alone. If they are the same person, use one spelling. «یہ بھی مانا جاتا ہے کہ» would also read better as «ایک تیسری روایت کے مطابق».
+- The article switches between «گرو نانک» and a bare «نانک». Prefer «گرو نانک» on first mention in each section.
+- The body repeats the introduction almost word for word: «عین سرحد پر ... پنجاب کا کشمیر سے رابطہ» (§شہر اور گرد و نواح), the Greek «ساگلا» (§تاریخ), and «زیادہ تر مسلمان ... ہندو تاجروں» (§برادریاں). Also, «ایک پُررونق شہر تھا۔ یہ عین سرحد پر واقع ہے» shifts tense within two clauses.
+- «کڑھائی» appears four times in three sentences. Suggest: «...*کارچکن* کڑھائی ہوتی تھی، جو فوطوں، سوزنیوں، دسترخوانوں اور خوان پوشوں پر کی جاتی تھی۔» Likewise «اس شہر کا ریشم ... اور یہ شہر» could become «یہاں کا ریشم ... اور یہ شہر».
+- «مردانہ» appears without introduction, and «پراتن روایت» goes unexplained. Most general readers will not know either, but glossing them would add information, so I left them as they are.
+- Small points of taste: «بازار کے چوک کے عین بیچ میں» would read better as «عین بازار کے چوک میں». «فضل و کمال کی کان» could be «معدن» (avoids the 'ear' reading). «آثارِ قدیمہ کے کھنڈر» is slightly redundant, and «قدیم آثار» would do. «سلطنت کے دور» is clearer as «دورِ سلاطین». «تجدید اور مرمت» is mildly redundant.
+- Punctuation is otherwise clean: Urdu ، ۔ ؛ throughout, no Latin letters, no dashes, Western digits, and balanced asterisks (8).

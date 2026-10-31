@@ -1,0 +1,17 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [logic/connective + repetition] "یہ داستان ایک ایسی کتاب سے لی گئی ہے جس کے بارے میں کہا جاتا ہے کہ اس میں سکندر کے خطوط درج ہیں، اور یہ خطوط سکندر کی وفات کے بعد لکھے گئے تھے۔" -> "اور" joins a claim to the fact that undercuts it as if the two simply followed each other, so the sentence reads as self-contradictory. "سکندر" also appears twice in one clause. -> یہ داستان ایک ایسی کتاب سے لی گئی ہے جس کے بارے میں کہا جاتا ہے کہ اس میں سکندر کے خطوط درج ہیں، حالانکہ یہ خطوط اس کی وفات کے بعد لکھے گئے تھے۔
+
+2. [calque] "داستان کہتی ہے کہ پھر سکندر ان درختوں کو دیکھنے گیا اور انہیں واقعی آپس میں باتیں کرتے پایا۔" -> "داستان کہتی ہے" copies the English "the story says"; idiomatic Urdu prose uses "کے مطابق". -> داستان کے مطابق سکندر پھر ان درختوں کو دیکھنے گیا اور انہیں واقعی آپس میں باتیں کرتے پایا۔
+
+3. [repetition] "اورنگزیب کے عہد میں بِہَت کہلانے والا دریا جہلم شہر کے نیچے سے گزرتا تھا اور وہاں پہنچ کر جہلم کہلانے لگتا تھا۔" -> "کہلانے" appears twice in one sentence ("کہلانے والا" ... "کہلانے لگتا"). -> اورنگزیب کے عہد میں بِہَت نام کا دریا جہلم شہر کے نیچے سے گزرتا تھا اور وہاں پہنچ کر جہلم کہلانے لگتا تھا۔
+
+4. [repetition + pronoun] "ایک شخص نے جہلم کے قریب ایک بودھی درخت کی بات سن رکھی ہے، اور ایک خاندان کی تاریخ میں ذکر ہے کہ انیسویں صدی کے اواخر میں اس کے اجداد میں سے ایک نے "جہلم سے" نقل مکانی کی تھی۔" -> "ایک" occurs five times in this sentence. "اس کے" could refer to either خاندان or تاریخ. "اجداد میں سے ایک" is also stiff, and the same person is called "ایک بزرگ" in the last section. -> ایک شخص نے جہلم کے قریب ایک بودھی درخت کی بات سن رکھی ہے، اور ایک خاندانی تاریخ کے مطابق انیسویں صدی کے اواخر میں اس خاندان کے ایک بزرگ نے "جہلم سے" نقل مکانی کی تھی۔
+
+NOTES:
+- "شہر کے نیچے سے گزرتا تھا" (intro and the last section): this follows "below the town", and a reader could take "نیچے سے" literally as "underneath". It is still in common Pakistani use for a river flowing at the foot of a town (compare "قلعے کے نیچے سے دریا بہتا تھا"), so I have left it alone. If you want it unambiguous, "شہر کے دامن سے گزرتا تھا" keeps the meaning.
+- "ایک اور مقدس درخت کا ذکر بھی ملتا ہے، مگر یہ ذکر محض سنی سنائی بات پر مبنی ہے": "ذکر" appears twice. It is acceptable, but "مگر یہ بات محض سنی سنائی ہے" is lighter.
+- "ہندوستانی راجا پورس" and "ایک بوڑھا ہندوستانی" in the same sentence repeat "ہندوستانی". It is tolerable, and both carry facts, so I have left it.
+- The intro repeats the river and family facts almost word for word from the later sections. That is expected for a summary, so this is a matter of taste.
+- Spelling is consistent: بِہَت has the same diacritics both times, and the only forms are انہیں and راجا. There are no Western digits to check, no Latin letters, no asterisks, no em or en dashes, and the Urdu punctuation is correct.

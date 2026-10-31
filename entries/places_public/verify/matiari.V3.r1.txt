@@ -1,0 +1,13 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [ambiguity / calque] "کولہی اور بھیل برادریوں کی عورتیں شاہ عبداللطیف کے مزار پر جاتی ہیں، اور انہیں سب سے بڑھ کر وہ روزگار کھینچ لاتا ہے جو ہالہ میں میسر ہے۔" -> "کھینچ لاتا ہے" has no destination, so the sentence reads as if the livelihood draws them to the shrine, which is illogical. It looks like a calque of English "drawn above all by". Naming the destination fixes it without adding a fact. -> "کولہی اور بھیل برادریوں کی عورتیں شاہ عبداللطیف کے مزار پر جاتی ہیں، اور انہیں ہالہ کی طرف سب سے بڑھ کر وہ روزگار کھینچ لاتا ہے جو یہاں میسر ہے۔"
+2. [pronoun / stiff phrasing] "یہ قصبہ شاہ عبداللطیف کی جائے ولادت ہے؛ یہ ولی یہیں ایک سید گھرانے میں پیدا ہوئے۔" -> two different "یہ"s in a row (first the town, then the saint) jar the reader, and "یہ ولی" reads like a translated "the saint". A plain pronoun is natural here. -> "یہ قصبہ شاہ عبداللطیف کی جائے ولادت ہے؛ وہ یہیں ایک سید گھرانے میں پیدا ہوئے۔"
+3. [repetition / clumsy postpositions] "شاہ عبداللطیف ہالہ ہی میں ایک سید گھرانے میں پیدا ہوئے۔" -> "ہالہ" comes right after the previous sentence, which begins with "ہالہ", and "میں ... میں" is doubled. -> "شاہ عبداللطیف یہیں ایک سید گھرانے میں پیدا ہوئے۔"
+
+NOTES:
+- "ہندوؤں کی ہنگلاج دیوی سے وابستہ ایک روایت" is understandable but slightly clumsy. "ہنگلاج دیوی سے وابستہ ایک ہندو روایت" reads more naturally, but it moves "Hindu" from the goddess to the tradition, so the change is left to the editor.
+- "ہنگلاج دیوی کی ابتدا کے بارے میں" would read a little better as "ہنگلاج دیوی کی اصل کے بارے میں".
+- The sentence "کولہی اور بھیل برادریوں کی عورتیں شاہ عبداللطیف کے مزار پر جاتی ہیں" appears word for word in both the introduction and "مزار اور کھیت". The birthplace statement is also repeated. That is acceptable for a lead in a short article, though varying the wording once would help.
+- The ASCII colon in "یہ بات طے نہیں: اس کا مقام" is acceptable in Urdu. "؛" would also work.
+- Punctuation otherwise checks out: the semicolons are Urdu "؛". There are no dashes, Latin letters, digits or asterisks. The quotation marks are straight ASCII quotes, which is acceptable.

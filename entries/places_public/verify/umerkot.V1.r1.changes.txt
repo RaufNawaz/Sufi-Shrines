@@ -1,0 +1,11 @@
+WHY: V1 r1 issue 1 (important omission): the place's other names.
+OLD: To a Persian chronicle of Aurangzeb's reign, Umerkot is a fortress on a royal journey,
+NEW: The town's name is also written Umarkot and Omarkot. To a Persian chronicle of Aurangzeb's reign, which calls it Amarkot, Umerkot is a fortress on a royal journey,
+
+WHY: V1 r1 note: 'government' says who issued the gazetteer, which the team version does not say.
+OLD: The gazetteer of 1907, a government handbook, described
+NEW: The gazetteer of 1907, a descriptive handbook of the region, described
+
+WHY: V1 r1 note: a linking line the team version does not have.
+OLD: The fortress has its own royal story. After crossing the desert,
+NEW: The fortress also received an emperor. After crossing the desert,

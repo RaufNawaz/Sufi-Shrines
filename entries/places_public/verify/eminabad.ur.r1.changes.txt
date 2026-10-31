@@ -1,0 +1,105 @@
+Eminabad Urdu, round 1 fixes (V2 r1 PASS with notes, V3 r1 FAIL, 17 issues). Applied by exact single replacement.
+
+[V3-1 applied]
+WHY: tense: main clause present, relative clause past; both past (V3 wording).
+OLD: اس میں یہ عظیم الشان مندروں اور تاجروں کا ایک قدیم شہر ہے، جس کا شمار
+NEW: اس میں یہ عظیم الشان مندروں اور تاجروں کا ایک قدیم شہر تھا، جس کا شمار
+
+[V3-2 applied]
+WHY: wrong connective اگرچہ and vague "اس نام کے بارے میں" (V3 wording).
+OLD: اس کا نام ایمن آباد رکھ دیا، اگرچہ اس نام کے بارے میں بیانات مختلف ہیں۔
+NEW: اس کا نام ایمن آباد رکھ دیا، تاہم یہ نام کیسے پڑا، اس بارے میں بیانات مختلف ہیں۔
+
+[V3-3 applied]
+WHY: stiff "یہی ایمن آباد سید پور کا شہر تھا"; the point is the town was called Saidpur (V3 wording).
+OLD: گرو نانک کے زمانے میں یہی ایمن آباد سید پور کا شہر تھا۔
+NEW: گرو نانک کے زمانے میں ایمن آباد کا نام سید پور تھا۔
+
+[V3-4 reworded]
+WHY: English-style topic sentence and کیسے پڑا right after کیسے ملا. V3 fix merged the sentences but dropped "it is said", a hedge the English states on the renaming; reworded: one opener naming the tradition, "when he had not eaten for days" as a جب clause, and کہا جاتا ہے kept on the renaming.
+OLD: نیا نام کیسے پڑا، یہ ایک روایت میں بیان ہوا ہے۔ سید پور پہنچنے سے کچھ پہلے بابر کئی دن سے بھوکا تھا کہ ایک عورت نے اسے بھنے ہوئے دانے پیش کیے، اور کہا جاتا ہے کہ اسی عورت کے اعزاز میں شہر کا نام بدلا گیا۔
+NEW: نئے نام کے بارے میں ایک روایت یہ ہے کہ سید پور پہنچنے سے کچھ پہلے، جب بابر کئی دن سے بھوکا تھا، ایک عورت نے اسے بھنے ہوئے دانے پیش کیے۔ کہا جاتا ہے کہ اسی عورت کے اعزاز میں شہر کا نام بدلا گیا۔
+
+[V3-5 reworded]
+WHY: two ان with different referents in one clause. V3 fix repeats لکشمی inside the sentence; reworded with "دوسرے نمبر پر" (= after her in popularity, as the English says).
+OLD: لکشمی تھیں اور ان کے بعد گنیش دیوتا۔
+NEW: لکشمی تھیں اور دوسرے نمبر پر گنیش دیوتا۔
+
+[V3 note applied]
+WHY: پہلے twice in one sentence (V3 note wording).
+OLD: ظہورِ اسلام سے بھی بہت پہلے
+NEW: ظہورِ اسلام سے بھی کہیں پہلے
+
+[V3-6 reworded]
+WHY: calques "کے برعکس دکھائی دیے", "یکسانیت بھرے", "ایمن آباد شہر" cured in V3 wording; but V3 changed "اب ... ہے" to "تب ... تھا", while the English states "that now dominates the city of Eminabad" (present). Present tense kept.
+OLD: ایک سیاح کو یہ کلس خوبصورت لگے، اور اس یکسانیت بھرے مسلم طرزِ تعمیر کے برعکس دکھائی دیے جو اب ایمن آباد شہر پر چھایا ہوا ہے۔
+NEW: ایک سیاح کو یہ کلس خوبصورت لگے اور اس یکسانیت زدہ مسلم طرزِ تعمیر سے یکسر مختلف دکھائی دیے جو اب ایمن آباد پر چھایا ہوا ہے۔
+
+[V3-7 applied]
+WHY: "اب بھی ... تھا" calques "still" in a past frame; two stacked concessives; split (V3 wording).
+OLD: ایک مندر 1947 میں ویران ہو جانے کے باوجود اب بھی مضبوط دکھائی دیتا تھا، اگرچہ اس کا رنگ اتر چکا تھا اور اس کی سطح پر ایک ایسی تہ جم چکی تھی جو اسے کھا رہی تھی۔
+NEW: ایک مندر 1947 میں ویران ہو جانے کے باوجود ابھی تک مضبوط دکھائی دیتا تھا۔ البتہ اس کا رنگ اتر چکا تھا اور اس کی سطح پر ایک ایسی تہ جم چکی تھی جو اسے کھائے جا رہی تھی۔
+
+[V3-8 applied]
+WHY: "سب سے اہم" twice and "اور دہلی اور لاہور" (V3 wording).
+OLD: تصور کیا جاتا ہے کہ یہ شہر چناب اور راوی کے درمیان سب سے اہم تجارتی مراکز میں سے ایک تھا، اور دہلی اور لاہور کے بعد تاجروں کی سب سے اہم منزل یہی تھی۔
+NEW: تصور کیا جاتا ہے کہ یہ شہر چناب اور راوی کے درمیان اہم ترین تجارتی مراکز میں سے ایک تھا اور دہلی و لاہور کے بعد تاجروں کی سب سے اہم منزل یہی تھی۔
+
+[V3-9 applied]
+WHY: "وزیروں میں سے تھا" clipped without ایک (V3 wording).
+OLD: اسی تصویر میں سید پور کا حاکم رائے کہلاتا تھا، اور ملک بھاگو اس کے وزیروں میں سے تھا۔
+NEW: اسی تصویر میں سید پور کا حاکم رائے کہلاتا تھا اور ملک بھاگو اس کے وزیروں میں سے ایک تھا۔
+
+[V3-10 + V2 note 5 merged]
+WHY: اسی نے points unclearly after a sentence whose subject is حویلی; "کی ضیافت کی" should be ضیافت دینا (V3). V3 wrote "ملک بھاگو ہی نے", but V2 notes the emphasis is not in the English ("He held") and proposes "ملک بھاگو نے"; one sentence satisfying both.
+OLD: اسی نے تمام برہمنوں اور اونچی ذاتوں کے لوگوں کے لیے شادی کی ضیافت کی۔
+NEW: ملک بھاگو نے تمام برہمنوں اور اونچی ذاتوں کے لوگوں کے لیے شادی کی ضیافت دی۔
+
+[V2 note 5 applied]
+WHY: بھی ("also") is not in the English; ہی already renders the cleft (V2 wording).
+OLD: گرو نانک سے بازپرس بھی ایمن آباد میں
+NEW: گرو نانک سے بازپرس ایمن آباد میں
+
+[V3-11 applied]
+WHY: postposition pile-up "ماضی قریب کے قصبے کے باسی" (V3 wording).
+OLD: ماضی قریب کے قصبے کے باسی کچھ اور تھے۔
+NEW: ماضی قریب میں قصبے کے باسی کچھ اور تھے۔
+
+[V3-12 + V2 note 6 applied]
+WHY: unvoweled "اس پار" reads as "this side"; use the overview's "سرحد پار سے" (both verifiers).
+OLD: سرحد کے اس پار سے آنے والے مہاجرین
+NEW: سرحد پار سے آنے والے مہاجرین
+
+[V3-13 applied]
+WHY: "ایک گرو نانک ..." misreads as "a certain Guru Nanak"; English-order apposition; پہلا partners دوسرا (V3 wording).
+OLD: ایک گرو نانک کے زمانے کا سید پور ہے، ایک قدیم شہر جو مندروں اور تجارت سے مالا مال تھا۔
+NEW: پہلا گرو نانک کے زمانے کا سید پور ہے، جو مندروں اور تجارت سے مالا مال ایک قدیم شہر تھا۔
+
+[V3-14 applied]
+WHY: long-winded relative and mismatched "جوڑنے والی چیز ... کچھ نہیں" with three اس (V3 wording; keeps V2 note 1: same name, nothing else ties them).
+OLD: جن کا نام وہی ہے جو ایمن آباد کا ہے، مگر اس جگہ کو اس قصبے سے جوڑنے والی چیز اس نام کے سوا کچھ نہیں۔
+NEW: جن کا نام بھی ایمن آباد ہے، مگر نام کے سوا کوئی چیز اس جگہ کو اس قصبے سے نہیں جوڑتی۔
+
+[V3-15 reworded]
+WHY: calque "کی حیثیت سے جانتی ہے" and English-order participial phrase cured in V3 wording, except that V3 adds the count "تین", which the English does not state; "ان حیثیتوں سے" instead, and the serial comma before اور dropped.
+OLD: اگر یہ وہی جگہ ہے تو یہ تاریخ اسے کچھ ہی برس پہلے گجرات سے الگ کر کے بنائے گئے ایک پرگنے، شاہی سفر کی ایک منزل اور راستے کا فاصلہ ناپنے کے ایک مقام کی حیثیت سے جانتی ہے۔
+NEW: اگر یہ وہی جگہ ہے تو اس تاریخ میں اس کا ذکر ان حیثیتوں سے آتا ہے: ایک پرگنہ جو کچھ ہی برس پہلے گجرات سے الگ کر کے بنایا گیا تھا، شاہی سفر کی ایک منزل اور راستے کا فاصلہ ناپنے کا ایک مقام۔
+
+[V3-16 reworded]
+WHY: calque "جس سفر کو بیالیسویں برس میں رکھتی ہے" cured in V3 wording ("تاریخ کے مطابق" keeps the dating the chronicle's). V3 cut "وہیں موقع پر" to "وہیں", dropping "on the spot" (immediately), which the English states; "وہیں فوراً" keeps both without the redundancy.
+OLD: تاریخ جس سفر کو بیالیسویں برس میں رکھتی ہے، اس میں اس شخص کو اسی منزل پر بادشاہ کے حضور پیش کیا گیا اور وہیں موقع پر سزا دی گئی۔
+NEW: تاریخ کے مطابق بیالیسویں برس کے سفر میں اس شخص کو اسی منزل پر بادشاہ کے حضور پیش کیا گیا اور وہیں فوراً اسے سزا دی گئی۔
+
+[V3-17 applied]
+WHY: جن sits nearest دیہات but means پرگنوں; nominative "یہی پرگنہ" does not fit the list (V3 wording).
+OLD: ڈیک اس پل تک پہنچنے سے پہلے کئی پرگنوں کے دیہات کے پاس سے گزرتی ہے، جن میں ظفروال، پسرور اور یہی پرگنہ بھی شامل ہیں۔
+NEW: اس پل تک پہنچنے سے پہلے ڈیک ظفروال، پسرور اور اسی پرگنے سمیت کئی پرگنوں کے دیہات کے پاس سے گزرتی ہے۔
+
+NOT APPLIED (taste or already covered):
+- V2 note 1, 2, 3, 4, 7: confirmations, no change asked.
+- V3 note: "ایک نسبتاً نئے شہر" three times and the restated points across sections: structural taste; the English restates the same points across its sections.
+- V3 note: "تصور کیا جاتا ہے کہ" bookish: taste, and it renders the English hedge "is imagined".
+- V3 note: comma in "یا تو رکھ لیے جاتے، یا ...": taste.
+- V3 note: "اہم تجارتی مرکز" in two consecutive sentences of تاریخ: across sentences, taste.
+- V3 note: karoh gloss as its own sentence: taste; the gloss is already kept as a separate clause after ؛ (V2 note 3 approves it).
+- V3 note: abrupt opener "کشمیر میں ایک شخص": V3 leaves it to the writer; the next sentence ties it to the منزل.

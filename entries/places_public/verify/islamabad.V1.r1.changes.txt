@@ -1,0 +1,32 @@
+1. WHY: V1 r1 issue 1 (the mob was heading towards the enclave, not reaching it)
+OLD: Protest has reached the diplomatic enclave.
+NEW: Protest has also turned towards the diplomatic enclave.
+
+2. WHY: V1 r1 issue 2 (time anchor: 'in the past few years' in a book of 2015)
+OLD: and by the 2010s it had spread rapidly across the educated middle class of the city.
+NEW: and by the mid 2010s it had spread rapidly across the educated middle class of the city.
+
+3. WHY: V1 r1 issue 3 (time anchor: 'recently' in a book of 2007)
+OLD: but by the 2000s the practice had been discontinued.
+NEW: but the practice has since been discontinued.
+
+4. WHY: V1 r1 note (precision: the team version gives the reason)
+OLD: Salman Taseer, was shot dead in Islamabad by his own bodyguard
+NEW: Salman Taseer, was shot dead in Islamabad by his own bodyguard for criticising the law
+
+5. WHY: V1 r1 note (precision: source has 'or')
+OLD: of the minority provinces and the marginalised groups of the country
+NEW: of the minority provinces or the marginalised groups of the country
+
+6. WHY: V1 r1 note (precision: the essay is 'in the same publication', not among the congress papers)
+OLD: a selection of articles read at the First International Congress on Seerat, the life of the Prophet, among them an essay on the Prophet by Gerhard Bowering.
+NEW: a selection of articles read at the First International Congress on Seerat, the life of the Prophet. The volume also carries an essay on the Prophet by Gerhard Bowering.
+
+7. WHY: V1 r1 note (precision: the dating is a stated one)
+OLD: Dharmarajika dates from the third century BCE
+NEW: Dharmarajika is dated to the third century BCE
+
+8. WHY: V1 r1 note (precision: one performer, as in the Overview)
+OLD: have sent its performers abroad.
+NEW: have sent a performer abroad.
+

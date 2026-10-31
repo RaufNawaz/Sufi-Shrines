@@ -1,0 +1,3 @@
+WHY: tense clash with the neighbouring sentence and with the Overview (V1 r2 issue 1)
+OLD: Sialkot has become one of the most important cities in Pakistan, and its business community financed its own airport, which now handles international flights, and the highway as well.
+NEW: Sialkot had become one of the most important cities in Pakistan, and its business community had financed its own airport, which handled international flights, and the highway as well.

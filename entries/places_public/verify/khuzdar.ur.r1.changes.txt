@@ -1,0 +1,13 @@
+# khuzdar Urdu, round 1 changes, applied by the coordinator as exact replacements (each OLD asserted once)
+
+WHY: V3 issue 1: no comma between subject and predicate. V3's wording.
+OLD: خضدار میں واقع لاہوت، شاہ عبداللطیف کی سیاحت کے پڑاؤوں میں سے ایک تھا۔
+NEW: خضدار میں واقع لاہوت شاہ عبداللطیف کی سیاحت کے پڑاؤوں میں سے ایک تھا۔
+
+WHY: V3 issue 2: the abrupt four word sentence joined to the next. Same two facts. V3's wording.
+OLD: لاہوت خضدار میں ہے۔ شاہ عبداللطیف اپنی سیاحت کے دوران جن مقامات پر ٹھہرے، ان میں یہ جگہ بھی شامل تھی۔
+NEW: لاہوت خضدار میں ہے، اور شاہ عبداللطیف اپنی سیاحت کے دوران جن مقامات پر ٹھہرے، ان میں یہ جگہ بھی شامل تھی۔
+
+WHY: V3 issue 3: the stiff عنوانات کا حصہ ہے replaced. The added بھی follows the paragraph before (the stop), as the English Overview's "also" does; no fact added. V3's wording.
+OLD: اس مقام کا نام دو تصانیف کے عنوانات کا حصہ ہے۔ ان میں سے ایک ابڑو کی *ہنگلاج اے لاہوت* ہے اور دوسری نظامانی کی *لاہوت لامکان*۔
+NEW: یہی نام دو تصانیف کے عنوانات میں بھی شامل ہے: ایک ابڑو کی *ہنگلاج اے لاہوت* اور دوسری نظامانی کی *لاہوت لامکان*۔

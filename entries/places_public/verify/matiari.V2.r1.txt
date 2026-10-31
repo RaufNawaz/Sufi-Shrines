@@ -1,0 +1,9 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Overview, sentence 1: in English, "a country of large feudal farms" describes the agricultural belt. The Urdu "اور یہ بڑی بڑی جاگیروں کا علاقہ ہے" can read as though یہ means the town. The meaning hardly changes, since the town lies in the middle of the belt. If a tighter reference is wanted: OLD "ہالہ ایک زرخیز زرعی پٹی کے بیچوں بیچ واقع قصبہ ہے، اور یہ بڑی بڑی جاگیروں کا علاقہ ہے۔" -> NEW "ہالہ ایک ایسی زرخیز زرعی پٹی کے بیچوں بیچ واقع قصبہ ہے جو بڑی بڑی جاگیروں کا علاقہ ہے۔"
+2. "legend" is rendered روایت throughout, and the heading is روایت اور تاریخ. In context it stays a legend: the claim stays attributed to the Hinglaj account, and the article says both the old name and the Goddess's reign "belong to that legend" (اسی روایت کا حصہ ہیں). No change in certainty.
+3. Deliberate changes, not counted as omissions: the gloss of Sayyid ("a family descended from the Prophet Muhammad") is dropped. "the large feudal farms, the estates of great landowners" becomes one phrase, "بڑے بڑے زمینداروں کی وسیع جاگیروں", and جاگیر already carries the feudal sense. The Bibliography is left out, as the brief requires.
+4. Checked and they match: the quote from the Hinglaj account (Hala in Sindh / Kohala / former times), Kohala or Kohana, queen, "not settled" (طے نہیں), the shrine placed both in Hala and at Bhit Shah, "can make a living" (کما سکتی ہیں), "above all" (سب سے بڑھ کر), Sayyid birth in Hala, Kolhi and Bhil women, and the three headings in the same order. There is no verse. The file has no Latin letters and no em or en dashes. The spellings ہالہ, بھٹ شاہ and ہنگلاج match urdu-i18n/urdu-dictionary.json.

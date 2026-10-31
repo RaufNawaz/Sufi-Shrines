@@ -1,0 +1,9 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: style only.
+1. Headings correspond (Overview = تعارف; Tando Saindad and Mohsin Shah = ٹنڈو سائیں داد اور محسن شاہ). There is no Bibliography section, which is correct by design. The file has no verse.
+2. Every fact is present with the same meaning: the place lies near Tando Muhammad Khan; Mohsin Shah was its gaddi nashin; the gloss of gaddi nashin (the successor who heads a Sufi lineage at its centre); he was a Sufi on the mystical path of Islam; he was affiliated to the Qalandariyya, an order of wandering dervishes. Nothing is added. The English hedges nothing, and the Urdu adds no hedges and no certainty.
+3. Removing the italics on گدی نشین and قلندریہ follows the brief. The glosses of gaddi nashin and Qalandariyya are kept, which is allowed.
+4. Paragraph 2, "ٹنڈو محمد خان کے نزدیک ہی": the ہی ("right near") is a little stronger than English "near". It is harmless, but plain "کے نزدیک" (or "کے قریب", as in paragraph 1) would match exactly.
+5. "آوارہ گرد درویش" for "wandering dervishes": آوارہ گرد can sound like "vagabond, loafer" in everyday Urdu. سیلانی درویش or جہاں گرد درویش would avoid that faint pejorative tone. This appears in paragraphs 1 and 3.
+6. Saindad (سائیں داد) is not in urdu-i18n/urdu-dictionary.json. The spelling is reasonable, but nothing in the dictionary confirms it. Tando Muhammad Khan (ٹنڈو محمد خان) matches the dictionary.

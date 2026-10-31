@@ -1,0 +1,45 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+Checked sentence by sentence against entries/places/sialkot.md (team notes entries/places/sialkot.notes.md consulted only for which readings are flagged). No em or en dash anywhere in the file; no hyphenated coinage (the only hyphens are al-Din, al-Abidin, al-Hakim, Tahqiqat-e, al-Tawarikh, as the team version spells them; "twenty first century" and "nineteenth century work" are unhyphenated). Bibliography is the team's seven items, verbatim, in order. `check_place_description.py public sialkot --english-only` reports 0.50, ok. The founders (basis d, three legends in turn, Salbahan and Salivahan not merged, Raja Shal and Raja Salwan dropped as uncertain), Shihab al-Din (two tellings kept apart, 1192 given as one account), Babur (one clause that accounts differ), and Man Singh (minor, variant dropped) all follow rule 4. Every uncertain reading the team flags is out. Time anchors ("In Aurangzeb's time", "in the nineteenth century", "By the early twenty first century") match the bibliography's firmness. Glosses are definitional; *faqir* as "wandering Sufi" is data/glossary.csv's own sense.
+
+Optional notes that correct meaning or precision (exact OLD -> NEW, for the post pass round):
+
+1. [embellishment] "It was long famous for its paper, its silk embroidery and its blades." -> "long" puts a duration on the claim, and the team says only that the blades were "well made", not famous. Fix:
+OLD: It was long famous for its paper, its silk embroidery and its blades.
+NEW: It was known for its paper, its silk embroidery and its blades.
+
+2. [time anchor] "today Sialkot has become one of the most important cities in Pakistan" -> the observation is the 2016 travelogue's; the body anchors it as "By the early twenty first century". Fix:
+OLD: and today Sialkot has become one of the most important cities in Pakistan
+NEW: and by the early twenty first century Sialkot had become one of the most important cities in Pakistan
+
+3. [tense] "Sialkot is a bustling city in the foothills of the Himalayas." -> the team quotes "a bustling city that was situated in the foothills", from the short history set around Guru Nanak's visits; the present tense moves it to now. Fix:
+OLD: Sialkot is a bustling city in the foothills of the Himalayas.
+NEW: Sialkot was a bustling city in the foothills of the Himalayas.
+
+4. [narrator's voice] "He was the most excellent of the excellent and the most perfect of scholars, famous in his day for the excellence of his dervish life" -> the chronicle's praise is put in the narrator's own voice; the paragraph before already uses "It was praised as" for the same kind of language. Fix:
+OLD: He was the most excellent of the excellent and the most perfect of scholars, famous in his day for the excellence of his dervish life, and he left Kashmir in the reign of Husain Khan to give himself to teaching at Sialkot.
+NEW: He was praised as the most excellent of the excellent and the most perfect of scholars, famous in his day for the excellence of his dervish life, and he left Kashmir in the reign of Husain Khan to give himself to teaching at Sialkot.
+
+5. [tense] "On the way into the city stand several factories and many mounds" -> a traveller's observation of 2016 given as a standing present; the sentences before it are already anchored. Fix:
+OLD: On the way into the city stand several factories and many mounds, probably archaeological ruins, that have been turned into graveyards.
+NEW: On the way into the city stood several factories and many mounds, probably archaeological ruins, that had been turned into graveyards.
+
+Points recorded, no change required:
+
+6. The year 580 (Shihab al-Din's coming after failing at Lahore). The team version marks only the editor's notes as partly illegible, not the year itself, so dropping it is conservative rather than required by rule 5. The public "Accounts differ on when the town passed to him" covers it honestly, and adding a Hijri year beside 1192 would put variants side by side, so leaving it out is acceptable. Not an important omission.
+
+7. The firing on the Line of Control reported days after Khalid's visit. In the team version only the shells phrase is flagged uncertain, not the report of firing; the monsoon floods sentence carries no flag in the team text, though the team notes say the [OCR?] falls on it. Both were left out. They add border colour, not an important fact about the place; the border itself is kept twice. Not an important omission.
+
+8. "Accounts of the town under Babur differ, however: by another, ..." The team says neither passage says whether it speaks of the same campaign. "Accounts differ" is the team's own framing (it lists this under Where the Sources Disagree) and the public does not say they are one campaign, so it stands.
+
+9. Shah Daulah and Shah Daula in adjacent sentences keep the team's two spellings without equating them (team question 4). A reader will likely take the second as a typo or a second man; the Urdu writer should note that both will probably be spelled the same in Urdu, which would equate them. Leave for Rauf's answer to question 4.
+
+10. "The story sets his curse in the centre of the market square." The curse is not otherwise described, so "his curse" is thin, but the team gives no more; the citizenry sentence was rightly dropped because its "him" is unidentified.
+
+11. The City and Its Country opens by repeating the Overview's border and Kashmir sentence almost word for word. Taste only.
+
+12. "Sialkot in Books" narrates the books by kind, without surnames. It is the place brief's "The Place in the Books" section in the house form already passed for Peshawar and Uch Sharif, so it is not treated as source talk here.

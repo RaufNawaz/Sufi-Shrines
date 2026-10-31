@@ -1,0 +1,114 @@
+Changes to entries/places_public/nankana-sahib.ur.md after V2 r1 and V3 r1 (backup of the r1 text: /home/claude/work/nankana/ur.r1.bak).
+
+1. WHY: V3 issue 1 (calque: time phrase qualifying the town), verifier's wording.
+OLD: اکیسویں صدی کے اوائل کے اس قصبے میں مسلمانوں کی اکثریت ہے۔
+NEW: اکیسویں صدی کے اوائل میں اس قصبے کی آبادی میں مسلمانوں کی اکثریت ہے۔
+
+2. WHY: V3 issue 2 (postposition: کے دن پر), verifier's wording.
+OLD: ان کی پیدائش کے دن پر بیانات مختلف ہیں
+NEW: ان کی تاریخِ پیدائش کے بارے میں بیانات مختلف ہیں
+
+3. WHY: V3 issue 3 (word order, stacked izafat), verifier's wording.
+OLD: بے بے نانکی اور جے رام سلطان پور سے تلونڈی ملنے آئے، اور تلونڈی کے مردانہ نانک کے سب سے گہرے دوست تھے۔
+NEW: بے بے نانکی اور جے رام سلطان پور سے ملنے تلونڈی آئے، اور تلونڈی ہی کے رہنے والے مردانہ نانک کے سب سے گہرے دوست تھے۔
+
+4. WHY: V3 issue 4 (ambiguous pronoun: انہوں نے could point to the friends and family), verifier's wording.
+OLD: تلونڈی میں لڑکپن ہی کے دنوں میں انہوں نے کٹاس راج جانے کا ارادہ باندھا۔
+NEW: تلونڈی میں لڑکپن ہی کے دنوں میں نانک نے کٹاس راج جانے کا ارادہ باندھا۔
+
+5. WHY: V3 issue 5 (repetition of the story's ending, clumsy جنگل میں اور تلونڈی میں), verifier's wording.
+OLD: تلونڈی میں نانک کو بیچنے کے لیے سامان دیا گیا، اور کہانی کا اختتام جنگل میں اور تلونڈی میں ہوتا ہے۔
+NEW: تلونڈی میں نانک کو بیچنے کے لیے سامان دیا گیا، اور کہانی کا آخری حصہ جنگل اور تلونڈی میں پیش آتا ہے۔
+
+6. WHY: V3 issue 6 (tense: narrated version kept in the narrative present of its frame), verifier's wording.
+OLD: اس میں نانک کے والد فکرمند ہو گئے، ننکانہ صاحب جانے کے لیے خچروں پر سامان لادا گیا، اور وہاں پہنچ کر والد نے پوچھا کہ بیٹے نے کیا سودا کیا ہے۔
+NEW: اس میں نانک کے والد فکرمند ہو جاتے ہیں، ننکانہ صاحب جانے کے لیے خچروں پر سامان لادا جاتا ہے، اور وہاں پہنچ کر والد پوچھتے ہیں کہ بیٹے نے کیا سودا کیا ہے۔
+
+7. WHY: V3 issue 7 (postposition: لوٹنا takes کو, not پر), verifier's wording.
+OLD: نانک کے سفر تلونڈی ہی سے شروع ہوتے ہیں اور تلونڈی ہی پر لوٹتے ہیں۔
+NEW: نانک کے سفر تلونڈی ہی سے شروع ہوتے ہیں اور تلونڈی ہی کو لوٹتے ہیں۔
+
+8. WHY: V2 note (a) (precision: کی طرف reads 'towards'; the English says 'passed from Sultanpur to Talwandi'), verifier's wording.
+OLD: سلطان پور سے تلونڈی کی طرف گئی۔
+NEW: سلطان پور سے تلونڈی تک گئی۔
+
+9. WHY: V3 issue 8 (ambiguous possessive ان کے), ADAPTED: V3 drops the possessive, but the English says 'Sulakhni and her two children', so the relationship is kept with اپنے ... سمیت, which can only point to Sulakhni.
+OLD: اور سلکھنی اور ان کے دونوں بچوں نے مہتا کالو کے ساتھ مل کر نانک کو الوداع کہا۔
+NEW: اور سلکھنی نے اپنے دونوں بچوں سمیت مہتا کالو کے ساتھ مل کر نانک کو الوداع کہا۔
+
+10. WHY: V3 issue 9 (calque: یاد کرتے ہیں for 'recalls'), verifier's wording.
+OLD: کرتار نام کے ایک مقامی سکھ یاد کرتے ہیں:
+NEW: کرتار نام کے ایک مقامی سکھ بتاتے ہیں:
+
+11. WHY: V3 issue 10 (vague antecedent: انہی تجربات has no plural antecedent), verifier's wording.
+OLD: اور ان کے رویے انہی تجربات نے ڈھالے۔
+NEW: اور ان کے رویے اسی تجربے نے ڈھالے۔
+
+12. WHY: V3 issue 11 (agreement: plural برس ... تھے equated with ادوار میں سے ایک), verifier's wording.
+OLD: خالصتان تحریک کے برس "شہر کی تاریخ کے سب سے ہنگامہ خیز ادوار میں سے ایک" تھے۔
+NEW: خالصتان تحریک کا زمانہ "شہر کی تاریخ کے سب سے ہنگامہ خیز ادوار میں سے ایک" تھا۔
+
+13. WHY: V3 issue 12 (wrong word: شمارہ is an issue of a periodical), ADAPTED: V3's مختلف بیانات میں says 'by different accounts'; the English says 'by different counts', so گنتیوں is used, and the now redundant بتائی جاتی dropped.
+OLD: جن کی تعداد مختلف شماروں میں چھ یا سات بتائی جاتی ہے۔
+NEW: جن کی تعداد مختلف گنتیوں کے مطابق چھ یا سات ہے۔
+
+14. WHY: V3 issue 13 (repetition of the guards clause, word order of یہ), ADAPTED: the English states the guards in both places ('security guards stand at the entrance to every one' in Holy Places, and again in Gurdwaras, Custodians and the State), so the fact is kept here; the subject یہ is moved first as V3 asks, and the guards clause becomes its own sentence in different wording so it no longer repeats the later sentence word for word.
+OLD: سال کا بڑا حصہ یہ مقفل رہتے ہیں اور صرف کسی میلے کے موقع پر کھولے جاتے ہیں، اور ہر گوردوارے کے دروازے پر سیکیورٹی گارڈ کھڑے رہتے ہیں۔
+NEW: یہ سال کا بڑا حصہ مقفل رہتے ہیں اور صرف کسی میلے کے موقع پر کھولے جاتے ہیں۔ ہر ایک کے دروازے پر سیکیورٹی گارڈ کھڑے رہتے ہیں۔
+
+15. WHY: V3 issue 14 (redundancy: ٹھیکری already means a shard of a broken pot), verifier's wording.
+OLD: ٹوٹے ہوئے برتنوں کی ٹھیکریاں اور مٹی کے دوسرے برتنوں کے ٹکڑے بکھرے پڑے ہیں۔
+NEW: ٹھیکریاں اور مٹی کے برتنوں کے دوسرے ٹکڑے بکھرے پڑے ہیں۔
+
+16. WHY: V3 issue 15 (گرو نانک twice in one clause; inconsistent naming of گرو نانک استھان), verifier's wording.
+OLD: ننکانہ صاحب میں گرو نانک کے استھان پر گرو نانک کی تصویر کے پہلو میں بابا فرید کی تصویر بھی آویزاں ہے۔
+NEW: ننکانہ صاحب کے گرو نانک استھان پر گرو کی تصویر کے پہلو میں بابا فرید کی تصویر بھی آویزاں ہے۔
+
+17. WHY: V2 issue 1 (changed certainty: کے نتیجے میں makes the alienation the cause of the migration; the English ties them by time only, 'came after') and V3 issue 16 (tangled sentence: cause stated twice, اس reaching back across a colon), MERGED into one sentence: V3's structure (the growth named as اضافہ and attributed to the families' arrival, as the English 'grew ... as families came' does) with V2's wording for the link to the alienation (کی فضا میں, no causal claim). V3's کے باعث is not used, since it would restore the causal claim V2 removed.
+OLD: اس کا سبب یہ تھا کہ 1965 اور 1971 کی جنگوں اور 1992 میں بابری مسجد کے انہدام کے بعد پیدا ہونے والی بیگانگی کے نتیجے میں خاندان یہاں آتے رہے۔
+NEW: یہ اضافہ ان خاندانوں کی آمد سے ہوا جو 1965 اور 1971 کی جنگوں اور 1992 میں بابری مسجد کے انہدام کے بعد پیدا ہونے والی بیگانگی کی فضا میں یہاں آتے رہے۔
+
+18. WHY: V3 issue 17 (tense: اب تک with a past perfect means 'until now'), verifier's wording.
+OLD: جو اب تک مسلم اکثریت کے دباؤ تلے رہتے آئے تھے۔
+NEW: جو اس وقت تک مسلم اکثریت کے دباؤ تلے رہتے آئے تھے۔
+
+19. WHY: V3 issue 18 (collocation: دوسرے بورڈوں implies the dustbins are boards), verifier's wording.
+OLD: شہر کے گوردواروں میں پیلے کوڑے دانوں اور دوسرے بورڈوں پر کار سیوا کا نام لکھا نظر آتا ہے۔
+NEW: شہر کے گوردواروں میں پیلے کوڑے دانوں پر بھی اور بورڈوں پر بھی کار سیوا کا نام لکھا نظر آتا ہے۔
+
+20. WHY: V3 note c (ambiguity: the old sentence could be read as 'a hotel and holy city status' plus a visa waiver). Following the English exactly ('visa free status as a holy city'; the team version: visa free 'holy city' status): two demands, a hotel and visa free status as a holy city, with no separate demand for holy city status.
+OLD: بیرونِ ملک مقیم سکھوں نے ننکانہ صاحب کے لیے ایک بین الاقوامی ہوٹل اور مقدس شہر کی حیثیت سے ویزا کی چھوٹ کا مطالبہ کیا ہے، مگر اب تک اس پر کوئی پیش رفت نہیں ہوئی۔
+NEW: بیرونِ ملک مقیم سکھوں نے ننکانہ صاحب کے لیے ایک بین الاقوامی ہوٹل کا مطالبہ کیا ہے، اور یہ بھی کہ مقدس شہر کی حیثیت سے اسے ویزا سے مستثنیٰ قرار دیا جائے، مگر اب تک ان مطالبات پر کوئی پیش رفت نہیں ہوئی۔
+
+21. WHY: V3 issue 19 (inconsistent naming: bare گرنتھ where the article elsewhere has گرنتھ صاحب), verifier's wording.
+OLD: ایک پنڈال میں گرنتھ کا پاٹھ دعا پر ختم ہوا
+NEW: ایک پنڈال میں گرنتھ صاحب کا پاٹھ دعا پر ختم ہوا
+
+22. WHY: V3 issue 20 (connective: جبکہ set the richer pilgrims' arrival against the others' departure), verifier's wording.
+OLD: اس کے بعد یاتری دوسرے شہروں کو روانہ ہو جاتے ہیں، جبکہ برطانیہ، امریکہ اور کینیڈا کے زیادہ متمول یاتری چارٹرڈ طیاروں سے آتے ہیں اور بسیں کرائے پر لیتے ہیں۔
+NEW: اس کے بعد یاتری دوسرے شہروں کو روانہ ہو جاتے ہیں۔ برطانیہ، امریکہ اور کینیڈا کے زیادہ متمول یاتری البتہ چارٹرڈ طیاروں سے آتے ہیں اور بسیں کرائے پر لیتے ہیں۔
+23. WHY: Reread of V3 issue 13: in the new sentence the bare یہ could be read back to the pilgrims (یاتری, the last subject), and ہر ایک depends on it; the subject is named so both point to the gurdwaras.
+OLD: اور یاتری ان سب کی زیارت کرتے ہیں۔ یہ سال کا بڑا حصہ مقفل رہتے ہیں
+NEW: اور یاتری ان سب کی زیارت کرتے ہیں۔ یہ گوردوارے سال کا بڑا حصہ مقفل رہتے ہیں
+
+24. WHY: Reread of V3 issue 14: after the fix the sentence ran اگی ہیں اور ٹھیکریاں اور ...; a comma separates the two clauses so the second اور is read as joining the two nouns.
+OLD: جھاڑیاں اگی ہیں اور ٹھیکریاں اور مٹی
+NEW: جھاڑیاں اگی ہیں، اور ٹھیکریاں اور مٹی
+
+ADAPTED (recorded above with the change): V3 issue 8 (possessive kept as اپنے ... سمیت, since the English says "her two children"); V3 issue 12 (گنتیوں for "counts", not بیانات); V3 issue 13 (guards kept here, since the English states them in Holy Places as well as in the State section; split and reworded instead of removed); V3 issue 16 merged with V2 issue 1 (no causal کے باعث or کے نتیجے میں).
+
+NOT APPLIED, with reasons:
+
+V2 note (b), دادا for "grandfather". Kept. Urdu has no neutral word for grandfather (دادا is paternal, نانا maternal; جدِ امجد reads as "forefather"), and unstating the relationship would drop a fact the English states. دادا is the reading the material supports: the Persian of Bhandari prints خانه جد ابادری, most plausibly جدِ پدری (paternal grandfather), though the print is uncertain; and the English places Nanak's father's Bedi family (Shiv Ram, succeeded by his son Kalyan Chand Das Bedi) in Talwandi. V2 itself found دادا acceptable.
+
+V2 notes (c), (d), (e): verifier marked them acceptable; no change.
+
+V3 note a (اودم and اودھم سنگھ). No change: the English has two spellings, "Surjeet and Udam" and "Udham Singh, originally from Nankana", so the Urdu keeps two names as the English does. (The dictionary's Udham Singh is the samadh of Raja Udham Singh, another person.)
+
+V3 note b (کے کے کھنہ). No change: the repository's Urdu writes initials as plain spaced letters (ایم اے، ایس ایم); punctuating them or moving the name into a comma clause would break that style or cut the name off from its postposition. Not a meaning error; V2 found the name correct.
+
+V3 note d (مرکزی دھارے میں). Not applied: the English says "syncretism in the mainstream", and V3's alternatives (عام مذہبی زندگی، عوامی سطح) narrow or change that; taste, not meaning.
+
+V3 note e (repeated points; تقسیم کے بعد against تقسیم کے وقت). Not applied: the English itself repeats these points, and it says "after Partition" in History and "at Partition" in Communities, so the two time phrases rightly differ.
+
+V3 notes f, g, h, i (بلکہ شاید، مسلسل اور بلا تعطل، سربراہی، اسی گاؤں میں): pure taste, skipped as the brief directs. Note j: confirmation only.

@@ -1,0 +1,14 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [calque / repetition] "کوئٹہ پاکستان میں ہندو آبادی کے مقامات میں سے ایک ہے، اور ہندو یہاں کی برادریوں میں شامل ہیں۔" -> "ہندو آبادی کے مقامات" is a word-for-word rendering of "places of Hindu population" and does not read as natural Urdu. The second clause also says the first clause over again in nearly the same words ("ہندو ... شامل ہیں"). -> NEW: "کوئٹہ پاکستان کے ان مقامات میں سے ایک ہے جہاں ہندو آبادی موجود ہے، اور ہندو یہاں کی برادریوں کا حصہ ہیں۔"
+
+2. [register / inconsistency] "کوئٹہ میں ہزارہ شیعوں پر ہونے والے ایک حملے میں 84 افراد ہلاک ہوئے۔" -> In educated Pakistani Urdu, "ہلاک" is the usual word for attackers, criminals or a neutral body count. For the innocent victims of a sectarian attack, the expected and respectful word is "جاں بحق". The introduction already says "جان سے گئے", so the article also changes register between the two passages. -> NEW: "کوئٹہ میں ہزارہ شیعوں پر ہونے والے ایک حملے میں 84 افراد جاں بحق ہوئے۔"
+
+NOTES:
+- The "برادریاں" section repeats the introduction almost sentence for sentence (Hindus in Quetta, the attacks after the Babri Masjid demolition alongside Sindh, and the 84 deaths among the Hazara Shias followed by nationwide protests). This seems to be how the site's articles are built, so it is not an error, but a reader will notice it in so short a piece.
+- "سندھ اور کوئٹہ دونوں جگہ" is correct, idiomatic Urdu. "دونوں جگہوں پر" would be a little more formal. This is a matter of taste.
+- The quoted phrase "مجرموں یعنی سنی انتہا پسند تنظیم لشکرِ جھنگوی کے خلاف کارروائی کے مطالبات" reads a little heavily because the "یعنی" gloss sits between "مجرموں" and "کے خلاف". The wording is a quotation, so it should be left alone. If it ever has to be reworded, write "مجرموں کے خلاف، یعنی سنی انتہا پسند تنظیم لشکرِ جھنگوی کے خلاف، کارروائی کے مطالبات" and do not set the name between commas on its own.
+- The quotation uses straight ASCII double quotes. Typographic quotes (“ ”) would look better in Nastaliq. This is a matter of taste.
+- In the introduction, "جان سے گئے" is idiomatic and correct. If issue 2 is adopted, "جاں بحق ہوئے" could be used there as well so the two passages match. This is a matter of taste.
+- The punctuation (، ۔), the Western digits (84), the izafat (لشکرِ جھنگوی) and the agreement throughout are all correct. There are no Latin letters, asterisks or dashes.

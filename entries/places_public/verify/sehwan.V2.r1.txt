@@ -1,0 +1,10 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. History, para 3: English "Muhammad Salih, the faujdar, or military commander, and keeper of the fort" | Urdu "قلعے کے فوجدار اور قلعہ دار محمد صالح". The English can be read with "of the fort" governing both titles, so this is a valid reading, not a changed fact. If a looser rendering is preferred, "فوجدار اور قلعہ دار محمد صالح" keeps the English ambiguity exactly. Style only.
+2. The Town and Its Country, para 1: "سیوستان کی اپنی *سرکار*" uses the "X کا اپنا" calque the brief warns against ("X's own" is خود X کا); "خود سیوستان کی *سرکار*" would read more naturally. The relative clause "ان چار سرکاروں میں سے ایک تھی جو ضلعوں کی حیثیت رکھتی تھیں" carries the English gloss "or district" acceptably. Style only.
+3. The Town and Its Country, para 2: English "Fishermen lived there" | Urdu "اس کے کنارے ماہی گیر آباد تھے" (on its banks). This is a reasonable reading of "there" for a lake and adds no new fact. Style only.
+4. Sehwan in Books, para 1: English "where a khanqah held villages" | Urdu "جہاں ایک خانقاہ کی ملکیت میں کئی گاؤں تھے". The "کئی" (several) matches the History and Holy Places paragraphs ("several villages attached"), so it adds no fact to the article. "Very different distances" is rendered as "کہیں دور سے ... اور کہیں بہت قریب سے", which is an idiomatic equivalent. Style only.
+5. Glosses dropped for familiar words (درگاہ، عرس، خان خاناں، شیخ الاسلام، صوفی، خانقاہ، فوجدار، کوس، ملنگ، شوال، پنچایت, and the gloss "Amil" kept in Urdu as a community explanation) and the removed italics are deliberate per the brief, not omissions. All seven headings match the English sections in order. There is no bibliography, as the brief requires. Hedges are all kept: کہا جاتا ہے، روایت کے مطابق، غالباً، مانا جاتا ہے، ہو سکتا ہے، تقریباً / لگ بھگ / کوئی پندرہ برس. Figures 1932, 1947 and 2010 match the English. The file has no Latin letters and no en or em dashes, and its asterisks are balanced.

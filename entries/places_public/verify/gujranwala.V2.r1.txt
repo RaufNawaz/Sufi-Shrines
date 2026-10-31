@@ -1,0 +1,14 @@
+VERDICT: PASS
+
+ISSUES: none
+
+Paragraph by paragraph check (for the record):
+- تعارف / Overview: city of the Punjab; 75 km from the provincial capital (capital unnamed in both); counted with Faisalabad and Sahiwal as the heart of the Punjab; history tied to Ranjit Singh, who started from a small fief around the city; replaced Eminabad as an important trading centre; one of the cities whose Sikh communities have newly (حال ہی میں) become assertive. All present, same meaning, nothing added.
+- تاریخ / History: history bound up with Ranjit Singh; small fief around Gujranwala; 75 km from the provincial capital. The gloss of "fief" is dropped; جاگیر is a familiar Urdu word, so this is a deliberate dropped gloss, not an omission. Ranjit Singh "also" (بھی) allotted land (زمینیں عطا کی تھیں) around the cities of Gujranwala and Lahore to Baba Sahib Singh Bedi; the gloss of "Baba" is dropped deliberately (بابا is a familiar honorific). Referents correct.
+- تجارت اور برادری / Trade and Community: Eminabad sentence correct; Sikh sentence correct, with the gloss of "Sikhs" dropped deliberately (سکھ is familiar to an Urdu reader); Faisalabad and Sahiwal sentence correct (کی طرح ... بھی for "together with" keeps the same claim: all three are counted as the heart of the Punjab).
+- Headings correspond (Overview, History, Trade and Community); English bibliography correctly not carried. No verse. No Latin letters, no dashes, numbers match (75 only).
+
+NOTES:
+1. Style, consistency of "newly become assertive". The overview renders it کھل کر اپنا وجود منوانے لگی ہیں; paragraph 15 renders it پورے اعتماد کے ساتھ اپنا وجود منوانے لگی ہیں, which leans slightly toward "with full confidence", a shade beyond "assertive". Optional, to match the overview:
+   OLD: گوجرانوالہ ان شہروں میں سے ایک ہے جہاں کی سکھ برادریاں حال ہی میں پورے اعتماد کے ساتھ اپنا وجود منوانے لگی ہیں۔
+   NEW: گوجرانوالہ ان شہروں میں سے ایک ہے جہاں کی سکھ برادریاں حال ہی میں کھل کر اپنا وجود منوانے لگی ہیں۔

@@ -1,0 +1,8 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Heading: "Overview" corresponds to "تعارف". The Bibliography section is correctly left out of the Urdu (the site shows the English bibliography), per the brief.
+2. Paragraph 1 checked element by element against the English: the work's title (journal / روزنامچہ; Captain C.M. Wade / کپتان سی۔ ایم۔ ویڈ; voyage / سفر; from Lodiana / لدھیانہ سے; to Mithankot / مٹھن کوٹ تک; by the River Satlaj / دریائے ستلج کے راستے; on his mission to Lahore and Bahawalpur / لاہور اور بہاولپور کے مشن کے سلسلے میں) is complete, with nothing added. "The title ends with the years 1832 to 1833" is "اس عنوان کے آخر میں 1832 سے 1833 تک کے برس درج ہیں", with both figures and the same meaning. The Urdu claims no more than the English: it says only that Mithankot's name appears in the title of a work.
+3. Style only: the English puts the title in quotation marks, and the Urdu sets its Urdu rendering in italics. That is an acceptable Urdu convention for the title of a work, and the asterisks are balanced.

@@ -1,0 +1,11 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+NOTES:
+- I diffed /home/claude/work/khuzdar/ur.r2.bak against the current khuzdar.ur.md with python difflib. Exactly one line changed, line 9 (the last paragraph). The old line matches the OLD in khuzdar.ur.r2.changes.txt character for character, and it appears exactly once in the backup. The new line matches the NEW character for character. Both files have 9 lines. Headings, blank lines, the Overview (line 3) and line 7 are unchanged.
+- The change (شامل ہے -> ملتا ہے) passes V2. "The name of the place is carried in the titles of two works" is rendered as یہی نام ... عنوانات میں ... ملتا ہے. This keeps the same certainty and the same facts, and adds nothing. Titles and authors are still paired correctly: ابڑو with ہنگلاج اے لاہوت, نظامانی with لاہوت لامکان. یہی نام still points to لاہوت, which the heading and the paragraph before both name. The بھی was confirmed in round 2 as a connective, not a claim.
+- The change passes V3. ملتا ہے agrees with نام (masculine singular). "کے عنوانات میں ملتا ہے" is idiomatic educated Urdu for a name that occurs in a title. The echo of شامل is gone: the paragraph before ends on شامل تھی, and the Overview uses آتا ہے, so all three verbs now differ. No new fault was introduced. There is no doubled word, ایک / دوسری still agree with تصنیف (feminine), and the colon construction is unchanged.
+- The coordinator used the round 2 verifier's suggested wording verbatim and declined nothing, so there was no departure to check.
+- A taste note that does not fail the round: بھی appears in both adjacent sentences (یہ جگہ بھی شامل تھی / میں بھی ملتا ہے). Now that the verbs differ, this reads as a natural "also" and not an echo. Dropping the second بھی would be possible, but it would lose the English Overview's "also", so I suggest no change.
+- File checks: no Latin letters, no en or em dashes, 8 asterisks (balanced), a blank line before every heading.
+- The structural note from earlier rounds still applies: the second section restates the introduction. That follows the English and is a content question, not a language fault.

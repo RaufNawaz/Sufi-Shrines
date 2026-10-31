@@ -1,0 +1,15 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed certainty] Communities, paragraph 1. English: "as families came after the alienation that followed the wars of 1965 and 1971 and the demolition of the Babri Mosque in 1992." | Urdu: "...انہدام کے بعد پیدا ہونے والی بیگانگی کے نتیجے میں خاندان یہاں آتے رہے۔" -> The English links the arrival of the families to the alienation only in time ("came after"); the Urdu makes the alienation the cause of the migration ("کے نتیجے میں", as a result of), a causal claim the English does not make. -> corrected Urdu:
+OLD: کے بعد پیدا ہونے والی بیگانگی کے نتیجے میں خاندان یہاں آتے رہے۔
+NEW: کے بعد بیگانگی کی جو فضا پیدا ہوئی، اس میں خاندان یہاں آتے رہے۔
+
+NOTES:
+Everything else checks paragraph by paragraph: all names, numbers and dates (1469, 14 April or 20 October, 60 km, 180 km, 2001 to 2008, 2005, 1985, nineteen, twenty five others, ten days, 10 and 11 January 2011, 14 March and 13 April, 8 to 10 November 2011, ten to fifteen thousand, three thousand, seventy two, 2010) are present and correct; the qualifiers (it is said, tradition, it is believed, accounts differ, in another telling, one account, by different counts, about, by the early 2010s as a perfect, one visitor found, is said to be run) keep their scope; Kartar and the speaker Kartar Singh stay apart, as do Udam and Udham Singh, and Rai Bhoe and Rai Bular; Sulakhni is not given a relationship the English does not state; headings correspond. Dropped glosses (Sikh places of worship, Hindu ascetics, wandering mystics, the true bargain, free communal kitchen) and removed italics are as the brief allows.
+Style only, optional:
+(a) History, paragraph on the travels: "سلطان پور سے تلونڈی کی طرف گئی" reads "went towards Talwandi"; "سلطان پور سے تلونڈی تک گئی" is closer to "passed from Sultanpur to Talwandi".
+(b) History, paragraph 4: "دادا" fixes the grandfather as paternal, where the English says only "grandfather". Urdu has no neutral word, so this is acceptable, but the writer may wish to confirm it against the source.
+(c) Festivals, paragraph 7: "یاتری خواتین" makes explicit that the women are pilgrims; the English implies it from the preceding clause. Acceptable.
+(d) Communities, paragraph 6: "موٹر سائیکلوں" for "bikes" follows Pakistani usage; acceptable.
+(e) Gurdwaras, paragraph 1: "ہندوستان سے آنے والے ایک شخص نے" anticipates Giani Pratap of the next sentence; acceptable.

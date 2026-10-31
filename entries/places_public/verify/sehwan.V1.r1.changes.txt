@@ -1,0 +1,11 @@
+WHY: ambiguous referent (V1 r1 note 1)
+OLD: From 1947 almost all of them migrated to India, where Sehwanis in Bombay still keep a community council of their own.
+NEW: From 1947 almost all of its Hindus migrated to India, where Sehwanis in Bombay still have a community council.
+
+WHY: embellishment (V1 r1 note 2)
+OLD: Sehwan is said to be an ancient place, a historic city built within a large fortress from the time of Alexander the Great.
+NEW: Sehwan is said to be a historic city built within a large fortress from the time of Alexander the Great.
+
+WHY: rests near an uncertain reading (V1 r1 note 3)
+OLD: Fishermen lived on its waters, mostly by fishing.
+NEW: Fishermen lived there, mostly by fishing.

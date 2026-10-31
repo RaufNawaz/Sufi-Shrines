@@ -1,0 +1,95 @@
+hingol.ur.md, round 1 fixes (V2 r1 PASS with notes; V3 r1 FAIL, 10 issues)
+Applied by exact single replacement (script asserts each OLD occurs once). Backup of the pre-fix file kept outside the repo.
+Counts: 10 V3 issues (11 replacements): 5 applied as worded (V3-1 with its heading, V3-6, V3-7, V3-8, V3-9), 5 reworded (V3-2, V3-3, V3-4, V3-5, V3-10), 0 rejected. Notes: 0 applied, 1 rejected (V3 note 3), the rest confirmations or taste.
+Checker: check_place_description.py public hingol --no-verdicts -> ok, Urdu 1721 chars (ratio 0.95), no U error.
+
+1. V3-1 (applied as worded)
+WHY: زیارت is the Muslim term; for a Hindu temple the article uses یاترا elsewhere.
+OLD: ہنگلاج دیوی کا یہ ہندو مندر بلوچستان کے اس حصے میں زیارت کا ایک مرکز ہے
+NEW: ہنگلاج دیوی کا یہ ہندو مندر بلوچستان کے اس حصے میں یاترا کا ایک مرکز ہے
+
+2. V3-1, heading (applied as V3 suggested; headings may change wording, they are not keys)
+WHY: same register reason; English heading "Pilgrimage and Poetry".
+OLD: ## زیارت اور شاعری
+NEW: ## یاترا اور شاعری
+
+3. V3-2 (REWORDED)
+WHY: gloss of لوہانہ came a sentence after the word, as a stiff standalone sentence. V3's NEW
+("...کے ارکان زیادہ تر لسبیلہ کے لوہانے رہے ہیں، جو ہندو تاجروں کی ایک ذات ہے") breaks agreement:
+plural لوہانے followed by a singular relative clause جو ... ذات ہے. Folded the gloss into the same
+sentence with a plural relative that agrees with لوہانوں; English fact ("Lohanas from Las Bela,
+members of a Hindu trading caste, have chiefly made up a body known as the HSM") kept.
+OLD: ایچ ایس ایم نامی تنظیم زیادہ تر لسبیلہ کے لوہانوں پر مشتمل رہی ہے۔ لوہانہ ہندو تاجروں کی ایک ذات ہے۔
+NEW: ایچ ایس ایم نامی تنظیم زیادہ تر لسبیلہ کے لوہانوں پر مشتمل رہی ہے، جو ہندو تاجروں کی ایک ذات سے تعلق رکھتے ہیں۔
+
+4. V3-3 (REWORDED, minimally)
+WHY: loose "کے قریب کا ایک ضلع" and ضلع repeated in one sentence. V3's NEW had "لسبیلہ ہی میں"; the
+emphatic ہی adds an exclusivity the English ("in Las Bela the Tumbel spread the Goddess's fame") does
+not state, and the next paragraph opens with "لسبیلہ ہی میں" as well. Dropped ہی; otherwise V3's wording.
+OLD: لسبیلہ ہنگلاج کے قریب کا ایک ضلع ہے، اور اسی ضلع میں تمبل نے دیوی کی شہرت پھیلائی۔
+NEW: ہنگلاج کے قریب واقع ضلع لسبیلہ میں تمبل نے دیوی کی شہرت پھیلائی۔
+
+5. V3-4 (REWORDED)
+WHY: لسبیلہ named in full again right after the previous sentence. Took V3's first clause (بلوچستان کے
+اسی ضلع میں). V3's second clause "یہیں کے لوہانے" would most naturally point to بیلہ, the place just
+named, whereas the English says "Lohanas from the district of Las Bela"; "اسی ضلع کے" would repeat
+"اسی ضلع" within the sentence. So the second clause names لسبیلہ, which keeps the English referent.
+OLD: یہ تنظیم 5 جنوری 1986 کو بلوچستان کے ضلع لسبیلہ میں بیلہ کے مقام پر قائم ہوئی، اور شروع ہی سے اس کے ارکان زیادہ تر اسی ضلع کے لوہانے رہے ہیں۔
+NEW: یہ تنظیم 5 جنوری 1986 کو بلوچستان کے اسی ضلع میں بیلہ کے مقام پر قائم ہوئی، اور شروع ہی سے اس کے ارکان زیادہ تر لسبیلہ کے لوہانے رہے ہیں۔
+
+6. V3-5 (REWORDED, lightly)
+WHY: places counted among یاترائیں (category mismatch). V3's structure kept; "ہندو مقدس مقامات" made
+"ہندوؤں کے کئی مقدس مقامات" (natural Urdu order, as the article says elsewhere), and شامل ہیں made شامل تھے
+to match the past journeys (گئے تھے). غالباً still stands before the whole claim, so the hedge governs it.
+OLD: شاہ عبداللطیف غالباً دوارکا اور ہنگلاج سمیت کئی ہندو یاتراؤں پر ناتھ پنتھی جوگیوں کے ساتھ گئے تھے۔
+NEW: شاہ عبداللطیف غالباً ناتھ پنتھی جوگیوں کے ساتھ ہندوؤں کے کئی مقدس مقامات کی یاترا پر گئے تھے، جن میں دوارکا اور ہنگلاج بھی شامل تھے۔
+
+7. V3-6 (applied as worded)
+WHY: tautological gloss, ناتھ repeated back to back.
+OLD: ناتھ پنتھی جوگی ناتھ فرقے سے وابستہ ہندو سادھو ہیں۔
+NEW: یہ جوگی ناتھ فرقے سے وابستہ ہندو سادھو ہوتے ہیں۔
+
+8. V3-7 (applied as worded)
+WHY: calque of "finds a place in poetry".
+OLD: ہنگلاج شعر و سخن میں بھی جگہ پاتا ہے۔
+NEW: ہنگلاج کا ذکر شعر و سخن میں بھی ملتا ہے۔
+
+9. V3-8 (applied as worded)
+WHY: شہرِ is a needless gloss of a familiar city; dropped gloss of a familiar word is not an omission.
+OLD: کاسی یا کاشی یعنی شہرِ بنارس شامل ہیں۔
+NEW: کاسی یا کاشی یعنی بنارس شامل ہیں۔
+
+10. V3-9 (applied as worded)
+WHY: "ٹھیک ٹھیک کہا جائے تو" is a stiff rendering of "to be exact".
+OLD: اور ٹھیک ٹھیک کہا جائے تو ہنگلاج میں
+NEW: اور زیادہ صحیح کہا جائے تو ہنگلاج میں
+
+11. V3-10 (REWORDED)
+WHY: جس could attach to داستان ("the story through which mankind could gain eternal life"), and
+"پرسرام کا" repeated the previous subject. V3's NEW ("...حکمت کی داستان کا حصہ ہے، وہ حکمت جس ...") is an
+English-style appositive and leaves ایسی dangling. Rewritten so the story gets its own relative (جو) and
+the wisdom is introduced by ایسی ... جس, which binds جس to حکمت; "پرسرام کا" dropped as V3 asked. The
+immortality clause stays inside the story's description (one sentence), so it is not turned into the
+narrator's own claim.
+OLD: پرسرام کا یہ دعویٰ ایک ایسی آفاقی اور ازلی حکمت کی داستان کا حصہ ہے جس کے وسیلے سے نوعِ انسانی حیاتِ جاوداں پا سکتی تھی۔
+NEW: یہ دعویٰ ایک داستان کا حصہ ہے جو ایسی آفاقی اور ازلی حکمت کے بارے میں ہے جس کے وسیلے سے نوعِ انسانی حیاتِ جاوداں پا سکتی تھی۔
+
+NOTES
+
+V2 notes 1 to 4 and 6: confirmations, no action.
+V2 note 5 (دیوانی نام کا ایک): marked optional style by V2; pure taste, not applied.
+V3 note 1 (summary-then-body repetition): V3 itself says issues 3 and 4 suffice; the English repeats by
+design. No further change.
+V3 note 2 (تمبل، پرسرام، ایچ ایس ایم unexplained): cannot be fixed without adding facts the English lacks. No change.
+V3 note 3 (REJECTED): "یہ بیان پرسرام کا ہے، جن کا دعویٰ تھا کہ ..." would state that the Theosophical
+account is Parsram's. The English says only that Hinglaj has a place in a Theosophical account and that
+Parsram claimed X; it does not name the account's author. Adding it changes a speaker.
+V3 note 4 (split the Latif / Sachal sentence in the introduction): marked taste by V3; not applied.
+V3 note 5: checks, no action. Spellings checked against urdu-dictionary.json (ہنگول نیشنل پارک، لسبیلہ،
+شاہ عبداللطیف، سچل سرمست، ہنگلاج); one spelling per name throughout.
+
+Reread after the fixes: no doubled word inside a sentence; جو in fix 3 takes a plural verb and points to
+لوہانوں; یہ جوگی in fix 7 points to ناتھ پنتھی جوگیوں of the preceding sentence; tense in fix 6 consistent
+(گئے تھے / شامل تھے). Remaining by-design echoes, noted for the confirming round: "ہندوؤں کے ... مقدس
+مقامات" occurs in the introduction, in fix 6 and in the Sachal sentence (three paragraphs); لسبیلہ is named
+in each of the three sentences of the HSM paragraph (as before the fixes).

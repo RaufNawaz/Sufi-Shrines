@@ -1,0 +1,25 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [addition] English (A Seat of Learning, para 3): "and students came to his blessed *madrasa*" | Urdu: "دور دور سے" -> the Urdu says students came "from far and wide"; the English says only that students came. The distance is added.
+   OLD: اور طالب علم دور دور سے ان کے بابرکت مدرسے کا رخ کرتے تھے۔
+   NEW: اور طالب علم ان کے بابرکت مدرسے کا رخ کرتے تھے۔
+
+2. [changed fact] English (History, para 2): "founded by Raja Sela, an uncle of the Pandavas" | Urdu: "پانڈوؤں کے چچا" -> چچا means a paternal uncle. The English says only "uncle", and the row's notes (sialkot.notes.md, question 1) record that Bhandari's word may mean a maternal uncle and that the article deliberately leaves this open. The Urdu settles a question the English keeps open, and probably settles it the wrong way. Use a rendering that keeps it open.
+   OLD: جو مہابھارت کے سورما بھائیوں یعنی پانڈوؤں کے چچا تھے
+   NEW: جو مہابھارت کے سورما بھائیوں یعنی پانڈوؤں کے چچا یا ماموں تھے
+
+3. [wrong reference] English (History, para 7): "After him Safdar Khan of Jahangir's time, also *faujdar* of Jammu and holding the *pargana* as a grant" | Urdu: "یہ پرگنہ اسے جاگیر میں ملا" -> the only pargana the Urdu paragraph names is گجرات کا پرگنہ (first sentence), so the demonstrative یہ points an Urdu reader to Gujrat. The English means Sialkot's pargana, in parallel with Man Singh as jagirdar of Sialkot. Name it.
+   OLD: اور یہ پرگنہ اسے جاگیر میں ملا۔
+   NEW: اور سیالکوٹ کا پرگنہ اسے جاگیر میں ملا۔
+
+4. [addition, minor] English (History, para 4): "The fort of Sialkot is old." | Urdu: "بہت پرانا" -> "very old"; the English has no intensifier.
+   OLD: سیالکوٹ کا قلعہ بہت پرانا ہے۔
+   NEW: سیالکوٹ کا قلعہ پرانا ہے۔
+
+Everything else checked paragraph by paragraph against the English and found to match: the names, titles, numbers (322 BC, 1192, 971 AH, forty thousand, two or three kos, ten kos, about thirty kilometres, close to a lakh, nearly five thousand years), places, relationships and hedges (کہا جاتا ہے، روایت ہے، بیانات مختلف ہیں، غالباً، خیال ہے، لگ بھگ، کوئی تیس، شاید). Legends stay legends, tenses keep the English time frame, and all seven headings correspond. The glosses dropped for doab, qanungo, kalabatun, futa, suzani, dastarkhwan, khwanposh, faqir and lakh are familiar Urdu words, so they are deliberate drops under the brief and not omissions.
+
+NOTES (style only):
+- City and Its Country, para 5: "جمدھر اور کٹاری جیسے خنجر" reads as "daggers such as jamdhar and katari", which hints that these are examples from a larger set. The English names exactly these two. A closer option is "جمدھر اور کٹاری نام کے خنجر اور برچھیاں"; it is optional.
+- City and Its Country, para 3: "شہر کے گرد باغ ہی باغ تھے" is slightly stronger than "Gardens surrounded the city". It is idiomatic and acceptable, though "شہر کے گرد باغات تھے" would be the neutral version.
+- Holy Places, para 5: the Urdu follows the English in using both شاہ دولہ and شاہ دولا in consecutive sentences. In Urdu script the two spellings can read as two different people. If the English is unified, unify the Urdu too (شاہ دولہ, as in the Books section).

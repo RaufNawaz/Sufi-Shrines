@@ -1,0 +1,13 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. The only sentence, "Kartarpur is the place where Guru Nanak, the founder of the Sikh faith, died in 1539.", is fully supported by the team version ("Guru Nanak died at Kartarpur in 1539"). The place, the person, the event and the year all match. No count, number or relationship is added.
+2. "the founder of the Sikh faith" is a definitional gloss of who Guru Nanak was, not a fact about Kartarpur, so the brief allows it (rule 1 check, "definitional glosses allowed"). It is not a claim about the place.
+3. "the place where" keeps the team version's own wording. The text does not say Kartarpur is a town or a village, where it lies, or what stands there, and the team version says none of these. Nothing is embellished.
+4. No legend or tradition is involved. The team version records no disagreement, so rule 4 does not apply. Nothing rests on an uncertain reading: the team version marks none, and the year is given plainly.
+5. No citation, page or folio reference, author narration ("Rizvi records", "gives the year"), signposting, archive or process language is left. The one time anchor, 1539, is a year the source states with no qualification, so it is firm.
+6. Nothing important is left out. The team version holds one fact, and the public text keeps all of it. Dropping the quotation, which only repeats the fact, is correct.
+7. The bibliography is the team version's single item, verbatim and in place. There are no dashes in the prose.
+8. Minor point, not an issue: the Overview is one sentence where the brief asks for two to four. That is the honest length for a source that gives one fact, and the writer's notes explain it. Do not pad it.

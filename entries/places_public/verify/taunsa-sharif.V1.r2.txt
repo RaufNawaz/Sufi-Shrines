@@ -1,0 +1,38 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. The change was applied exactly. Round 1's combined fix was OLD "differ. It is the manuscript on which the appendix to a study of Chishti Sufism is based. The Chishti order, the *Chishtiyya*, is a Sufi order prominent in South Asia, and Sufism is the mystical tradition of Islam." NEW "differ." The Overview now reads, in full: "Taunsa is a town where a manuscript of *Adab al-muridin*, a work by Muhammad Chishti, was copied around 1790, although accounts of the manuscript's title differ." That is word for word the text round 1 said would remain. The change is a pure deletion, so it adds no claim, no source talk, no dash or hyphen and no spelling or grammar fault. The sentence that remains is grammatical and ends cleanly with "differ."
+
+2. Nothing else moved. I rebuilt the round 1 file by putting the two deleted sentences back after "differ." in the current file. The rebuilt file is 511 bytes, the length the writer's notes give for the whole file, and its md5 begins af231fd9. That is the stamp on the round 1 verdict line ("V1 English fidelity: FAIL (round 1) en:af231fd9"). So the current file is byte for byte the file round 1 read, less exactly the deleted span. The headings (Overview; Bibliography) are unchanged. The bibliography is still the team version's one item, verbatim.
+
+3. The public text as it stands, checked against the team version (the only source):
+   - "Taunsa is a town" comes from "In the town of Taunsa".
+   - "a manuscript of *Adab al-muridin*, a work by Muhammad Chishti" comes from "a manuscript of *Adab al-muridin* by Muhammad Chishti".
+   - "was copied around 1790" comes from "was copied around 1790", which rests on the firm passage's "ca. 1790". It does not rest on the "probably after" year, which the team version marks uncertain.
+   - "although accounts of the manuscript's title differ" is the one clause rule 4 allows for the team's disagreement bullet ("The title and the date"). The variant title is not listed. Nothing is merged, and the clause claims no more certainty than the team version.
+   - There is no unsupported claim, no uncertain reading given as fact, no citation, no authors' names, no appendix or study talk, and no archive or process language. No important omission remains.
+   - No em or en dash. The only hyphen is in the title *Adab al-muridin*, as the team version prints it. No word turns on British versus American spelling.
+
+4. Length (L1), plainly. The checker reports "FAIL taunsa-sharif team 719 -> public 175 chars (0.24)", exit 1, on L1 alone. I agree that the honest public length of this article is under 0.25. I swept the team version again, sentence by sentence. Its prose is two parts:
+   - The Overview sentence. Its fact is carried whole. Its second clause ("it is the source manuscript of the appendix to Ernst and Lawrence's study of Chishti Sufism", with the citation) is source apparatus, the same kind of clause mithankot removed.
+   - The disagreement bullet. Most of it is apparatus: "The book's bibliography gives the same town under another title" (who says what), the variant *Adab al-talibin* (rule 4: not listed), the quotation "copied in Tawnsah, probably after" with its year (rule 5: an uncertain reading), "a year whose reading is uncertain in the printed text" (rule 5), and two citations. Its point is carried by the clause "accounts of the manuscript's title differ".
+
+   No sentence of the team version could honestly be carried that the public now lacks.
+   - The date half of the disagreement ("around" against "probably after") rests only on the uncertain year, so it cannot be raised.
+   - The name "Taunsa Sharif", where the town lies, and the shrine under whose row the material is filed are not in the team version.
+   - Glossing the Chishti order or Sufism would now define a term the text no longer uses, and beside "Muhammad Chishti" it would imply he belonged to the order.
+   - Translating the title would add something the team version does not give.
+
+   Any further length would be padding, source talk or side by side variants. One sentence is the honest article, and the row rightly goes to Rauf.
+
+5. The L1 exception line in the notes is backed by the round 1 sweep and states the cause honestly. It also says plainly that the row falls below the 0.25 floor and is for Rauf. A small point of precision, recorded and not applied: the 0.24 also reflects removing the appendix clause as source talk (rule 2), not only rules 4 and 5. Also, rule 4 does not remove the disagreement outright: it reduces it to the one "accounts differ" clause. Round 1's wording was "once the source apparatus and the variant are removed, one sentence is the honest article". If the line is ever rewritten, it could read: "L1 exception below 0.30 (V1 round 1): the team version is one sentence of fact plus a disagreement bullet; once its source apparatus (rule 2), the variant title (rule 4) and the uncertain year (rule 5) go, one sentence is the honest public article (0.24, below the 0.25 floor; for Rauf)." This is precision only. The current line is not misleading.
+
+6. Stale passages in the public notes, recorded and not applied:
+   - The opening paragraph still reports the checker at "ok ... 382 characters of prose (0.53)".
+   - "Why 0.53" describes the old length.
+   - The bullet "The appendix" and the section "Glosses given" describe sentences that are now deleted.
+   The "After V1 round 1" section corrects all of these, so a reader who reads to the end is not misled. A short "(superseded; see After V1 round 1)" marker on those passages would help Rauf.
+
+7. The checker as the file stands: L1 FAIL at 0.24 only. There is no F, P, Q or B failure (run with --english-only).

@@ -1,0 +1,128 @@
+uch-sharif.ur.md, round 1 fixes (V2 r1 + V3 r1)
+Applied: 27 replacements covering V2 issue 1, V2 note on 'the Sind', and V3 issues 1 to 26 (issues 4, 6, 9, 10 adapted; 17 merged with V2 issue 1).
+
+WHY: V2 issue 1 + V3 issue 17 (same phrase): کچھ reads as 'some' (or as Kutch). One fix satisfying both: the place name in its usual form, کیچ مکران, as V2 proposes (V3's کَچھ would still read as Kutch).
+OLD: ٹھٹھہ اور کچھ مکران تک
+NEW: ٹھٹھہ اور کیچ مکران تک
+
+WHY: V3 issue 1: اب بھی (now) clashes with the past frame.
+OLD: اکیسویں صدی کے اوائل میں نانک کا ویران کنواں اب بھی دیکھا جا سکتا تھا
+NEW: اکیسویں صدی کے اوائل میں بھی نانک کا ویران کنواں دیکھا جا سکتا تھا
+
+WHY: V3 issue 2: اگرچہ sets up a concession the sentence does not make; البتہ.
+OLD: ستر میل ہے، اگرچہ ملتان سے
+NEW: ستر میل ہے، البتہ ملتان سے
+
+WHY: V3 issue 3: same misuse of اگرچہ.
+OLD: آ کر آباد ہوئے، اگرچہ برصغیر میں
+NEW: آ کر آباد ہوئے، البتہ برصغیر میں
+
+WHY: V3 issue 4, applied in part: 'told of' is کے بارے میں, not منسوب. V3's added انہیں (the order given to the Shaikh) is NOT applied: the English leaves the recipient of the order unnamed (in the team version the Shaikh gives the order to someone else), so naming him would add a fact.
+OLD: شیخ صفی الدین کازرونی سے منسوب ایک قصے کے مطابق حکم ہوا
+NEW: شیخ صفی الدین کازرونی سے متعلق ایک قصے کے مطابق حکم ہوا
+(Written سے متعلق rather than V3's کے بارے میں, because the sentence before already ends قصبے کی ابتدا کے بارے میں; same sense, 'told of', without the repetition.)
+
+WHY: V3 issue 5: a four-clause chain over two campaigns, split into two sentences.
+OLD: شہاب الدین نے اپنی پہلی مہم میں یہ قصبہ فتح کیا اور وہاں ایک نائب مقرر کیا، اور دوسری مہم میں
+NEW: شہاب الدین نے اپنی پہلی مہم میں یہ قصبہ فتح کر کے وہاں ایک نائب مقرر کیا۔ دوسری مہم میں
+
+WHY: V3 issue 6, adapted; with V2 note 3 on the same sentence. تعاقب ... جا پہنچا is not idiomatic, but V3's تعاقب ... کیا گیا makes Khawas Khan the one pursued, which the English ('Khawas Khan's pursuit went as far as') does not say; تعاقب ... جاری رہا fixes the collocation and keeps the English reading. V2 note: سندھ becomes دریائے سندھ so 'the Sind' cannot be read as the province.
+OLD: مرزا پیر محمد نے سندھ پار کر کے اوچ کے قلعے اور ملتان پر قبضہ کر لیا، اور خواص خان کا تعاقب ملتان اور اوچ تک جا پہنچا۔
+NEW: مرزا پیر محمد نے دریائے سندھ پار کر کے اوچ کے قلعے اور ملتان پر قبضہ کر لیا، اور خواص خان کا تعاقب ملتان اور اوچ تک جاری رہا۔
+
+WHY: V3 issue 7: death date between commas (English apposition); اوچ ہی کے تھے clipped.
+OLD: جلال الدین سرخ پوش بخاری، جن کا انتقال 1291 میں ہوا، اوچ ہی کے تھے۔
+NEW: 1291 میں وفات پانے والے جلال الدین سرخ پوش بخاری اوچ ہی کے رہنے والے تھے۔
+
+WHY: V3 issue 8: comma apposition and overlong sentence, split; ورثے given as ان کے چھوڑے ہوئے ورثے.
+OLD: ان کے بڑے بیٹے شیخ عبدالقادر جیلانی ثانی، جن کا انتقال 1533 میں ہوا، اوچ شریف کے مشہور قادری بزرگ ہیں، مگر بظاہر ان کی زندگی اور ورثے کا کوئی تحریری احوال باقی نہیں رہا۔
+NEW: ان کے بڑے بیٹے شیخ عبدالقادر جیلانی ثانی اوچ شریف کے مشہور قادری بزرگ ہیں، جن کا انتقال 1533 میں ہوا۔ مگر بظاہر ان کی زندگی اور ان کے چھوڑے ہوئے ورثے کا کوئی تحریری احوال باقی نہیں رہا۔
+
+WHY: V3 issue 9, applied with one adjustment: وہیں becomes اوچ ہی میں (the English places the initiation at Uch, as its later paragraph says) and the extra شاید goes. V3's indicative ہوا تھا is NOT taken: the English says 'may have been', so the subjunctive ہوا ہو stays under گمان ہوتا ہے to keep the hedge the English has.
+OLD: ایک شخص شاید وہیں باقاعدہ طور پر سلسلۂ سہروردیہ میں داخل ہوا ہو۔
+NEW: ایک شخص اوچ ہی میں باقاعدہ طور پر سلسلۂ سہروردیہ میں داخل ہوا ہو۔
+
+WHY: V3 issue 10, adapted: ایک صاحب is colloquial and the double اور drags. V3's ایک بزرگ is NOT taken, because the English says only 'a man' and بزرگ adds a saintly or elder standing; ایک شخص is the English's word. The break uses the Urdu semicolon ؛.
+OLD: ایک صاحب کا اصل نام عبداللہ شاہ تھا، اور ان کا خاندان
+NEW: ایک شخص کا اصل نام عبداللہ شاہ تھا؛ ان کا خاندان
+
+WHY: V3 issue 11: یہاں تک کہ and کے بعد clash; a river is غائب, not گم.
+OLD: ستلج یہیں سے ہو کر بہتا تھا، یہاں تک کہ 1960 میں
+NEW: ستلج یہیں سے ہو کر بہتا تھا، مگر 1960 میں
+
+WHY: V3 issue 11 (second half, same sentence).
+OLD: دستخط ہونے کے بعد یہ دریا گم ہو گیا۔
+NEW: دستخط ہونے کے بعد یہ دریا غائب ہو گیا۔
+
+WHY: V3 issue 12: زور دار دریا is a calque of 'mighty river'.
+OLD: ایک زور دار دریا بہتا تھا
+NEW: ایک تند و تیز دریا بہتا تھا
+
+WHY: V3 issue 13: the quotation mirrored English 'since I last came'.
+OLD: "جب سے میں پچھلی بار یہاں آیا تھا، یہ جگہ بدل گئی ہے"
+NEW: "میں پچھلی بار یہاں آیا تھا، تب سے یہ جگہ بدل گئی ہے"
+
+WHY: V3 issue 14: بابا جی too colloquial.
+OLD: ایک اور قصہ کسی بابا جی کا ہے
+NEW: ایک اور قصہ کسی بزرگ کا ہے
+
+WHY: V3 issue 15: comma after a closing question mark.
+OLD: دیکھنا چاہتے ہیں؟"، اور ساتھ ہی
+NEW: دیکھنا چاہتے ہیں؟" اور ساتھ ہی
+
+WHY: V3 issue 16: کے ساتھ اڑنے can read as flying together with the yogi.
+OLD: ایک جوگی کے ساتھ اڑنے کے مقابلے
+NEW: ایک جوگی سے ہوا میں اڑنے کے مقابلے
+
+WHY: V3 issue 18: one tribe given a plural وطن; two unlike subjects sharing one تھے.
+OLD: ریت کے ٹیلے اور بھٹی قبیلے کے وطن تھے۔
+NEW: ریت کے ٹیلے تھے اور بھٹی قبیلے کا وطن تھا۔
+
+WHY: V3 issue 19: وسیع تر خطے میں is a calque of 'in the wider region'.
+OLD: وسیع تر خطے میں بہاولپور اور ملتان
+NEW: گرد و نواح کے علاقے میں بہاولپور اور ملتان
+
+WHY: V3 issue 20: one کاٹنا a chilla, as the article itself says earlier.
+OLD: چالیس دن کا الٹا چلہ کیا،
+NEW: چالیس دن کا الٹا چلہ کاٹا،
+
+WHY: V3 issue 21: stacked relative clauses in English order.
+OLD: اوچ بیعت کا مقام بھی تھا، جس کا اشارہ ان مقامی روایات سے ملتا ہے جو یہاں ایک شخص کے سلسلۂ سہروردیہ میں داخل ہونے کے بارے میں ہیں۔
+NEW: یہاں ایک شخص کے سلسلۂ سہروردیہ میں داخل ہونے کی مقامی روایات سے اشارہ ملتا ہے کہ اوچ بیعت کا مقام بھی تھا۔
+
+WHY: V3 issue 22: لاحق ہونا takes کو for the sufferer.
+OLD: اوچ شریف میں ایک نواب کے گال پر ایسا مرض لاحق ہوا
+NEW: اوچ شریف میں ایک نواب کو گال کا ایسا مرض لاحق ہوا
+
+WHY: V3 issue 23: ان الفاظ میں کہ is a calque of 'In the words'.
+OLD: ان الفاظ میں کہ "تو اوچ شہر کا باشندہ ہے"، لفظ اوچ
+NEW: "تو اوچ شہر کا باشندہ ہے" میں لفظ اوچ
+
+WHY: V3 issue 24: repetition of the Communities wording, calque احتیاط سے برتتی ہے, overlong; split.
+OLD: اس میں وہاں کے صوفیوں کی تین نسلوں کی کہانیاں سب کی سب ہندو جوگیوں سے ٹکراؤ کا احوال سناتی ہیں، اور یہ کتاب قصبے کی بنیاد کے قصے کو احتیاط سے برتتی ہے: دیکھنے میں افسانوی،
+NEW: اس کے مطابق وہاں کے صوفیوں کی تین نسلوں کی ساری کہانیاں ہندو جوگیوں سے ٹکراؤ کے گرد گھومتی ہیں۔ قصبے کی بنیاد کے قصے کو بھی یہ کتاب احتیاط سے پرکھتی ہے: بظاہر افسانوی،
+
+WHY: V3 issue 25: three trailing relatives in English style, and گم for a river.
+OLD: بازار سے ہو کر پہنچا جاتا ہے، جس کے دریا کے بارے میں کہا جاتا ہے کہ وہ گم ہو چکا ہے، اور جس کا ایک گوردوارہ مٹ چکا ہے۔
+NEW: بازار سے ہو کر پہنچا جاتا ہے۔ اس کے دریا کے بارے میں کہا جاتا ہے کہ وہ غائب ہو چکا ہے، اور اس کا ایک گوردوارہ مٹ چکا ہے۔
+
+WHY: V3 issue 26: شاعر glosses a name every Urdu reader knows.
+OLD: کہ وہ شاعر بلھے شاہ کے خاندان
+NEW: کہ وہ بلھے شاہ کے خاندان
+
+REJECTED (or not applied)
+
+R1. V3 issue 4, the added انہیں: the English ("an order was given to mount a camel") leaves the recipient unnamed; the team version has Shaikh Safiuʾd-Din Kaziruni giving the order to someone else. Making the Shaikh the recipient adds an identification the English does not make. The rest of issue 4 (کے بارے میں for منسوب) is applied.
+R2. V3 issue 6, the passive تعاقب ... کیا گیا: in Urdu it says Khawas Khan was pursued, which the English does not say. The collocation fault is fixed instead with تعاقب ... جاری رہا, which keeps the English reading.
+R3. V3 issue 9, the indicative ہوا تھا: the English says "may have been formally initiated", so the subjunctive ہوا ہو stays (only the extra شاید goes, and وہیں becomes اوچ ہی میں as V3 asks).
+R4. V3 issue 10, ایک بزرگ: the English says "a man"; بزرگ adds a saintly or elder standing the English does not give. ایک شخص is used instead, with the semicolon V3 proposes (as Urdu ؛).
+R5. V3 issue 17, the zabar form کَچھ مکران: superseded by V2 issue 1 on the same phrase. کیچ مکران removes the "some" reading V3 objects to, and کَچھ would still read as Kutch.
+R6. V3 note, مقدس خاندان -> روحانی / بزرگ خاندان: a matter of taste (the English says "holy families"; مقدس is its plain sense). Not applied.
+R7. V3 note, حضرت محمد غوث / شاہ محمد غوث: the English keeps the two names apart ("the four sons of Hazrat Muhammad Ghaus ... beside the tomb of Shah Muhammad Ghaus") and does not identify them; making them one man (اپنے والد) would add an identification. Not applied.
+R8. V3 note, the unidentified مزار: the English says "the shrine's present caretakers" without naming the shrine; naming one would add a fact. Not applied.
+R9. V3 note, ایک دن پہلے with no reference point: the English has "only a day before" in the same way. Not applied.
+R10. V3 note, the unnamed وہ in the 40-day quotation: inside a quotation, and V3 itself left it. Not applied.
+R11. V3 note, the introduction restating later sections: the English introduction does the same; trimming would drop facts from the Overview. Not applied.
+R12. V3 note, ستر میل / چالیس دن in words beside "40 دن" in the quotation: the English has the same split (seventy miles, forty days, and "For 40 days" in the quotation). Not applied.
+R13. V3 notes, قصبۂ اوچ and دور دور تک پہنچی: V3 marks both as taste. Not applied.
+R14. V2 note, مقامی قصوں for مقامی روایات: V2 offers it only as optional and the hedge is kept; taste. Not applied.

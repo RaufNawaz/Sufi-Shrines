@@ -1,0 +1,13 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- Diff proof: I compared /home/claude/work/public/jhang.ur.r2.bak with the current entries/places_public/jhang.ur.md using python difflib. Only line 7 differs. I applied the single OLD -> NEW pair from verify/jhang.ur.r2.changes.txt to the .bak as a literal replacement. The OLD occurs exactly once, and the result is byte-identical to the current file (md5 7355abb5). Nothing outside the listed change moved. OLD and NEW are both 144 characters. The checker (check_place_description.py public jhang --no-verdicts) gives: ok jhang, public 975 chars, Urdu 909 chars (0.93).
+- The change (line 7, split into two sentences):
+  - V2: the first sentence gives "In the myth, Hir was the beautiful and witty daughter of Cucak Siyal, the powerful Jat chief of Jhang Siyal" in full: داستان کے مطابق (in the myth), حسین اور حاضر جواب (beautiful and witty), طاقتور جاٹ سردار (powerful Jat chief), جھنگ سیال. The second sentence gives "She belonged to the family of the powerful Siyal Jats of Jhang", with the same past tense and both «طاقتور» kept. Nothing is left out or added, and the certainty is unchanged. The English has two sentences here, and so does the Urdu now.
+  - V3: «وہ» continues the subject of the sentence before it (ہیر). The feminine «رکھتی تھی» rules out the chief, so the r2 ambiguity of «اس کا تعلق» is gone. «سے تعلق رکھتی تھی» is idiomatic. The two «طاقتور» now stand in separate sentences, as they do in the English, so the repetition inside one sentence is gone. Both sentences are a comfortable length. There is no doubled word, and no gloss sits between a noun and its postposition.
+  - Neighbours: the heading before it is unchanged. Line 9 opens with «ہیر کا قبیلہ», which names Hir again and so reads cleanly after «وہ». It does not clash with the new sentence.
+- Rejected items: none were listed in round 2, so there is nothing to check.
+- Taste only, not to be applied: in «جھنگ کے طاقتور سیال جاٹ خاندان» it is not clear whether «طاقتور» describes the Jats (as in the English) or the family. Either way it means the same, so the line can stay as it is.

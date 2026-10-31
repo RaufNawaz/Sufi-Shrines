@@ -1,0 +1,27 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [gloss, no change needed] "Hinglaj, the Hindu temple of the goddess Hinglaj Devi" (Overview). The team prose calls it "the Hinglaj temple", and the goddess's name comes only from the bibliography title (*Hinglaj Devi ... at a Hindu Temple in Pakistan*). The team notes say "the Goddess's name [is] not in the material and [is] not said". Because the gloss sits just before "the Goddess's fame", the reader will take the Goddess to be Hinglaj Devi. I accept this as a definitional gloss drawn from the source's own title. It is word for word the gloss in the public Hingol article, which tells the same facts, so the two articles agree. No fix needed. If Rauf wants the team notes' stricter line, the fix is OLD "close to Hinglaj, the Hindu temple of the goddess Hinglaj Devi." NEW "close to Hinglaj, a Hindu temple."
+
+2. [taste] The body repeats two Overview sentences word for word: "Las Bela is a district close to Hinglaj." and "In Las Bela the Tumbel spread the Goddess's fame." Restating the Overview's points in the body is normal. The verbatim repeat is only a matter of style and changes no meaning, so it does not need to change. Do not shorten the body's "In Las Bela" to "There": after the park sentence, "There" would point to the park.
+
+3. [gloss, fine] "Lohanas ..., members of a Hindu trading caste" gives the plain dictionary sense, since data/glossary.csv has no entry. It is a definition, not a claim about Las Bela, and matches the public Hingol article.
+
+4. [checked, fine] Sentence by sentence check against the team version:
+   - "a district of Balochistan" is supported by "Bela (Las Bela district), Balochistan".
+   - "close to Hinglaj" is supported (p. 79).
+   - "The shrine itself lies within the Hingol National Park" is supported (p. 295). It does not name the shrine in the narrator's voice, matching the team version's restraint, and it does not claim the park lies in the district.
+   - The Tumbel sentence is supported.
+   - The HSM's founding at Bela on 5 January 1986, in Las Bela district, Balochistan, made up mainly of Lohanas of the district from its beginning, is supported by p. 82. "Founded" for "created" and "a body known as" for "the body he calls" are fair paraphrases.
+   - "The Dewanis, a Sindhi Lohana family, also come from Las Bela" is supported (p. 274). It does not make them members of the HSM.
+   - The team version records no disagreement, and it marks no uncertain or [OCR?] reading in the material used.
+   - There is no citation, author narration, signposting or process language. The one time anchor (1986) is a firm quoted date.
+   - The bibliography matches the team version exactly.
+
+5. [omissions, rightly made] Two things were left out, and both were right to leave out:
+   - "the entry to the Hingol National Park" is a bare mention that says nothing about the district. The team notes themselves flag it as weak.
+   - "He does not say in these lines whether the park lies within the district" is a statement about the source. The public text makes no claim either way in its place, so dropping it loses nothing.
+
+   Every name, place, date and community in the team version is kept: Las Bela, Bela, Balochistan, Hinglaj, Hingol National Park, the Tumbel, the HSM, the Lohanas, the Dewanis, and 5 January 1986. Nothing important is missing.

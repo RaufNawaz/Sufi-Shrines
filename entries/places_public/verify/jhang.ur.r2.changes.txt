@@ -1,0 +1,9 @@
+# jhang.ur.md, round 2 changes (applied by the coordinator, 31 October 2026, watcher-2026-10-31T1114Z)
+
+WHY: C round 2 issue 1 (V3): the round 1 join put both طاقتور in one sentence (a new repetition the English does not have, since it states them in two sentences) and let اس کا تعلق point at چوچک سیال. Split again, as the confirming verifier proposed; طاقتور kept for the English's "powerful".
+OLD: داستان کے مطابق ہیر جھنگ سیال کے طاقتور جاٹ سردار چوچک سیال کی حسین اور حاضر جواب بیٹی تھی اور اس کا تعلق جھنگ کے طاقتور سیال جاٹ خاندان سے تھا۔
+NEW: داستان کے مطابق ہیر جھنگ سیال کے طاقتور جاٹ سردار چوچک سیال کی حسین اور حاضر جواب بیٹی تھی۔ وہ جھنگ کے طاقتور سیال جاٹ خاندان سے تعلق رکھتی تھی۔
+
+## Rejected
+
+None.

@@ -1,0 +1,14 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [scope, nothing else changed] The round 1 report quotes only fragments, so I checked the whole file by hash. Undoing the two listed changes on the current entries/places_public/khairpur.md (NEW back to OLD, each NEW found exactly once) gives a file whose md5 is 53fe86a3. That is the en:53fe86a3 stamp on the notes file's "V1 English fidelity: PASS (round 1)" line, which is the text round 1 reviewed. So the file differs from what round 1 read only by the two listed changes, byte for byte. The current file's md5 is f0eeca6e, so the V1 stamp needs moving to that.
+
+2. [change 1, checked] Overview: "They built *imambaras*, halls for Shia mourning gatherings, in the nineteenth century, and they were nonetheless generous patrons of all the religious buildings." -> Supported. The team version has "built beautiful imambaras in the nineteenth century, but it did not prevent them from being generous patrons for all of the religious buildings", and now only the building is dated, as round 1 asked. "They" still refers clearly to the previous sentence's "Its rulers, the *amirs*". No word is doubled, nothing is lost (the gloss, the century, "nonetheless" and "all the religious buildings" are all kept) and there is no source talk. It is a matter of taste that "in the nineteenth century", placed after the gloss, could just about be read as attaching to "gatherings". The comma and the main verb "built" make the intended reading the natural one, so no change is needed.
+
+3. [change 2, checked] The Landscape Around the Town, paragraph 2: "Halani lies between Nausharo Firuz and Khairpur, and Hingorja, near Khairpur, was the birthplace of Bhagwan K. Ajwani." -> Supported (team: "between Nausharo Firuz and Khairpur"; "Hingorja near Khairpur" as Ajwani's birthplace). The deleted sentence was only framing and carried no fact, so nothing is lost. After the Daraza sentence the paragraph opens cleanly with no dangling referent, and no residual source framing is left. The paragraph is now a single sentence. That is acceptable inside a two paragraph section. Joining it to the previous paragraph would be taste only.
+
+4. [file checks] There are no em or en dashes and no doubled words. Asterisks are balanced. The bibliography is verbatim. `check_place_description.py public khairpur --english-only`: ok, team 2353 -> public 1344 chars (0.57).
+
+5. [team record, outside this review] Two lines of khairpur.notes.md describe the text before these changes and are now out of date. The length line still says 1,389 characters (0.59), and the checker now gives 1,344 (0.57). The "Halani and Hingorja" bullet and the "Left out" bullet still quote "The town also serves to place its neighbours." as the public wording. The coordinator may want to update both. Neither affects the public article.

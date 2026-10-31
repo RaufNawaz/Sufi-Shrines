@@ -1,0 +1,13 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+a. Diff proof: python difflib compared /home/claude/work/punjab/ur.r2.bak with the current /home/claude/repo/entries/places_public/punjab.short.ur.md. Both files have 152 lines, and exactly five lines differ (31, 103, 117, 144, 146), one for each listed change. Each OLD occurs exactly once in the backup and not at all in the current file; each NEW occurs exactly once in the current file. Applying the five OLD to NEW replacements to the backup gives a text identical to the current file. Nothing outside the listed changes moved.
+b. Change 1 (line 144), سارا دھارا سندھ کہلاتا ہے: faithful to "from there the whole stream is called the Sindh". دھارا is masculine, and سارا and کہلاتا now agree with it. The present tense matches ملتے ہیں in the same clause and the English "join ... is called". Pass.
+c. Change 2 (line 146), جیسا خود ان کے زمانے میں تھا: faithful to "as they stood in his own day". خود ان follows the brief's rule for "X's own" and ties ان back to the subject انہوں نے (Kanhaiya Lal), not to the governors. زمانے is neutral, where عہد suggested a ruler's reign. تھا agrees with حال. This also echoes مصنف کے زمانے میں earlier in the paragraph, so "in its author's day" and "his own day" now line up. Pass.
+d. Change 3 (line 103), اتنی آسانی سے وہ مہاجر قبول نہیں کرتے: the conjunct verb is now whole. The جتنی ... اتنی comparison renders "more accepting ... than the migrants", and the hedge "tend to" is still carried by عموماً. No addition and no omission. Taste: قبول کرتے appears in both halves of the sentence. That parallel is the point of the construction, so it reads as natural, not as repetition.
+e. Change 4 (line 31), اس کے قصبوں کی تعمیر میں ہاتھ بٹایا: faithful to "build its towns", with no "rebuilding". The single میں serves both آباد کرنے and تعمیر, which is normal Urdu. The subject افغانوں نے still carries into بسائے and فروغ دیا. Pass.
+f. Change 5 (line 117), مرزا صاحباں بھی پنجاب کی ایک مشہور عشقیہ داستان ہے: faithful to "another famous love legend of the province". Naming پنجاب removes the reading in which اس صوبے meant Sindh. بھی renders "another", and ایک is idiomatic here, not a calque. Taste: بھی now appears three times across the last two sentences (وہاں بھی، سندھ میں بھی، مرزا صاحباں بھی), and پنجاب sits right after پرانے پنجاب. Both are grammatical and clear. If you want it lighter, مرزا صاحباں کا شمار بھی پنجاب کی مشہور عشقیہ داستانوں میں ہوتا ہے is one option. This does not fail the round.
+g. Round 2 note d (line 117 opens with اسی صوبے) is unchanged and still reads as Punjab in context. It remains a matter of taste.

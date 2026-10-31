@@ -1,0 +1,46 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [tense] "پرانے سید پور کی جو تصویر کھینچی جاتی ہے اس میں یہ عظیم الشان مندروں اور تاجروں کا ایک قدیم شہر ہے، جس کا شمار چناب اور راوی کے درمیان تاجروں کی اہم ترین منزلوں میں ہوتا تھا۔" -> the main clause is in the present (ہے) and the relative clause in the past (ہوتا تھا) within one sentence. Make both past. -> NEW: "پرانے سید پور کی جو تصویر کھینچی جاتی ہے اس میں یہ عظیم الشان مندروں اور تاجروں کا ایک قدیم شہر تھا، جس کا شمار چناب اور راوی کے درمیان تاجروں کی اہم ترین منزلوں میں ہوتا تھا۔"
+
+2. [unidiomatic] "بابر نے یہ شہر فتح کیا تو اس کا نام ایمن آباد رکھ دیا، اگرچہ اس نام کے بارے میں بیانات مختلف ہیں۔" -> "اگرچہ" is the wrong connective: nothing here is being conceded. "اس نام کے بارے میں" is also vague, since the accounts differ on how the name came about (as the تاریخ section says). -> NEW: "بابر نے یہ شہر فتح کیا تو اس کا نام ایمن آباد رکھ دیا، تاہم یہ نام کیسے پڑا، اس بارے میں بیانات مختلف ہیں۔"
+
+3. [unidiomatic] "گرو نانک کے زمانے میں یہی ایمن آباد سید پور کا شہر تھا۔" -> "یہی ایمن آباد سید پور کا شہر تھا" is stiff and says the wrong thing ("this very Eminabad was the city of Saidpur"). The point is that the town was called Saidpur. -> NEW: "گرو نانک کے زمانے میں ایمن آباد کا نام سید پور تھا۔"
+
+4. [repetition / stiff] "نیا نام کیسے پڑا، یہ ایک روایت میں بیان ہوا ہے۔ سید پور پہنچنے سے کچھ پہلے بابر کئی دن سے بھوکا تھا کہ ایک عورت نے اسے بھنے ہوئے دانے پیش کیے، اور کہا جاتا ہے کہ اسی عورت کے اعزاز میں شہر کا نام بدلا گیا۔" -> "کیسے پڑا" comes straight after "کیسے ملا" at the end of the previous paragraph, and the stand-alone opening sentence reads as an English topic sentence. The story is also hedged twice (روایت + کہا جاتا ہے). Merge into one sentence. -> NEW: "ایک روایت میں نئے نام کی وجہ یہ بیان ہوئی ہے کہ سید پور پہنچنے سے کچھ پہلے بابر کئی دن سے بھوکا تھا کہ ایک عورت نے اسے بھنے ہوئے دانے پیش کیے، اور اسی عورت کے اعزاز میں شہر کا نام بدلا گیا۔"
+
+5. [ambiguous pronoun] "ہر دکان میں مورتیاں رکھی تھیں؛ ان میں سب سے زیادہ مقبول دولت کی دیوی لکشمی تھیں اور ان کے بعد گنیش دیوتا۔" -> the first ان means the idols, the second means Lakshmi (the honorific plural). Two identical pronouns with different referents in one clause make the reader stop. -> NEW: "ہر دکان میں مورتیاں رکھی تھیں؛ ان میں سب سے زیادہ مقبول دولت کی دیوی لکشمی تھیں اور لکشمی کے بعد گنیش دیوتا۔"
+
+6. [calque / unidiomatic] "ایک سیاح کو یہ کلس خوبصورت لگے، اور اس یکسانیت بھرے مسلم طرزِ تعمیر کے برعکس دکھائی دیے جو اب ایمن آباد شہر پر چھایا ہوا ہے۔" -> "کے برعکس دکھائی دینا" is a calque of "appeared in contrast to", and "یکسانیت بھرے" is a calque of "monotonous". "اب ... ہے" drops into the present inside a passage framed as ماضی قریب. "ایمن آباد شہر" is a calque ("Eminabad town") and clashes with قصبہ used everywhere else. -> NEW: "ایک سیاح کو یہ کلس خوبصورت لگے اور اس یکسانیت زدہ مسلم طرزِ تعمیر سے یکسر مختلف دکھائی دیے جو تب ایمن آباد پر چھایا ہوا تھا۔"
+
+7. [calque / overlong] "ایک مندر 1947 میں ویران ہو جانے کے باوجود اب بھی مضبوط دکھائی دیتا تھا، اگرچہ اس کا رنگ اتر چکا تھا اور اس کی سطح پر ایک ایسی تہ جم چکی تھی جو اسے کھا رہی تھی۔" -> "اب بھی ... تھا" carries English "still" into a past frame; Urdu needs "ابھی تک" or "تب بھی". The sentence also stacks two concessives (باوجود ... اگرچہ). Split it. -> NEW: "ایک مندر 1947 میں ویران ہو جانے کے باوجود ابھی تک مضبوط دکھائی دیتا تھا۔ البتہ اس کا رنگ اتر چکا تھا اور اس کی سطح پر ایک ایسی تہ جم چکی تھی جو اسے کھائے جا رہی تھی۔"
+
+8. [repetition] "تصور کیا جاتا ہے کہ یہ شہر چناب اور راوی کے درمیان سب سے اہم تجارتی مراکز میں سے ایک تھا، اور دہلی اور لاہور کے بعد تاجروں کی سب سے اہم منزل یہی تھی۔" -> "سب سے اہم" appears twice in one sentence, and "اور دہلی اور لاہور" chains two اور together. -> NEW: "تصور کیا جاتا ہے کہ یہ شہر چناب اور راوی کے درمیان اہم ترین تجارتی مراکز میں سے ایک تھا اور دہلی و لاہور کے بعد تاجروں کی سب سے اہم منزل یہی تھی۔"
+
+9. [unidiomatic] "اسی تصویر میں سید پور کا حاکم رائے کہلاتا تھا، اور ملک بھاگو اس کے وزیروں میں سے تھا۔" -> "وزیروں میں سے تھا" without ایک sounds clipped in modern prose. -> NEW: "اسی تصویر میں سید پور کا حاکم رائے کہلاتا تھا اور ملک بھاگو اس کے وزیروں میں سے ایک تھا۔"
+
+10. [ambiguous pronoun / collocation] "اسی نے تمام برہمنوں اور اونچی ذاتوں کے لوگوں کے لیے شادی کی ضیافت کی۔" -> the previous sentence ends with حویلی as its subject, so "اسی نے" does not point clearly back to ملک بھاگو. The usual collocation is ضیافت دینا, which also avoids "کی ضیافت کی". -> NEW: "ملک بھاگو ہی نے تمام برہمنوں اور اونچی ذاتوں کے لوگوں کے لیے شادی کی ضیافت دی۔"
+
+11. [izafat chain] "ماضی قریب کے قصبے کے باسی کچھ اور تھے۔" -> "کے قصبے کے باسی" piles up postpositions, and "ماضی قریب کے قصبے" is clumsy. -> NEW: "ماضی قریب میں قصبے کے باسی کچھ اور تھے۔"
+
+12. [ambiguity] "قیامِ پاکستان کے بعد سرحد کے اس پار سے آنے والے مہاجرین نے یہاں کے پرانے مندروں پر قبضہ کر لیا تھا" -> unvocalised "اس پار" naturally reads as اِس پار ("this side"), the opposite of what is meant. The introduction already uses the clear form "سرحد پار سے". -> NEW: "قیامِ پاکستان کے بعد سرحد پار سے آنے والے مہاجرین نے یہاں کے پرانے مندروں پر قبضہ کر لیا تھا، اور حالیہ برسوں میں بھی ان کی اولاد وہیں آباد تھی۔"
+
+13. [calque: apposition / awkward opener] "ایک گرو نانک کے زمانے کا سید پور ہے، ایک قدیم شہر جو مندروں اور تجارت سے مالا مال تھا۔" -> "ایک گرو نانک ..." first reads as "a certain Guru Nanak". The appositive set off by a comma ("، ایک قدیم شہر جو") follows English order. The next sentence opens with دوسرا, so پہلا is the natural partner. -> NEW: "پہلا گرو نانک کے زمانے کا سید پور ہے، جو مندروں اور تجارت سے مالا مال ایک قدیم شہر تھا۔"
+
+14. [wordy / tangled] "اورنگزیب کے عہد کی ایک فارسی تاریخ میں ایک پرگنے اور ایک منزل کا ذکر آتا ہے جن کا نام وہی ہے جو ایمن آباد کا ہے، مگر اس جگہ کو اس قصبے سے جوڑنے والی چیز اس نام کے سوا کچھ نہیں۔" -> "جن کا نام وہی ہے جو ایمن آباد کا ہے" is long-winded. "جوڑنے والی چیز ... کچھ نہیں" is a mismatched construction, with three اس in a row. -> NEW: "اورنگزیب کے عہد کی ایک فارسی تاریخ میں ایک پرگنے اور ایک منزل کا ذکر آتا ہے جن کا نام بھی ایمن آباد ہے، مگر نام کے سوا کوئی چیز اس جگہ کو اس قصبے سے نہیں جوڑتی۔"
+
+15. [calque / overlong] "اگر یہ وہی جگہ ہے تو یہ تاریخ اسے کچھ ہی برس پہلے گجرات سے الگ کر کے بنائے گئے ایک پرگنے، شاہی سفر کی ایک منزل اور راستے کا فاصلہ ناپنے کے ایک مقام کی حیثیت سے جانتی ہے۔" -> "کی حیثیت سے جانتی ہے" is a calque of "knows it as". The long participial phrase in front of the noun ("کچھ ہی برس پہلے ... بنائے گئے ایک پرگنے") follows English order. -> NEW: "اگر یہ وہی جگہ ہے تو اس تاریخ میں اس کا ذکر تین حیثیتوں سے آتا ہے: ایک پرگنہ جو کچھ ہی برس پہلے گجرات سے الگ کر کے بنایا گیا تھا، شاہی سفر کی ایک منزل، اور راستے کا فاصلہ ناپنے کا ایک مقام۔"
+
+16. [calque / redundancy] "تاریخ جس سفر کو بیالیسویں برس میں رکھتی ہے، اس میں اس شخص کو اسی منزل پر بادشاہ کے حضور پیش کیا گیا اور وہیں موقع پر سزا دی گئی۔" -> "جس سفر کو بیالیسویں برس میں رکھتی ہے" is a calque of "places in the 42nd year". "وہیں موقع پر" says the same thing twice. -> NEW: "تاریخ کے مطابق بیالیسویں برس کے سفر میں اس شخص کو اسی منزل پر بادشاہ کے حضور پیش کیا گیا اور وہیں اسے سزا دی گئی۔"
+
+17. [ambiguous relative] "ڈیک اس پل تک پہنچنے سے پہلے کئی پرگنوں کے دیہات کے پاس سے گزرتی ہے، جن میں ظفروال، پسرور اور یہی پرگنہ بھی شامل ہیں۔" -> "جن" sits nearest to دیہات but refers to پرگنوں, and the nominative "یہی پرگنہ" does not fit the list. -> NEW: "اس پل تک پہنچنے سے پہلے ڈیک ظفروال، پسرور اور اسی پرگنے سمیت کئی پرگنوں کے دیہات کے پاس سے گزرتی ہے۔"
+
+NOTES:
+- Taste: the same three points (Saidpur renamed by Babur; temples abandoned in 1947 and occupied by migrants; trade lost to "ایک نسبتاً نئے شہر") come up in تعارف, تاریخ, مندر, برادریاں and کتابوں میں ایمن آباد. "ایک نسبتاً نئے شہر" appears three times word for word. Varying the wording, or cutting one restatement in تاریخ, would read better. This is structural, so it is not counted as an error.
+- "تصور کیا جاتا ہے کہ" (twice) is acceptable but slightly bookish. "خیال کیا جاتا ہے کہ" or "روایتی تصویر میں" would read more naturally; the alternation of تصویر and تصور is otherwise handled well.
+- "ہزاروں برس پہلے، ظہورِ اسلام سے بھی بہت پہلے" repeats پہلے; "ظہورِ اسلام سے بھی کہیں پہلے" is lighter.
+- "چڑھاوے یا تو رکھ لیے جاتے، یا بانٹ دیے جاتے یا بیچ دیے جاتے" reads better without the comma: "یا تو رکھ لیے جاتے یا بانٹ دیے جاتے یا بیچ دیے جاتے".
+- "اہم تجارتی مرکز" appears twice in the last two sentences of تاریخ; the second could simply be "تجارتی مرکز کی حیثیت سے".
+- The gloss of *کروہ* after a ؛ is justified, since the word is unfamiliar, but it would sit better as its own sentence.
+- "کشمیر میں ایک شخص ..." opens the last paragraph abruptly. A link back to the منزل just discussed would help, but that is the writer's call.
+- Mechanics are clean: Urdu ، ۔ ؛ throughout, no em or en dashes, no Latin letters, Western digits (1947, 1992), and balanced asterisks (*کروہ*). There are no verse paragraphs.

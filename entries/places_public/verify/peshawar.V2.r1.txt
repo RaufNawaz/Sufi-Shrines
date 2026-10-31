@@ -1,0 +1,10 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Style/precision, optional. English "a Pashto selection of Khushhal Khan Khattak" | Urdu "خوشحال خان خٹک کے کلام کا ایک پشتو انتخاب". کلام usually reads as "his verse", which is a little more specific than the English, though Khushhal Khan is chiefly a poet and the reading is natural. To keep exactly the English scope: OLD "1958 میں خوشحال خان خٹک کے کلام کا ایک پشتو انتخاب یہاں سے شائع ہوا" -> NEW "1958 میں خوشحال خان خٹک کی تحریروں کا ایک پشتو انتخاب یہاں سے شائع ہوا".
+2. Style. English "the monism of folk poetry" | Urdu "لوک شاعری کے وحدت الوجودی رنگ". This is the standard Urdu term for Sufi monism, so it is acceptable and is not an added identification.
+3. Style. English "His life moved between ... Ajmer and, finally, Karachi" | Urdu "اور آخرکار وہ کراچی میں جا ٹھہرے". This keeps the sense of Karachi as the final stage. "Shahidullah Faridi, too, was in Peshawar" | "شاہد اللہ فریدی بھی پشاور میں رہے" is a fair rendering of the vague English "was in".
+4. Style. English "a seat of command" | Urdu "فوجی کمان کا ایک مرکز". The paragraph is about armies and a governorship, so "فوجی" makes explicit what the English implies. Acceptable.
+5. Checked and correct: all seven headings match, in the same order, and the bibliography is dropped as the brief requires. Every figure in the prose is present (391, 5000/10000 written in words, 1923, 1951, 1985, 1958, 1971, 2010, 2011, "about a hundred" given as کوئی سو, the 18/2/30/40 kos written in words). All hedges are kept: "as an old Persian history tells it" (کے بیان کے مطابق), "A shorter telling" (ایک مختصر روایت میں), "it is said" (کہا جاتا ہے), "in one woman's experience", "in the words of". The dropped glosses (Sufi/Muslim mystic, farman, silsila, kos, gurdwara) are familiar words, which the brief allows. The qalandar gloss is kept. The file has no Latin letters, no en or em dashes, and balanced asterisks.

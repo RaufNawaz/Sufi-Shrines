@@ -1,0 +1,15 @@
+WHY: V1 r1 note 1: the quotation had no speaker and a present tense; given as plain past statement.
+OLD: "Many educated female and male performers come themselves to the radio and television for auditions and are contracted to sing."
+NEW: Many educated performers, women and men, came to the radio and television themselves for auditions and were contracted to sing.
+
+WHY: V1 r1 note 2: the team version does not say which ʿīd.
+OLD: at *ʿīd*, the Muslim festival,
+NEW: at *ʿīd*, a Muslim festival,
+
+WHY: V1 r1 note 3: the team speaks of visitors and pilgrims from the city, not its people in general.
+OLD: Hyderabad's people also travel to Hinglaj.
+NEW: People from Hyderabad also travel to Hinglaj.
+
+WHY: V1 r1 note 4: a connective the team version does not make.
+OLD: In more recent times, on 28 March 2014, a temple
+NEW: On 28 March 2014, a temple

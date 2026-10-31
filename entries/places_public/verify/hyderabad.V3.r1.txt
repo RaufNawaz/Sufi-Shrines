@@ -1,0 +1,42 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [tense / agreement of time] "سکندر بلوچ اور نصیر مرزا نے بتایا کہ اب انہیں نئے فنکار ڈھونڈنے کے لیے صوفی مزارات کے میلوں میں جانے کی ضرورت نہیں رہی۔ بہت سے پڑھے لکھے فنکار، خواتین بھی اور مرد بھی، آڈیشن دینے خود ریڈیو اور ٹیلی وژن پہنچ جاتے، اور ان سے گانے کے معاہدے کر لیے جاتے۔" -> the first sentence speaks of the present ("اب ... نہیں رہی") but the second drops into a bare past habitual without تھے ("پہنچ جاتے ... کر لیے جاتے")، which reads as unfinished and contradicts "اب". The second sentence must follow the present frame. -> "سکندر بلوچ اور نصیر مرزا نے بتایا کہ اب انہیں نئے فنکار ڈھونڈنے کے لیے صوفی مزارات کے میلوں میں جانے کی ضرورت نہیں رہی۔ بہت سے پڑھے لکھے فنکار، خواتین بھی اور مرد بھی، آڈیشن دینے خود ریڈیو اور ٹیلی وژن پہنچ جاتے ہیں، اور ان سے گانے کے معاہدے کر لیے جاتے ہیں۔"
+
+2. [English word order] "ان کا کہنا تھا کہ یہاں وہ ریڈیو سے روزی کما سکتی تھیں، اور ٹیلی وژن اسٹیشنوں کے ساتھ بھی کاروباری معاہدے طے کر سکتی تھیں اور سندھ کے متمول جاگیردار گھرانوں سے تعلق رکھنے والے اپنے سرپرستوں کے ساتھ بھی۔" -> the second object ("سرپرستوں کے ساتھ بھی") is tacked on after the verb, English style ("with TV stations as well as with patrons"). In Urdu both objects come before the verb. -> "ان کا کہنا تھا کہ یہاں وہ ریڈیو سے روزی کما سکتی تھیں، اور ٹیلی وژن اسٹیشنوں سے بھی اور سندھ کے متمول جاگیردار گھرانوں سے تعلق رکھنے والے اپنے سرپرستوں سے بھی کاروباری معاہدے کر سکتی تھیں۔"
+
+3. [wrong deixis / confusing] "انہوں نے دو افراد کی دستار بندی کی، اور اس غرض سے دو مرتبہ پاکستان سے آئے، ایک بار 1957 میں اور پھر 1980 میں۔" -> the shrine and its sajjada nashin are in Hyderabad, Pakistan, so "پاکستان سے آئے" ("came from Pakistan") makes no sense to a Pakistani reader: came from Pakistan to where? The verb must express travel away from Pakistan without naming a destination the text does not give. -> "انہوں نے دو افراد کی دستار بندی کی، اور اسی غرض سے دو مرتبہ، ایک بار 1957 میں اور پھر 1980 میں، پاکستان سے سفر کیا۔"
+
+4. [unidiomatic / wrong verb] "سپاہی ملانی حیدرآباد کا ایک معروف عامل خاندان تھا، اور اسی سپاہی ملانی لین پر دلپت صوفی کا *آستانو* واقع تھا، جہاں ان کے جانشین کیشو رام سپاہی ملانی تھے۔" -> "جہاں ان کے جانشین ... تھے" is a calque of "where his successor was"؛ in Urdu a successor ہوتا/بنتا ہے, he does not simply "is" at a place. "اسی سپاہی ملانی لین" also repeats the name needlessly. -> "سپاہی ملانی حیدرآباد کا ایک معروف عامل خاندان تھا، اور اسی نام کی لین پر دلپت صوفی کا *آستانو* واقع تھا، جہاں ان کے بعد کیشو رام سپاہی ملانی ان کے جانشین ہوئے۔"
+
+5. [ambiguous / illogical] "حیدرآباد کا ٹنڈو جہانیاں تین صوفی روایتوں میں سے ایک شمار ہوتا ہے۔" -> a place cannot itself "be counted as one of three Sufi traditions"؛ a native reader stops here. The sentence needs a word that ties the place to the tradition. (Check against the source which relation is meant; "وابستہ" is the least committal.) -> "حیدرآباد کا ٹنڈو جہانیاں تین صوفی روایتوں میں سے ایک سے وابستہ سمجھا جاتا ہے۔"
+
+6. [tangled sentence / singular-plural clash / calque] "اینی بیسنٹ اس شہر میں آئیں "جہاں انہوں نے متعدد لیکچر دیے"، اور حیدرآباد میں ان کی تقریر ہندو مذہب کے بارے میں تھی۔" -> "اس شہر" and then "حیدرآباد میں" again in the same sentence is repetitive; "متعدد لیکچر" followed by the singular "ان کی تقریر" is confusing; "کے بارے میں تھی" is a calque of "was about". -> "اینی بیسنٹ اس شہر میں آئیں "جہاں انہوں نے متعدد لیکچر دیے"؛ یہاں ان کی تقریر کا موضوع ہندو مذہب تھا۔"
+
+7. [unidiomatic collocation] "حیدرآباد لیکچروں، طباعت اور تعلیم کا شہر بھی تھا۔" -> "لیکچروں کا شہر" is an odd English-style collocation, and the plural loan "لیکچروں" is a register slip in a magazine sentence. -> "حیدرآباد خطابت، طباعت اور تعلیم کا مرکز بھی تھا۔"
+
+8. [run-on: two unrelated facts joined] ""1901 میں 22 برس کی عمر میں روچل داس شادی کر کے حیدرآباد میں آ بسے تاکہ شہر کے میڈیکل کالج میں طالب علم کی حیثیت سے داخلہ لے سکیں"، اور مول چند نے حیدرآباد کی ہیرانند اکیڈمی میں چھٹی جماعت تک تعلیم پائی۔" -> two different people and two unrelated facts are glued with "اور" after a long quotation; the sentence is overlong and the second clause is lost. Split into two sentences (quotation left untouched). -> ""1901 میں 22 برس کی عمر میں روچل داس شادی کر کے حیدرآباد میں آ بسے تاکہ شہر کے میڈیکل کالج میں طالب علم کی حیثیت سے داخلہ لے سکیں"۔ مول چند نے حیدرآباد کی ہیرانند اکیڈمی میں چھٹی جماعت تک تعلیم پائی۔"
+
+9. [calque / tautology / ambiguous pronoun / wrong verb for a cassette] "حیدرآباد کا انسٹی ٹیوٹ آف سندھیالوجی اس کی دستاویز بندی کا ایک ماخذ ہے، اور یہ ادارہ بھٹ شاہ کے موسیقاروں کی ایک کیسٹ کے ساتھ ساتھ متعدد تحریری تصانیف بھی شائع کرتا ہے۔" -> "دستاویز بندی کا ماخذ" ("a source of documentation") is a calque; "اس کی" is vague; "تحریری تصانیف" is redundant (a تصنیف is written); a cassette is جاری کی جاتی ہے, not شائع. -> "حیدرآباد کا انسٹی ٹیوٹ آف سندھیالوجی اس موسیقی سے متعلق دستاویزات کا ایک ماخذ ہے، اور اس ادارے نے بھٹ شاہ کے موسیقاروں کی ایک کیسٹ جاری کرنے کے ساتھ ساتھ متعدد تصانیف بھی شائع کی ہیں۔"
+   (If the present habitual must be kept: "... اور یہ ادارہ بھٹ شاہ کے موسیقاروں کی ایک کیسٹ بھی جاری کرتا ہے اور متعدد تصانیف بھی شائع کرتا ہے۔")
+
+10. [ambiguous pronoun] "حیدرآباد کے قریب ایک بہت بڑی زیارت گاہ بھی ہے، اور شہر میں وہ قبرستان بھی ہے جہاں اس کے بڑے بڑے موسیقار دفن ہیں۔" -> "اس کے" can be read as the زیارت گاہ's musicians as well as the city's. -> "حیدرآباد کے قریب ایک بہت بڑی زیارت گاہ بھی ہے، اور شہر میں وہ قبرستان بھی ہے جہاں شہر کے بڑے بڑے موسیقار دفن ہیں۔"
+
+11. [unidiomatic] "جبکہ مول چند کرپلانی 1887 میں اسی شہر کے ایک ایسے خاندان میں پیدا ہوئے جو کرشن کا بھگت تھا۔" -> "a family that was a devotee of Krishna" in English word order; a family is not "کا بھگت" in Urdu. -> "جبکہ مول چند کرپلانی 1887 میں اسی شہر کے ایک کرشن بھگت گھرانے میں پیدا ہوئے۔"
+
+12. [clumsy coordination] "میلاد النبی اور عاشورہ کے موقع پر اس شہر سے زائرین ہنگلاج پہنچتے ہیں، اور عید پر اور محرم میں بھی حیدرآباد سے لوگ وہاں جاتے ہیں۔" -> "اور عید پر اور محرم میں" stacks two اور in a row, and "حیدرآباد سے" repeats "اس شہر سے" from the same sentence. -> "میلاد النبی اور عاشورہ کے موقع پر اس شہر سے زائرین ہنگلاج پہنچتے ہیں، اور عید اور محرم میں بھی یہاں سے لوگ وہاں جاتے ہیں۔"
+
+13. [calque] "جہاں ریڈیو اور مقامی ریکارڈنگ کمپنیوں کی بدولت صوفیانہ کلام گانے والے روزی کما پاتے ہیں، اور ان میں عورتیں بھی شامل ہیں۔" -> "کما پاتے ہیں" mirrors English "are able to earn"؛ the plain verb is the natural one here. -> "جہاں ریڈیو اور مقامی ریکارڈنگ کمپنیوں کی بدولت صوفیانہ کلام گانے والے روزی کماتے ہیں، اور ان میں عورتیں بھی شامل ہیں۔"
+
+14. [repetition] "برطانوی فتح سے پہلے حیدرآباد خود مختار سندھ کے آخری دور کا دارالحکومت تھا۔" -> the history section opens with almost the same words as the first sentence of the introduction ("حیدرآباد برطانوی فتح سے پہلے خود مختار سندھ کے آخری دور کا دارالحکومت تھا۔")؛ the second time should not read as a copy. -> "برطانوی فتح سے قبل، خود مختار سندھ کے آخری دور میں، یہی شہر دارالحکومت تھا۔"
+
+NOTES:
+- Place names: the text has "ٹنڈو جہانیاں"، "محلے جہانیاں" and "ٹنڈو جہانا". If the first two are the same place, one form should be used throughout. If "ٹنڈو جہانا" (Pir Qutb Din Darya's mazar) is a different place, it is worth making that obvious, because a reader will take it for a misspelling.
+- "مول چند" first appears without a surname (paragraph 3) and only later as "مول چند کرپلانی". If they are the same person, giving the full name at first mention would help.
+- Inside the quotations (which I have left as they are): "حیدرآباد میں آ بسے" reads better as "حیدرآباد آ بسے"، and "طالب علم کی حیثیت سے داخلہ" is redundant. Change these only if the quotation is our own translation and not fixed wording.
+- "سپاہی ملانی لین پر": "لین میں" is slightly more idiomatic for a lane. "حیدرآباد کی سول لائنز میں" would read more naturally as "حیدرآباد کے علاقے سول لائنز میں".
+- "عامل سندھی ہندوؤں کی ایک برادری ہے" after a semicolon is acceptable, but the gloss could be woven in: "یہ شہر عاملوں کا بھی ہے، جو سندھی ہندوؤں کی ایک برادری ہیں، اور صوفیوں کا بھی۔"
+- "موسیقاروں کو پہچاننے" may be read as "identifying" or "recognising". "موسیقاروں کو پہچان دلانے" fits if recognition is meant.
+- "ان کے مرد رشتے دار یا برادری کے مرد": the second "مرد" could become "برادری کے دوسرے مرد".
+- Punctuation is clean: Urdu ، ۔ ؛ throughout, no dashes, no Latin letters, Western digits, asterisks balanced (8).

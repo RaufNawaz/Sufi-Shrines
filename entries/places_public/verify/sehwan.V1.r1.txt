@@ -1,0 +1,34 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [ambiguous referent, precision] Overview, paragraph 2: "From 1947 almost all of them migrated to India" comes straight after "two main Hindu temples", so "them" can be read as the temples. Exact fix:
+   OLD: From 1947 almost all of them migrated to India, where Sehwanis in Bombay still keep a community council of their own.
+   NEW: From 1947 almost all of its Hindus migrated to India, where Sehwanis in Bombay still have a community council.
+   ("keep a community council of their own" is also slightly warmer than the team's "there is still a Sehwani panchayat"; the NEW text stays with the team's wording.)
+
+2. [mild embellishment] History, paragraph 1: "an ancient place" is the writer's own summary. The team version gives only Abbas's phrase about Alexander the Great, and the claim is already framed with "is said to be". Exact fix:
+   OLD: Sehwan is said to be an ancient place, a historic city built within a large fortress from the time of Alexander the Great.
+   NEW: Sehwan is said to be a historic city built within a large fortress from the time of Alexander the Great.
+
+3. [rests near an uncertain reading] The Town and Its Country, paragraph 2: "Fishermen lived on its waters" can be read as living on the water, which is the sense of the word the team notes flag ("نشیمنها[OCR?]", dwellings). The team version also has the fishermen "live mostly by fishing", and that part is clean. A safer wording:
+   OLD: Fishermen lived on its waters, mostly by fishing.
+   NEW: Fishermen lived there, mostly by fishing.
+   Optional. The team prose itself says "live on the water", so this is not a FAIL.
+
+4. [grammar of attachment] Overview, paragraph 1: in "Sehwan is a very reputed centre of Sufi pilgrimage, whose narrow streets are almost impossible to walk in during the *urs*", the "whose" grammatically attaches to "pilgrimage". The meaning is clear and this is a matter of taste. A possible wording: "...a very reputed centre of Sufi pilgrimage. During the *urs*, the yearly commemoration of a saint's death, its narrow streets are almost impossible to walk in."
+
+5. [slight stretch, acceptable] Communities: "the Shahi Bazar in Sehwan figures in his story". The team version says only that Boivin names the bazaar in the same passage as Mulchand. "Figures in his story" says little more than that, so it can stay. A tighter wording would be "and the Shahi Bazar in Sehwan is named with him".
+
+6. [optional, not an important omission] History, paragraph 2: the team's line that the Khankhanan was joined by allies was dropped whole, because the names Rawal Bhim and Dalip are uncertain readings. Rule 5 lets the line stay without the uncertain names if its point still stands (for example "joined by the lord of Jaisalmer and a son of Rai Rai Singh of Bikaner"). The point matters little to Sehwan itself, so dropping it is defensible.
+
+7. [checked, no action] "Sehwan in Books" describes each book by its kind ("the Persian chronicle written in Aurangzeb's reign", "a modern history of Sufism in India", "a study of Islamic mysticism", and so on), with no surnames and no citations. That matches PLACE_DESCRIPTION_BRIEF's "The Place in the Books" section and the Peshawar and Uch Sharif house style, so it is not treated as source narration. The one time anchor ("in Aurangzeb's reign") rests on the bibliography's firm "regnal year 40 of Aurangzeb". 1932, 1947 and 2010 are all in the team version. "On the twelfth of Safar, as the story runs" keeps the team's hedge on the month.
+
+8. [checked, no action] Uncertain readings are all kept out of the article: Rawal Bhim and Dalip, Tarkhan, the rockets, Manchur, the dwellings, the Kashmir comparison, and the February with its unreadable year. "A place of dread and of mortal danger" rests on legible words; the illegible word sits before "Siwistan" (team notes: "از [illegible] سیوستان که محل بیم و مکان هلاکت بود"). The converted Shiva temple is framed as "is held to" and is not linked to Boivin's Shiva temple, as the team version requires. Schimmel's material is not expanded beyond what the team version gives. The Khankhanan's taking of the fort and Mirza Jani Beg's peace are kept as two separate events, not merged.
+
+9. [checked, no action] Glosses are definitions and assert nothing about the site: dargah, urs, khanqah, Khankhanan, kos, faujdar, Shaikhu'l-Islam, sarkar, Jhulelal, panchayat, Amil, malangs, Shawwal, lingam, Hinglaj Devi. "A deity revered by Sindhi Hindus" for Jhulelal and "a member of one of the Hindu communities of Sindh" for Amil are general dictionary senses. Calling Hinglaj Devi a "temple of the Hindu goddess" follows the bibliography's title.
+
+10. [omission sweep] Nothing obviously important is missing. Every name, place, building, date, distance and community in the team version is in the article: Siwistan; the fort under the Samma, Mirza Shah Beg and Mirza Isa Tarkhan; the Khankhanan, Mirza Jani Beg and Mirza Iraj; Dara's flight, Saf Shikan Khan, Muhammad Salih, the thousand horsemen, 13 and 5 *kos*; Jalal al-Din; Shaikh ʿArif; Muhammad bin Tughluq, Makhdum-i Jahaniyan and the Khanqah-i Muhammadi with its villages; Bhakkar, the Indus, Multan's 400 *kos*, the four *sarkars* of Thatta; the lake; the mountains, Vicholi, Hyderabad, Karachi; Lal Shahbaz Qalandar; the shrine said to have been a Shiva temple; the two temples (Shiva in the northeast, Jhulelal in the northwest); the Hindu half of the town and the migration of 1947; the Thakurs, Bombay, Ulhasnagar, the Sehwani *panchayat*, its directories and Facebook page; Nandirani Merani, Mulchand and the Shahi Bazar, Paru Chawla (Lalwani, 1932); the *urs* of more than a week, the women musicians, Alan Faqir (Rohri), the *malangs*, the Shawwal fair; Bedil, Raj Kumar, Hinglaj, Lahoot la Makan and 2010. The only items dropped are source apparatus, uncertain readings, the unnamed man of Boivin p. 113, and the unexplained "Here, the Thakurs came from Sehwan Sharif" note, whose content the article already carries.
+
+11. [dashes and hyphens] The prose has no em or en dashes; checked by script for U+2012 to U+2015. Every hyphen in the prose belongs to an established spelling the team version uses: al-Din, Makhdum-i, Khanqah-i, Shaikhu'l-Islam. There are no coined hyphenated words; "northeast" and "northwestern" are written without hyphens.

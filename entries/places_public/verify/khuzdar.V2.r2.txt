@@ -1,0 +1,13 @@
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+ISSUES:
+1. [V3, repeated verb / echo between adjacent sentences] OLD: "یہی نام دو تصانیف کے عنوانات میں بھی شامل ہے: ایک ابڑو کی *ہنگلاج اے لاہوت* اور دوسری نظامانی کی *لاہوت لامکان*۔" -> Change 3 is new. It ends on the same construction as the sentence just before it, which closes "ان میں یہ جگہ بھی شامل تھی۔". So two sentences in a row end on "... میں ... بھی شامل تھی / بھی شامل ہے". The section has only two sentences, so the echo stands out. The brief says repeated verbs should be varied. The introduction already uses "آتا ہے", so that verb is not available either. -> NEW: "یہی نام دو تصانیف کے عنوانات میں بھی ملتا ہے: ایک ابڑو کی *ہنگلاج اے لاہوت* اور دوسری نظامانی کی *لاہوت لامکان*۔"
+
+NOTES:
+- The difflib diff of /home/claude/work/khuzdar/ur.r1.bak against the current khuzdar.ur.md changes exactly three lines: line 3 (Overview), line 7 and line 9. Each matches one OLD -> NEW in khuzdar.ur.r1.changes.txt character for character. Nothing else moved: headings, blank lines and the second sentence of the Overview are unchanged.
+- Change 1 (comma removed after لاہوت) passes V2 and V3. Without the comma, "لاہوت شاہ عبداللطیف" could in theory be read together as one name. The participle phrase خضدار میں واقع and the verb تھا make the subject clear, so no change is needed.
+- Change 2 (sentences joined with، اور) passes V2 and V3. It keeps both English facts, "lies in Khuzdar" and "was one of the stops", without adding or hedging anything. Mixing ہے and تھی matches the English "lies / was" and is natural. The sentence has three clauses, which is within the limit. یہ جگہ clearly means لاہوت.
+- Change 3 passes V2. "The name of the place is carried in the titles of two works. One is X, by Abro; the other is Y, by Nazamani" is fully rendered. The titles and authors are correctly paired, ایک / دوسری agree with تصنیف (feminine), and the italics are balanced. The WHY line says the added بھی adds no fact, and that is correct: it is a connective, not a claim. یہی نام points to لاہوت, which the paragraph before names and the heading (لاہوت کا نام) repeats, so the reference is right. A taste alternative would be the more explicit "اس جگہ کا یہی نام", but no change is needed.
+- The coordinator applied V3's suggested wording verbatim in all three changes and declined nothing.
+- File checks: no Latin letters, no en or em dashes, 8 asterisks (balanced).
+- V3 round 1 left a structural note that still applies: the second section restates the introduction. That is a content question, not a language fault.

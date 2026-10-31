@@ -1,0 +1,47 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [omission] English (Language, Poetry and Music, paragraph 5): "its full bitterness comes through only against that backdrop of upheaval" | Urdu: the word "only" is missing, so the Urdu says the bitterness can be felt against that backdrop, not that it comes through only there.
+OLD: اس کی پوری تلخی اسی اتھل پتھل کے پس منظر میں محسوس کی جا سکتی ہے
+NEW: اس کی پوری تلخی اسی اتھل پتھل کے پس منظر ہی میں محسوس کی جا سکتی ہے
+
+2. [addition] English (History: Under the Mughals, paragraph 1): "On Humayun's return Sultan Sikandar came out of the hills" | Urdu adds a destination the English does not give ("returned to Hindustan").
+OLD: ہمایوں ہندوستان لوٹا تو سلطان سکندر
+NEW: ہمایوں کی واپسی پر سلطان سکندر
+
+3. [addition] English (History: Under the Mughals, paragraph 4): "The emperor set out towards Punjab in pursuit of Dara in the rains, against the advice of most of his nobles" | Urdu says most nobles were against marching in this season, which states what the advice was about; the English says only that he went against their advice.
+OLD: حالانکہ اکثر امرا اس موسم میں کوچ کے حق میں نہ تھے
+NEW: حالانکہ اس کے اکثر امرا نے اسے ایسا نہ کرنے کا مشورہ دیا تھا
+
+4. [addition] English (History: Decline, Sikh Rule, the British and Partition, paragraph 8): "could not prove their ownership of the land, and it was given to the newcomers" | Urdu adds that the land was taken from them (ان سے لے کر) and turns "and" into an explicit "therefore" (چنانچہ).
+OLD: زمین پر اپنی ملکیت ثابت نہ کر سکے، چنانچہ زمین ان سے لے کر نئے آنے والوں کو دے دی گئی۔
+NEW: زمین پر اپنی ملکیت ثابت نہ کر سکے، اور زمین نئے آنے والوں کو دے دی گئی۔
+
+5. [changed certainty] English (History: Under the Mughals, paragraph 3): "a time when the Mughals enjoyed effective authority in the Punjab" | Urdu says the authority was "fully" effective (پوری طرح), a stronger claim.
+OLD: جب پنجاب میں مغلوں کا اقتدار پوری طرح مؤثر تھا
+NEW: جب پنجاب میں مغلوں کا اقتدار مؤثر تھا
+
+6. [changed certainty] English (History: Decline, Sikh Rule, the British and Partition, paragraph 7): "Persian was quite rapidly replaced by Urdu and English" | Urdu بڑی تیزی سے reads "very rapidly"; "quite rapidly" is the milder خاصی تیزی سے.
+OLD: فارسی کی جگہ بڑی تیزی سے اردو
+NEW: فارسی کی جگہ خاصی تیزی سے اردو
+
+7. [changed certainty] English (Saints and Pilgrimage, paragraph 2): "pastoral clans, who had not yet taken up farming and were not Muslim" | In the Urdu ابھی governs both clauses, so the clans had "not yet become Muslim", which implies a later conversion the English sentence does not state; "not yet" belongs only to farming.
+OLD: جو ابھی نہ کھیتی باڑی کی طرف آئے تھے اور نہ مسلمان ہوئے تھے
+NEW: جو ابھی کھیتی باڑی کی طرف نہیں آئے تھے اور مسلمان نہیں تھے
+
+8. [changed fact] English (Overview, paragraph 1): "Its Siraiki speaking south, with Multan as its capital, was a part of Sindh during the Middle Ages." | The Urdu puts Multan's status as capital in the past tense (تھا), which ties it to the Middle Ages; the English describes the Siraiki speaking south with Multan as its capital, as the Language section does in the present (اس کا مرکز ملتان ہے).
+OLD: جس کا دارالحکومت ملتان تھا
+NEW: جس کا دارالحکومت ملتان ہے
+
+Checked and found faithful: all nine headings correspond in order; every number in the English prose appears in the Urdu with the same count (machine compared); the Urdu chronogram couplet is identical to the English file, and its English rendering paragraph is rightly not given an Urdu meaning; the two Bulleh Shah rendering paragraphs carry the meaning of the English without the credit lines, as the brief directs; the thirteen clan names are all present; all hedges checked ("tradition holds", "one tradition holds", "accounts differ" twice, "it is said" four times, "is said to have", "in one view", "has been read as", "is believed", "seem to", "may have", "probably", "in its author's perception", "has been explained") survive with the same scope; legends (the Pandavas, Taj Shah's prophecy, Bibi Pak Daman) stay legends. Dropped glosses (jagir, suba, wilayat, parganas, zamindars, diwan, misls, majzub, Firangis, gaddi, qawwali, Persian wheel, chronogram, mahants, sayyid, faqir and others) are deliberate under the brief.
+
+NOTES:
+a. Line 150: ایک مؤرخ ... کرتی ہیں makes the historian a woman; the English is neutral. It is correct for the source (Schimmel) and Urdu must choose a gender, so this is acceptable. In the same sentence, "most often" is closer to زیادہ تر than to اکثر.
+b. Line 93 calls Sulayman Taunsawi خواجہ where the English there says "Shaikh"; the English uses "Khwaja" for him earlier, so the reference is clear and the honorific is conventional.
+c. Line 57 names Ranjit Singh as مہاراجہ where the English says "He"; the referent is right and the title conventional.
+d. Line 73: "its faqirs ... numbering in the thousands" is tense neutral in English; the Urdu ہزاروں میں ہے commits to the present. Consider ہزاروں میں تھی if the past of "flourished" is meant.
+e. Line 79: the gloss of دھمال ("a vigorous ritual dance") is dropped; دھمال ڈالنا is idiomatic Pakistani Urdu, so this reads as a deliberate dropped gloss, though the brief lists دھمال among the less ordinary terms.
+f. Line 107: خشک میوے بانٹے جاتے adds "distributed" to "with ... dry fruit"; harmless and natural in Urdu.
+g. Line 21: in مجدود نے ... بغاوت کی، اور وہ ... مر گیا the pronoun وہ could momentarily be read as مودود; naming مجدود again would remove the doubt.
+h. Line 136: گوردواروں کے لیے زمینیں وقف کیں specifies land for "endowed"; the next clause supports it.

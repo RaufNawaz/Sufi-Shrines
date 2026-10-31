@@ -1,0 +1,14 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [omission] English (Overview): "In the reign of the emperor Aurangzeb, the river called the Bihat passed below the town of Jhelum" | Urdu: "اورنگزیب کے عہد میں بِہَت کہلانے والا دریا" -> the title "emperor" is dropped; Aurangzeb appears with no title. This is a title the English gives, not a gloss of a familiar word. -> corrected Urdu:
+   OLD: اورنگزیب کے عہد میں بِہَت کہلانے والا دریا جہلم شہر کے نیچے سے گزرتا تھا
+   NEW: شہنشاہ اورنگزیب کے عہد میں بِہَت کہلانے والا دریا جہلم شہر کے نیچے سے گزرتا تھا
+
+2. [omission] English (The River and the Town): "In the reign of the emperor Aurangzeb, the river called the Bihat passed below the town of Jhelum, and there it took the name Jhelum." | Urdu: "اورنگزیب کے عہد میں بِہَت نام کا دریا" -> the same title "emperor" is dropped a second time. -> corrected Urdu:
+   OLD: اورنگزیب کے عہد میں بِہَت نام کا دریا جہلم شہر کے نیچے سے گزرتا تھا
+   NEW: شہنشاہ اورنگزیب کے عہد میں بِہَت نام کا دریا جہلم شہر کے نیچے سے گزرتا تھا
+
+NOTES:
+- Everything else matches the English paragraph by paragraph. The hedges keep their force: "said to hold/contain his letters" (کہا جاتا ہے کہ اس میں ... محفوظ ہیں / درج ہیں), "the story goes" (داستان کہتی ہے), "only from hearsay" (محض سنی سنائی بات پر مبنی), "is said to have attained enlightenment" (کہا جاتا ہے کہ ... گیان حاصل ہوا تھا), "may mean the river rather than the town" (ممکن ہے ... شہر نہیں بلکہ دریا ہو). The legend stays a legend. Porus is still "an Indian king" (ہندوستانی راجا). The quotation about the male and female trees is complete. Ghasita Ram, "late nineteenth century" and "from the Jhelum" are all there. The three headings correspond. There is no verse and no bibliography. مہاتما before بدھ is a conventional honorific.
+- Style, optional: in the last section "اس خاندان کے ایک بزرگ گھسیٹا رام" uses بزرگ for "an ancestor". In context it reads as a forebear, so the meaning holds. But بزرگ can also mean simply an elder of the family. For exact parallel with the Overview (اجداد میں سے ایک), "اس خاندان کے ایک جدِ امجد گھسیٹا رام" or "اس خاندان کے اجداد میں سے ایک، گھسیٹا رام،" would be closer. Note that the second puts the name between commas. Not an error.

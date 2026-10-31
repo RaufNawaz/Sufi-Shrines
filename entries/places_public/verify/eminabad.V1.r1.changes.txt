@@ -1,0 +1,19 @@
+WHY: V1 r1 issue 1 (more certainty than the source): 'generally given' claims a spread of sources the team version lacks
+OLD: and Babur, by the account generally given, renamed it Eminabad when he took the city.
+NEW: and Babur renamed it Eminabad when he took the city, though accounts of the name differ.
+
+WHY: V1 r1 issue 1
+OLD: Accounts of how the town came by its name differ, but this is the account generally given.
+NEW: Accounts of how the town came by its name differ.
+
+WHY: V1 r1 issue 2 (a visitor's impression put in the narrator's voice)
+OLD: A striking amount of the town's historical architecture had been preserved.
+NEW: He marvelled at how much of the town's historical architecture had been preserved.
+
+WHY: V1 r1 note (precision: the order read as destruction before renaming, and as two cities)
+OLD: Babur destroyed the cities of Eminabad and Lahore, and when he took over Saidpur, he renamed it Eminabad.
+NEW: When Babur took over Saidpur, he renamed it Eminabad. He destroyed the cities of Eminabad and Lahore.
+
+WHY: V1 r1 note (tense: present among past)
+OLD: The town of recent times has a different people.
+NEW: The town of recent times had a different people.

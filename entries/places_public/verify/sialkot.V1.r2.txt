@@ -1,0 +1,24 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [tense clash with neighbour] OLD: "Sialkot has become one of the most important cities in Pakistan, and its business community financed its own airport, which now handles international flights, and the highway as well." (paragraph 35, the sentence just before changed sentence 5) -> Change 5 put the mounds sentence into the past ("stood ... had been turned"), but the sentence right before it, which describes the same moment on the same road into the city, is still in the present perfect and present ("has become", "now handles"). The paragraph now runs past ("By the early twenty first century ... connected"), then present ("has become ... now handles"), then past again ("stood ... had been turned"), all for one observation. It also contradicts change 2, which made the Overview say "by the early twenty first century Sialkot had become". Change 2 was justified on the grounds that the body already anchors this fact, yet the body still says "has become". Moving this one neighbour into the past makes the paragraph and the Overview agree, and it adds nothing the team version lacks. The team quotes "has become" and "financed its own airport, which now handles international flights" from the 2016 travelogue, and the paragraph's own anchor covers it. ->
+NEW: "Sialkot had become one of the most important cities in Pakistan, and its business community had financed its own airport, which handled international flights, and the highway as well."
+
+NOTES:
+
+Scope check. Python difflib between /home/claude/work/sialkot.r1.bak and entries/places_public/sialkot.md shows exactly five changed lines (3, 5, 25, 35, 41). Each change is exactly the OLD -> NEW listed in sialkot.V1.r1.changes.txt. Nothing else in the file moved, and the bibliography is unchanged. None of the changed lines contains an en or em dash, a hyphenated coinage or a doubled word ("twenty first" is unhyphenated; the only hyphen is the team's own spelling "al-Din").
+
+Change by change:
+
+1. Line 3, "It was known for its paper, its silk embroidery and its blades." Supported: the team has Bhandari praising the paper, the embroidery (close to a lakh a year) and the blades, and Dhillon calling the city "famous for its silk". "Known for" claims nothing beyond that. The past tense matches the sentences around it. Pass.
+
+2. Line 5, "... and by the early twenty first century Sialkot had become one of the most important cities in Pakistan, with an airport its own business community financed." Supported by Khalid (2016). The anchor is as firm as the bibliography allows, and the tense is right for "by". The fault it exposes is the body sentence in Issue 1, not this line. The sentence still joins a legend ("Legend ties it to Puran Bhagat") and a modern fact with "and". That predates this round, and the second clause cannot be read as legend, so it is taste only.
+
+3. Line 25, "Sialkot was a bustling city in the foothills of the Himalayas." Supported: the team quotes Dhillon, "a bustling city that was situated in the foothills". No new fact. Not raised as an issue, because the section uses the past for its historical description (gardens, paper, embroidery, blades) and the present for fixed geography ("lies", "passes", "is not very far away"), so a historical "was" followed by a geographic "It lies right on the border" follows that pattern. Still, with no time anchor, "was ... in the foothills" right before "It lies" may make a reader wonder whether the city has moved or stopped bustling. If the writer wants this smoother, a possible wording that keeps only team content is "Sialkot, in the foothills of the Himalayas, was a bustling city." Optional; record it, do not apply it.
+
+4. Line 35, "On the way into the city stood several factories and many mounds, probably archaeological ruins, that had been turned into graveyards." Supported: Khalid saw "several factories and a lot of mounds, 'probably archaeological ruins, converted into graveyards'". "Probably" stays, and nothing is added. The sentence itself is sound. Its clash with the sentence before it is Issue 1.
+
+5. Line 41, "He was praised as the most excellent of the excellent and the most perfect of scholars, famous in his day for the excellence of his dervish life, and he left Kashmir in the reign of Husain Khan to give himself to teaching at Sialkot." Supported (Bhandari p. 187). "Praised as" moves the superlatives out of the narrator's voice without naming the chronicle, as rule 2 requires. Grammar holds: the appositive "famous in his day ..." still attaches to "He", and the referent is clearly Kamal al-Din Husain from the sentence before. "Praised as" now appears in two paragraphs in a row (line 39, "It was praised as an abode of learning"). That repetition is taste only.
+
+Once Issue 1 is applied as given, the five changes and their neighbours raise no further problem of support, referent, grammar or tense.

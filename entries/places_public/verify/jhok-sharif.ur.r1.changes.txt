@@ -1,0 +1,26 @@
+# jhok-sharif.ur.md, round 1 changes (applied by the coordinator, 31 October 2026, watcher-2026-10-31T1114Z)
+
+WHY: V3 issue 2 and 3: two clauses joined after a comma on a distant ان میں, in English order; one tense for the fact in both sections
+OLD: جھوک شریف ان مقامات میں سے ایک ہے جہاں بیدل تشریف لے گئے، اور دڑازہ بھی ان میں شامل ہے۔
+NEW: بیدل جن مقامات پر تشریف لے گئے، ان میں جھوک شریف اور دڑازہ بھی شامل ہیں۔
+
+WHY: V3 issue 4: جس could point at ذکر, and یہیں کے leans on the sentence before
+OLD: یہیں کے صوفی بزرگ حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں، جس کا مطلب ہے "وحدت کا جام"۔
+NEW: جھوک شریف کے صوفی بزرگ حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں، یعنی "وحدت کا جام"۔
+
+WHY: V3 issue 3 (and V2 note 5): the same tense as the Overview, and a plainer verb
+OLD: بیدل نے جن مقامات کا سفر کیا، ان میں جھوک شریف اور دڑازہ بھی شامل تھے۔
+NEW: بیدل جن مقامات پر گئے، ان میں جھوک شریف اور دڑازہ بھی شامل ہیں۔
+
+WHY: V3 issue 5: the same title as in the Overview, not a bare صوفی before حضرت
+OLD: جھوک شریف کے صوفی حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں۔ اس ترکیب
+NEW: جھوک شریف کے صوفی بزرگ حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں۔ اس ترکیب
+WHY: coordinator, after the checker: the reworded body sentence (V3 issue 3 above) echoed the Overview word for word, the very repetition V3 issue 1 objected to, and the shortened file fell to 0.74 of the English (U7 floor 0.75). Same fact, a different construction.
+OLD: بیدل جن مقامات پر گئے، ان میں جھوک شریف اور دڑازہ بھی شامل ہیں۔
+NEW: جھوک شریف اور دڑازہ بھی ان مقامات میں شامل ہیں جہاں بیدل کا جانا ہوا۔
+
+## Rejected
+
+- V3 issue 1 (delete the section's sentence on Bedil's visit, as a repeat of the Overview): rejected. The English is the authority and states the visit in both the Overview and the body (the Overview stands alone on the map card, as in every place article of this size); the Urdu keeps the same facts paragraph by paragraph. The body sentence is reworded instead (issue 3 and V2 note 5) so it no longer echoes the Overview word for word.
+- V3 note on the heading (only if issue 1 were applied): not applicable.
+- V3 taste notes (past tense for ذکر کرتے ہیں, identifying Bedil, curly quotes): not applied; the English has the present tense and identifies Bedil no further, and the archive uses straight quotes.

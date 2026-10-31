@@ -1,0 +1,17 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+- The one change was read in its paragraph (Overview, paragraph 1) against the team version:
+  OLD: whose musicians, boys and pilgrims travel out to festivals and holy places.
+  NEW: whose musicians, boys and pilgrims travelled out to festivals and holy places.
+  The full sentence is now: "Bahawalpur was also an area with a considerable population of Hindus, whose musicians, boys and pilgrims travelled out to festivals and holy places." The change was applied exactly as listed.
+- Supported. The team version gives Bahawalpur as "an area with a considerable population of Hindus", from which "musicians, boys and pilgrims travel out to festivals and holy places" (Khalid, *A White Trail*, pp. 31, 37, 49). Changing the verb's tense alters no fact.
+- No new fault:
+  - The tense mismatch V1 r2 note 5 flagged is fixed. The main verb "was" and the relative clause "travelled" now agree.
+  - The sentence is consistent with the opening of Communities and Festivals: "In the early twenty first century Bahawalpur was home to a considerable population of Hindus, and they travelled out to festivals and holy places."
+  - The spelling "travelled" follows the house British spelling used elsewhere ("travelling", "Organisers").
+  - The paragraph moves from present ("is a city", "is counted", "lies", "is the seat") to past for the Hindus. This is the same mix that round 2 passed after the r1 change to "was", and the past tense matches the time anchor given in the Communities section. It is not a fault.
+- Present tense remains in Bahawalpur in Books: "it is a home of Hindus who travel out". That clause reports how a book presents the city, and it mirrors the team version ("Khalid sees it as a home of Hindus who travel out"). It was not part of this change and was passed in round 2. It is not a fault.
+- From V1 r2, still for the Urdu: it should follow the past tense in the Overview sentence.

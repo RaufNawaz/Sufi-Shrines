@@ -1,0 +1,54 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [calque] اکیسویں صدی کے اوائل کے اس قصبے میں مسلمانوں کی اکثریت ہے۔ -> "the early twenty first century town" rendered word for word; a time phrase cannot qualify the town this way in Urdu. -> اکیسویں صدی کے اوائل میں اس قصبے کی آبادی میں مسلمانوں کی اکثریت ہے۔
+
+2. [postposition] ان کی پیدائش کے دن پر بیانات مختلف ہیں -> "کے دن پر" is unidiomatic; the natural expression is تاریخِ پیدائش with کے بارے میں. -> ان کی تاریخِ پیدائش کے بارے میں بیانات مختلف ہیں
+
+3. [word order, izafat chain] بے بے نانکی اور جے رام سلطان پور سے تلونڈی ملنے آئے، اور تلونڈی کے مردانہ نانک کے سب سے گہرے دوست تھے۔ -> "تلونڈی ملنے آئے" follows English order (ملنے تلونڈی آئے is natural), and "تلونڈی کے مردانہ نانک کے" stacks two کے so the reader cannot tell at first whose Mardana is meant. -> بے بے نانکی اور جے رام سلطان پور سے ملنے تلونڈی آئے، اور تلونڈی ہی کے رہنے والے مردانہ نانک کے سب سے گہرے دوست تھے۔
+
+4. [ambiguous pronoun] تلونڈی میں لڑکپن ہی کے دنوں میں انہوں نے کٹاس راج جانے کا ارادہ باندھا۔ -> The previous sentence ends with "ان کے دوستوں اور گھر والوں نے"، so انہوں نے most readily points to the friends and family, not to Nanak. -> تلونڈی میں لڑکپن ہی کے دنوں میں نانک نے کٹاس راج جانے کا ارادہ باندھا۔
+
+5. [repetition] تلونڈی میں نانک کو بیچنے کے لیے سامان دیا گیا، اور کہانی کا اختتام جنگل میں اور تلونڈی میں ہوتا ہے۔ -> The previous sentence has just said the story ends in this village; "کہانی کا اختتام ... ہوتا ہے" repeats it, and "جنگل میں اور تلونڈی میں" is clumsy. -> تلونڈی میں نانک کو بیچنے کے لیے سامان دیا گیا، اور کہانی کا آخری حصہ جنگل اور تلونڈی میں پیش آتا ہے۔
+
+6. [tense] اس میں نانک کے والد فکرمند ہو گئے، ننکانہ صاحب جانے کے لیے خچروں پر سامان لادا گیا، اور وہاں پہنچ کر والد نے پوچھا کہ بیٹے نے کیا سودا کیا ہے۔ -> The frame is present ("جو روایت سناتا ہے، اس میں")، so the narrated version should stay in the narrative present; the switch to plain past jars. -> اس میں نانک کے والد فکرمند ہو جاتے ہیں، ننکانہ صاحب جانے کے لیے خچروں پر سامان لادا جاتا ہے، اور وہاں پہنچ کر والد پوچھتے ہیں کہ بیٹے نے کیا سودا کیا ہے۔
+
+7. [postposition] نانک کے سفر تلونڈی ہی سے شروع ہوتے ہیں اور تلونڈی ہی پر لوٹتے ہیں۔ -> One returns کو (or simply لوٹ آنا)، not پر. -> نانک کے سفر تلونڈی ہی سے شروع ہوتے ہیں اور تلونڈی ہی کو لوٹتے ہیں۔
+
+8. [ambiguous pronoun] اور سلکھنی اور ان کے دونوں بچوں نے مہتا کالو کے ساتھ مل کر نانک کو الوداع کہا۔ -> "ان کے" can point to Mehta Kalu, just named, to Nanak, or to Sulakhni; the possessive is not needed. -> اور سلکھنی اور دونوں بچوں نے مہتا کالو کے ساتھ مل کر نانک کو الوداع کہا۔
+
+9. [calque] کرتار نام کے ایک مقامی سکھ یاد کرتے ہیں: -> "یاد کرتے ہیں" for "recalls" is an English calque; in Urdu یاد کرنا means to remember someone or to memorise. -> کرتار نام کے ایک مقامی سکھ بتاتے ہیں:
+
+10. [vague antecedent] اور ان کے رویے انہی تجربات نے ڈھالے۔ -> "انہی تجربات" has no plural antecedent; the only experience mentioned is crossing the border after Partition. -> اور ان کے رویے اسی تجربے نے ڈھالے۔
+
+11. [agreement] راجبیر نام کے ایک مقامی سکھ کے بقول خالصتان تحریک کے برس "شہر کی تاریخ کے سب سے ہنگامہ خیز ادوار میں سے ایک" تھے۔ -> A plural subject ("برس ... تھے") is equated with "ادوار میں سے ایک"، which is singular. -> راجبیر نام کے ایک مقامی سکھ کے بقول خالصتان تحریک کا زمانہ "شہر کی تاریخ کے سب سے ہنگامہ خیز ادوار میں سے ایک" تھا۔
+
+12. [wrong word] جن کی تعداد مختلف شماروں میں چھ یا سات بتائی جاتی ہے۔ -> شمارہ means an issue of a periodical, not a count; the sentence reads as "in various issues". -> جن کی تعداد مختلف بیانات میں چھ یا سات بتائی جاتی ہے۔
+
+13. [repetition, word order] سال کا بڑا حصہ یہ مقفل رہتے ہیں اور صرف کسی میلے کے موقع پر کھولے جاتے ہیں، اور ہر گوردوارے کے دروازے پر سیکیورٹی گارڈ کھڑے رہتے ہیں۔ -> The guard clause is repeated almost word for word in the section on the state ("ہر گوردوارے کے دروازے پر سیکیورٹی گارڈ کھڑے ہوتے ہیں")، where it belongs; and the subject یہ should come first. The fact stays in the later section. -> یہ سال کا بڑا حصہ مقفل رہتے ہیں اور صرف کسی میلے کے موقع پر کھولے جاتے ہیں۔
+
+14. [redundancy] ٹوٹے ہوئے برتنوں کی ٹھیکریاں اور مٹی کے دوسرے برتنوں کے ٹکڑے بکھرے پڑے ہیں۔ -> ٹھیکری already means a shard of a broken pot, so "ٹوٹے ہوئے برتنوں کی ٹھیکریاں" is a gloss inside the word, and "دوسرے برتنوں کے ٹکڑے" then says it again. -> ٹھیکریاں اور مٹی کے برتنوں کے دوسرے ٹکڑے بکھرے پڑے ہیں۔
+
+15. [repetition, inconsistent naming] ننکانہ صاحب میں گرو نانک کے استھان پر گرو نانک کی تصویر کے پہلو میں بابا فرید کی تصویر بھی آویزاں ہے۔ -> "گرو نانک" twice in one clause; and the shrine is "گرو نانک استھان" in the last section but "گرو نانک کے استھان" here. -> ننکانہ صاحب کے گرو نانک استھان پر گرو کی تصویر کے پہلو میں بابا فرید کی تصویر بھی آویزاں ہے۔
+
+16. [tangled sentence] اس کا سبب یہ تھا کہ 1965 اور 1971 کی جنگوں اور 1992 میں بابری مسجد کے انہدام کے بعد پیدا ہونے والی بیگانگی کے نتیجے میں خاندان یہاں آتے رہے۔ -> Cause is stated twice ("اس کا سبب یہ تھا کہ ... کے نتیجے میں")، and "اس" has to reach back across a colon clause to the growth figure. -> اس اضافے کا سبب وہ خاندان تھے جو 1965 اور 1971 کی جنگوں اور 1992 میں بابری مسجد کے انہدام کے بعد پیدا ہونے والی بیگانگی کے باعث یہاں آتے رہے۔
+
+17. [tense] اس آمد سے ان سکھوں کا حوصلہ بڑھا جو اب تک مسلم اکثریت کے دباؤ تلے رہتے آئے تھے۔ -> "اب تک" (until now) cannot go with a past perfect describing a past moment; "until then" is meant. -> اس آمد سے ان سکھوں کا حوصلہ بڑھا جو اس وقت تک مسلم اکثریت کے دباؤ تلے رہتے آئے تھے۔
+
+18. [collocation] شہر کے گوردواروں میں پیلے کوڑے دانوں اور دوسرے بورڈوں پر کار سیوا کا نام لکھا نظر آتا ہے۔ -> "دوسرے بورڈوں" implies the dustbins are themselves boards. -> شہر کے گوردواروں میں پیلے کوڑے دانوں پر بھی اور بورڈوں پر بھی کار سیوا کا نام لکھا نظر آتا ہے۔
+
+19. [inconsistent naming] ایک پنڈال میں گرنتھ کا پاٹھ دعا پر ختم ہوا -> Everywhere else the scripture is "گرنتھ صاحب"; the bare "گرنتھ" reads as a slip in register. -> ایک پنڈال میں گرنتھ صاحب کا پاٹھ دعا پر ختم ہوا
+
+20. [logic of connective] اس کے بعد یاتری دوسرے شہروں کو روانہ ہو جاتے ہیں، جبکہ برطانیہ، امریکہ اور کینیڈا کے زیادہ متمول یاتری چارٹرڈ طیاروں سے آتے ہیں اور بسیں کرائے پر لیتے ہیں۔ -> "جبکہ" sets the wealthier pilgrims' arrival against the others' departure; the real contrast is with the Indian pilgrims arriving by train, so the clause needs its own sentence. -> اس کے بعد یاتری دوسرے شہروں کو روانہ ہو جاتے ہیں۔ برطانیہ، امریکہ اور کینیڈا کے زیادہ متمول یاتری البتہ چارٹرڈ طیاروں سے آتے ہیں اور بسیں کرائے پر لیتے ہیں۔
+
+NOTES:
+a. "سرجیت اور اودم" in the languages paragraph and "اودھم سنگھ" in the next paragraph: if both stand for the same name (Udham), the spelling should be اودھم in both places. Check against the source before changing it, since they may be two people with different names.
+b. "فرسٹ سیکرٹری کے کے کھنہ": the initials کے کے right after سیکرٹری read at first as a doubled genitive. Consider writing the initials so they are clearly a name, or reordering, e.g. "کونسلر بی جین اور فرسٹ سیکرٹری کھنہ (کے کے کھنہ)"، or whatever house style uses for initials.
+c. "ویزا کی چھوٹ کا مطالبہ ... مقدس شہر کی حیثیت سے": this can mean either "a visa waiver on the ground of holy city status" or "holy city status and a visa waiver". Make sure the Urdu says what the source says.
+d. "مرکزی دھارے میں مذاہب کے امتزاج کی بحث" in the last paragraph reads like a translated term; "عام مذہبی زندگی میں مذاہب کے امتزاج" or "عوامی سطح پر مذہبی امتزاج" would sit more naturally, if the meaning allows.
+e. Some points recur: the army route and the thirteen rebuildings (intro and History), the hilltop talks with jogis and sadhus (History and Sacred places), and Iqbal Qaiser on Muslims from across the border (History and Communities, once "تقسیم کے بعد"، once "تقسیم کے وقت"). An intro summary is fine, but the third repeat could be trimmed, and the two time phrases should match.
+f. "سکھوں کے نزدیک یہ دنیا کے مقدس ترین شہروں میں سے ایک ہے، بلکہ ممکن ہے سب سے مقدس یہی ہو": "بلکہ شاید سب سے مقدس یہی ہو" flows a little better.
+g. "مسلسل اور بلا تعطل پاٹھ": the two words say the same thing; one of them is enough.
+h. "جتھا سنگھ برادری کے سربراہ کا کردار ادا کر رہے ہیں": "برادری کی سربراہی کر رہے ہیں" is tighter.
+i. "اپنی جائے پیدائش ہی میں وہ اپنے دادا کے گھر رہتے تھے": "اسی گاؤں میں وہ اپنے دادا کے گھر رہتے تھے" is simpler.
+j. Punctuation: no em or en dashes, Western digits, no Latin letters, and asterisks balanced throughout.

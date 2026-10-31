@@ -1,0 +1,5 @@
+# gujrat: changes applied after V1 round 2 (coordinator, verifier's own wording)
+
+WHY: V1 r2 issue 1: the round 1 heading still paired the two items and could read as a shared lineage
+OLD: ## The Tale of Sohni and Ranjha's Lineage
+NEW: ## Sohni's Tale and Ranjha's Family

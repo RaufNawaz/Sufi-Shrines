@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-10-30T20:45:32Z",
-  "expires_at": "2026-10-30T22:45:32Z",
-  "note": "place article watcher firing [renewing own claim; previous holder watcher-2026-10-30T2015Z]",
-  "released_at": "2026-10-30T21:23:17Z",
-  "released_by": "watcher-2026-10-30T2015Z",
-  "session": "watcher-2026-10-30T2015Z",
+  "claimed_at": "2026-10-30T22:17:18Z",
+  "expires_at": "2026-10-31T00:17:18Z",
+  "note": "place article watcher firing [taking over a released or expired claim; previous holder watcher-2026-10-30T2015Z]",
+  "released_at": "2026-10-30T23:05:11Z",
+  "released_by": "watcher-2026-10-30T2215Z",
+  "session": "watcher-2026-10-30T2215Z",
   "slug": "place__punjab",
   "status": "released"
 }

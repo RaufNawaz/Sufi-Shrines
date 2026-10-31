@@ -1,0 +1,9 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Diff of /home/claude/work/gujrat/en.r2.bak against /home/claude/repo/entries/places_public/gujrat.md (python difflib, unified, n=0): exactly one line changed, line 5, "## The Tale of Sohni and Ranjha's Lineage" -> "## Sohni's Tale and Ranjha's Family". This matches the single OLD -> NEW pair in gujrat.V1.r2.changes.txt word for word. Nothing else moved; the Overview, both body paragraphs and the bibliography are unchanged, so the round 1 changes (already confirmed) stand as they were.
+2. The new heading "## Sohni's Tale and Ranjha's Family" is supported and adds nothing. "Sohni's Tale" keeps the legend framed as a legend (team version: "the tale of Sohni", "The passage is told as a tale", p. 125), and the paragraph under it opens "The tale of Sohni begins in the district" and keeps "In the tale, ...". "Ranjha's Family" uses the team version's own phrase ("the account of Ranjha's family", p. 122) and the body's "Ranjha's family belonged to the district too", and it does not call the lineage a tale. The two parallel possessives keep the items apart: there is no shared lineage, no single tale covering both, and no relationship between Sohni and Ranjha implied. That clears round 2 issue 1.
+3. The heading fits what sits under it: one paragraph on Sohni's tale, then one on Ranjha's father and clan, in that order. It brings in no new name, place or relationship, and it introduces no doubled word, broken referent or dash. The Overview's first sentence ("Gujrat district has a place in the tale of Sohni and in the family of Ranjha") already pairs the two the same way, so heading and summary agree.
+4. Optional, taste only, do not apply: "Sohni's Tale" could just possibly be read as a tale Sohni tells rather than one about her. The paragraph under it settles this straight away ("The tale of Sohni begins ..."), and the phrase is ordinary English for a tale about someone, so no change is needed.

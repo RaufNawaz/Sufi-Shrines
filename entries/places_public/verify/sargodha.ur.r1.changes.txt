@@ -1,0 +1,6 @@
+Urdu changes after round 1 (V2 PASS, V3 FAIL), coordinator, 31 October 2026.
+
+1. V3 issue 1, applied in V3's own wording.
+WHY: «سے ... وابستہ تھے» for a family and a tomb reads as a calque of "associated with"; the idiomatic Urdu is «کا تعلق تھا», and plain «ہے» reads more naturally than «واقع ہے» in a short sentence. V3's further point, that «ایک شخص» has no referent, is not a fault to fix: the English deliberately leaves the man unidentified (public notes: "a man's" identifies no one), so the Urdu keeps him unnamed; V3's corrected sentence itself keeps «ایک شخص». The repeated ایک is in V3's own sentence and is two separate indefinite nouns.
+OLD: ضلع سرگودھا میں ایک مقبرہ واقع ہے جس سے ایک شخص کے آبا و اجداد وابستہ تھے۔
+NEW: ضلع سرگودھا میں ایک مقبرہ ہے جس سے ایک شخص کے آبا و اجداد کا تعلق تھا۔

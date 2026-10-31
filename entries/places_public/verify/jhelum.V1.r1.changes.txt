@@ -1,0 +1,19 @@
+WHY: V1 r1 issue 1 (uncertain reading as fact): the crossing rests only on a word the team marks uncertain
+OLD: the river called the Bihat passed below the town of Jhelum, at a place where a crossing lay, and there it took the name Jhelum.
+NEW: the river called the Bihat passed below the town of Jhelum, and there it took the name Jhelum.
+
+WHY: V1 r1 issue 2 (unsupported): 'traveller' describes a speaker the team does not describe
+OLD: One traveller has heard of a bodhi tree near Jhelum, and in one family's history
+NEW: One man has heard of a bodhi tree near Jhelum, and in one family's history
+
+WHY: V1 r1 issue 2 (unsupported), second occurrence
+OLD: One traveller has heard of a bodhi tree near Jhelum, and of another in Islamabad.
+NEW: One man has heard of a bodhi tree near Jhelum, and of another in Islamabad.
+
+WHY: V1 r1 issue 3 (more certainty than the source): the letter's Jhelum is not said to be the town
+OLD: tells of two talking trees a little distance from the town.
+NEW: tells of two talking trees a little distance from Jhelum.
+
+WHY: V1 r1 note (precision): 'is a town' in the present tense rests on a seventeenth century description
+OLD: Jhelum is a town that shares its name with a river.
+NEW: Jhelum shares its name with a river.

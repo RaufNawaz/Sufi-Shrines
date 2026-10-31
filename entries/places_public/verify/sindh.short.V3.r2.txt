@@ -1,0 +1,57 @@
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+Diff check: I applied the 53 listed OLD to NEW replacements in order to /home/claude/work/sindh/ur.r1.bak. Every OLD occurred exactly once. The result is byte for byte identical to the current /home/claude/repo/entries/places_public/sindh.short.ur.md, and every NEW occurs once in it. Both files have 147 lines; the 40 lines that differ all carry listed changes. Nothing outside the listed changes moved.
+
+ISSUES:
+
+1. [V3, ambiguity] OLD: 1843 تک بلوچ مسلم معاشرے میں سب سے اوپر پہنچ چکے تھے۔
+-> This is change 2, taken word for word from V2. The tense is now right (a perfect after تک), but بلوچ now stands right before مسلم معاشرے. The reader first takes it as one phrase, "Baloch Muslim society", finds the sentence has no subject, and has to read it again. This is the same fault as V3 issue 23 (ہندو مسلمانوں), which this round fixed elsewhere. The meaning is unchanged; only the word order moves.
+-> NEW: 1843 تک مسلم معاشرے میں بلوچ سب سے اوپر پہنچ چکے تھے۔
+
+2. [V3, repetition] OLD: تالپوروں کے برسرِ اقتدار آنے تک بلوچ ملک کی سب سے مضبوط فوجی قوت بن چکے تھے، اور انہوں نے کلہوڑوں کی ڈوبتی طاقت کو مٹانے میں تالپوروں کا ہاتھ بٹایا۔
+-> This is change 17, which you asked me to check. تالپوروں comes twice in this one sentence. The sentence just before ends «تالپور 1781 میں برسرِ اقتدار آئے», so برسرِ اقتدار آنا also comes twice in a row, and the sentence after opens with تالپوروں نے. Talpur is named four times in three sentences. The V3 r1 ambiguity, where اس وقت تک seemed to point to 1843, can be fixed by placing "by then" after the helping, which is exactly where the English puts it ("The Baluchis, by then the strongest military force in the land, helped the Talpurs destroy..."). This also drops the extra anchor that change 17 had to add. Naming بلوچ again, rather than using وہ, follows the brief, because وہ could point to the Talpurs.
+-> NEW: کلہوڑوں کی ڈوبتی طاقت کو مٹانے میں بلوچوں نے تالپوروں کا ہاتھ بٹایا؛ بلوچ اس وقت تک ملک کی سب سے مضبوط فوجی قوت بن چکے تھے۔
+
+3. [V3, doubled word] OLD: اور سندھ میں صرف یہی ایک جگہ رہ گئی تھی جہاں ان کا آنا جانا باقی تھا۔
+-> Change 29 added a new fault. The first clause of the same sentence already says «صرف لعل شہباز قلندر کے مزار پر گاتی تھیں», so صرف now comes twice in one sentence. «یہی ایک جگہ رہ گئی تھی» already means "the one place left", so the second صرف adds nothing.
+-> NEW: اور سندھ میں یہی ایک جگہ رہ گئی تھی جہاں ان کا آنا جانا باقی تھا۔
+
+4. [V3, collocation, agreement] OLD: اٹھارھویں صدی کا سندھ ایک پرانی دنیا کی باقی ماندہ نشانی تھا، قرونِ وسطیٰ کے مسلم ہندوستان کی ایک یادگار۔
+-> This is change 45, which you asked me to check. Strictly, a masculine verb that agrees with the masculine subject سندھ is defensible. But it sits right after the feminine noun phrase کی باقی ماندہ نشانی, and a reader hears that as a mismatch. باقی ماندہ also does not sit well with نشانی: it goes with a remainder (باقی ماندہ حصہ، رقم، لوگ), not with a sign. The second phrase is still an English apposition after a comma, the pattern V3 r1 issue 5 flagged. Using حصہ makes the predicate masculine, so the verb fits, and اور joins the two predicates. No fact changes: "a survival of an older world" becomes the surviving part of an older world, and "a relic of the Muslim India of the Middle Ages" stays as it is.
+-> NEW: اٹھارھویں صدی کا سندھ ایک پرانی دنیا کا باقی ماندہ حصہ تھا اور قرونِ وسطیٰ کے مسلم ہندوستان کی ایک یادگار۔
+
+NOTES:
+
+a. The music paragraph (change 41) now opens straight on «"سندھ کے تصوف میں موسیقی بہت پہلے نمودار ہوئی"، اگرچہ». This is acceptable. The article often leaves a quotation unattributed, and the next sentence there does the same, as in the English. Dropping "Music came early" loses no fact, because the quotation says the same thing. The paragraph does follow one that ends on Abdul Qadir Mangi's quotation, but the paragraph break keeps the new quotation from reading as his. No change is needed.
+
+b. Change 17, V2 side: the current wording ties "by then" to the Talpurs' rise in 1781. That is close to the English but not exact, since the help came before the rise. Issue 2 above fixes both the V2 point and the V3 point.
+
+c. The adapted and rejected items are handled correctly, with the English as the authority:
+* آزادی is kept for "independence" (change 22).
+* مہانو and موہانا stay apart, as the English keeps "Muhano" and "Mohana" apart.
+* ٹرمپ gets no first name.
+* سندھی مہاجرین stays for "migrants".
+* رسمی stays for "ritual".
+* تین سلسلے and the 1221 date stay unchanged.
+* جت (change 10) and لاہری بندر (change 42) are reasonable choices of spelling. No جٹ, لاڑی, کاشتکار or لگڑ remains in the file. The English itself writes both "Laribunder" and "the port of Lahari", but this is the same port, so unifying the Urdu adds nothing.
+
+d. Change 36: «موٹے طور پر مغلوں سے پہلے کے اس دور سے تعلق رکھتی ہیں» can be read as where the stories come from, not when they are set. The previous clause, «ان کہانیوں کا زمانہ کون سا ہے», gives the right frame, so this passes. If the editor wants to match "set in" exactly: سورمیوں کی کہانیوں کے واقعات موٹے طور پر مغلوں سے پہلے کے اس دور میں پیش آتے ہیں جب.
+
+e. Change 8: «دریا کے بھی ایک ولی تھے» carries "of its own" through بھی, which is a natural Urdu equivalent. Nothing is lost.
+
+f. Change 32: in «ابھی نہ ... اور نہ مسلمان ہوئے تھے», ابھی governs both clauses, so it reads "not yet Muslim" where the English says only "were not Muslim". The context, where the shrines absorbed these clans, implies this, so it passes.
+
+g. Change 23: یہاں now comes in three sentences in a row (یہاں بارش، یہاں کی آفتیں، یہاں عمارتی پتھر). «اس سرزمین کی آفتیں» would vary it. This is a matter of taste.
+
+h. سب سے بڑھ کر now appears five times (lines 41, 61, 63, 67, 143); change 28 added one of them.
+
+i. Change 27: بندھی and باندھی come in one sentence, but this was already there before the change. Change 20: باقی دنیا is followed in the next sentence by بیرونی دنیا. Both are matters of taste.
+
+j. All the other changes say what the English says and read as correct, natural Urdu in their paragraphs: 1, 3 to 7, 9, 11 to 16, 18 to 22, 24 to 26, 28, 30, 31, 33 to 35, 37 to 40, 42 to 44 and 46 to 53. Specific checks:
+* Change 14: اسے now points to Mirza Jani Beg.
+* Change 30: ان کے لیے points to Jhulelal.
+* Change 1: اسے points to the country, not to the suba of Multan.
+* Change 40: ان کے سفر points to Shah Abdul Latif.
+* Change 6: «1960 کی دہائی کے اواخر تک ... ملتا تھا» rightly means "until".
+* Change 15: «1736 تک ... کا حصول» reads as "by".

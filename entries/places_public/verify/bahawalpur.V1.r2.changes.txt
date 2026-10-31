@@ -1,0 +1,3 @@
+WHY: V1 r2 note 5: tense agreement after the r1 change to 'was'.
+OLD: whose musicians, boys and pilgrims travel out to festivals and holy places.
+NEW: whose musicians, boys and pilgrims travelled out to festivals and holy places.

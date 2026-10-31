@@ -1,0 +1,34 @@
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+ISSUES:
+1. [V3, ambiguity introduced by the fix] OLD: "دوسرے روہڑی کے جان اللہ ہیں، جو سلسلۂ سہروردیہ سے وابستہ تھے۔" -> The pronoun دوسرے opens a new paragraph, and its partner (ان میں سے ایک) sits a paragraph back, behind the intervening sentence about the study. Read on, دوسرے attaches as an oblique adjective to روہڑی کے, so the phrase first parses as "Janullah of the other Rohri". The pairing only resolves after a stumble. Restoring the noun after the place name removes this. With ان میں سے ایک in front, دوسرے شاعر now reads as "the other poet", not as a chronological "second", so the round 1 concern (V3 r1 issues 9 and 10) stays fixed. -> NEW: "روہڑی کے دوسرے شاعر جان اللہ ہیں، جو سلسلۂ سہروردیہ سے وابستہ تھے۔"
+
+NOTES:
+1. Diff check. I applied the 18 OLD -> NEW pairs from sukkur.ur.r1.changes.txt in order to /home/claude/work/sukkur.ur.r1.bak, and each OLD occurred exactly once. The result is byte-identical to the current sukkur.ur.md. The python difflib unified diff shows changes only on lines 3, 5, 9, 11, 15, 17, 35, 37, 39, 47 and 49, and each changed line holds only the listed replacements. Nothing else moved. The file still has no Latin letters and no em or en dashes. The new brackets in (1882 تا 1942) use Western digits.
+2. V2 check of every change against the English:
+   - Triangle: Sukkur is one of the three named towns, so "makes one corner" is carried.
+   - "فسادات کی زد میں آیا / رہا": a fair rendering of "was a city of riots". In "ان فسادات کا پہلا شکار", the word ان points to the Sukkur riots, as the English does.
+   - "کی ولادت ہوئی ... بھی وہیں پیدا ہوئے، جن کا انتقال 1872": the facts and the reference to Bedil are unchanged.
+   - "نکل گئے تھے ... ڈال چکے تھے": matches "had passed ... had halted".
+   - "6 صفر": matches "On the sixth".
+   - "شمالی سندھ کے دوسرے شہروں کی تصویر سیہون سے مختلف ہے": matches "stands with the other cities of northern Sindh in contrast to Sehwan". It no longer implies that Sehwan is in northern Sindh.
+   - "(1882 تا 1942)": the dates are kept.
+   - "ان میں سے ایک ... بیدل": "The first" is the order of mention only. Nothing is lost.
+   - "اسلامی تصوف پر ایک تحقیق میں": the same source as the books section, as V2 r1 accepted.
+   - "گیت کہے": matches "composed songs".
+   - "ایک گویّے کے سفر سے بھی جڑا ہوا ہے": "one end" is carried by the next sentence, "روہڑی اور سیہون شریف کے درمیان".
+   - "دو شاعروں کا وطن بتاتی ہے": matches "knows it as the home of two poets".
+   - "روہڑی سے سیہون شریف تک ایک گویّے کے سفر کا ذکر آتا ہے": matches "one end of a singer's route to Sehwan Sharif". This section reports what the books say, so ذکر آتا ہے fits here.
+   - "دونوں مقامات": matches "the two towns".
+   - "جو فسادات کی زد میں رہا": matches "a city of riots".
+   - "جہاں روچل داس اور بیدل پیدا ہوئے اور جہاں ... کی زیارت گاہیں ہیں": matches "the birthplace of ... and the seat of shrines of ...".
+   No omission, addition, change of certainty or change of tense was found.
+3. The rejections were sound:
+   - نظمیں for گیت would change the kind of work, since the English says "songs".
+   - Using ذکر آتا ہے in Poets and Singers would turn a statement about the place into a statement about a source.
+   - بتاتی ہے for ذکر ... کرتی ہے avoids repeating ذکر in the next sentence.
+   - The reasons given for leaving V3 r1 notes 1 to 4 and 6 to 9 and V2 r1 notes 1 and 2 unchanged are consistent with the English and the brief. The English itself uses both "city" and "town" for Sukkur and calls Rohri both a town and one of "the cities of the riots". Linking the Manzilgah riots to the Sukkur riots would add a fact.
+4. "گیت کہے" is less common than "گیت لکھے", but it is attested in literary Urdu and matches "composed". "گیت لکھے" was ordinary Urdu, not really a calque, so either is acceptable. This is taste.
+5. "شمالی سندھ کے دوسرے شہروں کی تصویر سیہون سے مختلف ہے" compares a picture with a town. This is normal Urdu ellipsis, as in "ان کا انداز دوسروں سے مختلف ہے", so it is acceptable.
+6. Under issue 1's fix, the word شاعر also appears in the next sentence (in the quotation, "فارسی شاعروں", and in "ان شاعروں میں سے"). This was already the case in the pre-fix text, and the quotation is fixed, so it is acceptable. If the writer prefers to avoid it, "دوسرے، روہڑی ہی کے جان اللہ ہیں" also breaks the misparse, but it reads more stiffly.
+7. "فسادات کی زد میں" now appears in three sections (Overview, History, Books). The English repeats "city of riots" in the same three places, and no two of these are in neighbouring sentences.

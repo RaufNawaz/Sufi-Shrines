@@ -1,0 +1,119 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [tense/collocation] اکیسویں صدی کے اوائل میں نانک کا ویران کنواں اب بھی دیکھا جا سکتا تھا، اور اس کے پہلو میں گھاس سے ڈھکا ایک ٹیلا تھا جہاں کبھی گوردوارہ نانک کھڑا تھا۔
+-> "اب بھی" (now) clashes with the past frame "اکیسویں صدی کے اوائل میں ... تھا".
+-> اکیسویں صدی کے اوائل میں بھی نانک کا ویران کنواں دیکھا جا سکتا تھا، اور اس کے پہلو میں گھاس سے ڈھکا ایک ٹیلا تھا جہاں کبھی گوردوارہ نانک کھڑا تھا۔
+
+2. [wrong connective] ملتان سے اس کا فاصلہ ستر میل ہے، اگرچہ ملتان سے اس کی سمت کے بارے میں بیانات مختلف ہیں۔
+-> "اگرچہ" (although) sets up a concession the sentence doesn't make. The second clause is an added caveat, so it needs "البتہ" or "تاہم".
+-> ملتان سے اس کا فاصلہ ستر میل ہے، البتہ ملتان سے اس کی سمت کے بارے میں بیانات مختلف ہیں۔
+
+3. [wrong connective] اس سلسلے کے اولین مبلغ پندرہویں صدی کے اواخر میں اوچ میں آ کر آباد ہوئے، اگرچہ برصغیر میں قادریہ کی آمد کے وقت کے بارے میں بیانات مختلف ہیں۔
+-> Same misuse of "اگرچہ" as in 2.
+-> اس سلسلے کے اولین مبلغ پندرہویں صدی کے اواخر میں اوچ میں آ کر آباد ہوئے، البتہ برصغیر میں قادریہ کی آمد کے وقت کے بارے میں بیانات مختلف ہیں۔
+
+4. [ambiguity/missing subject] شیخ صفی الدین کازرونی سے منسوب ایک قصے کے مطابق حکم ہوا کہ اونٹ پر سوار ہو کر اسی سمت چلتے جائیں جدھر جانور لے جائے، اور جہاں وہ آخرکار رک جائے وہیں ٹھہر جائیں۔
+-> The sentence never says who received the command. Also, "منسوب" (attributed to) suggests the shaykh told the story, when the story is about him.
+-> شیخ صفی الدین کازرونی کے بارے میں ایک قصے کے مطابق انہیں حکم ہوا کہ اونٹ پر سوار ہو کر اسی سمت چلتے جائیں جدھر جانور لے جائے، اور جہاں وہ آخرکار رک جائے وہیں ٹھہر جائیں۔
+
+5. [tangled sentence] شہاب الدین نے اپنی پہلی مہم میں یہ قصبہ فتح کیا اور وہاں ایک نائب مقرر کیا، اور دوسری مہم میں وہ ایک بار پھر ملتان اور اوچ آئے اور وہاں سے صحرا کے راستے گجرات کی طرف بڑھ گئے۔
+-> A chain of four clauses joined by "اور" that covers two separate campaigns. It should be two sentences.
+-> شہاب الدین نے اپنی پہلی مہم میں یہ قصبہ فتح کر کے وہاں ایک نائب مقرر کیا۔ دوسری مہم میں وہ ایک بار پھر ملتان اور اوچ آئے اور وہاں سے صحرا کے راستے گجرات کی طرف بڑھ گئے۔
+
+6. [unidiomatic collocation] اور خواص خان کا تعاقب ملتان اور اوچ تک جا پہنچا۔
+-> A pursuit cannot "reach" a place in Urdu ("تعاقب ... جا پہنچا" is a calque). Use "تعاقب کیا گیا", which keeps the same reading.
+-> مرزا پیر محمد نے سندھ پار کر کے اوچ کے قلعے اور ملتان پر قبضہ کر لیا، اور خواص خان کا تعاقب ملتان اور اوچ تک کیا گیا۔
+
+7. [English apposition/idiom] جلال الدین سرخ پوش بخاری، جن کا انتقال 1291 میں ہوا، اوچ ہی کے تھے۔
+-> The death date sits between commas and cuts the name off from its predicate, which is English word order. "اوچ ہی کے تھے" is also clipped; the usual phrase is "کے رہنے والے".
+-> 1291 میں وفات پانے والے جلال الدین سرخ پوش بخاری اوچ ہی کے رہنے والے تھے۔
+
+8. [English apposition/overlong] ان کے بڑے بیٹے شیخ عبدالقادر جیلانی ثانی، جن کا انتقال 1533 میں ہوا، اوچ شریف کے مشہور قادری بزرگ ہیں، مگر بظاہر ان کی زندگی اور ورثے کا کوئی تحریری احوال باقی نہیں رہا۔
+-> Same comma-apposition pattern as 7, and the sentence runs too long. "ورثے کا احوال" is a calque of "legacy".
+-> ان کے بڑے بیٹے شیخ عبدالقادر جیلانی ثانی اوچ شریف کے مشہور قادری بزرگ ہیں، جن کا انتقال 1533 میں ہوا۔ مگر بظاہر ان کی زندگی اور ان کے چھوڑے ہوئے ورثے کا کوئی تحریری احوال باقی نہیں رہا۔
+
+9. [ambiguous adverb/redundant hedging] مقامی روایات سے گمان ہوتا ہے کہ ملتان اور اوچ جانے والا ایک شخص شاید وہیں باقاعدہ طور پر سلسلۂ سہروردیہ میں داخل ہوا ہو۔
+-> With two places just named, "وہیں" could mean either. The article's own later paragraph ("یہاں ایک شخص کے سلسلۂ سہروردیہ میں داخل ہونے") places it at Uch. "گمان ہوتا ہے ... شاید ... ہو" hedges twice.
+-> مقامی روایات سے گمان ہوتا ہے کہ ملتان اور اوچ جانے والا ایک شخص اوچ ہی میں باقاعدہ طور پر سلسلۂ سہروردیہ میں داخل ہوا تھا۔
+
+10. [register/ambiguity] ایک صاحب کا اصل نام عبداللہ شاہ تھا، اور ان کا خاندان سادات میں سے تھا اور اوچ گیلانیاں میں آ بسا تھا۔
+-> "ایک صاحب" is colloquial and leaves the person unidentified, and the double "اور" makes the sentence drag.
+-> ایک بزرگ کا اصل نام عبداللہ شاہ تھا؛ ان کا خاندان سادات میں سے تھا اور اوچ گیلانیاں میں آ بسا تھا۔
+
+11. [contradictory connectives] کہا جاتا ہے کہ ستلج یہیں سے ہو کر بہتا تھا، یہاں تک کہ 1960 میں بھارت اور پاکستان کے درمیان سندھ طاس معاہدے پر دستخط ہونے کے بعد یہ دریا گم ہو گیا۔
+-> "یہاں تک کہ" (until) and "کے بعد" (after) say the same thing twice and do not fit together. "دریا گم ہو گیا" is a calque, since "گم" is for lost objects. A river "غائب ہو جاتا ہے" or "سوکھ جاتا ہے".
+-> کہا جاتا ہے کہ ستلج یہیں سے ہو کر بہتا تھا، مگر 1960 میں بھارت اور پاکستان کے درمیان سندھ طاس معاہدے پر دستخط ہونے کے بعد یہ دریا غائب ہو گیا۔
+
+12. [collocation] خیال ہے کہ نانک کے زمانے میں قصبے کے پرانے مزار صحیح سلامت کھڑے تھے اور ان کے پہلو میں ایک زور دار دریا بہتا تھا۔
+-> "زور دار دریا" is a calque of "mighty river".
+-> خیال ہے کہ نانک کے زمانے میں قصبے کے پرانے مزار صحیح سلامت کھڑے تھے اور ان کے پہلو میں ایک تند و تیز دریا بہتا تھا۔
+
+13. [awkward quotation/tense] ایک بار یہاں آ کر اقبال قیصر نے کہا: "جب سے میں پچھلی بار یہاں آیا تھا، یہ جگہ بدل گئی ہے"۔
+-> "جب سے ... آیا تھا، ... بدل گئی ہے" mirrors English "since I last came". It reads stiffly next to "ایک بار یہاں آ کر".
+-> ایک بار یہاں آ کر اقبال قیصر نے کہا: "میں پچھلی بار یہاں آیا تھا، تب سے یہ جگہ بدل گئی ہے"۔
+
+14. [register] ایک اور قصہ کسی بابا جی کا ہے جنہیں اوچ میں ایک سنسان مسجد ملی۔
+-> "بابا جی" is too colloquial for reference prose.
+-> ایک اور قصہ کسی بزرگ کا ہے جنہیں اوچ میں ایک سنسان مسجد ملی۔
+
+15. [punctuation] اقبال قیصر نے پوچھا: "کیا آپ نانک کا کنواں دیکھنا چاہتے ہیں؟"، اور ساتھ ہی کہا کہ وہاں ویسے بھی کچھ باقی نہیں رہا۔
+-> A comma after a closing question mark doubles the punctuation.
+-> اقبال قیصر نے پوچھا: "کیا آپ نانک کا کنواں دیکھنا چاہتے ہیں؟" اور ساتھ ہی کہا کہ وہاں ویسے بھی کچھ باقی نہیں رہا۔
+
+16. [ambiguity] اوچ میں ایک جوگی کے ساتھ اڑنے کے مقابلے کا قصہ بھی بیان کیا جاتا ہے۔
+-> "کے ساتھ اڑنے" can be read as flying together with the jogi rather than competing against him.
+-> اوچ میں ایک جوگی سے ہوا میں اڑنے کے مقابلے کا قصہ بھی بیان کیا جاتا ہے۔
+
+17. [ambiguity] اورنگزیب کے عہد میں صوبۂ ٹھٹھہ کی حدود ملتان اور اوچ کی سرحد سے ٹھٹھہ اور کچھ مکران تک بیان کی گئی تھیں۔
+-> Without vowel marks, "کچھ مکران" reads first as "some of Makran". If the place name is meant, it needs a zabar to stop that reading. Check the reading against the source before applying.
+-> اورنگزیب کے عہد میں صوبۂ ٹھٹھہ کی حدود ملتان اور اوچ کی سرحد سے ٹھٹھہ اور کَچھ مکران تک بیان کی گئی تھیں۔
+
+18. [agreement/collocation] اور جنوب میں اوچ سے گجرات تک ریت کے ٹیلے اور بھٹی قبیلے کے وطن تھے۔
+-> One tribe is given a plural "وطن", and two unlike subjects share a single "تھے".
+-> اور جنوب میں اوچ سے گجرات تک ریت کے ٹیلے تھے اور بھٹی قبیلے کا وطن تھا۔
+
+19. [calque] وسیع تر خطے میں بہاولپور اور ملتان زمیندار سید خاندانوں کے مراکز ہیں، جو اپنے آبا و اجداد کے مزاروں کی سرپرستی کرتے ہیں۔
+-> "وسیع تر خطے میں" is a calque of "in the wider region".
+-> گرد و نواح کے علاقے میں بہاولپور اور ملتان زمیندار سید خاندانوں کے مراکز ہیں، جو اپنے آبا و اجداد کے مزاروں کی سرپرستی کرتے ہیں۔
+
+20. [collocation/consistency] بابا فرید کے نام سے مشہور فرید الدین نے اوچ کی مسجدِ حج کے کنویں میں چالیس دن کا الٹا چلہ کیا، جسے *چلۂ معکوس* کہتے ہیں۔
+-> In Urdu one "کاٹنا"s a chilla rather than "کرنا" it, and the article itself says "چلہ کاٹا تھا" earlier.
+-> بابا فرید کے نام سے مشہور فرید الدین نے اوچ کی مسجدِ حج کے کنویں میں چالیس دن کا الٹا چلہ کاٹا، جسے *چلۂ معکوس* کہتے ہیں۔
+
+21. [tangled sentence] اوچ بیعت کا مقام بھی تھا، جس کا اشارہ ان مقامی روایات سے ملتا ہے جو یہاں ایک شخص کے سلسلۂ سہروردیہ میں داخل ہونے کے بارے میں ہیں۔
+-> The relative clauses are stacked ("جس کا اشارہ ... ان ... جو ... کے بارے میں ہیں") in English order.
+-> یہاں ایک شخص کے سلسلۂ سہروردیہ میں داخل ہونے کی مقامی روایات سے اشارہ ملتا ہے کہ اوچ بیعت کا مقام بھی تھا۔
+
+22. [postposition] اوچ شریف میں ایک نواب کے گال پر ایسا مرض لاحق ہوا جو ٹھیک ہونے کا نام نہ لیتا تھا۔
+-> "لاحق ہونا" takes "کو" for the sufferer, so the wording should be "نواب کو ... مرض لاحق ہوا" rather than "گال پر".
+-> اوچ شریف میں ایک نواب کو گال کا ایسا مرض لاحق ہوا جو ٹھیک ہونے کا نام نہ لیتا تھا۔
+
+23. [ungrammatical construction] ان الفاظ میں کہ "تو اوچ شہر کا باشندہ ہے"، لفظ اوچ کے لغوی معنی بلند یا عظیم ہیں۔
+-> "ان الفاظ میں کہ" is a calque of "In the words '...'". It does not work as Urdu syntax.
+-> "تو اوچ شہر کا باشندہ ہے" میں لفظ اوچ کے لغوی معنی بلند یا عظیم ہیں۔
+
+24. [repetition/calque/overlong] اس میں وہاں کے صوفیوں کی تین نسلوں کی کہانیاں سب کی سب ہندو جوگیوں سے ٹکراؤ کا احوال سناتی ہیں، اور یہ کتاب قصبے کی بنیاد کے قصے کو احتیاط سے برتتی ہے: دیکھنے میں افسانوی، مگر قرونِ وسطیٰ میں صوفیوں کے بارے میں سنائی جانے والی کہانیوں کا ایک عام نمونہ۔
+-> The first clause repeats the "برادریاں" section almost word for word. "احتیاط سے برتتی ہے" is a calque of "treats with care", and the whole sentence runs too long.
+-> اس کے مطابق وہاں کے صوفیوں کی تین نسلوں کی ساری کہانیاں ہندو جوگیوں سے ٹکراؤ کے گرد گھومتی ہیں۔ قصبے کی بنیاد کے قصے کو بھی یہ کتاب احتیاط سے پرکھتی ہے: بظاہر افسانوی، مگر قرونِ وسطیٰ میں صوفیوں کے بارے میں سنائی جانے والی کہانیوں کا ایک عام نمونہ۔
+
+25. [overlong relative chain] آج کے سیاحوں کے لیے یہ کاشی کار مسجدوں اور ویران مقبروں کا قصبہ ہے، جہاں پرانے مزاروں تک بازار سے ہو کر پہنچا جاتا ہے، جس کے دریا کے بارے میں کہا جاتا ہے کہ وہ گم ہو چکا ہے، اور جس کا ایک گوردوارہ مٹ چکا ہے۔
+-> Three trailing relatives ("جہاں ... جس ... جس") in English style, plus the "گم" calque from 11.
+-> آج کے سیاحوں کے لیے یہ کاشی کار مسجدوں اور ویران مقبروں کا قصبہ ہے، جہاں پرانے مزاروں تک بازار سے ہو کر پہنچا جاتا ہے۔ اس کے دریا کے بارے میں کہا جاتا ہے کہ وہ غائب ہو چکا ہے، اور اس کا ایک گوردوارہ مٹ چکا ہے۔
+
+26. [gloss] قصور کے قوالوں کا ایک گھرانا بتاتا ہے کہ وہ شاعر بلھے شاہ کے خاندان کے ساتھ اوچ شریف سے آیا تھا۔
+-> "شاعر بلھے شاہ" glosses a name every Urdu reader knows. It is an English appositive ("the poet Bulleh Shah").
+-> قصور کے قوالوں کا ایک گھرانا بتاتا ہے کہ وہ بلھے شاہ کے خاندان کے ساتھ اوچ شریف سے آیا تھا۔
+
+NOTES:
+- "اس قصبے کی پہچان اس کے مقدس خاندان ہیں": "مقدس خاندان" has a faintly Christian ring ("Holy Family"). "روحانی خاندان" or "بزرگ خاندان" would sound more natural.
+- "حضرت محمد غوث کے چاروں بیٹے ... شاہ محمد غوث کے مقبرے کے پہلو میں": if these are the same man, use one form of the name ("اپنے والد") so a reader does not take him for two people. If they are different people, leave it. This needs a check against the source, not a language fix.
+- The "مزار" in "آج مزار کے متولی ..." (paragraphs 2 and in the "متولی" section) is singular and never identified. On a page about a town, readers will ask which shrine is meant.
+- "نانک کرتارپور سے سفر کر کے صرف ایک دن پہلے وہاں پہنچے تھے": "ایک دن پہلے" has no reference point (a day before what?). Check against the source.
+- In the quoted passage "40 دن تک ہر رات وہ انہیں ..." the "وہ" (the helper) is never named. It is inside a quotation, so I left it alone.
+- The opening section restates the "برادریاں" and "متولی" sections almost word for word (Saraiki and the Punjab/Sindh meeting, the sadat's acceptance of lineage, the qawwals of Kasur, the havelis). That is acceptable in an introduction, but some trimming would help.
+- The opening uses "ستر میل" and "چالیس دن" in words, while a quotation uses "40 دن". Either is fine, but the article could pick one convention.
+- "اوچ کا قصبہ کہلاتا تھا" could be the more idiomatic "قصبۂ اوچ کہلاتا تھا". "اوچ کی شاعری ... سفر کرتی رہی" could be "دور دور تک پہنچی". Both are taste.
+- The appositive list at the end of "انیسویں صدی کی ایک تصنیف میں ..." is long but readable.
+- Mechanical checks: no Latin letters, no em or en dashes, asterisks balanced (2 pairs), Western digits throughout, no verse paragraphs.

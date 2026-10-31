@@ -1,0 +1,29 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [repetition] "بیدل نے جن مقامات کا سفر کیا، ان میں جھوک شریف اور دڑازہ بھی شامل تھے۔" -> The section repeats the introduction's first sentence almost word for word, and the second section ("جھوک شریف کے صوفی حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں۔ اس ترکیب کے معنی ہیں "وحدت کا جام"۔") repeats the introduction's second sentence too. The whole article says each of its two facts twice, which a native reader notices at once. Keep each fact in one place: the visit in the introduction, the phrase in the section. -> delete this sentence; the visit is stated once in the introduction (see issue 2).
+
+2. [word order / tangled sentence] "جھوک شریف ان مقامات میں سے ایک ہے جہاں بیدل تشریف لے گئے، اور دڑازہ بھی ان میں شامل ہے۔" -> Two clauses spliced with "اور" after a comma, the second hanging on a distant "ان میں"; English "one of the places ... and X is also among them" order. Natural Urdu puts the relative clause first. -> بیدل جن مقامات پر تشریف لے گئے، ان میں جھوک شریف اور دڑازہ بھی شامل ہیں۔
+
+3. [tense inconsistency] "ان میں جھوک شریف اور دڑازہ بھی شامل تھے۔" against "اور دڑازہ بھی ان میں شامل ہے۔" -> The same fact is put in the past in one place and the present in the other. Use the present "شامل ہیں" (the places remain among those he visited), as in issue 2; with issue 1 applied, only that one form remains.
+
+4. [ambiguous pronoun] "یہیں کے صوفی بزرگ حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں، جس کا مطلب ہے "وحدت کا جام"۔" -> "جس" can be read as referring to "ذکر" (the mention) rather than to the phrase; "یہیں کے" also leans on the preceding sentence. -> جھوک شریف کے صوفی بزرگ حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں، یعنی "وحدت کا جام"۔
+
+5. [inconsistent naming / register] "جھوک شریف کے صوفی حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں۔" -> "صوفی بزرگ" in the introduction, bare "صوفی" before "حضرت" here; the bare form reads abruptly. Use one form. -> جھوک شریف کے صوفی بزرگ حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں۔ اس ترکیب کے معنی ہیں "وحدت کا جام"۔
+
+Suggested whole text after fixes (no fact added or removed):
+
+## تعارف
+
+بیدل جن مقامات پر تشریف لے گئے، ان میں جھوک شریف اور دڑازہ بھی شامل ہیں۔
+
+## بیدل کی آمد اور وحدت کا جام
+
+جھوک شریف کے صوفی بزرگ حضرت عبدالستار شاہ *جام وحدت جو* کا ذکر کرتے ہیں۔ اس ترکیب کے معنی ہیں "وحدت کا جام"۔
+
+NOTES:
+- "ذکر کرتے ہیں" (present, honorific plural) reads as if the saint is living. If he is a historical figure, "ذکر کیا کرتے تھے" or a historical present tied to his verse would be clearer, but which is right is a matter of fact the text does not settle, so it is left as it is.
+- "بیدل" appears with no introduction at all. A general reader may not know which Bedil is meant. Adding an identifier would add a fact, so this is for the author.
+- "دڑازہ" is spelled consistently. "درازا" and "درازہ" are also common in Urdu print; taste only.
+- Straight double quotes around "وحدت کا جام" are acceptable; “ ” would look a little more polished in Nastaliq.
+- The heading "بیدل کی آمد اور وحدت کا جام" fits only if the section keeps a word about the visit. If issue 1 is applied as given, a heading such as "وحدت کا جام" would match the content better.

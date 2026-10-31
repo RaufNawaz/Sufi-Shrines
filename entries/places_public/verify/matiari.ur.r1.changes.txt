@@ -1,0 +1,17 @@
+WHY: V2 r1 note 1 (referent: 'a country of large feudal farms' describes the belt, not the town)
+OLD: ہالہ ایک زرخیز زرعی پٹی کے بیچوں بیچ واقع قصبہ ہے، اور یہ بڑی بڑی جاگیروں کا علاقہ ہے۔
+NEW: ہالہ ایک ایسی زرخیز زرعی پٹی کے بیچوں بیچ واقع قصبہ ہے جو بڑی بڑی جاگیروں کا علاقہ ہے۔
+
+WHY: V3 r1 issue 2 (two different یہ in a row; یہ ولی a calque of 'the saint')
+OLD: یہ ولی یہیں ایک سید گھرانے میں پیدا ہوئے۔
+NEW: وہ یہیں ایک سید گھرانے میں پیدا ہوئے۔
+
+WHY: V3 r1 issue 3 (ہالہ repeated from the previous sentence; doubled میں)
+OLD: شاہ عبداللطیف ہالہ ہی میں ایک سید گھرانے میں پیدا ہوئے۔
+NEW: شاہ عبداللطیف یہیں ایک سید گھرانے میں پیدا ہوئے۔
+
+WHY: V3 r1 issue 1 (کھینچ لاتا ہے without a destination reads as drawing them to the shrine)
+OLD: اور انہیں سب سے بڑھ کر وہ روزگار کھینچ لاتا ہے جو ہالہ میں میسر ہے۔
+NEW: اور انہیں ہالہ کی طرف سب سے بڑھ کر وہ روزگار کھینچ لاتا ہے جو یہاں میسر ہے۔
+
+Applied by the coordinator as exact replacements (each OLD asserted to occur once), under the brief's late round practice: round 1 returned only a handful of issues, each with the verifier's corrected sentence. No issue rejected; no V3 fix changes a fact the English states. Taste notes not listed here were not applied.

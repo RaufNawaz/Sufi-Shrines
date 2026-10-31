@@ -1,0 +1,17 @@
+# gujrat: changes applied after V1 round 1 (coordinator, verifier's own wording)
+
+WHY: V1 r1 note 1: heading joined two items the team keeps apart
+OLD: ## Sohni and Ranjha
+NEW: ## The Tale of Sohni and Ranjha's Lineage
+
+WHY: V1 r1 note 2: keep the daughter inside the tale
+OLD: Tulla had a beautiful daughter called Sohni, a name which means "the beautiful one".
+NEW: In the tale, Tulla had a beautiful daughter called Sohni, a name which means "the beautiful one".
+
+WHY: V1 r1 note 3: gloss added a fact about a person
+OLD: Chaudhry being a title of a landowner or village headman.
+NEW: Chaudhry being an honorific title.
+
+WHY: V1 r1 note 4: ambiguous apposition
+OLD: of the Ranjha clan of Jats, an agricultural caste.
+NEW: of the Ranjha clan of Jats, Jats being an agricultural caste.

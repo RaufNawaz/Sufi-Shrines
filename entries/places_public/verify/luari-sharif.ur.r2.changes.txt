@@ -1,0 +1,13 @@
+luari-sharif Urdu, changes after round 2 (confirming worker), applied by the coordinator as exact replacements in the verifier's wording (each OLD asserted once). Rejected: none.
+
+WHY: C r2 issue 1 [V2]: باقاعدہ means 'proper, full length' and loses 'official'; the confirming verifier's wording
+OLD: یہاں کے نقشبندیوں پر باقاعدہ کتاب ایک ہندو پیروکار نے تصنیف کی تھی۔
+NEW: یہاں کے نقشبندیوں پر مستند کتاب ایک ہندو پیروکار نے تصنیف کی تھی۔
+
+WHY: C r2 issue 2 [V2]: as issue 1
+OLD: اور ان پر باقاعدہ کتاب اسی عقیدت مند کے قلم سے نکلی۔
+NEW: اور ان پر مستند کتاب اسی عقیدت مند کے قلم سے نکلی۔
+
+WHY: C r2 issue 3 [V3]: نقشبندیہ read as an adjective, leaving the verb without a subject (a fault the round 1 fix introduced); the confirming verifier's wording
+OLD: نقشبندیہ تصوف کے بڑے سلسلوں میں شمار ہوتا ہے،
+NEW: نقشبندیہ کا شمار تصوف کے بڑے سلسلوں میں ہوتا ہے،

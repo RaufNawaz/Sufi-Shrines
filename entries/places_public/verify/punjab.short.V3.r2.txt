@@ -1,0 +1,26 @@
+V2 VERDICT: FAIL
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [V3, agreement] OLD: جہاں سے ساری دھارا سندھ کہلاتی ہے۔ -> problem: change 54 made دھارا feminine, but Urdu treats دھارا as masculine (مرکزی دھارے, ملے ہوئے دھارے, with the masculine oblique). The verified long article writes سارا دھارا سندھ کہلاتا ہے, and the verified Khyber Pakhtunkhwa and Multan articles use دھارے. The round 1 text was correct and the fix introduced the fault. -> NEW: جہاں سے سارا دھارا سندھ کہلاتا ہے۔
+
+2. [V3, pronoun now pointing elsewhere] OLD: جیسا ان کے عہد میں تھا۔ -> problem: change 57 dropped اپنے, so ان now follows صوبے کے حاکموں، عدالتوں اور جیل خانوں directly, and عہد is the word for a ruler's reign. The clause can be read as "as they were in the governors' time", not "in his own day" (Kanhaiya Lal's). The brief gives خود X کا for "X's own". -> NEW: جیسا خود ان کے زمانے میں تھا۔
+
+3. [V3, broken conjunct verb] OLD: اتنی آسانی سے وہ مہاجر نہیں کرتے -> problem: in change 40, the second clause drops قبول and leaves a bare کرتے for قبول کرنا. That ellipsis is colloquial and reads as unfinished in a reference text. -> NEW: اتنی آسانی سے وہ مہاجر قبول نہیں کرتے
+
+4. [V2, addition] OLD: اس کے قصبوں کی تعمیرِ نو میں ہاتھ بٹایا -> problem: the English says the Afghans "helped to resettle it and build its towns". تعمیرِ نو means rebuilding, which the English does not say. The round 1 text said تعمیر, which was faithful. Keeping قصبوں in this clause and قصبے in the next is fine, because the English itself has "towns ... new ones". -> NEW: اس کے قصبوں کی تعمیر میں ہاتھ بٹایا
+
+5. [V2, wrong reference; V3, referent] OLD: مرزا صاحباں بھی اس صوبے کی ایک مشہور عشقیہ داستان ہے۔ -> problem: change 46 put a full stop after اور سندھ میں بھی۔, so this sentence now opens straight after سندھ. As a result اس صوبے most naturally points to Sindh, and the following بھی strengthens that reading. The English says "a famous love legend of the province", meaning the Punjab. -> NEW: مرزا صاحباں بھی پنجاب کی ایک مشہور عشقیہ داستان ہے۔
+
+NOTES:
+a. Diff proof: python difflib compared /home/claude/work/punjab/ur.r1.bak with the current /home/claude/repo/entries/places_public/punjab.short.ur.md. Both files have 152 lines. Applying the 59 listed OLD to NEW replacements in order to the backup gives a text identical to the current file. Each OLD occurred exactly once in the backup, and each NEW occurs exactly once in the current file. Nothing outside the listed changes moved.
+b. All other changed sentences were read in their paragraphs and pass both V2 and V3. These are changes 1 to 39, 41 to 45 (the first half of 46 is also fine), 47 to 53, 55, 56, 58 and 59. In particular: change 9 (مجدود named again) removes the referent doubt; change 31 removes the "until" reading of تک; the تک in 52 (مذاق تک) and in 58 (1875 تک پھیلا ہوا) read as "even" and "as far as", not "until"; the gloss in 17 (جنگجو جتھوں یعنی مثلوں کے وفاق) keeps مثلوں next to its postposition; change 15 keeps "against the advice" without saying what the advice was about; change 22 attaches each date to the right event; the hedge in 34 (یہ مطلب لیا گیا ہے کہ) still governs the whole claim.
+c. The adapted and rejected items were rightly handled, with the English as the authority. In 19, طے کر رکھی تھی is right for "agreed". In 23, میں پھیلی is right for "ran through". In 35, پورے is rightly dropped. In 39, ہی is rightly dropped. In 47, مثلاً is rightly dropped, since the English has no "for example". In 53, the calqued ایک is rightly dropped. R1 rightly keeps کئی ناموں سے پکارتی ہے for "calls ... by many names". R2 and R3 follow the English and the verified long article. R4 is correct because the English states the Hindu diwan twice (Mughal section and Communities). R5 to R8 are content or taste. The two faults in issues 3 and 5 came in through adaptations 40 and 46.
+d. Line 117 opens a paragraph with ہیر رانجھا کا عشق خاص اسی صوبے کی کہانی ہے۔ right after a paragraph that ends on Sindh and southern Punjab. In context, اسی صوبے reads as Punjab. If you want to remove every doubt, use خاص پنجاب کی کہانی. Taste.
+e. Change 2 leaves غزنوی three times in one sentence (محمود غزنوی، غزنوی حکومت، غزنوی خاندان). The forms are consistent and correct. If you want less repetition, یہی صوبہ آگے چل کر اس خاندان کی آخری پناہ گاہ بنا would read more lightly. Taste.
+f. Change 8 has حملہ کرنے والے تیمور next to ہر حملہ آور in the same sentence. This is acceptable. 1398 میں تیمور کی یورش تک is one alternative. Taste.
+g. Change 48 has اسی اتھل پتھل کے پس منظر ہی میں, which marks emphasis twice (اسی and ہی). It is grammatical, and ہی carries the English "only". اس اتھل پتھل کے پس منظر ہی میں would be lighter. Taste.
+h. Change 19 leaves the payee ("to pay him", that is Abdali) implicit in صوبیدار کے ذمے. Since Abdali is the subject who fixed the sum, the reading is clear. Acceptable.
+i. Change 34 has اس سے ... اس میں, two اس for the same will. It is clear but slightly heavy. Taste.
+j. Change 25 still has زمین twice in one sentence. This was already in round 1 and is not a new fault. اور وہ نئے آنے والوں کو دے دی گئی is an option. Taste.
+k. Each OLD above was checked by grep and occurs exactly once in the current file.

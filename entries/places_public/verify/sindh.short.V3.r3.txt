@@ -1,0 +1,32 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+
+Diff check: python difflib between /home/claude/work/sindh/ur.r2.bak and /home/claude/repo/entries/places_public/sindh.short.ur.md shows exactly four changed lines (37, 67, 81, 141), each carrying one listed change. Both files have 147 lines. Each of the 4 OLD strings occurred exactly once in the backup; applying the 4 OLD to NEW replacements in order to the backup gives a result identical to the current file, and each NEW occurs exactly once in it. Nothing outside the listed changes moved.
+
+ISSUES: none
+
+Checks per change, read in their paragraphs:
+
+1. Line 81, «1843 تک مسلم معاشرے میں بلوچ سب سے اوپر پہنچ چکے تھے۔»
+V2: matches "By 1843 the Baluchis stood at the top of Muslim society". The perfect after تک gives "by", as the brief requires, not "until". No fact added or lost; the Sayyid clause that the English joins to this sentence follows as its own sentence, unchanged.
+V3: the misreading "Baloch Muslim society" is gone; مسلم معاشرے میں is now a clear locative and بلوچ a clear subject. Natural word order. The preceding sentence's list (امیر، سردار، بلوچ ...) and this one do not clash.
+
+2. Line 37, «کلہوڑوں کی ڈوبتی طاقت کو مٹانے میں بلوچوں نے تالپوروں کا ہاتھ بٹایا؛ بلوچ اس وقت تک ملک کی سب سے مضبوط فوجی قوت بن چکے تھے۔»
+V2: the English says the Baluchis, by then the strongest military force in the land, helped the Talpurs destroy the failing power of the Kalhora. The Urdu has the Baluchis as the ones who help, the Talpurs as the ones helped, the Kalhora power as what is destroyed (ڈوبتی for "failing", مٹانا for "destroy"), and "by then" tied to the time of that help, since اس وقت تک now follows the helping clause in the same sentence. The round 2 V2 point (note b, that "by then" had been tied to the Talpurs' rise in 1781) is resolved. No change of certainty; "in the land" is ملک, as elsewhere in the paragraph.
+V3: grammatical and natural; the Arabic semicolon (U+061B) is the one the file uses throughout. اس وقت تک cannot now be taken as 1843 or as "until": it sits beside the event it refers to and governs a perfect (بن چکے تھے). No pronoun is left to resolve. Talpur now occurs once in each of three consecutive sentences, which is unavoidable and reads well. The previous sentence ends on تک ... کرتے رہے (until, correctly) and the new sentence no longer repeats برسرِ اقتدار آنا.
+
+3. Line 67, «اور سندھ میں یہی ایک جگہ رہ گئی تھی جہاں ان کا آنا جانا باقی تھا۔»
+V2: "the one place in Sindh where they still came" is fully carried by یہی ایک جگہ; the first clause keeps صرف for "sang only at". Nothing lost.
+V3: the doubled صرف is gone. ان still points to the لوٹے والی women of the same sentence.
+
+4. Line 141, «اٹھارھویں صدی کا سندھ ایک پرانی دنیا کا باقی ماندہ حصہ تھا اور قرونِ وسطیٰ کے مسلم ہندوستان کی ایک یادگار۔»
+V2: "a survival of an older world, a relic of the Muslim India of the Middle Ages": both predicates are present, still attributed to the author (اس کے مصنف کے نزدیک), with the same certainty. "Survival" as باقی ماندہ حصہ is a fair equivalent.
+V3: the masculine verb now agrees with a masculine predicate; the English style apposition after a comma is replaced by اور. The second predicate shares the verb تھا by ellipsis, which is acceptable literary Urdu. The next sentence (اس کی نظر میں) still points to the author.
+
+NOTES:
+
+a. Line 37: بلوچ is named twice in the one sentence. This was deliberate in round 2, since وہ after the semicolon could be read as the Talpurs; it is the right trade. Taste only.
+
+b. Line 141: the shared verb could read a touch smoother with بھی at the end (... کی ایک یادگار بھی۔), or with the verb gapped forward (... کا باقی ماندہ حصہ اور ... کی ایک یادگار تھا). Neither is needed. Also, ایک پرانی دنیا keeps the English article; پرانی دنیا alone might suggest "the Old World", so keeping ایک is defensible.
+
+c. Line 67: رہ گئی تھی and باقی تھا both express "still" in one clause. This was already there before round 2 and is taste.

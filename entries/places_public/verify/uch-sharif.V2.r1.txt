@@ -1,0 +1,13 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] English (Communities, paragraph 5): "the province of Thatta was described as running from the bounds of Multan and Uch to Thatta and Kach Makran." | Urdu: "صوبۂ ٹھٹھہ کی حدود ملتان اور اوچ کی سرحد سے ٹھٹھہ اور کچھ مکران تک بیان کی گئی تھیں" -> The place name Kach (Kech) Makran is spelled کچھ مکران. In Urdu کچھ is the ordinary word for "some", so the phrase reads as "to Thatta and some of Makran", or as Kutch and Makran. The repo's own Persian quotation from Tareekh-e Lahore (docs/HANDOVER.md) spells the place کیچ مکران. -> OLD: "ٹھٹھہ اور کچھ مکران تک" NEW: "ٹھٹھہ اور کیچ مکران تک"
+
+NOTES:
+- Everything else matches. Every paragraph has the facts, names, numbers (seventy miles, 1291, 1383, 1533, 1960, 40 days, thirteenth and fourteenth centuries, late fifteenth century, nineteenth century), relationships and hedges of the English. The hedges are all there: accounts differ (twice, and once on the rivers), legend / it is said for the founding story, local legends suggest ... may have, seems to survive (بظاہر, twice), in one retelling, is said to have flowed, it is thought. The headings match the English sections in order. The article has no verse. Dropped glosses (Sayyids, Sufi order, qawwals, khanaqah, Gurdwara, yogis, sajjada, chilla) and dropped italics on ordinary words follow the brief.
+- "local legends" is translated مقامی روایات (History, paragraph 3, and Devotion and Practice, paragraph 2). The hedge (گمان ہوتا ہے، شاید) is kept, so the claim stays tentative. Only if you want to keep the word "legend" closer: مقامی قصوں / مقامی روایتی قصوں.
+- History, paragraph 3: the Urdu turns the English apposition "whom all the inhabitants of the world serve" into "ان کے لقب کے معنی ہیں ...". This is the correct sense of the English quote, which glosses Makhdum-i Jahaniyan, so it is not an addition.
+- History, paragraph 2: "crossed the Sind" is سندھ پار کر کے. پار کرنا makes the river reading clear. دریائے سندھ پار کر کے would remove any chance of reading it as the province.
+- Communities, paragraph 5: the English "To its north" is ambiguous, and the Urdu reads it as اس صوبے کے شمال میں (the province of Thatta). That is the natural reading of the English and matches the source.
+- Uch Sharif in Books, paragraph 1: the Latin spellings Ucch, Utch and Uchh become "لاطینی حروف میں اس کا نام کئی اور طرح سے بھی لکھا گیا ہے". This is required because the file allows no Latin letters, so it is acceptable.
+- "Inayat Shah" is شاہ عنایت, the usual Urdu form of the same person's name.

@@ -1,0 +1,20 @@
+1. WHY: V1 r1 note 1 (precision: the word stands in her paraphrase)
+OLD: For a scholar of Sufi poetry, the word Peshawari belongs to the boldest Panjabi and Sindhi mystical verse, in which, as she paraphrases it, 
+NEW: For a scholar of Sufi poetry, the word Peshawari appears in her paraphrase of the boldest Panjabi and Sindhi mystical verse: 
+
+2. WHY: V1 r1 note 2 (certainty: one informant's remark)
+OLD: One festival is itself a reason to go to Peshawar. Diwali is the Hindu festival of lights, and in the words of Prem Gupta,
+NEW: Diwali, the Hindu festival of lights, is one reason to go to Peshawar, in the words of Prem Gupta:
+
+3. WHY: V1 r1 note 2 (certainty, Overview)
+OLD: and it is a place to see the lights of Diwali.
+NEW: and it is said to be the place to see the lights of Diwali.
+
+4. WHY: V1 r1 note 3 (precision)
+OLD: Shahidullah Faridi, too, is linked with Peshawar.
+NEW: Shahidullah Faridi, too, was in Peshawar.
+
+5. WHY: V1 r1 note 4 (characterisation)
+OLD: In studies of the Chishti order,
+NEW: In writing on the Chishti order,
+

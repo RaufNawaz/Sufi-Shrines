@@ -1,0 +1,21 @@
+WHY: V2 r1 issue 1 (title 'emperor' omitted) and V3 r1 issue 3 (کہلانے twice in one sentence), one sentence satisfying both
+OLD: اورنگزیب کے عہد میں بِہَت کہلانے والا دریا جہلم شہر کے نیچے سے گزرتا تھا اور وہاں پہنچ کر جہلم کہلانے لگتا تھا۔
+NEW: شہنشاہ اورنگزیب کے عہد میں بِہَت نام کا دریا جہلم شہر کے نیچے سے گزرتا تھا اور وہاں پہنچ کر جہلم کہلانے لگتا تھا۔
+
+WHY: V2 r1 issue 2 (title 'emperor' omitted, second occurrence)
+OLD: اورنگزیب کے عہد میں بِہَت نام کا دریا جہلم شہر کے نیچے سے گزرتا تھا اور وہیں
+NEW: شہنشاہ اورنگزیب کے عہد میں بِہَت نام کا دریا جہلم شہر کے نیچے سے گزرتا تھا اور وہیں
+
+WHY: V3 r1 issue 1 (connective joins a claim to the fact that undercuts it; سکندر twice); the English 'letters that were written after his death' keeps its fact
+OLD: اس میں سکندر کے خطوط درج ہیں، اور یہ خطوط سکندر کی وفات کے بعد لکھے گئے تھے۔
+NEW: اس میں سکندر کے خطوط درج ہیں، حالانکہ یہ خطوط اس کی وفات کے بعد لکھے گئے تھے۔
+
+WHY: V3 r1 issue 2 (calque of 'the story says'); the hedge 'the story goes' kept as داستان کے مطابق
+OLD: داستان کہتی ہے کہ پھر سکندر ان درختوں کو دیکھنے گیا
+NEW: داستان کے مطابق سکندر پھر ان درختوں کو دیکھنے گیا
+
+WHY: V3 r1 issue 4 (ایک five times; اس کے ambiguous; stiff اجداد میں سے ایک, inconsistent with the last section's بزرگ)
+OLD: اور ایک خاندان کی تاریخ میں ذکر ہے کہ انیسویں صدی کے اواخر میں اس کے اجداد میں سے ایک نے "جہلم سے" نقل مکانی کی تھی۔
+NEW: اور ایک خاندانی تاریخ کے مطابق انیسویں صدی کے اواخر میں اس خاندان کے ایک بزرگ نے "جہلم سے" نقل مکانی کی تھی۔
+
+Applied by the coordinator as exact replacements (each OLD asserted to occur once), under the brief's late round practice: round 1 returned only a handful of issues, each with the verifier's corrected sentence. No issue rejected; no V3 fix changes a fact the English states. Taste notes not listed here were not applied.

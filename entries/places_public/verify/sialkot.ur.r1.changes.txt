@@ -1,0 +1,155 @@
+sialkot.ur.md, round 1 fixes (V2 r1 + V3 r1). Every OLD replaced exactly once by script.
+
+APPLIED (34: 32 from the reports, 2 found on rereading the changed paragraphs)
+
+1. WHY: V2 issue 1 [addition]: the English says only that students came; 'from far and wide' is added.
+   OLD: اور طالب علم دور دور سے ان کے بابرکت مدرسے کا رخ کرتے تھے۔
+   NEW: اور طالب علم ان کے بابرکت مدرسے کا رخ کرتے تھے۔
+
+2. WHY: V2 issue 2 [changed fact]: چچا settles 'uncle' as paternal; the English (and the notes, question 1) keep it open. V2's wording.
+   OLD: جو مہابھارت کے سورما بھائیوں یعنی پانڈوؤں کے چچا تھے
+   NEW: جو مہابھارت کے سورما بھائیوں یعنی پانڈوؤں کے چچا یا ماموں تھے
+
+3. WHY: V2 issue 3 [wrong reference]: یہ پرگنہ pointed to Gujrat's pargana; the English means Sialkot's.
+   OLD: اور یہ پرگنہ اسے جاگیر میں ملا۔
+   NEW: اور سیالکوٹ کا پرگنہ اسے جاگیر میں ملا۔
+
+4. WHY: V2 issue 4 [addition]: 'very old'; the English says only 'old'.
+   OLD: سیالکوٹ کا قلعہ بہت پرانا ہے۔
+   NEW: سیالکوٹ کا قلعہ پرانا ہے۔
+
+5. WHY: V3 issue 11 [tangled relative clause, pleonasm]: V3's split. واپس لوٹ گیا becomes واپس چلا گیا rather than V3's لوٹ گیا, because the next sentence already ends لاہور لوٹ گیا (avoids the same verb in neighbouring sentences). تجدید اور مرمت kept: the English has 'renewed and repaired'.
+   OLD: شہاب الدین محمد غوری نے اپنی پانچویں مہم میں راوی اور چناب کے درمیان واقع اس قلعے کی تجدید اور مرمت کرائی، جس کے ستون خستہ ہو چکے تھے، اور اپنا نائب وہاں چھوڑ کر واپس لوٹ گیا۔
+   NEW: راوی اور چناب کے درمیان واقع اس قلعے کے ستون خستہ ہو چکے تھے۔ شہاب الدین محمد غوری نے اپنی پانچویں مہم میں اس کی تجدید اور مرمت کرائی، اور اپنا نائب وہاں چھوڑ کر واپس چلا گیا۔
+
+6. WHY: V3 issue 1 [ergative]: transitive verbs need نے; V3's wording.
+   OLD: یہ بھی بیان کیا جاتا ہے کہ لاہور میں ناکامی کے بعد شہاب الدین سیالکوٹ آیا، پرانے قلعے کو دوبارہ تعمیر کیا اور اپنی فوج وہیں چھوڑ دی۔
+   NEW: یہ بھی بیان کیا جاتا ہے کہ لاہور میں ناکامی کے بعد شہاب الدین نے سیالکوٹ آ کر پرانے قلعے کو دوبارہ تعمیر کیا اور اپنی فوج وہیں چھوڑ دی۔
+
+7. WHY: V3 issue 2 [idiom]: دم توڑ دینا takes نے; V3's wording.
+   OLD: وہ وہیں دم توڑ گیا، اور نانک اور مردانہ اس کی آخری رسوم میں شریک ہوئے۔
+   NEW: اس نے وہیں دم توڑ دیا، اور نانک اور مردانہ اس کی آخری رسوم میں شریک ہوئے۔
+
+8. WHY: V3 issue 3 [syntax]: تو without جب; V3's wording.
+   OLD: عالم خان اور کچھ دوسرے لوگوں نے سنا کہ شاہی علم سیالکوٹ کے قریب آ پہنچے ہیں تو وہ بابر سے آ ملے
+   NEW: جب عالم خان اور کچھ دوسرے لوگوں نے سنا کہ شاہی علم سیالکوٹ کے قریب آ پہنچے ہیں تو وہ بابر سے آ ملے
+
+9. WHY: V3 issue 6 [calque]: ہر دوسرا reads 'every second one'; V3's wording ('every other town' = all the others).
+   OLD: صوبے کے ہر دوسرے قصبے سے بڑھ کر تھا۔
+   NEW: صوبے کے باقی تمام قصبوں سے بڑھ کر تھا۔
+
+10. WHY: V3 issue 7 [ambiguous pronoun]: انہیں read as the limbs; V3's wording (English: Puran, his hands and feet cut off, was thrown in).
+   OLD: روایت ہے کہ پورن کے ہاتھ پاؤں کاٹ کر انہیں اسی کنویں میں پھینکا گیا تھا
+   NEW: روایت ہے کہ ہاتھ پاؤں کاٹنے کے بعد پورن کو اسی کنویں میں پھینک دیا گیا تھا
+
+11. WHY: V3 issue 8 [ambiguous subject]: the ally could read as the attacker; V3's wording (English: Shahi Khan marched against Ali Shah).
+   OLD: یہاں وہ اپنے ایک حلیف سے جا ملا جو پنجاب میں تیمور کی قید سے فرار ہو گیا تھا، اور پھر علی شاہ پر چڑھ دوڑا۔
+   NEW: یہاں وہ اپنے ایک ایسے حلیف سے جا ملا جو پنجاب میں تیمور کی قید سے فرار ہو گیا تھا۔ اس کے بعد شاہی خان علی شاہ پر چڑھ دوڑا۔
+
+12. WHY: V3 issue 9 [ambiguous pronoun]: ان دونوں read as the fort and tower; V3's wording.
+   OLD: صفدر خان نے قلعہ اور اس کا برج ازسرِنو تعمیر کرایا، اور ان دونوں کے بعد آنے والے اکثر حاکم بھی قلعے کی مرمت کراتے رہے۔
+   NEW: صفدر خان نے قلعہ اور اس کا برج ازسرِنو تعمیر کرایا۔ مان سنگھ اور صفدر خان کے بعد آنے والے اکثر حاکم بھی قلعے کی مرمت کراتے رہے۔
+
+13. WHY: V3 issue 10 [ambiguous pronoun]: وہ could mean the people would pray; V3's wording (English: he would pray).
+   OLD: اس پر حمزہ غوث نے اہلِ سیالکوٹ سے کہا کہ وہ چالیس دن تک دعا میں مشغول رہیں گے۔
+   NEW: اس پر حمزہ غوث نے اہلِ سیالکوٹ سے کہا کہ وہ خود چالیس دن تک دعا میں مشغول رہیں گے۔
+
+14. WHY: V3 issue 12 [voice switch, word order]: V3's wording.
+   OLD: بابر نے چناب کے کنارے بہلول پور قصبے کے قریب پڑاؤ ڈالا، اور حکم دیا گیا کہ سیالکوٹ کو ویران کر کے اس کے باشندوں کو بہلول پور میں بسا دیا جائے۔
+   NEW: بابر نے چناب کے کنارے قصبہ بہلول پور کے قریب پڑاؤ ڈالا۔ پھر یہ حکم دیا گیا کہ سیالکوٹ کو ویران کر کے اس کے باشندوں کو بہلول پور میں بسا دیا جائے۔
+
+15. WHY: V3 issue 13 [calque]: معمول کے قتلِ عام; V3's wording (English 'the usual massacre and plunder').
+   OLD: سیالکوٹ نے کوئی مزاحمت نہیں کی اور معمول کے قتلِ عام اور لوٹ مار سے بچ گیا۔
+   NEW: سیالکوٹ نے کوئی مزاحمت نہیں کی، اور شہر اس قتلِ عام اور لوٹ مار سے بچ گیا جو ایسے موقعوں پر معمول تھی۔
+
+16. WHY: V3 issue 14 [tangled relative clause]: V3's wording ('its own airport' kept by خود).
+   OLD: یہاں کی کاروباری برادری نے اپنے ہوائی اڈے کا خرچ خود اٹھایا تھا، جہاں سے بین الاقوامی پروازیں آتی جاتی تھیں، اور شاہراہ کا خرچ بھی اسی نے برداشت کیا تھا۔
+   NEW: شہر کے ہوائی اڈے سے بین الاقوامی پروازیں آتی جاتی تھیں، اور اس کا خرچ یہاں کی کاروباری برادری نے خود اٹھایا تھا۔ شاہراہ کا خرچ بھی اسی برادری نے برداشت کیا تھا۔
+
+17. WHY: V3 issue 15 [unidiomatic, incomplete]: ملتے جلتے راستے / گئے تھے; V3's wording (also V3 note: گرو نانک on first mention in the section). 'A similar route' kept by کم و بیش; 'it is thought' kept.
+   OLD: اور خیال ہے کہ نانک بھی ملتے جلتے راستے سے گئے تھے۔
+   NEW: اور خیال ہے کہ گرو نانک بھی کم و بیش اسی راستے سے گزرے تھے۔
+
+18. WHY: V3 issue 16 [unclear phrase], reworded: V3's main fix (حسین خان) is NOT applied, because the English says 'the Khan who ruled Kashmir' and names Husain Khan only for the later reign, without saying they are one man; V3's alternative drops 'Khan'. This keeps 'Khan' and the English's non-identification while removing the stray-title reading.
+   OLD: کشمیر کے حکمران خان سے رنجیدہ ہو کر
+   NEW: کشمیر پر حکومت کرنے والے خان سے رنجیدہ ہو کر
+
+19. WHY: V3 issue 17 [calque]: پڑھانے کے لیے وقف ہو گئے; V3's construction خود کو ... وقف کر دیا, with تدریس for V3's درس و تدریس, since درس و تدریس already stands two sentences earlier in the same paragraph.
+   OLD: اور حسین خان کے عہد میں کشمیر چھوڑ کر سیالکوٹ میں پڑھانے کے لیے وقف ہو گئے تھے۔
+   NEW: اور حسین خان کے عہد میں کشمیر چھوڑ کر انہوں نے خود کو سیالکوٹ میں تدریس کے لیے وقف کر دیا تھا۔
+
+20. WHY: V3 issue 18 [calque]: داستانوں کا معاملہ / طے شدہ; V3's wording.
+   OLD: شہر کس نے بسایا، یہ داستانوں کا معاملہ ہے، اور اس بارے میں کوئی ایک بیان طے شدہ نہیں۔
+   NEW: شہر کس نے بسایا، اس کا جواب داستانوں ہی میں ملتا ہے، اور ان میں بھی کسی ایک بیان پر اتفاق نہیں۔
+
+21. WHY: V3 issue 19 [calque]: جگہ دیتی ہے; V3's wording.
+   OLD: اورنگزیب کے عہد میں لکھی گئی فارسی تاریخ اس شہر کو سب سے زیادہ جگہ دیتی ہے۔
+   NEW: اس شہر کا سب سے مفصل ذکر اورنگزیب کے عہد میں لکھی گئی ایک فارسی تاریخ میں ملتا ہے۔
+
+22. WHY: V3 issue 20 [calque]: سامنے آتا ہے; V3's wording, except تفصیل میں for V3's ضمن میں, because the sentence before already has صوبے کے احوال کے ضمن میں.
+   OLD: کتاب کے دوسرے حصوں میں یہ قصبہ لشکر کشیوں کے سلسلے میں بھی سامنے آتا ہے اور ان لوگوں کے مناصب کے ذکر میں بھی جو اس پر حاکم رہے۔
+   NEW: کتاب کے دوسرے حصوں میں اس قصبے کا ذکر لشکر کشیوں کے سلسلے میں بھی آتا ہے اور ان لوگوں کے مناصب کی تفصیل میں بھی جو اس پر حاکم رہے۔
+
+23. WHY: V3 issue 21 [calque]: جدید سیاح; V3's wording.
+   OLD: نانک کے راستے پر سفر کرنے والے ایک جدید سیاح کو
+   NEW: گرو نانک کے نقشِ قدم پر سفر کرنے والے ہمارے زمانے کے ایک سیاح کو
+
+24. WHY: V3 issue 22 [English word order, overlong]: V3's wording.
+   OLD: صوفی عقیدت پر ایک مطالعہ اس کا نام صرف ایک بار لیتا ہے، یہ بتانے کے لیے کہ شاہ دولہ اسے چھوڑ کر گئے تھے، اور ہندوستان میں تصوف کی ایک تاریخ بھی اس قصبے کا نام بس ایک بار، گرو نانک کے سفر کی منزلوں کے بیان میں لیتی ہے۔
+   NEW: صوفی عقیدت پر ایک مطالعہ اس کا نام صرف ایک بار لیتا ہے، یہ بتانے کے لیے کہ شاہ دولہ اسے چھوڑ کر گئے تھے۔ ہندوستان میں تصوف کی ایک تاریخ میں بھی اس قصبے کا نام صرف ایک بار آتا ہے، جہاں گرو نانک کے سفر کی منزلیں بیان ہوئی ہیں۔
+
+25. WHY: V3 issue 23 [title unmarked, calque کتاب]: V3's wording (italic title, as in the English).
+   OLD: کتاب تاریخ گرو خالصہ کے مصنف سیالکوٹ کے رہنے والے تھے۔
+   NEW: *تاریخ گرو خالصہ* کے مصنف سیالکوٹ کے رہنے والے تھے۔
+
+26. WHY: V3 issue 24 [calque]: کا مقام ہے; V3's wording.
+   OLD: ایک صوفی بزرگ کی زندگی میں بھی اس شہر کا مقام ہے۔
+   NEW: ایک صوفی بزرگ کی زندگی میں بھی اس شہر کا ذکر آتا ہے۔
+
+27. WHY: V2 note 1 [meaning]: جیسے خنجر implied examples from a larger set; the English names exactly these two daggers. نامی for V2's نام کے, which can also read 'nominal'.
+   OLD: جمدھر اور کٹاری جیسے خنجر اور برچھیاں
+   NEW: جمدھر اور کٹاری نامی خنجر اور برچھیاں
+
+28. WHY: V3 note [repetition]: اس شہر ... یہ شہر in one sentence; V3's wording.
+   OLD: اس شہر کا ریشم مشہور تھا، اور یہ شہر
+   NEW: یہاں کا ریشم مشہور تھا، اور یہ شہر
+
+29. WHY: V2 note 2 [precision]: باغ ہی باغ is stronger than 'Gardens surrounded the city'; V2's neutral wording.
+   OLD: شہر کے گرد باغ ہی باغ تھے،
+   NEW: شہر کے گرد باغات تھے،
+
+30. WHY: V3 note [repetition]: کڑھائی four times in three sentences; V3's wording.
+   OLD: *کارچکن* کڑھائی ہوتی تھی، اور یہ کڑھائی فوطوں، سوزنیوں، دسترخوانوں اور خوان پوشوں پر کی جاتی تھی۔
+   NEW: *کارچکن* کڑھائی ہوتی تھی، جو فوطوں، سوزنیوں، دسترخوانوں اور خوان پوشوں پر کی جاتی تھی۔
+
+31. WHY: V3 note [ambiguity]: کان can read as 'ear'; V3's معدن.
+   OLD: فضل و کمال کی کان
+   NEW: فضل و کمال کا معدن
+
+32. WHY: V3 note [clarity]: سلطنت کے دور is vague for 'the Sultanate'; V3's دورِ سلاطین.
+   OLD: سلطنت کے دور اور صوفیوں تک
+   NEW: دورِ سلاطین اور صوفیوں تک
+
+
+33. WHY: Reread after V3 issue 22: V3's wording put صرف ایک بار in two neighbouring sentences; the second goes back to بس ایک بار (the English: 'names it once' / 'names the town only once').
+   OLD: میں بھی اس قصبے کا نام صرف ایک بار آتا ہے
+   NEW: میں بھی اس قصبے کا نام بس ایک بار آتا ہے
+
+34. WHY: Reread after V3 issue 2: اس نے وہیں دم توڑ دیا follows straight on the snake (سانپ نے ڈس لیا جو ... آ رہا تھا), so اس can point to the snake; name the man again, as the English names him (Karar).
+   OLD: اس نے وہیں دم توڑ دیا، اور نانک
+   NEW: کرار نے وہیں دم توڑ دیا، اور نانک
+
+REJECTED (not applied as written)
+
+- V3 issue 4 and V2 note 3 (unify شاہ دولا into شاہ دولہ): rejected. The English deliberately keeps the team's two spellings "Shah Daulah" and "Shah Daula" (an open question for the project lead whether they are one man), and the Urdu keeps them distinct on purpose (شاہ دولہ / شاہ دولا). Unifying would settle in the Urdu what the English leaves open.
+
+- V3 issue 5 (کرار -> مولا): rejected. The English introduces him as "Maula Karar" and then calls him "Karar" ("Karar later hid from Nanak"); the Urdu follows the English. Replacing it with مولا would name him by a part of the name the English does not use alone.
+
+- V3 issue 16, main fix (کشمیر کے حکمران حسین خان): rejected as written. The English says "aggrieved with the Khan who ruled Kashmir" and names Husain Khan only for the reign in which he left; it does not identify the two. Reworded instead (see the change above) to keep "Khan" without the stray-title reading.
+
+NOTES not applied (taste, or would change what the English says)
+
+- V3 note: سالباہن / سالیواہن may be one figure: kept as two, since the English gives Raja Salbahan and Raja Salivahan as separate traditions. «ایک تیسری روایت کے مطابق» not applied: the English says "It is also believed", not a tradition; taste.
+- V3 note: body repeats the introduction, and the tense shift «پُررونق شہر تھا۔ یہ عین سرحد پر واقع ہے»: not applied; the English repeats the same matter and has the same shift ("was a bustling city ... It lies right on the border").
+- V3 note: glossing مردانہ and پراتن: not applied (V3 itself left them; a gloss would add information the English does not give).
+- V3 notes of taste: «عین بازار کے چوک میں» (the present wording is closer to "in the centre of the market square"), «قدیم آثار» for «آثارِ قدیمہ کے کھنڈر» (the English has "archaeological ruins"), «تجدید اور مرمت» redundancy (the English has "renewed and repaired"): not applied.

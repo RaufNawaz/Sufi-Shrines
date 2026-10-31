@@ -1,0 +1,18 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [addition] Communities and Festivals, para 2: "chanting to the Mata, the Mother Goddess, as they came." | "سارے راستے وہ دیوی ماں یعنی ماتا کا جاپ کرتے آئے۔" -> سارے راستے ("the whole way") adds a duration the English does not give. The English says only that they chanted as they came, not that they chanted for the entire route.
+   OLD: سارے راستے وہ دیوی ماں یعنی ماتا کا جاپ کرتے آئے۔
+   NEW: وہ دیوی ماں یعنی ماتا کا جاپ کرتے ہوئے آئے۔
+
+2. [addition] Bahawalpur in Books, para 1: "it is a home of Hindus who travel out" | "یہ ان ہندوؤں کا وطن ہے جو یہاں سے دور دور تک سفر کرتے ہیں:" -> دور دور تک ("far and wide") adds a range of travel. The English "travel out" means only that they set out from here, as the Overview renders it (یہاں سے نکل کر).
+   OLD: یہ ان ہندوؤں کا وطن ہے جو یہاں سے دور دور تک سفر کرتے ہیں:
+   NEW: یہ ان ہندوؤں کا وطن ہے جو یہاں سے نکل کر سفر کرتے ہیں:
+
+NOTES (style only, no change required):
+- Headings correspond one to one: تعارف / پنجاب اور سندھ کے بیچ / اولیا، سادات اور سرپرست / برادریاں اور میلے / کتابوں میں بہاولپور. There is no verse in the article.
+- Glosses dropped from the English are deliberate under the brief: Syeds as "descendants of the Prophet Muhammad", and Nawab as "a title of Muslim rulers and nobles". Neither counts as an omission.
+- Every number and date matches: sixty miles southwest, about 165 km (given in words), twelve boys, nine nights, and 28, 29 and 30 April and 2 May 2001. Every name matches: Uch Gilanian, Bulle Shah, Wahid Bakhsh, Civil Secretariat, Bahawalnagar, Navratri, Katas, Rahim Yaar Khan, Ayesha Siddiqa, Mas'ud Hasan Shahab, Khitta-i pak Uch and Urdu Academy.
+- Overview: ملتان کی طرح ("like Multan") stands for "with Multan". Paragraph 3 renders the same phrase as ملتان کے ساتھ ساتھ, which is closer. Either is acceptable.
+- Saints, Syeds and Patrons: نواب ہی کا ہاتھ and سرائیکی پٹی ہی کا both use an emphatic ہی that the English does not have. This is idiomatic and changes no fact, but a plain نواب کا ہاتھ would be more exact.
+- "buses of Hindu pilgrims" became یاتریوں سے بھری بسیں ("buses full of pilgrims"). This is the natural Urdu idiom and is acceptable.

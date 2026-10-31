@@ -1,0 +1,21 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [unidiomatic collocation / overlong sentence] "گوجرانوالہ پنجاب کا ایک شہر ہے جو صوبائی دارالحکومت سے 75 کلومیٹر کے فاصلے پر واقع ہے، اور فیصل آباد اور ساہیوال کے ساتھ اس کا شمار پنجاب کے قلب میں ہوتا ہے۔" -> "کا شمار ... میں ہوتا ہے" means "is counted among" and needs a class or group after it ("بڑے شہروں میں"); "اس کا شمار پنجاب کے قلب میں ہوتا ہے" does not work in Urdu. The sentence also joins two unrelated facts with an English-style "، اور", and "اور" appears twice in a row ("، اور فیصل آباد اور ساہیوال"). -> NEW: "گوجرانوالہ پنجاب کا ایک شہر ہے جو صوبائی دارالحکومت سے 75 کلومیٹر کے فاصلے پر واقع ہے۔ فیصل آباد اور ساہیوال کی طرح اسے بھی پنجاب کا قلب سمجھا جاتا ہے۔"
+
+2. [unidiomatic / repetition] "اس شہر کی تاریخ رنجیت سنگھ سے وابستہ ہے، جن کی ابتدا اسی شہر کے گرد و نواح کی ایک چھوٹی سی جاگیر سے ہوئی تھی۔" -> In Urdu "کسی شخص کی ابتدا" points to his descent or origins, not to the start of his rise; the meaning here is that he started out from a small jagir. "شہر" also appears four times in this paragraph (شہر ہے، اس شہر، اسی شہر، شہروں). -> NEW: "اس کی تاریخ رنجیت سنگھ سے وابستہ ہے، جنہوں نے اسی شہر کے گرد و نواح کی ایک چھوٹی سی جاگیر سے آغاز کیا تھا۔"
+
+3. [overlong sentence] "گوجرانوالہ نے اہم تجارتی مرکز کی حیثیت سے ایمن آباد کی جگہ لے لی ہے، اور یہ ان شہروں میں شامل ہے جہاں کی سکھ برادریاں حال ہی میں کھل کر اپنا وجود منوانے لگی ہیں۔" -> Two unrelated facts are joined by an English-style "، اور یہ". Splitting the sentence reads more naturally. -> NEW: "اہم تجارتی مرکز کی حیثیت سے گوجرانوالہ نے ایمن آباد کی جگہ لے لی ہے۔ یہ ان شہروں میں بھی شامل ہے جہاں کی سکھ برادریاں حال ہی میں کھل کر اپنا وجود منوانے لگی ہیں۔"
+
+4. [unidiomatic collocation] "رنجیت سنگھ کا آغاز گوجرانوالہ کے آس پاس کی ایک چھوٹی سی جاگیر سے ہوا تھا۔" -> "رنجیت سنگھ کا آغاز" (the beginning of Ranjit Singh) treats the person as an event. You can say "کسی کام کا آغاز" (the start of an undertaking) but not "کسی شخص کا آغاز". -> NEW: "رنجیت سنگھ نے گوجرانوالہ کے آس پاس کی ایک چھوٹی سی جاگیر سے آغاز کیا تھا۔"
+
+5. [calque] "رنجیت سنگھ نے گوجرانوالہ اور لاہور کے شہروں کے گرد و نواح میں بابا صاحب سنگھ بیدی کو زمینیں بھی عطا کی تھیں۔" -> "گوجرانوالہ اور لاہور کے شہروں کے" copies English "the cities of Gujranwala and Lahore". In Urdu the names are enough, and the extra "کے شہروں کے" makes the postpositions pile up. Natural Urdu order also puts the recipient before the place. -> NEW: "رنجیت سنگھ نے بابا صاحب سنگھ بیدی کو گوجرانوالہ اور لاہور کے گرد و نواح میں زمینیں بھی عطا کی تھیں۔"
+
+6. [calque] "گوجرانوالہ ان شہروں میں سے ایک ہے جہاں کی سکھ برادریاں حال ہی میں پورے اعتماد کے ساتھ اپنا وجود منوانے لگی ہیں۔" -> "ان شہروں میں سے ایک ہے" copies English "one of the cities". "میں شامل ہے" is the natural Urdu, as the introduction already uses. -> NEW: "گوجرانوالہ ان شہروں میں شامل ہے جہاں کی سکھ برادریاں حال ہی میں پورے اعتماد کے ساتھ اپنا وجود منوانے لگی ہیں۔"
+
+NOTES:
+- The body repeats the introduction almost word for word: Ranjit Singh and the jagir, the 75 km distance, Eminabad, the Sikh communities, and the heart of Punjab. This seems to come from the structure of the source rather than from the Urdu, so I have not counted it as an error. A native reader will still notice the echo. Varying the wording between the introduction and the body (as issues 1 to 6 already do in part) makes it less obvious.
+- Under "تاریخ", the sentence "یہ شہر صوبائی دارالحکومت سے 75 کلومیٹر دور واقع ہے۔" comes abruptly after the Ranjit Singh sentences and is a geographical fact rather than a historical one. It could move to the start of the paragraph or be tied in, without changing the fact, for example: "صوبائی دارالحکومت سے 75 کلومیٹر دور واقع اس شہر کی تاریخ رنجیت سنگھ سے جڑی ہوئی ہے۔"
+- Using "قلب" in the introduction and "دل" in the last paragraph is acceptable variation.
+- The plural "سکھ برادریاں" after "ان شہروں" can be defended, because it refers to the communities of those cities. The singular "سکھ برادری" is also possible. This is a matter of taste.
+- Punctuation, digits, and the absence of Latin letters and dashes are all correct. There are no asterisks and no verse.

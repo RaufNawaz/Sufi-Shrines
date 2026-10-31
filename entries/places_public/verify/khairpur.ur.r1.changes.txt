@@ -1,0 +1,29 @@
+khairpur Urdu, changes after round 1 (V2 PASS, V3 FAIL), applied by the coordinator as exact replacements (each OLD asserted once). Rejected: none outright; where the coordinator changed a verifier's wording, the WHY line says so.
+
+WHY: V3 1 (stacked genitives around the gloss), verifier's wording
+OLD: جہاں کاتبوں کی ذات کایستھ کے بہت سے لوگ روزگار کی تلاش میں جا بسے۔
+NEW: جہاں کاتب پیشہ کایستھ ذات کے بہت سے لوگ روزگار کی تلاش میں جا بسے۔
+
+WHY: V3 2 (پھر بھی set the concession against building imambaras; the English's 'nonetheless' answers their staunch Shia faith, stated in the sentence before), verifier's wording
+OLD: ان امیروں نے انیسویں صدی میں امام بارگاہیں تعمیر کروائیں، پھر بھی وہ تمام مذہبی عمارتوں کی دل کھول کر سرپرستی کرتے رہے۔
+NEW: ان امیروں نے انیسویں صدی میں امام بارگاہیں تعمیر کروائیں، لیکن اپنے شیعہ عقیدے کے باوجود وہ تمام مذہبی عمارتوں کی دل کھول کر سرپرستی کرتے رہے۔
+
+WHY: V3 3 (names fenced by commas; قصبے had no antecedent), verifier's wording
+OLD: شمالی سندھ کے دو روحانی سلسلے، یعنی دڑازی اور جلالانی، قصبے کے قریب ہی پائے جاتے ہیں،
+NEW: شمالی سندھ کے دو روحانی سلسلے دڑازی اور جلالانی خیرپور کے قریب ہی پائے جاتے ہیں،
+
+WHY: V3 4 (ان میں pointed back to the Kayasth), verifier's wording
+OLD: بہت سے کایستھ ان ریاستوں میں ملازمت کے لیے گئے، اور سندھ کی امارتِ خیرپور بھی ان میں شامل تھی۔
+NEW: بہت سے کایستھ ملازمت کے لیے جن ریاستوں میں گئے، سندھ کی امارتِ خیرپور بھی ان میں شامل تھی۔
+
+WHY: V3 5 (عقیدہ twice, a stiff 'did not prevent them from' calque), verifier's wording
+OLD: تاہم ان کے ذاتی شیعہ عقیدے نے ان کی فیاضی کا دائرہ تنگ نہیں کیا، اور یہ عقیدہ انہیں تمام مذہبی عمارتوں کی دریا دلی سے سرپرستی کرنے سے نہیں روک سکا۔
+NEW: تاہم ان کا ذاتی شیعہ عقیدہ ان کی فیاضی کی راہ میں حائل نہ ہوا، اور وہ تمام مذہبی عمارتوں کی دریا دلی سے سرپرستی کرتے رہے۔
+
+WHY: V3 6 (شمالی سندھ and خیرپور repeated, بھی twice), verifier's wording except that طریقے is kept for 'tariqa', as the English body names it (V3's سلسلے would erase the English's distinction); اسی علاقے points to شمالی سندھ in the sentence before
+OLD: جلالانی طریقے کی درگاہ بھی شمالی سندھ ہی میں خیرپور کے نزدیک واقع ہے۔ دڑازہ بھی سندھ میں خیرپور سے کچھ زیادہ دور نہیں۔
+NEW: جلالانی طریقے کی درگاہ بھی اسی علاقے میں خیرپور کے نزدیک واقع ہے، اور دڑازہ بھی یہاں سے کچھ زیادہ دور نہیں۔
+
+WHY: V3 7 (two unrelated facts joined by اور; the initial K read as the postposition کے, also V2 note 3), verifier's wording; the English has 'Bhagwan K. Ajwani', so کے is an initial
+OLD: نوشہرو فیروز اور خیرپور کے درمیان ہالانی واقع ہے، اور خیرپور کے نزدیک ہنگورجا میں بھگوان کے اجوانی پیدا ہوئے تھے۔
+NEW: نوشہرو فیروز اور خیرپور کے درمیان ہالانی واقع ہے۔ خیرپور کے نزدیک ہنگورجا میں بھگوان کے۔ اجوانی پیدا ہوئے تھے۔

@@ -1,0 +1,12 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Every factual statement traces to the team version's one line: Tando Saindad near Tando Muhammad Khan ("Near Tando Muhammad Khan lies Tando Saindad"; "Tando Saindad lies near Tando Muhammad Khan"), Mohsin Shah its *gaddi nashin* ("Its *gaddi nashin* was Mohsin Shah"), and "a Sufi who was affiliated to the Qalandariyya" ("He was affiliated to the *Qalandariyya*"). "Near", never "in", as the team version has it. The past tense "was" follows the team's own "who was affiliated" and anchors no date; acceptable.
+2. Glosses are definitional only: Sufi ("a mystic of Islam"; "a follower of the mystical path within Islam"), *Qalandariyya* ("an order of wandering dervishes"; "a Sufi order of wandering dervishes"), *gaddi nashin* ("holder of its seat"; "the holder of the seat: the successor who heads a Sufi lineage at its centre"). data/glossary.csv has none of these terms, so plain dictionary senses are allowed. The body gloss is framed as a definition of the word ("The *gaddi nashin* is ..."), not as a claim that Tando Saindad heads a named lineage, so it asserts no fact about the site. Optional, for a lighter touch only: "the successor who heads a Sufi lineage at its centre" could become "the successor who holds a Sufi seat", which reads even less like a description of Tando Saindad. Not required.
+3. No legends, no disagreements (the team version records none), no uncertain readings (the team notes record no [OCR?], [text-layer?] or [illegible] marker), no verse.
+4. No citation, page or folio, no author narration ("Boivin writes", "names", "adds", "draws on Kripalani"), no signposting, no archive or process language, and no time anchor. The Kripalani sentence and "of Tando Muhammad Khan itself the passage says nothing more" are source talk and are rightly left out.
+5. No important omission: the team version's whole factual content is the place of Tando Saindad relative to the town, Mohsin Shah as its *gaddi nashin*, and his Sufi affiliation to the Qalandariyya; all three are present. Nothing the team version lacks (district, province, Shah Abdul Karim Bulri, a shrine or tomb, followers, dates) has been added.
+6. Style only: the body section repeats the Overview's facts almost word for word, and Sufi and *Qalandariyya* are each glossed twice in different words. This is unavoidable with one line of material and matches the house style on the other one line pages; not a fidelity issue.
+7. Bibliography: the team version's single item, verbatim.

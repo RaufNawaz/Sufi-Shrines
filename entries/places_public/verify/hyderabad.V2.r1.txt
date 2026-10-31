@@ -1,0 +1,12 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [changed fact] English: "negotiate business contracts with television stations and with her clients from the affluent feudal households of Sindh" | Urdu: "سندھ کے متمول جاگیردار گھرانوں سے تعلق رکھنے والے اپنے سرپرستوں کے ساتھ بھی" -> سرپرست means patrons or protectors, which turns the commercial relationship the English describes (clients with whom she negotiates business contracts) into one of patronage. -> corrected Urdu:
+   OLD: اور ٹیلی وژن اسٹیشنوں کے ساتھ بھی کاروباری معاہدے طے کر سکتی تھیں اور سندھ کے متمول جاگیردار گھرانوں سے تعلق رکھنے والے اپنے سرپرستوں کے ساتھ بھی۔
+   NEW: اور ٹیلی وژن اسٹیشنوں کے ساتھ بھی کاروباری معاہدے طے کر سکتی تھیں اور سندھ کے متمول جاگیردار گھرانوں سے تعلق رکھنے والے اپنے گاہکوں کے ساتھ بھی۔
+
+NOTES:
+- Headings correspond (تعارف، تاریخ، مقدس مقامات، برادریاں، موسیقی، ریڈیو اور خواتین کی آوازیں). All names, numbers and dates check out (28 مارچ 2014، 1901، 22 برس، چھٹی جماعت، 1887، 1957، 1980، 2000 کی دہائی کے اوائل، دو گھرانے). The qualifiers "are said to" (Talpur mirs) and "is said to" (Dalpat Sufi's followers) are both kept as کہا جاتا ہے. "By the early 2000s ... had helped" is correctly a perfect (مدد دے چکی تھیں). There is no verse.
+- The glosses dropped for dargah, mir, sajjada nashin, dastarbandi, pir, melas, gharana and the Islamic festivals are deliberate under the brief. The gloss for آستانو is kept, which is right.
+- Communities, Hinglaj paragraph: English "Pilgrims also come from Hyderabad" is "حیدرآباد سے لوگ وہاں جاتے ہیں". This is acceptable, but "زائرین" would follow the English more closely. The word was used in the sentence before, so this was probably done to avoid repeating it.
+- The English spells the name "Mulchand" (History) and "Molchand Kripalani" (Communities). The Urdu uses مول چند for both. This reflects the English and adds no explicit identification.

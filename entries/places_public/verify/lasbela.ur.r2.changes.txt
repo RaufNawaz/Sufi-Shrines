@@ -1,0 +1,5 @@
+lasbela Urdu, changes after round 2 (confirming worker), applied by the coordinator as exact replacements in the verifier's wording (each OLD asserted once). Rejected: none.
+
+WHY: C r2 issue 1 [V2]: یہیں after بیلہ کے مقام could narrow the members to Lohanas of Bela town; the English has 'from the district of Las Bela'; the confirming verifier's wording
+OLD: اس کے ارکان زیادہ تر یہیں کے لوہانے رہے ہیں۔
+NEW: اس کے ارکان زیادہ تر اسی ضلع کے لوہانے رہے ہیں۔

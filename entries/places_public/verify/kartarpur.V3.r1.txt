@@ -1,0 +1,5 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: 1. [taste] "نے 1539 میں وفات پائی تھی۔" -> the past perfect is correct and common for a remote past event, but a reference work stating a fact would more often use the simple past: "کرتارپور وہ مقام ہے جہاں سکھ مذہب کے بانی گرو نانک نے 1539 میں وفات پائی۔" Either reads naturally.
+2. [taste] "سکھ مذہب" -> "سکھ مت" is the slightly more idiomatic term in educated Urdu prose, but "سکھ مذہب" is fully standard and widely used.
+3. The file holds only one sentence under "## تعارف" (150 bytes). The sentence is grammatical and natural, punctuation is correct (۔), digits are Western, there are no Latin letters, no asterisks and no verse. If a longer article was expected at this path, the file appears to be a stub, which is outside the scope of a language proofread.

@@ -1,0 +1,122 @@
+Umerkot Urdu, round 1 fixes (V2 r1 fidelity + V3 r1 fluency).
+Applied: 17 changes. Rejected or not applied: 11 items (3 of them partial rejections of applied V3 issues).
+
+CHANGE 1
+WHY: V2 NOTE (a word the English does not have: 'fought over by Rajputs' has no 'among themselves') + V3 NOTE (علاقہ twice in the Overview; the comma before اور is English habit); in V3's wording
+OLD: راجپوت قبیلے اس پر آپس میں لڑتے رہے، اور یہ علاقہ مقامی، علاقائی اور مرکزی مفادات کے ٹکراؤ کا مرکز بنا رہا۔
+NEW: راجپوت قبیلے اس پر لڑتے رہے اور یہ مقامی، علاقائی اور مرکزی مفادات کے ٹکراؤ کا مرکز بنا رہا۔
+
+CHANGE 2
+WHY: V3 NOTE (referent: اسی کے is unclear; عمرکوٹ ہی کے is clearer); in V3's wording
+OLD: اسی کے قلعے میں ایک شہنشاہ نے
+NEW: عمرکوٹ ہی کے قلعے میں ایک شہنشاہ نے
+
+CHANGE 3
+WHY: V3 #13 (double postposition کے قریب کے; گئے ہیں awkward). APPLIED IN PART: نزدیک applied as written; V3's simple past پہنچے is NOT applied because the English is present perfect ('pilgrims ... have walked'), so the perfect is kept with V3's verb: پہنچے ہیں
+OLD: قصبے کے قریب کے ایک گاؤں سے یاتری پیدل چل کر ہنگلاج کے ہندو مندر تک گئے ہیں۔
+NEW: قصبے کے نزدیک ایک گاؤں سے یاتری پیدل چل کر ہنگلاج کے ہندو مندر تک پہنچے ہیں۔
+
+CHANGE 4
+WHY: V3 #2 (سومرہ کا قبضہ is singular for a clan; unclear whose hands power left). The English 'Although power officially changed hands..., the Somras kept their control' implies power left the Somras, so V3's wording is supported; applied as written
+OLD: 1351 میں اقتدار باضابطہ طور پر دوسرے ہاتھوں میں منتقل ہو گیا، لیکن سندھ کے کچھ دور افتادہ علاقوں پر سومرہ کا قبضہ برقرار رہا،
+NEW: 1351 میں اقتدار باضابطہ طور پر سومروں کے ہاتھ سے نکل کر دوسرے ہاتھوں میں چلا گیا، لیکن سندھ کے کچھ دور افتادہ علاقوں پر ان کا قبضہ برقرار رہا،
+
+CHANGE 5
+WHY: V3 #3 (اس قلعے has no antecedent in the History section; 'the fort hosted' calque); V3's wording
+OLD: اس قلعے نے ایک شہنشاہ کی میزبانی بھی کی۔
+NEW: عمرکوٹ کے قلعے میں ایک شہنشاہ کی میزبانی بھی ہوئی۔
+
+CHANGE 6
+WHY: V3 #4 (hardships were endured crossing the desert, not after it; عمرکوٹ کے قلعے would repeat the previous sentence); V3's wording. Also, after یہاں پہنچا the next sentence's وہاں کے حاکم mixed here/there, so it becomes قلعے کے حاکم ('its ruler' in the English)
+OLD: صحرا عبور کرنے کے بعد شاہی قافلہ ہزاروں مصیبتیں اور مشقتیں جھیلتا ہوا عمرکوٹ کے قلعے تک پہنچا۔ وہاں کے حاکم رانا پرشاد نے
+NEW: شاہی قافلہ ہزاروں مصیبتیں اور مشقتیں جھیلتا ہوا صحرا عبور کر کے یہاں پہنچا۔ قلعے کے حاکم رانا پرشاد نے
+
+CHANGE 7
+WHY: V3 #5 (collocation: دیر تک is for hours, not a reign); V3's wording
+OLD: یہ بچہ دیر تک حکومت کرے گا
+NEW: یہ بچہ طویل عرصے تک حکومت کرے گا
+
+CHANGE 8
+WHY: V3 #6 (ambiguous relative جہاں ... چھوڑ جانا: could mean the women were left in this land; sentence too long). Split as V3 asks, but V3's text would say ارادہ twice in two sentences (قندھار جانے کے ارادے سے ... ان کا ارادہ تھا), so the intention to go to Qandahar moves into the second sentence; English 'left, meaning to go to Qandahar and to leave the women of his household there' kept exactly
+OLD: شہنشاہ کچھ عرصہ اس سرزمین میں ٹھہرے اور پھر قندھار جانے کے ارادے سے روانہ ہو گئے، جہاں وہ اپنے حرم کی خواتین کو چھوڑ جانا چاہتے تھے۔
+NEW: شہنشاہ کچھ عرصہ اس سرزمین میں ٹھہرے اور پھر روانہ ہو گئے۔ ان کا ارادہ تھا کہ قندھار جائیں اور حرم کی خواتین کو وہیں چھوڑ دیں۔
+
+CHANGE 9
+WHY: V3 #1 (agreement: قوم is feminine, so کی پجاری); V3's wording
+OLD: پرمار سوڈھا کی قوم کو شیو کا پجاری بتایا گیا ہے۔
+NEW: پرمار سوڈھا کی قوم کو شیو کی پجاری بتایا گیا ہے۔
+
+CHANGE 10
+WHY: V3 #8 (اور لوگ can be read with اور as a conjunction); V3's wording
+OLD: قصبے کے گرد و نواح میں اور لوگ بھی بستے تھے۔
+NEW: قصبے کے گرد و نواح میں دوسرے لوگ بھی بستے تھے۔
+
+CHANGE 11
+WHY: V2 #1 (changed certainty: 'In Aurangzeb's time' dates the settlement, not the writing; 'according to this account' is a hedge the English lacks); V2's wording, except دوسری قومیں becomes دیگر قومیں so as not to echo دوسرے لوگ in the sentence just before (V3 #8)
+OLD: اورنگزیب کے عہد میں صوبۂ ٹھٹھہ کا احوال اس کے چار اضلاع سمیت لکھا گیا، جنہیں *سرکار* کہا جاتا تھا۔ اس احوال کے مطابق بھکر سے نصیرپور اور عمرکوٹ تک کے علاقے میں جاڑیجا اور دوسری قومیں آباد تھیں۔
+NEW: اورنگزیب کے عہد میں بھکر سے نصیرپور اور عمرکوٹ تک کے علاقے میں جاڑیجا اور دیگر قومیں آباد تھیں۔ اس علاقے کا ذکر صوبۂ ٹھٹھہ اور اس کے ان چار اضلاع کے بیان میں آتا ہے جنہیں *سرکار* کہا جاتا تھا۔
+
+CHANGE 12
+WHY: V3 #7 (faulty comparison: a place compared with saints; آستانے کی جگہ heavy); V3's wording. 'The site of the sanctuary' is the hamlet of Pithoro named in the sentence before, so بستی is faithful
+OLD: بہت سے دوسرے اولیا کی طرح یہاں بھی آستانے کی جگہ ولی ہی کے نام سے موسوم ہے۔
+NEW: بہت سے دوسرے اولیا کے آستانوں کی طرح یہاں بھی بستی ولی ہی کے نام سے موسوم ہے۔
+
+CHANGE 13
+WHY: V3 #9 (اس ضلع has no antecedent; پیدل دور کی زیارت word order). APPLIED IN PART: word order as V3 gives it; V3's علاقے is NOT applied because the English says 'from the district' (and 'home district' later), so the referent is fixed by naming the district, spelled as the dictionary's locations entry (ضلع عمرکوٹ)
+OLD: اس ضلع کے لوگوں کی عقیدت انہیں پیدل دور کی زیارت پر بھی لے گئی۔
+NEW: ضلع عمرکوٹ کے لوگوں کی عقیدت انہیں دور کی زیارت پر پیدل بھی لے گئی۔
+
+CHANGE 14
+WHY: V3 #14 (double postposition کے قریب کے); V3's wording
+OLD: عمرکوٹ کے قریب کے ایک گاؤں سے یاتریوں کی ایک ٹولی
+NEW: عمرکوٹ کے نزدیک ایک گاؤں سے یاتریوں کی ایک ٹولی
+
+CHANGE 15
+WHY: V3 #10 (calque: کے نزدیک is for an opinion, not for mention in a book); V3's wording
+OLD: اسے امرکوٹ کہتی ہے، اور اس کے نزدیک یہ ایک شاہی سفر
+NEW: اسے امرکوٹ کہتی ہے، اور اس میں یہ ایک شاہی سفر
+
+CHANGE 16
+WHY: V3 #11 (calque تحقیق کی نظر میں; second member dangles without a verb); V3's wording
+OLD: جنوبی ایشیا کے ہندو صوفیوں پر ایک جدید تحقیق کی نظر میں یہ راجپوت رقابتوں کی سرزمین میں پتھورو پیر کے مزار کا مقام ہے، اور ایک ایسی برادری کا وطن جس کے عقیدتی ادب کا ایک حصہ سندھی میں ہے۔
+NEW: جنوبی ایشیا کے ہندو صوفیوں پر ایک جدید تحقیق میں یہ راجپوت رقابتوں کی سرزمین میں پتھورو پیر کے مزار کا مقام بھی ہے اور ایک ایسی برادری کا وطن بھی جس کے عقیدتی ادب کا ایک حصہ سندھی میں ہے۔
+
+CHANGE 17
+WHY: V3 #12 (عمر can be read as عُمر, age; عمرکوٹ کا عمر unclear). APPLIED IN PART: V3's 'عمرکوٹ کے نام میں جو عمر ہے' is NOT applied because it says the town is named after this Omar, a relationship the English ('Omar of Omarkot, too, is a figure of romance, not a saint') does not give. The ambiguity is fixed instead with سے منسوب and the vowel marks عُمَر, keeping V3's order (ولی نہیں بلکہ ... کردار)
+OLD: عمرکوٹ کا عمر بھی کسی عشقیہ داستان ہی کا کردار ہے، کوئی ولی نہیں۔
+NEW: عمرکوٹ سے منسوب عُمَر بھی کوئی ولی نہیں بلکہ کسی عشقیہ داستان ہی کا کردار ہے۔
+
+REJECTED / NOT APPLIED
+
+R1. V3 #9, in part: علاقے for ضلع
+REASON: The English says 'from the district' (and 'the home district of pilgrims' later). Changing it to 'area' would drop the English's district; the missing antecedent is fixed by naming ضلع عمرکوٹ instead (see the change above).
+
+R2. V3 #12, in part: عمرکوٹ کے نام میں جو عمر ہے
+REASON: Adds a relationship the English does not give (that the town's name comes from this Omar). The ambiguity is fixed with سے منسوب and vowel marks instead.
+
+R3. V3 #13, in part: simple past پہنچے
+REASON: The English is present perfect ('have walked'); English is the authority for tense. Kept as perfect: پہنچے ہیں (V3's verb and نزدیک applied).
+
+R4. V3 NOTE: write شیو as شِو
+REASON: urdu-i18n/urdu-dictionary.json spells Shiva شیو (derivedBareNames/Shiva, saints/Shiva (Mahadev)); the dictionary spelling governs, and the context (قوم ... کی پجاری) excludes 'shave'.
+
+R5. V3 NOTE: سومرو rather than سومرہ
+REASON: The dictionary has no entry for the Somras; V3 itself calls it taste and the file is consistent (سومرہ singular, سومروں plural), so the spelling is kept.
+
+R6. V3 NOTE: comma before اور elsewhere (قصبہ ہے، اور / گروہ تھے، اور)
+REASON: Taste, not a fault of meaning, agreement or referent; removed only in the Overview sentence already being changed.
+
+R7. V3 NOTE: سندھی repeated (… اور آج بھی اسی زبان میں ہے)
+REASON: Taste (repetition for emphasis is clear and correct); not applied.
+
+R8. V3 NOTE: میزبانی کے فرائض for خدمت گزاری کے فرائض
+REASON: Taste (V3 calls the current wording correct), and after V3 #3 میزبانی already stands two sentences earlier, so it would repeat.
+
+R9. V3 NOTE: خیال کیا جاتا ہے for خیال ہے
+REASON: Taste; both carry 'is thought' (V2 confirms the qualifier is kept).
+
+R10. V3 NOTE: Holy Places opening repeats the Overview
+REASON: V3 itself finds it acceptable; no change proposed.
+
+R11. V2 NOTES: Latin spellings Umarkot/Omarkot; dropped glosses
+REASON: V2 finds both acceptable; no change proposed.

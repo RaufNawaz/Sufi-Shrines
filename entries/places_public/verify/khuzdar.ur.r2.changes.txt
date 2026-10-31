@@ -1,0 +1,5 @@
+# khuzdar Urdu, round 2 changes, applied by the coordinator as exact replacements (each OLD asserted once)
+
+WHY: Round 2 confirming V3 issue 1: the round 1 fix ended on بھی شامل ہے right after the previous sentence's بھی شامل تھی; the verb varied (آتا ہے is the Overview's). The verifier's wording.
+OLD: یہی نام دو تصانیف کے عنوانات میں بھی شامل ہے: ایک ابڑو کی *ہنگلاج اے لاہوت* اور دوسری نظامانی کی *لاہوت لامکان*۔
+NEW: یہی نام دو تصانیف کے عنوانات میں بھی ملتا ہے: ایک ابڑو کی *ہنگلاج اے لاہوت* اور دوسری نظامانی کی *لاہوت لامکان*۔

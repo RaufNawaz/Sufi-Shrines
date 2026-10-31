@@ -1,0 +1,15 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [punctuation / calque] "خضدار میں واقع لاہوت، شاہ عبداللطیف کی سیاحت کے پڑاؤوں میں سے ایک تھا۔" -> The comma after the subject cuts لاہوت off from its predicate. This follows English punctuation, and Urdu does not put a comma between a subject and its verb. -> NEW: "خضدار میں واقع لاہوت شاہ عبداللطیف کی سیاحت کے پڑاؤوں میں سے ایک تھا۔"
+
+2. [repetition / choppy sentence] "لاہوت خضدار میں ہے۔ شاہ عبداللطیف اپنی سیاحت کے دوران جن مقامات پر ٹھہرے، ان میں یہ جگہ بھی شامل تھی۔" -> The introduction has just said خضدار میں واقع لاہوت, so the bare four-word sentence repeats it and reads abruptly. Joining it to the next sentence keeps the fact and removes the stop-start effect. -> NEW: "لاہوت خضدار میں ہے، اور شاہ عبداللطیف اپنی سیاحت کے دوران جن مقامات پر ٹھہرے، ان میں یہ جگہ بھی شامل تھی۔"
+
+3. [unidiomatic collocation / repetition] "اس مقام کا نام دو تصانیف کے عنوانات کا حصہ ہے۔ ان میں سے ایک ابڑو کی *ہنگلاج اے لاہوت* ہے اور دوسری نظامانی کی *لاہوت لامکان*۔" -> "کا نام ... عنوانات کا حصہ ہے" is stiff and sounds like English ('forms part of the titles'). Urdu would say the name آتا ہے or شامل ہے. The paragraph also repeats the introduction's wording almost exactly. Adding یہی points back to the introduction and makes the restatement read as deliberate. -> NEW: "یہی نام دو تصانیف کے عنوانات میں بھی شامل ہے: ایک ابڑو کی *ہنگلاج اے لاہوت* اور دوسری نظامانی کی *لاہوت لامکان*۔"
+
+NOTES:
+- Structural point: the second section repeats both of the introduction's facts and adds nothing new. Fixes 2 and 3 make this less obvious, but the article will keep reading as a restatement until there is more source material. That is a content question for the article's owner, not a language fix.
+- Taste: شاہ عبداللطیف appears without an honorific or the familiar form شاہ لطیف بھٹائی. That is fine for a neutral reference register, as long as the site does the same everywhere.
+- Spelling of پڑاؤوں is acceptable. پڑاؤں also occurs, but the form used here is standard and needs no change.
+- Agreement is correct throughout: یہ جگہ ... شامل تھی, and دوسری for تصنیف (feminine).
+- Punctuation is otherwise correct: ، and ۔ are used, there are no dashes or Latin letters, and the asterisks are balanced.

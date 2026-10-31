@@ -1,0 +1,36 @@
+# jhang.ur.md, round 1 changes (applied by the coordinator, 31 October 2026, watcher-2026-10-31T1114Z)
+
+WHY: V3 issue 2: سیال جاٹ is a tribe, so اسی خاندان does not refer back; no comma before اور
+OLD: جھنگ سیال جاٹوں کی سرزمین ہے، اور ہیر کا تعلق اسی خاندان سے تھا۔
+NEW: جھنگ سیال جاٹوں کی سرزمین ہے اور ہیر کا تعلق اسی قبیلے سے تھا۔
+
+WHY: V3 issue 1 and V2 note 2: جو after the comma attached to سردار; اس had to reach back to داستان
+OLD: اس کے مطابق ہیر کا باپ چوچک سیال جھنگ سیال کا طاقتور جاٹ سردار تھا، جو "پاکستان میں لاہور کے جنوب مغرب میں واقع ایک وسیع زرعی علاقہ" ہے۔
+NEW: اس داستان کے مطابق ہیر کا باپ چوچک سیال جھنگ سیال کا طاقتور جاٹ سردار تھا۔ جھنگ سیال "پاکستان میں لاہور کے جنوب مغرب میں واقع ایک وسیع زرعی علاقہ" ہے۔
+
+WHY: V3 issue 3, in part: the second sentence joined to the first and the calqued سیال جاٹوں کے خاندان made سیال جاٹ خاندان; طاقتور kept, since the English says powerful (V3's بااثر would change it)
+OLD: حسین اور حاضر جواب بیٹی تھی۔ اس کا تعلق جھنگ کے طاقتور سیال جاٹوں کے خاندان سے تھا۔
+NEW: حسین اور حاضر جواب بیٹی تھی اور اس کا تعلق جھنگ کے طاقتور سیال جاٹ خاندان سے تھا۔
+
+WHY: V3 issue 5: heavy English shaped syntax, and جس could point at نام
+OLD: ہیر کے قبیلے کا نام سیال ہے، جس کے لوگ "پنجاب کے طاقتور زمیندار" ہیں۔
+NEW: ہیر کا قبیلہ سیال ہے اور اس کے لوگ "پنجاب کے طاقتور زمیندار" ہیں۔
+
+WHY: V3 issue 4: معمول سے بڑھ کر is a calque; V2 note 3: the English colon makes the inheritance custom the instance of that consideration, so چنانچہ rather than a bare اور
+OLD: یہ قبیلہ اپنی عورتوں کا معمول سے بڑھ کر خیال رکھتا ہے اور "پنجاب
+NEW: یہ قبیلہ اپنی عورتوں کا غیر معمولی خیال رکھتا ہے، چنانچہ یہ "پنجاب
+
+WHY: V3 note: a smoother gloss of رواجی قانون, the same sense as the English
+OLD: رواجی قانون سے مراد مقامی رسم و رواج کا غیر تحریری قانون ہے۔
+NEW: رواجی قانون سے مراد رسم و رواج پر مبنی غیر تحریری مقامی قانون ہے۔
+
+WHY: V3 issue 6: the sentence echoed the Overview and used ہیر twice; اساطیری kept, since the English keeps 'the myth of Hir' here
+OLD: ہیر کی اساطیری داستان کئی سو برس پرانی ہے، مگر ضلع جھنگ کے دیہاتی آج تک ہیر کی قبر کی نشان دہی کرتے ہیں۔
+NEW: ہیر کی اساطیری داستان کئی سو برس پرانی سہی، مگر ضلع جھنگ کے دیہاتی آج بھی اس کی قبر کی نشان دہی کرتے ہیں۔
+
+## Rejected
+
+- V3 issue 3, the word بااثر for طاقتور: rejected; the English says "powerful" (طاقتور), and the repetition is the English's own.
+- V3 issue 6, یہ داستان for ہیر کی اساطیری داستان: rejected; the English names "the myth of Hir" in this sentence, and the paragraph before is about the clan, so یہ would have no near referent.
+- V2 note 1 (restore the gloss that Jats are an agricultural caste): not applied; a gloss of a familiar word, dropped as the brief and gujrat.ur.md do.
+- V3 taste notes (لوک داستان for اساطیری داستان, والد for باپ): not applied; the English says "myth", and باپ is the house style (gujrat.ur.md).

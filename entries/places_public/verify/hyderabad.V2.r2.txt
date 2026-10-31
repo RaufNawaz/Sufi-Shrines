@@ -1,0 +1,25 @@
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [V3, word repeated in neighbouring sentences] OLD: اور اسی غرض سے دو مرتبہ، ایک بار 1957 میں اور پھر 1980 میں، پاکستان سے سفر کیا۔ -> change 7 brings in "سفر کیا" right after the unchanged sentence before it, "درگاہ کے سجادہ نشین اس کی رسوم ادا کرنے کے لیے سفر کرتے تھے۔". This gives "سفر کرتے تھے ... سفر کیا" in back-to-back sentences about the same journeys. The English itself varies the verb ("travelled ... came"). The dates are also set off between commas, English style, in the middle of the clause. The fix below keeps "from Pakistan", twice, 1957 and 1980, and "for it", and adds no destination. It supplies "وہ", since the intransitive verb cannot share the ergative "انہوں نے" of the first clause. -> NEW: اور اسی غرض سے وہ 1957 اور 1980 میں دو مرتبہ پاکستان سے روانہ ہوئے۔
+
+2. [V3, word repeated inside one sentence] OLD: اور شہر میں وہ قبرستان بھی ہے جہاں شہر کے بڑے بڑے موسیقار دفن ہیں۔ -> change 8 fixed the ambiguous "اس کے" by repeating "شہر", so the clause now reads "شہر میں ... جہاں شہر کے". This is the repetition inside one sentence that the brief names as a fault. "یہاں کے" means "of this place" and points to the city (the nearest place in the clause is "شہر میں"), not to the زیارت گاہ. -> NEW: اور شہر میں وہ قبرستان بھی ہے جس میں یہاں کے بڑے بڑے موسیقار دفن ہیں۔
+
+NOTES:
+- Diff proof: I applied the 14 OLD -> NEW pairs from hyderabad.ur.r1.changes.txt to /home/claude/work/bak/hyderabad.ur.r1.bak, one after another with python. Each OLD occurs exactly once in the backup, and each NEW occurs exactly once in the current file. The result is byte-identical to the current hyderabad.ur.md (35 lines in both). Nothing outside the listed changes moved. The file has no Latin letters and no em or en dashes. Its 8 asterisks are balanced. The prose length ratio to the English is about 0.89.
+- Changes 1, 3, 4, 5, 9, 10, 11, 12, 13 and 14: they are faithful to the English (facts, certainty, tense and referents) and read as correct Urdu. In change 9, "ان کے جانشین" can only point to دلپت صوفی, because the family is singular ("خاندان تھا"). Change 12 now has گاہکوں for "clients", with both objects before the verb. Change 13: the narrator's past habitual "پہنچ جاتے تھے" fits correctly after the reported "اب ... نہیں رہی" (the English is past).
+- Rejected items: all four were rightly rejected.
+  - R1: the English is past ("came ... were contracted").
+  - R2: "associated with" is not "counted as".
+  - R3: the English is present ("publishes"), so the perfect would change the time frame.
+  - R4: the English Communities sentence has no "after him", so V3's "ان کے بعد" would be an addition as well as a doubled "ان کے".
+  The notes the writer did not apply were also rightly left alone.
+- Change 6 (taste and nuance, not failed): "تین صوفی روایتوں میں سے ایک حیدرآباد کے ٹنڈو جہانیاں کے نام سے جانی جاتی ہے۔" swaps the English "is counted as" (a reckoning) for "is known by the name of". The core claim survives: one of three traditions is Tando Jahaniyya, in Hyderabad. The two stacked کے in "حیدرآباد کے ٹنڈو جہانیاں کے نام سے" leave it a little unclear whether "حیدرآباد" belongs to the name. A version that keeps شمار would be closer, for example "حیدرآباد کی ٹنڈو جہانیاں روایت تین صوفی روایتوں میں سے ایک شمار ہوتی ہے۔". Note that it repeats روایت, which is presumably why the writer did not choose it.
+- Change 2: "برطانوی فتح سے قبل، خود مختار سندھ کے آخری دور میں، یہی شہر دارالحکومت تھا۔" is faithful and no longer copies the Overview. Matters of taste:
+  - The commas could go.
+  - "شہر" now also appears in the next sentence ("جو دلپت صوفی نے شہر میں قائم کیا تھا").
+  - "یہی" adds a slight emphasis.
+- Change 3: "خطابت" leans toward oratory rather than "lectures". It is acceptable in this triad, and the quotation that follows has "لیکچر".
+- Change 10: "گھرانے" now appears twice in the Hiranand / Mulchand sentence ("عامل گھرانے ... کرشن بھگت گھرانے"). This is acceptable as deliberate parallelism with "جبکہ". Going back to خاندان would repeat the خاندان of the sentence before.
+- Change 14: "اس موسیقی" now appears in two consecutive sentences ("حیدرآباد میں اس موسیقی کو ریکارڈ ..." / "اس موسیقی سے متعلق دستاویزات"). "ایک کیسٹ ... جاری کرتا ہے" is a present habitual with a single item, which reads slightly oddly. Both are taste. The English present tense justifies the habitual.

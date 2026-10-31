@@ -1,6 +1,6 @@
 V1 English fidelity: PASS (round 2) en:78203dd2
-V2 Urdu fidelity: PENDING
-V3 Urdu fluency: PENDING
+V2 Urdu fidelity: PASS (round 3) en:78203dd2 ur:566bcae4
+V3 Urdu fluency: PASS (round 3) ur:566bcae4
 
 # Punjab short article: notes
 
@@ -68,3 +68,15 @@ The confirming V1 checked every change (a replay of the listed changes on the ro
 ## Short Urdu written
 
 One writer, reusing the long Urdu's verified wording wherever the short English keeps a long sentence; every name as the long Urdu spells it; checker (`short punjab --no-verdicts`) ok. Next: V2 and V3 round 1.
+
+## V2 and V3 round 1 (FAIL), 30 October 2026, watcher firing ~22:15Z
+
+V2 failed on 8 issues (an "only" dropped, four small additions or strengthenings, a "not yet" governing too much, Multan's capital put in the past), V3 on 50 (calques of "own", agreement, ambiguous pronouns, repetition, a تک reading as "until"). One writer applied them: 59 edits, 47 in the verifiers' wording, 12 adapted (V3 12 and V2 3 merged into one sentence that says only "against the advice of most of his nobles"; طے کر رکھی تھی kept for "agreed"), V3 47 rejected (the English says "by many names"), محمد قاسم and نو نہال سنگھ kept as the English and the long Urdu have them. Reports `verify/punjab.short.V2.r1.txt`, `V3.r1.txt`; changes `verify/punjab.short.ur.r1.changes.txt`. Checker ok.
+
+## V2 and V3 round 2 confirming (FAIL both)
+
+One confirming worker (`verify/punjab.short.V2.r2.txt`, the same reply saved as `V3.r2.txt`) replayed the 59 changes on the backup and got the current file exactly. It found 5 faults the fixes introduced: دھارا made feminine (it is masculine, as the long Urdu has it), ان کے عہد now pointing to the governors, a bare کرتے for قبول کرنا, تعمیرِ نو adding "rebuilding", and اس صوبے now reading as Sindh before مرزا صاحباں. The coordinator applied the five in the verifier's wording (`verify/punjab.short.ur.r2.changes.txt`); checker ok. Its taste notes (d to j) are recorded there and not applied. Next: confirming round 3.
+
+## V2 and V3 round 3 confirming (PASS both)
+
+The confirming worker (`verify/punjab.short.V2.r3.txt`, the same reply as `V3.r3.txt`) replayed the five round 2 changes on the backup and got the current file exactly; all five pass both. Its taste notes (the three بھی near مرزا صاحباں; اسی صوبے at the head of the Hir paragraph) are recorded here and not applied. **The short article is done.**

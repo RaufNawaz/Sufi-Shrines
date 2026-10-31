@@ -1,0 +1,48 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [redundancy] "سکھر، روہڑی اور شکارپور مل کر قصبوں کی ایک تکون بناتے ہیں جس کا ایک کونا سکھر ہے۔" -> tautology: Sukkur is already named as one of the three, so "جس کا ایک کونا سکھر ہے" adds nothing and reads like a translation artefact -> "سکھر، روہڑی اور شکارپور مل کر قصبوں کی ایک تکون بناتے ہیں۔"
+
+2. [calque / unidiomatic collocation] "بیسویں صدی میں سکھر فسادات کا شہر بنا، اور سکھر کے فسادات کا پہلا شکار بھگت کنور رام تھے۔" -> "فسادات کا شہر بنا" renders "a city of riots" word for word; also سکھر repeated within one sentence -> "بیسویں صدی میں سکھر فسادات کی زد میں آیا، اور ان فسادات کا پہلا شکار بھگت کنور رام تھے۔"
+
+3. [register] "اور صوفی شاعر بیدل نے بھی وہیں جنم لیا، جن کا انتقال 1872 میں ہوا۔" -> "جنم لینا" is the Hindi register and jars for a Muslim Sufi poet in Urdu prose; the same paragraph uses "پیدا ہوئے" for Rochaldas -> "اور صوفی شاعر بیدل بھی وہیں پیدا ہوئے، جن کا انتقال 1872 میں ہوا۔"
+
+4. [tense] "دارا بکھر سے آگے نکل گئے ہیں اور 25 محرم کو سکھر میں پڑاؤ ڈال چکے ہیں۔" -> a fixed past date ("25 محرم کو") with the present perfect "ڈال چکے ہیں" is awkward; in this narrated report the past perfect is natural -> "دارا بکھر سے آگے نکل گئے تھے اور 25 محرم کو سکھر میں پڑاؤ ڈال چکے تھے۔"
+
+5. [inconsistency] "چھ صفر کو یہ سالار سکھر پہنچے۔" -> the preceding sentence writes "5 صفر" in digits; the next date in the same sequence should match -> "6 صفر کو یہ سالار سکھر پہنچے۔"
+
+6. [calque / unidiomatic collocation] "بیسویں صدی میں سکھر فسادات کا شہر رہا۔" -> same calque as issue 2 ("city of riots") -> "بیسویں صدی میں سکھر فسادات کی زد میں رہا۔"
+
+7. [ambiguity] "منزل گاہ کے فسادات کے بعد سکھر اور شمالی سندھ کے دوسرے شہر سیہون سے مختلف تصویر پیش کرتے ہیں،" -> "شمالی سندھ کے دوسرے شہر سیہون" reads first as "Sehwan, another city of northern Sindh", so the comparison collapses; the plural verb only resolves it after the fact -> "منزل گاہ کے فسادات کے بعد سکھر اور شمالی سندھ کے دوسرے شہروں کی تصویر سیہون سے مختلف ہے،"
+
+8. [calque] "فتح محمد سیہوانی سیہون کے ایک ادیب تھے جو 1882 سے 1942 تک زندہ رہے۔" -> "جو ... تک زندہ رہے" renders English "who lived 1882–1942"; Urdu reference prose gives the years in brackets -> "فتح محمد سیہوانی (1882 تا 1942) سیہون کے ایک ادیب تھے۔"
+
+9. [ambiguity] "پہلے شاعر روہڑی کے بیدل ہیں، جن کا انتقال 1872 میں ہوا۔" -> "پہلے ... دوسرے" reads as chronological, but the "second" poet, Jan Allah, belongs to the eighteenth century and so came first; the order is only the order of mention -> "ان میں سے ایک روہڑی کے بیدل ہیں، جن کا انتقال 1872 میں ہوا۔"
+
+10. [ambiguity, paired with 9] "دوسرے شاعر روہڑی کے جان اللہ ہیں، جو سلسلۂ سہروردیہ سے وابستہ تھے۔" -> same chronological misreading -> "دوسرے روہڑی کے جان اللہ ہیں، جو سلسلۂ سہروردیہ سے وابستہ تھے۔"
+
+11. [unidiomatic collocation] "جنہوں نے شاہ عنایت کی شہادت پر گیت لکھے۔" -> "گیت لکھنا" for an eighteenth-century Persian poet's verse on a martyrdom is a calque of "wrote songs"; Urdu says poems are "کہی" -> "جنہوں نے شاہ عنایت کی شہادت پر نظمیں کہیں۔"
+
+12. [calque] "روہڑی ایک گویّے کی راہ کا ایک سرا بھی ہے۔" -> "راہ کا ایک سرا" is a word-for-word "one end of a singer's route", with ایک doubled -> "روہڑی کا ذکر ایک گویّے کے سفر کے سلسلے میں بھی آتا ہے۔"
+
+13. [calque] "اور اسے دو شاعروں کے وطن کی حیثیت سے جانتی ہے۔" -> a study "knowing" a town is English idiom ("knows it as") -> "اور اس کا ذکر دو شاعروں کے وطن کی حیثیت سے کرتی ہے۔"
+
+14. [ambiguity / calque] "صوفی رسوم میں عورت کی آواز پر ایک مطالعے میں روہڑی سیہون شریف تک ایک گویّے کے سفر کا ایک سرا ہے۔" -> "روہڑی سیہون شریف" run together reads like one compound name, and "سفر کا ایک سرا ہے" repeats the calque of issue 12 -> "صوفی رسوم میں عورت کی آواز پر ایک مطالعے میں روہڑی سے سیہون شریف تک ایک گویّے کے سفر کا ذکر آتا ہے۔"
+
+15. [inconsistency] "جنوبی ایشیا کے ہندو صوفیوں پر ایک تحقیق ان دونوں قصبوں کو سب سے زیادہ جگہ دیتی ہے۔" -> the very next sentence calls Sukkur "شہر", so "دونوں قصبوں" contradicts it -> "جنوبی ایشیا کے ہندو صوفیوں پر ایک تحقیق ان دونوں مقامات کو سب سے زیادہ جگہ دیتی ہے۔"
+
+16. [repetition / calque] "اس میں سکھر شمالی سندھ کا ایک شہر ہے جو فسادات کا شہر رہا اور دادی دھن کی جائے پیدائش ہے۔" -> "شہر ہے جو ... کا شہر رہا" repeats شہر and reuses the calque of issues 2 and 6 -> "اس میں سکھر شمالی سندھ کا ایک شہر ہے جو فسادات کی زد میں رہا اور دادی دھن کی جائے پیدائش ہے۔"
+
+17. [English word order / apposition] "روہڑی اس میں دریائے سندھ کی ایک بندرگاہ ہے، روچل داس اور بیدل کی جائے پیدائش، اور سائیں واسن شاہ اور ایسر لال کی زیارت گاہوں کا مقام۔" -> verbless appositive phrases strung on commas follow English structure ("a port, the birthplace of X, and the site of Y"), and "اور ... اور" doubles up -> "روہڑی اس میں دریائے سندھ کی ایک بندرگاہ ہے، جہاں روچل داس اور بیدل پیدا ہوئے اور جہاں سائیں واسن شاہ اور ایسر لال کی زیارت گاہیں ہیں۔"
+
+NOTES:
+- "تیرتھ یعنی مقدس زیارت گاہ" glosses a word most Urdu readers know. It is defensible for a general audience on first use, so I leave it as taste.
+- Sukkur is called both "شہر" and "قصبہ" (for example "قصبے سے دس کوس", "یہ قصبہ ایک سفر کی منزل"), and Rohri is called "قصبہ" in the introduction but "ان شہروں میں شامل" in the history section. Choosing one term for each place would read more cleanly.
+- "علن فقیر" is more often written "الن فقیر" in Urdu print. The article is consistent with itself, so this is taste.
+- The article repeats material almost word for word: the triangle (sections 1 and 4), Rochaldas's 1879 birth in Rohri (sections 1 and 4), and the bus-and-train sentence about Alan Faqir (sections 1 and 5). That is a structural matter, not an error.
+- One source appears as "اسلامی تصوف کے ایک مطالعے" in the poets section and as "اسلامی تصوف پر ایک تحقیق" in the books section. If it is the same work, using one wording would stop readers taking it for two.
+- "منزل گاہ کے فسادات" appears without being tied to the "سکھر کے فسادات" mentioned just above, so a reader cannot tell whether they are the same events. Linking them would add a fact, so I leave it.
+- "کنڈری ضلع خیرپور کے تعلقہ روہڑی کا ایک چھوٹا سا قصبہ ہے۔" and "شہر میں ایک یتیم خانہ بھی تھا۔" stand unconnected to the sentences around them. Joining them up would need facts the text does not supply.
+- "جن کے زمانوں میں لگ بھگ ایک صدی کا فاصلہ ہے" after "وطن تھا" mixes tenses, but the present tense is acceptable here because the gap is still true.
+- "چیف آفیسر" is the official municipal title in use and is acceptable.
+- Checked: no Latin letters, no em or en dashes, Western digits throughout, asterisks balanced (*فوجداری*, *جنم ساکھیاں*), and the article contains no verse paragraphs.

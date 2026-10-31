@@ -1,0 +1,69 @@
+VERDICT: FAIL
+
+ISSUES:
+
+1. [tense / consistency] "یہیں سے تین راستے کابل کو جاتے ہیں" -> The introduction uses the present tense, but the body (شہر اور اس کا علاقہ) describes the three roads as they were under Aurangzeb, in the past tense ("شہر پشاور سے تین راستے کابل کو جاتے تھے۔"). A reader gets two different time frames for the same statement. -> NEW: "یہیں سے تین راستے کابل کو جاتے تھے"
+
+2. [calque / gender agreement / inconsistent term] "بیسویں صدی میں چشتی صوفی ذوقی شاہ نے اسی شہر میں صوفیانہ اصطلاحات کی اپنی قاموس کا آغاز کیا۔" -> "کتاب کا آغاز کیا" is a literal rendering of "began the dictionary". In Urdu one starts compiling a work (تالیف / مرتب کرنا), not the book itself. Standard Urdu also treats قاموس as masculine, while the article uses feminine agreement with it (اپنی، شائع ہوئی). Line 57 calls the same work لغت. Using لغت (feminine) throughout fixes both the agreement and the inconsistency. -> NEW: "بیسویں صدی میں چشتی صوفی ذوقی شاہ نے اسی شہر میں صوفیانہ اصطلاحات کی اپنی لغت مرتب کرنا شروع کی۔"
+
+3. [calque / gender agreement / inconsistent term] "ذوقی شاہ نے 1923 میں پشاور ہی میں *سرِّ دلبراں* کا آغاز کیا، جو صوفیانہ اصطلاحات کی ایک جامع قاموس ہے۔" -> Same problem as 2: "کا آغاز کیا" with a book title, and قاموس given feminine agreement ("یہ پہلی بار 1951 میں ... شائع ہوئی"). -> NEW: "ذوقی شاہ نے 1923 میں پشاور ہی میں *سرِّ دلبراں* کی تالیف شروع کی، جو صوفیانہ اصطلاحات کی ایک جامع لغت ہے۔"
+
+4. [repetition] "پشاور ایک قدیم شہر ہے، اور پرانی تحریروں میں اس کا نام فرشاور، پرشاور اور بگرام ملتا ہے۔" -> The section opens with almost exactly the article's first sentence ("پشاور ... ایک قدیم شہر ہے"). The list of three names also takes a plural verb more naturally. -> NEW: "پرانی تحریروں میں اس قدیم شہر کے نام فرشاور، پرشاور اور بگرام ملتے ہیں۔"
+
+5. [ambiguity] "سن 391 میں سلطان محمود کی پہلی مہم کے دوران پشاور میں ایک جنگ لڑی گئی۔" -> With no era given, an Urdu reader takes "سن 391" as 391 CE, centuries before Sultan Mahmud. The number can only be a Hijri year, so the era must be stated. (The fact-checker should confirm the era against the source; no new fact is intended.) -> NEW: "سن 391 ہجری میں سلطان محمود کی پہلی مہم کے دوران پشاور میں ایک جنگ لڑی گئی۔"
+
+6. [repetition / honorific consistency] "راجہ جے پال کا سامنا کرتے ہیں اور راجہ کو قید کر لیتے ہیں۔" -> "راجہ" is repeated within one clause. The paragraph already refers to Jaipal with the honorific plural (نکلے، انہوں نے), so a pronoun works. -> NEW: "راجہ جے پال کا سامنا کرتے ہیں اور انہیں قید کر لیتے ہیں۔"
+
+7. [tangled sentence / ambiguous relative] "دارا نے پشاور اور کابل کی فوجوں کو خلعتیں بھیجیں، جہاں کی صوبیداری مہابت خان کے سپرد تھی۔" -> The relative "جہاں کی" comes after the verb and the object (خلعتیں), so it is not clear what it refers to. A reader has to work back to find that it means Peshawar and Kabul. -> NEW: "پشاور اور کابل کی صوبیداری مہابت خان کے سپرد تھی، اور دارا نے وہاں کی فوجوں کو خلعتیں بھیجیں۔"
+
+8. [name set between commas, cut off from its postposition] "یہ سلسلہ جنوبی ایشیا کے ممتاز صوفی سلسلے، چشتیہ کی ایک شاخ ہے۔" -> This is the English appositive pattern ("the X order, Chishtiyya"). The comma separates "چشتیہ" from the phrase it belongs to, and "سلسلے، چشتیہ کی" reads as broken. -> NEW: "یہ سلسلہ جنوبی ایشیا کے ممتاز صوفی سلسلۂ چشتیہ کی ایک شاخ ہے۔"
+
+9. [calque] "اسی صدی کے چشتی صوفی ذوقی شاہ نے چار شہروں میں اخبارات کے لیے کام کیا: پشاور، لاہور، سندھ کا حیدرآباد اور کراچی۔" -> "اخبارات کے لیے کام کیا" is a literal rendering of "worked for newspapers". The Urdu idiom is اخبارات سے وابستہ رہنا. -> NEW: "اسی صدی کے چشتی صوفی ذوقی شاہ چار شہروں میں اخبارات سے وابستہ رہے: پشاور، لاہور، سندھ کا حیدرآباد اور کراچی۔"
+
+10. [calque / collocation] "ان کی زندگی آگرہ، جے پور، بمبئی، پشاور، حیدرآباد اور اجمیر کے درمیان گزری، اور آخرکار وہ کراچی میں جا ٹھہرے۔" -> "شہروں کے درمیان گزری" is English "between" and reads geographically, as if he lived in the land between these cities. "جا ٹھہرے" suggests a halt; for settling at the end of a life the usual word is "جا بسے". -> NEW: "ان کی زندگی آگرہ، جے پور، بمبئی، پشاور، حیدرآباد اور اجمیر میں آتے جاتے گزری، اور آخرکار وہ کراچی میں جا بسے۔"
+
+11. [collocation] "اور فوجیں اسے بڑی مشکل ہی سے پار کر پاتی تھیں۔" -> A route or a distance is "طے کیا جاتا ہے", not "پار کیا جاتا ہے". You "پار کرنا" a river or a pass. -> NEW: "اور فوجیں اسے بڑی مشکل ہی سے طے کر پاتی تھیں۔"
+
+12. [agreement] "اس کی گھاٹیاں تنگ، کوتل دشوار اور پانی کمیاب تھا۔" -> A single singular "تھا" closes three predicates. "گھاٹیاں تنگ ... تھا" does not agree, and a careful reader notices. -> NEW: "اس کی گھاٹیاں تنگ اور کوتل دشوار تھے، اور پانی کمیاب تھا۔"
+
+13. [collocation / logic] "اور پھر کابل تک مزید چالیس کوس کا سفر تھا، جس کے کوتل کچھ زیادہ دشوار نہ تھے۔" -> The passes belong to the road or the stretch, not to the "سفر". "سفر کے کوتل" is odd. -> NEW: "اور پھر کابل تک چالیس کوس کا مزید فاصلہ تھا، جس میں کوتل کچھ زیادہ دشوار نہ تھے۔"
+
+14. [ambiguity] "ہندوستان میں تصوف کے ایک مؤرخ کے الفاظ میں:" -> This can be read as "a historian of Sufism who lives in India". Line 61 shows that what is meant is a historian of Sufism in India. -> NEW: "ہندوستان میں تصوف کی تاریخ لکھنے والے ایک مؤرخ کے الفاظ میں:"
+
+15. [postposition agreement] "قلندر وہ سیلانی درویش ہیں جو عام مذہبی زندگی کے رسوم و قیود سے آزاد ہو جاتے ہیں۔" -> رسوم (plural of the feminine رسم) and قیود (plural of the feminine قید) are both feminine, so the postposition should be "کی". -> NEW: "قلندر وہ سیلانی درویش ہیں جو عام مذہبی زندگی کی رسوم و قیود سے آزاد ہو جاتے ہیں۔"
+
+16. [calque / ambiguous reference / tangled sentence] "ایک خاتون کے تجربے میں سرحد کے مزار عورتوں کے لیے کھلے ہیں۔ پشاور کی ایک مریدنی نے اپنے علاقے کا موازنہ پاکپتن سے کیا، جہاں عورتیں بزرگ کے مزار کے اندرونی حصے میں نہیں جا سکتیں، اور کہا:" -> There are three problems. (a) "کے تجربے میں" is "in one woman's experience" taken word for word; Urdu says "کے تجربے کے مطابق". (b) "ایک خاتون" and then "ایک مریدنی" read as two different women. The article elsewhere (lines 5 and 57) gives the same quotation to one woman of Peshawar. (c) The Pakpattan relative clause comes between "موازنہ کیا" and "اور کہا", so the main clause is held open across it. -> NEW: "پشاور کی ایک مریدنی کے تجربے کے مطابق سرحد کے مزار عورتوں کے لیے کھلے ہیں۔ انہوں نے اپنے علاقے کا موازنہ پاکپتن سے کیا، جہاں عورتیں بزرگ کے مزار کے اندرونی حصے میں نہیں جا سکتیں۔ ان کا کہنا تھا:" (The quotation and the following sentence "اس مریدنی نے خود..." stay as they are.)
+
+17. [collocation] "پشاور ان شہروں میں بھی ہے جہاں سکھ آ کر بستے ہیں۔" -> "ان شہروں میں بھی ہے" is loose. The idiom is "کا شمار ... میں ہوتا ہے". -> NEW: "پشاور کا شمار بھی ان شہروں میں ہوتا ہے جہاں سکھ آ کر بستے ہیں۔"
+
+18. [inconsistent term] "قبائلی علاقوں کے سکھ پناہ گزین پشاور، حسن ابدال اور ننکانہ صاحب منتقل ہوئے اور اپنے سے پہلے آنے والے مہاجرین کی طرح گوردواروں میں رہنے لگے۔" -> The same group is called "پناہ گزین" and then "مہاجرین" within one sentence, as if they were different kinds of people. -> NEW: "قبائلی علاقوں کے سکھ پناہ گزین پشاور، حسن ابدال اور ننکانہ صاحب منتقل ہوئے اور اپنے سے پہلے آنے والے پناہ گزینوں کی طرح گوردواروں میں رہنے لگے۔"
+
+19. [gloss of a familiar word] "پریم گپتا کے نزدیک ہندوؤں کا تہوارِ چراغاں دیوالی پشاور جانے کی ایک وجہ ہے:" -> Every Urdu reader knows Diwali, and the introduction already uses the word with no gloss. "ہندوؤں کا تہوارِ چراغاں دیوالی" piles a gloss in front of the name and reads like a translation. -> NEW: "پریم گپتا کے نزدیک دیوالی پشاور جانے کی ایک وجہ ہے: "دیوالی کی روشنیاں دیکھنی ہوں تو پشاور جاؤ۔""
+
+20. [repetition / faulty logic] "شہر کے ہندو یاترا پر بھی جاتے ہیں۔ 2010 میں پشاور کے ہندو کٹاس آئے، اور 2011 میں ان میں سے کوئی سو افراد دو بڑی بسوں میں وہاں پہنچے۔" -> The first sentence repeats line 43 ("شہر کے ہندو یہیں سے کٹاس کی یاترا کو جاتے ہیں"). "ان میں سے" seems to say that the 2011 hundred were drawn from the 2010 party, when what is meant is Peshawar's Hindus. -> NEW: "2010 میں پشاور کے ہندو یاتری کٹاس آئے، اور 2011 میں پشاور ہی کے کوئی سو ہندو دو بڑی بسوں میں وہاں پہنچے۔"
+
+21. [register] "بہت سے مصنفین پشاور کا ذکر بس سرسری طور پر کرتے ہیں۔" -> "بس" in the sense of "only" is conversational and out of place in reference prose. -> NEW: "بہت سے مصنفین پشاور کا ذکر محض سرسری طور پر کرتے ہیں۔"
+
+22. [word order] "تو لفظ پشاوری اس میں آتا ہے:" -> The word order follows English ("the word Peshawari appears in it"). Natural Urdu puts "اس میں" first, and "بھی" carries the sense. -> NEW: "تو اس میں لفظ پشاوری بھی آتا ہے:"
+
+23. [calque / izafat order] "سلسلۂ چشتیہ پر لکھی گئی تحریروں میں پشاور ان شہروں میں سے ایک ہے جہاں ذوقی شاہ نے اخبارات کے لیے کام کیا۔ یہ ان کے سفر کی ایک منزل بھی ہے اور وہ جگہ بھی جہاں صوفیانہ اصطلاحات کی ان کی لغت کا آغاز ہوا۔" -> This repeats the calque of 9, and "لغت کا آغاز ہوا" repeats the problem of 2. In "صوفیانہ اصطلاحات کی ان کی لغت" the possessive is stranded in the middle of the chain. -> NEW: "سلسلۂ چشتیہ پر لکھی گئی تحریروں میں پشاور ان شہروں میں سے ایک ہے جہاں ذوقی شاہ اخبارات سے وابستہ رہے۔ یہ ان کے سفر کی ایک منزل بھی ہے اور وہ جگہ بھی جہاں انہوں نے صوفیانہ اصطلاحات کی اپنی لغت مرتب کرنا شروع کی۔"
+
+24. [ambiguity] "ہنگلاج دیوی کے ہندو مندر پر ایک مطالعے میں پشاور کا نام صرف ایک بار آتا ہے، اور وہ بھی ابدھوت کے ناول میں ڈاکوؤں کے مسکن کے طور پر۔" -> "مطالعے میں ... ناول میں" is confusing: does the name appear in the study or in the novel? What is meant is that the study cites the novel, and in the novel Peshawar is a bandits' lair. -> NEW: "ہنگلاج دیوی کے ہندو مندر پر ایک مطالعے میں پشاور کا نام صرف ایک بار آتا ہے، اور وہ بھی ابدھوت کے ایک ناول کے حوالے سے، جس میں یہ ڈاکوؤں کا مسکن ہے۔"
+
+25. [calque] "پرانی تاریخوں میں اس شہر کو سب سے زیادہ جگہ اورنگزیب کے عہد میں لکھی گئی فارسی تاریخ دیتی ہے: اس کے قدیم نام، اس کی جنگ، اس کی فوجیں، کابل کو جانے والے اس کے راستے، اور اس کے پھل اور چاول۔" -> "سب سے زیادہ جگہ دیتی ہے" is English "gives it the most space". "اس کی جنگ" (its battle) is also a calque. -> NEW: "پرانی تاریخوں میں اس شہر کا سب سے مفصل ذکر اورنگزیب کے عہد میں لکھی گئی فارسی تاریخ میں ملتا ہے: اس کے قدیم نام، یہاں لڑی گئی جنگ، اس کی فوجیں، کابل کو جانے والے اس کے راستے، اور اس کے پھل اور چاول۔"
+
+26. [collocation] "پاکستان کی مذہبی اقلیتوں کے درمیان سفر کرنے والے ایک جدید سیاح کے لیے" -> "جدید سیاح" is "modern traveller" taken word for word. In Urdu "جدید" describes things or ideas, not a person's period. -> NEW: "پاکستان کی مذہبی اقلیتوں کے درمیان سفر کرنے والے آج کے ایک سیاح کے لیے"
+
+NOTES:
+- Structural repetition. The same three items each appear three times in a short article: the woman's quotation about shrines on the Frontier (lines 5, 35, 57), the Diwali line (5, 47, 63), and the Sikh families and Hindu pilgrims (5, 41/43, 63). The introduction and the last section, "کتابوں میں پشاور", both act as summaries, so a native reader feels the article going in circles. Whether to trim is an editorial decision, not a language fix, but one quotation of each would read better.
+- "پانچ ہزار کفار تہِ تیغ کیے گئے": the word is the Persian chronicle's. It is attributed ("کے بیان کے مطابق"), but quotation marks around "کفار" would make it plain that this is the source's word and not the site's voice.
+- Possible further glosses of familiar words: "قلندر وہ سیلانی درویش ہیں..." (line 31), "وسطی ایشیا کی سرزمین توران" (line 23), "جنوبی ایشیا کے ممتاز صوفی سلسلے" (line 17). Educated Urdu readers know all three terms. They are harmless but give the prose a translated feel.
+- Punctuation inside and outside quotation marks is inconsistent. Full-sentence quotations end "۔"" in lines 35, 47 and 59 but ""۔" in line 31. One convention would be better (full-sentence quotation: ۔ inside; quoted fragment: ۔ outside).
+- "شاہد اللہ فریدی بھی پشاور میں رہے۔" and "پشاور یونیورسٹی میں دیال تقابلِ ادیان پڑھاتے ہیں۔" are names that appear with no introduction. A reader is left asking who these people are. No fact can be added here, but the editor should know that both sentences stand oddly alone.
+- "اور فصلیں اور غلہ وافر تھے": "اور فصلوں اور غلے کی فراوانی تھی" would read more smoothly.
+- "جمرود کہلانے والے چشمۂ جمشید سے": "چشمۂ جمشید سے، جسے جمرود کہتے ہیں،" would be smoother, but the original is correct.
+- "یہ پہلی بار 1951 میں سلسلے کی جانب سے شائع ہوئی": "سلسلے" is slightly vague. "سلسلے ہی کی جانب سے" or the order's name would be clearer.
+- "سب ایک ہی حقیقتِ الٰہی کے مختلف مظاہر کے سوا کچھ دکھائی نہیں دیتے": acceptable, though "... کے سوا کچھ نہیں رہ جاتے" is more idiomatic. It is inside a quotation, so I have left it.
+- "سرجیت سنگھ کے بزرگ ... یہاں منتقل ہوئے": "یہاں آ بسے" is warmer and more natural for families.
+- Line 61, second sentence: three clauses joined by "اور". It could be split after "آتا ہے۔"
+- Checks: no Latin letters, no em or en dashes, no ASCII commas or question marks, asterisks balanced (6), Western digits throughout, no verse paragraphs.

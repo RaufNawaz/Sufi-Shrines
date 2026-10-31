@@ -1,0 +1,21 @@
+# tando-muhammad-khan Urdu, round 1 changes, applied by the coordinator as exact replacements (each OLD asserted once)
+
+WHY: V3 issue 1 (V2 note 5 agrees on سیلانی): the Sufi gloss of a familiar word dropped (allowed by the brief: a dropped gloss of a familiar word is not an omission); آوارہ گرد (pejorative) replaced by سیلانی; the gloss of the order moved after its name so it no longer reads as "the vagrants' Qalandariyya". V3's wording.
+OLD: وہ اسلامی تصوف کی راہ پر چلنے والے صوفی تھے اور آوارہ گرد درویشوں کے سلسلۂ قلندریہ سے وابستہ تھے۔
+NEW: وہ صوفی تھے اور سلسلۂ قلندریہ سے وابستہ تھے، جو سیلانی درویشوں کا سلسلہ ہے۔
+
+WHY: V3 issue 5 and V2 note 4: the emphatic ہی dropped (English says only "near"); جہاں کے for a place. V3's wording.
+OLD: ٹنڈو محمد خان کے نزدیک ہی ٹنڈو سائیں داد ہے، جس کے گدی نشین محسن شاہ تھے۔
+NEW: ٹنڈو محمد خان کے نزدیک ٹنڈو سائیں داد ہے، جہاں کے گدی نشین محسن شاہ تھے۔
+
+WHY: V3 issue 2: the circular definition and the literal مرکز میں بیٹھ کر replaced. The definition itself is kept (the English has its own defining sentence, so it is not dropped as V3's aside suggests). V3's wording.
+OLD: گدی نشین سے مراد وہ جانشین ہے جو گدی سنبھالتا ہے اور کسی صوفی سلسلے کے مرکز میں بیٹھ کر اس کی سربراہی کرتا ہے۔
+NEW: گدی نشین وہ جانشین ہوتا ہے جو کسی صوفی سلسلے کے مرکز کی مسند سنبھال کر اس کی سربراہی کرتا ہے۔
+
+WHY: V3 issue 3: the calque اسلام میں طریقت and the clause restating the first dropped; the English's second half is only a gloss of Sufi, a familiar word. V3's wording.
+OLD: محسن شاہ اہلِ تصوف میں سے تھے اور اسلام میں طریقت کی راہ پر گامزن تھے۔
+NEW: محسن شاہ اہلِ تصوف میں سے تھے۔
+
+WHY: V3 issue 4 (V2 note 5): آوارہ گرد replaced by سیلانی; the redundant صوفی before سلسلہ dropped. V3's wording. V3's note that the order's gloss now appears in both sections is not acted on: the English glosses it in both.
+OLD: ان کا تعلق سلسلۂ قلندریہ سے تھا، جو آوارہ گرد درویشوں کا صوفی سلسلہ ہے۔
+NEW: ان کا تعلق سلسلۂ قلندریہ سے تھا، جو سیلانی درویشوں کا سلسلہ ہے۔

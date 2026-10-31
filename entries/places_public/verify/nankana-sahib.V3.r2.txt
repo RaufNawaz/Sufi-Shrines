@@ -1,0 +1,44 @@
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [V3, unidiomatic word, calque] OLD: جن کی تعداد مختلف گنتیوں کے مطابق چھ یا سات ہے۔ -> This is the writer's own adaptation of V3 issue 12, not a verifier's wording, and it brings in a new fault. گنتی is a mass noun (counting, a count); the plural گنتیاں is not used for "reckonings", so "مختلف گنتیوں کے مطابق" reads as a word for word rendering of "by different counts" and a native editor would stop at it. The writer was right to keep "counts" rather than V3's بیانات, but the idiomatic Urdu for "six or seven by different counts" is کسی حساب سے ... اور کسی حساب سے, which keeps the sense (the number depends on how one counts) and no hedge is added or lost. -> NEW: جن کی تعداد کسی حساب سے چھ ہے اور کسی حساب سے سات۔
+
+2. [V3, repeated verb in adjacent sentences] OLD: کرتار نام کے ایک مقامی سکھ بتاتے ہیں: -> Change 10 replaced یاد کرتے ہیں with بتاتے ہیں, and the very next sentence after the quotation opens its reporting clause with the same verb (اقبال قیصر بتاتے ہیں کہ ...). The brief asks for repeated verbs to be varied, and the English itself distinguishes the two ("recalls", "explains"). کہتے ہیں avoids the calque V3 flagged and does not repeat. -> NEW: کرتار نام کے ایک مقامی سکھ کہتے ہیں:
+
+DIFF CHECK:
+A python difflib comparison of /home/claude/work/nankana/ur.r1.bak against /home/claude/repo/entries/places_public/nankana-sahib.ur.md shows 95 lines in each file and changes on 15 lines (7, 17, 23, 25, 27, 31, 33, 37, 41, 43, 47, 49, 71, 79, 85); a sentence level difflib run shows 19 changed sentence groups, each one an item in the changes file. As a stronger test, applying the 24 listed OLD to NEW replacements in order to the backup (each OLD occurring exactly once at its turn; item 14's NEW is later amended by item 23, as recorded) reproduces the current file byte for byte. Nothing outside the listed changes moved.
+
+CHECK OF EACH CHANGE (read in its paragraph):
+1. اکیسویں صدی کے اوائل میں اس قصبے کی آبادی میں ...: faithful to "the town of the early twenty first century has a Muslim majority"; correct Urdu. PASS.
+2. تاریخِ پیدائش کے بارے میں: faithful ("accounts differ on the day"; the year 1469 stands in the sentence before and the colon clause gives the days); idiomatic. PASS.
+3. ملنے تلونڈی آئے ... تلونڈی ہی کے رہنے والے مردانہ: faithful ("Mardana was Nanak's best friend from Talwandi"); the stacked کے is gone. PASS.
+4. نانک نے: the pronoun now resolves to Nanak; faithful. PASS.
+5. کہانی کا آخری حصہ جنگل اور تلونڈی میں پیش آتا ہے: faithful to "the story ends in the forest and in Talwandi"; no longer repeats the paragraph's first sentence. PASS.
+6. Narrative present (ہو جاتے ہیں، لادا جاتا ہے، پوچھتے ہیں): the English past is a tense of narration only, so no fact or certainty changes; it now agrees with the present frame (جو روایت سناتا ہے). PASS.
+7. تلونڈی ہی کو لوٹتے ہیں: correct postposition; faithful. PASS.
+8. سلطان پور سے تلونڈی تک گئی: here تک is spatial ("as far as") and cannot read as "until"; faithful to "passed from Sultanpur to Talwandi". PASS.
+9. سلکھنی نے اپنے دونوں بچوں سمیت: the adaptation is right. The English says "her two children", so the possessive must stay, and اپنے can only point to the subject سلکھنی; no relationship to Nanak is added, as V2 r1 required. PASS.
+10. بتاتے ہیں: the calque is gone, but see issue 2.
+11. اسی تجربے نے: the antecedent is now the single experience just described (crossing the border after Partition); faithful to "those experiences" in sense. PASS.
+12. خالصتان تحریک کا زمانہ ... تھا: agreement now correct; faithful to "the years of the Khalistan Movement". PASS.
+13. گنتیوں: see issue 1. The writer's refusal of بیانات is sound on fidelity grounds; only the word chosen fails.
+14 and 23. یہ گوردوارے سال کا بڑا حصہ ... ہر ایک کے دروازے پر سیکیورٹی گارڈ کھڑے رہتے ہیں۔: the adaptation is right. The English states the guards in Holy Places as well as in the State section, so dropping them here (as V3 asked) would have been an omission. The subject is named, so یہ no longer reaches back to یاتری, and ہر ایک points to the gurdwaras. Word order and wording now differ from the later sentence (ہر گوردوارے کے دروازے پر ... کھڑے ہوتے ہیں). Faithful and correct. PASS.
+15 and 24. ٹھیکریاں اور مٹی کے برتنوں کے دوسرے ٹکڑے: the redundancy is removed and the comma makes the clause boundary clear. See NOTES (b) on a nuance. PASS.
+16. ننکانہ صاحب کے گرو نانک استھان پر گرو کی تصویر: faithful; naming now matches the last paragraph (قصبے کے گرو نانک استھان); گرو is unambiguous after گرو کے ہم نشین. PASS.
+17. یہ اضافہ ان خاندانوں کی آمد سے ہوا جو ... بیگانگی کی فضا میں یہاں آتے رہے۔: the merge is right. The causal کے نتیجے میں is gone, کی فضا میں ties the arrival to the alienation by circumstance and time only (V2 r1 proposed the same link), and V3's tangle (cause stated twice, اس across a colon) is resolved. "Grew ... as families came" is fairly rendered as the growth coming from their arrival. PASS (see NOTES (c)).
+18. اس وقت تک ... رہتے آئے تھے: "until then", correctly with a past perfect. PASS.
+19. پیلے کوڑے دانوں پر بھی اور بورڈوں پر بھی: faithful; the false implication that the dustbins are boards is gone. PASS.
+20. ہوٹل کا مطالبہ ... اور یہ بھی کہ مقدس شہر کی حیثیت سے اسے ویزا سے مستثنیٰ قرار دیا جائے: now two demands, as the English has them (a hotel, and visa free status as a holy city); اسے is held to the town by مقدس شہر کی حیثیت سے; ان مطالبات agrees. PASS (see NOTES (d)).
+21. گرنتھ صاحب کا پاٹھ: consistent naming; faithful. PASS.
+22. Split sentence with البتہ: faithful ("while richer pilgrims ... come by chartered plane and hire buses"); البتہ after the subject is good Urdu and the contrast no longer sets arrival against departure. PASS.
+
+REJECTED OR ADAPTED ITEMS: all rightly handled, the English being the authority. دادا kept (no neutral Urdu word; V2 accepted it). اودم and اودھم سنگھ kept apart (the English has two spellings, Udam and Udham Singh). کے کے کھنہ unchanged (house style for initials; no meaning error). مرکزی دھارے میں unchanged (the English says "in the mainstream"). تقسیم کے بعد and تقسیم کے وقت kept different (the English says "after Partition" in History and "at Partition" in Communities). The taste notes f to i were rightly skipped.
+
+NOTES (taste only; they do not fail the round):
+(a) Change 1: "اوائل میں اس قصبے کی آبادی میں" has میں twice in close succession; "اکیسویں صدی کے اوائل میں اس قصبے کی آبادی کی اکثریت مسلمان ہے" would avoid it. Acceptable as it stands.
+(b) Change 15: the English reads "shards of broken pottery and other mud utensils", where "other" qualifies the utensils; the new Urdu moves دوسرے to the fragments (other fragments of clay pots). The difference is slight and the sense (the ground strewn with clay fragments) is kept.
+(c) Change 17: "ان خاندانوں کی آمد سے ہوا جو ... یہاں آتے رہے" says arrival and came in one sentence; "یہ اضافہ ان خاندانوں سے ہوا جو ..." would be a little tighter.
+(d) Change 20: "مطالبہ کیا ہے، اور یہ بھی کہ" leaves مطالبہ to be understood; "اور یہ مطالبہ بھی کیا ہے کہ" is fuller, though the present form is understood without difficulty.
+(e) Change 9 leaves مہتا کالو twice in one sentence (ان کے والد مہتا کالو ... مہتا کالو کے ساتھ); this repetition was there before the round and follows the English, so it is noted only.
+(f) Checked across the changed sentences: no Latin letters, no new figures, no dashes, asterisks untouched.

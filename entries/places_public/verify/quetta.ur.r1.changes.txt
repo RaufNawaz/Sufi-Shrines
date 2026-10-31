@@ -1,0 +1,13 @@
+WHY: V3 r1 issue 1 (calque 'places of Hindu population'; second clause repeats the first)
+OLD: کوئٹہ پاکستان میں ہندو آبادی کے مقامات میں سے ایک ہے، اور ہندو یہاں کی برادریوں میں شامل ہیں۔
+NEW: کوئٹہ پاکستان کے ان مقامات میں سے ایک ہے جہاں ہندو آبادی موجود ہے، اور ہندو یہاں کی برادریوں کا حصہ ہیں۔
+
+WHY: V3 r1 issue 2 (register: جاں بحق for the victims of a sectarian attack)
+OLD: 84 افراد ہلاک ہوئے۔
+NEW: 84 افراد جاں بحق ہوئے۔
+
+WHY: V3 r1 note (consistency with issue 2: the Overview uses the same word)
+OLD: 84 افراد جان سے گئے،
+NEW: 84 افراد جاں بحق ہوئے،
+
+Applied by the coordinator as exact replacements (each OLD asserted to occur once), under the brief's late round practice: round 1 returned only a handful of issues, each with the verifier's corrected sentence. No issue rejected; no V3 fix changes a fact the English states. Taste notes not listed here were not applied.

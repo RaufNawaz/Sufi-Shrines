@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: style only.
+1. Heading: "Overview" | "تعارف" corresponds; the English Bibliography is correctly absent from the Urdu (brief, rule 7). No other sections in either text.
+2. The one sentence. English "Dera Ghazi Khan is the provenance of one manuscript among several, that is, the place it comes from." | Urdu "کئی قلمی نسخوں میں سے ایک کا تعلق ڈیرہ غازی خان سے ہے، یعنی وہ نسخہ اسی مقام سے آیا ہے۔" All elements are present with the same meaning: the place (ڈیرہ غازی خان), "one manuscript among several" (کئی قلمی نسخوں میں سے ایک), and the gloss "that is, the place it comes from" (یعنی وہ نسخہ اسی مقام سے آیا ہے). Nothing is added: no work, date, language, library or scribe, and nothing says the other manuscripts come from elsewhere, consistent with the notes.
+3. Precision, no change required: the first clause on its own (کا تعلق ... سے ہے, "is connected with") is looser than "provenance", but the یعنی clause immediately pins it to "came from this place", so the sentence as a whole carries the English meaning. "آیا ہے" (has come) for "comes from" reads as provenance, not as place of writing, which matches the V1 round 1 precision fix recorded in the notes. If V3 wants the first clause tighter on its own, an option is "کئی قلمی نسخوں میں سے ایک کا ماخذ ڈیرہ غازی خان ہے، یعنی وہ نسخہ اسی مقام سے آیا ہے۔"; this is optional and not a fidelity issue.
+4. Mechanics: no Latin letters, no numbers, no dashes, Urdu punctuation used.

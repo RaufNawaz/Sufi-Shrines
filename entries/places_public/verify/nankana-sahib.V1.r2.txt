@@ -1,0 +1,29 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+- Diff check (python difflib, the pre fix copy en.r1.bak against the current public English): both files have 104 lines, and exactly nine lines differ (lines 17, 31, 33, 37, 41, 47, 57, 63 and 91), carrying the ten changes, since line 57 holds two of them. Each difference is one of the ten listed OLD to NEW replacements, applied word for word, and nothing else in the file moved. The bibliography is untouched.
+
+- Change 1 (line 37, the gurdwaras): the "because" now governs the number of gurdwaras, as the team version has it ("Because Nanak spent his early years here there are several gurdwaras in the city, and pilgrims visit all of them"). "six or seven by different counts" gives the two counts without setting them side by side. Supported; it reads cleanly beside the next sentence and the Overview.
+
+- Change 2 (line 57, the respect for Nanak): the judgement is now one observer's ("One visitor found"), as in the team version, and the Partition explanation is credited to Iqbal Qaiser, an informant named elsewhere in the article, as the brief allows. "most of them" refers clearly to the Muslims of Nankana Sahib. Supported. Minor: the same explanation, with the same "Iqbal Qaiser explains" framing, already appears in History (line 31, "Most of the Muslims of Nankana Sahib today, Iqbal Qaiser explains, came from across the border after Partition"). The repetition was there before this round, and the two sentences are in different sections, so it is not a fault of the change. Also minor: "found" is past and "explains" present in one sentence. That is acceptable, but a later pass could align them.
+
+- Change 3 (line 41, Mata Tripta's temple): "tradition places" restores the framing, in line with the "it is said" in History. "the village" follows "the mound of the older village" earlier in the paragraph and reads as Talwandi, as the team version intends. Supported. The inverted order ("tradition places, not far from the village, the ancient temple") is a little stiff, but that is a matter of taste.
+
+- Change 4 (line 63, Giani Pratap): the new sentence names Giani Pratap, so the misreading that Kartar's father died is gone, and "later" makes no claim about the present. Team version: "died recently in Lahore". Supported. The next sentence (Chauhan's speech) is unaffected.
+
+- Change 5 (line 91): the interpretive link is gone. "by the time he comes back from Pak Pattan, it has grown from an obscure little village into a place of pilgrimage" matches the team version's "was now no longer an obscure little village but had become a place of pilgrimage". Supported. Minor: "village" now appears three times in this one sentence ("the village of his birth and youth, and the village changes ... an obscure little village"). It reads correctly, but "and it changes" in a later pass would be lighter. Taste only.
+
+- Change 6 (line 17, the grandfather's house): "He" refers clearly to Guru Nanak. The sentence names no place, so it does not rest on the reading of the place name that the team version marks uncertain. It also does not choose between paternal and maternal. Supported, as round 1 reasoned, and it does not repeat the consensus sentence before it.
+
+- Change 7 (line 47): "the community's leader" settles the ambiguous "its", matching the team version's "played the role of its leader" of the community. Supported.
+
+- Change 8 (line 33): "By the early 2010s" anchors the figure in the time the book describes. Minor, not new: "its" follows "made an independent district, with the city as its headquarters", so it could be read as the district's population rather than the city's. The old sentence had the same ambiguity, and the team version gives only "He gives it a population of over a million". I do not recommend resolving it in either direction, since that would claim more than the team version does. Recorded only.
+
+- Change 9 (line 57, the procession): "During one Sikh procession ... watched" now matches the team version's single occasion. Supported.
+
+- Change 10 (line 31, the rooftop): one rooftop and one observation, with "still" dropped, as the team version has it. Supported. Minor, not new: line 39 in Holy Places also opens "From a rooftop" and also mentions the remains of the Hindu temples. The two passages were already parallel before this round, and they are in different sections.
+
+- No changed sentence adds a citation, a page reference, source narration or process language. None contains an em dash, an en dash or a coined hyphen. No changed sentence repeats itself or a neighbouring sentence, and no new referent is broken.

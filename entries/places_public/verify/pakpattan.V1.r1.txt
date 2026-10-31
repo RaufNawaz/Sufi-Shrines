@@ -1,0 +1,22 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Sentence by sentence, every statement is supported by the team version (entries/places/pakpattan.md). Overview: the two names of the town (team Overview, "who calls the town Pakpattan Sharif as well as Pakpattan"); "the town in Pakistan where the saint Farid al-Din died" (team Holy Places, "in Pakpattan in Pakistan", and "ties two saints to the town"); Shaykh Sabir's cave "near the place where he died", kept as "near", never "in" (team notes, Framing); the pilgrimage route with Ajmer and Delhi "in the century after the death of Mu'in ad-Din" (team Overview and History); "Its name also recalls the Pakpattan tragedy of 2001" (team, The Place in the Books, "its name recalls a tragedy of 2001"). History: the itinerary sentence paraphrases the team's quotation faithfully ("along with Delhi and Pakpattan" becomes "Delhi and Pakpattan were main points on it too"); 1352, Shaykh Zayn ad-Din Shirazi and "the main successor to Burhan ad-Din Gharib in Khuldabad" are verbatim in substance, and the public text does not say he visited Pakpattan itself. Holy Places: "Two saints are tied to the town" is the team's own count and wording. No count, date, name or relationship is added.
+
+2. Disagreements and chains (rule 4). The team records none. The one thing the team deliberately keeps apart, the undated "mob stampede in Pakpattan Sharif" and "the 2001 Pakpattan tragedy" (team notes, Framing and question 1), stays apart in the public text: two sentences, the stampede given no year, the tragedy no cause, place or toll. "The town gives its name, too, to the Pakpattan tragedy of 2001" says only that the event bears the town's name, which is true of the team's own phrase, and does not join it to the stampede. No merged chain.
+
+3. Time anchors (rule 5). "In the century after Mu'in ad-Din's death" is the team's quoted anchor; 1352 and 2001 are the team's firm years. The writer rightly does not use "fourteenth century", which the team notes say comes only from the block's summary heading, not the quoted prose.
+
+4. Uncertain reading. The team notes record that the source block prints the saint's name garbled ("Farld al-Dln", with a [text-layer?] marker) and itself supplies the reading [Farid al-Din]. The team version states the name plainly in its prose and does not mark it uncertain; the garble is a dotless glyph substitution (i printed as l) that the block resolves, not a doubtful reading of the word. Keeping "Farid al-Din" is therefore not "an uncertain reading as fact", and leaving it out would empty the article of its central fact. Recorded here so the choice is visible; no change.
+
+5. Source talk and process language: none. Every "write", "refers to", "speaks of", "In a note", citation, page and folio is gone. The dropping of The Place in the Books is right: each of its facts is kept once elsewhere, and its only other content, Rozehnal's use of the stampede as a time marker ("once he dates by it"), is about the book, not the place.
+
+6. Omissions: none important. Kept: both names of the town, Farid al-Din's death there, Shaykh Sabir's cave near it, the route with Ajmer and Delhi, its timing after Mu'in ad-Din's death, Shaykh Zayn ad-Din Shirazi's journey of 1352 and his succession to Burhan ad-Din Gharib in Khuldabad, the mob stampede, the tragedy of 2001. Length 0.42 is within L1 (0.40 to 0.85) and is the honest length of thin material; no L1 exception line is needed.
+
+7. Glosses: *sharif* ("meaning noble"), *shaykh* ("a title meaning elder or master", from data/glossary.csv) and "pilgrimage itinerary, a set route of travel for pilgrims" are definitions only and add no fact about the place or a person.
+
+8. Bibliography: the team's three items, verbatim, in order (diffed byte for byte). No em or en dash in the file; hyphens only inside names as the team spells them and inside a title.
+
+9. Taste only, not to be applied unless the writer wishes: Holy Places restates the Overview's second sentence almost word for word, and is a single paragraph of two sentences (the brief discourages thin one paragraph sections). The writer's notes justify keeping it as the home of the town's saints; acceptable as it stands.

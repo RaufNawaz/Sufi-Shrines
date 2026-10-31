@@ -1,0 +1,3 @@
+VERDICT: PASS
+ISSUES: none
+NOTES: Overview corresponds to the heading تعارف, and the article has one paragraph and no verse. In that paragraph, the place (Kartarpur / کرتارپور), the person (Guru Nanak / گرو نانک), the relationship (founder of the Sikh faith / سکھ مذہب کے بانی), the event (died / وفات پائی) and the date (1539, in Western digits) all carry over with the same meaning. Nothing is added or left out. Style only: the plain past "وفات پائی" would also read naturally, since the pluperfect "وفات پائی تھی" is optional here and does not change the meaning.

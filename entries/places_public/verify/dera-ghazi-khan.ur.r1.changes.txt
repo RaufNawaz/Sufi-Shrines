@@ -1,0 +1,6 @@
+Urdu changes after round 1 (V2 PASS, V3 FAIL), coordinator, 31 October 2026.
+
+1. V3 issue 1, applied in part.
+WHY: V3 found the sentence said the same thing twice: a vague «کا تعلق ... سے ہے» explained by a یعنی clause that repeats both the noun and the place («وہ نسخہ اسی مقام سے»). V3's own corrected sentence, «کئی قلمی نسخوں میں سے ایک ڈیرہ غازی خان سے آیا ہے۔», was not used as it stands: it drops the English's two part statement (the place is the manuscript's provenance, and that means the place it comes from; V1 round 1 made the gloss part of the meaning, so that provenance is not read as the place of writing or of keeping), and at 0.54 of the English it fails the Urdu length check U7 (0.75 to 1.20). The new sentence follows the English's shape: the place leads, as in the English, with ماخذ for "provenance" (the vague تعلق is gone, which is what V3 objected to), and the یعنی clause glosses ماخذ, a word an Urdu reader may take as "a reference source", with «وہیں» instead of repeating the place. V2's NOTES offered ماخذ for the first clause. Ratio 0.80.
+OLD: کئی قلمی نسخوں میں سے ایک کا تعلق ڈیرہ غازی خان سے ہے، یعنی وہ نسخہ اسی مقام سے آیا ہے۔
+NEW: ڈیرہ غازی خان کئی قلمی نسخوں میں سے ایک کا ماخذ ہے، یعنی یہ نسخہ وہیں سے آیا ہے۔

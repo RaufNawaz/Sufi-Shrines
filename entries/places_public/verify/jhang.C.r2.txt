@@ -1,0 +1,22 @@
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [V3, new repetition / ambiguous pronoun] OLD: داستان کے مطابق ہیر جھنگ سیال کے طاقتور جاٹ سردار چوچک سیال کی حسین اور حاضر جواب بیٹی تھی اور اس کا تعلق جھنگ کے طاقتور سیال جاٹ خاندان سے تھا۔ -> The r1 join puts both «طاقتور» phrases into one sentence. The brief lists repetition of a word inside one sentence as a fault, and this repetition is new: in r1 the two «طاقتور» stood in separate sentences, as they do in the English. The joined sentence is also overloaded («جھنگ» twice, «سیال» three times, «جاٹ» twice). After «اور», «اس کا تعلق» now comes straight after «چوچک سیال کی ... بیٹی», so «اس» can be read as the chief rather than Hir. It is still true either way, but it is loose. The fix for r1 V3 issue 3 also took away «بااثر», and that was right, so the join has to go instead. Splitting back into two sentences, as the English has them, with «وہ» as a continued subject, removes both faults. The second sentence then states a different point (lineage) instead of echoing the first. Keeping «طاقتور» across two sentences follows the English. -> NEW: داستان کے مطابق ہیر جھنگ سیال کے طاقتور جاٹ سردار چوچک سیال کی حسین اور حاضر جواب بیٹی تھی۔ وہ جھنگ کے طاقتور سیال جاٹ خاندان سے تعلق رکھتی تھی۔
+   (The length does not change: 0 characters difference, so the Urdu stays at 909/975 = 0.93 of the English prose.)
+
+NOTES:
+- Diff proof: I compared jhang.ur.r1.bak with the current jhang.ur.md using python difflib. Only lines 3, 7, 9 and 11 differ. I applied the 7 OLD -> NEW pairs from jhang.ur.r1.changes.txt to the .bak as literal replacements. Each OLD occurs exactly once, and the result is byte-identical to the current file. Nothing outside the listed changes moved. The checker gives: ok jhang, public 975 chars, Urdu 909 chars (0.93).
+- Change 1 (اسی قبیلے, comma before اور dropped): correct and natural. «قبیلہ» for "family" fits, since the English itself calls the Siyal a clan and a tribe, and it now matches «ہیر کا قبیلہ» in paragraph 3. V2 faithful.
+- Change 2 (split, اس داستان کے مطابق ... ۔ جھنگ سیال "..." ہے۔): this resolves the r1 ambiguity of «جو». The present tense «ہے» is now attached to the territory only. V2 faithful ("In the myth of Hir ... her father ... chief of Jhang Siyal, 'a vast agricultural territory ...'"). Taste: «ہیر» now occurs four times in the Overview's five sentences (ہیر کا تعلق، ہیر کی داستان، ہیر کا باپ، ہیر کی قبر). Each use is clear, and replacing it with «اس» would bring back ambiguity, so leave it.
+- Change 3: see issue 1.
+- Change 4 (ہیر کا قبیلہ سیال ہے اور اس کے لوگ ...): natural. «اس» clearly points at «قبیلہ». V2 faithful ("Siyal is the name of Hir's clan, 'powerful landowners of the Panjab'").
+- Change 5 (غیر معمولی خیال رکھتا ہے، چنانچہ یہ ...): idiomatic. «چنانچہ» is standard in Urdu prose for bringing in the evidence or instance of a statement just made, so it renders the English colon well without asserting a strict cause. «غیر معمولی» for "more than usually" is a fair equivalent, not an overstatement. The two «یہ» (یہ قبیلہ ... چنانچہ یہ) are both clear.
+- Change 6 (رسم و رواج پر مبنی غیر تحریری مقامی قانون): it says the same as "the unwritten law of local custom". It is a separate sentence after the quotation, so the gloss does not stand between a noun and its postposition. The echo «رواجی / رواج» is in the nature of a gloss.
+- Change 7 (پرانی سہی، مگر ... آج بھی اس کی قبر ...): the «سہی، مگر» concessive is idiomatic and keeps the English "and yet". «اس کی» can only mean Hir, since a legend has no tomb. «آج بھی» for "to this day" is fine and matches the Overview. V2 faithful.
+- Rejected items, all rightly rejected:
+  - «بااثر» for «طاقتور»: the English says "powerful" in both places, and "influential" would shift the sense.
+  - «یہ داستان»: the paragraph before is about the clan's inheritance custom, so «یہ» would have no near referent. The English also names "the myth of Hir" here.
+  - The gloss "Jats being an agricultural caste": this is the gloss of a familiar word that the brief allows the Urdu to drop, and V2 r1 itself did not count it.
+  - «لوک داستان» and «والد»: matters of taste. The English says "myth", and «باپ» is the house style.
+- Unchanged and still correct: headings correspond (تعارف; ہیر، اس کا قبیلہ اور اس کی قبر). There is no bibliography section, no Latin letters, no dashes, no digits and no asterisks.

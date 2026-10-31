@@ -1,0 +1,12 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Integrity check. A python difflib diff of /home/claude/work/gujrat/ur.r1.bak against the current gujrat.ur.md shows three changed lines (paragraphs 1, 2 and 3 of the body). I replayed the five OLD -> NEW pairs from gujrat.ur.r1.changes.txt on the backup. Each OLD occurs exactly once, and the result is byte-identical to the current file. Nothing outside the listed changes moved.
+2. Change 1 (V3 r1 issue 3), Overview, sentence 1: "ضلع گجرات کا ذکر سوہنی کی داستان میں بھی آتا ہے اور اس کا تعلق رانجھا کے خاندان سے بھی ہے۔" This matches "has a place in the tale of Sohni and in the family of Ranjha", with no change in certainty. ذکر آنا is idiomatic. Taste: اس کا could in principle be read as pointing to داستان, but the parallel بھی ... بھی makes ضلع گجرات the natural subject, so no change is needed.
+3. Change 2 (V2 r1 note 2), Overview, last sentence: the quotation now reads "اب پاکستان کا ضلع گجرات ہے", the same as in paragraph 3, and جو stands outside the quotation marks. The meaning is unchanged, and جو clearly refers to تخت ہزارہ.
+4. Change 3 (V2 r1 note 3), paragraph 2: dropping ہی removes the emphasis the English does not have. "اس نام کا مطلب "خوبصورت" ہے" is plain and correct.
+5. Change 4 (V3 r1 issue 1), paragraph 3: "رانجھا اپنے باپ چودھری معظم کے آٹھ بیٹوں میں سب سے چھوٹا تھا۔" This adds no fact, because the English names Muazzam as "His father" in the next sentence. It removes the misreading "Chaudhry Muazzam of the Ranjha clan". اپنے correctly refers back to رانجھا, the subject, and آٹھ (8) is kept.
+6. Change 5 (V3 r1 issue 2), paragraph 3, last sentence: "وہ رانجھا قبیلے کا جاٹ اور تخت ہزارہ کا رہنے والا تھا، جو "اب پاکستان کا ضلع گجرات ہے"۔" It keeps Jat, Ranjha clan, Takht Hazara and the quotation. وہ still points to چودھری معظم from the sentence before. Tying the father to Takht Hazara agrees with the English Overview ("the home of Ranjha's father"), so certainty is unchanged. The repetition and the bare closing sentence are gone, and the sentence has only two clauses plus a relative clause.
+7. Whole-file checks: no Latin letters, no em or en dashes, no asterisks. The prose length ratio is about 0.86 of the English, inside 0.85 to 1.15, and almost the same as the backup's (0.86).
+8. From round 1, not changed and not reopened: "Jats being an agricultural caste" and "Chaudhry being an honorific title" are left out as glosses of familiar words, which the brief allows. رانجھا is left uninflected before postpositions, which is consistent throughout the file.

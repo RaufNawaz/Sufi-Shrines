@@ -1,0 +1,74 @@
+Hyderabad Urdu, round 1 fixes (after V2 r1 FAIL, V3 r1 FAIL). English is the authority for facts and tense.
+
+CHANGES (14 edits; they cover V2 #1 and V3 #1 to #14)
+
+1. WHY: V3 #13 (calque): 'kama pate hain' mirrors 'are able to earn'; plain verb, in V3's wording.
+   OLD: صوفیانہ کلام گانے والے روزی کما پاتے ہیں،
+   NEW: صوفیانہ کلام گانے والے روزی کماتے ہیں،
+
+2. WHY: V3 #14 (repetition): History opening copied the Overview's first sentence; V3's wording (English fact and tense kept).
+   OLD: برطانوی فتح سے پہلے حیدرآباد خود مختار سندھ کے آخری دور کا دارالحکومت تھا۔
+   NEW: برطانوی فتح سے قبل، خود مختار سندھ کے آخری دور میں، یہی شہر دارالحکومت تھا۔
+
+3. WHY: V3 #7 (unidiomatic collocation 'لیکچروں کا شہر'), V3's wording.
+   OLD: حیدرآباد لیکچروں، طباعت اور تعلیم کا شہر بھی تھا۔
+   NEW: حیدرآباد خطابت، طباعت اور تعلیم کا مرکز بھی تھا۔
+
+4. WHY: V3 #6 (repetition of the city, plural lectures vs singular speech, calque 'کے بارے میں تھی'), V3's wording; quotation untouched.
+   OLD: اینی بیسنٹ اس شہر میں آئیں "جہاں انہوں نے متعدد لیکچر دیے"، اور حیدرآباد میں ان کی تقریر ہندو مذہب کے بارے میں تھی۔
+   NEW: اینی بیسنٹ اس شہر میں آئیں "جہاں انہوں نے متعدد لیکچر دیے"؛ یہاں ان کی تقریر کا موضوع ہندو مذہب تھا۔
+
+5. WHY: V3 #8 (run-on joining two people's unrelated facts after a quotation): split into two sentences, V3's wording.
+   OLD: داخلہ لے سکیں"، اور مول چند نے
+   NEW: داخلہ لے سکیں"۔ مول چند نے
+
+6. WHY: V3 #5 (a place cannot itself be counted as a tradition). V3's 'ایک سے وابستہ سمجھا جاتا ہے' NOT used: the English says Tando Jahaniyya IS counted as one of three Sufi traditions, not that it is associated with one (a changed relationship). Fixed instead by letting Tando Jahaniyya name the tradition, which is what the English says.
+   OLD: حیدرآباد کا ٹنڈو جہانیاں تین صوفی روایتوں میں سے ایک شمار ہوتا ہے۔
+   NEW: تین صوفی روایتوں میں سے ایک حیدرآباد کے ٹنڈو جہانیاں کے نام سے جانی جاتی ہے۔
+
+7. WHY: V3 #3 (deixis: 'پاکستان سے آئے' leaves a Pakistani reader asking 'came to where'), V3's wording; still 'from Pakistan', twice, 1957 and 1980, no destination added.
+   OLD: اور اس غرض سے دو مرتبہ پاکستان سے آئے، ایک بار 1957 میں اور پھر 1980 میں۔
+   NEW: اور اسی غرض سے دو مرتبہ، ایک بار 1957 میں اور پھر 1980 میں، پاکستان سے سفر کیا۔
+
+8. WHY: V3 #10 (ambiguous 'اس کے' could point to the زیارت گاہ), V3's wording.
+   OLD: جہاں اس کے بڑے بڑے موسیقار دفن ہیں۔
+   NEW: جہاں شہر کے بڑے بڑے موسیقار دفن ہیں۔
+
+9. WHY: V3 #4 (calque 'جہاں ان کے جانشین ... تھے'; needless repetition of the lane's name). V3's wording, except 'ان کے بعد ... ان کے جانشین' would double 'ان کے', so 'ان کے بعد' is left out (successor already says it).
+   OLD: اور اسی سپاہی ملانی لین پر دلپت صوفی کا *آستانو* واقع تھا، جہاں ان کے جانشین کیشو رام سپاہی ملانی تھے۔
+   NEW: اور اسی نام کی لین پر دلپت صوفی کا *آستانو* واقع تھا، جہاں کیشو رام سپاہی ملانی ان کے جانشین ہوئے۔
+
+10. WHY: V3 #11 (a family is not 'کرشن کا بھگت'; English word order), V3's wording.
+   OLD: اسی شہر کے ایک ایسے خاندان میں پیدا ہوئے جو کرشن کا بھگت تھا۔
+   NEW: اسی شہر کے ایک کرشن بھگت گھرانے میں پیدا ہوئے۔
+
+11. WHY: V3 #12 (two stacked 'اور'; 'حیدرآباد سے' repeats 'اس شہر سے'), V3's wording.
+   OLD: اور عید پر اور محرم میں بھی حیدرآباد سے لوگ وہاں جاتے ہیں۔
+   NEW: اور عید اور محرم میں بھی یہاں سے لوگ وہاں جاتے ہیں۔
+
+12. WHY: V2 #1 (changed fact: سرپرست = patrons, the English says clients) and V3 #2 (second object tacked on after the verb) on the same sentence: one sentence satisfying both, گاہکوں with both objects before the verb; 'طے کر سکتی تھیں' kept for 'negotiate'.
+   OLD: اور ٹیلی وژن اسٹیشنوں کے ساتھ بھی کاروباری معاہدے طے کر سکتی تھیں اور سندھ کے متمول جاگیردار گھرانوں سے تعلق رکھنے والے اپنے سرپرستوں کے ساتھ بھی۔
+   NEW: اور ٹیلی وژن اسٹیشنوں سے بھی اور سندھ کے متمول جاگیردار گھرانوں سے تعلق رکھنے والے اپنے گاہکوں سے بھی کاروباری معاہدے طے کر سکتی تھیں۔
+
+13. WHY: V3 #1 (bare past habitual without تھے reads unfinished). V3's present tense ('پہنچ جاتے ہیں ... کر لیے جاتے ہیں') NOT used: the English is past ('came ... and were contracted'). Fixed instead by completing the past habitual with تھے.
+   OLD: آڈیشن دینے خود ریڈیو اور ٹیلی وژن پہنچ جاتے، اور ان سے گانے کے معاہدے کر لیے جاتے۔
+   NEW: آڈیشن دینے خود ریڈیو اور ٹیلی وژن پہنچ جاتے تھے، اور ان سے گانے کے معاہدے کر لیے جاتے تھے۔
+
+14. WHY: V3 #9 (calque 'دستاویز بندی کا ماخذ', vague 'اس کی', redundant 'تحریری تصانیف', a cassette is جاری not شائع). V3's main fix (perfect 'جاری کرنے ... شائع کی ہیں') NOT used: the English is present ('publishes'). V3's own alternative in the present habitual applied.
+   OLD: حیدرآباد کا انسٹی ٹیوٹ آف سندھیالوجی اس کی دستاویز بندی کا ایک ماخذ ہے، اور یہ ادارہ بھٹ شاہ کے موسیقاروں کی ایک کیسٹ کے ساتھ ساتھ متعدد تحریری تصانیف بھی شائع کرتا ہے۔
+   NEW: حیدرآباد کا انسٹی ٹیوٹ آف سندھیالوجی اس موسیقی سے متعلق دستاویزات کا ایک ماخذ ہے، اور یہ ادارہ بھٹ شاہ کے موسیقاروں کی ایک کیسٹ بھی جاری کرتا ہے اور متعدد تصانیف بھی شائع کرتا ہے۔
+
+REJECTED (not applied as written)
+
+R1. V3 #1, as written: present tense 'پہنچ جاتے ہیں ... کر لیے جاتے ہیں'. The English is past ('came to the radio and television themselves for auditions and were contracted to sing'). The fluency fault was fixed instead with تھے (change 13).
+R2. V3 #5, as written: 'ایک سے وابستہ سمجھا جاتا ہے'. The English says Tando Jahaniyya is counted as one of three Sufi traditions; 'associated with one' changes the relationship. Fixed another way (change 6).
+R3. V3 #9, main fix: perfect tense 'جاری کرنے کے ساتھ ساتھ ... شائع کی ہیں'. The English is present ('publishes'). V3's own present-habitual alternative was applied (change 14).
+R4. V3 #4, partly: 'ان کے بعد' dropped from V3's sentence, since with 'ان کے جانشین' it doubles 'ان کے' and adds nothing (change 9).
+
+NOTES NOT APPLIED
+
+- V3 note, place names (ٹنڈو جہانیاں / محلے جہانیاں / ٹنڈو جہانا): the spellings already follow the English (Jahaniyya = جہانیاں both times; Tando Jahana is a separate name in the English). Making the two shrines visibly the same or different would add a claim neither the English nor the team version makes (notes: 'Never merged', no 'another').
+- V3 note, give مول چند his surname at first mention: the English has 'Mulchand' and later 'Molchand Kripalani' without identifying them (V2 note agrees); adding the surname would be an identification the English does not make.
+- V3 notes inside the quotation ('حیدرآباد آ بسے', 'طالب علم کی حیثیت سے'), 'لین میں', 'حیدرآباد کے علاقے سول لائنز', weaving the عامل gloss, 'برادری کے دوسرے مرد': taste, not meaning, agreement, referent or spelling; skipped. 'برادری کے دوسرے مرد' would also add 'other' to the English 'men in the community'.
+- V3 note 'پہچان دلانے': the English says 'identifying musicians', so 'پہچاننے' is the faithful word; kept.
+- V2 note 'زائرین' for 'Pilgrims also come': V2 calls the current wording acceptable; reusing زائرین would repeat the previous clause's word; skipped.

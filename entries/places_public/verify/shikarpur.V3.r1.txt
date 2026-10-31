@@ -1,0 +1,29 @@
+VERDICT: FAIL
+
+ISSUES:
+1. [repetition] "یہ شہر بین الاقوامی تجارت کا مرکز تھا، اور وسطی ایشیا اور سمندر پار ملکوں کے درمیان تجارت کرنے والے تاجروں کے حلقوں کا محور بھی۔" -> "تجارت" twice and "تاجروں" in the same clause ("تجارت کرنے والے تاجروں" says the same thing twice), and "تاجروں کے حلقوں" is heavy -> یہ شہر بین الاقوامی تجارت کا مرکز تھا، اور وسطی ایشیا اور سمندر پار ملکوں کے درمیان کاروبار کرنے والے تاجر حلقوں کا محور بھی۔
+
+2. [calque] "شکارپور تجارتی قصبہ تھا، تاجروں اور ساہوکاروں کا مسکن۔" -> English appositive ("a trading town, home to merchants and bankers"): the noun phrase after the comma has no verb and reads as a fragment in Urdu -> شکارپور ایک تجارتی قصبہ تھا جو تاجروں اور ساہوکاروں کا مسکن تھا۔
+
+3. [repetition] "بین الاقوامی تجارت کے مرکز کی حیثیت سے یہ ان تجارتی حلقوں کا محور تھا جن کے ہاتھ میں وسطی ایشیا اور سمندر پار ملکوں کے درمیان تجارت کی باگ ڈور تھی۔" -> "تجارت / تجارتی / تجارت" three times in one sentence -> بین الاقوامی تجارت کے مرکز کی حیثیت سے یہ ان تاجر حلقوں کا محور تھا جن کے ہاتھ میں وسطی ایشیا اور سمندر پار ملکوں کے درمیان کاروبار کی باگ ڈور تھی۔
+
+4. [calque / unidiomatic] "قصبے کے ایک تاجر کا سفر پنجاب تک پہنچتا تھا۔ یہ سامی تھے، جو شکارپور کے ایک خوشحال گھرانے میں پیدا ہوئے۔" -> "سفر پنجاب تک پہنچتا تھا" is not idiomatic (a journey "ہوتا" or one "جاتا" somewhere); the delayed reveal "یہ سامی تھے، جو" is English word order ("This was Sami, who..."), with the name set between commas and cut off from the sentence -> قصبے کے ایک تاجر سامی کا سفر پنجاب تک ہوتا تھا۔ وہ شکارپور کے ایک خوشحال گھرانے میں پیدا ہوئے۔
+
+5. [calque / unidiomatic collocation] "شکارپور ملاپ کی ایک وسیع تر سرزمین کا گوشہ تھا۔" -> "ملاپ کی سرزمین کا گوشہ" is a literal rendering of "a corner of a wider landscape of encounter"; it does not read as Urdu prose -> شکارپور میل ملاپ کے ایک وسیع تر خطے کا حصہ تھا۔
+
+6. [gloss] "ہنگلاج دیوی کے ہندو مندر پر ایک تحقیق میں" -> "ہندو" glosses the obvious: a مندر of ہنگلاج دیوی needs no label -> ہنگلاج دیوی کے مندر پر ایک تحقیق میں
+
+7. [overlong / heavy] "ہنگلاج دیوی کے ہندو مندر پر ایک تحقیق میں یہ تاجروں کا قصبہ ہے، جس کا ذکر چند مختصر عبارتوں میں آتا ہے، اور ان عبارتوں کا موضوع یہاں کے تاجر اور ساہوکار، ہندوؤں کی آبادکاری اور تاجروں کی آبادیاتی ساخت ہے۔" -> one sentence carrying three clauses chained with commas and اور; a singular "موضوع ... ہے" governing a list of three subjects is stiff -> ہنگلاج دیوی کے مندر پر ایک تحقیق میں یہ تاجروں کا قصبہ ہے جس کا ذکر چند مختصر عبارتوں میں آتا ہے۔ ان عبارتوں میں یہاں کے تاجروں اور ساہوکاروں، ہندوؤں کی آبادکاری اور تاجروں کی آبادیاتی ساخت پر بات کی گئی ہے۔
+
+8. [calque / inconsistency] "تیسری کتاب اس قصبے سے صرف ایک خاندانی نسبت کے حوالے سے واقف ہے:" -> a book "واقف ہے" is a literal rendering of "knows the town only through"; also the two earlier sources are called "تحقیق", so "تیسری کتاب" does not follow on from them -> ایک تیسری کتاب میں اس قصبے کا ذکر صرف ایک خاندانی نسبت کے حوالے سے آتا ہے:
+
+9. [register] "مختلف عقائد کے مکالمے والی تکون کا ایک کونا بھی" -> "مکالمے والی" is colloquial for a reference-work register -> مختلف عقائد کے باہمی مکالمے کی تکون کا ایک کونا بھی
+
+NOTES:
+- Shikarpur is called "شہر" in the introduction and the heading "تاجروں کا شہر", but "قصبہ" in the body. You can defend this (a city today, a town in the period the sources describe), but a reader may find the switch unexplained. It is a matter of taste whether to align.
+- The opening sentence mixes tenses: "ایک شہر ہے، جہاں ... بولا جاتا تھا جو ... کہلاتا ہے". It follows the sources, but splitting it into two sentences ("... ایک شہر ہے۔ یہاں سندھی کا شمالی لہجہ بولا جاتا تھا جو اترادی یا سرائیکی کہلاتا ہے۔") would soften the jolt.
+- "وہ خود کپڑے کے تاجر تھے": "خود" adds emphasis that nothing in the text sets up. I have left it because dropping it might weaken a contrast the source intends.
+- "ان کا بہت آنا جانا رہتا تھا": "اکثر آنا جانا رہتا تھا" is slightly more polished.
+- The article repeats the introduction's material (the Bania majority, the triangle with Rohri and Sukkur, the trade hub) in later sections almost word for word. That is how the article is structured, but varying the wording would help.
+- "آبادیاتی ساخت" is correct for "demographic composition", but some readers may hear "نوآبادیاتی" in it. "آبادی کی ساخت" would rule that out.
+- Punctuation, digits, script and asterisks are all clean: no Latin letters, no dashes, Urdu ، and ۔ used throughout.

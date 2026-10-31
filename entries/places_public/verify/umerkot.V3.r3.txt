@@ -1,0 +1,9 @@
+V2 VERDICT: PASS
+V3 VERDICT: PASS
+ISSUES: none
+
+NOTES:
+- Diff check: umerkot.ur.r2.changes.txt lists one change. Its OLD string occurs exactly once in /home/claude/work/bak/umerkot.ur.r2.bak. Replacing it with NEW gives a text byte-identical to the current umerkot.ur.md. The difflib diff touches only line 21, and that hunk is the listed change. Nothing else moved.
+- V2 (fidelity): «بہت سے دوسرے اولیا کے آستانوں کی طرح یہ جگہ بھی ولی ہی کے نام سے موسوم ہے۔» renders 'As with many other saints, the site of the sanctuary bears the saint's name.' «یہ جگہ» is the site of the sanctuary, which is the hamlet of Pithoro named in the two sentences before it. «ولی ہی کے نام سے» is the saint's name, meaning Pithoro Pir. Nothing is omitted or added, and the certainty and tense are unchanged.
+- V3 (fluency): the r2 fault is fixed. بستی now occurs twice, in the first two sentences only, where «یہ بستی» is a deliberate anaphoric link. The bare «یہاں بھی بستی» is gone. جگہ occurs once in the whole file, so it echoes nothing. The agreement is correct (یہ جگہ ... موسوم ہے), and the following paragraph (ضلع عمرکوٹ کے لوگوں کی عقیدت ...) is not affected.
+- Taste only: strictly, the comparison sets «یہ جگہ» against «آستانوں». What carries a saint's name is the place of a shrine, not the shrine itself. A phrasing such as «بہت سے دوسرے اولیا کی طرح» would follow the English 'As with many other saints' more closely. The current wording is natural Urdu and the meaning is clear, so this does not fail the round.

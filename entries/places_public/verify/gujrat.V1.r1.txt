@@ -1,0 +1,21 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. [precision, heading suggests a pairing the team keeps apart] "## Sohni and Ranjha" -> The team keeps the two items apart: Sohni appears only as Tulla's daughter in a tale, and Ranjha only through his father's lineage. Neither is tied to the other. A heading that joins the two names can be read as one tale of two lovers, which neither the team version nor the body says. The body itself keeps them in separate paragraphs, so this is not a merge in the prose. Only the heading invites one. Fix: OLD "## Sohni and Ranjha" NEW "## The Tale of Sohni and Ranjha's Lineage"
+
+2. [precision, framing of the tale] "Tulla had a beautiful daughter called Sohni, a name which means "the beautiful one"." -> The team version gives this only inside the tale ("Once upon a time ... He had a beautiful daughter called Sohni"). Here it stands in the narrator's own voice, after the quotation has closed. The paragraph's opening frames it, but a short explicit marker keeps it a tale under rule 3. Fix: OLD "Tulla had a beautiful daughter called Sohni, a name which means "the beautiful one"." NEW "In the tale, Tulla had a beautiful daughter called Sohni, a name which means "the beautiful one"."
+
+3. [precision, a gloss that can read as a fact about a person] "Ranjha was the youngest of the eight sons of Chaudhry Muazzam, Chaudhry being a title of a landowner or village headman." -> As a definition this is a recognised dictionary sense. Attached to a named man, though, a reader takes it to mean that Muazzam was a landowner or village headman, and the team version says nothing of his standing. The brief says a gloss must not add a fact about a person. A neutral gloss avoids that. Fix: OLD "Chaudhry being a title of a landowner or village headman." NEW "Chaudhry being an honorific title."
+
+4. [taste, ambiguous apposition] "the Ranjha clan of Jats, an agricultural caste." -> "an agricultural caste" can attach to "the Ranjha clan" rather than to "Jats". Optional fix, following the construction of the Chaudhry gloss: OLD "of the Ranjha clan of Jats, an agricultural caste." NEW "of the Ranjha clan of Jats, Jats being an agricultural caste."
+
+Checked and found sound:
+- Every statement is supported by the team version: Tulla the well-to-do potter in the Gujrat district of the Panjab; Sohni and the meaning of her name; Ranjha as the youngest of eight sons of Chaudhry Muazzam, also known as Mauju; the Ranjha clan of Jats of Takht Hazara, "now Gujrat District of Pakistan"; Takht Hazara as the home of Ranjha's father and the clan.
+- The quotations are verbatim.
+- "Ranjha's family belonged to the district too" rests on the team's "ties Ranjha to the district through his father". Ranjha himself is not placed there.
+- No disagreement is recorded. There is no uncertain reading, no citation, no source narration and no time anchor. The comparison paragraph was rightly dropped as source talk with no new fact.
+- No important omission.
+- The bibliography matches the team version's one item verbatim (diffed).
+- No em or en dashes.

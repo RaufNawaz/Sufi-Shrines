@@ -1,0 +1,26 @@
+V2 VERDICT: PASS
+V3 VERDICT: FAIL
+
+ISSUES:
+1. [V3, word repeated in neighbouring sentences (new fault from change 8)] OLD: "اس میں شرکت کے لیے بارہ لڑکے سائیکلوں پر بہاولپور سے آئے۔ آتے ہوئے وہ دیوی ماتا کا جاپ کر رہے تھے۔" -> The fix was meant to stop آئے ending two sentences in a row. But it now opens the next sentence with آتے ہوئے straight after آئے۔, so the same verb sits on both sides of the full stop ("they came. While coming, they were chanting"). A magazine editor would mark this echo, and it is the very kind of fault the recast set out to remove. Merging the two sentences removes the echo. It also follows the English construction exactly ("rode ... chanting ... as they came"): کرتے ہوئے ... آئے, the form V2.r1 itself proposed, with no added duration such as سارے راستے and no gloss. The definition of نوراتری stays a separate sentence, as change 7 made it. -> NEW: "اس میں شرکت کے لیے بارہ لڑکے دیوی ماتا کا جاپ کرتے ہوئے سائیکلوں پر بہاولپور سے آئے۔"
+
+NOTES:
+- Diff proof: applying exactly the 15 OLD->NEW pairs in bahawalpur.ur.r1.changes.txt to /home/claude/work/bak/bahawalpur.ur.r1.bak, each OLD occurring once, reproduces the current bahawalpur.ur.md byte for byte. A python difflib unified diff shows changes only on lines 3, 7, 11, 15, 17, 21 and 23, all inside the listed replacements. Nothing else moved. No Latin letters, no em or en dashes, asterisks balanced (2). Urdu/English prose length ratio is about 0.88.
+- Each change checked in its paragraph:
+  1 (ملتان کے ساتھ ساتھ): matches "with Multan" and now reads the same as the matching sentence in para 3. OK.
+  2 (no emphatic ہی): OK.
+  3 (ایک گاؤں): OK. "rural" is carried by گاؤں.
+  4 (سادات مزاروں کا سہارا بھی ہیں): subject now unambiguous. سادات also appears in the preceding sentence, but the English repeats "Syeds" the same way. OK.
+  5 (سرپرستی کی ایک مثال ... نواب کی بھی ہے، جو ... سرپرست تھے): same facts ("a patron too", patron of Wahid Bakhsh, behind commission, schooling, post). بھی keeps "too". ان / ان سب clearly refer to واحد بخش. OK. Taste: the root سرپرست occurs three times across this sentence and the one before. It is deliberate linkage and not a fault.
+  6 (distance moved next to بہاولپور): the distance between the two towns is unchanged, and "ٹولی ... 165 کلومیٹر دور بہاولپور سے بلوائی" is natural Urdu from the organisers' side. OK.
+  7 (نوراتری split): the present-tense definition is correct, and اس میں clearly means the festival. OK.
+  8: fidelity OK (آتے ہوئے = "as they came"; دیوی ماتا = "the Mata, the Mother Goddess"). Fluency fails, see ISSUE 1.
+  9 (second بھی dropped): no omission. The English "also" is carried by اسی منزل کی طرف ("toward the same destination"), and the first بھی renders "too". OK.
+  10 (کی نظر میں ... یہاں سے باہر جاتے ہیں): matches "travel out", present tense, no range. OK. Taste: on its own, باہر جانا can mean "go abroad" in Pakistani usage. Here یہاں سے and the examples after the colon fix the sense, so no change is needed. یہاں سے نکل کر سفر کرتے ہیں (V2.r1's wording) would remove even that shade, at the cost of a second سفر.
+  11 (نوراتری کے لیے): OK.
+  12 (بہاولپور کو سڑک کا وہ ٹکڑا پایا ...، اور عائشہ صدیقہ کا وطن بھی): the "Bahawalpur Road" misparse is gone, and پایا follows "found it". Dropping "who belongs to Bahawalpur" is a correct V2 call: "the home of Ayesha Siddiqa" already states it, so no fact is lost. The elliptical tail (... وطن بھی) is acceptable Urdu. OK.
+  13 (فاصلہ ... بتایا، ... سرپرست قرار دیا): matches "measured ... from it, named ... as a patron". انہوں نے still refers to the scholar, as in the sentence before. OK.
+  14 (کتاب *خطۂ پاک اوچ* تجویز کی، جسے): agreement is correct (feminine کتاب -> تجویز کی), and جسے now points to the book. OK.
+  15 (شہرِ اولیا اوچ گیلانیاں سے بھی): matches "the city of saints at Uch Gilanian" and agrees with the rest of the article. OK.
+- Rejected or unapplied notes: all were rightly left. In particular, اوائل میں must stay, because the English "In the early twenty first century" is a point in time and the brief says تک with a plain past reads as "until". کنارے پر is the faithful rendering of "on the edge". The repetition between the Overview and the body mirrors the English. No verifier ISSUE was rejected. The writer's own wording for V3 issue 9 (change 12) is better than the proposed one, which kept the بہاولپور سڑک misparse and the کے طور پر calque.
+- Taste, unchanged text (not failing): بارہ لڑکے ... بہاولپور سے آئے puts the narrator at the destination, as the English "came" does.

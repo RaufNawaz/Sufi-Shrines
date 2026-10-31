@@ -1,0 +1,15 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+Scope check. Python difflib between /home/claude/work/sialkot.r2.bak and entries/places_public/sialkot.md shows exactly one changed line (35). The change is exactly the OLD -> NEW in sialkot.V1.r2.changes.txt: "has become" -> "had become", "financed" -> "had financed", "which now handles" -> "which handled". Nothing else in the file moved.
+
+Support. The team version (places/sialkot.md, lines 11 and 45) has Khalid (Walking with Nanak, p. 191, folio 165) saying Sialkot "has become one of the most important cities in Pakistan" and that its business community "financed its own airport, which now handles international flights", and the highway as well. The new sentence restates that in reported past, anchored by the paragraph's own "By the early twenty first century". "Now" is dropped, which removes a claim rather than adding one. No new fact.
+
+Tense. The paragraph now runs in one frame: "connected" (past), "had become" and "had financed" (past perfect, prior to that moment), "handled" (past), "stood" and "had been turned" (past). The Overview's "by the early twenty first century Sialkot had become one of the most important cities in Pakistan, with an airport its own business community financed" now agrees with the body. The past perfect "had financed" fits "had become" and the anchor "By the early twenty first century".
+
+Grammar and form. No doubled word. No en or em dash and no hyphen anywhere in line 35; "twenty first" stays unhyphenated. The relative clause "which handled international flights" still attaches to "airport", and "and the highway as well" still reads as a second object of "had financed", as before.
+
+Taste only. "Handled" in the past may leave a reader unsure whether the airport still takes international flights; the source dates from Khalid's visit, so the past is the honest frame and the anchor covers it. The trailing "and the highway as well" after the relative clause is a little loose, but it predates this round and follows the team wording.

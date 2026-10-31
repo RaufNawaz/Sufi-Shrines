@@ -1,0 +1,99 @@
+Urdu fixes after V2 r1 (PASS) and V3 r1 (FAIL), sukkur.ur.md
+
+WHY: redundancy, Sukkur already named as one of the three (V3 r1 issue 1, verifier's wording)
+OLD: سکھر، روہڑی اور شکارپور مل کر قصبوں کی ایک تکون بناتے ہیں جس کا ایک کونا سکھر ہے۔
+NEW: سکھر، روہڑی اور شکارپور مل کر قصبوں کی ایک تکون بناتے ہیں۔
+
+WHY: calque 'city of riots', Sukkur repeated in one sentence (V3 r1 issue 2, verifier's wording)
+OLD: بیسویں صدی میں سکھر فسادات کا شہر بنا، اور سکھر کے فسادات کا پہلا شکار بھگت کنور رام تھے۔
+NEW: بیسویں صدی میں سکھر فسادات کی زد میں آیا، اور ان فسادات کا پہلا شکار بھگت کنور رام تھے۔
+
+WHY: register, Hindi جنم لینا (V3 r1 issue 3); the first clause's verb becomes ولادت ہوئی so that پیدا ہوئے is not said twice in one sentence
+OLD: روہڑی میں 1879 میں روچل داس پیدا ہوئے، اور صوفی شاعر بیدل نے بھی وہیں جنم لیا، جن کا انتقال 1872 میں ہوا۔
+NEW: روہڑی میں 1879 میں روچل داس کی ولادت ہوئی، اور صوفی شاعر بیدل بھی وہیں پیدا ہوئے، جن کا انتقال 1872 میں ہوا۔
+
+WHY: tense, past perfect for the reported news, as the English 'had passed ... had halted' (V3 r1 issue 4, verifier's wording)
+OLD: دارا بکھر سے آگے نکل گئے ہیں اور 25 محرم کو سکھر میں پڑاؤ ڈال چکے ہیں۔
+NEW: دارا بکھر سے آگے نکل گئے تھے اور 25 محرم کو سکھر میں پڑاؤ ڈال چکے تھے۔
+
+WHY: inconsistency, date in digits like the preceding 5 صفر (V3 r1 issue 5, verifier's wording)
+OLD: چھ صفر کو یہ سالار سکھر پہنچے۔
+NEW: 6 صفر کو یہ سالار سکھر پہنچے۔
+
+WHY: calque 'city of riots' (V3 r1 issue 6, verifier's wording)
+OLD: بیسویں صدی میں سکھر فسادات کا شہر رہا۔
+NEW: بیسویں صدی میں سکھر فسادات کی زد میں رہا۔
+
+WHY: ambiguity, Sehwan read as 'another city of northern Sindh' (V3 r1 issue 7, verifier's wording)
+OLD: منزل گاہ کے فسادات کے بعد سکھر اور شمالی سندھ کے دوسرے شہر سیہون سے مختلف تصویر پیش کرتے ہیں،
+NEW: منزل گاہ کے فسادات کے بعد سکھر اور شمالی سندھ کے دوسرے شہروں کی تصویر سیہون سے مختلف ہے،
+
+WHY: calque 'who lived 1882 to 1942' (V3 r1 issue 8, verifier's wording)
+OLD: فتح محمد سیہوانی سیہون کے ایک ادیب تھے جو 1882 سے 1942 تک زندہ رہے۔
+NEW: فتح محمد سیہوانی (1882 تا 1942) سیہون کے ایک ادیب تھے۔
+
+WHY: ambiguity, پہلے read as chronological though Janullah is the earlier poet (V3 r1 issue 9, verifier's wording)
+OLD: پہلے شاعر روہڑی کے بیدل ہیں، جن کا انتقال 1872 میں ہوا۔
+NEW: ان میں سے ایک روہڑی کے بیدل ہیں، جن کا انتقال 1872 میں ہوا۔
+
+WHY: one source given two wordings, مطالعہ here and تحقیق in Sukkur in Books (V3 r1 note 5; V2 r1 note 1 on the same phrase); the books section's wording used in both places
+OLD: اسلامی تصوف کے ایک مطالعے میں انہیں
+NEW: اسلامی تصوف پر ایک تحقیق میں انہیں
+
+WHY: ambiguity, paired with issue 9 (V3 r1 issue 10, verifier's wording)
+OLD: دوسرے شاعر روہڑی کے جان اللہ ہیں، جو سلسلۂ سہروردیہ سے وابستہ تھے۔
+NEW: دوسرے روہڑی کے جان اللہ ہیں، جو سلسلۂ سہروردیہ سے وابستہ تھے۔
+
+WHY: calque گیت لکھے for 'composed songs' (V3 r1 issue 11, in part): the verb is now کہے; V3's نظمیں is not taken, since the English says 'songs'
+OLD: جنہوں نے شاہ عنایت کی شہادت پر گیت لکھے۔
+NEW: جنہوں نے شاہ عنایت کی شہادت پر گیت کہے۔
+
+WHY: calque 'one end of a singer's road', ایک doubled (V3 r1 issue 12, in part): V3's ذکر ... آتا ہے is not taken, since this section states a fact about the place, not what a book mentions; the 'end' is carried by the next sentence (between Rohri and Sehwan Sharif); جڑا ہوا ہے rather than کا تعلق ... ہے, because the paragraph's last sentence has ان کا تعلق
+OLD: روہڑی ایک گویّے کی راہ کا ایک سرا بھی ہے۔
+NEW: روہڑی ایک گویّے کے سفر سے بھی جڑا ہوا ہے۔
+
+WHY: calque, a study 'knowing' a town (V3 r1 issue 13): بتاتی ہے rather than V3's ذکر ... کرتی ہے, because the next sentence (issue 14) now ends ذکر آتا ہے
+OLD: اور اسے دو شاعروں کے وطن کی حیثیت سے جانتی ہے۔
+NEW: اور اسے دو شاعروں کا وطن بتاتی ہے۔
+
+WHY: ambiguity روہڑی سیہون شریف read as one name, calque سفر کا ایک سرا (V3 r1 issue 14, verifier's wording)
+OLD: صوفی رسوم میں عورت کی آواز پر ایک مطالعے میں روہڑی سیہون شریف تک ایک گویّے کے سفر کا ایک سرا ہے۔
+NEW: صوفی رسوم میں عورت کی آواز پر ایک مطالعے میں روہڑی سے سیہون شریف تک ایک گویّے کے سفر کا ذکر آتا ہے۔
+
+WHY: inconsistency, دونوں قصبوں followed by Sukkur as شہر (V3 r1 issue 15, verifier's wording)
+OLD: ان دونوں قصبوں کو سب سے زیادہ جگہ دیتی ہے۔
+NEW: ان دونوں مقامات کو سب سے زیادہ جگہ دیتی ہے۔
+
+WHY: repetition of شہر and the 'city of riots' calque (V3 r1 issue 16, verifier's wording)
+OLD: اس میں سکھر شمالی سندھ کا ایک شہر ہے جو فسادات کا شہر رہا اور دادی دھن کی جائے پیدائش ہے۔
+NEW: اس میں سکھر شمالی سندھ کا ایک شہر ہے جو فسادات کی زد میں رہا اور دادی دھن کی جائے پیدائش ہے۔
+
+WHY: English word order, verbless appositives on commas (V3 r1 issue 17, verifier's wording)
+OLD: روہڑی اس میں دریائے سندھ کی ایک بندرگاہ ہے، روچل داس اور بیدل کی جائے پیدائش، اور سائیں واسن شاہ اور ایسر لال کی زیارت گاہوں کا مقام۔
+NEW: روہڑی اس میں دریائے سندھ کی ایک بندرگاہ ہے، جہاں روچل داس اور بیدل پیدا ہوئے اور جہاں سائیں واسن شاہ اور ایسر لال کی زیارت گاہیں ہیں۔
+
+REJECTED OR NOT APPLIED
+
+V3 r1 issue 11, in part: نظمیں for گیت. The English says Janullah "composed songs" on the martyrdom of Shah Inayat; poems would change the kind of work. The calque V3 named (لکھے) is fixed by کہے.
+
+V3 r1 issue 12, in part: روہڑی کا ذکر ایک گویّے کے سفر کے سلسلے میں بھی آتا ہے. In Poets and Singers the English states a fact about the place ("Rohri also stands at one end of a singer's road"), not what a text mentions; ذکر آتا ہے would make it a statement about a source. Reworded instead as روہڑی ایک گویّے کے سفر سے بھی جڑا ہوا ہے, with the next sentence (between Rohri and Sehwan Sharif) carrying the end of the route.
+
+V3 r1 issue 13, in part: ذکر ... کرتی ہے. Same meaning given as بتاتی ہے, so that ذکر is not repeated in the next sentence, which now ends ذکر آتا ہے (issue 14).
+
+V3 r1 note 1 (تیرتھ یعنی مقدس زیارت گاہ): taste, by V3's own account; V2 judged the gloss appropriate. Not applied.
+
+V3 r1 note 2 (one term each for Sukkur and Rohri, شہر or قصبہ): not applied. The English itself calls Sukkur "a city" in the present and "the town" in the Mughal passage ("ten kos from the town") and in the janamsakhi passage ("names the town"), and calls Rohri a town in the overview and one of "the cities of the riots" in History; the Urdu follows the English in each place. Issue 15 (دونوں مقامات) removes the one clash inside a single passage.
+
+V3 r1 note 3 (الن فقیر for علن فقیر): not applied. The name is not in urdu-dictionary.json; this file spells it علن throughout, as do sehwan.ur.md and lal-shahbaz-qalandar.ur.md.
+
+V3 r1 note 4 (repeated material across sections): structural; the English repeats the same material. Not applied.
+
+V3 r1 note 6 (link منزل گاہ کے فسادات to the Sukkur riots): V3 itself notes linking them would add a fact; the English does not link them. Not applied.
+
+V3 r1 notes 7 to 9 (Kandri and orphanage sentences, tense after وطن تھا, چیف آفیسر): no change asked or needed; the sentences follow the English.
+
+V2 r1 note 1 (a study for "a scholar"): the inconsistency V2 and V3 both saw is fixed by using اسلامی تصوف پر ایک تحقیق in both places. A person noun (اسلامی تصوف کی ایک ماہر) was not used, since it would give a gender the English prose leaves open; V2 judged the study wording acceptable.
+
+V2 r1 note 2 (وہ inside the janamsakhi quotation reads as the travellers, English "he" = Guru Nanak): not applied. V2 judged the meaning effectively the same (they travelled together) and left the quotation alone; changing it would alter the wording of a quotation.
+
+V2 r1 notes 3 to 6: confirmations, no change asked.

@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. [taste] «اس عنوان کے آخر میں 1832 سے 1833 تک کے برس درج ہیں۔» is correct but slightly wooden. For two consecutive years «تا» is the neater literary choice and avoids the «سے … تک کے» chain: «اس عنوان کے آخر میں 1832 تا 1833 کے برس درج ہیں۔» Optional.
+2. [taste] In the title, «لاہور اور بہاولپور کے مشن کے سلسلے میں» can be read for a moment as a mission belonging to Lahore and Bahawalpur rather than one sent to them, and «مشن» is a loanword. «لاہور اور بہاولپور کی سفارت کے سلسلے میں» would be more idiomatic in a historical title. This is a rendered book title, so leaving it as it is is defensible. Optional.
+3. [check] Mechanical checks pass. There are no Latin letters, no em or en dashes, and no Arabic-form letters (ي ك ه); only Urdu ی ک ہ ھ ے are used. Digits are Western, the asterisks are balanced (one italic span, 2), the full stops are Urdu ۔, and the initials «سی۔ ایم۔» are written the standard way. The colon after «آتا ہے» is acceptable in Urdu prose.
+4. [observation] The article is only one short paragraph under «تعارف». That is about scope, not language, and is outside this proofread.

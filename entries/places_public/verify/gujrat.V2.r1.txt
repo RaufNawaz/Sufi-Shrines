@@ -1,0 +1,19 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+1. Style, optional. Overview, final sentence: "Jats being an agricultural caste" is not carried into the Urdu. I treat it as a dropped gloss of a word every Urdu reader knows (جاٹ), which the brief's 'The Urdu version' section allows, so it is not listed as an omission. If the editor reads it as a fact the page should keep, this is the change:
+   OLD: رانجھا کے باپ اور جاٹوں کے رانجھا قبیلے کا وطن تخت ہزارہ تھا، "جو اب پاکستان کا ضلع گجرات ہے"۔
+   NEW: رانجھا کے باپ اور جاٹوں کے رانجھا قبیلے کا وطن تخت ہزارہ تھا، "جو اب پاکستان کا ضلع گجرات ہے"۔ جاٹ ایک کاشتکار ذات ہے۔
+   The same applies to "Chaudhry being an honorific title" (paragraph 3), which is also a dropped gloss of a familiar word (چودھری). No change proposed there.
+
+2. Style, optional. Overview: the quotation has جو inside the quotation marks, while paragraph 3 quotes the same English words without it. To make the quoted words match in both places, move the relative pronoun outside the quotation marks:
+   OLD: کا وطن تخت ہزارہ تھا، "جو اب پاکستان کا ضلع گجرات ہے"۔
+   NEW: کا وطن تخت ہزارہ تھا، جو "اب پاکستان کا ضلع گجرات ہے"۔
+
+3. Style, optional. Paragraph 2: in اس نام کا مطلب ہی "خوبصورت" ہے, the word ہی adds a slight emphasis ("means exactly") that the English "a name which means" does not have. It does not change the fact. A plainer version:
+   OLD: اور اس نام کا مطلب ہی "خوبصورت" ہے۔
+   NEW: اور اس نام کا مطلب "خوبصورت" ہے۔
+
+Checked and correct: both headings match (تعارف = Overview; سوہنی کی داستان اور رانجھا کا خاندان = Sohni's Tale and Ranjha's Family). The tale framing is kept wherever the English uses it (داستان کے مطابق، داستان بتاتی ہے), and the Ranjha family paragraph has no tale framing in either language. Tulla is a potter, well-to-do, of the Gujrat district of the Panjab, and Sohni is his beautiful daughter. The name's meaning is kept. Ranjha is the youngest of eight sons of Chaudhry Muazzam, and "his father" correctly becomes Chaudhry Muazzam, also known as Mauju (موجو). Jat, Ranjha clan, Takht Hazara and "now Gujrat District of Pakistan" all appear in both places. The number 8 (آٹھ) is right. Nothing is added and the article has no verse.

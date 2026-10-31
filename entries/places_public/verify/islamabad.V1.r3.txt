@@ -1,0 +1,12 @@
+VERDICT: PASS
+
+ISSUES: none
+
+NOTES:
+
+- Diff (python difflib, unified, n=0) of /home/claude/work/fix/islamabad.V1.r2.bak against /home/claude/repo/entries/places_public/islamabad.md: exactly 1 hunk, on line 15 (The Capital, paragraph 3). It is the single listed English change, with OLD and NEW matching the changes file exactly. Nothing else moved, including the Overview, the other sections and the bibliography. The second entry in the changes file is the Urdu carry-over and was not checked here, as instructed.
+- Round 2 issue 1 is resolved. The sentence now reads "The Governor of Punjab, Salman Taseer, was shot dead in Islamabad by his own bodyguard, and a couple of months later, on 2 March 2011, Shahbaz Bhatti was murdered in Islamabad outside his residence." This is the round 1 wording, which round 1 found supported. "The law" no longer appears anywhere in the article, so the unanchored referent is gone and no unnamed law is implied.
+- Source support: the team version (line 19) quotes Gupta, "a couple of months ago, the Governor of Punjab Salman Taseer was gunned down by his bodyguard in Islamabad" and "Shahbaz Bhatti has been murdered this morning in Islamabad, outside his residence", dated 2nd March 2011 (A White Trail, p. 48). "Shot dead", "his own bodyguard", "a couple of months later" and the date are all covered. Nothing is stated with more certainty than the source, and there is no new fact.
+- In its paragraph: the lead sentence "Two killings took place in the capital within a few months of each other" still fits, and the Overview's "the killings of Salman Taseer and Shahbaz Bhatti" is still consistent with it.
+- Fault sweep: the comma before "and" correctly joins the two independent clauses. No doubled word (regex check over the whole file finds none), no broken referent, no source narration, and no em or en dash anywhere in the file (count 0 and 0).
+- Optional, not applied: the dropped motive, which is supported but has no referent without naming the law, can be restored only if a later round decides to name the law from a supported source. The team version does not name it, so this remains correctly omitted.

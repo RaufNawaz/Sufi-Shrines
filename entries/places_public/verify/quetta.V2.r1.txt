@@ -1,0 +1,7 @@
+VERDICT: PASS
+ISSUES: none
+NOTES:
+1. Overview, first sentence: the English gloss "Shia Muslims of the Hazara people" after "Hazara Shias" is dropped in the Urdu (ہزارہ شیعوں کا بھی مسکن ہے). ہزارہ شیعہ is familiar to an Urdu reader, so under the brief this is a deliberately dropped gloss, not an omission.
+2. Communities, paragraph 2: "دونوں جگہ" (both places) adds a little emphasis that the English does not have ("in Sindh and Quetta"), but it adds no fact and does not change the meaning. It is acceptable as it is.
+3. Communities, paragraph 3: the quoted English phrase is translated inside quotation marks, and the Urdu keeps it as a quotation, so the identification of Lashkar-e-Jhangvi as "the culprits" stays the source's words and not the article's own claim. The Urdu gives the standard spelling لشکرِ جھنگوی for the English quote's "Lashkare-e-Jhangvi" (a misspelling in the quoted source). That is right for Urdu.
+4. Headings match (Overview -> تعارف, Communities -> برادریاں). There is no verse. All three figures (84, Babri Mosque, Sindh) are present in both paragraphs where the English has them. No hedges in the English needed carrying over.

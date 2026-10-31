@@ -1,0 +1,44 @@
+shikarpur.ur.md, round 1 fixes (V2 r1 PASS, V3 r1 FAIL)
+
+WHY: V3-1 (and V2 note 5): تجارت/تاجروں repeated and redundant in one clause; applied in V3's wording, which also removes the redundancy V2 note 5 flagged without repeating تجارت as V2's option would.
+OLD: یہ شہر بین الاقوامی تجارت کا مرکز تھا، اور وسطی ایشیا اور سمندر پار ملکوں کے درمیان تجارت کرنے والے تاجروں کے حلقوں کا محور بھی۔
+NEW: یہ شہر بین الاقوامی تجارت کا مرکز تھا، اور وسطی ایشیا اور سمندر پار ملکوں کے درمیان کاروبار کرنے والے تاجر حلقوں کا محور بھی۔
+
+WHY: V3-2: verbless appositive after the comma (English calque); applied in V3's wording.
+OLD: شکارپور تجارتی قصبہ تھا، تاجروں اور ساہوکاروں کا مسکن۔
+NEW: شکارپور ایک تجارتی قصبہ تھا جو تاجروں اور ساہوکاروں کا مسکن تھا۔
+
+WHY: V3-3: تجارت/تجارتی/تجارت three times in one sentence; applied in V3's wording.
+OLD: یہ ان تجارتی حلقوں کا محور تھا جن کے ہاتھ میں وسطی ایشیا اور سمندر پار ملکوں کے درمیان تجارت کی باگ ڈور تھی۔
+NEW: یہ ان تاجر حلقوں کا محور تھا جن کے ہاتھ میں وسطی ایشیا اور سمندر پار ملکوں کے درمیان کاروبار کی باگ ڈور تھی۔
+
+WHY: V3-4: unidiomatic سفر ... پہنچتا تھا and English delayed reveal یہ سامی تھے، جو; applied in V3's wording.
+OLD: قصبے کے ایک تاجر کا سفر پنجاب تک پہنچتا تھا۔ یہ سامی تھے، جو شکارپور کے ایک خوشحال گھرانے میں پیدا ہوئے۔
+NEW: قصبے کے ایک تاجر سامی کا سفر پنجاب تک ہوتا تھا۔ وہ شکارپور کے ایک خوشحال گھرانے میں پیدا ہوئے۔
+
+WHY: V3-5 (reworded): ملاپ کی سرزمین کا گوشہ is a literal calque. V3's میل ملاپ ... خطے adopted, but V3's حصہ replaced by گوشہ to keep the English 'one corner' (the town as a corner of the triangle that follows); no ایک before گوشہ, to avoid a doubled ایک.
+OLD: شکارپور ملاپ کی ایک وسیع تر سرزمین کا گوشہ تھا۔
+NEW: شکارپور میل ملاپ کے ایک وسیع تر خطے کا گوشہ تھا۔
+
+WHY: V3-9: مکالمے والی is colloquial; applied in V3's wording.
+OLD: مختلف عقائد کے مکالمے والی تکون کا ایک کونا بھی
+NEW: مختلف عقائد کے باہمی مکالمے کی تکون کا ایک کونا بھی
+
+WHY: V3-6 + V3-7 (V3-7 reworded) + V3 note on آبادیاتی: drop ہندو before مندر (a مندر of a دیوی is Hindu to any Urdu reader, so the English fact stays); split the overlong sentence and replace the stiff singular موضوع ... ہے, in V3's wording, except that تاجروں کی آبادیاتی ساخت becomes تاجر آبادی کی ساخت, which avoids repeating تاجروں in the same sentence and takes V3's precision note (آبادیاتی can be heard as نوآبادیاتی). 'Demographics of merchants' is kept.
+OLD: ہنگلاج دیوی کے ہندو مندر پر ایک تحقیق میں یہ تاجروں کا قصبہ ہے، جس کا ذکر چند مختصر عبارتوں میں آتا ہے، اور ان عبارتوں کا موضوع یہاں کے تاجر اور ساہوکار، ہندوؤں کی آبادکاری اور تاجروں کی آبادیاتی ساخت ہے۔
+NEW: ہنگلاج دیوی کے مندر پر ایک تحقیق میں یہ تاجروں کا قصبہ ہے جس کا ذکر چند مختصر عبارتوں میں آتا ہے۔ ان عبارتوں میں یہاں کے تاجروں اور ساہوکاروں، ہندوؤں کی آبادکاری اور تاجر آبادی کی ساخت پر بات کی گئی ہے۔
+
+WHY: V3-8 (reworded): a book واقف ہے is a calque of 'knows the town'. V3's ذکر ... حوالے سے construction adopted, but without V3's ایک تیسری (a calqued English article, and a second ایک in the same clause), and with ملتا ہے instead of آتا ہے, since the previous paragraph already ends a clause with ذکر ... آتا ہے. 'Only as a family origin' is kept by صرف.
+OLD: تیسری کتاب اس قصبے سے صرف ایک خاندانی نسبت کے حوالے سے واقف ہے:
+NEW: تیسری کتاب میں اس قصبے کا ذکر صرف ایک خاندانی نسبت کے حوالے سے ملتا ہے:
+
+NOT APPLIED (with reasons)
+- V2: PASS, no issues. V2 notes 1 to 4 and 6 record checks and ask for no change. V2 note 5 (redundant تجارت کرنے والے تاجروں) is cured by the V3-1 change above.
+- V3 note, شہر / قصبہ: not changed. The English itself says "city" in the Overview and "town" in the body, and the Urdu follows it. V3 calls it taste.
+- V3 note, splitting the opening sentence over its tense change: not applied. The English has the same relation in one sentence ("is a city ..., where ... was spoken"), and the note is about style, not meaning, agreement or a referent.
+- V3 note, خود: V3 itself keeps it. It renders the English "He was himself a cloth merchant".
+- V3 note, اکثر آنا جانا for بہت آنا جانا: not applied. بہت renders the English "a great deal" (how much he travelled). اکثر would mean "often", which changes the sense slightly, and the note is taste.
+- V3 note, the Overview's material repeated in later sections: not changed. The English repeats it the same way; this is the article's structure.
+- V3 note, آبادیاتی ساخت -> آبادی کی ساخت: applied inside the V3-6/7 change (as تاجر آبادی کی ساخت).
+
+COUNTS: V3 issues 9 = applied in V3's wording 6 (1, 2, 3, 4, 6, 9) + reworded 3 (5, 7, 8); rejected 0. V2 issues 0. Notes applied: V2 note 5 (through V3-1), V3 note on آبادیاتی (inside 7).
