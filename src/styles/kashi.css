@@ -1,0 +1,456 @@
+/* ── Kashi — the 8 November 2026 visual pass ──────────────────────────────────
+   Loaded last (main.tsx) so it wins by source order at equal specificity. One
+   layer on purpose: the whole redesign is reviewable as this file plus the token
+   values in tokens.css, and removable the same way. docs/REDESIGN_2026-11.md has
+   the reasoning; the short version is glaze white, lapis ink, Spectral for
+   titles, the kashi tile as the one ornament, no all-caps eyebrows.
+
+   Every `font-family` here is `var(--font-display)`, which is the Urdu stack
+   under [dir='rtl'] (tokens.css), so nothing in this file can hand Nastaliq text
+   to a Latin face. Urdu-specific size and leading rules elsewhere keep their
+   higher specificity and still win. */
+
+/* ── Titles ─────────────────────────────────────────────────────────────── */
+
+.entity-title,
+.shrine-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(var(--text-3xl), 4.6vw, calc(3.25rem * var(--reading-scale)));
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+/* Section headings across the explorer pages and the article. */
+.about-section-heading,
+.coverage-section-heading,
+.almanac-section-heading,
+.typology-group-heading,
+.kg-section-heading,
+.sg-section-heading,
+.sources-section-heading,
+.article-section-heading,
+.shrine-observances-heading,
+.section-heading,
+.almanac-cal-title,
+.almanac-note-heading,
+.chronology-note-heading,
+.settings-section-heading,
+.place-site-group-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-2xl);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+[dir='rtl'] .entity-title,
+[dir='rtl'] .shrine-title {
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
+}
+
+[dir='rtl'] .about-section-heading,
+[dir='rtl'] .coverage-section-heading,
+[dir='rtl'] .almanac-section-heading,
+[dir='rtl'] .typology-group-heading,
+[dir='rtl'] .kg-section-heading,
+[dir='rtl'] .sg-section-heading,
+[dir='rtl'] .sources-section-heading,
+[dir='rtl'] .article-section-heading,
+[dir='rtl'] .shrine-observances-heading,
+[dir='rtl'] .section-heading,
+[dir='rtl'] .almanac-cal-title,
+[dir='rtl'] .almanac-note-heading,
+[dir='rtl'] .chronology-note-heading,
+[dir='rtl'] .settings-section-heading,
+[dir='rtl'] .place-site-group-heading {
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
+}
+
+/* The category kicker over a shrine's title: a tile star instead of a dash. */
+.shrine-category-kicker,
+.entity-type-kicker {
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.shrine-category-kicker::before,
+.entity-type-kicker::before {
+  width: 14px;
+  height: 14px;
+  background: currentColor;
+  -webkit-mask: var(--glyph-kashi-star) center / contain no-repeat;
+  mask: var(--glyph-kashi-star) center / contain no-repeat;
+}
+
+/* ── The page header ────────────────────────────────────────────────────── */
+
+.header-wordmark-name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+/* Tabs, not a grey capsule: plain words with a cobalt rule under the current
+   one. The rule is the selection; the weight change is its non-colour cue. */
+@media (min-width: 641px) {
+  .page-header-nav {
+    gap: var(--space-1);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .page-header-nav-link {
+    position: relative;
+    min-height: 40px;
+    border-radius: var(--radius-md);
+  }
+
+  .page-header-nav-link::after {
+    content: '';
+    position: absolute;
+    inset-inline: var(--space-3);
+    inset-block-end: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transition: transform var(--duration-base) var(--easing);
+  }
+
+  .page-header-nav-link:hover::after {
+    transform: scaleX(0.4);
+  }
+
+  .page-header-nav-link--current {
+    background-color: transparent;
+    box-shadow: none;
+    color: var(--color-text);
+  }
+
+  .page-header-nav-link--current::after,
+  .page-header-nav-link--current:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* ── The map's front door ───────────────────────────────────────────────── */
+
+.welcome-card {
+  align-items: stretch;
+  text-align: start;
+  padding: var(--space-4) var(--space-4) var(--space-8);
+  margin: 0;
+  gap: var(--space-6);
+}
+
+.welcome-masthead {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-lapis);
+  color: var(--color-on-lapis);
+}
+
+/* The tile, washed into the lapis: firozi lines at low alpha, fading out
+   towards the title so it never sits under text at full strength. */
+.welcome-masthead::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-kashi-firozi);
+  opacity: 0.55;
+  -webkit-mask:
+    var(--pattern-kashi) 0 0 / 40px 40px repeat,
+    linear-gradient(to bottom, #000 0%, transparent 85%);
+  -webkit-mask-composite: source-in;
+  mask:
+    var(--pattern-kashi) 0 0 / 40px 40px repeat,
+    linear-gradient(to bottom, #000 0%, transparent 85%);
+  mask-composite: intersect;
+}
+
+.welcome-masthead-star {
+  width: 44px;
+  height: 44px;
+  fill: var(--color-accent);
+  stroke: none;
+}
+
+.welcome-masthead-star circle {
+  fill: var(--color-lapis);
+}
+
+.welcome-masthead .welcome-card-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--color-on-lapis);
+}
+
+[dir='rtl'] .welcome-masthead .welcome-card-title {
+  font-size: calc(var(--text-xl) * var(--font-scale-urdu));
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
+}
+
+.welcome-card-links-heading {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ── Surfaces ───────────────────────────────────────────────────────────── */
+
+/* The tiles and cards across the explorer pages keep their hairline edge and
+   lose the resting shadow; elevation is for things that float. */
+.inset-list {
+  box-shadow: none;
+}
+
+.order-card,
+.almanac-cal-card,
+.almanac-coverage-item,
+.almanac-season-card-link,
+.almanac-undated,
+.coverage-stat,
+.chronology-chart,
+.sg-stat,
+.sg-meeting,
+.sg-strip,
+.sources-spine,
+.sources-card,
+.about-citation,
+.settings-card,
+.typology-tile,
+.related-card,
+.order-site-card,
+.graph-lineage-list,
+.shrine-infobox {
+  box-shadow: none;
+  border-radius: var(--radius-lg);
+}
+
+/* A card you can open answers the pointer: it lifts 2px and takes a soft
+   shadow. Pointer devices only, as everywhere else in the archive. */
+@media (hover: hover) {
+  .order-card:hover,
+  .almanac-season-card-link:hover,
+  .sources-card:hover,
+  .related-card:hover,
+  .typology-tile:hover,
+  .order-site-card:hover,
+  .coverage-stat--link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* ── Numerals ───────────────────────────────────────────────────────────── */
+
+/* The archive's counts, set in the display face: lining, tabular, light. */
+.order-card-num,
+.almanac-coverage-count,
+.coverage-stat-value,
+.sg-stat-value,
+.typology-tile-count {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+[dir='rtl'] .order-card-num,
+[dir='rtl'] .almanac-coverage-count,
+[dir='rtl'] .coverage-stat-value,
+[dir='rtl'] .sg-stat-value,
+[dir='rtl'] .typology-tile-count {
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* ── The mark ───────────────────────────────────────────────────────────── */
+
+.header-wordmark-glyph,
+.brand-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+/* ── Photographs ────────────────────────────────────────────────────────── */
+
+/* On a wide screen the lead photograph spans the whole content width, above
+   the article and its facts: the place first, then what is known about it.
+   Below 1024px the 17 October 2026 layout stands (photo beside the facts on a
+   tablet, stacked on a phone). Portrait heroes keep their whole-picture
+   treatment from shrine.css. */
+@media (min-width: 1024px) {
+  .shrine-article-layout {
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-areas:
+      'hero hero'
+      'toc infobox'
+      'main infobox';
+  }
+
+  .shrine-hero-img {
+    max-height: min(52vh, 480px);
+  }
+}
+
+@media (min-width: 1340px) {
+  .shrine-article-layout {
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      'hero hero'
+      'main infobox';
+  }
+
+  /* The margin rail starts level with the article, not with the photograph. */
+  .contents-nav-rail {
+    grid-area: main;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    inset-inline-start: calc(-1 * var(--rail-width) - var(--space-6));
+    margin-inline-end: calc(-1 * var(--rail-width));
+    height: 100%;
+  }
+}
+
+.shrine-hero {
+  border-radius: var(--radius-xl);
+  box-shadow: none;
+}
+
+@media (hover: hover) {
+  .shrine-hero-open .shrine-hero-img {
+    transition: transform var(--duration-slow) var(--easing);
+  }
+
+  .shrine-hero-open:hover .shrine-hero-img {
+    transform: scale(1.02);
+  }
+}
+
+/* The credit sits on a dark scrim over the photograph; its link was cobalt on
+   near-black. */
+.shrine-hero-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* A missing photograph reads as a glazed tile in the tradition's colour, not
+   as a grey box: the gap is visible, and it belongs to the archive. */
+.shrine-img-placeholder {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.shrine-img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: currentColor;
+  opacity: 0.16;
+  -webkit-mask: var(--pattern-kashi) center / 40px 40px repeat;
+  mask: var(--pattern-kashi) center / 40px 40px repeat;
+}
+
+.shrine-img-placeholder--muslim {
+  color: var(--color-cat-muslim);
+}
+.shrine-img-placeholder--hindu {
+  color: var(--color-cat-hindu);
+}
+.shrine-img-placeholder--sikh {
+  color: var(--color-cat-sikh);
+}
+.shrine-img-placeholder--nanakpanthi {
+  color: var(--color-cat-nanakpanthi);
+}
+.shrine-img-placeholder--jain {
+  color: var(--color-cat-jain);
+}
+.shrine-img-placeholder--secular {
+  color: var(--color-cat-secular);
+}
+.shrine-img-placeholder--default {
+  color: var(--color-primary);
+}
+
+.shrine-hero-placeholder {
+  height: 160px;
+}
+
+/* ── The shrine page's title block ──────────────────────────────────────── */
+
+/* Place chips and Share / Save on one line where there is room: two short
+   rows of controls read as one toolbar, and the photograph comes up a row. */
+.shrine-place-links,
+.shrine-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  margin-block: 0 var(--space-6);
+}
+
+.shrine-place-links {
+  margin-inline-end: var(--space-3);
+}
+
+/* ── The ceiling ────────────────────────────────────────────────────────── */
+
+/* Every page but the map opens under a faint run of kashi tile, fading out
+   before the first paragraph: the one ornament, at the one place a reader
+   looks first. Behind everything, and it never sits under body text at more
+   than a few percent. */
+.entity-page-wrapper,
+.shrine-page-wrapper {
+  position: relative;
+  isolation: isolate;
+}
+
+.entity-page-wrapper::before,
+.shrine-page-wrapper::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  block-size: 360px;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--color-primary);
+  opacity: 0.09;
+  -webkit-mask:
+    var(--pattern-kashi) center top / 40px 40px repeat,
+    linear-gradient(to bottom, #000 0%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask:
+    var(--pattern-kashi) center top / 40px 40px repeat,
+    linear-gradient(to bottom, #000 0%, transparent 100%);
+  mask-composite: intersect;
+}

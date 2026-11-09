@@ -76,6 +76,18 @@ const MAPTILER_ATTRIBUTION =
   '<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noreferrer">&copy; MapTiler</a> ' +
   '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">&copy; OpenStreetMap contributors</a>';
 
+/* Keyless vector styles (OpenMapTiles schema, the same one MapTiler's streets
+   styles use, so localizeStyle applies unchanged). Used when no MapTiler key is
+   set. CARTO's keyless raster tiles, the old fallback, have answered every
+   request with an "API KEY REQUIRED" image since at least 8 November 2026. */
+const OPENFREEMAP_STYLE = {
+  light: 'https://tiles.openfreemap.org/styles/positron',
+  dark: 'https://tiles.openfreemap.org/styles/dark',
+} as const;
+const OPENFREEMAP_ATTRIBUTION =
+  '<a href="https://openfreemap.org" target="_blank" rel="noreferrer">OpenFreeMap</a> ' +
+  '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">&copy; OpenStreetMap contributors</a>';
+
 /** Built-in styles that serve vector tiles on this account. */
 export const MAPTILER_VECTOR_STYLE = {
   light: 'streets-v2',
@@ -174,19 +186,17 @@ export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
   langRef.current = lang;
 
   useEffect(() => {
-    if (!MAPTILER_KEY) {
-      onFailure();
-      return;
-    }
-
     const generation = ++generationRef.current;
     let cancelled = false;
     const styleId = isDark ? MAPTILER_VECTOR_STYLE.dark : MAPTILER_VECTOR_STYLE.light;
+    const styleUrl = MAPTILER_KEY
+      ? maptilerStyleUrl(styleId, MAPTILER_KEY)
+      : OPENFREEMAP_STYLE[isDark ? 'dark' : 'light'];
 
     (async () => {
       let style: MapStyle;
       try {
-        const response = await fetch(maptilerStyleUrl(styleId, MAPTILER_KEY));
+        const response = await fetch(styleUrl);
         if (!response.ok) throw new Error(`style.json ${response.status}`);
         style = (await response.json()) as MapStyle;
       } catch (error) {
@@ -214,7 +224,9 @@ export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
           // attribution of every source in the style — and this style has two
           // (maptiler_planet and an attribution-only pseudo-source) carrying
           // the same credit, so the control renders it twice.
-          attributionControl: { customAttribution: MAPTILER_ATTRIBUTION },
+          attributionControl: {
+            customAttribution: MAPTILER_KEY ? MAPTILER_ATTRIBUTION : OPENFREEMAP_ATTRIBUTION,
+          },
           /* How far beyond the screen the basemap is drawn. The plugin's 10% left
            a fast flick on a phone running into blank edges until the next
            redraw; 25% keeps a flick inside drawn map. */

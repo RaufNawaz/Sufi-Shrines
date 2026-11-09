@@ -341,7 +341,6 @@
   margin: 0 0 var(--space-2);
   font-size: var(--text-sm);
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-secondary);
 }

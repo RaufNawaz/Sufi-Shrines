@@ -23,16 +23,18 @@
      Apple's people had set it): a grey-white page, white surfaces, near-black
      text, separators with a touch of blue in them rather than of cream. Every
      text pair is still held to 4.5:1 by tokenSplit.test.ts. */
-  --color-bg: #f5f5f7;
+  /* Kashi, 8 November 2026 (docs/REDESIGN_2026-11.md): glaze white with a hair
+     of blue, lapis ink. */
+  --color-bg: #f3f5f9;
   /* The chosen half of a segmented control: raised above its track. White
      here; dark Modern names its own, because its surface is darker than its
      track and the "raised" pill read as a hole (theme council, 17 October
      2026). */
   --color-segment-thumb: #ffffff;
   color-scheme: light;
-  --color-bg-alt: #ebebf0;
+  --color-bg-alt: #e8ecf3;
   --color-bg-surface: #ffffff;
-  --color-bg-overlay: rgba(245, 245, 247, 0.95);
+  --color-bg-overlay: rgba(243, 245, 249, 0.95);
 
   /* ── Glass: the archive's floating chrome ─────────────────────────────────
      One treatment, three tokens, so every surface that floats over the map or
@@ -54,7 +56,7 @@
      an opaque panel rather than an unreadable one. */
   --glass-bg: rgba(255, 255, 255, 0.82);
   --glass-blur: blur(16px) saturate(150%);
-  --glass-border: rgba(210, 210, 215, 0.7);
+  --glass-border: rgba(203, 211, 226, 0.7);
 
   /* ── A second material, for a panel that floats over arbitrary content ────
      The 0.82 above is right for *chrome* — a zoom control, a sticky header —
@@ -80,18 +82,18 @@
        happen to be the same value, and it works because it does not depend on
        what is behind the panel at all. */
   --glass-bg-strong: rgba(255, 255, 255, 0.94);
-  --glass-edge: rgba(60, 60, 67, 0.28);
+  --glass-edge: rgba(19, 38, 90, 0.2);
   --glass-sheen: rgba(255, 255, 255, 0.8);
   /* The rim light that follows the pointer on glass (`.sheen`, motion.css).
      Cobalt in the light theme: white on a near-white pane measured as no
      visible change at all. */
   --sheen-color: rgba(42, 77, 155, 0.45);
-  --color-border: #d2d2d7;
-  --color-border-light: #e5e5ea;
+  --color-border: #d3d9e4;
+  --color-border-light: #e3e8f0;
 
-  --color-text: #1d1d1f;
-  --color-text-secondary: #4b4b4f;
-  --color-text-muted: #66666b;
+  --color-text: #0f1729;
+  --color-text-secondary: #3b4559;
+  --color-text-muted: #576176;
   --color-text-inverse: #ffffff;
 
   /* ── Chrome belongs to no tradition ───────────────────────────────────
@@ -113,6 +115,13 @@
   --color-primary-light: #4a6fc4;
   --color-primary-pale: #e9eefa;
   --color-primary-bg: #f3f6fc;
+
+  /* Lapis: the deep glaze. A ground for the few surfaces that carry the
+     archive's identity (the map masthead), never for controls. Its foreground
+     is --color-on-lapis in both themes, because the band does not flip. */
+  --color-lapis: #13265a;
+  --color-on-lapis: #ffffff;
+  --color-on-lapis-muted: #c3cde6;
 
   --color-secondary: var(--color-kashi-firozi);
   --color-secondary-dark: #0b5f5b;
@@ -219,8 +228,12 @@
     'Source Sans 3', 'Source Sans 3 Fallback Helvetica Neue', 'Source Sans 3 Fallback Roboto',
     'Source Sans 3 Fallback Arial', 'Source Sans 3 Fallback Liberation Sans', system-ui,
     -apple-system, sans-serif;
+  /* Spectral first since 8 November 2026 (docs/REDESIGN_2026-11.md). The
+     Merriweather fallbacks stay in place behind it and stand in while Spectral
+     loads. shortcut: they are measured for Merriweather, not Spectral, so a
+     title can shift a few pixels on swap; measure Spectral if this ships. */
   --font-serif:
-    'Merriweather', 'Merriweather Fallback Georgia', 'Merriweather Fallback Noto Serif',
+    'Spectral', 'Merriweather', 'Merriweather Fallback Georgia', 'Merriweather Fallback Noto Serif',
     'Merriweather Fallback Liberation Serif', 'Merriweather Fallback Times New Roman', Georgia,
     serif;
   /* Four families, and every position is load-bearing.
@@ -239,6 +252,17 @@
   --font-urdu:
     'Mehr Nastaliq Web', 'Noto Nastaliq Urdu', 'Source Sans 3', 'Noto Naskh Arabic', serif;
   --font-mono: 'Courier New', monospace;
+  /* The display face for titles and section headings (8 November 2026). Spectral
+     in a left-to-right page; under [dir='rtl'] below it is the Urdu stack, so a
+     rule can say `font-family: var(--font-display)` without ever handing Nastaliq
+     text to a Latin face. */
+  --font-display: var(--font-serif);
+  /* The kashi tile: an eight-pointed star with the arms that make the crosses
+     between stars, one 40px repeat. A mask, so it takes whatever colour the
+     surface paints through it (docs/REDESIGN_2026-11.md). */
+  /* The same star, filled: the archive's mark at small sizes. */
+  --glyph-kashi-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='6 6 28 28'%3E%3Cpath d='M20 6L24.1 10.1H29.9V15.9L34 20L29.9 24.1V29.9H24.1L20 34L15.9 29.9H10.1V24.1L6 20L10.1 15.9V10.1H15.9Z'/%3E%3C/svg%3E");
+  --pattern-kashi: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M20 6L24.1 10.1H29.9V15.9L34 20L29.9 24.1V29.9H24.1L20 34L15.9 29.9H10.1V24.1L6 20L10.1 15.9V10.1H15.9Z'/%3E%3Cpath d='M20 0V6M20 34V40M0 20H6M34 20H40'/%3E%3C/svg%3E");
 
   /* Every one multiplied by the reader's step (`--reading-scale`, declared
      further down this same `:root` block — custom properties resolve at
@@ -281,8 +305,12 @@
   --tracking-tight: -0.015em; /* headings and large numerals */
   --tracking-normal: 0;
   --tracking-slight: 0.03em; /* small labels that are not caps */
-  --tracking-wide: 0.06em; /* uppercase section labels */
-  --tracking-caps: 0.1em; /* uppercase kickers and eyebrows */
+  /* The two tokens below tracked uppercase labels until 8 November 2026, when
+     the redesign set every label in sentence case (docs/REDESIGN_2026-11.md).
+     Sentence case wants almost no tracking; the names stay so the consumers
+     need no edit. */
+  --tracking-wide: 0.005em;
+  --tracking-caps: 0.01em;
 
   --leading-tight: 1.25;
   --leading-snug: 1.375;
@@ -419,10 +447,10 @@
   --radius-full: 9999px;
 
   /* Shadow */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
-  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.14), 0 6px 12px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 41, 0.05);
+  --shadow-md: 0 6px 16px -6px rgba(15, 23, 41, 0.12), 0 1px 3px rgba(15, 23, 41, 0.06);
+  --shadow-lg: 0 14px 32px -12px rgba(15, 23, 41, 0.2), 0 2px 6px rgba(15, 23, 41, 0.06);
+  --shadow-xl: 0 24px 48px -16px rgba(15, 23, 41, 0.28), 0 4px 10px rgba(15, 23, 41, 0.08);
 
   /* Motion */
   --duration-fast: 150ms;
@@ -633,6 +661,10 @@
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.25);
   --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.5), 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+[dir='rtl'] {
+  --font-display: var(--font-urdu);
 }
 
 /* Reduce motion */

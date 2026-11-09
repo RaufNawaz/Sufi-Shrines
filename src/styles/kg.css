@@ -33,7 +33,6 @@
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: var(--space-2);
 }
@@ -141,7 +140,6 @@
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-secondary);
 }
@@ -432,7 +430,6 @@
 .order-timeline-unplaced-label {
   font-size: var(--text-xs);
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-muted);
 }
@@ -1079,7 +1076,6 @@
 .lineage-chain-heading {
   font-size: var(--text-xs);
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: var(--tracking-slight);
   color: var(--color-text-muted);
   margin: 0 0 var(--space-2);
@@ -1415,7 +1411,6 @@
      caps rather than as another tier of prose heading. Nastaliq has no small-
      caps tradition and is unreadable tracked out, so the RTL override below
      drops both (the same reason .contents-nav-title steps up a size in Urdu). */
-  text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-secondary);
 }
@@ -1966,7 +1961,6 @@
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: var(--tracking-slight);
-  text-transform: uppercase;
   color: var(--color-text-muted);
   cursor: help;
 }
@@ -2169,7 +2163,6 @@
   font-size: var(--text-xs);
   font-weight: 500;
   letter-spacing: var(--tracking-slight);
-  text-transform: uppercase;
   color: var(--color-text-muted);
   white-space: nowrap;
 }
@@ -2267,7 +2260,6 @@
   font-family: var(--font-serif);
   font-size: var(--text-base);
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: var(--tracking-caps);
   color: var(--color-primary);
   margin: 0 0 var(--space-1);
@@ -2389,7 +2381,6 @@
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
   color: var(--color-text-secondary);
 }
 

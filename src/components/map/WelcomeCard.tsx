@@ -75,12 +75,21 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
   const { lang } = useLang();
   return (
     <div className="welcome-card">
-      <div className="welcome-card-icon-wrap" aria-hidden="true">
-        <svg className="welcome-card-icon" viewBox="0 0 64 64" fill="currentColor">
-          <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z" />
+      {/* The masthead: a lapis band under the kashi tile pattern, with one
+          glazed star (docs/REDESIGN_2026-11.md). Ornament only; the heading
+          is the content. */}
+      <div className="welcome-masthead">
+        <svg
+          className="welcome-masthead-star"
+          viewBox="0 0 40 40"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M20 6L24.1 10.1H29.9V15.9L34 20L29.9 24.1V29.9H24.1L20 34L15.9 29.9H10.1V24.1L6 20L10.1 15.9V10.1H15.9Z" />
+          <circle cx="20" cy="20" r="4.2" />
         </svg>
+        <h2 className="welcome-card-title">{t('exploreTitle')}</h2>
       </div>
-      <h2 className="welcome-card-title">{t('exploreTitle')}</h2>
       {/* The archive's account of itself, its byline and the "select a marker"
           hint sat here until 18 October 2026, when the project head asked for
           the section to go; the account and byline remain on /about. */}

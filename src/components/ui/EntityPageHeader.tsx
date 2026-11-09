@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { ShrineGlyph } from './ShrineGlyph';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { withViewTransition } from '../../lib/nav/viewTransition';
 import { useLang } from '../../lib/i18n/LanguageContext';
@@ -267,16 +268,7 @@ export function EntityPageHeader({ title }: { title?: string }) {
              a spoken name must contain the visible label (WCAG 2.5.3). When
              only the glyph shows, the name stays in the hidden span's text. */
         >
-          <svg
-            className="header-wordmark-glyph"
-            width="20"
-            height="20"
-            viewBox="0 0 64 64"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z" />
-          </svg>
+          <ShrineGlyph className="header-wordmark-glyph" />
           <span className="header-wordmark-name">{t('title')}</span>
         </Link>
       )}

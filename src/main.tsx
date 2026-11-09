@@ -26,6 +26,8 @@ import './styles/chronology.css';
 import './styles/shared-ground.css';
 import './styles/sources.css';
 import './styles/tabbar.css';
+// The 8 November 2026 visual pass, last so it wins by source order.
+import './styles/kashi.css';
 import { initTelemetry } from './lib/telemetry';
 /* For its side effect: `beforeinstallprompt` fires once, early, and is lost
    if nothing is listening yet (installPrompt.ts). */
