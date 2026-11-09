@@ -100,6 +100,7 @@ The whole visual layer is `src/styles/kashi.css` (loaded last in `main.tsx`) plu
 - Playwright, Chromium: `a11y` (every route, both languages, nine routes dark), `urdu`, `urdu-no-leak`,
   `typography`, `no-overflow`, `nastaliq-metrics`, `font-preload`, `accent-is-interactive`,
   `palette-legibility`, `shrine`, `map`, `mobile-sheet`, `skip-links` — **235 passed, 0 failed**.
+- Then the whole Playwright suite, Chromium, every spec: **565 passed, 0 failed** (3.8 min).
 - Typography caught two real faults on the first run and both were fixed in the CSS, not the test: raw
   `em` tracking in `kashi.css` reached Nastaliq text (now `--tracking-*` tokens, which collapse under
   RTL), and a viewport-relative title size broke the rule that the Urdu and English title-to-body
