@@ -63,6 +63,66 @@ devices (hollow projected dots, "approximate" pills, undated counts). This is a 
   `localizeStyle` applies unchanged) when no key is set. Whether production should adopt it is
   Rauf's call.
 
-## Log
+## How to look at it
 
-(appended as the work proceeds)
+```bash
+cd ../Shrines-redesign            # the worktree, beside the main checkout
+npx vite --port 5180 --strictPort # http://localhost:5180 — the redesign
+# http://localhost:5173 in the main checkout is the current site, for comparison
+```
+
+The whole visual layer is `src/styles/kashi.css` (loaded last in `main.tsx`) plus token values in
+`src/styles/tokens.css`. Markup changed in four places only: `WelcomeCard.tsx` (the masthead),
+`ShrineGlyph.tsx` (the mark), `EntityPageHeader.tsx` and `NotFoundPage.tsx` (use the mark).
+
+## What changed, concretely
+
+| Area | Before | After |
+|---|---|---|
+| Ground / ink | `#f5f5f7` grey-white, `#1d1d1f` | `#f3f5f9` glaze white, `#0f1729` lapis ink |
+| Titles | Source Sans 700 (explorers), Merriweather 700 (shrine) | Spectral 700 everywhere, 40px at ≥1024px |
+| Section headings | Source Sans 600, 20px | Spectral 600, 24px |
+| Counts in tiles | Source Sans | Spectral, lining tabular figures |
+| Labels | tracked ALL CAPS (`SHRINE FACTS`, `ON THE MAP`) | sentence case, no tracking |
+| Header nav | grey segmented capsule | plain tabs, cobalt rule under the current one (draws in on hover) |
+| Map front door | grey icon disc + "Explore the archive" | lapis masthead, kashi tile, gold star, Spectral title |
+| Page top | flat | a faint kashi tile "ceiling" fading out above the title |
+| Shrine page, ≥1024px | photo beside the facts card | photo across the full content width, facts card beside the article |
+| Photo-less entries | grey gradient | tile pattern in the tradition's colour |
+| Cards | white, soft shadow at rest | hairline edge, no resting shadow; lift 2px on hover |
+| Mark | shrine pictogram | eight-pointed kashi star |
+
+## Checks run (9 November 2026, small hours)
+
+- `tsc`, ESLint (`--max-warnings 0`): clean.
+- Vitest: 1683 passed; the one failure (`importsAreTracked`) was `kashi.css` not yet in git, gone on commit.
+- `npm run build` (e2e flavour): passes, including the bundle budget, prerender and route checks.
+- Playwright, Chromium: `a11y` (every route, both languages, nine routes dark), `urdu`, `urdu-no-leak`,
+  `typography`, `no-overflow`, `nastaliq-metrics`, `font-preload`, `accent-is-interactive`,
+  `palette-legibility`, `shrine`, `map`, `mobile-sheet`, `skip-links` — **235 passed, 0 failed**.
+- Typography caught two real faults on the first run and both were fixed in the CSS, not the test: raw
+  `em` tracking in `kashi.css` reached Nastaliq text (now `--tracking-*` tokens, which collapse under
+  RTL), and a viewport-relative title size broke the rule that the Urdu and English title-to-body
+  ratios match (now token-only sizes: 2.5 in both).
+- New text colour pairs, measured: ink on ground 16.4:1, secondary on alt 8.1:1, muted on alt 5.25:1,
+  white on lapis 14.5:1, cobalt on ground 7.3:1.
+
+## Known limits
+
+- **Spectral has no metric-matched fallback.** The Merriweather fallbacks stand in while it loads, so a
+  title can shift a few pixels on swap. Measure Spectral into `data/font-metrics.json` if this ships.
+- **The PWA icons** are still drawn from the old pictogram (`scripts/generate-icons.mjs`).
+- **The social card** (`scripts/make-og-image.mjs`) still names Merriweather.
+- **Not changed, pre-existing:** at 320px the map sheet's title is squeezed to one word a line by the
+  language switch; on an unknown entry (`/shrine/<bad-slug>`) the header renders inside the page
+  column. Both look the same on the live site.
+- **The keyless basemap's Urdu labels** come out mixed (some Cyrillic, some Latin), because
+  OpenFreeMap's `name:ur` coverage is thinner than MapTiler's. Production uses MapTiler and is
+  unaffected.
+
+## Decisions for Rauf (asked in chat on 9 November 2026)
+
+1. Ship the redesign, ship parts of it, or keep the current look?
+2. The full-width hero photo on wide screens reverses the 17 October layout (facts card beside the
+   photo). Keep it?
+3. Point production's keyless fallback at OpenFreeMap, since CARTO's now serves a watermark?

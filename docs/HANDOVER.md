@@ -23063,3 +23063,26 @@ and later, **pin the salt** so a deploy does not sign the team out. Design and r
 - What a stranger can learn: that `/team/` exists, its file count and sizes, and the KDF parameters.
 
 **Commit:** `feat:` (this section's), not pushed.
+
+### 9.471, 8–9 November 2026 (Windows PC): CARTO's keyless tiles are dead; a visual redesign on its own branch
+
+**CARTO's keyless raster basemap now answers every tile request with a grey "API KEY REQUIRED"
+image**, HTTP 200 and `image/png`, `rastertiles/voyager`, `light_all` and `dark_all` alike, with or
+without the production Referer (curl, 8 November 2026). Because the status is 200, Leaflet's
+`tileerror` count never trips and nothing in the app notices: the map simply shows a watermark.
+Production reaches CARTO only after MapTiler fails, so the live map was fine on the day, but the
+fallback the whole basemap design rests on no longer exists, and **every local checkout without
+`VITE_MAPTILER_KEY` shows a watermarked map** (the 5173 dev server did). On branch
+`redesign/visual-2026-11` the vector basemap falls back to OpenFreeMap (`tiles.openfreemap.org`,
+keyless, OpenMapTiles schema, so `localizeStyle` applies unchanged) when no key is set. Not on any
+deployed branch; whether production adopts it is an open question for Rauf.
+
+**A visual redesign ("Kashi")** was built overnight on `redesign/visual-2026-11`, in a worktree at
+`../Shrines-redesign`, served on port 5180. Record, before/after table, checks and limits in
+`docs/REDESIGN_2026-11.md`. Two things that will cost the next person time: **Git Bash rewrites
+`VITE_BASE_PATH=/` into `C:/Program Files/Git/`** (MSYS path conversion), so `build:e2e` on this
+machine needs `MSYS_NO_PATHCONV=1` in front or the build warns "base option should start with a
+slash" and every e2e route 404s; and **`e2e/typography.spec.ts` holds the Urdu and English title-to-body
+ratios within 0.3**, which rules out any viewport-unit or literal-rem term in a heading size, because
+only the `--text-*` tokens scale with `--font-scale-urdu`.
+

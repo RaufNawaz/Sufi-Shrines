@@ -12,13 +12,32 @@
 
 /* ── Titles ─────────────────────────────────────────────────────────────── */
 
+/* The size applies in both languages, so the Urdu title keeps the English
+   title's proportion to its body text (e2e/typography.spec.ts measures it);
+   face, weight, leading and tracking are Latin decisions and stay in ltr. */
 .entity-title,
 .shrine-title {
+  /* Tokens only, no vw term: the Urdu view scales every --text-* token by
+     --font-scale-urdu, and a literal or a viewport unit would not scale with
+     it, so the two languages' title-to-body ratios would drift apart. */
+  font-size: var(--text-3xl);
+}
+
+@media (min-width: 1024px) {
+  .entity-title,
+  .shrine-title {
+    font-size: calc(var(--text-4xl) * 10 / 9);
+  }
+}
+
+[dir='ltr'] .entity-title,
+[dir='ltr'] .shrine-title {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(var(--text-3xl), 4.6vw, calc(3.25rem * var(--reading-scale)));
+  /* 700, not a lighter display weight: e2e/typography.spec.ts holds the
+     shrine title at 700 or more so the hierarchy never rests on size alone. */
+  font-weight: 700;
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-tighter);
   color: var(--color-text);
 }
 
@@ -41,15 +60,8 @@
   font-family: var(--font-display);
   font-weight: 600;
   font-size: var(--text-2xl);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-tight);
   line-height: 1.2;
-}
-
-[dir='rtl'] .entity-title,
-[dir='rtl'] .shrine-title {
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: var(--leading-urdu-heading);
 }
 
 [dir='rtl'] .about-section-heading,
@@ -95,7 +107,7 @@
   font-family: var(--font-display);
   font-size: var(--text-base);
   font-weight: 600;
-  letter-spacing: -0.005em;
+  letter-spacing: var(--tracking-normal);
 }
 
 /* Tabs, not a grey capsule: plain words with a cobalt rule under the current
@@ -201,7 +213,7 @@
   font-size: var(--text-3xl);
   font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tracking-tight);
   color: var(--color-on-lapis);
 }
 
@@ -275,7 +287,7 @@
   font-family: var(--font-display);
   font-weight: 500;
   font-variant-numeric: lining-nums tabular-nums;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-tighter);
 }
 
 [dir='rtl'] .order-card-num,
@@ -453,4 +465,27 @@
     var(--pattern-kashi) center top / 40px 40px repeat,
     linear-gradient(to bottom, #000 0%, transparent 100%);
   mask-composite: intersect;
+}
+
+/* The observances heading was a small grey label; at section size it takes the
+   section heading's ink, like every other heading in the article. */
+.shrine-observances-heading {
+  color: var(--color-text);
+}
+
+/* The facts card names itself in the display face, as a card title. */
+.infobox-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-text);
+  padding: var(--space-4) var(--space-4) var(--space-3);
+}
+
+[dir='rtl'] .infobox-title {
+  font-size: var(--text-base);
+  font-weight: 400;
+  letter-spacing: normal;
+  color: var(--color-text);
 }
