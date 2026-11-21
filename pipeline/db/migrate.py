@@ -23,14 +23,14 @@ def main():
     a = ap.parse_args()
 
     files = sorted(MIGRATIONS.glob("*.sql"))
-    c = connect("postgres")
+    c = connect("postgres")  # public.schema_migrations: search_path puts archive first (0002), and an unqualified name made a second, empty table there
     cur = c.cursor()
     cur.execute(sql.SQL("SET ROLE {}").format(sql.Identifier(OWNER)))
-    cur.execute("""CREATE TABLE IF NOT EXISTS schema_migrations (
+    cur.execute("""CREATE TABLE IF NOT EXISTS public.schema_migrations (
                        filename text PRIMARY KEY, sha256 text NOT NULL,
                        applied_at timestamptz NOT NULL DEFAULT now())""")
     c.commit()
-    cur.execute("SELECT filename, sha256 FROM schema_migrations")
+    cur.execute("SELECT filename, sha256 FROM public.schema_migrations")
     applied = dict(cur.fetchall())
 
     on_disk = {f.name for f in files}
@@ -49,7 +49,7 @@ def main():
             continue
         try:
             cur.execute(f.read_text(encoding="utf-8"))
-            cur.execute("INSERT INTO schema_migrations (filename, sha256) VALUES (%s, %s)", (f.name, digest))
+            cur.execute("INSERT INTO public.schema_migrations (filename, sha256) VALUES (%s, %s)", (f.name, digest))
             c.commit()
             print(f"  applied  {f.name} (now)")
         except Exception as e:

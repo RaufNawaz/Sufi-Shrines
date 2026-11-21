@@ -4,6 +4,7 @@ Run as the superuser (postgres), whose password must already be in the pgpass fi
 
   python pipeline/db/setup_cluster.py                 # roles + database + extension
   python pipeline/db/setup_cluster.py --add-editor adil
+  python pipeline/db/setup_cluster.py --supabase      # hosted: roles and grants only (PGHOST etc. set)
 
 Roles:
   shrines_owner   NOLOGIN  owns every table; migrations run as it (SET ROLE)
@@ -42,9 +43,11 @@ def ensure_login(cur, role, member_of):
         pw = secrets.token_urlsafe(24)
         cur.execute(sql.SQL("CREATE ROLE {} LOGIN PASSWORD %s").format(sql.Identifier(role)), (pw,))
         p = pgpass_path()
+        hosts = [os.environ["PGHOST"]] if os.environ.get("PGHOST") else ["localhost", "127.0.0.1"]
+        port, user = os.environ.get("PGPORT", "5432"), role + os.environ.get("PGUSER_SUFFIX", "")
         with open(p, "a", encoding="utf-8") as f:
-            for host in ("localhost", "127.0.0.1"):
-                f.write(f"{host}:5432:*:{role}:{pw}\n")
+            for host in hosts:
+                f.write(f"{host}:{port}:*:{user}:{pw}\n")
         print(f"  {role}: created; password written to {p}")
     cur.execute(sql.SQL("GRANT {} TO {}").format(sql.Identifier(member_of), sql.Identifier(role)))
 
@@ -52,7 +55,10 @@ def ensure_login(cur, role, member_of):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--add-editor", metavar="NAME", help="create a personal editor login")
+    ap.add_argument("--supabase", action="store_true", help="hosted project: roles and grants only")
     a = ap.parse_args()
+    if a.supabase:
+        return supabase()
 
     c = connect("postgres", dbname="postgres")
     c.autocommit = True
@@ -86,6 +92,39 @@ def main():
     cur.execute("SELECT postgis_full_version()")
     print("  postgis:", cur.fetchone()[0].split(" ")[0:2])
     print(f"database {DBNAME!r} ready")
+
+
+def supabase():
+    """Supabase: the database, PostGIS (schema extensions) and `public` already exist and belong to
+    Supabase. Changing their ownership or revoking PUBLIC, as the local setup does, would break its own
+    services, so here only our roles are made and given what migrate.py needs. `postgres` is not a
+    superuser on Supabase; it gets membership in shrines_owner so migrate.py can SET ROLE to it."""
+    if not (os.environ.get("PGHOST") and os.environ.get("PGDATABASE") == "postgres"):
+        sys.exit("--supabase needs PGHOST (the project's host) and PGDATABASE=postgres")
+    c = connect("postgres")
+    c.autocommit = True
+    cur = c.cursor()
+    cur.execute("SELECT extnamespace::regnamespace::text FROM pg_extension WHERE extname = 'postgis'")
+    r = cur.fetchone()
+    if not r:
+        sys.exit("PostGIS is not enabled: Database -> Extensions -> postgis, schema extensions")
+    print("  postgis in schema", r[0])
+    for role in (OWNER, EDITOR, READER):
+        cur.execute("SELECT 1 FROM pg_roles WHERE rolname = %s", (role,))
+        if not cur.fetchone():
+            cur.execute(sql.SQL("CREATE ROLE {} NOLOGIN").format(sql.Identifier(role)))
+        print(f"  {role}: ok")
+    ensure_login(cur, EXPORT_LOGIN, READER)
+    ensure_login(cur, "shrines_import", OWNER)  # import_sheet.py SETs ROLE to the owner
+
+    def grant(stmt, *roles):
+        cur.execute(sql.SQL(stmt).format(*map(sql.Identifier, roles)))
+
+    grant("GRANT {} TO postgres", OWNER)
+    grant("GRANT CREATE ON DATABASE postgres TO {}", OWNER)  # CREATE SCHEMA audit, archive
+    grant("GRANT USAGE, CREATE ON SCHEMA public TO {}", OWNER)  # 0001 starts there; schema_migrations
+    grant("GRANT USAGE ON SCHEMA extensions TO {}, {}, {}", OWNER, EDITOR, READER)
+    print("supabase roles ready; next: migrate.py")
 
 
 if __name__ == "__main__":

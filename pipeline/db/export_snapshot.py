@@ -3,6 +3,7 @@ Export the database to the CSV shape the site build reads (the sheet's columns, 
 order, rows in sheet_row order), so `npm run data:build` sees exactly what it saw from the sheet.
 
   python pipeline/db/export_snapshot.py --out data/db-export/shrines-sheet.csv
+  python pipeline/db/export_snapshot.py --supabase --out public/shrines-sheet.csv   # what the site reads (npm run data:pull)
   python pipeline/db/export_snapshot.py --verify-against sheet.csv   # cell-by-cell check, exit 1 on any difference
 
 Description is written whole, without the Description 2..5 continuation columns: the build's join
@@ -10,10 +11,10 @@ loop stops at the first missing one, so the site receives the same text.
 
 Connects as shrines_export, which can only read.
 """
-import argparse, csv, io, sys
+import argparse, csv, io, os, sys
 from pathlib import Path
 
-from db import EXPORT_LOGIN, connect
+from db import EXPORT_LOGIN, SUPABASE, connect
 from sheetmap import IMAGE_COLS, SHEET_TO_DB, join_description
 
 
@@ -56,8 +57,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out")
     ap.add_argument("--verify-against")
+    ap.add_argument("--supabase", action="store_true", help="read the hosted master instead of localhost")
     a = ap.parse_args()
-    c = connect(EXPORT_LOGIN)
+    if a.supabase:
+        os.environ.setdefault("PGSSLMODE", "require")
+    c = connect(EXPORT_LOGIN, **(SUPABASE if a.supabase else {}))
     c.set_session(readonly=True)
     cur = c.cursor()
     if a.verify_against:

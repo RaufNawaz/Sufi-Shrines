@@ -2,7 +2,9 @@
 # Re-running replaces them. Remove with: Unregister-ScheduledTask -TaskName 'Shrines DB*' -Confirm:$false
 #
 #   Shrines DB - start           at logon: start the PostgreSQL server (localhost only)
+#   (the parallel run, parallel_run.py, ended at cutover on 21 November 2026; editing is in Supabase)
 #   Shrines DB - nightly backup  02:30 daily: dump + restore drill + WAL check (backup.py)
+#   Shrines DB - Supabase pull   02:45 daily: dump the hosted master, restore it here, compare (backup.py --supabase)
 #   Shrines DB - weekly base     Sunday 03:00: physical base backup for point-in-time recovery
 #
 # StartWhenAvailable: a run missed while the laptop was asleep or off happens at the next chance.
@@ -26,6 +28,9 @@ $tasks = @(
   @{ Name = 'Shrines DB - nightly backup'
      Action = New-ScheduledTaskAction -Execute $py -Argument "pipeline\db\backup.py" -WorkingDirectory $repo
      Trigger = New-ScheduledTaskTrigger -Daily -At 2:30am },
+  @{ Name = 'Shrines DB - Supabase pull'
+     Action = New-ScheduledTaskAction -Execute $py -Argument "pipeline\db\backup.py --supabase" -WorkingDirectory $repo
+     Trigger = New-ScheduledTaskTrigger -Daily -At 2:45am },
   @{ Name = 'Shrines DB - weekly base'
      Action = New-ScheduledTaskAction -Execute $py -Argument "pipeline\db\backup.py --base" -WorkingDirectory $repo
      Trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 3:00am }

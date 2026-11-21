@@ -16,10 +16,10 @@ database and checks it holds exactly what the live database holds (same rows, sa
 count, the export identical). Any failure exits non-zero and is written to backup.log, so the
 scheduled task shows it as failed.
 """
-import argparse, datetime as dt, hashlib, json, os, shutil, subprocess, sys
+import argparse, datetime as dt, hashlib, json, os, re, shutil, subprocess, sys
 from pathlib import Path
 
-from db import DBNAME, connect
+from db import DBNAME, SUPABASE, connect
 
 PG_BIN = Path(os.environ.get("PG_BIN", Path.home() / "pgsql-17/pgsql/bin"))
 BACKUP_DIR = Path(os.environ.get("BACKUP_DIR", Path.home() / "pgbackup"))
@@ -43,9 +43,9 @@ def run(*args):
     return r.stdout
 
 
-def fingerprint(dbname):
+def fingerprint(dbname, **where):
     """What must survive a restore: every site and image, byte for byte, and the history count."""
-    c = connect("postgres", dbname=dbname)
+    c = connect("postgres", dbname=dbname, **where)
     cur = c.cursor()
     cur.execute("SELECT md5(string_agg(t::text, '|' ORDER BY id)) FROM sites t")
     s = cur.fetchone()[0]
@@ -53,16 +53,73 @@ def fingerprint(dbname):
     i = cur.fetchone()[0]
     cur.execute("SELECT count(*), coalesce(max(change_id), 0) FROM audit.change_log")
     h = cur.fetchone()
-    cur.execute("SELECT count(*) FROM schema_migrations")
+    cur.execute("SELECT count(*) FROM public.schema_migrations")
     m = cur.fetchone()[0]
     c.close()
     return {"sites_md5": s, "images_md5": i, "history": h, "migrations": m}
 
 
+def pull_supabase(stamp):
+    """The hosted master, pulled here and proven: dump the archive's schemas from Supabase, restore them
+    into a local scratch database, and compare fingerprints with Supabase itself. Supabase's own
+    schemas (auth, storage, ...) and roles are left out: they would not restore on a plain server."""
+    s = SUPABASE
+    where = {"host": s["host"], "port": s["port"], "suffix": s["suffix"]}
+    out = BACKUP_DIR / "supabase"
+    out.mkdir(parents=True, exist_ok=True)
+    dump = out / f"supabase-{stamp}.dump"
+    r = subprocess.run([str(PG_BIN / "pg_dump.exe"), "-h", s["host"], "-p", str(s["port"]),
+                        "-U", "postgres" + s["suffix"], "-w", "-d", s["dbname"], "-Fc", "--no-owner", "--no-acl",
+                        "-n", "archive", "-n", "audit", "-n", "public", "-f", str(dump)],
+                       capture_output=True, text=True, env={**os.environ, "PGSSLMODE": "require"})
+    if r.returncode:
+        raise RuntimeError(f"pg_dump from Supabase failed: {r.stderr.strip()[:500]}")
+    sha = hashlib.sha256(dump.read_bytes()).hexdigest()
+    dump.with_suffix(".sha256").write_text(f"{sha}  {dump.name}\n")
+    live = fingerprint(s["dbname"], **where)
+    run("dropdb.exe", "--if-exists", SCRATCH)
+    run("createdb.exe", SCRATCH)
+    run("psql.exe", "-d", SCRATCH, "-v", "ON_ERROR_STOP=1", "-q",
+        "-c", "CREATE SCHEMA extensions; CREATE EXTENSION postgis SCHEMA extensions")
+    # Supabase's server marks some columns with a storage option, pg_attver, that stock PostgreSQL
+    # refuses. Drop exactly those statements and nothing else; the dump file itself stays untouched.
+    text = subprocess.run([str(PG_BIN / "pg_restore.exe"), "--no-owner", "--no-acl", "-f", "-", str(dump)],
+                          capture_output=True, check=True).stdout.decode("utf-8")
+    text = text.replace("\r\n", "\n")  # Windows stdout; COPY data escapes a real CR as \r, so none is lost
+    attver = re.compile(r"^ALTER TABLE ONLY \S+ ALTER COLUMN \S+ SET \(pg_attver=\d+\);\n", re.M)
+    text = attver.sub("", text)
+    text = re.sub(r"^CREATE SCHEMA public;\n", "", text, flags=re.M)  # every new database has it
+    if "pg_attver" in text:
+        raise RuntimeError("a pg_attver use not of the known form; look at the dump before restoring it")
+    sql_file = out / "restore-check.sql"
+    sql_file.write_text(text, encoding="utf-8", newline="")
+    try:
+        run("psql.exe", "-d", SCRATCH, "-v", "ON_ERROR_STOP=1", "-q", "-f", str(sql_file))
+    finally:
+        sql_file.unlink(missing_ok=True)
+    restored = fingerprint(SCRATCH, host="localhost", port=5432, suffix="")
+    run("dropdb.exe", SCRATCH)
+    if restored != live:
+        raise RuntimeError(f"restored Supabase copy differs from Supabase: {restored} vs {live}")
+    for old in sorted(out.glob("*.dump"))[:-KEEP_DUMPS]:
+        old.unlink()
+        old.with_suffix(".sha256").unlink(missing_ok=True)
+    log(f"supabase {dump.name}: {dump.stat().st_size:,} bytes, restore drill ok "
+        f"({live['history'][0]} changes in the history)")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", action="store_true")
+    ap.add_argument("--supabase", action="store_true", help="pull the hosted master here and prove it restores")
     a = ap.parse_args()
+    if a.supabase:
+        (BACKUP_DIR).mkdir(parents=True, exist_ok=True)
+        try:
+            return pull_supabase(dt.datetime.now().strftime("%Y%m%d-%H%M%S"))
+        except Exception as e:
+            log(f"FAILED (supabase): {e}")
+            sys.exit(1)
     for d in ("dump", "base", "wal"):
         (BACKUP_DIR / d).mkdir(parents=True, exist_ok=True)
     stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")

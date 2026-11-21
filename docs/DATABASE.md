@@ -156,6 +156,41 @@ restored and compared here. Two known limits, stated rather than glossed:
 Waiting on: Rauf creating the Supabase project and putting its connection password in pgpass
 (never in the chat or the repo).
 
+## Status on 19 November 2026
+
+- Server was found stopped (no backups 30 Oct to 19 Nov); started by hand. Resynced from the sheet
+  (59 cells in 10 rows behind, the 31 October pin import) and verified equal cell for cell, 489 rows.
+  Dump `shrines-20261119-174557.dump`, restore drill ok.
+- `migrate.py` and `backup.py` now name `public.schema_migrations` explicitly (HANDOVER §9.511).
+- **Supabase created and loaded the same day** (HANDOVER §9.511): 489 sites, 261 images, equal to the
+  sheet; nightly pull `backup.py --supabase` proven. Commands against it set
+  `PGHOST=aws-0-ap-south-1.pooler.supabase.com PGDATABASE=postgres PGUSER_SUFFIX=.atpwkivodppjzewytekw PGSSLMODE=require`,
+  and the import adds `SHRINES_IMPORTER=shrines_import`, e.g. the parallel run:
+  `import_sheet.py --from-sheet --replace` then `export_snapshot.py --verify-against <fresh export>.csv`.
+- `install_tasks.ps1` run by Rauf on 19 November 2026: all four tasks registered (first nightly runs
+  20 November 02:30 and 02:45). **Parallel run started 19 November 2026**: `parallel_run.py`, nightly 02:15; result lines in
+  `~/pgbackup/backup.log`. Next decision (Rauf): after how many clean nights to freeze the sheet.
+
+## Cutover, 21 November 2026 (Rauf's ruling)
+
+Rauf: "move the editing to supabase because we already have all the data and we are not gonna make changes to it
+for a good while". The multi-night trial was skipped on his call. **Supabase is the master copy.**
+
+- Step 1, last import: `parallel_run.py` by hand at 11:15. Supabase reloaded from the sheet and equal to it cell
+  for cell, 489 rows. The nightly parallel-run task had never been registered (`install_tasks.ps1` was run before
+  that task was added), so the 19 November manual run was the only other one. It's removed from the installer.
+- Step 2, freeze the sheet: **Rauf to do** (Share → everyone Viewer). If the sheet was edited after 11:15 on
+  21 November, re-run `parallel_run.py` once **before** the first Supabase edit. After that edit the guard refuses.
+- Step 3, database only: from now on people edit in Supabase's Table Editor (schema `archive`). The first edit
+  locks `--replace` for good.
+- Step 4, website reads the export: **done the same day.** `npm run data:pull` (`scripts/data/pull-from-db.mjs`)
+  runs `export_snapshot.py --supabase --out public/shrines-sheet.csv` (read-only login), then `data:build`
+  from that file. The browser fetches the same file (`CSV_URL` = `<base>shrines-sheet.csv`), so the site
+  shows exactly what was committed. The first pull rebuilt a dataset byte-identical to the sheet's
+  ("digest match, files untouched").
+- **Publishing an edit:** edit in Supabase, `npm run data:pull`, commit the changed data files, push `1.7`.
+- Backups unchanged: local nightly 02:30, Supabase pull 02:45, weekly base Sunday 03:00.
+
 ## Status at the end of 30 October 2026 (on hold at Rauf's request)
 
 - **Running now, by hand:** the local server, started detached from a session. It will **not**

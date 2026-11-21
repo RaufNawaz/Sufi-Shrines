@@ -15,7 +15,7 @@ Refuses to:
   * finish unless the database, read back, equals the sheet cell for cell (export_snapshot.verify).
 Runs in one transaction: a refusal or failure leaves the database as it was.
 """
-import argparse, csv, io, json, sys, urllib.request
+import argparse, csv, io, json, os, sys, urllib.request
 
 from psycopg2 import sql
 
@@ -23,7 +23,9 @@ from db import OWNER, REPO, connect
 from sheetmap import CONTINUATION, IMAGE_COLS, SHEET_TO_DB, join_description
 import export_snapshot
 
-IMPORTER = "postgres"
+# On Supabase the Table Editor also edits as `postgres`, so the importer there must be its own login
+# (shrines_import, made by setup_cluster.py --supabase) or the --replace guard could not see people's edits.
+IMPORTER = os.environ.get("SHRINES_IMPORTER", "postgres")
 
 
 def read_sheet(args):
