@@ -43,8 +43,14 @@ function isEventsKey(key: string): boolean {
 function splitEvents(value: string): string[] {
   return value
     .split(';')
-    .map((part) => part.trim())
+    .map((part) => capitalizeFirst(part.trim()))
     .filter(Boolean);
+}
+
+/* Display only: each observance starts with a capital ("daily langar" → "Daily langar", Rauf,
+   21 Nov 2026). The sheet keeps its own casing. No-op on Urdu, which has no case. */
+function capitalizeFirst(text: string): string {
+  return text.replace(/\p{L}/u, (c) => c.toUpperCase());
 }
 
 function resolveFieldValue(
@@ -283,7 +289,7 @@ export function ShrineInfobox({ shrine }: Props) {
                 ) : isEventsKey(key) ? (
                   <>
                     <bdi lang={isUntranslatedInUrdu(lang, value) ? 'en' : undefined}>
-                      {renderInlineBold(fmtNum(value))}
+                      {renderInlineBold(fmtNum(capitalizeFirst(value)))}
                     </bdi>
                     <NextObservanceLine shrine={shrine} />
                   </>
