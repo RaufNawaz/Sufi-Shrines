@@ -131,6 +131,12 @@ export const test = base.extend({
     // the rest of the suite passed.
     await context.route('**/*', (route) => {
       const url = new URL(route.request().url());
+      if (url.pathname.endsWith('/shrines-sheet.csv'))
+        return route.fulfill({
+          status: 200,
+          contentType: 'text/csv; charset=utf-8',
+          body: csvBody,
+        });
       if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') return route.continue();
       if (url.hostname.endsWith('docs.google.com'))
         return route.fulfill({

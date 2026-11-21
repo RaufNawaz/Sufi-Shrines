@@ -35,6 +35,7 @@
     "lighthouse": "lhci autorun",
     "perf:interaction": "node scripts/measure-interaction.mjs",
     "data:build": "node scripts/data/build-dataset.mjs",
+    "data:pull": "node scripts/data/pull-from-db.mjs",
     "data:index": "node scripts/data/build-shrine-index.mjs",
     "data:build:urdu": "python3 urdu-i18n/build_dictionary.py",
     "data:restore-point": "node scripts/data/snapshot-sheet.mjs",

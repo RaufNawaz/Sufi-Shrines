@@ -162,7 +162,7 @@ export default defineConfig(({ command }) => {
                  reached a returning reader only on their second visit. The
                  cache now answers only offline or when the network is slower
                  than the timeout, and is kept a week for field visits. */
-                urlPattern: /^https:\/\/docs\.google\.com\/spreadsheets/,
+                urlPattern: /^https:\/\/docs\.google\.com\/spreadsheets|\/shrines-sheet\.csv$/,
                 handler: 'NetworkFirst',
                 options: {
                   cacheName: 'google-sheets-csv',

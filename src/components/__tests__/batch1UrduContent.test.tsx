@@ -39,7 +39,10 @@ describe('batch-1 Urdu content (18 tour-featured shrines)', () => {
       expect(row!['Description Urdu'], 'override should have filled Description Urdu').toBeTruthy();
 
       const shrine = buildShrine(row!, 0)!;
-      const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />, { lang: 'ur' });
+      const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />, {
+        lang: 'ur',
+        route: '/', // the article links related shrines once the shrine data has loaded
+      });
 
       // Literal on purpose: asserts the rendered Urdu heading ("Overview") verbatim.
       // تعارف since 29 October 2026, when the public Urdu articles replaced the

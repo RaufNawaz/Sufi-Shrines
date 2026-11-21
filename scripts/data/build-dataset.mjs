@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * build-dataset.mjs — Build-time ETL: Google Sheets CSV → canonical dataset.
+ * build-dataset.mjs — Build-time ETL: the database export → canonical dataset.
  *
- * Pulls the published CSV, normalizes and validates every row using the same
+ * Reads public/shrines-sheet.csv, the Supabase export (`npm run data:pull` writes it;
+ * Supabase has been the master since the cutover, 21 November 2026), normalizes and validates every row using the same
  * rules as the app, and writes:
  *   data/shrines.json   — canonical versioned dataset (schema_version + rows)
  *   data/shrines.csv    — CSV mirror for Frictionless / human inspection
@@ -17,8 +18,8 @@
  * Or:     npm run data:build
  *
  * Environment:
- *   VITE_CSV_URL  — override the Google Sheets CSV URL
- *                   (default: csvUrl in data/csv-source.json)
+ *   VITE_CSV_URL  — read another CSV instead: an http(s) URL or a path from the repo root
+ *                   (data/csv-source.json holds the frozen Google Sheet's URL)
  */
 
 import { createRequire } from 'node:module';
@@ -40,9 +41,7 @@ const INDEX_JSON = join(ROOT, 'src', 'data', 'shrines-index.json');
 
 const SCHEMA_VERSION = '1.0.0';
 
-const CSV_URL =
-  process.env.VITE_CSV_URL ||
-  JSON.parse(readFileSync(join(ROOT, 'data', 'csv-source.json'), 'utf8')).csvUrl;
+const CSV_URL = process.env.VITE_CSV_URL || 'public/shrines-sheet.csv';
 
 // ── helpers ───────────────────────────────────────────────────────────────
 
@@ -100,10 +99,15 @@ function rowsDigest(rows) {
 
 // ── fetch ─────────────────────────────────────────────────────────────────
 
-console.log(`Fetching shrine CSV…`);
-const res = await fetch(CSV_URL);
-if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-const csvText = await res.text();
+console.log(`Reading shrine CSV from ${CSV_URL}…`);
+let csvText;
+if (/^https?:/.test(CSV_URL)) {
+  const res = await fetch(CSV_URL);
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+  csvText = await res.text();
+} else {
+  csvText = readFileSync(join(ROOT, CSV_URL), 'utf8');
+}
 
 const { data, errors } = Papa.parse(csvText, { header: true, skipEmptyLines: true });
 if (errors.length) console.warn('PapaParse warnings:', errors.slice(0, 5));

@@ -1,6 +1,6 @@
+/** The Supabase export shipped with the site (`npm run data:pull`); the Google Sheet is frozen since 21 Nov 2026. */
 export const CSV_URL =
-  import.meta.env.VITE_CSV_URL ||
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSmsEsQclqJuEioIHxQa6ZaTf1SmSuKhM-B3RcfEQyK8Ewqy4-c_xe7DOgBWdhMUyvtrzThIVl9Y9df/pub?gid=0&single=true&output=csv';
+  import.meta.env.VITE_CSV_URL || `${import.meta.env.BASE_URL}shrines-sheet.csv`;
 
 export const DEFAULT_CENTER: [number, number] = [31.5204, 74.3587];
 export const DEFAULT_ZOOM = 6;
